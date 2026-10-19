@@ -214,8 +214,9 @@
     <div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);
                 border:1px solid var(--color-border); border-radius:var(--radius-card);">
         <p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;">
-            Profesores asignados a esta clase
+            Profesores asignados a esta clase <span class="form-required">*</span>
         </p>
+        <p class="text-xs mb-2 text-wings-muted">Seleccioná al menos una profesora activa del deporte.</p>
         <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
             @foreach($profesoresDisponibles as $prof)
                 <label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;

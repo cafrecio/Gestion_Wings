@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CAB — T66, profesora obligatoria y clases liquidadas protegidas
+
+Única/serie, edición y reasignación exigen al menos una profesora activa del deporte; serie atómica.
+Contradicción registrada antes de implementar; Carlos exige cancelar cerrada antes de modificar y deja pagada intocable. Retirada la excepción de confirmación y actualizado contrato §4.d/§4.i.
+Motivos, roles y choques conservados; canceladas protegidas. Desactivar única profesora queda en T46; API sigue apagada.
+Lectura descartable/sitio de prueba: cero clases sin profesora en ambos; sin reparación ni datos personales.
+16 pruebas nuevas; 65 dirigidas/610 aserciones. Suite completa: 920 aprobadas, 4 omitidas, 8155 aserciones, 960,48 s, salida 0, corte 924, solo wings_testing_codex.
+Capturas reales: tres vistas y control de ingreso a 360/375/1366; 12 medidas, 19 PNG sin desbordes. Build, sintaxis y vistas correctos.
+[Entrega y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md). Toma bc02cef solo tablero; fuentes de la suite conservadas. T66 a Claude para verificar y a Carlos para aspecto; sin autocierre ni despliegue.
+
 ## 2026-10-19 — Codex CAB — Verificación ampliada T34/T67
 
 Revisados 9fbec9b, ae7c7d9 y c5727f0; fuentes y rutas contrastadas, sin cambios de producto.
@@ -102,20 +112,6 @@ Carlos por §6b: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.
 Seguimiento visual 17/10: desborde corregido (48 visitas y ocho controles); Carlos acepta scroll y modal. Segunda vuelta: botones 2 × 2 a la derecha y pareja Resumen/Volver también; seis visitas 360/375/1366.
 [Corrección y capturas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md): Carlos aprobó ambas imágenes a 375 de `4b050ac`: «Bien ambas imagenes!!»; visual verifica Carlos, solo reglas pendientes de Claude. Suite final con carpeta propia: 784/2, 7395 aserciones, 901,37 s, salida 0; historia de Excel conservada en informe.
 
-## 2026-10-16 — Codex CyE — B11 implementada localmente, a verificar
-
-Motor/configuración/cobro/recibo/perdón/saldos incorporados; 35 pruebas nuevas.
-Carlos autorizó «Actualizar los conteos y seguir»: solo CatalogosSeederTest 11/18 → 12/19.
-Suite completa wings_testing_codex: 761 aprobadas, 2 omitidas, 7214 aserciones, 1106,83 s; salida 0.
-Sintaxis, build y vistas correctos; 31 capturas reales, marcos 360/375 y PDF 0/5 inspeccionados.
-Contrato, estados y contadores actualizados; PEN-001 implementado, sin certificar revisión cruzada.
-[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). Tiene Claude para reglas y pantalla.
-Commit local de implementación y evidencia: 363346b; pase posterior registra el hash en el tablero.
-Sin publicación ni despliegue: 52e6bdf y descendientes deben permanecer locales.
-Carlos: celular «En celular esta bien»; Configuración escritorio «OK, aprobado»; Cobrar escritorio «OK».
-Registradas capturas y alcance en la entrega; falta Claude para lógica y resto visual. Solo documentación.
-
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -139,3 +135,5 @@ Registradas capturas y alcance en la entrega; falta Claude para lógica y resto 
 [Entrada antigua archivada al corregir título T44](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T44-TITULO.md).
 
 [Entrada antigua archivada al verificar T34/T67](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-VERIFICACION-T34-T67.md).
+
+[Entrada B11 archivada al entregar T66](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T66-ARRANQUE.md).

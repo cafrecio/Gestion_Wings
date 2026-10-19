@@ -1,0 +1,11 @@
+{
+    "fecha_consulta": "2026-10-19T05:38:43-03:00",
+    "base": "wings",
+    "muestra": [],
+    "total": 0,
+    "pasadas": 0,
+    "hoy_y_futuras": 0,
+    "canceladas": 0,
+    "detalles_hora": [],
+    "limite_comision": "Sin profesoras asignadas no hay vínculo actual clase-profesora para atribuir comisión; no se reconstruye historia."
+}

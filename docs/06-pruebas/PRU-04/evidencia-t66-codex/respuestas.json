@@ -1,0 +1,9 @@
+{
+    "metodo": "GET Laravel autenticado después de POST\/PUT inválidos reales; ficha de clase real para abrir panel",
+    "casos": [
+        "nueva-error",
+        "editar-error",
+        "cambiar-profesoras",
+        "login-control"
+    ]
+}

@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CapturasT66Test
+  ✓ exportar capturas t66                                                                                       12.42s  
+
+  Tests:    1 passed (11 assertions)
+  Duration: 12.55s
+

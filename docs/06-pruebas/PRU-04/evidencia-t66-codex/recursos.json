@@ -1,0 +1,410 @@
+[
+  {
+    "ruta": "build/assets/app-jw_xPI3f.css",
+    "sha256": "148008726b07d836b69956cc48047fb1464b9b9c4bd2ee10615965726032c258"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-300-normal-CgCALhwJ.woff2",
+    "sha256": "71090ccd2581f26325c9a702e0238a5a2364e311e94f6315cdb773c8a2e42244"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-300-normal-RId2JxDB.woff",
+    "sha256": "1d7d39494011221ffe9e83dbd430fd633c95a20e3751af36c19b8e34bd188851"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-300-normal-BnqRxXuy.woff2",
+    "sha256": "2f4d3f2e59e0dd665765f7e6d52f0cd8173a1ec1732b544622e3a4780ad3877c"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-300-normal-LR1W_oT8.woff",
+    "sha256": "3992f7793def227d01ffa09136961b3db4f37fa56edf4703baf8a0bd7df18903"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-300-normal-l2DDyC6M.woff2",
+    "sha256": "a605c6297c3a4193ce503d8ffbe9d8f9575343a186f2c94fe2844d5035a8c5e6"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-300-normal-DLbbeei1.woff",
+    "sha256": "3456cf2a25f7772120e265af7604c29c23da950bf55ec81a99688f2c829ae033"
+  },
+  {
+    "ruta": "build/assets/inter-greek-300-normal-DmGD3g_f.woff2",
+    "sha256": "88669b6ea20ccf52555d032740c5a1b7f550f6d54ca0acc0969cf938fafead55"
+  },
+  {
+    "ruta": "build/assets/inter-greek-300-normal-BrhSP0vQ.woff",
+    "sha256": "2fa04efd6f5b6d43ab685326e7f27245cca528d701d578ee4241c1836abc85bb"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-300-normal-Bdr24Bqb.woff2",
+    "sha256": "1e3cde652acfbc67194e84d2068953d4799df8b125089f11687142c39603cd7f"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-300-normal-DDGmYYdT.woff",
+    "sha256": "6305c5e2d150a513007f66f24d4ea5eb49a840cf59e46b166718cf845183b274"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-300-normal-CPgO9Ksf.woff2",
+    "sha256": "b11def546ac052fad7993e39c53801b55af99b0fd51a9ac0e72884b5c3fcaa3f"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-300-normal-Dp1L8vcn.woff",
+    "sha256": "0d9db034891287b2bd0c896a8e3cbf3f4594b385d95388c9841382cb3ef03bd6"
+  },
+  {
+    "ruta": "build/assets/inter-latin-300-normal-BVlfKGgI.woff2",
+    "sha256": "be0276550393a72b94d673505567dceba801511d5e1ca5a87793190dc5d5a6ca"
+  },
+  {
+    "ruta": "build/assets/inter-latin-300-normal-i8F0SvXL.woff",
+    "sha256": "635cf706b3a3528c1617ce8edaa4e767489c1c61320a97b4aa649495ee49ac2a"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2",
+    "sha256": "ef572f9187a8be018d9d9c2c6b77c1f6cb2af4199f02fc16c292ea10ab25a2cc"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-400-normal-DQukG94-.woff",
+    "sha256": "5cb2f1cc0936f89a42ceae34f5a5720248dc5b8114c12b1c33a7d2ef01a9b6b9"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-400-normal-obahsSVq.woff2",
+    "sha256": "f0bb586459ce8f09b238285040f17e3e9e9538b2c5a7aae0775194e33c36c3c3"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-400-normal-HOLc17fK.woff",
+    "sha256": "6e441a6c94788318fa02b6d0a633aa29eebe27b69c6567eb1e59b4edc68ed70e"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2",
+    "sha256": "eadedd9e13c2582430a9fb1519eb86152fdabb483a6f66d90f8d8a52e977a1b7"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-400-normal-KugGGMne.woff",
+    "sha256": "4f2b6f92ddfece8812e79774d446218aa6e0773ff8c2d31130fe2bdc23bd22d0"
+  },
+  {
+    "ruta": "build/assets/inter-greek-400-normal-B4URO6DV.woff2",
+    "sha256": "c15ddd00a9927b56f5c655a41f976f79bd848a20cce91fc14227751872a1cc27"
+  },
+  {
+    "ruta": "build/assets/inter-greek-400-normal-q2sYcFCs.woff",
+    "sha256": "bdae9d28729e8c68587d5d54e216d771a40d7a6800e824586a6e2f570c2f10df"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-400-normal-DMkecbls.woff2",
+    "sha256": "547ad9fdaeb0ae43487f4b8a02e47c36553c0c0cb73c8aa98f93b7b615f6b55d"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-400-normal-Bbgyi5SW.woff",
+    "sha256": "54aa42d325bcdfd623ecb9eac4a5e3c6420c63d7b86e9d8545fb479f653beb57"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-400-normal-C1nco2VV.woff2",
+    "sha256": "6744a7f509ebc6ab220a6cd4ea77e898adf014f03d88dcda5d45d8a9feefb4e9"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-400-normal-77YHD8bZ.woff",
+    "sha256": "22ae8360fbad24d2af7c6c9898a346c881774dc87f7cf94bd262c48ad58d7116"
+  },
+  {
+    "ruta": "build/assets/inter-latin-400-normal-C38fXH4l.woff2",
+    "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc"
+  },
+  {
+    "ruta": "build/assets/inter-latin-400-normal-CyCys3Eg.woff",
+    "sha256": "e20fa0b4fd2dd26e4d14b3ac3cc922509c3a63fa5e910e90c614544aa042dd45"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-500-normal-B0yAr1jD.woff2",
+    "sha256": "1c2db92d3cd9b237ca7c9c07af556d542f28ded1db54cd4382cf776501c5291f"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-500-normal-BmqWE9Dz.woff",
+    "sha256": "e250c05aebcf49971e0b25f476992dd463c28c0292ebb204d9db542fb5066ca7"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-500-normal-BasfLYem.woff2",
+    "sha256": "b77a86ec16aadc157f4a99e8898d71cd75ea264753d9bdf13f962f8c3988cbb0"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-500-normal-CxZf_p3X.woff",
+    "sha256": "5be18e0345781cb882a267798518553c0e915174fc70731ab5f085ca64ba1ebc"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-500-normal-C4iEst2y.woff2",
+    "sha256": "75a9ec9383a3b7a7bf7cfb94f64edf38d9cfdc5f7ffa0cbed2733627a6e4426d"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-500-normal-2j5mBUwD.woff",
+    "sha256": "c85d11bde719108cc9a4f6f5b008087f6c36493b47395580d4f5336182b0f0c7"
+  },
+  {
+    "ruta": "build/assets/inter-greek-500-normal-BIZE56-Y.woff2",
+    "sha256": "cc197d79d33a3615a047baae85f4d1957f6f98b8898313658e160b1d519b1b6f"
+  },
+  {
+    "ruta": "build/assets/inter-greek-500-normal-Xzm54t5V.woff",
+    "sha256": "86d55a4b1b9cbced7e61e76d5d44cf49d0bd1c814d3df2de67b7136ab4fdcece"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-500-normal-DOriooB6.woff2",
+    "sha256": "44e36aa5a8f12130029a29bb0e6695d0262b67446ce321e878b1fb56162b5de6"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-500-normal-mJboJaSs.woff",
+    "sha256": "18a4a09f751671cd8929d7c66e8fe7d820b511c36e51cf6047ffceab88eec4a4"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-500-normal-CV4jyFjo.woff2",
+    "sha256": "2c6fbc42d315528beb06c1096df45487bf4186c4b78b8111d12c9c951f8acca2"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-500-normal-BxGbmqWO.woff",
+    "sha256": "30d2903ce97f8a89ea0e9c083b42cb8bf97e7bbb5607e7f00352815f19cb0d5b"
+  },
+  {
+    "ruta": "build/assets/inter-latin-500-normal-Cerq10X2.woff2",
+    "sha256": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+  },
+  {
+    "ruta": "build/assets/inter-latin-500-normal-BL9OpVg8.woff",
+    "sha256": "9b42c108da48b5ed55a3072e815ffee2d271562e6c0dd6998910e8f9c09e0a3d"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2",
+    "sha256": "509fca9c59564f9a846fa69bc647f9b050fc11abf1c9f6f3da71fb2d5ed425bd"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-600-normal-Bcila6Z-.woff",
+    "sha256": "a5073285409443f4653c858de58c5dc0bfc2fd33e60d8747388345e7c5ab1ab3"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-600-normal-CWCymEST.woff2",
+    "sha256": "6c2a37f82a676bcd441b735e4e2cda4edb8873a059ab9c362a84f0711f257041"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-600-normal-4D_pXhcN.woff",
+    "sha256": "cc190ed1b64eb650a4ad7e97c7a668cb8b34acd9c4c7f7bf4372c0cbacd35795"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2",
+    "sha256": "399f94d75aa73403e40e2353e8c0cc75c38f7362a6ca263b3b02d9723157ffe5"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-600-normal-B8X0CLgF.woff",
+    "sha256": "efc7aa9cce5c505dd8cc4c4daf00247fa805f37bcda96079239ba3358ab27dfb"
+  },
+  {
+    "ruta": "build/assets/inter-greek-600-normal-plRanbMR.woff2",
+    "sha256": "9c5a897f9d9fcfe60d90631d766ae62b4bf1edd76633fa7a4b2f8c87e036789b"
+  },
+  {
+    "ruta": "build/assets/inter-greek-600-normal-BZpKdvQh.woff",
+    "sha256": "090b24e22fc4ddf41450d13bdec81c8a74808b9fc7edaf8df06c909b177a8992"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2",
+    "sha256": "1aeb94ae9db052a4a2fe6f3046f928cff1fdbd7abdf870a9a01c13cae6faeba5"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-600-normal-BuLX-rYi.woff",
+    "sha256": "24a01e7bd947aeef91ae8f7b8edeb23fadaf5ceda34a610ce62d2bbdaea57e83"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2",
+    "sha256": "e4bdf67b0cd15ca9e184509275be95db942195d3cc2b17f6a0452f2adf75d0bf"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-600-normal-CIVaiw4L.woff",
+    "sha256": "22ff20a6170674fb9637c2a072227be86303bb6ec52b829b9d7077405f7196a6"
+  },
+  {
+    "ruta": "build/assets/inter-latin-600-normal-LgqL8muc.woff2",
+    "sha256": "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a"
+  },
+  {
+    "ruta": "build/assets/inter-latin-600-normal-CiBQ2DWP.woff",
+    "sha256": "6a9cb3a509b4eeaf12b7dda6c4aacac3e85d07f4201bf4dd716e332e692b87bd"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2",
+    "sha256": "a46b99781170971e2c99a87ff7ee9f5cf90a9dfcd18175e1be6300201d030123"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-700-normal-LO58E6JB.woff",
+    "sha256": "0f3d4be2bd7018f78fa3484a5f6e9d8ce567689426643b84a47e8cabb91e5f16"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-700-normal-CjBOestx.woff2",
+    "sha256": "5917871d3cc970d8ce195101cbf65c1f68ec948022eb6070030342bb7edfb3bb"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-700-normal-DrXBdSj3.woff",
+    "sha256": "72b6daa49173e531027d8a260ef128e142a165811cab6a2875eefe0c3c58fa0e"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2",
+    "sha256": "b7b2732ebc981b30a5463ffc850407649dba41e625aee124cc63293da4547629"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-700-normal-BoQ6DsYi.woff",
+    "sha256": "b26ed64c9135a750ad580b92152bedeef90771e74e18f6f7759a6d7adb0f1b5d"
+  },
+  {
+    "ruta": "build/assets/inter-greek-700-normal-C3JjAnD8.woff2",
+    "sha256": "737c6c91cd60372d30e6540096ada83c89c9b4613cd7472e3366bf2e07ad99f1"
+  },
+  {
+    "ruta": "build/assets/inter-greek-700-normal-BUv2fZ6O.woff",
+    "sha256": "53368f53d5fc43381dcc45c8533ba2476f80337136313525f96dcbdc736616a5"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2",
+    "sha256": "5fafa3829a16d9ea5ac3a67c51e54186353122790b604a3e361f96cab188da8b"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-700-normal-BZaoP0fm.woff",
+    "sha256": "412023ab2f41333b373e2c6eb2a3ebab806fddd610015d2ae8cd4f4314c7ba92"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2",
+    "sha256": "143f9504f1377012aa3e39c90c4354ef429cb0494b9ac0e1437f1a81e5412236"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-700-normal-TidjK2hL.woff",
+    "sha256": "1761edba32014180deab3dbbe3f7156c64ef6f34bc76313ba31ce227fc9ff391"
+  },
+  {
+    "ruta": "build/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+    "sha256": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+  },
+  {
+    "ruta": "build/assets/inter-latin-700-normal-BLAVimhd.woff",
+    "sha256": "7c5ed5655730de337704d3fc94628515cd7e3d8d32368871709bf56ac0397e7a"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-800-normal-BZOjs1Xv.woff2",
+    "sha256": "5c3f504d068a53469514175401cb3fe4d210231f44df0ef15d3da5f32d9ff445"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-800-normal-Ca-gJeZY.woff",
+    "sha256": "e87b63bf58fb0490d6a456d44cfdf58d496364f1fe8213a06787ef3cdad25fe8"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-800-normal-C7MGvYyJ.woff2",
+    "sha256": "e84cb164b47aaad63db12da876c341c59f78b6b25f9069dcdea3c1f8ca8b8f9b"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-800-normal-CCHyn08d.woff",
+    "sha256": "5d3dc126873486c5a8449a14823c613de707c7ee8b1df23a9e34e76116167627"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-800-normal-B--PVpEC.woff2",
+    "sha256": "33bc91a610e159df66b874231f4c8f0037ac947fdd1b270cc60a7ee658a2c21f"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-800-normal-DUe57HfS.woff",
+    "sha256": "75c98d8d562061bb76f3936cf1b48246d217209497264113742e8dbbc9198af1"
+  },
+  {
+    "ruta": "build/assets/inter-greek-800-normal-CLIouy3y.woff2",
+    "sha256": "18a6a4a8e29310db74c01b9d85b30e708e0b1fd8d9a2d01a259b82fe4d112422"
+  },
+  {
+    "ruta": "build/assets/inter-greek-800-normal-BU00tryP.woff",
+    "sha256": "67c23188c195ef3f04f4d0552a898f268a63d377924db280693f267679fc9dab"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-800-normal-Cm7tD1pz.woff2",
+    "sha256": "37852ffd38e1064bd06a0b95aed12cbb4f248c6f0b5ffcf9c1a4ffc40500b22c"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-800-normal-DDlpr_Ee.woff",
+    "sha256": "46ce148ad9022e973f68e3e69442d950a30c58285c57d81caa813424a4e9a38d"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-800-normal-DZJjya6U.woff2",
+    "sha256": "eade55593308b9e4916dd7f47826929ce3e40cad85a2b338d56e5fd1e7bf8e5e"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-800-normal-BOMpwxm3.woff",
+    "sha256": "40c8e1bb3d3723f1c2fdb3be722cc42c03afaa4317935cdab9cf520cdf5a6ce8"
+  },
+  {
+    "ruta": "build/assets/inter-latin-800-normal-BYj_oED-.woff2",
+    "sha256": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+  },
+  {
+    "ruta": "build/assets/inter-latin-800-normal-D1mf63XC.woff",
+    "sha256": "a2fdc5be8acd75fe8f3fd9de8179828d04fd884c155cd6b63fec23b33651ec88"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-900-normal-buRuWz4h.woff2",
+    "sha256": "bab6fa98dec970eb67cd74cf7c9da3c18eb924eb381314544b5da2448b789e81"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-ext-900-normal-BUlv-ou0.woff",
+    "sha256": "ec5fab2c2a678afaa908bf846b8db5884e4b9f9471ecadf0d1a3078429e6b106"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-900-normal-CjyCg421.woff2",
+    "sha256": "b077cd77ee8e020e7abee610cdd384f31443257ebd921077646b1239421635ae"
+  },
+  {
+    "ruta": "build/assets/inter-cyrillic-900-normal-BAVML7y5.woff",
+    "sha256": "250b2e95362ffdb205a2be45af4f2b890f44b5f5e15ba4efa21a2f38ce1b49f7"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-900-normal-voj7phVX.woff2",
+    "sha256": "0a5995a6b462e34fa2663f4d8dad1684d2b55eb28999b2bc85274cd055f498e5"
+  },
+  {
+    "ruta": "build/assets/inter-greek-ext-900-normal-LVqH4fM3.woff",
+    "sha256": "ce029841f11ddc95255a06b621b012ee10379635a1468f52bbf677a6755fe5de"
+  },
+  {
+    "ruta": "build/assets/inter-greek-900-normal-Clii5heL.woff2",
+    "sha256": "b247a595e1774ac8274daad7061f6e2f4638a1f3ab73a89afcf4fef1a2e1a2e5"
+  },
+  {
+    "ruta": "build/assets/inter-greek-900-normal-7n5hB3DA.woff",
+    "sha256": "321c2777d2e716a8db200df956ef2287a280205cab27bc0f3c8a9794dd1aafba"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-900-normal-C4P836tE.woff2",
+    "sha256": "885b386e9391ec4856c6dc78fff64ecaae1b9995a4b766a6900d6fb3b0d6744d"
+  },
+  {
+    "ruta": "build/assets/inter-vietnamese-900-normal-DBSPUrC7.woff",
+    "sha256": "54e01026347a9c933ebfdf9168de6a49700c0c37ce2b488efc4edce697ce8ccb"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-900-normal-ty8Tfvw5.woff2",
+    "sha256": "de536299a1eeca46fe494787380486ec890627e0d50e1be18ef6001cbd1e5105"
+  },
+  {
+    "ruta": "build/assets/inter-latin-ext-900-normal-DG9wZIMw.woff",
+    "sha256": "cff25eef3406851052d1e776200a901a1ea51d3b5e24fbb1f306d7e3e259d863"
+  },
+  {
+    "ruta": "build/assets/inter-latin-900-normal-D4nM5aha.woff2",
+    "sha256": "d5c0ed7b8b5dde97d48b97947d740bbd8ad3ba9f2c5cc6b8280f16acba2d828e"
+  },
+  {
+    "ruta": "build/assets/inter-latin-900-normal-EUCDUbiG.woff",
+    "sha256": "59c48a0598e411bff4644447087b60154a8aec13704193b1ecb2f34a2e3d348f"
+  },
+  {
+    "ruta": "build/assets/app-BvcPPTQc.js",
+    "sha256": "b796e7315d85d84575787509964c63c5f132e713a2dbe53e78330e34ffdf5d4f"
+  },
+  {
+    "ruta": "build/assets/formato-importe-rshXORao.js",
+    "sha256": "505a9a30ad9dff0fae9a9ed448f4258a6bff6fd078a9c4f3ac0f7e98449527bf"
+  },
+  {
+    "ruta": "build/assets/clases-form-D_y0Z8Yp.js",
+    "sha256": "dfc07d7013122d64c733c9229adaa2f163e4c4ef12d41c692943b72132b9a71f"
+  }
+]

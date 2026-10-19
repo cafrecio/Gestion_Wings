@@ -1,0 +1,318 @@
+[
+  {
+    "slug": "nueva-error",
+    "ancho": 360,
+    "contenido": 345,
+    "alto": 1126,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nNueva Clase\nClase única\nClases recurrentes\nFecha\n*\nGrupo\n*\nSeleccionar grupo...\nPatín T66 — Inicial T66\n\nDeporte: Patín T66\n\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nSolo se muestran profesores activos de Patín T66.\n\nVolver\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Volver",
+        "ancho": 96,
+        "derecha": 201
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 305
+      }
+    ],
+    "fotos": [
+      "capturas/nueva-error-360-inicio.png",
+      "capturas/nueva-error-360-pie.png"
+    ]
+  },
+  {
+    "slug": "nueva-error",
+    "ancho": 375,
+    "contenido": 360,
+    "alto": 1126,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nNueva Clase\nClase única\nClases recurrentes\nFecha\n*\nGrupo\n*\nSeleccionar grupo...\nPatín T66 — Inicial T66\n\nDeporte: Patín T66\n\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nSolo se muestran profesores activos de Patín T66.\n\nVolver\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Volver",
+        "ancho": 96,
+        "derecha": 216
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 320
+      }
+    ],
+    "fotos": [
+      "capturas/nueva-error-375-inicio.png",
+      "capturas/nueva-error-375-pie.png"
+    ]
+  },
+  {
+    "slug": "nueva-error",
+    "ancho": 1366,
+    "contenido": 1366,
+    "alto": 1100,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nNueva Clase\nClase única\nClases recurrentes\nFecha\n*\nGrupo\n*\nSeleccionar grupo...\nPatín T66 — Inicial T66\n\nDeporte: Patín T66\n\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nSolo se muestran profesores activos de Patín T66.\n\nVolver\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Volver",
+        "ancho": 96,
+        "derecha": 1221
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 1325
+      }
+    ],
+    "fotos": [
+      "capturas/nueva-error-1366-inicio.png"
+    ]
+  },
+  {
+    "slug": "editar-error",
+    "ancho": 360,
+    "contenido": 345,
+    "alto": 1100,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nEditar Clase\nGrupo\nPatín T66 — Inicial T66\nFecha\n*\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nCancelar\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 201
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 305
+      }
+    ],
+    "fotos": [
+      "capturas/editar-error-360-inicio.png"
+    ]
+  },
+  {
+    "slug": "editar-error",
+    "ancho": 375,
+    "contenido": 360,
+    "alto": 1100,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nEditar Clase\nGrupo\nPatín T66 — Inicial T66\nFecha\n*\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nCancelar\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 216
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 320
+      }
+    ],
+    "fotos": [
+      "capturas/editar-error-375-inicio.png"
+    ]
+  },
+  {
+    "slug": "editar-error",
+    "ancho": 1366,
+    "contenido": 1366,
+    "alto": 1100,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nEditar Clase\nGrupo\nPatín T66 — Inicial T66\nFecha\n*\nHora inicio\n*\nHora fin\n*\nProfesores\n*\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPatín T66\nPrueba T66, María\nPatín T66\n\nSeleccioná al menos una profesora activa del deporte de la clase.\n\nCancelar\nGuardar\nWings",
+    "botones": [
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 1221
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 1325
+      }
+    ],
+    "fotos": [
+      "capturas/editar-error-1366-inicio.png"
+    ]
+  },
+  {
+    "slug": "cambiar-profesoras",
+    "ancho": 360,
+    "contenido": 345,
+    "alto": 1348,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nClase — Patín T66 — Inicial T66\nMartes 20 De Octubre De 2026\n17:00 – 18:00\nPatín T66\nPatín T66 — Inicial T66\nPrueba T66, Lucía\nEditar\nActiva\nValidada para liquidación\nCancelar\nVolver\n\nProfesores asignados a esta clase *\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPrueba T66, María\nGuardar\nCancelar\nEsta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.\n0 alumnos en el grupo  ·  0 presentes\nSin alumnos en este grupo\n\nNo hay alumnos activos en el grupo Patín T66 — Inicial T66.\n\nWings",
+    "panelVisible": "block",
+    "botones": [
+      {
+        "texto": "Editar",
+        "ancho": 96,
+        "derecha": 305
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 201
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 305
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 201
+      }
+    ],
+    "fotos": [
+      "capturas/cambiar-profesoras-360-inicio.png",
+      "capturas/cambiar-profesoras-360-pie.png"
+    ]
+  },
+  {
+    "slug": "cambiar-profesoras",
+    "ancho": 375,
+    "contenido": 360,
+    "alto": 1278,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nClase — Patín T66 — Inicial T66\nMartes 20 De Octubre De 2026\n17:00 – 18:00\nPatín T66\nPatín T66 — Inicial T66\nPrueba T66, Lucía\nEditar\nActiva\nValidada para liquidación\nCancelar\nVolver\n\nProfesores asignados a esta clase *\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPrueba T66, María\nGuardar\nCancelar\nEsta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.\n0 alumnos en el grupo  ·  0 presentes\nSin alumnos en este grupo\n\nNo hay alumnos activos en el grupo Patín T66 — Inicial T66.\n\nWings",
+    "panelVisible": "block",
+    "botones": [
+      {
+        "texto": "Editar",
+        "ancho": 96,
+        "derecha": 320
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 216
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 320
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 216
+      }
+    ],
+    "fotos": [
+      "capturas/cambiar-profesoras-375-inicio.png",
+      "capturas/cambiar-profesoras-375-pie.png"
+    ]
+  },
+  {
+    "slug": "cambiar-profesoras",
+    "ancho": 1366,
+    "contenido": 1366,
+    "alto": 1100,
+    "css": "16px",
+    "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nGenevieve Marvin\nSalir\nClase — Patín T66 — Inicial T66\nMartes 20 De Octubre De 2026\n17:00 – 18:00\nPatín T66\nPatín T66 — Inicial T66\nPrueba T66, Lucía\nEditar\nActiva\nValidada para liquidación\nCancelar\nVolver\n\nProfesores asignados a esta clase *\n\nSeleccioná al menos una profesora activa del deporte.\n\nPrueba T66, Lucía\nPrueba T66, María\nGuardar\nCancelar\nEsta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.\n0 alumnos en el grupo  ·  0 presentes\nSin alumnos en este grupo\n\nNo hay alumnos activos en el grupo Patín T66 — Inicial T66.\n\nWings",
+    "panelVisible": "block",
+    "botones": [
+      {
+        "texto": "Editar",
+        "ancho": 54.5,
+        "derecha": 461.25
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 1221
+      },
+      {
+        "texto": "Guardar",
+        "ancho": 96,
+        "derecha": 373
+      },
+      {
+        "texto": "Cancelar",
+        "ancho": 96,
+        "derecha": 477
+      }
+    ],
+    "fotos": [
+      "capturas/cambiar-profesoras-1366-inicio.png"
+    ]
+  },
+  {
+    "slug": "login-control",
+    "ancho": 360,
+    "contenido": 345,
+    "alto": 1200,
+    "css": "16px",
+    "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+    "botones": [
+      {
+        "texto": "",
+        "ancho": 28,
+        "derecha": 295.40625
+      },
+      {
+        "texto": "Ingresar",
+        "ancho": 96,
+        "derecha": 305
+      }
+    ],
+    "fotos": [
+      "capturas/login-control-360-inicio.png",
+      "capturas/login-control-360-pie.png"
+    ]
+  },
+  {
+    "slug": "login-control",
+    "ancho": 375,
+    "contenido": 360,
+    "alto": 1200,
+    "css": "16px",
+    "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+    "botones": [
+      {
+        "texto": "",
+        "ancho": 28,
+        "derecha": 310.40625
+      },
+      {
+        "texto": "Ingresar",
+        "ancho": 96,
+        "derecha": 320
+      }
+    ],
+    "fotos": [
+      "capturas/login-control-375-inicio.png",
+      "capturas/login-control-375-pie.png"
+    ]
+  },
+  {
+    "slug": "login-control",
+    "ancho": 1366,
+    "contenido": 1351,
+    "alto": 1200,
+    "css": "16px",
+    "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+    "botones": [
+      {
+        "texto": "",
+        "ancho": 28,
+        "derecha": 944.90625
+      },
+      {
+        "texto": "Ingresar",
+        "ancho": 318,
+        "derecha": 954.5
+      }
+    ],
+    "fotos": [
+      "capturas/login-control-1366-inicio.png",
+      "capturas/login-control-1366-pie.png"
+    ]
+  }
+]

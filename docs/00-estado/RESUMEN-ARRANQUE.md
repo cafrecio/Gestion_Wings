@@ -15,6 +15,8 @@
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 
+T66 entregada localmente por Codex CAB el 19/10: profesora activa del deporte obligatoria en alta/serie/edición/reasignación. Carlos confirmó cancelar cerrada antes de modificar y pagada intocable. Suite completa 920 aprobadas/4 omitidas, 8155 aserciones, 960,48 s, salida 0 en base Codex, corte 924. [Entrega y tres vistas](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md); verifica Claude, aspecto Carlos. Sin despliegue ni reparación histórica; T46 separada.
+
 A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica lógica A10 en segunda revisión. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508/2, 4077 aserciones, 423,14 s; 510 pruebas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md) · [Verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 cerrado, candado y retoque aprobados; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md). Sin despliegue.
 
 | Tema | Corte y alcance |
@@ -23,7 +25,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **885 pruebas en la carpeta compartida**. T44 corrección visual Codex CAB 19/10: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, 0 fallidas, salida 0, corte 885 en `wings_testing_codex`; cambios paralelos posteriores de Clases no certificados. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md). |
+| Suite | **924 pruebas en la carpeta compartida**. T66 Codex CAB 19/10: **920 aprobadas, 4 omitidas, 8155 aserciones, 960,48 s**, salida 0, corte 924 en `wings_testing_codex`. [Entrega T66](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md). Anterior: T44 corrección visual, 882 aprobadas/3 omitidas, 7821 aserciones, corte 885. |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |

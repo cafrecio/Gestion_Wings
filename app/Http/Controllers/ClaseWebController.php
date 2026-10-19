@@ -186,11 +186,12 @@ class ClaseWebController extends Controller
     {
         $validated = $request->validate([
             'grupo_id'    => 'required|exists:grupos,id',
-            'profesores'   => 'nullable|array',
+            'profesores'   => 'required|array|min:1',
             'profesores.*' => 'exists:profesores,id',
         ], [
             'grupo_id.required'    => 'Debe seleccionar un grupo.',
             'grupo_id.exists'      => 'El grupo seleccionado no existe.',
+            'profesores.required'  => 'Seleccioná al menos una profesora activa del deporte de la clase.',
         ]);
         $programacion = $this->programacionClases->validar($request->all());
         $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) Grupo::findOrFail($validated['grupo_id'])->deporte_id);
@@ -235,10 +236,6 @@ class ClaseWebController extends Controller
      */
     private function asignarProfesoresValidando(Clase $clase, array $profesoresIds): void
     {
-        if (empty($profesoresIds)) {
-            return;
-        }
-
         foreach ($profesoresIds as $profesorId) {
             $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, (int) $profesorId);
             if (!$chequeo['puede_asignar']) {
@@ -253,8 +250,12 @@ class ClaseWebController extends Controller
     private function validarProfesoresDelDeporte(Request $request, int $deporteId): array
     {
         $datos = $request->validate([
-            'profesores' => 'nullable|array',
+            'profesores' => 'required|array|min:1',
             'profesores.*' => 'integer|exists:profesores,id',
+        ], [
+            'profesores.required' => 'Seleccioná al menos una profesora activa del deporte de la clase.',
+            'profesores.min' => 'Seleccioná al menos una profesora activa del deporte de la clase.',
+            'profesores.array' => 'Seleccioná las profesoras de la clase.',
         ]);
         $ids = array_values(array_unique(array_map('intval', $datos['profesores'] ?? [])));
         if ($ids && Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->where('activo', true)->count() !== count($ids)) {
@@ -263,6 +264,32 @@ class ClaseWebController extends Controller
             ]);
         }
         return $ids;
+    }
+
+    /** T66: la reasignación no altera clases canceladas ni cálculos ya cerrados. */
+    private function validarCambioProfesores(Clase $clase): void
+    {
+        if ($clase->cancelada) {
+            throw ValidationException::withMessages(['profesores' => 'La clase está cancelada. No se pueden cambiar sus profesoras.']);
+        }
+
+        // Leer bajo bloqueo coordina con cerrar/cancelar/pagar la liquidación.
+        $actuales = $clase->profesores()->pluck('profesores.id');
+        $liquidaciones = Liquidacion::where(function ($query) use ($clase, $actuales) {
+            $query->whereHas('detalles', fn ($q) => $q
+                ->where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+                ->where('referencia_id', $clase->id))
+                ->orWhere(fn ($q) => $q->where('tipo', Liquidacion::TIPO_COMISION)
+                    ->whereIn('profesor_id', $actuales)
+                    ->where('mes', $clase->fecha->month)->where('anio', $clase->fecha->year));
+        })->orderBy('id')->lockForUpdate()->get();
+
+        if ($liquidaciones->contains(fn ($liq) => $liq->estaPagada())) {
+            throw ValidationException::withMessages(['profesores' => 'La clase integra una liquidación pagada y no se puede modificar.']);
+        }
+        if ($liquidaciones->contains(fn ($liq) => $liq->estaCerrada())) {
+            throw ValidationException::withMessages(['profesores' => 'Primero cancelá la liquidación cerrada antes de cambiar las profesoras de esta clase.']);
+        }
     }
 
     public function show(int $id)
@@ -457,9 +484,9 @@ class ClaseWebController extends Controller
                 'hora_inicio' => 'required|date_format:H:i',
                 'hora_fin' => 'required|date_format:H:i|after:hora_inicio',
                 'motivo' => 'nullable|string|max:255',
-                'profesores' => $pasada ? 'exclude' : 'nullable|array',
+                'profesores' => $pasada ? 'exclude' : 'required|array|min:1',
                 'profesores.*' => $pasada ? 'exclude' : 'integer|exists:profesores,id',
-            ]);
+            ], ['profesores.required' => 'Seleccioná al menos una profesora activa del deporte de la clase.']);
             $fechaCambio = $validated['fecha'] !== $clase->fecha->format('Y-m-d');
             $horarioCambio = $validated['hora_inicio'] !== $clase->hora_inicio->format('H:i')
                 || $validated['hora_fin'] !== $clase->hora_fin->format('H:i');
@@ -484,6 +511,9 @@ class ClaseWebController extends Controller
             }
             $actuales = $clase->profesores()->pluck('profesores.id')->all();
             $finales = $pasada ? $actuales : $this->validarProfesoresDelDeporte($request, (int) $clase->grupo->deporte_id);
+            if (array_diff($actuales, $finales) || array_diff($finales, $actuales)) {
+                $this->validarCambioProfesores($clase);
+            }
             $clase->fill(collect($validated)->only(['fecha', 'hora_inicio', 'hora_fin'])->all())->save();
 
             // Los verificadores leen el horario nuevo; cualquier rechazo revierte todo.
@@ -571,87 +601,55 @@ class ClaseWebController extends Controller
             abort(403, 'No tenés permiso para esta acción.');
         }
 
-        $clase    = Clase::findOrFail($id);
-        $esPasada = $clase->fecha->lt(today());
+        return DB::transaction(function () use ($request, $id) {
+            $clase    = Clase::whereKey($id)->lockForUpdate()->firstOrFail();
+            $esPasada = $clase->fecha->lt(today());
 
-        $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) $clase->grupo->deporte_id);
-        $actualesIds   = $clase->profesores()->pluck('profesores.id')->toArray();
-        $removidos     = array_diff($actualesIds, $profesoresIds);
-        $agregados     = array_diff($profesoresIds, $actualesIds);
+            if ($esPasada && !Auth::user()->isAdmin()) {
+                return response()->json(['success' => false, 'message' => 'Esta clase ya pasó: solo un administrador puede cambiar sus profesores.'], 403);
+            }
+            $this->validarCambioProfesores($clase);
+            $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) $clase->grupo->deporte_id);
+            $actualesIds   = $clase->profesores()->pluck('profesores.id')->toArray();
+            $agregados     = array_diff($profesoresIds, $actualesIds);
 
-        // Igual que en las asistencias: el motivo justifica un CAMBIO. Si la
-        // clase pasó sin ningún profesor asignado, esto es la primera carga
-        // (quedó sin cargar en su momento) y no hay nada que justificar.
-        $esCorreccion = $esPasada && !empty($actualesIds);
-        $motivo       = trim((string) $request->input('motivo', ''));
+            // Igual que en las asistencias: el motivo justifica un CAMBIO. Si la
+            // clase pasó sin ningún profesor asignado, esto es la primera carga
+            // (quedó sin cargar en su momento) y no hay nada que justificar.
+            $esCorreccion = $esPasada && !empty($actualesIds);
+            $motivo       = trim((string) $request->input('motivo', ''));
 
-        if ($esPasada && !Auth::user()->isAdmin()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Esta clase ya pasó: solo un administrador puede cambiar sus profesores.',
-            ], 403);
-        }
+            if ($esCorreccion && $motivo === '') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta clase ya tenía profesor asignado: indicá el motivo del cambio.',
+                ], 422);
+            }
 
-        if ($esCorreccion && $motivo === '') {
-            return response()->json([
-                'success' => false,
-                'message' => 'Esta clase ya tenía profesor asignado: indicá el motivo del cambio.',
-            ], 422);
-        }
-
-        // Clase pasada + se saca un profesor que ya cobró esa clase en una
-        // liquidación PAGADA: se avisa al admin, que puede confirmar igual.
-        if ($esPasada && !empty($removidos) && !$request->boolean('confirmar')) {
-            $avisos = [];
-            foreach ($removidos as $profesorId) {
-                $detalle = LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
-                    ->where('referencia_id', $clase->id)
-                    ->whereHas('liquidacion', function ($q) use ($profesorId) {
-                        $q->where('profesor_id', $profesorId)
-                          ->where('estado_pago', Liquidacion::ESTADO_PAGO_PAGADA);
-                    })
-                    ->with('liquidacion.profesor')
-                    ->first();
-
-                if ($detalle) {
-                    $liq = $detalle->liquidacion;
-                    $fechaPago = $liq->pagada_fecha ? $liq->pagada_fecha->format('d/m/Y') : '—';
-                    $avisos[] = "Esta clase ya fue pagada en la liquidación #{$liq->id} de {$liq->profesor->nombre_completo}, fecha de pago {$fechaPago}.";
+            // Validar solapamiento solo para los profesores nuevos que se agregan.
+            foreach ($agregados as $profesorId) {
+                $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, $profesorId);
+                if (!$chequeo['puede_asignar']) {
+                    return response()->json(['success' => false, 'message' => $chequeo['razon']], 422);
                 }
             }
 
-            if (!empty($avisos)) {
-                return response()->json([
-                    'success' => false,
-                    'requiere_confirmacion' => true,
-                    'message' => implode(' ', $avisos) . ' ¿Confirmás el cambio de todos modos?',
-                ], 409);
+            $clase->profesores()->sync($profesoresIds);
+
+            if ($esCorreccion) {
+                $clase->update(['motivo_cambio_profesor' => $motivo]);
             }
-        }
 
-        // Validar solapamiento solo para los profesores nuevos que se agregan.
-        foreach ($agregados as $profesorId) {
-            $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, $profesorId);
-            if (!$chequeo['puede_asignar']) {
-                return response()->json(['success' => false, 'message' => $chequeo['razon']], 422);
-            }
-        }
+            $textoProfesores = $clase->profesores()->orderBy('apellido')->get()
+                ->map(fn($p) => $p->apellido . ', ' . $p->nombre)
+                ->implode(' · ') ?: 'Sin asignar';
 
-        $clase->profesores()->sync($profesoresIds);
-
-        if ($esCorreccion) {
-            $clase->update(['motivo_cambio_profesor' => $motivo]);
-        }
-
-        $textoProfesores = $clase->profesores()->orderBy('apellido')->get()
-            ->map(fn($p) => $p->apellido . ', ' . $p->nombre)
-            ->implode(' · ') ?: 'Sin asignar';
-
-        return response()->json([
-            'success'    => true,
-            'message'    => 'Profesores actualizados.',
-            'profesores' => $textoProfesores,
-        ]);
+            return response()->json([
+                'success'    => true,
+                'message'    => 'Profesores actualizados.',
+                'profesores' => $textoProfesores,
+            ]);
+        });
     }
 
     public function toggleValidada(int $id)

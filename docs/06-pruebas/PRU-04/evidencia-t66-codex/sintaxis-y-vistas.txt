@@ -1,0 +1,16 @@
+No syntax errors detected in app/Http/Controllers/ClaseWebController.php
+No syntax errors detected in tests/Feature/ClaseProfesoraObligatoriaT66Test.php
+No syntax errors detected in tests/Feature/EditarClaseTest.php
+No syntax errors detected in resources/views/clases/create.blade.php
+No syntax errors detected in resources/views/clases/edit.blade.php
+No syntax errors detected in resources/views/clases/show.blade.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t66-codex/CapturasT66Test.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t66-codex/relevar-sin-profesora.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t66-codex/servidor.php
+
+
+   INFO  Blade templates cached successfully.  
+
+
+   INFO  Compiled views cleared successfully.  
+

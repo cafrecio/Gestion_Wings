@@ -177,8 +177,9 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             <label class="{{ $labelClass }}">
                 <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 Profesores
-                <span class="font-normal text-wings-muted">(opcional)</span>
+                <span class="form-required">*</span>
             </label>
+            <p class="text-xs mb-2 text-wings-muted">Seleccioná al menos una profesora activa del deporte.</p>
             <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
                 @forelse($profesores as $profesor)
                     @php

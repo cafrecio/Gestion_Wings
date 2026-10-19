@@ -1,0 +1,12 @@
+nueva-error: 360
+nueva-error: 375
+nueva-error: 1366
+editar-error: 360
+editar-error: 375
+editar-error: 1366
+cambiar-profesoras: 360
+cambiar-profesoras: 375
+cambiar-profesoras: 1366
+login-control: 360
+login-control: 375
+login-control: 1366

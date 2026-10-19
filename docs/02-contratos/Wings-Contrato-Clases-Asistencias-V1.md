@@ -120,19 +120,22 @@ clase/asistencia. Si hay conflicto, no se guarda nada (incluidos motivo y profes
 Los bordes contiguos siguen permitidos. Guardar sin cambios no exige motivo.
 El motivo de una corrección horaria pasada se guarda en `clases.motivo_cambio_horario`.
 La edición general ignora profesores enviados para clases pasadas; la reasignación
-sigue en la ficha con los controles de §4.d. Hoy/futuro permite quitar todos los profesores.
+sigue en la ficha con los controles de §4.d. Desde T66, hoy/futuro exige conservar al menos una profesora activa del deporte.
 
 ---
 
 ## 4.d Cambio de profesores
 
-**Clase de hoy o futura:** ADMIN u OPERATIVO reasignan libremente (`PATCH /clases/{id}/profesores`), sin motivo, validando solapamiento para los profesores que se agregan.
+**Enmienda T66 / DU-55, Carlos 19/10/2026:** «Exigir al menos una profesora». Crear una clase única o una serie, editar su selección de profesoras y reasignar desde la ficha exige al menos una profesora activa del deporte del grupo. Se valida en el servidor; omitir el campo o enviar una lista vacía se rechaza sin escrituras parciales. La serie sigue siendo atómica. No se reparan automáticamente clases históricas sin profesora; Carlos decide sobre ellas. Desactivar a la única profesora queda registrado para T46 y no elimina sus asignaciones históricas.
+
+**Clase de hoy o futura:** ADMIN u OPERATIVO reasignan (`PATCH /clases/{id}/profesores`), sin motivo, conservando al menos una profesora válida y validando solapamiento para las que se agregan.
+
+**Protección FIN-12 confirmada por Carlos el 19/10/2026:** «Bloquear clases en liquidaciones pagadas. En caso de que la liquidacion este cerrada, Hay que cancelar la liquidacion antes de modificar». Una clase cancelada no admite reasignación. Una clase vinculada a liquidación CERRADA/PENDIENTE exige cancelar primero esa liquidación; CERRADA/PAGADA permanece intocable. Se aplica tanto a HORA (detalle de clase) como a COMISIÓN (profesora y período). No existe confirmación que fuerce el cambio. Los importes y detalles históricos se conservan; una liquidación cancelada no impide luego la corrección autorizada.
 
 **Clase de fecha pasada:**
 - Solo ADMIN puede tocar los profesores.
 - El campo `motivo` es obligatorio **solo si la clase ya tenía profesor asignado** (se guarda en `clases.motivo_cambio_profesor`). Si la clase pasó sin ningún profesor cargado, asignarlo es la **primera carga**, no un cambio: no se pide motivo. Ver 4.e para el criterio general.
-- Si el profesor que se saca/reemplaza **ya cobró esa clase** en una liquidación con `estado_pago = PAGADA` (se busca en `liquidacion_detalles` con `tipo_referencia='clase'` y `referencia_id` = la clase), el sistema **no bloquea**, pero **avisa** al admin con el número de liquidación, el profesor y la fecha de pago, y pide confirmación explícita antes de aplicar el cambio (`HTTP 409` con `requiere_confirmacion: true`; el admin reenvía con `confirmar: true` para forzarlo).
-- Este chequeo solo aplica a deportes con liquidación `tipo=HORA` (donde `liquidacion_detalles` referencia la clase directamente). En deportes `COMISION` la liquidación se calcula por alumno/pago, no por clase, así que no hay vínculo directo clase→liquidación para avisar.
+- La antigua excepción que permitía reemplazar una profesora ya pagada mediante aviso y confirmación queda retirada por la decisión del 19/10; rige la protección FIN-12 anterior.
 
 ---
 
@@ -211,11 +214,12 @@ Estos tres puntos quedan fuera de alcance de esta resolución (no se pidió reso
 - No existe clase creada con fecha pasada.
 - No existe clase pasada cuya fecha se haya movido, ni clase de hoy o futura movida al pasado.
 - No existe cambio de horario en una clase pasada sin motivo, ni en una clase ya liquidada.
-- No existe reasignación de profesores sin motivo en una clase pasada.
+- No se crea una clase única o serie sin al menos una profesora activa del deporte, ni se vacía la selección al editar o reasignar. Las clases históricas no se reparan automáticamente (T66).
+- No existe reasignación de profesores sin motivo en una clase pasada que ya tenía profesor; la primera carga conserva la excepción de §4.d.
 - No existe corrección de asistencia sin motivo en una clase pasada.
 - No existe asistencia tomada antes del día de la clase (enmienda 17/10/2026, T35).
 - Un profesor nunca queda con dos clases solapadas asignadas; un alumno nunca queda `presente=true` en dos clases solapadas.
-- Cambiar de profesor en una clase pasada y ya pagada en liquidación PAGADA requiere confirmación explícita del admin.
+- No se reasignan profesoras en una clase cancelada ni vinculada a una liquidación cerrada o pagada. La cerrada no pagada se cancela primero; la pagada permanece intacta (Carlos, 19/10/2026).
 
 Cualquier cambio futuro requiere versión V2 explícita.
 
@@ -223,4 +227,4 @@ Cualquier cambio futuro requiere versión V2 explícita.
 
 ## 4.j Estado
 
-🔒 CONTRATO CERRADO. Implementado y probado contra datos reales (transacción + rollback) el 2026-07-26: 19 aserciones sobre creación con fecha pasada, solapamiento en creación/reasignación/asistencia, permisos por rol, motivo obligatorio, aviso de liquidación pagada con confirmación, y no-autobloqueo al re-guardar.
+🔒 CONTRATO CERRADO, con enmiendas fechadas. El corte histórico del 2026-07-26 probó 19 aserciones e incluía aviso de liquidación pagada con confirmación; esa excepción se retira por la decisión del 19/10/2026 en T66. La entrega local de T66 requiere verificación independiente y aprobación visual de Carlos; ver [informe T66](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md).

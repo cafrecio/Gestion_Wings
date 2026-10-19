@@ -1,0 +1,83 @@
+
+   PASS  Tests\Feature\CancelarLiquidacionCerradaTest
+  ✓ admin cancela liquidacion cerrada no pagada                                                                 11.16s  
+  ✓ liquidacion pagada es intocable y rechaza cancelacion                                                        0.12s  
+  ✓ operativo profesor y anonimo son rechazados al cancelar                                                      0.12s  
+  ✓ liquidacion cerrada bloquea asistencias y cancelada las desbloquea                                           0.09s  
+  ✓ bloqueo de asistencia en liquidacion comision cerrada                                                        0.08s  
+  ✓ regenerar liquidacion tras cancelacion vincula reemplazada por                                               0.13s  
+  ✓ idempotencia cancelacion                                                                                     0.10s  
+  ✓ modelo impide modificar o eliminar liquidacion cancelada                                                     0.04s  
+  ✓ modelo impide editar campos de liquidacion cancelada salvo reemplazo                                         0.06s  
+
+   PASS  Tests\Feature\ClaseProfesoraObligatoriaT66Test
+  ✓ alta unica rechaza ausencia vacio null y formato invalido                                                    0.07s  
+  ✓ serie sin profesora no crea ninguna clase                                                                    0.05s  
+  ✓ una profesora valida permite alta unica y serie completa                                                     0.06s  
+  ✓ profesora inactiva ajena o inexistente no cuenta en ninguna entrada                                          0.13s  
+  ✓ edicion y reasignacion no permiten quitar todas ni escribir parcialmente                                     0.08s  
+  ✓ reemplazar por una valida y guardar sin cambios sigue permitido                                              0.08s  
+  ✓ omitir profesoras en edicion y reasignacion tambien se rechaza                                               0.08s  
+  ✓ primera asignacion a pasada historica sin profesora no exige motivo                                          0.10s  
+  ✓ serie con solape posterior revierte todas las clases                                                         0.08s  
+  ✓ cambio pasado exige motivo y lo guarda                                                                       0.15s  
+  ✓ cancelada no admite reasignacion ni edicion que cambie profesoras                                            0.05s  
+  ✓ liquidacion cerrada bloquea y cancelarla permite conservar historial                                         0.13s  
+  ✓ pagada no permite forzar el cambio con confirmacion                                                          0.11s  
+  ✓ comision cerrada bloquea aunque no haya detalle directo de clase                                             0.06s  
+  ✓ permisos conservan operativo hoy y profesor sin reasignar                                                    0.05s  
+  ✓ formularios indican minimo y error conserva los datos                                                        0.10s  
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.17s  
+  ✓ permisos filtro sin presentes                                                                                0.15s  
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.09s  
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.08s  
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.14s  
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.18s  
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.09s  
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.07s  
+
+   PASS  Tests\Feature\EditarClaseTest
+  ✓ fecha pasada no se mueve                                                                                     0.07s  
+  ✓ futura no se mueve al pasado                                                                                 0.05s  
+  ✓ horario pasado exige y guarda motivo sin asistencia                                                          0.08s  
+  ✓ profesor existente bloquea solape y revierte fecha y lista                                                   0.07s  
+  ✓ presentes se validan hoy y pasado con rollback completo                                                      0.08s  
+  ✓ liquidacion cerrada bloquea abierta permite                                                                  0.12s  
+  ✓ pasada ignora profesores y guardar sin cambios no pide motivo                                                0.07s  
+  ✓ hoy permite contiguas sin autosolape pero exige una profesora                                                0.08s  
+  ✓ profesor agregado se valida sin mover horario                                                                0.09s  
+  ✓ hoy permite fecha futura y nuevo profesor sin motivo                                                         0.06s  
+  ✓ presente propio no bloquea y ausente en otra no cuenta                                                       0.06s  
+  ✓ pantalla pasada muestra motivo y controles protegidos                                                        0.12s  
+
+   PASS  Tests\Feature\FormulariosA4A5Test
+  ✓ a4 alta presenta resumen accesible antes de los campos                                                       0.11s  
+  ✓ a4 edicion presenta el mismo resumen                                                                         0.13s  
+  ✓ a4 rechazo conserva datos y no modifica alumno                                                               0.06s  
+  ✓ a5 alta rechaza profesor de otro deporte sin crear clase                                                     0.07s  
+  ✓ a5 serie rechazada no deja clases parciales                                                                  0.06s  
+  ✓ a5 edicion rechaza profesor ajeno sin cambiar horario                                                        0.07s  
+  ✓ a5 reasignacion rechaza profesor ajeno y conserva asignacion                                                 0.06s  
+  ✓ a5 edicion no ofrece casilla de otro deporte                                                                 0.09s  
+  ✓ a5 profesor correcto sigue pudiendo asignarse                                                                0.08s  
+  ✓ a5 rechaza profesor inactivo del mismo deporte                                                               0.07s  
+  ✓ a5 ficha y edicion solo ofrecen profesores activos del deporte                                               0.11s  
+
+   PASS  Tests\Feature\ProgramarClasesA15A16Test
+  ✓ a15 avisa sin guardar y confirmar guarda una vez                                                             0.23s  
+  ✓ a15 horario en punto se guarda directamente                                                                  0.20s  
+  ✓ a15 firma falsa o de horario anterior no permite guardar                                                     0.23s  
+  ✓ a16 seis cargas guardan las 76 clases y seis series                                                          0.55s  
+  ✓ serie con media hora avisa toda la carga y admite domingo                                                    0.20s  
+  ✓ horario invalido de un dia conserva el formulario sin guardar                                                0.35s  
+  ✓ conflicto en segundo dia revierte la serie entera                                                            2.10s  
+  ✓ horarios por dia no eluden el deporte del profesor                                                           0.17s  
+  ✓ horario comun anterior sigue creando series                                                                  0.69s  
+
+  Tests:    65 passed (610 assertions)
+  Duration: 21.25s
+

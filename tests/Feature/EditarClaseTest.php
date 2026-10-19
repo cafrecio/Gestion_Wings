@@ -87,7 +87,7 @@ class EditarClaseTest extends TestCase
                 Asistencia::create(['clase_id' => $c->id, 'alumno_id' => $alumno->id, 'presente' => true]);
             }
             $antes = $clase->fresh()->getAttributes();
-            $this->editar($clase, ['hora_inicio' => '12:00', 'hora_fin' => '13:00', 'motivo' => 'Corrección', 'profesores' => []])
+            $this->editar($clase, ['hora_inicio' => '12:00', 'hora_fin' => '13:00', 'motivo' => 'Corrección'])
                 ->assertSessionHasErrors('hora_inicio');
             $this->assertEquals($antes, $clase->fresh()->getAttributes());
             $this->assertSame([$this->profesor->id], $clase->profesores()->pluck('profesores.id')->all());
@@ -115,14 +115,14 @@ class EditarClaseTest extends TestCase
         $this->assertSame([$this->profesor->id], $clase->profesores()->pluck('profesores.id')->all());
     }
 
-    public function test_hoy_permite_contiguas_sin_autosolape_y_quitar_todos(): void
+    public function test_hoy_permite_contiguas_sin_autosolape_pero_exige_una_profesora(): void
     {
         $clase = $this->clase();
         $this->clase('2026-09-13', '12:00', '13:00');
         $this->editar($clase)->assertSessionHasNoErrors();
         $this->editar($clase, ['hora_inicio' => '11:00', 'hora_fin' => '12:00'])->assertSessionHasNoErrors();
-        $this->editar($clase->fresh(), ['profesores' => []])->assertSessionHasNoErrors();
-        $this->assertCount(0, $clase->profesores()->get());
+        $this->editar($clase->fresh(), ['profesores' => []])->assertSessionHasErrors('profesores');
+        $this->assertSame([$this->profesor->id], $clase->profesores()->pluck('profesores.id')->all());
     }
 
     public function test_profesor_agregado_se_valida_sin_mover_horario(): void
