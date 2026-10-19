@@ -32,6 +32,19 @@ Wings está publicado en **https://wings.gestionar-te.com.ar**.
 | Base de datos | `wings`, con un usuario que solo lee y escribe datos |
 | Acceso | Por clave SSH, alias `vps` |
 
+**Hay dos Wings en el mismo servidor. No confundirlos** (pasó en T66: se consultó producción
+creyendo que era prueba, y como producción está vacía el resultado no probaba nada):
+
+| | Producción | Sitio de prueba |
+|---|---|---|
+| Dirección | https://wings.gestionar-te.com.ar | https://test.gestionar-te.com.ar |
+| Código | `/home/wings/app` | `/home/wingstest/app` |
+| `APP_ENV` | `production` | `staging` |
+| Base de datos | `wings` — sin alumnos al 19/10/2026 | `wingstest` — 100 alumnos de prueba al 19/10/2026 |
+
+Para revisar datos de prueba, la base es `wingstest`. Comprobar siempre con
+`grep DB_DATABASE /home/<usuario>/app/.env` antes de consultar.
+
 **El diseño se compila en el servidor.** `public/build` está en `.gitignore`, así
 que los archivos compilados no viajan en el repositorio: el despliegue tiene que
 correr `npm ci` y `npm run build`, o el sistema se ve sin estilos.

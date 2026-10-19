@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — Producción y prueba: dos bases que se confundieron
+
+- Carlos: «En test tiene que haber 100». Comprobado por SSH, solo lectura: producción `wings` 0 alumnos;
+  prueba `wingstest` 100 activos (muestra 241–245 mirada).
+- T66 (Codex): su relevamiento «sitio de prueba» consultó `wings` (producción, vacía). Rehecho en
+  `wingstest`: 0 clases sin profesora en 79, filas revisadas. Informe corregido con nota.
+- T56 (Gemini): estaba bien, consultó también `wingstest` (0 de 100 sin plan); comprobado de nuevo: 0.
+- `SERVIDOR.md` documentaba solo producción: agregada la tabla de los dos sitios.
+
 ## 2026-10-19 — Claude CyE — Cierre de sesión: pendientes al día
 
 **Resuelto de la lista de pendientes de CAB (entrada de abajo):** verificadores asignados y tareas

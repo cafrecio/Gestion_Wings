@@ -46,11 +46,14 @@ Se ejecutó `relevar-sin-profesora.php` con transacción READ ONLY, sin pruebas 
 | Entorno consultado el 19/10/2026 | Total | Pasadas | Hoy/futuras | Canceladas | Detalle HORA asociado |
 |---|---:|---:|---:|---:|---:|
 | Base descartable `wings_testing_codex`, antes de pruebas T66 | 0 | 0 | 0 | 0 | 0 |
-| Sitio de prueba, base `wings` | 0 | 0 | 0 | 0 | 0 |
+| Producción, base `wings` (vacía: 0 alumnos; el informe original la llamó «sitio de prueba») | 0 | 0 | 0 | 0 | 0 |
+| Sitio de prueba, base `wingstest` — consulta de Claude CyE, solo lectura, 19/10/2026 | 0 sobre 79 clases | — | — | 0 | — |
 
 Se consultaron también hasta cinco filas concretas; ambas muestras están vacías. No se infieren clases reales a partir de fixtures ni se reconstruye historia COMISIÓN sin vínculo de profesora. El programa conserva ese límite explícito.
 
-Evidencias: [local](evidencia-t66-codex/relevamiento-local.json) y [sitio de prueba](evidencia-t66-codex/relevamiento-sitio-prueba.json). SSH comprobado y consulta ejecutada con `/usr/bin/php82`; el PHP por defecto del servidor es anterior y no se usó para emitir el resultado. Ninguna clase fue corregida.
+> **Corrección, Claude CyE 19/10/2026:** `relevamiento-sitio-prueba.json` dice `"base": "wings"`, que es la base de **producción** (vacía). El sitio de prueba usa `wingstest`. La consulta sobre `wingstest` dio 0 clases sin profesora en 79, con filas de muestra revisadas (cada clase con 1 profesora). La conclusión no cambia.
+
+Evidencias: [local](evidencia-t66-codex/relevamiento-local.json) y [producción, rotulada «sitio de prueba»](evidencia-t66-codex/relevamiento-sitio-prueba.json). SSH comprobado y consulta ejecutada con `/usr/bin/php82`; el PHP por defecto del servidor es anterior y no se usó para emitir el resultado. Ninguna clase fue corregida.
 
 ## Pruebas
 
