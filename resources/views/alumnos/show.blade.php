@@ -272,6 +272,30 @@
             @endforeach
         </div>
         @endif
+        {{-- T58: meses pasados sin cuota generada; solo el dueño los ve y los crea --}}
+        @if(!empty($mesesPasados))
+        <div id="cuotas-pasadas" class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">
+            <p class="text-xs mb-2" style="color:var(--color-text-muted);">Meses sin cuota generada</p>
+            <form method="POST" action="{{ route('web.alumnos.cuotas-pasadas', $alumno->id) }}"
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil"
+                  style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
+                @csrf
+                <select name="periodo" required class="px-3 py-1.5 text-xs wings-input" aria-label="Mes sin cuota">
+                    @foreach($mesesPasados as $mesPasado)
+                    <option value="{{ $mesPasado['periodo'] }}">
+                        {{ ucfirst(\Carbon\Carbon::createFromFormat('Y-m-d', $mesPasado['periodo'] . '-01')->locale('es')->translatedFormat('F Y')) }}
+                        · {{ \App\Support\FormatoImporte::pesos($mesPasado['precio']) }}
+                    </option>
+                    @endforeach
+                </select>
+                <div class="flex justify-end">
+                    <button type="submit" class="ds-btn-row"
+                            style="background:var(--color-btn-primary); color:var(--color-surface);"
+                            data-confirmar="¿Crear la cuota del mes elegido? Queda como deuda del alumno.">Crear</button>
+                </div>
+            </form>
+        </div>
+        @endif
         @if($alumno->nombre_tutor)
         <div class="pt-3" style="border-top: 1px solid var(--color-border);">
             <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">

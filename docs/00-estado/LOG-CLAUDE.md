@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-18 — Claude CAB — T58 hecha; T63 y T57 verificadas y cerradas
+
+T58 (DU-23): la ficha muestra al dueño los meses pasados sin cuota (desde el alta, con plan) y los
+crea al precio del plan, como el generador; la operativa recibe 403. 8 pruebas; recorrido en Chrome
+(1366 y 375, confirmación y aviso) en `evidencia-t58-claude/`; suite 858/3 omitidas, solo el
+contador, ajustado a 862. A verificar por Gemini; falta el visual de Carlos. T63 y T57 (Gemini):
+reglas verificadas (167 pruebas y 2 controles míos: cambiar el medio no toca el arqueo de cajas
+existentes; una clase de hoy cuenta como futura), aspecto aprobado por Carlos. Cerradas.
+
 ## 2026-10-18 — Claude CAB — T39 hecha; T58 sin la pantalla todavía
 
 T39 (DU-21): la anulación de un cobro del dueño lleva la fecha del cobro original. Carlos decidió

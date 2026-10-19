@@ -99,6 +99,28 @@ class CuotaMesPasadoT58Test extends TestCase
         $this->assertFalse(DeudaCuota::where('periodo', '2026-09')->exists());
     }
 
+    public function test_la_ficha_ofrece_el_mes_al_dueno_y_no_a_la_operativa(): void
+    {
+        $this->actingAs($this->admin)->get(route('web.alumnos.show', $this->alumno->id))
+            ->assertOk()
+            ->assertSee('Meses sin cuota generada')
+            ->assertSee('Septiembre 2026')
+            ->assertSee(route('web.alumnos.cuotas-pasadas', $this->alumno->id), false)
+            ->assertSee('data-confirmar=', false);
+
+        $this->actingAs($this->operativa)->get(route('web.alumnos.show', $this->alumno->id))
+            ->assertOk()
+            ->assertDontSee('Meses sin cuota generada')
+            ->assertDontSee(route('web.alumnos.cuotas-pasadas', $this->alumno->id), false);
+    }
+
+    public function test_sin_meses_faltantes_la_ficha_no_muestra_el_bloque(): void
+    {
+        $this->crear($this->admin, '2026-09');
+        $this->actingAs($this->admin)->get(route('web.alumnos.show', $this->alumno->id))
+            ->assertOk()->assertDontSee('Meses sin cuota generada');
+    }
+
     public function test_despues_se_cobra_como_cualquier_cuota(): void
     {
         $this->crear($this->admin, '2026-09');

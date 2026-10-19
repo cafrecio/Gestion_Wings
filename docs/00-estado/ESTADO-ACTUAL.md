@@ -1,5 +1,12 @@
 # Wings — Estado actual
 
+## T58 — El dueño crea desde la ficha la cuota de un mes pasado, Claude 18/10/2026
+
+DU-23. En la ficha, solo para el dueño, «Meses sin cuota generada»: los meses desde el alta sin
+cuota y con plan, al precio del plan de ese mes, con «Crear» y confirmación. La operativa recibe
+403. 8 pruebas; suite 858 aprobadas. A verificar por Gemini; el aspecto lo aprueba Carlos.
+[Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T58.md). T63 y T57 verificadas y cerradas.
+
 ## T39 — La anulación de un cobro del dueño va con la fecha del original, Claude 18/10/2026
 
 DU-21 y decisión de Carlos del 18/10: el asiento en contra lleva la fecha del cobro y la deuda
@@ -726,7 +733,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **860 pruebas** en la carpeta compartida. Suite completa Codex CAB 18/10 (observaciones T75): **857 aprobadas, 3 omitidas, 0 fallidas**, 7692 aserciones, 946.92 s; base `wings_testing_codex`. |
+| **Tests** | **862 pruebas** en la carpeta compartida. Suite completa Codex CAB 18/10 (observaciones T75): **857 aprobadas, 3 omitidas, 0 fallidas**, 7692 aserciones, 946.92 s; base `wings_testing_codex`. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
