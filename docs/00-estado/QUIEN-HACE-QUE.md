@@ -49,7 +49,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar contador de menú, filtro sin asistencia y filtro sin presentes (solo admin) |
-| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar reglas de tarifas y cambio de plan; titulo y Nuevo separados en Crear/Editar el 19/10, Carlos revisa capturas nuevas. Sin despliegue |
+| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | Hecho, espera verificación (hizo Codex, verifica Claude) | Visual aprobado por Carlos el 19/10: Ok, pasan (Crear/Editar, celular y escritorio). Solo verificar reglas y codigo T44; sin otra revision visual de IA ni despliegue |
 | **T67** La lista de asistencia muestra solo los tres ultimos numeros del DNI | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar que la lista de asistencia muestre solo los últimos 3 números del DNI y no exponga el DNI completo |
 
 ## Codex

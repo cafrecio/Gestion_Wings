@@ -2,7 +2,7 @@
 
 ## T44 — Vigencia de precios a verificar, Codex CAB 18/10/2026
 
-**Corrección visual 19/10:** Carlos rechazó Nuevo junto al título. Separado en ambos formularios y todos los anchos; regla explícita en Design Rules y skill. [Capturas nuevas](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html); pendiente de su aprobación. Suite de corrección: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s, sin fallas; corte 885.
+**Corrección visual 19/10:** Carlos rechazó Nuevo junto al título. Separado en ambos formularios y todos los anchos; regla explícita en Design Rules y skill. [Capturas nuevas](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html); Carlos aprobó ambas pantallas el 19/10: «Ok, pasan» (verifica visual=Carlos). Suite de corrección: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s, sin fallas; corte 885.
 
 Historial y tarifa común incorporados: 19 casos nuevos; selección de precios/formato 24/251; regresión 89/455 aprobada.
 Carlos permite varios aumentos al mes: existentes toman el último al mes siguiente; altas usan su día.
@@ -10,7 +10,7 @@ Cambios de frecuencia: baja siempre al mes siguiente; subida ahora con cuota pen
 si ya está saldada, al mes siguiente. El plan programado no reemplaza al vigente antes de su fecha.
 La tarifa del catálogo no recalcula cuotas generadas; el cambio inmediato de plan es la excepción explícita.
 Migración con planes existentes probada 1/8. [Entrega y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md).
-Suite final: 878 aprobadas, 3 omitidas, 7792 aserciones, 1102.93 s; 22 fuentes propias idénticas. Entregado a Claude; aspecto pendiente de Carlos. Sin despliegue.
+Suite final: 878 aprobadas, 3 omitidas, 7792 aserciones, 1102.93 s; 22 fuentes propias idénticas. Entregado a Claude para reglas/código; aspecto aprobado por Carlos el 19/10 («Ok, pasan»), sin otra revisión visual de IA. Sin despliegue.
 
 ## T58 — El dueño crea desde la ficha la cuota de un mes pasado, Claude 18/10/2026
 

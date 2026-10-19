@@ -106,7 +106,7 @@ respuestas reales y marcos de ancho exacto; no fabrican pantallas de Wings.
 [Cuotas y cambios de plan V2](../../02-contratos/Wings-contrato-cuotas-deudas-pagos-V2.md).
 
 Entregado a Claude para verificar reglas y código; T44 permanece a_verificar.
-Lo visual de T44 lo aprueba Carlos; no se hereda la aprobación de T75. Sin publicación ni despliegue.
+Lo visual de T44 fue aprobado por Carlos el 19/10/2026: «Ok, pasan», sobre las capturas corregidas de Crear y Editar. Sin publicación ni despliegue.
 
 
 ## Corrección visual — 19/10/2026
@@ -133,4 +133,4 @@ Suite completa de la corrección: **882 aprobadas, 3 omitidas, 7821 aserciones, 
 Sintaxis del formulario e instrumentos correcta; vistas compiladas y limpiadas sin errores.
 Guardianes finales de documentación y tablero: 9 aprobadas / 43 aserciones, 0.42 s.
 Durante la corrida otro agente cambió la prueba y vista de Clases de T34/T67 y sus capturas; no se incluyen ni se certifican esas revisiones posteriores. Las 22 fuentes propias conservan sus huellas.
-Aspecto pendiente de Carlos; T44 sigue a verificar por Claude.
+Aspecto aprobado por Carlos el 19/10/2026: «Ok, pasan», mirando la galería corregida de Crear y Editar en celular y escritorio (verifica visual=Carlos, AGENTS §6a). T44 sigue a verificar por Claude únicamente para reglas y código; no requiere otra aprobación visual de IA.

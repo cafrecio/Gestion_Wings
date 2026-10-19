@@ -7,7 +7,7 @@ Separados en _form; Design Rules §1.1/§6/checklist y skill explicitan la regla
 Tres respuestas reales y nueve medidas 360/375/1366; seis controles de ubicación y agregar fila correctos.
 Sin lógica financiera, JS ni CSS. Suite: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s en wings_testing_codex, salida 0.
 [Capturas, solo dos formularios](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html).
-T44 sigue a verificar por Claude y pendiente de aprobación visual de Carlos. Sin despliegue.
+Carlos aprobó ambas pantallas el 19/10: «Ok, pasan» (verifica visual=Carlos). T44 sigue con Claude para reglas/código; sin otra revisión visual de IA ni despliegue.
 
 ## 2026-10-18 — Codex CAB — T44, vigencia de precios y cambios de plan
 

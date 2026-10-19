@@ -2,7 +2,7 @@
 
 **Caso de uso (Index):** 2) Alumno–Grupo–Deporte–Deuda
 **Versión:** V5
-**Estado:** VIGENTE; T44 implementada localmente, pendiente verificación de Claude y aprobación visual de Carlos (18/10/2026)
+**Estado:** VIGENTE; T44 implementada localmente, pendiente verificación de reglas/código por Claude; visual aprobado por Carlos el 19/10/2026 («Ok, pasan»)
 **Alcance:** Modelo base de identidad deportiva + estructura comercial (planes) + existencia de deuda por período.
 **No incluye:** Pagos, generación automática de deuda, estados dinámicos.
 
