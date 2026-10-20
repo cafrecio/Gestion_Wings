@@ -42,13 +42,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 20/10: la clase vieja conserva a quien tiene marca (Cambió de grupo / De baja) y corregirla ya no lo rechaza. 5 pruebas, Chrome 1366/375. Falta verificador de lógica y el visual de Carlos. |
+Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | En curso (hizo Claude) | Visual aprobado por Carlos el 20/10 («Las vistas están OK»). Carlos aclaró DU-09: «Los cambios son siempre para adelante»: el que entró al grupo después de una clase no aparece en ella. Claude CyE corrige: la lista es de quienes tenían plan de ese grupo vigente el día de la clase, más quien tiene marca. Después, verificación de lógica (Gemini). |
 
 ## Codex
 
