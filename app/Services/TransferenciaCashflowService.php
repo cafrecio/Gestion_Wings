@@ -16,6 +16,15 @@ class TransferenciaCashflowService
     {
         $admin = User::findOrFail($adminId);
         if (!$admin->isAdmin() || !$admin->isActivo()) throw new AuthorizationException();
+        $datos = $this->validarDatos($datos);
+
+        return DB::transaction(function () use ($adminId, $datos) {
+            return $this->guardar($adminId, $datos);
+        }, 3);
+    }
+
+    public function validarDatos(array $datos): array
+    {
         $datos = Validator::make($datos, [
             'clave' => 'required|uuid',
             'salida_id' => 'required|integer|exists:tipos_caja,id',
@@ -29,8 +38,11 @@ class TransferenciaCashflowService
         $datos['salida_id'] = (int) $datos['salida_id'];
         $datos['destino_id'] = (int) $datos['destino_id'];
         $datos['observaciones'] = trim($datos['observaciones'] ?? '') ?: null;
+        return $datos;
+    }
 
-        return DB::transaction(function () use ($adminId, $datos) {
+    private function guardar(int $adminId, array $datos): int
+    {
             // Orden estable y candados: doble envío y transferencias cruzadas se serializan.
             $cuentas = TipoCaja::whereIn('id', [$datos['salida_id'], $datos['destino_id']])
                 ->orderBy('id')->lockForUpdate()->get();
@@ -71,6 +83,5 @@ class TransferenciaCashflowService
                 ]);
             }
             return $id;
-        }, 3);
     }
 }

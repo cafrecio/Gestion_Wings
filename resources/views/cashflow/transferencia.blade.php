@@ -39,9 +39,16 @@
                 @error('observaciones')<p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p>@enderror
             </div>
         </div>
+        @if(session('aviso_fecha_vieja'))
+            <div class="mt-4 p-4" style="border:1px solid var(--color-warning); border-radius:var(--radius-btn);">
+                <p class="text-sm font-semibold mb-2">Atención: fecha de un mes anterior</p>
+                <p class="text-sm" style="color:var(--color-text-muted);">{{ session('aviso_fecha_vieja') }}</p>
+                <input type="hidden" name="confirmar_fecha_vieja" value="1">
+            </div>
+        @endif
         <div class="flex justify-end gap-2 mt-4 acciones-celular-derecha">
             <x-ds.button variant="secondary" href="{{ route('web.cashflow.index') }}">Volver</x-ds.button>
-            <x-ds.button type="submit" variant="primary">Transferir</x-ds.button>
+            <x-ds.button type="submit" variant="primary">{{ session('aviso_fecha_vieja') ? 'Confirmar' : 'Transferir' }}</x-ds.button>
         </div>
     </div>
 </form>

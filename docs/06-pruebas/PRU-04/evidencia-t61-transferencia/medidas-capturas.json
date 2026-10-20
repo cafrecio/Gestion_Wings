@@ -86,5 +86,21 @@
     "contenido": 360,
     "documento": 360,
     "viewport": 375
+  },
+  {
+    "nombre": "fecha-anterior-1366",
+    "url": "http://127.0.0.1:8761/cashflow/transferencia",
+    "alto": 900,
+    "contenido": 1366,
+    "documento": 1366,
+    "viewport": 1366
+  },
+  {
+    "nombre": "fecha-anterior-375",
+    "url": "http://127.0.0.1:8761/cashflow/transferencia",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
   }
 ]

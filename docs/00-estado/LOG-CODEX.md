@@ -14,6 +14,16 @@
 
 [Antecedente archivado intacto al completar el recorrido T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-RECORRIDO-ANTECEDENTE.md).
 
+[Antecedente archivado al completar FIN-09](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-FIN09-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — T61, confirmación FIN-09
+
+El formulario nuevo omitía confirmar fechas de un mes anterior, exigido por Caja/Cashflow V4 §3.6. Corregido antes de continuar T42.
+Primer envío valida y avisa sin escribir; Confirmar guarda ambas patas con la fecha real y usa el aviso existente al dueño. Reenvío secuencial sin duplicar transferencia ni aviso.
+13 pruebas dirigidas/143 aserciones verdes; completa 977 aprobadas/6 omitidas, 8541 aserciones, 697,65 s, salida 0, wings_testing_codex, corte 983. Sin otra suite activa.
+Capturas reales 1366/375 del estado adicional; Carlos aprobó: «Apruebo el aviso». Formulario principal y Rubros conservan «Apruebo el visual corregido».
+[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). A verificar lógica por Claude, sin autocierre ni despliegue. Continúa T42 y después T43.
+
 ## 2026-10-20 — Codex CyE — Toma T42, después T43
 
 Carlos ordenó T42 y luego T43, tras terminar verificaciones T52/T61. T61 publicada 43a70976, visual corregido aprobado y completa 976/6 omitidas verde; lógica para Claude. T52 reverificada y devuelta por H5 en ff49b709.
@@ -93,16 +103,3 @@ Rama T61: completa 947/4 omitidas, 8425 aserciones. Main conserva sus 944 métod
 Carlos: recorrido visual pendiente por Codex desde CyE, Chrome local 1366/375; luego integración y control independiente.
 Configuración de notificaciones local conservada e ignorada; sin tocar producto ni cambios ajenos.
 [Registro e inventario](HIGIENE-T61-2026-10-20.md). T61 a_verificar; sin autocierre ni despliegue.
-
-## 2026-10-19 — Codex CyE — T34, reverificación C1/C2 aprobada
-
-Verifico c017bac3 de Gemini; sin cambios de producto ni diseño.
-C1: 20→20 consultas con 2→16 tarjetas, un COUNT; badge 1→0→1 tras PATCH reales.
-C2: HORA/COMISIÓN, UPDATE intentado y rollback tras duplicado del mes vigente; filas intactas.
-H1/H2 y permisos conservados; generación válida filtra profesor, fecha, cancelada y presentes.
-Dirigidas 27/321 verdes, 18,62 s; rápida 820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0.
-Completa verde ya ejecutada con la corrección: 935/4 omitidas, 8243 aserciones, 1283,46 s; no se repite.
-[Informe, SQL y capturas](../06-pruebas/PRU-04/VERIFICACION-T34-C1-C2-CODEX.md); 10 combinaciones de navegador sin desborde.
-T34 cerrada: hizo Gemini/verifica Codex. Visual previo de Carlos conservado; T67 cerrada. Sin despliegue.
-Cierre pedido por Carlos: T34 d4f10dd4 y T74 7abd5539 ya publicados, remoto comprobado en 022020fb.
-Se entrega también el HTML regenerado por la prueba original, con tokens de prueba omitidos; sin nueva corrida ni despliegue.

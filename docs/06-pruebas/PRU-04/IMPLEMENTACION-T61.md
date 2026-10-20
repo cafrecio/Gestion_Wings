@@ -3,6 +3,12 @@
 Codex CyE, 20/10/2026. **Corrección implementada; visual aprobado por Carlos; lógica a verificar por Claude.**
 La entrega anterior resolvía dos cargas independientes. Carlos necesita un formulario con cuenta de salida, cuenta de destino e importe; también pidió rubros y subrubros exclusivos del sistema, sin renombrar ni editar.
 
+## Seguimiento FIN-09 — fecha de un mes anterior
+
+Al revisar el contrato Caja/Cashflow V4 §3.6 se detectó que el formulario nuevo omitía la confirmación de una fecha de otro mes. Corrección implementada: valida antes de avisar, no escribe en el primer envío, pide Confirmar y luego guarda ambas patas con su fecha real, avisando al dueño por el mecanismo existente. La repetición del mismo envío conserva una sola cabecera y dos movimientos. Sin JavaScript incrustado.
+
+13 pruebas T61 / 143 aserciones verdes, 9,68 s, salida 0. [Salida](evidencia-t61-transferencia/seguimiento-fecha.txt). Completa del corte 983: **977 aprobadas, 6 omitidas, 8541 aserciones, 697,65 s, salida 0**, wings_testing_codex; [salida](evidencia-t61-transferencia/suite-seguimiento-fecha.txt). La completa de 982 citada abajo corresponde al commit 43a70976 anterior a este seguimiento. Capturas nuevas del aviso 1366/375 en la galería; Carlos aprobó ese estado adicional el 20/10/2026: «Apruebo el aviso». El visual principal y Rubros ya aprobados se conservan.
+
 ## Funcionamiento solicitado
 
 Una transferencia registra dos movimientos vinculados por una cabecera: egreso en la cuenta de salida e ingreso en la de destino, con igual importe y fecha. Una transacción confirma ambos o revierte todo. Las cuentas deben ser distintas y activas; importe positivo con hasta dos decimales. El doble envío de la misma operación no duplica movimientos.

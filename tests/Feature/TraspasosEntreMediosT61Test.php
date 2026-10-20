@@ -85,7 +85,7 @@ class TraspasosEntreMediosT61Test extends TestCase
 
     private function transferir(array $cambios = []): void
     {
-        $this->post('/cashflow/transferencia', $this->datos($cambios))
+        $this->post('/cashflow/transferencia', $this->datos($cambios) + ['confirmar_fecha_vieja' => 1])
             ->assertRedirect('/cashflow')->assertSessionHasNoErrors()->assertSessionHas('success');
     }
 
@@ -281,5 +281,22 @@ class TraspasosEntreMediosT61Test extends TestCase
         $this->assertSame(-500000, collect($saldos)->keyBy('id')[$this->efectivo->id]['pendiente']);
         $this->get('/cashflow?periodo=mes&anio=2026&mes=9')->assertOk()
             ->assertViewHas('saldosPorMedio', $saldos)->assertSee('En cajas sin validar:');
+    }
+
+    public function test_fecha_de_mes_anterior_pide_confirmar_sin_escribir_y_luego_registra_ambas_patas(): void
+    {
+        $avisos = $this->mock(\App\Services\AvisoAdminService::class);
+        $avisos->shouldReceive('fechaVieja')->once();
+        $datos = $this->datos(['fecha' => '2026-09-30']);
+        $this->from('/cashflow/transferencia')->post('/cashflow/transferencia', $datos)
+            ->assertRedirect('/cashflow/transferencia')->assertSessionHas('aviso_fecha_vieja');
+        $this->assertDatabaseCount('cashflow_transferencias', 0);
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
+        $this->get('/cashflow/transferencia')->assertOk()->assertSee('Atención: fecha de un mes anterior')
+            ->assertSee('Confirmar')->assertSee('El resultado del club no cambia.');
+        $this->post('/cashflow/transferencia', $datos + ['confirmar_fecha_vieja' => 1])->assertSessionHas('success');
+        $this->post('/cashflow/transferencia', $datos + ['confirmar_fecha_vieja' => 1])->assertSessionHas('success');
+        $this->assertDatabaseCount('cashflow_transferencias', 1);
+        $this->assertSame(['2026-09-30', '2026-09-30'], CashflowMovimiento::all()->map(fn ($m) => $m->fecha->toDateString())->all());
     }
 }

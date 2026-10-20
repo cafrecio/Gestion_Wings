@@ -13,11 +13,11 @@
   },
   {
     "ruta": "app/Services/TransferenciaCashflowService.php",
-    "sha256_lf": "06d255c446feddda952d1b00cbc83522f78ac8e831cad38cc3945d2daf06e2f2"
+    "sha256_lf": "b452fa9bd367c8ef461bdb0f7b8266d4d74c6f97e088ce7610b32da04d156b65"
   },
   {
     "ruta": "app/Http/Controllers/TransferenciaCashflowWebController.php",
-    "sha256_lf": "fee47fa27b767349f6f2fb84dd96cd5f960af4c9b763bd8034ae2ca592ae8947"
+    "sha256_lf": "f5e77ab7bc24769df811ae708967d7cb587062f5150367103a6607cce7b149a0"
   },
   {
     "ruta": "database/migrations/2026_10_20_160000_crear_transferencias_cashflow.php",
@@ -29,7 +29,7 @@
   },
   {
     "ruta": "tests/Feature/TraspasosEntreMediosT61Test.php",
-    "sha256_lf": "90f1281f42fbe07c18917efc9c9426b07791001df4ed961f25d9b29270f21d7c"
+    "sha256_lf": "0e6982b856f88b3c9cfc87b984408d7f84a7ef232a0a51f6f5c684d0bcd29cd3"
   },
   {
     "ruta": "resources/views/cashflow/index.blade.php",
@@ -37,7 +37,7 @@
   },
   {
     "ruta": "resources/views/cashflow/transferencia.blade.php",
-    "sha256_lf": "f1c0e210367c527d81ccb3d24888aee1e6495a0e4abe73c369523fe2cdcc273e"
+    "sha256_lf": "1349c67d6c70b61766640c0549a3b9fa45d11858dd5e47c2be84f797b8f98cd5"
   },
   {
     "ruta": "resources/views/rubros/index.blade.php",
