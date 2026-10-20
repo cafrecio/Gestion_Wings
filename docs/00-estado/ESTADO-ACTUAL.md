@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T61 — Publicada en rama propia; recorrido visual pendiente desde CyE, 20/10/2026
+
+Entrega final en `codex/t61-traspasos`, commit `c9b68d2`, a_verificar: 947 aprobadas/4 omitidas, 8425 aserciones en su corte propio de 951. Se retiraron de main 27 copias locales anteriores; main conserva 944 métodos y T52. Carlos indicó que Codex haga el recorrido Chrome local y capturas 1366/375 desde CyE. Pendientes integración y verificación independiente; sin cierre ni despliegue. [Registro y enlace a la entrega](HIGIENE-T61-2026-10-20.md).
+
 ## T52 — La clase vieja conserva a quien tiene marca, Claude CAB 20/10/2026
 
 DU-09 (ALU-013, ASI-009): la lista de una clase es la del grupo de hoy más quien ya tiene una marca guardada en ella, aunque después haya cambiado de grupo o se haya dado de baja («Cambió de grupo» / «De baja»); corregir esa lista ya no lo rechaza. 5 pruebas nuevas; Chrome 1366/375 con una corrección hecha con clics. A verificar; tiene cambio visual chico para Carlos. Queda para Carlos: quien entró al grupo después sigue apareciendo en las clases viejas. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T52.md). Sin despliegue.

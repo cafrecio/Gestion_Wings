@@ -36,6 +36,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T61 publicada en codex/t61-traspasos, c9b68d2, a_verificar:** 27 copias locales anteriores retiradas de main. Carlos difirió el recorrido visual a Codex desde CyE: Chrome local y capturas 1366/375; pendientes integración y verificación independiente. [Registro y entrega](HIGIENE-T61-2026-10-20.md).
 - **T74 cerrada 19/10:** lógica Claude verificada por Codex, 32 dirigidas/251 aserciones verdes; suite completa 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s, salida 0 en wings_testing_codex. Alineación y botones comunes 96 × 32, capturas reales 1366/375 en tramos. Carlos: «Apruebo el visual T74 actualizado». [Informe](../06-pruebas/PRU-04/VERIFICACION-T74-CODEX.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T74.html). Sin despliegue.
 - **T68 H1, Codex CyE 19/10:** corrección local del importe vigente y regresión permanente. Roja 1/11; dirigidas 16/108 verdes. Suite completa: 919 aprobadas/4 omitidas/2 fallidas; Carlos autorizó directamente H1 y su publicación; implementación en `02b72588`. Claude revisa lógica y Carlos visual con APROBAR-T68.html. H2 queda para T73; cambios visuales paralelos preservados, fuera de H1. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md#corrección-de-h1). Sin servidor ni despliegue.
 - **T34, CERRADA 19/10 por Codex CyE:** c017bac3 verificado. C1: 20→20 consultas con 2→16 tarjetas, un COUNT por petición. C2: UPDATE intentado y rollback real HORA/COMISIÓN; H1/H2 conservados. Dirigidas 27/321 verdes; rápida 820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0. Se conserva la completa verde 935/4 omitidas que ya incluyó esta corrección. [Informe](../06-pruebas/PRU-04/VERIFICACION-T34-C1-C2-CODEX.md). Visual aprobado por Carlos en fb88bd3c; T67 cerrada. Sin producto ni despliegue.
@@ -146,5 +147,4 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 ## Al terminar
 - Entrada breve en log propio y enlace a evidencia.
 - Actualizar aquí solo cambios de estado, decisiones o bloqueos relevantes.
-- Mantener fecha y alcance de toda verificación. No copiar mensajes enteros.
-- [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+- Mantener fecha y alcance; no copiar mensajes enteros. [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).

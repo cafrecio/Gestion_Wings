@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-20 — Codex CAB — Higiene T61 y continuidad desde CyE
+
+27 copias viejas retiradas de la carpeta principal, previa verificación de respaldo y entrega remota.
+Versión final T61 publicada en codex/t61-traspasos, commit c9b68d2; no integrada en main.
+Rama T61: completa 947/4 omitidas, 8425 aserciones. Main conserva sus 944 métodos; sin nueva suite por limpieza.
+Carlos: recorrido visual pendiente por Codex desde CyE, Chrome local 1366/375; luego integración y control independiente.
+Configuración de notificaciones local conservada e ignorada; sin tocar producto ni cambios ajenos.
+[Registro e inventario](HIGIENE-T61-2026-10-20.md). T61 a_verificar; sin autocierre ni despliegue.
+
 ## 2026-10-19 — Codex CyE — T34, reverificación C1/C2 aprobada
 
 Verifico c017bac3 de Gemini; sin cambios de producto ni diseño.
@@ -93,18 +102,7 @@ Varios aumentos por mes: existentes desde el siguiente; altas según su día. Cu
 [Entrega y decisiones](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md). Verifica Claude; aspecto Carlos.
 Corte 881 métodos; cambios paralelos T34/T67 no certificados. Sin despliegue ni base del club.
 
-## 2026-10-18 — Codex CAB — T75, jerarquía fija elegida y aplicada
-
-Carlos eligió «Jerarquía fija y consistente»; la decisión ya no queda pendiente.
-Total 1.1rem/800, resumen 0.9rem/700 y fila 0.8rem/600 en ocho vistas financieras; 73 definiciones.
-Colores semánticos conservados, conteos secundarios y grupos móviles apilados cuando no entran.
-Expresiones Blade y bloques PHP idénticos a a8ab707; sin JavaScript ni reglas de negocio nuevas.
-126 controles positivos/negativos correctos; corregidos 5 px de exceso y padding doble en Cashflow.
-Suite: 858 aprobadas/3 omitidas, 7704 aserciones (incluye temporal T39); PHP final idéntico, CSS recapturado.
-[Entrega y galería de solo las cinco vistas observadas](../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
-Carlos aprobó las cinco vistas: «Esas opciones estan muy bien aprobadas»; verifica visual=Carlos.
-T36/T37 conservados cerrados. Solo falta control de la interacción de Revisión por Claude.
-Sin despliegue ni autocierre.
+[Entrada T75 archivada intacta](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-ARRANQUE.md).
 
 [Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
 
