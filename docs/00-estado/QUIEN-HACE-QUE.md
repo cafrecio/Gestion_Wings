@@ -58,11 +58,13 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | En curso | Gemini implementa limite de fecha de ingreso hasta fin del mes siguiente (DU-06, ALU-007) |
 
-## Sin empezar (21)
+## Sin empezar (20)
 
-T12, T22, T25, T42, T43, T45, T46, T50, T51, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
+T12, T22, T25, T42, T43, T45, T46, T51, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
