@@ -69,10 +69,11 @@ class Alumno extends Model
     {
         $dia = Carbon::parse($fecha)->toDateString();
 
+        // Siempre hace falta haber ingresado; y si cambió de grupo, haber llegado a este. Las dos
+        // cosas a la vez (H5 de Codex: un cambio de grupo antes de un ingreso futuro no adelanta el ingreso).
         return $query->where('grupo_id', $grupoId)
-            ->where(fn ($q) => $q
-                ->where(fn ($sinCambio) => $sinCambio->whereNull('grupo_desde')->whereDate('fecha_alta', '<=', $dia))
-                ->orWhereDate('grupo_desde', '<=', $dia));
+            ->whereDate('fecha_alta', '<=', $dia)
+            ->where(fn ($q) => $q->whereNull('grupo_desde')->orWhereDate('grupo_desde', '<=', $dia));
     }
 
     /**

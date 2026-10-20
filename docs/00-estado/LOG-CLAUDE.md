@@ -28,6 +28,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — T52 H5: el cambio de grupo no adelanta un ingreso futuro
+
+- Codex reverificó d148a241: H1–H4 bien, H5 nuevo (cambio de grupo antes de ingreso futuro → asistencia
+  anticipada). `enGrupoElDia` exige siempre el ingreso. 12 pruebas T52; dirigidas 77/77.
+- Sin suite completa: carpeta con T42 de Codex sin subir. Commit solo con lo mío; contador 984.
+
 ## 2026-10-20 — Claude CyE — T52 tercera vuelta: H1–H4 de Codex corregidos
 
 - Codex devolvió la segunda parte con 4 hallazgos reales. Causa común: suposiciones sin probar.

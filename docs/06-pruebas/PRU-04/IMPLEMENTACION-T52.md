@@ -109,3 +109,11 @@ Base de prueba (`wingstest`, solo lectura): la migración nueva no completaría 
 
 Pruebas: 4 nuevas, una por hallazgo, y la del modelo reescrita (11 en `ClaseListaHaciaAdelanteT52Test`).
 
+## Cuarta vuelta — H5 de la reverificación de Codex (Claude CyE, 20/10/2026)
+
+Codex confirmó H1–H4 y encontró H5: con ingreso futuro (permitido por T50), un cambio de grupo antes de
+ese ingreso dejaba `grupo_desde` en hoy, y la regla dejaba de exigir el ingreso. `Alumno::enGrupoElDia`
+exige ahora siempre las dos cosas: haber ingresado y, si cambió de grupo, haber llegado a este. Prueba
+nueva con ese caso y con un ingreso corregido a una fecha más tardía después del cambio. T52 12/12;
+dirigidas de clases y asistencias 77/77. Sin suite completa: la carpeta tiene T42 de Codex sin subir.
+

@@ -212,6 +212,26 @@ class ClaseListaHaciaAdelanteT52Test extends TestCase
         $this->assertDatabaseMissing('asistencias', ['alumno_id' => $futuro->id]);
     }
 
+    /** Hallazgo H5 de Codex: cambiar de grupo antes de un ingreso futuro no adelanta el ingreso. */
+    public function test_cambiar_de_grupo_antes_del_ingreso_futuro_no_lo_adelanta(): void
+    {
+        $futuro = $this->alumno('Futuro', 'Cambia', $this->viejo, '2026-11-01');
+        $futuro->update(['grupo_id' => $this->nuevo->id]);
+        $this->assertSame('2026-10-18', $futuro->fresh()->grupo_desde->toDateString());
+
+        $this->assertNotContains($futuro->id, $this->listaDe($this->hoyNuevo));
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.clases.asistencias', $this->hoyNuevo->id), ['items' => [['alumno_id' => $futuro->id, 'presente' => 1]]])
+            ->assertStatus(422);
+        $this->assertDatabaseMissing('asistencias', ['alumno_id' => $futuro->id]);
+
+        // Y si el ingreso se corrige a una fecha más tardía después de cambiar de grupo, tampoco.
+        $cambio = $this->alumno('Cambia', 'Antes', $this->viejo);
+        $cambio->update(['grupo_id' => $this->nuevo->id]);
+        $cambio->update(['fecha_alta' => '2026-11-01']);
+        $this->assertNotContains($cambio->id, $this->listaDe($this->hoyNuevo));
+    }
+
     /** Hallazgo H1 de Codex: el guardado usa el mismo criterio que la pantalla. */
     public function test_un_inactivo_sin_marca_no_se_puede_cargar(): void
     {
