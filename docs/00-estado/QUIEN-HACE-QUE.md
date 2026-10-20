@@ -49,21 +49,23 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Devuelto (hizo Claude, verifica Codex) | Corregir H1-H3 y resolver criterio H4 de VERIFICACION-T52-CODEX.md; visual ya aprobado por Carlos |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Codex verifica solo la lógica de ambas partes de T52; visual aprobado por Carlos. Informe VERIFICACION-T52-CODEX.md, sin correcciones. |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex) | Integración con T52 y suite completa verdes (952/4 omitidas). Tras reinstalar dependencias, Codex completa Chrome/celular; faltan verificación cruzada y visual de Carlos. |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | En curso | Gemini implementa reglas de primer pago sin huecos ni superposicion (DU-45, CFG-004) |
 
-## Sin empezar (20)
+## Sin empezar (19)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T42 (antes del 1/11), T43 (antes del 1/11), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T64 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), B3 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T42 (antes del 1/11), T43 (antes del 1/11), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), B3 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

@@ -4,6 +4,17 @@
 [Entradas anteriores archivadas al continuar T61 desde CyE](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-CONTINUIDAD-CYE.md).
 
 
+[Dos antecedentes archivados intactos al verificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-ANTECEDENTES.md).
+
+## 2026-10-20 — Codex CyE — T52, verificación con hallazgos
+
+Entrega Claude 2dfbf243/dd45ce0e; solo lógica. Visual de Carlos conservado; T50 de Gemini preservada.
+Tres fallos reproducidos: POST guarda inactivo sin marca; corregir ingreso retrotrae cambio de grupo del mismo día; migración adelanta ingreso futuro. N+1 previo: 12→45 consultas con 1→12 alumnos.
+74 dirigidas/412 verdes; ocho reproducciones/51 aserciones, cuatro fallos. Cerradas HORA/COMISIÓN pendientes/pagadas intactas; cambio con plan diferido y reactivación comprobados.
+Tablero: devuelta a Claude. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Sin corrección de producto ni despliegue.
+Carlos autorizó publicar los commits propios T52 en main; toma 94669f97 comprobada en remoto. No se vuelve a pedir esa autorización.
+Suite completa en curso desde 09:18:31 en wings_testing_codex; se esperó a que terminara la ajena. Pendiente registrar resultado, conservar fuentes y publicar informe final.
+
 ## 2026-10-20 — Codex CyE — Toma T52 y error al guardar cambios preparados
 
 Carlos reasignó a Codex la verificación de lógica T52 (2dfbf243 y dd45ce0e); base wings_testing_codex, visual ya aprobado.
@@ -96,22 +107,3 @@ Fechas, orden, roles, estados vacíos y consultas contrastados con fuentes y pet
 Originales/CSP: 7/40; propias: 7 pasan y 2 fallan (H1/H2), 105 aserciones. Suite: 912 aprobadas/4 omitidas/8 fallidas, 8071 aserciones, 1450,81 s. Ocho por compilado local ausente; build correcto y repetición de clases/guardianes: 36/390 verdes. Solo wings_testing_codex.
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md). T68 devuelta a Gemini; visual corresponde a Carlos.
 Sin servidor, despliegue, checkout, stash ni reset; cambios ajenos preservados.
-
-## 2026-10-19 — Codex CAB — T66, profesora obligatoria y clases liquidadas protegidas
-
-Única/serie, edición y reasignación exigen al menos una profesora activa del deporte; serie atómica.
-Contradicción registrada antes de implementar; Carlos exige cancelar cerrada antes de modificar y deja pagada intocable. Retirada la excepción de confirmación y actualizado contrato §4.d/§4.i.
-Motivos, roles y choques conservados; canceladas protegidas. Desactivar única profesora queda en T46; API sigue apagada.
-Lectura descartable/sitio de prueba: cero clases sin profesora en ambos; sin reparación ni datos personales.
-16 pruebas nuevas; 65 dirigidas/610 aserciones. Suite completa: 920 aprobadas, 4 omitidas, 8155 aserciones, 960,48 s, salida 0, corte 924, solo wings_testing_codex.
-Capturas reales: tres vistas y control de ingreso a 360/375/1366; 12 medidas, 19 PNG sin desbordes. Build, sintaxis y vistas correctos.
-[Entrega y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md). Toma bc02cef solo tablero; fuentes de la suite conservadas. Carlos aprobó las tres vistas el 19/10: «Vista aprobadas»; no volver a consultar. Claude verifica solo lógica; sin autocierre ni despliegue.
-
-## 2026-10-19 — Codex CAB — Verificación ampliada T34/T67
-
-Revisados 9fbec9b, ae7c7d9 y c5727f0; fuentes y rutas contrastadas, sin cambios de producto.
-T34: lista guardada con ausentes dice Pendiente; PATCH del dueño devuelve una clase cerrada/pagada a Sin presentes. No cambia el total; no se demostró doble pago.
-T67: controles de DNI por tres roles, homónimos, ceros, DNI ausente, accesos y formulario correctos; visual de Carlos conservado.
-26 pruebas específicas: 23 pasan y 3 reproducen los dos huecos T34; 246 aserciones. Clases compartidas y detalle económico conservado comprobados. Navegador: nueve medidas y tres interacciones sin desbordes.
-[Informe, límites y reproducción](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md). Suite permanente: 882 aprobadas, 3 omitidas, 7823 aserciones, 1399.67 s, salida 0, corte 885, solo wings_testing_codex.
-T34 devuelta a Gemini; T67 cerrada por Codex. Fuentes de Clases intactas; cambios paralelos de otros módulos no certificados. Sin despliegue ni mensaje a otros chats.

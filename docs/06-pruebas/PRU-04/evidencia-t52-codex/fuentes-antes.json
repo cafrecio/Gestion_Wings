@@ -1,0 +1,38 @@
+[
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Models\\Alumno.php",
+    "Hash": "E6B56446648B9548A08821B397CE719BBF88DECB70D6521EC77221C29E5EE5D3"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Http\\Controllers\\ClaseWebController.php",
+    "Hash": "4487354DB4296C7BAEFAB4B5E7A0484C8BDF6FF83B56FB9CEEA6FA77865DF269"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Services\\ClaseService.php",
+    "Hash": "02C6BE253521C4F94C654D81B64D2596130D9065CAD389521035A4A179644F8B"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Services\\CambioPlanService.php",
+    "Hash": "10345309BF3B9E96990B57191371D80D83029CCD9FFEF745C7B460B4C193E827"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Http\\Controllers\\AlumnoWebController.php",
+    "Hash": "0B292D5CEE2BFEF197974C55D83FB07DA87008FC03CC61A52723592CB553C4A8"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\app\\Models\\Clase.php",
+    "Hash": "99D9227F475E129ADF32AFA56266A7D99223EF8B62961AB8A6CAB439E02D9360"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\database\\migrations\\2026_10_20_150000_add_grupo_desde_to_alumnos.php",
+    "Hash": "FC619ACFD7E75962A5955C7E2734D260E6050E2DA799FC41DC641EDD1E372CA9"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\tests\\Feature\\ClaseListaHaciaAdelanteT52Test.php",
+    "Hash": "BCA10D64272711A6261B5D30285695923E795FD3DFF03AE29193135114ED16B2"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\Gestion_Wings\\tests\\Feature\\CancelarLiquidacionCerradaTest.php",
+    "Hash": "EEFDD1BAADB5C0BE763EC54AF36FB0EF75B476BCE1AABF668DB612099D9C5EEF"
+  }
+]

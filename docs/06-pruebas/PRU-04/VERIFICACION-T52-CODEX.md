@@ -1,0 +1,136 @@
+# T52 — Verificación independiente de lógica
+
+Codex CyE, 20/10/2026. Entrega de Claude: `2dfbf243` y `dd45ce0e`.
+
+**CON HALLAZGOS.** Tres incumplimientos funcionales reproducidos y un N+1 previo.
+Suite completa todavía en curso; no se certifica ese resultado hasta su finalización.
+
+## Alcance
+
+Solo lógica: elegibilidad por fecha y grupo, conservación de marcas, edición del ingreso,
+migración de existentes, permisos y protección de liquidaciones. Visual aprobado por Carlos
+el 20/10 («Las vistas están OK»), conservado sin nueva revisión ni cambios de pantalla.
+No se corrige producto. T50 pertenece a Gemini y se preserva.
+
+Base descartable: `wings_testing_codex`. Se esperó a que terminara la suite ajena iniciada
+a las 09:02:27 (PID 46620 / PHPUnit 4708) antes de ejecutar pruebas propias.
+
+## Hallazgos reproducidos
+
+### H1 — El guardado acepta a un inactivo sin marca que la pantalla excluye
+
+`app/Http/Controllers/ClaseWebController.php:303` exige `activo=true` para el grupo actual;
+en `:402` el POST usa fecha/grupo y marcas previas, pero omite ese filtro.
+Alumno inactivo desde el fixture, del grupo y con ingreso previo a la clase, sin asistencia:
+GET no lo incluye; POST como OPERATIVO devuelve **200 y crea el presente**. Debía devolver
+422 sin escribir, conforme al criterio de misma elegibilidad entre show y store.
+No depende de la API deshabilitada: se reprodujo por `/clases/{id}/asistencias`.
+La falta de filtro activo en el POST ya existía antes de T52; la entrega no la resuelve.
+
+### H2 — Cambiar de grupo el mismo día del ingreso permite retrotraer ese cambio
+
+`app/Models/Alumno.php:68`: que `grupo_desde` coincida con el ingreso anterior no demuestra
+que el alumno nunca cambió de grupo.
+Se crearon ingreso y cambio A→B el 20/10, usando el **PUT web real con un plan válido**.
+Un segundo PUT corrigió el ingreso al 1/9, con motivo válido y sin inscripción cobrada.
+Resultado persistido: `grupo_desde=2026-09-01`, y el alumno aparece en B para una clase del
+10/10, aunque llegó a B el 20/10. Debía conservar `2026-10-20` y quedar fuera de esa lista.
+El caso es alcanzable en edición; las siete pruebas originales no cubren esa coincidencia.
+
+### H3 — El backfill adelanta un ingreso futuro y permite listar antes del ingreso
+
+`database/migrations/2026_10_20_150000_add_grupo_desde_to_alumnos.php:34` toma el máximo
+del ingreso y primer plan; luego `:35` lo recorta a hoy.
+Se ejecutó `down/up` de esa migración sobre un alumno existente con ingreso y plan el
+1/11, con reloj en 20/10. Persistió **grupo_desde=20/10 y apareció en la clase del 20/10**.
+El ingreso 1/11 está dentro del límite permitido por T50.
+
+El criterio «nunca antes del ingreso ni después del día de migración» es imposible para
+ese dato. Se devuelve la contradicción sin elegir una nueva regla ni corregir producto:
+hay que definir cómo conservar la exclusión hasta el ingreso cuando este sea futuro.
+No se probó con datos del club ni se afirma que exista allí un alumno de ese tipo.
+
+### H4 — N+1 en el detalle, anterior a T52
+
+`app/Http/Controllers/ClaseWebController.php:315` llama por cada alumno a
+`ClaseService::contarAsistenciasSemana` (`app/Services/ClaseService.php:217`).
+Con planes asignados: **12 consultas para 1 alumno y 45 para 12**, tres por cada alumno
+adicional (asistencias, asignación y plan). SQL guardado en la evidencia.
+Se contrastó con `git show 2dfbf243^:app/Http/Controllers/ClaseWebController.php`:
+el bucle y la llamada ya existían. El criterio de ausencia de N+1 no pasa; no se atribuye
+una regresión de rendimiento nueva a T52.
+
+## Backfill histórico: límite confirmado
+
+Pasan los casos de primer plan igual al ingreso, alumno sin plan y plan anterior al ingreso
+(se conserva el ingreso como mínimo).
+También se reprodujo un cambio a B del 5/10 con plan B diferido al 1/11. Tras el backfill
+del 20/10, `grupo_desde` queda en 20/10 y el alumno no aparece en la clase B del 10/10 sin
+marca previa. La fecha histórica real del cambio no se puede recuperar de esas dos fechas.
+Es una limitación de la aproximación declarada; no se certifica reconstrucción histórica
+exacta ni se inventa una fecha para corregirla. Las marcas previas tienen su excepción
+independiente y se conservan por `orWhereIn`.
+
+## Fuentes y límites
+
+Se consultó codebase-memory primero; `check_index_coverage` devolvió
+`coverage_unavailable / metadata_changed` para las fuentes utilizadas. Las conclusiones
+se contrastan con los cuerpos de los archivos reales, no con la cobertura del índice.
+Las [huellas iniciales](evidencia-t52-codex/fuentes-antes.json) permiten comprobar cambios
+durante la revisión de la carpeta compartida.
+
+### Caminos de escritura examinados
+
+- Alta web y edición: `AlumnoWebController`, creación y actualización por modelo.
+- Primera carga Excel: `PrimeraCargaExcelService::confirmar`, `Alumno::create` seguido de
+  `forceFill(...)->save()`. Dispara el evento de creación de `grupo_desde`.
+- Reactivación manual: `AlumnoWebController::toggleActivo`, actualiza `activo`, sin cambiar grupo.
+- Reactivación al cobrar: `PagoCuotaService` usa actualizaciones masivas de `activo`, sin
+  modificar `grupo_id` ni `fecha_alta`; no necesita disparar el evento de grupo por ese cambio.
+- `CambioPlanService::cambiar` modifica asignaciones de plan; el grupo se cambia en la edición
+  web antes de aplicar el plan. El plan puede comenzar el mes siguiente.
+- Los controladores API usan modelos; la API continúa deshabilitada en `bootstrap/app.php`.
+- Búsqueda literal de `grupo_id` y escrituras de alumnos en `app/`: no se encontró una escritura
+  masiva de grupo que eluda el evento. Esta conclusión no abarca SQL externo al repositorio.
+
+### Pruebas originales
+
+Se leyeron completas las siete pruebas de `ClaseListaHaciaAdelanteT52Test`.
+Cubren marcas presentes y ausentes conservadas, cambio/baja, corrección con motivo,
+rechazo de otro grupo o llegada posterior y lectura por profesora.
+La prueba del modelo cambia de grupo en un día distinto del ingreso; no cubre la coincidencia
+de ambas fechas. No ejecuta el backfill sobre alumnos existentes ni mide consultas.
+
+`CancelarLiquidacionCerradaTest`: el cambio de `dd45ce0e` agrega únicamente el ingreso
+2026-08-01 a un alumno cuya clase es 2026-08-10. Conserva las comprobaciones de HTTP 422,
+ausencia de escritura, cancelación administrativa y posterior guardado permitido.
+No se retiró ninguna protección ni se redujo una aserción.
+
+## Ejecución
+
+Las [reproducciones independientes](evidencia-t52-codex/T52VerificacionTest.php) viven fuera
+de `tests/`, para no alterar el contador permanente ni las pruebas originales.
+Tienen una guarda que exige entorno `testing` y base `wings_testing_codex`.
+
+Reproducciones: **8 pruebas, 51 aserciones, 4 fallidas, 28,564 s, salida 1**.
+[Salida](evidencia-t52-codex/pruebas-independientes.txt) ·
+[Código de salida](evidencia-t52-codex/pruebas-independientes.exit) ·
+[Filas observadas y SQL](evidencia-t52-codex/observaciones.jsonl).
+Hubo una primera ejecución de siete casos (45 aserciones, los mismos cuatro fallos);
+se repitió la selección completa al agregar el caso histórico de backfill.
+
+Comprobaciones independientes aprobadas: cambio de grupo inmediato por PUT con mes pagado
+y plan nuevo al 1/11; reactivación manual conserva la fecha del grupo y ADMIN/OPERATIVO/
+PROFESOR reciben la misma lista; cerradas HORA/COMISIÓN, pendientes/pagadas, rechazan el POST
+de ADMIN y OPERATIVO con 422 y conservan exactamente liquidación, detalles y asistencia.
+Las pagadas son fixtures sintéticos para comprobar el bloqueo, no cobros realizados.
+La reactivación no reconstruye intervalos históricos de inactividad.
+
+Dirigidas: **74 aprobadas, 412 aserciones, 21,52 s, salida 0**.
+Selección: T52, CancelarLiquidacionCerrada, T66, T34/T67, AsistenciaClaseFutura,
+AsistenciasAtomicidad, ClasesCanceladasHoy y EditarClase.
+[Salida](evidencia-t52-codex/dirigidas.txt) · [Código de salida](evidencia-t52-codex/dirigidas.exit).
+
+Pendiente: resultado de suite completa, iniciada a las 09:18:31 sin otra suite activa.
+T52 devuelta a Claude con el script del tablero: corregir H1–H3 y resolver el criterio H4;
+visual aprobado conservado. Sin cambios de producto ni despliegue.

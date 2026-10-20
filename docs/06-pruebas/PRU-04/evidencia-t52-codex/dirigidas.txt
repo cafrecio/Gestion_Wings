@@ -1,0 +1,94 @@
+
+   PASS  Tests\Feature\AsistenciaClaseFuturaTest
+  ✓ no se toma asistencia de una clase de manana                                                                 8.19s  
+  ✓ sin javascript vuelve con el aviso y no guarda                                                               0.11s  
+  ✓ el dia de la clase si se toma                                                                                0.12s  
+  ✓ una clase pasada sin lista se carga sin motivo                                                               0.11s  
+  ✓ el limite es la medianoche de wings                                                                          0.15s  
+  ✓ el servicio tambien lo rechaza                                                                               0.10s  
+  ✓ la pantalla de una clase futura avisa y no ofrece guardar                                                    0.20s  
+  ✓ la pantalla de una clase de hoy no cambia                                                                    0.15s  
+
+   PASS  Tests\Feature\AsistenciasAtomicidadTest
+  ✓ un fallo intermedio no deja asistencias parciales                                                            0.21s  
+  ✓ rechaza alumno que no pertenece al grupo de la clase                                                         0.11s  
+
+   PASS  Tests\Feature\CancelarLiquidacionCerradaTest
+  ✓ admin cancela liquidacion cerrada no pagada                                                                  0.26s  
+  ✓ liquidacion pagada es intocable y rechaza cancelacion                                                        0.23s  
+  ✓ operativo profesor y anonimo son rechazados al cancelar                                                      0.20s  
+  ✓ liquidacion cerrada bloquea asistencias y cancelada las desbloquea                                           0.25s  
+  ✓ bloqueo de asistencia en liquidacion comision cerrada                                                        0.26s  
+  ✓ regenerar liquidacion tras cancelacion vincula reemplazada por                                               0.23s  
+  ✓ idempotencia cancelacion                                                                                     0.12s  
+  ✓ modelo impide modificar o eliminar liquidacion cancelada                                                     0.09s  
+  ✓ modelo impide editar campos de liquidacion cancelada salvo reemplazo                                         0.11s  
+
+   PASS  Tests\Feature\ClaseListaHaciaAdelanteT52Test
+  ✓ la clase vieja sigue mostrando a quien tenia marca                                                           0.18s  
+  ✓ hoy cada uno aparece solo en su grupo y la baja en ninguno                                                   0.14s  
+  ✓ corregir la lista vieja acepta a quien ya no esta y no pierde marcas                                         0.20s  
+  ✓ quien no es del grupo ni tiene marca sigue rechazado                                                         0.13s  
+  ✓ quien entro al grupo despues no aparece en la clase vieja                                                    0.21s  
+  ✓ la fecha en el grupo se completa sola                                                                        0.19s  
+  ✓ la profesora ve la misma lista vieja                                                                         0.23s  
+
+   PASS  Tests\Feature\ClaseProfesoraObligatoriaT66Test
+  ✓ alta unica rechaza ausencia vacio null y formato invalido                                                    0.15s  
+  ✓ serie sin profesora no crea ninguna clase                                                                    0.09s  
+  ✓ una profesora valida permite alta unica y serie completa                                                     0.23s  
+  ✓ profesora inactiva ajena o inexistente no cuenta en ninguna entrada                                          0.21s  
+  ✓ edicion y reasignacion no permiten quitar todas ni escribir parcialmente                                     0.15s  
+  ✓ reemplazar por una valida y guardar sin cambios sigue permitido                                              0.16s  
+  ✓ omitir profesoras en edicion y reasignacion tambien se rechaza                                               0.10s  
+  ✓ primera asignacion a pasada historica sin profesora no exige motivo                                          0.08s  
+  ✓ serie con solape posterior revierte todas las clases                                                         0.14s  
+  ✓ cambio pasado exige motivo y lo guarda                                                                       0.15s  
+  ✓ cancelada no admite reasignacion ni edicion que cambie profesoras                                            0.17s  
+  ✓ liquidacion cerrada bloquea y cancelarla permite conservar historial                                         0.28s  
+  ✓ pagada no permite forzar el cambio con confirmacion                                                          0.19s  
+  ✓ comision cerrada bloquea aunque no haya detalle directo de clase                                             0.13s  
+  ✓ permisos conservan operativo hoy y profesor sin reasignar                                                    0.20s  
+  ✓ formularios indican minimo y error conserva los datos                                                        0.18s  
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.32s  
+  ✓ permisos filtro sin presentes                                                                                0.25s  
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.20s  
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.14s  
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.29s  
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.25s  
+  ✓ c1 consultas no crecen por tarjeta en listado de clases                                                      0.40s  
+  ✓ c1 contador se actualiza entre peticiones sucesivas                                                          0.15s  
+  ✓ c2 generacion rechazada no deja validaciones persistidas                                                     0.19s  
+  ✓ c2 incluir hoy no modifica clases ajenas al periodo solicitado                                               0.19s  
+  ✓ c2 incluir hoy en periodo vigente valida clases y genera correctamente                                       0.23s  
+
+   PASS  Tests\Feature\ClasesCanceladasHoyTest
+  ✓ admin y operativo ven clase cancelada de hoy en bloque hoy                                                   0.21s  
+  ✓ profesora ve su clase cancelada en tus clases y otra en otras clases                                         0.13s  
+  ✓ clase cancelada de hoy aparece al final despues de las clases en pie                                         0.16s  
+  ✓ encabezado de hoy no cuenta las canceladas como clases a dar                                                 0.16s  
+  ✓ si todas las de hoy estan canceladas se ven y no muestra cartel vacio                                        0.18s  
+  ✓ filtro cancelada encuentra la clase cancelada de hoy                                                         0.19s  
+  ✓ sin filtros no repite clases de hoy en listado inferior                                                      0.15s  
+  ✓ asistencia sigue bloqueada en clase cancelada de hoy                                                         0.12s  
+  ✓ contador sin asistencia no cuenta clases canceladas de hoy                                                   0.12s  
+
+   PASS  Tests\Feature\EditarClaseTest
+  ✓ fecha pasada no se mueve                                                                                     0.13s  
+  ✓ futura no se mueve al pasado                                                                                 0.11s  
+  ✓ horario pasado exige y guarda motivo sin asistencia                                                          0.14s  
+  ✓ profesor existente bloquea solape y revierte fecha y lista                                                   0.18s  
+  ✓ presentes se validan hoy y pasado con rollback completo                                                      0.19s  
+  ✓ liquidacion cerrada bloquea abierta permite                                                                  0.24s  
+  ✓ pasada ignora profesores y guardar sin cambios no pide motivo                                                0.12s  
+  ✓ hoy permite contiguas sin autosolape pero exige una profesora                                                0.15s  
+  ✓ profesor agregado se valida sin mover horario                                                                0.11s  
+  ✓ hoy permite fecha futura y nuevo profesor sin motivo                                                         0.11s  
+  ✓ presente propio no bloquea y ausente en otra no cuenta                                                       0.10s  
+  ✓ pantalla pasada muestra motivo y controles protegidos                                                        0.19s  
+
+  Tests:    74 passed (412 assertions)
+  Duration: 21.52s
+
