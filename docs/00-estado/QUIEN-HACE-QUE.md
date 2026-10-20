@@ -42,9 +42,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Segunda parte hecha por Claude CyE el 20/10: quien entró al grupo después de una clase no aparece en ella (alumnos.grupo_desde). Visual aprobado por Carlos el 20/10 («Las vistas están OK»); esta parte no cambia la pantalla. Falta verificar la lógica (Gemini). Requiere migrar al desplegar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T52.md |
+Nada.
 
 ## Claude
 
@@ -56,6 +54,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Codex verifica solo la lógica de ambas partes de T52; visual aprobado por Carlos. Informe VERIFICACION-T52-CODEX.md, sin correcciones. |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex) | Integración con T52 y suite completa verdes (952/4 omitidas). Tras reinstalar dependencias, Codex completa Chrome/celular; faltan verificación cruzada y visual de Carlos. |
 
 ## Gemini
