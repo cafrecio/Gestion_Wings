@@ -33,8 +33,8 @@ class CatalogosSeederTest extends TestCase
 
         $this->assertDatabaseCount('deportes', 2);
         $this->assertDatabaseCount('niveles', 3);
-        $this->assertDatabaseCount('rubros', 12);
-        $this->assertDatabaseCount('subrubros', 19);
+        $this->assertDatabaseCount('rubros', 14);
+        $this->assertDatabaseCount('subrubros', 21);
         $this->assertDatabaseCount('tipos_caja', 5);
         $this->assertDatabaseCount('reglas_primer_pago', 3);
         $this->assertDatabaseCount('users', 0);

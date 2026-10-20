@@ -1,0 +1,27 @@
+
+   PASS  Tests\Feature\CatalogosSeederTest
+  ✓ database seeder deja solo los catalogos base                                                                12.68s
+  ✓ es idempotente y la segunda ejecucion no modifica filas                                                      0.17s
+
+   PASS  Tests\Feature\ClasificacionSubrubrosT16Test
+  ✓ el catalogo de una instalacion nueva no deja ningun subrubro sin clasificar                                  0.27s
+  ✓ una instalacion existente queda clasificada y lo ya cobrado empieza a contar                                 0.34s
+  ✓ el formulario pide la clasificacion y un subrubro nuevo nace del club                                        0.21s
+  ✓ clasificar un subrubro viejo desde el formulario hace contar sus movimientos                                 0.38s
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo nuevo tiene dos conceptos admin activos y la etiqueta en ambos tipos                                0.14s
+  ✓ csh018 carga 300mil efectivo a banco sin alterar el resultado del club                                       0.25s
+  ✓ inicio y reportes conservan indicadores y sueldos y alumnos no cambian                                       0.50s
+  ✓ salida y entrada de meses distintos no alteran negocio pero si global de cada mes                            0.30s
+  ✓ no obliga a emparejar importes fechas ni registros                                                           0.16s
+  ✓ operativa no ve conceptos ni puede cargarlos por envio directo                                               0.18s
+  ✓ formulario acepta traspaso en ambos tipos y rechaza clasificaciones ajenas                                   0.23s
+  ✓ migracion existente dos veces no duplica y no pisa clasificaciones                                           0.16s
+  ✓ migracion completa vacio compatible sin reclasificar fotos historicas                                        0.14s
+  ✓ editar y anular conserva clasificacion fecha y saldo del traspaso                                            0.20s
+  ✓ cambio del catalogo no reescribe traspaso ni su correccion o anulacion                                       0.21s
+  ✓ saldos cashflow son actuales aunque filtre otro mes y distinguen pendientes                                  0.15s
+
+  Tests:    18 passed (218 assertions)
+  Duration: 17.20s

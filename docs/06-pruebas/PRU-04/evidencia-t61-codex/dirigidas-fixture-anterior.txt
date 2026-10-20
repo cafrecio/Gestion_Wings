@@ -1,0 +1,44 @@
+
+   PASS  Tests\Feature\CatalogosSeederTest
+  ✓ database seeder deja solo los catalogos base                                                                11.01s
+  ✓ es idempotente y la segunda ejecucion no modifica filas                                                      0.22s
+
+   PASS  Tests\Feature\ClasificacionSubrubrosT16Test
+  ✓ el catalogo de una instalacion nueva no deja ningun subrubro sin clasificar                                  0.18s
+  ✓ una instalacion existente queda clasificada y lo ya cobrado empieza a contar                                 0.28s
+  ✓ el formulario pide la clasificacion y un subrubro nuevo nace del club                                        0.28s
+  ✓ clasificar un subrubro viejo desde el formulario hace contar sus movimientos                                 0.25s
+
+   FAIL  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo nuevo tiene dos conceptos admin activos y la etiqueta en ambos tipos                                0.16s
+  ✓ csh018 carga 300mil efectivo a banco sin alterar el resultado del club                                       1.11s
+  ✓ inicio y reportes conservan indicadores y sueldos y alumnos no cambian                                       0.48s
+  ⨯ salida y entrada de meses distintos no alteran negocio pero si global de cada mes                            0.21s
+  ✓ no obliga a emparejar importes fechas ni registros                                                           0.16s
+  ✓ operativa no ve conceptos ni puede cargarlos por envio directo                                               0.16s
+  ✓ formulario acepta traspaso en ambos tipos y rechaza clasificaciones ajenas                                   0.14s
+  ✓ migracion existente dos veces no duplica y no pisa clasificaciones                                           0.13s
+  ✓ migracion completa vacio compatible sin reclasificar fotos historicas                                        0.13s
+  ✓ editar y anular conserva clasificacion fecha y saldo del traspaso                                            0.25s
+  ✓ cambio del catalogo no reescribe traspaso ni su correccion o anulacion                                       0.22s
+  ✓ saldos cashflow son actuales aunque filtre otro mes y distinguen pendientes                                  0.28s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\TraspasosEntreMediosT61Test > salida y entrada de meses distintos no alteran negocio pero s…
+  Failed asserting that 30000000 is identical to -30000000.
+
+  at tests\Feature\TraspasosEntreMediosT61Test.php:160
+    156▕         $this->assertSame(0, $octubre['resultado']);
+    157▕         $this->assertSame(0, $octubre['sin_clasificar']);
+    158▕         $sept = collect($septiembre['cajas'])->keyBy('id');
+    159▕         $oct = collect($octubre['cajas'])->keyBy('id');
+  ➜ 160▕         $this->assertSame($sept[$this->efectivo->id]['total'], $oct[$this->efectivo->id]['total']);
+    161▕         $this->assertSame($sept[$this->banco->id]['total'] + 30000000, $oct[$this->banco->id]['total']);
+    162▕     }
+    163▕
+    164▕     public function test_no_obliga_a_emparejar_importes_fechas_ni_registros(): void
+
+  1   tests\Feature\TraspasosEntreMediosT61Test.php:160
+
+
+  Tests:    1 failed, 17 passed (217 assertions)
+  Duration: 16.06s

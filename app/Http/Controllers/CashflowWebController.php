@@ -10,6 +10,8 @@ use App\Models\Pago;
 use App\Models\Rubro;
 use App\Models\TipoCaja;
 use App\Services\CashflowService;
+use App\Services\ReporteMensualService;
+use App\Support\RegistroReporteDisponible;
 use App\Rules\ImportePesos;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -203,7 +205,7 @@ class CashflowWebController extends Controller
                 CashflowMovimiento::REF_PAGO_CUOTA => 'Cobro del dueño',
                 CashflowMovimiento::REF_LIQUIDACION => 'Liquidación pagada',
                 CashflowMovimiento::REF_CORRECCION => 'Anulación de directo',
-                default => match ($mov->reporte_clasificacion) {'APORTE' => 'Aporte', 'RETIRO' => 'Retiro', default => 'Directo'},
+                default => match ($mov->reporte_clasificacion) {'APORTE' => 'Aporte', 'RETIRO' => 'Retiro', 'TRASPASO' => 'Traspaso', default => 'Directo'},
             };
             $acciones = [];
             if ($correccionesDisponibles && $mov->puedeCorregirse()) {
@@ -225,11 +227,16 @@ class CashflowWebController extends Controller
             $mov->accionesCorreccion = $acciones;
         }
 
+        // Saldos actuales del mismo libro de Reportes, independientes del filtro del listado.
+        $saldosPorMedio = RegistroReporteDisponible::existe()
+            ? app(ReporteMensualService::class)->obtener(today()->format('Y-m'))['cajas']
+            : null;
+
         return view('cashflow.index', compact(
             'movimientos', 'tiposCaja', 'aniosDisponibles',
             'anio', 'mes', 'tipoCajaId', 'tipo',
             'totalIngresos', 'totalEgresos', 'modo', 'fechaReferencia', 'periodoTexto',
-            'correccionesDisponibles', 'enCajasEditables', 'liquidacionesPendientes'
+            'correccionesDisponibles', 'enCajasEditables', 'liquidacionesPendientes', 'saldosPorMedio'
         ));
     }
 

@@ -183,6 +183,42 @@ La autorización de diseño no equivale a verificación independiente ni desplie
 - API REST sigue deshabilitada. La aprobación visual de la propuesta no equivale
   a verificación de estas reglas ni a despliegue.
 
+## Traspasos entre medios propios — T61
+
+Decisión de Carlos, DU-29/CSH-018; nombres confirmados el 20/10/2026.
+Implementación integrada y suite conjunta verde al 20/10/2026; recorrido visual y verificación cruzada pendientes. [Control CyE](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md).
+
+- Se registran **dos movimientos comunes e independientes de Cashflow**. No hay una
+  entidad nueva, un vínculo entre ambos ni una exigencia de igual importe o fecha.
+- EGRESO: rubro **Transferencias internas — salidas**, subrubro **Salida a otro medio**.
+  INGRESO: rubro **Transferencias internas — entradas**, subrubro **Entrada desde otro medio**.
+  Ambos nacen activos, `permitido_para=ADMIN`, `afecta_caja=true`, clasificación `TRASPASO`.
+  La operativa no los ve ni puede cargarlos por envío directo.
+- Clasificaciones: `NEGOCIO` cuenta para ingresos/gastos y resultado del club;
+  `APORTE` y `RETIRO` van a sus indicadores de dueños; `TRASPASO` no va a ninguno de
+  esos cuatro indicadores ni a «sin clasificar». TRASPASO es válido en ambos tipos.
+  Su etiqueta es «Traspaso entre medios (no cuenta en el resultado)».
+- El saldo de cada medio sí cambia, por el importe firmado de cada movimiento.
+  Ejemplo: salida de $300.000 en Efectivo e ingreso de $300.000 en Banco reducen el
+  primero y aumentan el segundo por $300.000, sin variar el resultado del club.
+- «Resultado global» conserva todos los movimientos del mes. Si sale $300.000 en
+  septiembre y entra en octubre, el global de septiembre baja $300.000 y el de
+  octubre sube $300.000. El resultado del club no cambia en ninguno de los dos meses.
+  No se fuerza un emparejamiento para ocultar esa diferencia temporal.
+- Cashflow identifica el origen como «Traspaso». Carlos pidió «Mostrarlo también en
+  Cashflow»: la tarjeta de saldos por medio muestra el corte actual compartido con
+  Reportes, independiente del período/filtros del listado. Distingue confirmado y
+  dinero en cajas sin validar cuando lo hay; los totales de movimientos siguen
+  correspondiendo solo al listado de Cashflow. Carlos confirmó «Cashflow muestra lo que entró y salió»: TRASPASO sí suma en esos totales de movimientos, sin alterar los indicadores del club en Inicio y Reportes. No volver a consultar esta decisión.
+- La clasificación queda guardada por movimiento. Editar importe/medio del mismo
+  concepto la conserva; anular conserva original y contraasiento con la misma foto
+  histórica. Cambiar el catálogo después no reclasifica esos movimientos.
+- Catálogo compartido por seeder y migración idempotente: no duplica nombres ni pisa
+  clasificaciones existentes. Un subrubro previo vacío se completa solo si el tipo
+  es compatible; no se mueve ni se reescribe su historia. Una colisión de nombre de
+  rubro con otro tipo se rechaza, sin crear otro nombre por iniciativa del agente.
+- La ayuda es T13. T61 deja el texto listo en [«Para la ayuda»](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#para-la-ayuda), sin construir esa pantalla.
+
 ### Aceptación de T27
 
 `CashflowCorreccionesT27Test` y `CashflowCorreccionesConcurrentesT27Test` cubren

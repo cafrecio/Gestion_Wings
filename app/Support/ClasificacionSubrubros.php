@@ -5,7 +5,7 @@ namespace App\Support;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Qué es cada subrubro para Inicio y Reportes: plata del club, o plata de los dueños.
+ * Qué es cada subrubro para Inicio y Reportes: club, dueños o traspaso entre medios propios.
  *
  * T16 (10/10/2026): la columna se agregó el 09/10 y solo se completó para los sueldos.
  * En una instalación que ya existía, «Cuota Mensual» quedó sin clasificar y todo lo
@@ -16,11 +16,13 @@ class ClasificacionSubrubros
     public const NEGOCIO = 'NEGOCIO';
     public const APORTE = 'APORTE';
     public const RETIRO = 'RETIRO';
+    public const TRASPASO = 'TRASPASO';
 
     public const ETIQUETAS = [
         self::NEGOCIO => 'Del club',
         self::APORTE => 'Aporte de los dueños',
         self::RETIRO => 'Retiro de los dueños',
+        self::TRASPASO => 'Traspaso entre medios (no cuenta en el resultado)',
     ];
 
     /**
@@ -50,10 +52,45 @@ class ClasificacionSubrubros
             'subrubro' => 'Pago al organizador', 'clasificacion' => self::NEGOCIO],
     ];
 
+    /** T61: nombres distintos confirmados por Carlos el 20/10/2026. */
+    public const TRASPASOS = [
+        ['rubro' => 'Transferencias internas — salidas', 'tipo' => 'EGRESO', 'subrubro' => 'Salida a otro medio'],
+        ['rubro' => 'Transferencias internas — entradas', 'tipo' => 'INGRESO', 'subrubro' => 'Entrada desde otro medio'],
+    ];
+
     /** Un aporte solo puede entrar y un retiro solo puede salir. */
     public static function permitidas(string $tipoRubro): array
     {
-        return $tipoRubro === 'INGRESO' ? [self::NEGOCIO, self::APORTE] : [self::NEGOCIO, self::RETIRO];
+        return $tipoRubro === 'INGRESO' ? [self::NEGOCIO, self::APORTE, self::TRASPASO] : [self::NEGOCIO, self::RETIRO, self::TRASPASO];
+    }
+
+    /** Solo incorpora el catálogo T61; no reclasifica movimientos ni pisa decisiones previas. */
+    public static function aplicarTraspasos(): void
+    {
+        DB::transaction(function () {
+            foreach (self::TRASPASOS as $nuevo) {
+                $existente = DB::table('subrubros')->where('nombre', $nuevo['subrubro'])->first();
+                if ($existente) {
+                    // Como T16: completar solo un vacío compatible, sin mover ni duplicar.
+                    DB::table('subrubros')->where('id', $existente->id)->whereNull('clasificacion_resultado')
+                        ->whereIn('rubro_id', DB::table('rubros')->where('tipo', $nuevo['tipo'])->select('id'))
+                        ->update(['clasificacion_resultado' => self::TRASPASO]);
+                    continue;
+                }
+                $rubro = DB::table('rubros')->where('nombre', $nuevo['rubro'])->first();
+                if ($rubro && $rubro->tipo !== $nuevo['tipo']) {
+                    throw new \RuntimeException('El rubro '.$nuevo['rubro'].' ya existe con otro tipo. Revisá el catálogo antes de migrar.');
+                }
+                $rubroId = $rubro?->id ?? DB::table('rubros')->insertGetId([
+                    'nombre' => $nuevo['rubro'], 'tipo' => $nuevo['tipo'],
+                    'observacion' => 'Transferencia entre medios propios; no cuenta en el resultado del club',
+                    'created_at' => now(), 'updated_at' => now(),
+                ]);
+                DB::table('subrubros')->insert(['rubro_id' => $rubroId, 'nombre' => $nuevo['subrubro'],
+                    'permitido_para' => 'ADMIN', 'afecta_caja' => true, 'activo' => true,
+                    'clasificacion_resultado' => self::TRASPASO, 'created_at' => now(), 'updated_at' => now()]);
+            }
+        });
     }
 
     /** Completa lo que falta en una instalación existente. Nunca pisa una clasificación ya puesta. */

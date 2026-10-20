@@ -1,0 +1,35 @@
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo nuevo tiene dos conceptos admin activos y la etiqueta en ambos tipos                                9.28s
+  ✓ csh018 carga 300mil efectivo a banco sin alterar el resultado del club                                       0.76s
+  ✓ inicio y reportes conservan indicadores y sueldos y alumnos no cambian                                       1.07s
+  ✓ salida y entrada de meses distintos no alteran negocio pero si global de cada mes                            0.28s
+  ✓ no obliga a emparejar importes fechas ni registros                                                           0.20s
+  ✓ operativa no ve conceptos ni puede cargarlos por envio directo                                               0.27s
+  ✓ formulario acepta traspaso en ambos tipos y rechaza clasificaciones ajenas                                   0.36s
+  ✓ migracion existente dos veces no duplica y no pisa clasificaciones                                           0.25s
+  ✓ migracion completa vacio compatible sin reclasificar fotos historicas                                        0.21s
+  ✓ editar y anular conserva clasificacion fecha y saldo del traspaso                                            0.30s
+  ✓ cambio del catalogo no reescribe traspaso ni su correccion o anulacion                                       0.38s
+  ✓ saldos cashflow son actuales aunque filtre otro mes y distinguen pendientes                                  0.42s
+
+   PASS  Tests\Feature\ClaseListaHaciaAdelanteT52Test
+  ✓ la clase vieja sigue mostrando a quien tenia marca                                                           0.97s
+  ✓ hoy cada uno aparece solo en su grupo y la baja en ninguno                                                   0.20s
+  ✓ corregir la lista vieja acepta a quien ya no esta y no pierde marcas                                         0.22s
+  ✓ quien no es del grupo ni tiene marca sigue rechazado                                                         0.09s
+  ✓ la profesora ve la misma lista vieja                                                                         0.07s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.02s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas
+  ✓ lo generado coincide con tareas json                                                                         0.01s
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+  Tests:    24 passed (239 assertions)
+  Duration: 15.58s

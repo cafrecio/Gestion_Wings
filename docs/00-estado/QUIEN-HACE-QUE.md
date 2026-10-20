@@ -45,7 +45,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 20/10: la clase vieja conserva a quien tiene marca (Cambió de grupo / De baja) y corregirla ya no lo rechaza. 5 pruebas, Chrome 1366/375. Falta verificador de lógica y el visual de Carlos. |
-| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex) | Entrega c9b68d2 en codex/t61-traspasos. Codex retoma recorrido visual desde CyE 1366/375; luego integración con main y verificación independiente. |
 
 ## Claude
 
@@ -53,7 +52,9 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex) | Integración con T52 y suite completa verdes (952/4 omitidas). Tras reinstalar dependencias, Codex completa Chrome/celular; faltan verificación cruzada y visual de Carlos. |
 
 ## Gemini
 

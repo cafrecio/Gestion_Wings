@@ -1,0 +1,23 @@
+{
+  "procesosAjenos": [],
+  "criterio": "El monitor simple no reconocía al nieto phpunit 21732 por el cmd intermedio 25052; filiación real comprobada en cadena-procesos-suite.json. Se conserva el dato bruto.",
+  "procesosPropiosExcluidos": [
+    {
+      "ProcessId": 21732,
+      "ParentProcessId": 25052,
+      "CreationDate": "2026-10-20T06:28:57.118936-03:00",
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--configuration=C:\\Users\\cafre\\.codex\\worktrees\\t61-traspasos\\gestion-wings\\phpunit.xml\" --no-output"
+    }
+  ],
+  "raizPropia": 32292,
+  "intervaloSegundos": 5,
+  "observaciones": 167,
+  "procesosNoHijosDirectosDetectados": [
+    {
+      "ProcessId": 21732,
+      "ParentProcessId": 25052,
+      "CreationDate": "2026-10-20T06:28:57.118936-03:00",
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--configuration=C:\\Users\\cafre\\.codex\\worktrees\\t61-traspasos\\gestion-wings\\phpunit.xml\" --no-output"
+    }
+  ]
+}

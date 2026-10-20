@@ -103,9 +103,12 @@ reescribir un historial que ya existe.
 **Enmienda B12/A23, Carlos 09/10/2026:** el resultado excluye aportes y retiros.
 La frase histórica de abajo no define el campo operativo `afecta_caja`: Luz,
 Internet, Intereses y Sueldos también lo tienen en falso y sí son económicos.
-En Reportes se usa clasificación independiente NEGOCIO/APORTE/RETIRO, conservada
+En Reportes se usa clasificación independiente NEGOCIO/APORTE/RETIRO/TRASPASO, conservada
 por movimiento. Lo anterior sin clasificación requiere revisión; no inferirlo de
 `afecta_caja`. [Acuerdo y alcance](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).
+
+T61 (20/10/2026) agrega TRASPASO entre medios propios, también fuera del resultado
+del club y de aportes/retiros. [Regla vigente y ejemplo en V5](Wings-Contrato-Caja-Cashflow-V5.md#traspasos-entre-medios-propios--t61).
 
 Los subrubros marcados como que **no afectan caja** estaban mal nombrados: no es que no
 muevan plata, es que **no generan un resultado**.

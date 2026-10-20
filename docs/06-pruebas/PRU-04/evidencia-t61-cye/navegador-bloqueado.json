@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-10-20",
+  "maquina": "VENTAS_CYE",
+  "evidencia_usuario": "navegador-habilitado-carlos.png",
+  "declaracion_usuario": "No cambie nada, estaba asi",
+  "comprobaciones": [
+    {
+      "accion": "cua.getState",
+      "resultado": "Browsers: Error: Local browser use is disabled in Work settings"
+    },
+    {
+      "accion": "reinicio de conexion CUA y cua.getState",
+      "resultado": "Mismo rechazo, navegadores vacios"
+    },
+    {
+      "accion": "cua.createBrowserTab iab a http://127.0.0.1:8761/login",
+      "resultado": "Local browser use is disabled in Work settings"
+    }
+  ],
+  "causa": "No comprobada"
+}

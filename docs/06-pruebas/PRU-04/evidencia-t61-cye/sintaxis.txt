@@ -1,0 +1,8 @@
+No syntax errors detected in app/Http/Controllers/CashflowWebController.php
+No syntax errors detected in app/Http/Controllers/SubrubroWebController.php
+No syntax errors detected in app/Support/ClasificacionSubrubros.php
+No syntax errors detected in database/migrations/2026_10_20_120000_agregar_traspasos_entre_medios.php
+No syntax errors detected in database/seeders/CatalogosSeeder.php
+No syntax errors detected in tests/Feature/CatalogosSeederTest.php
+No syntax errors detected in tests/Feature/SaldoInicialTipoCajaTest.php
+No syntax errors detected in tests/Feature/TraspasosEntreMediosT61Test.php

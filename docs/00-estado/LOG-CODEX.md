@@ -1,5 +1,28 @@
 # Wings — Bitácora activa de CODEX
 
+
+[Entradas anteriores archivadas al continuar T61 desde CyE](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-CONTINUIDAD-CYE.md).
+
+## 2026-10-20 — Codex CyE — T61, integración y recorrido real en curso
+
+Carlos pidió completar T61. Se combina c9b68d2 con main c2721d8d, conservando T52; 956 métodos.
+24 dirigidas/239 aserciones verdes en repetición aislada; completa 952 aprobadas/4 omitidas, 8455 aserciones, 1102,57 s, salida 0, wings_testing_codex. Error propio: primera corrida solapada con otra lanzada al diagnosticarla, no válida para entregar.
+Revisión de código por subagente independiente aprobada, sin certificar ejecución ni reemplazar el control cruzado del tablero.
+Chrome real con base ficticia separada: salida/entrada de $300.000 por formulario; saldos cambian y resultado del club conserva $7.000. Inicio/Reportes/Cashflow contrastados, capturas escritorio guardadas.
+Build y PHP correctos. Después, navegador deshabilitado en Work; Carlos mostró el interruptor encendido; reiniciar conexión CUA y pedir navegador integrado devuelve el mismo rechazo. Carlos reinstala dependencias al quedar guardado el avance.
+[Control actual](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md). Pendientes celular, resto de pantallas/operativa, control cruzado y aprobación visual. Sin cierre ni despliegue.
+
+## 2026-10-20 — Codex CAB — T61, implementada; visual pendiente desde CyE
+
+Carlos aprobó rubros «Transferencias internas — salidas / entradas», saldos en Cashflow y sus totales con entradas/salidas.
+TRASPASO en ambos tipos; dos movimientos independientes ADMIN, migración y seeder idempotentes.
+Origen y explicación del global actualizados; resultado del club, aportes y retiros conservados.
+12 nuevas; dirigidas 26/376 verdes. Completa aislada 947/4 omitidas, 8425 aserciones, 901,60 s; fuente intacta, sin suite ajena detectada. Build/vistas/sintaxis verdes.
+Chrome pendiente: herramienta deshabilitada pese al interruptor encendido; reiniciar la app y la sesión CUA no lo resolvió. Carlos: recorrido pendiente desde CyE (Codex).
+[Informe y texto para T13](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). T61 a_verificar; lógica por otro agente, visual por Carlos. Sin servidor ni despliegue.
+[Entrada T75 archivada intacta](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-ARRANQUE.md).
+
+
 ## 2026-10-20 — Codex CAB — Higiene T61 y continuidad desde CyE
 
 27 copias viejas retiradas de la carpeta principal, previa verificación de respaldo y entrega remota.
@@ -82,60 +105,3 @@ T67: controles de DNI por tres roles, homónimos, ceros, DNI ausente, accesos y 
 26 pruebas específicas: 23 pasan y 3 reproducen los dos huecos T34; 246 aserciones. Clases compartidas y detalle económico conservado comprobados. Navegador: nueve medidas y tres interacciones sin desbordes.
 [Informe, límites y reproducción](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md). Suite permanente: 882 aprobadas, 3 omitidas, 7823 aserciones, 1399.67 s, salida 0, corte 885, solo wings_testing_codex.
 T34 devuelta a Gemini; T67 cerrada por Codex. Fuentes de Clases intactas; cambios paralelos de otros módulos no certificados. Sin despliegue ni mensaje a otros chats.
-
-## 2026-10-19 — Codex CAB — T44, Nuevo separado del título
-
-Carlos rechazó Nuevo junto al título en Crear/Editar, celular y escritorio.
-Separados en _form; Design Rules §1.1/§6/checklist y skill explicitan la regla en todos los anchos.
-Tres respuestas reales y nueve medidas 360/375/1366; seis controles de ubicación y agregar fila correctos.
-Sin lógica financiera, JS ni CSS. Suite: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s en wings_testing_codex, salida 0.
-[Capturas, solo dos formularios](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html).
-Carlos aprobó ambas pantallas el 19/10: «Ok, pasan» (verifica visual=Carlos). T44 sigue con Claude para reglas/código; sin otra revisión visual de IA ni despliegue.
-
-## 2026-10-18 — Codex CAB — T44, vigencia de precios y cambios de plan
-
-T44 implementada localmente: historial de tarifas y resolución común por alumno/mes.
-Bajas al siguiente mes; subidas con saldo pendiente/parcial ahora, con mes saldado al siguiente.
-Varios aumentos por mes: existentes desde el siguiente; altas según su día. Cuotas conservadas.
-19 casos nuevos; suite 878 aprobadas/3 omitidas, 7792 aserciones, 1102.93 s en wings_testing_codex.
-22 fuentes idénticas al corte; build, sintaxis y vistas correctos. 33 medidas y tres interacciones.
-[Entrega y decisiones](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md). Verifica Claude; aspecto Carlos.
-Corte 881 métodos; cambios paralelos T34/T67 no certificados. Sin despliegue ni base del club.
-
-[Entrada T75 archivada intacta](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-ARRANQUE.md).
-
-[Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
-
-[Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
-
-[Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
-
-[Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
-
-[Entrada archivada al iniciar B11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-B11-ARRANQUE.md).
-
-[Entrada archivada al iniciar T37](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T37-ARRANQUE.md).
-
-[Orden del 13/10 archivada al iniciar T36; reglas vigentes en AGENTS.md](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T36-ARRANQUE.md).
-
-[Entrada T33 archivada al entregar T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-ARRANQUE.md).
-
-[Entrada T7 archivada al entregar consistencia móvil T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-CONSISTENCIA.md).
-
-[Entrada T11 del 13/10 archivada al revisar observaciones T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-OBSERVACIONES.md).
-
-[Entrada T11 del 14/10 archivada al aplicar jerarquía T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-JERARQUIA.md).
-
-[Entrada T3 archivada al iniciar T44](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T44-ARRANQUE.md).
-
-[Entrada antigua archivada al corregir título T44](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T44-TITULO.md).
-
-[Entrada antigua archivada al verificar T34/T67](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-VERIFICACION-T34-T67.md).
-
-[Entrada B11 archivada al entregar T66](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T66-ARRANQUE.md).
-
-[Entrada T75 archivada al verificar corrección T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-REVERIFICACION.md).
-
-[Entrada T75 archivada al verificar T74](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T74-ARRANQUE.md).
-
-[Entrada T75 archivada al cerrar T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-CIERRE.md).

@@ -140,7 +140,7 @@ class SubrubroWebController extends Controller
         return [
             'nombre.required'                  => 'El nombre es obligatorio.',
             'permitido_para.required'          => 'Elegí quién puede usar el subrubro.',
-            'clasificacion_resultado.required' => 'Elegí si es plata del club o de los dueños.',
+            'clasificacion_resultado.required' => 'Elegí si es plata del club, de los dueños o un traspaso entre medios.',
             'clasificacion_resultado.in'       => 'Esa opción no corresponde a este rubro.',
         ];
     }

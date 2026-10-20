@@ -1,0 +1,47 @@
+{
+    "base": "wings_testing_codex_t61",
+    "fecha": "2026-10-20",
+    "datos": "Ficticios; traspasos todavía sin cargar",
+    "ingresos": 1200000,
+    "egresos": 500000,
+    "resultado": 700000,
+    "aportes": 800000,
+    "retiros": 200000,
+    "cajas": [
+        {
+            "id": 5,
+            "nombre": "BGA",
+            "confirmado": 0,
+            "pendiente": 0,
+            "total": 0
+        },
+        {
+            "id": 2,
+            "nombre": "BNA",
+            "confirmado": 700000,
+            "pendiente": 0,
+            "total": 700000
+        },
+        {
+            "id": 4,
+            "nombre": "Banco Nacion ahorro",
+            "confirmado": 0,
+            "pendiente": 0,
+            "total": 0
+        },
+        {
+            "id": 1,
+            "nombre": "EFT",
+            "confirmado": 60600000,
+            "pendiente": 0,
+            "total": 60600000
+        },
+        {
+            "id": 3,
+            "nombre": "MP",
+            "confirmado": 0,
+            "pendiente": 0,
+            "total": 0
+        }
+    ]
+}

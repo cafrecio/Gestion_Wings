@@ -1,0 +1,17 @@
+
+   INFO  Running migrations.
+
+  2026_10_09_180000_create_historial_analitico_reportes ................................................. 73.73ms DONE
+  2026_10_09_190000_add_monto_final_to_liquidaciones .................................................... 33.17ms DONE
+  2026_10_10_120000_add_cbu_alias_to_profesores_and_users ............................................... 24.31ms DONE
+  2026_10_10_180000_clasificar_subrubros_existentes ..................................................... 99.65ms DONE
+  2026_10_11_120000_add_rectificacion_to_cajas_operativas .............................................. 140.64ms DONE
+  2026_10_12_120000_add_movimiento_operativo_id_to_cashflow_movimientos ................................ 128.42ms DONE
+  2026_10_12_180000_create_cashflow_correcciones ....................................................... 311.36ms DONE
+  2026_10_13_080000_add_dias_plazo_alta_to_configuraciones .............................................. 12.45ms DONE
+  2026_10_16_180000_configurar_punitorios_por_mora ...................................................... 19.01ms DONE
+  2026_10_17_210000_add_verificacion_to_movimientos_operativos ......................................... 141.29ms DONE
+  2026_10_17_220000_add_fecha_reingreso_to_deuda_cuotas ................................................. 24.55ms DONE
+  2026_10_18_230000_create_grupo_plan_precios .......................................................... 120.24ms DONE
+  2026_10_19_120000_create_generaciones_cuotas .......................................................... 46.29ms DONE
+  2026_10_20_120000_agregar_traspasos_entre_medios ....................................................... 8.84ms DONE

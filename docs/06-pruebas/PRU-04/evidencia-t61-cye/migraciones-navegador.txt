@@ -1,0 +1,99 @@
+
+   INFO  Preparing database.
+
+  Creating migration table .............................................................................. 26.15ms DONE
+
+   INFO  Running migrations.
+
+  0001_01_01_000000_create_users_table .................................................................. 54.12ms DONE
+  0001_01_01_000001_create_cache_table .................................................................. 16.56ms DONE
+  0001_01_01_000002_create_jobs_table ................................................................... 48.10ms DONE
+  2026_01_12_021412_create_deportes_table ................................................................ 8.05ms DONE
+  2026_01_12_021419_create_grupos_table ................................................................. 52.84ms DONE
+  2026_01_12_021505_create_alumnos_table ............................................................... 188.54ms DONE
+  2026_01_12_023548_create_personal_access_tokens_table ................................................. 59.58ms DONE
+  2026_01_12_032445_remove_es_menor_from_alumnos_table ................................................... 8.02ms DONE
+  2026_01_12_034430_remove_horario_from_grupos_table ..................................................... 7.91ms DONE
+  2026_01_12_034453_create_grupo_planes_table ........................................................... 63.79ms DONE
+  2026_01_12_091852_create_reglas_primer_pago_table ..................................................... 10.09ms DONE
+  2026_01_12_091900_create_formas_pago_table ............................................................. 8.87ms DONE
+  2026_01_12_091912_create_pagos_table ................................................................. 159.06ms DONE
+  2026_01_12_091959_create_alumno_planes_table ......................................................... 106.54ms DONE
+  2026_01_25_115528_add_fecha_pago_to_pagos_table ....................................................... 13.58ms DONE
+  2026_01_27_000001_create_profesores_table .............................................................. 6.24ms DONE
+  2026_01_27_000002_create_clases_table ................................................................. 54.41ms DONE
+  2026_01_27_000003_create_clase_profesor_table ........................................................ 145.49ms DONE
+  2026_01_27_000004_create_asistencias_table ........................................................... 110.99ms DONE
+  2026_01_28_000001_add_tipo_liquidacion_to_deportes_table ............................................... 8.43ms DONE
+  2026_01_28_000002_add_liquidacion_fields_to_profesores_table .......................................... 65.60ms DONE
+  2026_01_28_000003_add_liquidacion_fields_to_clases_table .............................................. 14.01ms DONE
+  2026_01_28_000004_create_liquidaciones_table ......................................................... 111.30ms DONE
+  2026_01_28_000005_create_liquidacion_detalles_table ................................................... 94.02ms DONE
+  2026_02_01_000001_add_dni_to_alumnos_table ............................................................ 21.56ms DONE
+  2026_02_01_000002_create_deuda_cuotas_table ........................................................... 96.89ms DONE
+  2026_02_01_100001_create_rubros_table .................................................................. 9.12ms DONE
+  2026_02_01_100002_create_subrubros_table .............................................................. 51.34ms DONE
+  2026_02_01_100003_create_tipos_caja_table ............................................................. 13.86ms DONE
+  2026_02_01_100004_create_cajas_operativas_table ...................................................... 151.17ms DONE
+  2026_02_01_100005_create_movimientos_operativos_table ................................................ 191.67ms DONE
+  2026_02_01_100006_create_cashflow_movimientos_table .................................................. 282.97ms DONE
+  2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table ........................................ 12.34ms DONE
+  2026_02_02_000001_add_observaciones_to_deuda_cuotas_table .............................................. 6.85ms DONE
+  2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table ...................................... 37.99ms DONE
+  2026_02_02_000002_create_pago_deuda_cuota_table ....................................................... 60.06ms DONE
+  2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table .......................................... 4.28ms DONE
+  2026_02_03_000001_add_pago_fields_to_liquidaciones_table ............................................. 151.61ms DONE
+  2026_02_06_063616_add_rol_to_users_table .............................................................. 13.51ms DONE
+  2026_02_11_000001_fix_pagos_nullable_for_cuota_flow ................................................... 64.91ms DONE
+  2026_02_11_000002_add_unique_nombre_to_subrubros_table ................................................. 8.75ms DONE
+  2026_02_12_000001_create_alumnos_revision_cobranza_table .............................................. 51.98ms DONE
+  2026_02_12_000002_create_asistencia_excesos_table .................................................... 136.10ms DONE
+  2026_03_08_181502_add_datos_personales_to_profesores_table ............................................ 30.12ms DONE
+  2026_04_16_081012_add_motivo_cancelacion_to_clases_table .............................................. 11.50ms DONE
+  2026_04_17_040409_create_niveles_table ................................................................ 20.75ms DONE
+  2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre ............................................. 95.91ms DONE
+  2026_04_30_141020_add_serie_id_to_clases_table ......................................................... 8.08ms DONE
+  2026_04_30_150000_add_descripcion_to_tipos_caja_table .................................................. 8.45ms DONE
+  2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table .......................................... 8.60ms DONE
+  2026_05_27_082557_update_rol_enum_in_users_table ...................................................... 31.58ms DONE
+  2026_05_27_085302_add_activo_to_users_table ............................................................ 6.20ms DONE
+  2026_05_27_154622_add_profesor_id_to_users_table ...................................................... 71.34ms DONE
+  2026_05_29_003356_create_configuraciones_table ........................................................ 38.04ms DONE
+  2026_06_01_080524_add_abreviatura_to_tipos_caja_table .................................................. 7.99ms DONE
+  2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table ....................................... 46.39ms DONE
+  2026_06_21_133825_add_estado_fields_to_movimientos_operativos ......................................... 86.57ms DONE
+  2026_06_21_133826_add_anulado_to_pagos_estado .......................................................... 3.74ms DONE
+  2026_07_03_024012_add_resolucion_to_alumnos_revision_cobranza_table ................................... 69.90ms DONE
+  2026_07_19_140000_alumno_planes_activo_nullable ....................................................... 24.16ms DONE
+  2026_07_20_053440_normalizar_referencia_tipo_cashflow .................................................. 2.59ms DONE
+  2026_07_20_053556_add_subrubro_id_to_profesores ....................................................... 58.97ms DONE
+  2026_07_20_055939_drop_indice_redundante_deuda_cuotas ................................................. 16.27ms DONE
+  2026_07_20_060052_limpiar_enum_pagos_estado ........................................................... 69.99ms DONE
+  2026_07_20_060753_drop_forma_pago ..................................................................... 23.19ms DONE
+  2026_07_26_175413_add_motivo_cambio_profesor_to_clases_table .......................................... 12.71ms DONE
+  2026_07_26_175414_add_motivo_correccion_to_asistencias_table .......................................... 11.94ms DONE
+  2026_07_26_200109_add_activo_to_subrubros_table ....................................................... 10.44ms DONE
+  2026_08_27_000001_normalizar_niveles_catalogos ........................................................ 14.13ms DONE
+  2026_08_30_000002_add_es_superadmin_to_users_table .................................................... 25.09ms DONE
+  2026_08_30_000003_permitir_observacion_vacia_en_rubros ................................................ 24.63ms DONE
+  2026_09_03_000001_add_saldo_inicial_to_tipos_caja_table ................................................ 7.96ms DONE
+  2026_09_06_000001_add_es_reservado_sistema_to_rubros_table ............................................. 6.40ms DONE
+  2026_09_06_000002_add_subrubro_id_to_users_table ...................................................... 46.37ms DONE
+  2026_09_11_180000_add_detalle_anulacion_to_pagos_table ................................................. 7.89ms DONE
+  2026_09_13_180000_add_motivo_cambio_horario_to_clases_table ............................................ 6.44ms DONE
+  2026_09_13_190000_add_porcentaje_comision_aplicado_to_liquidaciones_table ............................. 13.68ms DONE
+  2026_09_17_120000_congelar_tarifa_y_minutos_en_liquidacion_hora ....................................... 12.95ms DONE
+  2026_09_21_090000_add_destino_de_avisos_a_configuraciones ............................................. 20.70ms DONE
+  2026_09_21_120000_permitir_cancelar_liquidacion_cerrada_no_pagada .................................... 197.79ms DONE
+  2026_09_22_180000_create_cargos_alumno ............................................................... 391.15ms DONE
+  2026_09_23_120000_add_porcentaje_alta_to_deuda_cuotas ................................................. 10.48ms DONE
+  2026_10_04_000000_remove_inscripcion_fecha_corte ....................................................... 0.74ms DONE
+  2026_10_04_150000_add_alta_cuota_to_alumnos ............................................................ 9.04ms DONE
+  2026_10_05_180000_create_primera_carga ................................................................ 49.23ms DONE
+  2026_10_06_120000_add_arqueo_to_cajas_operativas ..................................................... 402.93ms DONE
+  2026_10_09_120000_create_historial_reportes .......................................................... 181.11ms DONE
+  2026_10_09_180000_create_historial_analitico_reportes .................................................. 5.48ms FAIL
+
+In HistorialAnaliticoReportesService.php line 44:
+
+  El historial analítico debe activarse con Wings en mantenimiento.

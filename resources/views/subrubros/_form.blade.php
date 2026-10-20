@@ -64,7 +64,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                 <option value="{{ $opcion }}" {{ $clasifActual === $opcion ? 'selected' : '' }}>{{ \App\Support\ClasificacionSubrubros::ETIQUETAS[$opcion] }}</option>
             @endforeach
         </select>
-        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Del club": cuenta en los ingresos o gastos de Inicio y Reportes. "De los dueños": se muestra aparte y no cambia el resultado del club.</p>
+        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Del club": cuenta en los ingresos o gastos de Inicio y Reportes. "De los dueños": se muestra aparte y no cambia el resultado del club. "Traspaso entre medios": mueve saldo entre medios propios, sin contar como ingreso, gasto, aporte ni retiro.</p>
         @error('clasificacion_resultado') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
     @endif
