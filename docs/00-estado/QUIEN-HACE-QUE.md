@@ -62,7 +62,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Devuelto (hizo Gemini, verifica Claude) | Verificada por Claude CyE el 20/10: devuelta con H1 (Cancelar no repone los valores y el próximo guardado manda la edición abandonada, alcanzable desde la pantalla), H2 (id repetido en el lote deja días sin cubrir) y H3 (id inexistente responde 404 en inglés). Informe: docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md. Visual: lo aprueba Carlos (APROBAR-T64.html). |
+| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Devuelto (hizo Gemini, verifica Claude) | Verificada por Claude CyE el 20/10: devuelta con H1 (Cancelar no repone los valores y el próximo guardado manda la edición abandonada, alcanzable desde la pantalla), H2 (id repetido en el lote deja días sin cubrir) y H3 (id inexistente responde 404 en inglés). Informe: docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md. Sin aprobación visual: no cambia ninguna pantalla. |
 
 ## Sin empezar (17)
 

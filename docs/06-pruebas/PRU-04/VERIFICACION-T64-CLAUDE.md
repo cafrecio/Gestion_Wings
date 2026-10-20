@@ -3,7 +3,8 @@
 Claude CyE, 20/10/2026. Entrega de Gemini: `5b832693` y `9735275f`.
 
 **CON HALLAZGOS — devuelta a Gemini.** Uno alcanzable desde la pantalla (H1) y dos solo con pedido
-armado a mano por el dueño (H2, H3). El visual lo aprueba Carlos aparte (APROBAR-T64.html).
+armado a mano por el dueño (H2, H3). **Sin aprobación visual:** no cambia ninguna vista ni estilo;
+el error usa el recuadro que ya existía (Carlos, 20/10: «¿Me estás pidiendo confirmación por una pantalla que no cambia?»).
 
 ## Lo que está bien (comprobado)
 
