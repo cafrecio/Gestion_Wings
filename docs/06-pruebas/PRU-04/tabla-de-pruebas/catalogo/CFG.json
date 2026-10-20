@@ -168,14 +168,14 @@
           "tipo": "indirecto"
         },
         {
-          "donde": "Superposición",
+          "donde": "Sin superposición ni huecos",
           "l": "f",
-          "texto": "Con dos reglas para el mismo día, el alta de ese día se cobra al 100%, sin avisar por qué.",
-          "tipo": "indirecto"
+          "texto": "Se impide la superposición y los días sin cubrir: el conjunto de reglas debe cubrir del día 1 al 31 sin huecos ni superposiciones, avisando en castellano qué días quedan sin cubrir o se pisan. Punto f anterior («se cobra al 100% sin avisar») obsoleto por DU-45.",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "ReglaPrimerPagoWebController; PagoCuotaService::calcularReglaPrimerPago (código leído); Contrato de estados §2.",
+      "fuente": "Decidido por Carlos (DU-45, 13/10): impedir reglas superpuestas y días sin cubrir. Implementado por Gemini en T64 (20/10), a verificar: ReglaPrimerPagoWebController (guardarTodas, store, update, destroy), ReglasPrimerPagoValidator y configuraciones.js. Guarda y valida el conjunto en una sola transacción sin estados inválidos. Cubierto por tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php y ReglaPrimerPagoSinSuperposicionTest.php. Antes de DU-45: con dos reglas para el mismo día, el cobro no aplicaba descuento sin avisar; ahora la base no permite superposiciones ni huecos.",
       "modulo": "Configuración",
       "pantalla": "sis-configuracion",
       "requiere": "Reglas cargadas: del 1 al 10, 100%; del 11 al 20, 70%; del 21 al 31, 50%.",

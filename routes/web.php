@@ -278,6 +278,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/configuraciones', [ConfiguracionWebController::class, 'index'])->name('web.configuraciones.index');
         // Reglas primer pago — ANTES de /configuraciones/{clave}
+        Route::put('/configuraciones/primer-pago', [ReglaPrimerPagoWebController::class, 'guardarTodas'])->name('web.config.primer-pago.guardar-todas');
         Route::post('/configuraciones/primer-pago', [ReglaPrimerPagoWebController::class, 'store'])->name('web.config.primer-pago.store');
         Route::put('/configuraciones/primer-pago/{id}', [ReglaPrimerPagoWebController::class, 'update'])->name('web.config.primer-pago.update');
         Route::delete('/configuraciones/primer-pago/{id}', [ReglaPrimerPagoWebController::class, 'destroy'])->name('web.config.primer-pago.destroy');

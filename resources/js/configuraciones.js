@@ -102,13 +102,15 @@ function camposRegla(id) {
     ]));
 }
 function datosRegla(id) {
-    return Object.fromEntries(Object.entries(camposRegla(id)).map(([nombre, campo]) => [nombre, campo.value.trim()]));
+    return Object.fromEntries(Object.entries(camposRegla(id)).map(([nombre, campo]) => [nombre, campo ? campo.value.trim() : '']));
 }
 function mostrarErrorRegla(id, error) {
     const el = document.getElementById(id === 'nueva' ? 'add-error' : 'edit-error-' + id);
+    if (!el) return;
     el.textContent = error.mensaje;
     el.style.display = 'block';
     for (const [nombre, campo] of Object.entries(camposRegla(id))) {
+        if (!campo) continue;
         let mensaje = document.getElementById(campo.id + '-error');
         if (!mensaje) {
             mensaje = document.createElement('p');
@@ -128,23 +130,83 @@ function mostrarErrorRegla(id, error) {
     actualizarResumen(true);
 }
 function limpiarErrorRegla(id, panel) {
-    document.getElementById(id === 'nueva' ? 'add-error' : 'edit-error-' + id).style.display = 'none';
-    panel.querySelectorAll('[aria-invalid]').forEach(campo => campo.setAttribute('aria-invalid', 'false'));
-    panel.querySelectorAll('p.ds-flash--error').forEach(nodo => { nodo.hidden = true; });
+    const el = document.getElementById(id === 'nueva' ? 'add-error' : 'edit-error-' + id);
+    if (el) el.style.display = 'none';
+    if (panel) {
+        panel.querySelectorAll('[aria-invalid]').forEach(campo => campo.setAttribute('aria-invalid', 'false'));
+        panel.querySelectorAll('p.ds-flash--error').forEach(nodo => { nodo.hidden = true; });
+    }
     errores.delete('regla-' + id);
     actualizarResumen();
 }
+function limpiarTodosLosErroresReglas() {
+    limpiarErrorRegla('nueva', panelAdd);
+    list.querySelectorAll('.alumno-card[id^="regla-card-"]').forEach(card => {
+        const id = card.id.replace('regla-card-', '');
+        const panel = document.getElementById('panel-edit-' + id);
+        limpiarErrorRegla(id, panel);
+    });
+}
 function pintarRegla(card, regla) {
-    card.querySelector('#regla-nombre-' + regla.id).textContent = regla.nombre;
-    card.querySelector('#regla-dias-' + regla.id).textContent = regla.dia_desde + ' al ' + regla.dia_hasta;
-    card.querySelector('#regla-pct-' + regla.id).textContent = Math.round(regla.porcentaje) + '%';
+    const nombreEl = card.querySelector('#regla-nombre-' + regla.id);
+    if (nombreEl) nombreEl.textContent = regla.nombre;
+    const diasEl = card.querySelector('#regla-dias-' + regla.id);
+    if (diasEl) diasEl.textContent = regla.dia_desde + ' al ' + regla.dia_hasta;
+    const pctEl = card.querySelector('#regla-pct-' + regla.id);
+    if (pctEl) pctEl.textContent = Math.round(regla.porcentaje) + '%';
     Object.entries(nombresCampos).forEach(([nombre, fragmento]) => {
-        card.querySelector('#edit-' + fragmento + '-' + regla.id).value = regla[nombre];
+        const input = card.querySelector('#edit-' + fragmento + '-' + regla.id);
+        if (input) input.value = regla[nombre];
     });
 }
 function contadorReglas() {
-    const n = list.querySelectorAll('.alumno-card').length;
-    document.getElementById('reglas-count').textContent = n + (n === 1 ? ' regla configurada' : ' reglas configuradas');
+    const n = list.querySelectorAll('.alumno-card[id^="regla-card-"]').length;
+    const countEl = document.getElementById('reglas-count');
+    if (countEl) countEl.textContent = n + (n === 1 ? ' regla configurada' : ' reglas configuradas');
+}
+function renderizarReglas(reglas) {
+    list.replaceChildren();
+    const template = document.getElementById('regla-template');
+    reglas.forEach(regla => {
+        const fragment = template.content.cloneNode(true);
+        fragment.querySelectorAll('*').forEach(el => {
+            [...el.attributes].forEach(attribute => {
+                if (attribute.value.includes('__ID__')) {
+                    el.setAttribute(attribute.name, attribute.value.replaceAll('__ID__', String(regla.id)));
+                }
+            });
+        });
+        const card = fragment.querySelector('.alumno-card');
+        pintarRegla(card, regla);
+        list.append(fragment);
+    });
+    contadorReglas();
+}
+function recopilarReglas(excluirId = null, incluirNueva = false) {
+    const reglas = [];
+    list.querySelectorAll('.alumno-card[id^="regla-card-"]').forEach(card => {
+        const id = card.id.replace('regla-card-', '');
+        if (id === String(excluirId)) return;
+        const datos = datosRegla(id);
+        reglas.push({
+            id: parseInt(id, 10),
+            nombre: datos.nombre,
+            dia_desde: parseInt(datos.dia_desde, 10) || 0,
+            dia_hasta: parseInt(datos.dia_hasta, 10) || 0,
+            porcentaje: parseFloat(datos.porcentaje) || 0,
+        });
+    });
+    if (incluirNueva) {
+        const datosNueva = datosRegla('nueva');
+        reglas.push({
+            id: null,
+            nombre: datosNueva.nombre,
+            dia_desde: parseInt(datosNueva.dia_desde, 10) || 0,
+            dia_hasta: parseInt(datosNueva.dia_hasta, 10) || 0,
+            porcentaje: parseFloat(datosNueva.porcentaje) || 0,
+        });
+    }
+    return reglas;
 }
 
 list.addEventListener('click', async event => {
@@ -163,51 +225,39 @@ list.addEventListener('click', async event => {
     }
     const eliminar = button.classList.contains('btn-eliminar-regla');
     if (eliminar && !window.confirm('¿Eliminar esta regla?')) return;
-    const controles = [...panel.querySelectorAll('input, button'), button];
-    const datos = eliminar ? undefined : datosRegla(id);
+
+    const controles = [...(panel ? panel.querySelectorAll('input, button') : []), button];
     controles.forEach(control => { control.disabled = true; });
+
     try {
-        const regla = await solicitar('/configuraciones/primer-pago/' + id, eliminar ? 'DELETE' : 'PUT', datos);
-        limpiarErrorRegla(id, panel);
-        if (eliminar) {
-            document.getElementById('regla-card-' + id).remove();
-            contadorReglas();
-        } else {
-            pintarRegla(document.getElementById('regla-card-' + id), regla);
-            panel.style.display = 'none';
-        }
+        const reglas = recopilarReglas(eliminar ? id : null);
+        const reglasActualizadas = await solicitar('/configuraciones/primer-pago', 'PUT', { reglas });
+        limpiarTodosLosErroresReglas();
+        renderizarReglas(reglasActualizadas);
     } catch (error) {
-        panel.style.display = 'block';
+        if (panel) panel.style.display = 'block';
         mostrarErrorRegla(id, error);
     } finally {
         controles.forEach(control => { control.disabled = false; });
     }
 });
 
-document.getElementById('btn-agregar-regla').addEventListener('click', () => {
+document.getElementById('btn-agregar-regla')?.addEventListener('click', () => {
     panelAdd.style.display = panelAdd.style.display === 'none' ? 'block' : 'none';
 });
-document.getElementById('btn-cancelar-add').addEventListener('click', () => {
+document.getElementById('btn-cancelar-add')?.addEventListener('click', () => {
     panelAdd.style.display = 'none';
     limpiarErrorRegla('nueva', panelAdd);
 });
-document.getElementById('btn-guardar-add').addEventListener('click', async event => {
+document.getElementById('btn-guardar-add')?.addEventListener('click', async event => {
     if (event.currentTarget.disabled) return;
     const controles = [...panelAdd.querySelectorAll('input, button')];
-    const datos = datosRegla('nueva');
     controles.forEach(control => { control.disabled = true; });
     try {
-        const regla = await solicitar('/configuraciones/primer-pago', 'POST', datos);
-        const fragment = document.getElementById('regla-template').content.cloneNode(true);
-        fragment.querySelectorAll('*').forEach(el => {
-            [...el.attributes].forEach(attribute => {
-                if (attribute.value.includes('__ID__')) el.setAttribute(attribute.name, attribute.value.replaceAll('__ID__', String(regla.id)));
-            });
-        });
-        pintarRegla(fragment.querySelector('.alumno-card'), regla);
-        list.append(fragment);
-        contadorReglas();
-        limpiarErrorRegla('nueva', panelAdd);
+        const reglas = recopilarReglas(null, true);
+        const reglasActualizadas = await solicitar('/configuraciones/primer-pago', 'PUT', { reglas });
+        limpiarTodosLosErroresReglas();
+        renderizarReglas(reglasActualizadas);
         panelAdd.querySelectorAll('input').forEach(campo => { campo.value = ''; });
         panelAdd.style.display = 'none';
     } catch (error) {

@@ -10,6 +10,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-20 — LOG GEM CAB — Implementación T64: reglas de primer pago sin superposiciones ni días sin cubrir
+
+- **Objetivo y resultado:** Implementación de la tarea T64 bajo decisión de Carlos DU-45 («Impedir reglas superpuestas y días sin cubrir») y caso de prueba CFG-004. Resultado: **IMPLEMENTADA**, con guardado en lote atómico, 8 pruebas automatizadas nuevas en `ReglaPrimerPagoSinHuecosT64Test` (más 5 en `ReglaPrimerPagoSinSuperposicionTest`) pasando al 100%, capturas generadas y lista para verificación independiente (`a_verificar`).
+- **Problema de diseño resuelto:** Para evitar estados intermedios bloqueantes al redistribuir tramos (ej. pasar de «1–15 y 16–31» a «1–10 y 11–31»), se diseñó el guardado atómico de lote (`PUT /configuraciones/primer-pago`). El servidor valida el conjunto completo en memoria y aplica los cambios dentro de una transacción `DB::transaction()`: actualiza in-place las reglas existentes manteniendo sus IDs (integridad de claves foráneas con `pagos.regla_primer_pago_id`), crea nuevas y elimina descartadas. Si hay huecos o superposiciones, se produce un rollback completo.
+- **Regla central y validaciones:**
+  - `app/Support/ReglasPrimerPagoValidator.php`: comprueba que el conjunto cubra exactamente del día 1 al 31 sin fisuras ni solapamientos. Mensajes descriptivos en castellano: *«Los días 11 a 15 quedan sin cubrir. Todos los días del 1 al 31 deben estar cubiertos por una regla.»* o *«Los días 12 a 15 se pisan con la regla "X"...»*.
+  - `app/Http/Controllers/ReglaPrimerPagoWebController.php`: nuevo método `guardarTodas` y blindaje de métodos individuales `store`, `update`, `destroy` simulando el conjunto resultante contra la base de datos.
+  - `resources/js/configuraciones.js`: recopila todas las reglas activas de la pantalla y envía el lote. Muestra errores por campo y de conjunto, y redibuja las tarjetas conservando reactividad (sin JavaScript en Blade, AGENTS.md §5-bis). Compilado con Vite.
+  - `resources/views/**` y `resources/css/**`: **100% intactos** (`git diff --stat -- resources/views resources/css` vacío, AGENTS.md §1).
+- **Pruebas y suite (`wings_testing_gemini`):**
+  - `tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php`: 8 pruebas verdes (29 aserciones, 11.34 s: hueco al crear, hueco al editar, hueco al borrar, borrar la única regla, superposición individual y en lote, lote 1–15/16–31 a 1–10/11–31 exitoso, lote inválido con rollback, primera cuota del alta con regla del día).
+  - `tests/Feature/ReglaPrimerPagoSinSuperposicionTest.php`: 5 pruebas verdes (40 aserciones).
+  - `tests/Feature/ConfiguracionA11Test.php`: 8 pruebas verdes (98 aserciones).
+  - `tests/Feature/DocumentacionNoMienteTest.php`: verde con corte actualizado a 982 pruebas.
+- **Evidencia visual y documentación:**
+  - 6 capturas reales (1366px escritorio y 375px teléfono en marco) en `docs/06-pruebas/PRU-04/evidencia-t64/`.
+  - Documento aprobador navegable para Carlos: `docs/06-pruebas/PRU-04/APROBAR-T64.html`.
+  - Informe técnico detallado en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T64.md`.
+  - Catálogo de pruebas: caso CFG-004 en `CFG.json` actualizado (punto f obsoleto por DU-45).
+- **Próximo paso:** Verificación independiente de la lógica por Claude o Codex.
+
 ## 2026-10-20 — LOG GEM CAB — Implementación T50: fecha de ingreso futura, solo hasta fin de mes siguiente
 
 - **Objetivo y resultado:** Implementación de la tarea T50 bajo decisión de Carlos DU-06 («Aceptar solo hasta el mes siguiente») y caso de prueba ALU-007. Resultado: **IMPLEMENTADA**, con 10 pruebas automatizadas nuevas pasando al 100%, capturas generadas y lista para verificación independiente (`a_verificar`).

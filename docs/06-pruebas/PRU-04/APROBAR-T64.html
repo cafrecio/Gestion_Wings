@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidencia de Pantallas T64 — Reglas de primer pago sin superposiciones ni días sin cubrir</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1d2330; --muted:#5d6676; --line:#dde1e7; --ok:#16a34a; --warn:#a15c00; --danger:#dc2626; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171c; --card:#1d2129; --text:#e8ebf0; --muted:#a3abb8; --line:#2f3540; --ok:#22c55e; --warn:#f0a94a; --danger:#ef4444; } }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:1200px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  h2 { font-size:1.15rem; margin:32px 0 8px; }
+  p { margin:6px 0; }
+  .muted { color:var(--muted); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; margin-top:12px; }
+  .badge-ok { display:inline-block; font-size:0.75rem; font-weight:700; color:var(--ok); background:color-mix(in srgb, var(--ok) 15%, transparent); padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle; }
+  .fila { display:grid; grid-template-columns: 3fr 1fr; gap:16px; align-items:start; }
+  @media (max-width: 760px) { .fila { grid-template-columns: 1fr; } }
+  figure { margin:0; }
+  figcaption { font-size:.8rem; color:var(--muted); margin-bottom:4px; font-weight:500; }
+  img { width:100%; height:auto; border:1px solid var(--line); border-radius:6px; display:block; }
+  .destacado { border-left: 3px solid var(--ok); padding-left: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>T64: Reglas de primer pago sin superposiciones ni días sin cubrir <span class="badge-ok">Implementado por Gemini</span></h1>
+  <p class="muted">Decisión de Carlos: DU-45 («Impedir reglas superpuestas y días sin cubrir»). Caso: CFG-004.</p>
+
+  <div class="card destacado">
+    <p><b>Integridad del sistema visual:</b></p>
+    <p><b>El editor de reglas utiliza los componentes canónicos de Wings, sin tocar Blade ni CSS.</b></p>
+    <p class="muted">No se modificó ninguna vista Blade bajo <code>resources/views/**</code> ni hojas de estilo bajo <code>resources/css/**</code> (cumple AGENTS.md §1). La edición atómica de tramos se resuelve recopilando y enviando el conjunto en lote desde <code>resources/js/configuraciones.js</code> hacia <code>PUT /configuraciones/primer-pago</code>, validado por <code>App\Support\ReglasPrimerPagoValidator</code> en una transacción única. Sin JavaScript incrustado en vistas (cumple AGENTS.md §5-bis).</p>
+  </div>
+
+  <h2>1. Listado de Reglas de Primer Pago (Configuración canónica 1..10, 11..20, 21..31)</h2>
+  <p class="muted">Cada tramo cubre exactamente sus días del mes sin solapamientos ni huecos, sumando en conjunto la totalidad del 1 al 31.</p>
+  <div class="fila">
+    <figure>
+      <figcaption>Computadora (1366px)</figcaption>
+      <img src="evidencia-t64/01-configuracion-reglas-1366.png" alt="Listado de reglas de primer pago en escritorio">
+    </figure>
+    <figure>
+      <figcaption>Teléfono (marco 375px)</figcaption>
+      <img src="evidencia-t64/02-configuracion-reglas-marco-375.png" alt="Listado de reglas de primer pago en teléfono">
+    </figure>
+  </div>
+
+  <h2>2. Editor Inline de Regla (Ajuste de días y porcentaje)</h2>
+  <p class="muted">Al pulsar «Editar», se despliega el panel de edición inline permitiendo ajustar nombre, porcentaje, día desde y día hasta.</p>
+  <div class="fila">
+    <figure>
+      <figcaption>Computadora (1366px)</figcaption>
+      <img src="evidencia-t64/03-configuracion-reglas-edicion-1366.png" alt="Edición inline de regla en escritorio">
+    </figure>
+    <figure>
+      <figcaption>Teléfono (marco 375px)</figcaption>
+      <img src="evidencia-t64/04-configuracion-reglas-edicion-marco-375.png" alt="Edición inline de regla en teléfono">
+    </figure>
+  </div>
+
+  <h2>3. Validación de Integridad (Aviso en castellano ante huecos o superposiciones)</h2>
+  <p class="muted">Si se intenta dejar un hueco (por ejemplo achicar el primer tramo a 1–10 sin haber extendido el segundo que empezaba en 16), el servidor rechaza con 422 y se exhibe en el panel y en el resumen: <i>«Los días 11 a 15 quedan sin cubrir. Todos los días del 1 al 31 deben estar cubiertos por una regla.»</i></p>
+  <div class="fila">
+    <figure>
+      <figcaption>Computadora (1366px)</figcaption>
+      <img src="evidencia-t64/05-configuracion-reglas-error-1366.png" alt="Aviso de error ante días sin cubrir en escritorio">
+    </figure>
+    <figure>
+      <figcaption>Teléfono (marco 375px)</figcaption>
+      <img src="evidencia-t64/06-configuracion-reglas-error-marco-375.png" alt="Aviso de error ante días sin cubrir en teléfono">
+    </figure>
+  </div>
+
+  <h2>4. Resumen de Puntos Técnicos Implementados</h2>
+  <div class="card">
+    <ul>
+      <li><b>Validador central de conjunto:</b> <code>App\Support\ReglasPrimerPagoValidator</code> analiza ordenadamente las reglas comprobando inicio en día 1, continuidad exacta día a día (sin superposiciones ni huecos) y cierre exacto en día 31.</li>
+      <li><b>Guardado atómico en lote:</b> <code>ReglaPrimerPagoWebController::guardarTodas</code> (ruta <code>PUT /configuraciones/primer-pago</code>) actualiza las reglas existentes conservando sus IDs originales (integridad foránea con pagos), crea nuevas y descarta removidas dentro de una transacción única de base de datos. Si el conjunto es inválido, ningún cambio se persiste.</li>
+      <li><b>Operaciones individuales protegidas:</b> <code>store</code>, <code>update</code> y <code>destroy</code> simulan el conjunto resultante contra la base de datos y rechazan cualquier acción que genere huecos o superposiciones.</li>
+      <li><b>Editor en cliente:</b> <code>resources/js/configuraciones.js</code> recopila el estado de todas las tarjetas y envía el conjunto atómico, reflejando errores específicos por campo o generales de conjunto. Reconstruye el listado tras guardado exitoso con Vite.</li>
+      <li><b>Pruebas automatizadas:</b> 8 pruebas completas en <code>tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php</code> y 5 pruebas en <code>tests/Feature/ReglaPrimerPagoSinSuperposicionTest.php</code>, todas en verde (100%).</li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>

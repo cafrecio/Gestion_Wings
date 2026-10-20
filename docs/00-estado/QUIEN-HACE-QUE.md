@@ -52,6 +52,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
+| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Hecho, espera verificación (hizo Gemini) | Verificar logica y pantallas de T64 (reglas de primer pago sin huecos ni superposicion) |
 
 ## Codex
 
@@ -59,9 +60,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | En curso | Gemini implementa reglas de primer pago sin huecos ni superposicion (DU-45, CFG-004) |
+Nada en este momento.
 
 ## Sin empezar (19)
 

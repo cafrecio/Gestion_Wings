@@ -64,7 +64,7 @@ class ReglaPrimerPagoSinSuperposicionTest extends TestCase
         $respuesta = $this->actingAs($this->admin)->postJson('/configuraciones/primer-pago', [
             'nombre'     => 'Segunda quincena',
             'dia_desde'  => 16,
-            'dia_hasta'  => 23,
+            'dia_hasta'  => 31,
             'porcentaje' => 70,
         ]);
 
@@ -77,7 +77,7 @@ class ReglaPrimerPagoSinSuperposicionTest extends TestCase
         $segunda = ReglaPrimerPago::create([
             'nombre'     => 'Segunda quincena',
             'dia_desde'  => 16,
-            'dia_hasta'  => 23,
+            'dia_hasta'  => 31,
             'porcentaje' => 70,
             'activo'     => true,
         ]);
@@ -85,7 +85,7 @@ class ReglaPrimerPagoSinSuperposicionTest extends TestCase
         $respuesta = $this->actingAs($this->admin)->putJson("/configuraciones/primer-pago/{$segunda->id}", [
             'nombre'     => 'Segunda quincena',
             'dia_desde'  => 12,
-            'dia_hasta'  => 23,
+            'dia_hasta'  => 31,
             'porcentaje' => 70,
         ]);
 
@@ -103,20 +103,21 @@ class ReglaPrimerPagoSinSuperposicionTest extends TestCase
         $segunda = ReglaPrimerPago::create([
             'nombre'     => 'Segunda quincena',
             'dia_desde'  => 16,
-            'dia_hasta'  => 23,
+            'dia_hasta'  => 31,
             'porcentaje' => 70,
             'activo'     => true,
         ]);
 
         $respuesta = $this->actingAs($this->admin)->putJson("/configuraciones/primer-pago/{$segunda->id}", [
-            'nombre'     => 'Segunda quincena',
+            'nombre'     => 'Segunda quincena actualizada',
             'dia_desde'  => 16,
-            'dia_hasta'  => 25,
+            'dia_hasta'  => 31,
             'porcentaje' => 60,
         ]);
 
         $respuesta->assertOk();
-        $this->assertSame(25, $segunda->fresh()->dia_hasta);
+        $this->assertSame('Segunda quincena actualizada', $segunda->fresh()->nombre);
+        $this->assertEquals(60, $segunda->fresh()->porcentaje);
     }
 
     public function test_con_los_tres_tramos_cargados_cada_dia_del_mes_tiene_una_sola_regla(): void
