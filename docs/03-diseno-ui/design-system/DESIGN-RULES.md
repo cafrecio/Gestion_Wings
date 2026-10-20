@@ -190,6 +190,32 @@ lo acepta porque viene del propio dominio.
 **La pregunta que decide dónde va cada cosa:** ¿lo usa más de una pantalla? Sí,
 `ds-app.js`. No, su propio archivo.
 
+### 8-bis. Decidir sobre una fila no recarga la página — Carlos, 20/10/2026
+
+Cuando una pantalla pide una decisión por fila (validar o rechazar, verificar, marcar presente,
+aceptar o descartar), **cada decisión se guarda sin recargar la página**:
+
+- Se envía solo esa decisión y el servidor devuelve solo lo que cambió (estado de la fila, totales,
+  contadores). La pantalla actualiza esas partes en el lugar.
+- La persona **se queda donde estaba**: no vuelve arriba, no hay destello, no se pierde lo que estaba
+  mirando ni lo que tenía escrito en otra fila.
+- Los totales y contadores que dependen de la decisión se actualizan en el momento y dicen la verdad
+  (si hay un total calculado y uno confirmado, se muestran separados y con su nombre).
+- Si falla, el aviso aparece junto a esa fila y la fila queda como estaba.
+- Sin JavaScript dentro de la vista (§8 y AGENTS.md §5-bis).
+
+**Ejemplos que ya lo hacen así:** verificar movimientos en el detalle de caja (`caja-detalle.js`) y
+guardar la asistencia de una clase (`clases-show.js`).
+
+**Por qué.** En T43 cada validación de una cuota recargaba toda la pantalla: volvía arriba, destellaba,
+repetía todas las consultas y el total quedaba mal rotulado. Carlos: «Rechazo, vuelve arriba, con lo cual
+tengo que volver a bajar. Valida y vuelve a subir. Aparte esa forma de recargar, haciendo un destello, es
+lo más pedorro y hecho sin ganas que vi. Hasta en Excel se evita que haga eso.» «Hacer esa mierda no es
+admisible.»
+
+Recargar la página entera solo vale cuando la acción cambia la pantalla completa (por ejemplo, cerrar
+una liquidación o pasar a otro registro).
+
 ---
 
 ## 9. CHECKLIST DEL AGENTE REVISOR
@@ -199,6 +225,7 @@ Antes de aprobar cualquier vista, verificar:
 - [ ] ¿Todo título de página, tarjeta, sección o subsección tiene su bloque separado de «Nuevo» y del resto de botones, en celular y escritorio?
 - [ ] ¿El header de cada card tiene SOLO dot + título?
 - [ ] ¿Las acciones del card están en `alumno-actions` al pie, con `border-top`?
+- [ ] ¿Si la pantalla pide decidir fila por fila, cada decisión se guarda sin recargar, sin volver arriba y con los totales al día? (§8-bis)
 - [ ] ¿El botón "hijo" (+ Subrubro, etc.) está en `margin-left:auto` dentro de `alumno-actions`?
 - [ ] ¿Todos los botones del mismo objeto (B o C) tienen exactamente el mismo tamaño?
 - [ ] ¿En celular, los botones de acción con texto tienen el tamaño y padding del Cobrar de referencia, también entre secciones de la misma vista?

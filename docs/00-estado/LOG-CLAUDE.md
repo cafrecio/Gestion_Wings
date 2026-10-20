@@ -28,6 +28,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — Regla: decidir sobre una fila no recarga la página
+
+- Carlos vio T43 de Codex: cada validación recargaba toda la pantalla (vuelve arriba, destello, repite
+  consultas, total mal rotulado). «Hacer esa mierda no es admisible.»
+- Regla para los tres agentes: DESIGN-RULES §8-bis + punto en el checklist del revisor; AGENTS §5-bis
+  apunta ahí. Modelos: caja-detalle.js y clases-show.js. No toqué T43: la está corrigiendo Codex.
+- También: no pedir OK visual si no cambian vistas ni estilos (T64 y T50 no lo necesitaban).
+
 ## 2026-10-20 — Claude CyE — T64 verificada: devuelta a Gemini
 
 - Validador y lote bien (transacción, solo ADMIN, cambio de tramos en un envío). 13/13 de Gemini.

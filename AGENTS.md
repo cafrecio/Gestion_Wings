@@ -286,6 +286,10 @@ No hay excepción por «es cortito» ni por «es solo para esta pantalla».
   suite en rojo si el número sube. **Ese número solo baja.** Nadie lo sube para que la
   suite pase.
 
+**Decidir sobre una fila no recarga la página** (Carlos, 20/10/2026): validar, rechazar, verificar o
+marcar guarda solo esa decisión y actualiza en el lugar fila, totales y contadores, sin volver arriba ni
+destellar. Detalle y ejemplos en `docs/03-diseno-ui/design-system/DESIGN-RULES.md` §8-bis.
+
 **Por qué.** Wings declara una política de seguridad que solo admite código de archivos
 propios. Cada pantalla con código adentro la rompe, y el navegador manda un aviso al
 servidor en cada carga. El 13/10/2026 se comprobó en el sitio de prueba que esos avisos
