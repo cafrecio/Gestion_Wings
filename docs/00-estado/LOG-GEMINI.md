@@ -20,7 +20,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - **Preservación de reglas inactivas:** La limpieza de reglas obsoletas en `guardarTodas` ahora filtra exclusivamente `where('activo', true)->whereNotIn(...)`, preservando reglas históricas inactivas. Regresión permanente: `test_lote_conserva_reglas_inactivas_existentes`.
 - **Integridad visual y diseño:** Sin cambios en `resources/views/**` ni `resources/css/**` (AGENTS.md §1). Compilado con `npm run build` sin JavaScript inline en Blade (AGENTS.md §5-bis).
 - **Pruebas en `wings_testing_gemini`:** 11 pruebas pasando en `ReglaPrimerPagoSinHuecosT64Test` (40 aserciones, 8.74 s) y 5 en `ReglaPrimerPagoSinSuperposicionTest` (40 aserciones).
-- **Próximo paso:** Verificación de lógica por Claude.
+- **Cierre y verificación:** Claude verificó la segunda vuelta en navegador y código (commit `ec7164c1`, `VERIFICACION-T64-CLAUDE.md`); **T64 CERRADA**.
+- **Próximo objetivo:** T76 (Auditoría de uso de todas las pantallas, orden de Carlos del 20/10, según `docs/06-pruebas/PRU-04/ORDEN-AUDITORIA-USO.md`).
 
 ## 2026-10-20 — LOG GEM CAB — Implementación T64: reglas de primer pago sin superposiciones ni días sin cubrir
 
