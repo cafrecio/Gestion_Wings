@@ -28,6 +28,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — T64 cerrada; T76 auditoría de uso guardada en el repo
+
+- T64 segunda vuelta (520bafd1): H1–H3 corregidos; mis 5 pruebas exigiendo rechazo + 16 de Gemini, 21/21.
+  Observación sin bloqueo: el editor redondea el porcentaje (ya pasaba). Sin aprobación visual. Cerrada.
+- Carlos: no escribir prompts para más tarde, se pierden al compactar. La orden de auditoría de uso quedó
+  como T76 + docs/06-pruebas/PRU-04/ORDEN-AUDITORIA-USO.md.
+
 ## 2026-10-20 — Claude CyE — Regla: decidir sobre una fila no recarga la página
 
 - Carlos vio T43 de Codex: cada validación recargaba toda la pantalla (vuelve arriba, destello, repite

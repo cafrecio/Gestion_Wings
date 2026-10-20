@@ -1,4 +1,4 @@
 {
-    "status": 404,
-    "cuerpo": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\ReglaPrimerPago] 999999\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"C:\\\\xampp\\\\htdocs\\\\Gestion_Wings\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Exceptions\\\\Handler.php\",\n"
+    "status": 422,
+    "cuerpo": "{\"message\":\"Una de las reglas enviadas no existe o ya no est\\u00e1 disponible.\",\"errors\":{\"reglas.0.id\":[\"Una de las reglas enviadas no existe o ya no est\\u00e1 disponible.\"]}}"
 }

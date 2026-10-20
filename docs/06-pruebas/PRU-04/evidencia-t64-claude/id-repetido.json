@@ -1,11 +1,23 @@
 {
-    "status": 200,
+    "status": 422,
     "reglas": [
         {
             "id": 1,
+            "dia_desde": 1,
+            "dia_hasta": 15,
+            "porcentaje": "100.00"
+        },
+        {
+            "id": 2,
             "dia_desde": 16,
+            "dia_hasta": 23,
+            "porcentaje": "70.00"
+        },
+        {
+            "id": 3,
+            "dia_desde": 24,
             "dia_hasta": 31,
-            "porcentaje": "50.00"
+            "porcentaje": "40.00"
         }
     ]
 }

@@ -10,6 +10,7 @@ use Tests\TestCase;
 /**
  * Verificación independiente de T64 (Claude CyE, 20/10/2026). Vive fuera de tests/ para no
  * alterar el contador permanente. Busca los casos que rompen la regla, no el camino feliz.
+ * Segunda vuelta (520bafd1): ahora se exige el rechazo de H2/H3 y que se conserven las inactivas.
  */
 class VerificacionT64ClaudeTest extends TestCase
 {
@@ -62,6 +63,8 @@ class VerificacionT64ClaudeTest extends TestCase
         file_put_contents(__DIR__.'/id-repetido.json', json_encode(['status' => $r->status(),
             'reglas' => ReglaPrimerPago::orderBy('dia_desde')->get(['id', 'dia_desde', 'dia_hasta', 'porcentaje'])->toArray()], JSON_PRETTY_PRINT));
         $this->assertTrue($this->cubreSinHuecos(), 'Quedaron días sin cubrir o pisados después de un lote con id repetido.');
+        $this->assertSame(422, $r->status(), 'Un id repetido debe rechazarse.');
+        $this->assertCount(3, ReglaPrimerPago::all());
     }
 
     /** Un id que no existe: no debe borrar nada ni dejar el conjunto a medias. */
@@ -73,7 +76,8 @@ class VerificacionT64ClaudeTest extends TestCase
         ]]);
         file_put_contents(__DIR__.'/id-inexistente.json', json_encode(['status' => $r->status(), 'cuerpo' => mb_substr($r->getContent(), 0, 300)], JSON_PRETTY_PRINT));
         $this->assertSame($antes, ReglaPrimerPago::orderBy('id')->get()->toArray());
-        $this->assertContains($r->status(), [404, 422]);
+        $this->assertSame(422, $r->status());
+        $this->assertStringNotContainsString('No query results', $r->getContent());
     }
 
     /** El cambio de tramos que motivó el diseño, en un solo envío. */
@@ -111,6 +115,6 @@ class VerificacionT64ClaudeTest extends TestCase
             ['id' => $c, 'nombre' => 'C', 'dia_desde' => 24, 'dia_hasta' => 31, 'porcentaje' => 40],
         ]])->assertOk();
         file_put_contents(__DIR__.'/inactiva.json', json_encode(['inactiva_sigue' => ReglaPrimerPago::find($inactiva->id) !== null], JSON_PRETTY_PRINT));
-        $this->assertTrue(true);
+        $this->assertNotNull(ReglaPrimerPago::find($inactiva->id), 'El lote borró una regla inactiva que no se pidió borrar.');
     }
 }

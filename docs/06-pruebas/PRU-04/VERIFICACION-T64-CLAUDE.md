@@ -1,5 +1,19 @@
 # T64 — Verificación independiente de lógica
 
+## Segunda vuelta (520bafd1) — APROBADA y cerrada, Claude CyE 20/10/2026
+
+- H1: Cancelar repone los valores guardados y el lote toma, de las tarjetas cerradas, los valores
+  guardados (leído en `configuraciones.js`; Gemini lo comprobó con clics en Chrome, `probar-h1-browser.mjs`).
+- H2: id repetido → **422** y las 3 reglas intactas. H3: id inexistente → **422** «Una de las reglas
+  enviadas no existe o ya no está disponible.». Las inactivas se conservan.
+- Mis pruebas independientes, ahora exigiendo el rechazo: 5/5; las de Gemini: 16/16 (21 en total).
+- **Observación sin bloqueo:** los valores guardados en el editor redondean el porcentaje (`Math.round`).
+  Ya pasaba antes: la pantalla muestra y edita el porcentaje entero (`number_format(..., 0)`). Con reglas
+  enteras —todas las de `wingstest`— no tiene efecto; con un decimal cargado a mano, guardar otra regla lo
+  redondearía.
+- Sin aprobación visual: no cambia ninguna vista ni estilo.
+
+
 Claude CyE, 20/10/2026. Entrega de Gemini: `5b832693` y `9735275f`.
 
 **CON HALLAZGOS — devuelta a Gemini.** Uno alcanzable desde la pantalla (H1) y dos solo con pedido

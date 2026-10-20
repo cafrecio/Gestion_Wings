@@ -51,7 +51,6 @@ Nada.
 | **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar DU-19: comisión e ingreso por parte en mes pagado; dinero/saldos conservados, histórico no identificable conserva mes original por Carlos. Completa Codex 997/6 omitidas verde. COB-012 vivo y repo al día; sigue T43. |
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar lógica de transferencia única y seguimiento FIN-09; Carlos aprobó formulario, Rubros y aviso. Completa Codex 977/6 omitidas verde. Sin despliegue. |
-| **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar resolución de H1 (Cancelar en configuraciones.js restaura valores originales y recopilarReglas no envía inputs sucios), H2 (reglas.*.id distinct en lote) y H3 (exists con mensaje en castellano) tras informe docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md |
 
 ## Codex
 
