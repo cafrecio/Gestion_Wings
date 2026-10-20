@@ -193,7 +193,9 @@ En la lista de asistencia de `clases/show`, para resguardo de privacidad y desam
 
 ### Enmienda 20/10/2026 — La lista conserva a quien tiene marca (T52, DU-09)
 
-Los cambios de grupo y las bajas rigen hacia adelante. La lista de `clases/show` es la de los alumnos activos que hoy están en el grupo **más** los que ya tienen una marca guardada en esa clase (presente o ausente), aunque después hayan cambiado de grupo o se hayan dado de baja; esos llevan la aclaración «Cambió de grupo» o «De baja», y el encabezado dice cuántos ya no están. Al corregir esa lista se los acepta (con el motivo de §4.e); a quien no es del grupo ni tiene marca en la clase se lo sigue rechazando. Quien entró al grupo después sigue apareciendo en las clases viejas, como antes: no se decidió lo contrario.
+Los cambios de grupo y las bajas rigen hacia adelante. La lista de `clases/show` es la de los alumnos activos que **ya estaban en el grupo el día de la clase** (ver la aclaración de abajo) **más** los que ya tienen una marca guardada en esa clase (presente o ausente), aunque después hayan cambiado de grupo o se hayan dado de baja; esos llevan la aclaración «Cambió de grupo» o «De baja», y el encabezado dice cuántos ya no están. Al corregir esa lista se los acepta (con el motivo de §4.e); a quien no es del grupo ni tiene marca en la clase se lo sigue rechazando.
+
+**Aclaración de Carlos, 20/10/2026: «Los cambios son siempre para adelante»** («si yo nací en 1980, ¿puedo haber sido parte de la revolución de mayo?»). Quien entró al grupo **después** de una clase no aparece en ella ni se lo puede marcar. Para saberlo, cada alumno guarda `grupo_desde`: su fecha de ingreso al darlo de alta, y el día del cambio cuando cambia de grupo (aunque el plan nuevo empiece el mes siguiente). Si se corrige la fecha de ingreso de quien nunca cambió de grupo, `grupo_desde` la acompaña. Para los alumnos anteriores a este cambio se completó con el primer plan de su grupo actual, nunca antes del ingreso ni después del día de la migración.
 
 ## 4.g Cancelación de clase
 

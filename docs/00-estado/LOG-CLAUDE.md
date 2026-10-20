@@ -28,6 +28,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — T52 segunda parte: quien entró después no aparece
+
+- Carlos: «Los cambios son siempre para adelante» (DU-09). Visual de T52 aprobado: «Las vistas están OK».
+- El plan no sirve para la fecha en el grupo (cambio inmediato, plan diferido al mes siguiente):
+  columna nueva `alumnos.grupo_desde`, completada por el modelo `Alumno` en alta, cambio de grupo y
+  corrección del ingreso; migración que la completa para los existentes. `enGrupoElDia` en show y guardado.
+- `wingstest` (solo lectura): a los 100 les quedaría su fecha de ingreso; nadie desaparece.
+- 2 pruebas nuevas (7 en T52). Suite completa `wings_testing_claude`: 952 aprobadas, 4 omitidas,
+  2 fallidas: contador (corregido a 958) y `CancelarLiquidacionCerradaTest`, cuyo alumno de prueba no
+  tenía ingreso anterior a la clase (fixture corregido, 9/9).
+- Esperé a que Codex terminara su fusión de T61 antes de tocar nada. Requiere migrar al desplegar.
+
 ## 2026-10-19 — Claude CyE — Producción y prueba: dos bases que se confundieron
 
 - Carlos: «En test tiene que haber 100». Comprobado por SSH, solo lectura: producción `wings` 0 alumnos;

@@ -42,13 +42,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude) | Segunda parte hecha por Claude CyE el 20/10: quien entró al grupo después de una clase no aparece en ella (alumnos.grupo_desde). Visual aprobado por Carlos el 20/10 («Las vistas están OK»); esta parte no cambia la pantalla. Falta verificar la lógica (Gemini). Requiere migrar al desplegar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T52.md |
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | En curso (hizo Claude) | Visual aprobado por Carlos el 20/10 («Las vistas están OK»). Carlos aclaró DU-09: «Los cambios son siempre para adelante»: el que entró al grupo después de una clase no aparece en ella. Claude CyE corrige: la lista es de quienes tenían plan de ese grupo vigente el día de la clase, más quien tiene marca. Después, verificación de lógica (Gemini). |
+Nada en este momento.
 
 ## Codex
 

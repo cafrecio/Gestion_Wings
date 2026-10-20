@@ -33,6 +33,7 @@ class Alumno extends Model
     protected $casts = [
         'fecha_nacimiento' => 'date',
         'fecha_alta' => 'date',
+        'grupo_desde' => 'date',
         'activo' => 'boolean',
         'alta_cuota' => 'array',
     ];
@@ -49,7 +50,37 @@ class Alumno extends Model
             if (empty($alumno->fecha_alta)) {
                 $alumno->fecha_alta = Carbon::now()->toDateString();
             }
+            // T52: está en su grupo desde que ingresó.
+            if (empty($alumno->grupo_desde)) {
+                $alumno->grupo_desde = $alumno->fecha_alta;
+            }
         });
+
+        // T52 (DU-09): los cambios son siempre para adelante. Un cambio de grupo cuenta
+        // desde hoy; si se corrige la fecha de ingreso de quien nunca cambió de grupo, su
+        // fecha en el grupo la acompaña.
+        static::updating(function ($alumno) {
+            if ($alumno->isDirty('grupo_id')) {
+                $alumno->grupo_desde = Carbon::now()->toDateString();
+            } elseif ($alumno->isDirty('fecha_alta')) {
+                $anterior = $alumno->getOriginal('fecha_alta');
+                $desde = $alumno->getOriginal('grupo_desde');
+                if ($desde === null || ($anterior && Carbon::parse($desde)->isSameDay($anterior))) {
+                    $alumno->grupo_desde = $alumno->fecha_alta;
+                }
+            }
+        });
+    }
+
+    /**
+     * T52: alumnos que estaban en el grupo el día de la clase (no los que entraron después).
+     */
+    public function scopeEnGrupoElDia($query, int $grupoId, Carbon|string $fecha)
+    {
+        $dia = Carbon::parse($fecha)->toDateString();
+
+        return $query->where('grupo_id', $grupoId)
+            ->where(fn ($q) => $q->whereNull('grupo_desde')->orWhereDate('grupo_desde', '<=', $dia));
     }
 
     /**

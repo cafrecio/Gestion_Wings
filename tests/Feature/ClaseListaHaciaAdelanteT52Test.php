@@ -134,6 +134,61 @@ class ClaseListaHaciaAdelanteT52Test extends TestCase
         $this->assertDatabaseMissing('asistencias', ['clase_id' => $this->hoyViejo->id, 'alumno_id' => $this->cambio->id]);
     }
 
+    /**
+     * Carlos, 20/10: «Los cambios son siempre para adelante» («si yo nací en 1980, ¿puedo
+     * haber sido parte de la revolución de mayo?»). Quien entró al grupo después de una
+     * clase no aparece en ella ni se lo puede marcar.
+     */
+    public function test_quien_entro_al_grupo_despues_no_aparece_en_la_clase_vieja(): void
+    {
+        $nuevaAlta = $this->alumno('Nueva', 'Alta', $this->viejo, '2026-10-15');
+        $llegoHoy = $this->alumno('Llego', 'Hoy', $this->nuevo);
+        $llegoHoy->update(['grupo_id' => $this->viejo->id]);
+
+        $vieja = $this->actingAs($this->operativo)->get(route('web.clases.show', $this->semanaPasada->id))->assertOk();
+        $ids = $vieja->viewData('alumnos')->pluck('id');
+        $this->assertNotContains($nuevaAlta->id, $ids);
+        $this->assertNotContains($llegoHoy->id, $ids);
+        $vieja->assertDontSee('Nueva, Alta')->assertDontSee('Llego, Hoy');
+
+        // En la clase de hoy de su grupo sí están.
+        $hoy = $this->actingAs($this->operativo)->get(route('web.clases.show', $this->hoyViejo->id))->assertOk();
+        $this->assertContains($nuevaAlta->id, $hoy->viewData('alumnos')->pluck('id'));
+        $this->assertContains($llegoHoy->id, $hoy->viewData('alumnos')->pluck('id'));
+
+        // Y no se los puede cargar en la clase vieja con un pedido armado a mano.
+        foreach ([$nuevaAlta, $llegoHoy] as $alumno) {
+            $this->actingAs($this->operativo)
+                ->postJson(route('web.clases.asistencias', $this->semanaPasada->id), ['items' => [['alumno_id' => $alumno->id, 'presente' => 1]], 'motivo' => 'Prueba'])
+                ->assertStatus(422)->assertJson(['success' => false]);
+            $this->assertDatabaseMissing('asistencias', ['clase_id' => $this->semanaPasada->id, 'alumno_id' => $alumno->id]);
+        }
+        $this->assertSame(3, Asistencia::where('clase_id', $this->semanaPasada->id)->where('presente', true)->count());
+    }
+
+    public function test_la_fecha_en_el_grupo_se_completa_sola(): void
+    {
+        // Alta: desde su ingreso.
+        $alta = $this->alumno('Fecha', 'Alta', $this->viejo, '2026-09-20');
+        $this->assertSame('2026-09-20', $alta->fresh()->grupo_desde->toDateString());
+
+        // Corregir el ingreso de quien nunca cambió de grupo mueve también su fecha en el grupo.
+        $alta->update(['fecha_alta' => '2026-09-10']);
+        $this->assertSame('2026-09-10', $alta->fresh()->grupo_desde->toDateString());
+
+        // Cambiar de grupo cuenta desde hoy, aunque el plan nuevo empiece el mes que viene.
+        $alta->update(['grupo_id' => $this->nuevo->id]);
+        $this->assertSame('2026-10-18', $alta->fresh()->grupo_desde->toDateString());
+
+        // Y después corregir el ingreso ya no la toca: el cambio de grupo fue hoy.
+        $alta->update(['fecha_alta' => '2026-09-05']);
+        $this->assertSame('2026-10-18', $alta->fresh()->grupo_desde->toDateString());
+
+        // Los que cambiaron en setUp («ayer» de la prueba, mismo día simulado).
+        $this->assertSame('2026-10-18', $this->cambio->fresh()->grupo_desde->toDateString());
+        $this->assertSame('2026-09-01', $this->sigue->fresh()->grupo_desde->toDateString());
+    }
+
     public function test_la_profesora_ve_la_misma_lista_vieja(): void
     {
         $vista = $this->actingAs($this->profesorUser)->get(route('web.clases.show', $this->semanaPasada->id))->assertOk();
@@ -141,12 +196,12 @@ class ClaseListaHaciaAdelanteT52Test extends TestCase
         $vista->assertSee('Cambio, Degrupo')->assertSee('Baja, Deayer');
     }
 
-    private function alumno(string $apellido, string $nombre, ?Grupo $grupo = null): Alumno
+    private function alumno(string $apellido, string $nombre, ?Grupo $grupo = null, string $fechaAlta = '2026-09-01'): Alumno
     {
         $grupo ??= $this->viejo;
         return Alumno::create(['nombre' => $nombre, 'apellido' => $apellido, 'dni' => (string) $this->dni++,
             'fecha_nacimiento' => '2000-01-01', 'celular' => '1111111111', 'deporte_id' => $grupo->deporte_id,
-            'grupo_id' => $grupo->id, 'fecha_alta' => '2026-09-01', 'activo' => true]);
+            'grupo_id' => $grupo->id, 'fecha_alta' => $fechaAlta, 'activo' => true]);
     }
 
     private function clase(Grupo $grupo, string $fecha, Profesor $profesor): Clase

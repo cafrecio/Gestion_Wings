@@ -214,6 +214,8 @@ class CancelarLiquidacionCerradaTest extends TestCase
             'fecha_nacimiento' => '2005-01-01',
             'grupo_id' => $this->grupo->id,
             'deporte_id' => $this->deporte->id,
+            // T52: ya estaba en el grupo el día de la clase.
+            'fecha_alta' => '2026-08-01',
             'activo' => true,
         ]);
 

@@ -296,10 +296,11 @@ class ClaseWebController extends Controller
     {
         $clase = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias.alumno'])->findOrFail($id);
 
-        // T52 (DU-09): los cambios son hacia adelante. La lista es la del grupo de hoy más
-        // quien ya tiene una marca guardada en esta clase, aunque después haya cambiado de
-        // grupo o se haya dado de baja.
-        $alumnos = Alumno::where(fn ($q) => $q->where('grupo_id', $clase->grupo_id)->where('activo', true))
+        // T52 (DU-09): los cambios son siempre para adelante. La lista es la de quienes ya
+        // estaban en el grupo el día de la clase (no aparece quien entró después), más quien
+        // ya tiene una marca guardada en ella, aunque después haya cambiado de grupo o se
+        // haya dado de baja.
+        $alumnos = Alumno::where(fn ($q) => $q->enGrupoElDia($clase->grupo_id, $clase->fecha)->where('activo', true))
             ->orWhereIn('id', $clase->asistencias->pluck('alumno_id'))
             ->orderBy('apellido')
             ->orderBy('nombre')
@@ -395,9 +396,10 @@ class ClaseWebController extends Controller
         // de guardar nada (todo-o-nada, no queremos guardado parcial).
         $errores = [];
         // T52: también se acepta a quien ya tiene una marca en esta clase (cambió de grupo
-        // o se dio de baja después): corregir la lista vieja no puede rechazarlo.
+        // o se dio de baja después): corregir la lista vieja no puede rechazarlo. Y no se
+        // acepta a quien entró al grupo después de la clase (DU-09, siempre hacia adelante).
         $conMarca = Asistencia::where('clase_id', $clase->id)->pluck('alumno_id');
-        $alumnosDelGrupo = Alumno::where(fn ($q) => $q->where('grupo_id', $clase->grupo_id)->orWhereIn('id', $conMarca))
+        $alumnosDelGrupo = Alumno::where(fn ($q) => $q->where(fn ($g) => $g->enGrupoElDia($clase->grupo_id, $clase->fecha))->orWhereIn('id', $conMarca))
             ->whereIn('id', collect($items)->pluck('alumno_id')->map(fn($id) => (int) $id)->filter())
             ->pluck('id')
             ->map(fn($id) => (int) $id)

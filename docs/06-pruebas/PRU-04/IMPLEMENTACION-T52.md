@@ -28,6 +28,9 @@ solo agrega a quien ya tiene marca, y en una clase de hoy recién tomada nadie l
 apareciendo en esa clase vieja (y se lo puede marcar), como antes. «Los cambios son hacia
 adelante» podría querer decir que tampoco aparezca ahí; no se decidió y no lo toqué.
 
+> **Resuelto el 20/10 — ver «Segunda parte» al final.** Carlos: «Los cambios son siempre para adelante».
+> El visual de esta primera parte lo aprobó Carlos el 20/10: «Las vistas están OK».
+
 ## Pruebas
 
 `tests/Feature/ClaseListaHaciaAdelanteT52Test.php`, 5 pruebas (30 aserciones), con una clase de
@@ -62,3 +65,30 @@ Consola del navegador sin errores ni avisos.
 - No se probó en el servidor ni con datos reales.
 - Liquidaciones y reportes no cambian (cuentan desde `asistencias`, no desde la lista); no se
   recorrieron de nuevo.
+
+## Segunda parte — quien entró después no aparece (Claude CyE, 20/10/2026)
+
+Carlos: «Los cambios son siempre para adelante» («si yo nací en 1980, ¿puedo haber sido parte de
+la revolución de mayo?»).
+
+**Por qué no alcanzaba con los planes:** con el mes ya pagado, el cambio de grupo es inmediato pero
+el plan nuevo empieza el mes siguiente (`CambioPlanService::seDifiere`). Con el plan, el alumno
+habría aparecido el resto del mes en el grupo viejo y no en el nuevo.
+
+| Dónde | Cambio |
+|---|---|
+| Migración `2026_10_20_150000_add_grupo_desde_to_alumnos` | Columna `alumnos.grupo_desde`. Para los existentes: el primer plan de su grupo actual, nunca antes del ingreso ni después de hoy. |
+| `Alumno` (modelo) | Al crear: `grupo_desde` = fecha de ingreso. Al cambiar de grupo: hoy. Si se corrige el ingreso de quien nunca cambió de grupo, lo acompaña. Cubre alta, edición y carga desde Excel sin tocar cada uno. Alcance `enGrupoElDia(grupo, fecha)`. |
+| `ClaseWebController::show` y `storeAsistencias` | Mismo criterio: estaban en el grupo ese día (`enGrupoElDia`), más quien tiene marca en la clase. |
+
+Sin cambios de vista ni de aspecto: la pantalla aprobada sigue igual; solo dejan de aparecer
+quienes entraron después.
+
+Base de prueba (`wingstest`, solo lectura, 20/10): los 100 alumnos activos tienen plan vigente de su
+grupo y ningún plan empieza después de la primera clase de su grupo.
+
+**Pruebas nuevas** en `ClaseListaHaciaAdelanteT52Test` (7 en total): quien entró después —por alta
+posterior o por cambio de grupo hoy— no aparece en la clase vieja, sí en la de hoy, y un pedido
+armado a mano para marcarlo se rechaza sin guardar nada; `grupo_desde` se completa solo en alta,
+cambio de grupo y corrección del ingreso.
+

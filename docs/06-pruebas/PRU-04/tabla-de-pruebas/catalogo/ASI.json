@@ -408,10 +408,16 @@
           "l": "e",
           "texto": "Si se corrige esa lista vieja, también se puede corregir la marca de los que ya no están (con motivo) y ninguna marca se pierde. A quien no es del grupo ni tiene marca no se lo puede cargar.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Clase vieja",
+          "l": "f",
+          "texto": "Quien entró al grupo después de la clase (por alta o por cambio de grupo) no aparece en ella ni se lo puede marcar; en las clases de su grupo desde ese día, sí.",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "ClaseWebController::show y storeAsistencias (código leído). T52 (Claude, 20/10, a verificar): la lista es la del grupo de hoy más quien ya tiene marca guardada en la clase (DU-09).",
+      "fuente": "ClaseWebController::show y storeAsistencias (código leído). T52 (Claude, 20/10, a verificar): la lista es la del grupo de hoy más quien ya tiene marca guardada en la clase (DU-09). Aclarado por Carlos el 20/10 («Los cambios son siempre para adelante»): quien entró al grupo después de una clase no aparece en ella (alumnos.grupo_desde). Segunda parte de T52, Claude CyE, a verificar.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Un alumno que cambió de grupo ayer, uno dado de baja ayer y uno dado de alta hoy.",
