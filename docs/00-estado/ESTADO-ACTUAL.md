@@ -1,6 +1,6 @@
 # Wings — Estado actual
 
-T43, revisión de Carlos 20/10: decisiones parciales JSON, cabecera separada y pie Total confirmado implementados localmente; 18/134 dirigidas finales verdes; completa 1017 aprobadas, 6 omitidas, 8791 aserciones, 844,65 s, salida 0. Escritorio mantiene posición y texto sin guardar; cabecera 375 capturada. Última interacción móvil bloqueada por acceso al navegador deshabilitado en Work. Carlos aprobó la corrección: «Ahora esta OK». Pendientes publicación y revisión independiente de lógica por Claude. Ver IMPLEMENTACION-T43.md.
+T43, revisión de Carlos 20/10: decisiones parciales JSON, cabecera separada y pie Total confirmado implementados localmente; 18/134 dirigidas finales verdes; completa 1017 aprobadas, 6 omitidas, 8791 aserciones, 844,65 s, salida 0. Escritorio mantiene posición y texto sin guardar; cabecera 375 capturada. Última interacción móvil bloqueada por acceso al navegador deshabilitado en Work. Carlos aprobó la corrección: «Ahora esta OK». Publicada en main: b8e1ac1e, remoto comprobado. Pendiente revisión independiente de lógica por Claude. Ver IMPLEMENTACION-T43.md.
 
 ## T43 — Implementación local, Codex CyE 20/10/2026
 

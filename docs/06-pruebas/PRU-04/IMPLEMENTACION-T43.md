@@ -1,6 +1,6 @@
 # T43 — Decisión del dueño sobre comisiones atrasadas
 
-20/10/2026, Codex CyE. Implementación local tras T42 (`6c8602f3`). Sin despliegue ni escritura en `wingstest`, `wings` o la base del club. Completa en verde. Carlos aprobó la corrección visual y de interacción: «Ahora esta OK». Pendientes: publicación y verificación independiente de lógica por Claude.
+20/10/2026, Codex CyE. Implementación local tras T42 (`6c8602f3`). Sin despliegue ni escritura en `wingstest`, `wings` o la base del club. Completa en verde. Carlos aprobó la corrección visual y de interacción: «Ahora esta OK». Publicada en `main`: `b8e1ac1e`, remoto comprobado el 20/10. Pendiente verificación independiente de lógica por Claude.
 
 ## Regla y cálculo
 
@@ -35,7 +35,7 @@ Navegador: aplicación real local en `127.0.0.1:8761`, base sintética separada 
 
 ## Entrega pendiente
 
-Aprobación de Carlos registrada el 20/10: «Ahora esta OK». Publicar y pasar T43 a verificar por Claude. Carlos autorizó el envío: «Mandale el mensaje. No frenes la tarea». LIQ-002 actualizado en el editor de Claude: criterios e/h y fuente releídos en catálogo LIQ versión 5 (el estado ya era vigente). Al abrir el caso se detectó que a aún decía cuotas cobradas en octubre; se alineó con DU-19/T42 y la copia del repo, y se releyó la versión 6: solo cambió el texto de a. [Relectura e/h y diff](evidencia-t43/tabla-viva-relectura.txt) · [Relectura final de a](evidencia-t43/tabla-viva-punto-a-relectura.txt) · [Captura real](evidencia-t43/tabla-viva-final.png). No se modificaron otros casos, resultados ni respuestas de dudas. No tocar ni incluir la evidencia T34 regenerada por la suite ni cambios de otros agentes.
+Aprobación de Carlos registrada el 20/10: «Ahora esta OK». Publicada en `main` (`b8e1ac1e`), T43 a verificar por Claude. Carlos autorizó el envío: «Mandale el mensaje. No frenes la tarea». LIQ-002 actualizado en el editor de Claude: criterios e/h y fuente releídos en catálogo LIQ versión 5 (el estado ya era vigente). Al abrir el caso se detectó que a aún decía cuotas cobradas en octubre; se alineó con DU-19/T42 y la copia del repo, y se releyó la versión 6: solo cambió el texto de a. [Relectura e/h y diff](evidencia-t43/tabla-viva-relectura.txt) · [Relectura final de a](evidencia-t43/tabla-viva-punto-a-relectura.txt) · [Captura real](evidencia-t43/tabla-viva-final.png). No se modificaron otros casos, resultados ni respuestas de dudas. No tocar ni incluir la evidencia T34 regenerada por la suite ni cambios de otros agentes.
 
 ## Corrección visual posterior a la revisión de Carlos
 
