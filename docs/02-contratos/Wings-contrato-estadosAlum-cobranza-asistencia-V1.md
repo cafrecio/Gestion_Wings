@@ -313,6 +313,29 @@ La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta 
 
 Implementado el 20/10/2026 por Gemini: `App\Support\FechaIngresoRegla`, `AlumnoWebController`, `PagoCuotaService`, `PrimeraCargaExcelService` y `alumnos-form.js`. Cubierto por `tests/Feature/FechaIngresoFuturaT50Test.php`.
 
+### Enmienda del 20/10/2026 — reglas de primer pago sin superposiciones ni días sin cubrir (T64)
+
+Decisión de Carlos: **DU-45 («Impedir reglas superpuestas y días sin cubrir»)**. Caso: **CFG-004**.
+
+El conjunto de reglas de primer pago debe cubrir de manera obligatoria y continua la totalidad de los días del mes, **del día 1 al 31**, sin fisuras ni solapamientos:
+
+1. **Continuidad total sin huecos ni superposiciones:**
+   - La primera regla comienza obligatoriamente en el día 1 (`dia_desde == 1`).
+   - Cada regla siguiente inicia exactamente al día siguiente del término de la anterior (`siguiente.dia_desde == actual.dia_hasta + 1`).
+   - La última regla culmina obligatoriamente en el día 31 (`dia_hasta == 31`).
+   - Debe existir al menos una regla activa.
+   - Cada día del mes resuelve siempre a exactamente una regla activa. Se elimina el comportamiento previo en que días sin regla o con reglas encimadas no aplicaban descuento sin aviso.
+2. **Guardado atómico en lote:**
+   - Para no bloquear transiciones de tramos (ej. pasar de «1–15 y 16–31» a «1–10 y 11–31»), la pantalla guarda la colección completa en un solo envío (`PUT /configuraciones/primer-pago`).
+   - El servidor valida la integridad del conjunto completo (`App\Support\ReglasPrimerPagoValidator`) y persiste dentro de una transacción atómica (`DB::transaction`).
+   - Las reglas preexistentes conservan sus IDs numéricos para preservar la integridad referencial con `pagos.regla_primer_pago_id`.
+   - Las operaciones individuales (`store`, `update`, `destroy`) simulan el conjunto resultante contra la base de datos y rechazan cualquier acción que genere huecos o superposiciones.
+3. **Mensajes claros en castellano:**
+   - Ante huecos: *«Los días X a Y quedan sin cubrir. Todos los días del 1 al 31 deben estar cubiertos por una regla.»*
+   - Ante superposiciones: *«Los días X a Y se pisan con la regla "Nombre", que va del A al B. Un mismo día no puede tener dos porcentajes.»*
+
+Implementado el 20/10/2026 por Gemini: `App\Support\ReglasPrimerPagoValidator`, `ReglaPrimerPagoWebController` y `resources/js/configuraciones.js`. Cubierto por `tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php` y `ReglaPrimerPagoSinSuperposicionTest.php`.
+
 ---
 
 ## 4. Alumno nuevo vs alumno con historia
@@ -576,6 +599,7 @@ Son dos cosas distintas y no deben confundirse:
 | DEUDOR solo por mes cerrado impago | Enmienda del 23/09 implementada localmente; retirado el criterio de falta de pagos en cálculo individual y masivo. Pendiente de verificación independiente |
 | Deudor o moroso por inscripción impaga y plazo propio de alta | ✅ **Implementado y verificado (13/10/2026, T31).** Enmiendas del 12/10 y 13/10: la inscripción impaga y la cuota del mes de ingreso cuentan desde la fecha de ingreso (`fecha_alta`) con plazo propio (`dias_plazo_alta`, default 7) y días de gracia general; el estado del alumno es el peor entre cuotas e inscripción. |
 | Fecha de ingreso futura solo hasta fin de mes siguiente | ✅ **Implementado (20/10/2026, T50).** Enmienda del 20/10 (DU-06, ALU-007): límite máximo hasta el último día del mes siguiente a hoy en alta individual, edición, previsualizaciones y primera carga por Excel. |
+| Reglas de primer pago sin huecos ni superposiciones | ✅ **Implementado (20/10/2026, T64).** Enmienda del 20/10 (DU-45, CFG-004): cobertura obligatoria continua del 1 al 31 con guardado atómico en lote, preservación de IDs y validación de conjunto. |
 | El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |
