@@ -55,15 +55,17 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T43** Liquidacion: avisar al duenio la comision que viene de cuotas atrasadas; el valida y el recibo sale segun lo que decida | En curso (hizo Codex, verifica Claude) | Implementar DU-36 después de T42 6c8602f3: origen por cuota, decisión del dueño para atrasadas, recibo solo con las validadas. Pruebas completas propias y capturas 1366/375 antes de pedir aprobación; sin commit de vistas hasta OK ni despliegue. |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (18)
+## Sin empezar (17)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T43 (antes del 1/11), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), B3 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), B3 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
