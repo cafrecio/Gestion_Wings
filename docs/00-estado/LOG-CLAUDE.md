@@ -28,6 +28,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — T64 verificada: devuelta a Gemini
+
+- Validador y lote bien (transacción, solo ADMIN, cambio de tramos en un envío). 13/13 de Gemini.
+- H1 alcanzable: Cancelar no repone los valores y el próximo guardado manda la edición abandonada
+  (leído en configuraciones.js, no reproducido en navegador). H2 id repetido → días 1–15 sin cubrir,
+  200 (reproducido). H3 id inexistente → 404 en inglés. Los dos últimos solo con pedido armado.
+- Pruebas independientes fuera de tests/: 5, 1 fallida (H2). Informe VERIFICACION-T64-CLAUDE.md.
+
 ## 2026-10-20 — Claude CyE — T52 H5: el cambio de grupo no adelanta un ingreso futuro
 
 - Codex reverificó d148a241: H1–H4 bien, H5 nuevo (cambio de grupo antes de ingreso futuro → asistencia

@@ -1,0 +1,4 @@
+{
+    "status": 404,
+    "cuerpo": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\ReglaPrimerPago] 999999\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"C:\\\\xampp\\\\htdocs\\\\Gestion_Wings\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Exceptions\\\\Handler.php\",\n"
+}
