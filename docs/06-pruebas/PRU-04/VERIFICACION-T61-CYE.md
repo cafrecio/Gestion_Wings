@@ -47,3 +47,7 @@ Carlos solicitó aviso cuando fuera seguro reinstalar. Suite y build terminados;
 Integración y evidencia se guardan en el commit que contiene este informe, sobre main. Las novedades ajenas de DU-09 permanecen fuera de ese commit. El HTML de T34 regenerado por la suite se repuso desde HEAD, tras comprobar la escritura en su prueba. Guardianes documentales finales: 7 aprobadas, 34 aserciones, 0,30 s ([salida](evidencia-t61-cye/guardianes-finales.txt)).
 
 Los registros de consola conservan resultados y mensajes; se normalizan finales de línea y espacios finales para versionarlos.
+
+## Guardado antes de reinstalar
+
+Integración guardada en `758955ef`. La suite y el build terminaron; no quedan pruebas activas y el servidor ficticio del puerto 8761 fue detenido por sus dos PID verificados. Base ficticia y capturas conservadas. La revisión automática rechazó publicar tanto en main como en rama propia: exige autorización humana que identifique repositorio y contenido a transferir. No se publicó esta integración. El commit ajeno `49a15f92` apareció después, con DU-09/T52; no se atribuye ni certifica ese trabajo. Para publicar solo este avance se pedirá autorización sobre `758955ef` en `cafrecio/Gestion_Wings`, rama `codex/t61-integracion-cye`.

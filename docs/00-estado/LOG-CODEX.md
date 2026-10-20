@@ -10,7 +10,7 @@ Carlos pidió completar T61. Se combina c9b68d2 con main c2721d8d, conservando T
 Revisión de código por subagente independiente aprobada, sin certificar ejecución ni reemplazar el control cruzado del tablero.
 Chrome real con base ficticia separada: salida/entrada de $300.000 por formulario; saldos cambian y resultado del club conserva $7.000. Inicio/Reportes/Cashflow contrastados, capturas escritorio guardadas.
 Build y PHP correctos. Después, navegador deshabilitado en Work; Carlos mostró el interruptor encendido; reiniciar conexión CUA y pedir navegador integrado devuelve el mismo rechazo. Carlos reinstala dependencias al quedar guardado el avance.
-[Control actual](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md). Pendientes celular, resto de pantallas/operativa, control cruzado y aprobación visual. Sin cierre ni despliegue.
+Integración guardada en 758955ef; servidor ficticio detenido. Publicación rechazada por revisión automática, pendiente autorización con destino/contenido. [Control actual](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md). Pendientes celular, resto de pantallas/operativa, control cruzado y aprobación visual. Sin cierre ni despliegue.
 
 ## 2026-10-20 — Codex CAB — T61, implementada; visual pendiente desde CyE
 
