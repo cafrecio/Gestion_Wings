@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T42 — Consulta previa sobre asientos históricos, Codex CyE 20/10/2026
+
+DU-19 exige repartir ingresos adelantados según el mes pagado. Los asientos nuevos de caja enlazan el movimiento y el pago; la migración de ese vínculo es nullable y no reconstruye los anteriores. Cinco asientos locales concretos de Cuota Mensual conservan solo referencia a caja; no se afirma que fueran adelantados ni ambiguos. Consulta a Carlos: conservar el mes original en los no identificables, o reconstruir primero los verificables y consultar los ambiguos. Sin producto T42 modificado ni escrituras en bases de trabajo/remotas. [Preparación y alcance comprobado](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). T43 espera a T42.
+
 ## T50 — Fecha de ingreso futura, solo hasta el mes siguiente, Gemini CAB 20/10/2026
 
 DU-06 (caso ALU-007): «Aceptar solo hasta el mes siguiente». La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta el último día del mes siguiente a hoy (reloj Wings / `Carbon::now()`, respetando reloj simulado). Ejemplo: al 20/10/2026 el límite es 30/11/2026; en diciembre de cualquier año es el 31 de enero. Fechas posteriores se rechazan con mensaje en castellano: *«La fecha de ingreso no puede ser posterior al dd/mm/aaaa.»*.

@@ -57,7 +57,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | En curso (hizo Codex, verifica Claude) | Implementar DU-19/COB-012: comisión e ingreso de cuota adelantada en el mes que paga, con desglose por imputación. Después T43; sin servidor ni despliegue. |
+| **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | En curso (hizo Codex, verifica Claude) | Consulta previa a Carlos: ingreso histórico sin vínculo identificable al pago. Conservar mes original o reconstruir primero vínculos verificables. Sin producto T42 modificado; T43 después. |
 
 ## Gemini
 

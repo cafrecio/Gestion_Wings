@@ -30,6 +30,7 @@ Carlos ordenó T42 y luego T43, tras terminar verificaciones T52/T61. T61 public
 T42 tomada por script: comisión de cada parte en max(mes cobro, mes pagado), después ingreso adelantado en Reportes/Inicio; Caja/Cashflow conservan fecha real del dinero.
 Leer DU-19/DU-36, COB-012/LIQ-002 y contratos/código; si el diseño contradice el sistema, frenar. Sin código T42 antes de publicar esta toma.
 Base propia wings_testing_codex y completa sin otra suite activa por tarea. No escribir en wingstest/wings ni desplegar. T43 se implementa después, con revisión visual de Carlos antes de commit de vistas.
+Seguimiento tras T61 f089768b: detectado vínculo histórico no reconstruido entre asiento de caja y pago. Consulta de alcance a Carlos pendiente (AGENTS §6b); [preparación](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md), sin producto T42 modificado.
 
 ## 2026-10-20 — Codex CyE — T52, reverificación d148a241 y H5
 
