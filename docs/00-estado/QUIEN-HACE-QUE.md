@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 19/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 20/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -46,9 +46,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: cero bloques script y cero manejadores en las vistas (eran 8 y 8). Ingreso con el ojo de ds-app; filtros con data-enviar-al-cambiar; 5 módulos nuevos en resources/js; confirmaciones con form[data-confirmar-envio]. CspSinCodigoIncrustadoTest en cero. Sin cambios de aspecto. Falta verificar EN NAVEGADOR con clics (lista en el informe). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T73.md |
+Nada en este momento.
 
 ## Codex
 
@@ -56,7 +54,9 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude el 19/10: cero bloques script y cero manejadores en las vistas (eran 8 y 8). Ingreso con el ojo de ds-app; filtros con data-enviar-al-cambiar; 5 módulos nuevos en resources/js; confirmaciones con form[data-confirmar-envio]. CspSinCodigoIncrustadoTest en cero. Sin cambios de aspecto. Falta verificar EN NAVEGADOR con clics (lista en el informe). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T73.md |
 
 ## Sin empezar (23)
 
