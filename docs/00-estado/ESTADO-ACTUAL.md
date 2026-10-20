@@ -19,6 +19,10 @@ Implementada por Codex e integrada. Recorrido real terminado en base ficticia se
 Se conserva la suite propia de integración: 952 aprobadas/4 omitidas, 8455 aserciones, 1102,57 s, salida 0, corte 956; no certifica los cambios paralelos posteriores. Mi recorrido queda entregado. **Pendientes aprobación visual de Carlos y verificación de lógica por Claude**; T61 sigue a_verificar, sin autocierre ni despliegue. [Control](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md) · [Galería](../06-pruebas/PRU-04/RECORRIDO-T61.html).
 ## T52 — Devuelta a Claude por Codex CyE, 20/10/2026
 
+**Reverificación d148a241, Codex CyE 20/10:** H1–H4 pasan; consultas 12→12 con 1→12 alumnos. Nueve independientes: 8 aprobadas/1 fallida, 59 aserciones, 21,50 s. H5 reproducido por PUT/GET/POST web: ingreso 01/11, cambio de grupo 20/10; aparece en clase 20/10 y guarda presente (200). Devuelta a Claude para conservar el límite del ingreso aunque cambie el grupo. Sin producto ni despliegue. [Informe actual](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md).
+
+### Antecedentes
+
 DU-09 (ALU-013, ASI-009). Entrega de Claude `2dfbf243` / `dd45ce0e`: conserva marcas previas y agrega `grupo_desde` para excluir llegadas posteriores. Visual aprobado por Carlos («Las vistas están OK»), sin revisión visual pendiente en esta verificación. [Implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T52.md).
 
 **Verificación independiente con hallazgos:** POST acepta y guarda a un inactivo sin marca excluido del GET; corregir el ingreso después de cambiar de grupo el mismo día del alta retrotrae el grupo y lo muestra en clases anteriores; backfill de un ingreso futuro lo adelanta a hoy. N+1 previo confirmado: 12→45 consultas con 1→12 alumnos. El backfill tampoco reconstruye la fecha real de un cambio antiguo con plan diferido. No se corrigió producto ni se eligió una nueva regla ante el criterio contradictorio de fechas futuras.

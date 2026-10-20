@@ -1,0 +1,26 @@
+[
+  {
+    "ruta": "app/Models/Alumno.php",
+    "sha256_lf": "697ebf2565a2921fe0646b52b0aa3d78d5c1cf95465cde8414faa61668e4a193"
+  },
+  {
+    "ruta": "app/Http/Controllers/AlumnoWebController.php",
+    "sha256_lf": "0b292d5cee2bfef197974c55d83fb07da87008fc03cc61a52723592cb553c4a8"
+  },
+  {
+    "ruta": "app/Http/Controllers/ClaseWebController.php",
+    "sha256_lf": "8d65ea4f6e5b795b18b82cb79413f33fd08ce5ac8bed6f50d71c710ce77b4297"
+  },
+  {
+    "ruta": "app/Services/ClaseService.php",
+    "sha256_lf": "b07aec5968971ed747d4cde5d2c738495a01535d8a8a9f0d25c90a88b8d351fd"
+  },
+  {
+    "ruta": "database/migrations/2026_10_20_150000_add_grupo_desde_to_alumnos.php",
+    "sha256_lf": "6290e3e82bc5b269a34ae27e0ec5fa4ef1da71e43d7afb0f9829a27ca5e8bc80"
+  },
+  {
+    "ruta": "tests/Feature/ClaseListaHaciaAdelanteT52Test.php",
+    "sha256_lf": "a12d353b319bf44d021221d03cdfff371871d07fecf3c08d0489af0a8f115cd7"
+  }
+]

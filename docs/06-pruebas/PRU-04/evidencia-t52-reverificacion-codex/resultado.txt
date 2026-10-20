@@ -1,0 +1,31 @@
+
+   FAIL  T52ReverificacionTest
+  ✓ inactivo sin marca no se puede cargar por post                                                               7.35s
+  ✓ cambio en el dia del alta no se retrotrae al corregir ingreso por http                                       0.14s
+  ✓ consultas de show no crecen por alumno                                                                       0.10s
+  ✓ reactivacion conserva fecha y misma lista para tres roles                                                    0.07s
+  ✓ grupo inmediato con mes pagado y plan diferido                                                               0.07s
+  ✓ cerradas y pagadas hora y comision preservan filas e importes                                                0.13s
+  ✓ migracion historica y cambio previo con plan diferido                                                        0.08s
+  ✓ migracion con ingreso futuro no lo adelanta                                                                  6.70s
+  ⨯ ingreso futuro cambiado de grupo no asiste antes del ingreso por http                                        6.56s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  T52ReverificacionTest > ingreso futuro cambiado de grupo no asiste antes del ingreso por http
+  Failed asserting that a traversable does not contain 1.
+
+  at docs\06-pruebas\PRU-04\evidencia-t52-reverificacion-codex\T52ReverificacionTest.php:219
+    215▕             'aparece_antes_ingreso' => $vista->viewData('alumnos')->contains('id', $alumno->id),
+    216▕             'http_guardado' => $guardar->status(),
+    217▕             'marca_guardada' => Asistencia::where('clase_id', $clase->id)->where('alumno_id', $alumno->id)->exists(),
+    218▕         ]);
+  ➜ 219▕         $this->assertNotContains($alumno->id, $vista->viewData('alumnos')->pluck('id'));
+    220▕         $guardar->assertStatus(422);
+    221▕         $this->assertDatabaseMissing('asistencias', ['clase_id' => $clase->id, 'alumno_id' => $alumno->id]);
+    222▕     }
+    223▕ }
+
+  1   docs\06-pruebas\PRU-04\evidencia-t52-reverificacion-codex\T52ReverificacionTest.php:219
+
+
+  Tests:    1 failed, 8 passed (57 assertions)
+  Duration: 21.33s

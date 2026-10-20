@@ -42,15 +42,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Tercera vuelta de Claude CyE el 20/10: corregidos H1-H4 de Codex (inactivo en el guardado, grupo_desde vacío mientras no cambia de grupo, ingreso futuro, N+1 de la ficha). 11 pruebas. Visual aprobado por Carlos el 20/10. Vuelve a verificar Codex. Requiere migrar al desplegar. |
+Nada.
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | En curso (hizo Claude, verifica Codex) | Codex reverificó d148a241: H1-H4 pasan. H5 reproducido por HTTP: ingreso 01/11, cambio de grupo 20/10, aparece y guarda presente el 20/10 (200). Corregir elegibilidad previa al ingreso; informe VERIFICACION-T52-CODEX.md. |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Transferencia única atómica y catálogo protegido. Visual corregido aprobado por Carlos. Completa Codex 976 aprobadas/6 omitidas; Claude verifica lógica, idempotencia y migración. Sin despliegue. |
 | **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Hecho, espera verificación (hizo Gemini) | Verificar logica y pantallas de T64 (reglas de primer pago sin huecos ni superposicion) |
 

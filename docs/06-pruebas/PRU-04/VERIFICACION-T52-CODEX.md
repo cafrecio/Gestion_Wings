@@ -1,5 +1,36 @@
 # T52 — Verificación independiente de lógica
 
+## Reverificación de d148a241 — Codex CyE, 20/10/2026
+
+**DEVUELTA A CLAUDE POR H5. H1–H4 corregidos en los escenarios originalmente reproducidos.**
+Las cuatro fuentes principales de T52 (modelo, controlador de clases, servicio y migración) no tienen diferencias entre d148a241 y HEAD al verificar.
+
+Nueve pruebas independientes: **8 aprobadas, 1 fallida, 59 aserciones, 21,50 s, salida 1**, exclusivamente `wings_testing_codex`, después de terminar la suite T61. [Pruebas](evidencia-t52-reverificacion-codex/T52ReverificacionTest.php) · [Salida final](evidencia-t52-reverificacion-codex/resultado-final.txt) · [Filas observadas](evidencia-t52-reverificacion-codex/observaciones.jsonl) · [Fuentes](evidencia-t52-reverificacion-codex/fuentes.json).
+
+- H1: POST del inactivo sin marca devuelve 422 sin escribir.
+- H2: corregir ingreso tras cambiar de grupo el mismo día conserva la fecha del cambio.
+- H3 original: migración del ingreso futuro con primer plan coincidente conserva `grupo_desde=NULL`; la fecha efectiva de ingreso excluye clases anteriores.
+- H4: detalle con 1 y 12 alumnos hace **12 consultas en ambos casos**. No crece por alumno.
+- Reactivación por tres roles, cambio inmediato con plan diferido y bloqueo de cerradas/pagadas HORA/COMISIÓN siguen aprobados.
+
+### H5 — Cambiar de grupo antes del ingreso futuro habilita asistencia anticipada
+
+Caso alcanzable por web, con reloj en **20/10/2026**:
+
+1. Alumno activo con ingreso y plan desde **01/11/2026**, fecha permitida por T50.
+2. ADMIN envía PUT `/alumnos/{id}` cambiando A→B, con plan válido y sin alterar el ingreso. El guardado confirma éxito.
+3. Persisten ingreso **01/11** y `grupo_desde=20/10`.
+4. GET de una clase de B del **20/10** incluye al alumno; POST de asistencia devuelve **200 y guarda un presente** antes del ingreso.
+
+Causa leída en `Alumno::scopeEnGrupoElDia`: al existir `grupo_desde`, la rama `orWhereDate('grupo_desde', '<=', $dia)` deja de exigir que la fecha de ingreso haya llegado. El mismo scope alimenta GET y POST. No es una inferencia de agregados: se inspeccionaron los campos concretos y la asistencia persistida en base descartable.
+
+Se devuelve a Claude para conservar la exclusión anterior al ingreso incluso después de cambiar de grupo. Codex no cambia producto ni toma decisiones nuevas sobre datos históricos. El criterio de migración de cambios antiguos con plan diferido sigue siendo una aproximación declarada; no se convierte en fecha real por pasar este ensayo.
+
+La suite permanente conjunta reciente dio **976 aprobadas/6 omitidas, 8527 aserciones, 804,11 s, salida 0**, corte 982, durante T61. No cubría H5: el caso independiente nuevo lo reproduce en rojo. No se presenta ese verde como aprobación de T52. Visual de Carlos conservado; sin cambios de clases ni despliegue.
+
+## Antecedente de la verificación anterior
+
+
 Codex CyE, 20/10/2026. Entrega de Claude: `2dfbf243` y `dd45ce0e`.
 
 **CON HALLAZGOS.** Tres incumplimientos funcionales reproducidos y un N+1 previo.

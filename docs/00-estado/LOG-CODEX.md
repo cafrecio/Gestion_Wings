@@ -1,5 +1,7 @@
 # Wings — Bitácora activa de CODEX
 
+[Antecedente archivado al reverificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-REVERIFICACION-ANTECEDENTE.md).
+
 [Antecedente archivado al corregir T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-TRANSFERENCIA-ANTECEDENTE.md).
 
 
@@ -9,6 +11,14 @@
 [Dos antecedentes archivados intactos al verificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-ANTECEDENTES.md).
 
 [Antecedente archivado intacto al completar el recorrido T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-RECORRIDO-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — T52, reverificación d148a241 y H5
+
+H1–H4 pasan en reproducciones propias; N+1 corregido: 12 consultas tanto con 1 como con 12 alumnos. NULL inicial se verifica como ingreso efectivo, sin confundir valor físico y fecha efectiva.
+Nueve independientes en wings_testing_codex, sin otra suite activa: 8 aprobadas/1 fallida, 59 aserciones, 21,50 s, salida 1.
+H5 web reproducido: ingreso 01/11, cambio A→B 20/10 confirmado; clase de B del 20/10 lo lista y POST guarda presente (200), antes del ingreso.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Devuelta a Claude por tablero; no se corrige producto ni se alteran clases/vistas. Visual aprobado de Carlos conservado. Sin despliegue.
+La completa conjunta reciente 976/6 omitidas verde no cubría H5. La verificación no aprueba T52. Continúa T42 y después T43 según la orden de Carlos.
 
 ## 2026-10-20 — Codex CyE — T61, transferencia única solicitada por Carlos
 
@@ -98,14 +108,3 @@ Seis botones principales y Abrir ahora 96 × 32 en escritorio/celular; capturas 
 Suite completa 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s, salida 0 en wings_testing_codex; cero pruebas ajenas al comenzar, once fuentes registradas idénticas al terminar.
 Carlos aprobó: «Apruebo el visual T74 actualizado». Sin controlador, CSS compartido ni servidor; cambios paralelos preservados.
 Cierre T74: hizo Claude/verifica Codex para lógica, visual verifica Carlos; entrega en este commit. Sin despliegue.
-
-## 2026-10-19 — Codex CyE — Verificación de corrección T34
-
-Verifico f2b065f7/c5c0f41f; T67 permanece cerrada y visual T34 aprobado por Carlos en fb88bd3c.
-H1 y PATCH H2 pasan: estados coherentes; HORA/COMISIÓN, pendiente/pagada, JSON/formulario; filas intactas.
-C1: listado 33→75 consultas con 2→16 tarjetas, por contador compartido del provider.
-C2: incluir_hoy valida otra clase aun cuando la generación de septiembre se rechaza por duplicada.
-Ambos antecedentes anteriores a la corrección; no se demostró bypass de cerrada por ese otro camino.
-Selección final 16 pasan/2 fallan por C1/C2, 259 aserciones, 17,49 s; suite completa 921/4 omitidas, 8179 aserciones, 1343,15 s, verde.
-[Informe y reproducciones](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md#verificación-de-la-corrección). Solo wings_testing_codex; diez controles visuales sin desbordes.
-Sin corregir producto ni desplegar; T34 se entrega con hallazgos de c/f para Gemini.
