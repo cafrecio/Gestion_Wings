@@ -154,6 +154,7 @@ class PrimeraCargaExcelService
             $ingreso = $this->fecha($h->getCell([5, $r]));
             if (!$nacimiento || $nacimiento->isFuture()) $error($r, 4, 'Nacimiento inválido.', 'Fecha real día/mes/año, no futura.');
             if (!$ingreso || ($nacimiento && $ingreso->lt($nacimiento))) $error($r, 5, 'Ingreso inválido.', 'Fecha real día/mes/año, posterior al nacimiento.');
+            if ($ingreso && !\App\Support\FechaIngresoRegla::esValida($ingreso)) $error($r, 5, 'Fecha de ingreso fuera de límite.', \App\Support\FechaIngresoRegla::mensajeError());
             if ($nacimiento && $nacimiento->age < 18) foreach ([8, 9] as $c) if ($v[$c] === '') $error($r, $c, 'Obligatorio para menor de edad.', $c === 8 ? 'Nombre del tutor.' : 'Teléfono del tutor.');
             $deporte = $deportes->filter(fn ($d) => $this->normalizar($d->nombre) === $this->normalizar($v[10]))->values();
             if ($deporte->count() !== 1) $error($r, 10, 'Deporte inexistente o ambiguo.', 'Elegí un deporte activo de la lista.');

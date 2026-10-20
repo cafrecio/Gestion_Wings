@@ -441,6 +441,11 @@ class PagoCuotaService
     /** Misma regla para el aviso previo y la deuda congelada al guardar. */
     public function previsualizarCuotaAlta(string $fechaIngreso, ?int $planId = null): array
     {
+        if (!\App\Support\FechaIngresoRegla::esValida($fechaIngreso)) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'fecha_alta' => \App\Support\FechaIngresoRegla::mensajeError(),
+            ]);
+        }
         $fecha = Carbon::parse($fechaIngreso);
         $mesCerrado = $fecha->copy()->startOfMonth()->lt(now()->startOfMonth());
         $mesCuota = $mesCerrado ? now() : $fecha->copy();

@@ -44,11 +44,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude) | Segunda parte hecha por Claude CyE el 20/10: quien entró al grupo después de una clase no aparece en ella (alumnos.grupo_desde). Visual aprobado por Carlos el 20/10 («Las vistas están OK»); esta parte no cambia la pantalla. Falta verificar la lógica (Gemini). Requiere migrar al desplegar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T52.md |
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Segunda parte hecha por Claude CyE el 20/10: quien entró al grupo después de una clase no aparece en ella (alumnos.grupo_desde). Visual aprobado por Carlos el 20/10 («Las vistas están OK»); esta parte no cambia la pantalla. Falta verificar la lógica (Gemini). Requiere migrar al desplegar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T52.md |
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
 
 ## Codex
 
@@ -58,9 +60,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | En curso | Gemini implementa limite de fecha de ingreso hasta fin del mes siguiente (DU-06, ALU-007) |
+Nada en este momento.
 
 ## Sin empezar (20)
 

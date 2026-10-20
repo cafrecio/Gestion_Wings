@@ -10,6 +10,29 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-20 — LOG GEM CAB — Implementación T50: fecha de ingreso futura, solo hasta fin de mes siguiente
+
+- **Objetivo y resultado:** Implementación de la tarea T50 bajo decisión de Carlos DU-06 («Aceptar solo hasta el mes siguiente») y caso de prueba ALU-007. Resultado: **IMPLEMENTADA**, con 10 pruebas automatizadas nuevas pasando al 100%, capturas generadas y lista para verificación independiente (`a_verificar`).
+- **Regla implementada:** La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta el último día del mes siguiente a hoy (`Carbon::now()`, respetando reloj simulado). Fechas posteriores se rechazan con mensaje en castellano: *«La fecha de ingreso no puede ser posterior al dd/mm/aaaa.»*.
+- **Alcance y archivos modificados:**
+  - `app/Support/FechaIngresoRegla.php`: clase soporte con `limiteMaximo()`, `esValida()` y `mensajeError()`.
+  - `app/Http/Controllers/AlumnoWebController.php`: validación en `store` y condicional en `update` (solo si se cambia la fecha; no bloquea edición de otros campos en alumnos existentes con fechas históricas). Previsualizaciones de cuota e inscripción retornan 422 si la fecha excede el límite.
+  - `app/Services/PagoCuotaService.php`: `previsualizarCuotaAlta` valida contra el límite y lanza `ValidationException`.
+  - `app/Services/PrimeraCargaExcelService.php`: `revisar` marca celda en columna 5 (E) con error descriptivo y bloquea la importación total.
+  - `resources/js/alumnos-form.js`: input `fecha_alta` con atributo `max` dinámico y validación nativa `setCustomValidity` en tiempo real (sin JavaScript inline en Blade, AGENTS.md §5-bis).
+  - `resources/views/**` y `resources/css/**`: **100% intactos** (AGENTS.md §1). El mensaje se muestra mediante la estructura de errores existente (`@error('fecha_alta')`).
+- **Pruebas y suite (`wings_testing_gemini`):**
+  - 10 pruebas en `tests/Feature/FechaIngresoFuturaT50Test.php` (44 aserciones, 15.78 s, todas verdes).
+  - `tests/Feature/AlumnoSinPlanT56T68Test.php`, `AlumnoGrupoDelDeporteTest.php` y `PrimeraCargaExcelTest.php`: todas aprobadas (611 aserciones).
+  - `tests/Feature/CspSinCodigoIncrustadoTest.php`: en verde (cero bloques `<script>` inline, cero manejadores).
+- **Evidencia visual y documentación:**
+  - Capturas reales a 1366px y marco de 375px para alta de alumno y primera carga en `docs/06-pruebas/PRU-04/evidencia-t50/`.
+  - Visor para Carlos en `docs/06-pruebas/PRU-04/APROBAR-T50.html`.
+  - Contrato actualizado en `docs/02-contratos/Wings-contrato-estadosAlum-cobranza-asistencia-V1.md`.
+  - Catálogo de pruebas actualizado: caso ALU-007 en `ALU.json` a `"estado": "vigente"`.
+  - Informe técnico completo en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T50.md`.
+- **Próximo paso:** Verificación independiente de la lógica por Claude / Codex.
+
 ## 2026-10-20 — LOG GEM CAB — Verificación independiente T73: cero JavaScript dentro de las vistas
 
 - **Objetivo y resultado:** Verificación independiente de la tarea T73 implementada por Claude CyE en commit `b05bda9`. Resultado: **APROBADA** y **CERRADA** en el tablero. Cero JavaScript inline residual en las vistas Blade y comportamiento interactivo 100% preservado.

@@ -163,6 +163,46 @@ import {pesos} from './formato-importe';
             }
         });
     }
+
+    // Validación fecha de alta / ingreso (T50: hasta el último día del mes siguiente)
+    const fechaAltaInput = document.getElementById('fecha_alta');
+    if (fechaAltaInput) {
+        function calcularLimiteFechaAlta() {
+            if (fechaAltaInput.dataset.max) return fechaAltaInput.dataset.max;
+            const hoy = new Date();
+            const ultimo = new Date(hoy.getFullYear(), hoy.getMonth() + 2, 0);
+            const yyyy = ultimo.getFullYear();
+            const mm = String(ultimo.getMonth() + 1).padStart(2, '0');
+            const dd = String(ultimo.getDate()).padStart(2, '0');
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        const maxFecha = calcularLimiteFechaAlta();
+        const valorInicial = fechaAltaInput.value;
+        const esAlta = !document.getElementById('motivo_fecha_alta');
+
+        if (esAlta || !valorInicial || valorInicial <= maxFecha) {
+            fechaAltaInput.max = maxFecha;
+        }
+
+        function validarFechaAlta() {
+            const val = fechaAltaInput.value;
+            if (!esAlta && val === valorInicial) {
+                fechaAltaInput.setCustomValidity('');
+                return;
+            }
+            if (val && val > maxFecha) {
+                const [y, m, d] = maxFecha.split('-');
+                fechaAltaInput.setCustomValidity(`La fecha de ingreso no puede ser posterior al ${d}/${m}/${y}.`);
+            } else {
+                fechaAltaInput.setCustomValidity('');
+            }
+        }
+
+        fechaAltaInput.addEventListener('input', validarFechaAlta);
+        fechaAltaInput.addEventListener('change', validarFechaAlta);
+        validarFechaAlta();
+    }
 })();
 
 const form = document.querySelector('[data-alumno-form]');

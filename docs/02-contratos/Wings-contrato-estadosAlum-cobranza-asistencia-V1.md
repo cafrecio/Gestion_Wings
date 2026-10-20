@@ -295,6 +295,24 @@ Implementado el 17/10/2026 por Claude: `PagoCuotaService::crearCuotaReingreso` y
 `deuda_cuotas.fecha_reingreso`. Cubierto por `tests/Feature/ReingresoCuotaT38Test.php`.
 Verificado por Gemini el 18/10/2026 ([VERIFICACION-T38-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T38-GEMINI.md)) y cerrado.
 
+### Enmienda del 20/10/2026 — fecha de ingreso futura solo hasta el fin del mes siguiente (T50)
+
+Decisión de Carlos: DU-06 («Aceptar solo hasta el mes siguiente»). Caso: ALU-007.
+
+La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta el **último día del mes siguiente a hoy** (reloj de Wings / `Carbon::now()`, respetando el reloj simulado).
+
+1. **Alta individual y edición:**
+   - `AlumnoWebController::store` rechaza fechas que superen el límite con mensaje en castellano: *«La fecha de ingreso no puede ser posterior al dd/mm/aaaa.»* y no persiste alumno ni deudas.
+   - `AlumnoWebController::update` aplica el límite únicamente si se está modificando `fecha_alta`. Si se editan otros datos de un alumno con fecha histórica ya guardada, la edición se procesa sin bloquear.
+2. **Previsualizaciones:**
+   - La previsualización de cuota de alta (`cuotaAltaPreview`, `PagoCuotaService::previsualizarCuotaAlta`) y de inscripción (`inscripcionPreview`) validan la fecha y rechazan fechas fuera del límite (HTTP 422).
+3. **Primera carga por Excel:**
+   - `PrimeraCargaExcelService::revisar` verifica la fecha en la columna 5 (E) de la hoja `Alumnos`. Las filas que superen el límite se marcan con error explícito y mensaje descriptivo, impidiendo continuar con la carga.
+4. **Interfaz y cliente:**
+   - `resources/js/alumnos-form.js` configura dinámicamente el atributo `max` en el selector de fecha y maneja la validación nativa en tiempo real sin incrustar JavaScript en las vistas Blade.
+
+Implementado el 20/10/2026 por Gemini: `App\Support\FechaIngresoRegla`, `AlumnoWebController`, `PagoCuotaService`, `PrimeraCargaExcelService` y `alumnos-form.js`. Cubierto por `tests/Feature/FechaIngresoFuturaT50Test.php`.
+
 ---
 
 ## 4. Alumno nuevo vs alumno con historia
@@ -557,6 +575,7 @@ Son dos cosas distintas y no deben confundirse:
 | Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
 | DEUDOR solo por mes cerrado impago | Enmienda del 23/09 implementada localmente; retirado el criterio de falta de pagos en cálculo individual y masivo. Pendiente de verificación independiente |
 | Deudor o moroso por inscripción impaga y plazo propio de alta | ✅ **Implementado y verificado (13/10/2026, T31).** Enmiendas del 12/10 y 13/10: la inscripción impaga y la cuota del mes de ingreso cuentan desde la fecha de ingreso (`fecha_alta`) con plazo propio (`dias_plazo_alta`, default 7) y días de gracia general; el estado del alumno es el peor entre cuotas e inscripción. |
+| Fecha de ingreso futura solo hasta fin de mes siguiente | ✅ **Implementado (20/10/2026, T50).** Enmienda del 20/10 (DU-06, ALU-007): límite máximo hasta el último día del mes siguiente a hoy en alta individual, edición, previsualizaciones y primera carga por Excel. |
 | El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |

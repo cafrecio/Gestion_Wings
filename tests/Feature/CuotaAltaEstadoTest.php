@@ -229,14 +229,15 @@ class CuotaAltaEstadoTest extends TestCase
         $this->assertDatabaseMissing('deuda_cuotas', ['periodo' => '2026-09']);
     }
 
-    public function test_fecha_de_ingreso_define_mes_aunque_no_sea_el_proximo(): void
+    /** Más allá del mes próximo no se carga: se hace cuando se acerque (T50, DU-06). */
+    public function test_no_se_acepta_un_ingreso_mas_alla_del_mes_proximo(): void
     {
         $datos = $this->datos('2026-11-20');
-        $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
-        $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
-        $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id,
-            'periodo' => '2026-11', 'monto_original' => 21000]);
-        $this->assertDatabaseCount('deuda_cuotas', 1);
+        $this->post(route('web.alumnos.store'), $datos)
+            ->assertSessionHasErrors('fecha_alta');
+
+        $this->assertDatabaseCount('alumnos', 0);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
     }
 
     public function test_parcial_anulacion_y_recobro_conservan_la_cuota_del_alta(): void

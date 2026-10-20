@@ -8,6 +8,7 @@ use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Services\CobranzaEstadoService;
 use App\Services\PagoCuotaService;
+use App\Support\FechaIngresoRegla;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -19,13 +20,41 @@ class AlumnoWebController extends Controller
 {
     public function cuotaAltaPreview(Request $request, PagoCuotaService $service)
     {
-        $data = $request->validate(['fecha_alta' => 'required|date', 'plan_id' => 'nullable|integer|exists:grupo_planes,id']);
+        $data = $request->validate([
+            'fecha_alta' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if ($value && !FechaIngresoRegla::esValida($value)) {
+                        $fail(FechaIngresoRegla::mensajeError());
+                    }
+                },
+            ],
+            'plan_id' => 'nullable|integer|exists:grupo_planes,id',
+        ]);
         return response()->json($service->previsualizarCuotaAlta($data['fecha_alta'], isset($data['plan_id']) ? (int) $data['plan_id'] : null));
     }
 
     public function inscripcionPreview(Request $request)
     {
-        $data = $request->validate(['dni' => 'required|string|max:20', 'fecha_alta' => 'required|date']);
+        $data = $request->validate([
+            'dni' => 'required|string|max:20',
+            'fecha_alta' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->filled('alumno_id')) {
+                        $editado = Alumno::find($request->integer('alumno_id'));
+                        if ($editado && $editado->fecha_alta && Carbon::parse($value)->isSameDay($editado->fecha_alta)) {
+                            return;
+                        }
+                    }
+                    if ($value && !FechaIngresoRegla::esValida($value)) {
+                        $fail(FechaIngresoRegla::mensajeError());
+                    }
+                },
+            ],
+        ]);
         $service = app(\App\Services\InscripcionService::class);
         $importe = $service->importe();
         $cargo = $service->cargo($data['dni']);
@@ -285,7 +314,17 @@ class AlumnoWebController extends Controller
     {
         $request->merge(['dni' => \App\Services\InscripcionService::dni((string) $request->input('dni'))]);
         $request->validate(['alta_token' => 'nullable|uuid']);
-        $fechaIngreso = Carbon::parse($request->validate(['fecha_alta' => 'required|date'], $this->validationMessages())['fecha_alta']);
+        $fechaIngreso = Carbon::parse($request->validate([
+            'fecha_alta' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if ($value && !FechaIngresoRegla::esValida($value)) {
+                        $fail(FechaIngresoRegla::mensajeError());
+                    }
+                },
+            ],
+        ], $this->validationMessages())['fecha_alta']);
         $mesCerrado = $fechaIngreso->copy()->startOfMonth()->lt(now()->startOfMonth());
         $fingerprint = hash('sha256', json_encode($request->only(['dni', 'nombre', 'apellido', 'fecha_nacimiento', 'fecha_alta', 'celular', 'email', 'nombre_tutor', 'telefono_tutor', 'grupo_id', 'deporte_id', 'plan_id', 'generar_cuota_actual'])));
         if ($request->filled('alta_token')) {
@@ -428,7 +467,7 @@ class AlumnoWebController extends Controller
         $tienePlanValido = $alumno->planActivo && $alumno->planActivo->plan;
         $cambiaGrupo = $request->filled('grupo_id') && (int) $request->input('grupo_id') !== (int) $alumno->grupo_id;
 
-        $rules = $this->validationRules($request);
+        $rules = $this->validationRules($request, $alumno);
         $rules['dni'] = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->ignore($alumno->id)->where('deporte_id', $request->input('deporte_id', $alumno->deporte_id))];
 
         // Plan obligatorio si el alumno no tiene uno vigente o si cambia de grupo
@@ -453,6 +492,11 @@ class AlumnoWebController extends Controller
             throw \Illuminate\Validation\ValidationException::withMessages(['dni' => 'El DNI está vinculado a una inscripción. Su corrección requiere revisar ese cargo.']);
         }
         if ($fechaAnterior !== Carbon::parse($validated['fecha_alta'])->format('Y-m-d')) {
+            if (!FechaIngresoRegla::esValida($validated['fecha_alta'])) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'fecha_alta' => FechaIngresoRegla::mensajeError(),
+                ]);
+            }
             $request->validate(['motivo_fecha_alta' => 'required|string|min:5|max:500']);
             $alumno->fill(Arr::except($validated, ['plan_id']));
             $inscripcion->sincronizar($alumno, $request->user()->id, $fechaAnterior, $request->input('motivo_fecha_alta'));
@@ -472,7 +516,7 @@ class AlumnoWebController extends Controller
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno actualizado correctamente.');
     }
 
-    private function validationRules(Request $request): array
+    private function validationRules(Request $request, ?Alumno $alumno = null): array
     {
         $esMenor = false;
         if ($request->filled('fecha_nacimiento')) {
@@ -482,13 +526,28 @@ class AlumnoWebController extends Controller
             }
         }
 
+        $cambiaFechaAlta = true;
+        if ($alumno && $alumno->fecha_alta) {
+            $fechaNueva = $request->input('fecha_alta');
+            $cambiaFechaAlta = $fechaNueva && Carbon::parse($fechaNueva)->format('Y-m-d') !== $alumno->fecha_alta->format('Y-m-d');
+        }
+
+        $fechaAltaRules = ['required', 'date'];
+        if ($cambiaFechaAlta) {
+            $fechaAltaRules[] = function ($attribute, $value, $fail) {
+                if ($value && !FechaIngresoRegla::esValida($value)) {
+                    $fail(FechaIngresoRegla::mensajeError());
+                }
+            };
+        }
+
         return [
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'fecha_nacimiento' => 'required|date|before:today',
             // Obligatoria: la columna es NOT NULL y el boot() del modelo solo
             // completa la fecha al crear, no al actualizar.
-            'fecha_alta' => 'required|date',
+            'fecha_alta' => $fechaAltaRules,
             // Obligatorio para mayores: la columna es NOT NULL, asi que dejarlo vacio no
             // daba un mensaje de validacion sino un error 500 contra la base.
             // Un menor puede no tener celular propio (A26): se acepta vacio y se guarda

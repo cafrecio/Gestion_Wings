@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidencia de Pantallas T50 — Fecha de ingreso futura</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1d2330; --muted:#5d6676; --line:#dde1e7; --ok:#16a34a; --warn:#a15c00; --danger:#dc2626; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171c; --card:#1d2129; --text:#e8ebf0; --muted:#a3abb8; --line:#2f3540; --ok:#22c55e; --warn:#f0a94a; --danger:#ef4444; } }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
+  main { max-width:1200px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  h2 { font-size:1.15rem; margin:32px 0 8px; }
+  p { margin:6px 0; }
+  .muted { color:var(--muted); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; margin-top:12px; }
+  .badge-ok { display:inline-block; font-size:0.75rem; font-weight:700; color:var(--ok); background:color-mix(in srgb, var(--ok) 15%, transparent); padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle; }
+  .fila { display:grid; grid-template-columns: 3fr 1fr; gap:16px; align-items:start; }
+  @media (max-width: 760px) { .fila { grid-template-columns: 1fr; } }
+  figure { margin:0; }
+  figcaption { font-size:.8rem; color:var(--muted); margin-bottom:4px; font-weight:500; }
+  img { width:100%; height:auto; border:1px solid var(--line); border-radius:6px; display:block; }
+  .aviso { color:var(--warn); font-weight:600; }
+  .destacado { border-left: 3px solid var(--ok); padding-left: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>T50: Fecha de ingreso futura (solo hasta fin del mes siguiente) <span class="badge-ok">Implementado por Gemini</span></h1>
+  <p class="muted">Decisión de Carlos: DU-06 («Aceptar solo hasta el mes siguiente»). Caso: ALU-007.</p>
+
+  <div class="card destacado">
+    <p><b>Integridad del sistema visual:</b></p>
+    <p><b>El mensaje se muestra con la estructura existente de errores, sin tocar Blade.</b></p>
+    <p class="muted">No se modificó ninguna vista Blade bajo <code>resources/views/**</code> ni hojas de estilo en <code>resources/css/**</code> (cumple AGENTS.md §1). La restricción en el cliente se fijó mediante el atributo <code>max</code> y validación nativa en <code>resources/js/alumnos-form.js</code> sin JavaScript incrustado (cumple AGENTS.md §5-bis).</p>
+  </div>
+
+  <h2>1. Formulario de Alta de Alumno (Rechazo con fecha posterior al límite)</h2>
+  <p class="muted">Ejemplo: Reloj Wings al 20/10/2026. Límite máximo admitido: 30/11/2026. Intento con 01/12/2026 genera el mensaje en castellano: <i>«La fecha de ingreso no puede ser posterior al 30/11/2026.»</i></p>
+  <div class="fila">
+    <figure>
+      <figcaption>Computadora (1366px)</figcaption>
+      <img src="evidencia-t50/01-alumno-alta-error-1366.png" alt="Alta de alumno con error de fecha de ingreso en escritorio">
+    </figure>
+    <figure>
+      <figcaption>Teléfono (marco 375px)</figcaption>
+      <img src="evidencia-t50/02-alumno-alta-error-marco-375.png" alt="Alta de alumno con error de fecha de ingreso en teléfono">
+    </figure>
+  </div>
+
+  <h2>2. Revisión de Primera Carga por Excel (Fila con fecha de ingreso fuera de límite)</h2>
+  <p class="muted">En el paso 3 de Primera Carga (Revisión), la fila con fecha posterior al último día del mes siguiente se detalla en el informe y se bloquea la importación total.</p>
+  <div class="fila">
+    <figure>
+      <figcaption>Computadora (1366px)</figcaption>
+      <img src="evidencia-t50/03-primera-carga-error-1366.png" alt="Primera carga con error de fila en escritorio">
+    </figure>
+    <figure>
+      <figcaption>Teléfono (marco 375px)</figcaption>
+      <img src="evidencia-t50/04-primera-carga-error-marco-375.png" alt="Primera carga con error de fila en teléfono">
+    </figure>
+  </div>
+
+  <h2>3. Resumen de Puntos Verificados</h2>
+  <div class="card">
+    <ul>
+      <li><b>Regla central:</b> <code>App\Support\FechaIngresoRegla</code> calcula dinámicamente el límite con <code>Carbon::now()</code> (respetando reloj simulado).</li>
+      <li><b>Alta y Edición:</b> <code>AlumnoWebController::store</code> y <code>update</code> validan el límite. En edición, solo se exige si la fecha se está modificando; alumnos existentes con fechas históricas no se bloquean.</li>
+      <li><b>Previsualización de cuota e inscripción:</b> <code>AlumnoWebController::cuotaAltaPreview</code>, <code>inscripcionPreview</code> y <code>PagoCuotaService::previsualizarCuotaAlta</code> validan el límite.</li>
+      <li><b>Primera Carga Excel:</b> <code>PrimeraCargaExcelService::revisar</code> marca la celda en columna E con error y esperado, no permitiendo avanzar al paso 4 si hay errores.</li>
+      <li><b>Pruebas automatizadas:</b> 10 pruebas unitarias/feature en <code>tests/Feature/FechaIngresoFuturaT50Test.php</code> (44 aserciones) pasando al 100%.</li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>

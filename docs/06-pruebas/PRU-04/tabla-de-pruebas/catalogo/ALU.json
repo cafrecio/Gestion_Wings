@@ -390,8 +390,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-06, 13/10): solo hasta el mes siguiente. Falta programar: T50. Antes: AlumnoWebController::store no limita la fecha de ingreso (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-06, 13/10): solo hasta el mes siguiente. Implementado por Gemini el 20/10 (T50), a verificar: AlumnoWebController (store y update), previsualizaciones, PrimeraCargaExcelService (revisar) y validación en alumnos-form.js. Rechaza fechas posteriores al último día del mes siguiente a hoy con aviso en castellano sin tocar Blade. Cubierto por tests/Feature/FechaIngresoFuturaT50Test.php.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-alta",
       "requiere": "Mismo que ALU-001.",
