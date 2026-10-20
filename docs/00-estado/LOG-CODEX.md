@@ -1,5 +1,7 @@
 # Wings — Bitácora activa de CODEX
 
+[Antecedente archivado al tomar T42](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-TOMA-T42-ANTECEDENTE.md).
+
 [Antecedente archivado al reverificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-REVERIFICACION-ANTECEDENTE.md).
 
 [Antecedente archivado al corregir T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-TRANSFERENCIA-ANTECEDENTE.md).
@@ -11,6 +13,13 @@
 [Dos antecedentes archivados intactos al verificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-ANTECEDENTES.md).
 
 [Antecedente archivado intacto al completar el recorrido T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-RECORRIDO-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — Toma T42, después T43
+
+Carlos ordenó T42 y luego T43, tras terminar verificaciones T52/T61. T61 publicada 43a70976, visual corregido aprobado y completa 976/6 omitidas verde; lógica para Claude. T52 reverificada y devuelta por H5 en ff49b709.
+T42 tomada por script: comisión de cada parte en max(mes cobro, mes pagado), después ingreso adelantado en Reportes/Inicio; Caja/Cashflow conservan fecha real del dinero.
+Leer DU-19/DU-36, COB-012/LIQ-002 y contratos/código; si el diseño contradice el sistema, frenar. Sin código T42 antes de publicar esta toma.
+Base propia wings_testing_codex y completa sin otra suite activa por tarea. No escribir en wingstest/wings ni desplegar. T43 se implementa después, con revisión visual de Carlos antes de commit de vistas.
 
 ## 2026-10-20 — Codex CyE — T52, reverificación d148a241 y H5
 
@@ -97,14 +106,3 @@ Completa verde ya ejecutada con la corrección: 935/4 omitidas, 8243 aserciones,
 T34 cerrada: hizo Gemini/verifica Codex. Visual previo de Carlos conservado; T67 cerrada. Sin despliegue.
 Cierre pedido por Carlos: T34 d4f10dd4 y T74 7abd5539 ya publicados, remoto comprobado en 022020fb.
 Se entrega también el HTML regenerado por la prueba original, con tokens de prueba omitidos; sin nueva corrida ni despliegue.
-
-## 2026-10-19 — Codex CyE — T74, lógica aprobada y visual aprobado por Carlos
-
-Toma publicada en 5bbf5047 antes de editar. Lógica de Claude c1b761e8/09409f9f contrastada con fuente y HTTP.
-Dirigidas 32/251 verdes; gracia, inscripción sola, parcial, adelanto real e inactiva; consultas 24 con 1 y 12 alumnos.
-Alumnos/Resumen: diferencia de 21 a 0 px. Carlos observó medidas distintas; retirados estilos manuales de acciones del cajón.
-Seis botones principales y Abrir ahora 96 × 32 en escritorio/celular; capturas reales renovadas, 1/5 verde.
-[Informe](../06-pruebas/PRU-04/VERIFICACION-T74-CODEX.md) y [galería](../06-pruebas/PRU-04/APROBAR-T74.html), celular completo en tres tramos legibles.
-Suite completa 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s, salida 0 en wings_testing_codex; cero pruebas ajenas al comenzar, once fuentes registradas idénticas al terminar.
-Carlos aprobó: «Apruebo el visual T74 actualizado». Sin controlador, CSS compartido ni servidor; cambios paralelos preservados.
-Cierre T74: hizo Claude/verifica Codex para lógica, visual verifica Carlos; entrega en este commit. Sin despliegue.
