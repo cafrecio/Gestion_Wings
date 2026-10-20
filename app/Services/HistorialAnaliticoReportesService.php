@@ -118,6 +118,7 @@ class HistorialAnaliticoReportesService
         return ['tipo'=>$modelo->tipo, 'estado'=>$modelo->estado, 'estado_pago'=>$modelo->estado_pago,
             'calculado_centavos'=>$centavos($modelo->total_calculado),
             'final_centavos'=>$centavos($modelo->monto_a_pagar),
+            'atrasadas_excluidas_centavos'=>$centavos($modelo->total_atrasadas_excluidas ?? 0),
             'hora_centavos'=>$modelo->valor_hora_aplicado === null ? null : $centavos($modelo->valor_hora_aplicado),
             'comision_centesimas'=>$modelo->porcentaje_comision_aplicado === null ? null : $centavos($modelo->porcentaje_comision_aplicado)];
     }

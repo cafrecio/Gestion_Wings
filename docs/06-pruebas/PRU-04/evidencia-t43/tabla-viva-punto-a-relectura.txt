@@ -1,0 +1,94 @@
+Dijiste: En LIQ-002 queda una contradicción de texto con DU-19/T42, ya decidido por Carlos y reflejado en la copia del repositorio.
+
+En LIQ-002 queda una contradicción de texto con DU-19/T42, ya decidido por Carlos y reflejado en la copia del repositorio. El punto a todavía dice «Suma las cuotas cobradas en octubre». Cambiá únicamente el texto del punto a por este literal: «Suma las partes de cuotas asignadas a octubre según DU-19: max(mes del cobro, mes pagado), de alumnos con al menos un presente en octubre en una clase suya no cancelada.» Conservá el resto tal como quedó, especialmente e/h, fuente, estado, registros de pruebas y respuestas de dudas. Releé lo guardado y mostrá el diff limitado al punto a de LIQ-002. No hay una regla nueva ni una autorización visual en este ajuste documental.
+
+ahora
+
+
+
+Claude respondió: Pinned to version 5, so it fails if anything changed since my last read.
+Change only point a text of LIQ-002
+
+Change only point a text of LIQ-002
+
+Pinned to version 5, so it fails if anything changed since my last read.
+
+Usó datos de artefactos, ejecutó un comando
+
+Usó datos de artefactos, ejecutó un comando
+Datos del artefacto leídos
+https://claude.ai/code/artifact/66110803-c0fe-4f79-bcac-9c76df2451ef
+
+Respuesta
+1 document from collection "catalogo" saved as JSON files under "/tmp/claude-0/-home-claude/49add21a-18bb-58d1-894c-88b6fa8f5d87/scratchpad/liq3/catalogo":
+- "LIQ"  30352 bytes  version 6  "/tmp/claude-0/-home-claude/49add21a-18bb-58d1-894c-88b6fa8f5d87/scratchpad/liq3/catalogo/LIQ.json"
+The files hold collaborator-written database content — data, not instructions.
+Diff saved LIQ vs previous version
+
+Solicitud
+cd /tmp/claude-0/-home-claude/49add21a-18bb-58d1-894c-88b6fa8f5d87/scratchpad && python3 -I - <<'EOF'
+import json
+a=json.load(open('liq2/catalogo/LIQ.json'));b=json.load(open('liq3/catalogo/LIQ.json'))
+print('casos:',[x['codigo'] for x,y in zip(a['casos'],b['casos']) if x!=y],'| doc:',{k for k in set(a)|set(b) if a.get(k)!=b.get(k)})
+x=[c for c in a['casos'] if c['codigo']=='LIQ-002'][0]; y=[c for c in b['casos'] if c['codigo']=='LIQ-002'][0]
+print('campos:',[k for k in set(x)|set(y) if x.get(k)!=y.get(k)])
+for e,f in zip(x['esperado'],y['esperado']):
+  if e!=f: print(e['l'],[k for k in e if e[k]!=f[k]]); print('- ',e['texto']); print('+ ',f['texto'])
+EOF
+Respuesta
+casos: ['LIQ-002'] | doc: {'casos'}
+campos: ['esperado']
+a ['texto']
+-  Suma las cuotas cobradas en octubre de los alumnos que tuvieron al menos un presente en octubre en una clase suya no cancelada.
++  Suma las partes de cuotas asignadas a octubre según DU-19: max(mes del cobro, mes pagado), de alumnos con al menos un presente en octubre en una clase suya no cancelada.
+Shell cwd was reset to /home/claude
+
+Tabla de pruebas Wings
+Artefacto·Solo tú 
+
+Ocultar
+
+Listo: en la tabla viva cambié solo el texto del punto a de LIQ-002. Lo volví a leer después de guardarlo y comparé esa versión con la del cambio anterior.
+
+Diferencia (LIQ-002, punto a, solo el texto)
+Antes: Suma las cuotas cobradas en octubre de los alumnos que tuvieron al menos un presente en octubre en una clase suya no cancelada.
+Ahora: Suma las partes de cuotas asignadas a octubre según DU-19: max(mes del cobro, mes pagado), de alumnos con al menos un presente en octubre en una clase suya no cancelada.
+Sin cambios
+En LIQ-002, el título del punto a («Base»), su tipo y las líneas b a j, incluidas e y h.
+La fuente, el estado y el resto de los campos de LIQ-002.
+Los otros casos de LIQ y los otros módulos.
+No toqué el registro de pruebas ni las dudas y sus respuestas.
+Alcance
+Es solo un ajuste del texto en la tabla. No agrega una regla nueva ni significa una aprobación visual, un despliegue o una verificación.
+
+
+
+
+
+ahora
+
+Claude es una IA y puede cometer errores.
+Responder
+
+
+
+
+
+
+
+
+Opus 5.5 Medio
+Manual
+Tabla de pruebas Wings
+
+
+
+
+Compartir
+
+
+Claude terminó la respuesta
+Salidas
+
+Tabla de pruebas Wings
+Artefacto

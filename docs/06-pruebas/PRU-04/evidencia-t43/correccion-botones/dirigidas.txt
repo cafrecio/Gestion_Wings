@@ -1,0 +1,20 @@
+
+   PASS  Tests\Feature\DecisionComisionAtrasadaT43Test
+  ✓ cobro mixto persiste tres origenes y separa adelantada                                                       8.52s
+  ✓ pendiente impide cierre incluso desde modelo                                                                 0.11s
+  ✓ validar rechazar y reenviar conservan calculo y auditoria sin mover caja                                     0.21s
+  ✓ formulario viejo no pisa decision nueva                                                                      0.18s
+  ✓ recalculo conserva decision equivalente y auditoria                                                          0.17s
+  ✓ cambio de base exige nueva decision sin borrar la anterior                                                   0.18s
+  ✓ anulado sale de abierta pero cerrada y pagada no cambian                                                     0.31s
+  ✓ cambio de anio atrasada en enero adelantada en febrero                                                       0.13s
+  ✓ redondeo por pago se conserva al partir centavos                                                             0.15s
+  ✓ historico sin imputacion no inventa origen ni decision                                                       0.10s
+  ✓ http roles y detalle ajeno no pueden decidir                                                                 2.97s
+  ✓ ajuste final absoluto se conserva y recibo excluye rechazada                                                 0.53s
+  ✓ cerrada pagada y cuota del mes rechazan decisiones                                                           0.24s
+  ✓ detalle de otra liquidacion e inactivo no escriben auditoria                                                 0.16s
+  ✓ pago y saldo por pagar usan solo comisiones confirmadas                                                      0.25s
+
+  Tests:    15 passed (96 assertions)
+  Duration: 14.46s

@@ -185,63 +185,88 @@ class LiquidacionService
         Liquidacion $liquidacion,
         Profesor $profesor,
         int $mes,
-        int $anio
+        int $anio,
+        array $decisionesPrevias = []
     ): float {
-        $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
-        $fechaFin = Carbon::createFromDate($anio, $mes, 1)->endOfMonth();
-
-        $porcentajeComision = $liquidacion->porcentaje_comision_aplicado ?? $profesor->porcentaje_comision ?? 0;
-
-        $periodo = sprintf('%04d-%02d', $anio, $mes);
-        $partes = app(PartesPagoCuotaService::class);
-        $alumnosConPago = $partes->pagosParaPeriodo($periodo)
-            ->whereHas('alumno')
-            ->with('alumno')
-            ->get();
-
-        $total = 0;
-
-        foreach ($alumnosConPago as $pago) {
-            $alumno = $pago->alumno;
-            $montoCuota = $partes->centavosParaPeriodo($pago, $periodo) / 100;
-            if ($montoCuota <= 0) continue;
-
-            // Verificar si el alumno asistió a al menos una clase de ESTE profesor
-            $tieneAsistenciaConProfesor = Asistencia::where('alumno_id', $alumno->id)
-                ->where('presente', true)
-                ->whereHas('clase', function ($query) use ($fechaInicio, $fechaFin, $profesor) {
-                    $query->whereBetween('fecha', [$fechaInicio, $fechaFin])
-                        ->where('cancelada', false)
-                        ->whereHas('profesores', function ($q) use ($profesor) {
-                            $q->where('profesores.id', $profesor->id);
-                        });
-                })
-                ->exists();
-
-            if (!$tieneAsistenciaConProfesor) {
-                continue;
-            }
-
-            $montoComision = round($montoCuota * ($porcentajeComision / 100), 2);
-
-            LiquidacionDetalle::create([
-                'liquidacion_id' => $liquidacion->id,
-                'tipo_referencia' => LiquidacionDetalle::TIPO_ALUMNO,
-                'referencia_id' => $alumno->id,
-                'monto' => $montoComision,
-                'descripcion' => sprintf(
-                    'Comisión %s %s - Pago $%s (%s%%)',
-                    $alumno->nombre,
-                    $alumno->apellido,
-                    number_format($montoCuota, 2, ',', '.'),
-                    $porcentajeComision
-                ),
-            ]);
-
-            $total += $montoComision;
+        if ($liquidacion->estado !== Liquidacion::ESTADO_ABIERTA || $liquidacion->estaPagada()) {
+            throw new \Exception('Solo se calcula una liquidación abierta sin pagar.');
         }
+        $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
+        $fechaFin = $fechaInicio->copy()->endOfMonth();
+        $porcentaje = $liquidacion->porcentaje_comision_aplicado ?? $profesor->porcentaje_comision ?? 0;
+        $periodo = sprintf('%04d-%02d', $anio, $mes);
+        $servicio = app(PartesPagoCuotaService::class);
+        $pagos = $servicio->pagosParaPeriodo($periodo)->whereHas('alumno')->get();
+        $presentes = Asistencia::where('presente', true)
+            ->whereHas('clase', fn ($q) => $q->whereBetween('fecha', [$fechaInicio, $fechaFin])
+                ->where('cancelada', false)->whereHas('profesores', fn ($q) => $q->where('profesores.id', $profesor->id)))
+            ->distinct()->pluck('alumno_id')->flip();
+        $total = 0;
+        $excluido = 0;
+        foreach ($pagos as $pago) {
+            if (!$presentes->has($pago->alumno_id)) continue;
+            $partes = array_values(array_filter($servicio->partes($pago), fn ($p) => $p['periodo_comision'] === $periodo));
+            foreach ($this->repartirComision($partes, (float) $porcentaje) as $parte) {
+                $datos = [
+                    'liquidacion_id' => $liquidacion->id, 'tipo_referencia' => LiquidacionDetalle::TIPO_ALUMNO,
+                    'referencia_id' => $pago->alumno_id, 'pago_id' => $pago->id,
+                    'deuda_cuota_id' => $parte['deuda_id'], 'periodo_cuota' => $parte['periodo_cuota'],
+                    'fecha_cobro' => $pago->fecha_pago, 'origen_cuota' => $parte['origen'],
+                    'base_cuota' => number_format($parte['centavos'] / 100, 2, '.', ''),
+                    'monto' => number_format($parte['comision_centavos'] / 100, 2, '.', ''),
+                    'descripcion' => sprintf('Comisión %s %s - Pago $%s (%s%%)%s',
+                        $pago->alumno->nombre, $pago->alumno->apellido,
+                        number_format($parte['centavos'] / 100, 2, ',', '.'), $porcentaje,
+                        $parte['periodo_cuota'] ? ' - Cuota '.$parte['periodo_cuota'] : ''),
+                ];
+                $previa = $decisionesPrevias[$this->claveDecision($datos)] ?? [];
+                $atrasada = $parte['origen'] === LiquidacionDetalle::ORIGEN_ATRASADO;
+                $datos += [
+                    'decision_atrasada' => $atrasada ? ($previa['decision_atrasada'] ?? LiquidacionDetalle::DECISION_PENDIENTE) : null,
+                    'decision_por' => $previa['decision_por'] ?? null, 'decision_at' => $previa['decision_at'] ?? null,
+                ];
+                LiquidacionDetalle::create($datos);
+                $total += $parte['comision_centavos'];
+                if ($atrasada && $datos['decision_atrasada'] !== LiquidacionDetalle::DECISION_APROBADA) {
+                    $excluido += $parte['comision_centavos'];
+                }
+            }
+        }
+        // Se guarda junto con total_calculado en la transacción de generar/recalcular.
+        $liquidacion->total_atrasadas_excluidas = number_format($excluido / 100, 2, '.', '');
+        return $total / 100;
+    }
 
-        return $total;
+    /** Conserva el redondeo por pago/mes de T42 y reparte sus centavos sin crearlos. */
+    private function repartirComision(array $partes, float $porcentaje): array
+    {
+        usort($partes, fn ($a, $b) => [$a['periodo_cuota'] ?? '', $a['deuda_id'] ?? 0]
+            <=> [$b['periodo_cuota'] ?? '', $b['deuda_id'] ?? 0]);
+        $tasa = (int) round($porcentaje * 100);
+        $objetivo = intdiv(array_sum(array_column($partes, 'centavos')) * $tasa + 5000, 10000);
+        $restos = [];
+        $asignado = 0;
+        foreach ($partes as $i => &$parte) {
+            $producto = $parte['centavos'] * $tasa;
+            $parte['comision_centavos'] = intdiv($producto, 10000);
+            $restos[$i] = $producto % 10000;
+            $asignado += $parte['comision_centavos'];
+        }
+        unset($parte);
+        arsort($restos);
+        foreach (array_keys($restos) as $i) {
+            if ($asignado >= $objetivo) break;
+            $partes[$i]['comision_centavos']++;
+            $asignado++;
+        }
+        return $partes;
+    }
+
+    private function claveDecision(array $datos): string
+    {
+        return implode(':', [(int) ($datos['pago_id'] ?? 0), (int) ($datos['deuda_cuota_id'] ?? 0),
+            $datos['periodo_cuota'] ?? '', (int) round((float) ($datos['base_cuota'] ?? 0) * 100),
+            (int) round((float) ($datos['monto'] ?? 0) * 100)]);
     }
 
     /**
@@ -253,20 +278,19 @@ class LiquidacionService
      */
     public function cerrarLiquidacion(int $liquidacionId): Liquidacion
     {
-        $liquidacion = Liquidacion::findOrFail($liquidacionId);
-
-        if ($liquidacion->estaCerrada()) {
-            throw new \Exception('La liquidación ya está cerrada.');
-        }
-
-        if (!$liquidacion->puedeCerrarse()) {
-            $desde = $liquidacion->fechaHabilitacionCierre()->format('d/m/Y');
-            throw new \Exception("No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el {$desde}.");
-        }
-
-        $liquidacion->update(['estado' => Liquidacion::ESTADO_CERRADA]);
-
-        return $liquidacion->fresh();
+        return DB::transaction(function () use ($liquidacionId) {
+            $liquidacion = Liquidacion::lockForUpdate()->findOrFail($liquidacionId);
+            if ($liquidacion->estaCerrada()) throw new \Exception('La liquidación ya está cerrada.');
+            if ($liquidacion->tieneAtrasadasPendientes()) {
+                throw new \Exception('Primero validá o rechazá cada cuota atrasada.');
+            }
+            if (!$liquidacion->puedeCerrarse()) {
+                $desde = $liquidacion->fechaHabilitacionCierre()->format('d/m/Y');
+                throw new \Exception("No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el {$desde}.");
+            }
+            $liquidacion->update(['estado' => Liquidacion::ESTADO_CERRADA]);
+            return $liquidacion->fresh();
+        });
     }
 
     /**
@@ -279,36 +303,61 @@ class LiquidacionService
      */
     public function recalcularLiquidacion(int $liquidacionId): Liquidacion
     {
-        $liquidacion = Liquidacion::with('profesor.deporte')->findOrFail($liquidacionId);
-
-        if ($liquidacion->estaCerrada()) {
-            throw new \Exception('No se puede recalcular una liquidación cerrada.');
-        }
-
-        return DB::transaction(function () use ($liquidacion) {
-            $liquidacion->detalles()->delete();
-
-            $profesor = $liquidacion->profesor;
-
-            if ($liquidacion->tipo === Liquidacion::TIPO_HORA) {
-                $total = $this->calcularLiquidacionHora(
-                    $liquidacion,
-                    $profesor,
-                    $liquidacion->mes,
-                    $liquidacion->anio
-                );
-            } else {
-                $total = $this->calcularLiquidacionComision(
-                    $liquidacion,
-                    $profesor,
-                    $liquidacion->mes,
-                    $liquidacion->anio
-                );
+        return DB::transaction(function () use ($liquidacionId) {
+            $liquidacion = Liquidacion::with('profesor.deporte')->lockForUpdate()->findOrFail($liquidacionId);
+            if ($liquidacion->estado !== Liquidacion::ESTADO_ABIERTA || $liquidacion->estaPagada()) {
+                throw new \Exception('No se puede recalcular una liquidación cerrada, cancelada o pagada.');
             }
-
+            $previas = [];
+            foreach ($liquidacion->detalles()->get() as $detalle) {
+                if ($detalle->origen_cuota === LiquidacionDetalle::ORIGEN_ATRASADO
+                    && in_array($detalle->decision_atrasada, [LiquidacionDetalle::DECISION_APROBADA, LiquidacionDetalle::DECISION_RECHAZADA], true)) {
+                    $previas[$this->claveDecision($detalle->getAttributes())] = $detalle->only(['decision_atrasada', 'decision_por', 'decision_at']);
+                }
+            }
+            $liquidacion->detalles()->delete();
+            $profesor = $liquidacion->profesor;
+            $total = $liquidacion->tipo === Liquidacion::TIPO_HORA
+                ? $this->calcularLiquidacionHora($liquidacion, $profesor, $liquidacion->mes, $liquidacion->anio)
+                : $this->calcularLiquidacionComision($liquidacion, $profesor, $liquidacion->mes, $liquidacion->anio, $previas);
             $liquidacion->update(['total_calculado' => $total]);
-
             return $liquidacion->fresh(['detalles', 'profesor']);
+        });
+    }
+
+    public function decidirAtrasada(int $liquidacionId, int $detalleId, string $decision, int $adminId, string $esperada): Liquidacion
+    {
+        $admin = \App\Models\User::findOrFail($adminId);
+        if (!$admin->isAdmin() || !$admin->isActivo()) throw new \Illuminate\Auth\Access\AuthorizationException();
+        if (!in_array($decision, [LiquidacionDetalle::DECISION_APROBADA, LiquidacionDetalle::DECISION_RECHAZADA], true)) {
+            throw \Illuminate\Validation\ValidationException::withMessages(['decision' => 'Elegí validar o rechazar.']);
+        }
+        return DB::transaction(function () use ($liquidacionId, $detalleId, $decision, $adminId, $esperada) {
+            $liq = Liquidacion::lockForUpdate()->findOrFail($liquidacionId);
+            $detalle = $liq->detalles()->lockForUpdate()->findOrFail($detalleId);
+            if ($liq->tipo !== Liquidacion::TIPO_COMISION || $liq->estado !== Liquidacion::ESTADO_ABIERTA || $liq->estaPagada()
+                || $detalle->origen_cuota !== LiquidacionDetalle::ORIGEN_ATRASADO) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['decision' => 'Solo se revisan cuotas atrasadas de una liquidación abierta sin pagar.']);
+            }
+            $anterior = $detalle->decision_atrasada ?? LiquidacionDetalle::DECISION_PENDIENTE;
+            if ($anterior === $decision) return $liq->fresh(['detalles', 'profesor']);
+            if ($anterior !== $esperada) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['decision' => 'La decisión cambió. Recargá la liquidación antes de revisar.']);
+            }
+            $detalle->update(['decision_atrasada' => $decision, 'decision_por' => $adminId, 'decision_at' => now()]);
+            DB::table('liquidacion_decisiones_atrasadas')->insert([
+                'liquidacion_id' => $liq->id, 'detalle_id' => $detalle->id, 'profesor_id' => $liq->profesor_id,
+                'periodo_liquidacion' => sprintf('%04d-%02d', $liq->anio, $liq->mes),
+                'pago_id' => $detalle->pago_id, 'deuda_cuota_id' => $detalle->deuda_cuota_id,
+                'periodo_cuota' => $detalle->periodo_cuota, 'base_cuota' => $detalle->base_cuota,
+                'comision' => $detalle->monto, 'anterior' => $anterior, 'nueva' => $decision,
+                'admin_id' => $adminId, 'registrado_en' => now(),
+            ]);
+            $excluido = $liq->detalles()->where('origen_cuota', LiquidacionDetalle::ORIGEN_ATRASADO)
+                ->where(fn ($q) => $q->whereNull('decision_atrasada')->orWhere('decision_atrasada', '!=', LiquidacionDetalle::DECISION_APROBADA))
+                ->sum('monto');
+            $liq->update(['total_atrasadas_excluidas' => $excluido]);
+            return $liq->fresh(['detalles', 'profesor']);
         });
     }
 

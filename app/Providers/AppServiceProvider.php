@@ -51,6 +51,11 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $request = app()->bound('request') ? request() : null;
+            // Las decisiones parciales no dibujan la navegación ni su contador.
+            if ($request?->expectsJson() && str_starts_with($view->name(), 'liquidaciones.partials.')) {
+                $view->with('badgeClasesPendientes', 0);
+                return;
+            }
             $badge = $request !== null ? $request->attributes->get('wings.badge_clases_pendientes') : null;
 
             if ($badge === null) {

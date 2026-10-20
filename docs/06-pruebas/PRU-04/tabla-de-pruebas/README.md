@@ -19,6 +19,8 @@ quedaron iguales):
 
 **Actualización puntual 20/10/2026, T42:** Carlos autorizó a Codex enviar al editor de Claude los cambios de COB-012 e/h. Ingreso económico y comisión pasan a noviembre; Caja/Cashflow conservan octubre. Copia del repo actualizada y relectura de ArtifactData observada en el editor: catálogo COB, versión 10, solo COB-012 distinto. [Salida real de relectura](../evidencia-t42/tabla-viva-relectura.txt) y [captura de criterios](../evidencia-t42/tabla-viva-criterios.jpg). La vista pública quedó cargando; no se certifica su renderizado por heredar el mensaje de Claude. No se modificaron respuestas de dudas ni otros casos.
 
+**Actualización puntual 20/10/2026, T43:** Carlos autorizó el mensaje al mismo editor de Claude. LIQ-002: e/h y fuente guardados y releídos en versión 5; después se alineó a con DU-19/T42 y la copia del repo, releído en versión 6. Solo LIQ-002 distinto; estado ya vigente, sin modificar registros ni dudas. [Relectura e/h](../evidencia-t43/tabla-viva-relectura.txt) · [Relectura final de a](../evidencia-t43/tabla-viva-punto-a-relectura.txt). No equivale a aprobación visual, verificación independiente ni despliegue.
+
 - `catalogo/` — un archivo por módulo (ACC, ALU, CAJ, COB…). Adentro, `casos`: cada caso
   tiene `codigo`, `titulo`, `accion` (qué se hace), `requiere` (qué tiene que existir),
   `esperado` (una línea por cada cosa que tiene que pasar: efecto directo e indirectos, con

@@ -1,0 +1,14 @@
+No syntax errors detected in app/Http/Controllers/LiquidacionWebController.php
+No syntax errors detected in app/Models/Liquidacion.php
+No syntax errors detected in app/Models/LiquidacionDetalle.php
+No syntax errors detected in app/Observers/HistorialAnaliticoReportesObserver.php
+No syntax errors detected in app/Observers/HistorialReporteObserver.php
+No syntax errors detected in app/Services/HistorialAnaliticoReportesService.php
+No syntax errors detected in app/Services/LiquidacionPagoService.php
+No syntax errors detected in app/Services/LiquidacionService.php
+No syntax errors detected in app/Services/ReciboService.php
+No syntax errors detected in routes/web.php
+No syntax errors detected in database/migrations/2026_10_20_180000_registrar_decisiones_comision_atrasada.php
+No syntax errors detected in tests/Feature/DecisionComisionAtrasadaT43Test.php
+No syntax errors detected in app/Providers/AppServiceProvider.php
+node --check liquidaciones-show.js: salida 0

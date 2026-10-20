@@ -241,6 +241,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::delete('/liquidaciones/{id}', [LiquidacionWebController::class, 'eliminar'])->name('web.liquidaciones.eliminar');
         Route::post('/liquidaciones/{id}/pagar', [LiquidacionWebController::class, 'pagar'])->name('web.liquidaciones.pagar');
         Route::post('/liquidaciones/{id}/ajustar', [LiquidacionWebController::class, 'ajustar'])->name('web.liquidaciones.ajustar');
+        Route::post('/liquidaciones/{id}/detalles/{detalleId}/decision', [LiquidacionWebController::class, 'decidirAtrasada'])->name('web.liquidaciones.decidir-atrasada');
     });
 
     // Tipos de Caja — solo admin

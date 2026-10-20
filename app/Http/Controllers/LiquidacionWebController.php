@@ -14,6 +14,7 @@ use App\Rules\ImportePesos;
 use App\Services\LiquidacionPagoService;
 use App\Services\LiquidacionService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -167,7 +168,7 @@ class LiquidacionWebController extends Controller
     {
         $liquidacion = Liquidacion::with([
             'profesor.deporte',
-            'detalles',
+            'detalles.decisionAdmin',
             'pagadaTipoCaja',
             'pagadaPorAdmin',
             'usuarioCancelacion',
@@ -216,6 +217,39 @@ class LiquidacionWebController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', \App\Support\AvisoError::texto($e));
         }
+    }
+
+    public function decidirAtrasada(Request $request, int $id, int $detalleId): RedirectResponse|JsonResponse
+    {
+        $datos = $request->validate([
+            'decision' => 'required|in:APROBADA,RECHAZADA',
+            'decision_esperada' => 'required|in:PENDIENTE,APROBADA,RECHAZADA',
+        ]);
+        $liquidacion = $this->liquidacionService->decidirAtrasada($id, $detalleId, $datos['decision'],
+            $request->user()->id, $datos['decision_esperada']);
+        if ($request->expectsJson()) {
+            // No ejecutar show(): alumnos, grupos, cuentas y demás datos no cambiaron.
+            $detalle = $liquidacion->detalles->firstWhere('id', $detalleId);
+            $detalle->load('decisionAdmin');
+            $pesos = fn ($valor) => \App\Support\FormatoImporte::pesos((float) $valor);
+            return response()->json([
+                'detalle_id' => $detalle->id,
+                'decision' => $detalle->decision_atrasada,
+                'estado' => $detalle->decision_atrasada === 'APROBADA' ? 'Validada' : 'Rechazada',
+                'autor' => ' · '.($detalle->decisionAdmin?->name ?? 'Administración').' · '.$detalle->decision_at?->format('d/m/Y H:i'),
+                'importes' => [
+                    'confirmado' => $pesos($liquidacion->total_confirmado),
+                    'final' => $pesos($liquidacion->monto_a_pagar),
+                    'ajuste' => $pesos((float) $liquidacion->monto_a_pagar - (float) $liquidacion->total_confirmado),
+                ],
+                'monto_final' => $liquidacion->monto_a_pagar,
+                'monto_mostrado' => \App\Rules\ImportePesos::mostrar($liquidacion->monto_a_pagar),
+                'acciones' => view('liquidaciones.partials.acciones', compact('liquidacion'))->render(),
+                'revision' => view('liquidaciones.partials.revision-atrasadas', compact('liquidacion'))->render(),
+            ]);
+        }
+        return redirect()->route('web.liquidaciones.show', $id)
+            ->with('success', 'Decisión registrada. El recibo incluye solo las cuotas atrasadas validadas.');
     }
 
     public function recalcular(int $id): RedirectResponse

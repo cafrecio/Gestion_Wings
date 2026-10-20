@@ -1,0 +1,31 @@
+{
+  "rechazar": {
+    "antes": {
+      "scroll": 651,
+      "top": 380.59375,
+      "total": "$60,000.00"
+    },
+    "despues": {
+      "busy": null,
+      "estado": "Rechazada",
+      "scroll": 651,
+      "top": 380.59375,
+      "total": "$40,000.00"
+    }
+  },
+  "validar": {
+    "antes": {
+      "motivo": "Texto de control sin guardar",
+      "scroll": 655,
+      "top": 380.59375,
+      "total": "$40,000.00"
+    },
+    "despues": {
+      "estado": "Validada",
+      "motivo": "Texto de control sin guardar",
+      "scroll": 651,
+      "top": 380.59375,
+      "total": "$60,000.00"
+    }
+  }
+}

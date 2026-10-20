@@ -1,0 +1,25 @@
+
+   PASS  Tests\Feature\DecisionComisionAtrasadaT43Test
+  ✓ cobro mixto persiste tres origenes y separa adelantada                                                       7.17s
+  ✓ pendiente impide cierre incluso desde modelo                                                                 0.08s
+  ✓ validar rechazar y reenviar conservan calculo y auditoria sin mover caja                                     0.07s
+  ✓ formulario viejo no pisa decision nueva                                                                      0.06s
+  ✓ recalculo conserva decision equivalente y auditoria                                                          0.10s
+  ✓ cambio de base exige nueva decision sin borrar la anterior                                                   0.12s
+  ✓ anulado sale de abierta pero cerrada y pagada no cambian                                                     0.10s
+  ✓ cambio de anio atrasada en enero adelantada en febrero                                                       0.06s
+  ✓ redondeo por pago se conserva al partir centavos                                                             0.08s
+  ✓ historico sin imputacion no inventa origen ni decision                                                       0.04s
+  ✓ http roles y detalle ajeno no pueden decidir                                                                 0.15s
+  ✓ ajuste final absoluto se conserva y recibo excluye rechazada                                                 0.16s
+  ✓ cerrada pagada y cuota del mes rechazan decisiones                                                           0.11s
+  ✓ detalle de otra liquidacion e inactivo no escriben auditoria                                                 0.17s
+  ✓ pago y saldo por pagar usan solo comisiones confirmadas                                                      0.10s
+  ✓ decision json actualiza importes y cierre sin consultas de pantalla                                          0.11s
+  ✓ json idempotente y pestana desactualizada no pisan decision                                                  0.08s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.03s
+
+  Tests:    18 passed (134 assertions)
+  Duration: 8.93s

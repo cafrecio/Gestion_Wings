@@ -53,6 +53,10 @@ class LiquidacionPagoService
                 throw new \Exception("La liquidación #{$liquidacionId} debe estar CERRADA para poder pagarla. Estado actual: {$liquidacion->estado}");
             }
 
+            if ($liquidacion->tieneAtrasadasPendientes()) {
+                throw new \Exception('Primero validá o rechazá cada cuota atrasada.');
+            }
+
             // Rechazar un formulario anterior a un ajuste concurrente.
             if (isset($data['monto_esperado']) && (int) round((float) $data['monto_esperado'] * 100)
                 !== (int) round((float) $liquidacion->monto_a_pagar * 100)) {

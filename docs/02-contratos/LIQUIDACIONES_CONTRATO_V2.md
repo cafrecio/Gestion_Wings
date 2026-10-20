@@ -8,7 +8,23 @@ Decisión DU-19: cada parte de una cuota cobrada se liquida en el mayor entre el
 
 Sin imputaciones se conserva la regla histórica de `Pago.mes/anio` y `monto_cuota` (fallback a `monto_final` si es NULL). Se excluyen anulados y se conserva el porcentaje congelado. Los centavos de un pago asignados a un mismo mes se suman antes de redondear su comisión a dos decimales, como el cálculo anterior por pago. No se recalculan liquidaciones cerradas ni pagadas. No cambia el registro de dinero de Caja/Cashflow.
 
-Implementación de comisión en avance local, aún sin entrega completa T42 ni despliegue. Reportes e ingreso histórico tienen una consulta de alcance pendiente; T43 agregará el control del dueño para atrasadas. [Preparación y pruebas](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md).
+T42 implementada y publicada en desarrollo, a verificar por Claude; completa 997 aprobadas/6 omitidas, corte 1003. Carlos resolvió conservar el mes original solamente cuando no pueda probarse el pagado. Sin despliegue. [Entrega y pruebas](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md).
+
+## Enmienda 20/10/2026 — T43, revisión de cuotas atrasadas
+
+DU-36: una cuota atrasada cobrada en el mes corresponde a esa liquidación, con aviso al dueño. Cada parte registra pago, deuda, período, base, fecha de cobro y origen (`atrasado`, `del_mes` o `adelantado`). Las atrasadas nacen PENDIENTES; solo ADMIN activo puede validarlas o rechazarlas, con responsable y fecha. No se puede cerrar ni pagar mientras haya decisiones pendientes.
+
+El cálculo original se conserva. El confirmado resta las comisiones pendientes o rechazadas; ese es el monto a pagar por defecto. Las cuotas del mes y adelantadas se incluyen automáticamente según DU-19. El anexo del recibo incluye solamente las atrasadas validadas y las partes automáticas: no muestra las rechazadas. Las decisiones por sí solas no mueven Caja/Cashflow; el pago registra el importe efectivo confirmado.
+
+Si existe un monto final ajustado por Administración, se conserva como total absoluto autorizado según la enmienda09/10: el recibo separa el subtotal incluido y su ajuste hasta ese total. No se transforma silenciosamente el ajuste en una diferencia ni se borra su auditoría.
+
+Al validar/rechazar desde la pantalla, se actualizan en el lugar la decisión y los importes confirmados, sin recargar la página completa. El pie de comisión muestra Total confirmado; el cálculo original permanece separado. La respuesta parcial conserva las mismas validaciones de servidor que el formulario normal.
+
+Decisiones y totales se guardan de forma atómica con bloqueo de cabecera; un formulario viejo no pisa otra decisión y un reenvío idéntico no duplica auditoría. Recalcular una abierta conserva una decisión solo si coinciden pago, deuda, período, base y comisión. Si cambian, la parte requiere nueva revisión. La auditoría anterior permanece incluso al recalcular o eliminar una abierta.
+
+No hay reconstrucción automática de origen/decisión en documentos históricos: metadatos NULL y exclusión cero. Cerradas y pagadas conservadas. La migración preserva evidencia financiera al retroceder código; su `down()` no elimina el esquema ni las decisiones.
+
+Implementación local con pruebas dirigidas y capturas reales; completa posterior al guardado JSON 1017 aprobadas, 6 omitidas, 8791 aserciones, 844,65 s, salida 0; corrección visual e interacción aprobadas por Carlos («Ahora esta OK»), pendiente control independiente de lógica por Claude. Sin despliegue. [Entrega T43](../06-pruebas/PRU-04/IMPLEMENTACION-T43.md).
 
 ## Enmienda 09/10/2026 — monto final de comisión, implementado en desarrollo
 
@@ -230,7 +246,8 @@ Para cada alumno del deporte:
   SI tiene cuota imputada a la liquidación del período según DU-19
   Y asistió a al menos 1 clase del profesor en el período
   ENTONCES:
-    comision = monto_asignado_al_periodo × (porcentaje_comision / 100)
+    comision_original = monto_asignado_al_periodo × (porcentaje_comision / 100)
+    comision_confirmada = comision_original - atrasadas_pendientes_o_rechazadas
 ```
 
 **Regla multi-profesor (CRÍTICA):**

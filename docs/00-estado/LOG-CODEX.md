@@ -20,6 +20,20 @@
 
 [Antecedente archivado al tomar T43](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-TOMA-T43-ANTECEDENTE.md).
 
+[Antecedentes archivados durante T43](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T43-ANTECEDENTES.md).
+
+[Antecedente archivado durante la corrección de interacción T43](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T43-UX-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — T43, corrección aprobada por Carlos
+
+DU-36: origen por parte y decisión auditada del dueño; pendientes/rechazadas excluidas del confirmado/recibo. Cierre y pago bloqueados hasta resolver; cálculo original, ajuste absoluto A23 e históricos conservados.
+15 regresiones nuevas; dirigidas previas 39/225 verdes. Rápida: 895 aprobadas/6 omitidas, 7147 aserciones, 186,82 s, salida 0 (corte 1016); completa final 1012 aprobadas/6 omitidas, 8743 aserciones, 740,41 s, salida 0, corte 1018, wings_testing_codex y una sola suite activa.
+Navegador real 1366/375: decisiones por formularios, botones 96 × 32, sin desbordes. PDF real: agosto/septiembre incluidos, julio rechazado fuera; pago ficticio -60000.00 en base aislada de capturas. Adelanto octubre separado, $32.000.
+[Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T43.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T43.html). Carlos rechazó ubicación de Validar: corregida a la derecha, Rechazar a la izquierda, sin huecos; 96 × 32 en 1366/375. Prueba manual local /liquidaciones/4 realizada por Carlos; aprobó la corrección: «Ahora esta OK». Carlos autorizó enviar LIQ-002: e/h y fuente releídos en LIQ v5, a alineado con DU-19 y releído en v6; evidencia en la entrega.
+Dirigidas finales 41/240 verdes (10,82 s); historial y saldo por pagar comprobados. Sintaxis correcta y vistas compilan. Contrato/estado/contador actualizados, sin despliegue ni escritura en bases del club; evidencia T34 ajena preservada fuera de lo propio. Corrección visual: rápida 897/6 omitidas, 7162 aserciones, 300,20 s, salida 0; dirigidas 15/96 verdes. Próximo: publicar para revisión independiente de lógica por Claude.
+
+Corrección pedida por Carlos: cabecera separada; POST JSON sin GET de show ni consulta del contador del menú, pie Total confirmado. 17/127 dirigidas verdes; build y sintaxis correctos; completa JSON 1017 aprobadas, 6 omitidas, 8791 aserciones, 844,65 s, salida 0; dirigidas finales 18/134 verdes y vistas compiladas. Navegador: tarjeta en y=380,59375 antes/después, total 40.000→60.000 y texto sin guardar conservado. Capturas escritorio y cabecera 375 guardadas. Work deshabilitó el acceso durante la última interacción móvil; no se declara ese clic verificado. Carlos aprobó después de probar: «Ahora esta OK». Publicación autorizada; lógica para Claude, sin despliegue.
+
 ## 2026-10-20 — Codex CyE — Toma T43 tras entregar T42
 
 T42 publicada en 6c8602f3, completa 997/6 omitidas verde, a verificar por Claude. T52 verificada y cerrada; T61 conserva aprobación visual y control de lógica por Claude.
@@ -85,22 +99,3 @@ Resultado del club $7.000; Efectivo $306.000, Banco $307.000; operativa sin tras
 Once fuentes iguales a integración; sin código ni diseño nuevos. No se repite suite por evidencia/documentación; corte previo y alcance conservados.
 [Control](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md) y [galería final](../06-pruebas/PRU-04/RECORRIDO-T61.html). Mi recorrido entregado; visual Carlos y lógica Claude pendientes en tablero. Sin autocierre ni despliegue.
 T52 ya devuelta a Claude; su corrección y T64 de Gemini en la carpeta se preservan. Sigue T42 y después T43, según Carlos.
-
-## 2026-10-20 — Codex CyE — T52, verificación con hallazgos
-
-Entrega Claude 2dfbf243/dd45ce0e; solo lógica. Visual de Carlos conservado; T50 de Gemini preservada.
-Tres fallos reproducidos: POST guarda inactivo sin marca; corregir ingreso retrotrae cambio de grupo del mismo día; migración adelanta ingreso futuro. N+1 previo: 12→45 consultas con 1→12 alumnos.
-74 dirigidas/412 verdes; ocho reproducciones/51 aserciones, cuatro fallos. Cerradas HORA/COMISIÓN pendientes/pagadas intactas; cambio con plan diferido y reactivación comprobados.
-Tablero: devuelta a Claude. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Sin corrección de producto ni despliegue.
-Carlos autorizó publicar los commits propios T52 en main; toma 94669f97 comprobada en remoto. No se vuelve a pedir esa autorización.
-Completa 962 aprobadas/5 omitidas/2 fallidas T33, 8507 aserciones, 1019,61 s, salida 2 en wings_testing_codex. T33 aislada 10/120 verdes, 179,90 s, salida 0; sin causa atribuida. Nueve fuentes principales iguales antes/después.
-31823eb5, de Gemini, incluyó el avance documental T52 junto con su toma T64 mientras corría la suite; este cierre de verificación completa el resultado sin tocar producto. Resultados finales preparados para main; T52 sigue devuelta a Claude.
-
-## 2026-10-20 — Codex CyE — Toma T52 y error al guardar cambios preparados
-
-Carlos reasignó a Codex la verificación de lógica T52 (2dfbf243 y dd45ce0e); base wings_testing_codex, visual ya aprobado.
-Pull sin cambios ni conflictos; tablero actualizado con el script, verifica=Codex.
-Error propio: el comando no frenó al fallar el aislado del índice y el commit 37040633 guardó los archivos T50 que Gemini ya había preparado, con mensaje equivocado de toma T52. No se modificó ni revirtió ese código, ni se publicó por este comando.
-Se conserva el commit sin reescribir historia compartida; la implementación T50 sigue siendo de Gemini. La diferencia de tablero que queda corresponde a asignar T52 a Codex.
-La publicación fue rechazada por revisión automática; solicitada autorización explícita para cafrecio/Gestion_Wings. No se atribuye la aprobación ni se reintenta por otra vía.
-Pendiente publicar la toma y revisar T52 sin corregir producto, preservando T50 y esperando que no haya otra suite activa.

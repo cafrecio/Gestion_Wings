@@ -110,7 +110,7 @@
         {
           "donde": "Deuda vieja y adelantado",
           "l": "e",
-          "texto": "Las atrasadas cobradas en octubre corresponden a octubre; su aviso, decisión del dueño e inclusión en el recibo siguen T43 (DU-36). Noviembre cobrado por adelantado en octubre corresponde a la liquidación de noviembre, con asistencia presente en noviembre (T42, DU-19).",
+          "texto": "Las atrasadas cobradas en octubre corresponden a octubre y muestran aviso al dueño. Cada parte nace pendiente: el dueño la valida o rechaza con responsable y fecha. No se puede cerrar ni pagar hasta resolver todas. Solo las validadas aparecen en el recibo. Noviembre cobrado por adelantado en octubre corresponde a la liquidación de noviembre, con asistencia presente en noviembre (T42, DU-19).",
           "tipo": "directo"
         },
         {
@@ -128,7 +128,7 @@
         {
           "donde": "Total",
           "l": "h",
-          "texto": "Base × porcentaje, igual a la cuenta a mano. El detalle lista alumno por alumno.",
+          "texto": "Se conserva el cálculo original (base por porcentaje, redondeado por pago y mes). El confirmado excluye atrasadas pendientes o rechazadas; el recibo incluye únicamente las partes confirmadas, por alumno y mes de cuota. Si hay un monto final absoluto ajustado por el dueño, se conserva y el recibo muestra su diferencia respecto de las comisiones incluidas.",
           "tipo": "directo"
         },
         {
@@ -144,8 +144,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Contrato de liquidaciones §3.2; LiquidacionService (código leído); ENT-01; FIN-06; LQ-06.",
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones §3.2 y enmiendas20/10; DU-19/T42 y DU-36/T43, implementación local pendiente de verificación independiente y aprobación visual. Sin despliegue.",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",
       "requiere": "Mes terminado. Profesor por comisión, con porcentaje cargado. Alumnos suyos: uno que pagó la cuota y vino a clase; uno que pagó y no vino nunca; uno que vino y no pagó; uno que pagó inscripción más cuota; uno que pagó en octubre una deuda de agosto; uno que pagó noviembre por adelantado en octubre; uno con un cobro cancelado; uno que cambió de grupo a mitad de mes.",

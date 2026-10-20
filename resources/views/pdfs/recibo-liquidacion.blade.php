@@ -483,7 +483,7 @@
             <tbody>
                 @forelse($detalles as $det)
                     <tr>
-                        <td>{{ $det['alumno'] }}</td>
+                        <td>{{ $det['alumno'] }}@if(!empty($det['periodo_cuota']))<br>Cuota {{ substr($det['periodo_cuota'], 5, 2) }}/{{ substr($det['periodo_cuota'], 0, 4) }}@endif</td>
                         <td>{{ \App\Support\FormatoImporte::pesos($det['cuota_base']) }}</td>
                         <td style="text-align: center;">{{ $det['porcentaje'] }}%</td>
                         <td class="monto">{{ \App\Support\FormatoImporte::pesos($det['subtotal']) }}</td>
@@ -492,7 +492,7 @@
                     <tr><td colspan="4" style="text-align: center; color: #94a3b8;">Sin alumnos comisionados en el período.</td></tr>
                 @endforelse
                 <tr class="recibo-total-row">
-                    <td colspan="3" class="recibo-total-label">Cálculo original</td>
+                    <td colspan="3" class="recibo-total-label">{{ ($desglose_por_cuota ?? false) ? 'Comisiones incluidas' : 'Cálculo original' }}</td>
                     <td class="recibo-total-monto">{{ \App\Support\FormatoImporte::pesos($total_calculado ?? $monto_total) }}</td>
                 </tr>
                 @if(($ajuste_final ?? 0) != 0)

@@ -1,0 +1,16 @@
+{
+  "app/Http/Controllers/LiquidacionWebController.php": "afbb583348869cd22957ef9d1e89fbf9be05458ac0c4c395da18efb71c2eb128",
+  "app/Models/Liquidacion.php": "efe4518169ede103cffda398fd4ba679aa64a6f84da1bde1b85a2f37a1789dd6",
+  "app/Models/LiquidacionDetalle.php": "97ecfbe2ed5291da64f4646493ef6b1edf37e23d2a345348356320459c30b0cd",
+  "app/Observers/HistorialAnaliticoReportesObserver.php": "02edf47077450fde2e3886a635c795b1ab7079d8282dfbc1b2a9627bf7f31860",
+  "app/Observers/HistorialReporteObserver.php": "c4efd3a726ac70bf7fec6755698bc69c159890dd4fa595bb5972df3ca1902940",
+  "app/Services/HistorialAnaliticoReportesService.php": "38f878c5e31227a5ed6b6437d4e1fdef1d32cbf66e4425863978490789351a2c",
+  "app/Services/LiquidacionPagoService.php": "dd75104b51d490c4a8b753504e8d9f213c834972c3d5892edfcd4f5682c98cc6",
+  "app/Services/LiquidacionService.php": "a3604afb7352d426d820845f05d690dca143c741bf14d8770331c83f5539d91e",
+  "app/Services/ReciboService.php": "05f22c9dd520c93cd01211edfd3f0582a101ae57c35b5a8019ba89324a68f37f",
+  "routes/web.php": "b81639c33cf23caaee087118e384c2a3be00f87ab4dbef78a09f5ef4bac6b9a5",
+  "resources/views/liquidaciones/show.blade.php": "64137223ffd46eaba45ebc8d449d60b74fcb99d527bbcfcdb9a61e5d4349deab",
+  "resources/views/pdfs/recibo-liquidacion.blade.php": "b32e99d12fcb5a47e396d758974451f5d9d549e52a9ac5693aa16d003c6a4a2e",
+  "database/migrations/2026_10_20_180000_registrar_decisiones_comision_atrasada.php": "bbb2ec50cd0131daae22a782137b250c09680fad0ea4dcaf75c7a6f656d1738d",
+  "tests/Feature/DecisionComisionAtrasadaT43Test.php": "27703ee0b7571b950fc469e79136b6c90549b0c0e9f6a1eba73233e7f729cf11"
+}

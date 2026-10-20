@@ -30,6 +30,7 @@ class Liquidacion extends Model
         'porcentaje_comision_aplicado',
         'valor_hora_aplicado',
         'total_calculado',
+        'total_atrasadas_excluidas',
         'estado',
         'usuario_cancelacion_id',
         'cancelada_at',
@@ -49,6 +50,7 @@ class Liquidacion extends Model
         'porcentaje_comision_aplicado' => 'decimal:2',
         'valor_hora_aplicado' => 'decimal:2',
         'total_calculado' => 'decimal:2',
+        'total_atrasadas_excluidas' => 'decimal:2',
         'monto_final' => 'decimal:2',
         'cancelada_at' => 'datetime',
         'pagada_at' => 'datetime',
@@ -95,6 +97,11 @@ class Liquidacion extends Model
 
         static::updating(function ($liquidacion) {
             $original = $liquidacion->getOriginal();
+
+            if ($liquidacion->isDirty('estado') && $liquidacion->estado === self::ESTADO_CERRADA
+                && $liquidacion->tieneAtrasadasPendientes()) {
+                throw new \Exception('Primero validá o rechazá cada cuota atrasada.');
+            }
 
             if ($liquidacion->isDirty('monto_final') && !$liquidacion->ajusteFinalEnCurso) {
                 throw new \Exception('El monto final se ajusta con administrador y registro del cambio.');
@@ -146,7 +153,21 @@ class Liquidacion extends Model
 
     public function getMontoAPagarAttribute(): string
     {
-        return (string) ($this->monto_final ?? $this->total_calculado);
+        return (string) ($this->monto_final ?? $this->total_confirmado);
+    }
+
+    public function getTotalConfirmadoAttribute(): string
+    {
+        $centavos = (int) round((float) $this->total_calculado * 100)
+            - (int) round((float) ($this->total_atrasadas_excluidas ?? 0) * 100);
+        return number_format($centavos / 100, 2, '.', '');
+    }
+
+    public function tieneAtrasadasPendientes(): bool
+    {
+        return $this->detalles()->where('origen_cuota', LiquidacionDetalle::ORIGEN_ATRASADO)
+            ->where(fn ($q) => $q->whereNull('decision_atrasada')
+                ->orWhere('decision_atrasada', LiquidacionDetalle::DECISION_PENDIENTE))->exists();
     }
 
     public static function ajustesDisponibles(): bool

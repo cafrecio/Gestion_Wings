@@ -25,6 +25,7 @@ export default defineConfig({
                 'resources/js/clases-show.js',
                 'resources/js/clases-index.js',
                 'resources/js/liquidaciones-create.js',
+                'resources/js/liquidaciones-show.js',
                 'resources/js/alumnos-index.js',
                 'resources/js/cashflow-movimiento.js',
                 'resources/js/reportes.js',

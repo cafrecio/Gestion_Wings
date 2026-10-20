@@ -19,6 +19,8 @@
     $estaAbierta = $liquidacion->estaAbierta();
     $totalSum    = $liquidacion->detalles->sum('monto');
     $totalDetalles = $liquidacion->detalles->count();
+    $atrasadasPendientes = $liquidacion->detalles->filter(fn ($d) => $d->origen_cuota === 'atrasado'
+        && (!$d->decision_atrasada || $d->decision_atrasada === 'PENDIENTE'))->count();
 @endphp
 
 @section('title', $periodo . ' — ' . $liquidacion->profesor->apellido . ' – Wings')
@@ -27,7 +29,7 @@
 @section('content')
 
 {{-- ── SECCIÓN A — Header ─────────────────────────────────────────────────── --}}
-<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">
+<div data-liquidacion-actualizable="cabecera" class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">
     <div style="display:flex;">
 
         <div style="width:6px; flex-shrink:0; background:var(--color-sport-{{ $rail }});"></div>
@@ -56,7 +58,7 @@
                 <div>
                             <span style="font-size:0.7rem; color:var(--color-text-muted); display:block;">Monto final</span>
                     <span style="font-size:1.4rem; font-weight:800; color:var(--color-text);" class="ds-money-value">
-                                <span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span>
+                                <span data-liquidacion-importe="final" class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span>
                     </span>
                 </div>
                 <div>
@@ -121,75 +123,8 @@
                 </div>
             @endif
 
-            <div class="acciones-celular-derecha liquidacion-acciones-movil" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-
-                @if($estaAbierta)
-                    @if($liquidacion->puedeCerrarse())
-                        <form method="POST" action="{{ route('web.liquidaciones.cerrar', $liquidacion->id) }}"
-                              data-confirmar-envio="¿Cerrar esta liquidación? No podrá ser modificada después.">
-                            @csrf
-                            <button type="submit"
-                                    style="display:inline-flex; align-items:center; justify-content:center;
-                                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                                           border:none; font-family:inherit;
-                                           background:var(--color-btn-primary); color:var(--color-surface);">
-                                Cerrar
-                            </button>
-                        </form>
-                    @else
-                        <span style="font-size:0.78rem; font-weight:600; color:var(--color-text-muted);">
-                            Se puede cerrar desde el {{ $liquidacion->fechaHabilitacionCierre()->format('d/m/Y') }}
-                        </span>
-                    @endif
-
-                    <form method="POST" action="{{ route('web.liquidaciones.recalcular', $liquidacion->id) }}"
-                          data-confirmar-envio="¿Recalcular? Los detalles actuales serán reemplazados.">
-                        @csrf
-                        <button type="submit"
-                                style="display:inline-flex; align-items:center; justify-content:center;
-                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                                       border:none; font-family:inherit;
-                                       background:var(--color-btn-secondary); color:var(--color-surface);">
-                            Recalcular
-                        </button>
-                    </form>
-
-                    <form method="POST" action="{{ route('web.liquidaciones.eliminar', $liquidacion->id) }}"
-                          data-confirmar-envio="¿Eliminar esta liquidación permanentemente?">
-                        @csrf @method('DELETE')
-                        <button type="submit"
-                                style="display:inline-flex; align-items:center; justify-content:center;
-                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                                       border:none; font-family:inherit;
-                                       background:var(--color-btn-danger); color:var(--color-surface);">
-                            Eliminar
-                        </button>
-                    </form>
-                @endif
-
-                @if($esPagada)
-                <a href="{{ route('web.recibos.liquidacion', $liquidacion->id) }}?inline=1"
-                   target="_blank"
-                   style="display:inline-flex; align-items:center; justify-content:center;
-                          width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                          text-decoration:none; border:none; font-family:inherit;
-                          background:var(--color-btn-secondary); color:var(--color-surface);">
-                    Recibo
-                </a>
-                @endif
-
-                <a href="{{ route('web.liquidaciones.index') }}"
-                   style="display:inline-flex; align-items:center; justify-content:center;
-                          width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                          text-decoration:none; border:none; font-family:inherit;
-                          background:var(--color-btn-secondary); color:var(--color-surface);">
-                    Volver
-                </a>
+            <div data-liquidacion-acciones>
+                @include('liquidaciones.partials.acciones')
             </div>
 
         </div>
@@ -197,6 +132,13 @@
 </div>
 
 {{-- ── SECCIÓN B — Stats + Detalles ────────────────────────────────────────── --}}
+
+@error('decision')
+    <div data-liquidacion-error class="filtros-card mb-3" style="color:var(--color-danger);">{{ $message }}</div>
+@enderror
+<div data-liquidacion-revision>
+    @include('liquidaciones.partials.revision-atrasadas')
+</div>
 
 @if($liquidacion->tipo === 'HORA')
 
@@ -289,13 +231,13 @@
 
 {{-- Stats COMISION --}}
 <div class="filtros-card mb-3">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div data-liquidacion-actualizable="importes" class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Cálculo original</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->total_calculado) }}</span></p></div>
-        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>Ajuste del admin</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado) }}</span></p></div>
-        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span></p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>Ajuste del admin</span><p class="info-value ds-money-value"><span data-liquidacion-importe="ajuste" class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_confirmado) }}</span></p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value ds-money-value"><span data-liquidacion-importe="final" class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span></p></div>
     </div>
     @if(!$esPagada && !$esCancelada && \App\Models\Liquidacion::ajustesDisponibles())
-    <details class="mt-3" id="editar-liquidacion" {{ request()->boolean('editar') ? 'open' : '' }}>
+    <details data-liquidacion-actualizable="ajuste" class="mt-3" id="editar-liquidacion" {{ request()->boolean('editar') ? 'open' : '' }}>
         <summary class="info-label" style="cursor:pointer;">Editar monto final</summary>
         <form method="POST" action="{{ route('web.liquidaciones.ajustar', $liquidacion->id) }}" class="mt-3">
             @csrf
@@ -364,13 +306,19 @@
     if (preg_match('/Pago \$([\d.,]+)/', $detalle->descripcion, $m)) {
         $montoPagado = \App\Support\FormatoImporte::desdeArgentino($m[1]);
     }
+    if ($detalle->base_cuota !== null) $montoPagado = \App\Support\FormatoImporte::pesos((float)$detalle->base_cuota);
 @endphp
-<div class="alumno-card">
+<div class="alumno-card" data-liquidacion-detalle="{{ $detalle->id }}">
     <div class="alumno-card-header">
         <span class="alumno-dot" style="background:var(--color-success);"></span>
         <h3 class="alumno-nombre">{{ $nombreHdr }}</h3>
     </div>
     <div class="alumno-info">
+        @if($detalle->periodo_cuota)
+        <div class="info-item"><span class="info-label">Cuota:</span><span class="info-value">{{ substr($detalle->periodo_cuota, 5, 2) }}/{{ substr($detalle->periodo_cuota, 0, 4) }}</span></div>
+        <div class="info-item"><span class="info-label">Origen:</span><span class="info-value">{{ match($detalle->origen_cuota) { 'atrasado' => 'Atrasada', 'adelantado' => 'Adelantada', default => 'Del mes' } }}</span></div>
+        <div class="info-item"><span class="info-label">Cobrado:</span><span class="info-value">{{ $detalle->fecha_cobro?->format('d/m/Y') }}</span></div>
+        @endif
         <div class="info-item">
             <span class="info-label">Grupo:</span>
             <span class="info-value">{{ $grupoNom }}</span>
@@ -386,6 +334,24 @@
             </span>
         </div>
     </div>
+    @if($detalle->origen_cuota === 'atrasado')
+        <p class="text-xs mb-2" style="color:var(--color-text-muted);">
+            Decisión: <strong data-decision-estado>{{ match($detalle->decision_atrasada) { 'APROBADA' => 'Validada', 'RECHAZADA' => 'Rechazada', default => 'Pendiente' } }}</strong>
+            <span data-decision-autor>@if($detalle->decision_at) · {{ $detalle->decisionAdmin?->name ?? 'Administración' }} · {{ $detalle->decision_at->format('d/m/Y H:i') }} @endif</span>
+        </p>
+        @if($estaAbierta && !$esPagada)
+        <div class="alumno-actions acciones-celular-derecha" style="border-top:1px solid var(--color-border); padding-top:0.6rem; justify-content:flex-end; gap:0.5rem;">
+            @foreach(['RECHAZADA' => 'Rechazar', 'APROBADA' => 'Validar'] as $decision => $verbo)
+                <form data-decision-atrasada method="POST" action="{{ route('web.liquidaciones.decidir-atrasada', [$liquidacion->id, $detalle->id]) }}" style="order:2;">
+                    @csrf
+                    <input type="hidden" name="decision" value="{{ $decision }}">
+                    <input type="hidden" name="decision_esperada" value="{{ $detalle->decision_atrasada ?? 'PENDIENTE' }}">
+                    <x-ds.button type="submit" :variant="$decision === 'APROBADA' ? 'primary' : 'danger'" :disabled="$detalle->decision_atrasada === $decision">{{ $verbo }}</x-ds.button>
+                </form>
+            @endforeach
+        </div>
+        @endif
+    @endif
 </div>
 @empty
     <div class="empty-state">
@@ -404,10 +370,10 @@
             border-radius:var(--radius-card);">
     <span style="font-size:0.82rem; font-weight:600; color:var(--color-text-muted); text-transform:uppercase;
                  letter-spacing:0.05em;">
-        Cálculo de los detalles
+        {{ $liquidacion->tipo === 'COMISION' ? 'Total confirmado' : 'Cálculo de los detalles' }}
     </span>
     <span style="font-size:1.5rem; font-weight:800; color:var(--color-btn-primary);" class="ds-money-value">
-        <span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}</span>
+        <span data-liquidacion-importe="confirmado" class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)($liquidacion->tipo === 'COMISION' ? $liquidacion->total_confirmado : $totalSum)) }}</span>
     </span>
 </div>
 @endif
@@ -546,5 +512,9 @@
     </form>
 </div>
 @endif
+
+@push('scripts')
+    @vite('resources/js/liquidaciones-show.js')
+@endpush
 
 @endsection

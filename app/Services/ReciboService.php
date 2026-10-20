@@ -119,6 +119,12 @@ class ReciboService
             throw new \Exception("La liquidación #{$liquidacionId} no está pagada. No se puede generar recibo.");
         }
 
+        if ($liquidacion->tieneAtrasadasPendientes()) {
+            throw new \Exception('La liquidación tiene cuotas atrasadas sin revisar.');
+        }
+        $liquidacion->setRelation('detalles', $liquidacion->detalles
+            ->filter(fn ($detalle) => $detalle->incluidaEnRecibo())->values());
+
         // Construir detalles formateados para el anexo (Página 2)
         $ids = $liquidacion->detalles->pluck('referencia_id');
         $detallesFormateados = [];
@@ -169,9 +175,11 @@ class ReciboService
                 } elseif ($porcentajeGeneral > 0) {
                     $cuotaBase = round(((float) $det->monto * 100) / $porcentajeGeneral, 2);
                 }
+                if ($det->base_cuota !== null) $cuotaBase = (float) $det->base_cuota;
 
                 $detallesFormateados[] = [
                     'alumno' => $nombreAlumno,
+                    'periodo_cuota' => $det->periodo_cuota,
                     'cuota_base' => $cuotaBase,
                     'porcentaje' => $porcentajeDetalle,
                     'subtotal' => (float) $det->monto,
@@ -204,15 +212,19 @@ class ReciboService
             ],
             'monto_total' => (float) $liquidacion->monto_a_pagar,
             'total_liquidado' => (float) $liquidacion->monto_a_pagar,
-            'total_calculado' => (float) $liquidacion->total_calculado,
-            'ajuste_final' => (float) $liquidacion->monto_a_pagar - (float) $liquidacion->total_calculado,
+            'total_calculado' => (float) $liquidacion->total_confirmado,
+            'ajuste_final' => (float) $liquidacion->monto_a_pagar - (float) $liquidacion->total_confirmado,
             'medio_pago' => [
                 'tipo_caja' => $liquidacion->pagadaTipoCaja->nombre ?? 'N/D',
                 'subrubro' => $liquidacion->pagadaSubrubro->nombre ?? 'N/D',
             ],
             'observaciones' => $liquidacion->monto_final !== null
-                ? 'Monto final ajustado por Administración. El anexo conserva el cálculo original.' : null,
+                ? ((float) ($liquidacion->total_atrasadas_excluidas ?? 0) > 0
+                    ? 'Monto final ajustado por Administración. El anexo incluye las comisiones validadas.'
+                    : 'Monto final ajustado por Administración. El anexo conserva el cálculo original.') : null,
             'modalidad' => $liquidacion->tipo,
+            'desglose_por_cuota' => (float) ($liquidacion->total_atrasadas_excluidas ?? 0) > 0
+                || $liquidacion->detalles->contains(fn ($d) => $d->periodo_cuota !== null),
             'detalles' => $detallesFormateados,
         ];
 

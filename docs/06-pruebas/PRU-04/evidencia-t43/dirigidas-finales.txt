@@ -1,0 +1,54 @@
+
+   PASS  Tests\Feature\DecisionComisionAtrasadaT43Test
+  ✓ cobro mixto persiste tres origenes y separa adelantada                                                       7.46s
+  ✓ pendiente impide cierre incluso desde modelo                                                                 0.11s
+  ✓ validar rechazar y reenviar conservan calculo y auditoria sin mover caja                                     0.07s
+  ✓ formulario viejo no pisa decision nueva                                                                      0.10s
+  ✓ recalculo conserva decision equivalente y auditoria                                                          0.07s
+  ✓ cambio de base exige nueva decision sin borrar la anterior                                                   0.06s
+  ✓ anulado sale de abierta pero cerrada y pagada no cambian                                                     0.13s
+  ✓ cambio de anio atrasada en enero adelantada en febrero                                                       0.09s
+  ✓ redondeo por pago se conserva al partir centavos                                                             0.06s
+  ✓ historico sin imputacion no inventa origen ni decision                                                       0.05s
+  ✓ http roles y detalle ajeno no pueden decidir                                                                 0.15s
+  ✓ ajuste final absoluto se conserva y recibo excluye rechazada                                                 0.27s
+  ✓ cerrada pagada y cuota del mes rechazan decisiones                                                           0.09s
+  ✓ detalle de otra liquidacion e inactivo no escriben auditoria                                                 0.10s
+  ✓ pago y saldo por pagar usan solo comisiones confirmadas                                                      0.09s
+
+   PASS  Tests\Feature\ComisionPorPeriodoT42Test
+  ✓ adelantado se liquida en el mes pagado y no en el cobro                                                      0.09s
+  ✓ cuota del mes y atrasada siguen en el mes del cobro                                                          0.06s
+  ✓ un cobro mixto se reparte sin duplicar su importe                                                            0.09s
+  ✓ adelantado exige asistencia en el mes de liquidacion                                                         0.08s
+  ✓ cambio de anio lleva diciembre adelantado a enero                                                            0.06s
+  ✓ anulado no aporta comision ni al cobro ni al mes pagado                                                      0.09s
+  ✓ sin imputaciones conserva mes anio historicos aunque difiera la fecha                                        0.08s
+  ✓ cerrada y pagada conservan cabecera y detalles tras anular el pago                                           0.13s
+  ✓ centavos se suman por pago y mes antes de redondear comision                                                 0.06s
+  ✓ solo las cuotas imputadas forman la base sin inscripcion                                                     0.06s
+
+   PASS  Tests\Feature\AjusteFinalLiquidacionTest
+  ✓ admin ajusta abierta y cerrada sin cambiar calculo o detalle                                                 0.10s
+  ✓ operativo profesor inactivo y anonimo no ajustan                                                             0.11s
+  ✓ pagada cancelada y por hora rechazan ajustes                                                                 0.13s
+  ✓ pago usa final una sola vez y rechaza formulario viejo                                                       0.08s
+  ✓ ajuste conserva cortes anteriores y saldo pendiente coherente                                                0.07s
+  ✓ falla historial revierte importe y auditoria                                                                 0.05s
+  ✓ guardado directo sin auditoria y edicion vieja rechazados                                                    0.05s
+
+   PASS  Tests\Feature\LiquidacionComisionHistoricaTest
+  ✓ comision excluye inscripcion del pago mixto                                                                  0.05s
+  ✓ alumno dado de baja posteriormente aparece en liquidacion del mes que pago y asistio                         0.04s
+  ✓ alumno que cambia de deporte posteriormente aparece en liquidacion del mes que pago y asistio                0.04s
+  ✓ cambio posterior en porcentaje del profesor no altera liquidacion recalculada                                0.04s
+  ✓ liquidacion legacy con porcentaje nulo calcula con porcentaje actual del profesor                            0.03s
+  ✓ anulacion de pago hace que recalculo remueva la comision                                                     0.05s
+  ✓ alumno con pago pero sin asistencia a clase del profesor no genera comision                                  0.04s
+  ✓ vista show muestra porcentaje congelado de la liquidacion                                                    0.06s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.02s
+
+  Tests:    41 passed (240 assertions)
+  Duration: 10.82s

@@ -1,0 +1,22 @@
+
+   PASS  Tests\Feature\DecisionComisionAtrasadaT43Test
+  ✓ cobro mixto persiste tres origenes y separa adelantada                                                       8.57s
+  ✓ pendiente impide cierre incluso desde modelo                                                                 0.09s
+  ✓ validar rechazar y reenviar conservan calculo y auditoria sin mover caja                                     0.11s
+  ✓ formulario viejo no pisa decision nueva                                                                      0.08s
+  ✓ recalculo conserva decision equivalente y auditoria                                                          0.08s
+  ✓ cambio de base exige nueva decision sin borrar la anterior                                                   0.11s
+  ✓ anulado sale de abierta pero cerrada y pagada no cambian                                                     0.12s
+  ✓ cambio de anio atrasada en enero adelantada en febrero                                                       0.16s
+  ✓ redondeo por pago se conserva al partir centavos                                                             0.14s
+  ✓ historico sin imputacion no inventa origen ni decision                                                       0.10s
+  ✓ http roles y detalle ajeno no pueden decidir                                                                 0.31s
+  ✓ ajuste final absoluto se conserva y recibo excluye rechazada                                                 0.31s
+  ✓ cerrada pagada y cuota del mes rechazan decisiones                                                           0.19s
+  ✓ detalle de otra liquidacion e inactivo no escriben auditoria                                                 0.27s
+  ✓ pago y saldo por pagar usan solo comisiones confirmadas                                                      0.14s
+  ✓ decision json actualiza importes y cierre sin consultas de pantalla                                          0.11s
+  ✓ json idempotente y pestana desactualizada no pisan decision                                                  0.12s
+
+  Tests:    17 passed (127 assertions)
+  Duration: 11.19s

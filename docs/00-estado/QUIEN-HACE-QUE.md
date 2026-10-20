@@ -49,14 +49,13 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar DU-19: comisión e ingreso por parte en mes pagado; dinero/saldos conservados, histórico no identificable conserva mes original por Carlos. Completa Codex 997/6 omitidas verde. COB-012 vivo y repo al día; sigue T43. |
+| **T43** Liquidacion: avisar al duenio la comision que viene de cuotas atrasadas; el valida y el recibo sale segun lo que decida | Hecho, espera verificación (hizo Codex, verifica Claude) | Carlos aprobo correccion visual e interaccion: Ahora esta OK. Completa 1017 aprobadas/6 omitidas; 18/134 dirigidas finales. Claude debe verificar logica, permisos, auditoria y recibo. Sin despliegue. |
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar lógica de transferencia única y seguimiento FIN-09; Carlos aprobó formulario, Rubros y aviso. Completa Codex 977/6 omitidas verde. Sin despliegue. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T43** Liquidacion: avisar al duenio la comision que viene de cuotas atrasadas; el valida y el recibo sale segun lo que decida | En curso (hizo Codex, verifica Claude) | Tabla: DU-36 · LIQ-002 actualizado y releído en Claude v6 con autorización de Carlos. Completa previa 1012/6 omitidas, rápida visual 897/6 omitidas y dirigidas 15/96 verdes. Validar a la derecha, capturas 1366/375 listas. Carlos prueba localhost:8761/liquidaciones/4; falta su OK antes de publicar vistas. Después lógica para Claude, sin despliegue. |
+Nada en este momento.
 
 ## Gemini
 

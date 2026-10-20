@@ -1,0 +1,86 @@
+[
+  {
+    "ancho": 1366,
+    "documento": 1351,
+    "tarjetas": [
+      {
+        "acciones": [
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": true,
+            "texto": "Rechazar",
+            "x": 1118
+          },
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": false,
+            "texto": "Validar",
+            "x": 1222
+          }
+        ]
+      },
+      {
+        "acciones": [
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": false,
+            "texto": "Rechazar",
+            "x": 1118
+          },
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": true,
+            "texto": "Validar",
+            "x": 1222
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ancho": 375,
+    "documento": 360,
+    "tarjetas": [
+      {
+        "acciones": [
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": true,
+            "texto": "Rechazar",
+            "x": 120
+          },
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": false,
+            "texto": "Validar",
+            "x": 224
+          }
+        ]
+      },
+      {
+        "acciones": [
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": false,
+            "texto": "Rechazar",
+            "x": 120
+          },
+          {
+            "alto": 32,
+            "ancho": 96,
+            "deshabilitado": true,
+            "texto": "Validar",
+            "x": 224
+          }
+        ]
+      }
+    ]
+  }
+]
