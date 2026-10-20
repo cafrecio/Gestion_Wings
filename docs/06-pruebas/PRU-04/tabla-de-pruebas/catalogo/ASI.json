@@ -400,18 +400,18 @@
         {
           "donde": "Clase vieja",
           "l": "d",
-          "texto": "En la clase de la semana pasada ya no aparecen el que cambió ni el dado de baja, aunque habían estado presentes; la clase conserva su cantidad de presentes.",
+          "texto": "En la clase de la semana pasada siguen apareciendo el que cambió y el dado de baja, porque tienen marca guardada, con la aclaración «Cambió de grupo» o «De baja»; el encabezado dice cuántos ya no están. La clase conserva su cantidad de presentes.",
           "tipo": "indirecto"
         },
         {
           "donde": "Corrección",
           "l": "e",
-          "texto": "Si se corrige esa lista vieja, las marcas de los que ya no figuran no se pierden.",
+          "texto": "Si se corrige esa lista vieja, también se puede corregir la marca de los que ya no están (con motivo) y ninguna marca se pierde. A quien no es del grupo ni tiene marca no se lo puede cargar.",
           "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "ClaseWebController::show arma la lista con los alumnos activos que hoy están en el grupo (código leído).",
+      "fuente": "ClaseWebController::show y storeAsistencias (código leído). T52 (Claude, 20/10, a verificar): la lista es la del grupo de hoy más quien ya tiene marca guardada en la clase (DU-09).",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Un alumno que cambió de grupo ayer, uno dado de baja ayer y uno dado de alta hoy.",

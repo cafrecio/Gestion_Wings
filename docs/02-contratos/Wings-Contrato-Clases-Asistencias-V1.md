@@ -191,6 +191,10 @@ Con lista tomada la clase sale del contador y del filtro «Sin asistencia» (`fi
 
 En la lista de asistencia de `clases/show`, para resguardo de privacidad y desambiguación de homónimos, se muestran únicamente los tres últimos dígitos del DNI (ej: `DNI …123`). El DNI completo no aparece en el HTML de la vista para ningún rol.
 
+### Enmienda 20/10/2026 — La lista conserva a quien tiene marca (T52, DU-09)
+
+Los cambios de grupo y las bajas rigen hacia adelante. La lista de `clases/show` es la de los alumnos activos que hoy están en el grupo **más** los que ya tienen una marca guardada en esa clase (presente o ausente), aunque después hayan cambiado de grupo o se hayan dado de baja; esos llevan la aclaración «Cambió de grupo» o «De baja», y el encabezado dice cuántos ya no están. Al corregir esa lista se los acepta (con el motivo de §4.e); a quien no es del grupo ni tiene marca en la clase se lo sigue rechazando. Quien entró al grupo después sigue apareciendo en las clases viejas, como antes: no se decidió lo contrario.
+
 ## 4.g Cancelación de clase
 
 - Cancelar (con `motivo_cancelacion` obligatorio) o reactivar (`motivo_cancelacion` se limpia) no toca las asistencias ya cargadas — quedan tal cual en la base.

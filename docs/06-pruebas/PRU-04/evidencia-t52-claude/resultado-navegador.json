@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-20T09:06:13.697Z",
+  "base": "wings_testing_claude",
+  "usuario": "OPERATIVO sintético",
+  "pasos": [
+    {
+      "paso": "lista vieja",
+      "tarjetas": 4,
+      "encabezado": "1 alumnos en el grupo  ·  3 ya no están  ·  3 presentes"
+    },
+    {
+      "paso": "corrección",
+      "aviso": "✓ Asistencias guardadas.",
+      "presentes_despues": 4
+    }
+  ],
+  "consola": []
+}

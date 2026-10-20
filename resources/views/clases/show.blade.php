@@ -279,8 +279,12 @@
 {{-- ── Stats bar ──────────────────────────────────────────────────────────── --}}
 <div class="stats-bar mb-3">
     <div class="stats-info">
-        <strong>{{ $alumnos->count() }}</strong> alumnos en el grupo
+        <strong>{{ $alumnos->count() - $yaNoEstan->count() }}</strong> alumnos en el grupo
         &nbsp;·&nbsp;
+        @if($yaNoEstan->isNotEmpty())
+            <strong>{{ $yaNoEstan->count() }}</strong> ya no {{ $yaNoEstan->count() === 1 ? 'está' : 'están' }}
+            &nbsp;·&nbsp;
+        @endif
         <span id="contador-presentes"><strong>{{ $cantPresentes }}</strong></span> presentes
     </div>
 </div>
@@ -330,6 +334,10 @@
                     @endif
                     @if($alumno->dni)
                         <span>· DNI …{{ substr((string) $alumno->dni, -3) }}</span>
+                    @endif
+                    @if($yaNoEstan->has($alumno->id))
+                        {{-- T52: tiene marca guardada en esta clase y después cambió de grupo o se dio de baja --}}
+                        <span>· {{ $yaNoEstan[$alumno->id] }}</span>
                     @endif
                 </div>
             </div>

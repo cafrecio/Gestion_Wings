@@ -42,7 +42,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 20/10: la clase vieja conserva a quien tiene marca (Cambió de grupo / De baja) y corregirla ya no lo rechaza. 5 pruebas, Chrome 1366/375. Falta verificador de lógica y el visual de Carlos. |
 
 ## Claude
 
@@ -58,9 +60,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (22)
+## Sin empezar (21)
 
-T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
+T12, T22, T25, T42, T43, T45, T46, T50, T51, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

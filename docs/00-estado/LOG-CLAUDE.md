@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md)
 
+## 2026-10-20 — Claude CAB — T52: la clase vieja conserva a quien tiene marca
+
+- DU-09: «los cambios son hacia adelante». `ClaseWebController::show` suma a la lista del grupo de hoy
+  a quien ya tiene marca en la clase; la tarjeta dice «Cambió de grupo» o «De baja».
+- Hallazgo al leer: `storeAsistencias` rechazaba al que cambió de grupo, así que corregir una lista vieja
+  daba error. Ahora acepta a quien ya tiene marca; al resto lo sigue rechazando.
+- 5 pruebas; Chrome 1366/375 con corrección por clics (4 presentes, consola limpia). Suite rápida:
+  835/4 omitidas; 2 fallidas de T61 de Codex sin subir. Contrato V1 y tabla (ALU-013, ASI-009) al día.
+- Para Carlos: quien entró al grupo después sigue apareciendo en clases viejas; no se decidió.
+- A verificar (lógica) y visual de Carlos. Sin despliegue.
+
 ## 2026-10-19 — Claude CyE — Producción y prueba: dos bases que se confundieron
 
 - Carlos: «En test tiene que haber 100». Comprobado por SSH, solo lectura: producción `wings` 0 alumnos;

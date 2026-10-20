@@ -296,11 +296,17 @@ class ClaseWebController extends Controller
     {
         $clase = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias.alumno'])->findOrFail($id);
 
-        $alumnos = Alumno::where('grupo_id', $clase->grupo_id)
-            ->where('activo', true)
+        // T52 (DU-09): los cambios son hacia adelante. La lista es la del grupo de hoy más
+        // quien ya tiene una marca guardada en esta clase, aunque después haya cambiado de
+        // grupo o se haya dado de baja.
+        $alumnos = Alumno::where(fn ($q) => $q->where('grupo_id', $clase->grupo_id)->where('activo', true))
+            ->orWhereIn('id', $clase->asistencias->pluck('alumno_id'))
             ->orderBy('apellido')
             ->orderBy('nombre')
             ->get();
+        $yaNoEstan = $alumnos
+            ->filter(fn ($a) => !$a->activo || (int) $a->grupo_id !== (int) $clase->grupo_id)
+            ->mapWithKeys(fn ($a) => [$a->id => $a->activo ? 'Cambió de grupo' : 'De baja']);
 
         $asistenciasMap = $clase->asistencias->keyBy('alumno_id');
 
@@ -325,7 +331,7 @@ class ClaseWebController extends Controller
         $todaviaNoOcurrio     = $clase->todaviaNoOcurrio();
 
         return view('clases.show', compact(
-            'clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
+            'clase', 'alumnos', 'yaNoEstan', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
             'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores',
             'todaviaNoOcurrio'
         ));
@@ -388,7 +394,10 @@ class ClaseWebController extends Controller
         // Primera pasada: validar solapamiento de todos los presentes antes
         // de guardar nada (todo-o-nada, no queremos guardado parcial).
         $errores = [];
-        $alumnosDelGrupo = Alumno::where('grupo_id', $clase->grupo_id)
+        // T52: también se acepta a quien ya tiene una marca en esta clase (cambió de grupo
+        // o se dio de baja después): corregir la lista vieja no puede rechazarlo.
+        $conMarca = Asistencia::where('clase_id', $clase->id)->pluck('alumno_id');
+        $alumnosDelGrupo = Alumno::where(fn ($q) => $q->where('grupo_id', $clase->grupo_id)->orWhereIn('id', $conMarca))
             ->whereIn('id', collect($items)->pluck('alumno_id')->map(fn($id) => (int) $id)->filter())
             ->pluck('id')
             ->map(fn($id) => (int) $id)

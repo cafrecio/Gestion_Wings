@@ -650,7 +650,7 @@
         {
           "donde": "Clases del grupo anterior",
           "l": "g",
-          "texto": "Deja de aparecer en las listas del grupo anterior. Sus presentes ya guardados en ese grupo se conservan y siguen contando.",
+          "texto": "Deja de aparecer en las listas del grupo anterior desde hoy. En las clases viejas donde tiene una marca guardada sigue figurando, con la aclaración «Cambió de grupo»; sus presentes se conservan y siguen contando.",
           "tipo": "indirecto"
         },
         {
@@ -679,7 +679,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "AlumnoWebController::update, AlumnoPlan (código leído); Contrato de estados §2 (cambio de plan); Contrato alumno-grupo-deporte V4 §2.d; Contrato de liquidaciones §2.1 y §3.",
+      "fuente": "AlumnoWebController::update, AlumnoPlan (código leído); Contrato de estados §2 (cambio de plan); Contrato alumno-grupo-deporte V4 §2.d; Contrato de liquidaciones §2.1 y §3. T52 (Claude, 20/10, a verificar): las clases con marca guardada siguen mostrándolo (DU-09: los cambios son hacia adelante).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-edicion",
       "requiere": "Alumno de Patín Principiantes con cuota de octubre pendiente, asistencias este mes y un pago. El grupo Patín Intermedias tiene otros planes y otros precios.",
