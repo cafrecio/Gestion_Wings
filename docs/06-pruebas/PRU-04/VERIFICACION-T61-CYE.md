@@ -1,6 +1,6 @@
 # T61 — Integración y recorrido desde CyE
 
-Codex CyE, 20/10/2026. Continuación solicitada por Carlos. **Integración comprobada; recorrido incompleto. Sin cierre ni despliegue.**
+Codex CyE, 20/10/2026. Continuación solicitada por Carlos. **Integración y recorrido real completados. Pendientes aprobación visual de Carlos y control cruzado de lógica por Claude; sin cierre ni despliegue.**
 
 ## Integración y comprobaciones
 
@@ -34,11 +34,11 @@ Respuestas de la aplicación andando, no maquetas. Escritorio 1366 mediante view
 - [Formulario de salida](evidencia-t61-cye/salida-1366.jpg) y [entrada](evidencia-t61-cye/entrada-1366.jpg)
 - [Cashflow antes](evidencia-t61-cye/cashflow-antes-1366.jpg) e [Inicio antes](evidencia-t61-cye/inicio-antes-1366.jpg)
 
-## Pendiente real
+## Bloqueo anterior — resuelto en la continuación final
 
 Después de navegar a Rubros, la herramienta devolvió «Local browser use is disabled in Work settings». Una consulta nueva de inventario confirmó que no ofrecía ningún navegador. No se cambió de herramienta para eludir esa restricción. Carlos aportó [captura del interruptor integrado encendido](evidencia-t61-cye/navegador-habilitado-carlos.png) y afirmó que no lo cambió. Se reinició solo la conexión CUA y se repitió el inventario: mismo rechazo. La causa de esa discrepancia no se comprobó; no se exige repetir el reinicio de la aplicación que ya había fallado en CAB.
 
-Faltan capturas a 375, Crear/Editar subrubros en ambos tipos, recorrido operativo, control de consola, verificación cruzada y aprobación visual de Carlos. La ayuda sigue legítimamente como texto entregado para T13, según contrato; no es una pantalla pendiente de construir en T61.
+En aquel corte faltaban capturas a 375, Crear/Editar subrubros en ambos tipos, recorrido operativo y control de consola; esos puntos se completaron en la continuación final de abajo. Siguen pendientes la verificación cruzada y la aprobación visual de Carlos. La ayuda sigue legítimamente como texto entregado para T13, según contrato; no es una pantalla pendiente de construir en T61.
 
 ## Reinstalación de dependencias
 
@@ -51,3 +51,39 @@ Los registros de consola conservan resultados y mensajes; se normalizan finales 
 ## Guardado antes de reinstalar
 
 Integración guardada en `758955ef`. La suite y el build terminaron; no quedan pruebas activas y el servidor ficticio del puerto 8761 fue detenido por sus dos PID verificados. Base ficticia y capturas conservadas. La revisión automática rechazó publicar tanto en main como en rama propia: exige autorización humana que identifique repositorio y contenido a transferir. No se publicó esta integración. El commit ajeno `49a15f92` apareció después, con DU-09/T52; no se atribuye ni certifica ese trabajo. Para publicar solo este avance se pedirá autorización sobre `758955ef` en `cafrecio/Gestion_Wings`, rama `codex/t61-integracion-cye`.
+
+## Continuación final — 20/10/2026, Codex CyE
+
+Navegador recuperado tras la reinstalación informada por Carlos. Servidor local en
+127.0.0.1:8761, base ficticia conservada `wings_testing_codex_t61`. La primera instancia
+escuchaba pero Chrome no llegaba; se detuvieron solo sus dos PID comprobados y se abrió
+fuera del aislamiento de red. No se modificó el servidor remoto ni la base del club.
+
+- Los dos movimientos existentes de $300.000 siguen en Cashflow: no se duplicaron.
+  Efectivo $306.000, Banco $307.000; ingresos $320.000, egresos $307.000, neto $13.000.
+  Inicio y Reportes: ingresos $12.000, gastos $5.000, resultado del club $7.000;
+  disponible $613.000, aportes $8.000, retiros $2.000, global $13.000.
+- Crear y Editar subrubros, INGRESO y EGRESO, recorridos. TRASPASO está disponible en
+  ambos; las ediciones conservan su clasificación. Las altas se capturan en estado
+  inicial, sin guardarlas; no se creó un catálogo paralelo.
+- Operativa ficticia: Registrar muestra sus conceptos, sin los dos traspasos ADMIN.
+  Cashflow no está en su menú; abrir su URL muestra Sin permiso. Capturas de evidencia
+  guardadas; los POST directos siguen cubiertos por las pruebas T61 de la entrega.
+- 22 capturas finales con medidas en [control-capturas-final.json](evidencia-t61-cye/control-capturas-final.json).
+  Marco de emulación CDP de Chrome: `innerWidth=375` / 1366, sin achicar la ventana
+  física ni recortar un layout de 500. Control: ingreso real completo y legible.
+  Se guardan los píxeles tal como los entrega Chrome, incluida su barra vertical;
+  no se reescalan ni se fabrican pantallas. Las capturas tomadas durante una transición
+  del menú se reemplazaron con el ancho fijo y tras comprobar el render real.
+- [Consola ADMIN](evidencia-t61-cye/consola-admin.json) y
+  [operativa](evidencia-t61-cye/consola-operativa.json): el lector devolvió cero avisos/errores.
+- [Once fuentes principales](evidencia-t61-cye/fuentes-recorrido-final.json) iguales
+  a la integración. Sin cambios de aplicación, vistas o CSS en este recorrido.
+  No se repite suite por una entrega de evidencia/documentación; se conserva el
+  resultado completo propio de la integración, citado arriba con su alcance y fecha.
+- La integración 758955ef ya es antecesora de main publicada; el rechazo de publicación
+  descrito en el corte anterior es histórico, no un bloqueo actual.
+
+[Galería final para Carlos: siete pares y tres complementos](RECORRIDO-T61.html).
+Mi recorrido pendiente queda entregado; T61 permanece a_verificar, con aprobación
+visual de Carlos y control de lógica por Claude. Sin autocierre ni despliegue.

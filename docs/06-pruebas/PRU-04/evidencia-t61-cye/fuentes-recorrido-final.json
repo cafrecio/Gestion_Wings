@@ -1,0 +1,57 @@
+[
+  {
+    "ruta": "app/Http/Controllers/CashflowWebController.php",
+    "sha256_lf": "0fbcfd886a0f84de347a727637194e4c057324bd28b16fec9c90392e016f9c7c",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "app/Http/Controllers/SubrubroWebController.php",
+    "sha256_lf": "9484314562509926c2089dfdd7a8c2266508c297ac7b8b9acbca29070d60bcdb",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "app/Support/ClasificacionSubrubros.php",
+    "sha256_lf": "68953ebe1cc5fcfca0fa1d15e0e03bad6e6f5f3e7553073fc8a6e1f81a1f3723",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "database/migrations/2026_10_20_120000_agregar_traspasos_entre_medios.php",
+    "sha256_lf": "d2ba9c8e5a2cea7cae4cdecfe4465bdd991aa0a2eba833980b7361014f7627b0",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "database/seeders/CatalogosSeeder.php",
+    "sha256_lf": "1aa1c5e6c41f64c16ea6479c764be5dfeb266fd51d2307fd65968ee037cbe3c9",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "resources/views/cashflow/index.blade.php",
+    "sha256_lf": "42e9548370c752581787f0df5bab9a42bff8c074cabb4c021253cd9e20edd454",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "resources/views/reportes/index.blade.php",
+    "sha256_lf": "0a1d4efb61b585862a85c55a8a1f23b53e9278132f2009e595ba38e6b76fefa3",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "resources/views/subrubros/_form.blade.php",
+    "sha256_lf": "6149291996bad870d04148a4850d4b456c8ab59f085e6a70d473fd640b441c40",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "tests/Feature/CatalogosSeederTest.php",
+    "sha256_lf": "2ca6f94d0083b225ded87fe10df0f2f9fa8adae3dd10ef87be7a70bebaefc74a",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "tests/Feature/SaldoInicialTipoCajaTest.php",
+    "sha256_lf": "30a3a6327121a12fcdf37a2f4db4cec4c78fe2919dc10700388c83d6215bcd3c",
+    "igual_integracion": true
+  },
+  {
+    "ruta": "tests/Feature/TraspasosEntreMediosT61Test.php",
+    "sha256_lf": "2ef34e1fb515b56dd6c7f10b700fff0b241fbb135a757f5b7763ddc4e26407d8",
+    "igual_integracion": true
+  }
+]

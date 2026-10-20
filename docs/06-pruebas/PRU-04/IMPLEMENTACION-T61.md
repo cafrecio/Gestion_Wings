@@ -1,6 +1,6 @@
 # T61 — Pasar dinero entre medios propios
 
-Codex CAB, 20/10/2026. DU-29 / CSH-018. **Implementada; integración y recorrido CyE en curso.** Véase el [control actual](VERIFICACION-T61-CYE.md).
+Codex CAB, 20/10/2026. DU-29 / CSH-018. **Implementada e integrada; recorrido CyE completado. Pendientes visual de Carlos y verificación de Claude.** Véase el [control actual](VERIFICACION-T61-CYE.md).
 Solo trabajo local; sin servidor, despliegue ni cambios en datos del club.
 
 ## Decisiones de Carlos
@@ -134,4 +134,4 @@ Las salidas de las dos fallas históricas contienen HTML de pruebas; sus tokens 
 
 ## Continuación desde CyE — 20/10/2026
 
-[Control actual y capturas reales](VERIFICACION-T61-CYE.md). El bloqueo de CAB se levantó al iniciar CyE: se cargaron ambos traspasos mediante Chrome real. El acceso se volvió a deshabilitar después, antes de completar las capturas de celular y los permisos de la operativa. No se da por completo ese recorrido.
+[Control actual y capturas reales](VERIFICACION-T61-CYE.md). Recorrido CyE completado tras recuperar Chrome: capturas reales 1366/375, los cuatro formularios de subrubros, indicadores y acceso de la operativa. [Galería final para Carlos](RECORRIDO-T61.html). Visual de Carlos y verificación cruzada de lógica por Claude pendientes; sin autocierre ni despliegue.

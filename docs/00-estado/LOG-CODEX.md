@@ -6,6 +6,17 @@
 
 [Dos antecedentes archivados intactos al verificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-ANTECEDENTES.md).
 
+[Antecedente archivado intacto al completar el recorrido T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-RECORRIDO-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — T61, recorrido real completado
+
+Chrome recuperado; servidor local solo con wings_testing_codex_t61, datos ficticios conservados sin duplicar traspasos.
+22 capturas y medidas 1366/375: Cashflow/Reportes/Inicio, Crear/Editar subrubros ingreso/egreso y operativa.
+Resultado del club $7.000; Efectivo $306.000, Banco $307.000; operativa sin traspasos ADMIN y Cashflow denegado.
+Once fuentes iguales a integración; sin código ni diseño nuevos. No se repite suite por evidencia/documentación; corte previo y alcance conservados.
+[Control](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md) y [galería final](../06-pruebas/PRU-04/RECORRIDO-T61.html). Mi recorrido entregado; visual Carlos y lógica Claude pendientes en tablero. Sin autocierre ni despliegue.
+T52 ya devuelta a Claude; su corrección y T64 de Gemini en la carpeta se preservan. Sigue T42 y después T43, según Carlos.
+
 ## 2026-10-20 — Codex CyE — T52, verificación con hallazgos
 
 Entrega Claude 2dfbf243/dd45ce0e; solo lógica. Visual de Carlos conservado; T50 de Gemini preservada.
@@ -98,13 +109,3 @@ Captura real 1/14 y cuatro controles de navegador; cambios visuales paralelos de
 Suite: 919 aprobadas, 4 omitidas, 2 fallidas, 8172 aserciones, 1963,93 s en wings_testing_codex. Repetición aislada 2/11 verde sin cambios; causa no comprobada. Corte 925 y contadores al día.
 Carlos respondió «Sí, autorizo H1 y su publicación»; implementación en 02b72588, sin cambios visuales ajenos. Guardianes documentales 12/55 verdes.
 [Corrección y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md#corrección-de-h1). Claude revisa lógica; Carlos visual con APROBAR-T68.html. Sin servidor ni despliegue.
-
-## 2026-10-19 — Codex CyE — Verificación de lógica T68, con hallazgos
-
-Verificación independiente de e5b4695a, con DU-57 aclarada: se conservan las secciones con datos o avisos vacíos.
-H1: ficha del profesor muestra cálculo original, aunque el monto ajustado sea otro; detalle muestra el final.
-H2: onsubmit preexistente en grupo, identificado para T73; no se atribuye como agregado de Gemini.
-Fechas, orden, roles, estados vacíos y consultas contrastados con fuentes y peticiones reales; sin corrección de producto.
-Originales/CSP: 7/40; propias: 7 pasan y 2 fallan (H1/H2), 105 aserciones. Suite: 912 aprobadas/4 omitidas/8 fallidas, 8071 aserciones, 1450,81 s. Ocho por compilado local ausente; build correcto y repetición de clases/guardianes: 36/390 verdes. Solo wings_testing_codex.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md). T68 devuelta a Gemini; visual corresponde a Carlos.
-Sin servidor, despliegue, checkout, stash ni reset; cambios ajenos preservados.

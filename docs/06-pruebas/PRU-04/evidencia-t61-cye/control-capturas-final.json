@@ -1,0 +1,272 @@
+{
+  "fecha": "2026-10-20",
+  "metodo": "Marco de emulación CDP: viewport explícito 1366/375, sin cambiar ventana física; login de control real; capturas tras estabilizar ancho",
+  "capturas": [
+    {
+      "pantalla": "cashflow-375",
+      "url": "http://127.0.0.1:8761/cashflow",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "cashflow-375-abajo",
+      "url": "http://127.0.0.1:8761/cashflow",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "cashflow-1366-final",
+      "url": "http://127.0.0.1:8761/cashflow",
+      "alto": 1000,
+      "contenido": 1351,
+      "documento": 1351,
+      "viewport": 1366,
+      "imagen_px": [
+        1351,
+        989
+      ]
+    },
+    {
+      "pantalla": "reportes-1366-final",
+      "url": "http://127.0.0.1:8761/reportes",
+      "alto": 1000,
+      "contenido": 1351,
+      "documento": 1351,
+      "viewport": 1366,
+      "imagen_px": [
+        1351,
+        989
+      ]
+    },
+    {
+      "pantalla": "reportes-375",
+      "url": "http://127.0.0.1:8761/reportes",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "reportes-375-detalle",
+      "url": "http://127.0.0.1:8761/reportes",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "subrubro-entrada-editar-375",
+      "url": "http://127.0.0.1:8761/rubros/6/subrubros/6/edit",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "subrubro-entrada-editar-1366",
+      "url": "http://127.0.0.1:8761/rubros/6/subrubros/6/edit",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "subrubro-entrada-nuevo-1366",
+      "url": "http://127.0.0.1:8761/rubros/6/subrubros/create",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "subrubro-entrada-nuevo-375",
+      "url": "http://127.0.0.1:8761/rubros/6/subrubros/create",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "subrubro-salida-editar-375",
+      "url": "http://127.0.0.1:8761/rubros/5/subrubros/5/edit",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "subrubro-salida-editar-1366",
+      "url": "http://127.0.0.1:8761/rubros/5/subrubros/5/edit",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "subrubro-salida-nuevo-1366",
+      "url": "http://127.0.0.1:8761/rubros/5/subrubros/create",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "subrubro-salida-nuevo-375",
+      "url": "http://127.0.0.1:8761/rubros/5/subrubros/create",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "inicio-375-final",
+      "url": "http://127.0.0.1:8761/admin/dashboard",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "inicio-1366-final",
+      "url": "http://127.0.0.1:8761/admin/dashboard",
+      "alto": 1000,
+      "contenido": 1351,
+      "documento": 1351,
+      "viewport": 1366,
+      "imagen_px": [
+        1351,
+        989
+      ]
+    },
+    {
+      "pantalla": "login-375-control",
+      "url": "http://127.0.0.1:8761/login",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "operativa-inicio-375",
+      "url": "http://127.0.0.1:8761/operativo",
+      "alto": 900,
+      "contenido": 360,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        360,
+        864
+      ]
+    },
+    {
+      "pantalla": "operativa-movimiento-375",
+      "url": "http://127.0.0.1:8761/caja/movimiento",
+      "alto": 900,
+      "contenido": 375,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        375,
+        900
+      ]
+    },
+    {
+      "pantalla": "operativa-movimiento-1366",
+      "url": "http://127.0.0.1:8761/caja/movimiento",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "operativa-sin-permiso-1366",
+      "url": "http://127.0.0.1:8761/cashflow",
+      "alto": 1000,
+      "contenido": 1366,
+      "documento": 1366,
+      "viewport": 1366,
+      "imagen_px": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "pantalla": "operativa-sin-permiso-375",
+      "url": "http://127.0.0.1:8761/cashflow",
+      "alto": 900,
+      "contenido": 375,
+      "documento": 360,
+      "viewport": 375,
+      "imagen_px": [
+        375,
+        900
+      ]
+    }
+  ],
+  "adminAvisos": [],
+  "operativaAvisos": []
+}
