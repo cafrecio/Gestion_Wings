@@ -3,7 +3,7 @@
 Codex CyE, 20/10/2026. Entrega de Claude: `2dfbf243` y `dd45ce0e`.
 
 **CON HALLAZGOS.** Tres incumplimientos funcionales reproducidos y un N+1 previo.
-Suite completa todavía en curso; no se certifica ese resultado hasta su finalización.
+Suite completa: 962 aprobadas, 5 omitidas y 2 fallidas en T33; T33 aislada: 10 aprobadas, sin causa atribuida.
 
 ## Alcance
 
@@ -76,6 +76,8 @@ independiente y se conservan por `orWhereIn`.
 Se consultó codebase-memory primero; `check_index_coverage` devolvió
 `coverage_unavailable / metadata_changed` para las fuentes utilizadas. Las conclusiones
 se contrastan con los cuerpos de los archivos reales, no con la cobertura del índice.
+La consulta adicional de cobertura de rutas, arranque y controladores API devolvió
+`Transport closed`; se verificaron directamente esos archivos.
 Las [huellas iniciales](evidencia-t52-codex/fuentes-antes.json) permiten comprobar cambios
 durante la revisión de la carpeta compartida.
 
@@ -112,12 +114,12 @@ Las [reproducciones independientes](evidencia-t52-codex/T52VerificacionTest.php)
 de `tests/`, para no alterar el contador permanente ni las pruebas originales.
 Tienen una guarda que exige entorno `testing` y base `wings_testing_codex`.
 
-Reproducciones: **8 pruebas, 51 aserciones, 4 fallidas, 28,564 s, salida 1**.
+Reproducciones: **8 pruebas, 51 aserciones, 4 fallidas, 24,626 s, salida 1**.
 [Salida](evidencia-t52-codex/pruebas-independientes.txt) ·
 [Código de salida](evidencia-t52-codex/pruebas-independientes.exit) ·
 [Filas observadas y SQL](evidencia-t52-codex/observaciones.jsonl).
 Hubo una primera ejecución de siete casos (45 aserciones, los mismos cuatro fallos);
-se repitió la selección completa al agregar el caso histórico de backfill.
+se repitió la selección completa al agregar el caso histórico de backfill y al dejar deporte y profesora de COMISIÓN coherentes en el fixture final.
 
 Comprobaciones independientes aprobadas: cambio de grupo inmediato por PUT con mes pagado
 y plan nuevo al 1/11; reactivación manual conserva la fecha del grupo y ADMIN/OPERATIVO/
@@ -131,6 +133,19 @@ Selección: T52, CancelarLiquidacionCerrada, T66, T34/T67, AsistenciaClaseFutura
 AsistenciasAtomicidad, ClasesCanceladasHoy y EditarClase.
 [Salida](evidencia-t52-codex/dirigidas.txt) · [Código de salida](evidencia-t52-codex/dirigidas.exit).
 
-Pendiente: resultado de suite completa, iniciada a las 09:18:31 sin otra suite activa.
+Suite completa: **962 aprobadas, 5 omitidas, 2 fallidas, 8507 aserciones, 1019,61 s,
+salida 2**. Inició a las 09:18:31 sin otra suite activa. Las cinco omitidas son
+pruebas de captura condicionadas por su entorno, según la salida del corredor.
+[Salida íntegra](evidencia-t52-codex/completa.txt) · [Código de salida](evidencia-t52-codex/completa.exit).
+
+Los dos fallos son `PerdonConcurrenteT33Test`: inscripción excede el timeout de 20 s del
+proceso hijo; cuota no observa al segundo proceso esperando en MariaDB. Ese archivo queda
+fuera del diff de T52. Repetición aislada: **10 aprobadas, 120 aserciones, 179,90 s, salida 0**. No se atribuye causa ni se declara la completa verde. [Salida aislada](evidencia-t52-codex/t33-aislada.txt) · [Código de salida](evidencia-t52-codex/t33-aislada.exit).
+
+Las nueve fuentes principales tienen [huellas finales](evidencia-t52-codex/fuentes-despues.json)
+iguales a las iniciales. La completa se inició sobre `42d99a33`; durante su ejecución
+`31823eb5` guardó el avance documental de esta revisión junto con la toma T64 de Gemini,
+sin cambiar esas fuentes. Este informe completa aquel avance; no lo confunde con un cierre.
+
 T52 devuelta a Claude con el script del tablero: corregir H1–H3 y resolver el criterio H4;
 visual aprobado conservado. Sin cambios de producto ni despliegue.

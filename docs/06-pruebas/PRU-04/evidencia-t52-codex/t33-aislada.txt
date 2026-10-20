@@ -1,0 +1,16 @@
+
+   PASS  Tests\Feature\PerdonConcurrenteT33Test
+  ✓ pedido inscripcion espera commit y continua sin reintento ni timeout                                        26.87s  
+  ✓ pedido cuota espera commit y continua sin reintento ni timeout                                              15.71s  
+  ✓ cobro parcial inscripcion primero perdona solo tres mil                                                     16.17s  
+  ✓ cobro completo inscripcion primero rechaza perdon                                                           14.74s  
+  ✓ perdon inscripcion primero rechaza cobro sin escribir                                                       14.77s  
+  ✓ dos perdones de inscripcion se serializan y segundo rechaza                                                 16.94s  
+  ✓ cobro parcial cuota primero perdona saldo conservando imputacion                                            17.73s  
+  ✓ cobro completo cuota primero rechaza perdon                                                                 16.66s  
+  ✓ perdon cuota primero rechaza cobro sin escribir                                                             16.19s  
+  ✓ dos perdones de cuota se serializan y segundo rechaza                                                       15.64s  
+
+  Tests:    10 passed (120 assertions)
+  Duration: 179.90s
+

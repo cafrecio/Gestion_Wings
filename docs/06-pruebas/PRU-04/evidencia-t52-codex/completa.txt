@@ -1112,3 +1112,214 @@
   ✓ alumnos rechaza filtros invalidos y permite todos los deportes                                               8.75s  
   ✓ alumnos solo admin y primera carga conserva el bloqueo                                                      10.58s  
   ✓ mes sin clases sigue seleccionado y no inventa matricula historica                                          12.65s  
+
+   PASS  Tests\Feature\ReporteMensualTest
+  ✓ seis meses y mes actual concilian sin arrastre en el resultado                                               8.86s  
+  ✓ cobro posterior no borra deuda del cierre anterior                                                           7.94s  
+  ✓ validar caja solo traslada pendiente a confirmado sin duplicar                                               7.22s  
+  ✓ gastos comunes se restaron una vez y afecta caja no es clasificacion                                         6.39s  
+  ✓ historia insuficiente y clasificacion desconocida no simulan cero                                            7.79s  
+  ✓ fecha real anterior corrige su mes y ajuste actual conserva el anterior                                      6.84s  
+  ✓ creacion y pago del mismo objeto no suman dos veces y deshacer limpia                                        7.06s  
+  ✓ cierre y pago de liquidacion conservan el saldo del cierre anterior                                          7.10s  
+  ✓ evento y deuda se desatan juntos si falla guardar la historia                                                7.75s  
+  ✓ descuento retroactivo no deja deuda artificial en su mes                                                     7.49s  
+  ✓ sueldo generado conserva deporte al pagar y anular no borra historia                                         6.71s  
+  ✓ reportes reales filtran mes y deporte con historia del corte                                                 8.54s  
+  ✓ reportes rechazan filtros invalidos sin error del servidor                                                   7.31s  
+  ✓ reportes solo admin y primera carga conserva su bloqueo                                                      7.20s  
+  ✓ reportes detalles y enlaces concilian inicio y saldos historicos                                             6.78s  
+  ✓ reportes no inventan comparacion con movimientos sin clasificar                                              9.20s  
+  ✓ inicio admin usa el motor mensual y no cambia por parametros                                                11.11s  
+  ✓ avisos abren exactamente los pendientes incluidos meses antiguos                                            13.77s  
+  ✓ inicio y enlaces admin no exponen importes a otros roles                                                    11.97s  
+  ✓ inicio sin migracion muestra indisponible sin consultar historia                                            11.52s  
+  ✓ modificar saldo inicial no reescribe disponible anterior                                                     9.24s  
+
+   PASS  Tests\Feature\ReporteSueldosTest
+  ✓ reparte cuota real por asistencias sin dividir la comision                                                   0.13s  
+  ✓ pago parcial es cobro y sin pago cuenta cada asistencia                                                      0.13s  
+  ✓ falta historia o cuota no se convierte en cero                                                               0.18s  
+  ✓ canceladas y futuras no reparten cuota                                                                       0.15s  
+  ✓ mes cerrado conserva tarifa y cobro antes de la anulacion                                                    0.23s  
+  ✓ liquidacion ajustada prevalece sin duplicar abierta y cerrada                                                0.16s  
+  ✓ ruta filtros roles y consulta sin escrituras                                                                 0.54s  
+  ✓ cambiar deporte del profesor no mueve su actividad anterior                                                  0.34s  
+  ✓ clase con dos profesores no duplica asistencia global                                                        0.17s  
+  ✓ hora usa duracion real y no inventa clases previas al historial                                              0.18s  
+
+   PASS  Tests\Feature\RestaurarConsultasContraEsquemaRealTest
+  ✓ cada consulta del ensayo corre contra el esquema real                                                        0.06s  
+  ✓ la deuda pendiente se calcula igual que el modelo                                                            0.03s  
+
+   PASS  Tests\Feature\RevisionCobranzaNoTocaElPasadoTest
+  ✓ marcar inactivo no condona la deuda del mes anterior                                                         0.07s  
+  ✓ marcar inactivo da de baja y no genera la deuda del periodo                                                  0.05s  
+  ✓ marcar continua genera la deuda del periodo                                                                  0.05s  
+  ✓ continuar tampoco toca lo ya generado                                                                        0.08s  
+  ✓ una revision ya resuelta no se vuelve a resolver                                                             0.06s  
+
+   PASS  Tests\Feature\RevisionCobranzaOperativoTest
+  ✓ el operativo entra a la revision                                                                             0.06s  
+  ✓ el operativo resuelve continua y se genera la cuota                                                          0.06s  
+  ✓ el operativo resuelve inactivo sin condonar nada                                                             0.06s  
+  ✓ el profesor no entra ni resuelve                                                                             0.05s  
+  ✓ el menu del operativo tiene el link a revision                                                               0.54s  
+  ✓ el menu del profesor no tiene revision                                                                       0.07s  
+
+   PASS  Tests\Feature\RubroReservadoTest
+  ✓ no se puede renombrar un rubro reservado                                                                     0.06s  
+  ✓ no se puede cambiar el tipo de un rubro reservado                                                            0.03s  
+  ✓ no se puede eliminar un rubro reservado                                                                      0.03s  
+  ✓ la observacion de un rubro reservado no se edita                                                             0.03s  
+  ✓ un rubro comun se sigue renombrando                                                                          0.04s  
+  ✓ un rubro reservado vacio no acepta subrubros a mano                                                          0.04s  
+  ✓ un rubro comun sigue aceptando subrubros                                                                     0.06s  
+  ✓ el alta de un operativo le crea su subrubro de sueldo                                                        0.05s  
+  ✓ el alta de un admin no crea subrubro                                                                         0.06s  
+  ✓ editar un operativo no le duplica el subrubro                                                                0.07s  
+  ✓ renombrar operativo renombra su subrubro y preserva movimientos imputados                                    0.07s  
+  ✓ editar operativo sin cambiar el nombre no toca el subrubro                                                   0.07s  
+  ✓ renombrar operativo con choque de subrubro no guarda nada                                                    0.07s  
+  ✓ catalogos del sistema rechazan toda edicion incluso espacios                                                 0.59s  
+
+   PASS  Tests\Feature\SaldoInicialTipoCajaTest
+  ✓ alta guarda saldo inicial y rechaza valores negativos                                                        0.39s  
+  ✓ nombre duplicado por mayusculas se rechaza sin crear otro tipo                                               0.04s  
+  ✓ saldo inicial se corrige por web solo mientras no haya movimientos                                           0.07s  
+  ✓ un movimiento cashflow impide reescribir el saldo inicial                                                    0.10s  
+  ✓ un movimiento operativo incluso cancelado bloquea el saldo inicial                                           0.11s  
+  ✓ cashflow muestra resultado del periodo sin sumar saldo inicial                                               0.63s  
+  ✓ saldo inicial permite pagar liquidacion sin movimientos previos                                              0.68s  
+  ✓ servicios de saldo incluyen tipos sin movimientos                                                            0.03s  
+
+   PASS  Tests\Feature\SaldoUnicoPorAlumnoTest
+  ✓ la cuota pendiente sin saldo no cuenta como deuda                                                            0.48s  
+  ✓ el saldo incluye la inscripcion impaga                                                                       0.16s  
+  ✓ cobranza la ficha y el selector dicen el mismo saldo                                                         0.72s  
+  ✓ un pago parcial baja el saldo en todas las pantallas                                                         0.26s  
+
+   PASS  Tests\Feature\SaldoYAnulacionCoherentesTest
+  ✓ la inscripcion de quien hace dos deportes figura en un solo registro                                         0.14s  
+  ✓ la ficha del otro deporte no duplica el saldo y dice donde esta                                              0.12s  
+  ✓ el historial de un cobro anulado muestra los meses cobrados                                                  0.20s  
+
+   PASS  Tests\Feature\SecurityHeadersTest
+  ✓ toda respuesta web incluye headers y csp solo en modo reporte                                                0.11s  
+
+   PASS  Tests\Feature\SeedersProduccionTest
+  ✓ demo seeder aborta en produccion                                                                             0.06s  
+  ✓ test seeder aborta en produccion                                                                             0.05s  
+
+   PASS  Tests\Feature\SeguridadRutasProfesorTest
+  ✓ profesor no puede entrar a dominios operativos o de dinero                                                   0.06s  
+  ✓ profesor conserva acceso a clases                                                                            0.06s  
+
+   PASS  Tests\Feature\SuperadminProtegidoTest
+  ✓ admin comun no ve al superadmin en el listado                                                                0.23s  
+  ✓ superadmin se ve a si mismo y al resto en el listado                                                         0.05s  
+  ✓ admin comun no puede abrir la edicion del superadmin                                                         0.06s  
+  ✓ admin comun no puede editar los datos del superadmin                                                         0.05s  
+  ✓ admin comun no puede cambiar la contrasena del superadmin                                                    0.03s  
+  ✓ admin comun no puede cambiar el rol del superadmin                                                           0.05s  
+  ✓ admin comun no puede desactivar al superadmin                                                                0.05s  
+  ✓ superadmin puede administrar a otro admin                                                                    0.05s  
+  ✓ pantalla web no puede crear una cuenta protegida                                                             0.04s  
+  ✓ pantalla web no puede marcar una cuenta existente como protegida                                             0.03s  
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas                                                                                       0.01s  
+  ✓ lo generado coincide con tareas json                                                                         0.08s  
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas                                                                    0.07s  
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo nuevo tiene dos conceptos admin activos y la etiqueta en ambos tipos                                0.83s  
+  ✓ csh018 carga 300mil efectivo a banco sin alterar el resultado del club                                       0.24s  
+  ✓ inicio y reportes conservan indicadores y sueldos y alumnos no cambian                                       1.10s  
+  ✓ salida y entrada de meses distintos no alteran negocio pero si global de cada mes                            0.14s  
+  ✓ no obliga a emparejar importes fechas ni registros                                                           0.28s  
+  ✓ operativa no ve conceptos ni puede cargarlos por envio directo                                               0.59s  
+  ✓ formulario acepta traspaso en ambos tipos y rechaza clasificaciones ajenas                                   0.27s  
+  ✓ migracion existente dos veces no duplica y no pisa clasificaciones                                           0.18s  
+  ✓ migracion completa vacio compatible sin reclasificar fotos historicas                                        0.21s  
+  ✓ editar y anular conserva clasificacion fecha y saldo del traspaso                                            0.30s  
+  ✓ cambio del catalogo no reescribe traspaso ni su correccion o anulacion                                       0.20s  
+  ✓ saldos cashflow son actuales aunque filtre otro mes y distinguen pendientes                                  0.21s  
+
+   PASS  Tests\Feature\UsuarioActivoWebTest
+  ✓ usuario desactivado no puede iniciar sesion                                                                  0.05s  
+  ✓ sesion emitida se cierra si el usuario fue desactivado                                                       0.02s  
+  ✓ no se puede desactivar operativa con caja abierta                                                            0.03s  
+  ✓ se puede desactivar operativa sin caja abierta                                                               0.07s  
+  ✓ no se puede cambiar el rol de operativa con caja abierta                                                     0.05s  
+  ✓ se puede editar el nombre con caja abierta                                                                   0.04s  
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.16s  
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.24s  
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.13s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PerdonConcurrenteT33Test > pedido inscripcion espera commit y con…  ProcessTimedOutException   
+  The process "C:\xampp\php\php.exe C:\xampp\htdocs\Gestion_Wings\tests/Support/perdon-t33-worker.php "{""accion"":""condonar"",""inscripcion"":true,""cargo"":1,""cuota"":1,""alumno"":1,""admin"":1,""tipo_caja"":1}"" exceeded the timeout of 20 seconds.
+
+  at vendor\symfony\process\Process.php:1212
+    1208▕ 
+    1209▕         if (null !== $this->timeout && $this->timeout < microtime(true) - $this->starttime) {
+    1210▕             $this->stop(0);
+    1211▕ 
+  ➜ 1212▕             throw new ProcessTimedOutException($this, ProcessTimedOutException::TYPE_GENERAL);
+    1213▕         }
+    1214▕ 
+    1215▕         if (null !== $this->idleTimeout && $this->idleTimeout < microtime(true) - $this->lastOutputTime) {
+    1216▕             $this->stop(0);
+
+  1   vendor\symfony\process\Process.php:1212
+  2   vendor\symfony\process\Process.php:478
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\PerdonConcurrenteT33Test > pedido cuota espera commit y continua sin…   AssertionFailedError   
+  El segundo proceso no aparece esperando en MariaDB: [] READY:26776
+SQL:select * from `deuda_cuotas` where `deuda_cuotas`.`id` = ? limit 1
+SQL:select * from `alumnos` where `alumnos`.`id` = ? limit 1
+SQL:select * from `inscripcion_personas` where `dni` = ? limit 1 for update
+SQL:select * from `alumnos` where `alumnos`.`id` = ? limit 1 for update
+SQL:select * from `deuda_cuotas` where `deuda_cuotas`.`id` = ? limit 1 for update
+SQL:update `deuda_cuotas` set `estado` = ?, `observaciones` = ?, `deuda_cuotas`.`updated_at` = ? where `id` = ?
+SQL:select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'reporte_analitico_historial' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`
+SQL:select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'reporte_analitico_cobertura' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`
+SQL:select `desde` from `reporte_analitico_cobertura` where `id` = ? limit 1
+SQL:select * from `deuda_cuotas` where `deuda_cuotas`.`id` = ? limit 1 for update
+SQL:select * from `reporte_analitico_historial` where `tipo` = ? and `origen_id` = ? order by `id` desc limit 1
+SQL:insert into `reporte_analitico_historial` (`tipo`, `origen_id`, `persona_id`, `deporte_id`, `periodo`, `datos`, `vigente`, `observado_en`) values (?, ?, ?, ?, ?, ?, ?, ?)
+SQL:select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'reporte_eventos' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`
+SQL:select * from `reporte_eventos` where `tipo` = ? and `origen_id` = ? order by `id` asc limit 1
+SQL:select * from `alumnos` where `alumnos`.`id` = ? limit 1
+SQL:select `desde` from `reporte_cobertura` where `id` = ? limit 1
+SQL:insert into `reporte_eventos` (`tipo`, `origen_id`, `persona_id`, `deuda_cuota_id`, `liquidacion_id`, `periodo`, `deporte_id`, `nivel_id`, `fecha`, `delta_centavos`, `motivo`, `registrado_en`) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+RESULT:OK
+
+  at tests\Feature\PerdonConcurrenteT33Test.php:144
+    140▕         if (!$bloqueado) {
+    141▕             $estado = isset($m[1]) ? DB::select('SELECT ID, STATE, INFO FROM information_schema.PROCESSLIST WHERE ID = ?', [$m[1]]) : [];
+    142▕             DB::connection('t33_otra')->rollBack();
+    143▕             $this->segundoProceso->wait();
+  ➜ 144▕             $this->fail('El segundo proceso no aparece esperando en MariaDB: '.json_encode($estado).' '.$this->segundoProceso->getOutput());
+    145▕         }
+    146▕         $this->assertTrue($bloqueado);
+    147▕         $this->assertStringContainsString('SQL:select * from `inscripcion_personas`', $this->segundoProceso->getOutput());
+    148▕         $this->assertStringNotContainsString('RESULT:', $this->segundoProceso->getOutput());
+
+  1   tests\Feature\PerdonConcurrenteT33Test.php:144
+  2   tests\Feature\PerdonConcurrenteT33Test.php:166
+
+
+  Tests:    2 failed, 5 skipped, 962 passed (8507 assertions)
+  Duration: 1019.61s
+

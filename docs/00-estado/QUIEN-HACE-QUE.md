@@ -49,7 +49,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Devuelto (hizo Claude, verifica Codex) | Corregir H1-H3 y resolver criterio H4 de VERIFICACION-T52-CODEX.md; visual ya aprobado por Carlos |
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Devuelto (hizo Claude, verifica Codex) | Corregir H1-H3 y resolver H4 (N+1 previo); reverificar. Resultados finales en informe; visual aprobado por Carlos |
 
 ## Codex
 

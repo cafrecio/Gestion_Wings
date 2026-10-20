@@ -5,7 +5,7 @@ Configuration: C:\xampp\htdocs\Gestion_Wings\phpunit.xml
 
 FFF....F                                                            8 / 8 (100%)
 
-Time: 00:28.564, Memory: 56.00 MB
+Time: 00:24.626, Memory: 56.00 MB
 
 There were 4 failures:
 
@@ -35,7 +35,7 @@ C:\xampp\htdocs\Gestion_Wings\docs\06-pruebas\PRU-04\evidencia-t52-codex\T52Veri
 4) T52VerificacionTest::test_migracion_con_ingreso_futuro_no_lo_adelanta
 Failed asserting that '2026-10-20' is equal to '2026-11-01' or is greater than '2026-11-01'.
 
-C:\xampp\htdocs\Gestion_Wings\docs\06-pruebas\PRU-04\evidencia-t52-codex\T52VerificacionTest.php:194
+C:\xampp\htdocs\Gestion_Wings\docs\06-pruebas\PRU-04\evidencia-t52-codex\T52VerificacionTest.php:196
 
 FAILURES!
 Tests: 8, Assertions: 51, Failures: 4.
