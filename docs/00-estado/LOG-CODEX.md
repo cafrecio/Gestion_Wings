@@ -24,6 +24,16 @@
 
 [Antecedente archivado durante la corrección de interacción T43](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T43-UX-ANTECEDENTE.md).
 
+[Antecedente archivado al publicar la bitácora](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-PUBLICACION-FINAL-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — Entrega publicada y limpieza final
+
+Carlos pidió actualizar la bitácora y subir todos los archivos propios.
+T43 publicada en main: implementación b8e1ac1e y constancia e51ced7a; remoto comprobado por ls-remote.
+Aprobación de Carlos: «Ahora esta OK». Completa 1017 aprobadas/6 omitidas y dirigidas finales 18/134 verdes; lógica pendiente de Claude, sin despliegue.
+Revisión del estado local: solo quedaban dos auxiliares propios de preparación en storage, sin trabajo de producto pendiente; se retiran tras comprobar su contenido. Código, pruebas, capturas, PDF e informes ya versionados.
+Esta actualización es documental; se revisan enlaces y diff, sin repetir suite ni migraciones.
+
 ## 2026-10-20 — Codex CyE — T43, corrección aprobada por Carlos
 
 DU-36: origen por parte y decisión auditada del dueño; pendientes/rechazadas excluidas del confirmado/recibo. Cierre y pago bloqueados hasta resolver; cálculo original, ajuste absoluto A23 e históricos conservados.
@@ -90,12 +100,3 @@ La entrega de dos cargas independientes queda reemplazada. Implementada local: c
 22 dirigidas/287 aserciones verdes (11,26 s, salida 0) en wings_testing_codex; rollback de la segunda escritura y bloqueo de corrección individual comprobados. Completa 976 aprobadas/6 omitidas, 8527 aserciones, 804,11 s, salida 0; corte 982.
 Chrome real en base ficticia T61: un envío de $1.233.545 produjo ambas patas; disponible global conservado en $613.000. Once capturas 1366/375; Carlos observó botones: alineación interior corregida y Rubros normalizado a 96 × 32. Consola observada sin errores/avisos.
 [Galería actual](../06-pruebas/PRU-04/RECORRIDO-T61.html) y [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). Carlos aprobó: «Apruebo el visual corregido». A verificar lógica por Claude. Sin despliegue.
-
-## 2026-10-20 — Codex CyE — T61, recorrido real completado
-
-Chrome recuperado; servidor local solo con wings_testing_codex_t61, datos ficticios conservados sin duplicar traspasos.
-22 capturas y medidas 1366/375: Cashflow/Reportes/Inicio, Crear/Editar subrubros ingreso/egreso y operativa.
-Resultado del club $7.000; Efectivo $306.000, Banco $307.000; operativa sin traspasos ADMIN y Cashflow denegado.
-Once fuentes iguales a integración; sin código ni diseño nuevos. No se repite suite por evidencia/documentación; corte previo y alcance conservados.
-[Control](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md) y [galería final](../06-pruebas/PRU-04/RECORRIDO-T61.html). Mi recorrido entregado; visual Carlos y lógica Claude pendientes en tablero. Sin autocierre ni despliegue.
-T52 ya devuelta a Claude; su corrección y T64 de Gemini en la carpeta se preservan. Sigue T42 y después T43, según Carlos.
