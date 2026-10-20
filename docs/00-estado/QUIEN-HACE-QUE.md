@@ -63,11 +63,11 @@ Nada en este momento.
 
 ## Sin empezar (20)
 
-T12, T22, T25, T42, T43, T45, T46, T51, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
+T12 (antes de producción), T22 (después), T25 (antes de producción), T42 (antes del 1/11), T43 (antes del 1/11), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T64 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), B3 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
-MF6 (prioritaria), MF1, MF2, MF3, MF4, MF5, MF7, MF8 (muy a futuro), MF9 (muy a futuro).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 

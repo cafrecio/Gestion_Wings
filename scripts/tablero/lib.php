@@ -35,8 +35,18 @@ const TABLERO_ESTADOS = [
 
 const TABLERO_AGENTES = ['Claude', 'Codex', 'Gemini'];
 const TABLERO_GRAVEDADES = ['Frena', 'Molesta', 'Falta', ''];
-// Prioridad que le da Carlos a una tarea que todavia no se empieza. Vacia = sin marcar.
-const TABLERO_PRIORIDADES = ['alta' => 'Prioritaria', '' => '', 'baja' => 'Muy a futuro'];
+// Cuando se hace cada tarea, con las cuatro respuestas de la encuesta de Carlos del 18/10.
+// Vacia = Carlos todavia no lo decidio. Antes eran solo alta/baja y «Antes de produccion»
+// quedaba sin etiqueta: parecia sin clasificar (Carlos, 20/10: «tiene que ser util»).
+const TABLERO_PRIORIDADES = [
+    'ahora' => 'Ahora',
+    'antes-1-11' => 'Antes del 1/11',
+    'produccion' => 'Antes de producción',
+    '' => 'Sin decidir',
+    'despues' => 'Después',
+];
+// Mismo orden para todas las listas: lo mas urgente arriba.
+const TABLERO_ORDEN_PRIORIDAD = ['ahora' => 0, 'antes-1-11' => 1, 'produccion' => 2, '' => 3, 'despues' => 4];
 // fecha = ultimo cambio; cerrado_el = dia en que se cerro. No son lo mismo: cambiar el paso de algo
 // cerrado no puede mover su fecha de cierre (lo encontro Codex al verificar T3, 16/10/2026).
 const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'prioridad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha', 'cerrado_el'];
@@ -118,7 +128,7 @@ function tablero_validar(array $tareas): array
             $errores[] = "{$id}: no esta cerrada y tiene fecha de cierre.";
         }
         if (! isset(TABLERO_PRIORIDADES[$t['prioridad']])) {
-            $errores[] = "{$id}: prioridad '{$t['prioridad']}' no existe. Son: alta, baja o vacia.";
+            $errores[] = "{$id}: prioridad '{$t['prioridad']}' no existe. Son: " . implode(', ', array_filter(array_keys(TABLERO_PRIORIDADES))) . ' o vacia.';
         }
         if (! in_array($t['tiene'], $duenios, true)) {
             $errores[] = "{$id}: tiene='{$t['tiene']}' no existe. Son: " . implode(', ', $duenios) . '.';
@@ -226,7 +236,7 @@ function tablero_grupos(array $tareas): array
     // «sin empezar». Carlos, 13/10/2026: «ensucian la situación del proyecto».
     $mejoras = array_values(array_filter($abiertas, 'tablero_es_mejora_futura'));
     // En el orden que les dio Carlos: prioritarias, sin marcar, muy a futuro.
-    $orden = ['alta' => 0, '' => 1, 'baja' => 2];
+    $orden = TABLERO_ORDEN_PRIORIDAD;
     usort($mejoras, fn ($a, $b) => $orden[$a['prioridad']] <=> $orden[$b['prioridad']] ?: strnatcmp($a['id'], $b['id']));
     // Lo que es de otro proyecto (CAB) se anota para no perderlo, pero no es pendiente de Wings.
     $otros = array_values(array_filter($abiertas, 'tablero_es_de_otro_proyecto'));
@@ -361,9 +371,14 @@ function tablero_html(array $tareas): string
             . implode("\n", array_map($tarjeta, $g['sin_verificador'])) . '</div>'
         : '';
 
-    $orden = ['alta' => 0, '' => 1, 'baja' => 2];
+    $orden = TABLERO_ORDEN_PRIORIDAD;
     $sinEmpezar = $g['sin_empezar'];
     usort($sinEmpezar, fn ($a, $b) => $orden[$a['prioridad']] <=> $orden[$b['prioridad']] ?: strnatcmp($a['id'], $b['id']));
+    // «Sin empezar» separado por cuando se hace: una lista por respuesta de la encuesta.
+    $porCuando = [];
+    foreach ($sinEmpezar as $t) {
+        $porCuando[$t['prioridad']][] = $t;
+    }
     $cerradas = $g['cerradas'];
     usort($cerradas, fn ($a, $b) => strcmp($b['fecha'], $a['fecha']) ?: strnatcmp($a['id'], $b['id']));
     $plegado = fn (string $titulo, array $lista, string $clase): string => '<details class="lista ' . $clase . '"><summary><i class="punto"></i>'
@@ -377,7 +392,13 @@ function tablero_html(array $tareas): string
     $limite = TABLERO_DIAS_ATRASO;
     $barra = '<i class="s-hecho" style="width:' . $pc($nHecho) . '%"></i><i class="s-marcha" style="width:' . $pc($nMarcha) . '%"></i>'
         . '<i class="s-vos" style="width:' . $pc($nVos) . '%"></i><i class="s-resto" style="width:' . $pc($nResto) . '%"></i>';
-    $listas = $plegado('Sin empezar', $sinEmpezar, 'l-resto') . $plegado('Hecho', $cerradas, 'l-hecho')
+    $listasSinEmpezar = '';
+    foreach (TABLERO_ORDEN_PRIORIDAD as $clave => $_) {
+        if (! empty($porCuando[$clave])) {
+            $listasSinEmpezar .= $plegado('Sin empezar · ' . TABLERO_PRIORIDADES[$clave], $porCuando[$clave], 'l-resto');
+        }
+    }
+    $listas = $listasSinEmpezar . $plegado('Hecho', $cerradas, 'l-hecho')
         . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras'], 'l-futuro')
         . $plegado('De otros proyectos, no es pendiente de Wings', $g['otros_proyectos'], 'l-futuro');
 
@@ -428,7 +449,8 @@ function tablero_html(array $tareas): string
   .chip { border-radius:999px; padding:1px 9px; background:var(--borde); white-space:nowrap; font-weight:600; }
   .chip.estado { background:var(--c, var(--resto)); color:#fff; }
   .chip.frena, .t.atrasada .chip.edad { background:var(--atraso); color:#fff; }
-  .chip.p-alta { background:#be123c; color:#fff; } .chip.p-baja { color:var(--suave); } .chip.de { background:var(--marcha-f); }
+  .chip.p-ahora { background:#be123c; color:#fff; } .chip.p-antes-1-11 { background:#ea580c; color:#fff; }
+  .chip.p-produccion { background:#1d4ed8; color:#fff; } .chip.p-despues { color:var(--suave); } .chip.de { background:var(--marcha-f); }
   .quien { color:var(--suave); font-size:.8rem; margin-top:4px; }
   .corto { margin:6px 0 0; font-size:.88rem; }
   .t details { margin-top:4px; font-size:.85rem; } .t summary { cursor:pointer; color:var(--suave); } .t details p { margin:4px 0 0; }
@@ -541,7 +563,7 @@ function tablero_bloque_hoja(array $tareas): string
     foreach (TABLERO_AGENTES as $agente) {
         $md .= "## {$agente}\n\n" . $tabla($g[$agente], 'Nada en este momento.') . "\n";
     }
-    $sinEmpezar = array_map(fn ($t) => $t['id'], $g['sin_empezar']);
+    $sinEmpezar = array_map(fn ($t) => $t['id'] . ($t['prioridad'] !== '' ? ' (' . mb_strtolower(TABLERO_PRIORIDADES[$t['prioridad']]) . ')' : ''), $g['sin_empezar']);
     $mejoras = array_map(fn ($t) => $t['id'] . ($t['prioridad'] !== '' ? ' (' . mb_strtolower(TABLERO_PRIORIDADES[$t['prioridad']]) . ')' : ''), $g['mejoras_futuras']);
     $md .= '## Sin empezar (' . count($sinEmpezar) . ")\n\n" . ($sinEmpezar ? implode(', ', $sinEmpezar) : 'Nada') . ".\n\n"
         . '## Mejoras futuras, no se empiezan ahora (' . count($mejoras) . ")\n\n" . ($mejoras ? implode(', ', $mejoras) : 'Nada') . ".\n\n"

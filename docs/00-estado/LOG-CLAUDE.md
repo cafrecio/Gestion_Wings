@@ -28,6 +28,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — Tablero: las cuatro respuestas de la encuesta como etiquetas
+
+- Carlos vio 10 tareas «sin categorizar»: eran «Antes de producción» del 18/10, que el tablero no podía
+  mostrar (solo tenía Prioritaria / Muy a futuro). Carlos: «Es un tablero... tiene que ser útil».
+- `scripts/tablero/lib.php`: prioridad = Ahora, Antes del 1/11, Antes de producción, Después o Sin decidir,
+  con color propio; «Sin empezar» separado por categoría, en ese orden.
+- Datos migrados desde la etiqueta del 18/10 en cada tarea; sin etiqueta, alta→Ahora y baja→Después.
+  T12 pasa a Antes de producción (respuesta del 18/10 sobre la marca del 10/10); T50 recupera la suya.
+- Pruebas del tablero: 9 verdes. Solo herramienta: Wings no cambia.
+
 ## 2026-10-20 — Claude CyE — T52 segunda parte: quien entró después no aparece
 
 - Carlos: «Los cambios son siempre para adelante» (DU-09). Visual de T52 aprobado: «Las vistas están OK».

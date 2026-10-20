@@ -11,7 +11,7 @@
  *
  * Estados: sin_empezar, en_curso, a_verificar, devuelto, cerrado.
  * Campos: titulo, gravedad, prioridad, estado, tiene, hizo, verifica, paso, ref.
- * prioridad la decide Carlos: alta (Prioritaria), baja (Muy a futuro) o vacia.
+ * prioridad = cuando se hace, lo decide Carlos: ahora, antes-1-11, produccion, despues o vacia (sin decidir).
  * "tiene" es quien tiene la pelota ahora: Carlos, Claude, Codex, Gemini o nadie.
  *
  * cambiar y nueva validan antes de escribir y regeneran TABLERO.html, QUIEN-HACE-QUE.md y el estado
