@@ -314,6 +314,21 @@ suite en rojo. Pasar la CSP a modo bloqueo es un paso aparte (§2: recorrer prim
 
 ---
 
+## 5-ter. La tabla de pruebas en línea es solo de Carlos y Claude — Carlos, 20/10/2026
+
+La «Tabla de pruebas Wings» (artifact de claude.ai) se hizo externa a propósito: **la escriben solo
+Carlos y Claude.** Codex y Gemini **no la cambian, ni directamente ni pidiéndole el cambio a una
+conversación de Claude** a través de Carlos.
+
+- Para trabajar, Codex y Gemini **leen la copia** `docs/06-pruebas/PRU-04/tabla-de-pruebas/` (solo lectura).
+- Si una tarea obliga a cambiar un caso o una duda, lo **proponen en su informe** (código del caso, línea,
+  texto actual y texto propuesto). Claude lo pasa a la tabla en línea y a la copia.
+- Las respuestas de Carlos a las dudas (DU-xx) no las cambia ningún agente.
+
+Pasó el 20/10: en T42 y T43 Codex le pidió a Carlos autorización para mandar cambios de COB-012 y
+LIQ-002 a la conversación de Claude de la tabla. Carlos: «Por eso la hicimos externa; cuando Codex me
+preguntó no me imaginé que me hablaba de eso.»
+
 ## 5b. Acceso al servidor: `ssh vps`
 
 Desde CAB y desde CyE se entra al servidor con `ssh vps`, como root. **Ningún agente

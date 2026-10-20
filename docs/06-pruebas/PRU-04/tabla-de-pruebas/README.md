@@ -1,5 +1,8 @@
 # Tabla de pruebas — copia para los tres agentes
 
+**Solo lectura para Codex y Gemini** (AGENTS.md §5-ter, Carlos 20/10/2026): no cambian la tabla viva ni
+esta copia; proponen el cambio en su informe y Claude lo pasa.
+
 La tabla viva es un artifact privado de Carlos y Claude
 (https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46). El acceso depende de la sesión autenticada del navegador; esta
 carpeta permite consultar un código como `CBZ-005` o `DU-54` desde el repositorio.
