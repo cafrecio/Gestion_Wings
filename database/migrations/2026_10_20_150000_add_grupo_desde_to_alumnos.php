@@ -21,8 +21,10 @@ return new class extends Migration
             $table->date('grupo_desde')->nullable()->after('grupo_id');
         });
 
-        // Mejor aproximación para los que ya existen: el primer plan de su grupo actual,
-        // nunca antes de su ingreso ni después de hoy. Sin plan de ese grupo, el ingreso.
+        // Vacío = nunca cambió de grupo: vale su fecha de ingreso, aunque sea futura (T50) o se
+        // corrija después. Solo se completa para quien muestra un cambio: su primer plan del
+        // grupo actual empieza después de su ingreso. Esa fecha es una aproximación (con el mes
+        // pagado el plan nuevo se difiere al mes siguiente) y nunca queda en el futuro.
         DB::table('alumnos')->orderBy('id')->chunkById(500, function ($alumnos) {
             foreach ($alumnos as $alumno) {
                 $primerPlan = DB::table('alumno_planes')
@@ -31,12 +33,10 @@ return new class extends Migration
                     ->where('grupo_planes.grupo_id', $alumno->grupo_id)
                     ->min('alumno_planes.fecha_desde');
 
-                $desde = max(array_filter([$alumno->fecha_alta, $primerPlan]));
-                if ($desde && $desde > now()->toDateString()) {
-                    $desde = now()->toDateString();
+                if ($primerPlan && $alumno->fecha_alta && $primerPlan > $alumno->fecha_alta) {
+                    DB::table('alumnos')->where('id', $alumno->id)
+                        ->update(['grupo_desde' => min($primerPlan, now()->toDateString())]);
                 }
-
-                DB::table('alumnos')->where('id', $alumno->id)->update(['grupo_desde' => $desde]);
             }
         });
     }

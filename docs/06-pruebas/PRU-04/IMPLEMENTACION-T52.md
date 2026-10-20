@@ -92,3 +92,20 @@ posterior o por cambio de grupo hoy— no aparece en la clase vieja, sí en la d
 armado a mano para marcarlo se rechaza sin guardar nada; `grupo_desde` se completa solo en alta,
 cambio de grupo y corrección del ingreso.
 
+## Tercera vuelta — hallazgos de Codex (Claude CyE, 20/10/2026)
+
+Codex devolvió la segunda parte con cuatro hallazgos reproducidos
+([informe](VERIFICACION-T52-CODEX.md)). Los cuatro eran reales:
+
+| Hallazgo | Causa | Corrección |
+|---|---|---|
+| H1: el guardado aceptaba a un inactivo sin marca que la pantalla no muestra | El filtro de activos estaba solo en `show` (ya faltaba antes de T52) | `storeAsistencias` exige activo para quien entra por grupo; con marca se sigue aceptando |
+| H2: alta y cambio de grupo el mismo día; corregir el ingreso retrotraía el cambio | Suponer que «`grupo_desde` igual al ingreso» significa «nunca cambió de grupo» | `grupo_desde` queda **vacío** mientras no cambió de grupo y vale el ingreso; solo el cambio de grupo lo completa y nada lo mueve después |
+| H3: con ingreso futuro, la migración recortaba a hoy y lo mostraba antes de entrar | El recorte a hoy de la migración | Con `grupo_desde` vacío vale el ingreso, aunque sea futuro; la migración solo completa a quien muestra un cambio de grupo |
+| H4: consultas por alumno en la ficha (anterior a T52) | `contarAsistenciasSemana` por cada alumno | `ClaseService::contarAsistenciasSemanaDeVarios`: dos consultas para toda la lista; la de un alumno la usa |
+
+Base de prueba (`wingstest`, solo lectura): la migración nueva no completaría `grupo_desde` a nadie
+(ningún primer plan del grupo actual es posterior al ingreso): los 100 quedan con su ingreso.
+
+Pruebas: 4 nuevas, una por hallazgo, y la del modelo reescrita (11 en `ClaseListaHaciaAdelanteT52Test`).
+

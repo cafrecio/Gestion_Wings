@@ -42,14 +42,15 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | Tercera vuelta de Claude CyE el 20/10: corregidos H1-H4 de Codex (inactivo en el guardado, grupo_desde vacío mientras no cambia de grupo, ingreso futuro, N+1 de la ficha). 11 pruebas. Visual aprobado por Carlos el 20/10. Vuelve a verificar Codex. Requiere migrar al desplegar. |
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Devuelto (hizo Claude, verifica Codex) | Corregir H1-H3 y resolver H4 (N+1 previo); reverificar. Resultados finales en informe; visual aprobado por Carlos |
 
 ## Codex
 

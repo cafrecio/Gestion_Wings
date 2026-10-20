@@ -166,27 +166,93 @@ class ClaseListaHaciaAdelanteT52Test extends TestCase
         $this->assertSame(3, Asistencia::where('clase_id', $this->semanaPasada->id)->where('presente', true)->count());
     }
 
-    public function test_la_fecha_en_el_grupo_se_completa_sola(): void
+    public function test_la_fecha_en_el_grupo_solo_se_completa_al_cambiar_de_grupo(): void
     {
-        // Alta: desde su ingreso.
+        // Alta: vacía; vale la fecha de ingreso.
         $alta = $this->alumno('Fecha', 'Alta', $this->viejo, '2026-09-20');
-        $this->assertSame('2026-09-20', $alta->fresh()->grupo_desde->toDateString());
+        $this->assertNull($alta->fresh()->grupo_desde);
 
-        // Corregir el ingreso de quien nunca cambió de grupo mueve también su fecha en el grupo.
-        $alta->update(['fecha_alta' => '2026-09-10']);
-        $this->assertSame('2026-09-10', $alta->fresh()->grupo_desde->toDateString());
+        // Corregir el ingreso no necesita tocarla: la lista sigue al ingreso.
+        $alta->update(['fecha_alta' => '2026-10-12']);
+        $this->assertNull($alta->fresh()->grupo_desde);
+        $this->assertNotContains($alta->id, $this->listaDe($this->semanaPasada));
+
+        // Guardar el mismo grupo (el formulario lo manda como texto) no es un cambio de grupo.
+        $alta->update(['grupo_id' => (string) $this->viejo->id, 'celular' => '1122334455']);
+        $this->assertNull($alta->fresh()->grupo_desde);
 
         // Cambiar de grupo cuenta desde hoy, aunque el plan nuevo empiece el mes que viene.
         $alta->update(['grupo_id' => $this->nuevo->id]);
         $this->assertSame('2026-10-18', $alta->fresh()->grupo_desde->toDateString());
-
-        // Y después corregir el ingreso ya no la toca: el cambio de grupo fue hoy.
-        $alta->update(['fecha_alta' => '2026-09-05']);
-        $this->assertSame('2026-10-18', $alta->fresh()->grupo_desde->toDateString());
-
-        // Los que cambiaron en setUp («ayer» de la prueba, mismo día simulado).
         $this->assertSame('2026-10-18', $this->cambio->fresh()->grupo_desde->toDateString());
-        $this->assertSame('2026-09-01', $this->sigue->fresh()->grupo_desde->toDateString());
+        $this->assertNull($this->sigue->fresh()->grupo_desde);
+    }
+
+    /** Hallazgo H2 de Codex: alta y cambio de grupo el mismo día, después se corrige el ingreso. */
+    public function test_corregir_el_ingreso_no_retrotrae_un_cambio_de_grupo_del_mismo_dia(): void
+    {
+        $alumno = $this->alumno('Mismo', 'Dia', $this->nuevo, '2026-10-18');
+        $alumno->update(['grupo_id' => $this->viejo->id]);
+        $alumno->update(['fecha_alta' => '2026-09-01']);
+
+        $this->assertSame('2026-10-18', $alumno->fresh()->grupo_desde->toDateString());
+        $this->assertNotContains($alumno->id, $this->listaDe($this->semanaPasada));
+        $this->assertContains($alumno->id, $this->listaDe($this->hoyViejo));
+    }
+
+    /** Hallazgo H3 de Codex: un ingreso futuro (permitido por T50) no aparece antes de esa fecha. */
+    public function test_un_ingreso_futuro_no_aparece_en_clases_anteriores(): void
+    {
+        $futuro = $this->alumno('Ingreso', 'Futuro', $this->viejo, '2026-11-01');
+
+        $this->assertNotContains($futuro->id, $this->listaDe($this->hoyViejo));
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.clases.asistencias', $this->hoyViejo->id), ['items' => [['alumno_id' => $futuro->id, 'presente' => 1]]])
+            ->assertStatus(422);
+        $this->assertDatabaseMissing('asistencias', ['alumno_id' => $futuro->id]);
+    }
+
+    /** Hallazgo H1 de Codex: el guardado usa el mismo criterio que la pantalla. */
+    public function test_un_inactivo_sin_marca_no_se_puede_cargar(): void
+    {
+        $inactivo = $this->alumno('Inactivo', 'Sinmarca', $this->viejo);
+        $inactivo->update(['activo' => false]);
+
+        $this->assertNotContains($inactivo->id, $this->listaDe($this->semanaPasada));
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.clases.asistencias', $this->semanaPasada->id), ['items' => [['alumno_id' => $inactivo->id, 'presente' => 1]], 'motivo' => 'Prueba'])
+            ->assertStatus(422)->assertJson(['success' => false]);
+        $this->assertDatabaseMissing('asistencias', ['alumno_id' => $inactivo->id]);
+
+        // La dada de baja CON marca se sigue pudiendo corregir (primera parte de T52).
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.clases.asistencias', $this->semanaPasada->id), ['items' => [['alumno_id' => $this->baja->id, 'presente' => 0]], 'motivo' => 'Prueba'])
+            ->assertOk();
+    }
+
+    /** Hallazgo H4 de Codex: la ficha no hace consultas por alumno. */
+    public function test_la_ficha_no_hace_consultas_por_alumno(): void
+    {
+        $contar = function (): int {
+            \DB::flushQueryLog();
+            \DB::enableQueryLog();
+            $this->actingAs($this->operativo)->get(route('web.clases.show', $this->hoyViejo->id))->assertOk();
+            $n = count(\DB::getQueryLog());
+            \DB::disableQueryLog();
+            return $n;
+        };
+        $agregar = function (int $cuantos, int $desde): void {
+            foreach (range($desde, $desde + $cuantos - 1) as $i) {
+                $a = $this->alumno('Mas'.$i, 'Alumno', $this->viejo);
+                \App\Models\AlumnoPlan::create(['alumno_id' => $a->id, 'plan_id' => $this->planViejo()->id, 'fecha_desde' => '2026-09-01', 'activo' => true]);
+            }
+        };
+        $agregar(2, 1);
+        $conTres = $contar();
+        $agregar(7, 3);
+        $conDiez = $contar();
+
+        $this->assertSame($conTres, $conDiez, "La ficha hizo {$conTres} consultas con 3 alumnos y {$conDiez} con 10.");
     }
 
     public function test_la_profesora_ve_la_misma_lista_vieja(): void
@@ -202,6 +268,19 @@ class ClaseListaHaciaAdelanteT52Test extends TestCase
         return Alumno::create(['nombre' => $nombre, 'apellido' => $apellido, 'dni' => (string) $this->dni++,
             'fecha_nacimiento' => '2000-01-01', 'celular' => '1111111111', 'deporte_id' => $grupo->deporte_id,
             'grupo_id' => $grupo->id, 'fecha_alta' => $fechaAlta, 'activo' => true]);
+    }
+
+    /** @return int[] */
+    private function listaDe(Clase $clase): array
+    {
+        return $this->actingAs($this->operativo)->get(route('web.clases.show', $clase->id))
+            ->assertOk()->viewData('alumnos')->pluck('id')->all();
+    }
+
+    private function planViejo(): \App\Models\GrupoPlan
+    {
+        return \App\Models\GrupoPlan::firstOrCreate(['grupo_id' => $this->viejo->id, 'clases_por_semana' => 2],
+            ['precio_mensual' => 30000, 'activo' => true]);
     }
 
     private function clase(Grupo $grupo, string $fecha, Profesor $profesor): Clase

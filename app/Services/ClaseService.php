@@ -216,34 +216,56 @@ class ClaseService
      */
     public function contarAsistenciasSemana(int $alumnoId, string $fechaClase): array
     {
+        return $this->contarAsistenciasSemanaDeVarios([$alumnoId], $fechaClase)[$alumnoId];
+    }
+
+    /**
+     * Lo mismo que contarAsistenciasSemana para una lista entera, con dos consultas en
+     * vez de dos por alumno (T52: la ficha de la clase hacía una vuelta por cada uno).
+     *
+     * @param  int[]  $alumnoIds
+     * @return array<int, array{asistencias_semana:int, plan_semana:?int, excede:bool}>
+     */
+    public function contarAsistenciasSemanaDeVarios(array $alumnoIds, string $fechaClase): array
+    {
         $fecha = Carbon::parse($fechaClase);
         $lunes = $fecha->copy()->startOfWeek(Carbon::MONDAY);
         $domingo = $fecha->copy()->endOfWeek(Carbon::SUNDAY);
+        $alumnoIds = array_values(array_unique(array_map('intval', $alumnoIds)));
+        if ($alumnoIds === []) {
+            return [];
+        }
 
-        $asistenciasSemana = Asistencia::where('alumno_id', $alumnoId)
+        $asistencias = Asistencia::whereIn('alumno_id', $alumnoIds)
             ->where('presente', true)
             ->whereHas('clase', function ($query) use ($lunes, $domingo) {
                 $query->whereBetween('fecha', [$lunes->toDateString(), $domingo->toDateString()]);
             })
-            ->count();
+            ->selectRaw('alumno_id, COUNT(*) AS cantidad')
+            ->groupBy('alumno_id')
+            ->pluck('cantidad', 'alumno_id');
 
-        // Obtener plan activo del alumno
-        $alumnoPlan = AlumnoPlan::where('alumno_id', $alumnoId)
+        // Plan activo de cada alumno: el primero por id, como hacía first() sin orden.
+        $planes = AlumnoPlan::whereIn('alumno_id', $alumnoIds)
             ->where('activo', true)
             ->with('plan')
-            ->first();
+            ->orderBy('id')
+            ->get()
+            ->unique('alumno_id')
+            ->keyBy('alumno_id');
 
-        $planSemana = $alumnoPlan && $alumnoPlan->plan
-            ? $alumnoPlan->plan->clases_por_semana
-            : null;
+        $resultado = [];
+        foreach ($alumnoIds as $id) {
+            $asistenciasSemana = (int) ($asistencias[$id] ?? 0);
+            $planSemana = $planes->get($id)?->plan?->clases_por_semana;
+            $resultado[$id] = [
+                'asistencias_semana' => $asistenciasSemana,
+                'plan_semana' => $planSemana,
+                'excede' => $planSemana !== null && $asistenciasSemana > $planSemana,
+            ];
+        }
 
-        $excede = $planSemana !== null && $asistenciasSemana > $planSemana;
-
-        return [
-            'asistencias_semana' => $asistenciasSemana,
-            'plan_semana' => $planSemana,
-            'excede' => $excede,
-        ];
+        return $resultado;
     }
 
     /**

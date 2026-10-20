@@ -311,13 +311,11 @@ class ClaseWebController extends Controller
 
         $asistenciasMap = $clase->asistencias->keyBy('alumno_id');
 
-        $infoSemana = [];
-        foreach ($alumnos as $alumno) {
-            $infoSemana[$alumno->id] = $this->claseService->contarAsistenciasSemana(
-                $alumno->id,
-                $clase->fecha->format('Y-m-d')
-            );
-        }
+        // Una sola vuelta para toda la lista (antes eran consultas por alumno).
+        $infoSemana = $this->claseService->contarAsistenciasSemanaDeVarios(
+            $alumnos->pluck('id')->all(),
+            $clase->fecha->format('Y-m-d')
+        );
 
         $profesoresDisponibles = Profesor::where('activo', true)->where('deporte_id', $clase->grupo->deporte_id)->orderBy('apellido')->get();
         $esAdmin    = Auth::user()->isAdmin();
@@ -399,7 +397,8 @@ class ClaseWebController extends Controller
         // o se dio de baja después): corregir la lista vieja no puede rechazarlo. Y no se
         // acepta a quien entró al grupo después de la clase (DU-09, siempre hacia adelante).
         $conMarca = Asistencia::where('clase_id', $clase->id)->pluck('alumno_id');
-        $alumnosDelGrupo = Alumno::where(fn ($q) => $q->where(fn ($g) => $g->enGrupoElDia($clase->grupo_id, $clase->fecha))->orWhereIn('id', $conMarca))
+        // Mismo criterio que la pantalla (show): activos que ya estaban en el grupo ese día, o con marca.
+        $alumnosDelGrupo = Alumno::where(fn ($q) => $q->where(fn ($g) => $g->enGrupoElDia($clase->grupo_id, $clase->fecha)->where('activo', true))->orWhereIn('id', $conMarca))
             ->whereIn('id', collect($items)->pluck('alumno_id')->map(fn($id) => (int) $id)->filter())
             ->pluck('id')
             ->map(fn($id) => (int) $id)

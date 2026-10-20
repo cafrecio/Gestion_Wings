@@ -28,6 +28,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-20 — Claude CyE — T52 tercera vuelta: H1–H4 de Codex corregidos
+
+- Codex devolvió la segunda parte con 4 hallazgos reales. Causa común: suposiciones sin probar.
+- H1 guardado exige activo como la pantalla; H2/H3 `grupo_desde` vacío mientras no cambia de grupo
+  (vale el ingreso, aunque se corrija o sea futuro; la migración solo completa a quien muestra cambio);
+  H4 `ClaseService::contarAsistenciasSemanaDeVarios`, dos consultas para toda la lista.
+- Antes de entregar busqué yo los casos que lo rompen: mismo grupo guardado como texto (no cuenta como
+  cambio), Excel guarda después del alta sin tocar el grupo. 11 pruebas T52.
+- Suite completa: 965 aprobadas, 3 fallidas ajenas (T64 de Gemini sin subir). Commit solo con lo mío,
+  sobre las versiones publicadas de los documentos compartidos. Carlos, con razón, molesto por la calidad.
+
 ## 2026-10-20 — Claude CyE — Tablero: las cuatro respuestas de la encuesta como etiquetas
 
 - Carlos vio 10 tareas «sin categorizar»: eran «Antes de producción» del 18/10, que el tablero no podía
