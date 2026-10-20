@@ -86,8 +86,29 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
     <strong>{{ $periodoTexto }}</strong>
 </p>
 
+<section class="alumno-card mb-4" aria-label="Saldos por medio">
+    <div class="alumno-card-header">
+        <span class="alumno-dot alumno-dot--info"></span>
+        <h2 class="alumno-nombre">Saldos por medio</h2>
+    </div>
+    <p class="text-sm text-wings-muted mb-3">Al {{ today()->format('d/m/Y') }} · No dependen del período del listado.</p>
+    @if($saldosPorMedio === null)
+        <p class="text-sm text-wings-muted">Sin historial disponible.</p>
+    @else
+        @foreach($saldosPorMedio as $saldo)
+            <div class="flex flex-wrap items-center justify-between gap-2 py-2 border-b border-wings-border">
+                <span>{{ $tiposCaja->firstWhere('id', $saldo['id'])?->nombre ?? $saldo['nombre'] }}</span>
+                <strong class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($saldo['total'] / 100) }}</strong>
+                @if($saldo['pendiente'] !== 0)
+                    <p class="w-full text-sm text-wings-muted">Confirmado: {{ \App\Support\FormatoImporte::pesos($saldo['confirmado'] / 100) }} · En cajas sin validar: {{ \App\Support\FormatoImporte::pesos($saldo['pendiente'] / 100) }}</p>
+                @endif
+            </div>
+        @endforeach
+    @endif
+</section>
+
 {{-- Stats --}}
-<div class="stats-bar mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="stats-bar mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3" id="cashflow-totales-periodo">
     <div class="stats-info" style="gap:10px 16px; display:flex; align-items:center; flex-wrap:wrap;">
         <span class="inline-flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">

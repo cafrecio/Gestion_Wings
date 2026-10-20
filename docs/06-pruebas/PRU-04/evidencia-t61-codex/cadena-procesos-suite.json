@@ -1,0 +1,26 @@
+[
+  {
+    "ProcessId": 21732,
+    "ParentProcessId": 25052,
+    "Name": "php.exe",
+    "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--configuration=C:\\Users\\cafre\\.codex\\worktrees\\t61-traspasos\\gestion-wings\\phpunit.xml\" --no-output"
+  },
+  {
+    "ProcessId": 25052,
+    "ParentProcessId": 32292,
+    "Name": "cmd.exe",
+    "CommandLine": "\"C:\\Windows\\System32\\cmd.exe\" /V:ON /E:ON /D /C (C:\\xampp\\php\\php.exe vendor/phpunit/phpunit/phpunit \"--configuration=C:\\Users\\cafre\\.codex\\worktrees\\t61-traspasos\\gestion-wings\\phpunit.xml\" --no-output) 1>\"C:\\Users\\cafre\\AppData\\Local\\Temp\\sf_proc_00.out\" 2>\"C:\\Users\\cafre\\AppData\\Local\\Temp\\sf_proc_00.err\""
+  },
+  {
+    "ProcessId": 32292,
+    "ParentProcessId": 23112,
+    "Name": "php.exe",
+    "CommandLine": "\"C:\\xampp\\php\\php.exe\" artisan test"
+  },
+  {
+    "ProcessId": 23112,
+    "ParentProcessId": 16132,
+    "Name": "pwsh.exe",
+    "CommandLine": "\"C:\\Users\\cafre\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\n$running = @(Get-CimInstance Win32_Process -Filter \\\"name='php.exe'\\\" | Where-Object { $_.CommandLine -match 'artisan test|phpunit' }); if ($running.Count) { throw 'Hay otra suite activa' }; $evidence = 'docs/06-pruebas/PRU-04/evidencia-t61-codex'; $sources = @(rg --files app resources routes database tests | Sort-Object | ForEach-Object { [pscustomobject]@{path=$_;hash=(Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash} }); $sources | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath \\\"$evidence/fuentes-antes-suite.json\\\" -Encoding UTF8; @{root=(Get-Location).Path;commit=(git rev-parse HEAD);database='wings_testing_codex';launcher=$PID;inicio=(Get-Date).ToString('o');sinOtrosProcesos=$true} | ConvertTo-Json | Set-Content -LiteralPath \\\"$evidence/contexto-suite-aislada.json\\\" -Encoding UTF8; $env:DB_DATABASE='wings_testing_codex'; & php artisan test 2>&1 | Tee-Object -FilePath \\\"$evidence/suite-completa.txt\\\"; $suiteExit=$LASTEXITCODE; $after=@(rg --files app resources routes database tests | Sort-Object | ForEach-Object { [pscustomobject]@{path=$_;hash=(Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash} }); $changes=@(Compare-Object ($sources | ForEach-Object { $_.path+' '+$_.hash }) ($after | ForEach-Object { $_.path+' '+$_.hash })); ConvertTo-Json -InputObject $changes | Set-Content -LiteralPath \\\"$evidence/cambios-durante-suite.json\\\" -Encoding UTF8; @{salida=$suiteExit;fin=(Get-Date).ToString('o');cambiosFuentes=$changes.Count} | ConvertTo-Json | Set-Content -LiteralPath \\\"$evidence/resultado-suite.json\\\" -Encoding UTF8; exit $suiteExit\""
+  }
+]

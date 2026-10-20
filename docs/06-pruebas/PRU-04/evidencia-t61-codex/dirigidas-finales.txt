@@ -1,0 +1,37 @@
+
+   PASS  Tests\Feature\CatalogosSeederTest
+  ✓ database seeder deja solo los catalogos base                                                                11.65s
+  ✓ es idempotente y la segunda ejecucion no modifica filas                                                      0.23s
+
+   PASS  Tests\Feature\ClasificacionSubrubrosT16Test
+  ✓ el catalogo de una instalacion nueva no deja ningun subrubro sin clasificar                                  0.13s
+  ✓ una instalacion existente queda clasificada y lo ya cobrado empieza a contar                                 0.27s
+  ✓ el formulario pide la clasificacion y un subrubro nuevo nace del club                                        0.19s
+  ✓ clasificar un subrubro viejo desde el formulario hace contar sus movimientos                                 0.21s
+
+   PASS  Tests\Feature\SaldoInicialTipoCajaTest
+  ✓ alta guarda saldo inicial y rechaza valores negativos                                                        0.07s
+  ✓ nombre duplicado por mayusculas se rechaza sin crear otro tipo                                               0.05s
+  ✓ saldo inicial se corrige por web solo mientras no haya movimientos                                           0.09s
+  ✓ un movimiento cashflow impide reescribir el saldo inicial                                                    0.10s
+  ✓ un movimiento operativo incluso cancelado bloquea el saldo inicial                                           0.13s
+  ✓ cashflow muestra resultado del periodo sin sumar saldo inicial                                               0.90s
+  ✓ saldo inicial permite pagar liquidacion sin movimientos previos                                              0.07s
+  ✓ servicios de saldo incluyen tipos sin movimientos                                                            0.03s
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo nuevo tiene dos conceptos admin activos y la etiqueta en ambos tipos                                0.17s
+  ✓ csh018 carga 300mil efectivo a banco sin alterar el resultado del club                                       0.29s
+  ✓ inicio y reportes conservan indicadores y sueldos y alumnos no cambian                                       0.34s
+  ✓ salida y entrada de meses distintos no alteran negocio pero si global de cada mes                            0.21s
+  ✓ no obliga a emparejar importes fechas ni registros                                                           0.18s
+  ✓ operativa no ve conceptos ni puede cargarlos por envio directo                                               0.17s
+  ✓ formulario acepta traspaso en ambos tipos y rechaza clasificaciones ajenas                                   0.18s
+  ✓ migracion existente dos veces no duplica y no pisa clasificaciones                                           0.10s
+  ✓ migracion completa vacio compatible sin reclasificar fotos historicas                                        0.11s
+  ✓ editar y anular conserva clasificacion fecha y saldo del traspaso                                            0.26s
+  ✓ cambio del catalogo no reescribe traspaso ni su correccion o anulacion                                       0.22s
+  ✓ saldos cashflow son actuales aunque filtre otro mes y distinguen pendientes                                  0.23s
+
+  Tests:    26 passed (376 assertions)
+  Duration: 16.89s

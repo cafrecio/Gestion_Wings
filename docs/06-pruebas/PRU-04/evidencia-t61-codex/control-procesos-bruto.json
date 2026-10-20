@@ -1,0 +1,13 @@
+{
+  "observaciones": 167,
+  "intervaloSegundos": 5,
+  "procesosAjenos": [
+    {
+      "ProcessId": 21732,
+      "ParentProcessId": 25052,
+      "CreationDate": "2026-10-20T06:28:57.118936-03:00",
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--configuration=C:\\Users\\cafre\\.codex\\worktrees\\t61-traspasos\\gestion-wings\\phpunit.xml\" --no-output"
+    }
+  ],
+  "raizPropia": 32292
+}

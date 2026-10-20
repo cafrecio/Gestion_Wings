@@ -793,8 +793,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-29, 13/10). Falta programar: T61. Antes: No existe traspaso entre medios (búsqueda en el código 13/10).",
+      "estado": "vigente",
+      "fuente": "Programado en T61, a verificar",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo acumulado de las entregas de caja.",

@@ -25,7 +25,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **939 pruebas permanentes.** T74 Codex CyE 19/10: **935 aprobadas, 4 omitidas, 8243 aserciones, 1283,46 s, salida 0**, en `wings_testing_codex`, sin otras pruebas activas al comenzar. Once fuentes registradas idénticas al terminar. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T74-CODEX.md). |
+| Suite | **951 pruebas permanentes del corte T61** (base 0768710a, excluye cinco T52 ajenas posteriores). Codex CAB 20/10: **947 aprobadas, 4 omitidas, 8425 aserciones, 901,60 s, salida 0**, `wings_testing_codex`. Fuentes intactas, sin otra suite detectada. [Informe y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -36,6 +36,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T61 implementada, a_verificar, Codex CAB 20/10:** traspasos independientes ADMIN y saldos actuales también en Cashflow. Carlos confirmó nombres «Transferencias internas — salidas / entradas» y «Cashflow muestra lo que entró y salió»; Inicio/Reportes excluyen traspasos del resultado del club. 26 dirigidas/376 aserciones verdes; completa aislada 947 aprobadas/4 omitidas, 8425 aserciones, salida 0 (951 propias, sin T52 ajena posterior). Chrome bloqueado pese al interruptor activado y a reiniciar app/herramienta; Carlos indicó hacerlo desde CyE: **pendiente Codex, Chrome local y capturas 1366/375**. No se hizo ni se aprobó el visual. [Informe y texto para T13](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). Sin servidor ni despliegue.
 - **T74 cerrada 19/10:** lógica Claude verificada por Codex, 32 dirigidas/251 aserciones verdes; suite completa 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s, salida 0 en wings_testing_codex. Alineación y botones comunes 96 × 32, capturas reales 1366/375 en tramos. Carlos: «Apruebo el visual T74 actualizado». [Informe](../06-pruebas/PRU-04/VERIFICACION-T74-CODEX.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T74.html). Sin despliegue.
 - **T68 H1, Codex CyE 19/10:** corrección local del importe vigente y regresión permanente. Roja 1/11; dirigidas 16/108 verdes. Suite completa: 919 aprobadas/4 omitidas/2 fallidas; Carlos autorizó directamente H1 y su publicación; implementación en `02b72588`. Claude revisa lógica y Carlos visual con APROBAR-T68.html. H2 queda para T73; cambios visuales paralelos preservados, fuera de H1. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md#corrección-de-h1). Sin servidor ni despliegue.
 - **T34, CERRADA 19/10 por Codex CyE:** c017bac3 verificado. C1: 20→20 consultas con 2→16 tarjetas, un COUNT por petición. C2: UPDATE intentado y rollback real HORA/COMISIÓN; H1/H2 conservados. Dirigidas 27/321 verdes; rápida 820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0. Se conserva la completa verde 935/4 omitidas que ya incluyó esta corrección. [Informe](../06-pruebas/PRU-04/VERIFICACION-T34-C1-C2-CODEX.md). Visual aprobado por Carlos en fb88bd3c; T67 cerrada. Sin producto ni despliegue.
@@ -146,5 +147,4 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 ## Al terminar
 - Entrada breve en log propio y enlace a evidencia.
 - Actualizar aquí solo cambios de estado, decisiones o bloqueos relevantes.
-- Mantener fecha y alcance de toda verificación. No copiar mensajes enteros.
-- [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+- Mantener fecha y alcance; no copiar mensajes enteros. [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).

@@ -42,7 +42,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex) | Pendiente recorrido visual por Codex desde CyE: Chrome local 1366/375. Otro agente verifica lógica y Carlos el visual; decisión de Carlos 20/10. |
 
 ## Claude
 
@@ -58,9 +60,9 @@ Nada en este momento.
 |---|---|---|
 | **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude el 19/10: cero bloques script y cero manejadores en las vistas (eran 8 y 8). Ingreso con el ojo de ds-app; filtros con data-enviar-al-cambiar; 5 módulos nuevos en resources/js; confirmaciones con form[data-confirmar-envio]. CspSinCodigoIncrustadoTest en cero. Sin cambios de aspecto. Falta verificar EN NAVEGADOR con clics (lista en el informe). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T73.md |
 
-## Sin empezar (23)
+## Sin empezar (22)
 
-T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, B3.
+T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

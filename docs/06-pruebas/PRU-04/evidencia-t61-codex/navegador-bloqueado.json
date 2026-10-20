@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-10-20",
+  "herramienta": "mcp__cua_repl",
+  "operacion": "cua.getState()",
+  "resultado": {
+    "apps": [],
+    "browsers": [],
+    "errors": [
+      "Browsers: Error: Local browser use is disabled in Work settings"
+    ]
+  },
+  "comprobacion_adicional": "Carlos mostró la parte superior de Ajustes > Navegador con el interruptor azul; reiniciar la sesión de la herramienta y repetir getState devolvió el mismo error.",
+  "causa": "No determinada; no se atribuye a una configuración concreta sin evidencia.",
+  "recorrido_t61": "No ejecutado en Chrome; no hay capturas de Wings certificadas por este archivo.",
+  "alternativas": "No se sustituyó por HTML guardado, iframe, maqueta ni control del navegador fuera de la herramienta autorizada.",
+  "reintento_tras_reinicio": "Carlos confirmó Listo. getState volvió a fallar; después de js_reset y primera invocación getState, mismo error y sin navegadores."
+}

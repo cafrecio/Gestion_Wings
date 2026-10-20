@@ -1,0 +1,26 @@
+[
+  {
+    "ProcessId": 19484,
+    "ParentProcessId": 26308,
+    "CreationDate": "2026-10-20T05:44:40.767543-03:00",
+    "CommandLine": "\"C:\\xampp\\php\\php.exe\" artisan test"
+  },
+  {
+    "ProcessId": 14264,
+    "ParentProcessId": 40872,
+    "CreationDate": "2026-10-20T05:44:41.442698-03:00",
+    "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml\" --no-output"
+  },
+  {
+    "ProcessId": 20452,
+    "ParentProcessId": 18284,
+    "CreationDate": "2026-10-20T05:52:46.116537-03:00",
+    "CommandLine": "C:\\xampp\\php\\php.exe artisan test --exclude-group=lento"
+  },
+  {
+    "ProcessId": 18300,
+    "ParentProcessId": 38300,
+    "CreationDate": "2026-10-20T05:52:46.596287-03:00",
+    "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=always\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml\" --no-output \"--exclude-group=lento\""
+  }
+]

@@ -17,6 +17,7 @@ class CatalogosSeeder extends Seeder
         $this->seedDeportes();
         $this->seedNiveles();
         $this->seedRubrosYSubrubros();
+        \App\Support\ClasificacionSubrubros::aplicarTraspasos();
         $this->seedTiposCaja();
         $this->seedReglasPrimerPago();
         foreach ([

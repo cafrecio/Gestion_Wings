@@ -192,7 +192,8 @@ class SaldoInicialTipoCajaTest extends TestCase
 
         $sinMovimientos->assertOk()
             ->assertSeeInOrder(['$0', 'ingresos', '$0', 'egresos', '$0', 'resultado del período'])
-            ->assertDontSee('$200,000.00');
+            ->assertSee('$200,000.00'); // T61: sí aparece como saldo del medio, separado del período.
+        $this->assertStringNotContainsString('$200,000.00', $this->totalesDelPeriodo($sinMovimientos));
 
         [, $subrubro] = $this->crearSubrubroEgreso();
         CashflowMovimiento::create([
@@ -204,11 +205,23 @@ class SaldoInicialTipoCajaTest extends TestCase
             'usuario_admin_id' => $admin->id,
         ]);
 
-        $this->actingAs($admin)->get(route('web.cashflow.index', [
+        $conMovimientos = $this->actingAs($admin)->get(route('web.cashflow.index', [
             'tipo_caja_id' => $tipoCaja->id,
         ]))->assertOk()
             ->assertSeeInOrder(['$50,000.00', 'egresos', '$-50,000.00', 'resultado del período'])
-            ->assertDontSee('$200,000.00')->assertDontSee('$150,000.00');
+            ->assertSee('$150,000.00')->assertDontSee('$200,000.00');
+        $totales = $this->totalesDelPeriodo($conMovimientos);
+        $this->assertStringNotContainsString('$200,000.00', $totales);
+        $this->assertStringNotContainsString('$150,000.00', $totales);
+    }
+
+    private function totalesDelPeriodo(\Illuminate\Testing\TestResponse $respuesta): string
+    {
+        $html = new \DOMDocument();
+        @$html->loadHTML($respuesta->getContent());
+        $nodo = (new \DOMXPath($html))->query('//*[@id="cashflow-totales-periodo"]')->item(0);
+        $this->assertNotNull($nodo, 'Los totales del período deben tener un bloque separado del saldo actual.');
+        return $nodo->textContent;
     }
 
     public function test_saldo_inicial_permite_pagar_liquidacion_sin_movimientos_previos(): void
