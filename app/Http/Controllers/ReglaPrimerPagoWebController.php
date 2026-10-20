@@ -17,7 +17,7 @@ class ReglaPrimerPagoWebController extends Controller
     {
         $validated = $request->validate([
             'reglas'               => 'required|array|min:1',
-            'reglas.*.id'          => 'nullable|integer',
+            'reglas.*.id'          => 'nullable|integer|distinct|exists:reglas_primer_pago,id',
             'reglas.*.nombre'      => 'required|string|max:100',
             'reglas.*.dia_desde'   => 'required|integer|min:1|max:31',
             'reglas.*.dia_hasta'   => 'required|integer|min:1|max:31|gte:reglas.*.dia_desde',
@@ -25,6 +25,8 @@ class ReglaPrimerPagoWebController extends Controller
         ], [
             'reglas.required'            => 'Debe existir al menos una regla que cubra del día 1 al 31.',
             'reglas.min'                 => 'Debe existir al menos una regla que cubra del día 1 al 31.',
+            'reglas.*.id.distinct'       => 'Cada regla debe tener un identificador único; no se puede repetir una misma regla.',
+            'reglas.*.id.exists'         => 'Una de las reglas enviadas no existe o ya no está disponible.',
             'reglas.*.nombre.required'   => 'Ingresá un nombre para cada regla.',
             'reglas.*.dia_desde.required'=> 'Elegí el día desde el que se aplica.',
             'reglas.*.dia_hasta.required'=> 'Elegí hasta qué día se aplica.',
@@ -42,7 +44,7 @@ class ReglaPrimerPagoWebController extends Controller
             $idsEnviados = array_filter(array_column($validated['reglas'], 'id'));
 
             // Eliminar las que ya no están presentes en el conjunto
-            ReglaPrimerPago::whereNotIn('id', $idsEnviados)->delete();
+            ReglaPrimerPago::where('activo', true)->whereNotIn('id', $idsEnviados)->delete();
 
             foreach ($validated['reglas'] as $item) {
                 if (!empty($item['id'])) {

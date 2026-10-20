@@ -96,6 +96,8 @@ window.addEventListener('beforeunload', event => {
 const list = document.getElementById('reglas-list');
 const panelAdd = document.getElementById('panel-add-regla');
 const nombresCampos = { nombre: 'nombre', dia_desde: 'dia-desde', dia_hasta: 'dia-hasta', porcentaje: 'porcentaje' };
+const originalesReglas = new Map();
+
 function camposRegla(id) {
     return Object.fromEntries(Object.entries(nombresCampos).map(([nombre, fragmento]) => [
         nombre, document.getElementById(id === 'nueva' ? 'add-' + fragmento : 'edit-' + fragmento + '-' + id),
@@ -103,6 +105,18 @@ function camposRegla(id) {
 }
 function datosRegla(id) {
     return Object.fromEntries(Object.entries(camposRegla(id)).map(([nombre, campo]) => [nombre, campo ? campo.value.trim() : '']));
+}
+function guardarValoresOriginales(id) {
+    originalesReglas.set(String(id), datosRegla(id));
+}
+function restaurarValoresOriginales(id) {
+    const orig = originalesReglas.get(String(id));
+    if (!orig) return;
+    for (const [nombre, campo] of Object.entries(camposRegla(id))) {
+        if (campo && orig[nombre] !== undefined) {
+            campo.value = orig[nombre];
+        }
+    }
 }
 function mostrarErrorRegla(id, error) {
     const el = document.getElementById(id === 'nueva' ? 'add-error' : 'edit-error-' + id);
@@ -158,6 +172,12 @@ function pintarRegla(card, regla) {
         const input = card.querySelector('#edit-' + fragmento + '-' + regla.id);
         if (input) input.value = regla[nombre];
     });
+    originalesReglas.set(String(regla.id), {
+        nombre: regla.nombre,
+        dia_desde: String(regla.dia_desde),
+        dia_hasta: String(regla.dia_hasta),
+        porcentaje: String(Math.round(regla.porcentaje))
+    });
 }
 function contadorReglas() {
     const n = list.querySelectorAll('.alumno-card[id^="regla-card-"]').length;
@@ -187,7 +207,11 @@ function recopilarReglas(excluirId = null, incluirNueva = false) {
     list.querySelectorAll('.alumno-card[id^="regla-card-"]').forEach(card => {
         const id = card.id.replace('regla-card-', '');
         if (id === String(excluirId)) return;
-        const datos = datosRegla(id);
+        const panel = document.getElementById('panel-edit-' + id);
+        const estaEnEdicion = panel && panel.style.display !== 'none';
+
+        const datos = estaEnEdicion ? datosRegla(id) : (originalesReglas.get(String(id)) || datosRegla(id));
+
         reglas.push({
             id: parseInt(id, 10),
             nombre: datos.nombre,
@@ -209,6 +233,12 @@ function recopilarReglas(excluirId = null, incluirNueva = false) {
     return reglas;
 }
 
+// Inicializar valores guardados para las tarjetas iniciales de Blade
+list.querySelectorAll('.alumno-card[id^="regla-card-"]').forEach(card => {
+    const id = card.id.replace('regla-card-', '');
+    guardarValoresOriginales(id);
+});
+
 list.addEventListener('click', async event => {
     const button = event.target.closest('button[data-id]');
     if (!button || button.disabled) return;
@@ -221,6 +251,7 @@ list.addEventListener('click', async event => {
     if (button.classList.contains('btn-cancelar-edit')) {
         panel.style.display = 'none';
         limpiarErrorRegla(id, panel);
+        restaurarValoresOriginales(id);
         return;
     }
     const eliminar = button.classList.contains('btn-eliminar-regla');
@@ -248,6 +279,7 @@ document.getElementById('btn-agregar-regla')?.addEventListener('click', () => {
 document.getElementById('btn-cancelar-add')?.addEventListener('click', () => {
     panelAdd.style.display = 'none';
     limpiarErrorRegla('nueva', panelAdd);
+    panelAdd.querySelectorAll('input').forEach(campo => { campo.value = ''; });
 });
 document.getElementById('btn-guardar-add')?.addEventListener('click', async event => {
     if (event.currentTarget.disabled) return;

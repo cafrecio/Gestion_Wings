@@ -36,9 +36,12 @@ class CapturaConfiguracionReglasT64Test extends TestCase
         }
 
         $sanitizar = function (string $html): string {
-            return str_replace(['src="/build/', 'href="/build/'], [
-                'src="'.str_replace('\\', '/', public_path('build')).'/',
-                'href="'.str_replace('\\', '/', public_path('build')).'/',
+            return str_replace([
+                'src="http://gestion-wings/build/',
+                'href="http://gestion-wings/build/',
+            ], [
+                'src="/build/',
+                'href="/build/',
             ], $html);
         };
 

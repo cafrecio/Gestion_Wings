@@ -337,4 +337,99 @@ class ReglaPrimerPagoSinHuecosT64Test extends TestCase
         [$pct3] = $pagoCuotaService->calcularReglaPrimerPago($alumno3->id, [['periodo' => '2026-10', 'monto' => 28000]]);
         $this->assertEquals(40.0, $pct3, 'El día 25 debe tomar la regla del 40%');
     }
+
+    public function test_lote_con_id_repetido_es_rechazado(): void
+    {
+        $regla1 = ReglaPrimerPago::create([
+            'nombre'     => 'Primera quincena',
+            'dia_desde'  => 1,
+            'dia_hasta'  => 15,
+            'porcentaje' => 100,
+            'activo'     => true,
+        ]);
+
+        $respuesta = $this->actingAs($this->admin)->putJson('/configuraciones/primer-pago', [
+            'reglas' => [
+                [
+                    'id'         => $regla1->id,
+                    'nombre'     => 'Tramo 1',
+                    'dia_desde'  => 1,
+                    'dia_hasta'  => 15,
+                    'porcentaje' => 100,
+                ],
+                [
+                    'id'         => $regla1->id,
+                    'nombre'     => 'Tramo 2',
+                    'dia_desde'  => 16,
+                    'dia_hasta'  => 31,
+                    'porcentaje' => 50,
+                ],
+            ],
+        ]);
+
+        $respuesta->assertStatus(422);
+        $respuesta->assertJsonValidationErrors(['reglas.0.id']);
+        $this->assertSame(
+            'Cada regla debe tener un identificador único; no se puede repetir una misma regla.',
+            $respuesta->json('errors')['reglas.0.id'][0]
+        );
+    }
+
+    public function test_lote_con_id_inexistente_es_rechazado_con_mensaje_en_castellano(): void
+    {
+        $respuesta = $this->actingAs($this->admin)->putJson('/configuraciones/primer-pago', [
+            'reglas' => [
+                [
+                    'id'         => 999999,
+                    'nombre'     => 'Tramo único',
+                    'dia_desde'  => 1,
+                    'dia_hasta'  => 31,
+                    'porcentaje' => 100,
+                ],
+            ],
+        ]);
+
+        $respuesta->assertStatus(422);
+        $respuesta->assertJsonValidationErrors(['reglas.0.id']);
+        $this->assertSame(
+            'Una de las reglas enviadas no existe o ya no está disponible.',
+            $respuesta->json('errors')['reglas.0.id'][0]
+        );
+    }
+
+    public function test_lote_conserva_reglas_inactivas_existentes(): void
+    {
+        $reglaActiva = ReglaPrimerPago::create([
+            'nombre'     => 'Mes completo activo',
+            'dia_desde'  => 1,
+            'dia_hasta'  => 31,
+            'porcentaje' => 100,
+            'activo'     => true,
+        ]);
+
+        $reglaInactiva = ReglaPrimerPago::create([
+            'nombre'     => 'Regla histórica desactivada',
+            'dia_desde'  => 1,
+            'dia_hasta'  => 15,
+            'porcentaje' => 80,
+            'activo'     => false,
+        ]);
+
+        $respuesta = $this->actingAs($this->admin)->putJson('/configuraciones/primer-pago', [
+            'reglas' => [
+                [
+                    'id'         => $reglaActiva->id,
+                    'nombre'     => 'Mes completo actualizado',
+                    'dia_desde'  => 1,
+                    'dia_hasta'  => 31,
+                    'porcentaje' => 100,
+                ],
+            ],
+        ]);
+
+        $respuesta->assertOk();
+
+        $this->assertNotNull(ReglaPrimerPago::find($reglaInactiva->id), 'Las reglas inactivas históricas deben conservarse.');
+        $this->assertFalse($reglaInactiva->fresh()->activo);
+    }
 }

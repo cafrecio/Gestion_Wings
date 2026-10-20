@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-20 — LOG GEM CAB — Corrección de hallazgos T64 (H1, H2, H3 de Claude)
+
+- **Objetivo y resultado:** Corrección de los tres hallazgos reportados por Claude en `docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md` para la tarea T64 (DU-45, CFG-004). Resultado: **CORREGIDO Y LISTO PARA VERIFICACIÓN**, con prueba en navegador real (Chrome CDP) y 3 pruebas automatizadas permanentes nuevas en PHPUnit pasando al 100%.
+- **Hallazgos resueltos:**
+  - **H1 (UI / Editor):** En `resources/js/configuraciones.js`, `btn-cancelar-edit` no reponía los inputs al cancelar y `recopilarReglas` leía inputs sucios de paneles cerrados. Se implementó un mapa `originalesReglas` que mantiene los valores confirmados por ID. Al pulsar Cancelar se restauran los inputs originales (`restaurarValoresOriginales(id)`) y se oculta el panel; `recopilarReglas` toma los valores guardados si el panel no está en edición activa. Comprobado en navegador real con clics reales (`scripts/pruebas/probar-h1-browser.mjs`): abrir regla 1, tipear 90%, cancelar, abrir regla 2, tipear 65%, guardar → regla 1 conserva 100% y regla 2 se guarda con 65%.
+  - **H2 (Backend):** En `ReglaPrimerPagoWebController::guardarTodas`, se añadió `'distinct'` en `reglas.*.id` y mensaje en castellano: *«Cada regla debe tener un identificador único; no se puede repetir una misma regla.»*. Regresión permanente: `test_lote_con_id_repetido_es_rechazado`.
+  - **H3 (Backend):** En `ReglaPrimerPagoWebController::guardarTodas`, se añadió `'exists:reglas_primer_pago,id'` en `reglas.*.id` y mensaje en castellano: *«Una de las reglas enviadas no existe o ya no está disponible.»* (evita 404 en inglés). Regresión permanente: `test_lote_con_id_inexistente_es_rechazado_con_mensaje_en_castellano`.
+  - **Preservación de reglas inactivas:** La limpieza de reglas obsoletas en `guardarTodas` ahora filtra exclusivamente `where('activo', true)->whereNotIn(...)`, preservando reglas históricas inactivas. Regresión permanente: `test_lote_conserva_reglas_inactivas_existentes`.
+- **Integridad visual y diseño:** Sin cambios en `resources/views/**` ni `resources/css/**` (AGENTS.md §1). Compilado con `npm run build` sin JavaScript inline en Blade (AGENTS.md §5-bis).
+- **Pruebas en `wings_testing_gemini`:** 11 pruebas pasando en `ReglaPrimerPagoSinHuecosT64Test` (40 aserciones, 8.74 s) y 5 en `ReglaPrimerPagoSinSuperposicionTest` (40 aserciones).
+- **Próximo paso:** Verificación de lógica por Claude.
+
 ## 2026-10-20 — LOG GEM CAB — Implementación T64: reglas de primer pago sin superposiciones ni días sin cubrir
 
 - **Objetivo y resultado:** Implementación de la tarea T64 bajo decisión de Carlos DU-45 («Impedir reglas superpuestas y días sin cubrir») y caso de prueba CFG-004. Resultado: **IMPLEMENTADA**, con guardado en lote atómico, 8 pruebas automatizadas nuevas en `ReglaPrimerPagoSinHuecosT64Test` (más 5 en `ReglaPrimerPagoSinSuperposicionTest`) pasando al 100%, capturas generadas y lista para verificación independiente (`a_verificar`).

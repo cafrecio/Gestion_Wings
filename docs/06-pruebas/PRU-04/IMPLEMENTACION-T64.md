@@ -124,3 +124,40 @@ Documento aprobador navegable:
 ## 6. Catálogo actualizado
 
 - `docs/06-pruebas/PRU-04/tabla-de-pruebas/catalogo/CFG.json`: caso `CFG-004` actualizado; punto f anterior («se cobra al 100% sin avisar») marcado como obsoleto por DU-45, reemplazado por la verificación de impedimento de superposición y días sin cubrir.
+
+---
+
+## 7. Corrección de hallazgos de verificación (Claude, 20/10/2026)
+
+Revisión en `docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md`. Se resolvieron los tres hallazgos reportados:
+
+### H1 — Cancelar en el editor de reglas no repone valores y recopilarReglas enviaba inputs sucios
+- **Causa:** `btn-cancelar-edit` solo ocultaba el panel sin revertir los valores de los inputs, y `recopilarReglas` leía directamente los campos del DOM de todas las tarjetas. Una edición cancelada o abandonada se enviaba inadvertidamente con el guardado de otra regla.
+- **Solución:**
+  1. En `resources/js/configuraciones.js`, se mantiene un registro `originalesReglas = new Map()` que almacena los valores confirmados por ID.
+  2. Al pulsar «Cancelar» (`.btn-cancelar-edit`), se invoca `restaurarValoresOriginales(id)`, reponiendo los inputs a su valor confirmado original y ocultando el panel.
+  3. `recopilarReglas` inspecciona si el panel está en edición activa (`panel && panel.style.display !== 'none'`). Si no está en edición activa, utiliza los valores confirmados de `originalesReglas`, impidiendo que datos residuales en inputs cerrados viajen en el lote.
+- **Comprobación en navegador real (Chrome CDP):**
+  - Script ejecutado: `scripts/pruebas/probar-h1-browser.mjs`.
+  - Secuencia de clics reales: abrir regla 1, tipear porcentaje 90%, hacer clic en Cancelar (verificar input restaurado a 100% y panel cerrado), abrir regla 2, tipear porcentaje 65%, hacer clic en Guardar.
+  - Resultado: el payload interceptado hacia `PUT /configuraciones/primer-pago` envió la regla 1 con `porcentaje: 100` y la regla 2 con `porcentaje: 65`. Éxito total.
+
+### H2 — Lote con IDs repetidos generaba huecos silenciosos
+- **Causa:** Si el array `reglas` contenía dos elementos con el mismo `id`, no se rechazaba a nivel de validación básica.
+- **Solución:**
+  - Se agregó la regla `'distinct'` en `reglas.*.id` en `ReglaPrimerPagoWebController::guardarTodas`.
+  - Mensaje en castellano: `'Cada regla debe tener un identificador único; no se puede repetir una misma regla.'`.
+- **Prueba permanente:**
+  - `test_lote_con_id_repetido_es_rechazado` en `tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php`.
+
+### H3 — IDs inexistentes producían ModelNotFoundException (404)
+- **Causa:** `ReglaPrimerPago::findOrFail` lanzaba 404 con mensaje en inglés si se enviaba un ID inexistente.
+- **Solución:**
+  - Se agregó `'exists:reglas_primer_pago,id'` en `reglas.*.id` en `ReglaPrimerPagoWebController::guardarTodas`.
+  - Mensaje en castellano: `'Una de las reglas enviadas no existe o ya no está disponible.'`.
+- **Prueba permanente:**
+  - `test_lote_con_id_inexistente_es_rechazado_con_mensaje_en_castellano` en `tests/Feature/ReglaPrimerPagoSinHuecosT64Test.php`.
+
+### Preservación de reglas inactivas
+- Adicionalmente, se aseguró que `ReglaPrimerPago::where('activo', true)->whereNotIn('id', $idsEnviados)->delete()` solo borre reglas **activas** no presentes en el lote, conservando las reglas inactivas históricas.
+- **Prueba permanente:** `test_lote_conserva_reglas_inactivas_existentes`.
