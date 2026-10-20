@@ -65,12 +65,16 @@ class ReporteSueldosService
         }
         $cobrados = [];
         $pagosBase = [];
-        foreach (collect($pagos['filas'] ?? [])->where('periodo',$mes) as $f) {
+        foreach ($pagos['filas'] ?? [] as $f) {
             if (!in_array($f['datos']['estado'],['COMPLETADO','pagado'],true) || !$f['datos']['fecha_pago']
                 || $f['datos']['fecha_pago'] > $corte->toDateString()) continue;
             $clave = $f['persona_id'].':'.$f['deporte_id'];
-            $cobrados[$clave] = ($cobrados[$clave] ?? 0) + $f['datos']['cuota_centavos'];
-            $pagosBase[] = ['clave'=>$clave,'centavos'=>$f['datos']['cuota_centavos']];
+            $partes = $f['datos']['partes_cuota'] ?? [];
+            $centavos = $partes ? collect($partes)->where('periodo_comision', $mes)->sum('centavos')
+                : ($f['periodo'] === $mes ? $f['datos']['cuota_centavos'] : 0);
+            if ($centavos <= 0) continue;
+            $cobrados[$clave] = ($cobrados[$clave] ?? 0) + $centavos;
+            $pagosBase[] = ['clave'=>$clave,'centavos'=>$centavos];
         }
         $sinAsistencia = 0;
         $sinCuota = 0;

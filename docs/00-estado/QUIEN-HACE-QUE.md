@@ -42,23 +42,20 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T52** Las clases pasadas muestran tambien a quien tiene una marca guardada | Hecho, espera verificación (hizo Claude, verifica Codex) | H5 corregido por Claude CyE el 20/10: un cambio de grupo antes de un ingreso futuro ya no adelanta el ingreso (enGrupoElDia exige siempre el ingreso). 12 pruebas T52, dirigidas 77/77. Visual aprobado por Carlos el 20/10. Vuelve a verificar Codex. Requiere migrar al desplegar. |
+Nada.
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar DU-19: comisión e ingreso por parte en mes pagado; dinero/saldos conservados, histórico no identificable conserva mes original por Carlos. Completa Codex 997/6 omitidas verde. COB-012 vivo y repo al día; sigue T43. |
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar lógica de transferencia única y seguimiento FIN-09; Carlos aprobó formulario, Rubros y aviso. Completa Codex 977/6 omitidas verde. Sin despliegue. |
 | **T64** Las reglas de primer pago no pueden superponerse ni dejar dias sin cubrir | Hecho, espera verificación (hizo Gemini) | Verificar logica y pantallas de T64 (reglas de primer pago sin huecos ni superposicion) |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T42** Un mes cobrado por adelantado es ingreso y comision del mes que paga | En curso (hizo Codex, verifica Claude) | Consulta previa a Carlos: ingreso histórico sin vínculo identificable al pago. Conservar mes original o reconstruir primero vínculos verificables. Sin producto T42 modificado; T43 después. |
+Nada en este momento.
 
 ## Gemini
 

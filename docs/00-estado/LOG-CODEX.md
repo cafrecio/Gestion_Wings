@@ -16,6 +16,25 @@
 
 [Antecedente archivado al completar FIN-09](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-FIN09-ANTECEDENTE.md).
 
+[Antecedentes archivados al entregar T42 y cerrar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T42-T52-ANTECEDENTES.md).
+
+## 2026-10-20 — Codex CyE — T42 implementada, a verificar por Claude
+
+DU-19: cada parte de cuota liquida en max(mes cobro, mes pagado), con asistencia del mes liquidado; ingreso adelantado en Reportes/Inicio por mes pagado.
+Dinero, fechas y saldos de Caja/Cashflow conservados. Carlos: «Sí, conservar el mes original solo en esos casos» no identificables. Captura de imputaciones e historia sin reescritura.
+19 regresiones nuevas; dirigidas finales 29/150 verdes. Completa final 997 aprobadas/6 omitidas, 8652 aserciones, 1242,09 s, salida 0, wings_testing_codex, corte 1003.
+Primera completa falló en una selección de prueba por primer pago, corregida por ID; segunda frenó por contador al entrar H5 T52. Salidas preservadas; sin atribuir causas ajenas.
+COB-012 e/h vivo y repo actualizados con autorización expresa; relectura ArtifactData versión 10 comprobada. Copia LIQ-002 corregida por DU-19; control del dueño sigue en T43.
+[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). Contratos/estado/contador/tablero al día. Sin vistas/CSS ni despliegue. Sigue T43; lógica T42 para Claude.
+
+## 2026-10-20 — Codex CyE — T52 H5 verificada y cerrada
+
+Revisión de e1e7c499: el scope exige siempre ingreso y llegada al grupo; Codex no modifica producto.
+Repetición HTTP propia: ingreso 01/11, cambio 20/10, clase 20/10; no aparece, POST 422 y sin marca. H1–H4, tres roles, plan diferido y cerradas/pagadas HORA/COMISIÓN preservados.
+9 independientes + 12 regresiones: 21 aprobadas/139 aserciones, 19,79 s, salida 0, wings_testing_codex; consultas 12→12. Completa compartida T42/T52: 997/6 omitidas verde.
+Visual previo Carlos conservado («Las vistas están OK»). Históricos migrados de modo conservador, sin prometer fecha real reconstruida.
+[Informe y datos](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Cerrada por script: hizo Claude, verifica Codex. Sin despliegue ni migrar el club.
+
 ## 2026-10-20 — Codex CyE — T61, confirmación FIN-09
 
 El formulario nuevo omitía confirmar fechas de un mes anterior, exigido por Caja/Cashflow V4 §3.6. Corregido antes de continuar T42.
@@ -30,7 +49,7 @@ Carlos ordenó T42 y luego T43, tras terminar verificaciones T52/T61. T61 public
 T42 tomada por script: comisión de cada parte en max(mes cobro, mes pagado), después ingreso adelantado en Reportes/Inicio; Caja/Cashflow conservan fecha real del dinero.
 Leer DU-19/DU-36, COB-012/LIQ-002 y contratos/código; si el diseño contradice el sistema, frenar. Sin código T42 antes de publicar esta toma.
 Base propia wings_testing_codex y completa sin otra suite activa por tarea. No escribir en wingstest/wings ni desplegar. T43 se implementa después, con revisión visual de Carlos antes de commit de vistas.
-Seguimiento tras T61 f089768b: detectado vínculo histórico no reconstruido entre asiento de caja y pago. Consulta de alcance a Carlos pendiente (AGENTS §6b); [preparación](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md), sin producto T42 modificado.
+Seguimiento tras T61 f089768b: Carlos resolvió «Sí, conservar el mes original solo en esos casos.» Comisión/Reportes locales, 29/150 dirigidas verdes y COB-012 vivo versión 10 comprobado tras envío autorizado. Primera completa: 995/6 omitidas y una prueba propia corregida por ID; segunda frenó por H5 T52 agregado en paralelo. Contador real 1003; completa de 11:51 finalizada verde (997/6 omitidas), salida en evidencia-t42/suite-completa-corte1003.txt. T52 e1e7c499 revisada: 21/139 verdes; T43 después de entregar T42.
 
 ## 2026-10-20 — Codex CyE — T52, reverificación d148a241 y H5
 
@@ -84,23 +103,3 @@ Revisión de código por subagente independiente aprobada, sin certificar ejecuc
 Chrome real con base ficticia separada: salida/entrada de $300.000 por formulario; saldos cambian y resultado del club conserva $7.000. Inicio/Reportes/Cashflow contrastados, capturas escritorio guardadas.
 Build y PHP correctos. Después, navegador deshabilitado en Work; Carlos mostró el interruptor encendido; reiniciar conexión CUA y pedir navegador integrado devuelve el mismo rechazo. Carlos reinstala dependencias al quedar guardado el avance.
 Integración guardada en 758955ef; servidor ficticio detenido. Publicación rechazada por revisión automática, pendiente autorización con destino/contenido. [Control actual](../06-pruebas/PRU-04/VERIFICACION-T61-CYE.md). Pendientes celular, resto de pantallas/operativa, control cruzado y aprobación visual. Sin cierre ni despliegue.
-
-## 2026-10-20 — Codex CAB — T61, implementada; visual pendiente desde CyE
-
-Carlos aprobó rubros «Transferencias internas — salidas / entradas», saldos en Cashflow y sus totales con entradas/salidas.
-TRASPASO en ambos tipos; dos movimientos independientes ADMIN, migración y seeder idempotentes.
-Origen y explicación del global actualizados; resultado del club, aportes y retiros conservados.
-12 nuevas; dirigidas 26/376 verdes. Completa aislada 947/4 omitidas, 8425 aserciones, 901,60 s; fuente intacta, sin suite ajena detectada. Build/vistas/sintaxis verdes.
-Chrome pendiente: herramienta deshabilitada pese al interruptor encendido; reiniciar la app y la sesión CUA no lo resolvió. Carlos: recorrido pendiente desde CyE (Codex).
-[Informe y texto para T13](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). T61 a_verificar; lógica por otro agente, visual por Carlos. Sin servidor ni despliegue.
-[Entrada T75 archivada intacta](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-ARRANQUE.md).
-
-
-## 2026-10-20 — Codex CAB — Higiene T61 y continuidad desde CyE
-
-27 copias viejas retiradas de la carpeta principal, previa verificación de respaldo y entrega remota.
-Versión final T61 publicada en codex/t61-traspasos, commit c9b68d2; no integrada en main.
-Rama T61: completa 947/4 omitidas, 8425 aserciones. Main conserva sus 944 métodos; sin nueva suite por limpieza.
-Carlos: recorrido visual pendiente por Codex desde CyE, Chrome local 1366/375; luego integración y control independiente.
-Configuración de notificaciones local conservada e ignorada; sin tocar producto ni cambios ajenos.
-[Registro e inventario](HIGIENE-T61-2026-10-20.md). T61 a_verificar; sin autocierre ni despliegue.

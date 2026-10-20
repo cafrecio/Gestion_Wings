@@ -1,0 +1,34 @@
+[
+  {
+    "ruta": "app/Services/PartesPagoCuotaService.php",
+    "sha256_lf": "f1304f305a8bac0ac65e62af6592fefcd9ec5037e7f64f3bd38dfc5d78962578"
+  },
+  {
+    "ruta": "app/Services/LiquidacionService.php",
+    "sha256_lf": "cb15a9ea9ad94c6993f02f9bb828c39098115bc5804ee6054adc5ed6edabdf6b"
+  },
+  {
+    "ruta": "app/Services/ReporteMensualService.php",
+    "sha256_lf": "708fad2968ed43a8afaeb4d32fb424477956847fc6888c039a08f03e5191a1f8"
+  },
+  {
+    "ruta": "app/Services/HistorialAnaliticoReportesService.php",
+    "sha256_lf": "4b22b64d094644682559a27379664ee3761205ad2a441d86fab40f638053ef3a"
+  },
+  {
+    "ruta": "app/Services/ReporteSueldosService.php",
+    "sha256_lf": "76e376608ea62e1a667419f7e3fcd2e2619b131a438a8185c40b408a7aa9f9ec"
+  },
+  {
+    "ruta": "app/Services/PagoCuotaService.php",
+    "sha256_lf": "1fe15fdce0ef91d456bd7f59ffb2c0caef8a8d3720feb62eda2551cc34ac87af"
+  },
+  {
+    "ruta": "tests/Feature/ComisionPorPeriodoT42Test.php",
+    "sha256_lf": "fc07e6393c4b0a101cc056fe2a257de8452e52736b48051d63d56bb37be44c8b"
+  },
+  {
+    "ruta": "tests/Feature/IngresosPorPeriodoT42Test.php",
+    "sha256_lf": "96877ff531fd4aa28154fb1e4a46bd6232a2f98c2f334c034700588fb362538a"
+  }
+]

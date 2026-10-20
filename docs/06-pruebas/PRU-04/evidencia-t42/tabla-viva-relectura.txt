@@ -1,0 +1,9 @@
+Relectura de ArtifactData, catalogo COB, version 10, observada en el editor el 20/10/2026.
+['COB-012'] {'casos'}
+{'donde': 'Caja, Cashflow y Reportes', 'l': 'e', 'texto': 'Caja y Cashflow registran la entrada de dinero en octubre, el día del cobro. En Reportes e Inicio cuenta como ingreso de noviembre, el mes que paga.', 'tipo': 'indirecto'}
+{'donde': 'Comisión', 'l': 'h', 'texto': 'Entra en la base de comisión de noviembre, el mes que paga, si tuvo al menos una asistencia presente con esa profesora en noviembre.', 'tipo': 'indirecto'}
+Shell cwd was reset to /home/claude
+
+Comparación previa de edición (casos distintos y cantidad conservada), observada en la operación:
+['COB-012'] True
+Shell cwd was reset to /home/claude

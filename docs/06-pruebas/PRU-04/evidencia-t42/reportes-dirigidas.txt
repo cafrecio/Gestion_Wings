@@ -1,0 +1,38 @@
+⨯.⨯..........................
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\IngresosPorPeriodoT42Test > ingreso adelantado cambia de mes sin cambiar fecha dinero ni sa…
+  Expected response status code [200] but received 302.
+Failed asserting that 302 is identical to 200.
+
+  at tests\Feature\IngresosPorPeriodoT42Test.php:105
+    101▕         $this->assertSame($octubre['disponible'], $noviembre['disponible']);
+    102▕         $this->assertSame('2026-10-15', $noviembre['filas'][0]['fecha']);
+    103▕         $this->assertSame('2026-10-15', $asiento->fresh()->fecha->toDateString());
+    104▕         $this->assertSame('Cuota Mensual (11/2026)', $noviembre['filas'][0]['concepto']);
+  ➜ 105▕         $this->actingAs($this->admin)->get('/')->assertOk()->assertViewHas('reporte',
+    106▕             fn ($r) => $r['ingresos'] === 10000 && $r['disponible'] === 10000);
+    107▕     }
+    108▕
+    109▕     public function test_cobro_mixto_reparte_cuotas_y_deja_inscripcion_en_su_fecha(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\IngresosPorPeriodoT42Test > caja pendiente y validada conservan el mismo reparto sin…  Error
+  Call to a member function getKey() on int
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Collection.php:679
+    675▕
+    676▕         $dictionary = [];
+    677▕
+    678▕         foreach ($items as $value) {
+  ➜ 679▕             $key = $this->getDictionaryKey($value->getKey());
+    680▕
+    681▕             if ($key !== null) {
+    682▕                 $dictionary[$key] = $value;
+    683▕             }
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Collection.php:679
+  2   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Collection.php:531
+
+
+  Tests:    2 failed, 27 passed (143 assertions)
+  Duration: 10.56s

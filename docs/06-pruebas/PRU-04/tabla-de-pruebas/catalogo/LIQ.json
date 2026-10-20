@@ -86,7 +86,7 @@
         {
           "donde": "Base",
           "l": "a",
-          "texto": "Suma las cuotas cobradas en octubre de los alumnos que tuvieron al menos un presente en octubre en una clase suya no cancelada.",
+          "texto": "Suma las partes de cuotas asignadas a octubre según DU-19: max(mes del cobro, mes pagado), de alumnos con al menos un presente en octubre en una clase suya no cancelada.",
           "tipo": "directo"
         },
         {
@@ -110,7 +110,7 @@
         {
           "donde": "Deuda vieja y adelantado",
           "l": "e",
-          "texto": "Entran: cuenta el mes en que se cobró, no el mes de la cuota.",
+          "texto": "Las atrasadas cobradas en octubre corresponden a octubre; su aviso, decisión del dueño e inclusión en el recibo siguen T43 (DU-36). Noviembre cobrado por adelantado en octubre corresponde a la liquidación de noviembre, con asistencia presente en noviembre (T42, DU-19).",
           "tipo": "directo"
         },
         {
@@ -144,7 +144,7 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "vigente",
+      "estado": "no_implementado",
       "fuente": "Contrato de liquidaciones §3.2; LiquidacionService (código leído); ENT-01; FIN-06; LQ-06.",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",

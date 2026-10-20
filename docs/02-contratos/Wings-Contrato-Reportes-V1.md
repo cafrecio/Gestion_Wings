@@ -11,6 +11,18 @@
 > No implementar aquel reparto por cantidad de clases en paralelo al nuevo módulo.
 > Planificar no equivale a que esté implementado; el contrato final de Reportes sigue pendiente.
 
+## Enmienda T42 — ingresos de cuotas adelantadas, Carlos 20/10/2026
+
+DU-19: en Ingresos/egresos e Inicio, la parte adelantada de un cobro de cuota es ingreso del mes que paga. Noviembre cobrado en octubre figura como ingreso de noviembre. La parte del mes y la atrasada permanecen en el mes del cobro: se usa `max(mes real del cobro, mes pagado)` por imputación. Inscripción, punitorios y demás conceptos conservan su fecha real.
+
+Caja/Cashflow conservan la fecha y el importe del dinero. Disponible, cuentas, confirmado/pendiente y resultado global financiero se calculan con esas filas originales, sin duplicarlas al validar. El detalle económico del reporte conserva la fecha de cobro e identifica el período de la cuota. La evolución considera también los meses con ingreso imputado aunque no hayan tenido otro movimiento de dinero.
+
+Los asientos con vínculo al pago usan sus imputaciones. Para un reflejo antiguo de caja sin vínculo, una correspondencia única por caja/fecha/concepto/medio/importe permite identificarlas, solo en lectura. Si no puede comprobarse el mes pagado, Carlos resolvió: **«Sí, conservar el mes original solo en esos casos.»** No se reconstruyen vínculos ambiguos por posición ni se modifican movimientos históricos.
+
+La historia analítica conserva el desglose completo después de adjuntar los pivotes. Para estados previos, las imputaciones originales disponibles o el detalle conservado al anular permiten leerlo sin reescribir esos estados; sin respaldo, se conserva la regla anterior. Una liquidación cerrada/pagada conserva su importe histórico. La estimación de comisión utiliza las mismas partes y el mes de asistencia de DU-19; la atribución analítica de cuotas devengadas no cambia.
+
+Implementación local T42 en verificación; no desplegada. Esta enmienda prevalece sobre la referencia general al mes del movimiento para el ingreso económico de cuotas adelantadas. [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md).
+
 ## Enmienda FIN-04 — definición cerrada el 22/09/2026
 
 **Aplicación financiera V3, 09/10/2026:** Carlos eligió las capturas: «Si, mucho mejor».
@@ -52,7 +64,7 @@ Cierra la definición funcional de FIN-04, no la implementación de Reportes (PO
   Liquidaciones abiertas se avisan con acceso a Liquidaciones, sin sumarlas a por pagar.
 - Ingresos, egresos, cuotas cobradas, resultados y saldos distinguen **confirmados**
   y **sin confirmar**, sin duplicar movimientos ni saldo inicial entre categorías.
-- La fecha real del movimiento determina el período; la caja donde se rinde y la
+- La fecha real del movimiento determina el período financiero (salvo la imputación económica T42 de cuotas adelantadas); la caja donde se rinde y la
   fecha de carga no lo trasladan. Confirmación posterior actualiza su mes de origen.
   Una carga tardía puede corregir un mes pasado. No contar nuevamente al validar.
 - **Filtro por deporte:** los gastos generales aparecen aparte como **Gastos del club**,
@@ -168,7 +180,7 @@ Sí entran, en cambio, en el saldo de cada medio de pago: la plata está.
 
 **Semanal y mensual**, los dos.
 
-**El corte va por la fecha del movimiento**, no por la fecha de validación de la caja.
+**El corte financiero va por la fecha del movimiento**, no por la fecha de validación de la caja. Para el ingreso económico adelantado rige T42, enmienda20/10.
 Es cuando la plata entró de verdad; la validación es un control administrativo
 posterior.
 

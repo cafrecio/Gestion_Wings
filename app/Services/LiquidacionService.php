@@ -192,9 +192,9 @@ class LiquidacionService
 
         $porcentajeComision = $liquidacion->porcentaje_comision_aplicado ?? $profesor->porcentaje_comision ?? 0;
 
-        $alumnosConPago = Pago::where('mes', $mes)
-            ->where('anio', $anio)
-            ->whereIn('estado', ['pagado', 'COMPLETADO'])->conCuota()
+        $periodo = sprintf('%04d-%02d', $anio, $mes);
+        $partes = app(PartesPagoCuotaService::class);
+        $alumnosConPago = $partes->pagosParaPeriodo($periodo)
             ->whereHas('alumno')
             ->with('alumno')
             ->get();
@@ -203,6 +203,8 @@ class LiquidacionService
 
         foreach ($alumnosConPago as $pago) {
             $alumno = $pago->alumno;
+            $montoCuota = $partes->centavosParaPeriodo($pago, $periodo) / 100;
+            if ($montoCuota <= 0) continue;
 
             // Verificar si el alumno asistió a al menos una clase de ESTE profesor
             $tieneAsistenciaConProfesor = Asistencia::where('alumno_id', $alumno->id)
@@ -220,7 +222,7 @@ class LiquidacionService
                 continue;
             }
 
-            $montoComision = round($pago->monto_cuota * ($porcentajeComision / 100), 2);
+            $montoComision = round($montoCuota * ($porcentajeComision / 100), 2);
 
             LiquidacionDetalle::create([
                 'liquidacion_id' => $liquidacion->id,
@@ -231,7 +233,7 @@ class LiquidacionService
                     'Comisión %s %s - Pago $%s (%s%%)',
                     $alumno->nombre,
                     $alumno->apellido,
-                    number_format($pago->monto_cuota, 2, ',', '.'),
+                    number_format($montoCuota, 2, ',', '.'),
                     $porcentajeComision
                 ),
             ]);
@@ -555,9 +557,9 @@ class LiquidacionService
         $deporteId = $profesor->deporte_id;
         $porcentajeComision = $profesor->porcentaje_comision ?? 0;
 
-        $alumnosConPago = Pago::where('mes', $mes)
-            ->where('anio', $anio)
-            ->whereIn('estado', ['pagado', 'COMPLETADO'])->conCuota()
+        $periodo = sprintf('%04d-%02d', $anio, $mes);
+        $partes = app(PartesPagoCuotaService::class);
+        $alumnosConPago = $partes->pagosParaPeriodo($periodo)
             ->whereHas('alumno', function ($query) use ($deporteId) {
                 $query->where('deporte_id', $deporteId)
                     ->where('activo', true);
@@ -570,6 +572,8 @@ class LiquidacionService
 
         foreach ($alumnosConPago as $pago) {
             $alumno = $pago->alumno;
+            $montoCuota = $partes->centavosParaPeriodo($pago, $periodo) / 100;
+            if ($montoCuota <= 0) continue;
 
             // Verificar si el alumno asistió a al menos una clase de ESTE profesor
             $tieneAsistenciaConProfesor = Asistencia::where('alumno_id', $alumno->id)
@@ -587,7 +591,7 @@ class LiquidacionService
                 continue;
             }
 
-            $montoComision = round($pago->monto_cuota * ($porcentajeComision / 100), 2);
+            $montoComision = round($montoCuota * ($porcentajeComision / 100), 2);
 
             $detalles[] = [
                 'tipo' => 'alumno',
@@ -596,7 +600,7 @@ class LiquidacionService
                     '%s %s - Pago $%s',
                     $alumno->nombre,
                     $alumno->apellido,
-                    number_format($pago->monto_cuota, 2, ',', '.')
+                    number_format($montoCuota, 2, ',', '.')
                 ),
                 'monto' => $montoComision,
             ];

@@ -177,7 +177,7 @@ La autorización de diseño no equivale a verificación independiente ni desplie
   No se inventa un egreso antes de pagarlas ni se edita su pago como un directo.
 - Mostrador sin validar y liquidaciones sin pagar se muestran separados de los
   movimientos confirmados y no se agregan a los totales de Cashflow.
-- Cashflow, Inicio, Reportes e Historial utilizan los mismos signos y valores.
+- Cashflow, Inicio, Reportes e Historial utilizan los mismos signos y valores financieros. T42 imputa el ingreso económico de cuotas adelantadas al mes pagado, sin mover su dinero de fecha ni alterar saldos; ver [Reportes V1, enmienda20/10](Wings-Contrato-Reportes-V1.md).
   Historial presenta egresos como salidas y contraasientos al revés de su original;
   los egresos operativos positivos y directos negativos se normalizan para sumar.
 - API REST sigue deshabilitada. La aprobación visual de la propuesta no equivale

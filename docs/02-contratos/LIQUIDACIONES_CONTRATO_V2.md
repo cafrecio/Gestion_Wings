@@ -2,6 +2,14 @@
 
 > Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
 
+## Enmienda 20/10/2026 — T42, mes efectivo de la comisión
+
+Decisión DU-19: cada parte de una cuota cobrada se liquida en el mayor entre el mes real del cobro y el mes que paga. Noviembre cobrado en octubre corresponde a noviembre; septiembre cobrado en octubre sigue en octubre. Se exige al menos una asistencia presente con ese profesor en el mes de la liquidación. Un cobro que paga varios meses se desglosa por `pago_deuda_cuota.monto_aplicado` y `deuda_cuotas.periodo`.
+
+Sin imputaciones se conserva la regla histórica de `Pago.mes/anio` y `monto_cuota` (fallback a `monto_final` si es NULL). Se excluyen anulados y se conserva el porcentaje congelado. Los centavos de un pago asignados a un mismo mes se suman antes de redondear su comisión a dos decimales, como el cálculo anterior por pago. No se recalculan liquidaciones cerradas ni pagadas. No cambia el registro de dinero de Caja/Cashflow.
+
+Implementación de comisión en avance local, aún sin entrega completa T42 ni despliegue. Reportes e ingreso histórico tienen una consulta de alcance pendiente; T43 agregará el control del dueño para atrasadas. [Preparación y pruebas](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md).
+
 ## Enmienda 09/10/2026 — monto final de comisión, implementado en desarrollo
 
 En Desarrollo III, Carlos eligió comisión sobre **cuotas cobradas** y aclaró que
@@ -213,16 +221,16 @@ Asistencias: 5 alumnos presentes
 ### 3.2 Liquidación COMISION
 
 **Premisa:** El profesor cobra comisión por alumnos que:
-1. Pagaron en el período
+1. Tienen importes de cuota asignados a la liquidación del período según DU-19 (enmienda20/10)
 2. Asistieron a al menos 1 clase dictada por ESE profesor en el período
 
 **Cálculo:**
 ```
 Para cada alumno del deporte:
-  SI pagó en el período
+  SI tiene cuota imputada a la liquidación del período según DU-19
   Y asistió a al menos 1 clase del profesor en el período
   ENTONCES:
-    comision = monto_pagado × (porcentaje_comision / 100)
+    comision = monto_asignado_al_periodo × (porcentaje_comision / 100)
 ```
 
 **Regla multi-profesor (CRÍTICA):**
@@ -336,9 +344,9 @@ El monto viene del PAGO del alumno.
      - Calcular: Σ(valor_hora × minutos / 60) por clase
 
    SI tipo = COMISION:
-     - Obtener alumnos del deporte con pago en el período
+     - Obtener pagos válidos y sus partes asignadas al período según DU-19
      - Filtrar los que asistieron a clases del profesor
-     - Calcular: Σ(monto_pago × porcentaje_comision)
+     - Calcular: Σ(monto_del_pago_asignado_al_periodo × porcentaje_comision)
 
 4. Sistema crea liquidación con detalles
 5. Liquidación queda en estado ABIERTA

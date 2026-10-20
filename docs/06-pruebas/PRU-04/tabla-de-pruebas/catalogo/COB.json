@@ -650,9 +650,9 @@
           "tipo": "indirecto"
         },
         {
-          "donde": "Caja y Reportes",
+          "donde": "Caja, Cashflow y Reportes",
           "l": "e",
-          "texto": "Entra como ingreso de octubre, el mes en que se cobró.",
+          "texto": "Caja y Cashflow registran la entrada de dinero en octubre, el día del cobro. En Reportes e Inicio cuenta como ingreso de noviembre, el mes que paga.",
           "tipo": "indirecto"
         },
         {
@@ -670,7 +670,7 @@
         {
           "donde": "Comisión",
           "l": "h",
-          "texto": "Entra en la base de comisión de octubre, no de noviembre.",
+          "texto": "Entra en la base de comisión de noviembre, el mes que paga, si tuvo al menos una asistencia presente con esa profesora en noviembre.",
           "tipo": "indirecto"
         },
         {

@@ -1,8 +1,8 @@
 # Tabla de pruebas — copia para los tres agentes
 
 La tabla viva es un artifact privado de Carlos y Claude
-(https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46). Codex y Gemini no pueden abrirlo: esta
-carpeta es su copia, para que un código como `CBZ-005` o `DU-54` se pueda leer.
+(https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46). El acceso depende de la sesión autenticada del navegador; esta
+carpeta permite consultar un código como `CBZ-005` o `DU-54` desde el repositorio.
 
 **Copia tomada el 16/10/2026 por Claude CyE.** Desde el 16/10 ningún caso está «a definir»: los que Carlos decidió y falta programar figuran «no implementado», con su tarea; los que aceptó como están, «vigente». Si la tabla cambia, esta copia queda vieja
 hasta que Claude la vuelva a bajar. La que manda es la tabla viva.
@@ -16,6 +16,8 @@ quedaron iguales):
 - COB-028 ya no incluye al reactivado: desde T38 tiene su cuota al reactivar.
 
 ## Qué hay
+
+**Actualización puntual 20/10/2026, T42:** Carlos autorizó a Codex enviar al editor de Claude los cambios de COB-012 e/h. Ingreso económico y comisión pasan a noviembre; Caja/Cashflow conservan octubre. Copia del repo actualizada y relectura de ArtifactData observada en el editor: catálogo COB, versión 10, solo COB-012 distinto. [Salida real de relectura](../evidencia-t42/tabla-viva-relectura.txt) y [captura de criterios](../evidencia-t42/tabla-viva-criterios.jpg). La vista pública quedó cargando; no se certifica su renderizado por heredar el mensaje de Claude. No se modificaron respuestas de dudas ni otros casos.
 
 - `catalogo/` — un archivo por módulo (ACC, ALU, CAJ, COB…). Adentro, `casos`: cada caso
   tiene `codigo`, `titulo`, `accion` (qué se hace), `requiere` (qué tiene que existir),

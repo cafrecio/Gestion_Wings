@@ -111,7 +111,9 @@ class HistorialAnaliticoReportesService
         }
         if ($modelo instanceof Pago) {
             return ['cuota_centavos'=>max(0, $centavos($modelo->monto_cuota)), 'estado'=>$modelo->estado,
-                'fecha_pago'=>$modelo->fecha_pago?->toDateString()];
+                'fecha_pago'=>$modelo->fecha_pago?->toDateString(),
+                'partes_cuota'=>array_values(array_filter(app(PartesPagoCuotaService::class)->partes($modelo),
+                    fn ($parte) => $parte['periodo_cuota'] !== null))];
         }
         return ['tipo'=>$modelo->tipo, 'estado'=>$modelo->estado, 'estado_pago'=>$modelo->estado_pago,
             'calculado_centavos'=>$centavos($modelo->total_calculado),
@@ -132,6 +134,19 @@ class HistorialAnaliticoReportesService
             ->when($origenId !== null, fn ($q) => $q->where('origen_id', $origenId))->groupBy('origen_id');
         $filas = DB::table(self::TABLA)->whereIn('id', $ids)->where('vigente', true)->orderBy('origen_id')->get()
             ->map(function ($f) { $f->datos = json_decode($f->datos, true, 512, JSON_THROW_ON_ERROR); return (array) $f; })->all();
+        if ($tipo === 'PAGO') {
+            // Estados anteriores a T42: leer las imputaciones originales si siguen disponibles,
+            // incluido el comprobante de anulación. No reescribir filas históricas.
+            $sinPartes = collect($filas)->filter(fn ($f) => empty($f['datos']['partes_cuota']));
+            $pagos = Pago::with('deudasCuota')->whereIn('id', $sinPartes->pluck('origen_id'))->get()->keyBy('id');
+            foreach ($filas as &$fila) {
+                if (!empty($fila['datos']['partes_cuota']) || !($pago = $pagos->get($fila['origen_id']))) continue;
+                $fila['datos']['partes_cuota'] = array_values(array_filter(
+                    app(PartesPagoCuotaService::class)->partes($pago, $fila['datos']['fecha_pago']),
+                    fn ($parte) => $parte['periodo_cuota'] !== null));
+            }
+            unset($fila);
+        }
         return ['disponible'=>true, 'desde'=>$desde, 'filas'=>$filas];
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\{Alumno, AlumnoRevisionCobranza, CajaOperativa, CargoAlumno, CashflowMovimiento, Clase, Liquidacion, MovimientoOperativo, TipoCaja};
+use App\Models\{Alumno, AlumnoRevisionCobranza, CajaOperativa, CargoAlumno, CashflowMovimiento, Clase, Liquidacion, MovimientoOperativo, Pago, TipoCaja};
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +19,9 @@ class ReporteMensualService
         $fin = min($inicio->endOfMonth()->toDateString(), today()->toDateString());
         $filas = $this->movimientos()->filter(fn ($f) => $f['fecha'] <= $fin);
         $delMes = $filas->filter(fn ($f) => substr($f['fecha'], 0, 7) === $mes);
+        $delMesEconomico = $this->filasEconomicas($filas)->where('periodo_ingreso', $mes);
         $enDeporte = fn ($f) => $deporteId === null || $f['deporte_id'] === $deporteId;
-        $economicos = $delMes->filter(fn ($f) => $f['clasificacion'] === 'NEGOCIO' && $enDeporte($f));
+        $economicos = $delMesEconomico->filter(fn ($f) => $f['clasificacion'] === 'NEGOCIO' && $enDeporte($f));
         $ingresos = $economicos->where('tipo', 'INGRESO')->sum('centavos');
         $egresos = -$economicos->where('tipo', 'EGRESO')->sum('centavos');
         $desconocidos = $delMes->filter(fn ($f) => $f['clasificacion'] === null);
@@ -52,7 +53,7 @@ class ReporteMensualService
             'disponible' => $saldoDisponible ? $tipos->sum('total') : null,
             'historial_desde' => $hasta,
             // Disponible es del negocio entero: el saldo inicial no tiene deporte.
-            'filas' => $delMes->filter($enDeporte)->values()->all(),
+            'filas' => $delMesEconomico->filter($enDeporte)->values()->all(),
             'avisos' => $this->avisos(),
             'alumnos' => Alumno::where('activo', true)->when($deporteId, fn ($q) => $q->where('deporte_id', $deporteId))
                 ->with(['deporte', 'grupo.nivel'])->get()->groupBy(fn ($a) => $a->deporte_id.':'.$a->grupo?->nivel_id)
@@ -63,7 +64,9 @@ class ReporteMensualService
 
     public function evolucion(string $mes, ?int $deporteId = null): array
     {
-        $meses = $this->movimientos()->map(fn ($f) => substr($f['fecha'], 0, 7))->unique()
+        $filas = $this->movimientos();
+        $meses = $filas->map(fn ($f) => substr($f['fecha'], 0, 7))
+            ->concat($this->filasEconomicas($filas)->pluck('periodo_ingreso'))->unique()
             ->filter(fn ($p) => $p < $mes && $p < today()->format('Y-m'))->sort()->take(-6);
         return $meses->map(fn ($p) => $this->obtener($p, $deporteId))->values()->all();
     }
@@ -165,22 +168,70 @@ class ReporteMensualService
     private function movimientos(): Collection
     {
         // Cashflow es fuente confirmada; solo se agregan operativos todavía no reflejados.
-        $cf = CashflowMovimiento::with('subrubro.rubro')->get()->map(fn ($m) => $this->fila($m, true));
+        $cf = CashflowMovimiento::with(['subrubro.rubro', 'movimientoOperativo'])->get();
         $pendientes = MovimientoOperativo::activos()->whereHas('cajaOperativa', fn ($q) => $q->where('estado', '!=', CajaOperativa::ESTADO_VALIDADA))
-            ->with('subrubro.rubro')->get()->map(fn ($m) => $this->fila($m, false));
-        return $cf->concat($pendientes);
+            ->with('subrubro.rubro')->get();
+        $antiguos = $this->pagosDeAsientosAntiguos($cf);
+        $idPago = fn ($m) => $m->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA ? $m->referencia_id
+            : ($m->movimientoOperativo?->pago_id ?? $antiguos[$m->id] ?? null);
+        $pagos = Pago::with('deudasCuota')->whereIn('id', $cf->toBase()->map($idPago)
+            ->concat($pendientes->pluck('pago_id'))->filter()->unique())->get()->keyBy('id');
+        return $cf->toBase()->map(fn ($m) => $this->fila($m, true, $pagos->get($idPago($m))))
+            ->concat($pendientes->map(fn ($m) => $this->fila($m, false, $pagos->get($m->pago_id))));
     }
 
-    private function fila($m, bool $confirmado): array
+    /** Recuperación de lectura, solo cuando la correspondencia financiera es uno a uno. */
+    private function pagosDeAsientosAntiguos(Collection $cf): array
+    {
+        $viejos = $cf->filter(fn ($m) => $m->referencia_tipo === CashflowMovimiento::REF_CAJA
+            && !$m->movimiento_operativo_id && $m->monto > 0 && $m->subrubro->nombre === 'Cuota Mensual');
+        if ($viejos->isEmpty()) return [];
+        $llave = fn ($m, $caja) => implode(':', [$caja, $m->fecha->toDateString(), $m->subrubro_id,
+            $m->tipo_caja_id, (int) round((float) $m->monto * 100)]);
+        $asientos = $cf->where('referencia_tipo', CashflowMovimiento::REF_CAJA)
+            ->groupBy(fn ($m) => $llave($m, $m->referencia_id));
+        $movimientos = MovimientoOperativo::activos()->whereIn('caja_operativa_id', $viejos->pluck('referencia_id'))
+            ->get()->groupBy(fn ($m) => $llave($m, $m->caja_operativa_id));
+        $resultado = [];
+        foreach ($viejos as $m) {
+            $clave = $llave($m, $m->referencia_id);
+            $candidatos = $movimientos->get($clave, collect());
+            if ($asientos[$clave]->count() === 1 && $candidatos->count() === 1 && $candidatos->first()->pago_id) {
+                $resultado[$m->id] = $candidatos->first()->pago_id;
+            }
+        }
+        return $resultado;
+    }
+
+    private function fila($m, bool $confirmado, ?Pago $pago = null): array
     {
         $tipo = $m->reporte_tipo ?? $m->subrubro->rubro->tipo;
         $centavos = (int) round((float) $m->monto * 100);
         if (!$confirmado) $centavos = $tipo === 'EGRESO' ? -abs($centavos) : abs($centavos);
+        $partes = $pago && $m->subrubro->nombre === 'Cuota Mensual' && $tipo === 'INGRESO'
+            ? app(PartesPagoCuotaService::class)->partes($pago) : [];
+        // Sin mes pagado comprobable, Carlos conserva el mes original (20/10).
+        $partes = array_values(array_filter($partes, fn ($p) => $p['periodo_cuota'] !== null));
         return ['id' => $m->id, 'origen' => $confirmado ? 'CASHFLOW' : 'OPERATIVO',
             'fecha' => $m->fecha->toDateString(), 'concepto' => $m->subrubro->nombre,
             'tipo_caja_id' => (int) $m->tipo_caja_id, 'tipo' => $tipo, 'centavos' => $centavos,
             'confirmado' => $confirmado, 'deporte_id' => $m->reporte_deporte_id === null ? null : (int) $m->reporte_deporte_id,
-            'clasificacion' => $m->reporte_clasificacion];
+            'clasificacion' => $m->reporte_clasificacion, 'partes_cuota' => $partes];
+    }
+
+    /** Solo cambia la imputación del ingreso: fecha de cobro y filas financieras intactas. */
+    private function filasEconomicas(Collection $filas): Collection
+    {
+        return $filas->flatMap(function ($fila) {
+            if (!$fila['partes_cuota']) return [$fila + ['periodo_ingreso' => substr($fila['fecha'], 0, 7)]];
+            return array_map(function ($parte) use ($fila) {
+                return array_replace($fila, [
+                    'periodo_ingreso' => $parte['periodo_comision'],
+                    'centavos' => ($fila['centavos'] < 0 ? -1 : 1) * $parte['centavos'],
+                    'concepto' => $fila['concepto'].' ('.substr($parte['periodo_cuota'], 5, 2).'/'.substr($parte['periodo_cuota'], 0, 4).')',
+                ]);
+            }, $fila['partes_cuota']);
+        });
     }
 
     public function avisos(): array

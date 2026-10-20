@@ -1,0 +1,34 @@
+....................................................................................................................
+  ............................................................................................ssssss..................
+  ....................................................................................................................
+  ....................................................................................................................
+  ............................................................................................⨯.......................
+  ....................................................................................................................
+  ....................................................................................................................
+  ....................................................................................................................
+  ..........................................................................
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\IngresosPorPeriodoT42Test > estimacion de sueldo usa mes pagado y recupera historial viejo…
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'2026-11'
++'2026-10'
+
+  at tests\Feature\IngresosPorPeriodoT42Test.php:213
+    209▕             ->update(['datos' => json_encode(['cuota_centavos' => 10000, 'estado' => 'COMPLETADO', 'fecha_pago' => '2026-10-15'])]);
+    210▕         $antes = DB::table('reporte_analitico_historial')->orderBy('id')->get()->toJson();
+    211▕         Carbon::setTestNow('2026-11-15');
+    212▕         $hist = app(HistorialAnaliticoReportesService::class)->obtener('PAGO', CarbonImmutable::parse('2026-11-15'));
+  ➜ 213▕         $this->assertSame('2026-11', $hist['filas'][0]['datos']['partes_cuota'][0]['periodo_comision']);
+    214▕         $this->assertSame(0, app(ReporteSueldosService::class)->obtener('2026-10')['costo']);
+    215▕         $this->assertSame(4000, app(ReporteSueldosService::class)->obtener('2026-11')['costo']);
+    216▕         $this->assertSame($antes, DB::table('reporte_analitico_historial')->orderBy('id')->get()->toJson());
+    217▕     }
+
+  1   tests\Feature\IngresosPorPeriodoT42Test.php:213
+
+
+  Tests:    1 failed, 6 skipped, 995 passed (8642 assertions)
+  Duration: 809.46s

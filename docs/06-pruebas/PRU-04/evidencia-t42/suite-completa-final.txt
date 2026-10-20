@@ -1,0 +1,33 @@
+....................................................................................................................
+  ............................................................................................ssssss..................
+  ....................................................................................................................
+  ....................................................................................................................
+  ........⨯
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\DocumentacionNoMienteTest > los documentos declaran la cantidad real de pruebas
+  docs/00-estado/ESTADO-ACTUAL.md MIENTE.
+  Declara: 1002 pruebas
+  Reales:  1003 pruebas
+
+Actualizar el documento en el mismo commit que agrego o quito la prueba.
+Un documento desactualizado hace que la proxima orden de trabajo se escriba
+sobre informacion falsa. Ya paso.
+
+Failed asserting that 1002 is identical to 1003.
+
+  at tests\Feature\DocumentacionNoMienteTest.php:64
+     60▕             }
+     61▕
+     62▕             $declarado = (int) $coincidencia[1];
+     63▕
+  ➜  64▕             $this->assertSame(
+     65▕                 $real,
+     66▕                 $declarado,
+     67▕                 "\n".
+     68▕                 "{$ruta} MIENTE.\n".
+
+  1   tests\Feature\DocumentacionNoMienteTest.php:64
+
+
+  Tests:    1 failed, 6 skipped, 466 passed, [2m529 pending[22m (3399 assertions)
+  Duration: 202.39s

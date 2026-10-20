@@ -1,6 +1,16 @@
 # T52 — Verificación independiente de lógica
 
-## Reverificación de d148a241 — Codex CyE, 20/10/2026
+## Reverificación de e1e7c499 — Codex CyE, 20/10/2026
+
+**LÓGICA APROBADA en la revisión independiente.** Se leyó el cuerpo actual de `Alumno::scopeEnGrupoElDia`: exige siempre ingreso ocurrido y, cuando existe cambio, llegada al grupo ocurrida. La fecha del cambio ya no puede adelantar un ingreso futuro. Sin modificación de producto por Codex.
+
+Nueve pruebas propias, conservadas sin cambiar su criterio, más las doce regresiones de T52: **21 aprobadas, 139 aserciones, 19,79 s, salida 0**, `wings_testing_codex`, sin otra suite activa al iniciar. [Salida](evidencia-t52-reverificacion-codex/revision-h5-e1.txt) · [Filas del nuevo corte](evidencia-t52-reverificacion-codex/observaciones-h5-e1.jsonl) · [Fuentes verificadas](evidencia-t52-reverificacion-codex/fuentes-h5-e1.json).
+
+H5 web repetido: ingreso 01/11 y cambio de grupo 20/10; clase del 20/10 ya no lo lista, POST devuelve **422 y no guarda marca**. H1–H4, reactivación por los tres roles, plan diferido y protección de cerradas/pagadas HORA/COMISIÓN siguen aprobados. Consultas: **12 con uno y 12 con doce alumnos**.
+
+Visual de Carlos conservado: «Las vistas están OK». La migración de cambios antiguos con plan diferido sigue siendo una aproximación conservadora declarada, no una reconstrucción de la fecha real. No se despliega ni se migra el club. T52 cerrada por script con hizo=Claude y verifica=Codex. Completa compartida con T42, corte 1003: **997 aprobadas, 6 omitidas, 8652 aserciones, 1242,09 s, salida 0** ([salida](evidencia-t42/suite-completa-corte1003.txt)). No hubo cambios de producto T52 por Codex.
+
+## Antecedente: reverificación de d148a241 — Codex CyE, 20/10/2026
 
 **DEVUELTA A CLAUDE POR H5. H1–H4 corregidos en los escenarios originalmente reproducidos.**
 Las cuatro fuentes principales de T52 (modelo, controlador de clases, servicio y migración) no tienen diferencias entre d148a241 y HEAD al verificar.

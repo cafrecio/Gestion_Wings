@@ -1098,6 +1098,8 @@ class PagoCuotaService
                 ]);
             }
         }
+        // Pago::created ocurre antes de adjuntar las imputaciones; congelar el estado completo.
+        app(HistorialAnaliticoReportesService::class)->registrar($pago);
     }
 
     /**
