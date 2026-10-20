@@ -21,6 +21,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   835/4 omitidas; 2 fallidas de T61 de Codex sin subir. Contrato V1 y tabla (ALU-013, ASI-009) al día.
 - Para Carlos: quien entró al grupo después sigue apareciendo en clases viejas; no se decidió.
 - A verificar (lógica) y visual de Carlos. Sin despliegue.
+- **Error mío:** lancé la suite rápida de T52 mientras Codex corría la completa de T61 en la misma
+  máquina (bases distintas). Su nota dice que su primera completa se interrumpió por otra suite
+  iniciada después: fue la mía. La regla (AGENTS §6-ter) es una sola a la vez por máquina; antes de
+  lanzar una suite hay que mirar si hay otra corriendo. Codex tiene que repetir la suya.
+- Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
+  texto con 956 (sus 951 más mis 5).
 
 ## 2026-10-19 — Claude CyE — Producción y prueba: dos bases que se confundieron
 
