@@ -50,17 +50,17 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | En curso (hizo Codex) | Repetir completa sin solapamiento; resolver acceso de navegador local y capturar 1366/375. Verifican otro agente y Carlos. |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude el 19/10: cero bloques script y cero manejadores en las vistas (eran 8 y 8). Ingreso con el ojo de ds-app; filtros con data-enviar-al-cambiar; 5 módulos nuevos en resources/js; confirmaciones con form[data-confirmar-envio]. CspSinCodigoIncrustadoTest en cero. Sin cambios de aspecto. Falta verificar EN NAVEGADOR con clics (lista en el informe). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T73.md |
+Nada en este momento.
 
-## Sin empezar (23)
+## Sin empezar (22)
 
-T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, B3.
+T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T62, T64, T65, T69, T70, T71, T72, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

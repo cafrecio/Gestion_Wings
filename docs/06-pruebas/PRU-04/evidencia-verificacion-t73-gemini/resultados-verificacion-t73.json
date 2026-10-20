@@ -1,0 +1,170 @@
+{
+  "puntos": {
+    "punto1_ingreso": {
+      "ok": true,
+      "tipoInicial": "password",
+      "tipoMostrado": "text",
+      "tipoOculto": "password",
+      "iconEyeInit": "block",
+      "iconEyeOffInit": "none",
+      "iconEyeMostrado": "none",
+      "iconEyeOffMostrado": "block"
+    },
+    "punto2_filtros": {
+      "ok": true,
+      "grupos": {
+        "tieneAttr": true,
+        "urlDespues": "http://127.0.0.1:8740/grupos?deporte_id=3",
+        "cantidad": 1
+      },
+      "profesores": {
+        "tieneAttr": true,
+        "urlDespues": "http://127.0.0.1:8740/profesores?search=&deporte_id=4",
+        "cantidad": 1
+      }
+    },
+    "punto3_caja_editar": {
+      "ok": true,
+      "rubroInicial": "14",
+      "subrubroInicial": "21",
+      "tipoInicialCaja": "EGRESO",
+      "egresoOptionsHidden": true,
+      "ingresoOptionsVisible": true,
+      "subrubrosFiltradosIngreso": true,
+      "ingresoOptionsHiddenNow": true,
+      "borderCardIngreso": "4px solid var(--color-success)",
+      "borderCardEgreso": "4px solid var(--color-danger)",
+      "captura": "03-caja-editar-1366.png"
+    },
+    "punto4_clase_show": {
+      "ok": true,
+      "contadorInicial": "0",
+      "contadorCon1": "1",
+      "excesoDisplay1": "block",
+      "toastTexto": "✓ Asistencias guardadas.",
+      "flashCancelarTexto": "El motivo es obligatorio.",
+      "panelProfsVisible": true,
+      "panelProfsCerrado": true,
+      "textoProfsActualizado": "Auxiliar, Carolina · Gimenez, Laura",
+      "captura": "04-clase-show-1366.png"
+    },
+    "punto5_clases_index": {
+      "ok": true,
+      "containerScrollTop": 0,
+      "urlDespuesClasesDep": "http://127.0.0.1:8740/clases?deporte_id=3&grupo_id=&profesor_id=&estado=&fecha=&orden=",
+      "urlDespuesClasesOrd": "http://127.0.0.1:8740/clases?deporte_id=3&grupo_id=&profesor_id=&estado=&fecha=&orden=fecha_asc"
+    },
+    "punto6_liquidacion_create": {
+      "ok": true,
+      "filaSelected": true,
+      "avisoSinAsistenciaDisplay": "flex",
+      "avisoSinAsistenciaTexto": "Valenzuela, Marcos tiene 1 clase sin asistencia cargada que no se incluirá en esta liquidación. Podés cargar las asistencias antes de continuar.",
+      "funcionToggleExiste": true,
+      "valorIncluir1": "1",
+      "valorIncluir0": "0",
+      "bgBtnIncluir": "var(--color-warning)",
+      "bgBtnNoIncluir": "var(--color-warning)",
+      "captura": "06-liquidacion-create-1366.png"
+    },
+    "punto7_alumnos_autocomplete": {
+      "ok": true,
+      "dropdownVisible": true,
+      "itemsCount": 4,
+      "tagsBEnDropdown": 0,
+      "tieneMartinEscapado": true,
+      "item0Active": true,
+      "item1Active": true,
+      "item0ActiveAgain": true,
+      "dropdownCerradoEscape": true,
+      "captura": "07-alumnos-autocomplete-1366.png"
+    },
+    "punto8_confirmaciones": {
+      "ok": true,
+      "detalles": [
+        {
+          "nombre": "1. grupos/show (eliminar plan)",
+          "mensajeEsperado": "¿Eliminar este plan?",
+          "mensajeRecibido": "¿Eliminar este plan?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "2. liquidaciones/index (eliminar liquidacion)",
+          "mensajeEsperado": "¿Eliminar esta liquidación?",
+          "mensajeRecibido": "¿Eliminar esta liquidación?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "3. liquidaciones/show (cerrar liquidacion)",
+          "mensajeEsperado": "¿Cerrar esta liquidación? No podrá ser modificada después.",
+          "mensajeRecibido": "¿Cerrar esta liquidación? No podrá ser modificada después.",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "4. liquidaciones/show (recalcular liquidacion)",
+          "mensajeEsperado": "¿Recalcular? Los detalles actuales serán reemplazados.",
+          "mensajeRecibido": "¿Recalcular? Los detalles actuales serán reemplazados.",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "5. liquidaciones/show (eliminar liquidacion permanentemente)",
+          "mensajeEsperado": "¿Eliminar esta liquidación permanentemente?",
+          "mensajeRecibido": "¿Eliminar esta liquidación permanentemente?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "6. niveles/index (eliminar nivel)",
+          "mensajeEsperado": "¿Eliminar el nivel «Nivel Borrable T73»?",
+          "mensajeRecibido": "¿Eliminar el nivel «Nivel Borrable T73»?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "7. rubros/index (eliminar rubro ingreso)",
+          "mensajeEsperado": "¿Eliminar Rubro Ingreso Borrable T73?",
+          "mensajeRecibido": "¿Eliminar Rubro Ingreso Borrable T73?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        },
+        {
+          "nombre": "8. rubros/index (eliminar rubro egreso con comillas)",
+          "mensajeEsperado": "¿Eliminar Rubro \"Especial T73\"?",
+          "mensajeRecibido": "¿Eliminar Rubro \"Especial T73\"?",
+          "cancelOk": true,
+          "formSubmittedState": {
+            "buttonDisabled": false
+          }
+        }
+      ],
+      "rubroEliminadoAlAceptar": true,
+      "captura": "08-confirmacion-abierta-1366.png"
+    },
+    "punto9_consola_csp": {
+      "ok": true,
+      "totalLogs": 0,
+      "erroresJs": 0,
+      "cspViolaciones": 0,
+      "detalleErrores": []
+    }
+  },
+  "consola": [],
+  "errores": []
+}

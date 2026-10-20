@@ -10,6 +10,25 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-20 — LOG GEM CAB — Verificación independiente T73: cero JavaScript dentro de las vistas
+
+- **Objetivo y resultado:** Verificación independiente de la tarea T73 implementada por Claude CyE en commit `b05bda9`. Resultado: **APROBADA** y **CERRADA** en el tablero. Cero JavaScript inline residual en las vistas Blade y comportamiento interactivo 100% preservado.
+- **Alcance verificado:**
+  - 8 bloques `<script>` extraídos de 8 vistas hacia 5 módulos dedicados en `resources/js/` (`caja-editar.js`, `clases-show.js`, `clases-index.js`, `liquidaciones-create.js`, `alumnos-index.js`) y `ds-app.js`.
+  - 8 formularios con `onsubmit="return confirm(...)"` migrados a `form[data-confirmar-envio="..."]`.
+- **Pruebas en navegador real (Chrome CDP sobre `http://127.0.0.1:8740` con `wings_testing_gemini` y assets compilados con `npm run build`):**
+  - Punto 1 (Ingreso): Toggle de contraseña (ojo) alterna visibilidad y tipo de input.
+  - Punto 2 (Grupos y Profesores): Selects con `data-enviar-al-cambiar` disparan submit automático con filtro de deporte.
+  - Punto 3 (Caja editar): Tabs Ingreso/Egreso alternan estilos, filtran opciones de rubro por `data-tipo` y subrubros por rubro.
+  - Punto 4 (Ficha de clase): Checkbox de asistencia actualiza contador en vivo, alerta de exceso de plan semanal, guardado AJAX con toast, modal cancelar exige motivo, panel de profesoras actualiza y cierra correctamente.
+  - Punto 5 (Clases index): Scroll automático al primer bloque de clases futuras de hoy; selects de filtros envían al cambiar.
+  - Punto 6 (Liquidación crear): Selección de profesor marca fila y advierte clases sin asistencia; botones de "Incluir hoy" alternan valor y estilos.
+  - Punto 7 (Alumnos autocomplete): Debounce 250ms, dropdown navegable con teclado (`ArrowDown`/`ArrowUp`), sanitización XSS comprobada (nombre con tags HTML es escapado en texto plano).
+  - Punto 8 (8 confirmaciones): Cancelar diálogo no bloquea submit ni deshabilita botones; aceptar envía el formulario incluso con comillas en el mensaje (`Rubro "Especial T73"`).
+  - Punto 9 (Consola & CSP): 0 errores de consola y 0 violaciones de CSP.
+- **Suite automatizada:** `CspSinCodigoIncrustadoTest` y `AlumnoAutocompleteViewSecurityTest` en verde.
+- **Informe y entrega:** `docs/06-pruebas/PRU-04/VERIFICACION-T73-GEMINI.md`. Evidencias en `docs/06-pruebas/PRU-04/evidencia-verificacion-t73-gemini/`. T73 cerrada en tablero.
+
 ## 2026-10-19 — LOG GEM CYE — Verificación de Lógica T40: Reintento automático de cuotas y constancia
 
 - **Objetivo y resultado:** Verificación independiente de la lógica implementada por Claude CyE en commit `c9624c47` (T40, DU-52 / CBZ-020). Resultado: **APROBADA** (sin fallas lógicas, sin riesgo de duplicación y con avisos tolerantes a fallos). Sin cambios de pantallas ni revisión visual requerida.
