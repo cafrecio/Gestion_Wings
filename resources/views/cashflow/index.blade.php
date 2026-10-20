@@ -141,7 +141,10 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
     <div class="stats-info">
         <strong>{{ $movimientos->total() }}</strong> movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
     </div>
-    <x-ds.button variant="primary" href="{{ route('web.cashflow.movimiento') }}">Nuevo</x-ds.button>
+    <div class="flex justify-end gap-2 acciones-celular-derecha">
+        <x-ds.button variant="secondary" href="{{ route('web.cashflow.transferencia') }}">Transferir</x-ds.button>
+        <x-ds.button variant="primary" href="{{ route('web.cashflow.movimiento') }}">Nuevo</x-ds.button>
+    </div>
 </div>
 
 {{-- Tabla --}}

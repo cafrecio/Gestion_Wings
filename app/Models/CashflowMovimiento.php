@@ -20,6 +20,7 @@ class CashflowMovimiento extends Model
     const REF_PAGO_CUOTA  = 'PAGO_CUOTA';     // cobro de cuota directo por admin
     const REF_LIQUIDACION = 'LIQUIDACION';    // pago de liquidación a profesor
     const REF_CORRECCION = 'CORRECCION_DIRECTO'; // contraasiento de un directo, no editable
+    const REF_TRANSFERENCIA = 'TRANSFERENCIA'; // dos movimientos de una operación indivisible
 
     protected $fillable = [
         'reporte_deporte_id',

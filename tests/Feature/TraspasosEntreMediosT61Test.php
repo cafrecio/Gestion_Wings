@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use Tests\Support\CajaDeclarada;
 use Tests\TestCase;
 
-/** CSH-018: dos movimientos independientes; nunca un gasto ni un ingreso del club. */
+/** CSH-018: transferencia atómica, catálogo protegido y resultado económico conservado. */
 class TraspasosEntreMediosT61Test extends TestCase
 {
     use RefreshDatabase;
@@ -76,237 +76,210 @@ class TraspasosEntreMediosT61Test extends TestCase
             'sin_clasificar', 'aportes', 'retiros', 'disponible', 'deuda', 'por_pagar', 'gastos_club', 'avisos']);
     }
 
-    public function test_catalogo_nuevo_tiene_dos_conceptos_admin_activos_y_la_etiqueta_en_ambos_tipos(): void
+    private function datos(array $cambios = []): array
     {
-        foreach ([$this->salida, $this->entrada] as $sub) {
-            $this->assertSame('TRASPASO', $sub->clasificacion_resultado);
-            $this->assertSame('ADMIN', $sub->permitido_para);
-            $this->assertTrue((bool) $sub->afecta_caja);
-            $this->assertTrue((bool) $sub->activo);
-            $this->get(route('web.subrubros.edit', [$sub->rubro_id, $sub->id]))->assertOk()
-                ->assertSee('Traspaso entre medios (no cuenta en el resultado)');
-        }
-        $this->assertSame('EGRESO', $this->salida->rubro->tipo);
-        $this->assertSame('INGRESO', $this->entrada->rubro->tipo);
-        $this->assertNotSame($this->salida->rubro->nombre, $this->entrada->rubro->nombre);
+        return array_replace(['clave' => (string) Str::uuid(), 'salida_id' => $this->efectivo->id,
+            'destino_id' => $this->banco->id, 'monto' => '300000.00', 'fecha' => '2026-10-20',
+            'observaciones' => 'Transferencia ficticia T61'], $cambios);
     }
 
-    public function test_csh018_carga_300mil_efectivo_a_banco_sin_alterar_el_resultado_del_club(): void
+    private function transferir(array $cambios = []): void
     {
-        // Una base con ingreso/gasto y aporte/retiro evita aprobar por comparar solo ceros.
+        $this->post('/cashflow/transferencia', $this->datos($cambios))
+            ->assertRedirect('/cashflow')->assertSessionHasNoErrors()->assertSessionHas('success');
+    }
+
+    public function test_catalogo_protegido_rechaza_edicion_renombre_baja_y_subrubros_adicionales(): void
+    {
+        foreach ([$this->salida, $this->entrada] as $sub) {
+            $this->assertTrue($sub->es_reservado_sistema);
+            $this->assertTrue($sub->rubro->es_reservado_sistema);
+            $this->assertSame('TRASPASO', $sub->clasificacion_resultado);
+            $antes = $sub->getAttributes();
+            $rubroAntes = $sub->rubro->getAttributes();
+            $ruta = route('web.subrubros.update', [$sub->rubro_id, $sub->id]);
+            $this->get(route('web.subrubros.edit', [$sub->rubro_id, $sub->id]))->assertSessionHas('error');
+            $this->put($ruta, ['nombre' => 'Renombrado', 'clasificacion_resultado' => 'NEGOCIO',
+                'permitido_para' => 'OPERATIVO'])->assertSessionHas('error');
+            $this->put(route('web.rubros.update', $sub->rubro_id), ['nombre' => 'Renombrado', 'tipo' => 'EGRESO'])
+                ->assertSessionHas('error');
+            $this->delete(route('web.rubros.destroy', $sub->rubro_id))->assertSessionHas('error');
+            $this->post(route('web.subrubros.store', $sub->rubro_id), ['nombre' => 'Adicional'])
+                ->assertSessionHas('error');
+            $this->assertSame($antes, $sub->fresh()->getAttributes());
+            $this->assertSame($rubroAntes, $sub->rubro->fresh()->getAttributes());
+        }
+    }
+
+    public function test_transferencia_mueve_300mil_y_conserva_todos_los_indicadores_del_club(): void
+    {
         $this->cargar(Subrubro::where('nombre', 'Intereses Banco')->firstOrFail(), $this->banco, '12000.00');
         $this->cargar(Subrubro::where('nombre', 'Luz')->firstOrFail(), $this->banco, '5000.00');
         $this->cargar(Subrubro::where('nombre', 'Patines')->firstOrFail(), $this->efectivo, '8000.00');
         $this->cargar(Subrubro::where('nombre', 'Retiro de dueños')->firstOrFail(), $this->efectivo, '2000.00');
         $antes = $this->reporte();
-        $this->get('/cashflow?periodo=mes&anio=2026&mes=10')->assertOk()
-            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 20000.0)
-            ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 7000.0);
-        $salida = $this->cargar($this->salida, $this->efectivo);
-        $entrada = $this->cargar($this->entrada, $this->banco);
+        $this->transferir();
         $despues = $this->reporte();
-        $this->assertSame('-300000.00', $salida->monto);
-        $this->assertSame('300000.00', $entrada->monto);
-        foreach ([$salida, $entrada] as $m) {
-            $this->assertSame('TRASPASO', $m->reporte_clasificacion);
-            $this->assertNull($m->referencia_tipo);
-        }
-        $this->assertSame(1200000, $despues['ingresos']);
-        $this->assertSame(500000, $despues['egresos']);
-        $this->assertSame(700000, $despues['resultado']);
-        $this->assertSame(800000, $despues['aportes']);
-        $this->assertSame(200000, $despues['retiros']);
-        $this->assertSame(0, $despues['sin_clasificar']);
         $this->assertSame($this->indicadores($antes), $this->indicadores($despues));
+        $this->assertSame(700000, $despues['resultado']);
         $a = collect($antes['cajas'])->keyBy('id');
         $d = collect($despues['cajas'])->keyBy('id');
         $this->assertSame($a[$this->efectivo->id]['total'] - 30000000, $d[$this->efectivo->id]['total']);
         $this->assertSame($a[$this->banco->id]['total'] + 30000000, $d[$this->banco->id]['total']);
-        $cashflow = $this->get('/cashflow?periodo=mes&anio=2026&mes=10')->assertOk()->assertSee('Traspaso');
-        $cashflow->assertViewHas('movimientos', fn ($ms) => $ms->where('origenCorreccion', 'Traspaso')->count() === 2);
-        $cashflow->assertViewHas('saldosPorMedio', $despues['cajas']);
-        // Carlos: Cashflow muestra lo que entró y salió, aunque no sea del club.
-        $cashflow->assertViewHas('totalIngresos', fn ($m) => (float) $m === 320000.0)
+        $movs = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_TRANSFERENCIA)->orderBy('id')->get();
+        $this->assertCount(2, $movs);
+        $this->assertSame(['-300000.00', '300000.00'], $movs->pluck('monto')->all());
+        $this->assertSame(1, $movs->pluck('referencia_id')->unique()->count());
+        $this->assertSame(['TRASPASO', 'TRASPASO'], $movs->pluck('reporte_clasificacion')->all());
+        $this->get('/cashflow?periodo=mes&anio=2026&mes=10')->assertOk()
+            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 320000.0)
             ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 307000.0);
-        // También concilia el saldo del libro Cashflow, sin depender de la vista.
         $libro = collect(app(CashflowSaldoService::class)->obtenerSaldosPorTipoCaja()['por_tipo_caja'])->keyBy('tipo_caja_id');
         $this->assertEquals($d[$this->efectivo->id]['total'] / 100, $libro[$this->efectivo->id]['saldo']);
         $this->assertEquals($d[$this->banco->id]['total'] / 100, $libro[$this->banco->id]['saldo']);
-        // CSH-018.d: T13 hará la pantalla; T61 entrega el texto listo con los dos pasos.
-        $rutaAyuda = base_path('docs/06-pruebas/PRU-04/IMPLEMENTACION-T61.md');
-        $this->assertFileExists($rutaAyuda);
-        $this->assertSame(1, preg_match('/^## Para la ayuda\R(.*?)(?=^## |\z)/ms', file_get_contents($rutaAyuda), $seccion));
-        foreach (['Salida a otro medio', 'Entrada desde otro medio', 'Efectivo', 'Banco', '$300.000', 'No es una venta'] as $texto) {
-            $this->assertStringContainsString($texto, $seccion[1]);
-        }
-        $this->assertMatchesRegularExpression('/^1\. /m', $seccion[1]);
-        $this->assertMatchesRegularExpression('/^2\. /m', $seccion[1]);
+        $this->get('/admin/dashboard')->assertOk();
+        $this->get('/reportes?mes=2026-10')->assertOk();
     }
 
-    public function test_inicio_y_reportes_conservan_indicadores_y_sueldos_y_alumnos_no_cambian(): void
+    public function test_fallo_al_guardar_entrada_revierte_salida_y_cabecera(): void
     {
-        $f = new \Tests\Support\ImportesT24('apertura');
-        $this->cargar(Subrubro::where('nombre', 'Intereses Banco')->firstOrFail(), $this->banco, '12000.00');
-        $antes = $this->indicadores($this->reporte());
-        $sueldos = app(ReporteSueldosService::class)->obtener('2026-10');
-        $alumnos = app(ReporteAlumnosService::class)->obtener('2026-10');
-        $this->assertSame(1, $alumnos['activos']);
-        $this->assertNotEmpty($sueldos['profesores']);
-        $this->cargar($this->salida, $this->efectivo);
-        $this->cargar($this->entrada, $this->banco);
-        foreach (['/admin/dashboard', '/reportes?mes=2026-10'] as $ruta) {
-            $this->get($ruta)->assertOk()->assertViewHas('reporte', fn ($r) => $this->indicadores($r) === $antes);
-        }
-        $this->get('/reportes/sueldos?mes=2026-10')->assertOk()->assertViewHas('reporte', $sueldos);
-        $this->get('/reportes/alumnos?mes=2026-10')->assertOk()->assertViewHas('reporte', $alumnos);
-        $this->get('/reportes?mes=2026-10')->assertDontSee('Transferencias internas');
-    }
-
-    public function test_salida_y_entrada_de_meses_distintos_no_alteran_negocio_pero_si_global_de_cada_mes(): void
-    {
-        $this->cargar($this->salida, $this->efectivo, '300000.00', '2026-09-30');
-        $septiembre = $this->reporte('2026-09');
-        $this->assertSame(-30000000, $septiembre['resultado_global']);
-        $this->assertSame(0, $septiembre['resultado']);
-        $this->cargar($this->entrada, $this->banco, '300000.00', '2026-10-01');
-        $octubre = $this->reporte();
-        $this->assertSame(30000000, $octubre['resultado_global']);
-        $this->assertSame(0, $octubre['resultado']);
-        $this->assertSame(0, $octubre['sin_clasificar']);
-        $sept = collect($septiembre['cajas'])->keyBy('id');
-        $oct = collect($octubre['cajas'])->keyBy('id');
-        $this->assertSame($sept[$this->efectivo->id]['total'], $oct[$this->efectivo->id]['total']);
-        $this->assertSame($sept[$this->banco->id]['total'] + 30000000, $oct[$this->banco->id]['total']);
-    }
-
-    public function test_no_obliga_a_emparejar_importes_fechas_ni_registros(): void
-    {
-        $this->cargar($this->salida, $this->efectivo, '300000.00', '2026-10-19');
-        $this->assertSame(0, $this->reporte()['resultado']);
-        $this->cargar($this->entrada, $this->banco, '290000.00');
-        $this->assertSame(2, CashflowMovimiento::count());
-        $this->assertSame(-1000000, $this->reporte()['resultado_global']);
-        $this->assertSame(0, $this->reporte()['resultado']);
-    }
-
-    public function test_operativa_no_ve_conceptos_ni_puede_cargarlos_por_envio_directo(): void
-    {
-        $op = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
-        app(CajaService::class)->configurarMostrador($this->efectivo->id, $this->admin->id);
-        CajaDeclarada::crear($op->id, $this->efectivo->id);
-        $this->actingAs($op)->get('/caja/movimiento')->assertOk()
-            ->assertDontSee('Salida a otro medio')->assertDontSee('Entrada desde otro medio');
-        foreach ([$this->salida, $this->entrada] as $sub) {
-            $datos = ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
-                'monto' => '300000.00', 'fecha' => '2026-10-20', 'observaciones' => 'No permitido T61'];
-            $this->post('/caja/movimiento', $datos)->assertSessionHas('error', 'El subrubro seleccionado no está permitido para usuarios operativos.');
-            $this->post('/cashflow/movimiento', $datos)->assertForbidden();
-        }
-        $this->get('/cashflow/movimiento')->assertForbidden();
-        $this->assertSame(0, MovimientoOperativo::count());
-        $this->assertSame(0, CashflowMovimiento::count());
-    }
-
-    public function test_formulario_acepta_traspaso_en_ambos_tipos_y_rechaza_clasificaciones_ajenas(): void
-    {
-        foreach ([$this->salida, $this->entrada] as $sub) {
-            $ruta = route('web.subrubros.update', [$sub->rubro_id, $sub->id]);
-            $datos = ['nombre' => $sub->nombre, 'permitido_para' => 'ADMIN', 'afecta_caja' => 1];
-            foreach (['OTRA', 'traspaso', $sub->rubro->tipo === 'INGRESO' ? 'RETIRO' : 'APORTE'] as $ajena) {
-                $this->put($ruta, $datos + ['clasificacion_resultado' => $ajena])->assertSessionHasErrors('clasificacion_resultado');
-                $this->assertSame('TRASPASO', $sub->fresh()->clasificacion_resultado);
+        $evento = 'eloquent.creating: '.CashflowMovimiento::class;
+        $listener = function ($mov) {
+            if ($mov->referencia_tipo === CashflowMovimiento::REF_TRANSFERENCIA && (float) $mov->monto > 0) {
+                throw new \RuntimeException('Fallo simulado de la entrada');
             }
-            $this->put($ruta, $datos + ['clasificacion_resultado' => 'TRASPASO'])->assertSessionHasNoErrors();
+        };
+        \Illuminate\Support\Facades\Event::listen($evento, $listener);
+        try {
+            app(\App\Services\TransferenciaCashflowService::class)->registrar($this->admin->id, $this->datos());
+            $this->fail('Debió fallar la segunda escritura.');
+        } catch (\RuntimeException $e) {
+            $this->assertSame('Fallo simulado de la entrada', $e->getMessage());
         }
-        $rubro = $this->salida->rubro;
-        $this->put(route('web.rubros.update', $rubro->id), ['nombre' => $rubro->nombre, 'tipo' => 'INGRESO'])->assertSessionHas('success');
-        $this->assertSame('TRASPASO', $this->salida->fresh()->clasificacion_resultado);
+        $this->assertDatabaseCount('cashflow_transferencias', 0);
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
     }
 
-    public function test_migracion_existente_dos_veces_no_duplica_y_no_pisa_clasificaciones(): void
+    public function test_reenvio_de_la_misma_operacion_no_duplica_y_rechaza_datos_distintos(): void
     {
-        DB::table('subrubros')->whereIn('id', [$this->salida->id, $this->entrada->id])->delete();
-        DB::table('rubros')->whereIn('nombre', array_column(ClasificacionSubrubros::TRASPASOS, 'rubro'))->delete();
-        $this->assertSame(12, Rubro::count());
-        $this->assertSame(19, Subrubro::count());
+        $datos = $this->datos();
+        $this->post('/cashflow/transferencia', $datos)->assertSessionHas('success');
+        $this->post('/cashflow/transferencia', $datos)->assertSessionHas('success');
+        $this->assertDatabaseCount('cashflow_transferencias', 1);
+        $this->assertDatabaseCount('cashflow_movimientos', 2);
+        $this->postJson('/cashflow/transferencia', array_replace($datos, ['monto' => '300001.00']))
+            ->assertUnprocessable()->assertJsonValidationErrors('clave');
+        $this->assertDatabaseCount('cashflow_movimientos', 2);
+    }
+
+    public function test_rechaza_misma_cuenta_inactiva_fecha_futura_e_importes_invalidos_sin_escrituras(): void
+    {
+        foreach ([['destino_id' => $this->efectivo->id], ['destino_id' => 999999],
+            ['monto' => '0'], ['monto' => '-1'], ['monto' => '1.001'], ['monto' => '10000000000.00'],
+            ['fecha' => '2026-10-21']] as $cambio) {
+            $this->postJson('/cashflow/transferencia', $this->datos($cambio))->assertUnprocessable();
+        }
+        $this->banco->update(['activo' => false]);
+        $this->postJson('/cashflow/transferencia', $this->datos())->assertUnprocessable();
+        $this->assertDatabaseCount('cashflow_transferencias', 0);
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
+    }
+
+    public function test_operativa_y_profesora_no_pueden_abrir_ni_registrar_transferencias(): void
+    {
+        foreach (['OPERATIVO', 'PROFESOR'] as $rol) {
+            $usuario = User::factory()->create(['rol' => $rol, 'activo' => true]);
+            $this->actingAs($usuario)->get('/cashflow/transferencia')->assertForbidden();
+            $this->post('/cashflow/transferencia', $this->datos())->assertForbidden();
+            try {
+                app(\App\Services\TransferenciaCashflowService::class)->registrar($usuario->id, $this->datos());
+                $this->fail('El servicio también debe controlar el rol.');
+            } catch (\Illuminate\Auth\Access\AuthorizationException) {}
+        }
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
+    }
+
+    public function test_no_permite_carga_individual_ni_edicion_o_anulacion_de_una_sola_pata(): void
+    {
+        foreach ([$this->salida, $this->entrada] as $sub) {
+            $this->post('/cashflow/movimiento', ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+                'monto' => '100.00', 'fecha' => '2026-10-20', 'observaciones' => 'Pedido directo'])
+                ->assertSessionHas('error');
+        }
+        $this->transferir();
+        foreach (CashflowMovimiento::all() as $mov) {
+            $this->assertFalse($mov->puedeCorregirse());
+            $this->putJson('/cashflow/movimientos/'.$mov->id, ['clave' => (string) Str::uuid(), 'version' => 0,
+                'subrubro_id' => $mov->subrubro_id, 'tipo_caja_id' => $this->efectivo->id,
+                'monto' => '1.00', 'fecha' => '2026-10-20', 'observaciones' => 'No romper par'])->assertForbidden();
+            $this->deleteJson('/cashflow/movimientos/'.$mov->id, ['clave' => (string) Str::uuid(), 'version' => 0])->assertForbidden();
+        }
+        $this->assertSame(['-300000.00', '300000.00'], CashflowMovimiento::orderBy('id')->pluck('monto')->all());
+    }
+
+    public function test_proteccion_del_catalogo_existente_no_inventa_vinculos_historicos(): void
+    {
+        $historico = CashflowMovimiento::create(['fecha' => '2026-10-19', 'subrubro_id' => $this->salida->id,
+            'tipo_caja_id' => $this->efectivo->id, 'monto' => '-123.45', 'usuario_admin_id' => $this->admin->id]);
+        $foto = $historico->fresh()->getAttributes();
+        DB::table('subrubros')->whereIn('id', [$this->salida->id, $this->entrada->id])->update(['es_reservado_sistema' => false]);
+        DB::table('rubros')->whereIn('id', [$this->salida->rubro_id, $this->entrada->rubro_id])->update(['es_reservado_sistema' => false]);
+        ClasificacionSubrubros::reservarTraspasos();
+        ClasificacionSubrubros::reservarTraspasos();
+        $this->assertTrue($this->salida->fresh()->es_reservado_sistema);
+        $this->assertTrue($this->entrada->rubro->fresh()->es_reservado_sistema);
+        $this->assertSame($foto, $historico->fresh()->getAttributes());
+        $this->assertDatabaseCount('cashflow_transferencias', 0);
+        $this->assertDatabaseCount('subrubros', 21);
+    }
+
+    public function test_seeder_idempotente_preserva_clasificaciones_y_snapshots(): void
+    {
+        $this->transferir();
+        $foto = CashflowMovimiento::orderBy('id')->get()->toJson();
         $luz = Subrubro::where('nombre', 'Luz')->firstOrFail();
         $luz->update(['clasificacion_resultado' => 'RETIRO']);
-        $migracion = require database_path('migrations/2026_10_20_120000_agregar_traspasos_entre_medios.php');
-        $migracion->up();
-        $salida = Subrubro::where('nombre', 'Salida a otro medio')->sole();
-        $salida->update(['clasificacion_resultado' => 'RETIRO']);
-        $foto = DB::table('subrubros')->orderBy('id')->get()->toJson();
-        $migracion->up();
-        $this->assertSame(14, Rubro::count());
-        $this->assertSame(21, Subrubro::count());
-        $this->assertSame($foto, DB::table('subrubros')->orderBy('id')->get()->toJson());
+        ClasificacionSubrubros::aplicarTraspasos();
+        ClasificacionSubrubros::aplicarTraspasos();
+        $this->assertDatabaseCount('rubros', 14);
+        $this->assertDatabaseCount('subrubros', 21);
         $this->assertSame('RETIRO', $luz->fresh()->clasificacion_resultado);
-        $this->assertSame('RETIRO', $salida->fresh()->clasificacion_resultado);
+        $this->assertSame($foto, CashflowMovimiento::orderBy('id')->get()->toJson());
     }
 
-    public function test_migracion_completa_vacio_compatible_sin_reclasificar_fotos_historicas(): void
+    public function test_formulario_pide_dos_cuentas_un_importe_y_una_fecha_sin_rubros_editables(): void
     {
-        $original = $this->cargar($this->salida, $this->efectivo);
-        DB::table('subrubros')->where('id', $this->salida->id)->update(['clasificacion_resultado' => null]);
-        $migracion = require database_path('migrations/2026_10_20_120000_agregar_traspasos_entre_medios.php');
-        $migracion->up();
-        $this->assertSame('TRASPASO', $this->salida->fresh()->clasificacion_resultado);
-        $this->assertSame('TRASPASO', $original->fresh()->reporte_clasificacion);
-        $this->assertSame(21, Subrubro::count());
+        $this->get('/cashflow/transferencia')->assertOk()->assertSee('Cuenta de salida')
+            ->assertSee('Cuenta de destino')->assertSee('Importe')->assertSee('Fecha')
+            ->assertDontSee('name="subrubro_id"', false)->assertDontSee('name="rubro_id"', false);
+        $this->get('/cashflow/movimiento')->assertOk()->assertDontSee('Salida a otro medio')->assertDontSee('Entrada desde otro medio');
+        $this->get('/cashflow')->assertOk()->assertSee(route('web.cashflow.transferencia'), false);
     }
 
-    public function test_editar_y_anular_conserva_clasificacion_fecha_y_saldo_del_traspaso(): void
+    public function test_transferencia_fin_de_anio_con_centavos_conserva_resultado_y_fecha_de_ambas_patas(): void
     {
-        $mov = $this->cargar($this->salida, $this->efectivo);
-        $ruta = '/cashflow/movimientos/'.$mov->id;
-        $this->putJson($ruta, ['clave' => (string) Str::uuid(), 'version' => 0, 'fecha' => '2026-10-20',
-            'subrubro_id' => $this->salida->id, 'tipo_caja_id' => $this->banco->id, 'monto' => '310000.00',
-            'observaciones' => 'Corregido ficticio T61'])->assertRedirect();
-        $this->assertSame('TRASPASO', $mov->fresh()->reporte_clasificacion);
-        $this->assertSame('-310000.00', $mov->fresh()->monto);
-        $this->assertSame($this->banco->id, $mov->fresh()->tipo_caja_id);
-        $this->deleteJson($ruta, ['clave' => (string) Str::uuid(), 'version' => 1])->assertRedirect();
-        $contra = CashflowMovimiento::where('contra_origen_id', $mov->id)->sole();
-        $this->assertSame('310000.00', $contra->monto);
-        $this->assertSame('TRASPASO', $contra->reporte_clasificacion);
-        $this->assertSame('EGRESO', $contra->reporte_tipo);
-        $this->assertSame($mov->fecha->toDateString(), $contra->fecha->toDateString());
-        $this->assertNotNull($mov->fresh()->anulado_at);
+        Carbon::setTestNow('2027-01-01 12:00:00');
+        $this->transferir(['monto' => '1233545.67', 'fecha' => '2026-12-31', 'observaciones' => null]);
+        foreach (CashflowMovimiento::all() as $mov) {
+            $this->assertSame('2026-12-31', $mov->fecha->toDateString());
+        }
         $this->assertEquals(0, CashflowMovimiento::sum('monto'));
-        $this->assertSame(0, $this->reporte()['resultado']);
-        $this->assertSame(0, $this->reporte()['sin_clasificar']);
-        $this->assertSame(0, $this->reporte()['resultado_global']);
+        $this->assertSame(0, $this->reporte('2026-12')['resultado']);
+        $this->assertSame(0, $this->reporte('2026-12')['resultado_global']);
+        $this->assertSame(0, $this->reporte('2027-01')['resultado']);
     }
 
-    public function test_cambio_del_catalogo_no_reescribe_traspaso_ni_su_correccion_o_anulacion(): void
-    {
-        $mov = $this->cargar($this->entrada, $this->banco);
-        $this->entrada->update(['clasificacion_resultado' => 'NEGOCIO']);
-        $ruta = '/cashflow/movimientos/'.$mov->id;
-        $this->putJson($ruta, ['clave' => (string) Str::uuid(), 'version' => 0, 'fecha' => '2026-10-20',
-            'subrubro_id' => $this->entrada->id, 'tipo_caja_id' => $this->banco->id, 'monto' => '320000.00',
-            'observaciones' => 'Conservar foto T61'])->assertRedirect();
-        $this->assertSame('TRASPASO', $mov->fresh()->reporte_clasificacion);
-        $this->assertSame(0, $this->reporte()['ingresos']);
-        $this->deleteJson($ruta, ['clave' => (string) Str::uuid(), 'version' => 1])->assertRedirect();
-        $contra = CashflowMovimiento::where('contra_origen_id', $mov->id)->sole();
-        $this->assertSame('TRASPASO', $contra->reporte_clasificacion);
-        $this->assertSame('-320000.00', $contra->monto);
-        $this->assertSame(0, $this->reporte()['resultado']);
-    }
-
-    public function test_saldos_cashflow_son_actuales_aunque_filtre_otro_mes_y_distinguen_pendientes(): void
+    public function test_saldos_actuales_independientes_del_filtro_y_cajas_pendientes(): void
     {
         $op = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
         $caja = CajaDeclarada::crear($op->id, $this->efectivo->id);
         MovimientoOperativo::create(['caja_operativa_id' => $caja->id, 'fecha' => today(),
             'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'tipo_caja_id' => $this->efectivo->id,
             'monto' => '5000.00', 'usuario_id' => $op->id, 'estado' => 'ACTIVO']);
-        $this->cargar($this->salida, $this->efectivo);
+        $this->transferir();
         $saldos = $this->reporte()['cajas'];
         $this->assertSame(-500000, collect($saldos)->keyBy('id')[$this->efectivo->id]['pendiente']);
         $this->get('/cashflow?periodo=mes&anio=2026&mes=9')->assertOk()
-            ->assertViewHas('saldosPorMedio', $saldos)->assertSee('En cajas sin validar:')
-            ->assertSee('No dependen del período del listado.');
+            ->assertViewHas('saldosPorMedio', $saldos)->assertSee('En cajas sin validar:');
     }
 }

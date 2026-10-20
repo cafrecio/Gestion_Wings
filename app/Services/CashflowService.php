@@ -23,6 +23,9 @@ class CashflowService
     public function registrarMovimientoAdmin(array $data): CashflowMovimiento
     {
         $subrubro = Subrubro::with('rubro')->findOrFail($data['subrubro_id']);
+        if ($subrubro->clasificacion_resultado === \App\Support\ClasificacionSubrubros::TRASPASO) {
+            throw new \Exception('Usá Transferir para registrar juntas la salida y la entrada.');
+        }
         if ($subrubro->es_reservado_sistema && empty($data['referencia_tipo'])) {
             throw new \Exception(
                 'Este subrubro lo administra el sistema. Usá el flujo correspondiente (ej. cobro de cuotas).'

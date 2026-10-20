@@ -133,6 +133,8 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/reportes/alumnos', [ReporteWebController::class, 'alumnos'])->name('web.reportes.alumnos');
         Route::get('/reportes/sueldos', [ReporteWebController::class, 'sueldos'])->name('web.reportes.sueldos');
         Route::get('/cashflow', [CashflowWebController::class, 'index'])->name('web.cashflow.index');
+        Route::get('/cashflow/transferencia', [\App\Http\Controllers\TransferenciaCashflowWebController::class, 'create'])->name('web.cashflow.transferencia');
+        Route::post('/cashflow/transferencia', [\App\Http\Controllers\TransferenciaCashflowWebController::class, 'store'])->name('web.cashflow.transferencia.store');
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
         Route::get('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'show'])->name('web.cashflow.movimientos.show');

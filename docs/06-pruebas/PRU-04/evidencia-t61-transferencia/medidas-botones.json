@@ -1,0 +1,211 @@
+{
+  "transferencia1366": {
+    "bordeTarjeta": 1350,
+    "botonDerecha": 1325,
+    "botones": [
+      {
+        "alto": 32,
+        "ancho": 96,
+        "texto": "Volver"
+      },
+      {
+        "alto": 32,
+        "ancho": 96,
+        "texto": "Transferir"
+      }
+    ],
+    "campoDerecha": 1325,
+    "margenInterior": 25
+  },
+  "transferencia375": {
+    "bordeTarjeta": 344,
+    "botonDerecha": 320,
+    "botones": [
+      {
+        "alto": 32,
+        "ancho": 96,
+        "texto": "Volver"
+      },
+      {
+        "alto": 32,
+        "ancho": 96,
+        "texto": "Transferir"
+      }
+    ],
+    "campoDerecha": 320,
+    "margenInterior": 24
+  },
+  "rubros1366": [
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    },
+    {
+      "botones": [
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Subrubro"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Editar"
+        },
+        {
+          "alto": 32,
+          "ancho": 96,
+          "texto": "Eliminar"
+        }
+      ]
+    }
+  ]
+}

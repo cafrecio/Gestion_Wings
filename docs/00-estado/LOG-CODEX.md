@@ -1,5 +1,7 @@
 # Wings — Bitácora activa de CODEX
 
+[Antecedente archivado al corregir T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-TRANSFERENCIA-ANTECEDENTE.md).
+
 
 [Entradas anteriores archivadas al continuar T61 desde CyE](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-CONTINUIDAD-CYE.md).
 
@@ -7,6 +9,14 @@
 [Dos antecedentes archivados intactos al verificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-ANTECEDENTES.md).
 
 [Antecedente archivado intacto al completar el recorrido T61](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T61-RECORRIDO-ANTECEDENTE.md).
+
+## 2026-10-20 — Codex CyE — T61, transferencia única solicitada por Carlos
+
+Carlos aclaró: cuenta de salida, destino e importe en un formulario; rubros/subrubros exclusivos del sistema, sin edición ni renombre.
+La entrega de dos cargas independientes queda reemplazada. Implementada local: cabecera vinculada, escritura atómica de ambas patas, clave única contra doble envío y catálogo protegido.
+22 dirigidas/287 aserciones verdes (11,26 s, salida 0) en wings_testing_codex; rollback de la segunda escritura y bloqueo de corrección individual comprobados. Completa 976 aprobadas/6 omitidas, 8527 aserciones, 804,11 s, salida 0; corte 982.
+Chrome real en base ficticia T61: un envío de $1.233.545 produjo ambas patas; disponible global conservado en $613.000. Once capturas 1366/375; Carlos observó botones: alineación interior corregida y Rubros normalizado a 96 × 32. Consola observada sin errores/avisos.
+[Galería actual](../06-pruebas/PRU-04/RECORRIDO-T61.html) y [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). Carlos aprobó: «Apruebo el visual corregido». A verificar lógica por Claude. Sin despliegue.
 
 ## 2026-10-20 — Codex CyE — T61, recorrido real completado
 
@@ -99,13 +109,3 @@ Ambos antecedentes anteriores a la corrección; no se demostró bypass de cerrad
 Selección final 16 pasan/2 fallan por C1/C2, 259 aserciones, 17,49 s; suite completa 921/4 omitidas, 8179 aserciones, 1343,15 s, verde.
 [Informe y reproducciones](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md#verificación-de-la-corrección). Solo wings_testing_codex; diez controles visuales sin desbordes.
 Sin corregir producto ni desplegar; T34 se entrega con hallazgos de c/f para Gemini.
-
-## 2026-10-19 — Codex CyE — T68, corrección H1 del importe vigente
-
-Alcance propio: usar monto_a_pagar en el historial; conservar cálculo, estilos, estructura y H2.
-Regresión permanente: sin ajuste muestra $15,000.00; POST real ajusta a $18,000.50 y ficha/detalle coinciden, sin el anterior en ficha.
-Roja antes: 1 fallida/11 aserciones, 11,80 s; después 16 dirigidas/108 aserciones verdes, 14,08 s.
-Captura real 1/14 y cuatro controles de navegador; cambios visuales paralelos de otras tareas preservados, fuera del alcance H1.
-Suite: 919 aprobadas, 4 omitidas, 2 fallidas, 8172 aserciones, 1963,93 s en wings_testing_codex. Repetición aislada 2/11 verde sin cambios; causa no comprobada. Corte 925 y contadores al día.
-Carlos respondió «Sí, autorizo H1 y su publicación»; implementación en 02b72588, sin cambios visuales ajenos. Guardianes documentales 12/55 verdes.
-[Corrección y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md#corrección-de-h1). Claude revisa lógica; Carlos visual con APROBAR-T68.html. Sin servidor ni despliegue.

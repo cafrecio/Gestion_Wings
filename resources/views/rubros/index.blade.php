@@ -11,7 +11,7 @@
 
     // ── Objeto B: botones de pie de card — ancho prolijo alineados a la derecha ──────
     $btnB = 'display:inline-flex; align-items:center; justify-content:center;'
-          . ' min-width:76px; height:32px; padding:0 0.75rem; font-size:0.82rem; font-weight:600;'
+          . ' width:96px; min-width:96px; max-width:96px; flex-shrink:0; height:32px; padding:0; font-size:0.82rem; font-weight:600;'
           . ' border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;'
           . ' text-decoration:none; border:none; font-family:inherit;';
     $btnBSec  = $btnB . ' background:var(--color-btn-secondary); color:var(--color-surface);';

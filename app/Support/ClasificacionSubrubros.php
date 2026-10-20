@@ -90,7 +90,20 @@ class ClasificacionSubrubros
                     'permitido_para' => 'ADMIN', 'afecta_caja' => true, 'activo' => true,
                     'clasificacion_resultado' => self::TRASPASO, 'created_at' => now(), 'updated_at' => now()]);
             }
+            self::reservarTraspasos();
         });
+    }
+
+    /** Carlos: estos conceptos pertenecen al flujo del sistema, no al editor de catálogo. */
+    public static function reservarTraspasos(): void
+    {
+        foreach (self::TRASPASOS as $concepto) {
+            $rubros = DB::table('rubros')->where('nombre', $concepto['rubro'])
+                ->where('tipo', $concepto['tipo'])->pluck('id');
+            DB::table('rubros')->whereIn('id', $rubros)->update(['es_reservado_sistema' => true]);
+            DB::table('subrubros')->whereIn('rubro_id', $rubros)->where('nombre', $concepto['subrubro'])
+                ->update(['es_reservado_sistema' => true]);
+        }
     }
 
     /** Completa lo que falta en una instalación existente. Nunca pisa una clasificación ya puesta. */

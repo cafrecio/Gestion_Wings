@@ -1,0 +1,90 @@
+[
+  {
+    "nombre": "formulario-1366",
+    "url": "http://127.0.0.1:8761/cashflow/transferencia",
+    "alto": 900,
+    "contenido": 1366,
+    "documento": 1366,
+    "viewport": 1366
+  },
+  {
+    "nombre": "formulario-375",
+    "url": "http://127.0.0.1:8761/cashflow/transferencia",
+    "alto": 900,
+    "contenido": 375,
+    "documento": 360,
+    "viewport": 375
+  },
+  {
+    "nombre": "cashflow-375",
+    "url": "http://127.0.0.1:8761/cashflow",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
+  },
+  {
+    "nombre": "movimientos-375",
+    "url": "http://127.0.0.1:8761/cashflow",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
+  },
+  {
+    "nombre": "catalogo-entradas-375",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
+  },
+  {
+    "nombre": "catalogo-salidas-375",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
+  },
+  {
+    "nombre": "catalogo-salidas-1366",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 1351,
+    "documento": 1351,
+    "viewport": 1366
+  },
+  {
+    "nombre": "catalogo-entradas-1366",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 1351,
+    "documento": 1351,
+    "viewport": 1366
+  },
+  {
+    "nombre": "cashflow-1366",
+    "url": "http://127.0.0.1:8761/cashflow",
+    "alto": 900,
+    "contenido": 1351,
+    "documento": 1351,
+    "viewport": 1366
+  },
+  {
+    "nombre": "rubros-botones-1366",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 1351,
+    "documento": 1351,
+    "viewport": 1366
+  },
+  {
+    "nombre": "rubros-botones-375",
+    "url": "http://127.0.0.1:8761/rubros",
+    "alto": 900,
+    "contenido": 360,
+    "documento": 360,
+    "viewport": 375
+  }
+]

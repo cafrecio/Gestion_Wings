@@ -1,0 +1,46 @@
+[
+  {
+    "ruta": "app/Models/CashflowMovimiento.php",
+    "sha256_lf": "619d4f2ac375fc8172cba5a6eebcce106a97529289ee148004d22a7273b06e68"
+  },
+  {
+    "ruta": "app/Services/CashflowService.php",
+    "sha256_lf": "3a7d764a9bcd5f8ff487b8420eef9b6e5748a15b62fedf127df0c943c1af8c83"
+  },
+  {
+    "ruta": "app/Support/ClasificacionSubrubros.php",
+    "sha256_lf": "a166d4e3815e55d589eb02f2134cfee92d68c58b9e4cfb271f43223d1bb49c27"
+  },
+  {
+    "ruta": "app/Services/TransferenciaCashflowService.php",
+    "sha256_lf": "06d255c446feddda952d1b00cbc83522f78ac8e831cad38cc3945d2daf06e2f2"
+  },
+  {
+    "ruta": "app/Http/Controllers/TransferenciaCashflowWebController.php",
+    "sha256_lf": "fee47fa27b767349f6f2fb84dd96cd5f960af4c9b763bd8034ae2ca592ae8947"
+  },
+  {
+    "ruta": "database/migrations/2026_10_20_160000_crear_transferencias_cashflow.php",
+    "sha256_lf": "b9754bc089fd1efba7ebc619540d45644ef7edf4ee7bade6a5c0141c06be9917"
+  },
+  {
+    "ruta": "routes/web.php",
+    "sha256_lf": "a5385a79cb311576f12212f8acc21c106bf7a9e3ce455dc9959039aeec82daf6"
+  },
+  {
+    "ruta": "tests/Feature/TraspasosEntreMediosT61Test.php",
+    "sha256_lf": "90f1281f42fbe07c18917efc9c9426b07791001df4ed961f25d9b29270f21d7c"
+  },
+  {
+    "ruta": "resources/views/cashflow/index.blade.php",
+    "sha256_lf": "c6aa350e2e50a6f96da376aba3d23108c0ac267763e3c8514e9c84fc7091fdf7"
+  },
+  {
+    "ruta": "resources/views/cashflow/transferencia.blade.php",
+    "sha256_lf": "f1c0e210367c527d81ccb3d24888aee1e6495a0e4abe73c369523fe2cdcc273e"
+  },
+  {
+    "ruta": "resources/views/rubros/index.blade.php",
+    "sha256_lf": "33b26f1037d17c590d8b607e71ea9ad8297886691a6435ead4bd822bf47b5fd3"
+  }
+]

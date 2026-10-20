@@ -771,7 +771,7 @@
         {
           "donde": "Registro",
           "l": "a",
-          "texto": "Se carga un egreso en Efectivo y un ingreso en Banco, con subrubros de traspaso que no cuentan en el resultado.",
+          "texto": "Un único formulario pide cuenta de salida Efectivo, destino Banco, importe y fecha. Guarda juntos un egreso y un ingreso vinculados por igual importe; los rubros y subrubros son exclusivos del sistema y no se editan.",
           "tipo": "directo"
         },
         {
@@ -794,7 +794,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Programado en T61, a verificar",
+      "fuente": "T61 en corrección por aclaración de Carlos 20/10/2026: transferencia única atómica",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo acumulado de las entregas de caja.",

@@ -1,0 +1,35 @@
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo protegido rechaza edicion renombre baja y subrubros adicionales                                     7.86s
+  ✓ transferencia mueve 300mil y conserva todos los indicadores del club                                         0.29s
+  ✓ fallo al guardar entrada revierte salida y cabecera                                                          0.08s
+  ✓ reenvio de la misma operacion no duplica y rechaza datos distintos                                           0.08s
+  ✓ rechaza misma cuenta inactiva fecha futura e importes invalidos sin escrituras                               0.09s
+  ✓ operativa y profesora no pueden abrir ni registrar transferencias                                            0.10s
+  ✓ no permite carga individual ni edicion o anulacion de una sola pata                                          0.11s
+  ✓ proteccion del catalogo existente no inventa vinculos historicos                                             0.07s
+  ✓ seeder idempotente preserva clasificaciones y snapshots                                                      0.09s
+  ✓ formulario pide dos cuentas un importe y una fecha sin rubros editables                                      0.21s
+  ✓ transferencia fin de anio con centavos conserva resultado y fecha de ambas patas                             0.11s
+  ✓ saldos actuales independientes del filtro y cajas pendientes                                                 0.15s
+
+   PASS  Tests\Feature\CatalogosSeederTest
+  ✓ database seeder deja solo los catalogos base                                                                 0.08s
+  ✓ es idempotente y la segunda ejecucion no modifica filas                                                      0.10s
+
+   PASS  Tests\Feature\SaldoInicialTipoCajaTest
+  ✓ alta guarda saldo inicial y rechaza valores negativos                                                        0.04s
+  ✓ nombre duplicado por mayusculas se rechaza sin crear otro tipo                                               0.05s
+  ✓ saldo inicial se corrige por web solo mientras no haya movimientos                                           0.07s
+  ✓ un movimiento cashflow impide reescribir el saldo inicial                                                    0.07s
+  ✓ un movimiento operativo incluso cancelado bloquea el saldo inicial                                           0.07s
+  ✓ cashflow muestra resultado del periodo sin sumar saldo inicial                                               0.07s
+  ✓ saldo inicial permite pagar liquidacion sin movimientos previos                                              0.08s
+  ✓ servicios de saldo incluyen tipos sin movimientos                                                            0.04s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.03s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.05s
+
+  Tests:    24 passed (289 assertions)
+  Duration: 10.15s

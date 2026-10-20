@@ -1,5 +1,14 @@
 # T61 — Integración y recorrido desde CyE
 
+## Corrección solicitada por Carlos — 20/10/2026
+
+Carlos aclaró: rubros y subrubros exclusivos del sistema, sin editar ni renombrar; necesita un formulario de transferencia con cuenta de salida, destino e importe. El recorrido anterior NO verifica ese flujo y su entrega queda reemplazada como aprobación actual.
+
+Corrección local implementada: transferencia atómica vinculada, catálogo reservado y formulario único. Dirigidas actuales: 22 aprobadas / 287 aserciones, 11,26 s, salida 0, wings_testing_codex. Suite completa: 976 aprobadas / 6 omitidas, 8527 aserciones, 804,11 s, salida 0, corte 982. [Salida](evidencia-t61-transferencia/suite-completa.txt). Falta control independiente de lógica por Claude. Visual corregido aprobado por Carlos: «Apruebo el visual corregido» (20/10/2026). [Galería nueva](RECORRIDO-T61.html), once capturas reales 1366/375; guardado único ficticio por $1.233.545,00. Efectivo ficticio −$927.545 y Banco $1.540.545; disponible global $613.000. Los resultados anteriores que siguen debajo son históricos.
+
+
+## Antecedente del recorrido reemplazado
+
 Codex CyE, 20/10/2026. Continuación solicitada por Carlos. **Integración y recorrido real completados. Pendientes aprobación visual de Carlos y control cruzado de lógica por Claude; sin cierre ni despliegue.**
 
 ## Integración y comprobaciones
@@ -84,6 +93,6 @@ fuera del aislamiento de red. No se modificó el servidor remoto ni la base del 
 - La integración 758955ef ya es antecesora de main publicada; el rechazo de publicación
   descrito en el corte anterior es histórico, no un bloqueo actual.
 
-[Galería final para Carlos: siete pares y tres complementos](RECORRIDO-T61.html).
+[Galería histórica: siete pares y tres complementos](RECORRIDO-T61-ANTECEDENTE-DOS-CARGAS.html).
 Mi recorrido pendiente queda entregado; T61 permanece a_verificar, con aprobación
 visual de Carlos y control de lógica por Claude. Sin autocierre ni despliegue.

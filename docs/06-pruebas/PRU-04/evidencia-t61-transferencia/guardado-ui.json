@@ -1,0 +1,78 @@
+{
+    "base": "wings_testing_codex_t61",
+    "transferencias": [
+        {
+            "id": 1,
+            "salida_id": 1,
+            "destino_id": 2,
+            "monto": "1233545.00",
+            "fecha": "2026-10-20"
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 7,
+            "referencia_tipo": "TRANSFERENCIA",
+            "referencia_id": 1,
+            "tipo_caja_id": 1,
+            "subrubro_id": 5,
+            "fecha": "2026-10-20T03:00:00.000000Z",
+            "monto": "-1233545.00",
+            "reporte_clasificacion": "TRASPASO"
+        },
+        {
+            "id": 8,
+            "referencia_tipo": "TRANSFERENCIA",
+            "referencia_id": 1,
+            "tipo_caja_id": 2,
+            "subrubro_id": 6,
+            "fecha": "2026-10-20T03:00:00.000000Z",
+            "monto": "1233545.00",
+            "reporte_clasificacion": "TRASPASO"
+        }
+    ],
+    "reporte": {
+        "ingresos": 1200000,
+        "egresos": 500000,
+        "resultado": 700000,
+        "resultado_global": 1300000,
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 154054500,
+                "pendiente": 0,
+                "total": 154054500
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": -92754500,
+                "pendiente": 0,
+                "total": -92754500
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 61300000
+    }
+}
