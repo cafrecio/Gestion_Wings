@@ -52,12 +52,13 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificacion independiente de los diez puntos en curso; controles propios y suite completa en wings_testing_codex. |
 | **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Devuelto (hizo Codex, verifica Claude) | Devuelta por Claude 20/10: TRASPASO sigue ofrecido en cualquier subrubro; con eso la caja operativa y la corrección de Cashflow cargan gastos de una sola pata que no cuentan en el resultado (H1-H3). La transferencia en sí está bien. |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Devuelto (hizo Gemini, verifica Codex) | Corregir H1 inscripcion futura como deuda, H2 fecha mal formada 500 y H3 limite distinto en Chrome |
 
 ## Sin empezar (18)
 

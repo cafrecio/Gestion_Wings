@@ -18,13 +18,15 @@ DU-19: comisión por parte en max(mes cobro, mes pagado), con asistencia en mes 
 
 19 regresiones nuevas. Dirigidas 29/150 verdes; completa **997 aprobadas, 6 omitidas, 8652 aserciones, 1242,09 s, salida 0**, wings_testing_codex, corte 1003. Sintaxis/vistas correctas, sin cambios de vistas/CSS ni despliegue. [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). Sigue T43.
 
-## T50 — Fecha de ingreso futura, solo hasta el mes siguiente, Gemini CAB 20/10/2026
+## T50 — Verificada y devuelta a Gemini, Codex CAB 21/10/2026
+
+Verificación independiente de 3704063: H1, inscripción futura deja EN_PLAZO y suma en Cobrar/Inicio antes del ingreso; H2, fecha mal formada al editar da 500; H3, Chrome calcula `max` con fecha de computadora y difiere del reloj simulado Wings. Sin correcciones de producto ni cambios en tabla de pruebas. Completa propia 1017 aprobadas/6 omitidas, 8791 aserciones, 984,61 s, salida 0; controles propios 16/115 con dos fallas, desfase comprobado en Chrome local. [Informe de verificación](../06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md). Devuelta a Gemini; sin despliegue. Implementación histórica debajo, sin convertirla en aprobación.
 
 DU-06 (caso ALU-007): «Aceptar solo hasta el mes siguiente». La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta el último día del mes siguiente a hoy (reloj Wings / `Carbon::now()`, respetando reloj simulado). Ejemplo: al 20/10/2026 el límite es 30/11/2026; en diciembre de cualquier año es el 31 de enero. Fechas posteriores se rechazan con mensaje en castellano: *«La fecha de ingreso no puede ser posterior al dd/mm/aaaa.»*.
 
 1. **Implementación:** `App\Support\FechaIngresoRegla` (soporte compartido con `limiteMaximo`, `esValida` y `mensajeError`). `AlumnoWebController::store` y `update` (en edición solo valida si se modifica la fecha, no bloquea alumnos históricos), previsualizaciones de cuota e inscripción (`cuotaAltaPreview`, `inscripcionPreview` y `PagoCuotaService::previsualizarCuotaAlta`) retornan 422. `PrimeraCargaExcelService::revisar` marca celda en columna E con error impidiendo carga. `resources/js/alumnos-form.js` fija `max` en el input y validación nativa en cliente (sin JavaScript en Blade, AGENTS.md §5-bis).
 2. **Diseño visual:** **Sin tocar Blade** (AGENTS.md §1). El mensaje se muestra con la estructura existente de errores (`@error('fecha_alta')`). Capturas generadas en `docs/06-pruebas/PRU-04/evidencia-t50/` (1366px y marco de 375px) y presentadas en `APROBAR-T50.html`.
-3. **Pruebas:** 10 pruebas nuevas en `tests/Feature/FechaIngresoFuturaT50Test.php` (44 aserciones, todas verdes en `wings_testing_gemini`). Tarea entregada a Claude para verificación. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T50.md) · [Evidencia visual](../06-pruebas/PRU-04/APROBAR-T50.html). Sin despliegue.
+3. **Pruebas de implementación (20/10):** Gemini informó 10 pruebas nuevas en `tests/Feature/FechaIngresoFuturaT50Test.php` (44 aserciones, verdes en su base). Entrega inicial a revisión, reemplazada por la devolución independiente de arriba. [Informe de implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T50.md) · [Evidencia visual histórica](../06-pruebas/PRU-04/APROBAR-T50.html). Sin despliegue.
 
 ## T61 — Corrección de funcionamiento solicitada por Carlos, 20/10/2026
 

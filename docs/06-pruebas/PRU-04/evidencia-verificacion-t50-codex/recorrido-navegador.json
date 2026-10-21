@@ -1,0 +1,64 @@
+[
+  {
+    "paso": "normal-validacion-inmediata",
+    "campo": {
+      "valor": "2026-12-01",
+      "max": "2026-11-30",
+      "mensaje": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "valida": false,
+      "customError": true,
+      "rangeOverflow": true
+    },
+    "nota": "Lectura inmediata guardada desde la primera observación; la previsualización posterior reemplazó el mensaje por aviso genérico de conexión/fecha."
+  },
+  {
+    "paso": "normal-fecha-invalida",
+    "url": "http://127.0.0.1:8765/alumnos/create",
+    "base": "wings_testing_codex",
+    "campo": {
+      "customError": true,
+      "max": "2026-11-30",
+      "mensaje": "No se pudo verificar la cuota. Revisá la conexión y la fecha antes de guardar.",
+      "valida": false,
+      "valor": "2026-12-01"
+    },
+    "metodo": "fill del campo nativo; eventos input/change de Chrome"
+  },
+  {
+    "paso": "normal-limite-aceptado",
+    "campo": {
+      "max": "2026-11-30",
+      "mensaje": "",
+      "valida": true,
+      "valor": "2026-11-30"
+    }
+  },
+  {
+    "paso": "desfase-servidor-noviembre-navegador-octubre",
+    "servidor": {
+      "fase": "desfase",
+      "entorno": "local",
+      "base": "wings_testing_codex",
+      "fecha_servidor": "2026-11-01T10:00:00-03:00",
+      "limite_servidor": "2026-12-31",
+      "fecha_simulada": "2026-11-01 10:00:00",
+      "url": "http://127.0.0.1:8765"
+    },
+    "campo": {
+      "customError": true,
+      "max": "2026-11-30",
+      "mensaje": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "rangeOverflow": true,
+      "valida": false,
+      "valor": "2026-12-01"
+    }
+  },
+  {
+    "paso": "consola-final",
+    "logs": []
+  },
+  {
+    "paso": "limites-del-recorrido",
+    "nota": "Chrome real con formulario servido por Laravel en localhost, sin marcos ni HTML guardado. Fecha nativa completada con fill; intento de abrir picker no expuso calendario en AX ni captura, por lo que selección con ratón y tipeo por segmentos quedan sin verificar."
+  }
+]

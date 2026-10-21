@@ -26,6 +26,17 @@
 
 [Antecedente archivado al publicar la bitácora](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-PUBLICACION-FINAL-ANTECEDENTE.md).
 
+[Antecedente archivado intacto al verificar T50](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-ANTECEDENTE.md).
+
+## 2026-10-21 — Codex CAB — T50 verificada y devuelta; higiene de evidencia
+
+Verificación independiente de 3704063, sin corregir producto. H1: inscripción futura suma deuda antes de ingreso; H2: fecha mal formada en edición da 500; H3: Chrome calcula límite con otro reloj que Wings.
+Completa propia: 1017 aprobadas/6 omitidas, 8791 aserciones, 984,61 s, salida 0; sin otras suites observadas. Controles independientes: 16/115, dos fallas reales; desfase comprobado en Chrome local tras build, consola observada limpia.
+Base exclusiva wings_testing_codex y datos ficticios; fuente sin cambios. T34 generado restaurado. Tabla de Carlos/Claude intacta; selección nativa y tipeo por segmentos pendientes explícitos.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md). Devuelta a Gemini por tablero; sin despliegue.
+Carlos pidió higiene y publicación solo de lo propio: se retiran cuatro auxiliares duplicados/de diagnóstico; se conservan arnés reproducible y evidencia final. Dos commits locales ajenos de Gemini no se publican por arrastre; entrega aislada desde origin/main.
+Próximo paso: Gemini corrige los tres hallazgos y entrega a verificación independiente.
+
 ## 2026-10-20 — Codex CyE — Entrega publicada y limpieza final
 
 Carlos pidió actualizar la bitácora y subir todos los archivos propios.
@@ -92,11 +103,3 @@ Nueve independientes en wings_testing_codex, sin otra suite activa: 8 aprobadas/
 H5 web reproducido: ingreso 01/11, cambio A→B 20/10 confirmado; clase de B del 20/10 lo lista y POST guarda presente (200), antes del ingreso.
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Devuelta a Claude por tablero; no se corrige producto ni se alteran clases/vistas. Visual aprobado de Carlos conservado. Sin despliegue.
 La completa conjunta reciente 976/6 omitidas verde no cubría H5. La verificación no aprueba T52. Continúa T42 y después T43 según la orden de Carlos.
-
-## 2026-10-20 — Codex CyE — T61, transferencia única solicitada por Carlos
-
-Carlos aclaró: cuenta de salida, destino e importe en un formulario; rubros/subrubros exclusivos del sistema, sin edición ni renombre.
-La entrega de dos cargas independientes queda reemplazada. Implementada local: cabecera vinculada, escritura atómica de ambas patas, clave única contra doble envío y catálogo protegido.
-22 dirigidas/287 aserciones verdes (11,26 s, salida 0) en wings_testing_codex; rollback de la segunda escritura y bloqueo de corrección individual comprobados. Completa 976 aprobadas/6 omitidas, 8527 aserciones, 804,11 s, salida 0; corte 982.
-Chrome real en base ficticia T61: un envío de $1.233.545 produjo ambas patas; disponible global conservado en $613.000. Once capturas 1366/375; Carlos observó botones: alineación interior corregida y Rubros normalizado a 96 × 32. Consola observada sin errores/avisos.
-[Galería actual](../06-pruebas/PRU-04/RECORRIDO-T61.html) y [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). Carlos aprobó: «Apruebo el visual corregido». A verificar lógica por Claude. Sin despliegue.

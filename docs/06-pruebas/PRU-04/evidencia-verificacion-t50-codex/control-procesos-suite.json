@@ -1,0 +1,7 @@
+{
+  "criterio": "Filiación transitiva hasta el launcher, incluido cmd intermedio de PHPUnit.",
+  "observaciones": 179,
+  "raizPropia": 23436,
+  "intervaloSegundos": 5,
+  "procesosAjenos": []
+}
