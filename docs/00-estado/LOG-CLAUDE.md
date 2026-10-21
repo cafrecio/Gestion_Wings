@@ -75,6 +75,15 @@ Bitácora archivada: [entradas del 19/10 y 20/10](../99-archivo/bitacoras/2026-1
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-21 — Claude CyE — Instrucciones para que Gemini escriba la prueba por días
+
+- Pedido de Carlos: un archivo (no un prompt) con lo que hicimos y cómo, los objetivos y el calendario.
+  `docs/06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md`: roles, tabla de pruebas, días 1–3, tareas
+  cerradas desde el día 3 (sacadas del tablero), estado del sitio, calendario 13/10–2/11 con lo que debe
+  pasar, recorrido previo de casos, formato de cuentos y de OBJETIVOS-PRUEBA.md, reglas.
+- Quedan para Carlos y Gemini: alcance del recorrido, registro escribible, producción, verificador,
+  mora en 0% en el sitio de prueba y avisos reales (Telegram y correo de Carlos configurados en prueba).
+
 ## 2026-10-21 — Claude CyE — Sitio de prueba desplegado en 56379295
 
 - Pedido de Carlos, tras cerrar Codex T50. Antes: 3773c0b (16/10), 173 cambios atrás.
