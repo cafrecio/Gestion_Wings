@@ -141,3 +141,22 @@ Codex reportó que dar de alta a un alumno con fecha de ingreso en el mes siguie
       - Fecha `2026-12-01` rechazada con aviso específico: *«La fecha de ingreso no puede ser posterior al 30/11/2026.»*.
     - Consola sin errores (`consola: []` en ambos JSONs de recorrido).
   - Evidencia completa en `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/`.
+
+---
+
+## 7. Tercera pasada — Resolución de observaciones complementarias de Codex (21/10/2026)
+
+Revisión en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md`. Codex confirmó H2 y H3 en su informe (15 de 16 controles pasando, suite completa en verde y recorrido Chrome real conforme), y Carlos confirmó que H1 no se modifica (la inscripción rige a partir de hoy). Se resolvieron las dos observaciones complementarias:
+
+### 7.1. Idioma castellano en previsualizaciones malformadas (`cuotaAltaPreview` e `inscripcionPreview`)
+- **Problema:** Cuando se enviaban datos malformados (`fecha_alta=no-es-fecha`) o vacíos a los endpoints AJAX de previsualización, la validación respondía con 422 pero utilizaba los mensajes en inglés por defecto de Laravel (`The fecha alta field must be a valid date.` / `The fecha alta field is required.`) al no pasar `$this->validationMessages()` a `$request->validate()`.
+- **Solución:**
+  - En `AlumnoWebController::cuotaAltaPreview` e `inscripcionPreview`, se pasó `$this->validationMessages()` como segundo parámetro a `$request->validate()`.
+  - Ahora devuelven exactamente: *«La fecha de alta no es una fecha válida.»* ante malformaciones sintácticas y *«La fecha de alta es obligatoria.»* ante campos vacíos/nulos.
+- **Prueba permanente:**
+  - `test_previews_con_fecha_mal_formada_o_vacia_responden_en_castellano` en `tests/Feature/FechaIngresoFuturaT50Test.php` (**VERDE**).
+
+### 7.2. Guardia de seguridad estricta en script auxiliar CLI
+- **Problema:** `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php` no comprobaba entorno ni base de datos antes de invocar `migrate --force` y `db:seed`.
+- **Solución:**
+  - Se agregó una guardia al inicio del script que exige `app()->environment('testing', 'local')` y valida que `config('database.connections.mysql.database')` pertenezca a la lista autorizada de bases de prueba (`wings_testing`, `wings_testing_gemini`, `wings_testing_claude`, `wings_testing_codex`). Si no se cumple, aborta con código 1 y mensaje de error en stderr.

@@ -50,13 +50,13 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Observaciones resueltas: previsualizaciones traducidas al castellano ante fechas malformadas y guardia estricta en auxiliar; listo para verificación final Codex |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | H2/H3 confirmados; traducir validaciones de previews y proteger auxiliar local; H1 ya decidido |
+Nada en este momento.
 
 ## Sin empezar (18)
 

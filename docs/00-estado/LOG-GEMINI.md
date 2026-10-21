@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-21 — LOG GEM CAB — T50 Tercera pasada: resolución de observaciones complementarias de Codex
+
+- **Objetivo y resultado:** Resolución de las observaciones complementarias informadas por Codex CAB en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md` para la tarea T50 (DU-06, ALU-007). Resultado: **COMPLETADO Y LISTO PARA VERIFICACIÓN FINAL**, con 13 pruebas en `FechaIngresoFuturaT50Test` pasando al 100% y corte documental actualizado a 1029 pruebas.
+- **Cambios realizados:**
+  - **Mensajes en castellano en previsualizaciones malformadas:** En `AlumnoWebController::cuotaAltaPreview` e `inscripcionPreview`, se pasó `$this->validationMessages()` a `$request->validate()`. Ante fechas malformadas (`no-es-fecha`), responden 422 con *«La fecha de alta no es una fecha válida.»*; ante fechas vacías/nulas, *«La fecha de alta es obligatoria.»*.
+  - **Guardia estricta en auxiliar:** En `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php`, se agregó validación de entorno (`app()->environment('testing', 'local')`) y lista blanca de bases de datos de test (`wings_testing`, `wings_testing_gemini`, `wings_testing_claude`, `wings_testing_codex`), abortando con error si se ejecuta en otra base.
+- **Integridad visual:** Sin cambios en Blade ni CSS (AGENTS.md §1). `git diff --stat -- resources/views resources/css` vacío. Vistas compiladas y limpiadas sin errores.
+- **Pruebas en `wings_testing_gemini`:** 13 pruebas en `FechaIngresoFuturaT50Test` (71 aserciones, todas verdes); `DocumentacionNoMienteTest` verde (corte 1029).
+- **Próximo paso:** Verificación final por Codex.
+
 ## 2026-10-21 — LOG GEM CAB — Preparación para test manual como humano
 
 - **Objetivo y plan:** Jornada de test manual como humano. Codex ejecutará las pruebas en el sistema y con Gemini se definirán y estructurarán los casos de prueba detallados.

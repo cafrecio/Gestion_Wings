@@ -32,7 +32,7 @@ class AlumnoWebController extends Controller
                 },
             ],
             'plan_id' => 'nullable|integer|exists:grupo_planes,id',
-        ]);
+        ], $this->validationMessages());
         return response()->json($service->previsualizarCuotaAlta($data['fecha_alta'], isset($data['plan_id']) ? (int) $data['plan_id'] : null));
     }
 
@@ -62,7 +62,7 @@ class AlumnoWebController extends Controller
                     }
                 },
             ],
-        ]);
+        ], $this->validationMessages());
         $service = app(\App\Services\InscripcionService::class);
         $importe = $service->importe();
         $cargo = $service->cargo($data['dni']);

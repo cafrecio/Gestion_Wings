@@ -364,4 +364,43 @@ class FechaIngresoFuturaT50Test extends TestCase
         $resEdit->assertOk();
         $resEdit->assertSee('data-max="2026-12-31"', false);
     }
+
+    public function test_previews_con_fecha_mal_formada_o_vacia_responden_en_castellano(): void
+    {
+        // 1. cuotaAltaPreview con fecha malformada
+        $resCuotaMalformada = $this->actingAs($this->admin)->getJson(route('web.alumnos.cuota-alta-preview', [
+            'fecha_alta' => 'no-es-fecha',
+            'plan_id' => $this->plan->id,
+        ]));
+        $resCuotaMalformada->assertStatus(422);
+        $resCuotaMalformada->assertJsonValidationErrors('fecha_alta');
+        $this->assertSame('La fecha de alta no es una fecha válida.', $resCuotaMalformada->json('errors.fecha_alta.0'));
+
+        // 2. cuotaAltaPreview con fecha vacía
+        $resCuotaVacia = $this->actingAs($this->admin)->getJson(route('web.alumnos.cuota-alta-preview', [
+            'fecha_alta' => '',
+            'plan_id' => $this->plan->id,
+        ]));
+        $resCuotaVacia->assertStatus(422);
+        $resCuotaVacia->assertJsonValidationErrors('fecha_alta');
+        $this->assertSame('La fecha de alta es obligatoria.', $resCuotaVacia->json('errors.fecha_alta.0'));
+
+        // 3. inscripcionPreview con fecha malformada
+        $resInscMalformada = $this->actingAs($this->admin)->getJson(route('web.alumnos.inscripcion-preview', [
+            'fecha_alta' => 'no-es-fecha',
+            'dni' => '99005099',
+        ]));
+        $resInscMalformada->assertStatus(422);
+        $resInscMalformada->assertJsonValidationErrors('fecha_alta');
+        $this->assertSame('La fecha de alta no es una fecha válida.', $resInscMalformada->json('errors.fecha_alta.0'));
+
+        // 4. inscripcionPreview con fecha vacía
+        $resInscVacia = $this->actingAs($this->admin)->getJson(route('web.alumnos.inscripcion-preview', [
+            'fecha_alta' => '',
+            'dni' => '99005099',
+        ]));
+        $resInscVacia->assertStatus(422);
+        $resInscVacia->assertJsonValidationErrors('fecha_alta');
+        $this->assertSame('La fecha de alta es obligatoria.', $resInscVacia->json('errors.fecha_alta.0'));
+    }
 }
