@@ -311,7 +311,7 @@ La fecha de ingreso (`fecha_alta`) puede ser pasada, de hoy o futura solo hasta 
 4. **Interfaz y cliente:**
    - `resources/js/alumnos-form.js` configura dinámicamente el atributo `max` en el selector de fecha y maneja la validación nativa en tiempo real sin incrustar JavaScript en las vistas Blade.
 
-Implementado el 20/10/2026 por Gemini: `App\Support\FechaIngresoRegla`, `AlumnoWebController`, `PagoCuotaService`, `PrimeraCargaExcelService` y `alumnos-form.js`. Cubierto por `tests/Feature/FechaIngresoFuturaT50Test.php`.
+Entrega de Gemini del 20/10/2026: `App\Support\FechaIngresoRegla`, `AlumnoWebController`, `PagoCuotaService`, `PrimeraCargaExcelService` y `alumnos-form.js`, con pruebas en `tests/Feature/FechaIngresoFuturaT50Test.php`. **Devuelta por Codex CAB el 21/10:** inscripción futura suma deuda antes del ingreso (H1), fecha mal formada en edición devuelve 500 (H2) y límite de Chrome difiere del reloj Wings (H3). La regla de negocio anterior se conserva; la entrega no está aprobada. [Verificación independiente](../06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md).
 
 ### Enmienda del 20/10/2026 — reglas de primer pago sin superposiciones ni días sin cubrir (T64)
 
@@ -598,7 +598,7 @@ Son dos cosas distintas y no deben confundirse:
 | Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
 | DEUDOR solo por mes cerrado impago | Enmienda del 23/09 implementada localmente; retirado el criterio de falta de pagos en cálculo individual y masivo. Pendiente de verificación independiente |
 | Deudor o moroso por inscripción impaga y plazo propio de alta | ✅ **Implementado y verificado (13/10/2026, T31).** Enmiendas del 12/10 y 13/10: la inscripción impaga y la cuota del mes de ingreso cuentan desde la fecha de ingreso (`fecha_alta`) con plazo propio (`dias_plazo_alta`, default 7) y días de gracia general; el estado del alumno es el peor entre cuotas e inscripción. |
-| Fecha de ingreso futura solo hasta fin de mes siguiente | ✅ **Implementado (20/10/2026, T50).** Enmienda del 20/10 (DU-06, ALU-007): límite máximo hasta el último día del mes siguiente a hoy en alta individual, edición, previsualizaciones y primera carga por Excel. |
+| Fecha de ingreso futura solo hasta fin de mes siguiente | **Entregada el 20/10; devuelta el 21/10/2026 (T50).** Regla DU-06/ALU-007 conservada. Pendientes H1 inscripción futura como deuda, H2 fecha mal formada en edición y H3 reloj del cliente; ver informe de Codex enlazado en la enmienda. |
 | Reglas de primer pago sin huecos ni superposiciones | ✅ **Implementado (20/10/2026, T64).** Enmienda del 20/10 (DU-45, CFG-004): cobertura obligatoria continua del 1 al 31 con guardado atómico en lote, preservación de IDs y validación de conjunto. |
 | El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |

@@ -1,0 +1,64 @@
+{
+  "fecha": "2026-10-21T01:07:11.7589653-03:00",
+  "pedido_sha256": "C076862169837F60121E0AF926E96989CE830DA45DC6A805A91154FAF153759B",
+  "puntos": [
+    {
+      "resultado": "verificado_pasa",
+      "evidencia": "ControlT50Test::test_01 y controles.jsonl",
+      "punto": 1
+    },
+    {
+      "resultado": "verificado_pasa",
+      "evidencia": "Controles 02 y 03; conteos antes/despues en BD",
+      "punto": 2
+    },
+    {
+      "resultado": "verificado_falla_H2",
+      "evidencia": "Controles 04-06; 500 con fecha invalida",
+      "punto": 3
+    },
+    {
+      "resultado": "verificado_pasa_servidor",
+      "evidencia": "Control 07; rutas 422 y ValidationException",
+      "punto": 4
+    },
+    {
+      "resultado": "verificado_pasa",
+      "evidencia": "Controles 08-10; texto, serial y estado viejo",
+      "punto": 5
+    },
+    {
+      "resultado": "relevado_fuente_y_grafo",
+      "evidencia": "Tabla de puertas en informe; cobertura limitada y lectura de cuerpos",
+      "punto": 6
+    },
+    {
+      "resultado": "verificado_falla_H1",
+      "evidencia": "Control 11; EN_PLAZO, saldo5000, Cobrar1 e Inicio1",
+      "punto": 7
+    },
+    {
+      "resultado": "verificado_pasa",
+      "evidencia": "Control 12 y ClaseListaHaciaAdelanteT52Test en suite completa; H3/H5 POST422 y ausencia de marcas",
+      "punto": 8
+    },
+    {
+      "resultado": "verificado_falla_H3",
+      "evidencia": "Build y dos JSON de recorrido; fill, pulsaciones reales, incremento nativo, aviso al guardar, desfase y consola sin errores",
+      "punto": 9
+    },
+    {
+      "resultado": "verificado_pasa",
+      "evidencia": "CspSinCodigoIncrustadoTest verde; producto sin cambios",
+      "punto": 10
+    }
+  ],
+  "fuentes_comprobadas": 612,
+  "fuentes_cambiadas": [],
+  "estado_t50": "devuelto",
+  "responsable": "Gemini",
+  "verificador": "Codex",
+  "verificacion_concluida_con_devolucion": true,
+  "limite_adicional": "Popup del calendario no observable; seleccion por incremento nativo y tipeo si comprobados.",
+  "sin_push_en_esta_continuacion": true
+}

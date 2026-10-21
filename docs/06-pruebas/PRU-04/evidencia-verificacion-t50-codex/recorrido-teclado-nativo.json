@@ -1,0 +1,57 @@
+[
+  {
+    "paso": "tipeo-por-segmentos",
+    "metodo": "Pulsaciones reales 1 y 2 sobre segmento mes, Tab; no fill ni mutación por evaluate.",
+    "campo": {
+      "customError": true,
+      "max": "2026-11-30",
+      "mensaje": "No se pudo verificar la cuota. Revisá la conexión y la fecha antes de guardar.",
+      "rangeOverflow": true,
+      "valida": false,
+      "valor": "2026-12-01"
+    }
+  },
+  {
+    "paso": "seleccion-incremento-nativo",
+    "metodo": "Segmento mes del input date: ArrowUp desde noviembre y Tab.",
+    "antes": {
+      "max": "2026-11-30",
+      "mensaje": "",
+      "valida": true,
+      "valor": "2026-11-01"
+    },
+    "despues": {
+      "customError": true,
+      "max": "2026-11-30",
+      "mensaje": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "rangeOverflow": true,
+      "valida": false,
+      "valor": "2026-12-01"
+    }
+  },
+  {
+    "paso": "tipeo-pulsaciones-lectura-inmediata",
+    "campo": {
+      "customError": true,
+      "max": "2026-11-30",
+      "mensaje": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "rangeOverflow": true,
+      "valida": false,
+      "valor": "2026-12-01"
+    }
+  },
+  {
+    "paso": "guardar-fecha-tipeada-fuera-rango",
+    "url": "http://127.0.0.1:8765/alumnos/create",
+    "aviso": "No se guardó.",
+    "error": "Fecha de alta: La fecha de ingreso no puede ser posterior al 30/11/2026."
+  },
+  {
+    "paso": "consola",
+    "logs": []
+  },
+  {
+    "paso": "calendario-emergente",
+    "resultado": "No verificado: icono por AX, clic por coordenadas y Alt+Down no expusieron calendario en AX o captura. Selección incremental del mes sí comprobada con ArrowUp."
+  }
+]

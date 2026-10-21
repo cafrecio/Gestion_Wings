@@ -32,7 +32,7 @@
 
 Verificación independiente de 3704063, sin corregir producto. H1: inscripción futura suma deuda antes de ingreso; H2: fecha mal formada en edición da 500; H3: Chrome calcula límite con otro reloj que Wings.
 Completa propia: 1017 aprobadas/6 omitidas, 8791 aserciones, 984,61 s, salida 0; sin otras suites observadas. Controles independientes: 16/115, dos fallas reales; desfase comprobado en Chrome local tras build, consola observada limpia.
-Base exclusiva wings_testing_codex y datos ficticios; fuente sin cambios. T34 generado restaurado. Tabla de Carlos/Claude intacta; selección nativa y tipeo por segmentos pendientes explícitos.
+Base exclusiva wings_testing_codex y datos ficticios; fuente sin cambios. T34 generado restaurado. Tabla Carlos/Claude intacta. Continuación: tipeo real e incremento nativo comprobados; Guardar rechaza en castellano. Calendario emergente no observable.
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md). Devuelta a Gemini por tablero; sin despliegue.
 Carlos pidió higiene y publicación solo de lo propio: se retiran cuatro auxiliares duplicados/de diagnóstico; se conservan arnés reproducible y evidencia final. Dos commits locales ajenos de Gemini no se publican por arrastre; entrega aislada desde origin/main.
 Próximo paso: Gemini corrige los tres hallazgos y entrega a verificación independiente.
