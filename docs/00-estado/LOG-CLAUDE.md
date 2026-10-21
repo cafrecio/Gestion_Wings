@@ -13,13 +13,10 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 ## 2026-10-21 — Claude CAB — Cierre de sesión: lo que queda abierto
 
-**Espera respuesta de Carlos**
-- **T42, asientos viejos:** el código empareja dentro de la misma caja por fecha, concepto, medio e
-  importe, solo con un candidato de cada lado. Pregunté si eso cuenta como «identificable» para la
-  decisión de conservar el mes original solo en lo no identificable. Sin respuesta; T42 ya cerrada.
-- **T61, observaciones que no pasé a Codex:** dos envíos simultáneos de una transferencia con fecha
-  vieja podrían avisar dos veces al dueño (inferido); la pantalla Cashflow suma las transferencias en
-  sus totales del período. Ofrecí agregarlas; no se pidió.
+**Resuelto, no pendiente**
+- T42 (asientos viejos): decisión de Carlos ya tomada (conservar el mes original solo en lo no
+  identificable), implementada y verificada; T42 cerrada. Error mío haberlo vuelto a preguntar.
+- T61: las observaciones que no pidió Carlos no se hacen.
 
 **En curso de otros**
 - **T50:** Codex verifica la segunda vuelta de Gemini (H2 y H3; H1 lo resolvió Carlos).
