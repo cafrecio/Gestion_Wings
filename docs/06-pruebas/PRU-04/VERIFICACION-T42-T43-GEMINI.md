@@ -126,7 +126,28 @@ En relación al interrogante planteado por Carlos sobre si se adivina por import
 
 ---
 
-## 8. Separación explícita de lo Verificado vs lo Inferido
+## 8. Controles específicos de arquitectura y persistencia
+
+1. **Las decisiones no crean movimientos de caja:** Se verificó en `LiquidacionService::decidirAtrasada` y en los tests de auditoría que aprobar o rechazar una comisión atrasada únicamente actualiza el estado del detalle, la tabla inmutable `liquidacion_decisiones_atrasadas` y el acumulador de la liquidación. No se inserta ningún registro en `caja_movimientos` ni en `cashflow_movimientos` (el dinero real solo se mueve al pagar la liquidación cerrada).
+2. **El `down()` de la migración no borra evidencia:** Se auditó `database/migrations/2026_10_20_180000_registrar_decisiones_comision_atrasada.php`. El método `down()` se mantiene deliberadamente vacío con el comentario: *«No borrar decisiones financieras ni su procedencia al retroceder código.»*, preservando intacta la trazabilidad histórica ante eventuales rollbacks.
+3. **Comportamiento sin JavaScript (Fallback estándar):** Se auditó `LiquidacionWebController::decidirAtrasada`. Cuando la petición no espera JSON (`!$request->expectsJson()`), el método redirige mediante `redirect()->route('web.liquidaciones.show', $id)->with('success', ...)` manteniendo el soporte funcional nativo para navegadores o entornos sin JavaScript.
+
+---
+
+## 9. Hallazgos
+
+- **Cero hallazgos funcionales o contables (H1...Hn: Ninguno):** No se detectaron desvíos, inconsistencias en los importes, pérdida de centavos ni violaciones a los contratos de datos o directivas del dueño.
+
+---
+
+## 10. Qué no se verificó
+
+- **Diseño y aspecto visual:** No se evaluó ni alteró el diseño de las pantallas de liquidación ni los componentes Blade (`resources/views/**`, `resources/css/**`), dado que el aspecto visual ya fue aprobado expresamente por Carlos (*«Ahora esta OK»*).
+- **Ambientes de producción, prueba y servidor:** No se realizaron pruebas en producción (`wings`), sitio de prueba (`wingstest`) ni servidor remoto (`ssh vps`), operando estrictamente dentro de la base aislada local `wings_testing_gemini`.
+
+---
+
+## 11. Separación explícita de lo Verificado vs lo Inferido
 
 ### Verificado directamente con evidencia:
 1. Las cuotas adelantadas solo impactan en la liquidación del mes que pagan y exigen asistencia del alumno en dicho mes (comprobado en `control-t42.php` puntos 2, 3 y 4).
@@ -138,25 +159,29 @@ En relación al interrogante planteado por Carlos sobre si se adivina por import
 7. La decisión sobre filas atrasadas se realiza en el lugar vía AJAX sin recargar la página (comprobado con Chrome CDP en `test-browser-t43.mjs` y capturas 1366).
 8. El recibo PDF excluye cuotas rechazadas, incluye las aprobadas y refleja el ajuste final autorizado (comprobado en `recibo-t43-texto-extraido.txt`).
 9. La tabla `liquidacion_decisiones_atrasadas` audita responsable, fecha, montos y estados previos/posteriores, sobreviviendo a recálculos (comprobado en `control-t43.php` puntos 7 y 10).
+10. Las decisiones no generan movimientos en Caja ni en Cashflow (comprobado en código y ejecución).
 
 ### Inferido:
 - No se presentan inferencias: cada afirmación del presente informe está respaldada por una aserción automatizada o un archivo de evidencia generado en disco durante la sesión.
 
 ---
 
-## 9. Pruebas automáticas del repositorio
+## 12. Pruebas automáticas del repositorio
 
 - **Pruebas de área T42 y T43:**
   ```bash
   DB_DATABASE=wings_testing_gemini php artisan test --filter "T42|T43"
   ```
   Resultado: **36 pruebas aprobadas (231 afirmaciones) — VERDE.**
-- **Pruebas de regresión / Suite rápida y completa:**
-  Se ejecutó en `wings_testing_gemini` sin interferencias ni deadlocks.
+- **Suite completa de pruebas:**
+  ```bash
+  DB_DATABASE=wings_testing_gemini php artisan test
+  ```
+  Resultado: **1017 pruebas aprobadas, 6 omitidas (8791 aserciones, 1051.62s) — VERDE.** Cero fallos.
 
 ---
 
-## 10. Dictamen final
+## 13. Dictamen final
 
 Las tareas **T42** y **T43** implementadas por Codex CyE en los commits `d615bb8`, `6c8602f`, `ff738cb` y `b8e1ac1` cumplen satisfactoriamente todos los criterios de aceptación, contratos de datos, controles de seguridad y directivas de Carlos.
 
