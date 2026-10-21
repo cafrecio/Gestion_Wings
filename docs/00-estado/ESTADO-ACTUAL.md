@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T14 — Control integral preparado, Codex CyE 21/10/2026
+
+[Tabla](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 39 recorridos, 14 controles transversales y referencias de solo lectura a los 331 casos existentes. Resultado actual de todos: pendiente; cero ejecuciones. Incluye seguridad, validaciones, datos, aspecto y performance como dimensiones separadas. [Alcance y fuentes comprobadas](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md). Relevadas 18 pantallas de entrada/listado con ADMIN; sin operar formularios, otros roles ni móvil. Sitio de prueba leído por SSH en `56379295`, reloj real 21/10; no se modificó. La tabla espera revisión independiente y después alimenta los cuentos de Gemini; T14 continúa en curso, sin declarar aptitud para producción.
+
 ## T50 — CERRADA, verificación final Codex CyE 21/10/2026
 
 `738de598` resuelve la guardia efectiva/DB_URL. Arnés original: 3 rechazos por seguridad, salida 1 en cada auxiliar, sin llegar a preparación; arnés salida 0. Control permitido supera la guardia; todos los destinos CLI forzados a puerto cerrado, sin escrituras. Base propia: 13/71 permanentes y 17/214 independientes verdes; rápida **908 aprobadas, 6 omitidas, 7286 aserciones, 158,31 s, salida 0**, corte 1029. H1 conserva la decisión de Carlos; H2/H3 e idioma confirmados. Gemini implementó; Codex verifica y cierra por tablero. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Sin cambios de producto por Codex ni despliegue.

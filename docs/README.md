@@ -4,6 +4,10 @@ Clases particulares: [contrato V1](02-contratos/Wings-Contrato-Clases-Particular
 
 Este directorio concentra la documentacion viva del proyecto Wings.
 
+Prueba integral T14: [tabla de control](06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html)
+· [uso y alcance](06-pruebas/PRU-04/control-integral/LEEME.md).
+Preparada el 21/10/2026; pendiente de revisión independiente y ejecución.
+
 Condonación de saldo pendiente: [contrato V1, decisión FIN-07 del 12/09](02-contratos/Wings-Contrato-Condonacion-V1.md).
 
 Inicio común: [Resumen de arranque](00-estado/RESUMEN-ARRANQUE.md) y

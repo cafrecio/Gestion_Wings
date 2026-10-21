@@ -36,6 +36,16 @@
 
 [Antecedentes archivados intactos al cerrar T50](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-FINAL-ANTECEDENTES.md).
 
+## 2026-10-21 — Codex CyE — T14, tabla de control integral preparada
+
+Pedido de Carlos: control para derivar los relatos de prueba y revisar impactos, permisos, seguridad, performance y consistencia visual/técnica.
+[Tabla y alcance](../06-pruebas/PRU-04/control-integral/LEEME.md): 39 recorridos, 14 controles transversales y 331 referencias de solo lectura; cero ejecuciones, todo pendiente.
+Recorridas 18 entradas/listados ADMIN en Chrome; código relevante leído después del MCP. Cobertura del índice no acreditable aun tras reindexar: lectura directa, sin pretender impacto exhaustivo.
+SSH comprobó sitio de prueba 56379295 y reloj real 21/10 16:24; no se cambiaron datos de negocio, reloj ni configuración. Producción no consultada ni desplegada.
+Entrega documental: validar referencias, enlaces, integridad del JSON y visor. Sin suite ni migraciones; tabla Carlos/Claude intacta y sin cambios de producto.
+Carlos pidió subir todo a GitHub para continuar desde CAB. En casa: actualizar main y abrir la tabla enlazada; la revisión y las ejecuciones siguen pendientes. Integridad, enlaces, huellas fuente, sintaxis del JavaScript documental y tablero comprobados antes de publicar.
+Sigue T14 en curso: otro agente revisa el control; Gemini vincula acciones del cuento con INT/caso/letra y esperado antes de ejecutar. No se declara listo para producción.
+
 ## 2026-10-21 — Codex CyE — T50 verificación final aprobada y cierre
 
 Revisado 738de598, remoto main coincidente al iniciar; equipo Ventas_CyE. Implementó Gemini, verifica Codex.
