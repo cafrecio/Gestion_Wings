@@ -2,7 +2,7 @@
 
 ## T61 — Segunda vuelta H1–H3, Codex CAB 21/10/2026
 
-Implementada en copia aislada `codex/t61-segunda-vuelta` (base 2c7cebe), con cambios T50 ajenos preservados. TRASPASO solo para transferencias reservadas: catálogo común, caja, correcciones y otras puertas protegidas; transferencia aprobada intacta. 16/198 dirigidas y 125/851 del área verdes; completa 1020 aprobadas/6 omitidas, 8846 aserciones, 934,96 s, salida 0. Inventarios propios previo y posterior sin anomalías. Capturas reales antes/después guardadas: escritorio 1366; móviles medidos 360, no 375. Pendiente recapturar 375 y revisión de Claude/Carlos; no se da el visual por aprobado. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#segunda-vuelta--h1-a-h3). Sin reparación histórica ni despliegue.
+Implementada en copia aislada `codex/t61-segunda-vuelta` (base 2c7cebe), con cambios T50 ajenos preservados. TRASPASO solo para transferencias reservadas: catálogo común, caja, correcciones y otras puertas protegidas; transferencia aprobada intacta. 16/198 dirigidas y 125/851 del área verdes; completa 1020 aprobadas/6 omitidas, 8846 aserciones, 934,96 s, salida 0. Inventarios propios previo y posterior sin anomalías. Capturas reales antes/después guardadas: escritorio 1366 y móviles recapturados a 375 × 1000, con medición DOM y cabeceras JPEG comprobadas. Pendiente revisión de Claude/Carlos; no se da el visual por aprobado. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#segunda-vuelta--h1-a-h3). Sin reparación histórica ni despliegue.
 
 Antecedente: verificación de Claude CAB del 20/10/2026, devuelta por los casos siguientes.
 

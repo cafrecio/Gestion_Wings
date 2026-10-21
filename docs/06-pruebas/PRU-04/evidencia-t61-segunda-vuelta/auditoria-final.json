@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-10-21T05:16:31.7886997-03:00",
+  "fecha": "2026-10-21T05:22:33.2746801-03:00",
   "rama": "codex/t61-segunda-vuelta",
   "base": "2c7cebe",
   "suite": {
@@ -20,17 +20,19 @@
   "t34": "restaurado",
   "capturas_originales_hashes": "8 correctos",
   "movil": {
-    "bloqueo": "politica del navegador rechaza protocolo file",
+    "ancho_archivo": 375,
     "requerido": 375,
-    "estado": "pendiente recaptura y revision Carlos",
-    "ancho_archivo": 360
+    "estado": "recaptura completada; pendiente revision Carlos",
+    "medicion": "medicion-375.json",
+    "imagenes": "4 JPEG 375x1000 sin redimensionar",
+    "consola": "sin errores ni avisos"
   },
   "inventarios": "previo y posterior: 0/0/0, solo wings_testing_codex",
   "sintaxis_php": "13 archivos sin errores",
   "enlaces_nuevos": "correctos",
   "log": {
     "lineas": 100,
-    "caracteres": 11336
+    "caracteres": 11364
   },
   "resumen_lineas": 150,
   "estado": "a_verificar",

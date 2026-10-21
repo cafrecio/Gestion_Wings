@@ -8,10 +8,10 @@
     "formato": "JPEG"
   },
   {
-    "archivo": "antes-create-360.jpg",
-    "bytes": 46273,
-    "sha256": "9B5F26A8849B9BCEA96D7C0DA19199B70499611D36BF464E883487E2D31F10B6",
-    "ancho": 360,
+    "archivo": "antes-create-375.jpg",
+    "bytes": 46121,
+    "sha256": "21BEBD791A8A75DD179B8D089459927F65AC0BC5C054F0307EFF4AAB4ED0086C",
+    "ancho": 375,
     "alto": 1000,
     "formato": "JPEG"
   },
@@ -24,10 +24,10 @@
     "formato": "JPEG"
   },
   {
-    "archivo": "antes-edit-360.jpg",
-    "bytes": 42742,
-    "sha256": "7A5972357B5BB05353B9EEDCC288DCE9BB72B30B8CBBDADC60D8EEECB48E176C",
-    "ancho": 360,
+    "archivo": "antes-edit-375.jpg",
+    "bytes": 42559,
+    "sha256": "27C8AEEE4131A69643FA6F45C0C24F5909C750DE706ED2A564922303498E6D42",
+    "ancho": 375,
     "alto": 1000,
     "formato": "JPEG"
   },
@@ -40,10 +40,10 @@
     "formato": "JPEG"
   },
   {
-    "archivo": "despues-create-360.jpg",
-    "bytes": 41954,
-    "sha256": "D0E4C39B89CE7137EAEB404DCF3B0B0F791D6A6F3B2ADDDB9346C23AA5DF321E",
-    "ancho": 360,
+    "archivo": "despues-create-375.jpg",
+    "bytes": 41833,
+    "sha256": "9B2BED1AAC63B6B9BA7C2F3A1FAA6B6F6AF1603AB46F2DB9F4A0E3D8AE04C5B1",
+    "ancho": 375,
     "alto": 1000,
     "formato": "JPEG"
   },
@@ -56,10 +56,10 @@
     "formato": "JPEG"
   },
   {
-    "archivo": "despues-edit-360.jpg",
-    "bytes": 38329,
-    "sha256": "9EF1E2FE597A6DFCFA220D339E74D2C386DBDB47D272D729925A098983D0E0D9",
-    "ancho": 360,
+    "archivo": "despues-edit-375.jpg",
+    "bytes": 38224,
+    "sha256": "1B41CC11861ABD0869DF6542A2B0D6B2F488DDFFC596CBC5430AA579CD830F68",
+    "ancho": 375,
     "alto": 1000,
     "formato": "JPEG"
   }

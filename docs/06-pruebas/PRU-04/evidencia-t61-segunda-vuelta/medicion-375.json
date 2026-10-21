@@ -1,0 +1,86 @@
+{
+  "fecha": "2026-10-21T08:21:06.933Z",
+  "mediciones": [
+    {
+      "fase": "despues",
+      "vista": "create",
+      "clientWidth": 375,
+      "innerHeight": 1000,
+      "innerWidth": 375,
+      "opciones": [
+        {
+          "texto": "Del club",
+          "valor": "NEGOCIO"
+        },
+        {
+          "texto": "Retiro de los dueños",
+          "valor": "RETIRO"
+        }
+      ],
+      "scrollWidth": 360
+    },
+    {
+      "fase": "despues",
+      "vista": "edit",
+      "clientWidth": 375,
+      "innerHeight": 1000,
+      "innerWidth": 375,
+      "opciones": [
+        {
+          "texto": "Del club",
+          "valor": "NEGOCIO"
+        },
+        {
+          "texto": "Retiro de los dueños",
+          "valor": "RETIRO"
+        }
+      ],
+      "scrollWidth": 360
+    },
+    {
+      "fase": "antes",
+      "vista": "edit",
+      "clientWidth": 375,
+      "innerHeight": 1000,
+      "innerWidth": 375,
+      "opciones": [
+        {
+          "texto": "Del club",
+          "valor": "NEGOCIO"
+        },
+        {
+          "texto": "Retiro de los dueños",
+          "valor": "RETIRO"
+        },
+        {
+          "texto": "Traspaso entre medios (no cuenta en el resultado)",
+          "valor": "TRASPASO"
+        }
+      ],
+      "scrollWidth": 360
+    },
+    {
+      "fase": "antes",
+      "vista": "create",
+      "clientWidth": 375,
+      "innerHeight": 1000,
+      "innerWidth": 375,
+      "opciones": [
+        {
+          "texto": "Del club",
+          "valor": "NEGOCIO"
+        },
+        {
+          "texto": "Retiro de los dueños",
+          "valor": "RETIRO"
+        },
+        {
+          "texto": "Traspaso entre medios (no cuenta en el resultado)",
+          "valor": "TRASPASO"
+        }
+      ],
+      "scrollWidth": 360
+    }
+  ],
+  "consola": []
+}
