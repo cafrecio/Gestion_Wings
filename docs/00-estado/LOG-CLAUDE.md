@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-21 — Claude CAB — T61 verificada, integrada y cerrada
+
+- Segunda vuelta de Codex: mis controles de la primera vuelta, sin cambiarlos, sobre el código de su
+  rama: H1 y H2 rechazados, H3 rechazado sin tocar el gasto. Sus 16 pruebas de T61 en verde.
+- Carlos aprobó el visual y pidió integrar. Rama `codex/t61-segunda-vuelta` unida a `main` con la
+  segunda vuelta de T50 de Gemini (que estaba en la carpeta sin subir). Conflictos solo en el
+  contador (cada lado contaba lo suyo: real 1028) y en el tablero (regenerado).
+- Pendiente de nadie: T50 sigue a verificar por Codex.
+
 ## 2026-10-21 — Claude CAB — T50: decisión de Carlos sobre la inscripción y tabla al día
 
 - Codex devolvió T50 con H1–H3. H1 (la inscripción de un alumno con ingreso el mes que viene ya

@@ -1,0 +1,11 @@
+{
+  "control_procesos": {
+    "procesos_ajenos": [],
+    "intervalo_segundos": 5,
+    "launcher": 17452,
+    "observaciones": 70
+  },
+  "fin": "2026-10-21T01:46:14.2001610-03:00",
+  "motivo": "Corrida descartada al detectar consulta de relacion inexistente en una defensa adicional propia. Corregida por consulta explicita del subrubro_id.",
+  "ultima_linea": "  ✓ borra solo niveles legacy sin grupos                                                                         0.05s  "
+}

@@ -1,0 +1,22 @@
+{
+    "fecha": "2026-10-21T06:29:09+02:00",
+    "bases_propias": [
+        "wings_testing_codex"
+    ],
+    "datos": {
+        "wings_testing_codex": {
+            "subrubros": {
+                "cantidad": 0,
+                "muestra": []
+            },
+            "movimientos_operativos": {
+                "cantidad": 0,
+                "muestra": []
+            },
+            "cashflow_movimientos": {
+                "cantidad": 0,
+                "muestra": []
+            }
+        }
+    }
+}

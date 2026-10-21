@@ -256,6 +256,7 @@ class PagoCuotaService
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
 
+            if ($montoCuota > 0) \App\Support\ClasificacionSubrubros::exigirSinTraspaso($subruboCuota);
             // Crear movimiento en cashflow directo
             $movimiento = $montoCuota > 0 ? CashflowMovimiento::create([
                 'fecha' => $fechaPago,
@@ -268,6 +269,7 @@ class PagoCuotaService
                 'referencia_id' => $pago->id,
             ]) : null;
             if ($montoInscripcion > 0) {
+                \App\Support\ClasificacionSubrubros::exigirSinTraspaso(Subrubro::findOrFail($cargoInscripcion->subrubro_id));
                 $movCargo = CashflowMovimiento::create([
                     'fecha' => $fechaPago, 'subrubro_id' => $cargoInscripcion->subrubro_id,
                     'tipo_caja_id' => $data['tipo_caja_id'], 'monto' => $montoInscripcion,
@@ -278,6 +280,7 @@ class PagoCuotaService
                 $movimiento ??= $movCargo;
             }
             foreach ($punitorios as $imputacion) {
+                \App\Support\ClasificacionSubrubros::exigirSinTraspaso(Subrubro::findOrFail($imputacion['cargo']->subrubro_id));
                 $movCargo = CashflowMovimiento::create([
                     'fecha' => $fechaPago, 'subrubro_id' => $imputacion['cargo']->subrubro_id,
                     'tipo_caja_id' => $data['tipo_caja_id'], 'monto' => $imputacion['monto'],
@@ -1292,6 +1295,7 @@ class PagoCuotaService
                     continue;
                 }
 
+                \App\Support\ClasificacionSubrubros::exigirSinTraspaso($original->subrubro, $original->reporte_clasificacion);
                 CashflowMovimiento::create([
                     'fecha' => $original->fecha->toDateString(),
                     'subrubro_id' => $original->subrubro_id,

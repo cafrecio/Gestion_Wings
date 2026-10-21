@@ -794,7 +794,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "T61 en corrección por aclaración de Carlos 20/10/2026: transferencia única atómica",
+      "fuente": "Decidido por Carlos (DU-29, 13/10) y aclarado el 20/10: un formulario de transferencia con cuenta de salida, destino e importe; los conceptos son del sistema y no se editan. Programado en T61 por Codex (transferencia única, confirmación de fecha de un mes anterior FIN-09 y, en la segunda vuelta, TRASPASO solo para las transferencias del sistema). Verificado por Claude y visual aprobado por Carlos el 21/10: cerrada.",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo acumulado de las entregas de caja.",

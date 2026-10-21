@@ -1,0 +1,176 @@
+
+   PASS  Tests\Feature\AltaMesCerradoTest
+  ✓ no evita solo cuota y conserva inscripcion y decision                                                       11.40s
+
+   PASS  Tests\Feature\AnulacionFechaOriginalT39Test
+  ✓ la inscripcion cobrada vuelve a deberse en el mes del cobro                                                  0.21s
+
+   PASS  Tests\Feature\BuscadorCobrarSoloDeudoresTest
+  ✓ quien debe solo la inscripcion aparece sin buscar                                                            0.15s
+
+   PASS  Tests\Feature\CashflowDetalleAlumnoYUsuarioTest
+  ✓ inscripcion muestra alumno y quien cobro en caja y sin caja                                                  0.17s
+
+   PASS  Tests\Feature\CobranzaEntrega1Test
+  ✓ inscripcion impaga convierte en deudor en listado ficha y resumen con mes cerrado                            0.10s
+
+   PASS  Tests\Feature\CobranzaInscripcionEstadoTest
+  ✓ configuracion dias plazo alta existe y vale 7 por defecto                                                    0.05s
+  ✓ servicio lanza logic exception si falta dias plazo alta o es menor o igual a cero                            0.05s
+  ✓ servicio lanza logic exception si dias plazo alta es cero o negativo                                         0.04s
+  ✓ jerarquia de estados el peor gana                                                                            0.05s
+  ✓ inscripcion pagada entera o condonada no altera estado                                                       0.06s
+  ✓ inscripcion pagada en parte sigue contando por saldo pendiente                                               0.05s
+  ✓ persona en dos deportes inscripcion afecta solo al registro imputado                                         0.05s
+  ✓ registro que carga inscripcion dado de baja con otro deporte activo hereda la deuda                          0.06s
+  ✓ cobranza y buscador de cobrar listan exactamente a los mismos                                                0.08s
+  ✓ en cobranza quien debe solo inscripcion se ordena por antiguedad de esa deuda                                0.07s
+  ✓ borde alumno ingresa un lunes con 7 dias en plazo hasta domingo moroso el lunes siguiente                    0.05s
+  ✓ borde alumno ingresa dia 3 con gracia general 10 y plazo 7 rige el general hasta dia 10                      0.07s
+  ✓ borde alta 28 septiembre 7 dias en plazo hasta 4 octubre deudor el 5                                         0.06s
+  ✓ borde alumno con fecha alta a futuro queda en plazo                                                          0.05s
+  ✓ borde alumno reactivado conserva fecha alta original                                                         0.05s
+  ✓ borde correccion de fecha alta recalcula plazo contra nueva fecha                                            0.07s
+  ✓ borde cambio de mes la misma inscripcion pasa de morosa a deudora al cerrar el mes de ingreso                0.04s
+  ✓ dias gracia restantes devuelve el mas largo cuando esta en plazo                                             0.04s
+
+   PASS  Tests\Feature\ComisionPorPeriodoT42Test
+  ✓ solo las cuotas imputadas forman la base sin inscripcion                                                     0.13s
+
+   PASS  Tests\Feature\ConfiguracionA11Test
+  ✓ inscripcion rechaza importes invalidos sin cambiar el precio vigente                                         0.05s
+
+   PASS  Tests\Feature\FechaIngresoFuturaT50Test
+  ✓ previsualizacion inscripcion rechaza fecha posterior al limite                                               0.13s
+
+   PASS  Tests\Feature\IngresosPorPeriodoT42Test
+  ✓ cobro mixto reparte cuotas y deja inscripcion en su fecha                                                    0.19s
+
+   PASS  Tests\Feature\InicioDeudaCuotasEInscripcionesTest
+  ✓ inicio y cobranza concilian con solo cuotas                                                                  0.56s
+  ✓ inicio y cobranza concilian con cuotas mas inscripcion                                                       0.13s
+  ✓ inicio y cobranza concilian con inscripcion pagada                                                           0.11s
+  ✓ inicio y cobranza concilian con inscripcion pagada parcial                                                   0.11s
+  ✓ inicio y cobranza concilian con alumna en dos deportes una sola inscripcion                                  0.20s
+  ✓ inicio y cobranza concilian con inscripcion condonada                                                        0.17s
+  ✓ inicio y cobranza excluyen inscripcion de alumno inactivo                                                    0.16s
+  ✓ t19 reportes cuenta las inscripciones igual que inicio y cobranza                                            0.31s
+  ✓ t19 quien se dio de baja no cuenta en ninguna de las tres                                                    0.39s
+
+   PASS  Tests\Feature\InicioVencidosEnPlazoT74Test
+  ✓ quien debe solo la inscripcion cuenta una vez y la suma sigue cerrando                                       0.27s
+
+   PASS  Tests\Feature\InscripcionConcurrenteTest
+  ✓ dos altas del mismo dni en deportes distintos se serializan                                                 14.97s
+  ✓ segundo cobro relee saldo despues de esperar                                                                16.10s
+
+   PASS  Tests\Feature\InscripcionTest
+  ✓ alta manual genera inscripcion sin corte incluso con ingreso antiguo                                         0.35s
+  ✓ dos deportes no duplican inscripcion                                                                         0.13s
+  ✓ configuracion invalida no deja alta parcial                                                                  0.09s
+  ✓ reintento no duplica y precio queda congelado                                                                0.12s
+  ✓ fallo durante el cargo revierte alumno y plan                                                                0.15s
+  ✓ cobro completo separa conceptos y caja                                                                       0.27s
+  ✓ pago insuficiente cubre inscripcion primero y no cambia estado mensual                                       0.25s
+  ✓ editar fecha conserva inscripcion e importe con auditoria                                                    0.16s
+  ✓ no se edita fecha con inscripcion parcialmente pagada                                                        0.20s
+  ✓ cancelar restituye cuota inscripcion y todos los movimientos                                                 0.26s
+  ✓ importe inscripcion obligatorio sin parametro corte                                                          0.16s
+  ✓ retirar parametro legacy no altera cargos ni importe                                                         0.10s
+  ✓ editar alumno existente sin cargo no crea inscripcion                                                        0.12s
+  ✓ recibo pdf contiene cuota e inscripcion y conserva detalle anulado                                           6.35s
+  ✓ el descuento solo alcanza la cuota                                                                           0.22s
+  ✓ pagos historicos conservan su importe de cuota                                                               0.11s
+  ✓ configuracion cambiada no cobra otro importe sin avisar                                                      0.18s
+
+   PASS  Tests\Feature\LiquidacionComisionHistoricaTest
+  ✓ comision excluye inscripcion del pago mixto                                                                  0.08s
+
+   PASS  Tests\Feature\PerdonConcurrenteT33Test
+  ✓ pedido inscripcion espera commit y continua sin reintento ni timeout                                        24.57s
+  ✓ cobro parcial inscripcion primero perdona solo tres mil                                                     30.02s
+  ✓ cobro completo inscripcion primero rechaza perdon                                                           25.12s
+  ✓ perdon inscripcion primero rechaza cobro sin escribir                                                       27.30s
+  ✓ dos perdones de inscripcion se serializan y segundo rechaza                                                 25.45s
+
+   PASS  Tests\Feature\PerdonReactivacionT33Test
+  ✓ admin ve condonar inscripcion y reutiliza el modal                                                           1.22s
+  ✓ condonar inscripcion guarda solo saldo y evento con autor fecha motivo importe                               0.21s
+  ✓ inscripcion parcial perdona resto y anular pago deja debiendo el parcial                                     0.15s
+  ✓ reactivar inscripcion conserva parcial original y ambos eventos                                              0.14s
+  ✓ inscripcion ya perdonada no admite segundo perdon                                                            0.13s
+  ✓ inscripcion pagada entera no admite perdon                                                                   0.19s
+  ✓ inscripcion anulada rechaza condonar y reactivar                                                             0.82s
+  ✓ inscripcion sin perdon no admite reactivacion                                                                0.26s
+  ✓ mes anterior conserva cuota historica pero usa perdon actual de inscripcion                                  0.26s
+
+   PASS  Tests\Feature\PrimeraCargaExcelTest
+  ✓ mismo dni en dos deportes inscripcion unica y duplicado rechazado                                            1.28s
+
+   PASS  Tests\Feature\PunitoriosCobroTest
+  ✓ pago parcial no toca recargo y cobro completo conserva invariante                                            0.17s
+  ✓ orden por mes es cuota recargo y siguiente cuota                                                             0.25s
+  ✓ no salta capital con importe manipulado para cobrar recargo                                                  0.19s
+  ✓ inscripcion conserva prioridad sobre cuota y recargo                                                         0.22s
+  ✓ recargo solo sigue siendo deuda y se puede cobrar por pantalla                                               0.52s
+  ✓ condonar recargo solo no limpia capital y reactivar conserva historial                                       0.34s
+  ✓ operativo profesor y anonimo no pueden perdonar ni reactivar                                                 0.24s
+  ✓ cuatro pantallas dicen mismo total incluso debiendo solo recargo                                             1.04s
+  ✓ anular cobro admin restituye recargo capital y plata                                                         0.22s
+  ✓ caja operativa cuadra con recargo y cancelacion revierte todo                                                0.20s
+  ✓ recibo separa cuota recargo e inscripcion y omite recargo condonado                                          3.33s
+  ✓ comision docente solo sobre capital realmente cobrado                                                        0.15s
+  ✓ importe parcial de cuota sin total entregado no cobra recargo                                                0.12s
+  ✓ cuota condonada conserva recargo y admite cobrarlo solo                                                      0.15s
+  ✓ apagar mora no borra deuda y recargo viejo exige aviso al cobrar otro mes                                    0.17s
+  ✓ reporte de mes cerrado conserva recargo anterior a perdon y la anulacion vuelve al mes del cobro             0.38s
+  ✓ porcentaje cero sin cargos conserva pantallas y exporta evidencia a pedido                                   6.76s
+
+   PASS  Tests\Feature\PunitoriosConfiguracionTest
+  ✓ pantalla guarda ambas claves y cambia el motor con 12 coma 5                                                 0.16s
+  ✓ porcentajes invalidos y dias invalidos se rechazan en castellano sin guardar                                 0.14s
+  ✓ seed repetido no reinicia configuracion y conserva catalogo unico                                            0.15s
+  ✓ operativo no puede cambiar configuracion de mora                                                             0.13s
+  ✓ rubro reservado no admite subrubro edicion borrado ni desactivacion                                          0.15s
+  ✓ recargo no aparece en movimientos manuales ni se admite por post directo                                     0.55s
+
+   PASS  Tests\Feature\PunitoriosMotorTest
+  ✓ migracion crea configuraciones y catalogo reservado                                                          0.06s
+  ✓ porcentaje cero no escribe cargos eventos ni modifica cuotas                                                 0.07s
+  ✓ no aplica el dia configurado y aplica una vez al dia siguiente                                               0.08s
+  ✓ subir porcentaje o apagarlo no recalcula ni borra el cargo aplicado                                          0.07s
+  ✓ prender la mora no aplica recargos a meses anteriores                                                        0.09s
+  ✓ tres cuotas reciben cada una su recargo en su propio mes                                                     0.10s
+  ✓ alumno nuevo conserva su plazo propio hasta que vence                                                        0.04s
+  ✓ alumno nuevo conserva el plazo general si es mayor que el propio                                             0.05s
+  ✓ no crea recargos para inactivos ni cuotas condonadas                                                         0.05s
+  ✓ porcentaje con coma usa el original y redondea el medio centavo                                              0.06s
+  ✓ comando usa el reloj simulado y repetirlo no duplica                                                         0.05s
+  ✓ solo duenio condona y reactiva con motivo y eventos                                                          0.05s
+
+   PASS  Tests\Feature\SaldoUnicoPorAlumnoTest
+  ✓ el saldo incluye la inscripcion impaga                                                                       0.19s
+
+   PASS  Tests\Feature\SaldoYAnulacionCoherentesTest
+  ✓ la inscripcion de quien hace dos deportes figura en un solo registro                                         0.13s
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo protegido rechaza edicion renombre baja y subrubros adicionales                                     0.11s
+  ✓ transferencia mueve 300mil y conserva todos los indicadores del club                                         0.74s
+  ✓ fallo al guardar entrada revierte salida y cabecera                                                          0.17s
+  ✓ reenvio de la misma operacion no duplica y rechaza datos distintos                                           0.17s
+  ✓ rechaza misma cuenta inactiva fecha futura e importes invalidos sin escrituras                               0.17s
+  ✓ operativa y profesora no pueden abrir ni registrar transferencias                                            0.11s
+  ✓ no permite carga individual ni edicion o anulacion de una sola pata                                          0.16s
+  ✓ proteccion del catalogo existente no inventa vinculos historicos                                             0.16s
+  ✓ seeder idempotente preserva clasificaciones y snapshots                                                      0.16s
+  ✓ formulario pide dos cuentas un importe y una fecha sin rubros editables                                      0.33s
+  ✓ transferencia fin de anio con centavos conserva resultado y fecha de ambas patas                             0.20s
+  ✓ saldos actuales independientes del filtro y cajas pendientes                                                 0.25s
+  ✓ fecha de mes anterior pide confirmar sin escribir y luego registra ambas patas                               0.23s
+  ✓ h1 subrubro comun rechaza traspaso en alta edicion y cambio tipo                                             0.32s
+  ✓ h2 caja rechaza traspaso preexistente alta edicion interno y reflejo                                         0.11s
+  ✓ h3 cashflow rechaza correccion y alta manual traspaso sin cambiar gasto                                      0.14s
+
+  Tests:    125 passed (851 assertions)
+  Duration: 214.18s

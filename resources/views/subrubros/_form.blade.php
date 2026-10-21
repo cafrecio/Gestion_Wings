@@ -59,12 +59,12 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                 class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
             {{-- Uno nuevo nace «Del club». Uno viejo sin clasificar obliga a elegir. --}}
             @php $clasifActual = old('clasificacion_resultado', isset($subrubro) ? $subrubro->clasificacion_resultado : \App\Support\ClasificacionSubrubros::NEGOCIO); @endphp
-            @unless($clasifActual)<option value="" selected disabled>Elegí una opción</option>@endunless
+            @unless(in_array($clasifActual, \App\Support\ClasificacionSubrubros::permitidas($rubro->tipo), true))<option value="" selected disabled>Elegí una opción</option>@endunless
             @foreach(\App\Support\ClasificacionSubrubros::permitidas($rubro->tipo) as $opcion)
                 <option value="{{ $opcion }}" {{ $clasifActual === $opcion ? 'selected' : '' }}>{{ \App\Support\ClasificacionSubrubros::ETIQUETAS[$opcion] }}</option>
             @endforeach
         </select>
-        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Del club": cuenta en los ingresos o gastos de Inicio y Reportes. "De los dueños": se muestra aparte y no cambia el resultado del club. "Traspaso entre medios": mueve saldo entre medios propios, sin contar como ingreso, gasto, aporte ni retiro.</p>
+        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Del club": cuenta en los ingresos o gastos de Inicio y Reportes. "De los dueños": se muestra aparte y no cambia el resultado del club.</p>
         @error('clasificacion_resultado') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
     @endif

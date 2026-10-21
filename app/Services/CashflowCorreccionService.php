@@ -69,6 +69,7 @@ class CashflowCorreccionService
             $antes = $this->foto($mov);
             if ($accion === 'EDITAR') {
                 $sub = Subrubro::with('rubro')->findOrFail($datos['subrubro_id']);
+                \App\Support\ClasificacionSubrubros::exigirSinTraspaso($sub);
                 if ($sub->es_reservado_sistema) throw ValidationException::withMessages(['subrubro_id' => 'Usá el recorrido propio de este subrubro.']);
                 // El formulario muestra el tipo actual del rubro seleccionado. Si cambió,
                 // su signo y la clasificación del registro corregido deben coincidir con él.
@@ -79,6 +80,7 @@ class CashflowCorreccionService
                 $mov->fill(array_intersect_key($datos, array_flip(['fecha', 'tipo_caja_id', 'subrubro_id', 'observaciones'])));
                 $mov->monto = ($sub->rubro?->tipo === 'EGRESO' ? '-' : '').$datos['monto'];
             } else {
+                \App\Support\ClasificacionSubrubros::exigirSinTraspaso($mov->subrubro, $mov->reporte_clasificacion);
                 // Misma fecha y clasificación congelada: revierte el mes original, no el actual.
                 CashflowMovimiento::create([
                     'fecha' => $mov->fecha->toDateString(), 'subrubro_id' => $mov->subrubro_id,

@@ -299,4 +299,88 @@ class TraspasosEntreMediosT61Test extends TestCase
         $this->assertDatabaseCount('cashflow_transferencias', 1);
         $this->assertSame(['2026-09-30', '2026-09-30'], CashflowMovimiento::all()->map(fn ($m) => $m->fecha->toDateString())->all());
     }
+
+    private function traspasoComun(string $permiso = 'OPERATIVO'): Subrubro
+    {
+        return Subrubro::create(['rubro_id' => \App\Models\Rubro::where('nombre', 'Gastos Operativos')->value('id'),
+            'nombre' => 'Traspaso comun preexistente T61', 'permitido_para' => $permiso, 'activo' => true,
+            'afecta_caja' => true, 'clasificacion_resultado' => ClasificacionSubrubros::TRASPASO]);
+    }
+
+    private function rechazaTraspaso(callable $accion): void
+    {
+        try { $accion(); $this->fail('Debio rechazar TRASPASO fuera de Transferir.'); }
+        catch (\Illuminate\Validation\ValidationException $e) { $this->assertArrayHasKey('subrubro_id', $e->errors()); }
+    }
+
+    public function test_h1_subrubro_comun_rechaza_traspaso_en_alta_edicion_y_cambio_tipo(): void
+    {
+        foreach (['INGRESO', 'EGRESO'] as $tipo) {
+            $rubro = \App\Models\Rubro::create(['nombre' => 'Rubro comun '.$tipo, 'tipo' => $tipo]);
+            $datos = ['nombre' => 'No permitir '.$tipo, 'permitido_para' => 'OPERATIVO', 'afecta_caja' => 1,
+                'clasificacion_resultado' => ClasificacionSubrubros::TRASPASO];
+            $this->postJson(route('web.subrubros.store', $rubro->id), $datos)
+                ->assertUnprocessable()->assertJsonValidationErrors('clasificacion_resultado');
+            $this->assertDatabaseMissing('subrubros', ['nombre' => $datos['nombre']]);
+            $sub = Subrubro::create(array_replace($datos, ['rubro_id' => $rubro->id, 'clasificacion_resultado' => 'NEGOCIO']));
+            $this->putJson(route('web.subrubros.update', [$rubro->id, $sub->id]), $datos)
+                ->assertUnprocessable()->assertJsonValidationErrors('clasificacion_resultado');
+            $this->assertSame('NEGOCIO', $sub->fresh()->clasificacion_resultado);
+            foreach ([route('web.subrubros.create', $rubro->id), route('web.subrubros.edit', [$rubro->id, $sub->id])] as $url) {
+                $this->get($url)->assertOk()->assertDontSee('value="TRASPASO"', false);
+            }
+        }
+        $legacy = $this->traspasoComun();
+        $this->get(route('web.subrubros.edit', [$legacy->rubro_id, $legacy->id]))->assertOk()->assertSee('value="" selected disabled', false)->assertDontSee('value="TRASPASO"', false);
+        $this->put(route('web.rubros.update', $legacy->rubro_id), ['nombre' => $legacy->rubro->nombre, 'tipo' => 'INGRESO'])
+            ->assertSessionHas('error');
+        $this->assertSame('EGRESO', $legacy->rubro->fresh()->tipo);
+        $this->assertSame('TRASPASO', $legacy->fresh()->clasificacion_resultado);
+    }
+
+    public function test_h2_caja_rechaza_traspaso_preexistente_alta_edicion_interno_y_reflejo(): void
+    {
+        $sub = $this->traspasoComun();
+        $op = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
+        $caja = CajaDeclarada::crear($op->id, $this->efectivo->id);
+        $datos = ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '50000.00', 'fecha' => '2026-10-20', 'observaciones' => 'Control T61'];
+        $this->actingAs($op)->post(route('web.caja.movimiento.store'), $datos)->assertSessionHas('error');
+        $this->assertDatabaseCount('movimientos_operativos', 0);
+        $normal = MovimientoOperativo::create(array_replace($datos, ['caja_operativa_id' => $caja->id, 'usuario_id' => $op->id,
+            'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id')]));
+        $antes = $normal->fresh()->getAttributes();
+        $this->put(route('web.caja.movimientos.update', [$caja->id, $normal->id]), $datos)->assertSessionHas('error');
+        $this->assertSame($antes, $normal->fresh()->getAttributes());
+        $servicio = app(\App\Services\CajaService::class);
+        $this->rechazaTraspaso(fn () => $servicio->registrarMovimientoOperativo($datos + ['usuario_operativo_id' => $op->id]));
+        $this->rechazaTraspaso(fn () => $servicio->registrarMovimientoOperativoInterno($datos + ['usuario_operativo_id' => $op->id]));
+        $this->assertDatabaseCount('movimientos_operativos', 1);
+        MovimientoOperativo::create($datos + ['caja_operativa_id' => $caja->id, 'usuario_id' => $op->id, 'estado' => 'ACTIVO']);
+        $caja->update(['estado' => 'VALIDADA']);
+        $this->rechazaTraspaso(fn () => app(\App\Services\CashflowIntegracionCajaService::class)->reflejarCajaEnCashflow($caja->id, $this->admin->id));
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
+    }
+
+    public function test_h3_cashflow_rechaza_correccion_y_alta_manual_traspaso_sin_cambiar_gasto(): void
+    {
+        $sub = $this->traspasoComun('ADMIN');
+        $mov = $this->cargar(Subrubro::where('nombre', 'Limpieza')->firstOrFail(), $this->efectivo, '40000.00');
+        $antes = $mov->getAttributes(); $egresos = $this->reporte()['egresos'];
+        $this->assertSame(4000000, $egresos, 'El gasto original debe contar antes del intento rechazado.');
+        $this->putJson(route('web.cashflow.movimientos.update', $mov->id), ['clave' => (string) Str::uuid(), 'version' => 0,
+            'subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '40000.00', 'fecha' => '2026-10-20',
+            'observaciones' => 'Control T61'])->assertUnprocessable()->assertJsonValidationErrors('subrubro_id');
+        $this->assertSame($antes, $mov->fresh()->getAttributes());
+        $this->assertSame($egresos, $this->reporte()['egresos']);
+        $this->assertDatabaseCount('cashflow_correcciones', 0);
+        $this->post('/cashflow/movimiento', ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => '50000.00', 'fecha' => '2026-10-20', 'observaciones' => 'No permitir'])->assertSessionHas('error');
+        $this->assertDatabaseCount('cashflow_movimientos', 1);
+        $legacy = CashflowMovimiento::create(['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => '-40000.00', 'fecha' => '2026-10-20', 'usuario_admin_id' => $this->admin->id]);
+        $this->deleteJson(route('web.cashflow.movimientos.destroy', $legacy->id), ['clave' => (string) Str::uuid(), 'version' => 0])
+            ->assertUnprocessable()->assertJsonValidationErrors('subrubro_id');
+        $this->assertDatabaseCount('cashflow_movimientos', 2);
+        $this->assertDatabaseCount('cashflow_correcciones', 0);
+    }
 }

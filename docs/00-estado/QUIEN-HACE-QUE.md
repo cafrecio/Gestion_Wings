@@ -53,7 +53,6 @@ Nada en este momento.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Segunda vuelta: H2 y H3 corregidos; H1 decidido por Carlos (inscripción desde el alta) |
-| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Devuelto (hizo Codex, verifica Claude) | Devuelta por Claude 20/10: TRASPASO sigue ofrecido en cualquier subrubro; con eso la caja operativa y la corrección de Cashflow cargan gastos de una sola pata que no cuentan en el resultado (H1-H3). La transferencia en sí está bien. |
 
 ## Gemini
 

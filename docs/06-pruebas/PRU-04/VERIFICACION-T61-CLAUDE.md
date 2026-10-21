@@ -3,7 +3,7 @@
 Entrega de Codex: `c9b68d2` → `43a7097` (transferencia única) → `f089768` (FIN-09).
 Informes: `IMPLEMENTACION-T61.md`, `VERIFICACION-T61-CYE.md`. Visual aprobado por Carlos.
 
-## Veredicto: **devuelta a Codex por H1–H3** (un mismo origen)
+## Veredicto: **cerrada el 21/10** tras la segunda vuelta (ver al final). Primera vuelta: devuelta por H1–H3
 
 La transferencia en sí está bien. El problema es lo que quedó de la primera versión: la
 clasificación TRASPASO sigue ofrecida en el formulario de **cualquier** subrubro, y con eso se
@@ -69,3 +69,33 @@ versión de T61 los permitía) y qué hacer con ellos: decisión de Carlos.
 - No repetí el recorrido en navegador (aprobado por Carlos con capturas de Codex).
 - No probé concurrencia real con dos conexiones.
 - No corrí la suite completa: no cambia código mío.
+
+## Segunda vuelta — verificada y cerrada (21/10/2026)
+
+Codex, rama `codex/t61-segunda-vuelta` (`a5d5cc4`, `9c395bb`), integrada a `main` por Claude con
+autorización de Carlos («Integrala»). Visual aprobado por Carlos: «La parte visual está OK».
+
+**Qué cambió:** `ClasificacionSubrubros::permitidas()` ya no ofrece TRASPASO; el nuevo
+`exigirSinTraspaso()` frena un subrubro (o un movimiento ya registrado) TRASPASO en la caja de la
+operativa (alta y edición), la corrección de Cashflow, el alta manual de Cashflow, el reflejo de la
+caja validada, el pago de liquidaciones, el cobro de cuotas e inscripción y la anulación de cobros.
+El formulario de subrubro no muestra la opción ni la explicación. La transferencia no cambió.
+
+**Cómo lo verifiqué:** mis mismos controles, sin cambiarlos, corridos sobre el código de la rama en
+`wings_testing_claude` (sin otra suite activa):
+
+| Control | Primera vuelta | Segunda vuelta |
+|---|---|---|
+| Camino feliz $300.000 | Pasa | Pasa |
+| H1: crear subrubro común TRASPASO | Se creaba | **Rechazado** (el control queda en rojo, como se esperaba) |
+| H2: la operativa carga $50.000 con ese subrubro | Se guardaba y no contaba | **Rechazado**, sin movimiento |
+| H3: corregir un gasto de $40.000 a ese subrubro | Egresos $40.000 → $0 | **Rechazado** («Usá Transferir…»); egresos siguen en $40.000 (`segunda-vuelta/correccion-a-traspaso.json`) |
+
+Pruebas de Codex: `TraspasosEntreMediosT61Test` 16/16 (incluidas sus tres regresiones H1–H3), más
+T16 y Catálogos: 22 en verde.
+
+**Datos que ya existían:** el inventario de Codex fue sobre su base descartable (vacía). Según los
+registros de despliegue, ninguna versión de T61 llegó al sitio de prueba ni a producción, así que
+no debería haber subrubros comunes TRASPASO fuera de bases locales. Inferido de esos registros, no
+comprobado en el servidor. Si apareciera alguno, desde ahora no se puede usar y validar una caja
+que lo tenga se rechazaría: qué hacer con él lo decide Carlos.

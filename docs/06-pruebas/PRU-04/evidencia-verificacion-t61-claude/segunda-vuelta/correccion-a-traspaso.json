@@ -1,0 +1,10 @@
+{
+    "redireccion": "http:\/\/127.0.0.1:8767",
+    "errores": [
+        "Usá Transferir para registrar juntas la salida y la entrada."
+    ],
+    "subrubro_final": "Limpieza",
+    "clasificacion_final": "NEGOCIO",
+    "egresos_antes": 4000000,
+    "egresos_despues": 4000000
+}

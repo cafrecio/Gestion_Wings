@@ -49,6 +49,11 @@ class CashflowIntegracionCajaService
             return;
         }
 
+        // Validar todo antes del primer asiento: una caja histórica no se refleja parcialmente.
+        foreach ($movimientos as $movimiento) {
+            \App\Support\ClasificacionSubrubros::exigirSinTraspaso($movimiento->subrubro, $movimiento->reporte_clasificacion);
+        }
+
         // Crear asientos en cashflow por cada movimiento operativo
         foreach ($movimientos as $movimiento) {
             $subrubro = $movimiento->subrubro;
