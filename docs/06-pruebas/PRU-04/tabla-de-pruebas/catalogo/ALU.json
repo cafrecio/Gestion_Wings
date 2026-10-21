@@ -386,12 +386,12 @@
         {
           "donde": "Cobranza",
           "l": "c",
-          "texto": "La cuota de un mes que todavía no empezó no cuenta como deuda: el alumno figura Al día hasta que empiece.",
+          "texto": "La cuota de un mes que todavía no empezó no cuenta como deuda. La inscripción sí se debe desde el alta (Carlos, 21/10: «Inscripción a partir de hoy»): si la debe, figura con esa deuda, en plazo mientras corra el plazo de alta, y la cuota del mes que viene no suma.",
           "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "Decidido por Carlos (DU-06, 13/10): solo hasta el mes siguiente. Implementado por Gemini el 20/10 (T50), a verificar: AlumnoWebController (store y update), previsualizaciones, PrimeraCargaExcelService (revisar) y validación en alumnos-form.js. Rechaza fechas posteriores al último día del mes siguiente a hoy con aviso en castellano sin tocar Blade. Cubierto por tests/Feature/FechaIngresoFuturaT50Test.php.",
+      "fuente": "Decidido por Carlos (DU-06, 13/10): solo hasta el mes siguiente. Implementado por Gemini el 20/10 (T50), a verificar: AlumnoWebController (store y update), previsualizaciones, PrimeraCargaExcelService (revisar) y validación en alumnos-form.js. Rechaza fechas posteriores al último día del mes siguiente a hoy con aviso en castellano sin tocar Blade. Cubierto por tests/Feature/FechaIngresoFuturaT50Test.php. Verificación de Codex (21/10): devuelta por fecha mal formada en la edición y por el límite calculado con el reloj del navegador (VERIFICACION-T50-CODEX.md). La inscripción como deuda desde el alta no es falla: decisión de Carlos del 21/10.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-alta",
       "requiere": "Mismo que ALU-001.",

@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-21 — Claude CAB — T50: decisión de Carlos sobre la inscripción y tabla al día
+
+- Codex devolvió T50 con H1–H3. H1 (la inscripción de un alumno con ingreso el mes que viene ya
+  cuenta como deuda) no es falla: Carlos decidió «Inscripción a partir de hoy». H2 y H3 van a Gemini.
+- ALU-007 c corregido en las dos copias de la tabla. La viva estaba atrasada respecto del repo
+  (Gemini había actualizado solo la copia); se subió la del repo con la corrección.
+- Con este commit suben los 5 locales de Gemini (cierre T42/T43) y Codex (devolución T50), con
+  autorización de Carlos. Codex también los dejó en la rama `codex/t50-verificacion-cab-20261021`.
+
 ## 2026-10-20 — Claude CAB — T61 verificada y devuelta a Codex
 
 - La transferencia en sí está bien: control propio $300.000 Efectivo → Banco, doble envío sin
