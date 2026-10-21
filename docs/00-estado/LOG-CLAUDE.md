@@ -75,6 +75,17 @@ Bitácora archivada: [entradas del 19/10 y 20/10](../99-archivo/bitacoras/2026-1
 - Al rearmar los documentos de estado conservé lo de T61 de Codex sin subir; en el contador dejé su
   texto con 956 (sus 951 más mis 5).
 
+## 2026-10-21 — Claude CyE — Sitio de prueba desplegado en 56379295
+
+- Pedido de Carlos, tras cerrar Codex T50. Antes: 3773c0b (16/10), 173 cambios atrás.
+- Respaldo previo en el servidor: /root/respaldos/wingstest-antes-despliegue-2026-10-21.sql.gz.
+- down → merge --ff-only → composer --no-dev → npm ci/build → migrate (8 nuevas, todas DONE) →
+  cachés → up. /login 200. generaciones_cuotas anotó 2026-10; 100 alumnos con grupo_desde vacío
+  (vale el ingreso); 3 reglas de primer pago; 0 migraciones pendientes.
+- Reloj del sitio: hora real (21/10); la prueba lo fija en 13/10 con `wings:fecha-simulada`.
+  El scheduler de prueba corre cada minuto (crontab de wingstest) con ese reloj.
+- Incluye T52 sin la segunda revisión de Codex (Carlos lo sabe). Producción no se tocó.
+
 ## 2026-10-20 — Claude CyE — La tabla de pruebas en línea la escriben solo Carlos y Claude
 
 - Carlos: la tabla se hizo externa para que las otras IAs no la toquen. En T42/T43 Codex mandó cambios
