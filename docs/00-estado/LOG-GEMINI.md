@@ -10,6 +10,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-21 — LOG GEM CAB — Preparación para test manual como humano
+
+- **Objetivo y plan:** Jornada de test manual como humano. Codex ejecutará las pruebas en el sistema y con Gemini se definirán y estructurarán los casos de prueba detallados.
+- **Estado actual:** Bitácora actualizada y sincronizada. Listo para armar los casos junto a Carlos.
+
 ## 2026-10-21 — LOG GEM CAB — T50 Segunda vuelta: corrección de H2 y H3; decisión de Carlos sobre H1
 
 - **Objetivo y resultado:** Corrección de los hallazgos H2 y H3 señalados en la verificación independiente de Codex CAB (`docs/06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md`) para la tarea T50 (DU-06, caso ALU-007). Resultado: **CORREGIDO Y LISTO PARA VERIFICACIÓN**, con 12 pruebas en `FechaIngresoFuturaT50Test` (todas verdes), comprobación en Chrome real con CDP y 15 de 16 controles de Codex pasando.
