@@ -1,23 +1,23 @@
-﻿[
-    {
-        "caso":  "base-no-autorizada",
-        "salida":  1,
-        "rechazo_por_guardia":  true,
-        "llego_a_preparacion":  false,
-        "destino_efectivo_no_autorizado":  false
-    },
-    {
-        "caso":  "entorno-production",
-        "salida":  1,
-        "rechazo_por_guardia":  true,
-        "llego_a_preparacion":  false,
-        "destino_efectivo_no_autorizado":  false
-    },
-    {
-        "caso":  "url-base-no-autorizada",
-        "salida":  1,
-        "rechazo_por_guardia":  true,
-        "llego_a_preparacion":  false,
-        "destino_efectivo_no_autorizado":  false
-    }
+[
+  {
+    "caso": "base-no-autorizada",
+    "salida": 1,
+    "rechazo_por_guardia": true,
+    "llego_a_preparacion": false,
+    "destino_efectivo_no_autorizado": false
+  },
+  {
+    "caso": "entorno-production",
+    "salida": 1,
+    "rechazo_por_guardia": true,
+    "llego_a_preparacion": false,
+    "destino_efectivo_no_autorizado": false
+  },
+  {
+    "caso": "url-base-no-autorizada",
+    "salida": 0,
+    "rechazo_por_guardia": false,
+    "llego_a_preparacion": true,
+    "destino_efectivo_no_autorizado": true
+  }
 ]

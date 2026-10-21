@@ -1,0 +1,29 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\phpunit.xml
+
+.................                                                 17 / 17 (100%)
+
+Time: 00:32.934, Memory: 180.00 MB
+
+Control T50Segunda (VerificacionT50Codex\ControlT50Segunda)
+ ✔ 01 limites buenos aires medianoche fin anio y reloj simulado
+ ✔ 02 alta fuera limite no escribe alumno cuota cargo ni persona
+ ✔ 03 alta limite exacto guarda fecha cuota e inscripcion
+ ✔ 04 edicion equivalente no bloquea fecha historica fuera rango
+ ✔ 05 limite antes del motivo y rollback de edicion
+ ✔ 06 fecha mal formada al editar devuelve validacion y no 500
+ ✔ 07 dos previews http y servicio rechazan en castellano
+ ✔ 08 excel texto y serial aceptan limite y marcan exceso
+ ✔ 09 cargar excel sin revision no escribe fila fuera limite
+ ✔ 10 cargar revalida fecha aunque resumen revisado antes fuera valido
+ ✔ 11 inscripcion se debe desde alta y cuota futura no suma en tres pantallas
+ ✔ 12 t52 h3 h5 exigen ingreso aunque grupo desde sea anterior
+ ✔ 13 reactivacion no reescribe fecha ingreso ni carga mes anterior
+ ✔ 14 api apagada no expone puerta sin regla
+ ✔ 15 servidor en noviembre admite diciembre segun su reloj
+ ✔ 16 cuota futura empieza a contar al comenzar el mes
+ ✔ 17 fechas mal formadas rechazadas en cuatro puertas sin escrituras
+
+OK (17 tests, 214 assertions)

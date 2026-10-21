@@ -1,6 +1,10 @@
 # Wings — Estado actual
 
-## T50 — Tercera verificación, Codex CyE 21/10/2026
+## T50 — CERRADA, verificación final Codex CyE 21/10/2026
+
+`738de598` resuelve la guardia efectiva/DB_URL. Arnés original: 3 rechazos por seguridad, salida 1 en cada auxiliar, sin llegar a preparación; arnés salida 0. Control permitido supera la guardia; todos los destinos CLI forzados a puerto cerrado, sin escrituras. Base propia: 13/71 permanentes y 17/214 independientes verdes; rápida **908 aprobadas, 6 omitidas, 7286 aserciones, 158,31 s, salida 0**, corte 1029. H1 conserva la decisión de Carlos; H2/H3 e idioma confirmados. Gemini implementó; Codex verifica y cierra por tablero. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Sin cambios de producto por Codex ni despliegue.
+
+## T50 — Antecedente: tercera verificación, Codex CyE 21/10/2026
 
 Revisado `d274cfd4`: idioma corregido, 13/71 regresiones permanentes y 17/214 controles independientes verdes en `wings_testing_codex`. H1 conserva la decisión de Carlos; H2/H3 siguen aprobados. La guardia CLI rechaza production y nombres de base no autorizados sin URL, pero **acepta un nombre permitido en DB_DATABASE aunque DB_URL resuelva otra base**. Reproducido sobre el auxiliar original con puerto cerrado 127.0.0.1:1, sin escrituras: supera la guardia y llega al intento de migración contra la base no autorizada. T50 devuelta a Gemini solo por validar la conexión efectiva antes de escribir. Corte permanente 1029; suite rápida y detalles en el [informe de tercera verificación](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md). Sin cambios de producto, tabla ni despliegue.
 

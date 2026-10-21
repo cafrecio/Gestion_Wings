@@ -1,0 +1,23 @@
+[
+  {
+    "caso": "base-no-autorizada",
+    "salida": 1,
+    "rechazo_por_guardia": true,
+    "llego_a_preparacion": false,
+    "destino_efectivo_no_autorizado": false
+  },
+  {
+    "caso": "entorno-production",
+    "salida": 1,
+    "rechazo_por_guardia": true,
+    "llego_a_preparacion": false,
+    "destino_efectivo_no_autorizado": false
+  },
+  {
+    "caso": "url-base-no-autorizada",
+    "salida": 1,
+    "rechazo_por_guardia": true,
+    "llego_a_preparacion": false,
+    "destino_efectivo_no_autorizado": false
+  }
+]

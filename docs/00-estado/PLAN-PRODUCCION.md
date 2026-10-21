@@ -1,6 +1,6 @@
 # Wings — Plan de produccion
 
-T50, tercera verificación Codex CyE 21/10 sobre d274cfd4: idioma corregido (13/71 permanentes y 17/214 controles propios verdes); H1 decidido, H2/H3 conservados. Devuelta a Gemini solo por guardia CLI: DB_URL puede resolver una base distinta de la que se comprueba. Reproducción sin escrituras con puerto cerrado; validar conexión efectiva antes de migrar/sembrar. Corte actual 1029; no se presenta la completa histórica del corte 1025 como corrida de este corte. Sin cambios de producto ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md).
+T50 CERRADA, verificación final Codex CyE 21/10 sobre 738de598: guardia efectiva/DB_URL aprobada con los 3 casos originales rechazados antes de preparar. 13/71 permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Corte 1029; H1 decidido por Carlos, H2/H3 e idioma conservados. Gemini implementó, Codex verificó. Sin cambios de producto por Codex ni despliegue. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md).
 
 > **Actualizado:** 08/09/2026
 > **Estado:** documento de contexto.

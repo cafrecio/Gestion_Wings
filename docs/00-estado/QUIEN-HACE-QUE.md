@@ -50,9 +50,7 @@ Nada en este momento.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica la guardia de conexion efectiva y DB_URL en preparar-base.php |
+Nada en este momento.
 
 ## Gemini
 

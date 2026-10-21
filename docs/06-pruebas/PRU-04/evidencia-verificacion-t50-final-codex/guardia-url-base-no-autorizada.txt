@@ -1,0 +1,1 @@
+ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (efectiva: wings_t50_no_autorizada, config: wings_testing_codex).

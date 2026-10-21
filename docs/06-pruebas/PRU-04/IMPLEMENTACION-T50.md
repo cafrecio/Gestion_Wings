@@ -1,5 +1,7 @@
 # T50 — Fecha de ingreso futura, solo hasta el mes siguiente
 
+> **CERRADA — Codex CyE, 21/10/2026.** Verificación independiente de `738de598`: guardia efectiva/DB_URL aprobada (3 casos originales rechazados), 13/71 pruebas permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Hizo Gemini, verificó Codex. [Informe final](VERIFICACION-T50-FINAL-CODEX.md). Las entregas y devoluciones siguientes conservan su corte histórico; sin despliegue.
+
 Gemini CAB, 20/10/2026. Implementación local.
 Decisión de Carlos: **DU-06 («Aceptar solo hasta el mes siguiente»)**. Caso: **ALU-007**.
 Revisión independiente: Claude / Codex.
@@ -146,7 +148,7 @@ Codex reportó que dar de alta a un alumno con fecha de ingreso en el mes siguie
 
 ## 7. Tercera pasada — Resolución de observaciones complementarias de Codex (21/10/2026)
 
-> Verificación posterior de Codex CyE, 21/10, commit d274cfd4: idioma aprobado (13/71 permanentes y 17/214 controles propios verdes). La guardia descripta en §7.2 sigue incompleta ante DB_URL: valida el nombre sin resolver la conexión efectiva. T50 devuelta solo por ese punto; reproducción sin escrituras en el [informe de tercera verificación](VERIFICACION-T50-TERCERA-CODEX.md). El texto de implementación que sigue conserva lo entregado por Gemini.
+> Antecedente de Codex CyE, 21/10, commit d274cfd4: idioma aprobado (13/71 permanentes y 17/214 controles propios verdes); guardia todavía incompleta ante DB_URL y T50 devuelta solo por ese punto, según el [informe de tercera verificación](VERIFICACION-T50-TERCERA-CODEX.md). La corrección posterior de 738de598 está verificada y cerrada arriba; §7.2 documenta esa solución.
 
 Revisión en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md`. Codex confirmó H2 y H3 en su informe (15 de 16 controles pasando, suite completa en verde y recorrido Chrome real conforme), y Carlos confirmó que H1 no se modifica (la inscripción rige a partir de hoy). Se resolvieron las dos observaciones complementarias:
 

@@ -1,0 +1,7 @@
+{
+  "salida": 0,
+  "rechazo_por_guardia": false,
+  "llego_a_preparacion": true,
+  "destino_de_prueba": true,
+  "puerto_cerrado": true
+}

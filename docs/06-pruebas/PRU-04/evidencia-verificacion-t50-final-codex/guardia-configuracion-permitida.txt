@@ -1,0 +1,16 @@
+Preparando base para prueba de navegador T50...
+
+In Connection.php line 838:
+                                                                                                                       
+  SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha co  
+  nexión (Connection: mysql, Host: 127.0.0.1, Port: 1, Database: wings_testing_codex, SQL: select exists (select 1 fr  
+  om information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE T  
+  ABLE', 'SYSTEM VERSIONED')) as `exists`)                                                                             
+                                                                                                                       
+
+In Connector.php line 66:
+                                                                                                                       
+  SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha co  
+  nexión                                                                                                               
+                                                                                                                       
+

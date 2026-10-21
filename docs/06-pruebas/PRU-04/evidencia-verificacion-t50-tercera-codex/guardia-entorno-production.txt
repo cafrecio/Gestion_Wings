@@ -1,1 +1,1 @@
-ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (efectiva: wings_testing_codex, config: wings_testing_codex).
+ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (actual: wings_testing_codex).
