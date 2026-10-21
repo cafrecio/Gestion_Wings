@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "controles-primera-junit.xml",
+    "bytes": 51476,
+    "sha256": "890BA064604E4EECBEAA93F52E48AE32358E6897E0407F15FF13E8E3405CFE55",
+    "motivo": "Auxiliar propio preliminar; reemplazado por resultado final conservado"
+  },
+  {
+    "archivo": "controles-primera-salida.txt",
+    "bytes": 48059,
+    "sha256": "A569F3EABFE8BCDF5E4D19BAE46A1E3F7230A059B79EF7A7DB35FB872728273A",
+    "motivo": "Auxiliar propio preliminar; reemplazado por resultado final conservado"
+  },
+  {
+    "archivo": "controles-primera.jsonl",
+    "bytes": 21355,
+    "sha256": "6D9C368FB43513DB4C8D9C693AF970C8BADE62556E362F867C13B690C2725469",
+    "motivo": "Auxiliar propio preliminar; reemplazado por resultado final conservado"
+  },
+  {
+    "archivo": "diagnostico-login.php",
+    "bytes": 328,
+    "sha256": "5D6CD75BFC05667AFE69FA4EB3CDD5A9C0688871F0BC38D6A239FD43A0EBC815",
+    "motivo": "Auxiliar propio preliminar; reemplazado por resultado final conservado"
+  }
+]

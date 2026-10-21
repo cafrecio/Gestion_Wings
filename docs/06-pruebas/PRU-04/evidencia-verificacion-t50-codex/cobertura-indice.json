@@ -1,0 +1,251 @@
+{
+  "project": "C-xampp-htdocs-gestion-wings",
+  "signal": "best_effort",
+  "indexed_at": "2026-10-21T03:13:17Z",
+  "metadata": {
+    "generation": "2026-10-21T03:13:17Z",
+    "index_mode": "full",
+    "recorded_at": "2026-10-21T03:13:19Z",
+    "recording_status": "truncated",
+    "ignored_files_stored": 2000,
+    "ignored_files_total": 6913,
+    "hash_records_complete": true,
+    "coverage_version": 3,
+    "generation_matches": true
+  },
+  "paths": [
+    {
+      "requested_path": "app/Support/FechaIngresoRegla.php",
+      "path": "app/Support/FechaIngresoRegla.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/AlumnoWebController.php",
+      "path": "app/Http/Controllers/AlumnoWebController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/PagoCuotaService.php",
+      "path": "app/Services/PagoCuotaService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/PrimeraCargaExcelService.php",
+      "path": "app/Services/PrimeraCargaExcelService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "resources/js/alumnos-form.js",
+      "path": "resources/js/alumnos-form.js",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "resources/views/alumnos/_form.blade.php",
+      "path": "resources/views/alumnos/_form.blade.php",
+      "status": "unusable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": [
+        {
+          "path": "resources/views/alumnos/_form.blade.php",
+          "kind": "parse_unusable",
+          "match": "exact",
+          "ranges": [
+            {
+              "start": 7,
+              "end": 217
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "requested_path": "app/Models/Alumno.php",
+      "path": "app/Models/Alumno.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/CobranzaEstadoService.php",
+      "path": "app/Services/CobranzaEstadoService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/CajaWebController.php",
+      "path": "app/Http/Controllers/CajaWebController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/OperativoDashboardController.php",
+      "path": "app/Http/Controllers/OperativoDashboardController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/ClaseWebController.php",
+      "path": "app/Http/Controllers/ClaseWebController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/AlumnoController.php",
+      "path": "app/Http/Controllers/AlumnoController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Requests/StoreAlumnoRequest.php",
+      "path": "app/Http/Requests/StoreAlumnoRequest.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Http/Controllers/PrimeraCargaWebController.php",
+      "path": "app/Http/Controllers/PrimeraCargaWebController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "bootstrap/app.php",
+      "path": "bootstrap/app.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "routes/web.php",
+      "path": "routes/web.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "routes/api.php",
+      "path": "routes/api.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/DatabaseSeeder.php",
+      "path": "database/seeders/DatabaseSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/DemoSeeder.php",
+      "path": "database/seeders/DemoSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/EjemploCompletoSeeder.php",
+      "path": "database/seeders/EjemploCompletoSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/PrimeraCargaAlumnosSeeder.php",
+      "path": "database/seeders/PrimeraCargaAlumnosSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/PrimeraCargaCompletaSeeder.php",
+      "path": "database/seeders/PrimeraCargaCompletaSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "database/seeders/ReportesEscenarioSeeder.php",
+      "path": "database/seeders/ReportesEscenarioSeeder.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    }
+  ],
+  "path_total": 23,
+  "path_returned": 23,
+  "path_has_more": false,
+  "scopes": [
+    {
+      "requested_scope": "app",
+      "scope": "app",
+      "total": 0,
+      "returned": 0,
+      "truncated": false,
+      "entries": [],
+      "status": "coverage_unavailable"
+    },
+    {
+      "requested_scope": "database/seeders",
+      "scope": "database/seeders",
+      "total": 0,
+      "returned": 0,
+      "truncated": false,
+      "entries": [],
+      "status": "coverage_unavailable"
+    },
+    {
+      "requested_scope": "routes",
+      "scope": "routes",
+      "total": 0,
+      "returned": 0,
+      "truncated": false,
+      "entries": [],
+      "status": "coverage_unavailable"
+    }
+  ],
+  "scope_total": 0,
+  "scope_returned": 0,
+  "scope_truncated": false,
+  "has_more": false,
+  "caveat": "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."
+}
