@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## Verificación T61 — devuelta a Codex, Claude CAB 20/10/2026
+
+La transferencia única está bien (un envío, dos patas, sin duplicar, resultado del club igual, saldos correctos). Se devuelve por H1–H3: la clasificación TRASPASO sigue ofrecida en cualquier subrubro, y con ella la caja de la operativa y la corrección de Cashflow cargan gastos de una sola pata que no cuentan en el resultado (reproducido: $50.000 en caja y $40.000 corregidos desaparecen de los egresos). [Informe](../06-pruebas/PRU-04/VERIFICACION-T61-CLAUDE.md). Sin despliegue.
+
 T43, revisión de Carlos 20/10: decisiones parciales JSON, cabecera separada y pie Total confirmado implementados localmente; 18/134 dirigidas finales verdes; completa 1017 aprobadas, 6 omitidas, 8791 aserciones, 844,65 s, salida 0. Escritorio mantiene posición y texto sin guardar; cabecera 375 capturada. Última interacción móvil bloqueada por acceso al navegador deshabilitado en Work. Carlos aprobó la corrección: «Ahora esta OK». Publicada en main: b8e1ac1e, remoto comprobado. Pendiente revisión independiente de lógica por Claude. Ver IMPLEMENTACION-T43.md.
 
 ## T43 — Implementación local, Codex CyE 20/10/2026

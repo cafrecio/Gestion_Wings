@@ -49,11 +49,12 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini) | Verificar logica T50 fecha ingreso futura (DU-06, ALU-007) |
-| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar lógica de transferencia única y seguimiento FIN-09; Carlos aprobó formulario, Rubros y aviso. Completa Codex 977/6 omitidas verde. Sin despliegue. |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Devuelto (hizo Codex, verifica Claude) | Devuelta por Claude 20/10: TRASPASO sigue ofrecido en cualquier subrubro; con eso la caja operativa y la corrección de Cashflow cargan gastos de una sola pata que no cuentan en el resultado (H1-H3). La transferencia en sí está bien. |
 
 ## Gemini
 
