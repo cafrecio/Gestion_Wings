@@ -50,13 +50,13 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica la guardia de conexion efectiva y DB_URL en preparar-base.php |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Devuelto (hizo Gemini, verifica Codex) | Idioma aprobado; guardia CLI acepta DB_URL con base distinta. Validar conexion efectiva antes de migrar/sembrar y repetir control del informe. |
+Nada en este momento.
 
 ## Sin empezar (18)
 

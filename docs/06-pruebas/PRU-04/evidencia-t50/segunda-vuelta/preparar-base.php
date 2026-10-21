@@ -12,11 +12,24 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-// Guardia de seguridad estricta: solo bases de testing autorizadas en local/testing
-$dbName = config('database.connections.mysql.database');
+// Guardia de seguridad estricta: solo bases de testing autorizadas en local/testing (comprueba conexión efectiva y DB_URL)
 $allowedDbs = ['wings_testing', 'wings_testing_gemini', 'wings_testing_claude', 'wings_testing_codex'];
-if (!app()->environment('testing', 'local') || !in_array($dbName, $allowedDbs, true)) {
-    fwrite(STDERR, "ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (actual: {$dbName}).\n");
+$dbNameConfig = config('database.connections.mysql.database');
+$dbNameConnection = DB::connection()->getDatabaseName();
+
+$dbUrl = env('DB_URL') ?: config('database.connections.mysql.url');
+$dbNameUrl = null;
+if ($dbUrl) {
+    $parsedUrl = parse_url($dbUrl, PHP_URL_PATH);
+    $dbNameUrl = $parsedUrl ? ltrim($parsedUrl, '/') : null;
+}
+
+if (!app()->environment('testing', 'local')
+    || !in_array($dbNameConnection, $allowedDbs, true)
+    || !in_array($dbNameConfig, $allowedDbs, true)
+    || ($dbNameUrl !== null && !in_array($dbNameUrl, $allowedDbs, true))
+) {
+    fwrite(STDERR, "ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (efectiva: {$dbNameConnection}, config: {$dbNameConfig}).\n");
     exit(1);
 }
 

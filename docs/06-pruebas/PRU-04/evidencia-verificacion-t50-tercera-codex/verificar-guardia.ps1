@@ -18,7 +18,11 @@ $resultadosT50 = foreach ($casoT50 in $casosT50) {
     $inicioT50.CreateNoWindow = $true
     $inicioT50.RedirectStandardOutput = $true
     $inicioT50.RedirectStandardError = $true
-    $inicioT50.ArgumentList.Add('docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php')
+    if ($inicioT50.PSObject.Properties['ArgumentList'] -and $null -ne $inicioT50.ArgumentList) {
+        $inicioT50.ArgumentList.Add('docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php')
+    } else {
+        $inicioT50.Arguments = 'docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php'
+    }
     $inicioT50.Environment['APP_ENV'] = $casoT50.entorno
     $inicioT50.Environment['DB_CONNECTION'] = 'mysql'
     $inicioT50.Environment['DB_HOST'] = '127.0.0.1'

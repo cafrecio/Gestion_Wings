@@ -1,16 +1,1 @@
-Preparando base para prueba de navegador T50...
-
-In Connection.php line 838:
-                                                                                                                       
-  SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha co  
-  nexión (Connection: mysql, Host: 127.0.0.1, Port: 1, Database: wings_t50_no_autorizada, SQL: select exists (select   
-  1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BA  
-  SE TABLE', 'SYSTEM VERSIONED')) as `exists`)                                                                         
-                                                                                                                       
-
-In Connector.php line 66:
-                                                                                                                       
-  SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha co  
-  nexión                                                                                                               
-                                                                                                                       
-
+ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (efectiva: wings_t50_no_autorizada, config: wings_testing_codex).

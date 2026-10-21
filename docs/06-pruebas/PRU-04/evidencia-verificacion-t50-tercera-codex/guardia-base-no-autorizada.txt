@@ -1,1 +1,1 @@
-ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (actual: wings_t50_no_autorizada).
+ERROR DE SEGURIDAD: Este auxiliar solo puede ejecutarse en entorno local/testing sobre una base de pruebas autorizada (efectiva: wings_t50_no_autorizada, config: wings_t50_no_autorizada).

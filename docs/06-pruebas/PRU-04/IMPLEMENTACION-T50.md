@@ -159,6 +159,13 @@ Revisión en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md`. Codex c
   - `test_previews_con_fecha_mal_formada_o_vacia_responden_en_castellano` en `tests/Feature/FechaIngresoFuturaT50Test.php` (**VERDE**).
 
 ### 7.2. Guardia de seguridad estricta en script auxiliar CLI
-- **Problema:** `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php` no comprobaba entorno ni base de datos antes de invocar `migrate --force` y `db:seed`.
+- **Problema:** En la tercera verificación (`docs/06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md`), Codex reprodujo que `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/preparar-base.php` solo comprobaba `config('database.connections.mysql.database')`, omitiendo la conexión efectiva resuelta por Laravel (`DB::connection()->getDatabaseName()`) y una posible cadena `DB_URL` desalineada.
 - **Solución:**
-  - Se agregó una guardia al inicio del script que exige `app()->environment('testing', 'local')` y valida que `config('database.connections.mysql.database')` pertenezca a la lista autorizada de bases de prueba (`wings_testing`, `wings_testing_gemini`, `wings_testing_claude`, `wings_testing_codex`). Si no se cumple, aborta con código 1 y mensaje de error en stderr.
+  - Se extendió la guardia para validar:
+    1. `app()->environment('testing', 'local')`.
+    2. Conexión efectiva: `DB::connection()->getDatabaseName()` debe estar en `$allowedDbs`.
+    3. Configuración estática: `config('database.connections.mysql.database')` debe estar en `$allowedDbs`.
+    4. Base parsed de `env('DB_URL')` o `config('database.connections.mysql.url')` (si existe) debe pertenecer a `$allowedDbs`.
+  - `$allowedDbs = ['wings_testing', 'wings_testing_gemini', 'wings_testing_claude', 'wings_testing_codex']`.
+  - Si alguna condición no se cumple, aborta con código 1 y emite mensaje `ERROR DE SEGURIDAD` en `STDERR` sin ejecutar migraciones ni seeders.
+  - Verificado con `docs/06-pruebas/PRU-04/evidencia-verificacion-t50-tercera-codex/verificar-guardia.ps1`: los 3 casos de prueba (`base-no-autorizada`, `entorno-production` y `url-base-no-autorizada`) son rechazados por guardia con código 1 sin llegar a preparación.
