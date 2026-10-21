@@ -1,0 +1,15 @@
+{
+    "resultados": {
+        "cobro_mixto_partes": true,
+        "liq_octubre": true,
+        "liq_nov_sin_asist": true,
+        "liq_nov_con_asist": true,
+        "cambio_anio": true,
+        "fallback_sin_imputaciones": true,
+        "centavos_exactos": true,
+        "reportes_separacion_economica": true,
+        "asiento_antiguo_ambiguo": true,
+        "pago_anulado_desglose": true
+    },
+    "fecha": "2026-10-20 23:14:57"
+}

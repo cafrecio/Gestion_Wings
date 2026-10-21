@@ -1,0 +1,21 @@
+{
+    "resultados": {
+        "origenes_partes": true,
+        "importes_iniciales": true,
+        "bloqueo_cierre": true,
+        "permisos_estrictos": true,
+        "formulario_viejo_concurrencia": true,
+        "decision_rechazada": true,
+        "auditoria_permanente": true,
+        "idempotencia_auditoria": true,
+        "decision_aprobada": true,
+        "recalculo_conserva_decision": true,
+        "recalculo_cambio_economico": true,
+        "monto_final_a23": true,
+        "cierre_exitoso": true,
+        "bloqueo_modificar_cerrada": true,
+        "pago_cashflow_exacto": true,
+        "recibo_pdf_generado": true
+    },
+    "fecha": "2026-10-20 23:17:26"
+}

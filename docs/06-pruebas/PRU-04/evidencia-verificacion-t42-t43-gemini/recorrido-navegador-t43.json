@@ -1,0 +1,14 @@
+{
+  "liquidacion_id": "31",
+  "pasos": {
+    "motivoEscritoAntes": "Texto de ajuste no guardado",
+    "motivoEscritoDespuesRechazo": "Texto de ajuste no guardado",
+    "motivoEscritoDespuesValidar": "Texto de ajuste no guardado",
+    "sinRecargaVerificado": true,
+    "totalConfirmadoInicial": "$2,000.00",
+    "totalConfirmadoFinal": "$4,000.00",
+    "scrollAntes": 389,
+    "scrollDespuesRechazo": 828
+  },
+  "consola": []
+}

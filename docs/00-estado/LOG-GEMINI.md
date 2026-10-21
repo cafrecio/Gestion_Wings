@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-21 — LOG GEM CAB — Verificación T42 y T43: comisión/ingresos por mes pagado y comisiones atrasadas
+
+- **Objetivo y resultado:** Verificación independiente de las tareas T42 (DU-19, COB-012: comisión e ingresos por mes pagado) y T43 (DU-36, LIQ-002: decisión del dueño sobre comisiones atrasadas), implementadas por Codex CyE en los commits `d615bb8`, `6c8602f`, `ff738cb` y `b8e1ac1`. Resultado: **APROBADAS AMBAS**, con arnés sintético completo en `control-t42.php` (10 controles) y `control-t43.php` (16 controles), inspección de recibo PDF real y comprobación en navegador Chrome real (CDP) de la regla del 20/10 (cero recarga de página al decidir sobre una fila).
+- **Verificación T42 (DU-19, COB-012):**
+  - Comisiones asignadas a `max(fecha_cobro, periodo_imputado)` con exigencia estricta de asistencia del alumno en el mes que se liquida. Verificado cobro mixto en octubre (agosto atrasado + octubre del mes + noviembre adelantado): el adelanto no entra en octubre; entra en noviembre solo si hay asistencia en noviembre. Verificado cambio de año (diciembre cobra enero → comisión en enero) y pagos sin imputaciones (conserva regla histórica).
+  - Conservación exacta de centavos: el prorrateo de cuotas con fracciones periódicas por método de mayor resto no crea ni pierde centavos en base ni en comisión.
+  - Reportes e Inicio: cuota adelantada impacta económicamente en el mes pagado, mientras que el dinero real y saldos por medio se mantienen por fecha de cobro efectivo. Matrícula y otros conceptos no se trasladan.
+  - Asientos antiguos en Cashflow: auditado `ReporteMensualService::pagosDeAsientosAntiguos`. La correspondencia exige unicidad exacta en la tupla `caja_id:fecha:subrubro:tipo_caja:monto`. Ante candidatos múltiples o ambiguos (`$candidatos->count() !== 1`), no adivina por importe, fecha o posición y conserva el mes original de la fecha de caja (decisión de Carlos).
+- **Verificación T43 (DU-36, LIQ-002):**
+  - Cuotas atrasadas nacen `PENDIENTE`, no figuran en el recibo y bloquean el cierre/pago de la liquidación mientras no sean resueltas.
+  - Permisos estrictos: solo un `ADMIN` activo puede decidir (`APROBADA` o `RECHAZADA`). Operativa, profesor y admin inactivo son rechazados (403), así como peticiones sobre detalles de otras liquidaciones.
+  - Recálculo preserva decisiones si pago, deuda, período, base y comisión coinciden; ante variaciones económicas, vuelve automáticamente a `PENDIENTE` para nueva revisión.
+  - Auditoría permanente en `liquidacion_decisiones_atrasadas`: sobrevive a recálculos y borrado de liquidaciones abiertas.
+  - Regla del 20/10 en navegador Chrome real (`test-browser-t43.mjs`): con un campo de texto no guardado (`#motivo_ajuste`) completado en pantalla, se presionaron los botones de Rechazar y Validar. En ambas operaciones el DOM se actualizó en el lugar (`#total-confirmado` pasó de $2.000 a $4.000 vía endpoint JSON) y el texto ingresado no se perdió (cero recarga de página ni parpadeo).
+  - Recibo PDF real (`recibo-t43-verificacion.pdf`): comisiones rechazadas no figuran; comisiones aprobadas y del mes figuran en anexo; ajuste de administración cuadra con el monto pagado; sin colores rojos indebidos.
+- **Entregables:**
+  - Informe: `docs/06-pruebas/PRU-04/VERIFICACION-T42-T43-GEMINI.md`.
+  - Evidencia completa en `docs/06-pruebas/PRU-04/evidencia-verificacion-t42-t43-gemini/`: scripts `control-t42.php`, `control-t43.php`, `seed-browser-t43.php`, `test-browser-t43.mjs`, JSONs de resultados, capturas 1366px (`01-liquidacion-inicial-1366.png`, `02-liquidacion-decidida-1366.png`), PDF renderizado y dump de texto.
+- **Próximo paso:** Cerrar T42 y T43 en el tablero (`estado=cerrado verifica=Gemini`).
+
 ## 2026-10-20 — LOG GEM CAB — Corrección de hallazgos T64 (H1, H2, H3 de Claude)
 
 - **Objetivo y resultado:** Corrección de los tres hallazgos reportados por Claude en `docs/06-pruebas/PRU-04/VERIFICACION-T64-CLAUDE.md` para la tarea T64 (DU-45, CFG-004). Resultado: **CORREGIDO Y LISTO PARA VERIFICACIÓN**, con prueba en navegador real (Chrome CDP) y 3 pruebas automatizadas permanentes nuevas en PHPUnit pasando al 100%.
