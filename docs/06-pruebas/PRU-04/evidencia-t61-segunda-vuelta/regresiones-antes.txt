@@ -1,0 +1,56 @@
+
+   FAIL  Tests\Feature\TraspasosEntreMediosT61Test
+  ⨯ h1 subrubro comun rechaza traspaso en alta edicion y cambio tipo                                            18.31s
+  ⨯ h2 caja rechaza traspaso preexistente alta edicion interno y reflejo                                         0.28s
+  ⨯ h3 cashflow rechaza correccion y alta manual traspaso sin cambiar gasto                                      1.09s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\TraspasosEntreMediosT61Test > h1 subrubro comun rechaza traspaso en alta edicion y cambio t…
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\TraspasosEntreMediosT61Test.php:323
+    319▕             $rubro = \App\Models\Rubro::create(['nombre' => 'Rubro comun '.$tipo, 'tipo' => $tipo]);
+    320▕             $datos = ['nombre' => 'No permitir '.$tipo, 'permitido_para' => 'OPERATIVO', 'afecta_caja' => 1,
+    321▕                 'clasificacion_resultado' => ClasificacionSubrubros::TRASPASO];
+    322▕             $this->postJson(route('web.subrubros.store', $rubro->id), $datos)
+  ➜ 323▕                 ->assertUnprocessable()->assertJsonValidationErrors('clasificacion_resultado');
+    324▕             $this->assertDatabaseMissing('subrubros', ['nombre' => $datos['nombre']]);
+    325▕             $sub = Subrubro::create(array_replace($datos, ['rubro_id' => $rubro->id, 'clasificacion_resultado' => 'NEGOCIO']));
+    326▕             $this->putJson(route('web.subrubros.update', [$rubro->id, $sub->id]), $datos)
+    327▕                 ->assertUnprocessable()->assertJsonValidationErrors('clasificacion_resultado');
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\TraspasosEntreMediosT61Test > h2 caja rechaza traspaso preexistente alta edicion interno y…
+  Session is missing expected key [error].
+Failed asserting that false is true.
+
+  at tests\Feature\TraspasosEntreMediosT61Test.php:346
+    342▕         $sub = $this->traspasoComun();
+    343▕         $op = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
+    344▕         $caja = CajaDeclarada::crear($op->id, $this->efectivo->id);
+    345▕         $datos = ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '50000.00', 'fecha' => '2026-10-20', 'observaciones' => 'Control T61'];
+  ➜ 346▕         $this->actingAs($op)->post(route('web.caja.movimiento.store'), $datos)->assertSessionHas('error');
+    347▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+    348▕         $normal = MovimientoOperativo::create(array_replace($datos, ['caja_operativa_id' => $caja->id, 'usuario_id' => $op->id,
+    349▕             'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id')]));
+    350▕         $antes = $normal->getAttributes();
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\TraspasosEntreMediosT61Test > h3 cashflow rechaza correccion y alta manual traspaso sin cam…
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\TraspasosEntreMediosT61Test.php:370
+    366▕         $mov = $this->cargar(Subrubro::where('nombre', 'Limpieza')->firstOrFail(), $this->efectivo, '40000.00');
+    367▕         $antes = $mov->getAttributes(); $egresos = $this->reporte()['egresos'];
+    368▕         $this->putJson(route('web.cashflow.movimientos.update', $mov->id), ['clave' => (string) Str::uuid(), 'version' => 0,
+    369▕             'subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '40000.00', 'fecha' => '2026-10-20',
+  ➜ 370▕             'observaciones' => 'Control T61'])->assertUnprocessable()->assertJsonValidationErrors('subrubro_id');
+    371▕         $this->assertSame($antes, $mov->fresh()->getAttributes());
+    372▕         $this->assertSame($egresos, $this->reporte()['egresos']);
+    373▕         $this->assertDatabaseCount('cashflow_correcciones', 0);
+    374▕         $this->post('/cashflow/movimiento', ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+
+
+  Tests:    3 failed (5 assertions)
+  Duration: 23.85s

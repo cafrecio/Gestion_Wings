@@ -1,0 +1,39 @@
+project: wings-t61-segunda-vuelta
+signal: best_effort
+indexed_at: 2026-10-21T04:40:47Z
+metadata:
+  generation: 2026-10-21T04:40:47Z
+  index_mode: fast
+  recorded_at: 2026-10-21T04:40:47Z
+  recording_status: complete
+  ignored_files_stored: 54
+  ignored_files_total: 54
+  hash_records_complete: true
+  coverage_version: 3
+  generation_matches: true
+paths: 14  (cols: requested_path path status freshness recommended_action coverage)
+  app/Support/ClasificacionSubrubros.php app/Support/ClasificacionSubrubros.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/CajaService.php app/Services/CajaService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/CashflowCorreccionService.php app/Services/CashflowCorreccionService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/CashflowService.php app/Services/CashflowService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/CashflowIntegracionCajaService.php app/Services/CashflowIntegracionCajaService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/PagoCuotaService.php app/Services/PagoCuotaService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/LiquidacionPagoService.php app/Services/LiquidacionPagoService.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Observers/MovimientoReporteObserver.php app/Observers/MovimientoReporteObserver.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Http/Controllers/SubrubroWebController.php app/Http/Controllers/SubrubroWebController.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Http/Controllers/RubroWebController.php app/Http/Controllers/RubroWebController.php no_recorded_issue metadata_changed read_source_and_reindex []
+  resources/views/subrubros/_form.blade.php resources/views/subrubros/_form.blade.php no_recorded_issue metadata_changed read_source_and_reindex []
+  tests/Feature/TraspasosEntreMediosT61Test.php tests/Feature/TraspasosEntreMediosT61Test.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Models/User.php app/Models/User.php no_recorded_issue metadata_changed read_source_and_reindex []
+  app/Services/TransferenciaCashflowService.php app/Services/TransferenciaCashflowService.php no_recorded_issue metadata_changed read_source_and_reindex []
+path_total: 14
+path_returned: 14
+path_has_more: false
+scopes: 2  (cols: requested_scope scope total returned truncated entries status)
+  app app 1 1 false "[{\"path\":\"app/Http/Controllers.zip\",\"kind\":\"not_indexed_file\",\"detail\":\"ignored-suffix\"}]" known_gaps
+  resources/views/subrubros resources/views/subrubros 0 0 false [] no_recorded_issue
+scope_total: 1
+scope_returned: 1
+scope_truncated: false
+has_more: false
+caveat: "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."

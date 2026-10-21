@@ -1,0 +1,142 @@
+[
+  {
+    "fase": "antes",
+    "vista": "create",
+    "ancho": 1366,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      },
+      {
+        "texto": "Traspaso entre medios (no cuenta en el resultado)",
+        "valor": "TRASPASO"
+      }
+    ]
+  },
+  {
+    "fase": "antes",
+    "vista": "edit",
+    "ancho": 1366,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      },
+      {
+        "texto": "Traspaso entre medios (no cuenta en el resultado)",
+        "valor": "TRASPASO"
+      }
+    ]
+  },
+  {
+    "fase": "antes",
+    "vista": "create",
+    "ancho": 375,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      },
+      {
+        "texto": "Traspaso entre medios (no cuenta en el resultado)",
+        "valor": "TRASPASO"
+      }
+    ]
+  },
+  {
+    "fase": "antes",
+    "vista": "edit",
+    "ancho": 375,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      },
+      {
+        "texto": "Traspaso entre medios (no cuenta en el resultado)",
+        "valor": "TRASPASO"
+      }
+    ]
+  },
+  {
+    "fase": "despues",
+    "vista": "create",
+    "ancho": 1366,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      }
+    ]
+  },
+  {
+    "fase": "despues",
+    "vista": "edit",
+    "ancho": 1366,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      }
+    ]
+  },
+  {
+    "fase": "despues",
+    "vista": "create",
+    "ancho": 375,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      }
+    ]
+  },
+  {
+    "fase": "despues",
+    "vista": "edit",
+    "ancho": 375,
+    "opciones": [
+      {
+        "texto": "Del club",
+        "valor": "NEGOCIO"
+      },
+      {
+        "texto": "Retiro de los dueños",
+        "valor": "RETIRO"
+      }
+    ]
+  },
+  {
+    "paso": "consola",
+    "logs": []
+  }
+]

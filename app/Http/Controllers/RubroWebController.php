@@ -84,7 +84,7 @@ class RubroWebController extends Controller
                 ->lockForUpdate()->pluck('nombre');
             if ($noCorresponden->isNotEmpty()) {
                 return back()->withInput()->with('error', 'No se puede cambiar el tipo: '.$noCorresponden->join(', ', ' y ')
-                    .' está clasificado como plata de los dueños. Cambiá primero qué es ese subrubro.');
+                    .' tiene una clasificación incompatible con el nuevo tipo. Revisá primero qué es ese subrubro.');
             }
         }
 

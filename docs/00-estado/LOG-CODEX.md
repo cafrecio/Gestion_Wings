@@ -28,6 +28,17 @@
 
 [Antecedente archivado intacto al verificar T50](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-ANTECEDENTE.md).
 
+[Dos antecedentes archivados intactos al corregir T61](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T61-SEGUNDA-ANTECEDENTES.md).
+
+## 2026-10-21 — Codex CAB — T61 segunda vuelta, TRASPASO solo del sistema
+
+Pedido ejecutado aislado en `codex/t61-segunda-vuelta`, base 2c7cebe; toma 1668ca4. Carpeta principal con cambios ajenos T50 preservada.
+TRASPASO retirado de alta/edición comunes y rechazado en caja, correcciones, reflejos y pagos. Transferencia aprobada y sus 13 métodos de prueba intactos; sin reparación ni migración histórica.
+Inventario previo de lectura en única base propia wings_testing_codex: cero subrubros comunes TRASPASO y cero movimientos sueltos según las consultas guardadas. No se consultó club/producción/prueba/servidor.
+Tres regresiones nuevas: rojas antes; 16/198 verdes después, 14,40 s. Área cobros 125/851 verde. Primera completa descartada por error propio corregido; final 1020 aprobadas/6 omitidas, 8846 aserciones, 934,96 s, salida 0, sin fuentes cambiadas ni otras suites detectadas.
+Ocho capturas reales antes/después: 1366 y móviles medidos 360 (no 375); recaptura 375 pendiente por bloqueo de navegación local. Solo cambia contenido del selector; sin CSS/JS nuevo. Revisión Carlos pendiente, aprobación de transferencia conservada.
+[Segunda vuelta e inventario](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#segunda-vuelta--h1-a-h3) · [Capturas observadas](../06-pruebas/PRU-04/REVISION-T61-SEGUNDA.html). Tabla Carlos/Claude y control de Claude intactos.
+Entrega a_verificar para Claude en rama aislada; pendiente visual 375/Carlos registrado, no autocerrada. Inventario posterior estricto también cero. Sin despliegue ni push manual.
 ## 2026-10-21 — Codex CAB — T50 verificada y devuelta; higiene de evidencia
 
 Verificación independiente de 3704063, sin corregir producto. H1: inscripción futura suma deuda antes de ingreso; H2: fecha mal formada en edición da 500; H3: Chrome calcula límite con otro reloj que Wings.
@@ -87,19 +98,3 @@ Primer envío valida y avisa sin escribir; Confirmar guarda ambas patas con la f
 13 pruebas dirigidas/143 aserciones verdes; completa 977 aprobadas/6 omitidas, 8541 aserciones, 697,65 s, salida 0, wings_testing_codex, corte 983. Sin otra suite activa.
 Capturas reales 1366/375 del estado adicional; Carlos aprobó: «Apruebo el aviso». Formulario principal y Rubros conservan «Apruebo el visual corregido».
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). A verificar lógica por Claude, sin autocierre ni despliegue. Continúa T42 y después T43.
-
-## 2026-10-20 — Codex CyE — Toma T42, después T43
-
-Carlos ordenó T42 y luego T43, tras terminar verificaciones T52/T61. T61 publicada 43a70976, visual corregido aprobado y completa 976/6 omitidas verde; lógica para Claude. T52 reverificada y devuelta por H5 en ff49b709.
-T42 tomada por script: comisión de cada parte en max(mes cobro, mes pagado), después ingreso adelantado en Reportes/Inicio; Caja/Cashflow conservan fecha real del dinero.
-Leer DU-19/DU-36, COB-012/LIQ-002 y contratos/código; si el diseño contradice el sistema, frenar. Sin código T42 antes de publicar esta toma.
-Base propia wings_testing_codex y completa sin otra suite activa por tarea. No escribir en wingstest/wings ni desplegar. T43 se implementa después, con revisión visual de Carlos antes de commit de vistas.
-Seguimiento tras T61 f089768b: Carlos resolvió «Sí, conservar el mes original solo en esos casos.» Comisión/Reportes locales, 29/150 dirigidas verdes y COB-012 vivo versión 10 comprobado tras envío autorizado. Primera completa: 995/6 omitidas y una prueba propia corregida por ID; segunda frenó por H5 T52 agregado en paralelo. Contador real 1003; completa de 11:51 finalizada verde (997/6 omitidas), salida en evidencia-t42/suite-completa-corte1003.txt. T52 e1e7c499 revisada: 21/139 verdes; T43 después de entregar T42.
-
-## 2026-10-20 — Codex CyE — T52, reverificación d148a241 y H5
-
-H1–H4 pasan en reproducciones propias; N+1 corregido: 12 consultas tanto con 1 como con 12 alumnos. NULL inicial se verifica como ingreso efectivo, sin confundir valor físico y fecha efectiva.
-Nueve independientes en wings_testing_codex, sin otra suite activa: 8 aprobadas/1 fallida, 59 aserciones, 21,50 s, salida 1.
-H5 web reproducido: ingreso 01/11, cambio A→B 20/10 confirmado; clase de B del 20/10 lo lista y POST guarda presente (200), antes del ingreso.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Devuelta a Claude por tablero; no se corrige producto ni se alteran clases/vistas. Visual aprobado de Carlos conservado. Sin despliegue.
-La completa conjunta reciente 976/6 omitidas verde no cubría H5. La verificación no aprueba T52. Continúa T42 y después T43 según la orden de Carlos.

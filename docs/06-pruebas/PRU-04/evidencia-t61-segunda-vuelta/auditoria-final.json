@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-10-21T05:16:31.7886997-03:00",
+  "rama": "codex/t61-segunda-vuelta",
+  "base": "2c7cebe",
+  "suite": {
+    "aprobadas": 1020,
+    "segundos": 934.96,
+    "omitidas": 6,
+    "aserciones": 8846,
+    "fuentes_sin_cambios": 612,
+    "salida": 0
+  },
+  "guardianes": {
+    "aserciones": 34,
+    "aprobados": 7,
+    "salida": 0
+  },
+  "metodos_originales_13": "intactos",
+  "transferencia_y_controles_claude": "sin cambios",
+  "t34": "restaurado",
+  "capturas_originales_hashes": "8 correctos",
+  "movil": {
+    "bloqueo": "politica del navegador rechaza protocolo file",
+    "requerido": 375,
+    "estado": "pendiente recaptura y revision Carlos",
+    "ancho_archivo": 360
+  },
+  "inventarios": "previo y posterior: 0/0/0, solo wings_testing_codex",
+  "sintaxis_php": "13 archivos sin errores",
+  "enlaces_nuevos": "correctos",
+  "log": {
+    "lineas": 100,
+    "caracteres": 11336
+  },
+  "resumen_lineas": 150,
+  "estado": "a_verificar",
+  "verifica": "Claude",
+  "push_manual": false,
+  "despliegue": false
+}

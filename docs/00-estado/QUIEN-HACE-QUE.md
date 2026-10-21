@@ -46,13 +46,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | Hecho, espera verificación (hizo Codex, verifica Claude) | Segunda vuelta: TRASPASO solo en transferencias del sistema (H1-H3) |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T61** Pasar plata entre medios de pago sin que cuente en el resultado | En curso (hizo Codex, verifica Claude) | Devuelta por Claude 20/10: TRASPASO sigue ofrecido en cualquier subrubro; con eso la caja operativa y la corrección de Cashflow cargan gastos de una sola pata que no cuentan en el resultado (H1-H3). La transferencia en sí está bien. |
+Nada en este momento.
 
 ## Gemini
 

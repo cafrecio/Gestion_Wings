@@ -1,0 +1,21 @@
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo protegido rechaza edicion renombre baja y subrubros adicionales                                    11.66s
+  ✓ transferencia mueve 300mil y conserva todos los indicadores del club                                         0.35s
+  ✓ fallo al guardar entrada revierte salida y cabecera                                                          0.14s
+  ✓ reenvio de la misma operacion no duplica y rechaza datos distintos                                           0.12s
+  ✓ rechaza misma cuenta inactiva fecha futura e importes invalidos sin escrituras                               0.20s
+  ✓ operativa y profesora no pueden abrir ni registrar transferencias                                            0.17s
+  ✓ no permite carga individual ni edicion o anulacion de una sola pata                                          0.13s
+  ✓ proteccion del catalogo existente no inventa vinculos historicos                                             0.15s
+  ✓ seeder idempotente preserva clasificaciones y snapshots                                                      0.17s
+  ✓ formulario pide dos cuentas un importe y una fecha sin rubros editables                                      0.11s
+  ✓ transferencia fin de anio con centavos conserva resultado y fecha de ambas patas                             0.18s
+  ✓ saldos actuales independientes del filtro y cajas pendientes                                                 0.23s
+  ✓ fecha de mes anterior pide confirmar sin escribir y luego registra ambas patas                               0.19s
+  ✓ h1 subrubro comun rechaza traspaso en alta edicion y cambio tipo                                             0.12s
+  ✓ h2 caja rechaza traspaso preexistente alta edicion interno y reflejo                                         0.16s
+  ✓ h3 cashflow rechaza correccion y alta manual traspaso sin cambiar gasto                                      0.21s
+
+  Tests:    16 passed (198 assertions)
+  Duration: 14.40s

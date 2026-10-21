@@ -197,6 +197,13 @@ Aclaración de Carlos, 20/10/2026: formulario único con cuenta de salida, cuent
 - Catálogo idempotente sin duplicar ni pisar clasificaciones anteriores. Una incompatibilidad de catálogo impide registrar la transferencia; no se la corrige por conjetura.
 - [Implementación vigente y texto para T13](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). [Entrega anterior conservada como antecedente](../06-pruebas/PRU-04/IMPLEMENTACION-T61-ANTECEDENTE-DOS-CARGAS.md).
 
+### Exclusividad de TRASPASO — segunda vuelta T61, 21/10/2026
+
+`TRASPASO` es exclusivo de las transferencias del sistema y sus dos subrubros reservados «Salida a otro medio» y «Entrada desde otro medio». No se ofrece ni se acepta al crear o editar subrubros comunes. Tampoco puede elegirse uno antiguo con esa clasificación al registrar/editar movimientos de caja, cargar/corregir Cashflow o por otra puerta que genere movimientos fuera de Transferir.
+
+La defensa también alcanza métodos internos, reflejos de caja, pagos y sus contraasientos: si el concepto o la foto que se trasladaría es TRASPASO, se rechaza sin crear una pata suelta. No se reclasifican ni enlazan registros históricos automáticamente; Carlos decide su tratamiento. Un valor antiguo fuera de las opciones exige una elección explícita en el formulario, no recibe NEGOCIO por defecto. La transferencia ya aprobada conserva sus reglas y su implementación.
+
+Segunda vuelta entregada por Codex; verificación independiente de Claude y revisión visual del contenido pendientes. [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#segunda-vuelta--h1-a-h3). Sin despliegue.
 ### Aceptación de T27
 
 `CashflowCorreccionesT27Test` y `CashflowCorreccionesConcurrentesT27Test` cubren

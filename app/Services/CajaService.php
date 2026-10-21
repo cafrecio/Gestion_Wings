@@ -320,6 +320,8 @@ class CajaService
                 );
             }
 
+            \App\Support\ClasificacionSubrubros::exigirSinTraspaso($subrubro);
+
             // Mantener el bloqueo hasta registrar el movimiento: el cierre no se intercala.
             $caja = $this->abrirCajaSiNoExiste($usuarioOperativoId);
 
@@ -587,6 +589,8 @@ class CajaService
     private function validarSubrubroManual(int $subrubroId): Subrubro
     {
         $subrubro = Subrubro::findOrFail($subrubroId);
+
+        \App\Support\ClasificacionSubrubros::exigirSinTraspaso($subrubro);
 
         if ($subrubro->es_reservado_sistema) {
             throw new \Exception(

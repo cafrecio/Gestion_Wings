@@ -61,7 +61,17 @@ class ClasificacionSubrubros
     /** Un aporte solo puede entrar y un retiro solo puede salir. */
     public static function permitidas(string $tipoRubro): array
     {
-        return $tipoRubro === 'INGRESO' ? [self::NEGOCIO, self::APORTE, self::TRASPASO] : [self::NEGOCIO, self::RETIRO, self::TRASPASO];
+        return $tipoRubro === 'INGRESO' ? [self::NEGOCIO, self::APORTE] : [self::NEGOCIO, self::RETIRO];
+    }
+
+    /** T61: todo flujo distinto de Transferir rechaza esta clasificación, incluso si ya existía. */
+    public static function exigirSinTraspaso(\App\Models\Subrubro $subrubro, ?string $clasificacionRegistrada = null): void
+    {
+        if ($subrubro->clasificacion_resultado === self::TRASPASO || $clasificacionRegistrada === self::TRASPASO) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'subrubro_id' => 'Usá Transferir para registrar juntas la salida y la entrada.',
+            ]);
+        }
     }
 
     /** Solo incorpora el catálogo T61; no reclasifica movimientos ni pisa decisiones previas. */

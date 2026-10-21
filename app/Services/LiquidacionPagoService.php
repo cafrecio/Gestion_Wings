@@ -65,6 +65,7 @@ class LiquidacionPagoService
 
             // Validar subrubro
             $subrubro = Subrubro::with('rubro')->findOrFail($data['subrubro_id']);
+            \App\Support\ClasificacionSubrubros::exigirSinTraspaso($subrubro);
 
             if ($subrubro->rubro->tipo !== 'EGRESO') {
                 throw new \Exception("El subrubro seleccionado debe ser de tipo EGRESO. Tipo actual: {$subrubro->rubro->tipo}");
