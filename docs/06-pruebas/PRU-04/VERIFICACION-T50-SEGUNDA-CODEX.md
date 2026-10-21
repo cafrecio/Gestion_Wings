@@ -65,3 +65,5 @@ php vendor/phpunit/phpunit/phpunit --configuration phpunit.xml --colors=never --
 ```
 
 Salida esperada actual: 1 solo por los mensajes de previsualización en inglés; no convertir ese control en verde quitando la aserción. La completa se reproduce desde el corte de35ae0 con `ejecutar-suite.ps1`; en main integrado cambia el número de pruebas. El auxiliar propio comprueba base/entorno y requiere usuarios/alumnos vacíos; no borra datos para prepararse.
+
+Higiene final: informe y evidencia guardados en el commit 30d09f6 de main; después se archivó la copia temporal t50-segunda-verificacion mediante la herramienta de worktrees, con recuperación disponible. Se comprobó que su carpeta dejó de existir y que las dependencias compartidas de la carpeta principal permanecen. No quedó un servidor auxiliar activo ni archivos de producto modificados.

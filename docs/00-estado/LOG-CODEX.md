@@ -40,7 +40,7 @@ Chrome real con noviembre simulado y octubre real: límites/default correctos, a
 Gemini 12/55 verdes; controles anteriores 15/16 (rojo H1 superado). Con decisión vigente: 16 pasan y 1 control adicional falla solo por idioma; 20 rechazos 422 y huellas de tablas iguales.
 Completa aislada: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025; 612 fuentes intactas, 186 observaciones sin suites ajenas. Main integrado conserva contador 1028.
 Devuelta a Gemini únicamente por idioma de previews mal formadas y guardia del auxiliar CLI; H2/H3 confirmados. Contrato/estado actualizados; tabla Carlos/Claude intacta, propuesta de fuente en informe.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Sin despliegue ni push manual. Próximo paso: Gemini subsana observaciones y entrega a otra revisión, sin reabrir inscripción.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Commit 30d09f6; copia temporal archivada tras resguardar la evidencia. Sin despliegue ni push manual. Próximo paso: Gemini subsana observaciones y entrega a otra revisión, sin reabrir inscripción.
 
 ## 2026-10-21 — Codex CAB — T61 segunda vuelta, TRASPASO solo del sistema
 

@@ -38,12 +38,13 @@
   "producto": "sin cambios",
   "tabla": "sin cambios",
   "archivo_log": "2 entradas preservadas",
-  "log_caracteres": 11313,
+  "log_caracteres": 11384,
   "resumen_lineas": 150,
   "enlaces": "correctos",
   "capturas": "3 utiles, hashes y dimensiones comprobados",
   "no_util": "2 capturas transitorias propias descartadas",
   "servicio_local": "detenido",
   "despliegue": false,
-  "push_manual": false
+  "push_manual": false,
+  "copia_temporal": "archivada con recuperacion disponible, carpeta retirada y dependencias principales conservadas"
 }
