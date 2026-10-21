@@ -32,6 +32,14 @@
 
 [Antecedentes archivados intactos al verificar T50 por segunda vez](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-SEGUNDA-ANTECEDENTES.md).
 
+## 2026-10-21 — Codex CAB — Publicación de archivos propios
+
+Carlos pidió actualizar esta bitácora y subir todos mis archivos a GitHub.
+Publicados en main los commits propios 30d09f6 y d5d2f38: informe, evidencia y continuidad T50, más constancia del archivo de la copia temporal.
+GitHub confirmó d5d2f385a1d183f73aa80eadf15a21ee87abc511; no había commits ajenos pendientes de publicación.
+Sin cambios de producto ni despliegue; revisión documental y carpeta limpia antes de esta entrada.
+Sigue pendiente que Gemini subsane las dos observaciones T50 del informe; H1 conserva la decisión de Carlos.
+
 ## 2026-10-21 — Codex CAB — T50 segunda verificación, H2/H3 confirmados y observaciones
 
 Verificación independiente de de35ae0, sin modificar producto; aislamiento al aparecer la integración ajena T61. H1 decidido por Carlos: inscripción desde el alta; no volver a consultarlo.
