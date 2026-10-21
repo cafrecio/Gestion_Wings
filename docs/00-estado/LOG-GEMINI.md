@@ -10,6 +10,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-21 — LOG GEM CYE — Inicio de sesión «Prueba Manual GW I» (PRU-04)
+
+- **Objetivo y plan:** Apertura de la sesión de prueba manual de caminos felices en el sitio de prueba (PRU-04). Lectura y asimilación de `INSTRUCCIONES-PRUEBA-GEMINI.md` para la redacción de los cuentos diarios desde el día 4 (13/10 al 02/11) y la matriz de objetivos.
+- **Pauta de trabajo acordada:** Pensar, cuestionar lo que pensamos, volver a pensar y recién ahí hacer.
+- **Estado de sincronización:** Repositorio limpio y alineado con `origin/main` en el commit `c167cdb5` (control integral y continuidad).
+- **Próximo paso:** Definir con Carlos los puntos de partida de PRU-04 (§10 de las instrucciones).
+
 ## 2026-10-21 — LOG GEM CAB — T50 Tercera pasada: resolución de observaciones complementarias de Codex
 
 - **Objetivo y resultado:** Resolución de las observaciones complementarias informadas por Codex CAB en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md` y `docs/06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md` para la tarea T50 (DU-06, ALU-007). Resultado: **COMPLETADO Y LISTO PARA VERIFICACIÓN FINAL**, con 13 pruebas en `FechaIngresoFuturaT50Test` pasando al 100%, verificación de guardia con los 3 casos en verde y corte documental actualizado a 1029 pruebas.
