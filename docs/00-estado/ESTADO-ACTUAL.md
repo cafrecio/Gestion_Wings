@@ -1,6 +1,10 @@
 # Wings — Estado actual
 
-## T50 — Segunda verificación, Codex CAB 21/10/2026
+## T50 — Tercera verificación, Codex CyE 21/10/2026
+
+Revisado `d274cfd4`: idioma corregido, 13/71 regresiones permanentes y 17/214 controles independientes verdes en `wings_testing_codex`. H1 conserva la decisión de Carlos; H2/H3 siguen aprobados. La guardia CLI rechaza production y nombres de base no autorizados sin URL, pero **acepta un nombre permitido en DB_DATABASE aunque DB_URL resuelva otra base**. Reproducido sobre el auxiliar original con puerto cerrado 127.0.0.1:1, sin escrituras: supera la guardia y llega al intento de migración contra la base no autorizada. T50 devuelta a Gemini solo por validar la conexión efectiva antes de escribir. Corte permanente 1029; suite rápida y detalles en el [informe de tercera verificación](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md). Sin cambios de producto, tabla ni despliegue.
+
+## T50 — Antecedente: segunda verificación, Codex CAB 21/10/2026
 
 H2 y H3 de Gemini `de35ae0` confirmados: fecha mal formada al editar devuelve 422 en castellano sin modificar registros; límite y fecha por defecto vienen del reloj Wings, y el aviso específico sobrevive a la consulta asíncrona. H1 no se reabre: Carlos decidió «Inscripción a partir de hoy»; inscripción $5.000 y cuota futura computable $0 comprobados en las tres pantallas. Completa propia aislada: **1019 aprobadas, 6 omitidas, 8802 aserciones, 981,62 s, salida 0**, corte 1025; main conserva contador 1028 tras integrar T61.
 

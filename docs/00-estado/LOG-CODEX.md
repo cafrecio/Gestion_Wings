@@ -32,6 +32,15 @@
 
 [Antecedentes archivados intactos al verificar T50 por segunda vez](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-SEGUNDA-ANTECEDENTES.md).
 
+[Antecedente archivado intacto al verificar T50 por tercera vez](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-TERCERA-ANTECEDENTE.md).
+
+## 2026-10-21 — Codex CyE — T50 tercera verificación, idioma aprobado y guardia incompleta
+
+Revisado d274cfd4 y remoto coincidente; Ventas_CyE. Rápida: 908 aprobadas/6 omitidas, 7286 aserciones, 193,47 s, salida 0.
+Idioma corregido: 13/71 permanentes y 17/214 controles propios verdes en wings_testing_codex, incluidos 20 rechazos sin cambios en tablas. H1 decidido; H2/H3 conservados.
+Guardia del auxiliar: rechaza production/base no permitida, pero con DB_DATABASE permitido y DB_URL a otra base supera el control. Reproducción original con puerto cerrado 127.0.0.1:1, sin escrituras; no es una puerta web.
+T50 devuelta a Gemini solo por validar la conexión efectiva antes de migrar/sembrar. Estado, resumen, plan, contrato y tablero actualizados; corte permanente 1029.
+[Informe y controles](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md). MCP sin transporte; lectura directa y ejecución. Sin despliegue ni publicación.
 ## 2026-10-21 — Codex CAB — Publicación de archivos propios
 
 Carlos pidió actualizar esta bitácora y subir todos mis archivos a GitHub.
@@ -93,12 +102,3 @@ T43 tomada por script: persistir origen de cada parte y decisión del dueño sob
 Conservar cálculo original, importe final ajustado con su auditoría y documentos cerrados/pagados; decisiones con responsable y fecha. Sin reconstrucción arbitraria de históricos.
 Pruebas de tres orígenes, mezcla, anulación, cerradas y cambio de año; completa única en wings_testing_codex. Sin servidor ni despliegue.
 Capturas reales de liquidación/recibo 1366/375 y APROBAR-T43.html. No commitear vistas hasta OK de Carlos; implementación pendiente al tomar.
-
-## 2026-10-20 — Codex CyE — T42 implementada, a verificar por Claude
-
-DU-19: cada parte de cuota liquida en max(mes cobro, mes pagado), con asistencia del mes liquidado; ingreso adelantado en Reportes/Inicio por mes pagado.
-Dinero, fechas y saldos de Caja/Cashflow conservados. Carlos: «Sí, conservar el mes original solo en esos casos» no identificables. Captura de imputaciones e historia sin reescritura.
-19 regresiones nuevas; dirigidas finales 29/150 verdes. Completa final 997 aprobadas/6 omitidas, 8652 aserciones, 1242,09 s, salida 0, wings_testing_codex, corte 1003.
-Primera completa falló en una selección de prueba por primer pago, corregida por ID; segunda frenó por contador al entrar H5 T52. Salidas preservadas; sin atribuir causas ajenas.
-COB-012 e/h vivo y repo actualizados con autorización expresa; relectura ArtifactData versión 10 comprobada. Copia LIQ-002 corregida por DU-19; control del dueño sigue en T43.
-[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). Contratos/estado/contador/tablero al día. Sin vistas/CSS ni despliegue. Sigue T43; lógica T42 para Claude.

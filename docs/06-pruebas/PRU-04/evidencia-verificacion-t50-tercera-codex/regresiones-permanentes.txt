@@ -1,0 +1,25 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\phpunit.xml
+
+.............                                                     13 / 13 (100%)
+
+Time: 00:29.686, Memory: 70.00 MB
+
+Fecha Ingreso Futura T50 (Tests\Feature\FechaIngresoFuturaT50)
+ ✔ Fecha ingreso limite exacto ultimo dia mes siguiente acepta
+ ✔ Fecha ingreso dia posterior al limite rechaza y no guarda nada
+ ✔ Fecha ingreso pasada y de hoy aceptan
+ ✔ Cambio de anio en diciembre limite es 31 de enero
+ ✔ Edicion permite cambiar fecha hasta el limite y rechaza posterior
+ ✔ Edicion alumno antiguo con fecha fuera de limite no se bloquea si no se cambia la fecha
+ ✔ Previsualizacion cuota alta rechaza fecha posterior al limite
+ ✔ Previsualizacion cuota endpoint retorna 422 en fecha invalida
+ ✔ Previsualizacion inscripcion rechaza fecha posterior al limite
+ ✔ Primera carga excel revisar marca error en fecha posterior al limite
+ ✔ H2 edicion con fecha mal formada devuelve 422 sin escrituras
+ ✔ H3 formulario alta y edicion traen data max y fecha defecto wings
+ ✔ Previews con fecha mal formada o vacia responden en castellano
+
+OK (13 tests, 71 assertions)

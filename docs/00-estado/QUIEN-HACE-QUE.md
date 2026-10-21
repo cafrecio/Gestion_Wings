@@ -50,13 +50,13 @@ Nada en este momento.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Hecho, espera verificación (hizo Gemini, verifica Codex) | Observaciones resueltas: previsualizaciones traducidas al castellano ante fechas malformadas y guardia estricta en auxiliar; listo para verificación final Codex |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T50** Fecha de ingreso futura: solo hasta el mes siguiente | Devuelto (hizo Gemini, verifica Codex) | Idioma aprobado; guardia CLI acepta DB_URL con base distinta. Validar conexion efectiva antes de migrar/sembrar y repetir control del informe. |
 
 ## Sin empezar (18)
 

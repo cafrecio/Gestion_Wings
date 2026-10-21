@@ -146,6 +146,8 @@ Codex reportó que dar de alta a un alumno con fecha de ingreso en el mes siguie
 
 ## 7. Tercera pasada — Resolución de observaciones complementarias de Codex (21/10/2026)
 
+> Verificación posterior de Codex CyE, 21/10, commit d274cfd4: idioma aprobado (13/71 permanentes y 17/214 controles propios verdes). La guardia descripta en §7.2 sigue incompleta ante DB_URL: valida el nombre sin resolver la conexión efectiva. T50 devuelta solo por ese punto; reproducción sin escrituras en el [informe de tercera verificación](VERIFICACION-T50-TERCERA-CODEX.md). El texto de implementación que sigue conserva lo entregado por Gemini.
+
 Revisión en `docs/06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md`. Codex confirmó H2 y H3 en su informe (15 de 16 controles pasando, suite completa en verde y recorrido Chrome real conforme), y Carlos confirmó que H1 no se modifica (la inscripción rige a partir de hoy). Se resolvieron las dos observaciones complementarias:
 
 ### 7.1. Idioma castellano en previsualizaciones malformadas (`cuotaAltaPreview` e `inscripcionPreview`)

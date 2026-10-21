@@ -1,6 +1,6 @@
 # Wings — Plan de produccion
 
-T50, segunda verificación Codex CAB 21/10: H2/H3 confirmados; H1 ya decidido (inscripción desde el alta). Completa aislada de35ae0: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025. El main integrado conserva 1028 pruebas; no se confunden ambos cortes. Devuelta a Gemini por idioma de previsualizaciones y guardia del auxiliar, sin cambios de producto ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md).
+T50, tercera verificación Codex CyE 21/10 sobre d274cfd4: idioma corregido (13/71 permanentes y 17/214 controles propios verdes); H1 decidido, H2/H3 conservados. Devuelta a Gemini solo por guardia CLI: DB_URL puede resolver una base distinta de la que se comprueba. Reproducción sin escrituras con puerto cerrado; validar conexión efectiva antes de migrar/sembrar. Corte actual 1029; no se presenta la completa histórica del corte 1025 como corrida de este corte. Sin cambios de producto ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md).
 
 > **Actualizado:** 08/09/2026
 > **Estado:** documento de contexto.
