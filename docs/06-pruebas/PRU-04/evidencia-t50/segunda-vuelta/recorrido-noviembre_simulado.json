@@ -1,0 +1,27 @@
+{
+  "modo": "noviembre_simulado",
+  "baseUrl": "http://127.0.0.1:8740",
+  "pasos": {
+    "estado_inicial": {
+      "value": "2026-11-01",
+      "dataMax": "2026-12-31",
+      "max": "2026-12-31",
+      "required": true,
+      "validityValid": true,
+      "validationMessage": ""
+    },
+    "fecha_valida": {
+      "fechaProbada": "2026-12-01",
+      "validityValid": true,
+      "validationMessage": "",
+      "cuotaMensaje": ""
+    },
+    "fecha_invalida": {
+      "fechaProbada": "2027-01-01",
+      "validityValid": false,
+      "validationMessage": "La fecha de ingreso no puede ser posterior al 31/12/2026.",
+      "cuotaMensaje": "La fecha de ingreso no puede ser posterior al 31/12/2026."
+    }
+  },
+  "consola": []
+}

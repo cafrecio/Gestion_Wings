@@ -22,6 +22,7 @@ class AlumnoWebController extends Controller
     {
         $data = $request->validate([
             'fecha_alta' => [
+                'bail',
                 'required',
                 'date',
                 function ($attribute, $value, $fail) {
@@ -40,13 +41,20 @@ class AlumnoWebController extends Controller
         $data = $request->validate([
             'dni' => 'required|string|max:20',
             'fecha_alta' => [
+                'bail',
                 'required',
                 'date',
                 function ($attribute, $value, $fail) use ($request) {
                     if ($request->filled('alumno_id')) {
                         $editado = Alumno::find($request->integer('alumno_id'));
-                        if ($editado && $editado->fecha_alta && Carbon::parse($value)->isSameDay($editado->fecha_alta)) {
-                            return;
+                        if ($editado && $editado->fecha_alta) {
+                            try {
+                                if (Carbon::parse($value)->isSameDay($editado->fecha_alta)) {
+                                    return;
+                                }
+                            } catch (\Throwable) {
+                                return;
+                            }
                         }
                     }
                     if ($value && !FechaIngresoRegla::esValida($value)) {
@@ -316,6 +324,7 @@ class AlumnoWebController extends Controller
         $request->validate(['alta_token' => 'nullable|uuid']);
         $fechaIngreso = Carbon::parse($request->validate([
             'fecha_alta' => [
+                'bail',
                 'required',
                 'date',
                 function ($attribute, $value, $fail) {
@@ -529,10 +538,16 @@ class AlumnoWebController extends Controller
         $cambiaFechaAlta = true;
         if ($alumno && $alumno->fecha_alta) {
             $fechaNueva = $request->input('fecha_alta');
-            $cambiaFechaAlta = $fechaNueva && Carbon::parse($fechaNueva)->format('Y-m-d') !== $alumno->fecha_alta->format('Y-m-d');
+            if ($fechaNueva) {
+                try {
+                    $cambiaFechaAlta = Carbon::parse($fechaNueva)->format('Y-m-d') !== $alumno->fecha_alta->format('Y-m-d');
+                } catch (\Throwable) {
+                    $cambiaFechaAlta = true;
+                }
+            }
         }
 
-        $fechaAltaRules = ['required', 'date'];
+        $fechaAltaRules = ['bail', 'required', 'date'];
         if ($cambiaFechaAlta) {
             $fechaAltaRules[] = function ($attribute, $value, $fail) {
                 if ($value && !FechaIngresoRegla::esValida($value)) {

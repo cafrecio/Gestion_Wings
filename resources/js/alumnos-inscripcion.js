@@ -52,19 +52,27 @@ if (cuotaAlta) {
             opcion.required = false;
             if (limpiarDecision) opcion.checked = false;
         });
-        fecha.setCustomValidity('Esperá a verificar la cuota del alta.');
+        if (!fecha.dataset.max || fecha.value <= fecha.dataset.max) {
+            fecha.setCustomValidity('Esperá a verificar la cuota del alta.');
+        }
         if (!fecha.value) {
             cuotaAlta.hidden = true;
             fecha.setCustomValidity('Ingresá la fecha real de ingreso.');
             return;
         }
+        let datos = null;
         try {
             const query = new URLSearchParams({fecha_alta: fecha.value});
             if (plan.value) query.set('plan_id', plan.value);
             const respuesta = await fetch(`${cuotaAlta.dataset.previewUrl}?${query}`, {headers: {Accept: 'application/json'}});
-            const datos = await respuesta.json();
+            datos = await respuesta.json();
             if (turno !== secuencia) return;
-            if (!respuesta.ok) throw new Error('No se pudo verificar la cuota. Revisá la fecha y el plan antes de guardar.');
+            if (!respuesta.ok) {
+                const mensajeError = datos?.errors?.fecha_alta?.[0]
+                    || datos?.message
+                    || 'No se pudo verificar la cuota. Revisá la fecha y el plan antes de guardar.';
+                throw new Error(mensajeError);
+            }
             cuotaAlta.hidden = !datos.mes_cerrado;
             fecha.setCustomValidity('');
             if (!datos.mes_cerrado) return;
@@ -85,7 +93,14 @@ if (cuotaAlta) {
             if (turno !== secuencia) return;
             cuotaAlta.hidden = false;
             mensaje.textContent = error.message;
-            fecha.setCustomValidity('No se pudo verificar la cuota. Revisá la conexión y la fecha antes de guardar.');
+            if (datos?.errors?.fecha_alta?.[0]) {
+                fecha.setCustomValidity(datos.errors.fecha_alta[0]);
+            } else if (fecha.dataset.max && fecha.value > fecha.dataset.max) {
+                const [y, m, d] = fecha.dataset.max.split('-');
+                fecha.setCustomValidity(`La fecha de ingreso no puede ser posterior al ${d}/${m}/${y}.`);
+            } else {
+                fecha.setCustomValidity('No se pudo verificar la cuota. Revisá la conexión y la fecha antes de guardar.');
+            }
         }
     }
 

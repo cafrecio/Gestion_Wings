@@ -317,4 +317,51 @@ class FechaIngresoFuturaT50Test extends TestCase
         $filasValidas = array_column($resultado['filas'], 'fila');
         $this->assertNotContains(3, $filasValidas);
     }
+
+    public function test_h2_edicion_con_fecha_mal_formada_devuelve_422_sin_escrituras(): void
+    {
+        $alumno = Alumno::create($this->payloadAlumno(['fecha_alta' => '2026-10-20']));
+        AlumnoPlan::create([
+            'alumno_id' => $alumno->id,
+            'plan_id' => $this->plan->id,
+            'fecha_desde' => '2026-10-20',
+            'activo' => true,
+        ]);
+
+        $response = $this->actingAs($this->admin)->putJson(route('web.alumnos.update', $alumno), [
+            'dni' => $alumno->dni,
+            'nombre' => $alumno->nombre,
+            'apellido' => $alumno->apellido,
+            'fecha_nacimiento' => '2000-05-15',
+            'fecha_alta' => 'no-es-fecha',
+            'celular' => '11-4444-5555',
+            'deporte_id' => $this->deporte->id,
+            'grupo_id' => $this->grupo->id,
+            'plan_id' => $this->plan->id,
+        ]);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors('fecha_alta');
+        $this->assertSame('La fecha de alta no es una fecha válida.', $response->json('errors.fecha_alta.0'));
+        $this->assertSame('2026-10-20', $alumno->fresh()->fecha_alta->toDateString());
+    }
+
+    public function test_h3_formulario_alta_y_edicion_traen_data_max_y_fecha_defecto_wings(): void
+    {
+        Carbon::setTestNow('2026-11-15 10:00:00');
+        $limiteNoviembre = FechaIngresoRegla::limiteMaximo()->format('Y-m-d');
+        $this->assertSame('2026-12-31', $limiteNoviembre);
+
+        // Alta: data-max debe ser 2026-12-31 y fecha por defecto 2026-11-15
+        $resAlta = $this->actingAs($this->admin)->get(route('web.alumnos.create'));
+        $resAlta->assertOk();
+        $resAlta->assertSee('data-max="2026-12-31"', false);
+        $resAlta->assertSee('value="2026-11-15"', false);
+
+        // Edición: data-max debe ser 2026-12-31
+        $alumno = Alumno::create($this->payloadAlumno(['fecha_alta' => '2026-11-15']));
+        $resEdit = $this->actingAs($this->admin)->get(route('web.alumnos.edit', $alumno));
+        $resEdit->assertOk();
+        $resEdit->assertSee('data-max="2026-12-31"', false);
+    }
 }

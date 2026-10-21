@@ -65,7 +65,8 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             Fecha de alta <span class="form-required">*</span>
         </label>
         <input type="date" id="fecha_alta" name="fecha_alta"
-               value="{{ old('fecha_alta', isset($alumno) && $alumno->fecha_alta ? $alumno->fecha_alta->format('Y-m-d') : date('Y-m-d')) }}" required
+               value="{{ old('fecha_alta', isset($alumno) && $alumno->fecha_alta ? $alumno->fecha_alta->format('Y-m-d') : now()->format('Y-m-d')) }}"
+               data-max="{{ \App\Support\FechaIngresoRegla::limiteMaximo()->format('Y-m-d') }}" required
                class="w-full px-4 py-2.5 text-sm wings-input">
         @error('fecha_alta') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>

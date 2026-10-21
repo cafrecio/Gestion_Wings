@@ -86,3 +86,58 @@ Documento unificado para revisión:
 - `docs/06-pruebas/PRU-04/tabla-de-pruebas/catalogo/ALU.json`: caso `ALU-007` actualizado a `"estado": "vigente"`.
 - `docs/00-estado/ESTADO-ACTUAL.md`: actualizado el estado de T50 a `a_verificar`.
 - `docs/00-estado/LOG-GEMINI.md`: registrada la sesión completa bajo la firma `LOG GEM CAB`.
+
+---
+
+## 6. Segunda vuelta — H2 y H3 (21/10/2026)
+
+Revisión tras el informe de verificación independiente de Codex CAB (`docs/06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md`).
+
+### 6.1. Decisión de Carlos sobre H1 (Inscripción en alta futura)
+Codex reportó que dar de alta a un alumno con fecha de ingreso en el mes siguiente genera un cargo de inscripción exigible hoy ($5.000), dejándolo en estado `EN_PLAZO` y sumándolo en Cobrar e Inicio.
+- **Decisión del dueño (Carlos, 21/10/2026):** *«Inscripción a partir de hoy»*. La inscripción se debe desde el momento del alta (regla vigente del club); la cuota del mes que aún no empezó no cuenta como deuda previa al inicio del período. Por lo tanto, no se modifica la lógica de inscripción. Claude actualizó el caso `ALU-007` en la tabla de pruebas.
+
+### 6.2. Corrección H2 — Fecha mal formada al editar (422 en castellano sin 500)
+- **Problema detectado:** En `AlumnoWebController::validationRules`, se ejecutaba `Carbon::parse($fechaNueva)` para comparar si la fecha cambiaba respecto a `$alumno->fecha_alta` antes de que actuara la regla `date`. Si se enviaba `fecha_alta=no-es-fecha` en la edición, se producía un error 500 (`InvalidFormatException`).
+- **Solución implementada:**
+  1. En `validationRules`, se envolvió el análisis de `$fechaNueva` en un bloque `try/catch (\Throwable)`: si el valor no es parseable, `$cambiaFechaAlta = true`.
+  2. Se antepuso la regla `'bail'` a las reglas de `fecha_alta`: `['bail', 'required', 'date']`. De esta forma, si el valor no es una fecha válida, Laravel detiene la evaluación inmediatamente y devuelve el error descriptivo en castellano: *«La fecha de alta no es una fecha válida.»* (422), sin llegar a invocar el closure de límite ni intentar formateos con Carbon.
+  3. Mismo blindaje aplicado en `store`, `cuotaAltaPreview` e `inscripcionPreview`.
+- **Relevamiento de puertas:** Se auditó todo el sistema para verificar si existía el mismo patrón en otras áreas:
+  - `store`: `$request->validate(...)` valida antes de `Carbon::parse`. Se añadió `'bail'`.
+  - `cuotaAltaPreview` e `inscripcionPreview`: se añadió `'bail'` y `try/catch` para `Carbon::parse($value)`.
+  - `PrimeraCargaExcelService`: ya utilizaba `$this->fecha(...)`, que retorna `null` ante cadenas no válidas antes de evaluar `FechaIngresoRegla::esValida`. No presentaba este defecto.
+- **Resultado en pruebas:**
+  - Nueva regresión permanente: `test_h2_edicion_con_fecha_mal_formada_devuelve_422_sin_escrituras` en `FechaIngresoFuturaT50Test` (**VERDE**).
+  - Control 06 de Codex (`test_06_fecha_mal_formada_al_editar_devuelve_validacion_y_no_500` en `ControlT50Test.php`): **PASÓ**.
+
+### 6.3. Corrección H3 — La pantalla usa el reloj de Wings (data-max y fecha por defecto)
+- **Problema detectado:**
+  1. `resources/js/alumnos-form.js` recurría a `new Date()` del navegador si el campo no tenía `data-max`. Cuando el reloj de la computadora no coincidía con el reloj simulado de Wings, la pantalla calculaba un límite desfasado.
+  2. En el alta, la fecha por defecto usaba `date('Y-m-d')` de PHP en vez del reloj simulado de Wings.
+  3. Tras el aviso específico de fecha fuera de límite, la previsualización de cuota recibía 422 y lo reemplazaba en pantalla por el aviso genérico *«No se pudo verificar la cuota. Revisá la conexión y la fecha antes de guardar.»*.
+- **Solución implementada:**
+  1. `resources/views/alumnos/_form.blade.php`:
+     - Se agregó el atributo `data-max="{{ \App\Support\FechaIngresoRegla::limiteMaximo()->format('Y-m-d') }}"` al input `#fecha_alta`.
+     - La fecha por defecto ahora usa `now()->format('Y-m-d')` (reloj de Wings / `RelojSimulado`).
+     - Cambio autorizado en commit con línea `Diseno-autorizado:` (solo atributos de datos, sin modificación visual, sin JS inline en Blade, AGENTS.md §1 y §5-bis).
+  2. `resources/js/alumnos-inscripcion.js`:
+     - Al tipear una fecha fuera de límite, no se sobreescribe la validez previa con el texto provisional *«Esperá a verificar...»*.
+     - Al recibir respuesta 422, se extrae el mensaje de error específico devuelto por el servidor (`datos?.errors?.fecha_alta?.[0]`) y se asigna tanto al contenedor de mensaje como a `setCustomValidity`. Si la fecha supera `dataset.max`, se garantiza la permanencia del aviso específico en castellano.
+  3. Compilado con `npm run build` sin errores.
+- **Pruebas y verificación en navegador real (Chrome CDP):**
+  - Nueva regresión permanente: `test_h3_formulario_alta_y_edicion_traen_data_max_y_fecha_defecto_wings` (**VERDE**).
+  - Verificación en Chrome real con `scripts/pruebas/cdp-helper.mjs`:
+    - **Con `FECHA_SIMULADA="2026-11-01 10:00:00"`:**
+      - Atributo `max` y `data-max`: `2026-12-31`.
+      - Fecha por defecto: `2026-11-01`.
+      - Fecha `2026-12-01` aceptada sin avisos.
+      - Fecha `2027-01-01` rechazada con aviso específico: *«La fecha de ingreso no puede ser posterior al 31/12/2026.»* (conservado en cuota y en validación del campo).
+      - Capturas generadas: `01-aviso-limite-1366.png` y `02-aviso-limite-375.png`.
+    - **Con reloj real (Octubre 2026):**
+      - Atributo `max` y `data-max`: `2026-11-30`.
+      - Fecha por defecto: `2026-10-21`.
+      - Fecha `2026-11-15` aceptada sin avisos.
+      - Fecha `2026-12-01` rechazada con aviso específico: *«La fecha de ingreso no puede ser posterior al 30/11/2026.»*.
+    - Consola sin errores (`consola: []` en ambos JSONs de recorrido).
+  - Evidencia completa en `docs/06-pruebas/PRU-04/evidencia-t50/segunda-vuelta/`.
