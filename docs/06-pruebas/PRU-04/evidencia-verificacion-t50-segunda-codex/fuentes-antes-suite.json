@@ -1,0 +1,2450 @@
+[
+  {
+    "sha256": "BAF8905DE7BB1EE2B951E197F58E6C07E3057DCE194BCA6E523B36136812BF3E",
+    "path": "app\\Console\\Commands\\AplicarPunitorios.php"
+  },
+  {
+    "sha256": "7F7E14FE3FE8C53FB7D2E5CDB895AA7AD1F8CF871A2599D80D8E48337A126DAB",
+    "path": "app\\Console\\Commands\\CrearAdminCommand.php"
+  },
+  {
+    "sha256": "9279CCEB53C82BCE007C8AEA065A43C0DB7F099C199C1C87440035609B9BAE77",
+    "path": "app\\Console\\Commands\\FechaSimuladaCommand.php"
+  },
+  {
+    "sha256": "BCFF6320DE312BC3335D16AF3A032DFB55BC05EF6DF33E792E9DF9DC9F3C0F1E",
+    "path": "app\\Console\\Commands\\GenerarDeudasMensualesCommand.php"
+  },
+  {
+    "sha256": "57C166DEFEEC42A23EE79E5A0A45A1824AAC1F254461AEB065EB3F8AC030E5F6",
+    "path": "app\\Console\\Commands\\PreflightCommand.php"
+  },
+  {
+    "sha256": "37D766ABF0BEA44755D2CD2DA0D688CC8B078E167790323797F404DD90C4245D",
+    "path": "app\\Console\\Commands\\ResumenDiarioAvisosCommand.php"
+  },
+  {
+    "sha256": "43BC4A458809EF7E0FA204CFE7D41AA943F44F3FB807F1B900639537870870CD",
+    "path": "app\\Http\\Controllers.zip"
+  },
+  {
+    "sha256": "43B521441FF474D859075632DFEE6F132EC7D90DD003FE053B6E2A78DB2C1E18",
+    "path": "app\\Http\\Controllers\\AlumnoController.php"
+  },
+  {
+    "sha256": "037F21E1109FEA8194C3BF15C481AD5265E776EAFE9C1CB84A92D0F21CBFF9D7",
+    "path": "app\\Http\\Controllers\\AlumnoWebController.php"
+  },
+  {
+    "sha256": "188AA0CA97D86A7071EEB83DA95143412E3148CCB19D01CE0AE1985AE320CE40",
+    "path": "app\\Http\\Controllers\\AsistenciaController.php"
+  },
+  {
+    "sha256": "7907798F5EC46136E408EE9FBBF10239FA893CEA9C55BED263230BD970E0BECF",
+    "path": "app\\Http\\Controllers\\AuthController.php"
+  },
+  {
+    "sha256": "F2071F1BCE5E2686D8D44CAEAD53B41FC38DCC9E2B0B1177E8FCA61D6916E547",
+    "path": "app\\Http\\Controllers\\CajaOperativaController.php"
+  },
+  {
+    "sha256": "0F0A6FD36F92C4A17587D559DA32F83C467A43620508E2F64388666B42AC75F6",
+    "path": "app\\Http\\Controllers\\CajaWebController.php"
+  },
+  {
+    "sha256": "DA0C03448EAD814874EE582B3C17DCA579508CA5DC64778AEDB814AD6F124C0F",
+    "path": "app\\Http\\Controllers\\CashflowCorreccionWebController.php"
+  },
+  {
+    "sha256": "C21E16BAFB28C792B83B8905E2D2D700BA2127D7D627D28B9ADA52B7DB7DF2CC",
+    "path": "app\\Http\\Controllers\\CashflowMovimientoController.php"
+  },
+  {
+    "sha256": "ED3DE8EBBF329F6F14C70A70765991E8BE8DBD911F029F97BB4D0F7F1E7B0B64",
+    "path": "app\\Http\\Controllers\\CashflowSaldoController.php"
+  },
+  {
+    "sha256": "0FBCFD886A0F84DE347A727637194E4C057324BD28B16FEC9C90392E016F9C7C",
+    "path": "app\\Http\\Controllers\\CashflowWebController.php"
+  },
+  {
+    "sha256": "1AC27DB630B7646D9C9FD8BB0655385C95092240E55CE95A96A6B040241A495D",
+    "path": "app\\Http\\Controllers\\CierreDiaController.php"
+  },
+  {
+    "sha256": "4AD9BB1E71D3AF2F34931E23FE4698CD7980A7155149DA27E00B0DC65F17B0E2",
+    "path": "app\\Http\\Controllers\\ClaseController.php"
+  },
+  {
+    "sha256": "8D65EA4F6E5B795B18B82CB79413F33FD08CE5AC8BED6F50D71C710CE77B4297",
+    "path": "app\\Http\\Controllers\\ClaseWebController.php"
+  },
+  {
+    "sha256": "B6BB5CF994C885891B8EA0F3C3DD845E6BDB0C06B30B6917D638E884A6CE660A",
+    "path": "app\\Http\\Controllers\\CobranzaController.php"
+  },
+  {
+    "sha256": "D1BF5CC59FC9D74A87500E5715AC699FD7EA7AFE9A668A8B12733B5EC97C9783",
+    "path": "app\\Http\\Controllers\\CobranzaWebController.php"
+  },
+  {
+    "sha256": "67BF35F09C37E9BA44FC6E28D93BD9FAAB42D8FFC53CC140087A5371B1276216",
+    "path": "app\\Http\\Controllers\\ConfiguracionWebController.php"
+  },
+  {
+    "sha256": "25D1C1EF8E6CC8A376553FAACFBA2B07D9DFAEE9BDBB84F14F77517580E9DEB1",
+    "path": "app\\Http\\Controllers\\Controller.php"
+  },
+  {
+    "sha256": "BE3FD140FB1224498012E734F56904BBAFA8D75470582B0310B254EE974B19AF",
+    "path": "app\\Http\\Controllers\\CspReporteController.php"
+  },
+  {
+    "sha256": "71A5FE1B41A0722A0BF2102EE86BBB342CABCA11CBFCA25CC7FA3E7608002D37",
+    "path": "app\\Http\\Controllers\\DeporteWebController.php"
+  },
+  {
+    "sha256": "F2C7E92964CD652F5C60C69A4418238618B16A73CED18621E5E067FAC314BFCA",
+    "path": "app\\Http\\Controllers\\GrupoWebController.php"
+  },
+  {
+    "sha256": "9FFC7FDB967F142A2FAB49FD70CC0A4CDD414AB43232A1744BE4C4E162240B44",
+    "path": "app\\Http\\Controllers\\LiquidacionController.php"
+  },
+  {
+    "sha256": "AFE43E2C6C4C122BB5402902BC6594DAD50CB4C3638E1ED9C929A170DBB0AE80",
+    "path": "app\\Http\\Controllers\\LiquidacionWebController.php"
+  },
+  {
+    "sha256": "2CAA0A680A08F94FF6BB24975B1E7D1326ABE2815DBB11854BDD0A84DEB126F1",
+    "path": "app\\Http\\Controllers\\MovimientoOperativoController.php"
+  },
+  {
+    "sha256": "6D5E8DEB0734EB05069E913CFC939B52D1E36C74A009B1E1B43B4B011AA8030F",
+    "path": "app\\Http\\Controllers\\MovimientoWebController.php"
+  },
+  {
+    "sha256": "90EF903CDEE2FBAC804290193B2DDC606B9AB7A3EC2C91C3FA6F9DCD8C80BA31",
+    "path": "app\\Http\\Controllers\\NivelWebController.php"
+  },
+  {
+    "sha256": "0CD942F3D3A510FE527411CDD966845A7768BCE5456D554126A5023ACEBD0BE9",
+    "path": "app\\Http\\Controllers\\OperativoController.php"
+  },
+  {
+    "sha256": "A991D76D71C4722049CFE979DB687C6958D36779C9844B8E9CEAE644EE211DC9",
+    "path": "app\\Http\\Controllers\\OperativoDashboardController.php"
+  },
+  {
+    "sha256": "B13FF40D0A38BBAD365910462B59C30F5D0EC94A250C6E97505EC2A2678A4E7E",
+    "path": "app\\Http\\Controllers\\PagoController.php"
+  },
+  {
+    "sha256": "B0F6B9376A0643F9C3F86452C5DCD6362D87A7452BCC0522706CFE7BD2A43216",
+    "path": "app\\Http\\Controllers\\PagoCuotaController.php"
+  },
+  {
+    "sha256": "733798BB88F603F0A054D9859EF3621A93268A46E2F94E4A2ADC1C42A43F4780",
+    "path": "app\\Http\\Controllers\\PrimeraCargaWebController.php"
+  },
+  {
+    "sha256": "34655D74C06C325AFC0E128492F361547F3A6E816348B4A7C66366A9F6FBBE79",
+    "path": "app\\Http\\Controllers\\ProfesorWebController.php"
+  },
+  {
+    "sha256": "17514556EADE1779CDB9B122ACF794B5965EF251FBD52A5E382E96445090F2E6",
+    "path": "app\\Http\\Controllers\\ReciboController.php"
+  },
+  {
+    "sha256": "8EE9CC01599C0EAB408EC8873D9842352898FD97C08FF71EEAEBCADE3007F416",
+    "path": "app\\Http\\Controllers\\ReglaPrimerPagoWebController.php"
+  },
+  {
+    "sha256": "34AA8A47BD0C867B04A5AAD7F09B8A92B344C02038A4AD55FF8A72D682D43B9C",
+    "path": "app\\Http\\Controllers\\ReporteWebController.php"
+  },
+  {
+    "sha256": "FBBB32B71793125060FDFED58F062805B36E98F4D1104A5F720162D2212ACCAA",
+    "path": "app\\Http\\Controllers\\RevisionCobranzaWebController.php"
+  },
+  {
+    "sha256": "201E2F6A0041D5D27FAFD56374030FA2D268D76D59D2C1F90F6F1549958B7E15",
+    "path": "app\\Http\\Controllers\\RubroWebController.php"
+  },
+  {
+    "sha256": "9484314562509926C2089DFDD7A8C2266508C297AC7B8B9ACBCA29070D60BCDB",
+    "path": "app\\Http\\Controllers\\SubrubroWebController.php"
+  },
+  {
+    "sha256": "C0D4C302F999A03B2764169606A80B800FF41662FE12A735CB2C42D6D52D69C5",
+    "path": "app\\Http\\Controllers\\TipoCajaWebController.php"
+  },
+  {
+    "sha256": "F5E77AB7BC24769DF811AE708967D7CB587062F5150367103A6607CCE7B149A0",
+    "path": "app\\Http\\Controllers\\TransferenciaCashflowWebController.php"
+  },
+  {
+    "sha256": "DDCA110339508F1D94FCBA739721EA50E4392D13B1909592A50ABBC8FB1D4E44",
+    "path": "app\\Http\\Controllers\\UsuarioWebController.php"
+  },
+  {
+    "sha256": "2C653012715C7C0C41AEF0B54848A472795AB24E539C9BE0530F239EA3F45CDA",
+    "path": "app\\Http\\Controllers\\WebController.php"
+  },
+  {
+    "sha256": "0ABFD2925DAA76A94FE3660042E628A12910BB2DF987C2187B09A715D7CBF314",
+    "path": "app\\Http\\Controllers\\Admin\\AlumnoController.php"
+  },
+  {
+    "sha256": "083C6B80500675DAFE824EB8F13DE462628E4F378168E00C3EEF908ACBB499D7",
+    "path": "app\\Http\\Controllers\\Admin\\ClaseController.php"
+  },
+  {
+    "sha256": "00DF62E0BC03E1857F4B9394284CED21B36BB93D627230695FA695308A1EB468",
+    "path": "app\\Http\\Controllers\\Admin\\DeporteController.php"
+  },
+  {
+    "sha256": "15D232B70570A406E17A6E17803435D9877EF5ED44BA017664E1C97A43423041",
+    "path": "app\\Http\\Controllers\\Admin\\GrupoController.php"
+  },
+  {
+    "sha256": "D4A7333CAAC220923A7C0980CA5B404F56536F3A2458ABECBE069FD7CC5F4C0A",
+    "path": "app\\Http\\Controllers\\Admin\\ProfesorController.php"
+  },
+  {
+    "sha256": "CE53EDF822C721DAAA10A21D2AB05DACAC0E82A09E4D06B2855A10942369F142",
+    "path": "app\\Http\\Controllers\\Admin\\RubroController.php"
+  },
+  {
+    "sha256": "A55D77B5237D635796DDF79E302263BC3E59AB4CE7A9C4B6D75083C4B2BC6BAB",
+    "path": "app\\Http\\Controllers\\Admin\\SubrubroController.php"
+  },
+  {
+    "sha256": "C5F193BDDAA61C0F1827A362D7242DD9D527B306A3F58556F4FAE48123C0D77E",
+    "path": "app\\Http\\Controllers\\Admin\\TipoCajaController.php"
+  },
+  {
+    "sha256": "70BB2AF3E9E3251AB28D3A51ED0D28DAC4BDDF87787D844D491A48403B7D622C",
+    "path": "app\\Http\\Middleware\\BloqueoCajaViejaOperativo.php"
+  },
+  {
+    "sha256": "88B7FDF7F638B4628F5DACEF668EAEF5FA32CBA6206E85B9070F9437144B785D",
+    "path": "app\\Http\\Middleware\\EnsureActiveUserWeb.php"
+  },
+  {
+    "sha256": "CBC138D9D6EA076FCC283C0E31DB1F17239D6FF439CC8F7C378E2098EDCF5451",
+    "path": "app\\Http\\Middleware\\EnsureAdmin.php"
+  },
+  {
+    "sha256": "CB7C07C70B695F932A3FE88827B107616CCA1B30BB09690A7A2A8135126FFB2F",
+    "path": "app\\Http\\Middleware\\EnsureAdminWeb.php"
+  },
+  {
+    "sha256": "2A424D6FAE826DA61FAE09C36AFDA62B4F6997D4CAEBE112C73E9B1EEB5D0966",
+    "path": "app\\Http\\Middleware\\EnsureProfesorWeb.php"
+  },
+  {
+    "sha256": "E705D6BE972357340CB410213A7443AED2FAE42913EFDA95BB0E7B8917EFC3FA",
+    "path": "app\\Http\\Middleware\\PrepararPrimeraCarga.php"
+  },
+  {
+    "sha256": "BDA86B74FFC3AC42EC534D22A850F16B4413DA788ADA60AEBB5B177F417D4293",
+    "path": "app\\Http\\Middleware\\RejectProfesorWeb.php"
+  },
+  {
+    "sha256": "9DC655B7E67D8F590A727DED589C744E51B63799C05D4D9DF01B8D40F5A45DA5",
+    "path": "app\\Http\\Middleware\\SecurityHeaders.php"
+  },
+  {
+    "sha256": "95AF6E42FC91F3A7275AA84E5C62F97122E6046EE749DBDB64C48B0BAAC362FF",
+    "path": "app\\Http\\Requests\\AjustarDeudaRequest.php"
+  },
+  {
+    "sha256": "702C97F13FF0EDD6FD830ED2C82C2AE8DC57309A70AD17A023B2305348AC2081",
+    "path": "app\\Http\\Requests\\AsignarProfesorRequest.php"
+  },
+  {
+    "sha256": "B21D22893CA577E3A7A31E58E28A8A42F36CB6C20DA06F22974A34D97FBCAC32",
+    "path": "app\\Http\\Requests\\CerrarCajaRequest.php"
+  },
+  {
+    "sha256": "3203F46387D0D8C93BD7A29A59EA9EAAC4913E604D4B11BCD8E7C36B74AA38B6",
+    "path": "app\\Http\\Requests\\CondonarDeudaRequest.php"
+  },
+  {
+    "sha256": "F9C6F255E81196A7EEC023722E92032EDED863B4B0BA909523DA722067E5DF41",
+    "path": "app\\Http\\Requests\\PagarLiquidacionRequest.php"
+  },
+  {
+    "sha256": "5A577FEC44AB9DA102A59AD074225CB8C92C5D02F2F5828535D6A2921ED53379",
+    "path": "app\\Http\\Requests\\RechazarCajaRequest.php"
+  },
+  {
+    "sha256": "7468F7B0E05DCF4BE89E1B051C0C61C209F2DE47A328402838D8153CFCE52FE2",
+    "path": "app\\Http\\Requests\\StoreAlumnoRequest.php"
+  },
+  {
+    "sha256": "86D49D74E3E2763A9629FFE843614DDBE047A0722987FDFDE0B7201B92EA0C1F",
+    "path": "app\\Http\\Requests\\StoreAsistenciaBulkRequest.php"
+  },
+  {
+    "sha256": "8A376723B666A86EA08A06BFC31003028636795AFD53F1313F78313343ECB4A3",
+    "path": "app\\Http\\Requests\\StoreAsistenciaRequest.php"
+  },
+  {
+    "sha256": "FAE476664345E30F2CE61A52EF5401A22088D763F36280EF0D02E8657DD91165",
+    "path": "app\\Http\\Requests\\StoreCashflowMovimientoRequest.php"
+  },
+  {
+    "sha256": "C7A0C26EFBF20566030A1EAC3C0671F258941F16E7D35F9A1BE78CE0A8B617B1",
+    "path": "app\\Http\\Requests\\StoreClaseRequest.php"
+  },
+  {
+    "sha256": "DCBF935FE9ADADD47138084BE86CD1D0FD1543FA3FE378F34261CA6FEF9D6F39",
+    "path": "app\\Http\\Requests\\StoreDeudaCuotaRequest.php"
+  },
+  {
+    "sha256": "7EB945B30A4B4B24A3C131E4F5FDC11DD517166D7F73C1D57F6DDE407B345929",
+    "path": "app\\Http\\Requests\\StoreLiquidacionRequest.php"
+  },
+  {
+    "sha256": "A6D435B7AA105C562553410EDC3BA2F218C411B0F7D834556BC5823D3852C1BA",
+    "path": "app\\Http\\Requests\\StoreMovimientoOperativoRequest.php"
+  },
+  {
+    "sha256": "BE269FFB359B43A7FF42BD58AFD7069EDC061EFFF8727D3A27A7C3CF9C5E70FF",
+    "path": "app\\Http\\Requests\\StorePagoCuotaAdminRequest.php"
+  },
+  {
+    "sha256": "89EDF6CA61F6818C37471B2E8AC6491BDDDFAD156EBC32C006311C598670DF19",
+    "path": "app\\Http\\Requests\\StorePagoCuotaOperativoRequest.php"
+  },
+  {
+    "sha256": "2A390F1F86CE2B15287D7577AA4370562AB7257BD33BDDA157BED89CA5A0B6D8",
+    "path": "app\\Http\\Requests\\StorePagoRequest.php"
+  },
+  {
+    "sha256": "702757DD86A84DD2885DF43D51DA1502EACA68B536B12B2CAB67D782D7CF3B5A",
+    "path": "app\\Http\\Requests\\Admin\\StoreClaseRequest.php"
+  },
+  {
+    "sha256": "65C120060FDBE015A35848FD72F59430B1B573CA48004F6597E05CB4DA06B840",
+    "path": "app\\Http\\Requests\\Admin\\StoreDeporteRequest.php"
+  },
+  {
+    "sha256": "B36647F8C5C9B87EC875161ED0DE98AE0633B78377E8A18542EE7B9AD4754FA6",
+    "path": "app\\Http\\Requests\\Admin\\StoreGrupoRequest.php"
+  },
+  {
+    "sha256": "D3C37FC792AE6AC40F14F33088AF91E27EA0AC06257A26D3ADDE8468406BF62E",
+    "path": "app\\Http\\Requests\\Admin\\StoreProfesorRequest.php"
+  },
+  {
+    "sha256": "9B815439CD49ECC85E85C9709C5C3EF58E3CF6D790FEBCA369F414E6418939F2",
+    "path": "app\\Http\\Requests\\Admin\\StoreRubroRequest.php"
+  },
+  {
+    "sha256": "4CD9BE65E2D72BD07C7EF278467BFF1120797B2C576D90F28B922509843DC5E5",
+    "path": "app\\Http\\Requests\\Admin\\StoreSubrubroRequest.php"
+  },
+  {
+    "sha256": "EC901EEBAB9FC2FB3324FD05D6CFB880F269694535A9278268FFF0CBE8E31187",
+    "path": "app\\Http\\Requests\\Admin\\StoreTipoCajaRequest.php"
+  },
+  {
+    "sha256": "075331F2336C333A36222BF2147FDE174BB3515F3CA8073E8D2DB4302E7E5511",
+    "path": "app\\Http\\Requests\\Admin\\UpdateAlumnoRequest.php"
+  },
+  {
+    "sha256": "A68B0077CA74EEAB53CD4CEEEA8B035888D027C00C9783A428A8DE06F92517CC",
+    "path": "app\\Http\\Requests\\Admin\\UpdateClaseRequest.php"
+  },
+  {
+    "sha256": "9FE76967A0A1813C02B14F34BCEE87AE4B30534D03B550DBDA7B07C08ACBD38A",
+    "path": "app\\Http\\Requests\\Admin\\UpdateDeporteRequest.php"
+  },
+  {
+    "sha256": "DFCACD10443317080A5B600E842FAB711163794230F79776759A6670548B2B79",
+    "path": "app\\Http\\Requests\\Admin\\UpdateGrupoRequest.php"
+  },
+  {
+    "sha256": "7B2929F4718D1541199C40240D844581F3083A4D25B9400AA78E49A4AEAF3712",
+    "path": "app\\Http\\Requests\\Admin\\UpdateProfesorRequest.php"
+  },
+  {
+    "sha256": "4655867D44648DCCD7EB2CE2C68124A4CA83F937E6CC5C6CE0D8CFFCF0B63E76",
+    "path": "app\\Http\\Requests\\Admin\\UpdateRubroRequest.php"
+  },
+  {
+    "sha256": "FE273EF12AAF70A3EFA87C2E27950C563EA0E75743339DDB162EC16AD04363FF",
+    "path": "app\\Http\\Requests\\Admin\\UpdateSubrubroRequest.php"
+  },
+  {
+    "sha256": "18EDE24B44D1A4B494BCCC75621E0DE2BCBF29DAA25837D90EFEA9BB29C94563",
+    "path": "app\\Http\\Requests\\Admin\\UpdateTipoCajaRequest.php"
+  },
+  {
+    "sha256": "118D251881C35392F6ECD7369353793FF444D4AA30DC07A53EAA2CE4593A8E9D",
+    "path": "app\\Models\\Alumno.php"
+  },
+  {
+    "sha256": "05B4AEEF68503516C208C33CC954B2EDE8D1D97A28DACED97AFAF29F8B465F36",
+    "path": "app\\Models\\AlumnoPlan.php"
+  },
+  {
+    "sha256": "EC22A932A19A806742B7B6A642A57BAE6DD5BA6DD36264CE08C27C8CD07EDEEA",
+    "path": "app\\Models\\AlumnoRevisionCobranza.php"
+  },
+  {
+    "sha256": "42D4B829C917D2D5B3F2913D0177E41AE2AAB95DE5C1E171AFFF0197CBF81EF1",
+    "path": "app\\Models\\Asistencia.php"
+  },
+  {
+    "sha256": "A9F9213D16CFFBE28C3771AB3F0760B59E69B7F3C7995A242AB09CE0EB68F020",
+    "path": "app\\Models\\AsistenciaExceso.php"
+  },
+  {
+    "sha256": "5F2E781483E6D24E366F254C529DFEABB641EDABDC017D682E54C3E145108DD9",
+    "path": "app\\Models\\CajaOperativa.php"
+  },
+  {
+    "sha256": "16668660DDE3461641574A35FDF47E4A10CA114E1B5C34B4BE3DD6DE4C757C02",
+    "path": "app\\Models\\CargoAlumno.php"
+  },
+  {
+    "sha256": "288AC361FE76974A3682770C8901116192001477AE6365AA1894815AC0D48A4C",
+    "path": "app\\Models\\CashflowCorreccion.php"
+  },
+  {
+    "sha256": "619D4F2AC375FC8172CBA5A6EEBCCE106A97529289EE148004D22A7273B06E68",
+    "path": "app\\Models\\CashflowMovimiento.php"
+  },
+  {
+    "sha256": "99D9227F475E129ADF32AFA56266A7D99223EF8B62961AB8A6CAB439E02D9360",
+    "path": "app\\Models\\Clase.php"
+  },
+  {
+    "sha256": "4D63F5041FB8FDE7D7916ADB536AD8EC7E254140BD7F6FE5D5CA4E94485F36A4",
+    "path": "app\\Models\\ClaseProfesor.php"
+  },
+  {
+    "sha256": "BC58A48264197F7C096DB4EC6FC6E761ADA946D14ADF1DE2394370F6237567CB",
+    "path": "app\\Models\\Configuracion.php"
+  },
+  {
+    "sha256": "8C0B7801FFE64BCC2168FF35553C289C779117C14B972EDC5511E3411B06D0A8",
+    "path": "app\\Models\\Deporte.php"
+  },
+  {
+    "sha256": "8E4011BE7F6F6C7CB5F90FE4C6D81D2D3265B3EFA42EEFD02F9F0F166911CD7A",
+    "path": "app\\Models\\DeudaCuota.php"
+  },
+  {
+    "sha256": "218DB1568B67EA2CFC5016A4A1576430FFBCC820D767DD4F71C10DBBB0214AA3",
+    "path": "app\\Models\\GeneracionCuotas.php"
+  },
+  {
+    "sha256": "DBAE8C87DF354128F37D39E8E851BA4A9B932093AD072947078F05BC9DE23251",
+    "path": "app\\Models\\Grupo.php"
+  },
+  {
+    "sha256": "1150F59B00804ED6AF7DC20C30280D7835172FB099574F6099AA424A59AB96B1",
+    "path": "app\\Models\\GrupoPlan.php"
+  },
+  {
+    "sha256": "EFE4518169EDE103CFFDA398FD4BA679AA64A6F84DA1BDE1B85A2F37A1789DD6",
+    "path": "app\\Models\\Liquidacion.php"
+  },
+  {
+    "sha256": "97ECFBE2ED5291DA64F4646493EF6B1EDF37E23D2A345348356320459C30B0CD",
+    "path": "app\\Models\\LiquidacionDetalle.php"
+  },
+  {
+    "sha256": "BE2D18DAEBAE24C67F6EC9F9C06FFA5588F2F8CBE275283CBF4E8A07909A5D28",
+    "path": "app\\Models\\MovimientoOperativo.php"
+  },
+  {
+    "sha256": "FC4FBCD7AF703B90195A9A889ED84D5CCAEE9EB13FB46D995B90613FEE2B43FB",
+    "path": "app\\Models\\Nivel.php"
+  },
+  {
+    "sha256": "6BE9E91CD3FAF635D0CC06D517779ED5C7781AB9D813851097877C5165C3CE65",
+    "path": "app\\Models\\Pago.php"
+  },
+  {
+    "sha256": "0149CFB66C3CF6153ED7560B579B0FD266C390F684C9AFC57A5DD5343AB81D87",
+    "path": "app\\Models\\PagoDeudaCuota.php"
+  },
+  {
+    "sha256": "2425729B04C9D967EA2DEED50435E04FC071FA375372B7D957E39740B0510EDC",
+    "path": "app\\Models\\PrimeraCarga.php"
+  },
+  {
+    "sha256": "345662CA0F39385B644FC6B3548ACF6C695F9396E10056CB7F169D3CD86B9090",
+    "path": "app\\Models\\Profesor.php"
+  },
+  {
+    "sha256": "2267F74B0E004E6326D17C75FD584266E5A9F7E849D328AD07717023861E1644",
+    "path": "app\\Models\\ReglaPrimerPago.php"
+  },
+  {
+    "sha256": "98C5C6610F0BB15297904B3AC4870CE07A7A18E95BC540442EC32A480A20E190",
+    "path": "app\\Models\\Rubro.php"
+  },
+  {
+    "sha256": "368B985777CD5FA0D325078984B06B9986D2F229AC3809C6A37FCE60AEA5D876",
+    "path": "app\\Models\\Subrubro.php"
+  },
+  {
+    "sha256": "F1961F3107BD6C6AAE5817A6544FADDBCCC6F8A307F35CD4011CC0C4C697B92C",
+    "path": "app\\Models\\TipoCaja.php"
+  },
+  {
+    "sha256": "BE213C5C0695CC493C1FDBE45E3904D30A7F079CD36AF6A205D8C433BD6E8FB7",
+    "path": "app\\Models\\User.php"
+  },
+  {
+    "sha256": "FFCAFF7C4876F1906CDDB824B69DA47495855BA5712CEA4C6FD14DC1980F0194",
+    "path": "app\\Models\\Concerns\\GuardaHistorialAtomico.php"
+  },
+  {
+    "sha256": "A642921308AC72F4BE502C67BA92FBBEA8437D7F11D6B274D4EDB077D2484DCE",
+    "path": "app\\Notifications\\AvisoOperativo.php"
+  },
+  {
+    "sha256": "4A971C30A9D341740A657452796594CFC045B3E8C5720125D843398CB78A4DEA",
+    "path": "app\\Notifications\\CobroConDeudaAnteriorNotification.php"
+  },
+  {
+    "sha256": "1F4EF01B182B8168450B4E5EF403A83D47CDC7A964F051D0F664682B8491E025",
+    "path": "app\\Notifications\\Channels\\TelegramChannel.php"
+  },
+  {
+    "sha256": "02EDF47077450FDE2E3886A635C795B1AB7079D8282DFBC1B2A9627BF7F31860",
+    "path": "app\\Observers\\HistorialAnaliticoReportesObserver.php"
+  },
+  {
+    "sha256": "C4EFD3A726AC70BF7FEC6755698BC69C159890DD4FA595BB5972DF3CA1902940",
+    "path": "app\\Observers\\HistorialReporteObserver.php"
+  },
+  {
+    "sha256": "1BE1312C0DFA6985C85D2033534A0FD806F3746DB8ECD8899D7D281490E6C9E2",
+    "path": "app\\Observers\\MovimientoReporteObserver.php"
+  },
+  {
+    "sha256": "B5FA28B3F69957D6ADAF5A5495DB0E1CB0F579359E7594044EAF779E318DD922",
+    "path": "app\\Providers\\AppServiceProvider.php"
+  },
+  {
+    "sha256": "B178EE9B41E453421B60D4DD5ADDCB831B7462225967081D1E70662A4608DD92",
+    "path": "app\\Rules\\CbuOAlias.php"
+  },
+  {
+    "sha256": "31D3E4DAAA52309705D0E3C6D17528259F4171DF0EA2DDFC293698FD77BE9A1A",
+    "path": "app\\Rules\\ImportePesos.php"
+  },
+  {
+    "sha256": "1E9E8A133D071F723F4EAFCB0E71CB4EFBD74412FC8C4168B8554F411644B12E",
+    "path": "app\\Rules\\NombreUnico.php"
+  },
+  {
+    "sha256": "496FE2A6F4338874E8AE06FB2EF20B1EB60AEAC5021973E26EBA33EA9606608B",
+    "path": "app\\Services\\AvisoAdminService.php"
+  },
+  {
+    "sha256": "3AB5C98C4D1FD20142B0E5E2636E7426E794D2A80CA6430CDE71B38AC9C180CD",
+    "path": "app\\Services\\CajaResumenService.php"
+  },
+  {
+    "sha256": "3B0EB828C8CA4113F06E35370479A9FB07E6B336125E71CACADA99D842F362E9",
+    "path": "app\\Services\\CajaService.php"
+  },
+  {
+    "sha256": "10345309BF3B9E96990B57191371D80D83029CCD9FFEF745C7B460B4C193E827",
+    "path": "app\\Services\\CambioPlanService.php"
+  },
+  {
+    "sha256": "208EE7DCD2643E5A6A4389DBF6FB567AEC508A37A9BCF5223E40B7BBA008EC5E",
+    "path": "app\\Services\\CashflowCorreccionService.php"
+  },
+  {
+    "sha256": "B0FA05D5976B7A2AAA88D7A27F5906BB9A7DC468A43A0B7FC48B654127F7E641",
+    "path": "app\\Services\\CashflowIntegracionCajaService.php"
+  },
+  {
+    "sha256": "B6B0453899D8BE0DD3A99281A549DAFE3D52707F575649451083F93C2431C37B",
+    "path": "app\\Services\\CashflowSaldoService.php"
+  },
+  {
+    "sha256": "3A7D764A9BCD5F8FF487B8420EEF9B6E5748A15B62FEDF127DF0C943C1AF8C83",
+    "path": "app\\Services\\CashflowService.php"
+  },
+  {
+    "sha256": "7319595A04A101AF55E8A88E764A48114E6739673FD7DDE79C7D887A6F40BF0D",
+    "path": "app\\Services\\CierreDiaResumenService.php"
+  },
+  {
+    "sha256": "B07AEC5968971ED747D4CDE5D2C738495A01535D8A8A9F0D25C90A88B8D351FD",
+    "path": "app\\Services\\ClaseService.php"
+  },
+  {
+    "sha256": "4AB855C04E6B7821ED13C01907F5E563186BB6C2107564B8B4BADBBE1A6D140F",
+    "path": "app\\Services\\CobranzaEstadoService.php"
+  },
+  {
+    "sha256": "B727E199513B17ADF0FFDC91529CC71E823BA6FDC9BF3973491AC68AA4FDBE2D",
+    "path": "app\\Services\\FormatoExcelCargaService.php"
+  },
+  {
+    "sha256": "38F878C5E31227A5ED6B6437D4E1FDEF1D32CBF66E4425863978490789351A2C",
+    "path": "app\\Services\\HistorialAnaliticoReportesService.php"
+  },
+  {
+    "sha256": "1EBEA105AF6B6CF3281619D46443ACE19CAB5709F5C9D96BB201963D0D6CB925",
+    "path": "app\\Services\\InscripcionService.php"
+  },
+  {
+    "sha256": "DD75104B51D490C4A8B753504E8D9F213C834972C3D5892EDFCD4F5682C98CC6",
+    "path": "app\\Services\\LiquidacionPagoService.php"
+  },
+  {
+    "sha256": "A3604AFB7352D426D820845F05D690DCA143C741BF14D8770331C83F5539D91E",
+    "path": "app\\Services\\LiquidacionService.php"
+  },
+  {
+    "sha256": "B5534BA0C0A3F401C808346AD379CB2C94C91435219817742836D6DC9C3089B6",
+    "path": "app\\Services\\OperativoEstadoService.php"
+  },
+  {
+    "sha256": "1FE15FDCE0EF91D456BD7F59FFB2C0CAEF8A8D3720FEB62EDA2551CC34AC87AF",
+    "path": "app\\Services\\PagoCuotaService.php"
+  },
+  {
+    "sha256": "C6D04D47E0E500273232F060E2D478DF39B4E3EB57A70779B6DA477867BFBFBF",
+    "path": "app\\Services\\PagoService.php"
+  },
+  {
+    "sha256": "F1304F305A8BAC0AC65E62AF6592FEFCD9EC5037E7F64F3BD38DFC5D78962578",
+    "path": "app\\Services\\PartesPagoCuotaService.php"
+  },
+  {
+    "sha256": "DDE6C858405CF81793B0236D9E4EADE8E65D294C0F821992FCC4F5ADD5BB827F",
+    "path": "app\\Services\\PrimeraCargaExcelService.php"
+  },
+  {
+    "sha256": "346479F23D2F8CCEA838A094C3EF1D3C4DC6BB4A4266057FB2E120850510B7A4",
+    "path": "app\\Services\\ProgramacionClasesService.php"
+  },
+  {
+    "sha256": "2EC70F0CBB260F6BD3ABDCA5B86ABBBEF007D5C350BD91C67F748F4DB823CFF0",
+    "path": "app\\Services\\PunitorioService.php"
+  },
+  {
+    "sha256": "05F22C9DD520C93CD01211EDFD3F0582A101AE57C35B5A8019BA89324A68F37F",
+    "path": "app\\Services\\ReciboService.php"
+  },
+  {
+    "sha256": "972C2967A5F1FB442D331004911313BE2361BA3AC03B1BCA80D4CE8A1724C362",
+    "path": "app\\Services\\ReporteAlumnosService.php"
+  },
+  {
+    "sha256": "708FAD2968ED43A8AFAEB4D32FB424477956847FC6888C039A08F03E5191A1F8",
+    "path": "app\\Services\\ReporteMensualService.php"
+  },
+  {
+    "sha256": "76E376608EA62E1A667419F7E3FCD2E2619B131A438A8185C40B408A7AA9F9EC",
+    "path": "app\\Services\\ReporteSueldosService.php"
+  },
+  {
+    "sha256": "991511BCEDB42DCDC12D1AA2BCBC5F2C9D518DF9BA53B663947291B42F9BB8C1",
+    "path": "app\\Services\\RevisionCobranzaService.php"
+  },
+  {
+    "sha256": "66103010079E93875D8D8D1E5303E9BD283488055F9F5F7A92360900FF0003EE",
+    "path": "app\\Services\\SubrubroSueldoService.php"
+  },
+  {
+    "sha256": "B452FA9BD367C8EF461BDB0F7B8266D4D74C6F97E088CE7610B32DA04D156B65",
+    "path": "app\\Services\\TransferenciaCashflowService.php"
+  },
+  {
+    "sha256": "454810EFFC859C77C4665E12E00B785158ABCD43D1198ED167BA56A83CFE5540",
+    "path": "app\\Support\\AvisoError.php"
+  },
+  {
+    "sha256": "A166D4E3815E55D589EB02F2134CFEE92D68C58B9E4CFB271F43223D1BB49C27",
+    "path": "app\\Support\\ClasificacionSubrubros.php"
+  },
+  {
+    "sha256": "1C62C2EDDBFBAAB721834C172E0A991A54D058D8FB2C8C541FA91C75C908F0C0",
+    "path": "app\\Support\\FechaIngresoRegla.php"
+  },
+  {
+    "sha256": "FE6FF7A5BB31EC4A1557AAB4F1F428FFD48156D1AFB5DB1180F1A35F145C5647",
+    "path": "app\\Support\\FormatoImporte.php"
+  },
+  {
+    "sha256": "6225F0CABE0882B879FA48EC37116C61702747C0BB3DB73A72BA2283402E3A9F",
+    "path": "app\\Support\\LimiteConRelojDetenido.php"
+  },
+  {
+    "sha256": "273A24CC2289C5492C2C48022FF0839825107751E1B9DECBD966D10F4BBF2CE6",
+    "path": "app\\Support\\RegistroReporteDisponible.php"
+  },
+  {
+    "sha256": "068F1122D8A994A2985AD7B8C414ABB3D24660FFA48DEFFAFB76FD7DF321694A",
+    "path": "app\\Support\\ReglasPrimerPagoValidator.php"
+  },
+  {
+    "sha256": "228A9C6D7F167DB44041ED843A26C4043C55C2A958FE4A20A290BB9A8D77F7F3",
+    "path": "app\\Support\\RelojSimulado.php"
+  },
+  {
+    "sha256": "3C901A4C5A028DE719EF2232740F362E1AC4971FF3734C3C3ED708AE890B640F",
+    "path": "resources\\css\\app.css"
+  },
+  {
+    "sha256": "6A06F024A3D6B3E026C3B452CC2AAE7B07D6EF1C75840703B8B0AFE4CAF2AAF4",
+    "path": "resources\\css\\reportes-analiticos.css"
+  },
+  {
+    "sha256": "6EF033AE74F4EDA00F14A875B18E8DA59498F1A2DD310483430BEC1C31E1DB4E",
+    "path": "resources\\css\\reportes-visual.css"
+  },
+  {
+    "sha256": "CEFCBFAD70762B3B879B220B643F7B3019387DE8C9833B37E76430DDB9A7E8B8",
+    "path": "resources\\js\\alumnos-form.js"
+  },
+  {
+    "sha256": "A3F3AA17481CFFA40791AD1230578366810B79814F83DD601B4D5F7501A97474",
+    "path": "resources\\js\\alumnos-index.js"
+  },
+  {
+    "sha256": "B08D110E03AE4F5045BA1081BE0E13B7BF48A5871B6F0C6B16A4BDF631F964DE",
+    "path": "resources\\js\\alumnos-inscripcion.js"
+  },
+  {
+    "sha256": "B0E9AE2874A79C64B2B25E07A1BF73065F425F3605A1F58B7993B6A361D6CA3C",
+    "path": "resources\\js\\alumnos-show.js"
+  },
+  {
+    "sha256": "6D1547F724B3E6FA4B1F58E91F0DCA24FA91890E69AF19D5946026E5513389A1",
+    "path": "resources\\js\\app.js"
+  },
+  {
+    "sha256": "EDB5EA87BA4CEDDA2FA626B5E6EA2687AE7F1C17BE032E00251B32167B6AEDBE",
+    "path": "resources\\js\\bootstrap.js"
+  },
+  {
+    "sha256": "A3142C8C2A77621154B5CF3A5D336F0B83AD3718B593FBB42F8670968D63EE0B",
+    "path": "resources\\js\\caja-arqueo.js"
+  },
+  {
+    "sha256": "E72DA0F4A868B521AFC541F4EF41F95014E59B4FC898CB3F365CE4E4A14E8E43",
+    "path": "resources\\js\\caja-detalle.js"
+  },
+  {
+    "sha256": "4230375A037A3B1AC4EAC11FDF2EDB39104A251956FD178A1E6D56BC13EF8B4D",
+    "path": "resources\\js\\caja-editar.js"
+  },
+  {
+    "sha256": "78B52473EBA187EDDF26ACE71FD3B47A9A56428C10D190D55B0207005E37D351",
+    "path": "resources\\js\\caja-movimiento.js"
+  },
+  {
+    "sha256": "716D2521FA93CF8ACA49F5982AFF2D0459A3527F8CD714289FAE32EC18B76C8A",
+    "path": "resources\\js\\cashflow-movimiento.js"
+  },
+  {
+    "sha256": "6AF1EBDBAA58CD39B3BEAC97BBC8412E61001E4FC7BB53BEA35A34208CA8CC2C",
+    "path": "resources\\js\\clases-form.js"
+  },
+  {
+    "sha256": "16F3ECC314FE2FDA3D3B4923354A8298C4806D232A2DDAF69EB70FFBAEE795FA",
+    "path": "resources\\js\\clases-index.js"
+  },
+  {
+    "sha256": "99519CEAA1776E84122C226E6F9296963B602161C0C9745F772527231519FCCF",
+    "path": "resources\\js\\clases-show.js"
+  },
+  {
+    "sha256": "216C4CCC6AC36B240982F20DED2D89128755AE287D48C2D0D0C8FDD4DE6F89B9",
+    "path": "resources\\js\\cobrar.js"
+  },
+  {
+    "sha256": "4EF48EEB7228D90B19DA77A4EDEED4E4509FF46572D9C08C7816BB44D9DAD2FD",
+    "path": "resources\\js\\configuraciones.js"
+  },
+  {
+    "sha256": "0D9FD02806DBFF20A07BA100ADE22E7698C46D0D6A57FD070AB650ADD7E0615B",
+    "path": "resources\\js\\ds-app.js"
+  },
+  {
+    "sha256": "3727EF4A4F95B3D13B27E1C36424FB4121D71EFA75D2604ADD58322DC363CFC0",
+    "path": "resources\\js\\form-errors.js"
+  },
+  {
+    "sha256": "6B725D38011AF9579DADC6F68EC9BE44250A1EA640208867F67E4E2794763412",
+    "path": "resources\\js\\formato-importe.js"
+  },
+  {
+    "sha256": "F9F7612B6EED2887358B54EA61BE8DABF52DF73B9EAA1D3774124949A3957920",
+    "path": "resources\\js\\grupos.js"
+  },
+  {
+    "sha256": "A931C8562571E9AF10FBFFC73CA3B873EFCB9515B9A5E6625F842790993C07A6",
+    "path": "resources\\js\\liquidaciones-create.js"
+  },
+  {
+    "sha256": "D825C6A865E040E09231C618CF6EF3EEC6A5B97A8F534BB97EF62284BA5084D2",
+    "path": "resources\\js\\liquidaciones-show.js"
+  },
+  {
+    "sha256": "6FFEDD419722DD29B3175F1ED2DE571748F8B0E1666C3AEFC2663963B13B1FDF",
+    "path": "resources\\js\\money-input.js"
+  },
+  {
+    "sha256": "62A407B511ECB89A5C09117123BDAE44403A8EA54DECBF25ABB631CF2B4DC4E4",
+    "path": "resources\\js\\primera-carga.js"
+  },
+  {
+    "sha256": "9696F1FE46B007DBBC77DDF2BFD398BF6A18EE4504E14670B9976315946F3EFF",
+    "path": "resources\\js\\profesores-form.js"
+  },
+  {
+    "sha256": "8D57965024A18642A9BF2697FA9705A955FB72CD02C2F5C3220944EBF05EF065",
+    "path": "resources\\js\\reportes-analiticos.js"
+  },
+  {
+    "sha256": "50CEDCE4C20457ED860E97DE14BEACEEE6496780AD7FE59B60CFE3723911EF6B",
+    "path": "resources\\js\\reportes-visual.js"
+  },
+  {
+    "sha256": "47575A85317C2C3000F85359E765B776C8D98C9E0248B6C399D196480EE23E44",
+    "path": "resources\\js\\reportes.js"
+  },
+  {
+    "sha256": "66441AFD83B488EFF83750381AF595D6CDBAF94F0FFAD6BC631F1393FDAECDF9",
+    "path": "resources\\js\\usuarios.js"
+  },
+  {
+    "sha256": "E50E41602994840B788471625FEC54A4DB6138EC971BE05CFDFBA40DAF906C22",
+    "path": "resources\\views\\welcome.blade.php"
+  },
+  {
+    "sha256": "E8E4D46D2E5C4533C193A4303A93B22D701247FD1A1389B0FA692A20D832D308",
+    "path": "resources\\views\\admin\\dashboard.blade.php"
+  },
+  {
+    "sha256": "70EA6535A32E6246DF854D182FA05FB443A505EE28E076F1F97E1B747E185394",
+    "path": "resources\\views\\alumnos\\_errores.blade.php"
+  },
+  {
+    "sha256": "05137410B15C6A8BB1C0D2262BEC08AB8CC54E0519C4878689C7E10EB6C41C56",
+    "path": "resources\\views\\alumnos\\_form.blade.php"
+  },
+  {
+    "sha256": "EF7B9A978A92E5C9D1376F82973CC8B7EAC4C7130511ED72913EB0F79CD2C511",
+    "path": "resources\\views\\alumnos\\create.blade.php"
+  },
+  {
+    "sha256": "39E53B22D3BA228948D76E60B90B3F28927CEFC8ECA976686F112C8EA754FCB3",
+    "path": "resources\\views\\alumnos\\edit.blade.php"
+  },
+  {
+    "sha256": "0E1EDD9334A454240DD99CB300A21ACD7BAED9152199ED9DB0182FB395972D06",
+    "path": "resources\\views\\alumnos\\index.blade.php"
+  },
+  {
+    "sha256": "CA0F51396E17BFCA019BC391E531E705C1FE97F6E416E74203494C1C99837DEC",
+    "path": "resources\\views\\alumnos\\show.blade.php"
+  },
+  {
+    "sha256": "CEEE32043E71AEF85A17F0481D2FD710687017B34B8F265564FEC21412ADD306",
+    "path": "resources\\views\\auth\\login.blade.php"
+  },
+  {
+    "sha256": "81D4994E154589627EF40EDBD54744CD2DAE08710026054FE0B9DBAA55AB1136",
+    "path": "resources\\views\\caja\\apertura.blade.php"
+  },
+  {
+    "sha256": "1A4EE495441B332D5FE3ADB3A3C572551A926FBC0C6C3030FFF1F579076CD47E",
+    "path": "resources\\views\\caja\\cancelar-movimiento.blade.php"
+  },
+  {
+    "sha256": "F41A9E63165B0036269B8E4B9B61500F5729A85188562D7AD538EAD2F4DEA33F",
+    "path": "resources\\views\\caja\\cierre.blade.php"
+  },
+  {
+    "sha256": "F7CEEAB2B4D7E36A0B04B6E66D02656B811661D86150E8CD9794895891D82526",
+    "path": "resources\\views\\caja\\cobrar-cuota.blade.php"
+  },
+  {
+    "sha256": "2C5E4FCF7084A3F607567812006D03BF174ED83D23906C03B5165A93069D77D0",
+    "path": "resources\\views\\caja\\cobrar.blade.php"
+  },
+  {
+    "sha256": "38E6D403A391DB6E1ABDB4BFE926CB095936E6993ABFDF86D86F762C7696180E",
+    "path": "resources\\views\\caja\\configuracion.blade.php"
+  },
+  {
+    "sha256": "DE4CDC4348EEF040A2420359E120B1E455CE99BC7BC3DE097FDC2CE48CD62EF1",
+    "path": "resources\\views\\caja\\detalle.blade.php"
+  },
+  {
+    "sha256": "BB490725BF9A08CB6295875B39854FAE4A73B34A994585629BDA45FA39942576",
+    "path": "resources\\views\\caja\\editar.blade.php"
+  },
+  {
+    "sha256": "00B968104BDA7340C0F8788CE0C939E98852970E1FB16996123CBE0FBB34DFF8",
+    "path": "resources\\views\\caja\\historial.blade.php"
+  },
+  {
+    "sha256": "FBFF05A7DA6291D4F54B8284045365DE6C663AB89BF7E938D3717446773A62C2",
+    "path": "resources\\views\\caja\\index.blade.php"
+  },
+  {
+    "sha256": "1F1E0B4DA0D1FAF6E9769D30B152CDB26C865A1E876B8869E74EB2F9D45E15AB",
+    "path": "resources\\views\\caja\\movimiento.blade.php"
+  },
+  {
+    "sha256": "26393E4ECD70B7898C6F70686A3A4F14952F190878F1CB0363119BF3B9E9E8A7",
+    "path": "resources\\views\\caja\\rectificar.blade.php"
+  },
+  {
+    "sha256": "207FA56DD28C47218D45966FC62A58600DD5B81D70D573CCF744A7B2EA8D1BE4",
+    "path": "resources\\views\\caja\\resumen.blade.php"
+  },
+  {
+    "sha256": "4F5BBDA605C2CE41E61F1708C89DF14B41FF5239DE72F0C00B8B262712016ED4",
+    "path": "resources\\views\\cashflow\\_acciones.blade.php"
+  },
+  {
+    "sha256": "707F64F656DCE60CEAFD1DADF4385C5A154CA46EFBAA15C4F8B1728874153463",
+    "path": "resources\\views\\cashflow\\_historial.blade.php"
+  },
+  {
+    "sha256": "FFE748A4DBAF6D34F2E87502EF22F4ECC505188826856B658DBAB75A52AF3469",
+    "path": "resources\\views\\cashflow\\detalle.blade.php"
+  },
+  {
+    "sha256": "E88C2CDFC6017E54E7C039350FC4C4AA3D6C31035A0CE87665756E845DAECDEA",
+    "path": "resources\\views\\cashflow\\eliminar.blade.php"
+  },
+  {
+    "sha256": "C6AA350E2E50A6F96DA376ABA3D23108C0AC267763E3C8514E9C84FC7091FDF7",
+    "path": "resources\\views\\cashflow\\index.blade.php"
+  },
+  {
+    "sha256": "926FD241A1C887F2BFD2FB2FC68F98E7C4E05B8F7E8B0110E4864DF41F4B183D",
+    "path": "resources\\views\\cashflow\\movimiento.blade.php"
+  },
+  {
+    "sha256": "1349C67D6C70B61766640C0549A3B9FA45D11858DD5E47C2BE84F797B8F98CD5",
+    "path": "resources\\views\\cashflow\\transferencia.blade.php"
+  },
+  {
+    "sha256": "EEFC7528045F42C4AA1B0CA1A5221AE757FC3CD4E24F62DC9ABA81C0432B5FFB",
+    "path": "resources\\views\\clases\\_aviso-cancha.blade.php"
+  },
+  {
+    "sha256": "89A4456DB0904175B78F411596535557E27CEB3805F01D88B2FA79635B15267B",
+    "path": "resources\\views\\clases\\_card.blade.php"
+  },
+  {
+    "sha256": "CFF3BD5885313DD14E724FFFBFDF78CCCF49C79B07A00AFB7D5AD104B9D0D1E4",
+    "path": "resources\\views\\clases\\create.blade.php"
+  },
+  {
+    "sha256": "5DA66C5C167C870FFD5192A0CCA8E117F8E68B96F2A8B4578FF68BAEAD4E88AB",
+    "path": "resources\\views\\clases\\edit.blade.php"
+  },
+  {
+    "sha256": "A92EF4E881B51A07A90516EB277CB6B865D98DBC2D770D56FA4180E51CD6940C",
+    "path": "resources\\views\\clases\\index.blade.php"
+  },
+  {
+    "sha256": "F5D50AF1582FC547C28DBC0CC139DB42C3232F1A03CE6213CFE1418F10E483C3",
+    "path": "resources\\views\\clases\\show.blade.php"
+  },
+  {
+    "sha256": "BC2E00F73C4E7DD78F9CE4BE49E7D53459301B9F2BC5991B2470786FE188A923",
+    "path": "resources\\views\\cobranza\\index.blade.php"
+  },
+  {
+    "sha256": "52E64E3698867F50761BD12A5305CE05C2F4202DC329634360CD42CABF02C89F",
+    "path": "resources\\views\\components\\ds\\button.blade.php"
+  },
+  {
+    "sha256": "AC88942E9FC2E1E87B5323A70668EE83BA8B223735FEF78D370B50AEB194ADE9",
+    "path": "resources\\views\\components\\ds\\card.blade.php"
+  },
+  {
+    "sha256": "FE459BB0C7E062DD69812D178FF9C96C2E6866609E48EE2C1576BB763EB4D21C",
+    "path": "resources\\views\\components\\ds\\mobile-errors.blade.php"
+  },
+  {
+    "sha256": "3A2895A8A749E38EDADFA4EEC6FCF6F198F7E88945284F02ACE47827AF8F4254",
+    "path": "resources\\views\\components\\ds\\module-header.blade.php"
+  },
+  {
+    "sha256": "BC37857F144C2DA937D34D812FAA9BD5EC2FDBA0367717BCD7FB36F33836AF6A",
+    "path": "resources\\views\\components\\ds\\money-input.blade.php"
+  },
+  {
+    "sha256": "CA13ED883DA27602C80908D75A9979C34F2094A024AE19C7242FEB287825CAAF",
+    "path": "resources\\views\\components\\ds\\toggle.blade.php"
+  },
+  {
+    "sha256": "2365E73CAB8CD93BFE03EE1A0F1F0667DA039A6B8846B73A552BE8E5A2747483",
+    "path": "resources\\views\\configuraciones\\_campo.blade.php"
+  },
+  {
+    "sha256": "D484E0089B528931789F02776A1F872708864569CD174F6FE51CEEA7D73EB02C",
+    "path": "resources\\views\\configuraciones\\_regla.blade.php"
+  },
+  {
+    "sha256": "7F510C3E6B167374D8742DA371F5B9980E723CB87CB4AAEC82C4412D8C3B46B2",
+    "path": "resources\\views\\configuraciones\\index.blade.php"
+  },
+  {
+    "sha256": "16B8B5D41FAD16148AD1EE463F764420F312078082479C21A125981AEA20F9E9",
+    "path": "resources\\views\\deportes\\create.blade.php"
+  },
+  {
+    "sha256": "ABAA4D17F340C29E8F0C8D4E1CC0CE408D1C5F6F03CC1B245B52862852087BA8",
+    "path": "resources\\views\\deportes\\edit.blade.php"
+  },
+  {
+    "sha256": "30FB324498CE21AE7F6236D4C4030DF4111C5D9CCDA14F75D3B20CE68649564B",
+    "path": "resources\\views\\deportes\\index.blade.php"
+  },
+  {
+    "sha256": "B4BCFC0C9142EFA25E5C7360421EB9674EB80359799F5AC3FD499DE5D35CE810",
+    "path": "resources\\views\\errors\\_contenido.blade.php"
+  },
+  {
+    "sha256": "1C17B06920C1093E50D548FD266CC3578077D22E76C30BAD6A1FDC32D96F0C79",
+    "path": "resources\\views\\errors\\403.blade.php"
+  },
+  {
+    "sha256": "0870D3BECD87CDA1ABAD375A9FE37C9BB725566DDF95AECCA9E3117D36489953",
+    "path": "resources\\views\\errors\\404.blade.php"
+  },
+  {
+    "sha256": "9F091100D8F5FA5E77AF4E94EAF85A6D8A72B66142BBED10B8B9353CF4CC4433",
+    "path": "resources\\views\\errors\\405.blade.php"
+  },
+  {
+    "sha256": "8DA31BB95A504790726F9AC1711F4BB38CB2B82B84664A0F2DAD5F6293D86E76",
+    "path": "resources\\views\\errors\\429.blade.php"
+  },
+  {
+    "sha256": "B8DC87E60895B3CBC3CB2701FED07094C565AE3BF62FC259EC2D89ED94381A5A",
+    "path": "resources\\views\\errors\\500.blade.php"
+  },
+  {
+    "sha256": "2453757BFBFC37111C32F0A08DD4BBEC4C5F1825B5395C6775C693E5D28258A4",
+    "path": "resources\\views\\errors\\503.blade.php"
+  },
+  {
+    "sha256": "A2124E5CBE0277A870ACF98049852DE37F40C8ECA3D0A58CE4234F0B014178DB",
+    "path": "resources\\views\\errors\\sin-contexto.blade.php"
+  },
+  {
+    "sha256": "B619E6CDBC3687EC2B32C7EAF96CF605D9C21E719B223271064C9A8887D8F132",
+    "path": "resources\\views\\grupos\\_form.blade.php"
+  },
+  {
+    "sha256": "53F0AAFC3A8266AEFA84B24A1433FABFD4BCDCC93A3690A48AE6E0F87E14DE10",
+    "path": "resources\\views\\grupos\\create.blade.php"
+  },
+  {
+    "sha256": "617D2F6392D8C2381834069B494DEB6B26EA9C553EC2DE8969BEF785EA72A921",
+    "path": "resources\\views\\grupos\\edit.blade.php"
+  },
+  {
+    "sha256": "37967FFA7C9922ED9B7AD45E84EA153ED10CC9861F84282E7015B759A8349942",
+    "path": "resources\\views\\grupos\\index.blade.php"
+  },
+  {
+    "sha256": "C604DC2EEE9F8B06796474FCE80E963A6A375AE1E7DB19D969C76E453EB9E783",
+    "path": "resources\\views\\grupos\\show.blade.php"
+  },
+  {
+    "sha256": "759D8C39C10A9B1F8DB8DF538288F6CE4BFDB609BCA0E6F9771E164B412B534D",
+    "path": "resources\\views\\layouts\\app.blade.php"
+  },
+  {
+    "sha256": "53242742717068D3D586821B00C4530E102BCE929945B68988B5D9833E645461",
+    "path": "resources\\views\\layouts\\ds-app.blade.php"
+  },
+  {
+    "sha256": "F0F58F180DA08D3EF2C74F39A451456140C1D8E1A2D5001FC420F7A62F0BC62E",
+    "path": "resources\\views\\layouts\\panel.blade.php"
+  },
+  {
+    "sha256": "326DA2C8A17D02C86277216C4FC93D8B1451F3E68DA0A09532EA9FFD4ADFCFD0",
+    "path": "resources\\views\\liquidaciones\\create.blade.php"
+  },
+  {
+    "sha256": "E344ABFA1BFACD22B811B0F8BD25FE92715689DDD1A64B0CE2E4E986AD9558C8",
+    "path": "resources\\views\\liquidaciones\\index.blade.php"
+  },
+  {
+    "sha256": "A19D9F2308081720172AE32BC06E38E283162CDB8F75915B82D2DC3B5C2AE6BB",
+    "path": "resources\\views\\liquidaciones\\show.blade.php"
+  },
+  {
+    "sha256": "3F73286C2EDE15499A8E6CE11EC0280752C7FE6EBF8AC4F2D5B62D3485F13C0C",
+    "path": "resources\\views\\liquidaciones\\partials\\acciones.blade.php"
+  },
+  {
+    "sha256": "7DFC2F198CF0E68762BB7A4C607CB97C08E83E21DA0FF5CEDEABDF6EADC0F69A",
+    "path": "resources\\views\\liquidaciones\\partials\\revision-atrasadas.blade.php"
+  },
+  {
+    "sha256": "84C552F46A29D93C8CA6DC25F128FACFF141A1F0C4800920337EC023386A3071",
+    "path": "resources\\views\\movimientos\\index.blade.php"
+  },
+  {
+    "sha256": "F5A51CB74867B45B3B6E020B1BA8C7A0BCD9B6651E490CD2E3165CC9D3333BA8",
+    "path": "resources\\views\\niveles\\_form.blade.php"
+  },
+  {
+    "sha256": "1664719063E7A1201AD8E6E0ACBB306A4CB5027EBA92758016EB21A853EA878F",
+    "path": "resources\\views\\niveles\\create.blade.php"
+  },
+  {
+    "sha256": "53723090F419787EF202B8F712DDA84297562E50945B0381B0110BD1F951508B",
+    "path": "resources\\views\\niveles\\edit.blade.php"
+  },
+  {
+    "sha256": "90E35C89F16D5746AF1ED9B9BBB0E97453DB1DB13CB833E283E439523844D135",
+    "path": "resources\\views\\niveles\\index.blade.php"
+  },
+  {
+    "sha256": "B783610806769E79E2058782279EBCCC0C614B6B6189149C6CCCD8B225C30460",
+    "path": "resources\\views\\operativo\\dashboard.blade.php"
+  },
+  {
+    "sha256": "FD8EBFDEEA6C2283A7A309FADF800D5CA55127405C4C31A137B40B10F597D61B",
+    "path": "resources\\views\\pdfs\\recibo-cuota.blade.php"
+  },
+  {
+    "sha256": "B32E99D12FCB5A47E396D758974451F5D9D549E52A9AC5693AA16D003C6A4A2E",
+    "path": "resources\\views\\pdfs\\recibo-liquidacion.blade.php"
+  },
+  {
+    "sha256": "9C871F0B0C74C5DFDC21158C84C791965567AF484249EECDB003B0221B00A42B",
+    "path": "resources\\views\\primera-carga\\index.blade.php"
+  },
+  {
+    "sha256": "5268F1F913BAAC8F00CC8A23F46426FD561B5BDC9A9910AAAAD28A41DE60C01B",
+    "path": "resources\\views\\profesores\\_form.blade.php"
+  },
+  {
+    "sha256": "B00B80AB7667C038CF01EC9DFEBA22D4419E356A30C1F3A0F40AEC4DDF5B112C",
+    "path": "resources\\views\\profesores\\create.blade.php"
+  },
+  {
+    "sha256": "305F1D718D1CD3CB5F1F3906A53ABD8DDA6B7690F4DE23BC4C43DD65F0CAB462",
+    "path": "resources\\views\\profesores\\edit.blade.php"
+  },
+  {
+    "sha256": "A25B6134EC9BF7A2F447CE963A0D244BA3F8409162654A25C538F11BAC7D1EBB",
+    "path": "resources\\views\\profesores\\index.blade.php"
+  },
+  {
+    "sha256": "EE72F4E6E920BC9FDF606B1B80FCD0811847F53838C2E046196D35BC27C7B90A",
+    "path": "resources\\views\\profesores\\show.blade.php"
+  },
+  {
+    "sha256": "819DD01E1E39941535A9164BFB4E1A33FB4C4E2895A84B75FBE65847680963A6",
+    "path": "resources\\views\\reportes\\alumnos.blade.php"
+  },
+  {
+    "sha256": "0A1D4EFB61B585862A85C55A8A1F23B53E9278132F2009E595BA38E6B76FEFA3",
+    "path": "resources\\views\\reportes\\index.blade.php"
+  },
+  {
+    "sha256": "BD0A4DAC961D491D414BC670F63712D399A36A4B358D5394CDA784C2E592383B",
+    "path": "resources\\views\\reportes\\sueldos.blade.php"
+  },
+  {
+    "sha256": "8552D54D1A60EEDF957666EF05408410ACF93B151C0270337F76839136FD206E",
+    "path": "resources\\views\\revision-cobranza\\index.blade.php"
+  },
+  {
+    "sha256": "29CFBA194E55E441B6B718D7771968EC143489B2C1D5EC0605EEA18DE003DC20",
+    "path": "resources\\views\\rubros\\_form.blade.php"
+  },
+  {
+    "sha256": "1487BCD91F0B28BEEA98D28DD30DA208E0E0ED9E65F1C3947C133D548B563217",
+    "path": "resources\\views\\rubros\\create.blade.php"
+  },
+  {
+    "sha256": "E8C8D62BD06147F1A6EC7CAD03E10F4A0929AB1AB03B57F74541CBD9D729C0F9",
+    "path": "resources\\views\\rubros\\edit.blade.php"
+  },
+  {
+    "sha256": "33B26F1037D17C590D8B607E71EA9AD8297886691A6435EAD4BD822BF47B5FD3",
+    "path": "resources\\views\\rubros\\index.blade.php"
+  },
+  {
+    "sha256": "6149291996BAD870D04148A4850D4B456C8AB59F085E6A70D473FD640B441C40",
+    "path": "resources\\views\\subrubros\\_form.blade.php"
+  },
+  {
+    "sha256": "699E47448DC172E57C4B0CD3CB20E0CCDCF867CCBBD96D4413942F73A018641A",
+    "path": "resources\\views\\subrubros\\create.blade.php"
+  },
+  {
+    "sha256": "0CC4D58AB8A7A896340E5074DBC3D6466C1D482455B80056101539BD83F0FF12",
+    "path": "resources\\views\\subrubros\\edit.blade.php"
+  },
+  {
+    "sha256": "40C34D34D0436C2ED86C927DDB60C60393205EBF15987E535205B2C6D0AAEEDE",
+    "path": "resources\\views\\tipos-caja\\_form.blade.php"
+  },
+  {
+    "sha256": "821B33F3FE29A23DB7DE1080C6569CA1B16B5BAB70A78A7B112BB03BBE8DE336",
+    "path": "resources\\views\\tipos-caja\\create.blade.php"
+  },
+  {
+    "sha256": "D4C11C4092C000EC26C51AC36543FE8BDEA8172D62AA906B43060906D03F6337",
+    "path": "resources\\views\\tipos-caja\\edit.blade.php"
+  },
+  {
+    "sha256": "0C652460E55293CF37BA2CEDA0C18979567F364F28D86A19986C634BAAE85126",
+    "path": "resources\\views\\tipos-caja\\index.blade.php"
+  },
+  {
+    "sha256": "5BDFF2C6B5F4C8CE0B638C65B85B5BDADF92FB017F46E4048E46E7F9C87F7734",
+    "path": "resources\\views\\usuarios\\_form.blade.php"
+  },
+  {
+    "sha256": "75880AAB6689C17310CC3D8C6CD550E8800666F966AEEBC1D36753551E660924",
+    "path": "resources\\views\\usuarios\\create.blade.php"
+  },
+  {
+    "sha256": "CEC26046AF305909CA5FDE66D39EF58CB73B3C9988A330904EBB055F15251728",
+    "path": "resources\\views\\usuarios\\edit.blade.php"
+  },
+  {
+    "sha256": "4A768A1653210F29734544D6C2148A6C07796C73536DBF3170A8B6B4C18CE7AC",
+    "path": "resources\\views\\usuarios\\index.blade.php"
+  },
+  {
+    "sha256": "3FBF398ABA28EE617F0D5C503FA3070A339228A1CB69838082E456EDF7270B5F",
+    "path": "resources\\views\\vendor\\mail\\html\\layout.blade.php"
+  },
+  {
+    "sha256": "7AEF37DD05D238600F847FF8C971A2649401C4F92A3C73CD64F7893FFF3A04E8",
+    "path": "resources\\views\\vendor\\mail\\html\\message.blade.php"
+  },
+  {
+    "sha256": "5C759B95E4775BF38E85919DF6CEA2E196FFA103E4A9B901D9DFA7E71AA9F5CF",
+    "path": "resources\\views\\vendor\\mail\\text\\message.blade.php"
+  },
+  {
+    "sha256": "D37D35C9CE2735EB12FD2D7026D2401242C4C0DAC93EB9A2592A6E1B49CBAC78",
+    "path": "routes\\api.php"
+  },
+  {
+    "sha256": "662F07576252702E75338F09B95D900C2ED10553EE3842171FBAF39D5E9E8563",
+    "path": "routes\\console.php"
+  },
+  {
+    "sha256": "B81639C33CF23CAAEE087118E384C2A3BE00F87AB4DBEF78A09F5EF4BAC6B9A5",
+    "path": "routes\\web.php"
+  },
+  {
+    "sha256": "E758642D95E83E907E010B6E46B07B3F953C7CEF11FE5EBEFC2A77B9D7B4D5F7",
+    "path": "database\\.gitignore"
+  },
+  {
+    "sha256": "05C4CFA8E4DC7EBE659C66717B30EA6970F62D732A1BBCE32B55650CCCC6AA8D",
+    "path": "database\\factories\\UserFactory.php"
+  },
+  {
+    "sha256": "10D79883BC08CE46510F9AD8B1830B4D06D586DC56AE2C8BAC3B3E491F69A90F",
+    "path": "database\\migrations\\0001_01_01_000000_create_users_table.php"
+  },
+  {
+    "sha256": "20F769D3C11748C1CC42C41CD3789B0B9B2CD0DB44EE22D378ADDAC3FF8AED4F",
+    "path": "database\\migrations\\0001_01_01_000001_create_cache_table.php"
+  },
+  {
+    "sha256": "7C9C712ADF4091C87BF2612F4D0DCCDFA1DF4501553E4AC068B83D7BD5462FA5",
+    "path": "database\\migrations\\0001_01_01_000002_create_jobs_table.php"
+  },
+  {
+    "sha256": "18701D635ABE2103E360D34910363B4CE5D9FECA137CD4029FCB5541A14DE5CE",
+    "path": "database\\migrations\\2026_01_12_021412_create_deportes_table.php"
+  },
+  {
+    "sha256": "09B3BABB1E286C21ECCF4683C075A91259F904076EC58E20BE86ACA688418D79",
+    "path": "database\\migrations\\2026_01_12_021419_create_grupos_table.php"
+  },
+  {
+    "sha256": "F1C2026179F7B902BA47C1F03EEB3E18BE0365452D125E815D417BAE57F5FADB",
+    "path": "database\\migrations\\2026_01_12_021505_create_alumnos_table.php"
+  },
+  {
+    "sha256": "C81ECDE85EA5072188C468DCAF79776728B6EB8F684D63FC0D88A4908484CA75",
+    "path": "database\\migrations\\2026_01_12_023548_create_personal_access_tokens_table.php"
+  },
+  {
+    "sha256": "275D5DD133B389522D8ACE0331CB916DF5952B5366944706050B6700ECF480CE",
+    "path": "database\\migrations\\2026_01_12_032445_remove_es_menor_from_alumnos_table.php"
+  },
+  {
+    "sha256": "5819EBA7E171A7045009321F71CE47937A34FB0C30B4C3CE4115C8B97408EA21",
+    "path": "database\\migrations\\2026_01_12_034430_remove_horario_from_grupos_table.php"
+  },
+  {
+    "sha256": "4C830C5589B52B0C32FBF46095E9E6947F620977AA144EFFDAFE83D91F1C7A72",
+    "path": "database\\migrations\\2026_01_12_034453_create_grupo_planes_table.php"
+  },
+  {
+    "sha256": "4F94BA66F7CAA349AB35CBD928A368C2234A1C7F3FD7C5360F41762D87C0B3FA",
+    "path": "database\\migrations\\2026_01_12_091852_create_reglas_primer_pago_table.php"
+  },
+  {
+    "sha256": "E61612030E2089B55F56E9417D7CAC70BB36E2381278911E71170911FDE4607B",
+    "path": "database\\migrations\\2026_01_12_091900_create_formas_pago_table.php"
+  },
+  {
+    "sha256": "202CE3F12899336278D7572BCD83D2AE585987BC2940C86CD372A3755D74964B",
+    "path": "database\\migrations\\2026_01_12_091912_create_pagos_table.php"
+  },
+  {
+    "sha256": "12653548C41F3647AE89913BF06EACA7C11D03347C8E8E12A4FF532280B829E4",
+    "path": "database\\migrations\\2026_01_12_091959_create_alumno_planes_table.php"
+  },
+  {
+    "sha256": "504C5E7F38AF23755DC1AB86C0E374221AE65FE491B2879DAD92876AE48E943B",
+    "path": "database\\migrations\\2026_01_25_115528_add_fecha_pago_to_pagos_table.php"
+  },
+  {
+    "sha256": "9966B3EE520EABB18EEC02053084585BE7BDEA797B6313B0C2CEC10FCC269E3B",
+    "path": "database\\migrations\\2026_01_27_000001_create_profesores_table.php"
+  },
+  {
+    "sha256": "AD35F50BD40C6EA847F7CDAEC4C5C245E75D34A72E6D0A896DDE0711560999C0",
+    "path": "database\\migrations\\2026_01_27_000002_create_clases_table.php"
+  },
+  {
+    "sha256": "540EBD361B5A157799667AFDED3B25F30461412772295B176AA760516AF3FFCC",
+    "path": "database\\migrations\\2026_01_27_000003_create_clase_profesor_table.php"
+  },
+  {
+    "sha256": "BD756611A8F71A81C0C6ED77AF746C727EC46C93659196762DD801EF6EA8CE3D",
+    "path": "database\\migrations\\2026_01_27_000004_create_asistencias_table.php"
+  },
+  {
+    "sha256": "65B5D31215BDAB7527A445A0E3B158408EC203480E934409D767906D2267B07A",
+    "path": "database\\migrations\\2026_01_28_000001_add_tipo_liquidacion_to_deportes_table.php"
+  },
+  {
+    "sha256": "B12E2DA0510593F87C88783C9864A82A27DC4C7C1AB2A3AB75F458F99E163590",
+    "path": "database\\migrations\\2026_01_28_000002_add_liquidacion_fields_to_profesores_table.php"
+  },
+  {
+    "sha256": "DE7A2726465FE4E7606F90263D923A6C51923DB7E5695E1C21581B59C8EC07F6",
+    "path": "database\\migrations\\2026_01_28_000003_add_liquidacion_fields_to_clases_table.php"
+  },
+  {
+    "sha256": "92BBB4EA0E29E474BEBFDBF957080428C3A970F7034EDF1C6D5373F3CB90526B",
+    "path": "database\\migrations\\2026_01_28_000004_create_liquidaciones_table.php"
+  },
+  {
+    "sha256": "64C7D0190015A476601858F20791BA8B150A331BE6C8496566AF4548F5B59E40",
+    "path": "database\\migrations\\2026_01_28_000005_create_liquidacion_detalles_table.php"
+  },
+  {
+    "sha256": "CAFB0EFCFF215BA75AA61B2B9264FBD76EAAC53DD1ACFD79713FE899D220F177",
+    "path": "database\\migrations\\2026_02_01_000001_add_dni_to_alumnos_table.php"
+  },
+  {
+    "sha256": "1AAE8446304217B74C118BEA400801D9DD8E76568AFA2CEEA48E9C33E3D11DCA",
+    "path": "database\\migrations\\2026_02_01_000002_create_deuda_cuotas_table.php"
+  },
+  {
+    "sha256": "7682AD6E9E6688EA5B2488C5AFE8B244DD32478D678DC9BAD1101158B00ACAD8",
+    "path": "database\\migrations\\2026_02_01_100001_create_rubros_table.php"
+  },
+  {
+    "sha256": "63726D8B90026029996829AD37EF9937577AB2F6B6A90945192DC62E8469CF26",
+    "path": "database\\migrations\\2026_02_01_100002_create_subrubros_table.php"
+  },
+  {
+    "sha256": "BFBF13F313A9D04EAA97235B410060C14FB039FE4D1B0E077ADAE2D381215943",
+    "path": "database\\migrations\\2026_02_01_100003_create_tipos_caja_table.php"
+  },
+  {
+    "sha256": "3056963F59D94D2D6E338ECED567C6934B870EC2636DF6816500A73496BF4108",
+    "path": "database\\migrations\\2026_02_01_100004_create_cajas_operativas_table.php"
+  },
+  {
+    "sha256": "F19BFA5B0BF8059D7F4772C14B3C987704997B6373C55BCEA6DC124048E360E7",
+    "path": "database\\migrations\\2026_02_01_100005_create_movimientos_operativos_table.php"
+  },
+  {
+    "sha256": "D5C04D0954166AA095545D24734683852A02FB61E28066DC555BB6520CFF3951",
+    "path": "database\\migrations\\2026_02_01_100006_create_cashflow_movimientos_table.php"
+  },
+  {
+    "sha256": "E25A9307FFA496518739CD311DAD7AA1A1E33511D2E79FB0C3B57A0F8F7DE5CF",
+    "path": "database\\migrations\\2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table.php"
+  },
+  {
+    "sha256": "4E320C6236D81722353B582E2B2F465D1A42CE84A27929179D55417743F29A4C",
+    "path": "database\\migrations\\2026_02_02_000001_add_observaciones_to_deuda_cuotas_table.php"
+  },
+  {
+    "sha256": "8CA0B86EC1538D19022ABFE66B3657B6C79F0C1489B19048A3CD248119128AE0",
+    "path": "database\\migrations\\2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table.php"
+  },
+  {
+    "sha256": "A71DE13E20A8051B8A36F6D7DA9A1C111F518E798CCDFDAB0B259C376D4678A3",
+    "path": "database\\migrations\\2026_02_02_000002_create_pago_deuda_cuota_table.php"
+  },
+  {
+    "sha256": "CB50FA69D043835B78AB53790724493AA25C6D08449F0E4C992C6B6569BBB50E",
+    "path": "database\\migrations\\2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table.php"
+  },
+  {
+    "sha256": "58F25D0F27CE6B2C6B69C33A5AEC9C2CEF7B73DC8B516376DEBB2BFEE8CEB080",
+    "path": "database\\migrations\\2026_02_03_000001_add_pago_fields_to_liquidaciones_table.php"
+  },
+  {
+    "sha256": "BF53213925FD8730AC2FED289FBEF8BB0C6207A599336AE6A477D0AEF6D2A414",
+    "path": "database\\migrations\\2026_02_06_063616_add_rol_to_users_table.php"
+  },
+  {
+    "sha256": "E28F010B6654859F1E47755277933915960F7B3ECD855F3E79640A81C3190525",
+    "path": "database\\migrations\\2026_02_11_000001_fix_pagos_nullable_for_cuota_flow.php"
+  },
+  {
+    "sha256": "FF8A9E627A048EA0F99C99B01869E0A9D86F171ECF559E471503F8327E4F2137",
+    "path": "database\\migrations\\2026_02_11_000002_add_unique_nombre_to_subrubros_table.php"
+  },
+  {
+    "sha256": "ECB56680EB4417A0B9D4ECED4C2FDAD8EB374FDC4FE1E3427FBEB0E5F8E0606D",
+    "path": "database\\migrations\\2026_02_12_000001_create_alumnos_revision_cobranza_table.php"
+  },
+  {
+    "sha256": "5C1447A0FF03838BE4BBF801BC0D0AD830DDB5FD785090B39E0BC04D4CF181A0",
+    "path": "database\\migrations\\2026_02_12_000002_create_asistencia_excesos_table.php"
+  },
+  {
+    "sha256": "FD439E34F70A5F03B3191CBE37795019D793FA49BF68FBF3B2187F9D53B6CA1F",
+    "path": "database\\migrations\\2026_03_08_181502_add_datos_personales_to_profesores_table.php"
+  },
+  {
+    "sha256": "EC57D5FE2B11BBE2993D697E9DE8E55AC3FD21E93BB18834C67C6C8EFFE287CD",
+    "path": "database\\migrations\\2026_04_16_081012_add_motivo_cancelacion_to_clases_table.php"
+  },
+  {
+    "sha256": "A2F8FD5EBC1962E528DE029839CF896AB42F5889950B59C0F222E335F891D7B1",
+    "path": "database\\migrations\\2026_04_17_040409_create_niveles_table.php"
+  },
+  {
+    "sha256": "308B8AF133110CF61B3D5047B35951E1DBF41307C310BB91DD5DDE16DC0BA6EF",
+    "path": "database\\migrations\\2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre.php"
+  },
+  {
+    "sha256": "3BF04A702481EEA45EA517279E1FBA91984B7B0AEBF3FE7837CBEAD0F6B5E20B",
+    "path": "database\\migrations\\2026_04_30_141020_add_serie_id_to_clases_table.php"
+  },
+  {
+    "sha256": "ED8D963C3BA87057A4D8CAC5F49032E1A36D838C0F0F3A651CFF9C66BDE9DCE8",
+    "path": "database\\migrations\\2026_04_30_150000_add_descripcion_to_tipos_caja_table.php"
+  },
+  {
+    "sha256": "CE70560739655ABFCEF21DB714228A2F6F5503A317C71AB3B00CAB3D6D075D9A",
+    "path": "database\\migrations\\2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table.php"
+  },
+  {
+    "sha256": "1402FBEC019E410C5081679F9D94BE516340C22EB2D44D87886E73C0DF5835B1",
+    "path": "database\\migrations\\2026_05_27_082557_update_rol_enum_in_users_table.php"
+  },
+  {
+    "sha256": "F604DF9120BEF1EECA2DA161A0C59E2C6411738B3C14D9E01F9F0F689B518893",
+    "path": "database\\migrations\\2026_05_27_085302_add_activo_to_users_table.php"
+  },
+  {
+    "sha256": "7FE2AE9AE2D1D3BFFE5E465E026AD1C45BA9E4639527801927C771DE34CE670C",
+    "path": "database\\migrations\\2026_05_27_154622_add_profesor_id_to_users_table.php"
+  },
+  {
+    "sha256": "2CB8F6DB5E9AE1C8927C9C90A7EAA815CAC55919270295C1EC5BC5543410FFE2",
+    "path": "database\\migrations\\2026_05_29_003356_create_configuraciones_table.php"
+  },
+  {
+    "sha256": "7A55205B8A2D2EF106F1FE8B97BF062815E5CDD7BBF718E26F26A4BF8D0A6672",
+    "path": "database\\migrations\\2026_06_01_080524_add_abreviatura_to_tipos_caja_table.php"
+  },
+  {
+    "sha256": "23F9C3B0C6C5EA1C253158D52CB032ECF0FA1581427C352A02DA679F0DF64056",
+    "path": "database\\migrations\\2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table.php"
+  },
+  {
+    "sha256": "E0C0D9C7AA5CC4003284CCDC09F9AEDAF5C5383307B432A07EEFC7217D94E5C2",
+    "path": "database\\migrations\\2026_06_21_133825_add_estado_fields_to_movimientos_operativos.php"
+  },
+  {
+    "sha256": "0837830E4818775C02D77E35813F3FC4A7EEA7FE258C3DAB5E9CC3C1A3892421",
+    "path": "database\\migrations\\2026_06_21_133826_add_anulado_to_pagos_estado.php"
+  },
+  {
+    "sha256": "3B9EA7353B86ADC1C05222BF7E2BA2F7920384F81ED6FEF018BA9558BB2F205D",
+    "path": "database\\migrations\\2026_07_03_024012_add_resolucion_to_alumnos_revision_cobranza_table.php"
+  },
+  {
+    "sha256": "C1BEE9D95D999AD823D4ECA26D4F16915CE9111FC29F93544822541A48AADD63",
+    "path": "database\\migrations\\2026_07_19_140000_alumno_planes_activo_nullable.php"
+  },
+  {
+    "sha256": "2274C195B96CC0283C97AB8AB12E34210CD3B865DDB99D5AC2828C1C702BEEA5",
+    "path": "database\\migrations\\2026_07_20_053440_normalizar_referencia_tipo_cashflow.php"
+  },
+  {
+    "sha256": "DD2AC67521EC28BF02BDFBD431624A3DE656624B7AFE6EB248813C5017ADFFAA",
+    "path": "database\\migrations\\2026_07_20_053556_add_subrubro_id_to_profesores.php"
+  },
+  {
+    "sha256": "4644FE45DC0493B88DEAE034A5F25487A6384B344E3802BE17DA959FF99EEFD9",
+    "path": "database\\migrations\\2026_07_20_055939_drop_indice_redundante_deuda_cuotas.php"
+  },
+  {
+    "sha256": "57A3676DD527670C86EA3A875FB4B33EFCA3BF719DC79B8E430CCC67F52AF433",
+    "path": "database\\migrations\\2026_07_20_060052_limpiar_enum_pagos_estado.php"
+  },
+  {
+    "sha256": "2E580DB70639699E49853384AE9FA12E3D250F94081E06091E604C65FDE187E2",
+    "path": "database\\migrations\\2026_07_20_060753_drop_forma_pago.php"
+  },
+  {
+    "sha256": "82D7A1FAEB0761B32F577C1CBFCEEFF071D9055806ABFE7F568064366A0BF6E8",
+    "path": "database\\migrations\\2026_07_26_175413_add_motivo_cambio_profesor_to_clases_table.php"
+  },
+  {
+    "sha256": "D04EACA36536BD689525AF85803468D7509F1743057C62E9A5B2E2EC08855C39",
+    "path": "database\\migrations\\2026_07_26_175414_add_motivo_correccion_to_asistencias_table.php"
+  },
+  {
+    "sha256": "B511ED45CDFF0FA579CCF886C9B95E4EDEC8605A0A7F30C206A1E71621666397",
+    "path": "database\\migrations\\2026_07_26_200109_add_activo_to_subrubros_table.php"
+  },
+  {
+    "sha256": "76A9290407C0DD9437D45B714294535E46C6DE6F81376E570FC8CA117A3BE01B",
+    "path": "database\\migrations\\2026_08_27_000001_normalizar_niveles_catalogos.php"
+  },
+  {
+    "sha256": "94D07FB3194B00EDEC1D68F8BDF144D0D87A862E7322A57B0540E98D9055D0CF",
+    "path": "database\\migrations\\2026_08_30_000002_add_es_superadmin_to_users_table.php"
+  },
+  {
+    "sha256": "EA2F4B2820C99B11CEF8E0B4E0B6422DD9DF0E0674C3FEB2468D57F8BF0A4531",
+    "path": "database\\migrations\\2026_08_30_000003_permitir_observacion_vacia_en_rubros.php"
+  },
+  {
+    "sha256": "5DA9BC85C0094FF93BB34CB16A350442843E4B22087CBB7EF54DFBFAC0BB7DA2",
+    "path": "database\\migrations\\2026_09_03_000001_add_saldo_inicial_to_tipos_caja_table.php"
+  },
+  {
+    "sha256": "9220708AFA166FAA92635F1FCE01592443800DB76AB46EBC092A5AD37453D1BB",
+    "path": "database\\migrations\\2026_09_06_000001_add_es_reservado_sistema_to_rubros_table.php"
+  },
+  {
+    "sha256": "D44FC80AA0C6924E066A381CC50E6B874B6125E05E99E90EE83DB3378E0667E8",
+    "path": "database\\migrations\\2026_09_06_000002_add_subrubro_id_to_users_table.php"
+  },
+  {
+    "sha256": "DA7FB5F10A0543FEE887AE056C46753147494C4BB74B3EB9D58923F6D150806D",
+    "path": "database\\migrations\\2026_09_11_180000_add_detalle_anulacion_to_pagos_table.php"
+  },
+  {
+    "sha256": "F8BD71851899E0DB3ED11CBFCED49C86349616C5869347EC9F14E8F2830CC045",
+    "path": "database\\migrations\\2026_09_13_180000_add_motivo_cambio_horario_to_clases_table.php"
+  },
+  {
+    "sha256": "C06216F27F91D85608106119192F4072FEC9F29CA2EBCC8D9A0604864A782A7F",
+    "path": "database\\migrations\\2026_09_13_190000_add_porcentaje_comision_aplicado_to_liquidaciones_table.php"
+  },
+  {
+    "sha256": "C7B94FF625D4442AA49FA75470183F1C9D9B3EA7CBCF6DF46800C5661B89E49E",
+    "path": "database\\migrations\\2026_09_17_120000_congelar_tarifa_y_minutos_en_liquidacion_hora.php"
+  },
+  {
+    "sha256": "E23329CF5C6979F1DF9E6751D52FFB53E75073DD6566E6504441423E2CB2B0D0",
+    "path": "database\\migrations\\2026_09_21_090000_add_destino_de_avisos_a_configuraciones.php"
+  },
+  {
+    "sha256": "95D52AF682B2FB2F027527D9C6F9F2FA55FF1D449C0AE1C80A5E17EA6963131A",
+    "path": "database\\migrations\\2026_09_21_120000_permitir_cancelar_liquidacion_cerrada_no_pagada.php"
+  },
+  {
+    "sha256": "EAAD1FE18EF8727F43D4A6C4BF93AECAF3202EE0088EE31AE2E14DD68C6547D9",
+    "path": "database\\migrations\\2026_09_22_180000_create_cargos_alumno.php"
+  },
+  {
+    "sha256": "0BDA342B171EAED70BE7407764A0B4FBA1DA9EC86EDEC924209D379410ED0797",
+    "path": "database\\migrations\\2026_09_23_120000_add_porcentaje_alta_to_deuda_cuotas.php"
+  },
+  {
+    "sha256": "5322ED61DC34E2733EACB3CA01CC210A61F4B24E4C3426DA1C108D695F94CB92",
+    "path": "database\\migrations\\2026_10_04_000000_remove_inscripcion_fecha_corte.php"
+  },
+  {
+    "sha256": "F9F69DD0DC96FA51908478FB8D6ADA0A52F166A6F0A8BEB1F2F1EB95A4BA177B",
+    "path": "database\\migrations\\2026_10_04_150000_add_alta_cuota_to_alumnos.php"
+  },
+  {
+    "sha256": "731776C84A974C1E2D265B1F847B27BF431ECBDAEDABDCEF30718A0694806E4F",
+    "path": "database\\migrations\\2026_10_05_180000_create_primera_carga.php"
+  },
+  {
+    "sha256": "FF2E2ABD00C5FB46B788C99701BE67363D995A5C38F7BF875637826A768CF0A0",
+    "path": "database\\migrations\\2026_10_06_120000_add_arqueo_to_cajas_operativas.php"
+  },
+  {
+    "sha256": "68C13F89697DF9F80DDD4A010F7083E17688B45D80B9B09FB04FABC40EB8AB21",
+    "path": "database\\migrations\\2026_10_09_120000_create_historial_reportes.php"
+  },
+  {
+    "sha256": "D3FC2DFD3163DEFE007E313F99C97FBB5EABC512D997A58346AABF7DFD067EBE",
+    "path": "database\\migrations\\2026_10_09_180000_create_historial_analitico_reportes.php"
+  },
+  {
+    "sha256": "1B49925304E9683AA57248606836C627B0BD1C213AD137F6D0BB28455C5ACBA2",
+    "path": "database\\migrations\\2026_10_09_190000_add_monto_final_to_liquidaciones.php"
+  },
+  {
+    "sha256": "0070BF279FFD5F5C473F795D88A2F91741E736C794BE81A2B5DEAB892FD828B9",
+    "path": "database\\migrations\\2026_10_10_120000_add_cbu_alias_to_profesores_and_users.php"
+  },
+  {
+    "sha256": "D1280CCE42AE16B4FE4EF39DC08730136D347A1CE3912C50B123614FABD50853",
+    "path": "database\\migrations\\2026_10_10_180000_clasificar_subrubros_existentes.php"
+  },
+  {
+    "sha256": "D6A162692D197F7D2EC0CF53BD0118D3320F7CB37CAAFC0C8852B6D0331B7EDA",
+    "path": "database\\migrations\\2026_10_11_120000_add_rectificacion_to_cajas_operativas.php"
+  },
+  {
+    "sha256": "0DA75F216BBD0FDA3C8C2E6099263120623015EC4B29ECEDBC9B75E4DD37820C",
+    "path": "database\\migrations\\2026_10_12_120000_add_movimiento_operativo_id_to_cashflow_movimientos.php"
+  },
+  {
+    "sha256": "A5007B9CB2343E3385708BB016B45F8998BFBF7845E6976C9A6E4A4ACC4101DC",
+    "path": "database\\migrations\\2026_10_12_180000_create_cashflow_correcciones.php"
+  },
+  {
+    "sha256": "D514DA411ED3564582E15BADF743292590C419A0FC7EEAEECE0A77CDFAB915E4",
+    "path": "database\\migrations\\2026_10_13_080000_add_dias_plazo_alta_to_configuraciones.php"
+  },
+  {
+    "sha256": "CE1206051E8BD30E7258058A089189324BE8FF3A0A6502F2BD0C0215FDC74C92",
+    "path": "database\\migrations\\2026_10_16_180000_configurar_punitorios_por_mora.php"
+  },
+  {
+    "sha256": "75CC24E0EEC3FB5A97C79BE3D413FBCC45F601E6D0464339385547100617C7E0",
+    "path": "database\\migrations\\2026_10_17_210000_add_verificacion_to_movimientos_operativos.php"
+  },
+  {
+    "sha256": "1B1D08465AB2DB3B3F67A5D2AA95977226629DA4D5F45D5E317965B1FC8B0158",
+    "path": "database\\migrations\\2026_10_17_220000_add_fecha_reingreso_to_deuda_cuotas.php"
+  },
+  {
+    "sha256": "F73775BED218F79E8F34BB1AAFEA0F4D5FF4F620EFFF427B2CE1791F33DDE8B3",
+    "path": "database\\migrations\\2026_10_18_230000_create_grupo_plan_precios.php"
+  },
+  {
+    "sha256": "D4FFDDB5E85527630088EB9653B08D41202B070910A86B31D1517A12C1EA5A02",
+    "path": "database\\migrations\\2026_10_19_120000_create_generaciones_cuotas.php"
+  },
+  {
+    "sha256": "D2BA9C8E5A2CEA7CAE4CDECFE4465BDD991AA0A2EBA833980B7361014F7627B0",
+    "path": "database\\migrations\\2026_10_20_120000_agregar_traspasos_entre_medios.php"
+  },
+  {
+    "sha256": "6290E3E82BC5B269A34AE27E0EC5FA4EF1DA71E43D7AFB0F9829A27CA5E8BC80",
+    "path": "database\\migrations\\2026_10_20_150000_add_grupo_desde_to_alumnos.php"
+  },
+  {
+    "sha256": "B9754BC089FD1EFBA7EBC619540D45644EF7EDF4EE7BADE6A5C0141C06BE9917",
+    "path": "database\\migrations\\2026_10_20_160000_crear_transferencias_cashflow.php"
+  },
+  {
+    "sha256": "BBB2EC50CD0131DAAE22A782137B250C09680FAD0EA4DCAF75C7A6F656D1738D",
+    "path": "database\\migrations\\2026_10_20_180000_registrar_decisiones_comision_atrasada.php"
+  },
+  {
+    "sha256": "1AA1C5E6C41F64C16EA6479C764BE5DFEB266FD51D2307FD65968EE037CBE3C9",
+    "path": "database\\seeders\\CatalogosSeeder.php"
+  },
+  {
+    "sha256": "94E06488E4E05FE23216F68850E5C1B4E23BC34EAA9FAA6A72E055FD2606C987",
+    "path": "database\\seeders\\DatabaseSeeder.php"
+  },
+  {
+    "sha256": "B668C5699814659A736C51772CA1A65F5FDF7C28BA38D326D6D04915ADD4C84D",
+    "path": "database\\seeders\\DemoSeeder.php"
+  },
+  {
+    "sha256": "4236FB65403856D3CB1F82123893EA43C401C5EAE45966CEBB78A6DCDF606FA2",
+    "path": "database\\seeders\\DeudaCuotasSeeder.php"
+  },
+  {
+    "sha256": "EBF113736AEB7A141588E2D1AF9B769C8C20063636686896EC9D9DE637782F69",
+    "path": "database\\seeders\\EjemploCompletoSeeder.php"
+  },
+  {
+    "sha256": "8E19D7E4F43158FE6620975CFC3D648F02EFF26E03008DFC9D72FA4294AF3565",
+    "path": "database\\seeders\\PrimeraCargaAlumnosSeeder.php"
+  },
+  {
+    "sha256": "E4DCE3BA0BCEBEA79C1D213A8DFAB9CA9F17726C5E401D7D9A74C40C40927A7E",
+    "path": "database\\seeders\\PrimeraCargaCompletaSeeder.php"
+  },
+  {
+    "sha256": "731973FEEE44B6EAA9F3A9E06278B4286C8F9B688C2AE6DD50756DA1CD295E13",
+    "path": "database\\seeders\\ReportesAsistenciaEscenarioSeeder.php"
+  },
+  {
+    "sha256": "BA538DBDD7DDFAFBEBD8440EE86DD0C1336E5CA158F85587BCA098176C74E4EF",
+    "path": "database\\seeders\\ReportesEscenarioSeeder.php"
+  },
+  {
+    "sha256": "5585ED5D4926103B7A109C96E8E4A1973E784236C376D04D7EB4309B172E743F",
+    "path": "database\\seeders\\ReportesSueldosEscenarioSeeder.php"
+  },
+  {
+    "sha256": "0AD905073EE6A2B69A5F682AF52D6B47CFD15951535BE7744B89461F9504690A",
+    "path": "database\\seeders\\TestSeeder.php"
+  },
+  {
+    "sha256": "5EEF0AC46F21A7A48A601B447357C553A50B5C612D5A33EA3DB21C89A10EFA3E",
+    "path": "database\\seeders\\UserSeeder.php"
+  },
+  {
+    "sha256": "EEDCE8DA7A1CA8A8207C32D1DE259D6B9592E350606EA4406E6077353857466E",
+    "path": "tests\\TestCase.php"
+  },
+  {
+    "sha256": "CCEEF166164AA06A8FD37D41145A4815FD877CE9A4FE1AA904313C6D12038CAE",
+    "path": "tests\\Browser\\importes-t24.mjs"
+  },
+  {
+    "sha256": "D15A74603ED4681CBA637058EA7A4EE9B50C0D63698A03D0B2AAD3FCEDF6630B",
+    "path": "tests\\Browser\\mostrar-importes-t30.mjs"
+  },
+  {
+    "sha256": "59F84DB8D2128103209838D9060873469FA196D5C655044331D25F553DEDEE33",
+    "path": "tests\\Browser\\recibos-importes-t30.py"
+  },
+  {
+    "sha256": "0C7D91F1A0339240F85EA181220320A6034FAE28421E732F4BED0680C513A4EC",
+    "path": "tests\\Concerns\\VerificaMovimientosDeCaja.php"
+  },
+  {
+    "sha256": "A8A8F226E4692AA70A7053DFC8A19ED5EBAD5D4A4E4020217D7D5DD2E5B62BA6",
+    "path": "tests\\Deployment\\deploy_preflight_antes_de_publicar_test.sh"
+  },
+  {
+    "sha256": "511A7F72290670B2C7E7E64CE9DCE380702648648A61598A7B29FB562AB4F876",
+    "path": "tests\\Deployment\\deploy_rollback_test.sh"
+  },
+  {
+    "sha256": "9CB0D2F105AD743829A1990B9FE69189A1102D7CBC6552BC21AD8467782AEDBF",
+    "path": "tests\\Deployment\\restaurar_repone_todo_test.sh"
+  },
+  {
+    "sha256": "403CA8D42EA5157CDD551A650C4A06BEA1DBF3B0C301AA26EE8576C0DED620D8",
+    "path": "tests\\Feature\\AccesoSinPermisoTest.php"
+  },
+  {
+    "sha256": "92892FEE69FDBF66F7A20BBB375320368FE5F6677E3AD8A7AC58AC79D1F21222",
+    "path": "tests\\Feature\\AdminCobraSinCajaTest.php"
+  },
+  {
+    "sha256": "CB4BB289EA9FC76A8773E51A3A45AD6E95B45B210C4A0850D6AC902DCD28AA79",
+    "path": "tests\\Feature\\AjusteFinalLiquidacionTest.php"
+  },
+  {
+    "sha256": "E89D29EF034BCF0EDA04DEE951BBD19EE47378E451FFBF233274882C29D1119C",
+    "path": "tests\\Feature\\AltaMesCerradoTest.php"
+  },
+  {
+    "sha256": "77279B3029E250D1B67FA4A1485271500E0B71B07B2E36905E618CD5191A409A",
+    "path": "tests\\Feature\\AlumnoGrupoDelDeporteTest.php"
+  },
+  {
+    "sha256": "096ED8D4895C240143C803E00EB980F390D94AC2061EDD2C30A697DB79286BE1",
+    "path": "tests\\Feature\\AlumnoSinPlanT56T68Test.php"
+  },
+  {
+    "sha256": "327FE7235F05889C9412CE17DC0F21C815F5ABBF6529A8085DE6FD5C35D7CE12",
+    "path": "tests\\Feature\\AnulacionFechaOriginalT39Test.php"
+  },
+  {
+    "sha256": "DADAEE9C26FDAD095F568349319E2BB057E36C368756AEDABF7E15375A2A7E40",
+    "path": "tests\\Feature\\AsistenciaClaseFuturaTest.php"
+  },
+  {
+    "sha256": "168231F30BE05CEFD7DDF2F8780DCA92FBA283E6FC40EEA2B7C5409FBFD1247B",
+    "path": "tests\\Feature\\AsistenciasAtomicidadTest.php"
+  },
+  {
+    "sha256": "8A9006695D6E9688AA88CDB4D89E84B261C7F54F09807DB99B7066BFDC7F7930",
+    "path": "tests\\Feature\\AvisoAdminResumenDiarioTest.php"
+  },
+  {
+    "sha256": "096A6FB737A419F8F2FED5A7891110F05FDE8E1FA8272D40ABD4DF81589267AF",
+    "path": "tests\\Feature\\AvisoAdminTest.php"
+  },
+  {
+    "sha256": "A7A2B39421BE3C97D0C294444AEB361E4448F4CEA878EC192AAFFC66E8A00BF4",
+    "path": "tests\\Feature\\AvisosCastellanoT47Test.php"
+  },
+  {
+    "sha256": "AC0C925BBAC0F3F782ACD12E0F825CF6591CB9296980BBFDC93F07297390611E",
+    "path": "tests\\Feature\\BuscadorCobrarSoloDeudoresTest.php"
+  },
+  {
+    "sha256": "6F150F51A020C2A606BC0793D395F4601EAF4C7D721D0067A4D82A60CD4BF30A",
+    "path": "tests\\Feature\\CajaAperturaDiferenciaYRectificacionTest.php"
+  },
+  {
+    "sha256": "30109CC348ED823326E2265A9797BBD7EDC4C02C82D8DF109FC9C07C08EDE4DF",
+    "path": "tests\\Feature\\CajaArqueoConcurrenteA25Test.php"
+  },
+  {
+    "sha256": "B7429FEE47CFECD4227CE76F0B7F3530EFA94A8F238936DB15CD6950D4233B71",
+    "path": "tests\\Feature\\CajaCambioInicialA25Test.php"
+  },
+  {
+    "sha256": "D3CB8A252E3DC83D5F59A91FC1242F02D39E572857EAF21F818F419731EA8349",
+    "path": "tests\\Feature\\CajaRechazoMotivoT37Test.php"
+  },
+  {
+    "sha256": "27A6186E893737A4B29EC1E110F1F6D54AA2EE92D04DE90BC956DEDBECFBB9BA",
+    "path": "tests\\Feature\\CajaVerificacionConcurrenteT36Test.php"
+  },
+  {
+    "sha256": "B36EC488F2CE0B71719264BF5BB34162FB261772F69F5CB71A650850B82CAB2E",
+    "path": "tests\\Feature\\CajaVerificacionMovimientosT36Test.php"
+  },
+  {
+    "sha256": "C4D952A0AF18D993A162AC0491743314DCEC236138515664EDA26FEB57D07DBB",
+    "path": "tests\\Feature\\CambioDeContrasenaRevocaAccesosTest.php"
+  },
+  {
+    "sha256": "557867A9BAE15B5D1977DE5695E91A7C1876D6CF1BDC8228DB3A900A2122A55F",
+    "path": "tests\\Feature\\CambioPlanCobroTest.php"
+  },
+  {
+    "sha256": "7C438D72DEE74A1F46510860C8F6A8498F8ADD94FC1B45F2F5F119EE2077BB29",
+    "path": "tests\\Feature\\CambioPlanConDescuentoMatrizTest.php"
+  },
+  {
+    "sha256": "17528C85F82DA113BC78987213987225E88013F2C87E65F84E6A54D7EA4D5271",
+    "path": "tests\\Feature\\CancelarCobroOperativoTest.php"
+  },
+  {
+    "sha256": "EEFDD1BAADB5C0BE763EC54AF36FB0EF75B476BCE1AABF668DB612099D9C5EEF",
+    "path": "tests\\Feature\\CancelarLiquidacionCerradaTest.php"
+  },
+  {
+    "sha256": "979B07DB94BAF47736B619F4681C544634B54D8E95B7B0B22E65046660313282",
+    "path": "tests\\Feature\\CancelarLiquidacionConcurrenteTest.php"
+  },
+  {
+    "sha256": "022B93AD6D5C80727B084E4F6B0D3412FA6DFE65BC566B939C78DC5B8109C5D2",
+    "path": "tests\\Feature\\CancelarMovimientoScopeTest.php"
+  },
+  {
+    "sha256": "677888E46FE96D1F475EEC11499453A8C152F74C306298F29ED890B135C805A2",
+    "path": "tests\\Feature\\CapturaCashflowSignoTest.php"
+  },
+  {
+    "sha256": "88D54454D470EA219871182CEA2E8C2091411809D9129EF15775B64DD51E0EA5",
+    "path": "tests\\Feature\\CapturaConfiguracionCajaTest.php"
+  },
+  {
+    "sha256": "115E8574680C99614100FBE3B9D0F498D01473A0A4F1083FB576355A79A362B1",
+    "path": "tests\\Feature\\CapturaConfiguracionReglasT64Test.php"
+  },
+  {
+    "sha256": "13B34F3641850E3A9BF9482C173EDD8A90BF4E84FE41E0E2601D26FB73F430AA",
+    "path": "tests\\Feature\\CapturaFichaAnularTest.php"
+  },
+  {
+    "sha256": "FA000AA1D1ED3FC58B87DD028DFF9E5508A690F6777C2B0D05055F0D43790DA1",
+    "path": "tests\\Feature\\CapturaT50Test.php"
+  },
+  {
+    "sha256": "79114001FFE8519F024DBB30E06DEAB059AFC9398C51E82A50D70A8A5B47C774",
+    "path": "tests\\Feature\\CapturaT56T68Test.php"
+  },
+  {
+    "sha256": "47F432DD10995644A4F942780356435E882083D8A4B85BB3D4A1D85BFD0C2D7D",
+    "path": "tests\\Feature\\CashflowCorreccionesConcurrentesT27Test.php"
+  },
+  {
+    "sha256": "A15F650FA5E6F85DBD4A4CF0C51E3CABCDB4D4E94D0288FA1542AF0695597FAE",
+    "path": "tests\\Feature\\CashflowCorreccionesT27Test.php"
+  },
+  {
+    "sha256": "27EFCE4F2EBEBE1A20272ED0D2320BF6CF1755A946CFACE00FC70B5C04D0F28C",
+    "path": "tests\\Feature\\CashflowDetalleAlumnoYUsuarioTest.php"
+  },
+  {
+    "sha256": "1C118DE866EA23972CE0397DC94B366DC8111EB959D19F3234A7A0B793EBA0B2",
+    "path": "tests\\Feature\\CashflowEntraEnElCelularTest.php"
+  },
+  {
+    "sha256": "4A6EF92C6E9F9AC1DD0AF6935B78D84D2042A6E0A4C92983046E6B4B89918404",
+    "path": "tests\\Feature\\CashflowIntegracionCajaServiceTest.php"
+  },
+  {
+    "sha256": "6A8F73FE0E8364ACA29A769543DEF783BD33FF717D73EB71509313D909E80FB1",
+    "path": "tests\\Feature\\CashflowMuestraElSignoRealTest.php"
+  },
+  {
+    "sha256": "0ED2AABA2A166756FCD5E47A4DFCAE14F2D93A7B4719655B95E7BE2D5EB672BC",
+    "path": "tests\\Feature\\CashflowPeriodosA10Test.php"
+  },
+  {
+    "sha256": "B3919D81B8F5264832AB1AC8126EF1C4C81607413D142FFD691351017FC64301",
+    "path": "tests\\Feature\\CashflowVinculoDirectoYValidadorTest.php"
+  },
+  {
+    "sha256": "2CA6F94D0083B225DED87FE10DF0F2F9FA8ADAE3DD10EF87BE7A70BEBAEFC74A",
+    "path": "tests\\Feature\\CatalogosSeederTest.php"
+  },
+  {
+    "sha256": "CF460A3FC0702F9B03092F963146A8C86D5E4D396F5234B32CAC952A3B923131",
+    "path": "tests\\Feature\\CbuAliasB10Test.php"
+  },
+  {
+    "sha256": "6670697E73B025FB908A2137519BC64C0AD0753533A1981C7DDB454BEB437229",
+    "path": "tests\\Feature\\CerrarLiquidacionMesTerminadoTest.php"
+  },
+  {
+    "sha256": "63AAA2AAA6FFA5C72C795174025CDA25B138FD0EF20D7F26FB8EF24F04367940",
+    "path": "tests\\Feature\\ClaseListaHaciaAdelanteT52Test.php"
+  },
+  {
+    "sha256": "137C394EFB37CEE4009B6DC7FD7A5435B328D175AE72AAF68D6B2B84BA2CDACE",
+    "path": "tests\\Feature\\ClaseProfesoraObligatoriaT66Test.php"
+  },
+  {
+    "sha256": "951EF0C244189EF0A507A852FC9619BFA6E299ABF991099179841185C52BF852",
+    "path": "tests\\Feature\\ClasesCanceladasHoyTest.php"
+  },
+  {
+    "sha256": "FFD5AC02743F9A8BF6A878E6E783E4D8C6C5DF4257C7F1ED82F44F51FFB633D3",
+    "path": "tests\\Feature\\ClaseSinAsistenciaYDniT34T67Test.php"
+  },
+  {
+    "sha256": "BCA26F3DC964739ACCFBA1EF90A7B88AAFC4C101C8415CF66754BFBD0FDDEE74",
+    "path": "tests\\Feature\\ClasificacionSubrubrosT16Test.php"
+  },
+  {
+    "sha256": "2F36A5EE3F222B5B2E58BC1EE7DDD816429DEF6C4F829C40F1872D6F5D24E01D",
+    "path": "tests\\Feature\\CobranzaEntrega1Test.php"
+  },
+  {
+    "sha256": "86A28DB351CEC851F6B28762855A996E5B45D471BB38B4728867FC09A3BE4623",
+    "path": "tests\\Feature\\CobranzaEstadoServiceTest.php"
+  },
+  {
+    "sha256": "AD2F5737DFE919346F479EA03E986E6602E9063147350CD730792C73DAAFE7B7",
+    "path": "tests\\Feature\\CobranzaInscripcionEstadoTest.php"
+  },
+  {
+    "sha256": "701888DCC34F5CB7CE52481723462822F058608238602F2D90C516D4971CC22D",
+    "path": "tests\\Feature\\CobranzaOperativoTest.php"
+  },
+  {
+    "sha256": "D00EE854F141C010B173793185C845F327FE1CD96B1B210E55A94BFE73EF466A",
+    "path": "tests\\Feature\\CobranzaWebControllerTest.php"
+  },
+  {
+    "sha256": "4870788303E354B8F11E3C1FE8BF16BD7DB28548921FEB9A54E5701193E8FB95",
+    "path": "tests\\Feature\\CobrarCancelarValidarConcurrenteTest.php"
+  },
+  {
+    "sha256": "626BFE814272FB07E74D2E7DED9BEE4FE36BFF65E3C42DDA1F36F1222F3C5798",
+    "path": "tests\\Feature\\CobrarCondonarConcurrenteTest.php"
+  },
+  {
+    "sha256": "D8163FAC4BE31CB258EF331C9B58CE9169C50A6D92CA4809F1E04369D73F44B2",
+    "path": "tests\\Feature\\CobrarPrimeraCuotaWebTest.php"
+  },
+  {
+    "sha256": "419012B1BAD256C112DE2B603B9E34E13CB020847A821607076FD5B2EFFBEEC4",
+    "path": "tests\\Feature\\CobroReciboAccesoTest.php"
+  },
+  {
+    "sha256": "FC07E6393C4B0A101CC056FE2A257DE8452E52736B48051D63D56BB37BE44C8B",
+    "path": "tests\\Feature\\ComisionPorPeriodoT42Test.php"
+  },
+  {
+    "sha256": "BDFC24FDD25D52A4B1BC62DC40975429FC84CDD9C5FCFBC8517338615B84B547",
+    "path": "tests\\Feature\\CondonarDeudaWebTest.php"
+  },
+  {
+    "sha256": "E6EB6A791335A57260DF3ADFD57EF4C35096EE133059F7EC1119E717AD44E51B",
+    "path": "tests\\Feature\\ConfianzaEnCloudflareTest.php"
+  },
+  {
+    "sha256": "C0CCCEAAE20446D76F4004B31D64B728DE8186DEEB4530D3E8BC64B8EFADAA87",
+    "path": "tests\\Feature\\ConfiguracionA11Test.php"
+  },
+  {
+    "sha256": "0F67F72240156C152C51398D798301277A8030A87C97673A1A9B9A340C0606F3",
+    "path": "tests\\Feature\\CrearAdminCommandTest.php"
+  },
+  {
+    "sha256": "C4375B937ED0C83BE2B9C062AFA60E8CDB555AE390559EA2DF6C319E26502512",
+    "path": "tests\\Feature\\CspReporteTest.php"
+  },
+  {
+    "sha256": "CF81EBBCFEC068AB01DB40F7A6E99FB9184C56F366DB38A0E095AA5325F728D9",
+    "path": "tests\\Feature\\CspSinCodigoIncrustadoTest.php"
+  },
+  {
+    "sha256": "AF86D79777AF4BB1495647CE24B155F12945D21FB8A92C2CFCBC5D793D370D92",
+    "path": "tests\\Feature\\CuotaAltaEstadoTest.php"
+  },
+  {
+    "sha256": "C09137CB89882C923B4379EF57523F22F72ACBA3C90AD7B15019CA59E6CE3759",
+    "path": "tests\\Feature\\CuotaMesPasadoT58Test.php"
+  },
+  {
+    "sha256": "DA1584FE0870DD8543A5A05E6C4B0DA97C03FB4CEB77B380D99EAE15106330EA",
+    "path": "tests\\Feature\\DecisionComisionAtrasadaT43Test.php"
+  },
+  {
+    "sha256": "EBB96E2DDE848EF1C813D0C6B5CFB356E30D3211C6C27B43E2A6F0FE502718BE",
+    "path": "tests\\Feature\\DefectosMenoresA26A44Test.php"
+  },
+  {
+    "sha256": "429E376950D33D6629DFB230946D839DEB535F741E8D9C65EB4FB54E17148DBC",
+    "path": "tests\\Feature\\DefectosNoDivergenTest.php"
+  },
+  {
+    "sha256": "6D4A380861D32888C3C9FDB8B9C70D961F1C17AAAF03739ED8848E886E906880",
+    "path": "tests\\Feature\\DesactivarDeporteGrupoEnUsoTest.php"
+  },
+  {
+    "sha256": "0D3C21EBE7B257399B550F846A6ACAAEC515758FE2463B660D1E4941A0951C3F",
+    "path": "tests\\Feature\\DescuentoNoAlteraOtroPeriodoTest.php"
+  },
+  {
+    "sha256": "61E53313B7EAA3EEBC1DDF8D91833D67D726284C0D99BA81CBA8D5BBA729F555",
+    "path": "tests\\Feature\\DescuentoPrimerPagoMatrizTest.php"
+  },
+  {
+    "sha256": "7489F2C0ED59C7FFF92FEC831F44677C377AAD25AF1CB854943F02408ADE9481",
+    "path": "tests\\Feature\\DescuentoPrimerPagoSoloDelMesDeAltaTest.php"
+  },
+  {
+    "sha256": "911770BE2B8C3681FB1BE59B3FA49D9B6385EBBDABECDBB00730EF20AB248134",
+    "path": "tests\\Feature\\DocumentacionNoMienteTest.php"
+  },
+  {
+    "sha256": "6F0C89C08BDEBE4C5EE4B176CD4D04A3A7689A70F88143EDB1F8E8C02F98F26F",
+    "path": "tests\\Feature\\DuenoMovimientoCajaT59Test.php"
+  },
+  {
+    "sha256": "EF104B5D347383881849BD48D8543FB2694DA6CA93464C2D57E77BCD9B87D6AB",
+    "path": "tests\\Feature\\EditarClaseTest.php"
+  },
+  {
+    "sha256": "80F1F25FFE08B6C2AEA6C5DEA06308E55401D1E82E14BFD2B1B4D8468EDE3417",
+    "path": "tests\\Feature\\EditarMovimientoSubrubroTest.php"
+  },
+  {
+    "sha256": "46469A0F72021ECC1BBDBA1AD87CA3F9B4012AFCE25FB9B1669EB201418A1F10",
+    "path": "tests\\Feature\\ExampleTest.php"
+  },
+  {
+    "sha256": "75DDD4E7BC748B7C345564112D5992A99D6096D65317B7A9EDE2183F01BD491C",
+    "path": "tests\\Feature\\FechaIngresoFuturaT50Test.php"
+  },
+  {
+    "sha256": "BF1C0BA824FAEEA7CE1A6DCF3370A668AC534085DE1A1C0A45092D6807FC8B81",
+    "path": "tests\\Feature\\FichaAlumnoResponsiveA37Test.php"
+  },
+  {
+    "sha256": "BF04C1FE13E66AE3A207DA3C02BB8065590049CA19A2623A2ACDFA5D4B1A8EF7",
+    "path": "tests\\Feature\\FormulariosA4A5Test.php"
+  },
+  {
+    "sha256": "468963533FF019692A7B681F957DC50C98805E755EAF43630357FAB01C73A876",
+    "path": "tests\\Feature\\GeneracionCuotasReintentoT40Test.php"
+  },
+  {
+    "sha256": "F9449D82BD600C929E27F3807F9A5B66C891BDB81200DD14E9F89C24FAEF634E",
+    "path": "tests\\Feature\\GenerarDeudasMensualesCommandTest.php"
+  },
+  {
+    "sha256": "CF17844B10FA33891935A7310AF325927DE0C469BEF0C39F669F26E07C72FB70",
+    "path": "tests\\Feature\\GrupoFrecuenciaObligatoriaTest.php"
+  },
+  {
+    "sha256": "8825BFCBF13F9699AB9F500EB7C1BE0514EAC0EE2CB0F28FA524858D5E67D345",
+    "path": "tests\\Feature\\GrupoNombreLiquidacionTest.php"
+  },
+  {
+    "sha256": "927732EF3D1C37EBB6A8D2F519193DF6CEC85E6AF7A1314684B50FF1281FDAF3",
+    "path": "tests\\Feature\\GrupoPlanPrecioPositivoTest.php"
+  },
+  {
+    "sha256": "E578640A98DE8754CDF21044901CDF89393772C9541078744BE1B3515089542E",
+    "path": "tests\\Feature\\HistorialAnaliticoReportesTest.php"
+  },
+  {
+    "sha256": "40920563651E00D07A1A2F1BE88E46E60C91F4EFDF6EF963B1FA585D62B6A93D",
+    "path": "tests\\Feature\\HistorialDuenioSinLimitesTest.php"
+  },
+  {
+    "sha256": "245AD83DC6D9A6A1C826FC4BEFB3C2C71777F9C56B48D276593240B99CEDEABA",
+    "path": "tests\\Feature\\ImportesPesosT24Test.php"
+  },
+  {
+    "sha256": "96877FF531FD4AA28154FB1E4A46BD6232A2F98C2F334C034700588FB362538A",
+    "path": "tests\\Feature\\IngresosPorPeriodoT42Test.php"
+  },
+  {
+    "sha256": "2E288FFCA6CCFA94A4C290E2F9FA50D881A754A011E70A45048A2E12A33F2C61",
+    "path": "tests\\Feature\\InicioDeudaCuotasEInscripcionesTest.php"
+  },
+  {
+    "sha256": "27550CF437912FB1BB01FF441DB9196BAC0A95389F89ABE20E21288711F7B1C0",
+    "path": "tests\\Feature\\InicioOperativoTest.php"
+  },
+  {
+    "sha256": "21A00181C0DFE25EACA5ABD6B336E7CD962223B0CEE87028B49977EFBECBD13D",
+    "path": "tests\\Feature\\InicioVencidosEnPlazoT74Test.php"
+  },
+  {
+    "sha256": "3932C0361EA317F520AE93A1C7C9BB0CB9FF05373DAF1EB3A8910229529CD970",
+    "path": "tests\\Feature\\InscripcionConcurrenteTest.php"
+  },
+  {
+    "sha256": "39C119FB953B636D330A6D8252C166AA7D4FD4EFCA076B0C395059A16CD018F2",
+    "path": "tests\\Feature\\InscripcionTest.php"
+  },
+  {
+    "sha256": "F4BD7A062DF30FCC37E653E6EBB0C4A352E5EC626FD53BEFB3214FA5FC7F3C58",
+    "path": "tests\\Feature\\LimiteFechasMovimientosTest.php"
+  },
+  {
+    "sha256": "FBE6EB17C89290E59ACCF75320AE8432B1C9907C97A1998FCEE3070D2EF1B1FA",
+    "path": "tests\\Feature\\LiquidacionComisionHistoricaTest.php"
+  },
+  {
+    "sha256": "E512719BCAF43EAF99061E23DDCE3715ADCD3470C3BF120CB0DC15AD4A020822",
+    "path": "tests\\Feature\\LiquidacionHoraPorDuracionTest.php"
+  },
+  {
+    "sha256": "94249EA4A75EB4A5008A1E37A7F094E66AD52501073AA0E91D877154180394AD",
+    "path": "tests\\Feature\\LiquidacionHoraVistaYReciboTest.php"
+  },
+  {
+    "sha256": "A9226544325BD1974D02682DB9CD5073A6851D6A08CF1245184A1EDCE8F82730",
+    "path": "tests\\Feature\\LoginThrottleTest.php"
+  },
+  {
+    "sha256": "C9173A436946FF2949C8CF6B655A593596DFD02DFB62ABFE4656C647B5EA3DF3",
+    "path": "tests\\Feature\\MedioPagoCajonTest.php"
+  },
+  {
+    "sha256": "76B156D6F0A970C4152151702B92DCA962AAEA7EE454B9914497DF54E68A2926",
+    "path": "tests\\Feature\\MenuYMovimientosA38A39Test.php"
+  },
+  {
+    "sha256": "0D7DCC604E6201B95A9E408FBFB0B58BF79FFAD8DE1683AF0286E34BACE06125",
+    "path": "tests\\Feature\\MostrarImportesT30Test.php"
+  },
+  {
+    "sha256": "D0FBC95E6DA1081C7CE468534E7E6F57021EFC1C5C34BDC5F62B2EA93854285E",
+    "path": "tests\\Feature\\MovimientosVisibilidadPorRubroTest.php"
+  },
+  {
+    "sha256": "895998DAC9B5D2DDF3404485DB0E868575CF2FCEF11FD40D50C499B1CF6BADDA",
+    "path": "tests\\Feature\\NormalizarNivelesCatalogosTest.php"
+  },
+  {
+    "sha256": "7085E4AEC30A4DB0B785389679D9C181C82D3154B5885497F96B15E2E75DFFAD",
+    "path": "tests\\Feature\\P2Entrega2FichaCobroAdelantadoTest.php"
+  },
+  {
+    "sha256": "44A0EBBD26E0AB15AFF2E042E8A8034CA47054C987E00440A5261CB1B1ABB4B1",
+    "path": "tests\\Feature\\PagoCuotaServiceTest.php"
+  },
+  {
+    "sha256": "CEAC9F65934ADF6A9513CBE8ED5EA3BF539B86EEAD5FE744EA615E6538BD713E",
+    "path": "tests\\Feature\\PagoLiquidacionConcurrenteTest.php"
+  },
+  {
+    "sha256": "AB5A632C948F692CC75B8E731D2902FEBD91A004D4AD1262BEF51D7EA8B8AA62",
+    "path": "tests\\Feature\\PagoLiquidacionFechaTest.php"
+  },
+  {
+    "sha256": "460EFBF4019943D13E91E14A2405BE85FD95401FDFD8595ECBD1E6966A90B972",
+    "path": "tests\\Feature\\PantallasErrorTest.php"
+  },
+  {
+    "sha256": "AB7E4680F9AE08896BE03604A7D564164275BCE6C07C5865ADBACE013674A59C",
+    "path": "tests\\Feature\\PerdonConcurrenteT33Test.php"
+  },
+  {
+    "sha256": "627B7F552658C27E3840B6A0BB9B5A9D197974A6B31C823185F697327A0C55E4",
+    "path": "tests\\Feature\\PerdonReactivacionT33Test.php"
+  },
+  {
+    "sha256": "74CE80112976E763B0EBCB9168A2BC3896FE62E2A68F2E2A77AAD7DAE0260A55",
+    "path": "tests\\Feature\\PrecioPlanVigenciaT44Test.php"
+  },
+  {
+    "sha256": "05358F92420922A14138D24F7DEF17A0A5D65B11DC0AB83406B358C7111CDA3A",
+    "path": "tests\\Feature\\PreflightCommandTest.php"
+  },
+  {
+    "sha256": "5B1D61E32A8DE421193452AFA43B25C96ED34C6DE25677C3888BC4F82B4BAA1A",
+    "path": "tests\\Feature\\PrimeraCargaAlumnosSeederTest.php"
+  },
+  {
+    "sha256": "9EFA1CAC17A96E3B0C7B3B5D3C54D69E8301C9E4B72639D35E9D6A5C4FB7C794",
+    "path": "tests\\Feature\\PrimeraCargaCompletaSeederTest.php"
+  },
+  {
+    "sha256": "ADF69BDED9A9869E3528ED48350F46D4CCBDCD075E0B8B42B2D733E8F1859C28",
+    "path": "tests\\Feature\\PrimeraCargaExcelTest.php"
+  },
+  {
+    "sha256": "17E84B42F022EF42A2BC21940D337038B5E01046A2249F444D4ADD9A5ADC9197",
+    "path": "tests\\Feature\\ProgramarClasesA15A16Test.php"
+  },
+  {
+    "sha256": "5FBCC05A2307388DE3C45912B4626DE915D51F9EAB052FA8DC2AB9B1EDC2BBA6",
+    "path": "tests\\Feature\\PunitoriosCobroTest.php"
+  },
+  {
+    "sha256": "A2E35E93ADC614AD00C60BDA847180C2FC31ED0EBCFEB5775DA3969EA44ABF7E",
+    "path": "tests\\Feature\\PunitoriosConfiguracionTest.php"
+  },
+  {
+    "sha256": "6B4EB9F055DEC9DC01C91163B5C5524015479E1CFBF1E827959FD36414E72A25",
+    "path": "tests\\Feature\\PunitoriosMotorTest.php"
+  },
+  {
+    "sha256": "B36B8BAF89F2E6CA7B6253259020EC4C71AEDA66158E457F347041B622A63D0A",
+    "path": "tests\\Feature\\PwaInstalacionTest.php"
+  },
+  {
+    "sha256": "9C805FB088FB0B467068343196992FFF9B6CC5FB8F95099C58510FA0CCFD9238",
+    "path": "tests\\Feature\\ReciboErrorSanitizadoTest.php"
+  },
+  {
+    "sha256": "5E7963D1A0463C406B1F7C6EDEB91D784E2B5121D690F2AC2E3D15C1FD587B13",
+    "path": "tests\\Feature\\ReciboMedioDePagoTest.php"
+  },
+  {
+    "sha256": "DC968E66DACE1047AAF0D429C1B6CDF4834E1AB8B9C633E757A5A5A5499CAF15",
+    "path": "tests\\Feature\\ReglaPrimerPagoSinHuecosT64Test.php"
+  },
+  {
+    "sha256": "88D67D11BE6D4853DB15870F02CE9D87688FE3EAFF6F73F20F3D03BAFC856748",
+    "path": "tests\\Feature\\ReglaPrimerPagoSinSuperposicionTest.php"
+  },
+  {
+    "sha256": "1F219C148B6CB51B8087CCAF2E4DA0E05ABCE1258898AB2B1C45EBBB2C664938",
+    "path": "tests\\Feature\\ReingresoCuotaT38Test.php"
+  },
+  {
+    "sha256": "371D8A40FD23645434AA1D2798AE9B79B26A6A859DC449B8B3B87A378AFFBCD2",
+    "path": "tests\\Feature\\RelojSimuladoTest.php"
+  },
+  {
+    "sha256": "E5D1623F65FD47C6A2CCD77A831DA658C9F358BA16E82433453FA271ADB561DD",
+    "path": "tests\\Feature\\ReporteAlumnosTest.php"
+  },
+  {
+    "sha256": "DD03C4F18EE03F57F27A8CA93C633C8D87F85E9167D42ACBC194AA1805B4D375",
+    "path": "tests\\Feature\\ReporteMensualTest.php"
+  },
+  {
+    "sha256": "EAC7FFCA5D60C9767DBF425F0477A951A429FE94B830C425828BDC5069DBCC5F",
+    "path": "tests\\Feature\\ReporteSueldosTest.php"
+  },
+  {
+    "sha256": "E498BD9832918CCF14F137B90F30BC860C22C548AF4B2833C7EAC9656B184AEE",
+    "path": "tests\\Feature\\RestaurarConsultasContraEsquemaRealTest.php"
+  },
+  {
+    "sha256": "CF5DF111BC658B3C649EF8B7A7C89283D76E214A04BFF5EF2D8D44CB358E9A37",
+    "path": "tests\\Feature\\RevisionCobranzaNoTocaElPasadoTest.php"
+  },
+  {
+    "sha256": "C1C700AA8CD2761D453E687D2E12105EE4B256FB08E062B70AB54175FF367137",
+    "path": "tests\\Feature\\RevisionCobranzaOperativoTest.php"
+  },
+  {
+    "sha256": "ECF97CF9113594FEFA2765567510B45B68B1BFD77BA2739B6CA534A8973EBFB7",
+    "path": "tests\\Feature\\RubroReservadoTest.php"
+  },
+  {
+    "sha256": "30A3A6327121A12FCDF37A2F4DB4CEC4C78FE2919DC10700388C83D6215BCD3C",
+    "path": "tests\\Feature\\SaldoInicialTipoCajaTest.php"
+  },
+  {
+    "sha256": "BA8D569E1A97988A9E617C01890727A1BF4617E566C41624133A9EB382519738",
+    "path": "tests\\Feature\\SaldoUnicoPorAlumnoTest.php"
+  },
+  {
+    "sha256": "D69E25C3341741F9E4AAF6FBB939BB1B8D1A24990DDE9189A4CA324A958C1D9E",
+    "path": "tests\\Feature\\SaldoYAnulacionCoherentesTest.php"
+  },
+  {
+    "sha256": "78F9CC7F628446BF7F71975131435F763A7CF50C942822AC68595366A6E70ADC",
+    "path": "tests\\Feature\\SecurityHeadersTest.php"
+  },
+  {
+    "sha256": "FACB1B1236952E53E357AEF7DEBF18E2AB93F105CD9AAAA0DD6281CD6BBD3563",
+    "path": "tests\\Feature\\SeedersProduccionTest.php"
+  },
+  {
+    "sha256": "8A60251D0C29100F2FF6D4DD8287FB1C3A33C28684A6AC3689C72F24D2EA323C",
+    "path": "tests\\Feature\\SeguridadRutasProfesorTest.php"
+  },
+  {
+    "sha256": "2B8519A5CF95EA45EB6E328DC77F3AB17351DDCFB7497E79938394887FB548BC",
+    "path": "tests\\Feature\\SuperadminProtegidoTest.php"
+  },
+  {
+    "sha256": "6BE6E682B697DB38F4C62617F529C96EE77D66BCD2B714D54D3C79A4F1C4604E",
+    "path": "tests\\Feature\\TableroAlDiaTest.php"
+  },
+  {
+    "sha256": "B397A0B27D828316B922E1E6DD6AED8A098C1CD6ED59E42032748C936B37DD9D",
+    "path": "tests\\Feature\\TablerosNoDivergenTest.php"
+  },
+  {
+    "sha256": "0E6982B856F88B3C9CFC87B984408D7F84A7EF232A0A51F6F5C684D0BCD29CD3",
+    "path": "tests\\Feature\\TraspasosEntreMediosT61Test.php"
+  },
+  {
+    "sha256": "00F3CBF19E7346F043ED8FEF6A8EB5354756335A244023600D7892B91CBA8358",
+    "path": "tests\\Feature\\UsuarioActivoWebTest.php"
+  },
+  {
+    "sha256": "095C716E0F5C9387185440261AEB8BF975C6DD8F8BC5799186B44E90BA51833D",
+    "path": "tests\\Feature\\VerificacionEntrega2Test.php"
+  },
+  {
+    "sha256": "A47F755D0F2ADEAC217460CB201D111CF5A0E3915CF88F3032DF2DDA10FB5FCA",
+    "path": "tests\\Support\\CajaDeclarada.php"
+  },
+  {
+    "sha256": "4030ED6B47D42B4734615EA4EFC0030CBD309B72FC4811732BDBA59CEBB0BF64",
+    "path": "tests\\Support\\ImportesT24.php"
+  },
+  {
+    "sha256": "1656CDCA511010BABCAB73499CFD828F3A784EAB3C4D66D63645DE3453760C6B",
+    "path": "tests\\Support\\ImportesT30.php"
+  },
+  {
+    "sha256": "7A225221BB347D2C4F9CE455D87786BDFFF326482FC8104ADB329CF1314863FB",
+    "path": "tests\\Support\\perdon-t33-worker.php"
+  },
+  {
+    "sha256": "FB48909FAEE187317ABAEADB59C9C0EE8078EC6D5484B38B3A9ED73A05D6B2D1",
+    "path": "tests\\Unit\\AlumnoAutocompleteViewSecurityTest.php"
+  },
+  {
+    "sha256": "CC0EAE6276374984BD34DA5D5CA07E0DB29235BBD7EE440F5F506871EA7928DB",
+    "path": "tests\\Unit\\DatabaseExportSafetyTest.php"
+  },
+  {
+    "sha256": "FFACAE5C1A2A44C809420AF5B3B404910DA1B12167D58764DAC6D10B8BA8CFAF",
+    "path": "tests\\Unit\\ExampleTest.php"
+  },
+  {
+    "sha256": "DEA3BBC3CE4283EAC298BC426C0AE3E6B91E414E9FB13970C2B0C5EF1B25625A",
+    "path": "tests\\Unit\\FormatoImporteTest.php"
+  },
+  {
+    "sha256": "8DF97BBBF94230403AD93FA1B089E138A09A5D7907B266F855F0D4E2C690D4B7",
+    "path": "tests\\Unit\\ImportePesosTest.php"
+  },
+  {
+    "sha256": "D2206AFA0142E90BED3A65DB579B97C09B87893E94C39BF56FDA77C2FD9C0B29",
+    "path": "tests\\Unit\\MoneyLockingTest.php"
+  },
+  {
+    "sha256": "5A3F25157AD28F2B5B7A4B7D43D47C4B11659626B4746B8B90191E2F6D2C80DD",
+    "path": "tests\\Unit\\ProgramacionClasesTest.php"
+  },
+  {
+    "sha256": "7E7453951AF289DD0222814AED6BDDA6188F289688781DF6A010FAC19715EC65",
+    "path": "config\\app.php"
+  },
+  {
+    "sha256": "50F8A6FABF848D20EA42A21E01066DD8A75BD822C8251A45F8939616432424DC",
+    "path": "config\\auth.php"
+  },
+  {
+    "sha256": "B8BCF382283330B94C0A602FF06452DE819041EA709E28EEA5065D51D1D7D085",
+    "path": "config\\cache.php"
+  },
+  {
+    "sha256": "638855F159EC88286505FB19EE62B7977F60EA70BAEC20ED5E957507F241B618",
+    "path": "config\\database.php"
+  },
+  {
+    "sha256": "E7C5021DA1A8BCF4B9ED3C9490BB1BB73291382E5E4E22EB25236067B2F2AC77",
+    "path": "config\\filesystems.php"
+  },
+  {
+    "sha256": "FEAB2840F8A4CFF7885B089E0770CFA93D527D64E111C9EB0052ED88C3D4C4C4",
+    "path": "config\\logging.php"
+  },
+  {
+    "sha256": "825C4B149F2FE412A2E37199794E7C05DF7ED86FB51811777FAF80238F748AAE",
+    "path": "config\\mail.php"
+  },
+  {
+    "sha256": "6101774DA7C8B79AF46D0028F2B8B31A484C3F7EDA10B76E5B27B6093AD364A4",
+    "path": "config\\queue.php"
+  },
+  {
+    "sha256": "797BD69C696B20299D61B0A4B373B4EBF6C23403346E270D5A03E0005E410FE1",
+    "path": "config\\sanctum.php"
+  },
+  {
+    "sha256": "FBFD34C778F87C43D67B6CB923236283E6859E8442CA5A8260A701E7F2605E4F",
+    "path": "config\\services.php"
+  },
+  {
+    "sha256": "F2E75E189021597E29940C0859C00C3088EC591E403768FFF5143C5687A80F59",
+    "path": "config\\session.php"
+  },
+  {
+    "sha256": "790292E43314F82276D1B627DEB25094E4165FAEC5CB30CE8924B1A7A9B523CB",
+    "path": "bootstrap\\app.php"
+  },
+  {
+    "sha256": "2EF405F988A6EF3F5222BFBDD89352A6AD7B2E9E21AA25E236AC5DFF58358953",
+    "path": "bootstrap\\providers.php"
+  }
+]

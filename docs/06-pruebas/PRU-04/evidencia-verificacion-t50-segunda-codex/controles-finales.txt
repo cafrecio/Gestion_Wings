@@ -1,0 +1,96 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\Users\cafre\.codex\worktrees\t50-segunda-verificacion\gestion-wings\phpunit.xml
+
+................F                                                 17 / 17 (100%)
+
+Time: 01:03.066, Memory: 192.00 MB
+
+Control T50Segunda (VerificacionT50Codex\ControlT50Segunda)
+ ✔ 01 limites buenos aires medianoche fin anio y reloj simulado
+ ✔ 02 alta fuera limite no escribe alumno cuota cargo ni persona
+ ✔ 03 alta limite exacto guarda fecha cuota e inscripcion
+ ✔ 04 edicion equivalente no bloquea fecha historica fuera rango
+ ✔ 05 limite antes del motivo y rollback de edicion
+ ✔ 06 fecha mal formada al editar devuelve validacion y no 500
+ ✔ 07 dos previews http y servicio rechazan en castellano
+ ✔ 08 excel texto y serial aceptan limite y marcan exceso
+ ✔ 09 cargar excel sin revision no escribe fila fuera limite
+ ✔ 10 cargar revalida fecha aunque resumen revisado antes fuera valido
+ ✔ 11 inscripcion se debe desde alta y cuota futura no suma en tres pantallas
+ ✔ 12 t52 h3 h5 exigen ingreso aunque grupo desde sea anterior
+ ✔ 13 reactivacion no reescribe fecha ingreso ni carga mes anterior
+ ✔ 14 api apagada no expone puerta sin regla
+ ✔ 15 servidor en noviembre admite diciembre segun su reloj
+ ✔ 16 cuota futura empieza a contar al comenzar el mes
+ ✘ 17 fechas mal formadas rechazadas en cuatro puertas sin escrituras
+   │
+   │ Mensajes en inglés: [{"puerta":"cuota_preview","fecha":"no-es-fecha","error":"The fecha alta field must be a valid date."},{"puerta":"inscripcion_preview","fecha":"no-es-fecha","error":"The fecha alta field must be a valid date."},{"puerta":"cuota_preview","fecha":"2026-02-30","error":"The fecha alta field must be a valid date."},{"puerta":"inscripcion_preview","fecha":"2026-02-30","error":"The fecha alta field must be a valid date."},{"puerta":"cuota_preview","fecha":["no-es-fecha"],"error":"The fecha alta field must be a valid date."},{"puerta":"inscripcion_preview","fecha":["no-es-fecha"],"error":"The fecha alta field must be a valid date."},{"puerta":"cuota_preview","fecha":"","error":"The fecha alta field is required."},{"puerta":"inscripcion_preview","fecha":"","error":"The fecha alta field is required."},{"puerta":"cuota_preview","fecha":null,"error":"The fecha alta field is required."},{"puerta":"inscripcion_preview","fecha":null,"error":"The fecha alta field is required."}]
+   │ Failed asserting that two arrays are identical.
+   │ --- Expected
+   │ +++ Actual
+   │ @@ @@
+   │ -Array &0 []
+   │ +Array &0 [
+   │ +    0 => Array &1 [
+   │ +        'puerta' => 'cuota_preview',
+   │ +        'fecha' => 'no-es-fecha',
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    1 => Array &2 [
+   │ +        'puerta' => 'inscripcion_preview',
+   │ +        'fecha' => 'no-es-fecha',
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    2 => Array &3 [
+   │ +        'puerta' => 'cuota_preview',
+   │ +        'fecha' => '2026-02-30',
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    3 => Array &4 [
+   │ +        'puerta' => 'inscripcion_preview',
+   │ +        'fecha' => '2026-02-30',
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    4 => Array &5 [
+   │ +        'puerta' => 'cuota_preview',
+   │ +        'fecha' => Array &6 [
+   │ +            0 => 'no-es-fecha',
+   │ +        ],
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    5 => Array &7 [
+   │ +        'puerta' => 'inscripcion_preview',
+   │ +        'fecha' => Array &8 [
+   │ +            0 => 'no-es-fecha',
+   │ +        ],
+   │ +        'error' => 'The fecha alta field must be a valid date.',
+   │ +    ],
+   │ +    6 => Array &9 [
+   │ +        'puerta' => 'cuota_preview',
+   │ +        'fecha' => '',
+   │ +        'error' => 'The fecha alta field is required.',
+   │ +    ],
+   │ +    7 => Array &10 [
+   │ +        'puerta' => 'inscripcion_preview',
+   │ +        'fecha' => '',
+   │ +        'error' => 'The fecha alta field is required.',
+   │ +    ],
+   │ +    8 => Array &11 [
+   │ +        'puerta' => 'cuota_preview',
+   │ +        'fecha' => null,
+   │ +        'error' => 'The fecha alta field is required.',
+   │ +    ],
+   │ +    9 => Array &12 [
+   │ +        'puerta' => 'inscripcion_preview',
+   │ +        'fecha' => null,
+   │ +        'error' => 'The fecha alta field is required.',
+   │ +    ],
+   │ +]
+   │
+   │ C:\Users\cafre\.codex\worktrees\t50-segunda-verificacion\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t50-segunda-codex\ControlT50SegundaTest.php:349
+   │
+
+FAILURES!
+Tests: 17, Assertions: 214, Failures: 1.

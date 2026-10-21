@@ -1,5 +1,7 @@
 # T50 — Verificación independiente de lógica
 
+> **Antecedente de la primera revisión (3704063), superado por la [segunda verificación de de35ae0](VERIFICACION-T50-SEGUNDA-CODEX.md).** Carlos decidió «Inscripción a partir de hoy»: H1 no es falla ni vuelve a consultarse. H2/H3 ya están confirmados; el informe nuevo separa las observaciones complementarias. El cuerpo siguiente conserva la evidencia y el esperado histórico, no describe el estado actual.
+
 **Resultado: DEVUELTA a Gemini.** Codex CAB, 21/10/2026. Tres hallazgos reproducidos; no se corrigió producto ni se modificó la tabla de pruebas.
 
 Implementación examinada: `37040633ad0104a3025a3b69b94f2fc4fcde8f54`, cuyo título menciona T52 pero cuyo diff contiene T50. Informe de origen: [IMPLEMENTACION-T50.md](IMPLEMENTACION-T50.md). Corte probado: `b25b2f4a0c2d3b0f07b521e3dba210852058998e`. Base exclusiva: `wings_testing_codex`; datos ficticios. Sin acceso al servidor ni a bases del club, producción o sitio de prueba.

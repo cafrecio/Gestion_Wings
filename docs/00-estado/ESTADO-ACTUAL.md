@@ -1,5 +1,12 @@
 # Wings — Estado actual
 
+## T50 — Segunda verificación, Codex CAB 21/10/2026
+
+H2 y H3 de Gemini `de35ae0` confirmados: fecha mal formada al editar devuelve 422 en castellano sin modificar registros; límite y fecha por defecto vienen del reloj Wings, y el aviso específico sobrevive a la consulta asíncrona. H1 no se reabre: Carlos decidió «Inscripción a partir de hoy»; inscripción $5.000 y cuota futura computable $0 comprobados en las tres pantallas. Completa propia aislada: **1019 aprobadas, 6 omitidas, 8802 aserciones, 981,62 s, salida 0**, corte 1025; main conserva contador 1028 tras integrar T61.
+
+Se devuelve a Gemini únicamente por observaciones complementarias: previsualizaciones de cuota/inscripción con fecha mal formada todavía responden en inglés, y el auxiliar de preparación de Gemini no comprueba base/entorno antes de migrar/escribir. Las 12 regresiones pasan (55 aserciones); los 16 controles con H1 vigente pasan y una matriz adicional falla solo por idioma (17 controles, 214 aserciones, 20 respuestas 422 sin cambios en tablas). Navegador real con ambos relojes y recuperación de validez comprobados. [Informe completo](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Sin cambios de producto, tabla ni despliegue; no pedir otra decisión sobre inscripción.
+
+
 ## T61 cerrada — Claude CAB 21/10/2026
 
 Segunda vuelta de Codex verificada (TRASPASO solo en las transferencias del sistema; caja, Cashflow, reflejos, pagos y anulaciones lo rechazan) y visual aprobado por Carlos. Rama `codex/t61-segunda-vuelta` integrada a `main` junto con la segunda vuelta de T50 de Gemini; contador 1028. [Verificación](../06-pruebas/PRU-04/VERIFICACION-T61-CLAUDE.md). Sin despliegue.
@@ -32,9 +39,9 @@ Corrección de hallazgos de la verificación independiente de Codex (commit `370
 - **H1 (Inscripción en alta futura):** Decisión expresa de Carlos del 21/10: «Inscripción a partir de hoy». La inscripción se debe desde el alta, como funciona actualmente; la cuota del mes que aún no empezó no cuenta. No se modifica la lógica de inscripción. Claude actualizó ALU-007 en la tabla.
 - **H2 (Fecha mal formada al editar):** Corregido en `AlumnoWebController::validationRules` y métodos de vista previa (`cuotaAltaPreview`, `inscripcionPreview`): se blindó el análisis de `fecha_alta` con bloque `try/catch` y regla `'bail'` previa a la regla `'date'`, impidiendo que un string no parseable alcance `Carbon::parse` antes de validar. Responde 422 con mensaje descriptivo en castellano (`La fecha de alta no es una fecha válida.`) sin escrituras en base de datos.
 - **H3 (Reloj Wings en cliente y previsualización):** En `resources/views/alumnos/_form.blade.php`, se envía `data-max` calculado por el servidor con `FechaIngresoRegla::limiteMaximo()->format('Y-m-d')` y la fecha por defecto usa el reloj de Wings (`now()->format('Y-m-d')`). En `resources/js/alumnos-inscripcion.js`, la previsualización conserva el mensaje de error específico de fecha fuera de límite devuelto por el backend (`datos.errors.fecha_alta[0]`) sin sobreescribirlo por el error genérico de conexión. Compilado con Vite.
-- **Pruebas:** 12 pruebas en `tests/Feature/FechaIngresoFuturaT50Test.php` (agrega `test_h2_edicion_con_fecha_mal_formada_devuelve_422_sin_escrituras` y `test_h3_formulario_alta_y_edicion_traen_data_max_y_fecha_defecto_wings`, 55 aserciones, verdes en `wings_testing_gemini`). Controles de Codex pasan 15 de 16 (H1 se mantiene según decisión de Carlos). [Informe de implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T50.md). Entrega a verificación de Codex. Sin despliegue.
+- **Pruebas:** 12 pruebas en `tests/Feature/FechaIngresoFuturaT50Test.php` (agrega `test_h2_edicion_con_fecha_mal_formada_devuelve_422_sin_escrituras` y `test_h3_formulario_alta_y_edicion_traen_data_max_y_fecha_defecto_wings`, 55 aserciones, verdes en `wings_testing_gemini`). Controles de Codex pasan 15 de 16 (H1 se mantiene según decisión de Carlos). [Informe de implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T50.md). Antecedente de entrega a Codex: segunda verificación H2/H3 confirmada; observaciones complementarias arriba. Sin despliegue.
 
-## T50 — Verificada y devuelta a Gemini, Codex CAB 21/10/2026
+## T50 — Antecedente de primera verificación, Codex CAB 21/10/2026
 
 Verificación independiente de 3704063: H1, inscripción futura deja EN_PLAZO y suma en Cobrar/Inicio antes del ingreso; H2, fecha mal formada al editar da 500; H3, Chrome calcula `max` con fecha de computadora y difiere del reloj simulado Wings. Sin correcciones de producto ni cambios en tabla de pruebas. Completa propia 1017 aprobadas/6 omitidas, 8791 aserciones, 984,61 s, salida 0; controles propios 16/115 con dos fallas, desfase comprobado en Chrome local. [Informe de verificación](../06-pruebas/PRU-04/VERIFICACION-T50-CODEX.md). Devuelta a Gemini; sin despliegue. Implementación histórica debajo, sin convertirla en aprobación.
 

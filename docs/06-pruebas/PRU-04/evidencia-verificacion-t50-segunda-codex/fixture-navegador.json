@@ -1,0 +1,10 @@
+{
+    "base": "wings_testing_codex",
+    "usuario": "admin.t50@wings.test",
+    "fecha_servidor": "2026-10-21 05:58:04",
+    "limite_servidor": "2026-11-30",
+    "grupo": 19,
+    "plan": 18,
+    "alumno_historico_ficticio": 11,
+    "nota": "Datos ficticios; ningún alta de prueba nueva fue cargada todavía por navegador."
+}

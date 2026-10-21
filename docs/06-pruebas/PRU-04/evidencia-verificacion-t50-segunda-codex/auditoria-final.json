@@ -1,0 +1,49 @@
+{
+  "fecha": "2026-10-21T06:32:10.9434556-03:00",
+  "objetivo": "Verificar respuesta de Gemini sobre T50 segunda vuelta",
+  "corte": "de35ae06d2dd0bb2b9baa7937702c22025d78e1c",
+  "estado": "H2/H3 confirmados; observaciones complementarias para Gemini",
+  "h1": "Decision Carlos conservada, no se reabre",
+  "suite": {
+    "omitidas": 6,
+    "aprobadas": 1019,
+    "fuentes_controladas": 612,
+    "segundos": 981.62,
+    "procesos_ajenos": 0,
+    "salida": 0,
+    "aserciones": 8802,
+    "corte": 1025,
+    "observaciones_monitor": 186,
+    "fuentes_cambiadas": 0
+  },
+  "gemini": {
+    "aserciones": 55,
+    "aprobadas": 12,
+    "salida": 0
+  },
+  "controles": {
+    "fallidos": 1,
+    "respuestas_422": 20,
+    "mensajes_ingles": 10,
+    "aserciones": 214,
+    "aprobados": 16,
+    "motivo": "Idioma en previews mal formadas"
+  },
+  "guardianes": {
+    "aserciones": 34,
+    "contador_main": 1028,
+    "salida": 0,
+    "aprobados": 7
+  },
+  "producto": "sin cambios",
+  "tabla": "sin cambios",
+  "archivo_log": "2 entradas preservadas",
+  "log_caracteres": 11313,
+  "resumen_lineas": 150,
+  "enlaces": "correctos",
+  "capturas": "3 utiles, hashes y dimensiones comprobados",
+  "no_util": "2 capturas transitorias propias descartadas",
+  "servicio_local": "detenido",
+  "despliegue": false,
+  "push_manual": false
+}

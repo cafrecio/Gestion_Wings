@@ -1,0 +1,100 @@
+{
+  "commit_main": "52f6bcb2cd408325ac0ece20d10748503af11aa5",
+  "fecha": "2026-10-21T06:18:25.0917980-03:00",
+  "previsualizarCuotaAlta_igual": true,
+  "archivos": [
+    {
+      "coincide": true,
+      "hash_aislado": "037F21E1109FEA8194C3BF15C481AD5265E776EAFE9C1CB84A92D0F21CBFF9D7",
+      "archivo": "app/Http/Controllers/AlumnoWebController.php",
+      "hash_main": "037F21E1109FEA8194C3BF15C481AD5265E776EAFE9C1CB84A92D0F21CBFF9D7",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "94b80ff899d326209264abbf5ccd841e4c18a204",
+      "blob_main": "94b80ff899d326209264abbf5ccd841e4c18a204"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "1C62C2EDDBFBAAB721834C172E0A991A54D058D8FB2C8C541FA91C75C908F0C0",
+      "archivo": "app/Support/FechaIngresoRegla.php",
+      "hash_main": "1C62C2EDDBFBAAB721834C172E0A991A54D058D8FB2C8C541FA91C75C908F0C0",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "12c06e32f1e3fca921e78ccb249a392b143c05d6",
+      "blob_main": "12c06e32f1e3fca921e78ccb249a392b143c05d6"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "DDE6C858405CF81793B0236D9E4EADE8E65D294C0F821992FCC4F5ADD5BB827F",
+      "archivo": "app/Services/PrimeraCargaExcelService.php",
+      "hash_main": "DDE6C858405CF81793B0236D9E4EADE8E65D294C0F821992FCC4F5ADD5BB827F",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "be0a8ec5d42c5ace6f09cac9d90d209b82e3287c",
+      "blob_main": "be0a8ec5d42c5ace6f09cac9d90d209b82e3287c"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "4AB855C04E6B7821ED13C01907F5E563186BB6C2107564B8B4BADBBE1A6D140F",
+      "archivo": "app/Services/CobranzaEstadoService.php",
+      "hash_main": "4AB855C04E6B7821ED13C01907F5E563186BB6C2107564B8B4BADBBE1A6D140F",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "0b19c8e6bfe9bd96d50f5df38806308107c61e9a",
+      "blob_main": "0b19c8e6bfe9bd96d50f5df38806308107c61e9a"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "B5FA28B3F69957D6ADAF5A5495DB0E1CB0F579359E7594044EAF779E318DD922",
+      "archivo": "app/Providers/AppServiceProvider.php",
+      "hash_main": "B5FA28B3F69957D6ADAF5A5495DB0E1CB0F579359E7594044EAF779E318DD922",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "a8e3b3460a1666f8b7f809a5f87d5289cd98a6d3",
+      "blob_main": "a8e3b3460a1666f8b7f809a5f87d5289cd98a6d3"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "228A9C6D7F167DB44041ED843A26C4043C55C2A958FE4A20A290BB9A8D77F7F3",
+      "archivo": "app/Support/RelojSimulado.php",
+      "hash_main": "228A9C6D7F167DB44041ED843A26C4043C55C2A958FE4A20A290BB9A8D77F7F3",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "50eab9e031fbad98815c10d1c1624c4ec33d9d0e",
+      "blob_main": "50eab9e031fbad98815c10d1c1624c4ec33d9d0e"
+    },
+    {
+      "coincide": false,
+      "hash_aislado": "05137410B15C6A8BB1C0D2262BEC08AB8CC54E0519C4878689C7E10EB6C41C56",
+      "archivo": "resources/views/alumnos/_form.blade.php",
+      "hash_main": "F9FB6178C95D86828FFAA560739C810066E1696FB1E98F9248F222E22D9DA0BB",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "34ad61564ba4d5fc69452109ec08061bd7004ea2",
+      "blob_main": "34ad61564ba4d5fc69452109ec08061bd7004ea2"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "CEFCBFAD70762B3B879B220B643F7B3019387DE8C9833B37E76430DDB9A7E8B8",
+      "archivo": "resources/js/alumnos-form.js",
+      "hash_main": "CEFCBFAD70762B3B879B220B643F7B3019387DE8C9833B37E76430DDB9A7E8B8",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "d8adacc8ea0088fe519121a0350b2bf318c2a12c",
+      "blob_main": "d8adacc8ea0088fe519121a0350b2bf318c2a12c"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "B08D110E03AE4F5045BA1081BE0E13B7BF48A5871B6F0C6B16A4BDF631F964DE",
+      "archivo": "resources/js/alumnos-inscripcion.js",
+      "hash_main": "B08D110E03AE4F5045BA1081BE0E13B7BF48A5871B6F0C6B16A4BDF631F964DE",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "b83f09e5196d06f67e3e07d9754993ffe6430769",
+      "blob_main": "b83f09e5196d06f67e3e07d9754993ffe6430769"
+    },
+    {
+      "coincide": true,
+      "hash_aislado": "75DDD4E7BC748B7C345564112D5992A99D6096D65317B7A9EDE2183F01BD491C",
+      "archivo": "tests/Feature/FechaIngresoFuturaT50Test.php",
+      "hash_main": "75DDD4E7BC748B7C345564112D5992A99D6096D65317B7A9EDE2183F01BD491C",
+      "coincide_normalizando_fin_linea": true,
+      "blob_aislado": "a4a497ae8800d20c2d1f37b46cb5917757660091",
+      "blob_main": "a4a497ae8800d20c2d1f37b46cb5917757660091"
+    }
+  ],
+  "alcance": "T50; no certifica el resto de la integracion T61",
+  "commit_aislado": "de35ae06d2dd0bb2b9baa7937702c22025d78e1c",
+  "diferencia_detectada": "Solo finales de linea en alumnos/_form.blade.php; contenido y blobs Git iguales"
+}

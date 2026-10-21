@@ -1,0 +1,105 @@
+{
+  "casos_malformados": 20,
+  "estados": [
+    {
+      "cantidad": 20,
+      "estado": "422"
+    }
+  ],
+  "ingles": [
+    {
+      "puerta": "cuota_preview",
+      "entrada": "no-es-fecha",
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "inscripcion_preview",
+      "entrada": "no-es-fecha",
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "cuota_preview",
+      "entrada": "2026-02-30",
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "inscripcion_preview",
+      "entrada": "2026-02-30",
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "cuota_preview",
+      "entrada": [
+        "no-es-fecha"
+      ],
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "inscripcion_preview",
+      "entrada": [
+        "no-es-fecha"
+      ],
+      "estado": 422,
+      "error": "The fecha alta field must be a valid date."
+    },
+    {
+      "puerta": "cuota_preview",
+      "entrada": "",
+      "estado": 422,
+      "error": "The fecha alta field is required."
+    },
+    {
+      "puerta": "inscripcion_preview",
+      "entrada": "",
+      "estado": 422,
+      "error": "The fecha alta field is required."
+    },
+    {
+      "puerta": "cuota_preview",
+      "entrada": null,
+      "estado": 422,
+      "error": "The fecha alta field is required."
+    },
+    {
+      "puerta": "inscripcion_preview",
+      "entrada": null,
+      "estado": 422,
+      "error": "The fecha alta field is required."
+    }
+  ],
+  "alta_futura": {
+    "estado": "EN_PLAZO",
+    "saldo": 5000,
+    "cuotas": {
+      "cuotas": 0,
+      "inscripcion": 5000,
+      "punitorios": 0,
+      "total": 5000,
+      "cuotas_impagas": 0,
+      "mas_antigua": "2026-11"
+    },
+    "conDeuda_cobrar": 1,
+    "alumnos_cobrar": [
+      5
+    ],
+    "vencidos": 0,
+    "en_plazo": 1,
+    "estado_cobranza_ui": "EN_PLAZO"
+  },
+  "mes_iniciado": {
+    "fecha": "2026-11-01",
+    "saldo": {
+      "cuotas": 30000,
+      "inscripcion": 5000,
+      "punitorios": 0,
+      "total": 35000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-11"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "pasos": [
+    {
+      "paso": "inicial",
+      "ancho": 375,
+      "avisoCuota": "",
+      "clientWidth": 360,
+      "cuotaOculta": true,
+      "customError": true,
+      "dataMax": "2026-11-30",
+      "fecha": "2026-10-21",
+      "max": "2026-11-30",
+      "mensaje": "Esperá a verificar la cuota del alta.",
+      "rangeOverflow": false,
+      "scrollWidth": 360,
+      "valid": false
+    },
+    {
+      "paso": "noviembre_valido",
+      "ancho": 375,
+      "avisoCuota": "",
+      "clientWidth": 360,
+      "cuotaOculta": true,
+      "customError": false,
+      "dataMax": "2026-11-30",
+      "fecha": "2026-11-15",
+      "max": "2026-11-30",
+      "mensaje": "",
+      "rangeOverflow": false,
+      "scrollWidth": 360,
+      "valid": true
+    },
+    {
+      "paso": "diciembre_rechazado",
+      "ancho": 375,
+      "avisoCuota": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "clientWidth": 360,
+      "cuotaOculta": false,
+      "customError": true,
+      "dataMax": "2026-11-30",
+      "fecha": "2026-12-01",
+      "max": "2026-11-30",
+      "mensaje": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "rangeOverflow": true,
+      "scrollWidth": 360,
+      "valid": false
+    },
+    {
+      "paso": "recupera_limite_valido",
+      "ancho": 1366,
+      "avisoCuota": "La fecha de ingreso no puede ser posterior al 30/11/2026.",
+      "clientWidth": 1351,
+      "cuotaOculta": true,
+      "customError": false,
+      "dataMax": "2026-11-30",
+      "fecha": "2026-11-30",
+      "max": "2026-11-30",
+      "mensaje": "",
+      "rangeOverflow": false,
+      "scrollWidth": 1351,
+      "valid": true
+    }
+  ],
+  "consola": []
+}

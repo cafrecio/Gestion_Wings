@@ -1,0 +1,127 @@
+{
+  "project": "C-xampp-htdocs-gestion-wings",
+  "signal": "best_effort",
+  "indexed_at": "2026-10-21T08:49:23Z",
+  "metadata": {
+    "generation": "2026-10-21T08:49:23Z",
+    "index_mode": "full",
+    "recorded_at": "2026-10-21T08:49:25Z",
+    "recording_status": "truncated",
+    "ignored_files_stored": 2000,
+    "ignored_files_total": 6819,
+    "hash_records_complete": true,
+    "coverage_version": 3,
+    "generation_matches": true
+  },
+  "paths": [
+    {
+      "requested_path": "app/Http/Controllers/AlumnoWebController.php",
+      "path": "app/Http/Controllers/AlumnoWebController.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Support/FechaIngresoRegla.php",
+      "path": "app/Support/FechaIngresoRegla.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/PagoCuotaService.php",
+      "path": "app/Services/PagoCuotaService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/PrimeraCargaExcelService.php",
+      "path": "app/Services/PrimeraCargaExcelService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Services/CobranzaEstadoService.php",
+      "path": "app/Services/CobranzaEstadoService.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Providers/AppServiceProvider.php",
+      "path": "app/Providers/AppServiceProvider.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "app/Support/RelojSimulado.php",
+      "path": "app/Support/RelojSimulado.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "resources/views/alumnos/_form.blade.php",
+      "path": "resources/views/alumnos/_form.blade.php",
+      "status": "unusable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": [
+        {
+          "path": "resources/views/alumnos/_form.blade.php",
+          "kind": "parse_unusable",
+          "match": "exact",
+          "ranges": [
+            {
+              "start": 7,
+              "end": 218
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "requested_path": "resources/js/alumnos-form.js",
+      "path": "resources/js/alumnos-form.js",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "resources/js/alumnos-inscripcion.js",
+      "path": "resources/js/alumnos-inscripcion.js",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    },
+    {
+      "requested_path": "tests/Feature/FechaIngresoFuturaT50Test.php",
+      "path": "tests/Feature/FechaIngresoFuturaT50Test.php",
+      "status": "coverage_unavailable",
+      "freshness": "metadata_changed",
+      "recommended_action": "read_source_and_reindex",
+      "coverage": []
+    }
+  ],
+  "path_total": 11,
+  "path_returned": 11,
+  "path_has_more": false,
+  "scopes": [],
+  "scope_total": 0,
+  "scope_returned": 0,
+  "scope_truncated": false,
+  "has_more": false,
+  "caveat": "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."
+}

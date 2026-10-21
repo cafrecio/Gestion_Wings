@@ -1,0 +1,17 @@
+
+   PASS  Tests\Feature\FechaIngresoFuturaT50Test
+  ✓ fecha ingreso limite exacto ultimo dia mes siguiente acepta                                                 11.95s
+  ✓ fecha ingreso dia posterior al limite rechaza y no guarda nada                                               0.16s
+  ✓ fecha ingreso pasada y de hoy aceptan                                                                        0.16s
+  ✓ cambio de anio en diciembre limite es 31 de enero                                                            0.17s
+  ✓ edicion permite cambiar fecha hasta el limite y rechaza posterior                                            0.15s
+  ✓ edicion alumno antiguo con fecha fuera de limite no se bloquea si no se cambia la fecha                      0.21s
+  ✓ previsualizacion cuota alta rechaza fecha posterior al limite                                                0.11s
+  ✓ previsualizacion cuota endpoint retorna 422 en fecha invalida                                                0.14s
+  ✓ previsualizacion inscripcion rechaza fecha posterior al limite                                               0.13s
+  ✓ primera carga excel revisar marca error en fecha posterior al limite                                         1.50s
+  ✓ h2 edicion con fecha mal formada devuelve 422 sin escrituras                                                 0.18s
+  ✓ h3 formulario alta y edicion traen data max y fecha defecto wings                                            1.97s
+
+  Tests:    12 passed (55 assertions)
+  Duration: 16.98s

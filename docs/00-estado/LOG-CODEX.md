@@ -30,6 +30,18 @@
 
 [Dos antecedentes archivados intactos al corregir T61](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T61-SEGUNDA-ANTECEDENTES.md).
 
+[Antecedentes archivados intactos al verificar T50 por segunda vez](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-SEGUNDA-ANTECEDENTES.md).
+
+## 2026-10-21 — Codex CAB — T50 segunda verificación, H2/H3 confirmados y observaciones
+
+Verificación independiente de de35ae0, sin modificar producto; aislamiento al aparecer la integración ajena T61. H1 decidido por Carlos: inscripción desde el alta; no volver a consultarlo.
+Alta futura real: inscripción $5.000, cuota computable $0, tres pantallas consistentes; cuota suma al iniciar su mes. Edición mal formada 422 en castellano, sin filas cambiadas.
+Chrome real con noviembre simulado y octubre real: límites/default correctos, aviso específico tras fetch, recuperación de validez e histórico conservado. Capturas y DOM guardados; no se aprueba diseño.
+Gemini 12/55 verdes; controles anteriores 15/16 (rojo H1 superado). Con decisión vigente: 16 pasan y 1 control adicional falla solo por idioma; 20 rechazos 422 y huellas de tablas iguales.
+Completa aislada: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025; 612 fuentes intactas, 186 observaciones sin suites ajenas. Main integrado conserva contador 1028.
+Devuelta a Gemini únicamente por idioma de previews mal formadas y guardia del auxiliar CLI; H2/H3 confirmados. Contrato/estado actualizados; tabla Carlos/Claude intacta, propuesta de fuente en informe.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Sin despliegue ni push manual. Próximo paso: Gemini subsana observaciones y entrega a otra revisión, sin reabrir inscripción.
+
 ## 2026-10-21 — Codex CAB — T61 segunda vuelta, TRASPASO solo del sistema
 
 Pedido ejecutado aislado en `codex/t61-segunda-vuelta`, base 2c7cebe; toma 1668ca4. Carpeta principal con cambios ajenos T50 preservada.
@@ -82,19 +94,3 @@ Dinero, fechas y saldos de Caja/Cashflow conservados. Carlos: «Sí, conservar e
 Primera completa falló en una selección de prueba por primer pago, corregida por ID; segunda frenó por contador al entrar H5 T52. Salidas preservadas; sin atribuir causas ajenas.
 COB-012 e/h vivo y repo actualizados con autorización expresa; relectura ArtifactData versión 10 comprobada. Copia LIQ-002 corregida por DU-19; control del dueño sigue en T43.
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). Contratos/estado/contador/tablero al día. Sin vistas/CSS ni despliegue. Sigue T43; lógica T42 para Claude.
-
-## 2026-10-20 — Codex CyE — T52 H5 verificada y cerrada
-
-Revisión de e1e7c499: el scope exige siempre ingreso y llegada al grupo; Codex no modifica producto.
-Repetición HTTP propia: ingreso 01/11, cambio 20/10, clase 20/10; no aparece, POST 422 y sin marca. H1–H4, tres roles, plan diferido y cerradas/pagadas HORA/COMISIÓN preservados.
-9 independientes + 12 regresiones: 21 aprobadas/139 aserciones, 19,79 s, salida 0, wings_testing_codex; consultas 12→12. Completa compartida T42/T52: 997/6 omitidas verde.
-Visual previo Carlos conservado («Las vistas están OK»). Históricos migrados de modo conservador, sin prometer fecha real reconstruida.
-[Informe y datos](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md). Cerrada por script: hizo Claude, verifica Codex. Sin despliegue ni migrar el club.
-
-## 2026-10-20 — Codex CyE — T61, confirmación FIN-09
-
-El formulario nuevo omitía confirmar fechas de un mes anterior, exigido por Caja/Cashflow V4 §3.6. Corregido antes de continuar T42.
-Primer envío valida y avisa sin escribir; Confirmar guarda ambas patas con la fecha real y usa el aviso existente al dueño. Reenvío secuencial sin duplicar transferencia ni aviso.
-13 pruebas dirigidas/143 aserciones verdes; completa 977 aprobadas/6 omitidas, 8541 aserciones, 697,65 s, salida 0, wings_testing_codex, corte 983. Sin otra suite activa.
-Capturas reales 1366/375 del estado adicional; Carlos aprobó: «Apruebo el aviso». Formulario principal y Rubros conservan «Apruebo el visual corregido».
-[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). A verificar lógica por Claude, sin autocierre ni despliegue. Continúa T42 y después T43.

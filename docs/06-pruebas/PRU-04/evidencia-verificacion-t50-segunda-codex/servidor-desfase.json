@@ -1,0 +1,9 @@
+{
+    "fase": "desfase",
+    "entorno": "local",
+    "base": "wings_testing_codex",
+    "fecha_servidor": "2026-11-01T10:00:00-03:00",
+    "limite_servidor": "2026-12-31",
+    "fecha_simulada": "2026-11-01 10:00:00",
+    "url": "http://127.0.0.1:8768"
+}

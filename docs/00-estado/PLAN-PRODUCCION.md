@@ -1,5 +1,7 @@
 # Wings — Plan de produccion
 
+T50, segunda verificación Codex CAB 21/10: H2/H3 confirmados; H1 ya decidido (inscripción desde el alta). Completa aislada de35ae0: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025. El main integrado conserva 1028 pruebas; no se confunden ambos cortes. Devuelta a Gemini por idioma de previsualizaciones y guardia del auxiliar, sin cambios de producto ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md).
+
 > **Actualizado:** 08/09/2026
 > **Estado:** documento de contexto.
 > **Orden de trabajo vigente:**

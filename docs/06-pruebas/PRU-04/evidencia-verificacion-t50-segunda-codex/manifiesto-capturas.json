@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "noviembre-edicion-rechazada.jpg",
+    "ancho": 360,
+    "alto": 960,
+    "sha256": "EABF331AFD27C8A15BF5BE7C13A6F292CF2EA74BA7ED4D4A26E8DE7D3E30D152",
+    "bytes": 35010,
+    "formato": "JPEG"
+  },
+  {
+    "archivo": "noviembre-limite-375.jpg",
+    "ancho": 375,
+    "alto": 1000,
+    "sha256": "E482681BA31B33CDB04653EE8A058142EA30918BB32CCC410553B8D67712D5F6",
+    "bytes": 43763,
+    "formato": "JPEG"
+  },
+  {
+    "archivo": "noviembre-limite-escritorio.jpg",
+    "ancho": 1351,
+    "alto": 989,
+    "sha256": "BB42E098C6D8D308BB0BF20A4BE29A80ACA35BFDA9FF5288D519C9670D2DA2A8",
+    "bytes": 95677,
+    "formato": "JPEG"
+  }
+]
