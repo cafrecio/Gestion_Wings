@@ -1,0 +1,73 @@
+# Objetivos Funcionales de la Prueba por Jornadas — PRU-04
+
+Documento funcional de referencia para el diseño, seguimiento y cobertura de la prueba por días en el club Wings.  
+Conecta cada situación cotidiana del club con los casos del catálogo de pruebas, las comprobaciones humanas observables por pantalla y la continuidad entre jornadas.
+
+---
+
+## 1. Metodología de prueba funcional
+
+- **Caminos felices primero:** Durante la primera etapa de dos meses simulados, las jornadas reproducen el funcionamiento normal y armónico del club (altas, cobros, gastos, clases, asistencias, cierres).
+- **Alimentación y volumen de datos:** Cada día suma registros reales y coherentes al sistema para dar densidad histórica a los reportes, cierres mensuales y futuras mediciones de rendimiento.
+- **Comprobación humana cruzada entre roles:** Cuando un usuario realiza una acción en su módulo, se verifica cómo impacta en las pantallas de los demás roles (operativa, profesores y administrador).
+- **Capturas para el Manual de Uso:** Cada paso del camino feliz es capturado de forma ordenada para servir de base gráfica en la futura redacción del manual de capacitación del personal.
+- **Casos de mal uso y errores para etapas posteriores:** Los intentos con datos incompletos, rechazos de permisos y excepciones se programarán progresivamente en días posteriores.
+
+---
+
+## 2. Matriz Funcional — Día 4 (Martes 13/10/2026)
+
+| Situación cotidiana y objetivo | Caso de referencia (catálogo fuente) | Jornada y persona | Comprobación humana por pantalla (1366 / 375, §8-bis) | Continuidad entre días | Cobertura funcional |
+|---|---|---|---|---|---|
+| **Apertura de caja heredando cambio:** El sistema debe sugerir el efectivo retenido en el último cierre para garantizar la continuidad del dinero en mostrador. | `CAJ-004.a,b` <br>`CAJ-012.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | En el modal/pantalla de apertura, comprobar que Efectivo muestre sugerido `$10.000` (retenidos del sábado). Al confirmar, verificar mensaje de éxito y cambio a estado `ABIERTA`. | El saldo físico basal queda disponible para operar cobros y vueltos en la jornada. | **Ejercitado en Día 4** (Camino feliz). |
+| **Inscripción de alumna menor con tutor:** Dar de alta un alumno nuevo vinculándolo a un deporte, grupo y plan tarifario. | `ALU-002.a,b` <br>`ALU-007.a,b` <br>`CFG-004.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Completar formulario de Mora Benítez. Al guardar, verificar que la ficha muestre sus datos, grupo Patín Principiantes, deuda de matrícula ($5.000) y cuota octubre 100% ($40.000). Verificar badge `En plazo` con fecha límite al 20/10/2026. | Mora se incorpora a la nómina del grupo para la profesora y genera plazo propio de 7 días. | **Ejercitado en Día 4** (Camino feliz). |
+| **Comprobación cruzada en Cobranza:** La operativa comprueba que la nueva alumna figure inmediatamente en el padrón de cobranzas. | `CBZ-006.a` <br>`CBZ-005.b` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Buscar a Mora en el buscador reactivo de Cobranza. Verificar que aparezca con `$45.000` de deuda y estado `En plazo`. Comprobar que el padrón de alumnos activos suba a 101. | Se valida la consistencia inmediata entre el módulo de Alumnos y Cobranza. | **Ejercitado en Día 4** (Comprobación cruzada). |
+| **Cobro de cuota del mes en mostrador:** Cobrar cuota completa del mes en curso y emitir comprobante oficial. | `COB-001.a` <br>`COB-003.a` <br>`REC-001.a,b` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Cobrar cuota octubre de Renata Cabrera ($43.000 en Efectivo). Verificar que se abra el Recibo oficial en PDF con número correlativo y datos claros. Comprobar que Renata pase de `Moroso` a `Al día` con deuda $0. | Renata queda al día para todo el mes de octubre. En caja suma efectivo físico. | **Ejercitado en Día 4** (Camino feliz). |
+| **Cobro de deuda atrasada por medio digital:** Cobrar un período anterior pendiente mediante billetera virtual sin sumar al efectivo de cajón. | `COB-004.a` <br>`COB-006.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Cobrar cuota septiembre de Emma Fernández ($45.000 en Mercado Pago). Verificar que septiembre pase a pagada y octubre siga pendiente. Comprobar que el estado de Emma cambie de `Deudor` a `Moroso`. | Emma regulariza sus meses anteriores; la plata ingresa en la cuenta digital de MP. | **Ejercitado en Día 4** (Camino feliz). |
+| **Pago parcial con imputación FIFO:** El sistema debe aplicar pagos parciales cancelando primero la deuda más antigua. | `COB-008.a,b,c` <br>`COB-006.a` <br>`COB-007.c` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Cobrar pago parcial de $30.000 en Efectivo a Dante Ramos con observación «Pago a cuenta». Verificar que cancele los $20.000 de septiembre y aplique $10.000 a octubre (saldo restante $38.000). Comprobar pase de `Deudor` a `Moroso`. | Dante reduce su deuda total y cancela su pasivo histórico. | **Ejercitado en Día 4** (Camino feliz). |
+| **Cobro por transferencia bancaria:** Clasificar cobros bancarios directos según la entidad financiera correspondiente. | `COB-004.b` <br>`CSH-014.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Cobrar cuota octubre de Mateo Rodríguez ($38.000) seleccionando «Transferencia Banco Galicia». Verificar recibo y pase a `Al día`. En caja no afecta efectivo físico pero suma a la recaudación total. | Saldo financiero asentado en Banco Galicia en Cashflow. | **Ejercitado en Día 4** (Camino feliz). |
+| **Cobro adelantado de mes futuro (T42):** Permitir que un alumno al día pague por anticipado cuotas de meses venideros. | `COB-012.a,b` <br>`REP-003.a` <br>`T18`, `T42` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Cobrar cuota noviembre 2026 ($30.000) a Sofía Gómez en Efectivo. Verificar recibo con período 11/2026 y que Sofía conserve su estado `Al día`. Comprobar que suma al efectivo de caja de hoy. | El dinero ingresa a caja hoy; el devengamiento económico y la comisión docente se difieren a noviembre. | **Ejercitado en Día 4** (Camino feliz). |
+| **Ingreso operativo habitual de mostrador:** Registrar ventas de productos del club (remeras, indumentaria). | `MOV-001.a` <br>`MOV-007.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | En Menú Caja → Nuevo Movimiento → Ingreso: seleccionar «Indumentaria institucional» por $15.000 en Efectivo. Comprobar que aparece en la tabla de la caja y suma al arqueo físico. | Registrado con comprobante y detalle para la rendición de cuentas. | **Ejercitado en Día 4** (Camino feliz). |
+| **Gasto operativo menor con comprobante:** Registrar egresos corrientes de mostrador respaldados con ticket. | `MOV-002.a` <br>`MOV-011.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | En Menú Caja → Nuevo Movimiento → Egreso: seleccionar «Limpieza» por $8.500 en Efectivo con detalle del ticket. Comprobar que resta del efectivo esperado en cajón. | Disminuye el efectivo físico a rendir en el cierre de turno. | **Ejercitado en Día 4** (Camino feliz). |
+| **Comprobación de nómina y toma de lista:** La profesora debe ver a los nuevos alumnos en su grupo y registrar asistencia al finalizar la clase. | `ASI-001.a` <br>`ASI-002.a` <br>`T35`, `T52` | Día 4 (13/10) <br>Lucía Gaitán (`PROFESOR`) | Entrar a clase de Patín Principiantes. 1) Comprobar que Mora Benítez figure en la lista del grupo. 2) Tildar presentes (incluyendo a Mora y Sofía) y ausentes (Emma). Presionar Guardar y verificar confirmación. | Las asistencias alimentan el control pedagógico y habilitan futuras comisiones de profesoras. | **Ejercitado en Día 4** (Comprobación cruzada). |
+| **Regularización de asistencia histórica:** Permitir asentar listas de clases pasadas olvidadas reduciendo el pasivo docente. | `CLA-018.b,c` | Día 4 (13/10) <br>Hernán Quintana (`PROFESOR`) | Entrar a Menú Clases → enlace «Sin asistencia». Abrir clase de fútbol del sábado 10/10. Marcar 12 presentes y 2 ausentes y guardar. Comprobar que el badge de Sin Asistencia baja de 33 a 32. | Regulariza el historial pedagógico antes del cierre de liquidación mensual. | **Ejercitado en Día 4** (Camino feliz). |
+| **Arqueo y cierre de turno en cero:** Controlar que el dinero físico en billetes coincida exactamente con los registros del sistema. | `CAJ-018.a` <br>`CAJ-019.a` <br>`CAJ-022.a` | Día 4 (13/10) <br>Sandra Vidal (`OPERATIVO`) | Menú Caja → Cerrar. Contar billetes físicos ($119.500), declarar $119.500, retener $10.000 para cambio y retirar $109.500. Verificar diferencia $0 y cambio a estado `CERRADA`. | Caja cerrada lista para revisión y custodia del dinero por el dueño. | **Ejercitado en Día 4** (Camino feliz). |
+| **Validación de caja por el dueño:** El administrador audita cada comprobante tildando las líneas y validando el turno. | `CAJ-025.a` <br>`CAJ-027.a` <br>`CAJ-028.a` <br>`T36`, `§8-bis` | Día 4 (13/10) <br>Admin Prueba (`ADMIN`) | Menú Caja → Ver caja 2. Tildar cada movimiento verificado y presionar Validar. Comprobar que pasa a `VALIDADA` en el lugar sin recargas destructivas de pantalla. | La recaudación se transfiere al disponible global de Cashflow del club. | **Ejercitado en Día 4** (Camino feliz). |
+| **Comprobación del dueño sobre alta del mes:** El dueño verifica en Alumnos y Reportes la correcta incorporación de la nueva inscripta. | `ALU-007.a` <br>`REP-001.a` | Día 4 (13/10) <br>Admin Prueba (`ADMIN`) | Buscar a Mora en Alumnos y revisar Reportes → Alumnos de octubre. Verificar que figure contabilizada como alta nueva del mes con su plan asignado. | Trazabilidad administrativa de altas mensuales. | **Ejercitado en Día 4** (Comprobación cruzada). |
+| **Cierre integral y consistencia visual:** El dueño verifica que la información sea armónica en Inicio, Cobranza, Cashflow y Reportes. | `CBZ-018.a` <br>`REP-001.a` <br>`CSH-013.a` <br>`T16`, `T19`, `T28` | Día 4 (13/10) <br>Admin Prueba (`ADMIN`) | Recorrer Inicio, Cobranza, Cashflow y Reportes. Comprobar que la actividad de la tarde se refleje claramente: cobros imputados, disponibles por medio y deuda actualizada. | Concluye la jornada laboral garantizando consistencia en todo el club. | **Ejercitado en Día 4** (Cierre de jornada). |
+
+---
+
+## 3. Cobertura funcional acumulada y casos planificados para próximas jornadas
+
+La estrategia de dos meses ficticios distribuye los objetivos a lo largo del calendario:
+
+### A. Cobertura alcanzada en el Día 4 (Camino feliz consolidado)
+- Apertura de caja con herencia de cambio físico.
+- Inscripción de alumna nueva con tutor, grupo y cálculo automático de gracia de 7 días.
+- Comprobación cruzada entre roles: visibilidad en Cobranza, nómina de grupo para la profesora y reporte de altas para el dueño.
+- Cobros en mostrador con medios múltiples: Efectivo físico, Mercado Pago digital y transferencia bancaria Galicia.
+- Cancelación de cuota completa del mes y cancelación de deuda atrasada con transición entre estados (`Moroso` a `Al día`, y `Deudor` a `Moroso`).
+- Pago parcial con aplicación automática FIFO priorizando la deuda más antigua.
+- Cobro adelantado de mes futuro (noviembre) con emisión de recibo y custodia de fondos.
+- Movimientos corrientes de caja: venta de indumentaria y compra menor de insumos con ticket.
+- Registro de asistencia de clase concluida del día y regularización de asistencia histórica pendiente desde el filtro «Sin asistencia».
+- Arqueo físico de billetes en mostrador con diferencia $0, retención de cambio y rendición en sobre.
+- Auditoría y validación de caja por el dueño con tildes obligatorios y sin recarga de pantalla.
+
+### B. Objetivos funcionales planificados para las siguientes jornadas
+1. **Casos de mal uso y errores deliberados de tipeo (a incorporar gradualmente):**
+   - Escribir un DNI inválido o duplicado y corregirlo.
+   - Guardar alumno sin datos obligatorios y verificar mensajes descriptivos en castellano.
+   - Intentar registrar cobro parcial sin motivo (cuando se evalúe `COB-009` / `T25`).
+   - Intentar validar caja con líneas sin tildar (`T36`) o rechazar caja sin motivo explicativo (`T37`).
+2. **Ciclo de vida de alumnos:**
+   - Cambio de grupo y cambio de plan de un alumno existente.
+   - Baja de alumno con deuda y baja de alumno al día.
+   - Reactivación de alumno inactivo con generación de cuota (`T33`, `T38`).
+3. **Seguimiento de hitos temporales:**
+   - **20/10 - 21/10:** Vencimiento de los 7 días de gracia de Mora Benítez y pase automático a `Moroso`.
+   - **Fines de octubre:** Alta y pago reciente para evaluar la ventana de 15 días de `CBZ-017`.
+   - **31/10 (Fin de mes):** Cierre de todas las cajas del mes y balance integral de octubre.
+   - **01/11 (Arranque de mes):** Generación automática de deudas de noviembre (`cobranza:generar-deudas`), comprobando la **no duplicación** de la cuota ya abonada por Sofía Gómez (`T40`).
+   - **02/11 (Liquidaciones de octubre):** Liquidación a profesoras por hora y por comisión, comprobando que el adelanto de noviembre de Sofía quede excluido de octubre (`T42`), y resolviendo cuotas atrasadas con intervención del dueño (`T43`).

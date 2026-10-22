@@ -1,83 +1,73 @@
-# Instrucciones de ejecución — Día 4 (Martes 13/10/2026)
+# Instrucciones para el Ejecutor Humano — Día 4 (Martes 13/10/2026)
 
-> **Orden anterior reemplazada por el acuerdo del 22/10/2026; no usar para ejecutar.**
-> Gemini debe reescribirla para el recorrido humano. Preparación de servidor, reloj y conciliación
-> técnica corresponden al chat Casos prueba humana I. [Roles vigentes](INSTRUCCIONES-PRUEBA-GEMINI.md).
+**BORRADOR PREPARADO PARA REVISIÓN — NO EJECUTAR HASTA LA AUTORIZACIÓN DE CARLOS**
 
-**BORRADOR PARA REVISIÓN — NO EJECUTAR HASTA AUTORIZACIÓN EXPRESA DE CARLOS**
-
-- **Destinatario:** Chat «Prueba humana» (Codex en navegador Chrome).
-- **Ambiente:** `https://test.gestionar-te.com.ar` (base `wingstest`).
-- **Documento del cuento:** [DIA-04.md](DIA-04.md).
-- **Documento de objetivos y control:** [OBJETIVOS-PRUEBA.md](OBJETIVOS-PRUEBA.md).
+- **Destinatario:** Codex en el chat **Prueba humana**.
+- **Entorno:** Sitio de prueba https://test.gestionar-te.com.ar (base `wingstest`).
+- **Guía del recorrido:** [DIA-04.md](DIA-04.md).
 
 ---
 
-## 1. Condiciones de inicio en el servidor (solo antes de arrancar)
+## 1. El objetivo de tu trabajo en esta jornada
 
-1. Conectar por SSH al servidor VPS:
-   ```bash
-   ssh vps
-   ```
-2. Fijar el reloj simulado para el día 4 a las **18:15 hs** (la clase de 17:00 a 18:00 ya habrá concluido):
-   ```bash
-   cd /home/wingstest/app && sudo -u wingstest /usr/bin/php82 artisan wings:fecha-simulada "2026-10-13 18:15"
-   ```
-3. Verificar que la salida confirme: `Fecha simulada fijada: 2026-10-13 18:15:00`.
-4. **No volver a tocar el reloj durante el resto de la jornada.** El reloj avanza solo a partir de esa hora.
+En esta prueba actuás como una persona real que trabaja en el club:
+- Interpretás las situaciones cotidianas descritas en [DIA-04.md](DIA-04.md).
+- Operás exclusivamente a través de la interfaz visual de Google Chrome (menús, botones, formularios, enlaces).
+- Verificás por pantalla lo que una empleada, una profesora o el dueño ven en su trabajo diario: badges de estado, montos, recibos, avisos y listados.
+- Completás en [DIA-04.md](DIA-04.md) las columnas **«Lo que pasó»** y **«¿Coincide?»** con lo observado realmente.
 
 ---
 
-## 2. Comprobación previa de condiciones iniciales (Paso 0)
+## 2. Misión especial: Capturas prolijas para el futuro Manual de Uso de Wings
 
-Antes de que Sandra abra la caja en la Tarea 1, ingresar con el usuario **Admin Prueba** y verificar en pantalla los antecedentes certificados en DIA-02 y DIA-03:
-- **Cobranza:** Verificar que liste 100 alumnos activos, con la distribución: **65 Al día / 0 En plazo / 22 Morosos / 13 Deudores**, y un total de deuda de **$2.010.000**.
-- **Cashflow:** Verificar que el disponible acumulado total sea de **$1.734.000** (Efectivo $376.000, Mercado Pago $1.358.000, Banco Galicia $0).
-- **Clases:** Verificar que el contador badge del menú «Sin asistencia» muestre exactamente **33** clases pendientes históricas.
+Las capturas de pantalla de esta jornada tienen un propósito fundamental: **serán el material visual con el que Gemini redactará el Manual Oficial de Uso de Wings para el personal del club**.
 
-> *Si los valores en pantalla coinciden con lo anterior, consignar conformidad y proceder a la Tarea 1. Si el servidor presentara alguna discrepancia previa, anotarla explícitamente en el reporte antes de realizar cualquier escritura.*
-
----
-
-## 3. Reglas del método humano
-
-1. **Navegación 100% humana:**
-   - Operar exclusivamente desde la ventana de Chrome haciendo clics en menús, botones, enlaces y completando formularios.
-   - **Prohibido escribir URLs internas en la barra de direcciones.** El recorrido debe encontrar todo a través de la interfaz gráfica.
-   - **Prohibido consultar la base de datos o correr scripts de prueba durante el recorrido.**
-2. **Espera entre cambios de usuario (Anti-Throttle):**
-   - El sistema tiene un límite de seguridad de 5 inicios de sesión por minuto.
-   - **Esperar siempre 60 segundos de reloj** tras cerrar una sesión antes de iniciar con otro usuario para evitar el cartel «Demasiados intentos seguidos».
-3. **Mediciones de tiempo sencillas:**
-   - Anotar tiempo aproximado de respuesta en segundos para:
-     * Operación 1: Apertura de caja (tiempo de respuesta al presionar Abrir).
-     * Operación 2: Guardado de alumna nueva (tiempo entre clic en Guardar y render de la ficha).
-     * Operación 18: Carga inicial del listado de Cobranza (con 101 alumnos).
-
----
-
-## 4. Registro de lo observado
-
-Para cada una de las 18 operaciones de [DIA-04.md](DIA-04.md):
-- Completar la columna **«Lo que pasó»**: describir qué devolvió la pantalla, importes visibles, carteles y estados.
-- Completar la columna **«¿Coincide?»**: `Sí`, `No` o `Parcial`.
-- Si se detecta una diferencia visual o texto confuso que no impida seguir:
-  - Tomar captura de pantalla en `docs/06-pruebas/PRU-04/evidencia-dia-04/`.
-  - Anotarlo como observación y continuar.
+Por favor, sé especialmente prolija y ordenada al tomarlas:
+1. **Carpeta de destino:** Guardar todas las imágenes en:
+   `docs/06-pruebas/PRU-04/evidencia-dia-04/`
+2. **Nomenclatura estandarizada:** Usar nombres claros que sigan el número de tarea:
+   - `dia04-01-caja-apertura.png` (modal o pantalla de apertura con el cambio sugerido).
+   - `dia04-02a-alumno-alta-formulario.png` (formulario de alta de Mora Benítez completo).
+   - `dia04-02b-alumno-alta-ficha.png` (ficha creada de Mora con sus $45.000 y badge «En plazo»).
+   - `dia04-03-cobranza-nueva-alumna.png` (listado de Cobranza mostrando a Mora en plazo).
+   - `dia04-04a-cobro-cuota-renata.png` (pantalla de cobro de cuota completa).
+   - `dia04-04b-recibo-renata.png` (recibo oficial emitido en PDF).
+   - `dia04-05-cobro-deuda-mercadopago.png` (cobro de septiembre de Emma con MP).
+   - `dia04-06-cobro-parcial-dante.png` (cobro a cuenta de $30.000 con desglose FIFO).
+   - `dia04-07-cobro-galicia-mateo.png` (cobro con Banco Galicia).
+   - `dia04-08-cobro-adelantado-sofia.png` (cobro de cuota de noviembre adelantada).
+   - `dia04-09-caja-ingreso-indumentaria.png` (movimiento de venta de remera).
+   - `dia04-10-caja-egreso-limpieza.png` (movimiento de gasto de limpieza con ticket).
+   - `dia04-11a-clase-nomina-patin.png` (nómina de Patín Principiantes mostrando a Mora).
+   - `dia04-11b-clase-asistencia-guardada.png` (lista de presentes y ausentes guardada).
+   - `dia04-12-clase-historica-asistencia.png` (lista regularizada del sábado 10/10).
+   - `dia04-13-caja-cierre-arqueo.png` (pantalla de cierre de caja con diferencia $0).
+   - `dia04-14-caja-validacion-dueno.png` (detalle de caja con tildes y validada por el dueño).
+   - `dia04-15-reporte-alta-alumna.png` (reporte de alumnos mostrando el alta del mes).
+   - `dia04-16a-inicio-conciliado.png` (pantalla de Inicio del dueño al cierre).
+   - `dia04-16b-cashflow-saldos.png` (pantalla de Cashflow con saldos por medio).
+3. **Calidad:** Asegurarse de que las pantallas se vean completas, legibles y sin popups o menús superpuestos que tapen los datos clave.
 
 ---
 
-## 5. Condición estricta de detención
+## 3. Reglas estrictas de operación humana
 
-**DETENER LA PRUEBA INMEDIATAMENTE Y AVISAR A CARLOS SI:**
-1. Se produce un descuadre de dinero en caja, mostrador o cashflow (diferencia de efectivo distinta de $0 no justificada).
-2. Se produce un error fatal (pantalla 500) o un bloqueo del camino feliz que impida continuar con las operaciones siguientes.
+1. **Navegación 100% por pantalla:**
+   - Hacé clic en la barra de navegación lateral o superior, abrí botones, completá formularios.
+   - **Prohibido tipear URLs internas directas en el navegador** (por ejemplo, no escribas `/caja/cobrar/5` en la barra de direcciones; navegá desde Cobranza → buscar alumno → botón Cobrar).
+   - **Prohibido consultar la base de datos MySQL o correr comandos de consola durante el recorrido.**
+2. **Espera de 60 segundos entre cambios de usuario (Anti-Throttle):**
+   - El sistema bloquea temporalmente si detecta más de 5 inicios de sesión por minuto.
+   - Cada vez que cierres la sesión de un usuario (por ejemplo, al pasar de Sandra a Lucía, o de Hernán al Dueño), **esperá 60 segundos de reloj** antes de ingresar con el siguiente usuario para no provocar el cartel «Demasiados intentos seguidos».
 
 ---
 
-## 6. Fin de la jornada
+## 4. Registro y detención
 
-Una vez completadas las 18 operaciones:
-1. Asegurar que las 18 filas de [DIA-04.md](DIA-04.md) tengan «Lo que pasó» y «¿Coincide?» completados.
-2. Añadir la sección de **Hallazgos** al pie de DIA-04.md (clasificados en Frena / Molesta / Detalle) con sus capturas.
-3. No alterar datos ni correr migraciones; el verificador independiente controlará la base contra los objetivos de [OBJETIVOS-PRUEBA.md](OBJETIVOS-PRUEBA.md).
+- En cada una de las 16 tareas de [DIA-04.md](DIA-04.md):
+  * Escribí en **«Lo que pasó»** lo que viste en la pantalla (importes, mensajes, nombres, estados).
+  * Escribí en **«¿Coincide?»**: `Sí`, `No` o `Parcial`.
+- **Condición de detención inmediata:**
+  * Si al cerrar la caja en la Tarea 13 hay una diferencia de dinero inexplicable (diferencia distinta de $0).
+  * Si aparece una pantalla de error crítico (HTTP 500) que impida continuar con la jornada.
+  * En esos casos, **detené la prueba inmediatamente** y avisá a Carlos.

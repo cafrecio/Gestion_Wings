@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-22 — LOG GEM CYE — Reescritura del Día 4 y Objetivos Funcionales (PRU-04)
+
+- **Objetivo y resultado:** Reescritura integral de la jornada del **Día 4 (martes 13/10/2026)** siguiendo las directivas de Carlos y la actualización de `INSTRUCCIONES-PRUEBA-GEMINI.md`. El cuento reproduce el camino feliz de una tarde cotidiana del club Wings con comprobaciones cruzadas entre roles y pedidos comprensibles para el ejecutor humano.
+- **Entregables elaborados:**
+  - `DIA-04.md`: Cuento reescrito con 16 situaciones cotidianas fluidas (apertura con cambio, inscripción de Mora Benítez, cobros en efectivo/MP/Galicia, adelanto de noviembre, movimientos de mostrador, asistencia de hoy con Mora en nómina, regularización histórica, cierre de caja sin diferencia en $119.500 contados y validación por el dueño). Resultados de ejecución vacíos.
+  - `INSTRUCCIONES-EJECUTOR-DIA-04.md`: Guía de ejecución exclusivamente humana para Codex en Chrome, con la **misión especial de capturas ordenadas y prolijas** para el futuro Manual de Uso de Wings que redactará Gemini.
+  - `OBJETIVOS-FUNCIONALES.md`: Nuevo documento de seguimiento funcional para la prueba por etapas (2 meses ficticios), detallando la matriz funcional del Día 4, las comprobaciones humanas por pantalla y la planificación de casos pendientes.
+- **Próximo paso:** Revisión previa de Carlos antes de autorizar la ejecución en el chat *Prueba humana*.
+
 ## 2026-10-22 — LOG GEM CYE — Corrección y ajuste técnico del Día 4 (PRU-04)
 
 - **Objetivo y resultado:** Corrección y fundamentación documental del Día 4 (martes 13/10/2026) a partir de `CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md`. Se mantuvieron estrictamente la historia y sus 18 operaciones sin agregar escrituras. Resultado: **DOCUMENTOS CORREGIDOS Y LISTOS PARA REVISIÓN**, con resultados de ejecución vacíos.
