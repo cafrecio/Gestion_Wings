@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-22 — LOG GEM CAB — Prueba Humana I: Diseño Día 4 y Lecciones Aprendidas (PRU-04)
+
+- **Objetivo y resultado:** Sesión «Prueba humana I» con Carlos para estructurar la jornada del **Día 4 (martes 13/10/2026)** de PRU-04. Se redactó el cuento en `DIA-04.md` (18 operaciones de negocio), la matriz técnica en `OBJETIVOS-PRUEBA.md` y la guía separada en `INSTRUCCIONES-EJECUTOR-DIA-04.md`.
+- **Ajustes y lecciones aprendidas tras revisión de Codex:**
+  - Cashflow: Se incorporó el saldo basal histórico de `tipos_caja` ($1.570.000) al acumulado previo ($1.734.000), resultando un disponible final exacto de **$1.938.500**.
+  - Estados de cobranza: Se modelaron las transiciones exactas (Emma y Dante pasan de `Deudor` a `Moroso` al cancelar deuda histórica; Renata y Mateo pasan a `Al día`; Mora Benítez ingresa `En plazo`). Contadores finales auditados: 64 Al día, 1 En plazo, 15 Morosos, 21 Deudores (101 alumnos).
+  - Catálogo de casos: Mapeo corregido a casos exactos (`CLA-018` para asistencia histórica; `COB-008` y `COB-009` para pagos parciales y aplicación a deudas anteriores).
+  - Método 100% humano: Control de permisos realizado mediante inspección visual de menús de navegación, sin escribir URLs internas a mano; condición de detención inmediata ante descuadres de dinero o bloqueos.
+  - Consistencia temporal: Hora inicial fijada a las **18:15 hs** (la clase de 17:00 a 18:00 ya concluyó, permitiendo tomar lista sin paradojas de tiempo).
+- **Entregables:** `DIA-04.md`, `OBJETIVOS-PRUEBA.md`, `INSTRUCCIONES-EJECUTOR-DIA-04.md` y el informe comprensivo `LECCIONES-PRUEBA-HUMANA-I.md`.
+- **Próximo paso para Gemini en CyE:** Leer `LECCIONES-PRUEBA-HUMANA-I.md`, continuar la sesión en CyE y coordinar la ejecución del Día 4 con Codex cuando Carlos lo indique.
+
 ## 2026-10-21 — LOG GEM CYE — Inicio de sesión «Prueba Manual GW I» (PRU-04)
 
 - **Objetivo y plan:** Apertura de la sesión de prueba manual de caminos felices en el sitio de prueba (PRU-04). Lectura y asimilación de `INSTRUCCIONES-PRUEBA-GEMINI.md` para la redacción de los cuentos diarios desde el día 4 (13/10 al 02/11) y la matriz de objetivos.
