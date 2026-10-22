@@ -2,6 +2,15 @@
 
 [Antecedentes archivados intactos al contrastar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-VERIFICACION-DIA04-ANTECEDENTES.md).
 
+## 2026-10-22 — Codex CyE — Continuidad de los dos chats y publicación
+
+Carlos pidió actualizar la bitácora, incluir ambos chats y subir todo a GitHub.
+Chat ejecutor: [DIA-04](../06-pruebas/PRU-04/DIA-04.md), 16 tareas registradas, 14 Sí y T2/T6 parciales; sustitución Julieta por Sofía y caja 2 VALIDADA sin diferencia. No repetir.
+Este chat de análisis: [VERIFICACION-DIA-04](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md), contraste independiente de dinero, alta y asistencias; evidencia SQL/servicios y observación D4-OBS-01.
+Ambos trabajos quedan en esta bitácora compartida, con entradas y documentos separados; no se copian las conversaciones completas ni se confunden ejecución y verificación.
+Pendientes comunes: criterio de cuota no guardada en Cobrar, alcance T2/T6, seguridad/carga y siguiente jornada con los datos conservados. T14 sigue en curso; sin aceptación integral ni despliegue.
+Partida: carpeta limpia, HEAD/GitHub afa783f8, informes y evidencia publicados. Actualización documental.
+
 ## 2026-10-22 — Codex CyE — Casos prueba humana I: contraste técnico del Día 4
 
 [Verificación de 99d1f64a](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md): cinco pagos/seis imputaciones, siete movimientos/reflejos únicos, alta y asistencias conciliados con SQL, servicios y cuatro imágenes.
