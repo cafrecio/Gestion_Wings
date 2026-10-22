@@ -132,7 +132,7 @@ No son condiciones que deba resolver el lector del cuento. El ejecutor humano re
 - **Sesión y reloj simulado (22/10):** con el reloj en una fecha pasada, la cookie de sesión nacía vencida
   (`Max-Age=0`) y el navegador la borraba: el ingreso volvía al login sin ningún error. En el sitio de prueba
   quedó `SESSION_EXPIRE_ON_CLOSE=true` (la sesión dura hasta cerrar el navegador). No lo saquen mientras
-  dure la prueba. Producción no usa reloj simulado: no le afecta.
+  dure la prueba. Producción no usa reloj simulado: no le afecta. Detalle: [INCIDENTE-LOGIN-RELOJ-SIMULADO.md](INCIDENTE-LOGIN-RELOJ-SIMULADO.md).
 - **Procesos automáticos:** corren cada minuto **con el reloj simulado**: cuotas del mes a las 6:00
   (`--si-falta`), recargos a las 6:15 y resumen diario al dueño a las 8:00. Al cambiar de día, contá con que
   se disparan solo si se dan sus condiciones. Su comprobación corresponde al control técnico;
