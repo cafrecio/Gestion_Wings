@@ -34,7 +34,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T77, seguridad PHP del VPS, 22/10:** ambos sitios actualizados a 8.2.35, ingreso/dashboard y conexión a base comprobados. CWP conserva PHP 7.4.33 sin actualización disponible en su repositorio; mitigación parcial aplicada, parche definitivo pendiente. Tiene Codex. [Informe y respaldo](../04-tecnico/seguridad-vps/2026-10-22-actualizacion-php/README.md).
+- **Pase a Codex CyE, 22/10:** [Casos prueba humana I: leer primero](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md). Día 4 sigue en borrador; cuatro correcciones de la segunda revisión todavía no comunicadas a Gemini. Este chat no ejecuta la prueba; otro chat Codex la hará tras revisión. No tomar las lecciones de Gemini como aprobación.
 
 - **T14, control preparado por Codex CyE 21/10:** [tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html), 39 recorridos/14 controles y 331 referencias. Pendiente de revisión independiente y ejecución; no cierra T14. Gemini usa los vínculos para los cuentos desde el 13/10. Sitio leído `56379295`, reloj real 21/10 sin modificar; el relevamiento solo cubrió entradas/listados ADMIN. [Alcance](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md).
 
