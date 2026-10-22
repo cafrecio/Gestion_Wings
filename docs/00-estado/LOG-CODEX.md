@@ -38,6 +38,17 @@
 
 [Dos antecedentes archivados intactos al revisar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-REVISION-DIA04-ANTECEDENTES.md).
 
+[Antecedente archivado intacto al aclarar los roles PRU-04](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-ROLES-PRU04-ANTECEDENTE.md).
+
+## 2026-10-22 — Codex CyE — T14: roles separados y reinicio del relato del Día 4
+
+Carlos asignó Gemini a historias orientadas a objetivos, errores humanos y comprobaciones por pantalla; Codex Prueba humana opera e informa; este chat prepara y contrasta controles técnicos.
+Corregida INSTRUCCIONES-PRUEBA-GEMINI.md: cobertura funcional y crecimiento de datos; matriz técnica a cargo de este chat. Retirado el encargo de auditoría a Gemini.
+Día 4 y orden anterior señalados como antecedentes pendientes de reescritura; días 1 a 3 conservados. Actualizados continuidad, resumen, estado y próximo paso T14 por comando.
+La revisión de a86c3509 queda como insumo técnico, sin convertirla en otra lista de correcciones de backend para Gemini.
+Comprobación documental: enlaces, integridad y diff; no corresponde suite. Sin ejecutar jornada, consultar servidor, alterar reloj/datos/producto ni desplegar en esta entrega.
+Siguiente: Carlos pasa el prompt a Gemini; Gemini entrega nuevo cuento, instrucciones humanas y objetivos funcionales. T14 sigue en curso, sin autocierre ni aprobación de la jornada.
+
 ## 2026-10-22 — Codex CyE — Día 4 a86c3509 revisado y devuelto
 
 Revisión independiente de los cinco documentos de Gemini; no se ejecutó la jornada.
@@ -107,13 +118,3 @@ Gemini 12/55 verdes; controles anteriores 15/16 (rojo H1 superado). Con decisió
 Completa aislada: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025; 612 fuentes intactas, 186 observaciones sin suites ajenas. Main integrado conserva contador 1028.
 Devuelta a Gemini únicamente por idioma de previews mal formadas y guardia del auxiliar CLI; H2/H3 confirmados. Contrato/estado actualizados; tabla Carlos/Claude intacta, propuesta de fuente en informe.
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Commit 30d09f6; copia temporal archivada tras resguardar la evidencia. Sin despliegue ni push manual. Próximo paso: Gemini subsana observaciones y entrega a otra revisión, sin reabrir inscripción.
-
-## 2026-10-21 — Codex CAB — T61 segunda vuelta, TRASPASO solo del sistema
-
-Pedido ejecutado aislado en `codex/t61-segunda-vuelta`, base 2c7cebe; toma 1668ca4. Carpeta principal con cambios ajenos T50 preservada.
-TRASPASO retirado de alta/edición comunes y rechazado en caja, correcciones, reflejos y pagos. Transferencia aprobada y sus 13 métodos de prueba intactos; sin reparación ni migración histórica.
-Inventario previo de lectura en única base propia wings_testing_codex: cero subrubros comunes TRASPASO y cero movimientos sueltos según las consultas guardadas. No se consultó club/producción/prueba/servidor.
-Tres regresiones nuevas: rojas antes; 16/198 verdes después, 14,40 s. Área cobros 125/851 verde. Primera completa descartada por error propio corregido; final 1020 aprobadas/6 omitidas, 8846 aserciones, 934,96 s, salida 0, sin fuentes cambiadas ni otras suites detectadas.
-Ocho capturas reales antes/después: 1366 y móviles renovados a 375 × 1000, DOM/JPEG comprobados. Resuelta diferencia inicial de ancho; consola limpia. Solo cambia contenido del selector; sin CSS/JS nuevo. Revisión Carlos pendiente, aprobación de transferencia conservada.
-[Segunda vuelta e inventario](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md#segunda-vuelta--h1-a-h3) · [Capturas observadas](../06-pruebas/PRU-04/REVISION-T61-SEGUNDA.html). Tabla Carlos/Claude y control de Claude intactos.
-Entrega a_verificar para Claude en rama aislada (código a5d5cc4); visual 375 listo para Carlos, no autocerrada. Inventario posterior estricto también cero. Sin despliegue ni push manual.

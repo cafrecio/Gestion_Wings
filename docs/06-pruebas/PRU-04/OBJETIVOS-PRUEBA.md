@@ -1,5 +1,10 @@
 # Objetivos de prueba por jornada — PRU-04
 
+> **Borrador técnico anterior, pendiente de reelaboración — 22/10/2026.** Responsable desde la
+> aclaración de Carlos: chat Casos prueba humana I. Gemini redacta el cuento y sus objetivos
+> funcionales; no corrige esta matriz como parte de su rol. Se retomará con la nueva historia.
+> Las referencias siguientes no están aprobadas: ver [revisión del 22/10](REVISION-DIA-04-CODEX-2026-10-22.md).
+
 Documento de enlace técnico entre los cuentos de cada día, los recorridos del [Control Integral](control-integral/CONTROL-INTEGRAL.html), los casos del catálogo fuente de Carlos y Claude, las tareas del tablero, las rutas y controladores reales de Wings, y la verificación sobre base y código.
 
 ---

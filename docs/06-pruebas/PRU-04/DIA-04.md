@@ -1,5 +1,9 @@
 # Día 4 — martes 13/10/2026
 
+> **Antecedente pendiente de reescritura — 22/10/2026.** Carlos pidió reiniciar el relato con
+> errores humanos y comprobaciones por pantalla. Este borrador no habilita ejecución.
+> Gemini aplica [su rol actualizado](INSTRUCCIONES-PRUEBA-GEMINI.md); el control técnico queda en este chat.
+
 Sandra abre la segunda caja con $10.000 de cambio retenido, da de alta a una alumna nueva y cobra cuotas, una deuda anterior, un parcial FIFO y un adelanto de noviembre.
 Resuelve junto al dueño un ingreso sin subrubro previo, anota un gasto de limpieza y dos profesores asientan una clase terminada de hoy y una histórica.
 La caja cierra en cero diferencia; el dueño valida y concilia Inicio, Cobranza, Cashflow y Reportes sin desvíos.

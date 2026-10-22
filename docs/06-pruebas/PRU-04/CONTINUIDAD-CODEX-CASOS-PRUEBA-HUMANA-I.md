@@ -4,7 +4,7 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
-Aplicar el [protocolo](../../00-estado/PROTOCOLO-CONTINUIDAD.md). **Actualización 22/10, Codex CyE:** Carlos comunicó la segunda devolución y Gemini publicó `a86c3509`. La [revisión actual](REVISION-DIA-04-CODEX-2026-10-22.md) devuelve la preparación por seis grupos de observaciones: base inicial, catálogo/dinero, plazo, comisión HORA/COMISION, cobertura y referencias técnicas. Retomar desde ese informe; la sección 5 de este pase queda como antecedente. No ejecutar el día, corregir producto ni cerrar T14.
+Aplicar el [protocolo](../../00-estado/PROTOCOLO-CONTINUIDAD.md). **Nuevo acuerdo de Carlos, 22/10, Codex CyE:** reiniciar la redacción del Día 4 con los roles de [las instrucciones actualizadas](INSTRUCCIONES-PRUEBA-GEMINI.md). Gemini escribe la jornada, sus errores humanos y comprobaciones por pantalla; Codex Prueba humana la ejecuta; este chat prepara y contrasta los controles técnicos. La [revisión de a86c3509](REVISION-DIA-04-CODEX-2026-10-22.md) queda como insumo técnico de este chat, no como encargo de auditoría a Gemini. El cuento anterior y su orden de ejecución quedan pendientes de reescritura. No ejecutar, corregir producto ni cerrar T14.
 
 Este chat se llama **Casos prueba humana I**. Carlos ordenó expresamente que este chat **nunca ejecuta la prueba**. La ejecuta Codex en otro chat, **Prueba humana**, una vez revisado el cuento y autorizado el inicio. Esa separación sigue vigente al cambiar de computadora.
 
@@ -13,7 +13,8 @@ Este chat se llama **Casos prueba humana I**. Carlos ordenó expresamente que es
 - Pensar y revisar antes de actuar. El agente debe preguntar ante dudas y proponer mejoras, no limitarse a obedecer mecánicamente.
 - Gemini escribe una historia que reproduce un día de trabajo del club: alumnos, cuotas, otros ingresos, conceptos no catalogados, gastos, asistencias y cierre. Las operaciones responden a objetivos de prueba, pero deben tener sentido como jornada humana.
 - Codex en **Prueba humana** opera por navegador, menús, botones y formularios; registra lo observado y no arregla durante el ensayo. No escribe direcciones internas ni consulta base/código durante el recorrido.
-- **Este chat** revisa la propuesta, analiza resultados y criterios cubiertos, identifica defectos y organiza correcciones y nuevas pruebas. La comprobación independiente posterior de base/código debe tener responsable explícito; no se presume realizada.
+- **Este chat** transforma la misma historia en controles técnicos y contrasta lo ocurrido con el informe humano: datos, procesos, cálculos, seguridad, eficiencia y efectos indirectos. Carlos le asignó esa responsabilidad; no se presume realizada por disponer de un cuento.
+- Gemini incluye errores de uso y su corrección o rechazo por pantalla. Planifica cobertura de funcionalidades, validaciones y reportes a lo largo de las jornadas, y actividad acumulada para medir rendimiento. Su seguimiento es `OBJETIVOS-FUNCIONALES.md`; la matriz `OBJETIVOS-PRUEBA.md` la prepara este chat. El humano no recibe tablas, servicios ni precondiciones técnicas.
 - Comenzar con días chicos para evaluar el método: máximo orientativo de **20–30 operaciones**, sin obligación de alcanzar ese número. Varias pueden ser iguales. Los borradores actuales numeran 18 filas, que incluyen consultas e intentos: no equivalen automáticamente a 18 escrituras.
 - Los usuarios son nuevos en el uso de Wings; se usan las cuentas existentes. También se evalúan claridad, mensajes, navegación y necesidad de adivinar.
 - Por ahora se evalúan todas las operaciones del día. Más adelante una operación repetida puede alimentar el sistema sin repetir toda su medición; debe distinguirse ejecución de cobertura nueva.
@@ -31,7 +32,7 @@ Leer [día 1](DIA-01.md), [día 2](DIA-02.md), [día 3](DIA-03.md) y [verificaci
 | 11/10 | Sin operaciones nuevas; deuda $2.010.000; estados registrados 65 Al día, 0 En plazo, 22 Morosos, 13 Deudores. |
 | 12/10 | Tres clases canceladas por feriado; mismos pagos y caja; 33 clases históricas pendientes de asistencia. |
 
-Son antecedentes fechados, no certificación del estado actual del servidor. Hubo modificaciones posteriores del producto. Antes del día 4 hay que comprobar condiciones iniciales y explicar diferencias, sin restaurar ni ajustar datos para hacerlos coincidir.
+Son antecedentes fechados, no certificación del estado actual del servidor. Hubo modificaciones posteriores del producto. Antes del día 4 este chat debe comprobar condiciones iniciales y explicar diferencias, sin restaurar ni ajustar datos para hacerlos coincidir ni trasladar esa preparación técnica al humano.
 
 Las suplencias están permitidas: abrir una clase de otro docente no es por sí solo defecto. Abrir caja en domingo/feriado también fue aceptado por Carlos. No repetir como defectos los hallazgos históricos revocados por esas decisiones.
 

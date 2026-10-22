@@ -1,5 +1,9 @@
 # Instrucciones de ejecución — Día 4 (Martes 13/10/2026)
 
+> **Orden anterior reemplazada por el acuerdo del 22/10/2026; no usar para ejecutar.**
+> Gemini debe reescribirla para el recorrido humano. Preparación de servidor, reloj y conciliación
+> técnica corresponden al chat Casos prueba humana I. [Roles vigentes](INSTRUCCIONES-PRUEBA-GEMINI.md).
+
 **BORRADOR PARA REVISIÓN — NO EJECUTAR HASTA AUTORIZACIÓN EXPRESA DE CARLOS**
 
 - **Destinatario:** Chat «Prueba humana» (Codex en navegador Chrome).

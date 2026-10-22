@@ -2,7 +2,9 @@
 
 Escrito por Claude CyE el 21/10/2026, a pedido de Carlos. No es un prompt: es lo que necesitás saber
 para escribir los cuentos de la prueba sin repetir lo que ya se hizo ni lo que ya salió mal.
-Leelo entero antes de empezar. Si algo no se entiende o falta, preguntale a Carlos antes de actuar.
+Actualizado por Codex CyE el 22/10/2026 según la aclaración expresa de Carlos sobre los tres roles.
+Esta asignación reemplaza los pedidos anteriores que mezclaban cuento y auditoría técnica.
+El Día 4 anterior queda como antecedente: hay que reescribirlo, sin ejecutar ni borrar los días 1 a 3.
 
 ---
 
@@ -10,7 +12,7 @@ Leelo entero antes de empezar. Si algo no se entiende o falta, preguntale a Carl
 
 Wings es el sistema de gestión del club (alumnos, cuotas, cobros, caja, cashflow, clases, asistencia,
 liquidaciones de profesoras y reportes). Carlos quiere **subir a producción la versión actual**. Antes,
-hay que comprobar que **los caminos felices** funcionan de punta a punta, como los va a usar el club, y
+hay que comprobar los caminos felices, las validaciones y los errores de uso por pantalla, y
 **cerrar un mes completo** (octubre) para ver el fin de mes y el arranque del siguiente.
 
 La prueba se cuenta como un **cuento**: días simulados del club, uno detrás de otro, con personas que
@@ -26,7 +28,11 @@ Objetivos de hoy, en orden:
 4. Acumular datos realistas de octubre (cobros y asistencia todos los días) para que el fin de mes,
    el 1/11 y la liquidación de octubre tengan algo real que calcular.
 
-Los casos raros y los errores de uso quedan para después (T76, plan de mejora).
+Los errores humanos también forman parte de los cuentos: escribir mal un nombre y corregirlo,
+equivocarse de DNI y pedir eliminar al alumno, omitir un dato obligatorio, intentar una operación
+sin permiso o cancelar antes de guardar. El relato describe el pedido; no inventa si Wings debe
+permitirlo o rechazarlo. Las expectativas se apoyan en las decisiones y contratos vigentes.
+Esto no cambia por sí solo el estado de T76 ni acredita su ejecución.
 
 ---
 
@@ -34,10 +40,10 @@ Los casos raros y los errores de uso quedan para después (T76, plan de mejora).
 
 | Quién | Qué hace en esta etapa |
 |---|---|
-| **Carlos** | Dueño del producto. Decide. Aprueba lo visual. Resuelve con vos los puntos abiertos (§10). |
-| **Gemini (vos)** | 1) Recorre el sistema y evalúa los casos de prueba (§6). 2) Escribe los cuentos día por día y el documento de objetivos (§7). **No ejecuta los días.** |
-| **Codex** | Ejecuta cada día en el sitio de prueba, siguiendo tu cuento, y anota lo que pasó. |
-| **Verificador** | Controla cada día contra la base y el código. A definir por Carlos (puede ser otra cuenta de Codex). |
+| **Carlos** | Dueño del producto. Decide y aprueba lo visual. Resuelve dudas de negocio que no estén definidas. |
+| **Gemini (vos)** | Escribe jornadas realistas orientadas a objetivos funcionales, con errores humanos y comprobaciones por pantalla. Planifica la cobertura y el crecimiento de datos. No ejecuta los días ni prepara la auditoría interna. |
+| **Codex — Prueba humana** | Interpreta el cuento, opera por menús y formularios y comprueba por pantalla. Informa qué hizo, qué vio y dónde tuvo dificultades. No necesita tablas, servicios, SQL ni cálculos internos. |
+| **Este chat — Casos prueba humana I** | Convierte la misma historia en controles técnicos y los contrasta con el informe del ejecutor. Revisa datos, cálculos, procesos, seguridad, eficiencia y efectos indirectos. La preparación técnica y del entorno queda fuera del relato humano. |
 | **Claude** | Casi sin límite semanal hasta el sábado. No cuenten con él para la prueba. |
 
 Regla de siempre: **lo que hace uno lo controla otro** (AGENTS.md §6a).
@@ -71,7 +77,8 @@ Los ejecutó Codex en el sitio de prueba y Claude los verificó contra la base. 
 
 **Formato que funcionó** (respetalo): un archivo por día con un resumen de 3 líneas, las reglas del día y
 una tabla `Tarea | Esperado | Lo que pasó | ¿Coincide?`. **Lo esperado se escribe antes de actuar.** Después,
-hallazgos clasificados (Frena / Molesta / Detalle) con captura, y al final la verificación contra la base.
+hallazgos clasificados (Frena / Molesta / Detalle) con captura. La verificación de base queda en el
+informe técnico separado de este chat, sin instrucciones internas para el ejecutor humano.
 
 **Reglas que se aprendieron en esos días:**
 - Todo por menú, botones y formularios, como una persona. Nada de escribir direcciones internas, cargar
@@ -102,7 +109,10 @@ Reglas de diseño nuevas que el cuento tiene que poder detectar si se rompen:
 
 ---
 
-## 4. El sitio de prueba al empezar
+## 4. Antecedente del entorno al 21/10 (preparación técnica separada)
+
+Los datos siguientes conservan el corte anterior; este chat debe comprobar el estado vigente.
+No son condiciones que deba resolver el lector del cuento. El ejecutor humano recibe el día preparado.
 
 - **Dirección:** https://test.gestionar-te.com.ar · base `wingstest`. **Producción es `wings` y no se toca.**
 - **Versión:** `56379295`, desplegada por Claude el 21/10 (respaldo previo en el servidor:
@@ -119,7 +129,8 @@ Reglas de diseño nuevas que el cuento tiene que poder detectar si se rompen:
   Sin argumento muestra el vigente; `--real` vuelve a la hora real. **El día 4 es el martes 13/10.**
 - **Procesos automáticos:** corren cada minuto **con el reloj simulado**: cuotas del mes a las 6:00
   (`--si-falta`), recargos a las 6:15 y resumen diario al dueño a las 8:00. Al cambiar de día, contá con que
-  se disparan, y verificá que hicieron lo que debían; no lo supongas.
+  se disparan solo si se dan sus condiciones. Su comprobación corresponde al control técnico;
+  cambiar la fecha no demuestra que hayan corrido.
 
 ---
 
@@ -142,7 +153,8 @@ días necesitan un cuento largo:
 4. **Caja todos los días:** abrir, cobrar, cerrar; el dueño valida (todo tildado) o rechaza con motivo.
 5. **Movimientos del dueño en Cashflow** y un **pase de plata entre medios** (T61).
 6. **Alumnos:** un alta nueva (dentro del límite de fecha), un cambio de grupo, una baja y una reactivación.
-7. **Fin de mes (31/10):** todas las cajas validadas; Inicio, Cobranza, Reportes y Sueldos cuentan lo mismo.
+7. **Fin de mes (31/10):** todas las cajas validadas; revisar Inicio, Cobranza, Reportes y Sueldos según
+   lo que muestra cada uno. Este chat concilia sus distintas dimensiones, sin exigir totales idénticos.
 8. **1/11:** se generan las cuotas de noviembre una sola vez; el que pagó noviembre por adelantado no recibe
    otra; el mes queda anotado como generado (T40). El resumen diario lo refleja.
 9. **2/11:** liquidación de octubre de cada profesora, por hora y por comisión. Lo adelantado de noviembre no
@@ -154,15 +166,19 @@ del sistema (el domingo 11/10 no hubo), y la gracia de cobranza vence pasado el 
 
 ---
 
-## 6. Antes de los cuentos: recorrido y evaluación de los casos
+## 6. Cobertura funcional de los cuentos
 
-Pedido de Carlos: antes de escribir los cuentos, recorré todo el sistema y evaluá **todos los casos de la
-tabla** contra la versión desplegada. Así los cuentos se apoyan en lo que el sistema hace hoy, no en lo
-que hacía el 16/10. **El alcance y la forma los definís con Carlos** (§10).
+Usá el catálogo de solo lectura y los recorridos del control integral para organizar los objetivos
+que se pueden ejercitar por pantalla. Podés consultar la interfaz para conocer opciones y vocabulario,
+sin cargar la jornada anticipadamente. No se exige una auditoría técnica completa antes del nuevo Día 4.
 
-Lo mínimo que tiene que salir: para cada caso, si **sigue igual**, **cambió**, **ya está hecho** o **quedó
-viejo**, con qué tarea cambió; y la lista de casos que los cuentos tienen que cubrir. Lo que haya que
-cambiar en la tabla va como propuesta escrita (caso, línea, texto actual, texto propuesto).
+La meta es cubrir el catálogo completo a lo largo de las jornadas, incluidas variantes, roles y errores
+de uso. No metas todo en un día ni marques un caso como probado por mencionarlo en el cuento.
+Lo técnico que no se puede comprobar por pantalla se deriva a este chat; lo pendiente queda visible.
+Si no hay una expectativa respaldada, señalá la duda sin inventarla ni detener el resto de la redacción.
+
+La actividad repetida también sirve: nuevos alumnos, pagos, clases y asistencias se conservan entre
+días para dar historia y volumen a los reportes. Eso prepara la evaluación de performance; no la certifica.
 
 ---
 
@@ -177,34 +193,47 @@ pasó** y **¿Coincide?** al ejecutar.
 - Las tareas cuentan lo que hacen las personas: «Sandra le cobra a Renata Cabrera octubre y noviembre en
   efectivo». No digan «probar T42».
 - **Esperado** tiene que poder comprobarse con la pantalla: importes, estados, cantidades, dónde aparece.
-- Al final de cada día, un **cierre del dueño**: Inicio, Cobranza, Caja/Cashflow y Reportes dicen lo mismo,
-  y coincide con lo que se hizo en el día. Así se ve a dónde fue cada peso.
-- Incluí siempre al menos una comprobación de rol: alguien intenta ver o hacer algo que no le corresponde
-  (por ejemplo, una profesora y las clases ajenas, una operativa y Cashflow).
+- Al final de cada día, un **cierre del dueño**: consulta Inicio, Cobranza, Caja/Cashflow y Reportes,
+  busca los movimientos de la jornada y registra lo que ve. Este chat analiza las diferencias entre
+  caja, ingresos y deuda; no se exige que todas las pantallas muestren el mismo total.
+- Incluí comprobaciones entre roles: «el dueño registra el cobro; Sandra entra como operativa y lo busca».
+  Para restricciones, usá el contrato de permisos; ver clases ajenas no demuestra por sí solo un defecto,
+  porque las suplencias están permitidas. Una restricción visible no acredita seguridad HTTP.
+- Escribí situaciones naturales: «la mamá aclara que anotaron mal el apellido; pide corregirlo».
+  Indicá luego la comprobación humana: buscarlo otra vez y revisar su ficha y su grupo.
+- Incluí datos ficticios completos para operar, importes y pedidos concretos de las personas.
+  No pongas en sus diálogos saldos internos precalculados, tablas, rutas, servicios o reglas SQL.
+- No le pidas al ejecutor preparar el servidor ni reconciliar contadores globales históricos como
+  condición técnica. Puede consultar y registrar lo que ve; este chat prepara y analiza el estado inicial.
 
-### Los objetivos — `OBJETIVOS-PRUEBA.md`
+### Tus objetivos funcionales — `OBJETIVOS-FUNCIONALES.md`
 
-Un solo documento, con una sección por día y una fila por tarea del cuento. Para cada tarea, explícito:
+Un solo seguimiento para todas las jornadas, separado del cuento. Para cada objetivo, indicar:
 
 | Campo | Qué poner |
 |---|---|
-| Módulo | Cobros, Caja, Clases, Liquidaciones… |
-| Casos y tareas | Códigos de la tabla (`COB-012`) y tareas del tablero (`T42`) que ejercita |
-| Usuario | Qué ve y qué hace la persona; qué no debe poder hacer |
-| Visual | Pantallas que intervienen, en computadora y teléfono; §8-bis si decide fila por fila |
-| Base de datos | Qué filas se crean o cambian y en qué tablas (por ejemplo `pagos`, `pago_deuda_cuota`, `deuda_cuotas`, `movimientos_operativos`, `cashflow_movimientos`, `asistencias`, `liquidaciones`) |
-| Controladores | Qué rutas y controladores atienden la acción |
-| Servicios | Qué servicios calculan (`PagoCuotaService`, `CajaService`, `LiquidacionService`…) |
-| Seguridad | Roles que pueden y que no; protecciones que tienen que saltar |
+| Situación y objetivo | Qué funcionalidad, validación, error o reporte ejercita |
+| Caso de referencia | Código y variante del catálogo cuando corresponda, sin modificarlo |
+| Jornada y persona | Cuándo se propone, quién opera y con qué rol |
+| Comprobación humana | Qué buscar o revisar por pantalla, incluida claridad y aspecto en computadora/teléfono |
+| Continuidad | Qué dato queda para otro día y cuándo se vuelve a observar |
+| Cobertura | Planificado, pendiente, observado con evidencia o derivado al control técnico; no confundir planificación con aprobación |
 
-Para el verificador, este documento es la lista de control: qué mirar en la base y en el código después de
-cada día. Buscá en el código con `codebase-memory-mcp` primero y confirmá en el archivo (AGENTS.md §6e).
+La matriz técnica `OBJETIVOS-PRUEBA.md` es responsabilidad del chat **Casos prueba humana I**.
+Su borrador anterior y la revisión del 22/10 son antecedentes para ese chat; no son una orden para
+que Gemini audite código o explique el backend a quien ejecuta. Cuando llegue el nuevo cuento,
+este chat prepara los controles internos correspondientes.
+
+Rehacé también `INSTRUCCIONES-EJECUTOR-DIA-04.md` con instrucciones exclusivamente humanas.
+Las condiciones de servidor y reloj se coordinan aparte. No ejecutes el cuento para completar resultados.
 
 ---
 
 ## 8. Reglas para escribir y ejecutar
 
 - **Esperado antes de actuar.** Si el sistema hace otra cosa, se anota; no se corrige el esperado después.
+- Un rechazo esperado ante un error deliberado es parte del recorrido: se registra y se continúa con
+  la corrección prevista en el cuento. Un bloqueo inesperado se informa, sin arreglar el producto.
 - **Frena el camino feliz** (no se puede seguir, o la plata queda mal): Codex para y le avisa a Carlos.
   **Molesta o es detalle:** se anota con captura y se sigue.
 - No se arregla nada durante la prueba. Los hallazgos van al informe del día; Carlos decide.
@@ -224,15 +253,17 @@ cada día. Buscá en el código con `codebase-memory-mcp` primero y confirmá en
 
 ---
 
-## 10. Lo que Carlos resuelve con vos antes de empezar
+## 10. Reinicio del Día 4
 
-1. **Recorrido previo de los casos (§6):** alcance y forma (¿contra el código, con clics, o los dos?).
-2. **Registro de resultados que Codex y vos sí pueden escribir**, equivalente a la tabla, para que Claude
-   lo pase después a la tabla viva.
-3. **Producción:** si se despliega al terminar el camino feliz o después de revisar los hallazgos.
-4. **Verificador de cada día** (§2).
-5. **Recargo por mora en 0%:** con ese valor los recargos (B11) no se prueban. ¿Se pone un porcentaje
-   para la prueba?
-6. **Avisos reales:** el sitio de prueba tiene configurados el Telegram y el correo de Carlos. Con días
-   simulados, el resumen diario y los avisos de cuotas le pueden llegar de verdad, uno por día simulado.
-   ¿Se apagan durante la prueba o los quiere recibir?
+1. Leé la continuidad y los días 1 a 3; conservá esa historia y las cuentas existentes.
+2. Reescribí el martes 13/10 como una jornada con propósito, pagos y clases, errores humanos y
+   comprobaciones por pantalla. La selección de situaciones responde a la cobertura funcional.
+3. No conserves las 18 filas anteriores como obligación. Mantené una jornada manejable; distribuí
+   el resto hasta el 2/11 y dejá visibles los objetivos que aún no tienen día asignado.
+4. Entregá cuento, instrucciones humanas y objetivos funcionales. Resultados de ejecución vacíos.
+5. Registrá el trabajo en tu bitácora, commit y push de tus cambios documentales. No ejecutes,
+   cambies reloj/datos/producto ni despliegues por esta redacción.
+
+La preparación del entorno, conciliación basal, procesos automáticos y mediciones técnicas pertenecen
+a este chat. Mora en 0% y avisos reales requieren resolver su preparación cuando corresponda;
+no se modifican por escribir el cuento. Preparar o ejecutar una jornada no autoriza producción.

@@ -1,8 +1,18 @@
 # Wings — Estado actual
 
+## T14 — Roles aclarados y reinicio del relato del Día 4, Codex CyE 22/10/2026
+
+Carlos asignó: Gemini escribe jornadas orientadas a objetivos, errores humanos y controles por pantalla;
+Codex Prueba humana opera e informa; Casos prueba humana I prepara y contrasta los controles técnicos.
+[Instrucciones actualizadas](../06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md).
+El Día 4 anterior y su orden de ejecución quedan como antecedentes pendientes de reescritura.
+Las observaciones técnicas de la revisión siguiente las retoma este chat, sin encargárselas a Gemini.
+Se conserva la historia de los días 1 a 3 y se acumulan datos para evaluar rendimiento.
+T14 en curso: entrega documental; sin ejecución, cambios de producto, reloj/datos ni despliegue.
+
 ## T14 — Día 4 devuelto tras revisar a86c3509, Codex CyE 22/10/2026
 
-[Informe de revisión](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md). Adelanto y rutas principales corregidos; siguen contradicciones en base inicial, catálogo y dinero, plazo del alta, comisión por hora/comisión, referencias al catálogo y servicios. Consultas de solo lectura confirmaron Alquileres EGRESO, Indumentaria institucional APORTE, Lucía HORA y plazo 7/gracia 10. No se ejecutó la jornada ni se modificó producto, reloj o datos de negocio; Gemini corrige preparación y se revisa nuevamente antes de habilitar el chat ejecutor. T14 continúa en curso.
+[Informe de revisión](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md). Adelanto y rutas principales corregidos; siguen contradicciones en base inicial, catálogo y dinero, plazo del alta, comisión por hora/comisión, referencias al catálogo y servicios. Consultas de solo lectura confirmaron Alquileres EGRESO, Indumentaria institucional APORTE, Lucía HORA y plazo 7/gracia 10. No se ejecutó la jornada ni se modificó producto, reloj o datos de negocio. Este informe es antecedente técnico; la nueva distribución de responsabilidades figura arriba. T14 continúa en curso.
 
 ## T14 — Control integral preparado, Codex CyE 21/10/2026
 
