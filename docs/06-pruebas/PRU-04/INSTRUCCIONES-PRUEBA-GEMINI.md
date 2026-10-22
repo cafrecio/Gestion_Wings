@@ -5,6 +5,8 @@ para escribir los cuentos de la prueba sin repetir lo que ya se hizo ni lo que y
 Actualizado por Codex CyE el 22/10/2026 según la aclaración expresa de Carlos sobre los tres roles.
 Esta asignación reemplaza los pedidos anteriores que mezclaban cuento y auditoría técnica.
 El Día 4 anterior queda como antecedente: hay que reescribirlo, sin ejecutar ni borrar los días 1 a 3.
+Última precisión de Carlos: tenemos dos meses ficticios; avanzamos día a día, primero por el camino
+feliz. Los errores deliberados y casos raros se incorporan después, gradualmente, según los resultados.
 
 ---
 
@@ -28,7 +30,7 @@ Objetivos de hoy, en orden:
 4. Acumular datos realistas de octubre (cobros y asistencia todos los días) para que el fin de mes,
    el 1/11 y la liquidación de octubre tengan algo real que calcular.
 
-Los errores humanos también forman parte de los cuentos: escribir mal un nombre y corregirlo,
+Los errores humanos se incorporarán en una etapa posterior: escribir mal un nombre y corregirlo,
 equivocarse de DNI y pedir eliminar al alumno, omitir un dato obligatorio, intentar una operación
 sin permiso o cancelar antes de guardar. El relato describe el pedido; no inventa si Wings debe
 permitirlo o rechazarlo. Las expectativas se apoyan en las decisiones y contratos vigentes.
@@ -41,7 +43,7 @@ Esto no cambia por sí solo el estado de T76 ni acredita su ejecución.
 | Quién | Qué hace en esta etapa |
 |---|---|
 | **Carlos** | Dueño del producto. Decide y aprueba lo visual. Resuelve dudas de negocio que no estén definidas. |
-| **Gemini (vos)** | Escribe jornadas realistas orientadas a objetivos funcionales, con errores humanos y comprobaciones por pantalla. Planifica la cobertura y el crecimiento de datos. No ejecuta los días ni prepara la auditoría interna. |
+| **Gemini (vos)** | Escribe jornadas realistas orientadas a objetivos funcionales y comprobaciones por pantalla. Primero camino feliz; después incorpora errores humanos y casos raros. Planifica la cobertura y el crecimiento de datos. No ejecuta los días ni prepara la auditoría interna. |
 | **Codex — Prueba humana** | Interpreta el cuento, opera por menús y formularios y comprueba por pantalla. Informa qué hizo, qué vio y dónde tuvo dificultades. No necesita tablas, servicios, SQL ni cálculos internos. |
 | **Este chat — Casos prueba humana I** | Convierte la misma historia en controles técnicos y los contrasta con el informe del ejecutor. Revisa datos, cálculos, procesos, seguridad, eficiencia y efectos indirectos. La preparación técnica y del entorno queda fuera del relato humano. |
 | **Claude** | Casi sin límite semanal hasta el sábado. No cuenten con él para la prueba. |
@@ -134,15 +136,20 @@ No son condiciones que deba resolver el lector del cuento. El ejecutor humano re
 
 ---
 
-## 5. El calendario: del martes 13/10 al lunes 2/11
+## 5. Dos meses ficticios, una jornada por vez
 
-Carlos aprobó llegar hasta el **2/11**, para cerrar octubre y ver el arranque de noviembre. No todos los
-días necesitan un cuento largo:
+Carlos amplió el horizonte a **dos meses ficticios**, sin fijar en este acuerdo una fecha final exacta.
+El 2/11 deja de ser el límite de toda la prueba. Se conserva como hito para observar el cierre de octubre
+y el arranque de noviembre. Se prepara, ejecuta y analiza una jornada por vez; después se ajusta la siguiente.
+No todos los días necesitan un cuento largo:
 
 - **Días cortos** (la mayoría): lo de todos los días del club. Cobros y asistencia, para acumular datos.
 - **Días completos:** los que traen algo nuevo. Tienen un cuento con más tareas y controles.
 
 **Lo que tiene que pasar sí o sí en algún día** (pedido de Carlos y caminos felices a probar):
+
+Esta lista orienta la cobertura progresiva; no es una obligación de incluir todas las variantes ahora.
+Primero flujos habituales correctos. Los intentos inválidos, rechazos provocados y excepciones se suman después.
 
 1. **Cobros a alumnos con deuda, todos los días hábiles**, variando: un mes completo, pago parcial, varios
    meses juntos, deuda con inscripción, un **mes adelantado de noviembre** cobrado en octubre (T42), con
@@ -174,11 +181,17 @@ sin cargar la jornada anticipadamente. No se exige una auditoría técnica compl
 
 La meta es cubrir el catálogo completo a lo largo de las jornadas, incluidas variantes, roles y errores
 de uso. No metas todo en un día ni marques un caso como probado por mencionarlo en el cuento.
+Para el Día 4 elegí operaciones normales y comprobá sus consecuencias por pantalla. Registrá los casos
+raros como pendientes para después; no hace falta introducir errores deliberados todavía.
 Lo técnico que no se puede comprobar por pantalla se deriva a este chat; lo pendiente queda visible.
 Si no hay una expectativa respaldada, señalá la duda sin inventarla ni detener el resto de la redacción.
 
 La actividad repetida también sirve: nuevos alumnos, pagos, clases y asistencias se conservan entre
 días para dar historia y volumen a los reportes. Eso prepara la evaluación de performance; no la certifica.
+Llenar la base es un objetivo explícito: la mayor parte del relato debe ser actividad cotidiana que
+sale bien. No hace falta que cada operación cubra un caso nuevo ni inventar un problema para justificarla.
+Variá personas, grupos, períodos y medios de pago de forma realista; preservá la historia acumulada.
+Las excepciones se agregan gradualmente sin convertir cada jornada en una sucesión de fallas.
 
 ---
 
@@ -199,8 +212,8 @@ pasó** y **¿Coincide?** al ejecutar.
 - Incluí comprobaciones entre roles: «el dueño registra el cobro; Sandra entra como operativa y lo busca».
   Para restricciones, usá el contrato de permisos; ver clases ajenas no demuestra por sí solo un defecto,
   porque las suplencias están permitidas. Una restricción visible no acredita seguridad HTTP.
-- Escribí situaciones naturales: «la mamá aclara que anotaron mal el apellido; pide corregirlo».
-  Indicá luego la comprobación humana: buscarlo otra vez y revisar su ficha y su grupo.
+- Escribí situaciones naturales. Cuando avancemos a errores de uso, por ejemplo: «la mamá aclara que
+  anotaron mal el apellido; pide corregirlo». Luego, buscarlo otra vez y revisar su ficha y su grupo.
 - Incluí datos ficticios completos para operar, importes y pedidos concretos de las personas.
   No pongas en sus diálogos saldos internos precalculados, tablas, rutas, servicios o reglas SQL.
 - No le pidas al ejecutor preparar el servidor ni reconciliar contadores globales históricos como
@@ -256,10 +269,11 @@ Las condiciones de servidor y reloj se coordinan aparte. No ejecutes el cuento p
 ## 10. Reinicio del Día 4
 
 1. Leé la continuidad y los días 1 a 3; conservá esa historia y las cuentas existentes.
-2. Reescribí el martes 13/10 como una jornada con propósito, pagos y clases, errores humanos y
-   comprobaciones por pantalla. La selección de situaciones responde a la cobertura funcional.
-3. No conserves las 18 filas anteriores como obligación. Mantené una jornada manejable; distribuí
-   el resto hasta el 2/11 y dejá visibles los objetivos que aún no tienen día asignado.
+2. Reescribí el martes 13/10 como una jornada normal del club: primero camino feliz y comprobaciones
+   por pantalla. Sin forzar errores deliberados ni casos raros en esta etapa.
+3. No conserves las 18 filas anteriores como obligación. Prepará solo esta jornada manejable;
+   el horizonte es de dos meses ficticios y la siguiente se ajusta después de analizar los resultados.
+   Dejá visibles los objetivos pendientes sin exigirles fecha a todos ahora.
 4. Entregá cuento, instrucciones humanas y objetivos funcionales. Resultados de ejecución vacíos.
 5. Registrá el trabajo en tu bitácora, commit y push de tus cambios documentales. No ejecutes,
    cambies reloj/datos/producto ni despliegues por esta redacción.

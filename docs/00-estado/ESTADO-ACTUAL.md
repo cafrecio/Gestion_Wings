@@ -2,6 +2,12 @@
 
 ## T14 — Roles aclarados y reinicio del relato del Día 4, Codex CyE 22/10/2026
 
+**Última precisión de Carlos:** dos meses ficticios, día a día, primero camino feliz y después casos
+raros graduales. Día 4 sin errores deliberados forzados; preparar la siguiente jornada tras analizar
+la anterior. El 2/11 es un hito, no el límite del ensayo. Los roles siguientes conservan su alcance.
+La actividad normal y repetida debe llenar la base y dar historia a los reportes; no cada operación
+requiere un caso nuevo ni un error. Las excepciones se incorporan sin dominar las jornadas.
+
 Carlos asignó: Gemini escribe jornadas orientadas a objetivos, errores humanos y controles por pantalla;
 Codex Prueba humana opera e informa; Casos prueba humana I prepara y contrasta los controles técnicos.
 [Instrucciones actualizadas](../06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md).

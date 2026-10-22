@@ -10,6 +10,14 @@ Este chat se llama **Casos prueba humana I**. Carlos ordenó expresamente que es
 
 ## 1. Acuerdos del chat
 
+- **Última precisión de Carlos, 22/10:** dos meses ficticios y avance día a día. Primero camino feliz;
+  errores deliberados y casos raros después, gradualmente. No concentrar cobertura en el Día 4 ni
+  redactar todas las jornadas por adelantado; analizar lo ocurrido antes de preparar la siguiente.
+  El 2/11 es un hito, no el final obligatorio de la prueba. Los roles asignados se mantienen.
+  Llenar la base también es un objetivo: predominan operaciones normales y repetidas de personas
+  distintas, con pagos, altas, clases y asistencias acumulados. No cada operación necesita un error
+  ni un caso nuevo; las excepciones no deben dominar la vida del club.
+
 - Pensar y revisar antes de actuar. El agente debe preguntar ante dudas y proponer mejoras, no limitarse a obedecer mecánicamente.
 - Gemini escribe una historia que reproduce un día de trabajo del club: alumnos, cuotas, otros ingresos, conceptos no catalogados, gastos, asistencias y cierre. Las operaciones responden a objetivos de prueba, pero deben tener sentido como jornada humana.
 - Codex en **Prueba humana** opera por navegador, menús, botones y formularios; registra lo observado y no arregla durante el ensayo. No escribe direcciones internas ni consulta base/código durante el recorrido.

@@ -34,6 +34,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T14, última precisión de Carlos 22/10:** horizonte de dos meses ficticios; primero camino feliz,
+  día a día. Casos raros y errores deliberados se suman gradualmente después. Preparar el Día 4 normal
+  y analizar su resultado antes de escribir la siguiente jornada. El 2/11 es un hito, no el final.
+  Predomina la actividad cotidiana repetida para llenar la base; no inventar un problema por operación.
+
 - **Día 4, reinicio del relato por Carlos 22/10:** [roles vigentes](../06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md): Gemini escribe jornadas orientadas a objetivos, con errores humanos y comprobaciones por pantalla; Codex Prueba humana opera e informa; Casos prueba humana I prepara y contrasta los controles técnicos. Gemini reescribe el martes 13/10 y planifica cobertura y crecimiento de datos; los días 1 a 3 se conservan. El cuento anterior no habilita ejecución. La [revisión de a86c3509](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md) queda como insumo técnico de este chat. Sin ejecutar ni cambiar producto, reloj/datos o producción; T14 en curso. [Continuidad](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md).
 
 - **T14, control preparado por Codex CyE 21/10:** [tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html), 39 recorridos/14 controles y 331 referencias. Pendiente de revisión independiente y ejecución; no cierra T14. Gemini usa los vínculos para los cuentos desde el 13/10. Sitio leído `56379295`, reloj real 21/10 sin modificar; el relevamiento solo cubrió entradas/listados ADMIN. [Alcance](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md).
