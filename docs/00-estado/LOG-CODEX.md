@@ -36,6 +36,16 @@
 
 [Antecedentes archivados intactos al cerrar T50](../99-archivo/bitacoras/2026-10-21/LOG-CODEX-T50-FINAL-ANTECEDENTES.md).
 
+## 2026-10-22 - Codex CAB - Pase Casos prueba humana I a CyE
+
+Carlos pidió documentar acuerdos, revisiones y lecciones y publicar para seguir desde CyE.
+[Leer primero el pase](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md): este chat nunca ejecuta; otro chat Codex opera por navegador.
+Día 4 sigue en borrador. Cuatro observaciones de segunda revisión NO comunicadas aún a Gemini: origen de contadores, cuota adelantada, criterios/implementación y seguimiento temporal.
+Se conservan borradores y lecciones de Gemini como antecedentes, sin convalidar sus afirmaciones de corrección completa.
+Solo revisión documental/enlaces/diff; sin suite, servidor, reloj ni producto. T14 continúa abierta.
+Próximo: Codex CyE lee el pase, comunica devolución y revisa nueva propuesta con Carlos antes de ejecutar.
+
+
 ## 2026-10-22 — Codex CyE — T77, PHP actualizado y CWP pendiente
 
 Carlos pidió actualizar PHP, conservar ambas páginas funcionando y publicar el informe en GitHub en una carpeta clara.
