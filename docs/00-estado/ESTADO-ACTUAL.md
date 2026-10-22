@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T14 — Relato d34dee7a revisado: guion apto, Codex CyE 22/10/2026
+
+Los ajustes de clase, reportes, aportes y redirecciones fueron contrastados. Avanzadas: 12 alumnas,
+Emma y Martina entre ellas; Principiantes del miércoles permite consultar la nómina sin tomar lista.
+[Dictamen y controles técnicos, §6](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
+Codex normalizó seguimiento funcional: planificado, referencias parciales, contador relativo y frontera
+19→20/10; aclaró consulta de nómina y preparación del reloj por el equipo técnico. Sin modificar catálogo fuente.
+Siguiente: preparación técnica y recorrido en Prueba humana con autorización de Carlos. T14 en curso;
+sin ejecución, cambios de reloj/datos/producto ni despliegue en esta revisión. No acredita aceptación del sistema.
+
 ## T14 — Revisión del nuevo relato 7cf48ece, Codex CyE 22/10/2026
 
 [Informe único](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md): enfoque humano correcto;

@@ -4,6 +4,13 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Dictamen más reciente, 22/10, Codex CyE:** revisado `d34dee7a`; guion apto para el Día 4.
+Ver [resolución §6](REVISION-DIA-04-7cf48ece-CODEX.md). Los ajustes de Gemini están comprobados;
+Codex aclaró la consulta de nómina por la clase del miércoles sin registrar asistencia y separó el reloj
+de la operación humana. También normalizó etiquetas y referencias funcionales, contador relativo y plazo.
+Preparación técnica y ejecución siguen pendientes; no usar «Ejercitado» como resultado ni cerrar T14.
+No corresponde otra ronda de redacción del cuento por esos puntos. El corte siguiente queda histórico.
+
 **Último corte, 22/10, Codex CyE:** Gemini publicó la historia humana de 16 situaciones en `7cf48ece`.
 La [revisión única del nuevo relato](REVISION-DIA-04-7cf48ece-CODEX.md) separa ajustes del guion y
 comprobaciones por pantalla (§1) de los controles técnicos de este chat (§3–4). No se ejecutó el día.

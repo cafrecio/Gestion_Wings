@@ -2,7 +2,11 @@
 
 22/10/2026 — Codex CyE, chat Casos prueba humana I.
 
-**Resultado: enfoque humano correcto; ajustes documentales antes de ejecutar.**
+**Dictamen vigente tras revisar d34dee7a: guion apto para el recorrido humano del Día 4.**
+Preparación técnica previa y ejecución pendientes; no equivale a resultados aprobados del sistema.
+El detalle de la revisión inicial de 7cf48ece se conserva a continuación. La resolución figura en §6.
+
+**Resultado inicial sobre 7cf48ece: enfoque humano correcto; ajustes documentales antes de ejecutar.**
 Se revisaron los tres entregables reales. El Día 4 no se ejecutó y no se certifica cobertura aprobada.
 Se conservan las 16 situaciones y el avance por camino feliz, sin exigir más operaciones ni errores.
 
@@ -85,3 +89,35 @@ No se cambiaron producto, catálogos, alumnos, clases, pagos ni reloj. Sin suite
 
 Siguiente: resolver los ajustes del relato señalados en §1, entregar la versión coherente y preparar
 el inicio técnico. El recorrido humano sigue en su otro chat; T14 permanece en curso.
+
+## 6. Segunda revisión: d34dee7a, 22/10/2026 — guion apto
+
+Se leyeron el diff y las situaciones corregidas, no solo el resumen de Gemini.
+
+- Tarea 11 separa la nómina de Principiantes de la lista de Avanzadas. Consulta de prueba confirmó
+  las 12 alumnas del grupo 3, incluidas Emma Fernández y Martina Herrera; la clase 28 corresponde
+  al martes de 17 a 18. La clase 6 de Principiantes es el miércoles de 16 a 17.
+- Un profesor puede consultar Clases y abrir el detalle de la próxima clase. ClaseWebController
+  permite listar futuras y show obtiene la nómina; la vista muestra los alumnos aunque la clase
+  no haya ocurrido, con controles de asistencia deshabilitados. La comprobación de Mora se hace
+  allí sin registrar asistencia del miércoles ni cambiar el reloj.
+- Tareas 2 y 14 ajustadas a las redirecciones ya comprobadas. Tarea 15 usa matrícula actual y
+  desglose por deporte/nivel; tarea 16 separa Aportes del ingreso económico por cuotas.
+- El arqueo conserva $119.500; caja 1 sigue VALIDADA con $10.000 de cambio retenido en consulta.
+- Las columnas de ejecución permanecen vacías. Se normaliza el seguimiento funcional a
+  PLANIFICADO, se retiran referencias incompatibles y se deja explícita la cobertura parcial.
+  El contador histórico se comparará antes/después, sin fijar 33→32 para distintos roles/filtros.
+- El plazo futuro de Mora queda como seguimiento técnico 19/10 EN_PLAZO → 20/10 MOROSO si
+  conserva deuda, según código y contrato comprobados en la revisión inicial.
+
+La preparación del reloj se separa del trabajo humano. Se aclaró el acceso a la nómina por la clase
+del miércoles y se corrigieron etiquetas y referencias documentales, sin sumar situaciones ni
+alterar los pedidos de las personas. El relato de Gemini queda revisado; la edición documental de
+seguimiento de este chat no constituye ejecución ni cobertura aprobada.
+
+Al comenzar esta revisión HEAD era d34dee7aa790f47d46d25f08687819f3bbcb39b5, carpeta limpia.
+Código funcional sin diferencias con el sitio 56379295 ya comprobado. MCP volvió a informar
+metadata_changed/coverage_unavailable en las fuentes de clases: se leyeron los fragmentos reales.
+Solo SELECT en wingstest y lecturas de código/documentos; sin operar la jornada, cambiar el reloj,
+corregir producto ni desplegar. T14 sigue en curso. Siguiente: preparar el entorno técnico para
+el martes 13/10 y ejecutar la historia en el chat Prueba humana, con autorización de Carlos.

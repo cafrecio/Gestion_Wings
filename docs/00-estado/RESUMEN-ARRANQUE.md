@@ -34,6 +34,12 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T14, d34dee7a revisado por Codex CyE 22/10:** guion apto para el recorrido humano;
+  [dictamen §6](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md). Clase y alumnas comprobadas;
+  corregidos reportes, aportes y navegación. Seguimiento funcional normalizado a planificado y parcial;
+  nómina del miércoles se consulta sin tomar lista. Pendientes preparación técnica e inicio en Prueba humana
+  con autorización de Carlos. Sin ejecutar, cambiar reloj/datos/producto ni desplegar; T14 en curso.
+
 - **T14, revisión del relato 7cf48ece, Codex CyE 22/10:** [informe](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
   Camino feliz y roles bien orientados; ajustar clase Avanzadas/Principiantes, reporte de matrícula
   actual, indumentaria APORTE y navegación esperada. Arqueo $119.500 correcto como propuesta.

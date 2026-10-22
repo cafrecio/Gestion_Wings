@@ -42,6 +42,16 @@
 
 [Antecedente archivado intacto al revisar el relato 7cf48ece](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-REVISION-7cf48ece-ANTECEDENTE.md).
 
+[Antecedentes archivados intactos al revisar d34dee7a](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-REVISION-D34-ANTECEDENTE.md).
+
+## 2026-10-22 — Codex CyE — T14: relato d34dee7a revisado, guion apto
+
+Contrastados los ajustes de Gemini: Avanzadas tiene 12 alumnas, Emma y Martina incluidas; clase del miércoles de Principiantes consultable sin tomar asistencia. Reportes, aportes y redirecciones corregidos.
+[Dictamen §6 y controles pendientes](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md). Este chat aclaró el acceso humano a la nómina y que el reloj lo prepara el equipo técnico.
+Normalizado OBJETIVOS-FUNCIONALES: planificado, referencias parciales sin casos incompatibles, contador relativo y frontera 19→20/10; catálogo Carlos/Claude intacto.
+Comprobación documental, código y SELECT concretos en wingstest; cobertura MCP no disponible, lectura directa. Sin ejecutar, cambiar reloj/datos/producto ni desplegar; sin suite por documentos.
+Estado/resumen/continuidad/tablero actualizados. T14 en curso. Sigue preparación técnica e inicio en Prueba humana con autorización de Carlos; no hay resultados aprobados del sistema.
+
 ## 2026-10-22 — Codex CyE — T14: revisión de la historia humana 7cf48ece
 
 Leídos los tres entregables reales; enfoque humano correcto, con ajustes documentales antes de ejecutar.
@@ -111,17 +121,3 @@ Arnés original: tres rechazos por guardia antes de preparar, salida global 0; c
 Base propia: 13/71 permanentes y 17/214 independientes verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Corte 1029.
 T50 cerrada por generador; estado, resumen, plan, contrato e implementación al día. H1 decidido, H2/H3 e idioma conservados; tabla externa intacta.
 [Informe final y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Salidas históricas de tercera vuelta recuperadas de b4e0b2e0; actuales en carpeta nueva. Sin cambios de producto por Codex, despliegue ni push.
-## 2026-10-21 — Codex CyE — T50 tercera verificación, idioma aprobado y guardia incompleta
-
-Revisado d274cfd4 y remoto coincidente; Ventas_CyE. Rápida: 908 aprobadas/6 omitidas, 7286 aserciones, 193,47 s, salida 0.
-Idioma corregido: 13/71 permanentes y 17/214 controles propios verdes en wings_testing_codex, incluidos 20 rechazos sin cambios en tablas. H1 decidido; H2/H3 conservados.
-Guardia del auxiliar: rechaza production/base no permitida, pero con DB_DATABASE permitido y DB_URL a otra base supera el control. Reproducción original con puerto cerrado 127.0.0.1:1, sin escrituras; no es una puerta web.
-T50 devuelta a Gemini solo por validar la conexión efectiva antes de migrar/sembrar. Estado, resumen, plan, contrato y tablero actualizados; corte permanente 1029.
-[Informe y controles](../06-pruebas/PRU-04/VERIFICACION-T50-TERCERA-CODEX.md). MCP sin transporte; lectura directa y ejecución. Sin despliegue ni publicación.
-## 2026-10-21 — Codex CAB — Publicación de archivos propios
-
-Carlos pidió actualizar esta bitácora y subir todos mis archivos a GitHub.
-Publicados en main los commits propios 30d09f6 y d5d2f38: informe, evidencia y continuidad T50, más constancia del archivo de la copia temporal.
-GitHub confirmó d5d2f385a1d183f73aa80eadf15a21ee87abc511; no había commits ajenos pendientes de publicación.
-Sin cambios de producto ni despliegue; revisión documental y carpeta limpia antes de esta entrada.
-Sigue pendiente que Gemini subsane las dos observaciones T50 del informe; H1 conserva la decisión de Carlos.

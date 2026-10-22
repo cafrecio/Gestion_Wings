@@ -1,7 +1,7 @@
 # Objetivos de prueba por jornada — PRU-04
 
-> **Control vigente para el nuevo relato de 16 situaciones:** ver §3–4 de la
-> [revisión técnica de 7cf48ece](REVISION-DIA-04-7cf48ece-CODEX.md). La matriz histórica de 18 filas
+> **Control vigente para el relato de 16 situaciones corregido en d34dee7a:** ver §3–4 y el dictamen §6
+> de la [revisión técnica](REVISION-DIA-04-7cf48ece-CODEX.md). La matriz histórica de 18 filas
 > que sigue no se aplica automáticamente a la nueva historia. Controles aún pendientes de ejecución.
 
 > **Borrador técnico anterior, pendiente de reelaboración — 22/10/2026.** Responsable desde la
