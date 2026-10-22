@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-22 — LOG GEM CYE — Ajustes de navegación, cronograma y reportes en el Día 4 (PRU-04)
+
+- **Objetivo y resultado:** Aplicación de los 4 ajustes puntuales indicados por Carlos tras contrastar los borradores con el sistema real:
+  - **1. Cronograma de clases:** Se precisó que los martes a las 17 hs se dicta Patín Avanzadas (12 alumnas). Lucía toma lista a Avanzadas (10 presentes / 2 ausentes: Emma Fernández y Martina Herrera). La comprobación cruzada de Mora Benítez se realiza consultando la nómina de su grupo Patín Principiantes para su primera clase del miércoles.
+  - **2. Reportes de alumnos:** Se corrigió la expectativa: `Reportes → Alumnos` muestra la **Matrícula actual activa** (101 alumnos, con desglose por deporte y nivel), no altas mensuales.
+  - **3. Clasificación de indumentaria:** La remera oficial (subrubro `Indumentaria institucional`) tiene clasificación `APORTE` en el catálogo; se ajustó para comprobarse en el renglón propio de Aportes en Reportes y Cashflow.
+  - **4. Navegación y redirecciones reales:** Tras guardar en `Alumnos → Nuevo`, redirige al listado con mensaje verde («Alumno creado correctamente.») y desde allí se abre la ficha con «Ver». Tras validar caja en `Caja → Detalle`, redirige al listado principal de Caja con mensaje verde («Caja validada...») mostrando la caja en estado `VALIDADA`.
+- **Entregables actualizados:** `DIA-04.md`, `INSTRUCCIONES-EJECUTOR-DIA-04.md` y `OBJETIVOS-FUNCIONALES.md`. Resultados de ejecución vacíos.
+- **Próximo paso:** Autorización de Carlos para el inicio de la prueba humana.
+
 ## 2026-10-22 — LOG GEM CYE — Reescritura del Día 4 y Objetivos Funcionales (PRU-04)
 
 - **Objetivo y resultado:** Reescritura integral de la jornada del **Día 4 (martes 13/10/2026)** siguiendo las directivas de Carlos y la actualización de `INSTRUCCIONES-PRUEBA-GEMINI.md`. El cuento reproduce el camino feliz de una tarde cotidiana del club Wings con comprobaciones cruzadas entre roles y pedidos comprensibles para el ejecutor humano.
