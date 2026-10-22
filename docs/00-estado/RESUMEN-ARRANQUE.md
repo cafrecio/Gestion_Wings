@@ -34,6 +34,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T77, seguridad PHP del VPS, 22/10:** ambos sitios actualizados a 8.2.35, ingreso/dashboard y conexión a base comprobados. CWP conserva PHP 7.4.33 sin actualización disponible en su repositorio; mitigación parcial aplicada, parche definitivo pendiente. Tiene Codex. [Informe y respaldo](../06-pruebas/SEG-PHP-2026-10-22/INFORME.md).
+
 - **T14, control preparado por Codex CyE 21/10:** [tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html), 39 recorridos/14 controles y 331 referencias. Pendiente de revisión independiente y ejecución; no cierra T14. Gemini usa los vínculos para los cuentos desde el 13/10. Sitio leído `56379295`, reloj real 21/10 sin modificar; el relevamiento solo cubrió entradas/listados ADMIN. [Alcance](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md).
 
 - **T50 CERRADA, Codex CyE 21/10:** 738de598 verifica conexión efectiva/DB_URL; arnés original 3/3 rechazos antes de preparar, sin escrituras. 13/71 permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0; corte 1029. H1 decidido por Carlos; H2/H3 e idioma confirmados. Gemini implementó, Codex verifica y cierra por tablero. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Sin cambios de producto por Codex, tabla ni despliegue.

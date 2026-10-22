@@ -817,11 +817,13 @@ fue inspeccionado.
 
 ## 2. Servidor — corte SSH 08/09 y avance por consola 09/09
 
+**Actualización PHP 22/10/2026, T77:** PHP compartido por producción y prueba actualizado a 8.2.35; reinicio, ingreso real y dashboard de ambos comprobados. PHP separado de CWP sigue en 7.4.33, sin paquete nuevo en su repositorio; se aplicó solo la mitigación `session.upload_progress.enabled=Off`. No se declara protegido todo el VPS. [Informe, respaldo y pendiente](../06-pruebas/SEG-PHP-2026-10-22/INFORME.md). El resto de esta tabla conserva su corte histórico.
+
 | Que | Estado |
 |---|---|
 | Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10 |
 | Diferencia con `main` al corte | El servidor incorporo documentos y scripts hasta `81f27ef`; los commits posteriores requieren sincronizacion |
-| Plataforma | AlmaLinux 9, PHP 8.2.33, Laravel 12.68.0 |
+| Plataforma | AlmaLinux 9.8, PHP 8.2.35, Laravel 12.68.0 (comprobado por SSH el 22/10/2026) |
 | HTTPS | Activo |
 | Cloudflare | Proxy activo; acceso web directo al servidor cerrado |
 | Migraciones | Sin pendientes en la ultima verificacion |
