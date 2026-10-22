@@ -129,6 +129,10 @@ No son condiciones que deba resolver el lector del cuento. El ejecutor humano re
 - **Reloj:** está en la hora real. Cada día empieza fijándolo, en el servidor (`ssh vps`):
   `cd /home/wingstest/app && sudo -u wingstest /usr/bin/php82 artisan wings:fecha-simulada "2026-10-13 09:00"`.
   Sin argumento muestra el vigente; `--real` vuelve a la hora real. **El día 4 es el martes 13/10.**
+- **Sesión y reloj simulado (22/10):** con el reloj en una fecha pasada, la cookie de sesión nacía vencida
+  (`Max-Age=0`) y el navegador la borraba: el ingreso volvía al login sin ningún error. En el sitio de prueba
+  quedó `SESSION_EXPIRE_ON_CLOSE=true` (la sesión dura hasta cerrar el navegador). No lo saquen mientras
+  dure la prueba. Producción no usa reloj simulado: no le afecta.
 - **Procesos automáticos:** corren cada minuto **con el reloj simulado**: cuotas del mes a las 6:00
   (`--si-falta`), recargos a las 6:15 y resumen diario al dueño a las 8:00. Al cambiar de día, contá con que
   se disparan solo si se dan sus condiciones. Su comprobación corresponde al control técnico;
