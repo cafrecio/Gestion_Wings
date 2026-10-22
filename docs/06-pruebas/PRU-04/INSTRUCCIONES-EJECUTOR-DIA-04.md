@@ -1,6 +1,8 @@
 # Instrucciones para el Ejecutor Humano — Día 4 (Martes 13/10/2026)
 
-**BORRADOR PREPARADO PARA REVISIÓN — NO EJECUTAR HASTA LA AUTORIZACIÓN DE CARLOS**
+**EJECUCIÓN AUTORIZADA POR CARLOS — 22/10/2026, chat «Prueba Manual GW I».**
+
+**Resultado entregado:** las 16 tareas tienen registro en DIA-04; 14 Sí y 2 Parcial. Caja #2 validada sin diferencia. No repetir la jornada. Carlos autorizó una intervención técnica al bloquearse el ingreso de T13; alcance y comprobaciones documentados en DIA-04. El resto del recorrido de negocio se ejecutó por pantalla.
 
 - **Destinatario:** Codex en el chat **Prueba humana**.
 - **Entorno:** Sitio de prueba https://test.gestionar-te.com.ar (base `wingstest`).
@@ -36,7 +38,7 @@ Por favor, sé especialmente prolija y ordenada al tomarlas:
    - `dia04-05-cobro-deuda-mercadopago.png` (cobro de septiembre de Emma con MP).
    - `dia04-06-cobro-parcial-dante.png` (cobro a cuenta de $30.000 con desglose FIFO).
    - `dia04-07-cobro-galicia-mateo.png` (cobro con Banco Galicia).
-   - `dia04-08-cobro-adelantado-sofia.png` (cobro de cuota de noviembre adelantada).
+   - `dia04-08-cobro-adelantado-julieta.png` (cobro de noviembre adelantado; Carlos sustituyó Sofía por Julieta el 22/10).
    - `dia04-09-caja-ingreso-indumentaria.png` (movimiento de venta de remera en subrubro Indumentaria institucional).
    - `dia04-10-caja-egreso-limpieza.png` (movimiento de gasto de limpieza con ticket).
    - `dia04-11a-clase-nomina-principiantes.png` (nómina de Patín Principiantes mostrando a Mora incorporada).
@@ -70,6 +72,7 @@ Por favor, sé especialmente prolija y ordenada al tomarlas:
   * Escribí en **«Lo que pasó»** lo que viste en la pantalla (importes, mensajes, nombres, estados, redirecciones).
   * Escribí en **«¿Coincide?»**: `Sí`, `No` o `Parcial`.
 - **Condición de detención inmediata:**
-  * Si al cerrar la caja en la Tarea 13 hay una diferencia de dinero inexplicable (diferencia distinta de $0 sobre los $119.500 esperados).
+  * **Diferencias de caja: registrar y continuar.** Carlos cambió la regla el 22/10/2026: «Si tenes diferencias de caja, no frenes. Deja el registro y veremos como se corrige despues». No corregir la diferencia durante el recorrido.
+  * Si surge una duda, frenar y consultar a Carlos.
   * Si aparece una pantalla de error crítico (HTTP 500) que impida continuar con la jornada.
   * En esos casos, **detené la prueba inmediatamente** y avisá a Carlos.

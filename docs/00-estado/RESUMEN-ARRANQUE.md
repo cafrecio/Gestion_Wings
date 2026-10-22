@@ -37,8 +37,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - **T14, d34dee7a revisado por Codex CyE 22/10:** guion apto para el recorrido humano;
   [dictamen §6](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md). Clase y alumnas comprobadas;
   corregidos reportes, aportes y navegación. Seguimiento funcional normalizado a planificado y parcial;
-  nómina del miércoles se consulta sin tomar lista. Pendientes preparación técnica e inicio en Prueba humana
-  con autorización de Carlos. Sin ejecutar, cambiar reloj/datos/producto ni desplegar; T14 en curso.
+  nómina del miércoles se consulta sin tomar lista. **22/10, Prueba Manual GW I:** Carlos autorizó ejecutar;
+  reloj de prueba fijado una vez en 13/10 18:15. **16 tareas registradas: 14 Sí, T2/T6 parciales.** Julieta sustituyó Sofía; noviembre confirmado por Carlos y comprobado.
+  Caja #2 VALIDADA: contado $119.500, diferencia $0, cambio $10.000, retiro $109.500. Matrícula 101; deuda $1.899.000; disponible $1.926.500. Listas 28 y 74 persistentes; pendientes 33→32. No repetir.
+  Bloqueo de ingreso resuelto a pedido de Carlos: contador vencido el 22/10, futuro para la prueba 13/10; respaldo y limpieza solo de esa caché. Sandra/Admin ingresaron; nuevo vencimiento correcto.
+  [Resultados y límites](../06-pruebas/PRU-04/DIA-04.md). Sin producto ni despliegue. Sigue contraste técnico y revisión independiente; T14 en curso.
 
 - **T14, revisión del relato 7cf48ece, Codex CyE 22/10:** [informe](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
   Camino feliz y roles bien orientados; ajustar clase Avanzadas/Principiantes, reporte de matrícula

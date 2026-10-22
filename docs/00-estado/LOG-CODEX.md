@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-22 — Codex CyE — Día 4: recorrido entregado
+
+16 tareas: 14 Sí, T2/T6 parciales. Julieta por Sofía, noviembre confirmado por Carlos; PDF9 comprobado.
+Caja #2 VALIDADA: contado $119.500, diferencia $0, cambio $10.000, retiro $109.500. No repetir.
+Matrícula 101; deuda $1.899.000; disponible $1.926.500. Listas guardadas 28:10/12 y 74:12/14.
+Carlos pidió resolver acceso: caché de ingreso vencida el 22/10, futura para reloj 13/10; respaldo y limpieza puntual.
+Sandra/Admin ingresaron; nuevo límite vence en fecha simulada. Sin código, reinicio de reloj ni producción.
+[DIA-04](../06-pruebas/PRU-04/DIA-04.md): resultados, límites y siguiente contraste técnico. T14 en curso.
+
 [Antecedente archivado al tomar T42](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-TOMA-T42-ANTECEDENTE.md).
 
 [Antecedente archivado al reverificar T52](../99-archivo/bitacoras/2026-10-20/LOG-CODEX-T52-REVERIFICACION-ANTECEDENTE.md).

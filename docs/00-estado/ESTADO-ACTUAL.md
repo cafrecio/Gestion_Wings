@@ -1,5 +1,10 @@
 # Wings — Estado actual
 
+## T14 — Día 4 recorrido entregado, Codex CyE 22/10/2026
+
+Carlos autorizó el recorrido en Prueba Manual GW I. [Resultados por tarea e intervención técnica](../06-pruebas/PRU-04/DIA-04.md): 16 registradas, 14 Sí y T2/T6 parciales; Julieta sustituyó a Sofía por decisión de Carlos y él confirmó el adelanto. Caja #2 VALIDADA: contado $119.500, diferencia $0, cambio $10.000, retiro $109.500; ingresos $201.000, egresos $8.500, neto $192.500. Clases 28 y 74 guardadas y recargadas; Sin asistencia 33→32. Matrícula 101, deuda $1.899.000, disponible $1.926.500; octubre ingresos económicos $320.000 y aportes $15.000 separados del resultado.
+El bloqueo de T13 se resolvió a pedido de Carlos: solo caché de ingreso de staging, con contador/temporizador vencidos el 22/10 pero futuros para el reloj simulado 13/10. Respaldo privado y limpieza puntual; Sandra y Admin ingresaron, nuevo contador venció con la fecha de la prueba. Se conservó el ajuste de sesión de Claude. Reloj preparado una sola vez; sin cambios de código ni producción. No repetir operaciones. [Evidencia y límites](../06-pruebas/PRU-04/evidencia-dia-04/LEEME.md). Sigue contraste técnico/verificación independiente; T14 permanece en curso, sin aceptación integral del sistema.
+
 ## T14 — Relato d34dee7a revisado: guion apto, Codex CyE 22/10/2026
 
 Los ajustes de clase, reportes, aportes y redirecciones fueron contrastados. Avanzadas: 12 alumnas,
@@ -7,7 +12,7 @@ Emma y Martina entre ellas; Principiantes del miércoles permite consultar la n�
 [Dictamen y controles técnicos, §6](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
 Codex normalizó seguimiento funcional: planificado, referencias parciales, contador relativo y frontera
 19→20/10; aclaró consulta de nómina y preparación del reloj por el equipo técnico. Sin modificar catálogo fuente.
-Siguiente: preparación técnica y recorrido en Prueba humana con autorización de Carlos. T14 en curso;
+Siguiente al corte de esa revisión: preparación técnica y recorrido autorizado (avance posterior arriba). T14 en curso;
 sin ejecución, cambios de reloj/datos/producto ni despliegue en esta revisión. No acredita aceptación del sistema.
 
 ## T14 — Revisión del nuevo relato 7cf48ece, Codex CyE 22/10/2026
