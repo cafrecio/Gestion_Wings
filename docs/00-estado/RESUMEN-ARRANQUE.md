@@ -34,7 +34,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **Pase a Codex CyE, 22/10:** [Casos prueba humana I: leer primero](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md). Día 4 sigue en borrador; cuatro correcciones de la segunda revisión todavía no comunicadas a Gemini. Este chat no ejecuta la prueba; otro chat Codex la hará tras revisión. No tomar las lecciones de Gemini como aprobación.
+- **Día 4, revisión Codex CyE 22/10:** Gemini publicó `a86c3509` tras recibir las cuatro observaciones. [Preparación devuelta](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md): base inicial sin reconciliar, Alquileres EGRESO/indumentaria APORTE, plazo de Mora, comisión de docente HORA, casos mal vinculados y referencias técnicas pendientes. Lectura de código y consultas concretas de solo lectura en prueba; no se ejecutó el día ni se cambió reloj/datos. T14 sigue en curso; este chat revisa y otro ejecutará después. [Continuidad actualizada](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md).
 
 - **T14, control preparado por Codex CyE 21/10:** [tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html), 39 recorridos/14 controles y 331 referencias. Pendiente de revisión independiente y ejecución; no cierra T14. Gemini usa los vínculos para los cuentos desde el 13/10. Sitio leído `56379295`, reloj real 21/10 sin modificar; el relevamiento solo cubrió entradas/listados ADMIN. [Alcance](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md).
 

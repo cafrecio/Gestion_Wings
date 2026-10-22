@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T14 — Día 4 devuelto tras revisar a86c3509, Codex CyE 22/10/2026
+
+[Informe de revisión](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md). Adelanto y rutas principales corregidos; siguen contradicciones en base inicial, catálogo y dinero, plazo del alta, comisión por hora/comisión, referencias al catálogo y servicios. Consultas de solo lectura confirmaron Alquileres EGRESO, Indumentaria institucional APORTE, Lucía HORA y plazo 7/gracia 10. No se ejecutó la jornada ni se modificó producto, reloj o datos de negocio; Gemini corrige preparación y se revisa nuevamente antes de habilitar el chat ejecutor. T14 continúa en curso.
+
 ## T14 — Control integral preparado, Codex CyE 21/10/2026
 
 [Tabla](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 39 recorridos, 14 controles transversales y referencias de solo lectura a los 331 casos existentes. Resultado actual de todos: pendiente; cero ejecuciones. Incluye seguridad, validaciones, datos, aspecto y performance como dimensiones separadas. [Alcance y fuentes comprobadas](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md). Relevadas 18 pantallas de entrada/listado con ADMIN; sin operar formularios, otros roles ni móvil. Sitio de prueba leído por SSH en `56379295`, reloj real 21/10; no se modificó. La tabla espera revisión independiente y después alimenta los cuentos de Gemini; T14 continúa en curso, sin declarar aptitud para producción.

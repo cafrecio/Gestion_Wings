@@ -4,7 +4,7 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
-Aplicar el [protocolo](../../00-estado/PROTOCOLO-CONTINUIDAD.md), leer este archivo completo y después los tres borradores enlazados abajo. **La segunda devolución de Codex todavía NO fue enviada a Gemini por Carlos.** El siguiente paso es comunicar las cuatro observaciones de la sección 5 y revisar su nueva entrega con Carlos. No ejecutar el día, corregir producto ni cerrar T14.
+Aplicar el [protocolo](../../00-estado/PROTOCOLO-CONTINUIDAD.md). **Actualización 22/10, Codex CyE:** Carlos comunicó la segunda devolución y Gemini publicó `a86c3509`. La [revisión actual](REVISION-DIA-04-CODEX-2026-10-22.md) devuelve la preparación por seis grupos de observaciones: base inicial, catálogo/dinero, plazo, comisión HORA/COMISION, cobertura y referencias técnicas. Retomar desde ese informe; la sección 5 de este pase queda como antecedente. No ejecutar el día, corregir producto ni cerrar T14.
 
 Este chat se llama **Casos prueba humana I**. Carlos ordenó expresamente que este chat **nunca ejecuta la prueba**. La ejecuta Codex en otro chat, **Prueba humana**, una vez revisado el cuento y autorizado el inicio. Esa separación sigue vigente al cambiar de computadora.
 
@@ -57,9 +57,9 @@ Primera revisión de Codex:
 
 La segunda versión cambió a las 18:15, quitó URLs internas, agregó detención, mediciones y el archivo del ejecutor, corrigió el disponible total y describió las transiciones individuales. **Eso no aprobó toda la propuesta.**
 
-## 5. Segunda devolución — PENDIENTE de comunicar a Gemini
+## 5. Segunda devolución — antecedente anterior a a86c3509
 
-Carlos confirmó que esta última devolución no se la pasó a Gemini. Retomar desde estas cuatro observaciones, conservando la historia y sin agregar operaciones:
+Al escribir el pase CAB, Carlos confirmó que aún no se la había pasado a Gemini. Fue comunicada después y dio lugar a `a86c3509`. Se conservan a continuación las cuatro observaciones originales; el dictamen actual está en la revisión enlazada al comienzo.
 
 ### 5.1 Contadores iniciales sin procedencia acreditada por Codex
 
@@ -91,12 +91,12 @@ Agregar matriz con persona, condición, fecha/hora del siguiente control, caso/l
 
 ## 7. Archivos y advertencia sobre el documento de Gemini
 
-- [Cuento DIA-04](DIA-04.md): segunda versión, pendiente de corrección/revisión.
-- [Objetivos](OBJETIVOS-PRUEBA.md): segunda versión, pendiente de corrección/revisión.
+- [Cuento DIA-04](DIA-04.md): versión de `a86c3509`, devuelta en la revisión CyE.
+- [Objetivos](OBJETIVOS-PRUEBA.md): versión de `a86c3509`, devuelta en la revisión CyE.
 - [Instrucción al ejecutor](INSTRUCCIONES-EJECUTOR-DIA-04.md): borrador, no ejecutar.
 - [Lecciones de Gemini](LECCIONES-PRUEBA-HUMANA-I.md): antecedente de otro agente, conservado sin modificar.
 
-**El documento de Gemini afirma «Todas fueron investigadas y corregidas», «contadores finales auditados» y «casos fuente exactos». Codex no convalida esas afirmaciones.** La sección 5 de este pase conserva las diferencias observadas y es el punto de partida de la revisión pendiente. No heredar sus afirmaciones como verificaciones independientes.
+**Al escribir el pase CAB, el documento de Gemini afirmaba «Todas fueron investigadas y corregidas», «contadores finales auditados» y «casos fuente exactos». Codex no convalidó esas afirmaciones.** En `a86c3509` cambió el texto, pero todavía declara los cuatro documentos plenamente alineados y corregidos; la revisión CyE conserva diferencias concretas. No heredar esas afirmaciones como verificaciones independientes.
 
 ## 8. Lecciones que debe conservar el método
 
