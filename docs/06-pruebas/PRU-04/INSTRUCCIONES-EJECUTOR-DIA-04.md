@@ -24,11 +24,22 @@
 
 ---
 
-## 2. Reglas del método humano
+## 2. Comprobación previa de condiciones iniciales (Paso 0)
+
+Antes de que Sandra abra la caja en la Tarea 1, ingresar con el usuario **Admin Prueba** y verificar en pantalla los antecedentes certificados en DIA-02 y DIA-03:
+- **Cobranza:** Verificar que liste 100 alumnos activos, con la distribución: **65 Al día / 0 En plazo / 22 Morosos / 13 Deudores**, y un total de deuda de **$2.010.000**.
+- **Cashflow:** Verificar que el disponible acumulado total sea de **$1.734.000** (Efectivo $376.000, Mercado Pago $1.358.000, Banco Galicia $0).
+- **Clases:** Verificar que el contador badge del menú «Sin asistencia» muestre exactamente **33** clases pendientes históricas.
+
+> *Si los valores en pantalla coinciden con lo anterior, consignar conformidad y proceder a la Tarea 1. Si el servidor presentara alguna discrepancia previa, anotarla explícitamente en el reporte antes de realizar cualquier escritura.*
+
+---
+
+## 3. Reglas del método humano
 
 1. **Navegación 100% humana:**
    - Operar exclusivamente desde la ventana de Chrome haciendo clics en menús, botones, enlaces y completando formularios.
-   - **Prohibido escribir URLs internas en la barra de direcciones.** El recorrido debe encontrar todo a través de la interfaz.
+   - **Prohibido escribir URLs internas en la barra de direcciones.** El recorrido debe encontrar todo a través de la interfaz gráfica.
    - **Prohibido consultar la base de datos o correr scripts de prueba durante el recorrido.**
 2. **Espera entre cambios de usuario (Anti-Throttle):**
    - El sistema tiene un límite de seguridad de 5 inicios de sesión por minuto.
@@ -41,7 +52,7 @@
 
 ---
 
-## 3. Registro de lo observado
+## 4. Registro de lo observado
 
 Para cada una de las 18 operaciones de [DIA-04.md](DIA-04.md):
 - Completar la columna **«Lo que pasó»**: describir qué devolvió la pantalla, importes visibles, carteles y estados.
@@ -52,7 +63,7 @@ Para cada una de las 18 operaciones de [DIA-04.md](DIA-04.md):
 
 ---
 
-## 4. Condición estricta de detención
+## 5. Condición estricta de detención
 
 **DETENER LA PRUEBA INMEDIATAMENTE Y AVISAR A CARLOS SI:**
 1. Se produce un descuadre de dinero en caja, mostrador o cashflow (diferencia de efectivo distinta de $0 no justificada).
@@ -60,7 +71,7 @@ Para cada una de las 18 operaciones de [DIA-04.md](DIA-04.md):
 
 ---
 
-## 5. Fin de la jornada
+## 6. Fin de la jornada
 
 Una vez completadas las 18 operaciones:
 1. Asegurar que las 18 filas de [DIA-04.md](DIA-04.md) tengan «Lo que pasó» y «¿Coincide?» completados.

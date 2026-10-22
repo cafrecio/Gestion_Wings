@@ -10,6 +10,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-22 — LOG GEM CYE — Corrección y ajuste técnico del Día 4 (PRU-04)
+
+- **Objetivo y resultado:** Corrección y fundamentación documental del Día 4 (martes 13/10/2026) a partir de `CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md`. Se mantuvieron estrictamente la historia y sus 18 operaciones sin agregar escrituras. Resultado: **DOCUMENTOS CORREGIDOS Y LISTOS PARA REVISIÓN**, con resultados de ejecución vacíos.
+- **Cuatro correcciones aplicadas:**
+  - **1. Condiciones iniciales y contadores:** Se retiró la distribución no comprobada (62/0/15/23) y se recalculó la conciliación partiendo de la base certificada de DIA-02 y DIA-03 (65 Al día / 0 En plazo / 22 Morosos / 13 Deudores, deuda $2.010.000). Resultado final proyectado: **67 Al día / 1 En plazo / 22 Morosos / 11 Deudores** (101 alumnos, deuda $1.899.000). Se agregó paso previo de comprobación en pantalla para verificar el estado del servidor antes de operar.
+  - **2. Adelanto de noviembre (T42 / DU-19):** Se corrigió la descripción de «pago a cuenta sin deuda». En el código (`PagoCuotaService`), el cobro crea la cuota `2026-11` en `deuda_cuotas` como `PAGADA`, genera el pago e imputación e impacta la caja hoy ($30.000), pero difiere el devengamiento económico y la comisión docente a noviembre (condicionada a asistencia). El comando del 1/11 saltea la cuota sin duplicar.
+  - **3. Catálogo y rutas reales:** Se retiró `CBZ-004` de la op. 5 (evalúa pagar el mes nuevo dejando el viejo; no aplica a FIFO). Se retiró `COB-009` como acreditado (exige probar intento sin motivo y rechazo, está `no_implementado` / T25). Se corrigieron todas las rutas y controladores reales (`POST /caja/cobrar/{id}` a `CajaWebController::pagar`, `POST /caja/movimiento`, `POST /caja/apertura`, `POST /caja/{id}/cerrar`, `POST /cajas/{id}/validar`). Se diferenció visibilidad en navbar de control de acceso directo.
+  - **4. Seguimiento temporal:** Se incorporó en `OBJETIVOS-PRUEBA.md` la matriz con Mora (plazo al 20/10 y mora el 21/10), Sofía (no duplicación el 1/11 y comisiones el 2/11 y 1/12), asistencias, advertencia sobre automatismos matutinos a las 18:15 hs y aclaración de que el alta del 13/10 dista 19 días del 1/11 y no prueba la ventana de 15 días de `CBZ-017`.
+- **Entregables actualizados:** `DIA-04.md`, `OBJETIVOS-PRUEBA.md`, `INSTRUCCIONES-EJECUTOR-DIA-04.md` y `LECCIONES-PRUEBA-HUMANA-I.md`.
+- **Próximo paso:** Revisión previa por Carlos antes de coordinar ejecución con Codex.
+
 ## 2026-10-22 — LOG GEM CAB — Prueba Humana I: Diseño Día 4 y Lecciones Aprendidas (PRU-04)
 
 - **Objetivo y resultado:** Sesión «Prueba humana I» con Carlos para estructurar la jornada del **Día 4 (martes 13/10/2026)** de PRU-04. Se redactó el cuento en `DIA-04.md` (18 operaciones de negocio), la matriz técnica en `OBJETIVOS-PRUEBA.md` y la guía separada en `INSTRUCCIONES-EJECUTOR-DIA-04.md`.
