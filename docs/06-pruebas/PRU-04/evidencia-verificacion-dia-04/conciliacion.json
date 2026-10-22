@@ -1,0 +1,30 @@
+{
+  "alcance": "Registros ejecutados del Dia 4; no acredita totalidad de deudas potenciales, seguridad ni carga",
+  "estado": "CONCILIADO",
+  "pagos": 5,
+  "imputaciones": 6,
+  "movimientos": 7,
+  "reflejos_unicos": 7,
+  "ingresos_turno": "201000.00",
+  "egresos_turno": "8500.00",
+  "neto_turno": "192500.00",
+  "contado": "119500.00",
+  "deuda_guardada": "1899000.00",
+  "disponible": "1926500.00",
+  "ingresos_octubre": "320000.00",
+  "aportes": "15000.00",
+  "adelanto_noviembre": "30000.00",
+  "asistencias": {
+    "28": [
+      12,
+      10,
+      2
+    ],
+    "74": [
+      14,
+      12,
+      2
+    ]
+  },
+  "clase_futura_sin_marcas": true
+}

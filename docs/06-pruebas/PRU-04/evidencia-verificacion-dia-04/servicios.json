@@ -1,0 +1,69 @@
+{
+    "entorno": "staging",
+    "base": "wingstest",
+    "fecha_aplicacion": "2026-10-13 19:51:14-03:00",
+    "sesion_hasta_cerrar": true,
+    "contadores": {
+        "DEUDOR": 21,
+        "AL_DIA": 64,
+        "MOROSO": 15,
+        "EN_PLAZO": 1
+    },
+    "estados": {
+        "241": {
+            "estado": "DEUDOR",
+            "dias_gracia_restantes": 0
+        },
+        "245": {
+            "estado": "AL_DIA",
+            "dias_gracia_restantes": 0
+        },
+        "246": {
+            "estado": "MOROSO",
+            "dias_gracia_restantes": 0
+        },
+        "270": {
+            "estado": "MOROSO",
+            "dias_gracia_restantes": 0
+        },
+        "331": {
+            "estado": "AL_DIA",
+            "dias_gracia_restantes": 0
+        },
+        "333": {
+            "estado": "AL_DIA",
+            "dias_gracia_restantes": 0
+        },
+        "341": {
+            "estado": "EN_PLAZO",
+            "dias_gracia_restantes": 6
+        }
+    },
+    "limite_mora": "2026-10-20 00:00:00-03:00",
+    "reporte_octubre_centavos": {
+        "ingresos": 32000000,
+        "egresos": 850000,
+        "resultado": 31150000,
+        "resultado_global": 35650000,
+        "aportes": 1500000,
+        "retiros": 0,
+        "disponible": 192650000,
+        "sin_clasificar": 0,
+        "deuda": 189900000
+    },
+    "avisos": {
+        "cajas": 0,
+        "liquidaciones": 0,
+        "liquidaciones_abiertas": 0,
+        "asistencia": 32,
+        "revision": 0
+    },
+    "observacion_rendimiento_cli": {
+        "consulta": "ReporteMensualService::obtener(2026-10)",
+        "llamadas_sql": 29,
+        "sql_ms": 11.37,
+        "duracion_ms": 35.83,
+        "alumnos_activos": 101,
+        "limite": "Una lectura CLI con estos datos; no mide navegador, carga concurrente ni crecimiento."
+    }
+}

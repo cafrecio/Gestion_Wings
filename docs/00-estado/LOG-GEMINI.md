@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-22 — LOG GEM CYE — Ejecución y contraste técnico del Día 4 (PRU-04)
+
+- **Objetivo y resultado:** Cierre exitoso de la jornada del **Día 4 (martes 13/10/2026)**. Ejecución humana completada por Codex en el chat *Prueba humana* y contraste técnico independiente registrado por Codex en `VERIFICACION-DIA-04.md`. Dictamen: registros de dinero, alta y asistencias conciliados plenamente con la base de datos `wingstest`.
+- **Hitos verificados:**
+  - **Caja y arqueo:** Apertura con $10.000 heredados; arqueo físico cerrado en $119.500 ($10.000 cambio inicial + $118.000 entradas efectivo - $8.500 limpieza), diferencia $0, retención $10.000 y retiro declarado $109.500. Siete movimientos validados por el dueño.
+  - **Cobranzas y adelanto:** Pagos 5 a 9 procesados por $186.000 (Renata $43k, Emma $45k, Dante $30k FIFO, Mateo $38k y Julieta Morales $30k). Cuota de noviembre adelantada generada y pagada en `deuda_cuotas` (recibo CUOTA-9), impactando en caja hoy y excluida del resultado económico de octubre.
+  - **Alumnos y asistencia:** 101 alumnos activos (Mora Benítez incorporada en plazo); clase 28 dictada con 10 presentes y 2 ausentes; clase 74 regularizada bajando los pendientes históricos a 32.
+  - **Lección aprendida:** La necesidad innegociable de pensar y contrastar de antemano el estado real de la base antes de asignar flujos a alumnos específicos; la discrepancia entre el estado en ficha y la cuota ofrecida en Cobrar quedó registrada como observación abierta para seguimiento.
+- **Próximo paso:** Preparación del Día 5 (miércoles 14/10/2026) cuando Carlos lo disponga.
+
 ## 2026-10-22 — LOG GEM CYE — Ajustes de navegación, cronograma y reportes en el Día 4 (PRU-04)
 
 - **Objetivo y resultado:** Aplicación de los 4 ajustes puntuales indicados por Carlos tras contrastar los borradores con el sistema real:

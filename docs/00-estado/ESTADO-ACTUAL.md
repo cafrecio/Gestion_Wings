@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## T14 — Día 4 contrastado técnicamente, Codex CyE 22/10/2026
+
+[Verificación del recorrido 99d1f64a](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md): cinco pagos,
+seis imputaciones, siete movimientos y siete reflejos únicos conciliados. Arqueo $119.500, diferencia
+$0; disponible $1.926.500 y deuda guardada $1.899.000 coinciden con SQL/servicios/capturas revisadas.
+Alta de Mora y listas 28 (10/12), 74 (12/14) persistidas; clase futura 6 sin marcas.
+Se mantienen T2/T6 parciales: presentación en ficha y ausencia de prueba de reparto automático.
+**D4-OBS-01 abierta:** Julieta AL_DIA sin cuota octubre guardada; Cobrar añade una cuota potencial en
+memoria. Sofía tiene inscripción impaga; el adelanto real de noviembre fue de Julieta. Resolver el
+tratamiento de cuotas no guardadas, sin fabricar deuda ni repetir pagos para forzar conciliación.
+Lectura CLI de Reportes: 29 SQL, 35,83 ms con 101 activos; no acredita carga ni seguridad HTTP.
+Sin escrituras de negocio, cambio de reloj/configuración, suite ni despliegue. T14 sigue en curso;
+no declara aceptación integral ni cierre de todos los casos. Conservar datos para el Día 5.
+
 ## T14 — Día 4 recorrido entregado, Codex CyE 22/10/2026
 
 Carlos autorizó el recorrido en Prueba Manual GW I. [Resultados por tarea e intervención técnica](../06-pruebas/PRU-04/DIA-04.md): 16 registradas, 14 Sí y T2/T6 parciales; Julieta sustituyó a Sofía por decisión de Carlos y él confirmó el adelanto. Caja #2 VALIDADA: contado $119.500, diferencia $0, cambio $10.000, retiro $109.500; ingresos $201.000, egresos $8.500, neto $192.500. Clases 28 y 74 guardadas y recargadas; Sin asistencia 33→32. Matrícula 101, deuda $1.899.000, disponible $1.926.500; octubre ingresos económicos $320.000 y aportes $15.000 separados del resultado.

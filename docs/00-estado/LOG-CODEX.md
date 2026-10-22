@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+[Antecedentes archivados intactos al contrastar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-VERIFICACION-DIA04-ANTECEDENTES.md).
+
+## 2026-10-22 — Codex CyE — Casos prueba humana I: contraste técnico del Día 4
+
+[Verificación de 99d1f64a](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md): cinco pagos/seis imputaciones, siete movimientos/reflejos únicos, alta y asistencias conciliados con SQL, servicios y cuatro imágenes.
+Arqueo $119.500, diferencia $0; disponible $1.926.500, deuda guardada $1.899.000; 101 activos. Reloj leído 13/10 19:51 sin cambiarlo. Mantener T2/T6 parciales y adelanto real de Julieta, no Sofía.
+D4-OBS-01 abierta: Cobrar añade cuota corriente no guardada en memoria aunque el estado sea AL_DIA; datos/código explican la diferencia. No se decide ni corrige la regla de negocio.
+Auxiliares y snapshots de lectura archivados; conciliador local y PHP sin errores. Reportes CLI: 29 SQL/35,83 ms con 101 activos; no acredita carga ni seguridad HTTP.
+Actualizados objetivos/estado/resumen/continuidad y paso T14. Conservadas columnas humanas; sin repetir operaciones, cambiar reloj/configuración/producto, suite ni despliegue. Sigue Día 5 con observación abierta; T14 integral en curso.
+
 ## 2026-10-22 — Codex CyE — Día 4: recorrido entregado
 
 16 tareas: 14 Sí, T2/T6 parciales. Julieta por Sofía, noviembre confirmado por Carlos; PDF9 comprobado.
@@ -112,21 +122,3 @@ Subagente independiente: proceso 8.2.35, servicios, HTTPS y assets correctos; mi
 CWP/default conserva PHP 7.4.33: repositorio sin parche nuevo. Mitigación parcial upload_progress=Off y servicios CWP reiniciados; no equivale al parche completo.
 [Informe por fecha en Seguridad VPS](../04-tecnico/seguridad-vps/2026-10-22-actualizacion-php/README.md), enlazado desde docs/README.md. Respaldo privado en VPS; sin cambios de código ni datos de negocio. Capturas temporales descartadas por autocompletado.
 T77 permanece abierta con Codex: pendiente parche compatible del proveedor para CWP; no declarar seguro todo el VPS.
-
-## 2026-10-21 — Codex CyE — T14, tabla de control integral preparada
-
-Pedido de Carlos: control para derivar los relatos de prueba y revisar impactos, permisos, seguridad, performance y consistencia visual/técnica.
-[Tabla y alcance](../06-pruebas/PRU-04/control-integral/LEEME.md): 39 recorridos, 14 controles transversales y 331 referencias de solo lectura; cero ejecuciones, todo pendiente.
-Recorridas 18 entradas/listados ADMIN en Chrome; código relevante leído después del MCP. Cobertura del índice no acreditable aun tras reindexar: lectura directa, sin pretender impacto exhaustivo.
-SSH comprobó sitio de prueba 56379295 y reloj real 21/10 16:24; no se cambiaron datos de negocio, reloj ni configuración. Producción no consultada ni desplegada.
-Entrega documental: validar referencias, enlaces, integridad del JSON y visor. Sin suite ni migraciones; tabla Carlos/Claude intacta y sin cambios de producto.
-Carlos pidió subir todo a GitHub para continuar desde CAB. En casa: actualizar main y abrir la tabla enlazada; la revisión y las ejecuciones siguen pendientes. Integridad, enlaces, huellas fuente, sintaxis del JavaScript documental y tablero comprobados antes de publicar.
-Sigue T14 en curso: otro agente revisa el control; Gemini vincula acciones del cuento con INT/caso/letra y esperado antes de ejecutar. No se declara listo para producción.
-
-## 2026-10-21 — Codex CyE — T50 verificación final aprobada y cierre
-
-Revisado 738de598, remoto main coincidente al iniciar; equipo Ventas_CyE. Implementó Gemini, verifica Codex.
-Arnés original: tres rechazos por guardia antes de preparar, salida global 0; caso permitido supera el control. Todos los destinos CLI con puerto cerrado, sin escrituras.
-Base propia: 13/71 permanentes y 17/214 independientes verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Corte 1029.
-T50 cerrada por generador; estado, resumen, plan, contrato e implementación al día. H1 decidido, H2/H3 e idioma conservados; tabla externa intacta.
-[Informe final y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Salidas históricas de tercera vuelta recuperadas de b4e0b2e0; actuales en carpeta nueva. Sin cambios de producto por Codex, despliegue ni push.

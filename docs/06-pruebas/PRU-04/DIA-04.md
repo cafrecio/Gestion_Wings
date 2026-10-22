@@ -48,6 +48,11 @@ Expectativas registradas previamente y conservadas como guion. Codex completó �
 
 ## Resultado entregado — Codex CyE, 22/10/2026
 
+> **Contraste posterior de este recorrido:** [VERIFICACION-DIA-04.md](VERIFICACION-DIA-04.md),
+> Codex CyE en Casos prueba humana I. Registros financieros, alta y asistencias conciliados;
+> se conservan las dos tareas parciales y la observación abierta sobre cuota no guardada en Cobrar.
+> No se reescribieron las expectativas ni los resultados humanos.
+
 - **Caja:** inicial $10.000 + ingresos EFE $118.000 - limpieza $8.500 = contado $119.500. Diferencia $0; cambio $10.000 y retiro declarado $109.500. Cerrada a las 19:33 del 13/10; Admin verificó 7/7 movimientos y validó.
 - **Conciliación:** Caja #2 neto $192.500 = EFE $109.500 + MP $45.000 + BGA $38.000. Disponible global $1.926.500 = EFE $485.500 + MP $1.403.000 + BGA $38.000. Este saldo global no es el cambio físico retenido en mostrador.
 - **Reportes de octubre:** ingresos económicos $320.000; egresos $8.500; resultado $311.500. Aportes $15.000 fuera del resultado. Adelanto de noviembre $30.000 en Caja/Cashflow, fuera de ingresos económicos de octubre. Neto global de movimientos $356.500 = resultado $311.500 + aportes $15.000 + adelanto $30.000.

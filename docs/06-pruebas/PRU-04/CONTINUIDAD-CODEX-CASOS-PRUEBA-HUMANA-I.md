@@ -4,6 +4,13 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Corte vigente, 22/10, Casos prueba humana I:** el Día 4 ya se ejecutó en el otro chat (`99d1f64a`).
+Este chat completó el [contraste técnico](VERIFICACION-DIA-04.md): dinero, alta y asistencias conciliados;
+T2/T6 conservan su alcance parcial. D4-OBS-01 registra la diferencia AL_DIA/Cobrar cuando no hay cuota
+guardada. El adelanto real es de Julieta, no de Sofía; no duplicar operaciones. Reloj leído 13/10 19:51,
+sin modificarlo. T14 sigue en curso; preparar el siguiente día con estos datos y la observación abierta.
+Los bloques de aprobación/redacción que siguen son antecedentes, no el estado actual de ejecución.
+
 **Dictamen más reciente, 22/10, Codex CyE:** revisado `d34dee7a`; guion apto para el Día 4.
 Ver [resolución §6](REVISION-DIA-04-7cf48ece-CODEX.md). Los ajustes de Gemini están comprobados;
 Codex aclaró la consulta de nómina por la clase del miércoles sin registrar asistencia y separó el reloj

@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 4 ejecutado en Prueba Manual GW I: 16 tareas registradas, 14 Si y T2/T6 parciales. Caja 2 validada sin diferencia. Bloqueo de ingreso resuelto en cache de staging a pedido de Carlos, reloj conservado. Sigue contraste tecnico y verificacion independiente del informe humano; luego preparar siguiente jornada. T14 integral sigue en curso. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 4 99d1f64a contrastado: dinero/alta/asistencias conciliados. Mantener parciales T2/T6. D4-OBS-01 abierta: Al dia sin cuota guardada y cuota potencial en Cobrar; resolver criterio sin modificar datos por cuenta propia. Adelanto real Julieta, no Sofia. Conservar datos y preparar Dia 5; seguridad/carga pendientes. Ver VERIFICACION-DIA-04.md. |
 
 ## Gemini
 

@@ -34,29 +34,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T14, d34dee7a revisado por Codex CyE 22/10:** guion apto para el recorrido humano;
-  [dictamen §6](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md). Clase y alumnas comprobadas;
-  corregidos reportes, aportes y navegación. Seguimiento funcional normalizado a planificado y parcial;
-  nómina del miércoles se consulta sin tomar lista. **22/10, Prueba Manual GW I:** Carlos autorizó ejecutar;
-  reloj de prueba fijado una vez en 13/10 18:15. **16 tareas registradas: 14 Sí, T2/T6 parciales.** Julieta sustituyó Sofía; noviembre confirmado por Carlos y comprobado.
-  Caja #2 VALIDADA: contado $119.500, diferencia $0, cambio $10.000, retiro $109.500. Matrícula 101; deuda $1.899.000; disponible $1.926.500. Listas 28 y 74 persistentes; pendientes 33→32. No repetir.
-  Bloqueo de ingreso resuelto a pedido de Carlos: contador vencido el 22/10, futuro para la prueba 13/10; respaldo y limpieza solo de esa caché. Sandra/Admin ingresaron; nuevo vencimiento correcto.
-  [Resultados y límites](../06-pruebas/PRU-04/DIA-04.md). Sin producto ni despliegue. Sigue contraste técnico y revisión independiente; T14 en curso.
-
-- **T14, revisión del relato 7cf48ece, Codex CyE 22/10:** [informe](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
-  Camino feliz y roles bien orientados; ajustar clase Avanzadas/Principiantes, reporte de matrícula
-  actual, indumentaria APORTE y navegación esperada. Arqueo $119.500 correcto como propuesta.
-  Cobertura pendiente de ejecución; controles internos a cargo de este chat. Sin ejecutar ni alterar datos/reloj.
-
-- **T14, última precisión de Carlos 22/10:** horizonte de dos meses ficticios; primero camino feliz,
-  día a día. Casos raros y errores deliberados se suman gradualmente después. Preparar el Día 4 normal
-  y analizar su resultado antes de escribir la siguiente jornada. El 2/11 es un hito, no el final.
-  Predomina la actividad cotidiana repetida para llenar la base; no inventar un problema por operación.
-
-- **Día 4, reinicio del relato por Carlos 22/10:** [roles vigentes](../06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md): Gemini escribe jornadas orientadas a objetivos, con errores humanos y comprobaciones por pantalla; Codex Prueba humana opera e informa; Casos prueba humana I prepara y contrasta los controles técnicos. Gemini reescribe el martes 13/10 y planifica cobertura y crecimiento de datos; los días 1 a 3 se conservan. El cuento anterior no habilita ejecución. La [revisión de a86c3509](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md) queda como insumo técnico de este chat. Sin ejecutar ni cambiar producto, reloj/datos o producción; T14 en curso. [Continuidad](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md).
-
-- **T14, control preparado por Codex CyE 21/10:** [tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html), 39 recorridos/14 controles y 331 referencias. Pendiente de revisión independiente y ejecución; no cierra T14. Gemini usa los vínculos para los cuentos desde el 13/10. Sitio leído `56379295`, reloj real 21/10 sin modificar; el relevamiento solo cubrió entradas/listados ADMIN. [Alcance](../06-pruebas/PRU-04/control-integral/RELEVAMIENTO.md).
-
+- **T14, Día 4 ejecutado 99d1f64a y contrastado, Codex CyE 22/10:** [verificación](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md). Cinco pagos/seis imputaciones y siete movimientos/reflejos únicos conciliados; contado $119.500, diferencia $0; deuda guardada $1.899.000, disponible $1.926.500. Mora y listas 28/74 persistidas; futura 6 sin marcas. Conservar parciales T2/T6 y no repetir.
+  D4-OBS-01 abierta: AL_DIA sin cuota guardada frente a cuota potencial en Cobrar. Adelanto real: Julieta, noviembre $30.000. Reloj leído 13/10 19:51 sin cambiarlo. Preparar Día 5 con estos datos; seguridad/carga y aceptación integral pendientes; T14 en curso. [Roles vigentes](../06-pruebas/PRU-04/INSTRUCCIONES-PRUEBA-GEMINI.md): Gemini narra; Prueba humana opera; Casos prueba humana I contrasta. Dos meses ficticios, día a día, primero camino feliz y actividad normal para llenar la base; excepciones graduales después. El 2/11 es un hito. [Tabla integral](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html) pendiente de conciliación por variantes; fuente Carlos/Claude solo lectura. [Antecedentes](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md).
 - **T50 CERRADA, Codex CyE 21/10:** 738de598 verifica conexión efectiva/DB_URL; arnés original 3/3 rechazos antes de preparar, sin escrituras. 13/71 permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0; corte 1029. H1 decidido por Carlos; H2/H3 e idioma confirmados. Gemini implementó, Codex verifica y cierra por tablero. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md). Sin cambios de producto por Codex, tabla ni despliegue.
 - **T52 verificada y cerrada, Codex CyE 20/10:** e1e7c499 exige siempre fecha de ingreso; H5 web ya rechaza con 422 sin marca antes del ingreso. 21/139 propias y regresiones verdes, consultas 12→12; completa compartida 997/6 omitidas verde. Visual previo de Carlos conservado. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T52-CODEX.md).
 - **T42 implementada, a verificar por Claude:** comisión e ingreso adelantado por mes pagado; dinero/saldos conservados. Carlos: conservar mes original solo cuando no pueda comprobarse el pagado. Dirigidas 29/150; completa 997/6 omitidas verde, corte 1003. COB-012 vivo/repo actualizado; LIQ-002 copiado rectificado, control del dueño en T43. Sin vistas/CSS ni despliegue. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T42.md). T43 después.
@@ -70,8 +49,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Antecedente T75: Carlos pidió aplicar las reglas móviles: botones con texto 96 × 32, padding común, borde derecho y posición estable. 99 casos antes/después, dos complementos y 80 variantes; cero desbordes, 99 escritorios conservados. [Entrega y galería nueva](../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md). Suite aislada 846 aprobadas/3 omitidas y guardianes finales 9/36; Carlos revisa el aspecto, sin cierre ni despliegue. Gemini no implementar.
 - **T36 cerrada por Claude (`9b98067`):** tildes persistentes y obligatorios; Carlos: «Destildar solo los movimientos que cambien» y «visualmente están bien». [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue.
 - **T37 cerrada por Claude (`870cbb4`):** motivo obligatorio hasta 500; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
-  Visual verifica Carlos: «Bien ambas imagenes!!» (botoneras a 375 de `4b050ac`); scroll y «Modal OK» aceptados. [Capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Sin otra revisión de IA del aspecto.
-  Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c). Sin despliegue. Última suite completa en la tabla superior.
+  Visual verifica Carlos: «Bien ambas imagenes!!» (botoneras a 375 de `4b050ac`); scroll y «Modal OK» aceptados. [Capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Sin otra revisión de IA del aspecto. Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c). Sin despliegue. Última suite completa en la tabla superior.
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.
   35 pruebas nuevas; suite completa: **761 aprobadas/2 omitidas, 7214 aserciones**.
@@ -168,6 +146,5 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - Estas diferencias se señalan para no perderlas; esta tarea no decide reglas de negocio.
 
 ## Al terminar
-- Entrada breve en log propio y enlace a evidencia.
-- Actualizar aquí solo cambios de estado, decisiones o bloqueos relevantes.
-- Mantener fecha y alcance; no copiar mensajes enteros. [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+
+- Entrada breve en log propio y enlace a evidencia; actualizar aquí solo cambios de estado, decisiones o bloqueos relevantes. Mantener fecha y alcance; no copiar mensajes enteros. [Histórico íntegro e índice](../99-archivo/bitacoras/2026-09-12/INDICE.md).

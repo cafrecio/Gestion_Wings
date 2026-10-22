@@ -1,5 +1,9 @@
 # Objetivos de prueba por jornada — PRU-04
 
+> **Día 4 ejecutado y contrastado:** [verificación técnica de 99d1f64a](VERIFICACION-DIA-04.md).
+> Alta, pagos, movimientos, reflejos y asistencias comprobados; parciales T2/T6 y D4-OBS-01 abiertos.
+> Las matrices siguientes son preparación histórica, no resultados actuales ni aceptación integral.
+
 > **Control vigente para el relato de 16 situaciones corregido en d34dee7a:** ver §3–4 y el dictamen §6
 > de la [revisión técnica](REVISION-DIA-04-7cf48ece-CODEX.md). La matriz histórica de 18 filas
 > que sigue no se aplica automáticamente a la nueva historia. Controles aún pendientes de ejecución.
