@@ -34,6 +34,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T14, revisión del relato 7cf48ece, Codex CyE 22/10:** [informe](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md).
+  Camino feliz y roles bien orientados; ajustar clase Avanzadas/Principiantes, reporte de matrícula
+  actual, indumentaria APORTE y navegación esperada. Arqueo $119.500 correcto como propuesta.
+  Cobertura pendiente de ejecución; controles internos a cargo de este chat. Sin ejecutar ni alterar datos/reloj.
+
 - **T14, última precisión de Carlos 22/10:** horizonte de dos meses ficticios; primero camino feliz,
   día a día. Casos raros y errores deliberados se suman gradualmente después. Preparar el Día 4 normal
   y analizar su resultado antes de escribir la siguiente jornada. El 2/11 es un hito, no el final.

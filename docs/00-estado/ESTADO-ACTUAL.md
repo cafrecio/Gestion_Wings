@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## T14 — Revisión del nuevo relato 7cf48ece, Codex CyE 22/10/2026
+
+[Informe único](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md): enfoque humano correcto;
+ajustar lista de Avanzadas frente al alta en Principiantes, reporte de matrícula actual frente a altas
+mensuales, indumentaria APORTE y navegación real tras guardar/validar. El arqueo propuesto suma $119.500.
+Cobertura funcional aún planificada; mapeo de casos, frontera de plazo y controles financieros quedan
+en este chat. Solo lectura en prueba y código; no se ejecutó el Día 4 ni se cambió reloj/datos/producto.
+T14 en curso; el relato requiere esos ajustes antes del inicio humano.
+
 ## T14 — Roles aclarados y reinicio del relato del Día 4, Codex CyE 22/10/2026
 
 **Última precisión de Carlos:** dos meses ficticios, día a día, primero camino feliz y después casos

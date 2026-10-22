@@ -40,6 +40,17 @@
 
 [Antecedente archivado intacto al aclarar los roles PRU-04](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-ROLES-PRU04-ANTECEDENTE.md).
 
+[Antecedente archivado intacto al revisar el relato 7cf48ece](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-REVISION-7cf48ece-ANTECEDENTE.md).
+
+## 2026-10-22 — Codex CyE — T14: revisión de la historia humana 7cf48ece
+
+Leídos los tres entregables reales; enfoque humano correcto, con ajustes documentales antes de ejecutar.
+Clase 28 es Avanzadas; Mora propuesta y Sofía son Principiantes (próxima clase 14/10). Reportes muestra matrícula actual; indumentaria es APORTE. Navegación tras alta/validación difiere del guion.
+[Informe único y controles técnicos pendientes](../06-pruebas/PRU-04/REVISION-DIA-04-7cf48ece-CODEX.md): arqueo propuesto $119.500 correcto; etiquetas de ejecución y referencias al catálogo no acreditan cobertura.
+Verificación independiente mediante código y SELECT concretos en wingstest; sitio 56379295 y fuentes funcionales iguales al HEAD revisado. Índice con cobertura no disponible: lectura directa.
+Actualizados estado, resumen, continuidad, referencia de matriz técnica y paso T14. Sin ejecutar jornada, cambiar reloj/producto/datos ni desplegar; sin suite por documentos.
+Siguiente: ajustar relato y comprobaciones humanas; este chat conserva mapeo y auditoría técnica. T14 en curso. Gemini no recibe un nuevo encargo de auditoría de backend.
+
 ## 2026-10-22 — Codex CyE — T14: camino feliz primero
 
 Carlos precisó: dos meses ficticios, día a día; actividad normal repetida para llenar la base; casos raros después, según resultados.
@@ -114,13 +125,3 @@ Publicados en main los commits propios 30d09f6 y d5d2f38: informe, evidencia y c
 GitHub confirmó d5d2f385a1d183f73aa80eadf15a21ee87abc511; no había commits ajenos pendientes de publicación.
 Sin cambios de producto ni despliegue; revisión documental y carpeta limpia antes de esta entrada.
 Sigue pendiente que Gemini subsane las dos observaciones T50 del informe; H1 conserva la decisión de Carlos.
-
-## 2026-10-21 — Codex CAB — T50 segunda verificación, H2/H3 confirmados y observaciones
-
-Verificación independiente de de35ae0, sin modificar producto; aislamiento al aparecer la integración ajena T61. H1 decidido por Carlos: inscripción desde el alta; no volver a consultarlo.
-Alta futura real: inscripción $5.000, cuota computable $0, tres pantallas consistentes; cuota suma al iniciar su mes. Edición mal formada 422 en castellano, sin filas cambiadas.
-Chrome real con noviembre simulado y octubre real: límites/default correctos, aviso específico tras fetch, recuperación de validez e histórico conservado. Capturas y DOM guardados; no se aprueba diseño.
-Gemini 12/55 verdes; controles anteriores 15/16 (rojo H1 superado). Con decisión vigente: 16 pasan y 1 control adicional falla solo por idioma; 20 rechazos 422 y huellas de tablas iguales.
-Completa aislada: 1019 aprobadas/6 omitidas, 8802 aserciones, 981,62 s, salida 0, corte 1025; 612 fuentes intactas, 186 observaciones sin suites ajenas. Main integrado conserva contador 1028.
-Devuelta a Gemini únicamente por idioma de previews mal formadas y guardia del auxiliar CLI; H2/H3 confirmados. Contrato/estado actualizados; tabla Carlos/Claude intacta, propuesta de fuente en informe.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T50-SEGUNDA-CODEX.md). Commit 30d09f6; copia temporal archivada tras resguardar la evidencia. Sin despliegue ni push manual. Próximo paso: Gemini subsana observaciones y entrega a otra revisión, sin reabrir inscripción.

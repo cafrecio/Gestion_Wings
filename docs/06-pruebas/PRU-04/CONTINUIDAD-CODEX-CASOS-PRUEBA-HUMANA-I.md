@@ -4,6 +4,14 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Último corte, 22/10, Codex CyE:** Gemini publicó la historia humana de 16 situaciones en `7cf48ece`.
+La [revisión única del nuevo relato](REVISION-DIA-04-7cf48ece-CODEX.md) separa ajustes del guion y
+comprobaciones por pantalla (§1) de los controles técnicos de este chat (§3–4). No se ejecutó el día.
+La clase del martes de 17 a 18 es Avanzadas, no Principiantes; Reportes muestra matrícula actual;
+indumentaria es APORTE. Los resultados siguen pendientes, aunque la matriz diga «Ejercitado».
+Retomar desde este informe, conservando los roles y camino feliz primero; los informes anteriores
+son antecedentes. No pedir a Gemini otro relevamiento de backend.
+
 Aplicar el [protocolo](../../00-estado/PROTOCOLO-CONTINUIDAD.md). **Nuevo acuerdo de Carlos, 22/10, Codex CyE:** reiniciar la redacción del Día 4 con los roles de [las instrucciones actualizadas](INSTRUCCIONES-PRUEBA-GEMINI.md). Gemini escribe la jornada, sus errores humanos y comprobaciones por pantalla; Codex Prueba humana la ejecuta; este chat prepara y contrasta los controles técnicos. La [revisión de a86c3509](REVISION-DIA-04-CODEX-2026-10-22.md) queda como insumo técnico de este chat, no como encargo de auditoría a Gemini. El cuento anterior y su orden de ejecución quedan pendientes de reescritura. No ejecutar, corregir producto ni cerrar T14.
 
 Este chat se llama **Casos prueba humana I**. Carlos ordenó expresamente que este chat **nunca ejecuta la prueba**. La ejecuta Codex en otro chat, **Prueba humana**, una vez revisado el cuento y autorizado el inicio. Esa separación sigue vigente al cambiar de computadora.
