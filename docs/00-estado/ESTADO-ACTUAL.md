@@ -817,7 +817,7 @@ fue inspeccionado.
 
 ## 2. Servidor — corte SSH 08/09 y avance por consola 09/09
 
-**Actualización PHP 22/10/2026, T77:** PHP compartido por producción y prueba actualizado a 8.2.35; reinicio, ingreso real y dashboard de ambos comprobados. PHP separado de CWP sigue en 7.4.33, sin paquete nuevo en su repositorio; se aplicó solo la mitigación `session.upload_progress.enabled=Off`. No se declara protegido todo el VPS. [Informe, respaldo y pendiente](../06-pruebas/SEG-PHP-2026-10-22/INFORME.md). El resto de esta tabla conserva su corte histórico.
+**Actualización PHP 22/10/2026, T77:** PHP compartido por producción y prueba actualizado a 8.2.35; reinicio, ingreso real y dashboard de ambos comprobados. PHP separado de CWP sigue en 7.4.33, sin paquete nuevo en su repositorio; se aplicó solo la mitigación `session.upload_progress.enabled=Off`. No se declara protegido todo el VPS. [Informe, respaldo y pendiente](../04-tecnico/seguridad-vps/2026-10-22-actualizacion-php/README.md). El resto de esta tabla conserva su corte histórico.
 
 | Que | Estado |
 |---|---|

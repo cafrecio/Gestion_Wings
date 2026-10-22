@@ -135,6 +135,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 | Design system y reglas UI | `docs/03-diseno-ui/` |
 | Setup tecnico | `docs/04-tecnico/` |
 | **Servidor y credenciales** | `docs/04-tecnico/SERVIDOR.md` — apunta afuera del repo: son de la plataforma Gestionar-te, no de Wings |
+| Seguridad del VPS: informes por fecha | `docs/04-tecnico/seguridad-vps/README.md` — actualización PHP del 22/10/2026 y pendiente CWP; sin credenciales ni respaldos privados |
 | Pendientes crudos | `docs/05-pendientes/` |
 | Pruebas funcionales | `docs/06-pruebas/` |
 | Historico / archivo | `docs/99-archivo/` |

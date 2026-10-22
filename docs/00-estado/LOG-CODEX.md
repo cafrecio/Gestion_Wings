@@ -38,11 +38,11 @@
 
 ## 2026-10-22 — Codex CyE — T77, PHP actualizado y CWP pendiente
 
-Carlos pidió actualizar PHP y conservar las dos páginas funcionando.
-Remi 8.2.33 → 8.2.35, 11 paquetes; FPM reiniciado. Ingreso real y dashboard de producción/prueba comprobados en Chrome; Laravel y SELECT 1 correctos en ambas conexiones.
-Revisión independiente de subagente: proceso maestro 8.2.35, servicios, HTTPS y assets correctos desde Windows/VPS; mitigación efectiva y panel CWP 200 comprobados aparte.
+Carlos pidió actualizar PHP, conservar ambas páginas funcionando y publicar el informe en GitHub en una carpeta clara.
+Remi 8.2.35, 11 paquetes; FPM reiniciado. Ingreso/dashboard de ambos sitios y conexiones de base comprobados.
+Subagente independiente: proceso 8.2.35, servicios, HTTPS y assets correctos; mitigación CWP efectiva y panel 200.
 CWP/default conserva PHP 7.4.33: repositorio sin parche nuevo. Mitigación parcial upload_progress=Off y servicios CWP reiniciados; no equivale al parche completo.
-[Informe](../06-pruebas/SEG-PHP-2026-10-22/INFORME.md). Respaldo privado en VPS. Sin código, migraciones, datos de negocio ni despliegue de Wings. Capturas temporales descartadas por datos del autocompletado.
+[Informe por fecha en Seguridad VPS](../04-tecnico/seguridad-vps/2026-10-22-actualizacion-php/README.md), enlazado desde docs/README.md. Respaldo privado en VPS; sin cambios de código ni datos de negocio. Capturas temporales descartadas por autocompletado.
 T77 permanece abierta con Codex: pendiente parche compatible del proveedor para CWP; no declarar seguro todo el VPS.
 
 ## 2026-10-21 — Codex CyE — T14, tabla de control integral preparada
