@@ -9,6 +9,8 @@ from seguimiento_casos import construir
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]
 E = lambda s: html.escape(str(s))
+CLASES = {'Plan de acción': 'Plan', 'Atención': 'Atencion',
+          'Sin consolidar': 'Pendiente', 'Sin probar': 'Pendiente'}
 
 
 def generar_dashboard(d):
@@ -24,7 +26,7 @@ def generar_dashboard(d):
     def evidencia(origin, paths):
         return ' · '.join(a(origin, os.path.relpath(REPO/p,HERE), Path(p).name) for p in paths)
     def tag(s):
-        color = {'Plan de acción':'Plan', 'Atención':'Atencion'}.get(s,s)
+        color = CLASES.get(s,s)
         return '<span class="tag '+E(color)+'">'+E(s)+'</span>'
     def tabla(cabeceras, filas, body=''):
         return '<div class="wrap"><table><thead><tr>'+''.join('<th scope="col">'+E(x)+'</th>' for x in cabeceras)+'</tr></thead><tbody '+body+'>'+''.join(filas)+'</tbody></table></div>'
@@ -38,10 +40,10 @@ def generar_dashboard(d):
         if timeline:
             linea='<section class="panel" aria-label="Línea de tiempo"><b>Jornadas · acceso directo</b><p><label for="elegir-jornada">Ir al día </label><select id="elegir-jornada"><option value="">Elegir jornada</option>'+''.join('<option value="'+E(ruta(path,dia['archivo']))+'">Día '+str(dia['dia'])+' · '+E(dia['estado'])+'</option>' for dia in m['dias'])+'</select></p><div class="timeline">'
             for dia in m['dias']:
-                color={'Plan de acción':'Plan','Atención':'Atencion'}.get(dia['estado'],dia['estado'])
+                color=CLASES.get(dia['estado'],dia['estado'])
                 fecha=dia['fecha_club'][8:10]+'/'+dia['fecha_club'][5:7]
                 linea+='<a class="day '+E(color)+'" href="'+E(ruta(path,dia['archivo']))+'" title="'+E(dia['estado'])+'"'+(' aria-current="date"' if dia['dia']==4 else '')+'><b>'+str(dia['dia'])+'</b><small>'+fecha+'</small><small>'+E(dia['estado'])+'</small></a>'
-            linea+='</div><p class="meta">Verde: pasó · Amarillo: atención · Azul: plan definido · Verde oscuro: reparación probada · Gris: sin resultados consolidados. El color no sustituye la revisión independiente.</p></section>'
+            linea+='</div><ul class="legend" aria-label="Colores de los estados">'+''.join('<li class="legend-item '+clase+'">'+E(texto)+'</li>' for clase,texto in [('OK','✓ Pasó'),('Atencion','! Requiere atención'),('Plan','→ Plan definido'),('Reparado','✓ Reparación probada'),('Pendiente','— Sin consolidar')])+'</ul><p class="meta">Los mismos colores identifican los días y los estados de cada caso. El color no sustituye la revisión independiente.</p></section>'
         text='<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+E(title)+'</title><link rel="stylesheet" href="'+E(ruta(path,'dashboard.css'))+'"><script defer src="'+E(ruta(path,'dashboard.js'))+'"></script></head><body><main>'+nav+linea+body+'<footer>Corte documental: 23/10/2026. '+E(m['alcance'])+'<p>Revisión independiente pendiente. '+a(path,'LEEME.md','Criterios y límites')+' · '+a(path,'seguimiento-casos.json','Datos del seguimiento')+'</p></footer></main></body></html>'
         target=HERE/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text,encoding='utf-8');archivos.append(path)
     def enlace_caso(path,c):
