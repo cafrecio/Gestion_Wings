@@ -2,11 +2,42 @@
 
 Actualizado el 23/10/2026, Codex CyE. **Consolidación y corrida posterior pendientes de revisión independiente.**
 
-[ABRIR TABLA](CONTROL-INTEGRAL.html) · [Datos y plantilla](control-integral.json) · [Alcance comprobado](RELEVAMIENTO.md)
+[DEVOLUCIÓN PARA CARLOS](CONTROL-INTEGRAL.html) · [ENTREGA TÉCNICA PARA IA](informes-ia/DIA-04.md) · [Registro técnico](CONTROL-TECNICO.html)
 
-## Salida a producción y revisión — versión 3
+## Dos entregables, dos lectores — versión 4
 
-La entrada muestra **Listo · Frena · Falta para producción** y el dictamen documental
+Carlos necesita leer qué se probó, cuándo/cómo, qué ocurrió, qué implica, qué quedó bien o mal y qué
+se propone. Un índice de códigos no responde eso. La entrada humana reemplaza las tablas largas por:
+
+- Selector directo de jornada del 1 al 60, sin concatenar días. Solo cuatro accesos recientes.
+- Una página por día: conclusión, resultados favorables, observaciones con impacto y alternativas,
+  próximos pasos y límites de seguridad/rendimiento.
+- Situaciones por nombre, cuatro por página, con búsqueda y filtro. Cada ficha detalla fecha del club,
+  fecha real, método, esperado resumido, observado, impacto, pendientes, propuesta y evidencia.
+- Ningún código de caso visible. Las propuestas se distinguen de cambios ejecutados y los parciales
+  de fallas demostradas. El día 38 sin publicar muestra un vacío explícito, sin heredar el Día 4.
+
+La entrega para otras IA es `informes-ia/DIA-04.md`: contexto, evidencias, escenarios, casos/letras,
+límites, hipótesis/alternativas, métodos y continuidad. Conserva los controles técnicos y el catálogo
+como anexos. El resultado y la revisión independiente provienen del registro, no se inventan al resumir.
+
+`devolucion-humana.json` contiene la redacción humana, enlazada por `referencia` a cada ejecución del
+JSON canónico. `devoluciones.py` genera ambas entregas y `jornadas.json`. Una nueva jornada requiere
+su síntesis basada en evidencia y sus referencias; no se rellena con datos de jornadas anteriores.
+Los días 1–3 enlazan sus antecedentes, sin una devolución nueva ni una revalidación de sus hallazgos.
+No se borra ni se reescribe su historial.
+
+Entrada humana: unos 8 KB; Día 4: unos 48 KB. Seguridad: misma corrida fechada, sin suite nueva por
+esta reorganización. `validar.py` comprueba documentos, enlaces, ausencia de códigos visibles,
+generación determinista y 76 controles de lógica de navegación/paginación en JavaScript sin navegador.
+No acredita render real, móvil ni latencia. Se conserva la restricción previa de observar `file://`.
+
+Para continuar: actualizar ejecuciones y síntesis de la jornada; generar; validar; otro agente revisa
+la entrega. No dar por revisado un informe por haberlo escrito en otro chat de la misma cuenta.
+
+## Registro técnico de salida y revisión (base de la versión 3)
+
+`CONTROL-TECNICO.html` conserva **Listo · Frena · Falta para producción** y el dictamen documental
 «No habilitado para producción». Los requisitos previos salen del tablero, sin presentar sus
 descripciones como fallas nuevas reproducidas. Hoy hay 12 tareas prioritarias previas abiertas.
 
@@ -24,13 +55,13 @@ u otra cuenta de Codex con identidad/evidencia explícitas. `salida.py` rechaza 
 evidencia, identidad o sin confirmación de cuenta distinta cuando el revisor también sea Codex.
 La revisión de salida de un caso exige todas sus letras, no una firma sobre una variante parcial.
 
-El visor conserva un único JSON y genera tres páginas enlazadas, sin descargas automáticas:
+El control técnico conserva un único JSON y tres páginas enlazadas, sin descargas automáticas:
 
-- `CONTROL-INTEGRAL.html`: resumen, selección de salida, requisitos y Día 4.
+- `CONTROL-TECNICO.html`: selección de salida, requisitos y trazabilidad del Día 4.
 - `CATALOGO.html`: los 331 casos con sus letras y marca Salida/Ampliación.
 - `DETALLE-TECNICO.html`: métodos, mediciones, controles y recorridos.
 
-El archivo principal anterior pesaba 1.655.776 bytes; el nuevo ronda 85 KB. La reducción de
+El archivo técnico inicial pesaba 1.655.776 bytes; el visor v3 pasó a unos 85 KB. La reducción de
 peso se comprueba en `integridad-visor-v3.json`; **no es una medición de latencia en teléfono**.
 Esta versión tiene validación estática de enlaces/datos; no se afirma revisión visual/móvil nueva.
 El navegador rechazó observar `file://`; no se eludió esa restricción.
@@ -117,7 +148,7 @@ Identificar diferencia funcional sin adjudicar causa o severidad sin reproducir 
 
 1. `ejecutar-seguridad.ps1` configura conexión local aislada y exige `testing` + base efectiva `wings_testing_codex` antes de correr PHPUnit. Recrea solo esa base descartable; nunca usarlo con datos de trabajo. Si hay otra suite en marcha, esperar según AGENTS.
 2. `incorporar-dia04.py` incorpora los resultados documentados del Día 4 y lee el JUnit ya producido: actualiza únicamente los IDs D4/MED-D4/SEG-20261023. Conserva registros de otros días; no ejecuta Wings ni cambia el catálogo.
-3. `generar.py` actualiza marcas de salida/revisión y genera las tres páginas desde el JSON y el tablero. Para nuevos días agregar sus registros al JSON y actualizar cobertura; no crear otra tabla con datos independientes.
+3. `generar.py` actualiza marcas de salida/revisión, los anexos técnicos, la entrada humana, páginas por jornada y Markdown para IA. Para nuevos días agregar registros y síntesis; actualizar cobertura sin crear otra tabla independiente.
 4. Buscar por código/tarea/rol o filtrar por estado; abrir cada criterio para ver lo cubierto y lo pendiente. Las dimensiones sin medición permanecen pendientes.
 
 ## Antecedente de preparación — 21/10 (no es el estado del 23/10)

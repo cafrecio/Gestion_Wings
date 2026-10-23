@@ -82,7 +82,7 @@ La estrategia de dos meses ficticios distribuye los objetivos a lo largo del cal
 
 El Día 4 no se repite. El seguimiento de noviembre usa Julieta; la premisa de Sofía Al día del plan original fue descartada al ejecutar. El cierre completo de los casos del catálogo sigue sujeto a sus variantes pendientes.
 
-**Seguimiento consolidado, 23/10:** [tabla única por ejecución, caso y letra](control-integral/CONTROL-INTEGRAL.html).
+**Seguimiento consolidado, 23/10:** [devolución humana por jornada](control-integral/CONTROL-INTEGRAL.html) · [trazabilidad para IA](control-integral/informes-ia/DIA-04.md) · [tabla técnica por caso y letra](control-integral/CONTROL-TECNICO.html).
 Incluye las 16 situaciones y sus límites, la medición CLI, D4-OBS-01 y 41 métodos técnicos posteriores
 aprobados en base aislada; 21 casos fuente parcialmente vinculados, 310 sin evidencia incorporada.
 No equivale a 21 casos completos ni certifica todas las variantes de seguridad o performance.

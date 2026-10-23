@@ -6,6 +6,16 @@
 
 [Antecedentes archivados intactos al ajustar el visor de salida](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-VISOR-SALIDA-ANTECEDENTES.md).
 
+[Antecedentes intactos al separar entregables humano/IA](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-ENTREGABLES-HUMANO-IA-ANTECEDENTES.md).
+
+## 2026-10-23 — Codex CyE — Dos entregables: devolución humana y continuidad técnica
+
+Carlos señaló que el índice de códigos no explica resultados ni sirve para 45–60 jornadas. Rol reafirmado: conducir controles autónomamente y entregar dos documentos para lectores distintos.
+[Humano](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): selector de jornada 1–60, una página por día, cuatro situaciones por página, fechas/método/resultado/impacto/propuestas; sin códigos visibles. Entrada 8 KB y Día 4 48 KB. Día 38 sin informe explícito; 1–3 solo antecedentes.
+[IA](../06-pruebas/PRU-04/control-integral/informes-ia/DIA-04.md): trazabilidad de 16 situaciones, criterios, fuentes, 41 métodos fechados, límites y alternativas. Se conservan resultados y revisión independiente pendiente.
+1.145 enlaces y generación determinista comprobados; 76 controles de lógica JavaScript sin navegador, estructura HTML con ocho campos por ficha. Sin afirmar render/latencia móvil ni reejecutar pruebas de Wings.
+Actualizados continuidad, estado, resumen y paso T14. Sin cambiar producto, fuente Carlos/Claude, datos de negocio o reloj; sin despliegue. Otro agente revisa las entregas; sigue resolver cuota ofrecida y continuar Día 5.
+
 ## 2026-10-23 — Codex CyE — Resumen de salida y atribución de revisión corregidos
 
 Carlos pidió Listo/Frena/Falta, selección de producción y que otro agente verifique. El contraste de Codex no constituye revisión independiente de su propia ejecución; denominación anterior corregida.
@@ -110,18 +120,3 @@ Clase 28 es Avanzadas; Mora propuesta y Sofía son Principiantes (próxima clase
 Verificación independiente mediante código y SELECT concretos en wingstest; sitio 56379295 y fuentes funcionales iguales al HEAD revisado. Índice con cobertura no disponible: lectura directa.
 Actualizados estado, resumen, continuidad, referencia de matriz técnica y paso T14. Sin ejecutar jornada, cambiar reloj/producto/datos ni desplegar; sin suite por documentos.
 Siguiente: ajustar relato y comprobaciones humanas; este chat conserva mapeo y auditoría técnica. T14 en curso. Gemini no recibe un nuevo encargo de auditoría de backend.
-
-## 2026-10-22 — Codex CyE — T14: camino feliz primero
-
-Carlos precisó: dos meses ficticios, día a día; actividad normal repetida para llenar la base; casos raros después, según resultados.
-Ajustados instrucciones de Gemini, continuidad, estado, resumen y tablero; Día 4 normal, sin forzar errores. El 2/11 queda como hito.
-Verificados enlaces y diff documental; sin ejecutar jornada ni tocar producto/datos. Sigue Gemini con el relato del Día 4.
-
-## 2026-10-22 — Codex CyE — T14: roles separados y reinicio del relato del Día 4
-
-Carlos asignó Gemini a historias orientadas a objetivos, errores humanos y comprobaciones por pantalla; Codex Prueba humana opera e informa; este chat prepara y contrasta controles técnicos.
-Corregida INSTRUCCIONES-PRUEBA-GEMINI.md: cobertura funcional y crecimiento de datos; matriz técnica a cargo de este chat. Retirado el encargo de auditoría a Gemini.
-Día 4 y orden anterior señalados como antecedentes pendientes de reescritura; días 1 a 3 conservados. Actualizados continuidad, resumen, estado y próximo paso T14 por comando.
-La revisión de a86c3509 queda como insumo técnico, sin convertirla en otra lista de correcciones de backend para Gemini.
-Comprobación documental: enlaces, integridad y diff; no corresponde suite. Sin ejecutar jornada, consultar servidor, alterar reloj/datos/producto ni desplegar en esta entrega.
-Siguiente: Carlos pasa el prompt a Gemini; Gemini entrega nuevo cuento, instrucciones humanas y objetivos funcionales. T14 sigue en curso, sin autocierre ni aprobación de la jornada.

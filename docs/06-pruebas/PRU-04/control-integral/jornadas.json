@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "dias_previstos": 60,
+  "jornadas": [
+    {
+      "dia": 1,
+      "archivo": "jornadas/DIA-01.html",
+      "estado": "Antecedente, devolución nueva pendiente"
+    },
+    {
+      "dia": 2,
+      "archivo": "jornadas/DIA-02.html",
+      "estado": "Antecedente, devolución nueva pendiente"
+    },
+    {
+      "dia": 3,
+      "archivo": "jornadas/DIA-03.html",
+      "estado": "Antecedente, devolución nueva pendiente"
+    },
+    {
+      "dia": 4,
+      "archivo": "jornadas/DIA-04.html",
+      "fecha_club": "2026-10-13",
+      "estado": "Devolución disponible"
+    }
+  ],
+  "casos_por_pagina": 4,
+  "informe_humano": "CONTROL-INTEGRAL.html",
+  "informe_ia": "informes-ia/DIA-04.md"
+}

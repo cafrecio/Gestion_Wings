@@ -4,6 +4,14 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Entrega vigente, dos públicos (23/10):** [Carlos](control-integral/CONTROL-INTEGRAL.html) recibe
+una devolución por jornada, sin códigos visibles ni lista de días concatenados: selector 1–60,
+cuatro situaciones por página, fechas, método, resultado, impacto y propuestas. [Otras IA](control-integral/informes-ia/DIA-04.md)
+reciben la trazabilidad técnica en Markdown. Día 4 completo en el formato nuevo; 1–3 son antecedentes.
+Día 38 todavía sin informe, sin copiar resultados anteriores. Mismos 14 coinciden/2 parciales y
+observación abierta; no se repitió el Día 4 ni hubo nuevas pruebas de Wings. Control documental y
+76 controles de lógica de navegación; revisión independiente y comprobación visual nuevas pendientes.
+
 **Ajuste vigente de la herramienta, 23/10:** entrada con Listo/Frena/Falta y selección de salida de
 69 casos únicos (42 de camino feliz, 10 protecciones y requisitos de Carlos, con superposición).
 20 con evidencia parcial, cero firmas independientes registradas. El tablero conserva 12 requisitos

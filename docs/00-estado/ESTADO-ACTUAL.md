@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T14 — Entrega humana por jornada y entrega técnica para IA, Codex CyE 23/10/2026
+
+Carlos pidió dos lectores distintos. [Entrada humana](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html)
+sin lista de códigos: selector de día, devolución separada por jornada, cuatro situaciones por página,
+fechas/método/resultado/impacto/propuestas y límites. Día 38 sin publicar no muestra datos del Día 4.
+Los días 1–3 quedan como antecedentes, sin nueva revisión. [Entrega IA del Día 4](../06-pruebas/PRU-04/control-integral/informes-ia/DIA-04.md)
+conserva trazabilidad, criterios y evidencia. Entrada unos 8 KB, jornada 48 KB. Reorganización sin
+repetir pruebas de Wings; 76 controles de lógica y verificación documental, sin render/móvil nuevos.
+Los resultados y pendientes de revisión independiente se conservan. Sin cambios de producto ni despliegue.
+
 ## T14 — Resumen de salida y revisión sincera, Codex CyE 23/10/2026
 
 [Visor v3](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): Listo/Frena/Falta,

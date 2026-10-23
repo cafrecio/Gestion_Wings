@@ -84,6 +84,6 @@ def actualizar(d):
                  'Seguridad, móvil, volumen/concurrencia y ciclo mensual según controles aplicables.',
                  'Suite completa, restauración, preflight y servidor sobre la candidata; preparación real según el gate.'],
         'fuentes':[PLAN,'docs/00-estado/PLAN-PRODUCCION.md',BOARD]}
-    d['version']=3
+    d['version']=4
     d['estado_entrega']='Resultados entregados y contrastados por Codex; revisión independiente pendiente. Selección de salida separada del catálogo.'
     return d

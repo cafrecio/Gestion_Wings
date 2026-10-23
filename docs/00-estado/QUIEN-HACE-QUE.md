@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Revisar visor v3 y resultados por otro agente: 69 casos de salida, 20 con evidencia parcial, cero firmas independientes. Conservar 12 requisitos previos del tablero; resolver D4-OBS-01 y seguir Dia 5. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Otro agente revisa las dos entregas: devolucion humana por jornada (selector 1-60, cuatro situaciones por pagina) y Markdown tecnico. No repetir Dia 4; resolver cuota ofrecida/Al dia y seguir Dia 5. Revisiones independientes y visuales pendientes. |
 
 ## Gemini
 

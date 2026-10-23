@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "fecha": "2026-10-23",
   "autor": "Codex CyE",
   "alcance": "Seguimiento de ejecuciones y brechas por criterio. Catálogo Carlos/Claude solo lectura.",
@@ -37634,5 +37634,11 @@
       "docs/00-estado/PLAN-PRODUCCION.md",
       "docs/00-estado/tareas.json"
     ]
+  },
+  "entregables": {
+    "humano": "CONTROL-INTEGRAL.html",
+    "jornadas": "jornadas.json",
+    "ia": "informes-ia/DIA-04.md",
+    "control_tecnico": "CONTROL-TECNICO.html"
   }
 }
