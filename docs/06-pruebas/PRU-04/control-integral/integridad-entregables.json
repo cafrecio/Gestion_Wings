@@ -5,7 +5,7 @@
   "aplicacion_y_tests_sin_editar": true,
   "ejecuciones": 59,
   "filas_html": 524,
-  "enlaces_comprobados": 1145,
+  "enlaces_comprobados": 8892,
   "fragmentos_e_ids_validos": true,
   "generacion_determinista": true,
   "junit": {
@@ -16,33 +16,50 @@
   "revision_independiente": "59 registros pendientes; tres intentos de firma inválida rechazados en copia en memoria, sin guardarlos",
   "produccion": {
     "seleccionados": 69,
-    "con_evidencia_parcial": 20,
+    "con_evidencia_parcial_en_test": 15,
     "firmas_independientes": 0,
     "tareas_previas_abiertas": 12
   },
   "bytes_html": {
-    "CONTROL-TECNICO.html": 84328,
-    "CATALOGO.html": 516974,
-    "DETALLE-TECNICO.html": 148971,
-    "CONTROL-INTEGRAL.html": 7638,
-    "jornadas/DIA-01.html": 3966,
-    "jornadas/DIA-02.html": 3966,
-    "jornadas/DIA-03.html": 3966,
-    "jornadas/DIA-04.html": 48235
+    "CONTROL-INTEGRAL.html": 21378,
+    "jornadas/DIA-04.html": 53178
   },
   "navegacion": {
     "controles": 76,
     "dias": 60,
-    "dia38": "Sin informe, sin fecha ni resultados inventados",
-    "paginacion": "16 situaciones, cuatro por página, sin pérdida ni duplicación",
+    "dia38": "Acceso directo a página sin resultados consolidados; fecha del calendario ficticio identificada",
+    "paginacion": "Anexo de 16 situaciones, cuatro por página, sin pérdida ni duplicación",
     "filtros": "Parciales, búsqueda sin acentos, vacío y extremos aprobados",
     "alcance": "Lógica real de navegación; no render ni prueba en navegador"
   },
+  "dashboard": {
+    "comprobaciones": 16,
+    "resultado": "OK",
+    "alcance": "Lógica real de filtros, paginación y eventos; sin render de navegador"
+  },
+  "recuento_aceptacion": {
+    "casos": 331,
+    "modulos": 20,
+    "probados": 15,
+    "sin_probar": 316,
+    "intentos": 18,
+    "operaciones": 16,
+    "operaciones_sin_caso": 1,
+    "parciales": 15,
+    "planes": 3,
+    "metodos_aislados": 41,
+    "OK": 0,
+    "Fallo": 0,
+    "Reparado": 0,
+    "salida_seleccionados": 69,
+    "salida_probados": 15
+  },
+  "paginas_por_caso": 331,
   "entregables": {
-    "humano": "CONTROL-INTEGRAL.html y una página por jornada",
-    "ia": "informes-ia/DIA-04.md",
+    "humano": "CONTROL-INTEGRAL.html, módulos, casos y 60 jornadas",
+    "ia": "informes-ia/SEGUIMIENTO-CASOS.md",
     "situaciones_dia4": 16,
-    "codigos_visibles_en_entrega_humana": false
+    "codigos_visibles_en_entrega_humana": true
   },
   "visual": "Validación documental y lógica de navegación sin navegador. Sin afirmar render ni latencia móvil. Se conserva la restricción previa de observar file://."
 }

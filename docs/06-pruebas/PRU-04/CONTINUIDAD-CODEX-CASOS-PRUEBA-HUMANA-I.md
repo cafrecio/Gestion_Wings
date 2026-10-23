@@ -4,29 +4,11 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
-**Entrega vigente, dos públicos (23/10):** [Carlos](control-integral/CONTROL-INTEGRAL.html) recibe
-una devolución por jornada, sin códigos visibles ni lista de días concatenados: selector 1–60,
-cuatro situaciones por página, fechas, método, resultado, impacto y propuestas. [Otras IA](control-integral/informes-ia/DIA-04.md)
-reciben la trazabilidad técnica en Markdown. Día 4 completo en el formato nuevo; 1–3 son antecedentes.
-Día 38 todavía sin informe, sin copiar resultados anteriores. Mismos 14 coinciden/2 parciales y
-observación abierta; no se repitió el Día 4 ni hubo nuevas pruebas de Wings. Control documental y
-76 controles de lógica de navegación; revisión independiente y comprobación visual nuevas pendientes.
+**Entrega vigente por CASO, 23/10, Codex CyE:** [Dashboard Carlos](control-integral/CONTROL-INTEGRAL.html): estado general por módulo, línea de tiempo de 60 días, módulo paginado y ficha de cada caso con código/nombre, método, esperado, intentos/resultados, fechas/roles/versiones, metas y solución/retest. [Entrega IA](control-integral/informes-ia/SEGUIMIENTO-CASOS.md) explica modelo, fuentes, planes y continuidad. Reemplaza la entrega por situaciones sin códigos; el cuento original queda como anexo.
 
-**Ajuste vigente de la herramienta, 23/10:** entrada con Listo/Frena/Falta y selección de salida de
-69 casos únicos (42 de camino feliz, 10 protecciones y requisitos de Carlos, con superposición).
-20 con evidencia parcial, cero firmas independientes registradas. El tablero conserva 12 requisitos
-previos abiertos. Catálogo y detalle técnico en páginas opcionales; entrada reducida de 1,65 MB a 85 KB.
-La ejecución y el contraste de Codex no cumplen por sí solos AGENTS §6a: los 59 registros quedan
-Pendiente de revisión independiente. No tomar el nombre de otro chat como identidad independiente.
-La nueva versión tiene control estático de datos/enlaces, sin medición móvil ni revisión visual nueva.
+**Aceptación y ambientes:** 331 casos / 20 módulos; 15 con evidencia parcial en test/wingstest, 316 sin prueba consolidada, 18 asociaciones caso–ejecución provenientes de 16 operaciones; cero completos OK/Fallo/Reparado. Tres planes, sin implementación ni retest acreditados: no son tres fallas completas demostradas. D4-T03/T15 se vinculan retrospectivamente a ALU-002.e; T12 espera código justificado. Días 1–3 por conciliar; futuros sin resultados inventados.
 
-**Corte vigente, 23/10, Casos prueba humana I:** [seguimiento único](control-integral/CONTROL-INTEGRAL.html)
-actualizado: 16 situaciones (14 coinciden, 2 parciales), medición y observación abierta; 41 métodos
-dirigidos posteriores aprobados / 331 aserciones / salida 0 en `wings_testing_codex`, versión `a15d6095`.
-21 casos fuente con evidencia parcial, 310 sin evidencia incorporada, ninguno cerrado integralmente.
-Se reconoce la omisión anterior de carga del registro y de pruebas negativas. Seguridad pendiente por
-variante/rol, CSRF/sesiones/headers, carga/concurrencia y próximos hitos visibles. Sin repetir Día 4,
-alterar wingstest/reloj/producto ni desplegar. Esta consolidación/corrida espera revisión independiente.
+Los 41 métodos del 23/10 en wings_testing_codex son **auxiliares**: no suman aceptación del sitio. Los totales anteriores 21/310 y 20/69 mezclaban esos ambientes; para salida hay 15/69 parcialmente probados en test. No se repitió Día 4 ni se cambiaron producto/base/reloj. Validación documental y lógica, sin render/móvil nuevos. El trabajo de Codex sigue pendiente de otro agente; no confundir otro chat con otra cuenta. T14 en curso: revisar entrega, resolver cuota ofrecida/Al día, continuar Día 5 sin repetir cobros.
 
 **Corte vigente, 22/10, Casos prueba humana I:** el Día 4 ya se ejecutó en el otro chat (`99d1f64a`).
 Este chat completó el [contraste técnico](VERIFICACION-DIA-04.md): dinero, alta y asistencias conciliados;
@@ -92,7 +74,7 @@ Las suplencias están permitidas: abrir una clase de otro docente no es por sí 
 
 ## 3. Qué significa el control integral
 
-La [tabla integral](control-integral/CONTROL-INTEGRAL.html) organiza 39 recorridos y 14 controles; el corte contiene 331 referencias al catálogo fuente. No son 331 pruebas aprobadas ni garantía de todas las posibilidades del sistema.
+El [dashboard por caso](control-integral/CONTROL-INTEGRAL.html) organiza 331 referencias por módulo y jornada. Los [39 recorridos y 14 controles técnicos](control-integral/DETALLE-TECNICO.html) quedan como planificación complementaria; no son pruebas aprobadas ni garantía de todas las posibilidades del sistema.
 
 El plan inicial vinculó 181 casos y dejó 150 sin recorrido asignado. Aun los vinculados requieren cobertura por letra, variante y rol. El [seguimiento actual](control-integral/LEEME.md) incorpora el Día 4 y la corrida posterior; los días 1–3 requieren reconciliar su evidencia. **INT-01 es ingreso/salida por los tres roles, no el día 1.** La ausencia de registro actual no significa que nunca hubo prueba humana.
 

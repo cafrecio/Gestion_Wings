@@ -17,7 +17,8 @@ for(let day=1;day<=60;day++) {
   else assert.deepEqual(result,{sinInforme:day});
   checks++;
 }
-assert.deepEqual(logic.destinoDia('38',routes),{sinInforme:38}); checks++;
+assert.deepEqual(logic.destinoDia('38',routes),{url:'jornadas/DIA-38.html'});
+assert.match(fs.readFileSync(path.join(__dirname,'jornadas/DIA-38.html'),'utf8'),/Sin resultados consolidados por caso/); checks++;
 for(const input of ['0','61','3.5','','texto']) { assert.ok(logic.destinoDia(input,routes).error); checks++; }
 const states=Object.fromEntries(data.ejecuciones.map(e=>[e.id,e.resultado]));
 const items=model.jornadas[0].situaciones.map(s=>({id:s.numero,text:Object.values(s).join(' '),state:states[s.referencia]}));
@@ -32,4 +33,4 @@ assert.deepEqual(logic.seleccionar(items,'HERNAN','',1,4).ids,[12]); checks++;
 assert.equal(logic.seleccionar(items,'no hay coincidencia 123','',1,4).total,0); checks++;
 assert.equal(logic.seleccionar(items,'','',999,4).current,4); checks++;
 assert.equal(logic.seleccionar(items,'','',0,4).current,1); checks++;
-console.log(JSON.stringify({controles:checks,dias:60,dia38:'Sin informe, sin fecha ni resultados inventados',paginacion:'16 situaciones, cuatro por página, sin pérdida ni duplicación',filtros:'Parciales, búsqueda sin acentos, vacío y extremos aprobados',alcance:'Lógica real de navegación; no render ni prueba en navegador'}));
+console.log(JSON.stringify({controles:checks,dias:60,dia38:'Acceso directo a página sin resultados consolidados; fecha del calendario ficticio identificada',paginacion:'Anexo de 16 situaciones, cuatro por página, sin pérdida ni duplicación',filtros:'Parciales, búsqueda sin acentos, vacío y extremos aprobados',alcance:'Lógica real de navegación; no render ni prueba en navegador'}));

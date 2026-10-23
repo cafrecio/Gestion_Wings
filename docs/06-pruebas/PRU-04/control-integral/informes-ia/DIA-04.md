@@ -1,3 +1,5 @@
+> Anexo técnico de operaciones y apoyo aislado. Para el estado de aceptación por caso y ambiente, usar [Seguimiento por casos](SEGUIMIENTO-CASOS.md). Los recuentos históricos mixtos de este anexo no son aprobaciones del sitio de test.
+
 # Entrega técnica — Día 4
 
 Corte documental: 2026-10-23. Club: 2026-10-13. Ejecución humana: 2026-10-22. Contraste: 2026-10-22.

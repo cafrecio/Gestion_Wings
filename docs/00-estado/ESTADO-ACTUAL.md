@@ -1,16 +1,13 @@
 # Wings — Estado actual
 
-## T14 — Entrega humana por jornada y entrega técnica para IA, Codex CyE 23/10/2026
+## T14 — Dashboard por caso y ambiente real, Codex CyE 23/10/2026
 
-Carlos pidió dos lectores distintos. [Entrada humana](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html)
-sin lista de códigos: selector de día, devolución separada por jornada, cuatro situaciones por página,
-fechas/método/resultado/impacto/propuestas y límites. Día 38 sin publicar no muestra datos del Día 4.
-Los días 1–3 quedan como antecedentes, sin nueva revisión. [Entrega IA del Día 4](../06-pruebas/PRU-04/control-integral/informes-ia/DIA-04.md)
-conserva trazabilidad, criterios y evidencia. Entrada unos 8 KB, jornada 48 KB. Reorganización sin
-repetir pruebas de Wings; 76 controles de lógica y verificación documental, sin render/móvil nuevos.
-Los resultados y pendientes de revisión independiente se conservan. Sin cambios de producto ni despliegue.
+[Dashboard Carlos](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): estado general, números por módulo, línea de tiempo de 60 días, módulos paginados y ficha por caso. Método, esperado, historial, fechas/roles/versiones, indicadores y planes separados de implementación/retest.
+331 casos / 20 módulos: **15 parciales en test/wingstest, 316 sin prueba consolidada, 18 vínculos caso–ejecución, cero casos completos OK/Fallo/Reparado**. Tres planes: discrepancia de Cobrar, presentación del alta y cobertura parcial; no tres fallas completas acreditadas. 16 operaciones: 14 coinciden y dos parciales; una operación histórica sin código justificado. Dos consultas del alta se vinculan retrospectivamente a ALU-002.e, sin nueva ejecución.
+Los **41 métodos aislados son apoyo**, no aceptación del sitio. Esto reemplaza como recuento de aceptación las cifras mixtas 21/310 y 20/69 de los cortes anteriores. Selección de salida: 15/69 parcialmente probados en test. Días 1–3 por conciliar por caso; futuros sin resultados inventados.
+[Entrega IA](../06-pruebas/PRU-04/control-integral/informes-ia/SEGUIMIENTO-CASOS.md). Sin cambios de producto, base, reloj ni nueva ejecución de Wings; sin render/móvil nuevos. T14 sigue en curso; otro agente verifica la entrega, los planes y evidencia. Sin despliegue.
 
-## T14 — Resumen de salida y revisión sincera, Codex CyE 23/10/2026
+## T14 — Antecedente v3 (recuento mixto, reemplazado arriba), Codex CyE 23/10/2026
 
 [Visor v3](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): Listo/Frena/Falta,
 69 casos seleccionados para salida, 20 parcialmente ejercitados y cero firmas independientes
@@ -20,7 +17,7 @@ catálogo completo y detalle técnico se abren aparte desde el mismo JSON. Codex
 los 59 registros quedan Pendiente de revisión independiente. Otro chat no equivale a otra cuenta.
 Sin nueva suite, datos de negocio ni despliegue; control estático, sin medición de apertura móvil.
 
-## T14 — Seguimiento consolidado y seguridad dirigida, Codex CyE 23/10/2026
+## T14 — Antecedente inicial (recuento mixto, reemplazado arriba), Codex CyE 23/10/2026
 
 [Tabla única](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 16 situaciones del Día 4
 (14 coinciden, T2/T6 parciales), una medición y D4-OBS-01; 21/331 casos con evidencia parcial,

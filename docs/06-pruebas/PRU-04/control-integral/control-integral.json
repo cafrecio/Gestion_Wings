@@ -37637,8 +37637,9 @@
   },
   "entregables": {
     "humano": "CONTROL-INTEGRAL.html",
-    "jornadas": "jornadas.json",
-    "ia": "informes-ia/DIA-04.md",
-    "control_tecnico": "CONTROL-TECNICO.html"
+    "jornadas": "paginas-casos.json",
+    "ia": "informes-ia/SEGUIMIENTO-CASOS.md",
+    "control_tecnico": "CONTROL-TECNICO.html",
+    "aceptacion_por_caso": "seguimiento-casos.json"
   }
 }

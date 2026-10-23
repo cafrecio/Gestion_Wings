@@ -1,30 +1,368 @@
 {
-  "version": 1,
-  "dias_previstos": 60,
+  "version": 5,
+  "informe_humano": "CONTROL-INTEGRAL.html",
+  "informe_ia": "informes-ia/SEGUIMIENTO-CASOS.md",
   "jornadas": [
     {
       "dia": 1,
-      "archivo": "jornadas/DIA-01.html",
-      "estado": "Antecedente, devolución nueva pendiente"
+      "fecha_club": "2026-10-10",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-01.html"
     },
     {
       "dia": 2,
-      "archivo": "jornadas/DIA-02.html",
-      "estado": "Antecedente, devolución nueva pendiente"
+      "fecha_club": "2026-10-11",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-02.html"
     },
     {
       "dia": 3,
-      "archivo": "jornadas/DIA-03.html",
-      "estado": "Antecedente, devolución nueva pendiente"
+      "fecha_club": "2026-10-12",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-03.html"
     },
     {
       "dia": 4,
-      "archivo": "jornadas/DIA-04.html",
       "fecha_club": "2026-10-13",
-      "estado": "Devolución disponible"
+      "estado": "Plan de acción",
+      "archivo": "jornadas/DIA-04.html"
+    },
+    {
+      "dia": 5,
+      "fecha_club": "2026-10-14",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-05.html"
+    },
+    {
+      "dia": 6,
+      "fecha_club": "2026-10-15",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-06.html"
+    },
+    {
+      "dia": 7,
+      "fecha_club": "2026-10-16",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-07.html"
+    },
+    {
+      "dia": 8,
+      "fecha_club": "2026-10-17",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-08.html"
+    },
+    {
+      "dia": 9,
+      "fecha_club": "2026-10-18",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-09.html"
+    },
+    {
+      "dia": 10,
+      "fecha_club": "2026-10-19",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-10.html"
+    },
+    {
+      "dia": 11,
+      "fecha_club": "2026-10-20",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-11.html"
+    },
+    {
+      "dia": 12,
+      "fecha_club": "2026-10-21",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-12.html"
+    },
+    {
+      "dia": 13,
+      "fecha_club": "2026-10-22",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-13.html"
+    },
+    {
+      "dia": 14,
+      "fecha_club": "2026-10-23",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-14.html"
+    },
+    {
+      "dia": 15,
+      "fecha_club": "2026-10-24",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-15.html"
+    },
+    {
+      "dia": 16,
+      "fecha_club": "2026-10-25",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-16.html"
+    },
+    {
+      "dia": 17,
+      "fecha_club": "2026-10-26",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-17.html"
+    },
+    {
+      "dia": 18,
+      "fecha_club": "2026-10-27",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-18.html"
+    },
+    {
+      "dia": 19,
+      "fecha_club": "2026-10-28",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-19.html"
+    },
+    {
+      "dia": 20,
+      "fecha_club": "2026-10-29",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-20.html"
+    },
+    {
+      "dia": 21,
+      "fecha_club": "2026-10-30",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-21.html"
+    },
+    {
+      "dia": 22,
+      "fecha_club": "2026-10-31",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-22.html"
+    },
+    {
+      "dia": 23,
+      "fecha_club": "2026-11-01",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-23.html"
+    },
+    {
+      "dia": 24,
+      "fecha_club": "2026-11-02",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-24.html"
+    },
+    {
+      "dia": 25,
+      "fecha_club": "2026-11-03",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-25.html"
+    },
+    {
+      "dia": 26,
+      "fecha_club": "2026-11-04",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-26.html"
+    },
+    {
+      "dia": 27,
+      "fecha_club": "2026-11-05",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-27.html"
+    },
+    {
+      "dia": 28,
+      "fecha_club": "2026-11-06",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-28.html"
+    },
+    {
+      "dia": 29,
+      "fecha_club": "2026-11-07",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-29.html"
+    },
+    {
+      "dia": 30,
+      "fecha_club": "2026-11-08",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-30.html"
+    },
+    {
+      "dia": 31,
+      "fecha_club": "2026-11-09",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-31.html"
+    },
+    {
+      "dia": 32,
+      "fecha_club": "2026-11-10",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-32.html"
+    },
+    {
+      "dia": 33,
+      "fecha_club": "2026-11-11",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-33.html"
+    },
+    {
+      "dia": 34,
+      "fecha_club": "2026-11-12",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-34.html"
+    },
+    {
+      "dia": 35,
+      "fecha_club": "2026-11-13",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-35.html"
+    },
+    {
+      "dia": 36,
+      "fecha_club": "2026-11-14",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-36.html"
+    },
+    {
+      "dia": 37,
+      "fecha_club": "2026-11-15",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-37.html"
+    },
+    {
+      "dia": 38,
+      "fecha_club": "2026-11-16",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-38.html"
+    },
+    {
+      "dia": 39,
+      "fecha_club": "2026-11-17",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-39.html"
+    },
+    {
+      "dia": 40,
+      "fecha_club": "2026-11-18",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-40.html"
+    },
+    {
+      "dia": 41,
+      "fecha_club": "2026-11-19",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-41.html"
+    },
+    {
+      "dia": 42,
+      "fecha_club": "2026-11-20",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-42.html"
+    },
+    {
+      "dia": 43,
+      "fecha_club": "2026-11-21",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-43.html"
+    },
+    {
+      "dia": 44,
+      "fecha_club": "2026-11-22",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-44.html"
+    },
+    {
+      "dia": 45,
+      "fecha_club": "2026-11-23",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-45.html"
+    },
+    {
+      "dia": 46,
+      "fecha_club": "2026-11-24",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-46.html"
+    },
+    {
+      "dia": 47,
+      "fecha_club": "2026-11-25",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-47.html"
+    },
+    {
+      "dia": 48,
+      "fecha_club": "2026-11-26",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-48.html"
+    },
+    {
+      "dia": 49,
+      "fecha_club": "2026-11-27",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-49.html"
+    },
+    {
+      "dia": 50,
+      "fecha_club": "2026-11-28",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-50.html"
+    },
+    {
+      "dia": 51,
+      "fecha_club": "2026-11-29",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-51.html"
+    },
+    {
+      "dia": 52,
+      "fecha_club": "2026-11-30",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-52.html"
+    },
+    {
+      "dia": 53,
+      "fecha_club": "2026-12-01",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-53.html"
+    },
+    {
+      "dia": 54,
+      "fecha_club": "2026-12-02",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-54.html"
+    },
+    {
+      "dia": 55,
+      "fecha_club": "2026-12-03",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-55.html"
+    },
+    {
+      "dia": 56,
+      "fecha_club": "2026-12-04",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-56.html"
+    },
+    {
+      "dia": 57,
+      "fecha_club": "2026-12-05",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-57.html"
+    },
+    {
+      "dia": 58,
+      "fecha_club": "2026-12-06",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-58.html"
+    },
+    {
+      "dia": 59,
+      "fecha_club": "2026-12-07",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-59.html"
+    },
+    {
+      "dia": 60,
+      "fecha_club": "2026-12-08",
+      "estado": "Sin consolidar",
+      "archivo": "jornadas/DIA-60.html"
     }
   ],
-  "casos_por_pagina": 4,
-  "informe_humano": "CONTROL-INTEGRAL.html",
-  "informe_ia": "informes-ia/DIA-04.md"
+  "casos_por_pagina": 10
 }

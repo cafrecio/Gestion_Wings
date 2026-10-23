@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Otro agente revisa las dos entregas: devolucion humana por jornada (selector 1-60, cuatro situaciones por pagina) y Markdown tecnico. No repetir Dia 4; resolver cuota ofrecida/Al dia y seguir Dia 5. Revisiones independientes y visuales pendientes. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Otro agente revisa dashboard por caso: 15 parciales en test, 18 vinculos y tres planes; apoyo aislado excluido. Conciliar dias 1-3 y operacion historica sin caso. No repetir Dia 4; resolver cuota ofrecida/Al dia y continuar Dia 5. Sin reparaciones ni retests acreditados. |
 
 ## Gemini
 

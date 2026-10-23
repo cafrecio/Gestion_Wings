@@ -7,12 +7,13 @@ sys.dont_write_bytecode=True
 from pathlib import Path
 from salida import actualizar
 from devoluciones import generar_devoluciones
+from dashboard_casos import generar_dashboard
 
 HERE=Path(__file__).resolve().parent
 REPO=HERE.parents[3]
 PATH=HERE/'control-integral.json'
 d=actualizar(json.loads(PATH.read_text(encoding='utf-8')))
-d['entregables']={'humano':'CONTROL-INTEGRAL.html','jornadas':'jornadas.json','ia':'informes-ia/DIA-04.md','control_tecnico':'CONTROL-TECNICO.html'}
+d['entregables']={'humano':'CONTROL-INTEGRAL.html','jornadas':'paginas-casos.json','ia':'informes-ia/SEGUIMIENTO-CASOS.md','control_tecnico':'CONTROL-TECNICO.html','aceptacion_por_caso':'seguimiento-casos.json'}
 PATH.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 s=d['resumen']; prod=d['produccion']
 MAIN='CONTROL-TECNICO.html'; CAT='CATALOGO.html'; TECH='DETALLE-TECNICO.html'
@@ -96,4 +97,16 @@ tech.append('<h2 id="recorridos">39 recorridos · plan de trabajo</h2>')
 tech.append(table(['ID','Recorrido / impactos','Estado / ejecuciones'],[row([esc(r['id']),esc(r['titulo'])+'<p>'+esc(r['accion_y_esperado'])+'</p><details><summary>Preparación e impactos</summary>'+''.join('<p>'+esc(k)+': '+esc(r.get(k,''))+'</p>' for k in ['roles','previo','pantallas','tablas_a_controlar','codigo_orientativo','atencion'])+'</details>',badge(r['estado'])+'<p>'+refs(r['ejecuciones'])+'</p>'],r['id']+' '+r['titulo']+' '+r['roles']+' '+r['tablas_a_controlar'],r['estado'],scope='salida') for r in d['recorridos']]))
 sizes={name:page(name,title,parts) for name,title,parts in [(MAIN,'Wings · Resumen de salida',main),(CAT,'Wings · Catálogo completo',cat),(TECH,'Wings · Detalle técnico',tech)]}
 sizes.update(generar_devoluciones(d))
-print(json.dumps({'bytes':sizes,'salida':prod['casos_necesarios'],'con_evidencia_parcial':prod['con_evidencia_parcial'],'tareas_previas_abiertas':len(prod['tareas_previas_abiertas'])}))
+# Conservar el relato como anexo, antes de publicar el informe por casos.
+relato=HERE/'relatos/DIA-04.html'
+relato.parent.mkdir(exist_ok=True)
+relato.write_bytes((HERE/'jornadas/DIA-04.html').read_bytes())
+md=HERE/'informes-ia/DIA-04.md'
+md.write_text('> Anexo técnico de operaciones y apoyo aislado. Para el estado de aceptación por caso y ambiente, usar [Seguimiento por casos](SEGUIMIENTO-CASOS.md). Los recuentos históricos mixtos de este anexo no son aprobaciones del sitio de test.\n\n'+md.read_text(encoding='utf-8'),encoding='utf-8')
+por_caso=generar_dashboard(d)
+for name in [MAIN,CAT,TECH]:
+    p=HERE/name
+    text=p.read_text(encoding='utf-8')
+    text=text.replace('<main>','<main><aside class="note"><b>Anexo técnico histórico: incluye apoyo aislado.</b> Sus cifras de evidencia no son aprobaciones en el sitio de test. <a href="CONTROL-INTEGRAL.html">Abrir el estado actual por caso y ambiente</a>.</aside>',1)
+    p.write_text(text,encoding='utf-8')
+print(json.dumps({'dashboard':por_caso,'tareas_previas_abiertas':len(prod['tareas_previas_abiertas'])},ensure_ascii=False))

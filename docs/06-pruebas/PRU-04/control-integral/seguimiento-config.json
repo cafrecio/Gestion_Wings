@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "corte": "2026-10-23",
+  "sitio": "https://test.gestionar-te.com.ar",
+  "base": "wingstest",
+  "vinculos_retrospectivos": [
+    {"ejecucion": "D4-T03", "caso": "ALU-002", "letra": "e", "alcance": "Consulta de la nueva alumna en Cobranza: parte del efecto indirecto del alta. No prueba todos los cruces ni el buscador textual."},
+    {"ejecucion": "D4-T15", "caso": "ALU-002", "letra": "e", "alcance": "Consulta de matrícula por admin: parte del efecto del alta en Reportes. No prueba todas las pantallas ni un reporte de altas mensuales."}
+  ],
+  "planes": [
+    {
+      "id": "PLAN-D4-01", "caso": "COB-012", "dia_detectado": 4,
+      "fecha_plan": "2026-10-23", "responsable": "Codex: análisis y coordinación; implementación por asignar",
+      "naturaleza": "Incidencia observada; regla a resolver", "problema": "La alumna figura Al día, pero Cobrar ofrece octubre. El adelanto se hizo sobre Julieta, por $30.000; no se acredita la variante completa del catálogo.",
+      "impacto": "El operativo puede interpretar como exigible un importe que no figura en la deuda guardada. No se demostró una deuda duplicada persistida.",
+      "solucion_propuesta": "Acordar si Cobrar debe ofrecer una cuota potencial cuando el estado dice Al día; luego alinear explicación y cálculo conforme a esa regla. No crear ni borrar deuda para hacer coincidir el reporte.",
+      "pasos": ["Reproducir por consulta la discrepancia en el sitio de test, con rol y versión registrados, sin cobrar otra vez.", "Presentar la regla y alternativas para resolver la discrepancia antes de cambiar comportamiento.", "Asignar implementación con evidencia del cambio; si afecta vistas, aplicar el protocolo de diseño.", "Repetir el caso en test y comprobar deuda, estado, adelanto, caja y reportes; completar generación y comisión en noviembre."],
+      "aceptacion": "Estado y explicación de Cobrar coherentes con la regla decidida, sin cobros ni cuotas duplicadas. Completar cada criterio del catálogo para aprobar el caso.",
+      "diagnostico_dia_propuesto": 5, "implementacion": null, "retest": null
+    },
+    {
+      "id": "PLAN-D4-02", "caso": "ALU-002", "dia_detectado": 4,
+      "fecha_plan": "2026-10-23", "responsable": "Codex: contraste del guion y propuesta; implementación por asignar",
+      "naturaleza": "Diferencia de presentación respecto del guion", "problema": "La ficha muestra días de gracia, sin la fecha explícita y el total conjunto esperados en el relato. Los cargos y el estado sí fueron contrastados.",
+      "impacto": "El operador debe interpretar el vencimiento y sumar los cargos. No se demostró un error del cálculo de deuda.",
+      "solucion_propuesta": "Contrastar el texto del guion con la regla vigente y presentar la información necesaria para el operador. Cualquier cambio de pantalla requiere el protocolo de diseño.",
+      "pasos": ["Revisar ficha, Cobranza y regla de vencimiento en test sin volver a dar de alta a Mora.", "Determinar si corresponde corregir la expectativa del guion o presentar fecha y total en pantalla.", "Implementar la decisión si corresponde; registrar versión y evidencia.", "Reprobar la variante y completar los criterios todavía pendientes del alta de menor."],
+      "aceptacion": "Vencimiento y cargos comprobables por el operador y coherentes entre pantallas; alta de menor completa según el catálogo.",
+      "diagnostico_dia_propuesto": 5, "implementacion": null, "retest": null
+    },
+    {
+      "id": "PLAN-D4-03", "caso": "COB-008", "dia_detectado": 4,
+      "fecha_plan": "2026-10-23", "responsable": "Codex: diseñar comprobación; ejecutor manual por asignar",
+      "naturaleza": "Cobertura incompleta; no falla demostrada", "problema": "Dante recibió imputaciones manuales por mes. Esto acredita la entrega parcial, no un reparto automático global por FIFO. Faltan segundo pago y comisión.",
+      "impacto": "Dar por aprobado el caso ocultaría comportamientos que todavía no se probaron.",
+      "solucion_propuesta": "Distinguir el ingreso global del importe y la imputación por mes. Preparar la prueba pendiente con otra operación real de la jornada; no repetir el cobro ya registrado.",
+      "pasos": ["Revisar qué acción ofrece la pantalla y documentar el alcance real del caso.", "Programar el saldo pendiente y verificar sus dos pagos y recibos cuando corresponda en la historia.", "Comprobar saldo, caja y comisión con fechas y versión; si aparece un fallo, abrir incidencia separada."],
+      "aceptacion": "Saldo correcto, recibos e imputaciones íntegros y comisión verificada; sin afirmar FIFO automático a partir de una distribución manual.",
+      "diagnostico_dia_propuesto": 5, "implementacion": null, "retest": null
+    }
+  ],
+  "programacion": [
+    {"casos": ["ASI-001"], "dias": [5], "metodo": "Próxima clase del miércoles: tomar lista por pantalla y contrastar marcas, grupo y efectos. Propuesta para la historia; todavía no ejecutada."},
+    {"casos": ["CBZ-011", "CBZ-012", "COB-012"], "dias": [23], "metodo": "1/11: comprobar generación, unicidad y conservación del adelanto. Preparar los demás alumnos y variantes antes de la fecha. La segunda corrida requiere control técnico, no simularla desde la pantalla."},
+    {"casos": ["LIQ-001", "LIQ-002"], "dias": [24], "metodo": "2/11: liquidaciones, con asistencias y pagos conciliados. Ejecutar cada variante del catálogo; una liquidación aislada no cubre todo el caso."}
+  ],
+  "metas": [
+    {"caso": "CAJ-005", "ejecucion": "D4-T01", "indicador": "Fondo de apertura ($)", "optimo": 10000, "resultado": 10000, "origen": "Guion de la jornada"},
+    {"caso": "CAJ-018", "ejecucion": "D4-T13", "indicador": "Diferencia de arqueo ($)", "optimo": 0, "resultado": 0, "origen": "Invariante de conciliación; contado $119.500"},
+    {"caso": "CAJ-025", "ejecucion": "D4-T14", "indicador": "Reflejos únicos por movimiento validado", "optimo": 1, "resultado": 1, "origen": "Conciliación posterior: 7 movimientos, 7 reflejos únicos"},
+    {"caso": "COB-003", "ejecucion": "D4-T04", "indicador": "Cobro efectivo ($)", "optimo": 43000, "resultado": 43000, "origen": "Variante del guion: Renata"},
+    {"caso": "COB-004", "ejecucion": "D4-T05", "indicador": "Cobro MP ($)", "optimo": 45000, "resultado": 45000, "origen": "Variante del guion: Emma"},
+    {"caso": "COB-004", "ejecucion": "D4-T07", "indicador": "Cobro Banco Galicia ($)", "optimo": 38000, "resultado": 38000, "origen": "Variante del guion: Mateo"},
+    {"caso": "COB-008", "ejecucion": "D4-T06", "indicador": "Entrega parcial total ($)", "optimo": 30000, "resultado": 30000, "origen": "Variante del guion: $20.000 septiembre + $10.000 octubre; saldo octubre $38.000"},
+    {"caso": "COB-012", "ejecucion": "D4-T08", "indicador": "Adelanto noviembre ($)", "optimo": 30000, "resultado": 30000, "origen": "Variante autorizada: Julieta; no es el importe ni todas las condiciones del catálogo"},
+    {"caso": "MOV-002", "ejecucion": "D4-T09", "indicador": "Aporte por remera ($)", "optimo": 15000, "resultado": 15000, "origen": "Guion de la jornada; clasificado APORTE"},
+    {"caso": "MOV-001", "ejecucion": "D4-T10", "indicador": "Gasto de limpieza ($)", "optimo": 8500, "resultado": 8500, "origen": "Guion de la jornada; no acredita adjunto ni número de ticket"},
+    {"caso": "ASI-001", "ejecucion": "D4-T11", "indicador": "Marcas de asistencia de la clase 28", "optimo": 12, "resultado": 12, "origen": "Guion y contraste: 10 presentes, 2 ausentes"},
+    {"caso": "ALU-002", "ejecucion": "D4-T02", "indicador": "Cargos iniciales de la variante ($)", "optimo": 45000, "resultado": 45000, "origen": "Guion y contraste: $40.000 cuota + $5.000 inscripción"},
+    {"caso": "REP-001", "ejecucion": "D4-T16", "indicador": "Diferencia entre reporte y conciliación ($)", "optimo": 0, "resultado": 0, "origen": "Invariante posterior de los registros de la jornada; no certifica deudas potenciales ni mes completo"},
+    {"caso": "REP-003", "ejecucion": "D4-T16", "indicador": "Diferencia entre reporte y conciliación ($)", "optimo": 0, "resultado": 0, "origen": "Invariante posterior; octubre parcial: ingreso $320.000, gasto $8.500, resultado $311.500"},
+    {"caso": "CBZ-018", "ejecucion": "D4-T16", "indicador": "Diferencia de deuda guardada conciliada ($)", "optimo": 0, "resultado": 0, "origen": "Invariante posterior: deuda guardada $1.899.000; no certifica cuotas potenciales"}
+  ]
+}
