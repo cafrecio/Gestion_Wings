@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-10-23",
+  "catalogo_fuente_sin_editar": true,
+  "campos_fuente_copiados_intactos": 331,
+  "aplicacion_y_tests_sin_editar": true,
+  "ejecuciones": 59,
+  "filas_html": 443,
+  "enlaces_comprobados": 914,
+  "fragmentos_e_ids_validos": true,
+  "generacion_determinista": true,
+  "junit": {
+    "aprobadas": 41,
+    "aserciones": 331,
+    "fallidas": 0
+  },
+  "visual": "Chrome: búsqueda D4-T06, filtro Pendiente (342/443), restauración Todos (443/443) y captura visible revisadas; no revisión móvil."
+}

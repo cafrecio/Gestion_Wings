@@ -54,7 +54,7 @@ La estrategia de dos meses ficticios distribuye los objetivos a lo largo del cal
 - Comprobación cruzada entre roles: visibilidad en Cobranza, nómina de grupo para la profesora y matrícula actual activa en reportes para el dueño.
 - Cobros en mostrador con medios múltiples: Efectivo físico, Mercado Pago digital y transferencia bancaria Galicia.
 - Cancelación de cuota completa del mes y cancelación de deuda atrasada con transición entre estados (`Moroso` a `Al día`, y `Deudor` a `Moroso`).
-- Pago parcial con aplicación automática FIFO priorizando la deuda más antigua.
+- Pago parcial aplicado a septiembre/octubre con dos importes ingresados; reparto automático global y rechazo fuera de FIFO no acreditados.
 - Cobro adelantado de mes futuro (noviembre) con emisión de recibo y custodia de fondos.
 - Movimientos corrientes de caja: venta de indumentaria institucional (clasificada como Aporte) y compra menor de insumos con ticket.
 - Registro de asistencia de clase concluida del día (Patín Avanzadas) y regularización de asistencia histórica pendiente desde el filtro «Sin asistencia» (Fútbol).
@@ -81,3 +81,8 @@ La estrategia de dos meses ficticios distribuye los objetivos a lo largo del cal
    - **02/11 (Liquidaciones de octubre):** Liquidación a profesoras por hora y por comisión, comprobando que el adelanto de noviembre de Julieta quede excluido de octubre (`T42`), y resolviendo cuotas atrasadas con intervención del dueño (`T43`).
 
 El Día 4 no se repite. El seguimiento de noviembre usa Julieta; la premisa de Sofía Al día del plan original fue descartada al ejecutar. El cierre completo de los casos del catálogo sigue sujeto a sus variantes pendientes.
+
+**Seguimiento consolidado, 23/10:** [tabla única por ejecución, caso y letra](control-integral/CONTROL-INTEGRAL.html).
+Incluye las 16 situaciones y sus límites, la medición CLI, D4-OBS-01 y 41 métodos técnicos posteriores
+aprobados en base aislada; 21 casos fuente parcialmente vinculados, 310 sin evidencia incorporada.
+No equivale a 21 casos completos ni certifica todas las variantes de seguridad o performance.

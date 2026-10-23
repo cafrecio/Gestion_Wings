@@ -2,6 +2,17 @@
 
 [Antecedentes archivados intactos al contrastar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-VERIFICACION-DIA04-ANTECEDENTES.md).
 
+[Antecedentes archivados intactos al consolidar seguimiento](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-SEGUIMIENTO-DIA04-ANTECEDENTES.md).
+
+## 2026-10-23 — Codex CyE — Seguimiento del Día 4 y seguridad dirigida
+
+Carlos señaló la ausencia de resultados por caso y de controles negativos. Omisión reconocida; informes dispersos no equivalían a seguimiento.
+[Tabla única](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 16 situaciones (14 coinciden, T2/T6 parciales), medición y D4-OBS-01; 21 casos/85 letras con evidencia parcial, 310 sin evidencia incorporada, cero completos.
+41 métodos existentes aprobados, 331 aserciones, salida 0, 43,623 s en base local efectiva wings_testing_codex; versión a15d6095. Sin cambiar tests, producto, wingstest ni reloj.
+GET/PATCH por rol, IDs/huellas, motivo, verificación, reflejos y errores PDF; no acredita CSRF real, otras acciones POST, sesiones, concurrencia ni carga.
+Generación reproducible; 914 enlaces y 331 referencias fuente intactas comprobados. Búsqueda/filtro y aspecto revisados en Chrome; sin revisión móvil.
+Actualizados estado, resumen, continuidad y paso T14; fuente Carlos/Claude solo lectura. Consolidación/corrida esperan control independiente; T14 en curso, seguir Día 5 y resolver D4-OBS-01.
+
 ## 2026-10-22 — Codex CyE — Continuidad de los dos chats y publicación
 
 Carlos pidió actualizar la bitácora, incluir ambos chats y subir todo a GitHub.
@@ -112,22 +123,3 @@ Solo lectura en wingstest confirmó Alquileres EGRESO, indumentaria APORTE, Sof�
 Casos siguen mal vinculados y quedan métodos/columnas sin correspondencia. Base histórica no sustituye reconciliación inicial; no se eligieron contadores por conveniencia.
 Continuidad, estado, resumen y paso de T14 actualizados; tarea en curso. Sin producto, reloj, cambios de datos ni suite por documentación.
 Siguiente: Gemini corrige la preparación y Carlos revisa cualquier cambio de concepto; otro chat ejecutará después.
-
-## 2026-10-22 - Codex CAB - Pase Casos prueba humana I a CyE
-
-Carlos pidió documentar acuerdos, revisiones y lecciones y publicar para seguir desde CyE.
-[Leer primero el pase](../06-pruebas/PRU-04/CONTINUIDAD-CODEX-CASOS-PRUEBA-HUMANA-I.md): este chat nunca ejecuta; otro chat Codex opera por navegador.
-Día 4 sigue en borrador. Cuatro observaciones de segunda revisión NO comunicadas aún a Gemini: origen de contadores, cuota adelantada, criterios/implementación y seguimiento temporal.
-Se conservan borradores y lecciones de Gemini como antecedentes, sin convalidar sus afirmaciones de corrección completa.
-Solo revisión documental/enlaces/diff; sin suite, servidor, reloj ni producto. T14 continúa abierta.
-Próximo: Codex CyE lee el pase, comunica devolución y revisa nueva propuesta con Carlos antes de ejecutar.
-
-
-## 2026-10-22 — Codex CyE — T77, PHP actualizado y CWP pendiente
-
-Carlos pidió actualizar PHP, conservar ambas páginas funcionando y publicar el informe en GitHub en una carpeta clara.
-Remi 8.2.35, 11 paquetes; FPM reiniciado. Ingreso/dashboard de ambos sitios y conexiones de base comprobados.
-Subagente independiente: proceso 8.2.35, servicios, HTTPS y assets correctos; mitigación CWP efectiva y panel 200.
-CWP/default conserva PHP 7.4.33: repositorio sin parche nuevo. Mitigación parcial upload_progress=Off y servicios CWP reiniciados; no equivale al parche completo.
-[Informe por fecha en Seguridad VPS](../04-tecnico/seguridad-vps/2026-10-22-actualizacion-php/README.md), enlazado desde docs/README.md. Respaldo privado en VPS; sin cambios de código ni datos de negocio. Capturas temporales descartadas por autocompletado.
-T77 permanece abierta con Codex: pendiente parche compatible del proveedor para CWP; no declarar seguro todo el VPS.

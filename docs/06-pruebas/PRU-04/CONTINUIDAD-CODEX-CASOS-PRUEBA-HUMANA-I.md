@@ -4,6 +4,14 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Corte vigente, 23/10, Casos prueba humana I:** [seguimiento único](control-integral/CONTROL-INTEGRAL.html)
+actualizado: 16 situaciones (14 coinciden, 2 parciales), medición y observación abierta; 41 métodos
+dirigidos posteriores aprobados / 331 aserciones / salida 0 en `wings_testing_codex`, versión `a15d6095`.
+21 casos fuente con evidencia parcial, 310 sin evidencia incorporada, ninguno cerrado integralmente.
+Se reconoce la omisión anterior de carga del registro y de pruebas negativas. Seguridad pendiente por
+variante/rol, CSRF/sesiones/headers, carga/concurrencia y próximos hitos visibles. Sin repetir Día 4,
+alterar wingstest/reloj/producto ni desplegar. Esta consolidación/corrida espera revisión independiente.
+
 **Corte vigente, 22/10, Casos prueba humana I:** el Día 4 ya se ejecutó en el otro chat (`99d1f64a`).
 Este chat completó el [contraste técnico](VERIFICACION-DIA-04.md): dinero, alta y asistencias conciliados;
 T2/T6 conservan su alcance parcial. D4-OBS-01 registra la diferencia AL_DIA/Cobrar cuando no hay cuota
@@ -70,7 +78,7 @@ Las suplencias están permitidas: abrir una clase de otro docente no es por sí 
 
 La [tabla integral](control-integral/CONTROL-INTEGRAL.html) organiza 39 recorridos y 14 controles; el corte contiene 331 referencias al catálogo fuente. No son 331 pruebas aprobadas ni garantía de todas las posibilidades del sistema.
 
-El [alcance preparado](control-integral/LEEME.md) declara 181 casos vinculados y 150 sin recorrido asignado. Aun los vinculados requieren cobertura por letra, variante y rol. El control nuevo no incorporó automáticamente los resultados de los días 1–3: primero reconciliar su evidencia. **INT-01 es ingreso/salida por los tres roles, no el día 1.** Cero ejecuciones registradas en el control nuevo no significa que nunca hubo prueba humana.
+El plan inicial vinculó 181 casos y dejó 150 sin recorrido asignado. Aun los vinculados requieren cobertura por letra, variante y rol. El [seguimiento actual](control-integral/LEEME.md) incorpora el Día 4 y la corrida posterior; los días 1–3 requieren reconciliar su evidencia. **INT-01 es ingreso/salida por los tres roles, no el día 1.** La ausencia de registro actual no significa que nunca hubo prueba humana.
 
 ## 4. Primera propuesta y devolución
 

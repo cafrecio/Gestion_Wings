@@ -128,3 +128,18 @@ reloj/configuración, migraciones, limpieza de caché ni despliegue por este cha
 
 Sigue: registrar D4-OBS-01 y los alcances T2/T6, conservar estos datos, y preparar el Día 5 con actividad
 habitual y la clase real de Mora. No duplicar el Día 4 ni dar por cerrada T14 o la aceptación integral.
+
+## 7. Seguimiento incorporado después — 23/10/2026
+
+Los resultados anteriores corresponden al contraste del 22/10. Faltaba volcarlos a la tabla común;
+la revisión por lectura no había ejecutado controles negativos de acceso. Omisión de este chat.
+La [tabla integral actualizada](control-integral/CONTROL-INTEGRAL.html) incorpora las 16 tareas,
+una medición y D4-OBS-01; vincula criterios/variantes sin cerrar casos completos por una sola operación.
+
+El 23/10 se ejecutaron 41 métodos existentes de permisos, validaciones e integridad en
+`wings_testing_codex`: **41 aprobados, 331 aserciones, salida 0**, versión local `a15d6095`.
+[Salida](control-integral/evidencia-seguridad-2026-10-23/salida.txt) y
+[alcance por método](control-integral/CONTROL-INTEGRAL.html#seguridad).
+HTTP interno/servicios y fixtures; sin tocar wingstest, su reloj o producción. No acredita CSRF
+real, otras acciones por rol, sesiones entre dispositivos, concurrencia ni carga. Pendientes visibles
+en la misma tabla. Consolidación y corrida esperan revisión independiente; T14 sigue en curso.

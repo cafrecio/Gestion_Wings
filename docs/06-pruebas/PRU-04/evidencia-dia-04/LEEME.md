@@ -1,6 +1,6 @@
 # Evidencia Día 4 — recorrido entregado, 22/10/2026
 
-- Las 16 tareas registradas en [DIA-04](../DIA-04.md): 14 Sí, T2/T6 parciales. Pendiente contraste técnico/verificación independiente; T14 general sigue en curso.
+- Las 16 tareas registradas en [DIA-04](../DIA-04.md): 14 Sí, T2/T6 parciales. [Contraste técnico del 22/10](../VERIFICACION-DIA-04.md) realizado con sus límites. [Seguimiento único actualizado el 23/10](../control-integral/CONTROL-INTEGRAL.html), con seguridad dirigida posterior; esa consolidación/corrida espera revisión independiente. T14 general sigue en curso.
 - Caja #2 VALIDADA: inicial $10.000; ingresos $201.000, egresos $8.500; EFE neto $109.500, MP $45.000, BGA $38.000. Contado $119.500, diferencia $0; cambio $10.000 y retiro $109.500. No repetir movimientos, alta ni asistencias.
 - Julieta reemplazó Sofía por orden de Carlos. Solo noviembre $30.000 Efectivo; octubre desmarcado. Carlos realizó la confirmación final exigida por revisión automática; Caja/ficha verificadas y recibo 9 descargado.
 - Recibo Renata CUOTA-5: PDF descargado; PNG es captura aportada por Carlos, comprobada visualmente. Abrir archivos locales fue bloqueado por política del navegador. PDF 9 conservado y después leído/renderizado como documento local con pypdf/pypdfium2: Julieta, Noviembre 2026, $30.000, Efectivo, 13/10. `08g` es render del PDF original, no captura de Chrome.

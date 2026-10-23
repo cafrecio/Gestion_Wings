@@ -1,0 +1,10 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\phpunit.xml
+
+.........................................                         41 / 41 (100%)
+
+Time: 00:43.623, Memory: 78.00 MB
+
+OK (41 tests, 331 assertions)

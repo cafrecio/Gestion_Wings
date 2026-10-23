@@ -1,5 +1,18 @@
 # Wings — Estado actual
 
+## T14 — Seguimiento consolidado y seguridad dirigida, Codex CyE 23/10/2026
+
+[Tabla única](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 16 situaciones del Día 4
+(14 coinciden, T2/T6 parciales), una medición y D4-OBS-01; 21/331 casos con evidencia parcial,
+85/1.438 letras parcialmente ejercitadas, 310 casos sin evidencia incorporada, cero casos completos.
+Faltaba cargar los informes en el registro y ejecutar rechazos activos; omisión de este chat.
+El 23/10: **41 métodos dirigidos aprobados, 331 aserciones, salida 0**, local `wings_testing_codex`,
+`a15d6095`, 43,623 s. Permisos GET/PATCH, IDs/huellas, validaciones, reflejos y errores de recibos;
+sin afirmar CSRF real, otras acciones POST por rol, sesiones, concurrencia ni carga. Límites y
+evidencia por método en la tabla. Consolidación/corrida pendientes de revisión independiente.
+Sin modificar aplicación, datos de wingstest, reloj ni producción. T14 en curso; seguir Día 5 con
+datos conservados y resolver D4-OBS-01. Catálogo Carlos/Claude intacto, solo lectura.
+
 ## T14 — Día 4 contrastado técnicamente, Codex CyE 22/10/2026
 
 [Verificación del recorrido 99d1f64a](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md): cinco pagos,

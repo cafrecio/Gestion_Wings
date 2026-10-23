@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 22/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 23/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 4 99d1f64a contrastado: dinero/alta/asistencias conciliados. Mantener parciales T2/T6. D4-OBS-01 abierta: Al dia sin cuota guardada y cuota potencial en Cobrar; resolver criterio sin modificar datos por cuenta propia. Adelanto real Julieta, no Sofia. Conservar datos y preparar Dia 5; seguridad/carga pendientes. Ver VERIFICACION-DIA-04.md. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Revisar consolidacion y corrida 23/10: 16 situaciones, 21 casos parciales, 41 metodos/331 aserciones verdes; resolver D4-OBS-01 y seguir Dia 5. Seguridad restante, carga y hitos pendientes. |
 
 ## Gemini
 

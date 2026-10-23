@@ -1,0 +1,7 @@
+{
+    "entorno": "testing",
+    "conexion": "mysql",
+    "host": "127.0.0.1",
+    "base_configurada": "wings_testing_codex",
+    "base_efectiva": "wings_testing_codex"
+}
