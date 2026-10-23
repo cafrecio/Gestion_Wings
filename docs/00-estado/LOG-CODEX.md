@@ -4,6 +4,17 @@
 
 [Antecedentes archivados intactos al consolidar seguimiento](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-SEGUIMIENTO-DIA04-ANTECEDENTES.md).
 
+[Antecedentes archivados intactos al ajustar el visor de salida](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-VISOR-SALIDA-ANTECEDENTES.md).
+
+## 2026-10-23 — Codex CyE — Resumen de salida y atribución de revisión corregidos
+
+Carlos pidió Listo/Frena/Falta, selección de producción y que otro agente verifique. El contraste de Codex no constituye revisión independiente de su propia ejecución; denominación anterior corregida.
+[Visor v3](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 69 casos de salida, 20 parcialmente ejercitados, cero firmas registradas; conserva 12 requisitos previos abiertos del tablero. Selección de trabajo, sin reemplazar PRU-05.
+59 registros con revisión independiente pendiente y contraste separado. La generación rechaza firmas sin identidad/evidencia o misma cuenta no confirmada; tres controles negativos en memoria, sin guardarlos como resultados reales.
+Entrada 84.345 bytes frente a 1.655.776; catálogo y detalle técnico opcionales desde JSON único. 331 fuentes intactas, 1.063 enlaces válidos y generación determinista.
+Control estático; navegador rechazó file://, sin eludirlo ni afirmar revisión visual o latencia móvil. No nueva suite ni cambios de Wings, datos/reloj o despliegue.
+Actualizados informe, continuidad, resumen, estado y paso T14. Otro agente revisa entrega/días; siguiente jornada y D4-OBS-01 siguen pendientes.
+
 ## 2026-10-23 — Codex CyE — Seguimiento del Día 4 y seguridad dirigida
 
 Carlos señaló la ausencia de resultados por caso y de controles negativos. Omisión reconocida; informes dispersos no equivalían a seguimiento.
@@ -114,12 +125,3 @@ Día 4 y orden anterior señalados como antecedentes pendientes de reescritura; 
 La revisión de a86c3509 queda como insumo técnico, sin convertirla en otra lista de correcciones de backend para Gemini.
 Comprobación documental: enlaces, integridad y diff; no corresponde suite. Sin ejecutar jornada, consultar servidor, alterar reloj/datos/producto ni desplegar en esta entrega.
 Siguiente: Carlos pasa el prompt a Gemini; Gemini entrega nuevo cuento, instrucciones humanas y objetivos funcionales. T14 sigue en curso, sin autocierre ni aprobación de la jornada.
-
-## 2026-10-22 — Codex CyE — Día 4 a86c3509 revisado y devuelto
-
-Revisión independiente de los cinco documentos de Gemini; no se ejecutó la jornada.
-[Informe y comprobaciones](../06-pruebas/PRU-04/REVISION-DIA-04-CODEX-2026-10-22.md): seis grupos pendientes; adelanto/rutas principales corregidos, sin aprobación integral.
-Solo lectura en wingstest confirmó Alquileres EGRESO, indumentaria APORTE, Sofía Patín/Lucía HORA y plazo 7/gracia 10; código de vencimiento contradice la matriz del 20–21/10.
-Casos siguen mal vinculados y quedan métodos/columnas sin correspondencia. Base histórica no sustituye reconciliación inicial; no se eligieron contadores por conveniencia.
-Continuidad, estado, resumen y paso de T14 actualizados; tarea en curso. Sin producto, reloj, cambios de datos ni suite por documentación.
-Siguiente: Gemini corrige la preparación y Carlos revisa cualquier cambio de concepto; otro chat ejecutará después.

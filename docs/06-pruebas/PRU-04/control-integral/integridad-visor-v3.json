@@ -1,0 +1,29 @@
+{
+  "fecha": "2026-10-23",
+  "catalogo_fuente_sin_editar": true,
+  "campos_fuente_copiados_intactos": 331,
+  "aplicacion_y_tests_sin_editar": true,
+  "ejecuciones": 59,
+  "filas_html": 524,
+  "enlaces_comprobados": 1063,
+  "fragmentos_e_ids_validos": true,
+  "generacion_determinista": true,
+  "junit": {
+    "aprobadas": 41,
+    "aserciones": 331,
+    "fallidas": 0
+  },
+  "revision_independiente": "59 registros pendientes; tres intentos de firma inválida rechazados en copia en memoria, sin guardarlos",
+  "produccion": {
+    "seleccionados": 69,
+    "con_evidencia_parcial": 20,
+    "firmas_independientes": 0,
+    "tareas_previas_abiertas": 12
+  },
+  "bytes_html": {
+    "CONTROL-INTEGRAL.html": 84345,
+    "CATALOGO.html": 517065,
+    "DETALLE-TECNICO.html": 148991
+  },
+  "visual": "Versión nueva: validación estática, no recorrido visual ni medición de apertura móvil. El navegador rechazó observar file://; no se eludió esa restricción."
+}

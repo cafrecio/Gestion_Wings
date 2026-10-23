@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T14 — Resumen de salida y revisión sincera, Codex CyE 23/10/2026
+
+[Visor v3](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): Listo/Frena/Falta,
+69 casos seleccionados para salida, 20 parcialmente ejercitados y cero firmas independientes
+registradas. Selección de trabajo, no sustituto de PRU-05. El tablero conserva 12 requisitos previos
+abiertos de Carlos; no se presentan como bugs nuevos reproducidos. Entrada 85 KB frente a 1,65 MB;
+catálogo completo y detalle técnico se abren aparte desde el mismo JSON. Codex ejecutó y contrastó:
+los 59 registros quedan Pendiente de revisión independiente. Otro chat no equivale a otra cuenta.
+Sin nueva suite, datos de negocio ni despliegue; control estático, sin medición de apertura móvil.
+
 ## T14 — Seguimiento consolidado y seguridad dirigida, Codex CyE 23/10/2026
 
 [Tabla única](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 16 situaciones del Día 4

@@ -4,6 +4,14 @@
 
 ## Codex CyE: leer primero y retomar por acá
 
+**Ajuste vigente de la herramienta, 23/10:** entrada con Listo/Frena/Falta y selección de salida de
+69 casos únicos (42 de camino feliz, 10 protecciones y requisitos de Carlos, con superposición).
+20 con evidencia parcial, cero firmas independientes registradas. El tablero conserva 12 requisitos
+previos abiertos. Catálogo y detalle técnico en páginas opcionales; entrada reducida de 1,65 MB a 85 KB.
+La ejecución y el contraste de Codex no cumplen por sí solos AGENTS §6a: los 59 registros quedan
+Pendiente de revisión independiente. No tomar el nombre de otro chat como identidad independiente.
+La nueva versión tiene control estático de datos/enlaces, sin medición móvil ni revisión visual nueva.
+
 **Corte vigente, 23/10, Casos prueba humana I:** [seguimiento único](control-integral/CONTROL-INTEGRAL.html)
 actualizado: 16 situaciones (14 coinciden, 2 parciales), medición y observación abierta; 41 métodos
 dirigidos posteriores aprobados / 331 aserciones / salida 0 en `wings_testing_codex`, versión `a15d6095`.

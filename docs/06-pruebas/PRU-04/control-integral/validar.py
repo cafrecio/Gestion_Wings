@@ -1,5 +1,9 @@
 """Integridad documental: no ejecuta aplicación, migraciones ni suite."""
 import hashlib
+import copy
+import sys
+sys.dont_write_bytecode=True
+from salida import actualizar
 from html.parser import HTMLParser
 import json
 from pathlib import Path
@@ -35,16 +39,40 @@ for c in d['casos']:
     for q in c['criterios_seguimiento']:
         assert set(q['ejecuciones'])<=ids
         assert bool(q['ejecuciones'])==(q['estado']!='Pendiente')
-p=Page();p.feed((HERE/'CONTROL-INTEGRAL.html').read_text(encoding='utf-8'))
-assert len(p.ids)==len(set(p.ids)), 'ID HTML duplicado'
-assert all(p.ids),'ID vacío'
-assert p.rows==len(d['casos'])+len(d['recorridos'])+len(d['controles'])+len(d['ejecuciones'])
-for href in p.links:
-    url=urlsplit(href)
-    if url.scheme:continue
-    file=(HERE/unquote(url.path)).resolve() if url.path else HERE/'CONTROL-INTEGRAL.html'
-    assert file.is_file(),href
-    if url.fragment and file==HERE/'CONTROL-INTEGRAL.html':assert unquote(url.fragment) in p.ids,href
+pages={}
+for name in ['CONTROL-INTEGRAL.html','CATALOGO.html','DETALLE-TECNICO.html']:
+    p=Page();p.feed((HERE/name).read_text(encoding='utf-8'))
+    assert len(p.ids)==len(set(p.ids)), ('ID HTML duplicado',name)
+    assert all(p.ids),name
+    pages[name]=p
+assert pages['CATALOGO.html'].rows==len(d['casos'])
+assert pages['CONTROL-INTEGRAL.html'].rows==d['produccion']['casos_necesarios']+len(d['produccion']['tareas_previas_abiertas'])+16
+assert pages['DETALLE-TECNICO.html'].rows==43+len(d['recorridos'])+len(d['controles'])
+for name,p in pages.items():
+    for href in p.links:
+        url=urlsplit(href)
+        if url.scheme:continue
+        file=(HERE/unquote(url.path)).resolve() if url.path else HERE/name
+        assert file.is_file(),(name,href)
+        if url.fragment and file.name in pages and file.parent==HERE:
+            assert unquote(url.fragment) in pages[file.name].ids,(name,href)
+for e in d['ejecuciones']:
+    assert e['verifica']=='Pendiente — otro agente',e['id']
+    assert e['revision_independiente']['estado']=='Pendiente',e['id']
+assert d['produccion']['con_firma_independiente']==0
+assert d['produccion']['casos_necesarios']==sum(c['produccion']['necesario'] for c in d['casos'])
+assert d['produccion']['con_evidencia_parcial']==sum(c['produccion']['necesario'] and bool(c['ejecuciones']) for c in d['casos'])
+rechazos=0
+for variant in ['mismo_ejecutor','sin_evidencia','misma_cuenta_no_confirmada']:
+    trial=copy.deepcopy(d)
+    target=trial['ejecuciones'][0]
+    target['revision_independiente']={'estado':'Verificada','agente':'Codex','identidad':target['identidad_ejecutor'],'evidencia':target['evidencia'][:1]}
+    if variant=='sin_evidencia':target['revision_independiente'].update(agente='Gemini',identidad='Revisor de ejemplo',evidencia=[])
+    if variant=='misma_cuenta_no_confirmada':target['revision_independiente']['identidad']='Otra identidad de ejemplo'
+    try:actualizar(trial)
+    except AssertionError:rechazos+=1
+    else:raise AssertionError('Se aceptó firma inválida: '+variant)
+assert rechazos==3
 junit=ET.parse(HERE/'evidencia-seguridad-2026-10-23/junit.xml')
 cases=junit.findall('.//testcase')
 assert len(cases)==d['resumen']['automatizadas']==41
@@ -53,13 +81,16 @@ assert not junit.findall('.//failure') and not junit.findall('.//error') and not
 human=[e for e in d['ejecuciones'] if e['id'].startswith('D4-T')]
 assert len(human)==16 and sum(e['resultado']=='Coincide' for e in human)==14
 assert sum(e['resultado']=='Parcial' for e in human)==2
-before=hashlib.sha256((HERE/'CONTROL-INTEGRAL.html').read_bytes()).hexdigest()
+before={name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in pages}
 subprocess.run(['python',str(HERE/'generar.py')],cwd=REPO,check=True,capture_output=True)
-assert hashlib.sha256((HERE/'CONTROL-INTEGRAL.html').read_bytes()).hexdigest()==before,'Generación no determinista'
+assert {name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in pages}==before,'Generación no determinista'
 result={'fecha':'2026-10-23','catalogo_fuente_sin_editar':True,'campos_fuente_copiados_intactos':331,
-        'aplicacion_y_tests_sin_editar':True,'ejecuciones':len(ids),'filas_html':p.rows,
-        'enlaces_comprobados':len(p.links),'fragmentos_e_ids_validos':True,
+        'aplicacion_y_tests_sin_editar':True,'ejecuciones':len(ids),'filas_html':sum(p.rows for p in pages.values()),
+        'enlaces_comprobados':sum(len(p.links) for p in pages.values()),'fragmentos_e_ids_validos':True,
         'generacion_determinista':True,'junit':{'aprobadas':41,'aserciones':331,'fallidas':0},
-        'visual':'Chrome: búsqueda D4-T06, filtro Pendiente (342/443), restauración Todos (443/443) y captura visible revisadas; no revisión móvil.'}
-(HERE/'evidencia-seguridad-2026-10-23/integridad.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        'revision_independiente':'59 registros pendientes; tres intentos de firma inválida rechazados en copia en memoria, sin guardarlos',
+        'produccion':{'seleccionados':d['produccion']['casos_necesarios'],'con_evidencia_parcial':d['produccion']['con_evidencia_parcial'],'firmas_independientes':0,'tareas_previas_abiertas':len(d['produccion']['tareas_previas_abiertas'])},
+        'bytes_html':{name:(HERE/name).stat().st_size for name in pages},
+        'visual':'Versión nueva: validación estática, no recorrido visual ni medición de apertura móvil. El navegador rechazó observar file://; no se eludió esa restricción.'}
+(HERE/'integridad-visor-v3.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(result,ensure_ascii=False))

@@ -1,4 +1,8 @@
-# Día 4 — contraste técnico independiente del recorrido humano
+# Día 4 — contraste técnico del recorrido humano
+
+**Aclaración 23/10:** ejecución y contraste fueron de Codex. Son trabajos distintos, pero no
+constituyen revisión independiente según AGENTS §6a. La firma de otro agente sigue pendiente;
+los resultados y evidencias siguientes se conservan como entrega a revisar.
 
 22/10/2026 — Codex CyE, chat Casos prueba humana I.
 Entrega contrastada: `99d1f64a`, [informe humano](DIA-04.md). No se repitieron operaciones.

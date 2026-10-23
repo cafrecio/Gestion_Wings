@@ -4,6 +4,37 @@ Actualizado el 23/10/2026, Codex CyE. **Consolidación y corrida posterior pendi
 
 [ABRIR TABLA](CONTROL-INTEGRAL.html) · [Datos y plantilla](control-integral.json) · [Alcance comprobado](RELEVAMIENTO.md)
 
+## Salida a producción y revisión — versión 3
+
+La entrada muestra **Listo · Frena · Falta para producción** y el dictamen documental
+«No habilitado para producción». Los requisitos previos salen del tablero, sin presentar sus
+descripciones como fallas nuevas reproducidas. Hoy hay 12 tareas prioritarias previas abiertas.
+
+La selección de trabajo reúne **69 casos únicos**: 42 del camino feliz, 10 de protección y
+los vinculados a requisitos explícitos de Carlos (hay superposiciones). Está fundada en los flujos
+mínimos del plan funcional y PRU-05; espera revisión y no posterga obligaciones ya decididas.
+**20 tienen evidencia parcial; 0 tienen firma independiente registrada aquí.** Es el avance visible
+de salida; el resto del catálogo permanece como ampliación. No se exige completar los 331 por
+el mero hecho de existir, ni se considera que camino feliz permita omitir permisos o integridad.
+
+Cada registro separa `hizo`, `contraste_tecnico_por` y `revision_independiente`. Los 59 registros
+actuales tienen esta última **Pendiente**, sin atribuir a Codex una verificación independiente de
+su propia ejecución. Un chat distinto de la misma cuenta no alcanza. Puede revisar Gemini, Claude
+u otra cuenta de Codex con identidad/evidencia explícitas. `salida.py` rechaza una firma sin
+evidencia, identidad o sin confirmación de cuenta distinta cuando el revisor también sea Codex.
+La revisión de salida de un caso exige todas sus letras, no una firma sobre una variante parcial.
+
+El visor conserva un único JSON y genera tres páginas enlazadas, sin descargas automáticas:
+
+- `CONTROL-INTEGRAL.html`: resumen, selección de salida, requisitos y Día 4.
+- `CATALOGO.html`: los 331 casos con sus letras y marca Salida/Ampliación.
+- `DETALLE-TECNICO.html`: métodos, mediciones, controles y recorridos.
+
+El archivo principal anterior pesaba 1.655.776 bytes; el nuevo ronda 85 KB. La reducción de
+peso se comprueba en `integridad-visor-v3.json`; **no es una medición de latencia en teléfono**.
+Esta versión tiene validación estática de enlaces/datos; no se afirma revisión visual/móvil nueva.
+El navegador rechazó observar `file://`; no se eludió esa restricción.
+
 39 recorridos, 14 controles transversales, 331 casos fuente / 1.438 letras de criterio.
 59 registros: 16 situaciones humanas, una medición, una observación y 41 métodos automatizados.
 
@@ -86,7 +117,7 @@ Identificar diferencia funcional sin adjudicar causa o severidad sin reproducir 
 
 1. `ejecutar-seguridad.ps1` configura conexión local aislada y exige `testing` + base efectiva `wings_testing_codex` antes de correr PHPUnit. Recrea solo esa base descartable; nunca usarlo con datos de trabajo. Si hay otra suite en marcha, esperar según AGENTS.
 2. `incorporar-dia04.py` incorpora los resultados documentados del Día 4 y lee el JUnit ya producido: actualiza únicamente los IDs D4/MED-D4/SEG-20261023. Conserva registros de otros días; no ejecuta Wings ni cambia el catálogo.
-3. `generar.py` genera este HTML desde el JSON. Para nuevos días agregar sus registros al JSON y actualizar cobertura; no duplicar esta tabla en otro archivo.
+3. `generar.py` actualiza marcas de salida/revisión y genera las tres páginas desde el JSON y el tablero. Para nuevos días agregar sus registros al JSON y actualizar cobertura; no crear otra tabla con datos independientes.
 4. Buscar por código/tarea/rol o filtrar por estado; abrir cada criterio para ver lo cubierto y lo pendiente. Las dimensiones sin medición permanecen pendientes.
 
 ## Antecedente de preparación — 21/10 (no es el estado del 23/10)

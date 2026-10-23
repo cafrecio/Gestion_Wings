@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Revisar consolidacion y corrida 23/10: 16 situaciones, 21 casos parciales, 41 metodos/331 aserciones verdes; resolver D4-OBS-01 y seguir Dia 5. Seguridad restante, carga y hitos pendientes. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Revisar visor v3 y resultados por otro agente: 69 casos de salida, 20 con evidencia parcial, cero firmas independientes. Conservar 12 requisitos previos del tablero; resolver D4-OBS-01 y seguir Dia 5. |
 
 ## Gemini
 

@@ -6,13 +6,19 @@ Los criterios no citados quedan pendientes. Una variante no cierra el caso fuent
 import copy
 import json
 import re
+import sys
+sys.dont_write_bytecode=True
 from pathlib import Path
 import xml.etree.ElementTree as ET
+from salida import actualizar
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]
 PATH = HERE / 'control-integral.json'
 d = json.loads(PATH.read_text(encoding='utf-8'))
+for previous in d['ejecuciones']:
+    if previous['id'].startswith(('D4-', 'MED-D4-', 'SEG-20261023-')):
+        assert previous.get('revision_independiente',{}).get('estado') in (None,'Pendiente'), 'No reimportar y pisar una revisión ya registrada: '+previous['id']
 old = [e for e in d['ejecuciones'] if not e['id'].startswith(('D4-', 'MED-D4-', 'SEG-20261023-'))]
 root = 'docs/06-pruebas/PRU-04/'
 report = root + 'VERIFICACION-DIA-04.md'
@@ -250,5 +256,6 @@ for e in d['ejecuciones']:
     for q in e.get('criterios',[]):
         assert q['caso'] in catalog and q['letra'] in [a['l'] for a in catalog[q['caso']]['esperado_fuente']]
     for p in e['evidencia']: assert (REPO/p).is_file(), p
+actualizar(d)
 PATH.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(d['resumen'],ensure_ascii=False))
