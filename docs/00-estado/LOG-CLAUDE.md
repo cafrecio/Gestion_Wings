@@ -11,6 +11,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-24 — Claude CAB — Dónde está la prueba por días
+
+- Pedido de Carlos: saber qué se hizo en los días 1 a 4, qué dio, qué se hizo con eso, qué casos no se
+  probaron, y armar el día 5. `ESTADO-PRUEBA.md` en PRU-04.
+- 4 días, 35 de 331 casos ejercitados. Defectos de los días 1 a 3 corregidos (T16, T17, T19, T29, T18,
+  T21, reloj). Sitio de prueba en `56379295`, igual a `main` en código (leído por SSH).
+- D4-OBS-01 medido en el sitio (solo lectura): 63 de 101 activos sin cuota de octubre guardada; Cobrar
+  les ofrece octubre y muestra «Total pendiente» en rojo (COB-028 + cuota en memoria). Espera decisión.
+- Día 5 propuesto (15 situaciones) y plan de prueba interna mía; esperan aprobación de Carlos.
+
 ## 2026-10-22 — Claude CyE — Prueba manual: no se podía ingresar al sitio de prueba
 
 - Causa comprobada: reloj simulado en 13/10 18:25 y sesión de 120 min → cookie `wings-session` con
