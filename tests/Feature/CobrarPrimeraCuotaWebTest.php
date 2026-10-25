@@ -121,6 +121,7 @@ class CobrarPrimeraCuotaWebTest extends TestCase
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08'],
                 'montos_cuota' => ['2026-08' => 28000],
+                'periodos_manuales' => ['2026-08'], // T77: mes sin deuda elegido en el selector.
                 'fecha_pago' => '2026-08-15',
             ])
             ->assertRedirect(route('web.caja.index'))
@@ -160,6 +161,7 @@ class CobrarPrimeraCuotaWebTest extends TestCase
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08'],
                 'montos_cuota' => ['2026-08' => '28,000.00'],
+                'periodos_manuales' => ['2026-08'],
                 'fecha_pago' => '2026-08-15',
             ])
             ->assertRedirect(route('web.caja.index'))
@@ -199,6 +201,7 @@ class CobrarPrimeraCuotaWebTest extends TestCase
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08'],
                 'montos_cuota' => ['2026-08' => 28000],
+                'periodos_manuales' => ['2026-08'],
                 'fecha_pago' => '2026-08-20',
             ])
             ->assertRedirect(route('web.caja.index'))

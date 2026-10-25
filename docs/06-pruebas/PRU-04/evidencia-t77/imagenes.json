@@ -1,0 +1,72 @@
+[
+  {
+    "archivo": "al-dia-1366.jpg",
+    "ancho": 1366,
+    "alto": 1000,
+    "bytes": 78298,
+    "sha256": "a39559ed1bd4351534d50486a0b13b40dbaef858998cd8b89dc776e08f2d2b2a"
+  },
+  {
+    "archivo": "al-dia-375.jpg",
+    "ancho": 375,
+    "alto": 1500,
+    "bytes": 48203,
+    "sha256": "0b63c9cb1e6fa259c08fefa7711db832b3d01d6867942ef456b99f6e0940e4ca"
+  },
+  {
+    "archivo": "cobro-confirmado-1366.jpg",
+    "ancho": 1366,
+    "alto": 1000,
+    "bytes": 51208,
+    "sha256": "a2b85f50024431a74a27c2186c75e9a628c161565d6816ee15369bd94d597f26"
+  },
+  {
+    "archivo": "con-deuda-1366.jpg",
+    "ancho": 1366,
+    "alto": 1000,
+    "bytes": 84311,
+    "sha256": "2aef1767f50f0050b067dc3c7dc543fdbe61de48c17203451850c860e2e66f4f"
+  },
+  {
+    "archivo": "con-deuda-375.jpg",
+    "ancho": 375,
+    "alto": 1500,
+    "bytes": 52853,
+    "sha256": "09d1f799172437a69d210446917ac0bc7c6429dc6a0127bd922e3f54fe0f7cf2"
+  },
+  {
+    "archivo": "login-375.jpg",
+    "ancho": 360,
+    "alto": 1056,
+    "bytes": 16110,
+    "sha256": "31ad3c1edc2cd2ea86aa51ece95d7bd1e840d23606bf1401b547c00ef5f02859"
+  },
+  {
+    "archivo": "mes-agregado-1366.jpg",
+    "ancho": 1366,
+    "alto": 1000,
+    "bytes": 85346,
+    "sha256": "f1dd94f04c1e6da9c7c05ac38785285a4e85eeb249cd0301bae09a8df505d27c"
+  },
+  {
+    "archivo": "mes-agregado-375.jpg",
+    "ancho": 375,
+    "alto": 1500,
+    "bytes": 55051,
+    "sha256": "3661a0ea08f2c10f3855000c5432b42da2ec901d338a579c7f44edd27c0c6beb"
+  },
+  {
+    "archivo": "selector-1366.jpg",
+    "ancho": 1366,
+    "alto": 1000,
+    "bytes": 79478,
+    "sha256": "d6e45bb0e1adb3c7433af6e9f83ea3ac310a412e04181dee5fa5758978619b5e"
+  },
+  {
+    "archivo": "selector-375.jpg",
+    "ancho": 375,
+    "alto": 1500,
+    "bytes": 49219,
+    "sha256": "3da282306b4bf74371f5f55303e6c4115518ae9bae6dc9c6b760a6564edf9be3"
+  }
+]

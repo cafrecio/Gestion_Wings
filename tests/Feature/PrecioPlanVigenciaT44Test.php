@@ -130,7 +130,9 @@ class PrecioPlanVigenciaT44Test extends TestCase
         $alumno = $this->alumno();
         $this->cambiar();
         $this->actingAs($this->admin)->get(route('web.caja.cobrar', $alumno->id))->assertOk()
-            ->assertViewHas('alumno', fn ($a) => (float) $a->deudaCuotas->firstWhere('periodo', '2026-10')->monto_original === 40000.0)
+            // T77: el precio corriente se sugiere en el selector manual, sin inventar deuda.
+            ->assertViewHas('alumno', fn ($a) => $a->deudaCuotas->isEmpty())
+            ->assertViewHas('mesesAdelantables', fn ($meses) => $meses->firstWhere('periodo', '2026-10')['precio'] === 40000.0)
             ->assertViewHas('mesesAdelantables', fn ($meses) => $meses->firstWhere('periodo', '2026-11')['precio'] === 45000.0);
         $this->assertDatabaseMissing('deuda_cuotas', ['alumno_id' => $alumno->id]);
     }

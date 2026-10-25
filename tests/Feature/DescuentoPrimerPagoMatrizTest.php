@@ -237,6 +237,9 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
             ->post(route('web.caja.pagar', $alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => [$periodo],
+                // T77: el corriente sin cuota se elige a mano; los futuros conservan T18.
+                'periodos_manuales' => $periodo === '2026-08' && !$alumno->deudaCuotas()->where('periodo', $periodo)->exists()
+                    ? [$periodo] : [],
                 'montos_cuota' => [$periodo => $monto],
                 'fecha_pago' => '2026-08-25',
                 // T18: cuando el período es posterior a agosto, quien cobra lo confirma.

@@ -42,7 +42,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | Hecho, espera verificación (hizo Codex) | Carlos aprueba el ajuste visual y otra IA verifica reglas, cobro manual y rechazo sin deuda |
 
 ## Claude
 
@@ -56,7 +58,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 5 y 6 recorridos: verificar informes y evidencia con otro agente; no repetir cobros ni mover reloj (último inicio 15/10 15:00). Cierre financiero coincide; clase extra bloqueada por fecha mínima 24/10, Sin asistencia 34 frente a 32, motivo anulado en PDF, precio Lucas noviembre y aviso Zoe sin acreditar. Continuar siguiente guion autorizado; dashboard por casos conserva corte 23/10. |
-| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | En curso | D4-OBS-01. Carlos 25/10: si no tiene deuda no se ofrece; no se cobra dos veces. 63 alumnos Al dia sin cuota de octubre en el sitio de prueba. TOCA: CajaWebController::cobrar y su vista |
 
 ## Gemini
 

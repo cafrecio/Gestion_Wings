@@ -1,0 +1,58 @@
+{
+    "base": "wings_testing_codex",
+    "deudas": [
+        {
+            "id": 1,
+            "alumno_id": 2,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "observaciones": null,
+            "created_at": "2026-10-25T11:13:55.000000Z",
+            "updated_at": "2026-10-25T11:13:55.000000Z",
+            "porcentaje_alta": null,
+            "fecha_reingreso": null
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "observaciones": null,
+            "created_at": "2026-10-25T11:17:11.000000Z",
+            "updated_at": "2026-10-25T11:17:11.000000Z",
+            "porcentaje_alta": null,
+            "fecha_reingreso": null
+        }
+    ],
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "30000.00",
+            "estado": "COMPLETADO"
+        }
+    ],
+    "imputaciones": [
+        {
+            "id": 1,
+            "pago_id": 1,
+            "deuda_cuota_id": 2,
+            "monto_aplicado": "30000.00",
+            "created_at": "2026-10-25 08:17:11",
+            "updated_at": "2026-10-25 08:17:11"
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "pago_id": 1,
+            "monto": "30000.00",
+            "estado": "ACTIVO"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T77 — Cobrar sin inventar deuda</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}
+main{max-width:1400px;margin:auto}h1{font-size:28px}h2{font-size:22px}
+section{background:white;padding:20px;margin:20px 0;border:1px solid #cbd5df;border-radius:10px}
+.columns{display:flex;gap:24px;align-items:flex-start;overflow-x:auto}
+.desktop{flex:1;min-width:600px}.phone{width:375px;min-width:375px}
+img{display:block;max-width:100%;height:auto;border:1px solid #b7c5d2}
+.phone img{width:375px;max-width:none}a{color:#174c89}.status{border-left:5px solid #a85b13;padding:12px;background:#fff6e8}
+nav{display:flex;gap:20px;flex-wrap:wrap}figure{margin:0}figcaption{margin:8px 0;font-size:14px}
+</style>
+<main>
+<h1>T77 — Cobrar sin inventar deuda</h1>
+<p>25/10/2026 · Codex CAB · Chrome real, aplicación local y alumnos de prueba.</p>
+<p class="status">Parte visual pendiente de aprobación de Carlos. La orden de hacer el cambio ya está autorizada.</p>
+<p><strong>Corregido tras tu observación:</strong> Mes e Importe tienen el mismo ancho en celular (280 px), comparten ambos bordes y Agregar queda debajo a la derecha. Las ocho capturas ya muestran esta versión; escritorio conserva el importe de 150 px.</p>
+<p>Si el alumno no debe el mes, no aparece en pendientes y el total da $0. Para cobrarlo igual, se elige a mano en el selector. Quien sí debe sigue viendo su cuota.</p>
+<nav><a href="#al-dia">Sin deuda</a><a href="#selector">Selector</a><a href="#agregado">Mes agregado</a><a href="#deuda">Con deuda</a><a href="IMPLEMENTACION-T77.md">Informe</a></nav>
+<section id="al-dia"><h2>Alumno al día: sin cuota pendiente, total $0</h2><div class="columns">
+<figure class="desktop"><a href="evidencia-t77/al-dia-1366.jpg"><img src="evidencia-t77/al-dia-1366.jpg" alt="Sin deuda, escritorio de 1366 px"></a><figcaption>Escritorio · 1366 px</figcaption></figure>
+<figure class="phone"><a href="evidencia-t77/al-dia-375.jpg"><img src="evidencia-t77/al-dia-375.jpg" alt="Sin deuda, celular de 375 px"></a><figcaption>Celular · 375 px</figcaption></figure>
+</div></section>
+<section id="selector"><h2>El mes actual se puede elegir a mano</h2><div class="columns">
+<figure class="desktop"><a href="evidencia-t77/selector-1366.jpg"><img src="evidencia-t77/selector-1366.jpg" alt="Octubre elegido en el selector, escritorio"></a><figcaption>Escritorio · 1366 px</figcaption></figure>
+<figure class="phone"><a href="evidencia-t77/selector-375.jpg"><img src="evidencia-t77/selector-375.jpg" alt="Octubre elegido en el selector, celular"></a><figcaption>Celular · 375 px</figcaption></figure>
+</div></section>
+<section id="agregado"><h2>Recién al agregarlo aparece entre lo que se va a cobrar</h2><p>El total pendiente sigue en $0. El total a cobrar muestra los $30.000 elegidos.</p><div class="columns">
+<figure class="desktop"><a href="evidencia-t77/mes-agregado-1366.jpg"><img src="evidencia-t77/mes-agregado-1366.jpg" alt="Mes agregado a mano, escritorio"></a><figcaption>Escritorio · 1366 px</figcaption></figure>
+<figure class="phone"><a href="evidencia-t77/mes-agregado-375.jpg"><img src="evidencia-t77/mes-agregado-375.jpg" alt="Mes agregado a mano, celular"></a><figcaption>Celular · 375 px</figcaption></figure>
+</div></section>
+<section id="deuda"><h2>Alumno con deuda: octubre sigue ofrecido entre pendientes</h2><div class="columns">
+<figure class="desktop"><a href="evidencia-t77/con-deuda-1366.jpg"><img src="evidencia-t77/con-deuda-1366.jpg" alt="Cuota guardada pendiente, escritorio"></a><figcaption>Escritorio · 1366 px</figcaption></figure>
+<figure class="phone"><a href="evidencia-t77/con-deuda-375.jpg"><img src="evidencia-t77/con-deuda-375.jpg" alt="Cuota guardada pendiente, celular"></a><figcaption>Celular · 375 px</figcaption></figure>
+</div></section>
+<section><h2>Control de captura</h2><p>Se usó emulación real de Chrome a 375 px, sin achicar ni recortar una ventana de 500 px. El iframe de prueba fue bloqueado por la seguridad de Wings y no se modificó esa seguridad. El menú terminó su animación antes de guardar las imágenes finales.</p><p><a href="evidencia-t77/login-375.jpg">Ingreso completo como control</a> · <a href="evidencia-t77/mediciones-navegador.json">Medidas del ancho</a> · <a href="evidencia-t77/cobro-confirmado-1366.jpg">Cobro de prueba confirmado</a></p></section>
+</main>
+</html>

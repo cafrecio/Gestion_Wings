@@ -122,6 +122,7 @@ class DescuentoNoAlteraOtroPeriodoTest extends TestCase
             ->post(route('web.caja.pagar', $this->alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08', '2026-09'],
+                'periodos_manuales' => ['2026-08'], // T77: agosto sin cuota se elige a mano.
                 'montos_cuota' => [
                     '2026-08' => 28000,
                     '2026-09' => 10000,

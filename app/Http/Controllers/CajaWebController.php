@@ -781,37 +781,10 @@ class CajaWebController extends Controller
                 ->with('error', 'El alumno no tiene un plan activo. Asigná un plan antes de cobrar.');
         }
 
-        $periodoVigente = now()->format('Y-m');
-        $deudaVigenteExiste = DeudaCuota::where('alumno_id', $alumno->id)
-            ->where('periodo', $periodoVigente)
-            ->exists();
-
-        if (!$deudaVigenteExiste) {
-            $planVigente = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $periodoVigente);
-
-            if (!$planVigente?->plan) {
-                return redirect()
-                    ->route('web.alumnos.edit', $alumno->id)
-                    ->with('error', 'El alumno no tiene un plan aplicable al período vigente.');
-            }
-
-            $deudas = $alumno->deudaCuotas->push(new DeudaCuota([
-                'alumno_id' => $alumno->id,
-                'periodo' => $periodoVigente,
-                'monto_original' => $planVigente->plan->precioParaPeriodo($periodoVigente, $alumno->fecha_alta),
-                'monto_pagado' => 0,
-                'estado' => DeudaCuota::ESTADO_PENDIENTE,
-            ]))->sortBy('periodo')->values();
-
-            $alumno->setRelation('deudaCuotas', $deudas);
-        }
-
-        // T18: los meses que todavía no empezaron no son deuda y no se mezclan con ella.
-        // Antes se dibujaban dos meses futuros en la misma lista y «Total pendiente» los
-        // sumaba: a quien debía 48.000 le anunciaba 144.000. Ahora se ofrecen aparte, para
-        // que quien cobra elija el mes y el importe.
+        // T77: solo las cuotas guardadas son deuda. El mes corriente sin cuota se
+        // elige a mano en el mismo selector que los adelantos (T18), sin sumarlo al pendiente.
         $periodosExistentes = DeudaCuota::where('alumno_id', $alumno->id)->pluck('periodo')->all();
-        $mesesAdelantables = collect(range(1, self::MESES_ADELANTABLES))
+        $mesesAdelantables = collect(range(0, self::MESES_ADELANTABLES))
             ->map(fn ($i) => now()->startOfMonth()->addMonthsNoOverflow($i))
             ->reject(fn ($mes) => in_array($mes->format('Y-m'), $periodosExistentes, true))
             ->map(function ($mes) use ($alumno) {
@@ -844,6 +817,12 @@ class CajaWebController extends Controller
         $itemsOfrecidos = $alumno->deudaCuotas->map(fn ($deuda) => [
             'periodo' => $deuda->periodo, 'monto' => $deuda->saldo_pendiente,
         ])->all();
+        // La elección manual del mes conserva la vista previa de primer pago y
+        // cambio de plan; participa en el precio, nunca en el saldo pendiente.
+        $mesActualManual = $mesesAdelantables->firstWhere('periodo', $periodoActual);
+        if ($mesActualManual) {
+            $itemsOfrecidos[] = ['periodo' => $periodoActual, 'monto' => $mesActualManual['precio']];
+        }
         [, $reglaId, $periodoConDescuento] = $this->pagoCuotaService->calcularReglaPrimerPago($alumnoId, $itemsOfrecidos);
         if ($reglaId !== null) {
             $reglaPrimerPago = ReglaPrimerPago::find($reglaId);
@@ -868,6 +847,8 @@ class CajaWebController extends Controller
                     $deuda->monto_original = $precioConDescuento;
                 }
             }
+            $mesesAdelantables = $mesesAdelantables->map(fn ($mes) =>
+                $mes['periodo'] === $periodoConDescuento ? array_replace($mes, ['precio' => $precioConDescuento]) : $mes);
         }
 
         // La pantalla y el guardado comparten la fecha de efecto y el importe del cambio.
@@ -900,6 +881,8 @@ class CajaWebController extends Controller
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
             'periodos'       => 'nullable|array',
             'periodos.*'     => ['required', 'string', 'regex:/^\d{4}-(0[1-9]|1[0-2])$/'],
+            'periodos_manuales' => 'nullable|array',
+            'periodos_manuales.*' => ['required', 'string', Rule::in([now()->format('Y-m')])],
             'observaciones'  => 'nullable|string|max:500',
             'montos_cuota'   => 'array',
             'montos_cuota.*' => ['nullable', 'numeric', 'min:0.01', new ImportePesos],
@@ -1017,8 +1000,18 @@ class CajaWebController extends Controller
                     ->keyBy('periodo');
 
                 $montosEnviados = $request->input('montos_cuota', []);
+                // T77: no convertir un período enviado como deuda en una cuota nueva.
+                // Se comprueba bajo el bloqueo del alumno, antes de crear pago o deuda.
+                $periodoActual = now()->format('Y-m');
+                if (in_array($periodoActual, $request->input('periodos'), true)
+                    && !$deudas->has($periodoActual)
+                    && (!in_array($periodoActual, $request->input('periodos_manuales') ?? [], true)
+                        || !is_numeric($request->input("montos_cuota.{$periodoActual}")))) {
+                    throw new \RuntimeException('Ese mes no tiene una deuda guardada. Elegilo en el selector de meses e indicá el importe para cobrarlo.');
+                }
+
                 $montosAdelantados = [];
-                $items = collect($request->input('periodos'))->map(function ($periodo) use ($deudas, $montosEnviados, $alumnoId, &$montosAdelantados) {
+                $items = collect($request->input('periodos'))->map(function ($periodo) use ($deudas, $montosEnviados, $alumnoId, $alumno, &$montosAdelantados) {
                     $deuda = $deudas->get($periodo);
 
                     if ($deuda) {

@@ -1,0 +1,31 @@
+
+   FAIL  Tests\Feature\DetalleCajaCanceladoYFichaAltaT78Test
+  ⨯ el detalle de caja muestra el motivo de un cobro cancelado para operativa y dueno                           11.23s
+  ✓ la ficha de un alumno con alta reciente muestra vencimiento y total igual a cobranza                         0.40s
+  ✓ un alumno al dia no muestra vencimiento ni total                                                             0.18s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.06s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\DetalleCajaCanceladoYFichaAltaT78Test > el detalle de caja muestra el motiv…  QueryException
+  SQLSTATE[HY000]: General error: 1364 Field 'mes' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `pagos` (`alumno_id`, `fecha_pago`, `updated_at`, `created_at`) values (1, 2026-10-16 00:00:00, 2026-10-13 18:15:00, 2026-10-13 18:15:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[HY000]: General error: 1364 Field 'mes' doesn't have a default value")
+
+
+  Tests:    1 failed, 3 passed (24 assertions)
+  Duration: 12.02s

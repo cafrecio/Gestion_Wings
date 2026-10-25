@@ -224,7 +224,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         // No debe quedar en "Sin deudas pendientes" bloqueante sin opciones
         // T18: los meses futuros se ofrecen aparte, en un selector, con el precio de hoy
         // como sugerencia. Ya no se dibujan como deuda.
-        $response->assertSee('Cobro adelantado');
+        $response->assertSee('Mes sin deuda o cobro adelantado');
         $response->assertSee('value="2026-11" data-precio="35000"', false);
         $response->assertSee('Noviembre 2026');
         $response->assertDontSee('name="montos_cuota[2026-11]"', false);
@@ -285,6 +285,8 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
     public function test_t18_total_pendiente_no_suma_meses_que_no_empezaron(): void
     {
         // Debe solo octubre. Antes el cartel sumaba noviembre y diciembre: 105.000.
+        DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-10', 'monto_original' => 35000,
+            'monto_pagado' => 0, 'estado' => DeudaCuota::ESTADO_PENDIENTE]);
         $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id))
             ->assertOk()->assertSee('$35,000.00')->assertDontSee('105,000.00');
     }

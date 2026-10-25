@@ -1,0 +1,30 @@
+[
+  {
+    "boton": {
+      "right": 320,
+      "top": 712.171875,
+      "width": 96,
+      "x": 224
+    },
+    "estado": "al-dia-corregido",
+    "importe": {
+      "right": 320,
+      "width": 280,
+      "x": 40
+    },
+    "importeBottom": 704.171875,
+    "mes": {
+      "right": 320,
+      "width": 280,
+      "x": 40
+    },
+    "scroll": 360,
+    "viewport": 375
+  },
+  {
+    "anchoContenedorImporte": 150,
+    "anchoImporte": 150,
+    "estado": "escritorio",
+    "viewport": 1366
+  }
+]

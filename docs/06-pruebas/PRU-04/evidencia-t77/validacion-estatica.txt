@@ -1,0 +1,15 @@
+No syntax errors detected in app/Http/Controllers/CajaWebController.php
+No syntax errors detected in tests/Feature/CobrarMesSinDeudaT77Test.php
+No syntax errors detected in tests/Feature/CambioPlanConDescuentoMatrizTest.php
+No syntax errors detected in tests/Feature/CobrarPrimeraCuotaWebTest.php
+No syntax errors detected in tests/Feature/DescuentoNoAlteraOtroPeriodoTest.php
+No syntax errors detected in tests/Feature/DescuentoPrimerPagoMatrizTest.php
+No syntax errors detected in tests/Feature/P2Entrega2FichaCobroAdelantadoTest.php
+No syntax errors detected in tests/Feature/PrecioPlanVigenciaT44Test.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t77/preparar-navegador.php
+
+
+   INFO  Blade templates cached successfully.
+
+
+   INFO  Compiled views cleared successfully.

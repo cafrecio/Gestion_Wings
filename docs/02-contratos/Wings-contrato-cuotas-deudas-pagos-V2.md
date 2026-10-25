@@ -29,8 +29,31 @@ Un pago puede cubrir uno o múltiples períodos.
 
 Si al registrar un pago no existe DeudaCuota para el período solicitado:
 
-- Si el período es vigente o futuro → se crea automáticamente.
+- Si el período es vigente → se crea al confirmar su elección manual en el selector de meses, con importe explícito.
+- Si el período es futuro → se crea al confirmar el cobro adelantado (T18).
 - Si el período es pasado y no existe deuda → error.
+
+**T77, decisión de Carlos del 25/10/2026:** «Si no tiene deuda, ¿por qué ofrece cobrar octubre?
+No se puede cobrar dos veces.» Cobrar muestra entre las cuotas pendientes exclusivamente las
+guardadas: no arma una cuota corriente en memoria, no la marca ni la suma a «Total pendiente».
+Entrar y salir no crea deuda. Esto vale también para la primera carga, el alta con «No generar»
+y el alumno en Revisión. No se reconstruyen cuotas ni pagos históricos.
+
+El selector de T18 admite también el mes actual cuando no existe ninguna cuota de ese período,
+además de los doce meses futuros. El mes actual toma el precio del plan aplicable al período,
+según `precioParaPeriodo(periodo, fecha_alta)`, con las reglas vigentes de primera cuota y cambio
+de plan. Se conservan los pagos parciales: elegir el corriente no congela un importe libre como
+ocurre con los adelantos futuros. Los meses guardados, incluidos pagados y condonados, quedan
+fuera del selector.
+
+El envío web distingue la elección manual (`periodos_manuales[]`) de las deudas seleccionadas
+(`periodos[]`). Un mes corriente sin cuota enviado solo como deuda se rechaza sin registrar
+pago, imputación ni movimiento. La comprobación ocurre dentro de la transacción y con el alumno
+bloqueado. Una cuota ya saldada no puede cobrarse otra vez; un reintento conserva el primer cobro.
+Elegir y pagar el mes en Revisión conserva la resolución automática de esa revisión.
+
+Cobranza, ficha, buscador de Cobrar e Inicio mantienen sus cálculos sobre deuda guardada.
+Implementación, pruebas y límites de aceptación: [entrega T77](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md).
 
 Reglas:
 - Se respeta UNIQUE(alumno_id, periodo) (idempotencia).

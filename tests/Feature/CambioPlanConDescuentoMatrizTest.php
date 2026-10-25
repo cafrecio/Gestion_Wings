@@ -167,6 +167,8 @@ class CambioPlanConDescuentoMatrizTest extends TestCase
             ->post(route('web.caja.pagar', $alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08'],
+                // T77: si no hay cuota guardada, se eligió el mes en el selector.
+                'periodos_manuales' => $alumno->deudaCuotas()->where('periodo', '2026-08')->exists() ? [] : ['2026-08'],
                 'montos_cuota' => ['2026-08' => $anunciado],
                 'nuevo_plan_id' => $plan->id,
                 'fecha_pago' => '2026-08-25',

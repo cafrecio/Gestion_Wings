@@ -1,0 +1,68 @@
+[
+  {
+    "ancho": 375,
+    "documento": 360,
+    "pantalla": "login",
+    "scroll": 360
+  },
+  {
+    "ancho": 375,
+    "cobrarDeshabilitado": true,
+    "cuotas": 0,
+    "documento": 360,
+    "mes": "",
+    "pantalla": "al-dia",
+    "scroll": 360
+  },
+  {
+    "ancho": 375,
+    "cuotas": [
+      {
+        "marcado": true,
+        "periodo": "2026-10"
+      }
+    ],
+    "documento": 375,
+    "manuales": [
+      "<redacted>"
+    ],
+    "pantalla": "mes-agregado",
+    "scroll": 360,
+    "total": "$30,000.00"
+  },
+  {
+    "ancho": 375,
+    "documento": 375,
+    "pantalla": "con-deuda",
+    "pendientes": [
+      {
+        "periodo": "2026-10",
+        "saldo": "30000"
+      }
+    ],
+    "scroll": 360,
+    "selector": [
+      "",
+      "2026-11",
+      "2026-12",
+      "2027-01",
+      "2027-02",
+      "2027-03",
+      "2027-04",
+      "2027-05",
+      "2027-06",
+      "2027-07",
+      "2027-08",
+      "2027-09",
+      "2027-10"
+    ]
+  },
+  {
+    "ancho": 375,
+    "documento": 375,
+    "pantalla": "seleccion-manual-final",
+    "scroll": 360,
+    "sidebarDerecha": 0,
+    "total": "$30,000.00"
+  }
+]

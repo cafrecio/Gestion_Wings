@@ -1,0 +1,22 @@
+{
+  "fecha": "2026-10-25T09:03:33.3918162-03:00",
+  "enlacesLocales": 43,
+  "enlacesRotos": 0,
+  "fuentesCoinciden": true,
+  "tablero": {
+    "id": "T77",
+    "titulo": "Cobrar no ofrece como deuda un mes que el alumno no debe",
+    "gravedad": "",
+    "prioridad": "",
+    "estado": "a_verificar",
+    "tiene": "nadie",
+    "hizo": "Codex",
+    "verifica": "",
+    "paso": "Carlos aprueba el ajuste visual y otra IA verifica reglas, cobro manual y rechazo sin deuda",
+    "ref": "docs/06-pruebas/PRU-04/IMPLEMENTACION-T77.md",
+    "fecha": "2026-10-25",
+    "cerrado_el": ""
+  },
+  "logCaracteres": 11698,
+  "resumenLineas": 150
+}

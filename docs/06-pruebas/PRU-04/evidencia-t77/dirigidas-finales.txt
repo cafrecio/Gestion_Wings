@@ -1,0 +1,91 @@
+
+   PASS  Tests\Feature\CobrarMesSinDeudaT77Test
+  ✓ al dia sin cuota no tiene fila pendiente y total es cero                                                    12.12s
+  ✓ selector incluye actual al precio del plan y conserva doce futuros                                           0.19s
+  ✓ envio del mes como deuda se rechaza sin escribir para ambos roles                                            0.19s
+  ✓ mes elegido manualmente se cobra una vez y el segundo envio se rechaza                                       0.35s
+  ✓ admin cobra mes elegido a cashflow sin movimiento operativo                                                  0.23s
+  ✓ alumno que debe octubre sigue viendolo y pagandolo como deuda                                                0.22s
+  ✓ en revision el cobro manual resuelve la cola                                                                 0.24s
+  ✓ eleccion manual sin importe no crea cuota                                                                    0.11s
+  ✓ cobranza buscador ficha e inicio conservan solo deuda guardada                                               0.33s
+
+   PASS  Tests\Feature\CobrarPrimeraCuotaWebTest
+  ✓ la pantalla ofrece el periodo vigente sin crear la deuda                                                     0.13s
+  ✓ el cobro web autocrea y paga la primera deuda                                                                0.09s
+  ✓ el cobro web interpreta el monto con separador de miles                                                      0.09s
+  ✓ la primera cuota autocreada con descuento deja al alumno al dia                                              0.13s
+
+   PASS  Tests\Feature\CambioPlanConDescuentoMatrizTest
+  ✓ subida en el mes de alta con descuento                                                                       0.25s
+  ✓ subida sin descuento                                                                                         0.24s
+  ✓ bajada sin asistencia en el mes de alta con descuento                                                        0.16s
+  ✓ bajada con asistencia se difiere y el mes conserva el precio con descuento                                   0.25s
+  ✓ bajada con asistencia sin descuento conserva el precio del plan actual                                       0.20s
+  ✓ sin cambio de plan con descuento                                                                             0.21s
+  ✓ el script del cambio de plan lee el precio que calcula el servidor                                           0.10s
+
+   PASS  Tests\Feature\DescuentoNoAlteraOtroPeriodoTest
+  ✓ un parcial de otro periodo conserva su monto original                                                        0.16s
+
+   PASS  Tests\Feature\DescuentoPrimerPagoMatrizTest
+  ✓ pago completo con deuda existente deja el mes en el precio con descuento                                     0.14s
+  ✓ pago completo sin deuda previa crea el mes con descuento                                                     0.11s
+  ✓ un parcial con deuda existente no cierra el mes                                                              0.10s
+  ✓ un parcial sin deuda previa no cierra el mes                                                                 0.10s
+  ✓ el saldo que queda despues del parcial se puede terminar de cobrar                                           0.13s
+  ✓ el tramo de fin de mes tambien descuenta el precio y no la sena                                              0.15s
+  ✓ sin descuento el parcial se imputa contra el precio entero                                                   0.13s
+  ✓ un cobro cancelado no le saca el descuento al mes de alta                                                    0.29s
+  ✓ cancelar y volver a cobrar el mes de alta no descuenta dos veces                                             0.22s
+  ✓ despues de cancelar la pantalla muestra el mismo precio que va a cobrar                                      0.22s
+
+   PASS  Tests\Feature\P2Entrega2FichaCobroAdelantadoTest
+  ✓ a17 admin y operativo ven boton cobrar en cabecera de ficha                                                  0.17s
+  ✓ a17 profesor no puede acceder a ficha ni a cobrar                                                            0.07s
+  ✓ a17 fila de deuda en ficha muestra boton cobrar                                                              0.09s
+  ✓ a34 ficha permite acceder a recibo de pago completado y anulado                                              7.72s
+  ✓ a3 alumno al dia ofrece periodos futuros para cobro adelantado                                               0.13s
+  ✓ a3 cobro adelantado registra pago y deuda al precio del plan                                                 0.17s
+  ✓ t18 total pendiente no suma meses que no empezaron                                                           0.13s
+  ✓ t18 sin confirmar no se cobra un mes futuro                                                                  0.06s
+  ✓ t18 el importe adelantado se puede cambiar y queda fijo                                                      0.27s
+  ✓ t18 no se cobra mas alla de doce meses ni sin importe                                                        0.15s
+  ✓ a3 generacion mensual en dia 1 no duplica el mes cobrado adelantado                                          0.08s
+  ✓ a3 busqueda en caja cobrar encuentra alumno al dia para cobro adelantado                                     0.09s
+
+   PASS  Tests\Feature\PrecioPlanVigenciaT44Test
+  ✓ precio anterior en el mes del aumento y nuevo al mes siguiente                                               0.16s
+  ✓ alta y vista previa antes y despues del aumento coinciden                                                    0.22s
+  ✓ reingreso conserva fecha de alta original y tarifa anterior                                                  0.16s
+  ✓ cuota pasada y su oferta usan el precio historico del mes                                                    0.15s
+  ✓ revision continua usa precio y plan del periodo objetivo                                                     0.18s
+  ✓ generador del dia uno toma ultimo precio del mes anterior                                                    0.18s
+  ✓ cobrar ofrece actual anterior y adelantados nuevos                                                           0.23s
+  ✓ cobro tardio del mes del cambio no usa la tarifa nueva                                                       0.19s
+  ✓ dos aumentos en el mes segun decision de carlos                                                              0.14s
+  ✓ editar por pantalla registra historial y no recalcula cuotas generadas                                       0.22s
+  ✓ guardar sin cambio de precio no agrega vigencia                                                              0.29s
+  ✓ transaccion fallida no deja precio ni vigencia a medias                                                      0.16s
+  ✓ cobro adelantado t18 congela importe aunque despues aumente el plan                                          0.21s
+  ✓ cambios del mismo dia y centavos se conservan                                                                0.17s
+  ✓ bajada sin asistencias se difiere y conserva plan y cuota del mes                                            0.27s
+  ✓ subida con pago parcial ajusta saldo del mes y cobra lo anunciado                                            0.33s
+  ✓ subida con mes saldado se programa sin modificar la cuota                                                    0.17s
+  ✓ cambio desde ficha usa la misma regla de bajada futura                                                       0.19s
+  ✓ subida de cuota de alta con pago parcial conserva el porcentaje original                                     0.32s
+
+   PASS  Tests\Feature\DetalleCajaCanceladoYFichaAltaT78Test
+  ✓ el detalle de caja muestra el motivo de un cobro cancelado para operativa y dueno                            0.23s
+  ✓ la ficha de un alumno con alta reciente muestra vencimiento y total igual a cobranza                         0.29s
+  ✓ un alumno al dia no muestra vencimiento ni total                                                             0.18s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.03s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.11s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.07s
+
+  Tests:    68 passed (442 assertions)
+  Duration: 31.80s

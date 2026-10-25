@@ -1,0 +1,48 @@
+{
+  "fecha": "2026-10-25T08:22:13.9705492-03:00",
+  "head": "726e9ccd8b01f469faf971f4560663a70fd5125e",
+  "rama": "main",
+  "base": "wings_testing_codex",
+  "archivos": [
+    {
+      "ruta": "app/Http/Controllers/CajaWebController.php",
+      "sha256": "56612ba0eb613f9afec981572aa78751f76b86b525c0299e2d9701470a9c2452"
+    },
+    {
+      "ruta": "resources/views/caja/cobrar.blade.php",
+      "sha256": "2d9ef67773301a617bdddaf339285bad233e39e87d3b41bb274d205deb051e35"
+    },
+    {
+      "ruta": "resources/js/cobrar.js",
+      "sha256": "8db821454a74050d046c84e9d331cdc82d3f89a3baf20bb268ef5099f3a4ae35"
+    },
+    {
+      "ruta": "tests/Feature/CobrarMesSinDeudaT77Test.php",
+      "sha256": "9d5f9537603544c3cd8dd5a2694a1ee75a44fefa720bc334ef9507896a16f97d"
+    },
+    {
+      "ruta": "tests/Feature/CambioPlanConDescuentoMatrizTest.php",
+      "sha256": "10196c1893d6dc15903e53b2e0b26ed2bf38abfa8d4d7ef1f4ad34b4962c702b"
+    },
+    {
+      "ruta": "tests/Feature/CobrarPrimeraCuotaWebTest.php",
+      "sha256": "38384135b7c15354a0b6ac0bb74f445ed557f76ee8c6177f1fd6c76932112078"
+    },
+    {
+      "ruta": "tests/Feature/DescuentoNoAlteraOtroPeriodoTest.php",
+      "sha256": "d2437237a6359eea75f5f892f1da70456bf75ce7321a81c2c5f57c983e4906ff"
+    },
+    {
+      "ruta": "tests/Feature/DescuentoPrimerPagoMatrizTest.php",
+      "sha256": "f64eeadda957df3f81151afaa4f4492f70d94e71d65c932ec159c7fa9fdafab9"
+    },
+    {
+      "ruta": "tests/Feature/P2Entrega2FichaCobroAdelantadoTest.php",
+      "sha256": "ff8471395d3e80f15ab2d74ee76c328bf96a4a60a7f270e1ad4ee12fc42c5e36"
+    },
+    {
+      "ruta": "tests/Feature/PrecioPlanVigenciaT44Test.php",
+      "sha256": "663f501a0c23c899b43e08435d0a5447b8a8ca479fcd4dca9cf9d067e1831125"
+    }
+  ]
+}

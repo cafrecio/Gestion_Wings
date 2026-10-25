@@ -173,11 +173,11 @@
         @endif
     </div>
 
-    {{-- Cobro adelantado: aparte de la deuda, con mes e importe a elección (T18) --}}
+    {{-- Mes sin deuda y cobro adelantado: elección manual, aparte de lo pendiente (T77/T18) --}}
     @if($mesesAdelantables->isNotEmpty())
     <div class="filtros-card mb-4" id="adelanto-bloque">
         <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Cobro adelantado — un mes que todavía no empezó
+            Mes sin deuda o cobro adelantado
         </p>
         <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
         <template id="adelanto-importe-template">
@@ -185,7 +185,7 @@
                               data-periodo="__PERIODO__" min="0.01" :prefix="false"
                               wrapper-class="money-input-wrap--cuota" required />
         </template>
-        <div class="acciones-celular-derecha" style="display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
+        <div class="acciones-celular-derecha grid grid-cols-1 sm:flex" style="align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
             <div style="flex:1; min-width:180px;">
                 <label for="adelanto-periodo" class="{{ $labelClass }}">
                     <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -198,18 +198,18 @@
                     @endforeach
                 </select>
             </div>
-            <div style="width:150px;">
+            <div class="w-full sm:w-[150px]">
                 <label for="adelanto-monto" class="{{ $labelClass }}">
                     <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
                     Importe
                 </label>
                 <x-ds.money-input id="adelanto-monto" min="0.01" :prefix="false" class="text-right" />
             </div>
-            <button type="button" id="adelanto-agregar" class="ds-btn" disabled
+            <button type="button" id="adelanto-agregar" class="ds-btn justify-self-end" disabled
                     style="background:var(--color-btn-secondary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">Agregar</button>
         </div>
         <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
-            El importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.
+            Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
         </p>
     </div>
     @endif

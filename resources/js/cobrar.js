@@ -225,6 +225,11 @@ import {pesos} from './formato-importe';
             // Solo la cuota del mes en curso toma el precio nuevo. Las deudas
             // anteriores no se tocan.
             var periodoActual = cobrarForm.dataset.periodoActual;
+            var opcionActual = document.querySelector('#adelanto-periodo option[value="' + periodoActual + '"]');
+            if (opcionActual) {
+                opcionActual.dataset.precio = nuevoPrecio;
+                if (adelantoPeriodo.value === periodoActual) window.WingsMoney.asignar(adelantoMonto, nuevoPrecio);
+            }
             checks().forEach(function (chk) {
                 if (chk.dataset.periodo !== periodoActual) return;
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodoActual + '"]');
@@ -288,7 +293,8 @@ import {pesos} from './formato-importe';
         var marca = document.createElement('span');
         marca.className = 'adelanto-marca';
         marca.style.cssText = 'font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:8px; background:color-mix(in srgb, var(--color-info) 15%, transparent); color:var(--color-info);';
-        marca.textContent = 'Adelantado';
+        var esMesActual = opcion.value === cobrarForm.dataset.periodoActual;
+        marca.textContent = esMesActual ? 'Mes actual' : 'Adelantado';
         nombre.appendChild(etiqueta);
         nombre.appendChild(marca);
 
@@ -299,6 +305,13 @@ import {pesos} from './formato-importe';
         window.WingsMoney.asignar(inp, monto);
 
         fila.appendChild(chk);
+        if (esMesActual) {
+            var eleccionManual = document.createElement('input');
+            eleccionManual.type = 'hidden';
+            eleccionManual.name = 'periodos_manuales[]';
+            eleccionManual.value = opcion.value;
+            fila.appendChild(eleccionManual);
+        }
         fila.appendChild(nombre);
         fila.appendChild(importeWrap);
         adelantosLista.appendChild(fila);
