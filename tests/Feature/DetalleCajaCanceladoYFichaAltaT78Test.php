@@ -178,22 +178,27 @@ class DetalleCajaCanceladoYFichaAltaT78Test extends TestCase
         $totalFormateado = FormatoImporte::pesos((float) $filaCobranza->deuda_total);
 
         // Alta 13/10 + 7 días de plazo de alta = vence el 20/10/2026; total = $45,000.00.
-        $this->actingAs($this->operativo)
-            ->get(route('web.alumnos.show', $mora->id))
+        // Opción A (Carlos 25/10): un solo botón Cobrar en la barra superior, sin repetir dentro del recuadro de cuota.
+        $respuestaOperativo = $this->actingAs($this->operativo)
+            ->get(route('web.alumnos.show', $mora->id));
+        $respuestaOperativo
             ->assertOk()
             ->assertSee('En plazo')
             ->assertSee('6 días de gracia')
             ->assertSee('Vence 20/10/2026')
             ->assertSee('Total adeudado:')
             ->assertSee($totalFormateado);
+        $this->assertSame(1, substr_count($respuestaOperativo->getContent(), route('web.caja.cobrar', $mora->id)));
 
-        $this->actingAs($this->admin)
-            ->get(route('web.alumnos.show', $mora->id))
+        $respuestaAdmin = $this->actingAs($this->admin)
+            ->get(route('web.alumnos.show', $mora->id));
+        $respuestaAdmin
             ->assertOk()
             ->assertSee('En plazo')
             ->assertSee('Vence 20/10/2026')
             ->assertSee('Total adeudado:')
             ->assertSee($totalFormateado);
+        $this->assertSame(1, substr_count($respuestaAdmin->getContent(), route('web.caja.cobrar', $mora->id)));
     }
 
     public function test_un_alumno_al_dia_no_muestra_vencimiento_ni_total(): void

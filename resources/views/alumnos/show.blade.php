@@ -208,18 +208,14 @@
                             {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto cobro-acciones-movil acciones-movil">
+                    @php
+                        $puedeCondonarCuota = Auth::user()->isAdmin() && $deuda->estado === \App\Models\DeudaCuota::ESTADO_PENDIENTE;
+                    @endphp
+                    <div class="{{ $puedeCondonarCuota ? 'flex' : 'hidden sm:flex' }} items-center gap-2 justify-end w-full sm:w-auto cobro-acciones-movil acciones-movil">
                         <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
                             {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
-                        @if(!auth()->user()?->isProfesor())
-                        <a href="{{ route('web.caja.cobrar', $alumno->id) }}"
-                           class="ds-btn-row"
-                           style="background:var(--color-btn-primary); color:var(--color-surface); text-decoration:none;">
-                            Cobrar
-                        </a>
-                        @endif
-                        @if(Auth::user()->isAdmin() && $deuda->estado === \App\Models\DeudaCuota::ESTADO_PENDIENTE)
+                        @if($puedeCondonarCuota)
                         <button type="button"
                                 class="ds-btn-row ds-btn-row--dang"
                                 data-abrir-condonar="{{ route('web.deudas.condonar', $deuda->id) }}">
@@ -245,20 +241,17 @@
                         @if((float) $cargo->monto_condonado > 0) · Condonado: {{ \App\Support\FormatoImporte::pesos($cargo->monto_condonado) }} @endif
                     </p>
                 </div>
+                @if(Auth::user()->isAdmin() && ((float) $cargo->monto_condonado > 0 || $cargo->saldo_pendiente > 0))
                 <div class="flex justify-end items-center gap-2 cobro-acciones-movil acciones-movil">
-                    @if($cargo->saldo_pendiente > 0)
-                    <a href="{{ route('web.caja.cobrar', $alumno->id) }}" class="ds-btn-row ds-btn-row--sec">Cobrar</a>
-                    @endif
-                    @if(Auth::user()->isAdmin())
-                        @if((float) $cargo->monto_condonado > 0)
-                        <button type="button" class="ds-btn-row ds-btn-row--sec"
-                                data-abrir-reactivar="{{ route('web.punitorios.reactivar', $cargo->id) }}">Reactivar</button>
-                        @elseif($cargo->saldo_pendiente > 0)
-                        <button type="button" class="ds-btn-row ds-btn-row--dang"
-                                data-abrir-condonar="{{ route('web.punitorios.condonar', $cargo->id) }}">Condonar</button>
-                        @endif
+                    @if((float) $cargo->monto_condonado > 0)
+                    <button type="button" class="ds-btn-row ds-btn-row--sec"
+                            data-abrir-reactivar="{{ route('web.punitorios.reactivar', $cargo->id) }}">Reactivar</button>
+                    @elseif($cargo->saldo_pendiente > 0)
+                    <button type="button" class="ds-btn-row ds-btn-row--dang"
+                            data-abrir-condonar="{{ route('web.punitorios.condonar', $cargo->id) }}">Condonar</button>
                     @endif
                 </div>
+                @endif
             </div>
             @endforeach
         </div>
