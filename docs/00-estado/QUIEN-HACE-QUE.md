@@ -51,7 +51,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T79** Reportes, Inicio, Cashflow y Cobranza rapidos con dos anios de datos | En curso | Prueba tecnica PRU-04 25/10: Reportes 22 s, Cashflow 3 s, Inicio 1,5 s con dos anios. TOCA: ReporteMensualService, CashflowWebController, CobranzaEstadoService |
-| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | En curso | Prueba tecnica PRU-04 25/10. TOCA: app/Http/Middleware/SecurityHeaders.php |
+| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | Hecho, espera verificación (hizo Claude) | Hecho local 25/10, sin desplegar: misma politica en bloqueo, cero reportes en prueba desde T73 y 59 pantallas sin bloqueos. De paso: texto donde va un numero daba 500, ahora 404. Otra IA verifica; al desplegar, mirar storage/logs/csp-*.log del sitio. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T80.md |
 
 ## Codex
 

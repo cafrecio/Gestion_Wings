@@ -9,9 +9,9 @@ use Tests\TestCase;
  * navegador solo ejecuta JavaScript que venga de un archivo propio, y rechaza todo
  * lo que este escrito dentro de la pagina.
  *
- * Hoy esa politica esta en modo reporte (`Content-Security-Policy-Report-Only`), o
- * sea que avisa pero no bloquea. Mientras queden vistas con codigo incrustado no se
- * puede pasar a modo bloqueo, porque esas pantallas dejarian de funcionar.
+ * Desde T80 (25/10/2026) la politica bloquea (`Content-Security-Policy`): un bloque
+ * de codigo escrito dentro de una vista ya no se ejecuta, y esa pantalla deja de
+ * funcionar. Por eso el numero tiene que seguir en cero.
  *
  * Esta prueba no arregla nada: **fija el numero y no lo deja crecer**. Cada vez que
  * se saca codigo de una vista hay que bajar el numero de aca, igual que se hace con

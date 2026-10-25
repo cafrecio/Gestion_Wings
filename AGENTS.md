@@ -199,6 +199,17 @@ Obligatorio, en este orden:
 
 **Nunca activar `Content-Security-Policy` en modo bloqueante en un solo paso.**
 
+**T80 (25/10/2026) la pasó a bloqueo siguiendo los cuatro pasos**, con la misma política:
+(1) en reporte desde septiembre, con `/csp-reporte`; (2) en el sitio de prueba, desde el
+despliegue de T73 (21/10, 14:04) hasta el 25/10, unas 60 pantallas distintas recorridas por
+la prueba por días y **cero reportes** (los anteriores eran todos del bloque de `/login`
+que T73 sacó); (3) recorrido local en Chrome ya en bloqueo, 59 pantallas de los tres
+roles: cero bloqueos y cero errores de JavaScript; (4) capturas de alumnos, caja,
+cobrar, clase, liquidaciones e inicio. Evidencia: `docs/06-pruebas/PRU-04/evidencia-t80-claude/`.
+`style-src` conserva `'unsafe-inline'` (quedan los estilos inline de las vistas): sacarlo
+es otro trabajo y vuelve a exigir los cuatro pasos. Si después de desplegar aparece un
+reporte en `storage/logs/csp-*.log`, es algo que el navegador **ya bloqueó**: mirarlo.
+
 Los otros cinco headers (`X-Frame-Options`, `X-Content-Type-Options`,
 `Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security`) no tienen
 este riesgo y se pueden aplicar directo.
@@ -310,7 +321,8 @@ incrustada de eliminación: quedaron 8 bloques en 8 vistas y 8 manejadores.
 **T73 (19/10/2026) los sacó todos: cero bloques y cero manejadores.** El ingreso usa el ojo de
 contraseña de `ds-app.js`; las confirmaciones de borrado, `form[data-confirmar-envio]`.
 `CspSinCodigoIncrustadoTest` quedó en cero: cualquier código nuevo dentro de una vista pone la
-suite en rojo. Pasar la CSP a modo bloqueo es un paso aparte (§2: recorrer primero en modo reporte).
+suite en rojo. T80 (25/10/2026) pasó la CSP a modo bloqueo después de recorrerla en modo reporte (§2):
+desde entonces un código incrustado no solo pone la suite en rojo, el navegador no lo ejecuta.
 
 ---
 

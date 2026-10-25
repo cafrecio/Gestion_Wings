@@ -1,0 +1,482 @@
+{
+  "fecha": "2026-10-25T12:30:33.880Z",
+  "base": "wings_testing_claude",
+  "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+  "paginas": [
+    {
+      "rol": "SIN SESION",
+      "url": "/login",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/admin/dashboard",
+      "final": "/admin/dashboard",
+      "titulo": "Inicio – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos",
+      "final": "/alumnos",
+      "titulo": "Alumnos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/1",
+      "final": "/alumnos/1",
+      "titulo": "Volumen, Alumno0 – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/1/edit",
+      "final": "/alumnos/1/edit",
+      "titulo": "Editar – Volumen, Alumno0",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/create",
+      "final": "/alumnos/create",
+      "titulo": "Nuevo Alumno – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cobranza",
+      "final": "/cobranza",
+      "titulo": "Cobranza – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/caja",
+      "final": "/caja",
+      "titulo": "Caja – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/caja/532/detalle",
+      "final": "/caja/532/detalle",
+      "titulo": "Detalle caja 14/10/2026 – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow",
+      "final": "/cashflow",
+      "titulo": "Cashflow histórico – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow/movimiento",
+      "final": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow/transferencia",
+      "final": "/cashflow/transferencia",
+      "titulo": "Transferir – Cashflow – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes",
+      "final": "/reportes",
+      "titulo": "Ingresos y egresos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes/alumnos",
+      "final": "/reportes/alumnos",
+      "titulo": "Reporte de alumnos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes/sueldos",
+      "final": "/reportes/sueldos",
+      "titulo": "Reporte de sueldos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases",
+      "final": "/clases",
+      "titulo": "Clases – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/1914",
+      "final": "/clases/1914",
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/create",
+      "final": "/clases/create",
+      "titulo": "Nueva Clase – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/1914/edit",
+      "final": "/clases/1914/edit",
+      "titulo": "Editar Clase – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/liquidaciones",
+      "final": "/liquidaciones",
+      "titulo": "Liquidaciones – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/liquidaciones/crear",
+      "final": "/liquidaciones/crear",
+      "titulo": "Nueva Liquidación – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/movimientos",
+      "final": "/movimientos",
+      "titulo": "Movimientos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/configuraciones",
+      "final": "/configuraciones",
+      "titulo": "Configuración – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros",
+      "final": "/rubros",
+      "titulo": "Rubros – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros/create",
+      "final": "/rubros/create",
+      "titulo": "Nuevo Rubro – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros/1/edit",
+      "final": "/rubros",
+      "titulo": "Rubros – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos",
+      "final": "/grupos",
+      "titulo": "Grupos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/1",
+      "final": "/grupos/1",
+      "titulo": "Patín vol — Inicial Patín vol – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/1/edit",
+      "final": "/grupos/1/edit",
+      "titulo": "Editar – Patín vol — Inicial Patín vol – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/create",
+      "final": "/grupos/create",
+      "titulo": "Nuevo Grupo – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores",
+      "final": "/profesores",
+      "titulo": "Profesores – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/1",
+      "final": "/profesores/1",
+      "titulo": "Patín vol, Profe1 – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/1/edit",
+      "final": "/profesores/1/edit",
+      "titulo": "Editar – Patín vol, Profe1",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/create",
+      "final": "/profesores/create",
+      "titulo": "Nuevo Profesor – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/deportes",
+      "final": "/deportes",
+      "titulo": "Deportes – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/deportes/1/edit",
+      "final": "/deportes/1/edit",
+      "titulo": "Editar – Patín",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/niveles",
+      "final": "/niveles",
+      "titulo": "Niveles – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios",
+      "final": "/usuarios",
+      "titulo": "Usuarios – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios/create",
+      "final": "/usuarios/create",
+      "titulo": "Nuevo Usuario – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios/2/edit",
+      "final": "/usuarios/2/edit",
+      "titulo": "Editar Usuario – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/tipos-caja",
+      "final": "/tipos-caja",
+      "titulo": "Tipos de Caja – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/tipos-caja/1/edit",
+      "final": "/tipos-caja/1/edit",
+      "titulo": "Editar Tipo de Caja – Efectivo",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/revision-cobranza",
+      "final": "/revision-cobranza",
+      "titulo": "Revisión de cobranza – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/operativo",
+      "final": "/operativo",
+      "titulo": "Inicio – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja",
+      "final": "/caja",
+      "titulo": "Caja – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/cobrar",
+      "final": "/caja/cobrar",
+      "titulo": "Cobrar cuota – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/cobrar/1",
+      "final": "/caja/cobrar/1",
+      "titulo": "Cobrar – Volumen, Alumno0",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/movimiento",
+      "final": "/caja/movimiento",
+      "titulo": "Nuevo movimiento – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos",
+      "final": "/alumnos",
+      "titulo": "Alumnos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos/1",
+      "final": "/alumnos/1",
+      "titulo": "Volumen, Alumno0 – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos/create",
+      "final": "/alumnos/create",
+      "titulo": "Nuevo Alumno – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/cobranza",
+      "final": "/cobranza",
+      "titulo": "Cobranza – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/clases",
+      "final": "/clases",
+      "titulo": "Clases – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/clases/1914",
+      "final": "/clases/1914",
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/movimientos",
+      "final": "/movimientos",
+      "titulo": "Movimientos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/revision-cobranza",
+      "final": "/revision-cobranza",
+      "titulo": "Revisión de cobranza – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/grupos",
+      "final": "/grupos",
+      "titulo": "Grupos – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/clases",
+      "final": "/clases",
+      "titulo": "Clases – Wings",
+      "bloqueos": [],
+      "errores": []
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/clases/1914",
+      "final": "/clases/1914",
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "bloqueos": [],
+      "errores": []
+    }
+  ],
+  "resumen": {
+    "paginas": 59,
+    "con_bloqueo": 0,
+    "con_error_js": 0
+  }
+}

@@ -14,6 +14,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // T80: los números de las direcciones solo aceptan dígitos. Sin esto, /alumnos/abc
+        // llegaba al controlador (que espera un entero) y daba «Algo falló» (500) en vez de
+        // «Página no disponible» (404). {clave} es texto y queda afuera.
+        \Illuminate\Support\Facades\Route::patterns(array_fill_keys(
+            ['id', 'movId', 'rubroId', 'cajaId', 'alumnoId', 'planId', 'pagoId', 'liquidacionId', 'detalleId'], '[0-9]+'
+        ));
+
         foreach ([\App\Models\DeudaCuota::class, \App\Models\Profesor::class, \App\Models\Pago::class,
             \App\Models\Liquidacion::class, \App\Models\Deporte::class] as $modelo) {
             $modelo::observe(\App\Observers\HistorialAnaliticoReportesObserver::class);

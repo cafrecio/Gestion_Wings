@@ -184,8 +184,8 @@ class SeguridadDiasPruebaTest extends TestCase
         $r = $this->actingAs($this->duenio)->get(route('admin.dashboard'));
         $this->assertSame('nosniff', $r->headers->get('X-Content-Type-Options'));
         $this->assertSame('DENY', $r->headers->get('X-Frame-Options'));
-        // Hallazgo: la política de contenido está solo en modo «informar», no bloquea (SecurityHeaders:41).
-        $this->assertNotEmpty($r->headers->get('Content-Security-Policy-Report-Only'));
-        $this->assertNull($r->headers->get('Content-Security-Policy'), 'Si esto falla, la política ya bloquea: actualizar el informe');
+        // Hallazgo del 25/10 (solo informaba) corregido en T80: ahora bloquea.
+        $this->assertStringContainsString("script-src 'self'", (string) $r->headers->get('Content-Security-Policy'));
+        $this->assertNull($r->headers->get('Content-Security-Policy-Report-Only'));
     }
 }

@@ -46,13 +46,13 @@ class CspReporteTest extends TestCase
 
     public function test_la_politica_declara_a_donde_mandar_los_avisos(): void
     {
-        $politica = $this->get('/login')->headers->get('Content-Security-Policy-Report-Only');
+        $politica = $this->get('/login')->headers->get('Content-Security-Policy');
 
         $this->assertNotNull($politica);
         $this->assertStringContainsString(
             'report-uri /csp-reporte',
             $politica,
-            'Sin report-uri el modo reporte no recolecta nada y la CSP nunca se puede prender.',
+            'Sin report-uri un bloqueo pasa sin que nadie se entere.',
         );
     }
 
