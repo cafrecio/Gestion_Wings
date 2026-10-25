@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 24/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 25/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -45,17 +45,23 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T79** Reportes, Inicio, Cashflow y Cobranza rapidos con dos anios de datos | En curso | Prueba tecnica PRU-04 25/10: Reportes 22 s, Cashflow 3 s, Inicio 1,5 s con dos anios. TOCA: ReporteMensualService, CashflowWebController, CobranzaEstadoService |
+| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | En curso | Prueba tecnica PRU-04 25/10. TOCA: app/Http/Middleware/SecurityHeaders.php |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 5 y 6 recorridos: verificar informes y evidencia con otro agente; no repetir cobros ni mover reloj (último inicio 15/10 15:00). Cierre financiero coincide; clase extra bloqueada por fecha mínima 24/10, Sin asistencia 34 frente a 32, motivo anulado en PDF, precio Lucas noviembre y aviso Zoe sin acreditar. Continuar siguiente guion autorizado; dashboard por casos conserva corte 23/10. |
+| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | En curso | D4-OBS-01. Carlos 25/10: si no tiene deuda no se ofrece; no se cobra dos veces. 63 alumnos Al dia sin cuota de octubre en el sitio de prueba. TOCA: CajaWebController::cobrar y su vista |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T78** Detalle de caja con el motivo del cobro cancelado y ficha del alumno nuevo con vencimiento y total | En curso | Dias 4 y 5 de PRU-04 (CAJ-033 b, ficha de Mora). TOCA: caja/detalle y alumnos/show |
 
 ## Sin empezar (18)
 
