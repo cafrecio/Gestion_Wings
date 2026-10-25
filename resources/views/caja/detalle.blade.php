@@ -164,8 +164,15 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                         {{ $subrubroNombre }}
                     @endif
                 </td>
-                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; {{ $textStyle }}">
-                    {{ $alumnoObs }}
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; {{ $textStyle }}">
+                        {{ $alumnoObs }}
+                    </div>
+                    @if($esCancelado)
+                        <div style="font-size:0.72rem; font-weight:600; color:var(--color-danger); margin-top:2px; white-space:normal;">
+                            Cancelado{{ $mov->motivo_cancelacion ? ': ' . $mov->motivo_cancelacion : '' }}
+                        </div>
+                    @endif
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right; {{ $textStyle }}">
                     <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($mov->monto) }}</span>

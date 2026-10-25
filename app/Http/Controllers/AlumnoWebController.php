@@ -154,6 +154,35 @@ class AlumnoWebController extends Controller
         $alumno = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel', 'planActivo.plan'])->findOrFail($id);
 
         $estadoCobranza = $cobranzaService->estadoAlumno($alumno->id);
+        $mismoDni = $alumno->dni
+            ? Alumno::where('activo', true)->where('dni', $alumno->dni)->get()->push($alumno)->unique('id')->values()
+            : collect([$alumno]);
+        $saldoCobranza = $cobranzaService->saldoDeAlumnos($mismoDni)[$alumno->id] ?? [
+            'cuotas' => 0.0,
+            'inscripcion' => 0.0,
+            'punitorios' => 0.0,
+            'total' => 0.0,
+        ];
+        $totalAdeudado = (float) ($saldoCobranza['total'] ?? 0.0);
+
+        $fechaVencimiento = null;
+        if ($estadoCobranza['estado'] === CobranzaEstadoService::ESTADO_EN_PLAZO) {
+            foreach ($estadoCobranza['deudas_pendientes'] as $deudaPendiente) {
+                $limiteCuota = $cobranzaService->limiteDeLaCuota($alumno, $deudaPendiente);
+                if ($limiteCuota && ($fechaVencimiento === null || $limiteCuota->gt($fechaVencimiento))) {
+                    $fechaVencimiento = $limiteCuota;
+                }
+            }
+            if (($saldoCobranza['inscripcion'] ?? 0) > 0) {
+                $limiteAlta = $cobranzaService->limiteDeAlta($alumno);
+                if ($limiteAlta && ($fechaVencimiento === null || $limiteAlta->gt($fechaVencimiento))) {
+                    $fechaVencimiento = $limiteAlta;
+                }
+            }
+        }
+
+        $estadoCobranza['total_adeudado'] = $totalAdeudado;
+        $estadoCobranza['fecha_vencimiento'] = $fechaVencimiento;
 
         $ultimosPagos = $alumno->pagos()
             ->with('deudasCuota')
@@ -176,7 +205,7 @@ class AlumnoWebController extends Controller
             ->where('estado', 'VIGENTE')->with(['deudaCuota', 'pagos'])->orderBy('deuda_cuota_id')->get();
         // T58: solo el dueño ve los meses pasados que puede crear.
         $mesesPasados = auth()->user()?->isAdmin() ? app(PagoCuotaService::class)->mesesPasadosSinCuota($alumno) : [];
-        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios', 'mesesPasados'));
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios', 'mesesPasados', 'totalAdeudado', 'fechaVencimiento'));
     }
 
     public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)

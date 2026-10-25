@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-25 — LOG GEM CAB — T78: Motivo del cobro cancelado en detalle de caja y vencimiento + total en ficha de alumno
+
+- **Objetivo y resultado:** Implementación de **T78** pedida por Carlos el 25/10/2026 a partir de los Días 4 y 5 de PRU-04. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 3 pruebas automatizadas nuevas en `DetalleCajaCanceladoYFichaAltaT78Test` y suite rápida completa en verde.
+- **Cambios realizados:**
+  - **1. Motivo del cobro cancelado en Detalle de caja (`resources/views/caja/detalle.blade.php`):** En la columna `Alumno / Obs.` de cada movimiento cancelado se muestra debajo de la descripción tachada `Cancelado: <motivo_cancelacion>`, visible tanto para la operativa como para el dueño (`ADMIN`) en cajas abiertas, cerradas, validadas o rechazadas.
+  - **2. Vencimiento y total en la ficha del alumno nuevo (`app/Http/Controllers/AlumnoWebController.php` y `resources/views/alumnos/show.blade.php`):** `AlumnoWebController::show` obtiene el total adeudado desde `CobranzaEstadoService::saldoDeAlumnos` (mismo número que Cobranza, incluyendo inscripción única por DNI y cuotas) y la fecha de vencimiento en estado `En plazo` desde `limiteDeLaCuota` y `limiteDeAlta` de `CobranzaEstadoService` (sin recalcular en la vista). Para Mora Benítez (alta 13/10, inscripción `$5.000` y octubre `$40.000`) muestra `Vence 20/10/2026` y `Total adeudado: $45,000.00`. Un alumno `Al día` no muestra ni vencimiento ni total.
+- **Pruebas y evidencia:** `DetalleCajaCanceladoYFichaAltaT78Test` (3 aprobadas, 23 aserciones); suite rápida (`--exclude-group=lento`) en `wings_testing_gemini`: **920 aprobadas, 6 omitidas, 0 fallidas** (7.378 aserciones, 209,66 s, salida 0). 8 capturas reales en Chrome (1366 y 375 px) en `docs/06-pruebas/PRU-04/evidencia-t78/`. Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T78.md`.
+- **Próximo paso:** Visto bueno visual de Carlos sobre las capturas y verificación de lógica por otro agente.
+
 ## 2026-10-22 — LOG GEM CYE — Ejecución y contraste técnico del Día 4 (PRU-04)
 
 - **Objetivo y resultado:** Cierre exitoso de la jornada del **Día 4 (martes 13/10/2026)**. Ejecución humana completada por Codex en el chat *Prueba humana* y contraste técnico independiente registrado por Codex en `VERIFICACION-DIA-04.md`. Dictamen: registros de dinero, alta y asistencias conciliados plenamente con la base de datos `wingstest`.

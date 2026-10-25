@@ -1,0 +1,82 @@
+[
+  {
+    "rol": "OPERATIVO",
+    "archivo": "ficha-mora-en-plazo-1366.png",
+    "url": "/alumnos/1",
+    "innerWidth": 1366,
+    "scrollWidth": 1366,
+    "contieneCanceladoMotivo": false,
+    "contieneVence": true,
+    "contieneTotal": true
+  },
+  {
+    "rol": "OPERATIVO",
+    "archivo": "ficha-mora-en-plazo-375.png",
+    "url": "/alumnos/1",
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "contieneCanceladoMotivo": false,
+    "contieneVence": true,
+    "contieneTotal": true
+  },
+  {
+    "rol": "OPERATIVO",
+    "archivo": "ficha-alumno-al-dia-1366.png",
+    "url": "/alumnos/2",
+    "innerWidth": 1366,
+    "scrollWidth": 1366,
+    "contieneCanceladoMotivo": false,
+    "contieneVence": false,
+    "contieneTotal": false
+  },
+  {
+    "rol": "OPERATIVO",
+    "archivo": "ficha-alumno-al-dia-375.png",
+    "url": "/alumnos/2",
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "contieneCanceladoMotivo": false,
+    "contieneVence": false,
+    "contieneTotal": false
+  },
+  {
+    "rol": "OPERATIVO",
+    "archivo": "caja-detalle-operativa-1366.png",
+    "url": "/caja/1/detalle",
+    "innerWidth": 1366,
+    "scrollWidth": 1366,
+    "contieneCanceladoMotivo": true,
+    "contieneVence": false,
+    "contieneTotal": false
+  },
+  {
+    "rol": "OPERATIVO",
+    "archivo": "caja-detalle-operativa-375.png",
+    "url": "/caja/1/detalle",
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "contieneCanceladoMotivo": true,
+    "contieneVence": false,
+    "contieneTotal": false
+  },
+  {
+    "rol": "ADMIN",
+    "archivo": "caja-detalle-dueno-1366.png",
+    "url": "/caja/2/detalle",
+    "innerWidth": 1366,
+    "scrollWidth": 1366,
+    "contieneCanceladoMotivo": true,
+    "contieneVence": false,
+    "contieneTotal": false
+  },
+  {
+    "rol": "ADMIN",
+    "archivo": "caja-detalle-dueno-375.png",
+    "url": "/caja/2/detalle",
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "contieneCanceladoMotivo": true,
+    "contieneVence": false,
+    "contieneTotal": false
+  }
+]

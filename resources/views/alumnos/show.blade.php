@@ -167,6 +167,8 @@
             };
             $ecDeudas = $estadoCobranza['deudas_pendientes'];
             $ecGracia = $estadoCobranza['dias_gracia_restantes'];
+            $ecVencimiento = $estadoCobranza['fecha_vencimiento'] ?? null;
+            $ecTotal  = (float) ($estadoCobranza['total_adeudado'] ?? 0);
             $meses    = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
         @endphp
         <div class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">
@@ -180,6 +182,14 @@
                              color:{{ $ecColor }};">{{ $ecLabel }}</span>
                 @if($ecGracia > 0)
                     <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $ecGracia }} día{{ $ecGracia !== 1 ? 's' : '' }} de gracia</span>
+                @endif
+                @if($ecVencimiento)
+                    <span style="font-size:0.72rem; color:var(--color-text-muted);">Vence {{ $ecVencimiento->format('d/m/Y') }}</span>
+                @endif
+                @if($ecTotal > 0)
+                    <span style="font-size:0.75rem; font-weight:700; color:var(--color-text);">
+                        Total adeudado: <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($ecTotal) }}</span>
+                    </span>
                 @endif
             </div>
             @if($ecDeudas->isNotEmpty())
