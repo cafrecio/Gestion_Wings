@@ -33,7 +33,7 @@
       - `Vence {{ $ecVencimiento->format('d/m/Y') }}` cuando `$ecVencimiento` está presente (`Vence 20/10/2026`).
       - `Total adeudado: {{ FormatoImporte::pesos($ecTotal) }}` con clase `ds-money ds-money--row` cuando `$ecTotal > 0` (`Total adeudado: $45,000.00`).
     - Un alumno `Al día` no muestra ni vencimiento ni total adeudado.
-    - **Ajuste visual pedido por Carlos (Opción A, 25/10/2026):** Se retiró el botón `Cobrar` duplicado que aparecía dentro del recuadro celeste de cada cuota (`$ecDeudas`) y de cada cargo punitorio (`$punitorios`), conservando un único botón `Cobrar` en la barra superior de acciones de la ficha (junto a `Activo` y `Editar`) y manteniendo los botones `Condonar` / `Reactivar` para `ADMIN`.
+    - **Ajuste visual pedido por Carlos (Opción A y padding, 25/10/2026):** Se retiró el botón `Cobrar` duplicado que aparecía dentro del recuadro celeste de cada cuota (`$ecDeudas`) y de cada cargo punitorio (`$punitorios`), conservando un único botón `Cobrar` en la barra superior de acciones de la ficha (junto a `Activo` y `Editar`) y manteniendo los botones `Condonar` / `Reactivar` para `ADMIN`. Además, se agregó padding (`padding: 8px 12px;`) al recuadro celeste para que el período y el monto no queden pegados al borde en pantallas móviles (375 px).
 
 ---
 

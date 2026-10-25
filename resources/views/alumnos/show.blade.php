@@ -200,8 +200,8 @@
                     $periodoLabel = ($meses[(int)$mo] ?? $mo) . ' ' . $yr;
                     $saldo = (float)$deuda->saldo_pendiente;
                 @endphp
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil"
-                     style="background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 rounded"
+                     style="background:color-mix(in srgb, {{ $ecColor }} 8%, transparent); padding: 8px 12px;">
                     <div class="flex justify-between items-center w-full sm:w-auto gap-2">
                         <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
                         <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
