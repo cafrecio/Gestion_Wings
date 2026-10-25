@@ -1772,6 +1772,61 @@
       "tarea": "",
       "tipo": "normal",
       "titulo": "Cómo se comporta la pantalla de cobro"
+    },
+    {
+      "codigo": "COB-035",
+      "modulo": "Cobrar",
+      "pantalla": "Ficha del alumno, Cobrar, Cashflow",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tipo": "error",
+      "titulo": "Corregir días después un cobro cargado con el importe equivocado",
+      "requiere": "Un cobro por Mercado Pago cargado de más (se registraron $144.000 y entraron $100.000), en una caja ya validada.",
+      "accion": "El dueño ve la diferencia al mirar Mercado Pago. Anula el cobro desde la ficha con el motivo, y lo vuelve a cobrar por el importe real con la fecha de pago real. La operativa intenta anularlo primero.",
+      "esperado": [
+        {
+          "l": "a",
+          "tipo": "directo",
+          "donde": "Operativa",
+          "texto": "No puede anular un cobro de una caja ya validada."
+        },
+        {
+          "l": "b",
+          "tipo": "directo",
+          "donde": "Anulación",
+          "texto": "El dueño lo anula con motivo; las cuotas vuelven a deber y el recibo sale anulado."
+        },
+        {
+          "l": "c",
+          "tipo": "directo",
+          "donde": "Cobro nuevo",
+          "texto": "El cobro con el importe real queda con la fecha de pago real, sin abrir caja, y el recibo nuevo detalla lo que de verdad pagó."
+        },
+        {
+          "l": "d",
+          "tipo": "indirecto",
+          "donde": "Caja",
+          "texto": "La caja validada de ese turno no cambia."
+        },
+        {
+          "l": "e",
+          "tipo": "indirecto",
+          "donde": "Cobranza",
+          "texto": "El alumno queda como si el error no hubiera pasado: debe lo que de verdad le falta y con el estado que corresponde."
+        },
+        {
+          "l": "f",
+          "tipo": "indirecto",
+          "donde": "Reportes y Cashflow",
+          "texto": "El ingreso del día del cobro y el saldo del medio quedan con el importe real; el asiento en contra lleva la fecha del cobro original."
+        }
+      ],
+      "fuente": "Prueba por días, día 8 (8.3): se cobraron $144.000 en vez de $100.000. Agregado por Claude el 25/10/2026 a pedido de Carlos.",
+      "estado": "vigente",
+      "duda": "",
+      "tarea": ""
     }
   ],
   "modulo": "Cobrar",
