@@ -1,0 +1,34 @@
+# Día 9 — domingo 18/10/2026
+
+Sitio: https://test.gestionar-te.com.ar (wingstest). Ejecutor: Codex CAB, 25/10/2026. Guion autorizado: GUION-DIAS-07-09.md, commit 5104fe5e.
+
+Esperados y situaciones copiados literalmente del guion antes de operar. Navegación humana en Chrome por menús y botones; sin consultas de negocio en la base. Diferencias sin reparación ni reemplazos. Reloj solo al comenzar cada día; pausas entre usuarios de al menos 60 segundos.
+
+| # | Situación | Esperado | Lo que pasó | ¿Coincide? |
+|---|---|---|---|---|
+| 9.1 | El dueño mira su Inicio | Coincide con el cierre del sábado. No hay cajas por validar. «Sin asistencia» **32**. | Inicio del 18/10 conserva el cierre real del sábado: deuda $1.330.000, ingresos $921.000, egresos $86.400, resultado $834.600 y disponible $2.484.600. Cajas por validar 0, Sin asistencia 32. Coincide con el cierre observado, aunque arrastra el desvío de 8.3 frente a los importes previstos por el guion. Evidencia 9.1-inicio-confirmado.jpg y 9.1-inicio.txt. | Sí |
+| 9.2 | **Reportes de octubre filtrado por deporte** | Patín: ingresos **$439.000**. Fútbol: ingresos **$406.000**. Entre los dos, $845.000. Los **$32.000 del torneo** no son de ningún deporte: por eso el total da $877.000. En ninguno de los dos filtros aparecen los egresos, porque son gastos del club. | Patín ingresos $439.000 y egresos $0; Fútbol $450.000 y egresos $0. Suman $889.000; global $921.000, diferencia $32.000 Torneos/Inscripciones sin deporte. El filtro y exclusión de gastos del club coinciden; Fútbol y global exceden $44.000 al esperado por el cobro de 8.3. No se modificaron esperados. Evidencia 9.2-*.jpg/txt. | No |
+| 9.3 | La familia de **Julieta Álvarez** (Patín Intermedias, Deudor, $143.000 de noviembre y diciembre de 2025, y agosto, septiembre y octubre de 2026) avisa que deja. El dueño la **da de baja**. | Queda Inactiva y su deuda **no se borra**: sigue en su ficha. Sale de Cobranza: deuda **$1.231.000**, **100 activos: 74 Al día, 10 Morosos, 16 Deudores**. El Inicio y Reportes dicen la misma deuda. | Baja guardada: Julieta Inactiva, ficha conserva los cinco meses y $143.000. Ya no figura en Cobranza (0 filas). Cobranza/Inicio/Reportes concuerdan en deuda real $1.187.000, 100 activos: 75 Al día/0 En plazo/9 Morosos/16 Deudores. La baja y conservación funcionan; totales/estados no coinciden con el guion por arrastre de 8.3 ($44.000 menos deuda, un Al día más/Moroso menos). Evidencia 9.3-*.jpg/txt. | No |
+| 9.4 | El dueño sube **Patín Principiantes, 2 veces por semana**, de $40.000 a **$44.000** | Lo deja guardar. Lo ya generado no cambia: **Bianca Pereyra** sigue debiendo octubre **$40.000**. En el Cobrar de **Mora Benítez** (Patín Principiantes, 2 veces, octubre pagado), Noviembre 2026 sugiere **$44.000**. No cobrar: Volver. | Precio Patín Principiantes 2/sem guardado de $40.000 a $44.000. Bianca conserva octubre $40.000 y su plan vigente $40.000. Mora no tiene cuotas pendientes; al elegir Noviembre 2026, Importe sugiere $44.000. No se agregó ni cobró: se volvió con Cancelar, el botón disponible en Cobrar. Evidencia 9.4-*.jpg/txt. | Sí |
+| 9.5 | El dueño da de alta una operativa nueva, **Rocío Paz** (rocio.paz@example.com), con una clave que elija | Queda activa en Usuarios. En Rubros → Sueldos aparece «Op-Rocío Paz». Rocío ingresa y ve el menú de la operativa, sin Cashflow ni Reportes. No abre caja: es domingo. Sale. | Rocío Paz creada activa, usuario #8, rocio.paz@example.com, rol Operativo. Rubros/Sueldos contiene Op-Rocío Paz. Ingresó después de la pausa: Mostrador Operativo con su nombre, menú sin Cashflow ni Reportes; cero cobros/cajas del turno. No abrió caja; salió. Clave aleatoria solo en memoria, no incluida en evidencia. Evidencia 9.5-*.jpg/txt. | Sí |
+| 9.6 | Cierre del domingo | Deuda **$1.231.000**; **74 Al día, 0 En plazo, 10 Morosos, 16 Deudores**. Reportes de octubre: ingresos **$877.000**, egresos **$86.400**, resultado **$790.600**, aportes $15.000. Disponible **$2.440.600**. «Sin asistencia» **32**. | Cierre real: deuda $1.187.000; 75 Al día/0 En plazo/9 Morosos/16 Deudores. Reportes octubre: ingresos $921.000, egresos $86.400, resultado $834.600; aportes $15.000/retiros $0 fuera del resultado. Disponible $2.484.600 (EFE $613.100, MP $1.718.000, BGA $123.500, BNA $30.000), todo confirmado. Inicio Sin asistencia 32/cajas por validar 0. No coincide por arrastre de CUOTA-25 en 8.3; no se reparó. Evidencia 9.6-*.jpg/txt. | No |
+
+## Preparación
+
+Reloj fijado una sola vez al comenzar en 18/10/2026 11:00, con avance automático: [registro](evidencia-dia-09/reloj-inicio.txt). El salto venció la sesión y el reingreso se completó desde el formulario. Chrome, menús y botones; pausas de al menos 60 segundos entre Salir y el siguiente ingreso. Sin consultas de negocio en base ni reparaciones.
+
+Esta jornada parte del cierre real del sábado, que conserva el error de ejecución de [8.3](DIA-08.md): Joaquín fue cobrado por $144.000, no por los $100.000 indicados. Los esperados del domingo se copiaron antes de operar y no se cambiaron para acomodarlos a ese desvío.
+
+## Resultado del día
+
+6 situaciones recorridas: 3 coinciden y 3 no (9.2, 9.3 y 9.6, por los importes/estados que arrastran 8.3). La continuidad entre sábado y domingo coincide; no hubo cajas pendientes. Julieta quedó inactiva conservando sus cinco deudas por $143.000. Precio de Patín Principiantes 2/sem guardado a $44.000: Bianca conserva octubre $40.000 y Mora sugiere noviembre $44.000 sin cobrar. Rocío creada activa, subrubro generado e ingreso operativo comprobado; salió sin abrir caja. Su clave no se guardó en archivos.
+
+Cierre real observado: deuda $1.187.000; 100 activos, 75 Al día/0 En plazo/9 Morosos/16 Deudores. Octubre: ingresos $921.000, egresos $86.400, resultado $834.600, aportes $15.000. Disponible $2.484.600: EFE $613.100, MP $1.718.000, BGA $123.500 y BNA $30.000. Cajas por validar 0; Sin asistencia 32.
+
+No se declara aprobación integral ni se cierra T14: otro agente debe revisar la evidencia, la diferencia de Helena y el alcance del caso parcial de Joaquín. No repetir operaciones ni mover el reloj para comprobar esta entrega. Último inicio autorizado: 18/10/2026 11:00; avanza hasta medianoche.
+
+## Archivos de evidencia
+
+[Capturas y recibos con enlaces](evidencia-dia-09/LEEME.md) · [Galería](EVIDENCIA-DIAS-07-09.html) · [Control documental](evidencia-dia-09/control-entrega.json).
+
+Esperados y situaciones literales contrastados con el guion y con la copia previa a operar. Imágenes decodificadas, recibos de una página con texto extraído y render revisado; enlaces locales y huellas verificadas. Pausas entre usuarios comprobadas a partir de los eventos guardados. Sin suite, migraciones ni cambios de aplicación por esta entrega documental. La verificación independiente queda pendiente.

@@ -1,0 +1,6 @@
+
+   INFO  Configuration cache cleared successfully.
+
+Wings ahora cree que es domingo 18 de octubre de 2026, 11:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.

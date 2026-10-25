@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 5 y 6 recorridos: verificar informes y evidencia con otro agente; no repetir cobros ni mover reloj (último inicio 15/10 15:00). Cierre financiero coincide; clase extra bloqueada por fecha mínima 24/10, Sin asistencia 34 frente a 32, motivo anulado en PDF, precio Lucas noviembre y aviso Zoe sin acreditar. Continuar siguiente guion autorizado; dashboard por casos conserva corte 23/10. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 7–9 recorridos: revisar informes/evidencia con otro agente. 25 Sí/6 No; 8.3 parcial sin acreditar por error de ejecución (CUOTA-25 $144.000 en vez de $100.000), arrastre $44.000 sin reparar; 8.5 Helena EXTRA adicional. Cajas #6/#7 validadas; cierre real deuda $1.187.000, resultado $834.600, disponible $2.484.600, Sin asistencia 32. No repetir operaciones ni mover reloj: último inicio 18/10 11:00. Dashboard por casos conserva corte anterior. |
 
 ## Gemini
 

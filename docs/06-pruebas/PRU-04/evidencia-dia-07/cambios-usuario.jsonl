@@ -1,0 +1,10 @@
+{"evento":"salir","fecha":"2026-10-25T18:45:09.124Z"}
+{"evento":"ingresar","rol":"Lucía","fecha":"2026-10-25T18:46:11.559Z","segundosDesdeSalir":62.435}
+{"evento":"salir","fecha":"2026-10-25T18:47:04.700Z"}
+{"evento":"salida-confirmada","rol":"Lucía","fecha":"2026-10-25T18:47:15.047Z"}
+{"evento":"ingresar","rol":"Mariela","fecha":"2026-10-25T18:48:18.165Z","segundosDesdeSalir":189.041}
+{"evento":"salir","fecha":"2026-10-25T18:48:49.678Z"}
+{"evento":"ingresar","rol":"Hernán","fecha":"2026-10-25T18:49:52.879Z","segundosDesdeSalir":283.755}
+{"evento":"salir","fecha":"2026-10-25T18:50:22.943Z"}
+{"evento":"ingresar","rol":"dueño","fecha":"2026-10-25T18:51:45.209Z","segundosDesdeSalir":396.085}
+{"evento":"salir","fecha":"2026-10-25T18:53:24.886Z"}

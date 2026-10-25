@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-25 — Codex CAB — Prueba por días 7, 8 y 9
+
+Carlos autorizó todas las operaciones del guion en test/wingstest; 31 situaciones recorridas en Chrome sobre b816d181, esperados copiados antes de operar y sin consultas de negocio a base.
+[Día 7](../06-pruebas/PRU-04/DIA-07.md): 16 Sí; [Día 8](../06-pruebas/PRU-04/DIA-08.md): 6 Sí/3 No; [Día 9](../06-pruebas/PRU-04/DIA-09.md): 3 Sí/3 No. [Galería](../06-pruebas/PRU-04/EVIDENCIA-DIAS-07-09.html), capturas reales y ocho recibos descargados/renderizados.
+Error de ejecución 8.3: octubre rechazó el cambio a $4.000 y conservó $48.000; Codex envió CUOTA-25 por $144.000 en vez de $100.000. No se reparó: parcial sin acreditar, $44.000 de desvío financiero conservado. Helena recibió propuesta EXTRA adicional a lo esperado en 8.5.
+Cajas #6/#7 validadas; Sandra sobrante $500 sin ingreso, Pablo diferencia cero. Clase #81 del 31/10 creada, listas persistidas; Julieta inactiva conserva $143.000, precio $44.000 y Rocío operativa comprobados, sin abrir caja domingo.
+Cierre real: deuda $1.187.000, 75 Al día/9 Morosos/16 Deudores, resultado $834.600, disponible $2.484.600, Sin asistencia 32 y cajas por validar 0. Anulado de Dante rotula cancelador Administración aunque se operó con Sandra; observación sin reparar.
+Reloj una vez por jornada; último inicio 18/10 11:00. Pausas derivadas de eventos: mínimo 62,435 s. Esperados/enlaces/huellas/imágenes/PDF verificados; tabla intacta, sin suite ni despliegue por esta entrega documental.
+T14 continúa en curso: otro agente revisa evidencia y los desvíos; no repetir operaciones ni mover reloj. No conformidad integral ni push manual. Estado y resumen actualizados; dashboard por casos conserva corte anterior.
+
 ## 2026-10-25 — Codex CAB — Verificación independiente T79 y T80
 
 Revisión de Claude sin corregir código ni desplegar; ambas siguen a_verificar.
@@ -76,23 +86,6 @@ Entrada 84.345 bytes frente a 1.655.776; catálogo y detalle técnico opcionales
 Control estático; navegador rechazó file://, sin eludirlo ni afirmar revisión visual o latencia móvil. No nueva suite ni cambios de Wings, datos/reloj o despliegue.
 Actualizados informe, continuidad, resumen, estado y paso T14. Otro agente revisa entrega/días; siguiente jornada y D4-OBS-01 siguen pendientes.
 
-## 2026-10-23 — Codex CyE — Seguimiento del Día 4 y seguridad dirigida
-
-Carlos señaló la ausencia de resultados por caso y de controles negativos. Omisión reconocida; informes dispersos no equivalían a seguimiento.
-[Tabla única](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 16 situaciones (14 coinciden, T2/T6 parciales), medición y D4-OBS-01; 21 casos/85 letras con evidencia parcial, 310 sin evidencia incorporada, cero completos.
-41 métodos existentes aprobados, 331 aserciones, salida 0, 43,623 s en base local efectiva wings_testing_codex; versión a15d6095. Sin cambiar tests, producto, wingstest ni reloj.
-GET/PATCH por rol, IDs/huellas, motivo, verificación, reflejos y errores PDF; no acredita CSRF real, otras acciones POST, sesiones, concurrencia ni carga.
-Generación reproducible; 914 enlaces y 331 referencias fuente intactas comprobados. Búsqueda/filtro y aspecto revisados en Chrome; sin revisión móvil.
-Actualizados estado, resumen, continuidad y paso T14; fuente Carlos/Claude solo lectura. Consolidación/corrida esperan control independiente; T14 en curso, seguir Día 5 y resolver D4-OBS-01.
-
-## 2026-10-22 — Codex CyE — Continuidad de los dos chats y publicación
-
-Carlos pidió actualizar la bitácora, incluir ambos chats y subir todo a GitHub.
-Chat ejecutor: [DIA-04](../06-pruebas/PRU-04/DIA-04.md), 16 tareas registradas, 14 Sí y T2/T6 parciales; sustitución Julieta por Sofía y caja 2 VALIDADA sin diferencia. No repetir.
-Este chat de análisis: [VERIFICACION-DIA-04](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md), contraste independiente de dinero, alta y asistencias; evidencia SQL/servicios y observación D4-OBS-01.
-Ambos trabajos quedan en esta bitácora compartida, con entradas y documentos separados; no se copian las conversaciones completas ni se confunden ejecución y verificación.
-Pendientes comunes: criterio de cuota no guardada en Cobrar, alcance T2/T6, seguridad/carga y siguiente jornada con los datos conservados. T14 sigue en curso; sin aceptación integral ni despliegue.
-Partida: carpeta limpia, HEAD/GitHub afa783f8, informes y evidencia publicados. Actualización documental.
-
-
 [Antecedente intacto al verificar T79 y T80](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-VERIFICACION-T79-T80-ANTECEDENTES.md).
+
+[Antecedentes intactos al entregar dias 7 a 9](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-DIAS-07-09-ANTECEDENTES.md).

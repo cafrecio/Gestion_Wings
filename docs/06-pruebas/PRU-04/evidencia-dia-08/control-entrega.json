@@ -1,0 +1,416 @@
+{
+  "fecha": "2026-10-25",
+  "fuente_sha256": "b88f4c54e9a851ca5678f99709d76404f09541818b00579aab05c95aba8370c0",
+  "esperados_y_situaciones_literales": true,
+  "resultados": {
+    "Sí": 6,
+    "No": 3
+  },
+  "casos": [
+    {
+      "id": "8.1",
+      "resultado": "Sí",
+      "observado": "Propuso $10.000 del último cierre #6 de Sandra. Se contó/confirmó y abrió caja #7 de Pablo, 17/10 09:31, ABIERTA, inicial y esperado $10.000. Evidencia 8.1-apertura-propuesta.jpg y 8.1-caja-abierta.jpg."
+    },
+    {
+      "id": "8.2",
+      "resultado": "Sí",
+      "observado": "Un ingreso de $32.000 EFE, Torneos/Inscripciones, Torneo de primavera: 4 inscripciones. Caja #7: un movimiento, ingresos $32.000 y esperado $42.000. Evidencia 8.2-*.jpg."
+    },
+    {
+      "id": "8.3",
+      "resultado": "No",
+      "observado": "DESVÍO DE EJECUCIÓN: al intentar cambiar octubre a $4.000, apareció No se pueden colocar más de dos decimales y el campo conservó $48.000. Codex envió sin detenerse a comprobar ese rechazo: CUOTA-25 cobró $144.000 MP (48.000/48.000/48.000), no $100.000. Joaquín quedó Al día, no Moroso con $44.000. No pidió motivo FIFO. No se canceló ni reparó. El caso de pago parcial queda sin acreditar; evidencia 8.3-*.jpg, ficha final y recibo."
+    },
+    {
+      "id": "8.4",
+      "resultado": "Sí",
+      "observado": "Gasto EFE Mantenimiento y arreglos/Reparaciones menores, Ruedas del carro de conos, creado $9.500 y editado a $5.900. Detalle conserva un único gasto, movimiento #34; esperado de efectivo $36.100. Evidencia 8.4-*.jpg y 8.4-detalle-final.txt."
+    },
+    {
+      "id": "8.5",
+      "resultado": "No",
+      "observado": "Clase #48: ocho alumnas; presentes Helena Iglesias, Olivia Rossi, Guadalupe Nuñez y Berenice Rossi (4); las otras cuatro ausentes. DIFERENCIA: propuso EXTRA para Helena también (1/1 usado), además de Guadalupe y Berenice; Olivia no. Se dejaron las tres propuestas, guardó y persistió al recargar. Desde Mariela se ve clase nueva #81 del 31/10 12–13. Evidencia 8.5-*.jpg/txt."
+    },
+    {
+      "id": "8.6",
+      "resultado": "Sí",
+      "observado": "Clase #75: quince alumnos con Lucas Gomez. Se marcaron Joaquín Vega, Felipe Sosa, Lucas Gomez y Tomas Gimenez, cuatro presentes. Propuso EXTRA solo a Lucas y Tomas; no a Joaquín/Felipe. Se dejaron las propuestas, guardaron y persistieron al recargar. Evidencia 8.6-*.jpg/txt."
+    },
+    {
+      "id": "8.7",
+      "resultado": "Sí",
+      "observado": "Caja #7 de Pablo cerrada. Esperado/contado $36.100, Sin diferencia $0 antes de confirmar; cambio $10.000 y entrega $26.100. Resumen persistido conserva esos valores. Evidencia 8.7-*.jpg/txt."
+    },
+    {
+      "id": "8.8",
+      "resultado": "Sí",
+      "observado": "El dueño tildó 3/3 movimientos y validó caja #7: Caja validada y reflejada en cashflow, estado VALIDADA. Se conserva el cobro real de Joaquín por $144.000, sin corregir el desvío de 8.3. Evidencia 8.8-verificados.jpg y 8.8-caja-validada.jpg."
+    },
+    {
+      "id": "8.9",
+      "resultado": "No",
+      "observado": "NO coincide por el desvío de ejecución 8.3. Cobranza real: $1.330.000, 75 Al día/0 En plazo/9 Morosos/17 Deudores. Reportes octubre: ingresos $921.000, egresos $86.400, resultado $834.600, incluyendo agosto/septiembre cobrados ahora. Disponible $2.484.600: EFE $613.100, MP $1.718.000, Galicia $123.500, Nación $30.000. Sin asistencia 32, cajas por validar 0. Diferencias monetarias $44.000 conciliadas con CUOTA-25; esperado original intacto. Evidencia 8.9-*.jpg/txt."
+    }
+  ],
+  "imagenes_pdf_verificados": [
+    {
+      "archivo": "8.1-apertura-propuesta.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.1-caja-abierta.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.1-inicio-pablo.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.1-pablo-ingresado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.2-torneo-preparado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.2-torneo-registrado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.3-aviso-importe.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.3-cobro-144000-resultado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.3-joaquin-al-dia-desvio.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.3-joaquin-tres-meses.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.3-recibo-joaquin-desvio.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "8.3-recibo-joaquin-desvio.png",
+      "dimensiones": [
+        525,
+        745
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.4-edicion-5900.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.4-efectivo-36100.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.4-gasto-9500-preparado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.4-gasto-9500-registrado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.4-un-gasto-5900.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.5-mariela-clase-nueva.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.5-persistida.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.5-propuestas-extra.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.6-persistida.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.6-propuestas-extra.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.7-caja-cerrada.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.7-cierre-sin-diferencia.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.8-caja-validada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.8-dueno-inicio.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.8-reingreso.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.8-verificados.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.9-cobranza.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.9-inicio.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "8.9-reportes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    }
+  ],
+  "intervalos_entre_usuarios": [
+    {
+      "rol": "Lucía",
+      "salida_utc": "2026-10-25T18:45:09.124Z",
+      "ingreso_utc": "2026-10-25T18:46:11.559Z",
+      "intervalo_derivado_s": 62.435,
+      "minimo_conservador_s": 62.435
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:47:04.700Z",
+      "ingreso_utc": "2026-10-25T18:48:18.165Z",
+      "intervalo_derivado_s": 73.465,
+      "minimo_conservador_s": 73.465
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T18:48:49.678Z",
+      "ingreso_utc": "2026-10-25T18:49:52.879Z",
+      "intervalo_derivado_s": 63.201,
+      "minimo_conservador_s": 63.201
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T18:50:22.943Z",
+      "ingreso_utc": "2026-10-25T18:51:45.209Z",
+      "intervalo_derivado_s": 82.266,
+      "minimo_conservador_s": 82.266
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:34.966Z",
+      "intervalo_derivado_s": 70.08,
+      "minimo_conservador_s": 70.08
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:51.947Z",
+      "intervalo_derivado_s": 87.061,
+      "minimo_conservador_s": 87.061
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:57:34.310Z",
+      "ingreso_utc": "2026-10-25T18:58:53.181Z",
+      "intervalo_derivado_s": 78.871,
+      "minimo_conservador_s": 78.871
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T19:17:46.107Z",
+      "ingreso_utc": "2026-10-25T19:19:01.945Z",
+      "intervalo_derivado_s": 75.838,
+      "minimo_conservador_s": 75.838
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T19:19:24.061Z",
+      "ingreso_utc": "2026-10-25T19:20:34.306Z",
+      "intervalo_derivado_s": 70.245,
+      "minimo_conservador_s": 70.245
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:20:54.038Z",
+      "ingreso_utc": "2026-10-25T19:22:23.900Z",
+      "intervalo_derivado_s": 89.862,
+      "minimo_conservador_s": 89.862
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:41.176Z",
+      "intervalo_derivado_s": 81.023,
+      "minimo_conservador_s": 81.023
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:48.786Z",
+      "intervalo_derivado_s": 88.633,
+      "minimo_conservador_s": 88.633
+    },
+    {
+      "rol": "Rocío",
+      "salida_utc": "2026-10-25T19:27:45.413Z",
+      "ingreso_utc": "2026-10-25T19:29:00.187Z",
+      "intervalo_derivado_s": 74.774,
+      "minimo_conservador_s": 73.261
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:29:08.569Z",
+      "ingreso_utc": "2026-10-25T19:30:33.623Z",
+      "intervalo_derivado_s": 85.054,
+      "minimo_conservador_s": 85.054
+    }
+  ],
+  "nota_tiempos": "Se conservan los eventos originales. Algunos campos segundosDesdeSalir del día 7 usaban una referencia antigua; el control recalcula desde las fechas UTC de los eventos Salir y toma el menor intervalo disponible. Todos superan 60 s.",
+  "sin_suite_por_entrega_documental": true,
+  "revision_independiente": "pendiente",
+  "control_final_global": {
+    "imagenes_validas": 120,
+    "recibos_pdf": 8,
+    "enlaces_locales_comprobados": 323,
+    "total_casos": 31,
+    "coinciden": 25,
+    "no_coinciden": 6,
+    "archivo_bitacora_intacto": true,
+    "texto": "UTF-8 y LF según .gitattributes; contenido de situaciones y esperados intacto."
+  }
+}

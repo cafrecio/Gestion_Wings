@@ -1,0 +1,62 @@
+{
+  "dia": 8,
+  "capturado_antes_de_operar": "2026-10-25T15:14:53.2143498-03:00",
+  "sha256": "B88F4C54E9A851CA5678F99709D76404F09541818B00579AAB05C95ABA8370C0",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-07-09.md",
+  "casos": [
+    {
+      "linea_fuente": 42,
+      "id": "8.1",
+      "esperado": "Propone **$10.000**, lo que retuvo Sandra. Queda ABIERTA.",
+      "situacion": "Pablo abre caja"
+    },
+    {
+      "linea_fuente": 43,
+      "id": "8.2",
+      "esperado": "Queda en su caja como ingreso.",
+      "situacion": "Pablo cobra la **inscripción al torneo de primavera** de 4 patinadoras de Federadas, $8.000 cada una: un movimiento de ingreso **Torneos → Inscripciones** por $32.000 en efectivo, «Torneo de primavera: 4 inscripciones»."
+    },
+    {
+      "linea_fuente": 44,
+      "id": "8.3",
+      "esperado": "Un solo cobro. El recibo trae agosto $48.000, septiembre $48.000 y octubre $4.000. Le queda octubre $44.000 y pasa de **Deudor a Moroso**: ya no debe meses anteriores, pero octubre está vencido. No pide motivo, porque paga lo más viejo primero.",
+      "situacion": "**Joaquín Vega** (Fútbol Avanzadas, Deudor: agosto, septiembre y octubre, $48.000 cada uno) paga **$100.000** por Mercado Pago: agosto y septiembre completos, y $4.000 a cuenta de octubre."
+    },
+    {
+      "linea_fuente": 45,
+      "id": "8.4",
+      "esperado": "Queda **un solo** gasto, de $5.900. El efectivo esperado lo refleja.",
+      "situacion": "Pablo registra un gasto en **Mantenimiento y arreglos → Reparaciones menores**: $9.500 en efectivo, «Ruedas del carro de conos». Se equivocó: eran **$5.900**, y lo corrige."
+    },
+    {
+      "linea_fuente": 46,
+      "id": "8.5",
+      "esperado": "**8 alumnas.** Presentes: Helena Iglesias, Olivia Rossi, Guadalupe Núñez y Berenice Rossi (**4**). Ausentes: Martina Díaz, Catalina Díaz, Lucía Ramos y Florencia Vega. Propone «Clase adicional» para **Guadalupe Núñez y Berenice Rossi**, que ya fueron martes y jueves. Para Helena y Olivia no. Entre sus clases figura la nueva del **31/10 12–13**, si se pudo crear.",
+      "situacion": "**Mariela** toma lista en la **#48**, Patín Federadas 10–11"
+    },
+    {
+      "linea_fuente": 47,
+      "id": "8.6",
+      "esperado": "**15 alumnos, Lucas Gómez incluido.** Presentes: Joaquín Vega, Felipe Sosa, Lucas Gómez y Tomás Giménez (**4**). Propone «Clase adicional» para **Lucas** (paga 1 y vino el jueves) y **Tomás** (paga 2 y vino martes y jueves). Para Joaquín y Felipe no.",
+      "situacion": "**Hernán** toma lista en la **#75**, Fútbol Avanzadas 11–12"
+    },
+    {
+      "linea_fuente": 48,
+      "id": "8.7",
+      "esperado": "Esperado **$36.100**, diferencia $0. Retiene $10.000 y entrega $26.100.",
+      "situacion": "Pablo cierra y cuenta **$36.100**"
+    },
+    {
+      "linea_fuente": 49,
+      "id": "8.8",
+      "esperado": "Validada y reflejada.",
+      "situacion": "El dueño valida la caja de Pablo"
+    },
+    {
+      "linea_fuente": 50,
+      "id": "8.9",
+      "esperado": "Deuda **$1.374.000**; **74 Al día, 0 En plazo, 10 Morosos, 17 Deudores**. Reportes de octubre: ingresos **$877.000**, que incluyen agosto y septiembre de Joaquín, porque los cobros atrasados cuentan en el mes en que se cobran. Egresos **$86.400**, resultado **$790.600**. Disponible **$2.440.600**: Efectivo $613.100, MP $1.674.000, Galicia $123.500, Nación $30.000. «Sin asistencia» **32**.",
+      "situacion": "Cierre del sábado"
+    }
+  ]
+}

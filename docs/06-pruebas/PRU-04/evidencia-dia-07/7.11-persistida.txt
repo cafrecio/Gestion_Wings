@@ -1,0 +1,128 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 34":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "34"
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Avanzadas" [level=1]
+- main:
+  - heading "Viernes 16 de octubre de 2026" [level=2]
+  - generic: 18:00 – 19:00
+  - generic: Patín
+  - generic: Patín — Avanzadas
+  - generic: Gaitán, Lucía
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "12"
+  - text: alumnos en el grupo ·
+  - strong: "10"
+  - text: presentes
+  - generic: Alvarez, Camila
+  - generic: 3/1 (Excede)
+  - generic: · DNI …037
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Benitez, Camila
+  - generic: 3/2 (Excede)
+  - generic: · DNI …700
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Benitez, Milagros
+  - generic: 3/2 (Excede)
+  - generic: · DNI …038
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Castro, Catalina
+  - generic: 3/2 (Excede)
+  - generic: · DNI …034
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Castro, Melina
+  - generic: 3/2 (Excede)
+  - generic: · DNI …803
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Fernandez, Emma
+  - generic: 2/2 (Completo)
+  - generic: · DNI …301
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gimenez, Delfina
+  - generic: 3/1 (Excede)
+  - generic: · DNI …035
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Herrera, Martina
+  - generic: 0/2
+  - generic: · DNI …032
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Morales, Carla
+  - generic: 3/1 (Excede)
+  - generic: · DNI …804
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Pereyra, Zoe
+  - generic: 3/2 (Excede)
+  - generic: · DNI …036
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Ramirez, Lucia
+  - generic: 3/2 (Excede)
+  - generic: · DNI …905
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Suarez, Valentina
+  - generic: 2/1 (Excede)
+  - generic: · DNI …033
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

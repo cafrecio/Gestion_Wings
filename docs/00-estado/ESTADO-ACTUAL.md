@@ -26,6 +26,16 @@ se amplió/alineó con Mes (280 px ambos), Agregar debajo a la derecha. Carlos a
 Gemini registró su [verificación independiente aprobada](../06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md) el 25/10; T77 sigue a_verificar, sin autocierre por Codex.
 Tabla Carlos/Claude intacta. Solo bases descartables propias, sin reparación histórica ni servidor remoto/despliegue.
 
+## T14 — Días 7 a 9 recorridos, Codex CAB 25/10/2026
+
+[Día 7](../06-pruebas/PRU-04/DIA-07.md): 16 Sí. [Día 8](../06-pruebas/PRU-04/DIA-08.md): 6 Sí/3 No. [Día 9](../06-pruebas/PRU-04/DIA-09.md): 3 Sí/3 No. Las 31 situaciones se recorrieron en Chrome sobre test/wingstest `b816d181`, con esperados literales guardados antes de operar. [Galería y diferencias](../06-pruebas/PRU-04/EVIDENCIA-DIAS-07-09.html). Tabla de pruebas intacta, sin consultas de negocio a base ni reparaciones.
+
+Desvío de ejecución en 8.3: Codex envió CUOTA-25 por $144.000 MP después de que el campo de octubre rechazó el cambio a $4.000 y conservó $48.000. Debían ser $100.000. El caso parcial no queda acreditado; no se atribuye un fallo de cobro parcial al producto. Se conservó el cobro, sin cancelar ni reemplazar: explica deuda $44.000 menor, un Al día más/Moroso menos e ingresos/resultado/MP $44.000 mayores desde ese punto. En 8.5 Helena recibió propuesta EXTRA además de Guadalupe y Berenice; no se reparó ni se decidió la causa. El PDF anulado de Dante rotula al cancelador Administración aunque se operó como Sandra; observación conservada.
+
+Cajas #6 y #7 validadas: Sandra con sobrante físico $500 sin ingreso, Pablo sin diferencia. Clase única #81 creada para 31/10 12–13; listas persistidas y Sin asistencia 32. Julieta inactiva conserva $143.000 en ficha. Precio de Patín Principiantes 2/sem $44.000 guardado: Bianca octubre sigue $40.000, Mora noviembre sugiere $44.000 sin cobrar. Rocío activa, subrubro e ingreso operativo comprobados; sin abrir caja.
+
+Cierre real del domingo: deuda $1.187.000, 100 activos (75 Al día/0 En plazo/9 Morosos/16 Deudores), octubre ingresos $921.000/egresos $86.400/resultado $834.600, aportes $15.000, disponible $2.484.600. Cajas pendientes 0. Último inicio de reloj 18/10 11:00; avanza hasta medianoche. No repetir operaciones ni mover reloj para revisar. T14 sigue en curso y requiere revisión independiente; no hay aprobación integral. Sin suite ni despliegue por esta ejecución humana y entrega documental. El dashboard por casos conserva el corte anterior y no consolida estas jornadas.
+
 ## T14 — Días 5 y 6 recorridos, Codex CAB 24/10/2026
 
 Recorrido humano en Chrome sobre test/wingstest, autorizado por Carlos en «Prueba humana III». [Día 5](../06-pruebas/PRU-04/DIA-05.md): 14 situaciones, 12 Sí y 2 Parcial. [Día 6](../06-pruebas/PRU-04/DIA-06.md): 13 situaciones, 10 Sí, 2 Parcial y 1 No. Esperados conservados; capturas y recibos descargados en las carpetas de cada día. Sin reemplazos ni correcciones del producto o de datos fuera del guion.

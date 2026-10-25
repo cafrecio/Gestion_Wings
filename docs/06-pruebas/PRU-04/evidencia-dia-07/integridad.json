@@ -1,0 +1,515 @@
+{
+  "fecha": "2026-10-25",
+  "archivos": [
+    {
+      "archivo": "7.1-apertura-propuesta.jpg",
+      "bytes": 62475,
+      "sha256": "63dfa1f5cec2f48effbc3e46db573230ffefac5b86a9cd688c89e0c6ced19539"
+    },
+    {
+      "archivo": "7.1-caja-abierta.jpg",
+      "bytes": 82548,
+      "sha256": "28200313e1a23e05aad1827e6f77870807c75ac30032fe11ef76fdd6f7f7c53b"
+    },
+    {
+      "archivo": "7.1-inicio-sandra.jpg",
+      "bytes": 79861,
+      "sha256": "4cb47d6496bee4560d97bdaa12de937cbec22b679f8084208f69440c2e0a7699"
+    },
+    {
+      "archivo": "7.10-arqueo-cerrado.jpg",
+      "bytes": 95526,
+      "sha256": "f77f624a24a67b6b960a8b99325be7b682f3d3d72aafba9e41bbb4ae2b4e40a3"
+    },
+    {
+      "archivo": "7.10-caja-cerrada.jpg",
+      "bytes": 87740,
+      "sha256": "e8854f950223d355c20306dc2f50ccae0a7e13900d191710930ac50b73bdf186"
+    },
+    {
+      "archivo": "7.10-resumen-cerrado.txt",
+      "bytes": 3422,
+      "sha256": "ec2c223746a5c58a64cf1a0fb87382361880a65d1895066f8a2aee099c33f563"
+    },
+    {
+      "archivo": "7.10-sobrante-antes-cerrar.jpg",
+      "bytes": 71392,
+      "sha256": "1785d0c0930d76d72e6c0e31e400dbae2e037ede99f947739c17bfeb05315b66"
+    },
+    {
+      "archivo": "7.11-lista-guardada.jpg",
+      "bytes": 94126,
+      "sha256": "5138ba4bb4fc9a815719a69218824e8881969345376af5a8f8b3d1b11c402532"
+    },
+    {
+      "archivo": "7.11-lista-preparada.jpg",
+      "bytes": 98650,
+      "sha256": "f6858c29a33188e47cb914c9c6383a77c05bd086883a3a0cb21148d11ee1fd48"
+    },
+    {
+      "archivo": "7.11-persistida.jpg",
+      "bytes": 93274,
+      "sha256": "29e7a164da62585e7b0dd1c7a96e01ad27c44776c69dfc418d5b503380c519a5"
+    },
+    {
+      "archivo": "7.11-persistida.txt",
+      "bytes": 3922,
+      "sha256": "76ef2545cfd452510e4cfd49057326ece6fc7bde1df324b9055a46d90a147591"
+    },
+    {
+      "archivo": "7.11-propuestas-extra.txt",
+      "bytes": 3932,
+      "sha256": "9d1dc85d4ae11ff56b01623b8a79f07c032a607c8f576e4513693e2409c27aad"
+    },
+    {
+      "archivo": "7.11-resultado-guardar.jpg",
+      "bytes": 94493,
+      "sha256": "0cfc6f530e34e038bdba56b0cc2a34622495faa766cd9409fb4eeaacc1b067dd"
+    },
+    {
+      "archivo": "7.12-lista-preparada.jpg",
+      "bytes": 82504,
+      "sha256": "0005c632562581990f4855ec781a8e230a0926c490aa6583c7365d3c5695eda9"
+    },
+    {
+      "archivo": "7.12-persistida.jpg",
+      "bytes": 94483,
+      "sha256": "c6ef105b783008efcfcebec787340747d4037bd610be0519c296ff981de1d711"
+    },
+    {
+      "archivo": "7.12-persistida.txt",
+      "bytes": 2095,
+      "sha256": "63696bc585c7b0423507fe6da9636271c82c594e215d745c84abe6c1362e93d8"
+    },
+    {
+      "archivo": "7.12-propuestas.txt",
+      "bytes": 1875,
+      "sha256": "b12f3f3ec06e9ac98e7076e83ac50e6569e515f74b4ddbec3db1499ca584b806"
+    },
+    {
+      "archivo": "7.13-lista-preparada.jpg",
+      "bytes": 87095,
+      "sha256": "83d8c93d1ddffc02589efd00b6219203f8eb8b0051378343cc7c6d5dd2031d6d"
+    },
+    {
+      "archivo": "7.13-persistida.jpg",
+      "bytes": 99735,
+      "sha256": "51cab997ebc6fd31815beb357b20a99d6dec5a199341ca6167765bc5bc05ef57"
+    },
+    {
+      "archivo": "7.13-persistida.txt",
+      "bytes": 3703,
+      "sha256": "f771f20e502d743144f52d6d79dddae0381ba765f2a4a72254381b93f9346f90"
+    },
+    {
+      "archivo": "7.13-propuestas-extra.txt",
+      "bytes": 3493,
+      "sha256": "b5ebcf8071ef10c8d3a24222b344ad674a115f7a289165577f8983850869986a"
+    },
+    {
+      "archivo": "7.14-arqueo.txt",
+      "bytes": 4557,
+      "sha256": "5ffcb017530334735e49246bc1984304c80bed68fcb76090033278042c54dc35"
+    },
+    {
+      "archivo": "7.14-caja-validada.jpg",
+      "bytes": 94285,
+      "sha256": "34ad5931f945c9fb57dc2a7cb86301f448b01c6e2499c8798e07ff3a00646f44"
+    },
+    {
+      "archivo": "7.14-dueno-arqueo.jpg",
+      "bytes": 103806,
+      "sha256": "62086da649af5a0ed48296df7a6507744bff66e7f6579b376cb96adcf0502e52"
+    },
+    {
+      "archivo": "7.14-movimientos-verificados.jpg",
+      "bytes": 125419,
+      "sha256": "62e4618c67575497c02e01d07ba20c66c9c2988e6948f091e2e73a4b5b6d027f"
+    },
+    {
+      "archivo": "7.15-clases-31-octubre.jpg",
+      "bytes": 100507,
+      "sha256": "8258f88176a002187a9800d166b2eb103111744da602a1306dd7ddbd80bdea5d"
+    },
+    {
+      "archivo": "7.15-formulario-profesoras.jpg",
+      "bytes": 89761,
+      "sha256": "009c98051d6c1f07e2e0504b91b43423a1bba55bcc0d7a38aa1e2fca9bb72f42"
+    },
+    {
+      "archivo": "7.15-formulario.txt",
+      "bytes": 3607,
+      "sha256": "c30552c4e2ac6d9594dbca15f1041f8fd1cc4514d8dffd576093a13c43aea18e"
+    },
+    {
+      "archivo": "7.15-lista-ocho.jpg",
+      "bytes": 103659,
+      "sha256": "424023e2f9138ac14b05e97266722dd148f4669b79afb43eb2d133d75a421cbe"
+    },
+    {
+      "archivo": "7.15-lista.txt",
+      "bytes": 3972,
+      "sha256": "46d61e16d954b434fd4625286bddd83c575cefbb07d7b41e87b3e2a8d0fdd6b3"
+    },
+    {
+      "archivo": "7.16-cobranza.jpg",
+      "bytes": 119140,
+      "sha256": "22fb81b7cfc48eb58cf18e2646a4880829d7c8407d3e978049dbdc32a3f13e7a"
+    },
+    {
+      "archivo": "7.16-cobranza.txt",
+      "bytes": 22311,
+      "sha256": "0fc8577b82d0a083b6e7f7396d45ca72807d17593dc4d57b759df3c8a349c436"
+    },
+    {
+      "archivo": "7.16-inicio.jpg",
+      "bytes": 78281,
+      "sha256": "fa5f0621f10e8e229ec851099afc887d6233529e8db0e6a9372af2fd762d3b3b"
+    },
+    {
+      "archivo": "7.16-inicio.txt",
+      "bytes": 4364,
+      "sha256": "cf7975a46599bc72a29129b3124cb7e524ba37deaab4a68bb9811c391f095764"
+    },
+    {
+      "archivo": "7.16-reportes.jpg",
+      "bytes": 88557,
+      "sha256": "8a8ef3dca8ce2dbbe08b2a5e7e6abcdca2a01c86be46578e015f9a1ff128ed5f"
+    },
+    {
+      "archivo": "7.16-reportes.txt",
+      "bytes": 4737,
+      "sha256": "32f0ac518023fe117b5016421f987659f6f08b52ca41d454c41ecfe711123d00"
+    },
+    {
+      "archivo": "7.2-agustin-ficha-al-dia.jpg",
+      "bytes": 73761,
+      "sha256": "45ada79c8643b1a9d54f99f53dc288aee0136428b5ac02c83731daa5657eea81"
+    },
+    {
+      "archivo": "7.2-agustin-sin-deuda.jpg",
+      "bytes": 103368,
+      "sha256": "22743b91af5e76f419b133324d9e4fb3c5ed82ea610bfb5683d31b3b854d0437"
+    },
+    {
+      "archivo": "7.2-cobro-noviembre-mp.jpg",
+      "bytes": 106413,
+      "sha256": "b14cf4a5d3c6336d4ce7be6b388061cf0f8d9a599634bab628fb99bfcf9b4699"
+    },
+    {
+      "archivo": "7.2-confirmacion-cobro.jpg",
+      "bytes": 90799,
+      "sha256": "f79e34a75d1ec025c05edd5727609bf41b8bf4417a22838c83b1081d05a88347"
+    },
+    {
+      "archivo": "7.2-noviembre-sugerido.jpg",
+      "bytes": 104344,
+      "sha256": "3afdb3894cd6bdbf7ab56ea82aac9c653dfe071117cc351dcd01c8f62581abda"
+    },
+    {
+      "archivo": "7.2-recibo-agustin.pdf",
+      "bytes": 1696171,
+      "sha256": "2417dfa72da97c177a17ceffbdc91bc816ce4ef42977b63dc126b3fb68d7c6c4"
+    },
+    {
+      "archivo": "7.2-recibo-agustin.png",
+      "bytes": 47745,
+      "sha256": "1fb450718f8fad3e9bf0d4563886ca5ddd6c8b77c6b816b5ca2a9b3d6ffafff1"
+    },
+    {
+      "archivo": "7.2-recibo-agustin.txt",
+      "bytes": 538,
+      "sha256": "03bfcd328dafc967152959a49e54f08892f2684707b27405c45b1a94a91c959c"
+    },
+    {
+      "archivo": "7.3-recibo-sofia.pdf",
+      "bytes": 1696192,
+      "sha256": "9f90f2e0cf22763d36b496513d1508f379f5f6eecea3386a1c7981cde09b7188"
+    },
+    {
+      "archivo": "7.3-recibo-sofia.png",
+      "bytes": 47359,
+      "sha256": "d37dd11ea0d843ab32046048d3280c45f9b611e480fa4d167a38dca0783d32c1"
+    },
+    {
+      "archivo": "7.3-recibo-sofia.txt",
+      "bytes": 553,
+      "sha256": "6c1ac9c51c32644b54d48fa516535b9f5f51954cde173dbecc52de7807d0eef5"
+    },
+    {
+      "archivo": "7.3-sofia-buscador.jpg",
+      "bytes": 71642,
+      "sha256": "39b15303aa5a99cd5c0cf335243bc4cfe5903d75986dac6295ee58da576c7829"
+    },
+    {
+      "archivo": "7.3-sofia-confirmacion.jpg",
+      "bytes": 90717,
+      "sha256": "5dd14f809df90bf1739465f8cb256d3fbad9b1ac0f86a1cdf5f865f2d571d3dd"
+    },
+    {
+      "archivo": "7.3-sofia-estado-actual.jpg",
+      "bytes": 71620,
+      "sha256": "db9ff194cf8eed04c7b81c97129905d70c32c0995f736deef75adb0151a811a3"
+    },
+    {
+      "archivo": "7.3-sofia-solo-inscripcion.jpg",
+      "bytes": 102450,
+      "sha256": "b4ce27034c296bc7855dcf18fd6b1b8526656e35504bd4546c8bfe5348299c3a"
+    },
+    {
+      "archivo": "7.4-camila-dos-deportes.txt",
+      "bytes": 845,
+      "sha256": "de92153fa17b61c54728a1c07f4d1b01a5c8aa39bc7ce15dee673b6810f1f91d"
+    },
+    {
+      "archivo": "7.4-cobranza-todos.jpg",
+      "bytes": 107149,
+      "sha256": "276fff64eeb26b9452a4bdeaa3c2fcf95c297f3343b8473ddefac353d007a6ff"
+    },
+    {
+      "archivo": "7.5-camila-ambas-al-dia.txt",
+      "bytes": 161,
+      "sha256": "809980d7290aabe06bb56e0e652a197e80fe7610a3e03a43cf92057905da4dd5"
+    },
+    {
+      "archivo": "7.5-camila-cobranza-final.jpg",
+      "bytes": 106632,
+      "sha256": "c2329a19998710abee5d021691f531e34ce2b7816bc9a835ae6a17521ea2cc95"
+    },
+    {
+      "archivo": "7.5-camila-confirmacion.jpg",
+      "bytes": 90115,
+      "sha256": "4516fb296ad55296856d47fc3e3531e8e7d1d8e92da120af822d2fb61a5f7fc2"
+    },
+    {
+      "archivo": "7.5-camila-inscripcion-octubre.jpg",
+      "bytes": 102414,
+      "sha256": "8c184fc3884ef619b600498ffc9633c564b497215e7abf3a3792c0bffbffc9e3"
+    },
+    {
+      "archivo": "7.5-recibo-camila.pdf",
+      "bytes": 1696294,
+      "sha256": "076b40a762f8f71489b2182bce1ba5939cd277a4fb6232b3d723c1f93af8dfe4"
+    },
+    {
+      "archivo": "7.5-recibo-camila.png",
+      "bytes": 50313,
+      "sha256": "aa25ccc4f0bc5226e837cfd7cf0b116040416f6fe23f35f949ead8d943b6b4a3"
+    },
+    {
+      "archivo": "7.5-recibo-camila.txt",
+      "bytes": 585,
+      "sha256": "47e969961cba789fca5e3cfcc116043d0256943dfb69c65141c5802145747287"
+    },
+    {
+      "archivo": "7.6-cancelacion-pendiente-autorizacion.jpg",
+      "bytes": 83845,
+      "sha256": "538c8d259ff0903189bf247d16a8348b345e2f4f51e5f2422ea50c3bc97445cf"
+    },
+    {
+      "archivo": "7.6-dante-buscador-moroso.jpg",
+      "bytes": 71512,
+      "sha256": "b0bb2de1e3a2b7882daea5711e2c41285f6058d5bddb298c362f5f3c44f84e92"
+    },
+    {
+      "archivo": "7.6-dante-cancelado-detalle.jpg",
+      "bytes": 121045,
+      "sha256": "9eda53c304d25a4ff4a0f61fcc3aa3e14d69f82e767d03616498a7c1b524c7f9"
+    },
+    {
+      "archivo": "7.6-dante-cobro-confirmado.jpg",
+      "bytes": 90792,
+      "sha256": "6669e29b2f01995125a90977cc6f85140543d34bbb664e4e0021289ceb9c6cfe"
+    },
+    {
+      "archivo": "7.6-dante-cobro-erroneo.jpg",
+      "bytes": 102513,
+      "sha256": "ec325d367de4f5936d41576f4a2125c79db37c49380f3067e044023c9cf57599"
+    },
+    {
+      "archivo": "7.6-dante-ficha-anulado.jpg",
+      "bytes": 81231,
+      "sha256": "06d74209c0cff1963fd280499e2fdc5eacc9504db40df57ddae8bd25f8a2127e"
+    },
+    {
+      "archivo": "7.6-franco-al-dia.jpg",
+      "bytes": 71438,
+      "sha256": "183ddfe66e42cea4706ce6f0a9520494841d819d036e6b213abcb710b64192ca"
+    },
+    {
+      "archivo": "7.6-franco-antes.jpg",
+      "bytes": 71411,
+      "sha256": "20084320c7b8f8fe4b636118b08582af4806134ddc99eb9640a218c3ab65ef84"
+    },
+    {
+      "archivo": "7.6-franco-cobro-correcto.jpg",
+      "bytes": 101239,
+      "sha256": "f18fc11d074a5081714dde7247870dfec960e1a8c1d451d8aebb9cb944a9fb67"
+    },
+    {
+      "archivo": "7.6-franco-confirmacion.jpg",
+      "bytes": 90947,
+      "sha256": "abfdae60fd393722961cb296be1414f68b3243f03bf3015bdc769af1ae7e44ab"
+    },
+    {
+      "archivo": "7.6-recibo-dante-anulado.pdf",
+      "bytes": 1700097,
+      "sha256": "248905427bc278db42b66454d4cec2da1193728508a17e5403a8a7b266617714"
+    },
+    {
+      "archivo": "7.6-recibo-dante-anulado.png",
+      "bytes": 76016,
+      "sha256": "e76b2991c118937bbca5a2b53c0f22da5712c8cae62f7bf5f0602138fe16e88d"
+    },
+    {
+      "archivo": "7.6-recibo-dante-anulado.txt",
+      "bytes": 959,
+      "sha256": "a619394bf851fd912497746047026dc1160a0b07e8595c6f5a9fb9aacc2ccf82"
+    },
+    {
+      "archivo": "7.6-recibo-franco.pdf",
+      "bytes": 1696161,
+      "sha256": "26c1bb1cbe24863518d766519fa382bd0978041f57f4d2d063224934f0ad7d35"
+    },
+    {
+      "archivo": "7.6-recibo-franco.png",
+      "bytes": 46769,
+      "sha256": "5076e8182a7922f79ec8d4f4ebf04b2a68731fda84d25d5b6256c47949f3f21c"
+    },
+    {
+      "archivo": "7.6-recibo-franco.txt",
+      "bytes": 531,
+      "sha256": "b1c09bc0911f19cd4e17a903f7a79d4894f22b26d287f5845c8a68e8a022ca77"
+    },
+    {
+      "archivo": "7.6-sin-motivo-rechazado.jpg",
+      "bytes": 96186,
+      "sha256": "56b956fbef5304011368440da9aee6f21c68d96aa07a142157e7b80305e7489f"
+    },
+    {
+      "archivo": "7.7-bautista-al-dia.jpg",
+      "bytes": 99165,
+      "sha256": "3df4860bdd1af95b2fcd9f10a51c3e8d004df342ca68608e19cf1c9026ec2e01"
+    },
+    {
+      "archivo": "7.7-bautista-cobro.jpg",
+      "bytes": 101331,
+      "sha256": "238f3ee24c6d5ed162b15ed6721008a0ccfcd938903ffa3f6531eeb64f3e8b6e"
+    },
+    {
+      "archivo": "7.7-bautista-confirmacion.jpg",
+      "bytes": 89949,
+      "sha256": "7dec90a5feeb4888f5c850e98bb7f860303bce20355588b1475a3c5432fb0660"
+    },
+    {
+      "archivo": "7.7-cobranza-bautista-antes.jpg",
+      "bytes": 112118,
+      "sha256": "7d0c2d4590a801f519c102a8f1457e4ed9e840b9fa27cd669272f01ec10d78b1"
+    },
+    {
+      "archivo": "7.7-recibo-bautista.pdf",
+      "bytes": 1696171,
+      "sha256": "a5016c93f583182f11054fc05144ccfa2c0282a230297c6b9f699d5ed61691c9"
+    },
+    {
+      "archivo": "7.7-recibo-bautista.png",
+      "bytes": 46789,
+      "sha256": "2169c51fedb7c53f4ce852e7f5f9aade594753dd0dd27d292827285f2902585f"
+    },
+    {
+      "archivo": "7.7-recibo-bautista.txt",
+      "bytes": 534,
+      "sha256": "18c27b33d0acbfe230869b75223a5acb98036e4381098215ddac98a64d03ef0d"
+    },
+    {
+      "archivo": "7.8-paulina-al-dia.jpg",
+      "bytes": 101312,
+      "sha256": "24076b06dba51932530497d9d30b7d18a30245289f7afe9902a2e973bf16eb40"
+    },
+    {
+      "archivo": "7.8-paulina-antes.jpg",
+      "bytes": 112274,
+      "sha256": "4f05ed05e90316a43eba5331f355af59a9fce36c99193f81e6814e2969611541"
+    },
+    {
+      "archivo": "7.8-paulina-bloqueo-revision.jpg",
+      "bytes": 104534,
+      "sha256": "6a8ac434326a08b735c8a60b95b5c4136b4c6dac184e7c7278395a3e2a53c26a"
+    },
+    {
+      "archivo": "7.8-paulina-bna-confirmar.jpg",
+      "bytes": 101263,
+      "sha256": "fc6c9f225e4c27eb271ea32602f11b43c10be051de8d4fe0fc2555d302f9cf93"
+    },
+    {
+      "archivo": "7.8-paulina-resultado.jpg",
+      "bytes": 91134,
+      "sha256": "11e17389858b6bd14025707d2056102d1898db42a6d3603bfa2a7e7d3e89e140"
+    },
+    {
+      "archivo": "7.8-paulina-retomar.jpg",
+      "bytes": 112274,
+      "sha256": "4f05ed05e90316a43eba5331f355af59a9fce36c99193f81e6814e2969611541"
+    },
+    {
+      "archivo": "7.8-recibo-paulina.pdf",
+      "bytes": 1696180,
+      "sha256": "75294c7de0fadbfcc3270858eb2cf9c36e81166ce63e6a70ace1683eea3705ab"
+    },
+    {
+      "archivo": "7.8-recibo-paulina.png",
+      "bytes": 36493,
+      "sha256": "90a0457203b19e7c287d3af13be28855a316a8dd468f47db4c181ae412f8b08f"
+    },
+    {
+      "archivo": "7.8-recibo-paulina.txt",
+      "bytes": 539,
+      "sha256": "8633bf42fa4ba8cf90bceb9f93d61d41b3a506f86d6beaa5f107dc8d7dfd1081"
+    },
+    {
+      "archivo": "7.9-efectivo-esperado.jpg",
+      "bytes": 99000,
+      "sha256": "7e113103f489e59bc143864b170825d68706c0f62330c5ac192f2e003e4940b4"
+    },
+    {
+      "archivo": "7.9-gasto-preparado.jpg",
+      "bytes": 72128,
+      "sha256": "d8e6a8f6b4bc53643801cb4824a21af9b5aa203ac181b841b2b06e79019ee0bc"
+    },
+    {
+      "archivo": "7.9-gasto-registrado.jpg",
+      "bytes": 90529,
+      "sha256": "eb5d214289e7331a86d0c147de62e301f3cd3854fedefcdd4e24f094f3a17f35"
+    },
+    {
+      "archivo": "cambios-usuario.jsonl",
+      "bytes": 756,
+      "sha256": "1fe960eb1e6511f41b9cedee8b1d685787995f22498bb807ba2bbcb0bd0b8346"
+    },
+    {
+      "archivo": "control-entrega.json",
+      "bytes": 19606,
+      "sha256": "ad1a4955a522ea51006a61ada54e30ade785934cb3ef8d7d04abd60de04d2707"
+    },
+    {
+      "archivo": "entorno-previo.txt",
+      "bytes": 203,
+      "sha256": "ecde8eaffee57d4e5e9ce6f15d8988bd906609378f783f5cb92f3f83fe8f0bf3"
+    },
+    {
+      "archivo": "esperados-originales.json",
+      "bytes": 6511,
+      "sha256": "37cf6dd3c4f29d3929b16471e6c43d507e740a134e64b4b88b4df064099aebbe"
+    },
+    {
+      "archivo": "LEEME.md",
+      "bytes": 5829,
+      "sha256": "28be979f8750124c8e761e2b8686a03bb8350941c6fff5a924a73b35e3d30bd3"
+    },
+    {
+      "archivo": "reloj-inicio.txt",
+      "bytes": 266,
+      "sha256": "a03d914cbdeca252db15657e6a425a3850e75120aebb7ca4258917a65667f46b"
+    }
+  ]
+}

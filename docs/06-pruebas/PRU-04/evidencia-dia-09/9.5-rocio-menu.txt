@@ -1,0 +1,82 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - heading "Mostrador Operativo" [level=1]
+  - paragraph: Domingo 18 de octubre de 2026 · Turno de Rocío Paz
+  - link "Caja":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - link "Cobranza":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/alumnos
+  - generic: Cajón listo para iniciar
+  - paragraph: No hay turno abierto hoy
+  - paragraph: Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial.
+  - link "Abrir":
+    - /url: https://test.gestionar-te.com.ar/caja/apertura
+  - text: Clases de hoy —
+  - strong: "0"
+  - paragraph: No hay clases programadas para hoy.
+  - generic: Atención a alumnos
+  - link "Vencidos 25 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+    - paragraph: Vencidos
+    - paragraph: "25"
+    - paragraph: Ir a cobranza →
+  - link "En plazo 0 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza?estado=EN_PLAZO
+    - paragraph: En plazo
+    - paragraph: "0"
+    - paragraph: Ir a cobranza →
+  - link "Posibles inactivos 0 Ir a revisión →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+    - paragraph: Posibles inactivos
+    - paragraph: "0"
+    - paragraph: Ir a revisión →
+  - generic: Recaudación de hoy
+  - paragraph: Cobrado hoy
+  - paragraph: $0.00
+  - paragraph: Cobros registrados
+  - paragraph: "0"
+  - paragraph: Cajas del turno
+  - paragraph: "0"
+- contentinfo:
+  - generic: Wings

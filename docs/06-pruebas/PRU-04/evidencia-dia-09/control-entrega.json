@@ -1,0 +1,340 @@
+{
+  "fecha": "2026-10-25",
+  "fuente_sha256": "b88f4c54e9a851ca5678f99709d76404f09541818b00579aab05c95aba8370c0",
+  "esperados_y_situaciones_literales": true,
+  "resultados": {
+    "Sí": 3,
+    "No": 3
+  },
+  "casos": [
+    {
+      "id": "9.1",
+      "resultado": "Sí",
+      "observado": "Inicio del 18/10 conserva el cierre real del sábado: deuda $1.330.000, ingresos $921.000, egresos $86.400, resultado $834.600 y disponible $2.484.600. Cajas por validar 0, Sin asistencia 32. Coincide con el cierre observado, aunque arrastra el desvío de 8.3 frente a los importes previstos por el guion. Evidencia 9.1-inicio-confirmado.jpg y 9.1-inicio.txt."
+    },
+    {
+      "id": "9.2",
+      "resultado": "No",
+      "observado": "Patín ingresos $439.000 y egresos $0; Fútbol $450.000 y egresos $0. Suman $889.000; global $921.000, diferencia $32.000 Torneos/Inscripciones sin deporte. El filtro y exclusión de gastos del club coinciden; Fútbol y global exceden $44.000 al esperado por el cobro de 8.3. No se modificaron esperados. Evidencia 9.2-*.jpg/txt."
+    },
+    {
+      "id": "9.3",
+      "resultado": "No",
+      "observado": "Baja guardada: Julieta Inactiva, ficha conserva los cinco meses y $143.000. Ya no figura en Cobranza (0 filas). Cobranza/Inicio/Reportes concuerdan en deuda real $1.187.000, 100 activos: 75 Al día/0 En plazo/9 Morosos/16 Deudores. La baja y conservación funcionan; totales/estados no coinciden con el guion por arrastre de 8.3 ($44.000 menos deuda, un Al día más/Moroso menos). Evidencia 9.3-*.jpg/txt."
+    },
+    {
+      "id": "9.4",
+      "resultado": "Sí",
+      "observado": "Precio Patín Principiantes 2/sem guardado de $40.000 a $44.000. Bianca conserva octubre $40.000 y su plan vigente $40.000. Mora no tiene cuotas pendientes; al elegir Noviembre 2026, Importe sugiere $44.000. No se agregó ni cobró: se volvió con Cancelar, el botón disponible en Cobrar. Evidencia 9.4-*.jpg/txt."
+    },
+    {
+      "id": "9.5",
+      "resultado": "Sí",
+      "observado": "Rocío Paz creada activa, usuario #8, rocio.paz@example.com, rol Operativo. Rubros/Sueldos contiene Op-Rocío Paz. Ingresó después de la pausa: Mostrador Operativo con su nombre, menú sin Cashflow ni Reportes; cero cobros/cajas del turno. No abrió caja; salió. Clave aleatoria solo en memoria, no incluida en evidencia. Evidencia 9.5-*.jpg/txt."
+    },
+    {
+      "id": "9.6",
+      "resultado": "No",
+      "observado": "Cierre real: deuda $1.187.000; 75 Al día/0 En plazo/9 Morosos/16 Deudores. Reportes octubre: ingresos $921.000, egresos $86.400, resultado $834.600; aportes $15.000/retiros $0 fuera del resultado. Disponible $2.484.600 (EFE $613.100, MP $1.718.000, BGA $123.500, BNA $30.000), todo confirmado. Inicio Sin asistencia 32/cajas por validar 0. No coincide por arrastre de CUOTA-25 en 8.3; no se reparó. Evidencia 9.6-*.jpg/txt."
+    }
+  ],
+  "imagenes_pdf_verificados": [
+    {
+      "archivo": "9.1-inicio-confirmado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.1-inicio.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.2-global.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.2-reporte-futbol.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.2-reporte-patin.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-baja-estado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-cobranza-100-activos.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-deuda-conservada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-inicio-deuda.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-julieta-antes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-julieta-inactiva.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.3-reportes-deuda.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.4-bianca-octubre-40000.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.4-mora-noviembre-44000.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.4-precio-guardado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.4-precio-preparado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.5-rocio-menu.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.5-subrubro-rocio.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.5-usuario-creado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.6-cobranza-final.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.6-inicio-entrega.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.6-inicio-final.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "9.6-reportes-aportes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    }
+  ],
+  "intervalos_entre_usuarios": [
+    {
+      "rol": "Lucía",
+      "salida_utc": "2026-10-25T18:45:09.124Z",
+      "ingreso_utc": "2026-10-25T18:46:11.559Z",
+      "intervalo_derivado_s": 62.435,
+      "minimo_conservador_s": 62.435
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:47:04.700Z",
+      "ingreso_utc": "2026-10-25T18:48:18.165Z",
+      "intervalo_derivado_s": 73.465,
+      "minimo_conservador_s": 73.465
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T18:48:49.678Z",
+      "ingreso_utc": "2026-10-25T18:49:52.879Z",
+      "intervalo_derivado_s": 63.201,
+      "minimo_conservador_s": 63.201
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T18:50:22.943Z",
+      "ingreso_utc": "2026-10-25T18:51:45.209Z",
+      "intervalo_derivado_s": 82.266,
+      "minimo_conservador_s": 82.266
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:34.966Z",
+      "intervalo_derivado_s": 70.08,
+      "minimo_conservador_s": 70.08
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:51.947Z",
+      "intervalo_derivado_s": 87.061,
+      "minimo_conservador_s": 87.061
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:57:34.310Z",
+      "ingreso_utc": "2026-10-25T18:58:53.181Z",
+      "intervalo_derivado_s": 78.871,
+      "minimo_conservador_s": 78.871
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T19:17:46.107Z",
+      "ingreso_utc": "2026-10-25T19:19:01.945Z",
+      "intervalo_derivado_s": 75.838,
+      "minimo_conservador_s": 75.838
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T19:19:24.061Z",
+      "ingreso_utc": "2026-10-25T19:20:34.306Z",
+      "intervalo_derivado_s": 70.245,
+      "minimo_conservador_s": 70.245
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:20:54.038Z",
+      "ingreso_utc": "2026-10-25T19:22:23.900Z",
+      "intervalo_derivado_s": 89.862,
+      "minimo_conservador_s": 89.862
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:41.176Z",
+      "intervalo_derivado_s": 81.023,
+      "minimo_conservador_s": 81.023
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:48.786Z",
+      "intervalo_derivado_s": 88.633,
+      "minimo_conservador_s": 88.633
+    },
+    {
+      "rol": "Rocío",
+      "salida_utc": "2026-10-25T19:27:45.413Z",
+      "ingreso_utc": "2026-10-25T19:29:00.187Z",
+      "intervalo_derivado_s": 74.774,
+      "minimo_conservador_s": 73.261
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:29:08.569Z",
+      "ingreso_utc": "2026-10-25T19:30:33.623Z",
+      "intervalo_derivado_s": 85.054,
+      "minimo_conservador_s": 85.054
+    }
+  ],
+  "nota_tiempos": "Se conservan los eventos originales. Algunos campos segundosDesdeSalir del día 7 usaban una referencia antigua; el control recalcula desde las fechas UTC de los eventos Salir y toma el menor intervalo disponible. Todos superan 60 s.",
+  "sin_suite_por_entrega_documental": true,
+  "revision_independiente": "pendiente",
+  "control_final_global": {
+    "imagenes_validas": 120,
+    "recibos_pdf": 8,
+    "enlaces_locales_comprobados": 323,
+    "total_casos": 31,
+    "coinciden": 25,
+    "no_coinciden": 6,
+    "archivo_bitacora_intacto": true,
+    "texto": "UTF-8 y LF según .gitattributes; contenido de situaciones y esperados intacto."
+  }
+}

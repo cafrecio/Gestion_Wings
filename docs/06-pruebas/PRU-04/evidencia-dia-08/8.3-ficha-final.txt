@@ -1,0 +1,91 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Vega, Joaquin" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "51200914"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 14/06/2014
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145129904"
+  - paragraph:
+    - text: Email
+  - paragraph: andrea.vega@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Avanzadas
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $48,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 05/03/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Andrea Vega
+  - paragraph: Teléfono
+  - paragraph: "1145129904"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 17/10/2026 · Ago 2026, Sep 2026, Oct 2026
+  - generic: $144,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/25?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 2 clases
+  - generic: 10/10
+  - generic: 15/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

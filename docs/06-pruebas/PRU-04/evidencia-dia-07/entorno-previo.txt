@@ -1,0 +1,3 @@
+b816d181
+Fecha simulada fijada: 2026-10-15 15:00:00. Para Wings ahora son las 15/10/2026 23:59
+El reloj simulado está detenido: llegó a la medianoche de ese día. Para seguir, fijá el día siguiente.

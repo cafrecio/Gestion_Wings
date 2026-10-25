@@ -1,0 +1,230 @@
+{
+  "fecha": "2026-10-25",
+  "archivos": [
+    {
+      "archivo": "9.1-inicio-confirmado.jpg",
+      "bytes": 76493,
+      "sha256": "8a0ab38e4bace9f3cb373157a8074709218270576dd2378434b806b903453c25"
+    },
+    {
+      "archivo": "9.1-inicio.jpg",
+      "bytes": 37361,
+      "sha256": "ec9712c1ff9d51761c7e94dc60f6949665ee37d4106da3908db47f98b990248c"
+    },
+    {
+      "archivo": "9.1-inicio.txt",
+      "bytes": 4364,
+      "sha256": "c28b2d58db04937716938209a00938935877accd74773da7de96fdf125d2069a"
+    },
+    {
+      "archivo": "9.2-futbol.txt",
+      "bytes": 4847,
+      "sha256": "10c5f74b483a4c76305b9643dd0c1c6af7df8a284050a64e4091fa643c7fdbfb"
+    },
+    {
+      "archivo": "9.2-global.jpg",
+      "bytes": 88501,
+      "sha256": "ee04df6a854775473a5094f90021cce45b9c9fca873d7704be3b062a1d3c6c96"
+    },
+    {
+      "archivo": "9.2-global.txt",
+      "bytes": 4806,
+      "sha256": "11c84e22dbc2f52eecbff1739bad598b1d09f5cba1c1350179f0374461930169"
+    },
+    {
+      "archivo": "9.2-patin.txt",
+      "bytes": 4769,
+      "sha256": "62a7d03bb9aacd55b2b0d9d467a2187bedc55afd5713072913680fa11e0dbf31"
+    },
+    {
+      "archivo": "9.2-reporte-futbol.jpg",
+      "bytes": 87509,
+      "sha256": "67951f76d42c1b00c79c338ef88418dd9dc153852dc1a5b1964ae1b8925d9000"
+    },
+    {
+      "archivo": "9.2-reporte-patin.jpg",
+      "bytes": 87466,
+      "sha256": "7606e3263331c3290e5cbdacbaf95e7712286f2416903a166700efb4f8c2d275"
+    },
+    {
+      "archivo": "9.3-baja-estado.jpg",
+      "bytes": 109221,
+      "sha256": "4d49a5036c20a8f3245f6148fec53f5028a9533b9216d961eb682552edf4e205"
+    },
+    {
+      "archivo": "9.3-cobranza-100-activos.jpg",
+      "bytes": 119238,
+      "sha256": "d473c55b366b7cb0223e2c84024fe2900bf34104ecd1f34923835ccd3d04cd9d"
+    },
+    {
+      "archivo": "9.3-cobranza.txt",
+      "bytes": 20967,
+      "sha256": "d96c2d3c7dcba6bb9eb54238b4b9482f6d3610cbdfb3db56d7ca6aa367544b41"
+    },
+    {
+      "archivo": "9.3-deuda-conservada.jpg",
+      "bytes": 92609,
+      "sha256": "6d7d489d95649825b4457545cd402fb96a7d05e4382ed83dd630687ceb717c47"
+    },
+    {
+      "archivo": "9.3-inicio-deuda.jpg",
+      "bytes": 78251,
+      "sha256": "6b772c7f60adabed893fd9247acc01a66888a50013276a05f8c914d8beb2bbdf"
+    },
+    {
+      "archivo": "9.3-inicio.txt",
+      "bytes": 4364,
+      "sha256": "0202c8d4d7931eecbb2658bc04ca1e965cdd60704a5e753c324ee07602ff2bdf"
+    },
+    {
+      "archivo": "9.3-julieta-antes.jpg",
+      "bytes": 91491,
+      "sha256": "7dacd88b0daa3b361da6189b5e22f97efc0224dc1eb66e390792393af8fdf2a2"
+    },
+    {
+      "archivo": "9.3-julieta-antes.txt",
+      "bytes": 4914,
+      "sha256": "22535146b0c61d3c87fe45bc0734aa3f1fadb797d891dadbb2fff0512456696a"
+    },
+    {
+      "archivo": "9.3-julieta-despues.txt",
+      "bytes": 4939,
+      "sha256": "726c9b6439597c95205cd46e1d3b56f1e1c934135b1384db785a3c57ef8fb0c1"
+    },
+    {
+      "archivo": "9.3-julieta-inactiva.jpg",
+      "bytes": 111521,
+      "sha256": "09db1579c9f3616f59b8e24ca21a9ba0a9737d8f0dd40a24203a6561f6df21ed"
+    },
+    {
+      "archivo": "9.3-reportes-deuda.jpg",
+      "bytes": 88518,
+      "sha256": "970d461b6d034935180a96dc5a276075f161bf9a0139883d06483d3225a34400"
+    },
+    {
+      "archivo": "9.3-reportes.txt",
+      "bytes": 4806,
+      "sha256": "210480c6c2ea787f8948f768466744e8495132eda8235466d357df23f5d3da5b"
+    },
+    {
+      "archivo": "9.4-bianca-octubre-40000.jpg",
+      "bytes": 88233,
+      "sha256": "c9171355c0a8dcc1222624264094c9b9342bf1079c769f44f0f7a5610d8a7d77"
+    },
+    {
+      "archivo": "9.4-bianca.txt",
+      "bytes": 4775,
+      "sha256": "46d7567cf48062305e07bd17f19834396dfafcae6fa1a916ee06a51171613ca8"
+    },
+    {
+      "archivo": "9.4-mora-noviembre-44000.jpg",
+      "bytes": 110232,
+      "sha256": "d003d173dc464298ee8500489bbd94ad1e425aab90f631db71f843b23b60ea36"
+    },
+    {
+      "archivo": "9.4-mora.txt",
+      "bytes": 4331,
+      "sha256": "99e7846d75ffbb1e14b9ac9f36c520d42b7f73d09630007ade848d10ada46272"
+    },
+    {
+      "archivo": "9.4-precio-guardado.jpg",
+      "bytes": 101714,
+      "sha256": "255c50cab5d67f5aa193521d422f34bab2ad5f68bb0b8382dbd657ebdb993477"
+    },
+    {
+      "archivo": "9.4-precio-preparado.jpg",
+      "bytes": 85037,
+      "sha256": "a688c7511f71e2df3fd816aa256667ecbac2fda6c181a4808fc45adb3d4a82e4"
+    },
+    {
+      "archivo": "9.5-rocio-menu.jpg",
+      "bytes": 78875,
+      "sha256": "f1eb45c54d809ef9a329d380f7935acba05b3588891bedb56f18de7c0c951a3a"
+    },
+    {
+      "archivo": "9.5-rocio-menu.txt",
+      "bytes": 2722,
+      "sha256": "ed0420337a714982c103391b010e6c8f12693fc995ec5c03d04008e1241f9db2"
+    },
+    {
+      "archivo": "9.5-rubros.txt",
+      "bytes": 16508,
+      "sha256": "bed18c8337d59d1f64c03ba411dbc1cf5103a00b26d88ff45cb39cf24fa4b535"
+    },
+    {
+      "archivo": "9.5-subrubro-rocio.jpg",
+      "bytes": 97800,
+      "sha256": "06298426ef9fed599c21b055bba62d449e8ce606e550d87d3c72cfd600635fe1"
+    },
+    {
+      "archivo": "9.5-usuario-creado.jpg",
+      "bytes": 88158,
+      "sha256": "40251473388ac0f31ce6fd09d1362b0fb90af465d73a943c473407ff85ee4cba"
+    },
+    {
+      "archivo": "9.5-usuarios.txt",
+      "bytes": 4615,
+      "sha256": "bec92c337089abb53d9d03590bd91a9c90629186cc5c17210d7e27c819ad7edb"
+    },
+    {
+      "archivo": "9.6-cobranza-final.jpg",
+      "bytes": 119238,
+      "sha256": "d473c55b366b7cb0223e2c84024fe2900bf34104ecd1f34923835ccd3d04cd9d"
+    },
+    {
+      "archivo": "9.6-cobranza.txt",
+      "bytes": 20967,
+      "sha256": "d96c2d3c7dcba6bb9eb54238b4b9482f6d3610cbdfb3db56d7ca6aa367544b41"
+    },
+    {
+      "archivo": "9.6-inicio-entrega.jpg",
+      "bytes": 78251,
+      "sha256": "6b772c7f60adabed893fd9247acc01a66888a50013276a05f8c914d8beb2bbdf"
+    },
+    {
+      "archivo": "9.6-inicio-final.jpg",
+      "bytes": 78251,
+      "sha256": "6b772c7f60adabed893fd9247acc01a66888a50013276a05f8c914d8beb2bbdf"
+    },
+    {
+      "archivo": "9.6-inicio.txt",
+      "bytes": 4364,
+      "sha256": "0202c8d4d7931eecbb2658bc04ca1e965cdd60704a5e753c324ee07602ff2bdf"
+    },
+    {
+      "archivo": "9.6-reportes-aportes.jpg",
+      "bytes": 100916,
+      "sha256": "ee88b8ba22f72d22d260793aae0f75bfce01765b20e59a82459d674b9630e93e"
+    },
+    {
+      "archivo": "9.6-reportes.txt",
+      "bytes": 5530,
+      "sha256": "5a4f27f445a9bd09764a47ecf06a97fb720e07a62e9630105ee23086a15dadf4"
+    },
+    {
+      "archivo": "cambios-usuario.jsonl",
+      "bytes": 508,
+      "sha256": "6b73b41323316cc2f9ea3b00983343e3e7b81ad1a88ac7f396d23cbe8a0fa128"
+    },
+    {
+      "archivo": "control-entrega.json",
+      "bytes": 9685,
+      "sha256": "100e4317caa07b808b013d42892c4e3dc78b49a96bf12130734d9081eba762c5"
+    },
+    {
+      "archivo": "esperados-originales.json",
+      "bytes": 2501,
+      "sha256": "1f5facb0876da537eaa8bca3c8f9071a1990ba415970654fee05c35f0f4d8749"
+    },
+    {
+      "archivo": "LEEME.md",
+      "bytes": 2382,
+      "sha256": "0e755dea93f9a5ba4812e4746ab251cecb4dd05a0c14fa198f2827a39a8a27c6"
+    },
+    {
+      "archivo": "reloj-inicio.txt",
+      "bytes": 266,
+      "sha256": "0e26895cfbe2d3bf70eaa37cb5a63aebfd595e878b08c29930911a46fe501e5a"
+    }
+  ]
+}

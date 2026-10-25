@@ -1,0 +1,104 @@
+{
+  "dia": 7,
+  "capturado_antes_de_operar": "2026-10-25T15:14:53.1940241-03:00",
+  "sha256": "B88F4C54E9A851CA5678F99709D76404F09541818B00579AAB05C95ABA8370C0",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-07-09.md",
+  "casos": [
+    {
+      "linea_fuente": 21,
+      "id": "7.1",
+      "esperado": "Propone **$10.000**, lo que retuvo Pablo en la caja #5. Queda ABIERTA.",
+      "situacion": "Sandra abre caja"
+    },
+    {
+      "linea_fuente": 22,
+      "id": "7.2",
+      "esperado": "Cobrar **no muestra ninguna cuota pendiente** y el «Total pendiente» es $0: octubre ya no aparece como deuda (T77). En «Mes sin deuda o cobro adelantado» elige Noviembre 2026 y sugiere $35.000. Cobra. Agustín sigue Al día y su ficha muestra el pago de noviembre.",
+      "situacion": "La mamá de **Agustín Acosta** (Fútbol Principiantes, 2 veces, $35.000) quiere pagar **noviembre** adelantado, $35.000 por **Mercado Pago**. Agustín vino de la primera carga «Al día»: octubre lo pagó antes del sistema."
+    },
+    {
+      "linea_fuente": 23,
+      "id": "7.3",
+      "esperado": "Cobrar muestra solo la inscripción, $5.000, sin ninguna cuota. Cobra. Sofía pasa de Deudor a **Al día**. El recibo dice Inscripción $5.000.",
+      "situacion": "**Sofía Gómez** (Patín Principiantes) debe solo la inscripción, $5.000. La paga en efectivo."
+    },
+    {
+      "linea_fuente": 24,
+      "id": "7.4",
+      "esperado": "Aparecen **dos filas**: Patín (Deudor, $50.000) y Fútbol (Al día). La fila de Fútbol avisa «también debe $50.000 en Patín».",
+      "situacion": "Sandra mira **Cobranza** con el filtro «Todos» y busca a **Camila Benítez**. Es la misma persona anotada en Patín Avanzadas y en Fútbol Principiantes."
+    },
+    {
+      "linea_fuente": 25,
+      "id": "7.5",
+      "esperado": "Desde la ficha de Patín, Cobrar ofrece inscripción $5.000 y octubre $45.000. Un cobro con los dos renglones. Camila (Patín) pasa a **Al día** y la fila de Fútbol deja de decir «también debe».",
+      "situacion": "El papá de Camila paga la inscripción y octubre de Patín: $50.000 por **Mercado Pago**."
+    },
+    {
+      "linea_fuente": 26,
+      "id": "7.6",
+      "esperado": "Sin motivo no deja cancelar. Dante vuelve a Moroso con octubre $38.000 y su recibo sale **ANULADO** con el motivo. Franco pasa a **Al día**. En el **Detalle de caja**, el cobro cancelado aparece tachado y debajo «Cancelado: Se cargó a Dante Ramos, pagó Franco Molina» (T78).",
+      "situacion": "La mamá de **Franco Molina** (Fútbol Avanzadas, debe octubre $38.000) paga $38.000 en efectivo. Sandra se equivoca y se lo carga a **Dante Ramos**, del mismo grupo, que también debe $38.000. Lo cancela con el motivo «Se cargó a Dante Ramos, pagó Franco Molina» y lo cobra bien a Franco."
+    },
+    {
+      "linea_fuente": 27,
+      "id": "7.7",
+      "esperado": "Pasa a **Al día**.",
+      "situacion": "**Bautista Ferrari** (Fútbol Principiantes, Moroso, le queda octubre $15.000) paga $15.000 en efectivo."
+    },
+    {
+      "linea_fuente": 28,
+      "id": "7.8",
+      "esperado": "Pasa a **Al día**. El recibo dice Banco Nación.",
+      "situacion": "**Paulina Gutiérrez** (Patín Principiantes, Moroso, octubre $30.000) paga $30.000 por **transferencia al Banco Nación**. Es el primer uso de ese medio."
+    },
+    {
+      "linea_fuente": 29,
+      "id": "7.9",
+      "esperado": "El movimiento queda en su caja y el efectivo esperado baja $6.800.",
+      "situacion": "Sandra registra un gasto en **Gastos Operativos → Insumos Varios**: $6.800 en efectivo, «Botiquín: gasas y cinta»."
+    },
+    {
+      "linea_fuente": 30,
+      "id": "7.10",
+      "esperado": "Esperado **$61.200**. Muestra **sobrante $500** antes de confirmar y deja cerrar. Retiene $10.000 y entrega **$51.700**. No se crea ningún ingreso por el sobrante.",
+      "situacion": "Sandra cierra y cuenta **$61.700**"
+    },
+    {
+      "linea_fuente": 31,
+      "id": "7.11",
+      "esperado": "**12 alumnas**. Ausentes: Martina Herrera y Valentina Suárez. **10 presentes.** Propone «Clase adicional» para **9** de ellas, porque ya vinieron esta semana las veces que pagan: Camila Álvarez, Milagros Benítez, Camila Benítez, Melina Castro, Catalina Castro, Delfina Giménez, Carla Morales, Zoe Pereyra y Lucía Ramírez. **Emma Fernández no**: paga 2 por semana y vino 1 vez. Se deja lo que propone.",
+      "situacion": "**Lucía** toma lista en la **#80**, Patín Avanzadas 18–19 (hoy)."
+    },
+    {
+      "linea_fuente": 32,
+      "id": "7.12",
+      "esperado": "**8 alumnas**. Ausente: Olivia Rossi. **7 presentes.** No propone «Clase adicional» para nadie.",
+      "situacion": "**Mariela** carga la lista **atrasada** de la **#39**, Patín Federadas, martes 13/10 de 18 a 19."
+    },
+    {
+      "linea_fuente": 33,
+      "id": "7.13",
+      "esperado": "**14 alumnos.** **Lucas Gómez no está**, porque se pasó a Avanzadas el 14/10 (T52). Ausentes: Joaquín Vega y Felipe Sosa. **12 presentes.** Propone «Clase adicional» para los 5 de plan 1 vez que ya vinieron el jueves: Thiago Díaz, Franco Molina, Lorenzo Morales, Mateo Rodríguez y León Rossi. Se deja lo que propone y se anota.",
+      "situacion": "**Hernán** carga la lista **atrasada** de la **#66**, Fútbol Avanzadas, martes 13/10 de 19 a 20."
+    },
+    {
+      "linea_fuente": 34,
+      "id": "7.14",
+      "esperado": "Ve el **sobrante de $500**, quién cerró y el cobro cancelado **con su motivo**. «Caja validada y reflejada en cashflow».",
+      "situacion": "El dueño abre la caja de Sandra, tilda y valida"
+    },
+    {
+      "linea_fuente": 35,
+      "id": "7.15",
+      "esperado": "Solo ofrece profesoras de Patín. Se crea y aparece en Clases el 31/10. Su lista trae las 8 alumnas. Si el navegador la bloquea por la fecha de la computadora, se anota y se sigue.",
+      "situacion": "El dueño crea una **clase única**: sábado **31/10**, de 12 a 13, Patín Federadas, con Mariela"
+    },
+    {
+      "linea_fuente": 36,
+      "id": "7.16",
+      "esperado": "Cobranza: deuda **$1.474.000**; **74 Al día, 0 En plazo, 9 Morosos, 18 Deudores**. Reportes de octubre: ingresos **$745.000**, egresos **$80.500**, resultado **$664.500**. El cobro de noviembre de Agustín **no** suma a octubre. Disponible **$2.314.500**: Efectivo $587.000, MP $1.574.000, Galicia $123.500, Nación $30.000. El sobrante no figura. «Sin asistencia» baja de **34 a 32**.",
+      "situacion": "Cierre del dueño"
+    }
+  ]
+}

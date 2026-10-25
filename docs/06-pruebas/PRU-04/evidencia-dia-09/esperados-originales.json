@@ -1,0 +1,44 @@
+{
+  "dia": 9,
+  "capturado_antes_de_operar": "2026-10-25T15:14:53.2197898-03:00",
+  "sha256": "B88F4C54E9A851CA5678F99709D76404F09541818B00579AAB05C95ABA8370C0",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-07-09.md",
+  "casos": [
+    {
+      "linea_fuente": 56,
+      "id": "9.1",
+      "esperado": "Coincide con el cierre del sábado. No hay cajas por validar. «Sin asistencia» **32**.",
+      "situacion": "El dueño mira su Inicio"
+    },
+    {
+      "linea_fuente": 57,
+      "id": "9.2",
+      "esperado": "Patín: ingresos **$439.000**. Fútbol: ingresos **$406.000**. Entre los dos, $845.000. Los **$32.000 del torneo** no son de ningún deporte: por eso el total da $877.000. En ninguno de los dos filtros aparecen los egresos, porque son gastos del club.",
+      "situacion": "**Reportes de octubre filtrado por deporte**"
+    },
+    {
+      "linea_fuente": 58,
+      "id": "9.3",
+      "esperado": "Queda Inactiva y su deuda **no se borra**: sigue en su ficha. Sale de Cobranza: deuda **$1.231.000**, **100 activos: 74 Al día, 10 Morosos, 16 Deudores**. El Inicio y Reportes dicen la misma deuda.",
+      "situacion": "La familia de **Julieta Álvarez** (Patín Intermedias, Deudor, $143.000 de noviembre y diciembre de 2025, y agosto, septiembre y octubre de 2026) avisa que deja. El dueño la **da de baja**."
+    },
+    {
+      "linea_fuente": 59,
+      "id": "9.4",
+      "esperado": "Lo deja guardar. Lo ya generado no cambia: **Bianca Pereyra** sigue debiendo octubre **$40.000**. En el Cobrar de **Mora Benítez** (Patín Principiantes, 2 veces, octubre pagado), Noviembre 2026 sugiere **$44.000**. No cobrar: Volver.",
+      "situacion": "El dueño sube **Patín Principiantes, 2 veces por semana**, de $40.000 a **$44.000**"
+    },
+    {
+      "linea_fuente": 60,
+      "id": "9.5",
+      "esperado": "Queda activa en Usuarios. En Rubros → Sueldos aparece «Op-Rocío Paz». Rocío ingresa y ve el menú de la operativa, sin Cashflow ni Reportes. No abre caja: es domingo. Sale.",
+      "situacion": "El dueño da de alta una operativa nueva, **Rocío Paz** (rocio.paz@example.com), con una clave que elija"
+    },
+    {
+      "linea_fuente": 61,
+      "id": "9.6",
+      "esperado": "Deuda **$1.231.000**; **74 Al día, 0 En plazo, 10 Morosos, 16 Deudores**. Reportes de octubre: ingresos **$877.000**, egresos **$86.400**, resultado **$790.600**, aportes $15.000. Disponible **$2.440.600**. «Sin asistencia» **32**.",
+      "situacion": "Cierre del domingo"
+    }
+  ]
+}

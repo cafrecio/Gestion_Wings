@@ -1,0 +1,776 @@
+{
+  "fecha": "2026-10-25",
+  "fuente_sha256": "b88f4c54e9a851ca5678f99709d76404f09541818b00579aab05c95aba8370c0",
+  "esperados_y_situaciones_literales": true,
+  "resultados": {
+    "Sí": 16
+  },
+  "casos": [
+    {
+      "id": "7.1",
+      "resultado": "Sí",
+      "observado": "Propuso $10.000 del último cierre #5 de Pablo. Se confirmó recibido y abrió caja #6, Sandra, 16/10 15:04, ABIERTA; inicial/esperado $10.000. Evidencia: 7.1-apertura-propuesta.jpg y 7.1-caja-abierta.jpg."
+    },
+    {
+      "id": "7.2",
+      "resultado": "Sí",
+      "observado": "Cobrar no ofreció cuotas ni octubre y mostró pendiente $0. Noviembre sugirió $35.000. Se agregó manualmente, se eligió MP y se confirmó el aviso de adelanto. Pago CUOTA-18 registrado una vez; ficha Al día con Nov 2026 $35.000. Recibo descargado desde su enlace. Evidencia 7.2-*.jpg y 7.2-recibo-agustin.pdf."
+    },
+    {
+      "id": "7.3",
+      "resultado": "Sí",
+      "observado": "Cobrar mostró solo inscripción $5.000 y Sin cuotas pendientes. Se registró CUOTA-19 por $5.000 EFE. Alumnos muestra Sofia Gomez Al día; recibo descargado y leído: Inscripción al club por única vez $5.000, Efectivo. Evidencia 7.3-*.jpg y PDF/PNG del recibo."
+    },
+    {
+      "id": "7.4",
+      "resultado": "Sí",
+      "observado": "Con Todos los estados aparecen dos filas de Camila: Patín/Avanzadas Deudor $50.000, y Fútbol/Principiantes Al día $0 con aviso también debe $50.000 en Patín. Lectura de ambas filas guardada desde la pantalla y captura 7.4-cobranza-todos.jpg."
+    },
+    {
+      "id": "7.5",
+      "resultado": "Sí",
+      "observado": "Desde la ficha de Patín ofreció inscripción $5.000 y octubre $45.000. Se registró un pago CUOTA-20 de $50.000 MP con ambos conceptos. Después, ambas filas de Camila están Al día y Fútbol ya no muestra también debe. Recibo y capturas 7.5-*."
+    },
+    {
+      "id": "7.6",
+      "resultado": "Sí",
+      "observado": "Error deliberado CUOTA-21: Dante, octubre $38.000 EFE. Confirmar sin motivo mostró Completa este campo y no canceló. Con Se cargó a Dante Ramos, pagó Franco Molina se anuló; detalle visible con motivo y ficha Dante Moroso, octubre $38.000. PDF ANULADO con motivo. Después CUOTA-23 cobró Franco $38.000 EFE y Alumnos lo muestra Al día. Rechazos iniciales del control resueltos tras autorización directa de Carlos; no se usó otra vía."
+    },
+    {
+      "id": "7.7",
+      "resultado": "Sí",
+      "observado": "Se cobró octubre $15.000 en efectivo, CUOTA-22. Alumnos muestra Ferrari, Bautista Al día. Capturas 7.7-*.jpg y recibo descargado."
+    },
+    {
+      "id": "7.8",
+      "resultado": "Sí",
+      "observado": "CUOTA-24 por $30.000, Banco Nación, registrado una sola vez. La tarjeta de Gutierrez, Paulina quedó Al día. El PDF descargado desde Recibo dice Banco Nación. Evidencia: evidencia-dia-07/7.8-paulina-al-dia.jpg y 7.8-recibo-paulina.pdf."
+    },
+    {
+      "id": "7.9",
+      "resultado": "Sí",
+      "observado": "Se registró un egreso EFE Gastos Operativos / Insumos Varios de $6.800, Botiquín: gasas y cinta. Caja #6 muestra egresos $6.800 y efectivo esperado $61.200, $6.800 menos que antes del gasto. Se hizo antes de completar 7.6/7.8 por el bloqueo inicial del control, ya autorizado por Carlos."
+    },
+    {
+      "id": "7.10",
+      "resultado": "Sí",
+      "observado": "Caja #6 cerrada. Antes de confirmar mostró esperado $61.200, contado $61.700, Sobrante $500 y entrega $51.700 con cambio $10.000. Después conserva 8 movimientos, ingresos $173.000 y egresos $6.800: no agregó ingreso por el sobrante. Evidencia: 7.10-sobrante-antes-cerrar.jpg, 7.10-caja-cerrada.jpg y 7.10-arqueo-cerrado.jpg."
+    },
+    {
+      "id": "7.11",
+      "resultado": "Sí",
+      "observado": "Clase #80: 12 alumnas, 10 presentes; Martina Herrera y Valentina Suarez ausentes. Propuso EXTRA para las nueve indicadas y no para Emma Fernandez. Guardé y recargué: las diez marcas y los motivos persistieron. Evidencia: 7.11-propuestas-extra.txt y 7.11-persistida.jpg/txt."
+    },
+    {
+      "id": "7.12",
+      "resultado": "Sí",
+      "observado": "Clase #39 del 13/10 18–19: ocho alumnas, Olivia Rossi ausente y siete presentes. No apareció ningún selector EXTRA. Guardé y recargué; las siete marcas persistieron. Evidencia 7.12-propuestas.txt y 7.12-persistida.jpg/txt."
+    },
+    {
+      "id": "7.13",
+      "resultado": "Sí",
+      "observado": "Clase #66: 14 alumnos, Lucas Gomez ausente de la nómina. Joaquín Vega y Felipe Sosa ausentes; 12 presentes. Propuso EXTRA para Thiago Diaz, Franco Molina, Lorenzo Morales, Mateo Rodriguez y Leon Rossi. Guardado y recarga conservaron marcas y motivos. Evidencia 7.13-propuestas-extra.txt y 7.13-persistida.jpg/txt."
+    },
+    {
+      "id": "7.14",
+      "resultado": "Sí",
+      "observado": "El dueño vio Sandra Vidal, cierre 16/10 15:29, diferencia $500 y entrega $51.700 en Resumen; en Detalle vio el motivo de Dante y tildó 9/9 renglones. Validó: Caja validada y reflejada en cashflow, caja #6 VALIDADA. Evidencia 7.14-*.jpg y 7.14-arqueo.txt."
+    },
+    {
+      "id": "7.15",
+      "resultado": "Sí",
+      "observado": "Se creó una clase única el 31/10 de 12 a 13, Patín Federadas, Mariela Ocampo. Solo ofreció las cuatro profesoras de Patín. El listado del 31/10 la muestra; Ver trae ocho alumnas. No hubo bloqueo por fecha mínima. Evidencia 7.15-formulario.txt y capturas 7.15-*.jpg."
+    },
+    {
+      "id": "7.16",
+      "resultado": "Sí",
+      "observado": "Cobranza: $1.474.000, 101 activos, 74 Al día/0 En plazo/9 Morosos/18 Deudores. Reportes octubre $745.000 ingresos, $80.500 egresos, $664.500 resultado; origen de ingresos no incluye noviembre. Inicio: disponible $2.314.500, EFE $587.000, MP $1.574.000, BGA $123.500, BNA $30.000; por validar $0, Sin asistencia 32. Coincide, sin sumar sobrante. Evidencia 7.16-*.jpg/txt."
+    }
+  ],
+  "imagenes_pdf_verificados": [
+    {
+      "archivo": "7.1-apertura-propuesta.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.1-caja-abierta.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.1-inicio-sandra.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.10-arqueo-cerrado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.10-caja-cerrada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.10-sobrante-antes-cerrar.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.11-lista-guardada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.11-lista-preparada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.11-persistida.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.11-resultado-guardar.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.12-lista-preparada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.12-persistida.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.13-lista-preparada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.13-persistida.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.14-caja-validada.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.14-dueno-arqueo.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.14-movimientos-verificados.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.15-clases-31-octubre.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.15-formulario-profesoras.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.15-lista-ocho.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.16-cobranza.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.16-inicio.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.16-reportes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-agustin-ficha-al-dia.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-agustin-sin-deuda.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-cobro-noviembre-mp.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-confirmacion-cobro.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-noviembre-sugerido.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.2-recibo-agustin.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.2-recibo-agustin.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.3-recibo-sofia.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.3-recibo-sofia.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.3-sofia-buscador.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.3-sofia-confirmacion.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.3-sofia-estado-actual.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.3-sofia-solo-inscripcion.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.4-cobranza-todos.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.5-camila-cobranza-final.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.5-camila-confirmacion.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.5-camila-inscripcion-octubre.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.5-recibo-camila.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.5-recibo-camila.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-cancelacion-pendiente-autorizacion.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-dante-buscador-moroso.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-dante-cancelado-detalle.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-dante-cobro-confirmado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-dante-cobro-erroneo.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-dante-ficha-anulado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-franco-al-dia.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-franco-antes.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-franco-cobro-correcto.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-franco-confirmacion.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-recibo-dante-anulado.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.6-recibo-dante-anulado.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-recibo-franco.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.6-recibo-franco.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.6-sin-motivo-rechazado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.7-bautista-al-dia.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.7-bautista-cobro.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.7-bautista-confirmacion.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.7-cobranza-bautista-antes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.7-recibo-bautista.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.7-recibo-bautista.png",
+      "dimensiones": [
+        641,
+        910
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-al-dia.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-antes.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-bloqueo-revision.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-bna-confirmar.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-resultado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-paulina-retomar.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.8-recibo-paulina.pdf",
+      "paginas": 1,
+      "tipo": "PDF"
+    },
+    {
+      "archivo": "7.8-recibo-paulina.png",
+      "dimensiones": [
+        525,
+        745
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.9-efectivo-esperado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.9-gasto-preparado.jpg",
+      "dimensiones": [
+        1920,
+        911
+      ],
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "7.9-gasto-registrado.jpg",
+      "dimensiones": [
+        1905,
+        904
+      ],
+      "tipo": "imagen"
+    }
+  ],
+  "intervalos_entre_usuarios": [
+    {
+      "rol": "Lucía",
+      "salida_utc": "2026-10-25T18:45:09.124Z",
+      "ingreso_utc": "2026-10-25T18:46:11.559Z",
+      "intervalo_derivado_s": 62.435,
+      "minimo_conservador_s": 62.435
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:47:04.700Z",
+      "ingreso_utc": "2026-10-25T18:48:18.165Z",
+      "intervalo_derivado_s": 73.465,
+      "minimo_conservador_s": 73.465
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T18:48:49.678Z",
+      "ingreso_utc": "2026-10-25T18:49:52.879Z",
+      "intervalo_derivado_s": 63.201,
+      "minimo_conservador_s": 63.201
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T18:50:22.943Z",
+      "ingreso_utc": "2026-10-25T18:51:45.209Z",
+      "intervalo_derivado_s": 82.266,
+      "minimo_conservador_s": 82.266
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:34.966Z",
+      "intervalo_derivado_s": 70.08,
+      "minimo_conservador_s": 70.08
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T18:53:24.886Z",
+      "ingreso_utc": "2026-10-25T18:54:51.947Z",
+      "intervalo_derivado_s": 87.061,
+      "minimo_conservador_s": 87.061
+    },
+    {
+      "rol": "Mariela",
+      "salida_utc": "2026-10-25T18:57:34.310Z",
+      "ingreso_utc": "2026-10-25T18:58:53.181Z",
+      "intervalo_derivado_s": 78.871,
+      "minimo_conservador_s": 78.871
+    },
+    {
+      "rol": "Hernán",
+      "salida_utc": "2026-10-25T19:17:46.107Z",
+      "ingreso_utc": "2026-10-25T19:19:01.945Z",
+      "intervalo_derivado_s": 75.838,
+      "minimo_conservador_s": 75.838
+    },
+    {
+      "rol": "Pablo",
+      "salida_utc": "2026-10-25T19:19:24.061Z",
+      "ingreso_utc": "2026-10-25T19:20:34.306Z",
+      "intervalo_derivado_s": 70.245,
+      "minimo_conservador_s": 70.245
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:20:54.038Z",
+      "ingreso_utc": "2026-10-25T19:22:23.900Z",
+      "intervalo_derivado_s": 89.862,
+      "minimo_conservador_s": 89.862
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:41.176Z",
+      "intervalo_derivado_s": 81.023,
+      "minimo_conservador_s": 81.023
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:23:20.153Z",
+      "ingreso_utc": "2026-10-25T19:24:48.786Z",
+      "intervalo_derivado_s": 88.633,
+      "minimo_conservador_s": 88.633
+    },
+    {
+      "rol": "Rocío",
+      "salida_utc": "2026-10-25T19:27:45.413Z",
+      "ingreso_utc": "2026-10-25T19:29:00.187Z",
+      "intervalo_derivado_s": 74.774,
+      "minimo_conservador_s": 73.261
+    },
+    {
+      "rol": "dueño",
+      "salida_utc": "2026-10-25T19:29:08.569Z",
+      "ingreso_utc": "2026-10-25T19:30:33.623Z",
+      "intervalo_derivado_s": 85.054,
+      "minimo_conservador_s": 85.054
+    }
+  ],
+  "nota_tiempos": "Se conservan los eventos originales. Algunos campos segundosDesdeSalir del día 7 usaban una referencia antigua; el control recalcula desde las fechas UTC de los eventos Salir y toma el menor intervalo disponible. Todos superan 60 s.",
+  "sin_suite_por_entrega_documental": true,
+  "revision_independiente": "pendiente",
+  "control_final_global": {
+    "imagenes_validas": 120,
+    "recibos_pdf": 8,
+    "enlaces_locales_comprobados": 323,
+    "total_casos": 31,
+    "coinciden": 25,
+    "no_coinciden": 6,
+    "archivo_bitacora_intacto": true,
+    "texto": "UTF-8 y LF según .gitattributes; contenido de situaciones y esperados intacto."
+  }
+}
