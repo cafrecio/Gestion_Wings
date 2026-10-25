@@ -1,0 +1,53 @@
+
+   PASS  Tests\Feature\ReportesRapidosT79Test
+  ✓ reportes lee la historia una sola vez por pedido                                                            18.39s
+  ✓ fuera de un pedido el mismo servicio ve lo nuevo                                                             8.31s
+  ✓ saldos de cashflow son los mismos que los del reporte                                                        7.63s
+  ✓ cobranza da lo mismo con las deudas ya cargadas                                                              6.88s
+
+   PASS  Tests\Feature\ReporteMensualTest
+  ✓ seis meses y mes actual concilian sin arrastre en el resultado                                               6.47s
+  ✓ cobro posterior no borra deuda del cierre anterior                                                           7.80s
+  ✓ validar caja solo traslada pendiente a confirmado sin duplicar                                               7.65s
+  ✓ gastos comunes se restaron una vez y afecta caja no es clasificacion                                         6.25s
+  ✓ historia insuficiente y clasificacion desconocida no simulan cero                                            6.36s
+  ✓ fecha real anterior corrige su mes y ajuste actual conserva el anterior                                      6.43s
+  ✓ creacion y pago del mismo objeto no suman dos veces y deshacer limpia                                        6.16s
+  ✓ cierre y pago de liquidacion conservan el saldo del cierre anterior                                          6.09s
+  ✓ evento y deuda se desatan juntos si falla guardar la historia                                                6.27s
+  ✓ descuento retroactivo no deja deuda artificial en su mes                                                     6.41s
+  ✓ sueldo generado conserva deporte al pagar y anular no borra historia                                         6.85s
+  ✓ reportes reales filtran mes y deporte con historia del corte                                                 6.82s
+  ✓ reportes rechazan filtros invalidos sin error del servidor                                                   6.71s
+  ✓ reportes solo admin y primera carga conserva su bloqueo                                                      6.68s
+  ✓ reportes detalles y enlaces concilian inicio y saldos historicos                                             6.64s
+  ✓ reportes no inventan comparacion con movimientos sin clasificar                                              6.50s
+  ✓ inicio admin usa el motor mensual y no cambia por parametros                                                 6.33s
+  ✓ avisos abren exactamente los pendientes incluidos meses antiguos                                             8.61s
+  ✓ inicio y enlaces admin no exponen importes a otros roles                                                     6.91s
+  ✓ inicio sin migracion muestra indisponible sin consultar historia                                             9.87s
+  ✓ modificar saldo inicial no reescribe disponible anterior                                                     9.84s
+
+   PASS  Tests\Feature\DireccionConTextoT80Test
+  ✓ texto en lugar de numero da pagina no disponible                                                             0.25s
+  ✓ los numeros y las rutas con texto propio siguen andando                                                      0.98s
+
+   PASS  Tests\Feature\SecurityHeadersTest
+  ✓ toda respuesta web incluye headers y csp que bloquea                                                         0.05s
+
+   PASS  Tests\Feature\CspReporteTest
+  ✓ la politica declara a donde mandar los avisos                                                                0.04s
+  ✓ un aviso del navegador queda registrado                                                                      0.06s
+  ✓ no exige sesion ni token                                                                                     0.06s
+  ✓ descarta los avisos que generan las extensiones del navegador                                                0.05s
+  ✓ descarta un cuerpo desmedido                                                                                 0.06s
+  ✓ descarta lo que no es un aviso de csp                                                                        0.05s
+  ✓ no guarda el recorte de la pagina                                                                            0.04s
+  ✓ recorta los valores demasiado largos                                                                         0.04s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.08s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.06s
+
+  Tests:    38 passed (271 assertions)
+  Duration: 190.92s

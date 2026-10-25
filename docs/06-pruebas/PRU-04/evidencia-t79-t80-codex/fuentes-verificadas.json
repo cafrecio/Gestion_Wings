@@ -1,0 +1,67 @@
+{
+  "fecha": "2026-10-25T13:32:09.7551433-03:00",
+  "base": "wings_testing_codex",
+  "fuentes": [
+    {
+      "sha256": "106FC014DAB09A517E88F34818360C51605B21D93DAA77D6A08843A8108A0E8F",
+      "archivo": "app/Services/ReporteMensualService.php"
+    },
+    {
+      "sha256": "A5AA2CD33A0EEC79D70963298A0211865487C4CB6B4CCE494F794135B35D5542",
+      "archivo": "app/Services/CobranzaEstadoService.php"
+    },
+    {
+      "sha256": "F1304F305A8BAC0AC65E62AF6592FEFCD9EC5037E7F64F3BD38DFC5D78962578",
+      "archivo": "app/Services/PartesPagoCuotaService.php"
+    },
+    {
+      "sha256": "A7E2A10D87C578D472371221DD73645FC0EF33CAA9F41249622BE1C9263768D1",
+      "archivo": "app/Http/Controllers/ReporteWebController.php"
+    },
+    {
+      "sha256": "6EAA8180F13E9F26B31861E312847A667B8CD07F95C20BD09C9456EB98DD6191",
+      "archivo": "app/Http/Controllers/CashflowWebController.php"
+    },
+    {
+      "sha256": "A1F15D98EFF1052E2DACE47B897A0DD826DB429B31379DFD6E9DEB4BA359E241",
+      "archivo": "app/Http/Middleware/SecurityHeaders.php"
+    },
+    {
+      "sha256": "CF7FCA7410E26D8DCFA1E41754521743EBB71F6DD8B553AE3C8D4966C83D3C8D",
+      "archivo": "app/Providers/AppServiceProvider.php"
+    },
+    {
+      "sha256": "B81639C33CF23CAAEE087118E384C2A3BE00F87AB4DBEF78A09F5EF4BAC6B9A5",
+      "archivo": "routes/web.php"
+    },
+    {
+      "sha256": "D37D35C9CE2735EB12FD2D7026D2401242C4C0DAC93EB9A2592A6E1B49CBAC78",
+      "archivo": "routes/api.php"
+    },
+    {
+      "sha256": "620DEAAB169688C00F3DD624F1BF6DC509BC76EEED7312C73D37C5CA765560CD",
+      "archivo": "tests/Feature/ReportesRapidosT79Test.php"
+    },
+    {
+      "sha256": "DD03C4F18EE03F57F27A8CA93C633C8D87F85E9167D42ACBC194AA1805B4D375",
+      "archivo": "tests/Feature/ReporteMensualTest.php"
+    },
+    {
+      "sha256": "067D28E69C568E1AAE8893E3801F332EBE4B9AEEDA3D63B68A16F0EDDF251A1E",
+      "archivo": "tests/Feature/DireccionConTextoT80Test.php"
+    },
+    {
+      "sha256": "E1B60CE9D355052C0302AE1124304D7BA94A118BC39D0FDF7112AC2FDA6F4D90",
+      "archivo": "tests/Feature/SecurityHeadersTest.php"
+    },
+    {
+      "sha256": "875927C78B93142EBF9EAB6CBC0FB1262BBEC678907AC8067511A6B88918949D",
+      "archivo": "tests/Feature/CspReporteTest.php"
+    },
+    {
+      "sha256": "DD81D1957CB4F8FC39A09D8CCA0792209ED09F9BC187814C967E543FB940984B",
+      "archivo": "tests/Feature/CspSinCodigoIncrustadoTest.php"
+    }
+  ],
+  "head": "a3e75dc5e00a40d66f79487096c7bb0df12a0e2a"
+}

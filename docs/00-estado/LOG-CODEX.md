@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-25 — Codex CAB — Verificación independiente T79 y T80
+
+Revisión de Claude sin corregir código ni desplegar; ambas siguen a_verificar.
+T79: 52 reportes, 26 cortes y dos evoluciones iguales salvo IDs temporales; Cobranza idéntica. 6.999 pagos y anulado con partes iguales; lote/excepción sin caché vieja.
+T80: política de 280 caracteres idéntica, en bloqueo. Chrome: 59 pantallas HTTP 200, cero bloqueos/errores; control inline bloqueado. 97 parámetros y clave textual correctos.
+SSH solo lectura: 21 reportes del 17–21/10; 11 del 19/10 no son de Login, contrario al informe. Ninguno posterior al corte T73 del 21/10 14:04. Observación documental.
+Dirigidas 38/271 verdes; completa 1041 aprobadas/6 omitidas, 8996 aserciones, 1059,07 s, salida 0, wings_testing_codex y una suite a la vez. T34 restaurado con copia previa.
+[Informe](../06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md). T79 aprobada; T80 aprobada con observación documental. Verifica Codex, sin cierre. Claves retiradas, sin producto ni push manual.
+
 ## 2026-10-25 — Codex CAB — T77: Cobrar no inventa deuda del mes
 
 Carlos decidió no ofrecer deuda sin cuota guardada; autorizó hacer el cambio y aprobar luego el aspecto.
@@ -8,7 +17,7 @@ Nueve pruebas nuevas; finales: 68/442 verdes. Completa Codex: 1034 aprobadas/6 o
 Chrome local: alumno al día $0, deuda guardada $30.000 y cobro manual con pago/imputación/movimiento únicos. Bases descartables propias; suite siempre en wings_testing_codex. HTML T34 restaurado con copia recuperable previa.
 Carlos observó el importe móvil: corregido a columna completa, 280 px como Mes, botón debajo a la derecha; escritorio conserva 150 px. Tras ver la captura corregida aprobó: «Ahora esta Ok» (25/10).
 [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md) y [galería](../06-pruebas/PRU-04/APROBAR-T77.html). Tabla intacta, propuesta COB-028 acción/a/b. Sin servidor remoto, datos del club ni despliegue.
-T77 sigue a_verificar, tiene nadie, hizo Codex; guardianes 7/34 verdes. Aprobación visual registrada en informe, galería, resumen y tablero; resta revisión independiente de reglas/código. ESTADO-ACTUAL con cambios ajenos: no se mezcla; sincronizar su frase pendiente cuando quede libre. Solo documentación, diff/enlaces verificados; sin push manual.
+T77 sigue a_verificar, guardianes 7/34 verdes; Carlos aprobó el aspecto y Gemini registró lógica aprobada en su informe del 25/10. ESTADO-ACTUAL se sincronizó al quedar libre de cambios ajenos. Sin autocierre ni push manual.
 
 ## 2026-10-24 — Codex CAB — Prueba humana III: Días 5 y 6
 
@@ -85,10 +94,5 @@ Ambos trabajos quedan en esta bitácora compartida, con entradas y documentos se
 Pendientes comunes: criterio de cuota no guardada en Cobrar, alcance T2/T6, seguridad/carga y siguiente jornada con los datos conservados. T14 sigue en curso; sin aceptación integral ni despliegue.
 Partida: carpeta limpia, HEAD/GitHub afa783f8, informes y evidencia publicados. Actualización documental.
 
-## 2026-10-22 — Codex CyE — Casos prueba humana I: contraste técnico del Día 4
 
-[Verificación de 99d1f64a](../06-pruebas/PRU-04/VERIFICACION-DIA-04.md): cinco pagos/seis imputaciones, siete movimientos/reflejos únicos, alta y asistencias conciliados con SQL, servicios y cuatro imágenes.
-Arqueo $119.500, diferencia $0; disponible $1.926.500, deuda guardada $1.899.000; 101 activos. Reloj leído 13/10 19:51 sin cambiarlo. Mantener T2/T6 parciales y adelanto real de Julieta, no Sofía.
-D4-OBS-01 abierta: Cobrar añade cuota corriente no guardada en memoria aunque el estado sea AL_DIA; datos/código explican la diferencia. No se decide ni corrige la regla de negocio.
-Auxiliares y snapshots de lectura archivados; conciliador local y PHP sin errores. Reportes CLI: 29 SQL/35,83 ms con 101 activos; no acredita carga ni seguridad HTTP.
-Actualizados objetivos/estado/resumen/continuidad y paso T14. Conservadas columnas humanas; sin repetir operaciones, cambiar reloj/configuración/producto, suite ni despliegue. Sigue Día 5 con observación abierta; T14 integral en curso.
+[Antecedente intacto al verificar T79 y T80](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-VERIFICACION-T79-T80-ANTECEDENTES.md).

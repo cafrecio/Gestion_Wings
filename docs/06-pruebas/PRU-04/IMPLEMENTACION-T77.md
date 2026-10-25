@@ -1,11 +1,11 @@
 # T77 — Cobrar muestra solamente la deuda guardada
 
-Codex CAB, 25/10/2026. **Implementada localmente; aspecto aprobado por Carlos. Control independiente de lógica pendiente. No desplegada.**
+Codex CAB, 25/10/2026. **Implementada localmente; aspecto aprobado por Carlos. Gemini registró verificación de lógica aprobada. T77 sigue a_verificar. No desplegada.**
 
 Decisión de Carlos: «Si no tiene deuda, ¿por qué ofrece cobrar octubre? No se puede cobrar dos veces.»
 Autorización de trabajo y vista en este chat: «Hace lo que tengas que hacer, para eso te paso el prompt.
 Despues yo apruebo la parte visual». Después de ver la captura corregida, Carlos aprobó el aspecto:
-«Ahora esta Ok» (25/10/2026). La revisión independiente de reglas sigue pendiente.
+«Ahora esta Ok» (25/10/2026). Gemini registró después su [verificación independiente aprobada](VERIFICACION-T77-GEMINI.md).
 
 ## Cambio
 
@@ -157,7 +157,7 @@ Contrato: [Cuotas, deudas y pagos V2](../../02-contratos/Wings-contrato-cuotas-d
 Tablero T77 registrado en `a_verificar`, tiene nadie, hizo Codex, con referencia a esta entrega.
 Guardianes finales del contador/tablero: **7 aprobadas, 34 aserciones, salida 0**
 ([salida](evidencia-t77/guardianes-finales.txt)). Aspecto aprobado por Carlos: «Ahora esta Ok».
-Otro agente debe verificar reglas/código; no autocierre. Commit solo propio, sin push manual.
-Al registrar esta aprobación, `ESTADO-ACTUAL.md` tenía cambios ajenos en curso: se conserva sin
-editar ni incluir en el commit. Su frase de aprobación pendiente debe sincronizarse cuando quede libre;
-el estado vigente de la aprobación queda registrado aquí, en la galería, el resumen y el tablero.
+Gemini registró la verificación de reglas/código aprobada el 25/10 en el informe enlazado arriba;
+T77 conserva a_verificar, sin autocierre por Codex. Commit solo propio, sin push manual.
+Al registrar la aprobación visual, `ESTADO-ACTUAL.md` tenía cambios ajenos y no se mezclaron.
+Después de sus commits se sincronizó su frase visual con «Ahora esta Ok», conservando lo ajeno.

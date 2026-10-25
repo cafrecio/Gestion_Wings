@@ -1,5 +1,17 @@
 # Wings — Estado actual
 
+## T79 y T80 — Verificación independiente, Codex CAB, 25/10/2026
+
+T79 aprobada: 52 reportes, 26 cortes y dos evoluciones iguales salvo IDs temporales; Cobranza
+idéntica, 6.999 pagos con partes iguales y lote sin datos viejos tras excepción. T80 aprobada
+con observación documental: de 21 avisos CSP del 17–21/10, 11 del 19/10 no son de Login;
+ninguno en los registros conservados posterior al corte T73 del 21/10 14:04. Política idéntica
+de 280 caracteres, ahora bloqueante. Chrome real: 59 pantallas de tres roles, todas HTTP 200,
+cero bloqueos/errores; control inline separado bloqueado. 97 casos de parámetros correctos.
+Dirigidas 38/271 y completa **1041 aprobadas, 6 omitidas, 8996 aserciones, 1059,07 s, salida 0**,
+solo wings_testing_codex y una suite a la vez. T34 devuelto con copia recuperable. Ambas siguen
+a_verificar con verifica=Codex; no se corrigió su código ni se desplegó. [Informe y límites](../06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md).
+
 ## T77 — Implementada localmente, 25/10/2026, Codex CAB
 
 Decisión de Carlos: un mes sin deuda guardada no se ofrece como pendiente ni suma al total.
@@ -9,8 +21,9 @@ Nueve pruebas nuevas; finales del área, contador/CSP y repetición T78: **68 ap
 Completa en `wings_testing_codex`: **1034 aprobadas, 6 omitidas, 1 fallo de fixture T78**, después
 repetido con sus tres pruebas verdes. Se conserva la salida completa sin llamarla verde.
 Chrome real, cobro sintético conciliado y capturas 1366/375. Carlos observó el importe móvil:
-se amplió/alineó con Mes (280 px ambos), Agregar debajo a la derecha; capturas renovadas, aprobación pendiente.
+se amplió/alineó con Mes (280 px ambos), Agregar debajo a la derecha. Carlos aprobó: «Ahora esta Ok» (25/10).
 [Entrega y propuesta COB-028 acción/a/b](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T77.html).
+Gemini registró su [verificación independiente aprobada](../06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md) el 25/10; T77 sigue a_verificar, sin autocierre por Codex.
 Tabla Carlos/Claude intacta. Solo bases descartables propias, sin reparación histórica ni servidor remoto/despliegue.
 
 ## T14 — Días 5 y 6 recorridos, Codex CAB 24/10/2026

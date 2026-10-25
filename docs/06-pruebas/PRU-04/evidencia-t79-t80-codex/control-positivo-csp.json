@@ -1,0 +1,19 @@
+{
+  "controlEjecutado": null,
+  "diagnostico": {
+    "bloqueos": [
+      {
+        "bloqueado": "inline",
+        "directiva": "script-src-elem",
+        "disposicion": "enforce",
+        "linea": 3
+      }
+    ],
+    "errores": []
+  },
+  "respuesta": {
+    "http": 200,
+    "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+    "solo_reporte": false
+  }
+}

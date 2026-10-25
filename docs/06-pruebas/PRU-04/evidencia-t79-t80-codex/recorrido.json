@@ -1,0 +1,1018 @@
+{
+  "base": "wings_testing_codex",
+  "url": "http://127.0.0.1:8789",
+  "metodo": "Chrome real, espia externo al inicio del HTML del kernel real, CSP sin modificar",
+  "paginas": [
+    {
+      "rol": "ADMIN",
+      "url": "/admin/dashboard",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Inicio",
+      "final": "/admin/dashboard",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Inicio – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Alumnos",
+      "final": "/alumnos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Alumnos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/1",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Volumen, Alumno0",
+      "final": "/alumnos/1",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Volumen, Alumno0 – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar: Volumen, Alumno0",
+      "final": "/alumnos/1/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar – Volumen, Alumno0",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/alumnos/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Alumno",
+      "final": "/alumnos/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Alumno – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cobranza",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Cobranza",
+      "final": "/cobranza",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Cobranza – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/caja",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Caja",
+      "final": "/caja",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Caja – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/caja/532/detalle",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Detalle de caja",
+      "final": "/caja/532/detalle",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Detalle caja 14/10/2026 – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Cashflow",
+      "final": "/cashflow",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Cashflow histórico – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow/movimiento",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo movimiento",
+      "final": "/cashflow/movimiento",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/cashflow/transferencia",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Transferir",
+      "final": "/cashflow/transferencia",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Transferir – Cashflow – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Ingresos y egresos",
+      "final": "/reportes",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Ingresos y egresos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes/alumnos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Reporte de alumnos",
+      "final": "/reportes/alumnos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Reporte de alumnos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/reportes/sueldos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Reporte de sueldos",
+      "final": "/reportes/sueldos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Reporte de sueldos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clases",
+      "final": "/clases",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Clases – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/1914",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clase — Fútbol vol — Avanzado Fútbol vol",
+      "final": "/clases/1914",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nueva Clase",
+      "final": "/clases/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nueva Clase – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/clases/1914/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar Clase",
+      "final": "/clases/1914/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar Clase – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/liquidaciones",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Liquidaciones",
+      "final": "/liquidaciones",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Liquidaciones – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/liquidaciones/crear",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nueva Liquidación",
+      "final": "/liquidaciones/crear",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nueva Liquidación – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/movimientos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Movimientos",
+      "final": "/movimientos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Movimientos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/configuraciones",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Configuración",
+      "final": "/configuraciones",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Configuración – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Rubros",
+      "final": "/rubros",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Rubros – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Rubro",
+      "final": "/rubros/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Rubro – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/rubros/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Rubros",
+      "final": "/rubros",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Rubros – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Grupos",
+      "final": "/grupos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Grupos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/1",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Patín vol — Inicial Patín vol",
+      "final": "/grupos/1",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Patín vol — Inicial Patín vol – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar: Patín vol — Inicial Patín vol",
+      "final": "/grupos/1/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar – Patín vol — Inicial Patín vol – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/grupos/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Grupo",
+      "final": "/grupos/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Grupo – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Profesores",
+      "final": "/profesores",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Profesores – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/1",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Patín vol, Profe1",
+      "final": "/profesores/1",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Patín vol, Profe1 – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar: Patín vol, Profe1",
+      "final": "/profesores/1/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar – Patín vol, Profe1",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/profesores/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Profesor",
+      "final": "/profesores/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Profesor – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/deportes",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Deportes",
+      "final": "/deportes",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Deportes – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/deportes/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar: Patín",
+      "final": "/deportes/1/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar – Patín",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/niveles",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Niveles",
+      "final": "/niveles",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Niveles – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Usuarios",
+      "final": "/usuarios",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Usuarios – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Usuario",
+      "final": "/usuarios/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Usuario – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/usuarios/2/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar Usuario",
+      "final": "/usuarios/2/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar Usuario – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/tipos-caja",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Tipos de Caja",
+      "final": "/tipos-caja",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Tipos de Caja – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/tipos-caja/1/edit",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Editar Tipo de Caja: Efectivo",
+      "final": "/tipos-caja/1/edit",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Editar Tipo de Caja – Efectivo",
+      "errores_consola": []
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/revision-cobranza",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Revisión",
+      "final": "/revision-cobranza",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Revisión de cobranza – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "SIN SESION",
+      "url": "/login",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Iniciar sesión",
+      "final": "/login",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Ingresar – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/operativo",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Inicio",
+      "final": "/operativo",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Inicio – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Caja",
+      "final": "/caja",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Caja – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/cobrar",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Cobrar cuota",
+      "final": "/caja/cobrar",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Cobrar cuota – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/cobrar/1",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Cobrar: Volumen, Alumno0",
+      "final": "/caja/cobrar/1",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Cobrar – Volumen, Alumno0",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/caja/movimiento",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo movimiento",
+      "final": "/caja/movimiento",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo movimiento – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Alumnos",
+      "final": "/alumnos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Alumnos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos/1",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Volumen, Alumno0",
+      "final": "/alumnos/1",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Volumen, Alumno0 – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/alumnos/create",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Nuevo Alumno",
+      "final": "/alumnos/create",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Nuevo Alumno – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/cobranza",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Cobranza",
+      "final": "/cobranza",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Cobranza – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/clases",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clases",
+      "final": "/clases",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Clases – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/clases/1914",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clase — Fútbol vol — Avanzado Fútbol vol",
+      "final": "/clases/1914",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/movimientos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Movimientos",
+      "final": "/movimientos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Movimientos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/revision-cobranza",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Revisión",
+      "final": "/revision-cobranza",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Revisión de cobranza – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/grupos",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Grupos",
+      "final": "/grupos",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Grupos – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/clases",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clases",
+      "final": "/clases",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Clases – Wings",
+      "errores_consola": []
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/clases/1914",
+      "diagnostico": {
+        "bloqueos": [],
+        "errores": []
+      },
+      "encabezado": "Clase — Fútbol vol — Avanzado Fútbol vol",
+      "final": "/clases/1914",
+      "respuesta": {
+        "http": 200,
+        "politica": "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte",
+        "solo_reporte": false
+      },
+      "titulo": "Miércoles 14 de octubre de 2026 — Fútbol vol — Avanzado Fútbol vol – Wings",
+      "errores_consola": []
+    }
+  ],
+  "resumen": {
+    "paginas": 59,
+    "con_bloqueos": 0,
+    "con_errores": 0,
+    "sin_espia": 0,
+    "http_no_200": 0,
+    "solo_reporte": 0
+  }
+}

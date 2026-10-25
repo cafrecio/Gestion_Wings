@@ -50,8 +50,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T79** Reportes, Inicio, Cashflow y Cobranza rapidos con dos anios de datos | Hecho, espera verificación (hizo Claude) | Hecho local 25/10, sin desplegar: con dos anios de datos Reportes 22,3 a 2,6 s y Cashflow 3 a 0,1 s, mismos numeros (volcado completo antes y despues). Inicio 1,4 s y Cobranza 1,1 s quedan; bajarlos mas es cambio de diseno. Otra IA verifica. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T79.md |
-| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | Hecho, espera verificación (hizo Claude) | Hecho local 25/10, sin desplegar: misma politica en bloqueo, cero reportes en prueba desde T73 y 59 pantallas sin bloqueos. De paso: texto donde va un numero daba 500, ahora 404. Otra IA verifica; al desplegar, mirar storage/logs/csp-*.log del sitio. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T80.md |
+| **T79** Reportes, Inicio, Cashflow y Cobranza rapidos con dos anios de datos | Hecho, espera verificación (hizo Claude, verifica Codex) | Verificación Codex 25/10: aprobada. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md |
+| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | Hecho, espera verificación (hizo Claude, verifica Codex) | Verificación Codex 25/10: aprobada con observación documental sobre reportes antiguos. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md |
 
 ## Codex
 

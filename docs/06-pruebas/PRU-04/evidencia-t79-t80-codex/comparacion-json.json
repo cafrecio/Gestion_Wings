@@ -1,0 +1,65 @@
+{
+    "reportes": 52,
+    "cortes_saldos": 26,
+    "evoluciones": 2,
+    "diferencias_solo_id_filas_agregadas": true,
+    "diferencias_id": [
+        {
+            "ruta": "\/meses\/2025-03\/filas\/270\/id",
+            "antes": 7000,
+            "ahora": 7005
+        },
+        {
+            "ruta": "\/meses\/2025-03\/filas\/271\/id",
+            "antes": 7001,
+            "ahora": 7006
+        },
+        {
+            "ruta": "\/meses\/2025-09\/filas\/280\/id",
+            "antes": 7008,
+            "ahora": 7017
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/270\/id",
+            "antes": 7002,
+            "ahora": 7007
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/271\/id",
+            "antes": 7003,
+            "ahora": 7008
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/272\/id",
+            "antes": 7004,
+            "ahora": 7013
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/273\/id",
+            "antes": 7005,
+            "ahora": 7014
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/274\/id",
+            "antes": 7006,
+            "ahora": 7015
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/275\/id",
+            "antes": 7000,
+            "ahora": 7009
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/276\/id",
+            "antes": 7001,
+            "ahora": 7010
+        },
+        {
+            "ruta": "\/meses\/2026-10\/filas\/277\/id",
+            "antes": 7002,
+            "ahora": 7011
+        }
+    ],
+    "otras_diferencias": [],
+    "cobranza_identica_bytes": true
+}

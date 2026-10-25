@@ -1,0 +1,182 @@
+{
+  "fecha": "2026-10-25T13:47:35.5216283-03:00",
+  "tareas": [
+    {
+      "id": "T79",
+      "estado": "a_verificar",
+      "verifica": "Codex",
+      "hizo": "Claude"
+    },
+    {
+      "id": "T80",
+      "estado": "a_verificar",
+      "verifica": "Codex",
+      "hizo": "Claude"
+    }
+  ],
+  "clave_temporal_retirada": true,
+  "enlaces_rotos": 0,
+  "resumen_lineas": 150,
+  "log_caracteres": 11777,
+  "evidencia": [
+    {
+      "archivo": "auditar-adicional.php",
+      "bytes": 4507,
+      "sha256": "993AD1CF2FA5103FAA8D279FB2EE06697F1289098F315793850CC9C2C0E0D566"
+    },
+    {
+      "archivo": "auditar-rutas.php",
+      "bytes": 2215,
+      "sha256": "E6CD5EE09FFC13452DDED36F783A1F9DF24A4400ED42824877A78E475951B5D6"
+    },
+    {
+      "archivo": "auditoria-adicional.json",
+      "bytes": 32383,
+      "sha256": "6CC4D16455CAB54C31D9F24F750422CC27E25BB8D7C57EFE06921D4A55D1FD40"
+    },
+    {
+      "archivo": "caja.png",
+      "bytes": 95073,
+      "sha256": "CAFA94C2C95F86BE1C30BA253D09B86059ADE2C3E76F4BCB968DF6B33E1AF6CB"
+    },
+    {
+      "archivo": "clase-profesor.png",
+      "bytes": 91249,
+      "sha256": "7122AD6F67FD19481616C75C172835A104FE81B3382189222F95E3ED4C44532B"
+    },
+    {
+      "archivo": "cobranza-ahora.json",
+      "bytes": 191281,
+      "sha256": "4B6239A98F6572C320B2DDE241B0E77D26599695B5DB8B1D5D3EA7F79CA0806C"
+    },
+    {
+      "archivo": "cobranza-antes.json",
+      "bytes": 191281,
+      "sha256": "4B6239A98F6572C320B2DDE241B0E77D26599695B5DB8B1D5D3EA7F79CA0806C"
+    },
+    {
+      "archivo": "comparacion-json.json",
+      "bytes": 1645,
+      "sha256": "2CD37CE76DBBBEE8DADDB06203DDD6297EE1C713D4FD0FF675132EE1B5DC62F1"
+    },
+    {
+      "archivo": "comparaciones.txt",
+      "bytes": 985,
+      "sha256": "7F394D181253C02A7F8D5A17B867DF00F42D7039EC536C2CE80A185EF165EB6D"
+    },
+    {
+      "archivo": "comparar-json.php",
+      "bytes": 1702,
+      "sha256": "6D2F4D65062FE542FB481CF15AA11AC300F370B71DA8519187B0A8E0A2D6B70D"
+    },
+    {
+      "archivo": "conexion-efectiva.json",
+      "bytes": 110,
+      "sha256": "440E9A64FADC02127CE2108A104647DD533C59CCAD43E03DC2F47E2CED158817"
+    },
+    {
+      "archivo": "control-positivo-csp.json",
+      "bytes": 602,
+      "sha256": "EAACB6078BB2447109DA4FBA70028B2827A3B5B3759F5EA0ADA55457A6F17C99"
+    },
+    {
+      "archivo": "csp-servidor-solo-lectura.json",
+      "bytes": 6180,
+      "sha256": "0AA56214F2184FE11C728F7ACDB69AF30B132E6CD3C287CD353BF7BCE68D0DEA"
+    },
+    {
+      "archivo": "dirigidas.txt",
+      "bytes": 4931,
+      "sha256": "98FF162D2046EB5CB284A61A1F7477DEFA1518E0404DDEBF6B811B697435EECF"
+    },
+    {
+      "archivo": "espia-csp.js",
+      "bytes": 935,
+      "sha256": "A6FFF0151F32C9908059881D78E952D79C99F19CD8EE588EA1BF7D51DD62BE2A"
+    },
+    {
+      "archivo": "fuentes-verificadas.json",
+      "bytes": 2452,
+      "sha256": "D4A38C38799B95C3437C6B5828429C7F7896D3E5CED274A5E468D6E826607258"
+    },
+    {
+      "archivo": "grupos-operativo.png",
+      "bytes": 85623,
+      "sha256": "6F3A11B14F247F85CDF4651ADBC1F82FE796F6988F45CC94D83E640E38AD70A4"
+    },
+    {
+      "archivo": "inicio-admin.png",
+      "bytes": 77007,
+      "sha256": "52F45DAB371A031CCE48906DB2803F11E414126D995271A2D73C833A8E6738A1"
+    },
+    {
+      "archivo": "liquidacion-crear.png",
+      "bytes": 88628,
+      "sha256": "FDF300ABC5852595E07C39AE34B945A7F7A46E8696AB41E8E3064A86089E70D4"
+    },
+    {
+      "archivo": "migracion-volumen.txt",
+      "bytes": 12706,
+      "sha256": "448B73EE8D97A5B234195B6763A77C2CA2E859801E979173CEFE4BF9A15DAEA6"
+    },
+    {
+      "archivo": "movimiento-operativo.png",
+      "bytes": 71523,
+      "sha256": "70839A5909E166C658EAF8B0D50E75FADD8D0628BCD646349711B8B55DD5D71F"
+    },
+    {
+      "archivo": "politica-comparada.json",
+      "bytes": 790,
+      "sha256": "BDA72CD95B98BFE7DA5A3A5D4B711AE2ED688450372D060178A157E03C11381B"
+    },
+    {
+      "archivo": "preparar-copias.ps1",
+      "bytes": 2811,
+      "sha256": "6E8069C7F071090FD70802CBD7436E9CEEE6B4A5C77E783F81D7D1839177A9E0"
+    },
+    {
+      "archivo": "recorrido.json",
+      "bytes": 40047,
+      "sha256": "F248B91BE7C2C26A98F236C8144A0D91B5D7CC2EEA7ED876F2F78D050D19FC37"
+    },
+    {
+      "archivo": "reportes-ahora.json.gz",
+      "bytes": 141626,
+      "sha256": "7A1781DB16A24CD3D66E7C9D980595ED667D9B0FAE5F658112EB951FD1D8B005",
+      "sha256_json_descomprimido": "01F3AFAC57C466D703645C6287BFCCC5FF24A0E9CC392E2224751212697FFD02"
+    },
+    {
+      "archivo": "reportes-antes.json.gz",
+      "bytes": 141630,
+      "sha256": "B6B066E5447726C88053AD842C910060E4CAD01A3FCD80D2FEE1E87CA0CB2896",
+      "sha256_json_descomprimido": "5E7752D1645B2FF6F3B72171A38EE81C46EBDD1DDC8D670EF291AEDCD54A85F3"
+    },
+    {
+      "archivo": "reportes-sueldos.png",
+      "bytes": 98151,
+      "sha256": "958ABE84272CF4C8F3BFA8B1448E10859669ECF3901346434CDFD9DDD4EFD8A6"
+    },
+    {
+      "archivo": "router-local.php",
+      "bytes": 1792,
+      "sha256": "5B12703A52231B3609A2530EC262D01C43846F760AB11303984D6E180BC9C068"
+    },
+    {
+      "archivo": "rutas-comprobadas.json",
+      "bytes": 20116,
+      "sha256": "2A1249425A489961D917CF3768088747457613983ECFB638988D739AD216979B"
+    },
+    {
+      "archivo": "suite-completa.txt",
+      "bytes": 133893,
+      "sha256": "7D8D4A318B3EBF7B1B7322ED0A8662A3A395FBF8589BC7F9E969850878C0D7E9"
+    },
+    {
+      "archivo": "volumen.json",
+      "bytes": 149,
+      "sha256": "915F6CB296EB243FB23C38A675C5BD5C3F4DC8966012F005ADD34D490A7B5B96"
+    }
+  ],
+  "fuentes_sin_cambios": true,
+  "enlaces_comprobados": 78
+}

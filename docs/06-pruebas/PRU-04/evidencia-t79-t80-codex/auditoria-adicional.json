@@ -1,0 +1,1222 @@
+{
+    "base": "wings_testing_codex",
+    "partes": {
+        "pagos": 6999,
+        "diferentes": []
+    },
+    "anulado_sin_pivotes": {
+        "iguales": true,
+        "partes": [
+            {
+                "pago_id": 900000,
+                "deuda_id": null,
+                "periodo_cuota": null,
+                "periodo_comision": "2026-10",
+                "centavos": 1584,
+                "origen": null
+            }
+        ]
+    },
+    "lotes_y_excepcion": {
+        "aporte_antes_centavos": 0,
+        "aporte_despues_centavos": 1237,
+        "delta_centavos": 1237,
+        "ve_escritura_nueva": true
+    },
+    "rutas_registradas": [
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/cobrar/{alumnoId}",
+            "parametros": [
+                "alumnoId"
+            ],
+            "patrones": {
+                "alumnoId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@cobrar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "caja/cobrar/{alumnoId}",
+            "parametros": [
+                "alumnoId"
+            ],
+            "patrones": {
+                "alumnoId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@pagar"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/resumen",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@resumen"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/detalle",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@detalle"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/editar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@editarForm"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "caja/{id}/editar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@editarStore"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/rectificar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@rectificar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "caja/{id}/rectificar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@guardarRectificacion"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "caja/{id}/cerrar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@cerrar"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/cerrar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@cierre"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{cajaId}/movimientos/{movId}/editar",
+            "parametros": [
+                "cajaId",
+                "movId"
+            ],
+            "patrones": {
+                "movId": "[0-9]+",
+                "cajaId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@editarMovimientoForm"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "parametros": [
+                "cajaId",
+                "movId"
+            ],
+            "patrones": {
+                "movId": "[0-9]+",
+                "cajaId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@cancelarMovimientoForm"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "parametros": [
+                "cajaId",
+                "movId"
+            ],
+            "patrones": {
+                "movId": "[0-9]+",
+                "cajaId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@cancelarMovimiento"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "caja/{cajaId}/movimientos/{movId}",
+            "parametros": [
+                "cajaId",
+                "movId"
+            ],
+            "patrones": {
+                "movId": "[0-9]+",
+                "cajaId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@updateMovimiento"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "caja/{cajaId}/movimientos/{movId}",
+            "parametros": [
+                "cajaId",
+                "movId"
+            ],
+            "patrones": {
+                "movId": "[0-9]+",
+                "cajaId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@destroyMovimiento"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "cajas/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "Closure"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "caja/{id}/cobrar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "Closure"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "cajas/{id}/validar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@validar"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "cajas/{id}/movimientos/{movId}/verificar",
+            "parametros": [
+                "id",
+                "movId"
+            ],
+            "patrones": {
+                "id": "[0-9]+",
+                "movId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@verificarMovimiento"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "cajas/{id}/rechazar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CajaWebController@rechazar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "revision-cobranza/{id}/resolver",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\RevisionCobranzaWebController@resolver"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "cashflow/movimientos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CashflowCorreccionWebController@show"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "cashflow/movimientos/{id}/editar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CashflowCorreccionWebController@edit"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "cashflow/movimientos/{id}/eliminar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CashflowCorreccionWebController@eliminarForm"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "cashflow/movimientos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CashflowCorreccionWebController@update"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "cashflow/movimientos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\CashflowCorreccionWebController@destroy"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "alumnos/{id}/cuotas-pasadas",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@crearCuotaPasada"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "deudas/{id}/condonar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@condonarDeuda"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "deudas/{id}/reactivar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@reactivarDeuda"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "inscripciones/{id}/condonar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@condonarInscripcion"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "inscripciones/{id}/reactivar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@reactivarInscripcion"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "punitorios/{id}/condonar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@condonarPunitorio"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "punitorios/{id}/reactivar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@reactivarPunitorio"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "pagos/{id}/anular",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@anularPago"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "alumnos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@show"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "alumnos/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "alumnos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "alumnos/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\AlumnoWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "deportes/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\DeporteWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "deportes/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\DeporteWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "deportes/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\DeporteWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "rubros/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\RubroWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "rubros/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\RubroWebController@update"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "rubros/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\RubroWebController@destroy"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "rubros/{rubroId}/subrubros/create",
+            "parametros": [
+                "rubroId"
+            ],
+            "patrones": {
+                "rubroId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\SubrubroWebController@create"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "rubros/{rubroId}/subrubros",
+            "parametros": [
+                "rubroId"
+            ],
+            "patrones": {
+                "rubroId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\SubrubroWebController@store"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "rubros/{rubroId}/subrubros/{id}/edit",
+            "parametros": [
+                "rubroId",
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+",
+                "rubroId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\SubrubroWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "rubros/{rubroId}/subrubros/{id}",
+            "parametros": [
+                "rubroId",
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+",
+                "rubroId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\SubrubroWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "rubros/{rubroId}/subrubros/{id}/toggle-activo",
+            "parametros": [
+                "rubroId",
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+",
+                "rubroId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\SubrubroWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "grupos/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "grupos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "grupos/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "grupos/{id}/planes",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@storePlan"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "grupo-planes/{planId}",
+            "parametros": [
+                "planId"
+            ],
+            "patrones": {
+                "planId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@destroyPlan"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "grupos/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\GrupoWebController@show"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "clases/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "clases/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "clases/{id}/validar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@toggleValidada"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "clases/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@show"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "clases/{id}/asistencias",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@storeAsistencias"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "clases/{id}/cancelar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@toggleCancelada"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "clases/{id}/profesores",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ClaseWebController@actualizarProfesores"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "liquidaciones/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@show"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/cerrar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@cerrar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/recalcular",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@recalcular"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/cancelar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@cancelar"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "liquidaciones/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@eliminar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/pagar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@pagar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/ajustar",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@ajustar"
+        },
+        {
+            "metodos": [
+                "POST"
+            ],
+            "uri": "liquidaciones/{id}/detalles/{detalleId}/decision",
+            "parametros": [
+                "id",
+                "detalleId"
+            ],
+            "patrones": {
+                "id": "[0-9]+",
+                "detalleId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\LiquidacionWebController@decidirAtrasada"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "tipos-caja/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\TipoCajaWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "tipos-caja/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\TipoCajaWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "tipos-caja/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\TipoCajaWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "niveles/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\NivelWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "niveles/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\NivelWebController@update"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "niveles/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\NivelWebController@destroy"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "usuarios/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\UsuarioWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "usuarios/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\UsuarioWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "usuarios/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\UsuarioWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "configuraciones/primer-pago/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ReglaPrimerPagoWebController@update"
+        },
+        {
+            "metodos": [
+                "DELETE"
+            ],
+            "uri": "configuraciones/primer-pago/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ReglaPrimerPagoWebController@destroy"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "configuraciones/{clave}",
+            "parametros": [
+                "clave"
+            ],
+            "patrones": [],
+            "accion": "App\\Http\\Controllers\\ConfiguracionWebController@update"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "profesores/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ProfesorWebController@show"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "profesores/{id}/edit",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ProfesorWebController@edit"
+        },
+        {
+            "metodos": [
+                "PUT"
+            ],
+            "uri": "profesores/{id}",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ProfesorWebController@update"
+        },
+        {
+            "metodos": [
+                "PATCH"
+            ],
+            "uri": "profesores/{id}/toggle-activo",
+            "parametros": [
+                "id"
+            ],
+            "patrones": {
+                "id": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ProfesorWebController@toggleActivo"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "recibos/cuota/{pagoId}",
+            "parametros": [
+                "pagoId"
+            ],
+            "patrones": {
+                "pagoId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ReciboController@cuota"
+        },
+        {
+            "metodos": [
+                "GET",
+                "HEAD"
+            ],
+            "uri": "recibos/liquidacion/{liquidacionId}",
+            "parametros": [
+                "liquidacionId"
+            ],
+            "patrones": {
+                "liquidacionId": "[0-9]+"
+            },
+            "accion": "App\\Http\\Controllers\\ReciboController@liquidacion"
+        }
+    ],
+    "api_registrada": 0
+}

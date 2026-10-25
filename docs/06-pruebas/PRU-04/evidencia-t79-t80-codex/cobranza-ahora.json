@@ -1,0 +1,6448 @@
+{
+    "listado_TODOS": [
+        {
+            "id": 1,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 101,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 121,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 141,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 161,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 181,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 21,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 201,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 221,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 241,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 261,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 281,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 41,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 61,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 81,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 11,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 111,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 131,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 151,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 171,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 191,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 211,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 231,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 251,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 271,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 291,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 31,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 51,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 71,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 91,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 2,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 102,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 103,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 104,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 105,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 106,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 107,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 108,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 109,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 110,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 12,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 112,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 113,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 114,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 115,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 116,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 117,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 118,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 119,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 120,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 13,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 122,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 123,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 124,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 125,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 126,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 127,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 128,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 129,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 130,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 14,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 132,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 133,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 134,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 135,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 136,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 137,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 138,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 139,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 140,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 15,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 142,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 143,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 144,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 145,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 146,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 147,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 148,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 149,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 150,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 16,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 152,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 153,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 154,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 155,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 156,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 157,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 158,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 159,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 160,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 17,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 162,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 163,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 164,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 165,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 166,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 167,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 168,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 169,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 170,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 18,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 172,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 173,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 174,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 175,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 176,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 177,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 178,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 179,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 180,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 19,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 182,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 183,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 184,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 185,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 186,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 187,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 188,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 189,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 190,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 20,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 192,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 193,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 194,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 195,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 196,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 197,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 198,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 199,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 200,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 3,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 202,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 203,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 204,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 205,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 206,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 207,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 208,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 209,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 210,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 22,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 212,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 213,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 214,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 215,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 216,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 217,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 218,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 219,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 220,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 23,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 222,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 223,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 224,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 225,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 226,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 227,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 228,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 229,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 230,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 24,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 232,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 233,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 234,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 235,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 236,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 237,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 238,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 239,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 240,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 25,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 242,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 243,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 244,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 245,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 246,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 247,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 248,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 249,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 250,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 26,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 252,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 253,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 254,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 255,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 256,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 257,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 258,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 259,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 260,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 27,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 262,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 263,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 264,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 265,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 266,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 267,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 268,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 269,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 270,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 28,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 272,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 273,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 274,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 275,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 276,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 277,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 278,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 279,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 280,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 29,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 282,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 283,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 284,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 285,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 286,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 287,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 288,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 289,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 290,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 30,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 292,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 293,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 294,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 295,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 296,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 297,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 298,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 299,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 300,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 4,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 32,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 33,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 34,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 35,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 36,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 37,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 38,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 39,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 40,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 5,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 42,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 43,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 44,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 45,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 46,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 47,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 48,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 49,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 50,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 6,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 52,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 53,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 54,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 55,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 56,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 57,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 58,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 59,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 60,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 7,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 62,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 63,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 64,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 65,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 66,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 67,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 68,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 69,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 70,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 8,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 72,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 73,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 74,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 75,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 76,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 77,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 78,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 79,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 80,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 9,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 82,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 83,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 84,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 85,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 86,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 87,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 88,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 89,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 90,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 10,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 92,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 93,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 94,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 95,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 96,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 97,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 98,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 99,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 100,
+            "estado_cobranza": "AL_DIA",
+            "deuda_total": 0,
+            "deuda_cuotas": 0,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "9999-99",
+            "cantidad_cuotas_impagas": 0,
+            "ayuda_otro_deporte": null
+        }
+    ],
+    "listado_DEUDORES": [
+        {
+            "id": 1,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 101,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 121,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 141,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 161,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 181,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 21,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 201,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 221,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 241,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 261,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 281,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 41,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 61,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 81,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 11,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 111,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 131,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 151,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 171,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 191,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 211,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 231,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 251,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 271,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 291,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 31,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 51,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 71,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 91,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        }
+    ],
+    "listado_null": [
+        {
+            "id": 1,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 101,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 121,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 141,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 161,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 181,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 21,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 201,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 221,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 241,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 261,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 281,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 41,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 72000,
+            "deuda_cuotas": 72000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 61,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 60000,
+            "deuda_cuotas": 60000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 81,
+            "estado_cobranza": "DEUDOR",
+            "deuda_total": 84000,
+            "deuda_cuotas": 84000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-09",
+            "cantidad_cuotas_impagas": 2,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 11,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 111,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 131,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 151,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 171,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 191,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 211,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 231,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 251,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 271,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 291,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 31,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 51,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 42000,
+            "deuda_cuotas": 42000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 71,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 36000,
+            "deuda_cuotas": 36000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        },
+        {
+            "id": 91,
+            "estado_cobranza": "MOROSO",
+            "deuda_total": 30000,
+            "deuda_cuotas": 30000,
+            "inscripcion_pendiente": 0,
+            "punitorios_pendientes": 0,
+            "deuda_mas_antigua": "2026-10",
+            "cantidad_cuotas_impagas": 1,
+            "ayuda_otro_deporte": null
+        }
+    ],
+    "resumen": {
+        "total_alumnos_activos": 300,
+        "total_adeudado": 1620000,
+        "por_estado": {
+            "AL_DIA": 270,
+            "EN_PLAZO": 0,
+            "MOROSO": 15,
+            "DEUDOR": 15
+        },
+        "por_deporte": [
+            {
+                "deporte_id": 3,
+                "nombre": "Pat\u00edn vol",
+                "AL_DIA": 130,
+                "EN_PLAZO": 0,
+                "MOROSO": 10,
+                "DEUDOR": 10
+            },
+            {
+                "deporte_id": 4,
+                "nombre": "F\u00fatbol vol",
+                "AL_DIA": 140,
+                "EN_PLAZO": 0,
+                "MOROSO": 5,
+                "DEUDOR": 5
+            }
+        ],
+        "por_grupo": [
+            {
+                "grupo_id": 1,
+                "nombre": "Pat\u00edn vol \u2014 Inicial Pat\u00edn vol",
+                "AL_DIA": 40,
+                "EN_PLAZO": 0,
+                "MOROSO": 5,
+                "DEUDOR": 5
+            },
+            {
+                "grupo_id": 2,
+                "nombre": "Pat\u00edn vol \u2014 Medio Pat\u00edn vol",
+                "AL_DIA": 50,
+                "EN_PLAZO": 0,
+                "MOROSO": 0,
+                "DEUDOR": 0
+            },
+            {
+                "grupo_id": 3,
+                "nombre": "Pat\u00edn vol \u2014 Avanzado Pat\u00edn vol",
+                "AL_DIA": 40,
+                "EN_PLAZO": 0,
+                "MOROSO": 5,
+                "DEUDOR": 5
+            },
+            {
+                "grupo_id": 4,
+                "nombre": "F\u00fatbol vol \u2014 Inicial F\u00fatbol vol",
+                "AL_DIA": 50,
+                "EN_PLAZO": 0,
+                "MOROSO": 0,
+                "DEUDOR": 0
+            },
+            {
+                "grupo_id": 5,
+                "nombre": "F\u00fatbol vol \u2014 Medio F\u00fatbol vol",
+                "AL_DIA": 40,
+                "EN_PLAZO": 0,
+                "MOROSO": 5,
+                "DEUDOR": 5
+            },
+            {
+                "grupo_id": 6,
+                "nombre": "F\u00fatbol vol \u2014 Avanzado F\u00fatbol vol",
+                "AL_DIA": 50,
+                "EN_PLAZO": 0,
+                "MOROSO": 0,
+                "DEUDOR": 0
+            }
+        ]
+    },
+    "saldos_sin_relacion": {
+        "1": {
+            "cuotas": 60000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 60000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "2": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "3": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "4": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "5": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "6": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "7": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "8": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "9": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "10": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "11": {
+            "cuotas": 36000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 36000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "12": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "13": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "14": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "15": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "16": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "17": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "18": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "19": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "20": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "21": {
+            "cuotas": 84000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 84000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "22": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "23": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "24": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "25": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "26": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "27": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "28": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "29": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "30": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "31": {
+            "cuotas": 30000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 30000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "32": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "33": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "34": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "35": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "36": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "37": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "38": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "39": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "40": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "41": {
+            "cuotas": 72000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 72000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "42": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "43": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "44": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "45": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "46": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "47": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "48": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "49": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "50": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "51": {
+            "cuotas": 42000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 42000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "52": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "53": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "54": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "55": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "56": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "57": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "58": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "59": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "60": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "61": {
+            "cuotas": 60000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 60000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "62": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "63": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "64": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "65": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "66": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "67": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "68": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "69": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "70": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "71": {
+            "cuotas": 36000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 36000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "72": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "73": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "74": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "75": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "76": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "77": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "78": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "79": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "80": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "81": {
+            "cuotas": 84000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 84000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "82": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "83": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "84": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "85": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "86": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "87": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "88": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "89": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "90": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "91": {
+            "cuotas": 30000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 30000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "92": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "93": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "94": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "95": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "96": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "97": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "98": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "99": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "100": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "101": {
+            "cuotas": 72000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 72000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "102": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "103": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "104": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "105": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "106": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "107": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "108": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "109": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "110": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "111": {
+            "cuotas": 42000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 42000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "112": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "113": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "114": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "115": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "116": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "117": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "118": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "119": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "120": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "121": {
+            "cuotas": 60000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 60000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "122": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "123": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "124": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "125": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "126": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "127": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "128": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "129": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "130": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "131": {
+            "cuotas": 36000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 36000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "132": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "133": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "134": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "135": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "136": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "137": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "138": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "139": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "140": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "141": {
+            "cuotas": 84000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 84000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "142": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "143": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "144": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "145": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "146": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "147": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "148": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "149": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "150": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "151": {
+            "cuotas": 30000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 30000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "152": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "153": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "154": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "155": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "156": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "157": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "158": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "159": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "160": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "161": {
+            "cuotas": 72000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 72000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "162": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "163": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "164": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "165": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "166": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "167": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "168": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "169": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "170": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "171": {
+            "cuotas": 42000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 42000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "172": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "173": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "174": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "175": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "176": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "177": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "178": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "179": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "180": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "181": {
+            "cuotas": 60000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 60000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "182": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "183": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "184": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "185": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "186": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "187": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "188": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "189": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "190": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "191": {
+            "cuotas": 36000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 36000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "192": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "193": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "194": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "195": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "196": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "197": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "198": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "199": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "200": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "201": {
+            "cuotas": 84000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 84000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "202": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "203": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "204": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "205": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "206": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "207": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "208": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "209": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "210": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "211": {
+            "cuotas": 30000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 30000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "212": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "213": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "214": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "215": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "216": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "217": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "218": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "219": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "220": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "221": {
+            "cuotas": 72000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 72000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "222": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "223": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "224": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "225": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "226": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "227": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "228": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "229": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "230": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "231": {
+            "cuotas": 42000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 42000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "232": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "233": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "234": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "235": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "236": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "237": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "238": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "239": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "240": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "241": {
+            "cuotas": 60000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 60000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "242": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "243": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "244": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "245": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "246": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "247": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "248": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "249": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "250": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "251": {
+            "cuotas": 36000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 36000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "252": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "253": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "254": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "255": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "256": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "257": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "258": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "259": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "260": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "261": {
+            "cuotas": 84000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 84000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "262": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "263": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "264": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "265": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "266": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "267": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "268": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "269": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "270": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "271": {
+            "cuotas": 30000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 30000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "272": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "273": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "274": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "275": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "276": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "277": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "278": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "279": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "280": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "281": {
+            "cuotas": 72000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 72000,
+            "cuotas_impagas": 2,
+            "mas_antigua": "2026-09"
+        },
+        "282": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "283": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "284": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "285": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "286": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "287": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "288": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "289": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "290": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "291": {
+            "cuotas": 42000,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 42000,
+            "cuotas_impagas": 1,
+            "mas_antigua": "2026-10"
+        },
+        "292": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "293": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "294": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "295": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "296": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "297": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "298": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "299": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "300": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "punitorios": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        }
+    }
+}

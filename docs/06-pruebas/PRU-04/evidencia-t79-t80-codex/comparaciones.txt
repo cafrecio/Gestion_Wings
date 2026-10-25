@@ -1,0 +1,5 @@
+meses: 52, cajas hoy: [{"id":5,"nombre":"BGA","confirmado":0,"pendiente":0,"total":0},{"id":2,"nombre":"BNA","confirmado":2500022,"pendiente":-1217,"total":2498805},{"id":4,"nombre":"Banco Nacion ahorro","confirmado":0,"pendiente":0,"total":0},{"id":1,"nombre":"EFT","confirmado":25178552263,"pendiente":119981,"total":25178672244},{"id":3,"nombre":"MP","confirmado":198744,"pendiente":3201,"total":201945}]
+meses: 52, cajas hoy: [{"id":5,"nombre":"BGA","confirmado":0,"pendiente":0,"total":0},{"id":2,"nombre":"BNA","confirmado":2500022,"pendiente":-1217,"total":2498805},{"id":4,"nombre":"Banco Nacion ahorro","confirmado":0,"pendiente":0,"total":0},{"id":1,"nombre":"EFT","confirmado":25178552263,"pendiente":119981,"total":25178672244},{"id":3,"nombre":"MP","confirmado":198744,"pendiente":3201,"total":201945}]
+filas TODOS 300 · listado min 447 ms
+filas TODOS 300 · listado min 367 ms
+{"pagos_comparados":6999,"diferencias":0,"anulado_igual":true,"lote_limpio":true,"rutas":88}

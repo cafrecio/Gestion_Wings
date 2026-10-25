@@ -1,0 +1,203 @@
+{
+  "consulta_utc": "2026-10-25T15:17:41.057830+00:00",
+  "solo_lectura": true,
+  "archivos_totales": 24,
+  "archivos_desde_17": [
+    {
+      "archivo": "csp-2026-10-17.log",
+      "registros": 2,
+      "bytes": 426
+    },
+    {
+      "archivo": "csp-2026-10-18.log",
+      "registros": 1,
+      "bytes": 213
+    },
+    {
+      "archivo": "csp-2026-10-19.log",
+      "registros": 16,
+      "bytes": 3499
+    },
+    {
+      "archivo": "csp-2026-10-20.log",
+      "registros": 1,
+      "bytes": 213
+    },
+    {
+      "archivo": "csp-2026-10-21.log",
+      "registros": 1,
+      "bytes": 213
+    }
+  ],
+  "registros_desde_17": [
+    {
+      "fecha_log": "2026-10-17 06:48:39",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-17 20:51:45",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-18 08:45:10",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-19 00:27:38",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-19 00:27:45",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/alumnos",
+      "archivo": "https://test.gestionar-te.com.ar/alumnos",
+      "linea": 2144
+    },
+    {
+      "fecha_log": "2026-10-19 00:27:55",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/clases",
+      "archivo": "https://test.gestionar-te.com.ar/clases",
+      "linea": 2213
+    },
+    {
+      "fecha_log": "2026-10-19 05:48:55",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-19 05:49:02",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/profesores",
+      "archivo": "https://test.gestionar-te.com.ar/profesores",
+      "linea": 976
+    },
+    {
+      "fecha_log": "2026-10-19 05:49:13",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/grupos",
+      "archivo": "https://test.gestionar-te.com.ar/grupos",
+      "linea": 856
+    },
+    {
+      "fecha_log": "2026-10-19 05:50:27",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/grupos",
+      "archivo": "https://test.gestionar-te.com.ar/grupos",
+      "linea": 856
+    },
+    {
+      "fecha_log": "2026-10-19 05:53:25",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/profesores",
+      "archivo": "https://test.gestionar-te.com.ar/profesores",
+      "linea": 976
+    },
+    {
+      "fecha_log": "2026-10-19 11:50:38",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-19 11:51:13",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-19 11:51:25",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/alumnos",
+      "archivo": "https://test.gestionar-te.com.ar/alumnos",
+      "linea": 2144
+    },
+    {
+      "fecha_log": "2026-10-19 11:51:35",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/clases",
+      "archivo": "https://test.gestionar-te.com.ar/clases",
+      "linea": 2213
+    },
+    {
+      "fecha_log": "2026-10-19 11:51:48",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+      "archivo": "https://test.gestionar-te.com.ar/clases",
+      "linea": 2216
+    },
+    {
+      "fecha_log": "2026-10-19 11:51:51",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+      "archivo": "https://test.gestionar-te.com.ar/clases",
+      "linea": 2216
+    },
+    {
+      "fecha_log": "2026-10-19 11:52:01",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/clases/40",
+      "archivo": "https://test.gestionar-te.com.ar/clases/40",
+      "linea": 1050
+    },
+    {
+      "fecha_log": "2026-10-19 18:38:09",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-20 19:13:08",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    },
+    {
+      "fecha_log": "2026-10-21 00:07:12",
+      "directiva": "script-src-elem",
+      "bloqueado": "inline",
+      "pagina": "https://test.gestionar-te.com.ar/login",
+      "archivo": "https://test.gestionar-te.com.ar/login",
+      "linea": 145
+    }
+  ],
+  "posteriores_al_corte_21_1404": []
+}

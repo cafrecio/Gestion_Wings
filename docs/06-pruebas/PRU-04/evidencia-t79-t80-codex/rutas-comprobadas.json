@@ -1,0 +1,691 @@
+{
+    "solo_enrutamiento_sin_ejecutar_controladores": true,
+    "parametros_revisados": 97,
+    "errores": [],
+    "clave_textual": {
+        "accion": "App\\Http\\Controllers\\ConfiguracionWebController@update",
+        "parametro": "mora_dia_desde",
+        "patron_clave": null
+    },
+    "casos": [
+        {
+            "ruta": "caja/cobrar/{alumnoId}",
+            "metodo": "GET",
+            "parametro": "alumnoId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/cobrar/{alumnoId}",
+            "metodo": "POST",
+            "parametro": "alumnoId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/resumen",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/detalle",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/editar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/editar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/rectificar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/rectificar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/cerrar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/cerrar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/editar",
+            "metodo": "GET",
+            "parametro": "cajaId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/editar",
+            "metodo": "GET",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "metodo": "GET",
+            "parametro": "cajaId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "metodo": "GET",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "metodo": "POST",
+            "parametro": "cajaId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}/cancelar",
+            "metodo": "POST",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}",
+            "metodo": "PUT",
+            "parametro": "cajaId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}",
+            "metodo": "PUT",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}",
+            "metodo": "DELETE",
+            "parametro": "cajaId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{cajaId}/movimientos/{movId}",
+            "metodo": "DELETE",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cajas/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "caja/{id}/cobrar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cajas/{id}/validar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cajas/{id}/movimientos/{movId}/verificar",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cajas/{id}/movimientos/{movId}/verificar",
+            "metodo": "PATCH",
+            "parametro": "movId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cajas/{id}/rechazar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "revision-cobranza/{id}/resolver",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cashflow/movimientos/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cashflow/movimientos/{id}/editar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cashflow/movimientos/{id}/eliminar",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cashflow/movimientos/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "cashflow/movimientos/{id}",
+            "metodo": "DELETE",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "alumnos/{id}/cuotas-pasadas",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "deudas/{id}/condonar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "deudas/{id}/reactivar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "inscripciones/{id}/condonar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "inscripciones/{id}/reactivar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "punitorios/{id}/condonar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "punitorios/{id}/reactivar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "pagos/{id}/anular",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "alumnos/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "alumnos/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "alumnos/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "alumnos/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "deportes/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "deportes/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "deportes/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{id}",
+            "metodo": "DELETE",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/create",
+            "metodo": "GET",
+            "parametro": "rubroId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros",
+            "metodo": "POST",
+            "parametro": "rubroId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}/edit",
+            "metodo": "GET",
+            "parametro": "rubroId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}",
+            "metodo": "PUT",
+            "parametro": "rubroId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "rubroId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "rubros/{rubroId}/subrubros/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupos/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupos/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupos/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupos/{id}/planes",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupo-planes/{planId}",
+            "metodo": "DELETE",
+            "parametro": "planId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "grupos/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}/validar",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}/asistencias",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}/cancelar",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "clases/{id}/profesores",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/cerrar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/recalcular",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/cancelar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}",
+            "metodo": "DELETE",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/pagar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/ajustar",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/detalles/{detalleId}/decision",
+            "metodo": "POST",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "liquidaciones/{id}/detalles/{detalleId}/decision",
+            "metodo": "POST",
+            "parametro": "detalleId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "tipos-caja/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "tipos-caja/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "tipos-caja/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "niveles/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "niveles/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "niveles/{id}",
+            "metodo": "DELETE",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "usuarios/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "usuarios/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "usuarios/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "configuraciones/primer-pago/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "configuraciones/primer-pago/{id}",
+            "metodo": "DELETE",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "profesores/{id}",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "profesores/{id}/edit",
+            "metodo": "GET",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "profesores/{id}",
+            "metodo": "PUT",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "profesores/{id}/toggle-activo",
+            "metodo": "PATCH",
+            "parametro": "id",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "recibos/cuota/{pagoId}",
+            "metodo": "GET",
+            "parametro": "pagoId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        },
+        {
+            "ruta": "recibos/liquidacion/{liquidacionId}",
+            "metodo": "GET",
+            "parametro": "liquidacionId",
+            "numero_aceptado": true,
+            "texto_rechazado": true
+        }
+    ]
+}
