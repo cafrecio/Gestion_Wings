@@ -1,6 +1,6 @@
 # T80 — Política de contenido en modo bloqueo
 
-**Claude, CAB, 25/10/2026. Local, sin despliegue. Estado: a verificar.**
+**Claude, CAB, 25/10/2026. Verificada por Codex. Desplegada en el sitio de prueba el 25/10 (`b816d181`), no en producción. Cerrada.**
 
 ## Qué cambia para la persona del club
 

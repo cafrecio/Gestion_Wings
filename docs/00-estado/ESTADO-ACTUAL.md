@@ -1000,7 +1000,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | **En bloqueo desde T80 (Claude, 25/10, local, a verificar, sin despliegue)**, misma política, con endpoint /csp-reporte. T73 desplegado en prueba el 21/10: cero reportes en cuatro días con unas 60 pantallas recorridas; recorrido local en bloqueo, 59 pantallas de tres roles, cero bloqueos y cero errores de JavaScript. `style-src` conserva `'unsafe-inline'`. Ver AGENTS.md §2. |
+| CSP | **En bloqueo desde T80 (Claude, 25/10; verificada por Codex; desplegada en el sitio de prueba el 25/10, no en producción)**, misma política, con endpoint /csp-reporte. T73 desplegado en prueba el 21/10: cero reportes en cuatro días con unas 60 pantallas recorridas; recorrido local en bloqueo, 59 pantallas de tres roles, cero bloqueos y cero errores de JavaScript. `style-src` conserva `'unsafe-inline'`. Ver AGENTS.md §2. |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre

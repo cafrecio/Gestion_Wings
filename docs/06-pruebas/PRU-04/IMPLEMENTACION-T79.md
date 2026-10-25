@@ -1,6 +1,6 @@
 # T79 — Reportes, Cashflow y Cobranza rápidos con dos años de datos
 
-**Claude, CAB, 25/10/2026. Local, sin despliegue. Estado: a verificar.**
+**Claude, CAB, 25/10/2026. Verificada por Codex. Desplegada en el sitio de prueba el 25/10 (`b816d181`), no en producción. Cerrada.**
 
 ## Qué cambia para la persona del club
 

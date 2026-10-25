@@ -30,7 +30,7 @@ Comportamiento interno 16/16 sobre los datos reales; seguridad 7/7, con un halla
 contenido solo informa, no bloquea); performance bien con los datos de hoy, pero **con dos años de datos
 Reportes tarda 22 s** y Cashflow, Inicio del dueño, Sueldos, Reportes de Alumnos y Cobranza entre 1,4 y 3 s.
 
-**Reparado el mismo día, local y sin desplegar:** T80 pone la política de contenido en bloqueo
+**Reparado el mismo día, verificado por otro agente y desplegado en el sitio de prueba el 25/10 (`b816d181`), junto con T77 y T78:** T80 pone la política de contenido en bloqueo
 ([informe](IMPLEMENTACION-T80.md)). T79 baja, con dos años de datos, Reportes de 22 s a 2,6 s y Cashflow
 de 3 s a 0,1 s, con los mismos números ([informe](IMPLEMENTACION-T79.md)). Inicio, Sueldos, Reportes de
 Alumnos y Cobranza siguen entre 1,1 y 2 s con dos años de datos y tres veces los alumnos del club.
@@ -47,7 +47,7 @@ qué se probó, qué dio, qué se hizo y qué falta.
 Se hicieron **4 de los ~60 días** previstos (10 al 13/10 del calendario ficticio). Ejercitaron **35 de
 los 331 casos** del catálogo. Todos los defectos que aparecieron están corregidos, salvo uno que
 necesita una decisión tuya (abajo, «Lo que hay que decidir»). El sitio de prueba corre el mismo
-código que hoy está en `main` (commit `56379295` del 21/10; después no hubo cambios de código).
+código de `main` al 25/10 (commit `b816d181`, desplegado ese día con T77 a T80; antes, `56379295` del 21/10).
 
 ## Qué hicimos cada día, qué dio y qué hicimos con eso
 

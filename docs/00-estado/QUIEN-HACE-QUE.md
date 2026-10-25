@@ -37,21 +37,15 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
-| **T78** Detalle de caja con el motivo del cobro cancelado y ficha del alumno nuevo con vencimiento y total | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificada por Claude 25/10: APROBADA (922/6 omitidas, 0 fallidas; 5 pruebas propias). 4 observaciones para Carlos, no defectos: fecha de vencimiento solo para alumno nuevo, fecha mas lejana si hay dos, DNI exacto, margen solo en el recuadro de cuota. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T78-CLAUDE.md |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | Hecho, espera verificación (hizo Codex, verifica Gemini) | Verificación Gemini 25/10: aprobada. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md |
+Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T79** Reportes, Inicio, Cashflow y Cobranza rapidos con dos anios de datos | Hecho, espera verificación (hizo Claude, verifica Codex) | Verificación Codex 25/10: aprobada. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md |
-| **T80** La politica de contenido del navegador bloquea en vez de solo avisar | Hecho, espera verificación (hizo Claude, verifica Codex) | Verificación Codex 25/10: aprobada con observación documental sobre reportes antiguos. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md |
+Nada en este momento.
 
 ## Codex
 
