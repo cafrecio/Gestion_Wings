@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 23/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 24/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Otro agente revisa dashboard por caso: 15 parciales en test, 18 vinculos y tres planes; apoyo aislado excluido. Conciliar dias 1-3 y operacion historica sin caso. No repetir Dia 4; resolver cuota ofrecida/Al dia y continuar Dia 5. Sin reparaciones ni retests acreditados. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 5 y 6 recorridos: verificar informes y evidencia con otro agente; no repetir cobros ni mover reloj (último inicio 15/10 15:00). Cierre financiero coincide; clase extra bloqueada por fecha mínima 24/10, Sin asistencia 34 frente a 32, motivo anulado en PDF, precio Lucas noviembre y aviso Zoe sin acreditar. Continuar siguiente guion autorizado; dashboard por casos conserva corte 23/10. |
 
 ## Gemini
 

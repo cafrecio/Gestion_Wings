@@ -1,4 +1,14 @@
-# Prueba por días (PRU-04) — dónde estamos después del día 4
+# Prueba por días (PRU-04) — avances hasta el día 6
+
+## Avance posterior — Codex CAB, 24/10/2026
+
+Carlos autorizó ejecutar [Día 5](DIA-05.md) y [Día 6](DIA-06.md) en «Prueba humana III», conservando diferencias y sin repararlas. Se recorrieron las 27 situaciones: Día 5, 12 Sí y 2 Parcial; Día 6, 10 Sí, 2 Parcial y 1 No. Cierre financiero 15/10: deuda $1.612.000, ingresos $607.000, egresos $73.700, resultado $533.300 y disponible $2.148.300; cajas #3–#5 validadas.
+
+La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 aunque el reloj de Wings está en 15/10. Sin asistencia muestra 34 frente a 32 esperados. Motivo del anulado en PDF, sin verlo en Detalle de caja; precio de Lucas en noviembre y recepción del aviso de Zoe sin acreditar. Capturas, esperados y resultados completos en ambos informes. T14 sigue en curso y falta revisión independiente; no repetir operaciones.
+
+El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
+
+## Corte histórico después del día 4
 
 24/10/2026 · Claude CAB. Armado desde los relatos de cada día (`DIA-01.md` a `DIA-04.md`), las
 verificaciones (`VERIFICACION-DIA-01.md`, `VERIFICACION-DIA-04.md`), el tablero y el sitio de prueba

@@ -1,0 +1,16 @@
+{
+  "dia": 5,
+  "situaciones": 14,
+  "esperados_coinciden_con_guion": true,
+  "resultados": {
+    "Sí": 12,
+    "Parcial": 2,
+    "No": 0
+  },
+  "capturas_jpg": 41,
+  "recibos_pdf": 4,
+  "renders_png": 4,
+  "integridad_manifest_verificada": true,
+  "revision_independiente": "pendiente",
+  "producto_modificado": false
+}

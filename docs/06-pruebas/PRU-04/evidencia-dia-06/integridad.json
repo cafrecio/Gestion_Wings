@@ -1,0 +1,327 @@
+[
+  {
+    "archivo": "6.1-apertura-propuesta.jpg",
+    "bytes": 48998,
+    "sha256": "d465bef1f53b0f5d85d42a20a138c01698e5207a302178b7db790c26fa07478c",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.1-sandra-abierta.jpg",
+    "bytes": 73978,
+    "sha256": "2b89bd9d4355c487b23bd77e3762f64b6b99ae6eae6a09c5b7d2f53126b2f367",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.10-pablo-arqueo.jpg",
+    "bytes": 55594,
+    "sha256": "17752cab5a7064f976c5b13ffcfa37d0cd7255e52df58741c65c83a3e7cece3b",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.10-pablo-cerrada.jpg",
+    "bytes": 82947,
+    "sha256": "c70a485215fdf5b51a3ee6250d156272d2c1a25549a4cb2eaa58f356aff2f87a",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.11-clase-unica-formulario.jpg",
+    "bytes": 77417,
+    "sha256": "6d950f254562e77de689f4886297b7a6f7755a9646cb36acdb5b0cb768a3e80f",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.11-clase-unica-resultado.jpg",
+    "bytes": 76586,
+    "sha256": "67a3dbdfd82db03b52358ddc94d4737df5d8297265bf03ce0575a154beb9a992",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.11-fecha-bloqueada.jpg",
+    "bytes": 80533,
+    "sha256": "e428111a888f61d79b460ce1fd62acb802b28668bcb59f5413987c2c5ae9b3cb",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.12-cashflow-fechas.jpg",
+    "bytes": 91266,
+    "sha256": "538c1cc8008c9e0934f24a944cc1f1c03b781e22b296f095e7db164c46bfbcf3",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.12-despues-sandra-validada.jpg",
+    "bytes": 80275,
+    "sha256": "09efd2e1df569a7715f79e032c4e1228360d7f3b73c03ed38e51d4a8b1837ac8",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.12-primero-pablo-validada.jpg",
+    "bytes": 80170,
+    "sha256": "4de0c41fd76c2a5b3727f38e1b4e4e76f274d97e6da57eb3fb4988f1c013dfc6",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-cobranza.jpg",
+    "bytes": 102818,
+    "sha256": "4cb02e360e688cf7933829c13a3b6575e68ae4558f6b0b367cde66126c540e1c",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-disponible-aportes.jpg",
+    "bytes": 87856,
+    "sha256": "106ce56c4db3c32542e09336e0958281c37dd4d8b10f8fb3c4bc3b1e337b6261",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-inicio-final.jpg",
+    "bytes": 67602,
+    "sha256": "0208703459a00b5bf64e79a449ba1f40241ee25943d612bd2267ec68103d42b2",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-reportes.jpg",
+    "bytes": 73647,
+    "sha256": "3d34e628c728882ec1e50f703c5bc16709695ab2534b02a806b10607ed653e37",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-sin-asistencia-34.jpg",
+    "bytes": 88623,
+    "sha256": "e54f3c4d48469e11771eda50459172b72eec6ae0e475982c09ab3c8f607adef0",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.13-sin-asistencia.jpg",
+    "bytes": 87277,
+    "sha256": "0bd061560fca3a742f70ce4b945f51b8a0003bb556831d8aaea451f3f28189f7",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.2-emma-ficha-final.jpg",
+    "bytes": 66213,
+    "sha256": "f43987938ad8d10e0d4aeca09eb9d779f4abd702d82e5533e4b87e6327651958",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.2-emma-formulario.jpg",
+    "bytes": 85020,
+    "sha256": "1c1b1ecdede6421c76dcf661c6040cb80e7d27804859028dfeb452d6ffe70d38",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.2-emma-registrado.jpg",
+    "bytes": 79174,
+    "sha256": "58c6c9019a71d79b714776e12b28af89329ce748391f5d50e7881e1a83e46366",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.3-recibo-zoe.pdf",
+    "bytes": 1698025,
+    "sha256": "228b8c54e3d8a9b128f1374607e7d95114ef7e816b8174311f81456925de2d77"
+  },
+  {
+    "archivo": "6.3-recibo-zoe.png",
+    "bytes": 57224,
+    "sha256": "9e47700c271efa896fc75c3c44beffdb5904ae00bd50338b6fb888b22813e8ee",
+    "ancho": 630,
+    "alto": 893
+  },
+  {
+    "archivo": "6.3-zoe-ficha-final.jpg",
+    "bytes": 64090,
+    "sha256": "932676ba59dc1cf701dec432333d61eafc48f820a3c71f44e2911cf59ff8ce26",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.3-zoe-motivo.jpg",
+    "bytes": 69473,
+    "sha256": "ef02663bf5a74328ee3ec61414f4ea320468a2465664e53741022634ffbd7abd",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.3-zoe-registrado.jpg",
+    "bytes": 78876,
+    "sha256": "e40ecf5eeccd9004f08b3e374ecf4cf82051fc5d6adbd238f36e8b46ba94df2b",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.3-zoe-sin-motivo.jpg",
+    "bytes": 67789,
+    "sha256": "6722e4aae43e395ce1f13d49e51c65383b6b748cd09ca4532e8f43fd4f05e77d",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.4-sandra-arqueo.jpg",
+    "bytes": 55558,
+    "sha256": "9b822d6af487231c7b19c472166e680604d3d59a05e5a94ce7cd3c1e99330c98",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.4-sandra-cerrada.jpg",
+    "bytes": 79276,
+    "sha256": "b6a4bf13841da25a9c4a82615d3218996ebce5addb4be5b43598154d6c67d033",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.5-dos-cajas-hoy-admin.jpg",
+    "bytes": 79204,
+    "sha256": "e969cea7f6d9602f0126f054bb0a6509b348b1158df477f13d96a01d5476c9bd",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.5-listado-pablo.jpg",
+    "bytes": 43236,
+    "sha256": "bdf79ed2de37598059639c894f3690196da31f70d60f3a50a7c594db9b3e73ab",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.5-pablo-abierta.jpg",
+    "bytes": 74233,
+    "sha256": "b78622bf7a4edca0352bd2c44a03f8f844235b3a74ca5d748c9e6ce1cb8906c2",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.5-pablo-propuesta.jpg",
+    "bytes": 49115,
+    "sha256": "f7b6c3a4b443a62947cc7a77c29a89aef3af2318798866285f0218757a4297b4",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.6-felipe-ficha-final.jpg",
+    "bytes": 66951,
+    "sha256": "1bcb50e437f97900cf0694714f35597b77d0fb3816f7f9520f849cc092bbd10d",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.6-felipe-julio-formulario.jpg",
+    "bytes": 87454,
+    "sha256": "c859de72e21cbd7a816d1ff5f1b2050b7bddf3050ac1d50bd1c3e0447828ff96",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.6-felipe-registrado.jpg",
+    "bytes": 47515,
+    "sha256": "7e08adf29e16268c6ff0e0ddab14f35f96d7a3f52b4fbf22088c7d267668f614",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.6-recibo-felipe.pdf",
+    "bytes": 1696169,
+    "sha256": "0aabb742b264171e6696a305e3881e8669871376d7d38e438c1ead003f983882"
+  },
+  {
+    "archivo": "6.6-recibo-felipe.png",
+    "bytes": 52046,
+    "sha256": "e8e8889702257e3087c7d9520afb9e84dab1f389fa0929cfce76f2fc830410a9",
+    "ancho": 630,
+    "alto": 893
+  },
+  {
+    "archivo": "6.7-paula-ficha-final.jpg",
+    "bytes": 62118,
+    "sha256": "2fda1549d966959414ed52a64bf67b3aea23c21dd22f0460b49e07dd927c1285",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.7-paula-formulario.jpg",
+    "bytes": 85161,
+    "sha256": "e494277bab080f063045d55589087b1bf1b3b92a48d97a17c017299ec9b02a42",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.7-paula-registrado.jpg",
+    "bytes": 47589,
+    "sha256": "0f19319932ca791e83571a4cb10d8aea48d80f4a559b33f81279880a1c464647",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.8-libreria-detalle.jpg",
+    "bytes": 68929,
+    "sha256": "fcbb986cf0e2efb00ba64997ec15513f20fb8aafe61ec9086cbc810ffec16f64",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.8-libreria-formulario.jpg",
+    "bytes": 57979,
+    "sha256": "32ef7ae9ebde9a4bf52fa434b1af616ff749cef20d3f235492f41be96dee4d06",
+    "ancho": 1366,
+    "alto": 900
+  },
+  {
+    "archivo": "6.8-libreria-registrada.jpg",
+    "bytes": 83553,
+    "sha256": "24d52bfaaf8b30de9171dd9e310cf061b0f342bde281b2eea73c2e409e6098d8",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.9-hernan-14-persistida.jpg",
+    "bytes": 71614,
+    "sha256": "4a0c7ab6ba56146ec8cc688a0aab9ec12064f5501abc03058b18729f49384e81",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.9-lucia-11-persistida.jpg",
+    "bytes": 75912,
+    "sha256": "1442e831489347242cc31116589f3e1b2d7d23f7bc4b1ef51bda17b921d43807",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.9-lucia-cabecera-control-admin.jpg",
+    "bytes": 87586,
+    "sha256": "07e8505299604fb54a8d88d55db1830ac66141f6d31f882d2c4e0d25a56d413a",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.9-veronica-7-persistida.jpg",
+    "bytes": 65533,
+    "sha256": "ab324aabedafb7adcd75904db1605d2439ad6f42b3aa6ebf9977e80b41b872e5",
+    "ancho": 1351,
+    "alto": 890
+  },
+  {
+    "archivo": "6.9-veronica-clase-ajena.jpg",
+    "bytes": 70399,
+    "sha256": "24dd5ddfd6a6ba182174e347e605efdc4b743024bc8f6180390ebf78a8e20f45",
+    "ancho": 1351,
+    "alto": 890
+  }
+]

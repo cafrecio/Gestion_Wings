@@ -1,5 +1,13 @@
 # Wings — Estado actual
 
+## T14 — Días 5 y 6 recorridos, Codex CAB 24/10/2026
+
+Recorrido humano en Chrome sobre test/wingstest, autorizado por Carlos en «Prueba humana III». [Día 5](../06-pruebas/PRU-04/DIA-05.md): 14 situaciones, 12 Sí y 2 Parcial. [Día 6](../06-pruebas/PRU-04/DIA-06.md): 13 situaciones, 10 Sí, 2 Parcial y 1 No. Esperados conservados; capturas y recibos descargados en las carpetas de cada día. Sin reemplazos ni correcciones del producto o de datos fuera del guion.
+
+Cajas #3, #4 y #5 validadas; #3 con faltante físico $500, sin gasto por diferencia. El dueño validó #5 Pablo antes de #4 Sandra. Cierre 15/10 por pantalla: deuda $1.612.000, ingresos de octubre $607.000, egresos $73.700, resultado $533.300 y disponible $2.148.300, sin cajas por validar. Reloj preparado una vez por día, último inicio 15/10 15:00; no moverlo ni repetir cobros para verificar esta entrega.
+
+Diferencias conservadas: alta de clase 17/10 bloqueada en el navegador por mínimo 24/10; Sin asistencia muestra 34, no 32; motivo del cobro anulado visible en PDF pero no en Detalle de caja observado. Precio de Lucas desde noviembre y recepción real del aviso de Zoe no acreditados. T14 sigue en curso: otro agente verifica los informes/evidencia y se continúa con el siguiente guion autorizado. Los recuentos por caso del dashboard del 23/10 de abajo todavía no incorporan estas jornadas. Sin suite ni despliegue por esta operación manual y entrega documental.
+
 ## T14 — Dashboard por caso y ambiente real, Codex CyE 23/10/2026
 
 [Dashboard Carlos](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): estado general, números por módulo, línea de tiempo de 60 días, módulos paginados y ficha por caso. Método, esperado, historial, fechas/roles/versiones, indicadores y planes separados de implementación/retest.
