@@ -8,6 +8,26 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Revisión de Claude de los días 5 y 6 — 25/10/2026
+
+Las cifras de plata de los dos días coinciden al peso con lo esperado (deuda $1.612.000; resultado de
+octubre $533.300; disponible $2.148.300). De las diferencias que anotó Codex:
+
+| Qué | Qué es | Qué hacer |
+|---|---|---|
+| 6.11 no deja crear la clase del 17/10 | **Defecto.** `clases/create` usa `min="{{ date('Y-m-d') }}"`: fecha real de la computadora, no la de Wings. Mismo patrón en la fecha de nacimiento de `alumnos/_form` (`max`). En producción no se nota; en el sitio de prueba traba | Usar la fecha de Wings en los tres lugares |
+| 5.11 el detalle de caja no muestra el motivo del cobro cancelado | **Defecto menor.** Lo tacha y dice «Cancelado»; el motivo solo está en el recibo anulado. CAJ-033 pide verlo | Mostrar el motivo junto a «Cancelado» |
+| 6.13 Sin asistencia 34 y no 32 | **Error del guion (Claude).** Dos clases del martes 13 a la noche quedaron sin lista el día 4 y entraron al contador al pasar el día | Nada |
+| 5.7 el plan de $38.000 de Lucas | Aplica desde noviembre; hoy no se puede ver | Comprobarlo el día que corresponda |
+| 6.3 aviso al dueño por Zoe | No se pudo confirmar desde la prueba | Carlos mira si le llegó |
+
+**Para reparar de los días 4 a 6:** la decisión de Carlos sobre octubre en Cobrar (63 alumnos), la
+fecha de Wings en Clases y Alumnos, y el motivo de cancelación en el detalle de caja. De presentación:
+la ficha del alumno nuevo sin fecha de vencimiento ni total (día 4).
+
+**Prueba técnica (seguridad, performance, comportamiento interno):** no se hizo todavía. La empieza Claude
+sobre una copia local de la base del sitio de prueba.
+
 ## Corte histórico después del día 4
 
 24/10/2026 · Claude CAB. Armado desde los relatos de cada día (`DIA-01.md` a `DIA-04.md`), las
