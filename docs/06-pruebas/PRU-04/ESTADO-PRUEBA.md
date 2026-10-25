@@ -25,8 +25,10 @@ octubre $533.300; disponible $2.148.300). De las diferencias que anotó Codex:
 fecha de Wings en Clases y Alumnos, y el motivo de cancelación en el detalle de caja. De presentación:
 la ficha del alumno nuevo sin fecha de vencimiento ni total (día 4).
 
-**Prueba técnica (seguridad, performance, comportamiento interno):** no se hizo todavía. La empieza Claude
-sobre una copia local de la base del sitio de prueba.
+**Prueba técnica (seguridad, performance, comportamiento interno) — hecha el 25/10:** [informe](prueba-tecnica/INFORME.md).
+Comportamiento interno 16/16 sobre los datos reales; seguridad 7/7, con un hallazgo (la política de
+contenido solo informa, no bloquea); performance bien con los datos de hoy, pero **con dos años de datos
+Reportes tarda 22 s** y Cashflow, Inicio del dueño, Sueldos, Reportes de Alumnos y Cobranza entre 1,4 y 3 s.
 
 ## Corte histórico después del día 4
 

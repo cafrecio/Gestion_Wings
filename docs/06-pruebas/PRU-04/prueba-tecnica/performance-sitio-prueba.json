@@ -1,0 +1,245 @@
+{
+    "fecha_wings": "2026-10-15 20:08:06",
+    "base": "wingstest",
+    "volumen": {
+        "alumnos_activos": 101,
+        "cuotas": 64,
+        "pagos": 17,
+        "clases": 79,
+        "asistencias": 116,
+        "cashflow": 24
+    },
+    "pantallas": [
+        {
+            "rol": "ADMIN",
+            "pantalla": "Inicio del dueño",
+            "url": "/admin/dashboard",
+            "ms": 32.9,
+            "consultas": 33,
+            "ms_sql": 10,
+            "estado": 200,
+            "kb": 20.5,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Cobranza",
+            "url": "/cobranza",
+            "ms": 142.2,
+            "consultas": 38,
+            "ms_sql": 14.8,
+            "estado": 200,
+            "kb": 125.1,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Alumnos",
+            "url": "/alumnos",
+            "ms": 37.8,
+            "consultas": 22,
+            "ms_sql": 7.2,
+            "estado": 200,
+            "kb": 107.1,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Ficha de alumno",
+            "url": "/alumnos/341",
+            "ms": 21.9,
+            "consultas": 30,
+            "ms_sql": 8.4,
+            "estado": 200,
+            "kb": 32.2,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Cajas",
+            "url": "/caja",
+            "ms": 12.9,
+            "consultas": 10,
+            "ms_sql": 3.6,
+            "estado": 200,
+            "kb": 28.2,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Detalle de caja",
+            "url": "/caja/5/detalle",
+            "ms": 12.2,
+            "consultas": 12,
+            "ms_sql": 3.5,
+            "estado": 200,
+            "kb": 25.6,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Cashflow",
+            "url": "/cashflow",
+            "ms": 74.5,
+            "consultas": 75,
+            "ms_sql": 24.9,
+            "estado": 200,
+            "kb": 140.2,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Reportes · Finanzas",
+            "url": "/reportes?mes=2026-10",
+            "ms": 60.2,
+            "consultas": 49,
+            "ms_sql": 15,
+            "estado": 200,
+            "kb": 38.6,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Reportes · Sueldos",
+            "url": "/reportes/sueldos?mes=2026-10",
+            "ms": 118.1,
+            "consultas": 149,
+            "ms_sql": 42,
+            "estado": 200,
+            "kb": 26.4,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Reportes · Alumnos",
+            "url": "/reportes/alumnos?mes=2026-10",
+            "ms": 40.1,
+            "consultas": 27,
+            "ms_sql": 9.3,
+            "estado": 200,
+            "kb": 28.3,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Clases",
+            "url": "/clases",
+            "ms": 61.9,
+            "consultas": 20,
+            "ms_sql": 6.5,
+            "estado": 200,
+            "kb": 88.6,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Ficha de clase",
+            "url": "/clases/67",
+            "ms": 14.3,
+            "consultas": 14,
+            "ms_sql": 4.6,
+            "estado": 200,
+            "kb": 73.6,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Liquidaciones",
+            "url": "/liquidaciones",
+            "ms": 4.2,
+            "consultas": 5,
+            "ms_sql": 1.3,
+            "estado": 200,
+            "kb": 19.9,
+            "redirige": null
+        },
+        {
+            "rol": "ADMIN",
+            "pantalla": "Movimientos",
+            "url": "/movimientos",
+            "ms": 13.9,
+            "consultas": 16,
+            "ms_sql": 3.7,
+            "estado": 200,
+            "kb": 68.8,
+            "redirige": null
+        },
+        {
+            "rol": "OPERATIVO",
+            "pantalla": "Inicio de la operativa",
+            "url": "/operativo",
+            "ms": 83.5,
+            "consultas": 32,
+            "ms_sql": 10.6,
+            "estado": 200,
+            "kb": 17.5,
+            "redirige": null
+        },
+        {
+            "rol": "OPERATIVO",
+            "pantalla": "Cobranza",
+            "url": "/cobranza",
+            "ms": 141.7,
+            "consultas": 37,
+            "ms_sql": 14.7,
+            "estado": 200,
+            "kb": 118.9,
+            "redirige": null
+        },
+        {
+            "rol": "OPERATIVO",
+            "pantalla": "Buscador de Cobrar",
+            "url": "/caja/cobrar",
+            "ms": 2.4,
+            "consultas": 1,
+            "ms_sql": 0.5,
+            "estado": 302,
+            "kb": 0.4,
+            "redirige": "http://localhost/caja/apertura"
+        },
+        {
+            "rol": "OPERATIVO",
+            "pantalla": "Alumnos",
+            "url": "/alumnos",
+            "ms": 34.1,
+            "consultas": 21,
+            "ms_sql": 6.2,
+            "estado": 200,
+            "kb": 100.8,
+            "redirige": null
+        },
+        {
+            "rol": "OPERATIVO",
+            "pantalla": "Clases",
+            "url": "/clases",
+            "ms": 53,
+            "consultas": 19,
+            "ms_sql": 6.3,
+            "estado": 200,
+            "kb": 77.4,
+            "redirige": null
+        },
+        {
+            "rol": "PROFESOR",
+            "pantalla": "Clases",
+            "url": "/clases",
+            "ms": 50.4,
+            "consultas": 19,
+            "ms_sql": 5.7,
+            "estado": 200,
+            "kb": 73.4,
+            "redirige": null
+        },
+        {
+            "rol": "PROFESOR",
+            "pantalla": "Ficha de clase",
+            "url": "/clases/67",
+            "ms": 14.4,
+            "consultas": 13,
+            "ms_sql": 4.7,
+            "estado": 200,
+            "kb": 61.3,
+            "redirige": null
+        }
+    ]
+}

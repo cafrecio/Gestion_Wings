@@ -1,0 +1,12 @@
+http://gestion-wings/admin/dashboard → 403
+http://gestion-wings/cashflow → 403
+http://gestion-wings/reportes → 403
+http://gestion-wings/liquidaciones → 403
+http://gestion-wings/configuraciones → 403
+http://gestion-wings/cashflow/transferencia → 403
+http://gestion-wings/cashflow/transferencia → 403
+http://gestion-wings/cashflow/movimiento → 403
+http://gestion-wings/cajas/1/validar → 403
+http://gestion-wings/deudas/1/condonar → 403
+http://gestion-wings/alumnos/1/cuotas-pasadas → 403
+http://gestion-wings/pagos/1/anular → 403
