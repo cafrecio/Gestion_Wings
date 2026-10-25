@@ -44,7 +44,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | Hecho, espera verificación (hizo Codex) | Aspecto aprobado por Carlos: Ahora esta Ok. Otra IA verifica reglas, cobro manual y rechazo sin deuda |
+| **T77** Cobrar no ofrece como deuda un mes que el alumno no debe | Hecho, espera verificación (hizo Codex, verifica Gemini) | Verificación Gemini 25/10: aprobada. Informe: docs/06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md |
 
 ## Claude
 

@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-25 — LOG GEM CAB — Verificación independiente de T77 (Cobro de mes sin deuda)
+
+- **Objetivo y resultado:** Verificación técnica e independiente de la lógica implementada por Codex en **T77** («Cobrar muestra solamente la deuda guardada»), tras la aprobación visual de Carlos. Dictamen: **APROBADA**.
+- **Puntos verificados en código y ejecución:**
+  - **1. Sin deuda inventada:** En `CajaWebController::cobrar` se eliminó la creación en memoria de `DeudaCuota`. Alumnos al día sin cuotas registradas muestran la lista vacía, cero checkboxes y Total pendiente $0.00, sin escrituras en DB.
+  - **2. Mes sin deuda en selector manual:** `mesesAdelantables` incluye el mes actual al precio del plan y 12 futuros; al elegirlo y cobrar, se crea la cuota `PAGADA`, el pago, imputación y movimiento correspondiente sin duplicar.
+  - **3. Rechazo en servidor:** Enviar el mes actual sin `periodos_manuales` o sin importe numérico bajo bloqueo (`lockForUpdate`) se rechaza con error de sesión y 0 escrituras; reintentar cobrar un mes ya pagado también es rechazado.
+  - **4. Integridad funcional:** Deudas reales siguen mostrándose y cobrándose normalmente; pagos parciales funcionan; adelantos con deuda vieja exigen confirmación y motivo; operativo impacta caja y admin cashflow.
+  - **5. Otras pantallas:** Verificado con `codebase-memory` que Cobranza, Fichas y Dashboards no dependían de deuda en memoria y reportan deuda $0 para alumnos al día.
+- **Pruebas y evidencia:** 11 pruebas independientes creadas en `docs/06-pruebas/PRU-04/evidencia-verificacion-t77-gemini/VerificacionT77GeminiTest.php` (todas PASS); 9 pruebas de Codex en `CobrarMesSinDeudaT77Test` (PASS); 56 pruebas de regresión del área de cobros (todas PASS); suite rápida (`--exclude-group=lento`) en `wings_testing_gemini`: **922 aprobadas, 6 omitidas, 0 fallidas** (7.397 aserciones, 163,60 s, salida 0). Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md`.
+- **Próximo paso:** Carlos define cierre o siguiente tarea en el tablero.
+
 ## 2026-10-25 — LOG GEM CAB — T78: Motivo del cobro cancelado en detalle de caja y vencimiento + total en ficha de alumno
 
 - **Objetivo y resultado:** Implementación de **T78** pedida por Carlos el 25/10/2026 a partir de los Días 4 y 5 de PRU-04. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 3 pruebas automatizadas nuevas en `DetalleCajaCanceladoYFichaAltaT78Test` y suite rápida completa en verde.
