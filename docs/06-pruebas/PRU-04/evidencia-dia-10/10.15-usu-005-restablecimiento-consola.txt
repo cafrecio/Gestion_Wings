@@ -1,0 +1,12 @@
+{
+    "entorno": "staging",
+    "base": "wingstest",
+    "usuario_id": 8,
+    "email": "rocio.paz@example.com",
+    "rol": "OPERATIVO",
+    "activo": true,
+    "clave_restablecida": true,
+    "otros_campos_conservados": true,
+    "sesiones_revocadas": 0,
+    "metodo": "consola; USU-005 pendiente de prueba por pantalla"
+}

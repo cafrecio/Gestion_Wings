@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-25 — Codex CAB — Días 10–12: entrega parcial y bloqueo de Chrome
+
+74 situaciones congeladas antes de operar en test/wingstest; [Día 10](../06-pruebas/PRU-04/DIA-10.md) 18 Sí/4 No, [Día 11](../06-pruebas/PRU-04/DIA-11.md) 23 Sí/4 No, [Día 12](../06-pruebas/PRU-04/DIA-12.md) 20 Sí/3 Parcial/2 No. [Galería](../06-pruebas/PRU-04/EVIDENCIA-DIAS-10-12.html).
+Cajas #8/#9/#10 validadas sin diferencia; once recibos revisados, 26 listas persistidas, catorce validaciones de septiembre. Sin asistencia 0. Desvío neto $24.400 y demás diferencias conservados, sin reparación.
+USU-005 adelantado por Carlos: consola específicamente autorizada, ingreso nuevo comprobado; guardado por Usuarios y rechazo de clave anterior perdida sin acreditar. No claves/tokens en esta entrega.
+12.22 bloqueado por control de Chrome en confirmación nativa; reactivación no acreditada y 12.23 sin cobro. Internet quedó único en $18.950 del 19/10. No se atribuye defecto de producto al bloqueo de herramienta.
+Último Inicio leído: deuda $779.600, resultado $1.142.600,75, disponible $2.827.600,75; cajas pendientes 0. Cierre final parcial, distribución de alumnos sin reconsulta. T14 en curso; otro agente revisa.
+Sigue recuperar Chrome, retomar solo 12.22/12.23 y contrastar 12.25. No repetir reloj/operaciones: último inicio 21/10 15:00. Tabla/producto intactos; sin suite, despliegue ni push.
+
 ## 2026-10-25 — Codex CAB — Prueba por días 7, 8 y 9
 
 Carlos autorizó todas las operaciones del guion en test/wingstest; 31 situaciones recorridas en Chrome sobre b816d181, esperados copiados antes de operar y sin consultas de negocio a base.
@@ -69,23 +78,4 @@ Metas y resultados por caso; rendimiento CLI n=1 sin objetivo comparable. Objeti
 Validación de documentos, enlaces, recuentos, ambientes, determinismo y lógica JavaScript; sin nueva revisión visual/móvil. Evidencia en integridad-entregables.json. Actualizados estado/resumen/objetivos y tablero T14, que sigue en curso.
 Otro agente revisa la entrega y evidencia; resolver discrepancia Al día/Cobrar, asignar retests cuando haya solución y continuar Día 5 sin repetir cobros.
 
-## 2026-10-23 — Codex CyE — Dos entregables: devolución humana y continuidad técnica
-
-Carlos señaló que el índice de códigos no explica resultados ni sirve para 45–60 jornadas. Rol reafirmado: conducir controles autónomamente y entregar dos documentos para lectores distintos.
-[Humano](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): selector de jornada 1–60, una página por día, cuatro situaciones por página, fechas/método/resultado/impacto/propuestas; sin códigos visibles. Entrada 8 KB y Día 4 48 KB. Día 38 sin informe explícito; 1–3 solo antecedentes.
-[IA](../06-pruebas/PRU-04/control-integral/informes-ia/DIA-04.md): trazabilidad de 16 situaciones, criterios, fuentes, 41 métodos fechados, límites y alternativas. Se conservan resultados y revisión independiente pendiente.
-1.145 enlaces y generación determinista comprobados; 76 controles de lógica JavaScript sin navegador, estructura HTML con ocho campos por ficha. Sin afirmar render/latencia móvil ni reejecutar pruebas de Wings.
-Actualizados continuidad, estado, resumen y paso T14. Sin cambiar producto, fuente Carlos/Claude, datos de negocio o reloj; sin despliegue. Otro agente revisa las entregas; sigue resolver cuota ofrecida y continuar Día 5.
-
-## 2026-10-23 — Codex CyE — Resumen de salida y atribución de revisión corregidos
-
-Carlos pidió Listo/Frena/Falta, selección de producción y que otro agente verifique. El contraste de Codex no constituye revisión independiente de su propia ejecución; denominación anterior corregida.
-[Visor v3](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 69 casos de salida, 20 parcialmente ejercitados, cero firmas registradas; conserva 12 requisitos previos abiertos del tablero. Selección de trabajo, sin reemplazar PRU-05.
-59 registros con revisión independiente pendiente y contraste separado. La generación rechaza firmas sin identidad/evidencia o misma cuenta no confirmada; tres controles negativos en memoria, sin guardarlos como resultados reales.
-Entrada 84.345 bytes frente a 1.655.776; catálogo y detalle técnico opcionales desde JSON único. 331 fuentes intactas, 1.063 enlaces válidos y generación determinista.
-Control estático; navegador rechazó file://, sin eludirlo ni afirmar revisión visual o latencia móvil. No nueva suite ni cambios de Wings, datos/reloj o despliegue.
-Actualizados informe, continuidad, resumen, estado y paso T14. Otro agente revisa entrega/días; siguiente jornada y D4-OBS-01 siguen pendientes.
-
-[Antecedente intacto al verificar T79 y T80](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-VERIFICACION-T79-T80-ANTECEDENTES.md).
-
-[Antecedentes intactos al entregar dias 7 a 9](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-DIAS-07-09-ANTECEDENTES.md).
+[Antecedentes intactos de esta entrega](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-DIAS-10-12-ANTECEDENTES.md).

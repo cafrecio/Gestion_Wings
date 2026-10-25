@@ -1,0 +1,498 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Cobranza" [level=1]
+- main:
+  - paragraph: Total adeudado
+  - paragraph: $1,138,600.00
+  - paragraph: Total activos
+  - paragraph: "102"
+  - paragraph: Al día
+  - paragraph: "78"
+  - paragraph: En plazo
+  - paragraph: "1"
+  - paragraph: Morosos
+  - paragraph: "7"
+  - paragraph: Deudores
+  - paragraph: "16"
+  - combobox:
+    - option "Con deuda (Deudores y morosos)" [selected]
+    - option "Todos los estados"
+    - option "Al día"
+    - option "En plazo"
+    - option "Moroso"
+    - option "Deudor"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "23"
+  - text: alumnos con deuda de
+  - strong: "102"
+  - text: alumnos activos (ordenado de deuda más antigua a más reciente)
+  - table:
+    - rowgroup:
+      - row "Alumno Deporte Grupo Deuda desde Deuda Estado Acciones":
+        - columnheader "Alumno"
+        - columnheader "Deporte"
+        - columnheader "Grupo"
+        - columnheader "Deuda desde"
+        - columnheader "Deuda"
+        - columnheader "Estado"
+        - columnheader "Acciones"
+    - rowgroup:
+      - 'row "Romero, Santino DNI: 53.300.902 Fútbol Principiantes Oct. 2025 (6 cuotas) $138,000.00 Deudor Cobrar Ver"':
+        - 'cell "Romero, Santino DNI: 53.300.902"':
+          - text: Romero, Santino
+          - generic: "DNI: 53.300.902"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Oct. 2025 (6 cuotas)":
+          - generic: Oct. 2025 (6 cuotas)
+        - cell "$138,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/263
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/263
+      - 'row "Navarro, Alma DNI: 53.100.915 Patín Intermedias Nov. 2025 (2 cuotas) $58,000.00 Deudor Cobrar Ver"':
+        - 'cell "Navarro, Alma DNI: 53.100.915"':
+          - text: Navarro, Alma
+          - generic: "DNI: 53.100.915"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Intermedias"
+        - cell "Nov. 2025 (2 cuotas)":
+          - generic: Nov. 2025 (2 cuotas)
+        - cell "$58,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/335
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/335
+      - 'row "Castro, Martina DNI: 56.100.917 Patín Principiantes Mar. 2026 (0 cuotas) + Inscripción $5,000.00 Deudor Cobrar Ver"':
+        - 'cell "Castro, Martina DNI: 56.100.917"':
+          - text: Castro, Martina
+          - generic: "DNI: 56.100.917"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Mar. 2026 (0 cuotas) + Inscripción":
+          - generic: Mar. 2026 (0 cuotas)
+          - generic: + Inscripción
+        - cell "$5,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/337
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/337
+      - 'row "Castro, Mateo DNI: 54.200.918 Fútbol Principiantes Mar. 2026 (1 cuota) + Inscripción $33,000.00 Deudor Cobrar Ver"':
+        - 'cell "Castro, Mateo DNI: 54.200.918"':
+          - text: Castro, Mateo
+          - generic: "DNI: 54.200.918"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Mar. 2026 (1 cuota) + Inscripción":
+          - generic: Mar. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$33,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/338
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/338
+      - 'row "Flores, Zoe DNI: 56.300.903 Patín Principiantes Ago. 2026 (1 cuota) $30,000.00 Deudor Cobrar Ver"':
+        - 'cell "Flores, Zoe DNI: 56.300.903"':
+          - text: Flores, Zoe
+          - generic: "DNI: 56.300.903"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota)":
+          - generic: Ago. 2026 (1 cuota)
+        - cell "$30,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/264
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/264
+      - 'row "Lopez, Martina DNI: 57.100.401 Patín Principiantes Ago. 2026 (1 cuota) + Inscripción $35,000.00 Deudor Cobrar Ver"':
+        - 'cell "Lopez, Martina DNI: 57.100.401"':
+          - text: Lopez, Martina
+          - generic: "DNI: 57.100.401"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota) + Inscripción":
+          - generic: Ago. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$35,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/248
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/248
+      - 'row "Lopez, Valentina DNI: 55.100.402 Patín Principiantes Ago. 2026 (1 cuota) + Inscripción $45,000.00 Deudor Cobrar Ver"':
+        - 'cell "Lopez, Valentina DNI: 55.100.402"':
+          - text: Lopez, Valentina
+          - generic: "DNI: 55.100.402"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota) + Inscripción":
+          - generic: Ago. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$45,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/249
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/249
+      - 'row "Morales, Carla DNI: 46.100.804 Patín Avanzadas Ago. 2026 (0 cuotas) + Inscripción $5,000.00 Deudor Cobrar Ver"':
+        - 'cell "Morales, Carla DNI: 46.100.804"':
+          - text: Morales, Carla
+          - generic: "DNI: 46.100.804"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Avanzadas"
+        - cell "Ago. 2026 (0 cuotas) + Inscripción":
+          - generic: Ago. 2026 (0 cuotas)
+          - generic: + Inscripción
+        - cell "$5,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/259
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/259
+      - 'row "Sanchez, Berenice DNI: 55.400.024 Patín Intermedias Ago. 2026 (3 cuotas) $129,000.00 Deudor Cobrar Ver"':
+        - 'cell "Sanchez, Berenice DNI: 55.400.024"':
+          - text: Sanchez, Berenice
+          - generic: "DNI: 55.400.024"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Intermedias"
+        - cell "Ago. 2026 (3 cuotas)":
+          - generic: Ago. 2026 (3 cuotas)
+        - cell "$129,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/295
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/295
+      - 'row "Sosa, Felipe DNI: 50.300.904 Fútbol Avanzadas Ago. 2026 (2 cuotas) $76,000.00 Deudor Cobrar Ver"':
+        - 'cell "Sosa, Felipe DNI: 50.300.904"':
+          - text: Sosa, Felipe
+          - generic: "DNI: 50.300.904"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Avanzadas"
+        - cell "Ago. 2026 (2 cuotas)":
+          - generic: Ago. 2026 (2 cuotas)
+        - cell "$76,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/265
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/265
+      - 'row "Gutierrez, Olivia DNI: 55.300.907 Patín Principiantes Sep. 2026 (1 cuota) + Inscripción $23,000.00 Deudor Cobrar Ver"':
+        - 'cell "Gutierrez, Olivia DNI: 55.300.907"':
+          - text: Gutierrez, Olivia
+          - generic: "DNI: 55.300.907"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Sep. 2026 (1 cuota) + Inscripción":
+          - generic: Sep. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$23,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/268
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/268
+      - 'row "Pereyra, Liam DNI: 56.300.908 Fútbol Principiantes Sep. 2026 (1 cuota) + Inscripción $17,000.00 Deudor Cobrar Ver"':
+        - 'cell "Pereyra, Liam DNI: 56.300.908"':
+          - text: Pereyra, Liam
+          - generic: "DNI: 56.300.908"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Sep. 2026 (1 cuota) + Inscripción":
+          - generic: Sep. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$17,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/269
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/269
+      - 'row "Pereyra, Zoe DNI: 55.400.036 Patín Avanzadas Sep. 2026 (2 cuotas) $90,000.00 Deudor Cobrar Ver"':
+        - 'cell "Pereyra, Zoe DNI: 55.400.036"':
+          - text: Pereyra, Zoe
+          - generic: "DNI: 55.400.036"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Avanzadas"
+        - cell "Sep. 2026 (2 cuotas)":
+          - generic: Sep. 2026 (2 cuotas)
+        - cell "$90,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/307
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/307
+      - 'row "Rossi, Morena DNI: 55.400.010 Patín Principiantes Sep. 2026 (2 cuotas) $80,000.00 Deudor Cobrar Ver"':
+        - 'cell "Rossi, Morena DNI: 55.400.010"':
+          - text: Rossi, Morena
+          - generic: "DNI: 55.400.010"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Sep. 2026 (2 cuotas)":
+          - generic: Sep. 2026 (2 cuotas)
+        - cell "$80,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/281
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/281
+      - 'row "Silva, Paulina DNI: 57.100.920 Patín Principiantes Sep. 2026 (1 cuota) + Inscripción $35,000.00 Deudor Cobrar Ver"':
+        - 'cell "Silva, Paulina DNI: 57.100.920"':
+          - text: Silva, Paulina
+          - generic: "DNI: 57.100.920"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Sep. 2026 (1 cuota) + Inscripción":
+          - generic: Sep. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$35,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/340
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/340
+      - 'row "Suarez, Ignacio DNI: 54.400.008 Fútbol Principiantes Sep. 2026 (2 cuotas) $70,000.00 Deudor Cobrar Ver"':
+        - 'cell "Suarez, Ignacio DNI: 54.400.008"':
+          - text: Suarez, Ignacio
+          - generic: "DNI: 54.400.008"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Sep. 2026 (2 cuotas)":
+          - generic: Sep. 2026 (2 cuotas)
+        - cell "$70,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/321
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/321
+      - 'row "Iglesias, Helena DNI: 55.400.040 Patín Federadas Oct. 2026 (1 cuota) $40,000.00 Moroso Cobrar Ver"':
+        - 'cell "Iglesias, Helena DNI: 55.400.040"':
+          - text: Iglesias, Helena
+          - generic: "DNI: 55.400.040"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Federadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$40,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/311
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/311
+      - 'row "Nuñez, Guadalupe DNI: 47.300.910 Patín Federadas Oct. 2026 (1 cuota) $22,000.00 Moroso Cobrar Ver"':
+        - 'cell "Nuñez, Guadalupe DNI: 47.300.910"':
+          - text: Nuñez, Guadalupe
+          - generic: "DNI: 47.300.910"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Federadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$22,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/271
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/271
+      - 'row "Ramirez, Felipe DNI: 54.400.003 Fútbol Principiantes Oct. 2026 (1 cuota) $35,000.00 Moroso Cobrar Ver"':
+        - 'cell "Ramirez, Felipe DNI: 54.400.003"':
+          - text: Ramirez, Felipe
+          - generic: "DNI: 54.400.003"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$35,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/316
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/316
+      - 'row "Ramirez, Lucia DNI: 51.300.905 Patín Avanzadas Oct. 2026 (1 cuota) $25,000.00 Moroso Cobrar Ver"':
+        - 'cell "Ramirez, Lucia DNI: 51.300.905"':
+          - text: Ramirez, Lucia
+          - generic: "DNI: 51.300.905"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$25,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/266
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/266
+      - 'row "Ramos, Dante DNI: 48.300.909 Fútbol Avanzadas Oct. 2026 (1 cuota) $38,000.00 Moroso Cobrar Ver"':
+        - 'cell "Ramos, Dante DNI: 48.300.909"':
+          - text: Ramos, Dante
+          - generic: "DNI: 48.300.909"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$38,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/270
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/270
+      - 'row "Rossi, Berenice DNI: 46.100.802 Patín Federadas Oct. 2026 (1 cuota) $50,000.00 Moroso Cobrar Ver"':
+        - 'cell "Rossi, Berenice DNI: 46.100.802"':
+          - text: Rossi, Berenice
+          - generic: "DNI: 46.100.802"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Federadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$50,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/257
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/257
+      - 'row "Suarez, Valentina DNI: 55.400.033 Patín Avanzadas Oct. 2026 (1 cuota) $35,000.00 Moroso Cobrar Ver"':
+        - 'cell "Suarez, Valentina DNI: 55.400.033"':
+          - text: Suarez, Valentina
+          - generic: "DNI: 55.400.033"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$35,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/304
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/304
+- contentinfo:
+  - generic: Wings

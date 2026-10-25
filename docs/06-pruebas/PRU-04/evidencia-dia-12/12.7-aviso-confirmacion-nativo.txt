@@ -1,0 +1,10 @@
+Browser tab: 1320326174, Title: "Cobrar – Suarez, Ignacio", URL: "https://test.gestionar-te.com.ar/caja/cobrar/321".
+1 AXWebArea Description: Cobrar – Suarez, Ignacio, URL: test.gestionar-te.com.ar/caja/cobrar/321
+	2 container test.gestionar-te.com.ar says
+		3 text Estás cobrando por adelantado noviembre 2026, que todavía no empezó. El importe queda fijo aunque después cambie la cuota.
+
+¿Confirmás el cobro?
+		4 button Cancel
+		5 button OK
+
+The focused UI element is 5 button OK

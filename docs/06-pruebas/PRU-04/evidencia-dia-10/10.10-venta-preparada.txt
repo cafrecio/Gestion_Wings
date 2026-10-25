@@ -1,0 +1,86 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Nuevo movimiento" [level=1]
+- main:
+  - paragraph:
+    - text: Tipo de movimiento
+    - generic: "*"
+  - generic: INGRESO
+  - generic: EGRESO
+  - text: Fecha
+  - generic: "*"
+  - textbox "Fecha *": 2026-10-19
+  - text: Medio de pago
+  - generic: "*"
+  - combobox "Medio de pago *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "EFE — Efectivo"
+    - option "MP — Mercado Pago" [selected]
+  - text: Rubro
+  - generic: "*"
+  - combobox "Rubro *":
+    - option "Seleccionar..."
+    - option "Indumentaria" [selected]
+    - option "Otras clases"
+    - option "Torneos"
+  - text: Subrubro
+  - generic: "*"
+  - combobox "Subrubro *":
+    - option "Seleccionar..."
+    - option "Indumentaria institucional"
+    - option "Patines" [selected]
+    - option "VG Indumentaria"
+  - text: Monto
+  - generic: "*"
+  - textbox "Monto *":
+    - /placeholder: "0"
+    - text: 85,000.00
+  - text: Observaciones
+  - generic: "*"
+  - textbox "Observaciones *" [active]:
+    - /placeholder: Descripción del movimiento
+    - text: Patines talle 34
+  - button "Cancelar"
+  - button "Registrar"
+- contentinfo:
+  - generic: Wings

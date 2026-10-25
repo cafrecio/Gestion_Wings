@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Rossi, Morena" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "55400010"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 03/12/2018
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145120010"
+  - paragraph:
+    - text: Email
+  - paragraph: morena.rossi@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $40,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 15/03/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Moroso
+  - generic: "Total adeudado: $40,000.00"
+  - generic: Oct 2026
+  - generic: $40,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Tutor Rossi
+  - paragraph: Teléfono
+  - paragraph: "1145120010"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 20/10/2026 · Sep 2026
+  - generic: $40,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/33?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 2 clases
+  - generic: 14/10
+  - generic: 19/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

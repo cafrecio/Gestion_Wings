@@ -1,0 +1,92 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Avanzadas" [level=1]
+- main:
+  - heading "Martes 20 de octubre de 2026" [level=2]
+  - generic: 17:00 – 18:00
+  - generic: Patín
+  - generic: Patín — Avanzadas
+  - generic: Gaitán, Lucía
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "12"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Alvarez, Camila
+  - generic: 0/1
+  - generic: · DNI …037
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Benitez, Camila
+  - generic: 0/2
+  - generic: · DNI …700
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Benitez, Milagros
+  - generic: 0/2
+  - generic: · DNI …038
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Castro, Catalina
+  - generic: 0/2
+  - generic: · DNI …034
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Castro, Melina
+  - generic: 0/2
+  - generic: · DNI …803
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Fernandez, Emma
+  - generic: 0/2
+  - generic: · DNI …301
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gimenez, Delfina
+  - generic: 0/1
+  - generic: · DNI …035
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Herrera, Martina
+  - generic: 0/2
+  - generic: · DNI …032
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Morales, Carla
+  - generic: 0/1
+  - generic: · DNI …804
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Pereyra, Zoe
+  - generic: 0/2
+  - generic: · DNI …036
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramirez, Lucia
+  - generic: 0/2
+  - generic: · DNI …905
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Suarez, Valentina
+  - generic: 0/1
+  - generic: · DNI …033
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

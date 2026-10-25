@@ -1,0 +1,198 @@
+{
+  "dia": 11,
+  "capturado_antes_de_operar": "2026-10-25T20:44:03.203962+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-10-12.md",
+  "fuente_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "commit_local": "75fc34e91bf0f54bbb05f6a763a245db661068ff",
+  "casos": [
+    {
+      "id": "11.1",
+      "quien": "Pablo",
+      "tarea": "Ingresa primero con una **clave equivocada** y después con la buena. Abre caja.",
+      "esperado": "Con la clave mala: un aviso en castellano que no dice si el mail existe, y no entra (ACC-002). Con la buena entra. La caja propone **$10.000**, lo que retuvo Rocío.",
+      "linea_fuente": 56
+    },
+    {
+      "id": "11.1b",
+      "quien": "Pablo",
+      "tarea": "Para avisar del torneo, en **Alumnos** filtra Patín → Intermedias, solo activos.",
+      "esperado": "Lista **18 alumnas**. Julieta Álvarez no aparece, porque está inactiva (ALU-020).",
+      "linea_fuente": 57
+    },
+    {
+      "id": "11.1c",
+      "quien": "Pablo",
+      "tarea": "Usa **Cobranza** como lista para llamar.",
+      "esperado": "Por defecto lista **24**: 8 morosos y 16 deudores. Primero la deuda más vieja: **Santino Romero** (desde octubre de 2025), después **Alma Navarro** (noviembre de 2025). Cada fila tiene el teléfono para llamar (CBZ-019).",
+      "linea_fuente": 58
+    },
+    {
+      "id": "11.2",
+      "quien": "Pablo",
+      "tarea": "Mariana trae la inscripción de **Tomás Quiroga**, $5.000 en efectivo.",
+      "esperado": "Tomás pasa a **Al día**.",
+      "linea_fuente": 59
+    },
+    {
+      "id": "11.3",
+      "quien": "Pablo",
+      "tarea": "**Zoe Pereyra** (Deudor: septiembre y octubre, $45.000 cada uno) paga **septiembre**, $45.000 por Mercado Pago.",
+      "esperado": "No pide motivo, porque paga lo más viejo. Pasa a **Moroso**, debiendo octubre $45.000.",
+      "linea_fuente": 60
+    },
+    {
+      "id": "11.4",
+      "quien": "Pablo",
+      "tarea": "**Felipe Ramírez** (Moroso, $35.000) paga en efectivo.",
+      "esperado": "Pasa a **Al día**.",
+      "linea_fuente": 61
+    },
+    {
+      "id": "11.5",
+      "quien": "Pablo",
+      "tarea": "**Valentina Suárez** (Moroso, $35.000) paga por Banco Nación.",
+      "esperado": "Pasa a **Al día**.",
+      "linea_fuente": 62
+    },
+    {
+      "id": "11.6",
+      "quien": "Pablo",
+      "tarea": "**Morena Rossi** (Deudor: septiembre y octubre, $40.000 cada uno) paga septiembre, $40.000 en efectivo.",
+      "esperado": "Pasa a **Moroso**, debiendo octubre $40.000.",
+      "linea_fuente": 63
+    },
+    {
+      "id": "11.7",
+      "quien": "Pablo",
+      "tarea": "Ingreso por **Clase particular** (Otras clases → Clase particular): $15.000 en efectivo, «Clase particular de patín, Lucía, sábado 24».",
+      "esperado": "Queda en su caja como ingreso.",
+      "linea_fuente": 64
+    },
+    {
+      "id": "11.8",
+      "quien": "Pablo",
+      "tarea": "Gasto en **Limpieza**: $4.200 en efectivo, «Lavandina y trapos».",
+      "esperado": "El efectivo esperado baja $4.200.",
+      "linea_fuente": 65
+    },
+    {
+      "id": "11.9",
+      "quien": "Pablo",
+      "tarea": "Intenta **condonar** la deuda vieja de Santino Romero.",
+      "esperado": "**No puede:** condonar es del dueño.",
+      "linea_fuente": 66
+    },
+    {
+      "id": "11.10",
+      "quien": "Lucía",
+      "tarea": "Lista **#30**, Patín Avanzadas 17–18",
+      "esperado": "**12 alumnas.** Ausente: Martina Herrera. **11 presentes.** No propone «Clase adicional».",
+      "linea_fuente": 67
+    },
+    {
+      "id": "11.11",
+      "quien": "Lucía",
+      "tarea": "Carga atrasada **#25**, 01/10, Patín Avanzadas",
+      "esperado": "**12 alumnas.** Ausentes: Camila Álvarez, Delfina Giménez, Carla Morales y Valentina Suárez. **8 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 68
+    },
+    {
+      "id": "11.12",
+      "quien": "Lucía",
+      "tarea": "Carga atrasada **#3**, 05/10, Patín Principiantes",
+      "esperado": "**26 alumnas, todas presentes.** Sin «Clase adicional».",
+      "linea_fuente": 69
+    },
+    {
+      "id": "11.13",
+      "quien": "Lucía",
+      "tarea": "Carga atrasada **#26**, 06/10, Patín Avanzadas",
+      "esperado": "**12, todas presentes.** Sin «Clase adicional».",
+      "linea_fuente": 70
+    },
+    {
+      "id": "11.14",
+      "quien": "Lucía",
+      "tarea": "Carga atrasada **#4**, 07/10, Patín Principiantes",
+      "esperado": "**26 alumnas.** Ausentes, las de plan 1 vez, 18: Victoria Acosta, Martina Castro, Renata Flores, Zoe Flores, Sofía Gómez, Paulina Gutiérrez, Clara Iglesias, Martina López, Milagros Molina, Agustina Morales, Julieta Morales, Pilar Ramos, Lola Ríos, Catalina Romero, Abril Silva, Paulina Silva, Juana Suárez y Luciana Torres. **8 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 71
+    },
+    {
+      "id": "11.15",
+      "quien": "Lucía",
+      "tarea": "Carga atrasada **#27**, 08/10, Patín Avanzadas",
+      "esperado": "**12.** Ausentes: Camila Álvarez, Delfina Giménez, Carla Morales y Valentina Suárez. **8 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 72
+    },
+    {
+      "id": "11.16",
+      "quien": "Mariela",
+      "tarea": "Lista **#41**, Patín Federadas 18–19",
+      "esperado": "**8.** Ausente: Helena Iglesias. **7 presentes.**",
+      "linea_fuente": 73
+    },
+    {
+      "id": "11.17",
+      "quien": "Mariela",
+      "tarea": "Carga atrasada **#36**, 01/10",
+      "esperado": "**8.** Ausente: Helena Iglesias. **7 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 74
+    },
+    {
+      "id": "11.18",
+      "quien": "Mariela",
+      "tarea": "Carga atrasada **#46**, 03/10",
+      "esperado": "**8.** Ausente: Helena Iglesias. **7 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 75
+    },
+    {
+      "id": "11.19",
+      "quien": "Mariela",
+      "tarea": "Carga atrasada **#37**, 06/10",
+      "esperado": "**8, todas presentes.** Propone «Clase adicional» **solo para Helena Iglesias**: paga 1 vez y ya vino el sábado 10.",
+      "linea_fuente": 76
+    },
+    {
+      "id": "11.20",
+      "quien": "Mariela",
+      "tarea": "Carga atrasada **#38**, 08/10",
+      "esperado": "**8.** Ausente: Helena Iglesias. **7 presentes.** Propone «Clase adicional» para **Catalina Díaz, Martina Díaz, Guadalupe Núñez, Lucía Ramos y Berenice Rossi**.",
+      "linea_fuente": 77
+    },
+    {
+      "id": "11.21",
+      "quien": "Hernán",
+      "tarea": "Lista **#68**, Fútbol Avanzadas 19–20",
+      "esperado": "**15.** Ausente: Felipe Sosa. **14 presentes.** Sin «Clase adicional».",
+      "linea_fuente": 78
+    },
+    {
+      "id": "11.22",
+      "quien": "Pablo",
+      "tarea": "Cierra y cuenta **$100.800**",
+      "esperado": "Esperado $100.800, diferencia $0. Retiene $10.000 y entrega $90.800.",
+      "linea_fuente": 79
+    },
+    {
+      "id": "11.23",
+      "quien": "Dueño",
+      "tarea": "Valida la caja de Pablo. **Condona** a Santino Romero octubre, noviembre y diciembre de 2025 ($18.000 cada uno), con el motivo «Deuda anterior al sistema, acordada con la familia».",
+      "esperado": "Validada. Santino sigue **Deudor** con agosto, septiembre y octubre ($84.000).",
+      "linea_fuente": 80
+    },
+    {
+      "id": "11.24",
+      "quien": "Dueño",
+      "tarea": "Paga el **alquiler de San Carlos**, $120.000 desde Mercado Pago. Hace un **retiro de dueños** de $50.000 en efectivo.",
+      "esperado": "El alquiler suma a egresos. El retiro suma a «Retiros» y no al resultado.",
+      "linea_fuente": 81
+    },
+    {
+      "id": "11.25",
+      "quien": "Dueño",
+      "tarea": "Cierre del día",
+      "esperado": "Deuda **$949.000**; **80 Al día, 0 En plazo, 8 Morosos, 14 Deudores**. Ingresos **$1.182.750,75**, egresos **$231.800**, resultado **$950.950,75**. Aportes $100.000, retiros $50.000. Disponible **$2.635.950,75**: Efectivo $727.000, MP $1.705.950,75, Galicia $138.000, Nación $65.000. «Sin asistencia» **9**.",
+      "linea_fuente": 82
+    }
+  ]
+}

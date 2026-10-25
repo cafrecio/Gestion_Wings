@@ -26,6 +26,18 @@ se amplió/alineó con Mes (280 px ambos), Agregar debajo a la derecha. Carlos a
 Gemini registró su [verificación independiente aprobada](../06-pruebas/PRU-04/VERIFICACION-T77-GEMINI.md) el 25/10; T77 sigue a_verificar, sin autocierre por Codex.
 Tabla Carlos/Claude intacta. Solo bases descartables propias, sin reparación histórica ni servidor remoto/despliegue.
 
+## T14 — Días 10–12, entrega parcial por bloqueo de Chrome, Codex CAB 25/10/2026
+
+[Día 10](../06-pruebas/PRU-04/DIA-10.md): 18 Sí/4 No. [Día 11](../06-pruebas/PRU-04/DIA-11.md): 23 Sí/4 No. [Día 12](../06-pruebas/PRU-04/DIA-12.md): 20 Sí/3 Parcial/2 No. [Galería y evidencia](../06-pruebas/PRU-04/EVIDENCIA-DIAS-10-12.html). 74 situaciones con esperados congelados antes de operar (incluyen 11.1 negativo y 11.1b/c del patch inicial, que ya no están en la fuente actual). Once recibos descargados/renderizados; 26 listas guardadas y recargadas y 14 clases de septiembre validadas para liquidación sin cargar presencias. No conformidad integral ni cierre de T14.
+
+Cajas #8/#9/#10 cerradas y validadas, todas sin diferencia; cambios retenidos $10.000. Diferencias sin reparar: 10.7 no permitió pagar solo cuota dejando inscripción; anulación de CUOTA-25 no alcanzable como dueño en las pantallas recorridas, por lo que 10.18 no pudo cobrarse; Alumnos incluyó inactiva sin filtro solo activos; Cobranza no mostró teléfonos. Se conserva el desvío neto de $24.400 por el pago anterior de Joaquín y la cuota no cobrada de Tomás. No se atribuye causa de código sin verificarla.
+
+12.7 parcial: se canceló la primera confirmación de adelanto, sin atravesarla para observar un eventual aviso posterior por deuda. 12.24/USU-005 adelantado al día 10 por Carlos; recuperación de clave por consola específicamente autorizada solo para usuario ficticio 8, staging/wingstest, con rol/estado conservados. Ingreso nuevo de Rocío comprobado; guardado por Usuarios y rechazo de la clave anterior perdida no acreditados.
+
+Bloqueo pendiente: 12.22 mostró confirmación de reactivación de Julieta, pero el control de Chrome falló al aceptarla. Última búsqueda siguió Inactivo; pago 12.23 no ejecutado. Sin reparación por base ni fabricación de recibo. La herramienta de control nativo venció sin obtener aprobación de aplicación. Internet corregido a $18.950, fecha 19/10 y una sola fila con historial. Último Inicio leído: deuda $779.600, ingresos $1.378.150,75, egresos $235.550, resultado $1.142.600,75 y disponible $2.827.600,75; Sin asistencia 0 y cajas pendientes 0. Distribución final de estados sin reconsulta, no heredada.
+
+Sigue recuperar el control de Chrome y retomar solo 12.22/12.23, contrastar 12.25 y obtener revisión independiente de la entrega. No repetir operaciones ni reloj: último inicio 21/10/2026 15:00. Tabla de pruebas y producto intactos; sin suite/despliegue por esta entrega documental. Dashboard por casos conserva corte anterior.
+
 ## T14 — Días 7 a 9 recorridos, Codex CAB 25/10/2026
 
 [Día 7](../06-pruebas/PRU-04/DIA-07.md): 16 Sí. [Día 8](../06-pruebas/PRU-04/DIA-08.md): 6 Sí/3 No. [Día 9](../06-pruebas/PRU-04/DIA-09.md): 3 Sí/3 No. Las 31 situaciones se recorrieron en Chrome sobre test/wingstest `b816d181`, con esperados literales guardados antes de operar. [Galería y diferencias](../06-pruebas/PRU-04/EVIDENCIA-DIAS-07-09.html). Tabla de pruebas intacta, sin consultas de negocio a base ni reparaciones.

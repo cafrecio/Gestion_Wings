@@ -1,0 +1,99 @@
+{
+  "actualizado_utc": "2026-10-25T22:42:05.481819+00:00",
+  "estado": "entrega_parcial_con_bloqueo",
+  "completados": "Días 10 y 11 completos; día 12 hasta 12.21; 12.22 parcial, 12.23 bloqueado, 12.25 contraste parcial",
+  "diferencia": "10.7: no puede dejar pendiente inscripción y pagar solo cuota; no confirmado",
+  "proximo": "Recuperar Chrome y retomar solo 12.22/12.23; volver a contrastar 12.25; revisión independiente de informes",
+  "caja": {
+    "id": 8,
+    "operativa": "Rocío Paz",
+    "estado": "VALIDADA",
+    "ingresos": 193800,
+    "egresos": 2700,
+    "efectivo_esperado_y_contado": 83100,
+    "diferencia": 0
+  },
+  "pagos_confirmados": [
+    {
+      "recibo": "CUOTA-26",
+      "alumno": "Lara Quiroga",
+      "importe": 35800,
+      "medio": "EFE"
+    },
+    {
+      "recibo": "CUOTA-27",
+      "alumno": "Bianca Pereyra",
+      "importe": 40000,
+      "medio": "EFE"
+    },
+    {
+      "recibo": "CUOTA-28",
+      "alumno": "Carla Perez",
+      "importe": 33000,
+      "medio": "BGA"
+    }
+  ],
+  "listas_persistidas": {
+    "7": "26/28",
+    "15": "16/18",
+    "54": "20/21"
+  },
+  "ultimo_inicio_reloj": "2026-10-21 15:00",
+  "reloj_no_repetir": true,
+  "dia_11_iniciado": true,
+  "dia_12_iniciado": true,
+  "tabla_de_pruebas_intacta": true,
+  "guion_ajeno_no_versionar": true,
+  "usu_005_adelantado": {
+    "pedido": "Carlos adelantó 12.24 y autorizó específicamente consola",
+    "restablecimiento_ejecutado": true,
+    "usuario_id": 8,
+    "otros_campos_conservados": true,
+    "ingreso_chrome": "comprobado; Rocío cerró y salió",
+    "pantalla_usuarios": "sin acreditar",
+    "rechazo_clave_anterior": "sin acreditar: clave aleatoria perdida"
+  },
+  "coinciden_dia10": 18,
+  "no_coinciden_dia10": 4,
+  "dia11": {
+    "caja": 9,
+    "estado": "VALIDADA",
+    "efectivo_esperado": 100800,
+    "recibos": [
+      "CUOTA-29",
+      "CUOTA-30",
+      "CUOTA-31",
+      "CUOTA-32",
+      "CUOTA-33"
+    ],
+    "asistencias_hasta": "11.21"
+  },
+  "coinciden_dia11": 23,
+  "no_coinciden_dia11": 4,
+  "dia12": {
+    "caja": 10,
+    "estado": "VALIDADA",
+    "efectivo_esperado": 142700,
+    "recibos": [
+      "CUOTA-34",
+      "CUOTA-35",
+      "CUOTA-36"
+    ],
+    "listas_persistidas": [
+      18,
+      13,
+      19,
+      8,
+      59,
+      63,
+      73,
+      64,
+      65,
+      52,
+      57
+    ]
+  },
+  "coinciden_dia12": 20,
+  "no_coinciden_dia12": 2,
+  "parciales_dia12": 3
+}

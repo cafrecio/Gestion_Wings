@@ -1,0 +1,105 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 6":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "6"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - 'heading "Editar: Iglesias, Helena" [level=1]'
+- main:
+  - paragraph: Editar el ingreso no genera inscripción retroactiva.
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *" [active]:
+    - /placeholder: Nombre
+    - text: Helena
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *":
+    - /placeholder: Apellido
+    - text: Iglesias
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+    - text: "55400040"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *": 2011-09-22
+  - text: Fecha de alta
+  - generic: "*"
+  - textbox "Fecha de alta *": 2022-04-15
+  - text: Celular
+  - textbox "Celular":
+    - /placeholder: 11-1234-5678
+    - text: "1145120040"
+  - checkbox "Mismo que el teléfono del tutor"
+  - text: Mismo que el teléfono del tutor
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+    - text: <redacted>
+  - text: Deporte
+  - paragraph: Patín
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar..."
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas" [selected]
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - text: Motivo si corrige la fecha de ingreso
+  - textbox "Motivo si corrige la fecha de ingreso"
+  - paragraph: Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.
+  - text: Frecuencia semanal
+  - generic: (define el precio mensual)
+  - combobox "Frecuencia semanal (define el precio mensual)":
+    - option "Seleccionar frecuencia..."
+    - option "1 vez/semana — $40,000.00"
+    - option "2 veces/semana — $50,000.00" [selected]
+  - paragraph: Datos del tutor — obligatorio para menores de edad
+  - text: Nombre del tutor
+  - textbox "Nombre del tutor":
+    - /placeholder: Nombre y Apellido
+    - text: Tutor Iglesias
+  - text: Teléfono del tutor
+  - textbox "Teléfono del tutor":
+    - /placeholder: 11-1234-5678
+    - text: "1145120040"
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

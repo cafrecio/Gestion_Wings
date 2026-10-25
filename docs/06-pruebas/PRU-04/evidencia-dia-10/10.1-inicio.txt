@@ -1,0 +1,129 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - strong: Octubre 2026
+  - text: · Todo el negocio
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10
+  - paragraph: Mes en curso · hasta el 19 de octubre
+  - link "Ingresos del mes $921,000.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10#ingresos
+    - paragraph: Ingresos del mes
+    - paragraph: $921,000.00
+  - link "Egresos del mes $86,400.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10#egresos
+    - paragraph: Egresos del mes
+    - paragraph: $86,400.00
+  - link "Alumnos por cobrar $1,187,000.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10#deuda
+    - paragraph: Alumnos por cobrar
+    - paragraph: $1,187,000.00
+  - link "Profesores por pagar $0.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10#profesores
+    - paragraph: Profesores por pagar
+    - paragraph: $0.00
+  - generic: Resultado de octubre
+  - strong: $834,600.00
+  - heading "Disponible" [level=3]
+  - paragraph: $2,484,600.00
+  - paragraph: BGA
+  - strong: $123,500.00
+  - paragraph: BNA
+  - strong: $30,000.00
+  - paragraph: Banco Nacion ahorro
+  - strong: $0.00
+  - paragraph: EFE
+  - strong: $613,100.00
+  - paragraph: MP
+  - strong: $1,718,000.00
+  - text: Incluye arrastre ·
+  - generic: $0.00
+  - text: por validar
+  - heading "Para revisar" [level=3]
+  - link "Cajas por validar 0 →":
+    - /url: https://test.gestionar-te.com.ar/caja?pendientes=1
+    - generic: Cajas por validar
+    - strong: 0 →
+  - link "Liquidaciones pendientes 0 →":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones?pendientes=1
+    - generic: Liquidaciones pendientes
+    - strong: 0 →
+  - link "Clases sin asistencia 32 →":
+    - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+    - generic: Clases sin asistencia
+    - strong: 32 →
+  - link "Revisión de alumnos 0 →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza?estado=PENDIENTE
+    - generic: Revisión de alumnos
+    - strong: 0 →
+- contentinfo:
+  - generic: Wings

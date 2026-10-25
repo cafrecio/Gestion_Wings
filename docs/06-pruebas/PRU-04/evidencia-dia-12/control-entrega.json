@@ -1,0 +1,29 @@
+{
+  "dia": 12,
+  "situaciones": 25,
+  "resultados": {
+    "Sí": 20,
+    "Parcial": 3,
+    "No": 2
+  },
+  "esperados_literales": true,
+  "fuente_congelada_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "imagenes_decodificadas": 53,
+  "recibos": [
+    {
+      "archivo": "12.6-recibo-helena.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "12.8-recibo-ignacio.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "12.9-recibo-paulina.pdf",
+      "paginas": 1
+    }
+  ],
+  "pausa_minima_registrada_segundos": 62.287,
+  "producto_y_tabla": "Sin cambios; ver diff del commit",
+  "limites": "Día 12: reactivación/pago de Julieta bloqueados en Chrome; cierre parcial. Revisión independiente pendiente."
+}

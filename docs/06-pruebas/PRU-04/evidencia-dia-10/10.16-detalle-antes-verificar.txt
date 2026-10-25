@@ -1,0 +1,178 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Rocío Paz
+  - paragraph: Apertura
+  - paragraph: 19/10/2026 15:03
+  - paragraph: Cierre
+  - paragraph: 19/10/2026 15:35
+  - paragraph: Estado
+  - paragraph: CERRADA
+  - generic: 0 de 6 verificados
+  - button "Validar"
+  - button "Rechazar"
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/8/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "19/10/2026 I EFE Cuotas — Cuota Mensual Quiroga, Lara · PAT · 10/26 $30,800.00 Recibo Verificar movimiento 35":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Quiroga, Lara · PAT · 10/26":
+            - generic: Quiroga, Lara · PAT · 10/26
+          - cell "$30,800.00"
+          - cell "Recibo Verificar movimiento 35":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/26?inline=1
+            - checkbox "Verificar movimiento 35"
+        - row "19/10/2026 I EFE Inscripciones — Inscripción al club Quiroga, Lara · PAT · 10/26 $5,000.00 Recibo Verificar movimiento 36":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Quiroga, Lara · PAT · 10/26":
+            - generic: Quiroga, Lara · PAT · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 36":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/26?inline=1
+            - checkbox "Verificar movimiento 36"
+        - row "19/10/2026 I EFE Cuotas — Cuota Mensual Pereyra, Bianca · PAT · 10/26 $40,000.00 Recibo Verificar movimiento 37":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Pereyra, Bianca · PAT · 10/26":
+            - generic: Pereyra, Bianca · PAT · 10/26
+          - cell "$40,000.00"
+          - cell "Recibo Verificar movimiento 37":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/27?inline=1
+            - checkbox "Verificar movimiento 37"
+        - row "19/10/2026 I BGA Cuotas — Cuota Mensual Perez, Carla · PAT · 10/26 $33,000.00 Recibo Verificar movimiento 38":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "BGA"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Perez, Carla · PAT · 10/26":
+            - generic: Perez, Carla · PAT · 10/26
+          - cell "$33,000.00"
+          - cell "Recibo Verificar movimiento 38":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/28?inline=1
+            - checkbox "Verificar movimiento 38"
+        - row "19/10/2026 I MP Indumentaria — Patines Patines talle 34 $85,000.00 Verificar movimiento 39":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Indumentaria — Patines"
+          - cell "Patines talle 34":
+            - generic: Patines talle 34
+          - cell "$85,000.00"
+          - cell "Verificar movimiento 39":
+            - checkbox "Verificar movimiento 39"
+        - row "19/10/2026 E EFE Gastos Operativos — Librería Planillas de asistencia en papel $2,700.00 Verificar movimiento 40":
+          - cell "19/10/2026"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Librería"
+          - cell "Planillas de asistencia en papel":
+            - generic: Planillas de asistencia en papel
+          - cell "$2,700.00"
+          - cell "Verificar movimiento 40":
+            - checkbox "Verificar movimiento 40"
+      - rowgroup:
+        - 'row "Ingresos: $193,800.00 · Egresos: $2,700.00 $191,100.00"':
+          - 'cell "Ingresos: $193,800.00 · Egresos: $2,700.00"':
+            - text: "Ingresos:"
+            - strong: $193,800.00
+            - text: "· Egresos:"
+            - strong: $2,700.00
+          - cell "$191,100.00"
+          - cell
+- contentinfo:
+  - generic: Wings

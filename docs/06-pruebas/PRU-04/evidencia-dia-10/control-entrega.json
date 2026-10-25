@@ -1,0 +1,28 @@
+{
+  "dia": 10,
+  "situaciones": 22,
+  "resultados": {
+    "Sí": 18,
+    "No": 4
+  },
+  "esperados_literales": true,
+  "fuente_congelada_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "imagenes_decodificadas": 78,
+  "recibos": [
+    {
+      "archivo": "10.5-recibo-lara.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "10.8-recibo-bianca.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "10.9-recibo-carla.pdf",
+      "paginas": 1
+    }
+  ],
+  "pausa_minima_registrada_segundos": 75.678,
+  "producto_y_tabla": "Sin cambios; ver diff del commit",
+  "limites": "Día 12: reactivación/pago de Julieta bloqueados en Chrome; cierre parcial. Revisión independiente pendiente."
+}

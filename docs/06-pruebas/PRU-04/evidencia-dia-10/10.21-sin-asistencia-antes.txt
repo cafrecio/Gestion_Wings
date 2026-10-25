@@ -1,0 +1,335 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Clases" [level=1]
+- main:
+  - text: Clases de hoy — lunes 19 de octubre ·
+  - strong: "3"
+  - text: clase(s)
+  - heading "16:00 – 17:00 Por comenzar" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Cargada
+  - button "Ver"
+  - button "Editar"
+  - heading "16:00 – 17:00 Por comenzar" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Cargada
+  - button "Ver"
+  - button "Editar"
+  - heading "17:00 – 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Cargada
+  - button "Ver"
+  - button "Editar"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - combobox:
+    - option "Profesor" [selected]
+    - option "Directora, Vanina"
+    - option "Gaitán, Lucía"
+    - option "Ocampo, Mariela"
+    - option "Quintana, Hernán"
+    - option "Salinas, Verónica"
+  - combobox:
+    - option "Estado"
+    - option "Programada"
+    - option "Sin asistencia" [selected]
+    - option "Sin presentes"
+    - option "Cerrada"
+    - option "Cancelada"
+  - textbox
+  - combobox:
+    - option "Orden"
+    - option "Más recientes"
+    - option "Más antiguas" [selected]
+    - option "Grupo A–Z"
+  - button "Limpiar"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "20"
+  - text: de
+  - strong: "32"
+  - text: clase(s)
+  - button "Nuevo"
+  - heading "Jue 24/09/2026 — 18:00 a 19:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo · Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Jue 24/09/2026 — 19:00 a 20:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Vie 25/09/2026 — 16:00 a 17:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Sáb 26/09/2026 — 10:00 a 11:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Sáb 26/09/2026 — 11:00 a 12:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Dom 27/09/2026 — 17:30 a 18:30 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Directora
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Lun 28/09/2026 — 16:00 a 17:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Lun 28/09/2026 — 16:00 a 17:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Lun 28/09/2026 — 17:00 a 18:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Mar 29/09/2026 — 17:00 a 18:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Mar 29/09/2026 — 18:00 a 19:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Mar 29/09/2026 — 19:00 a 20:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Mié 30/09/2026 — 16:00 a 17:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Mié 30/09/2026 — 18:00 a 19:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Jue 01/10/2026 — 17:00 a 18:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Jue 01/10/2026 — 18:00 a 19:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Jue 01/10/2026 — 19:00 a 20:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Vie 02/10/2026 — 16:00 a 17:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Sáb 03/10/2026 — 10:00 a 11:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - heading "Sáb 03/10/2026 — 11:00 a 12:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - button "Editar"
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 20 de 32 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada&orden=fecha_asc&page=2
+      - text: "2"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada&orden=fecha_asc&page=2
+- contentinfo:
+  - generic: Wings

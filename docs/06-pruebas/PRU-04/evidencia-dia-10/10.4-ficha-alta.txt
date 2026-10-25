@@ -1,0 +1,93 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Quiroga, Lara" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $5,000.00"
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "52888111"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 12/03/2017
+  - paragraph:
+    - text: Celular
+  - paragraph: 11-5550-1212
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $44,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 19/10/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: En plazo
+  - generic: 6 días de gracia
+  - generic: Vence 26/10/2026
+  - generic: "Total adeudado: $35,800.00"
+  - generic: Oct 2026
+  - generic: $30,800.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Mariana Quiroga
+  - paragraph: Teléfono
+  - paragraph: 11-5550-1212
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: Sin asistencias en Oct 2026.
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

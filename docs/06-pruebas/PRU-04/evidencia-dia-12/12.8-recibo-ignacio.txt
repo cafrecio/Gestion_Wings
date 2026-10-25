@@ -1,0 +1,25 @@
+WINGS CLUB
+ACADEMIA DEPORTIVA
+Comprobante de Cobro de Cuota
+CUOTA-35
+EMISIÓN:  21/10/2026 15:06
+FECHA PAGO:  21/10/2026
+DATOS DEL ALUMNO
+ALUMNO / ALUMNA
+Ignacio Suarez
+DOCUMENTO (DNI)
+54400008
+DEPORTE / DISCIPLINA
+Fútbol
+DETALLE DE PERÍODOS COBRADOS
+CONCEPTO / PERÍODO IMPORTE
+Septiembre 2026 $35,000.00
+Octubre 2026 $35,000.00
+TOTAL COBRADO $70,000.00
+INFORMACIÓN DE COBRO
+MEDIO DE COBRO
+Efectivo
+REGISTRADO POR
+Operativo
+Club Wings — Comprobante emitido por el sistema de gestión.
+Documento no válido como factura comercial. FIRMA / SELLO RECEPTOR

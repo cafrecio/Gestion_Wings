@@ -1,0 +1,72 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 10":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "10"
+- generic: Mariela Ocampo
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Federadas" [level=1]
+- main:
+  - heading "Jueves 8 de octubre de 2026" [level=2]
+  - generic: 18:00 – 19:00
+  - generic: Patín
+  - generic: Patín — Federadas
+  - generic: Ocampo, Mariela
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "8"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Diaz, Catalina
+  - generic: 2/2 (Completo)
+  - generic: · DNI …501
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Diaz, Martina
+  - generic: 2/2 (Completo)
+  - generic: · DNI …042
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Iglesias, Helena
+  - generic: 2/1 (Excede)
+  - generic: · DNI …040
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Nuñez, Guadalupe
+  - generic: 2/2 (Completo)
+  - generic: · DNI …910
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramos, Lucia
+  - generic: 2/2 (Completo)
+  - generic: · DNI …039
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Berenice
+  - generic: 2/2 (Completo)
+  - generic: · DNI …802
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Olivia
+  - generic: 1/2
+  - generic: · DNI …041
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Vega, Florencia
+  - generic: 1/2
+  - generic: · DNI …801
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,138 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Pablo Ledesma
+  - paragraph: Apertura
+  - paragraph: 17/10/2026 09:31
+  - paragraph: Cierre
+  - paragraph: 17/10/2026 09:57
+  - paragraph: Estado
+  - paragraph: VALIDADA
+  - strong: "3"
+  - text: movimientos
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/7/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - 'row "17/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 4 inscripciones $32,000.00"':
+          - cell "17/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de primavera: 4 inscripciones"':
+            - generic: "Torneo de primavera: 4 inscripciones"
+          - cell "$32,000.00"
+          - cell
+        - row "17/10/2026 I MP Cuotas — Cuota Mensual Vega, Joaquin · Fú · 08/26, 09/26, 10/26 $144,000.00 Recibo":
+          - cell "17/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Vega, Joaquin · Fú · 08/26, 09/26, 10/26":
+            - generic: Vega, Joaquin · Fú · 08/26, 09/26, 10/26
+          - cell "$144,000.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/25?inline=1
+        - row "17/10/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Ruedas del carro de conos $5,900.00":
+          - cell "17/10/2026"
+          - cell "E"
+          - cell "EFE"
+          - cell "Mantenimiento y arreglos — Reparaciones menores"
+          - cell "Ruedas del carro de conos":
+            - generic: Ruedas del carro de conos
+          - cell "$5,900.00"
+          - cell
+      - rowgroup:
+        - 'row "Ingresos: $176,000.00 · Egresos: $5,900.00 $170,100.00"':
+          - 'cell "Ingresos: $176,000.00 · Egresos: $5,900.00"':
+            - text: "Ingresos:"
+            - strong: $176,000.00
+            - text: "· Egresos:"
+            - strong: $5,900.00
+          - cell "$170,100.00"
+          - cell
+- contentinfo:
+  - generic: Wings

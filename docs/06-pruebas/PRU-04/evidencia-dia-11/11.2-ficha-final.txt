@@ -1,0 +1,97 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Quiroga, Tomás" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $0.00"
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "51777222"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 02/08/2015
+  - paragraph:
+    - text: Celular
+  - paragraph: 11-5550-1212
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 19/10/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: En plazo
+  - generic: 5 días de gracia
+  - generic: Vence 26/10/2026
+  - generic: "Total adeudado: $19,600.00"
+  - generic: Oct 2026
+  - generic: $19,600.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Mariana Quiroga
+  - paragraph: Teléfono
+  - paragraph: 11-5550-1212
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 20/10/2026 · Oct 2026
+  - generic: $5,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/29?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 1 clase
+  - generic: 19/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

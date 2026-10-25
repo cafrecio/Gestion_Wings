@@ -1,0 +1,97 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - heading "Mostrador Operativo" [level=1]
+  - paragraph: Lunes 19 de octubre de 2026 · Turno de Rocío Paz
+  - link "Caja":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - link "Cobranza":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/alumnos
+  - generic: Mostrador activo
+  - paragraph: Caja abierta
+  - paragraph: Abierta por vos a las 15:03
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Registrar":
+    - /url: https://test.gestionar-te.com.ar/caja/movimiento
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/8/resumen
+  - text: Clases de hoy —
+  - strong: "3"
+  - paragraph: 16:00 — Patín — Principiantes
+  - paragraph: 26 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/7
+  - paragraph: 16:00 — Fútbol — Principiantes
+  - paragraph: 20 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/54
+  - paragraph: 17:00 — Patín — Intermedias
+  - paragraph: 16 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/15
+  - generic: Atención a alumnos
+  - link "Vencidos 23 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+    - paragraph: Vencidos
+    - paragraph: "23"
+    - paragraph: Ir a cobranza →
+  - link "En plazo 1 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza?estado=EN_PLAZO
+    - paragraph: En plazo
+    - paragraph: "1"
+    - paragraph: Ir a cobranza →
+  - link "Posibles inactivos 0 Ir a revisión →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+    - paragraph: Posibles inactivos
+    - paragraph: "0"
+    - paragraph: Ir a revisión →
+  - generic: Recaudación de hoy
+  - paragraph: Cobrado hoy
+  - paragraph: $193,800.00
+  - paragraph: Cobros registrados
+  - paragraph: "5"
+  - paragraph: Cajas del turno
+  - paragraph: "1"
+- contentinfo:
+  - generic: Wings

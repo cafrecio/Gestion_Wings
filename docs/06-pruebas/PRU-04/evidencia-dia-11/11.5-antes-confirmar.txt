@@ -1,0 +1,102 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - 'heading "Cobrar: Suarez, Valentina" [level=1]'
+- main:
+  - paragraph: DNI
+  - paragraph: "55400033"
+  - paragraph: Deporte
+  - paragraph: Patín
+  - paragraph: Grupo
+  - paragraph: Patín — Avanzadas
+  - paragraph: Total pendiente
+  - paragraph: $35,000.00
+  - paragraph: Plan — frecuencia semanal
+  - radio "1 vez/semana $35,000.00/mes" [checked]
+  - generic: 1 vez/semana
+  - generic: $35,000.00/mes
+  - radio "2 veces/semana $45,000.00/mes"
+  - generic: 2 veces/semana
+  - generic: $45,000.00/mes
+  - paragraph: Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+  - paragraph: Cuotas pendientes — seleccioná las que querés cobrar
+  - checkbox [checked] [active]
+  - generic: Octubre 2026
+  - textbox "0": 35,000.00
+  - paragraph: Mes sin deuda o cobro adelantado
+  - text: Mes
+  - combobox "Mes":
+    - option "Seleccionar..." [selected]
+    - option "Noviembre 2026"
+    - option "Diciembre 2026"
+    - option "Enero 2027"
+    - option "Febrero 2027"
+    - option "Marzo 2027"
+    - option "Abril 2027"
+    - option "Mayo 2027"
+    - option "Junio 2027"
+    - option "Julio 2027"
+    - option "Agosto 2027"
+    - option "Septiembre 2027"
+    - option "Octubre 2027"
+  - text: Importe
+  - textbox "Importe":
+    - /placeholder: "0"
+  - button "Agregar" [disabled]
+  - paragraph: "Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes."
+  - text: Medio de pago
+  - generic: "*"
+  - combobox "Medio de pago *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación" [selected]
+    - option "Banco Nacion ahorro"
+    - option "EFE — Efectivo"
+    - option "MP — Mercado Pago"
+  - text: Fecha del pago
+  - textbox "Fecha del pago": 2026-10-20
+  - text: Observaciones
+  - textbox "Observaciones":
+    - /placeholder: Opcional
+  - generic: "Total a cobrar:"
+  - generic: $35,000.00
+  - button "Cancelar"
+  - button "Cobrar"
+- contentinfo:
+  - generic: Wings

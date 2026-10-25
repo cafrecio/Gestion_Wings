@@ -1,0 +1,4 @@
+b816d181
+APP_ENV=staging
+DB_DATABASE=wingstest
+Fecha simulada fijada: 2026-10-18 11:00:00. Para Wings ahora son las 18/10/2026 12:20

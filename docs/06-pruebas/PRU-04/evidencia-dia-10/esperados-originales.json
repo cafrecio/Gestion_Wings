@@ -1,0 +1,163 @@
+{
+  "dia": 10,
+  "capturado_antes_de_operar": "2026-10-25T20:44:03.174875+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-10-12.md",
+  "fuente_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "commit_local": "75fc34e91bf0f54bbb05f6a763a245db661068ff",
+  "casos": [
+    {
+      "id": "10.1",
+      "quien": "Dueño",
+      "tarea": "Revisa Mercado Pago. Por Joaquín Vega entraron **$100.000**, pero Wings dice $144.000 (CUOTA-25, sábado 17/10).",
+      "esperado": "El Inicio coincide con el cierre del día 9: deuda $1.187.000, ingresos $921.000, disponible $2.484.600.",
+      "linea_fuente": 29
+    },
+    {
+      "id": "10.2",
+      "quien": "Rocío",
+      "tarea": "Su primer turno: abre caja.",
+      "esperado": "Propone **$10.000**, lo que retuvo Pablo en la caja #7. Queda ABIERTA a su nombre.",
+      "linea_fuente": 30
+    },
+    {
+      "id": "10.3",
+      "quien": "Rocío",
+      "tarea": "Abre la ficha de Joaquín para ver si puede corregir el cobro del sábado.",
+      "esperado": "**No puede anularlo:** la caja de ese cobro ya está validada (COB-035 a).",
+      "linea_fuente": 31
+    },
+    {
+      "id": "10.4",
+      "quien": "Rocío",
+      "tarea": "Alta de **Lara Quiroga**: menor, nacida el 12/03/2017, DNI 52888111, tutora Mariana Quiroga (11-5550-1212), Patín Principiantes, 2 veces por semana, ingreso hoy.",
+      "esperado": "Guarda. La ficha dice: inscripción **$5.000**; octubre **$30.800**, el 70% de **$44.000** porque es el precio nuevo y entra en la segunda quincena; **En plazo**; **«Vence 26/10/2026»**; **Total adeudado $35.800**.",
+      "linea_fuente": 32
+    },
+    {
+      "id": "10.5",
+      "quien": "Rocío",
+      "tarea": "Mariana paga todo, $35.800 en efectivo.",
+      "esperado": "Un cobro con dos renglones. Lara pasa a **Al día**. El recibo desglosa inscripción y octubre.",
+      "linea_fuente": 33
+    },
+    {
+      "id": "10.6",
+      "quien": "Rocío",
+      "tarea": "Alta del hermano, **Tomás Quiroga**: nacido el 02/08/2015, DNI 51777222, misma tutora, Fútbol Principiantes, 1 vez por semana, ingreso hoy.",
+      "esperado": "Inscripción **$5.000**, propia, porque es otra persona. Octubre **$19.600**: el 70% de $28.000. En plazo, vence 26/10.",
+      "linea_fuente": 34
+    },
+    {
+      "id": "10.7",
+      "quien": "Rocío",
+      "tarea": "Mariana paga **solo la cuota**, $19.600 por Mercado Pago. La inscripción la trae a fin de mes.",
+      "esperado": "Se puede cobrar solo la cuota. Tomás queda **En plazo**, debiendo la inscripción $5.000.",
+      "linea_fuente": 35
+    },
+    {
+      "id": "10.8",
+      "quien": "Rocío",
+      "tarea": "**Bianca Pereyra** (Patín Principiantes 2 veces, Moroso, octubre $40.000) paga $40.000 en efectivo.",
+      "esperado": "Octubre sigue valiendo **$40.000**: el aumento no toca lo ya generado. Pasa a **Al día**.",
+      "linea_fuente": 36
+    },
+    {
+      "id": "10.9",
+      "quien": "Rocío",
+      "tarea": "**Carla Pérez** (Patín Intermedias, Moroso, $33.000) paga por Banco Galicia.",
+      "esperado": "Pasa a **Al día**.",
+      "linea_fuente": 37
+    },
+    {
+      "id": "10.10",
+      "quien": "Rocío",
+      "tarea": "Venta de un par de **patines**: Indumentaria → Patines, $85.000 por Mercado Pago, «Patines talle 34».",
+      "esperado": "Queda en su caja.",
+      "linea_fuente": 38
+    },
+    {
+      "id": "10.11",
+      "quien": "Rocío",
+      "tarea": "Gasto en **Librería**: $2.700 en efectivo, «Planillas de asistencia en papel».",
+      "esperado": "El efectivo esperado baja $2.700.",
+      "linea_fuente": 39
+    },
+    {
+      "id": "10.12",
+      "quien": "Lucía",
+      "tarea": "Lista **#7**, Patín Principiantes 16–17",
+      "esperado": "**28 alumnas, Lara incluida.** Ausentes: Zoe Flores y Pilar Ramos. **26 presentes.** No propone «Clase adicional».",
+      "linea_fuente": 40
+    },
+    {
+      "id": "10.13",
+      "quien": "Hernán",
+      "tarea": "Lista **#54**, Fútbol Principiantes 16–17",
+      "esperado": "**21 alumnos, Tomás incluido.** Ausente: Santino Romero. **20 presentes.** No propone «Clase adicional».",
+      "linea_fuente": 41
+    },
+    {
+      "id": "10.14",
+      "quien": "Verónica",
+      "tarea": "Lista **#15**, Patín Intermedias 17–18",
+      "esperado": "**18 alumnas.** Ausentes: Alma Navarro y Carla Pérez. **16 presentes.**",
+      "linea_fuente": 42
+    },
+    {
+      "id": "10.15",
+      "quien": "Rocío",
+      "tarea": "Cierra y cuenta **$83.100**",
+      "esperado": "Esperado $83.100, diferencia $0. Retiene $10.000 y entrega $73.100.",
+      "linea_fuente": 43
+    },
+    {
+      "id": "10.16",
+      "quien": "Dueño",
+      "tarea": "Valida la caja de Rocío",
+      "esperado": "Validada y reflejada.",
+      "linea_fuente": 44
+    },
+    {
+      "id": "10.17",
+      "quien": "Dueño",
+      "tarea": "**Anula** el cobro de Joaquín (CUOTA-25) con el motivo «Se cargó $144.000; por Mercado Pago entraron $100.000».",
+      "esperado": "Las tres cuotas vuelven a deber. El recibo sale ANULADO. El asiento en contra lleva la fecha **17/10**. La caja #7 no cambia (COB-035 b, d).",
+      "linea_fuente": 45
+    },
+    {
+      "id": "10.18",
+      "quien": "Dueño",
+      "tarea": "Le **cobra de nuevo** a Joaquín $100.000 por Mercado Pago, con **fecha de pago 17/10**: agosto $48.000, septiembre $48.000 y octubre **4000**.",
+      "esperado": "Entra sin abrir caja. Recibo nuevo con los tres importes. Joaquín queda **Moroso**, debiendo octubre **$44.000** (COB-035 c, e).",
+      "linea_fuente": 46
+    },
+    {
+      "id": "10.19",
+      "quien": "Dueño",
+      "tarea": "Paga **Internet**, $18.500 desde Banco Galicia (Servicios → Internet).",
+      "esperado": "Egreso directo.",
+      "linea_fuente": 47
+    },
+    {
+      "id": "10.20",
+      "quien": "Dueño",
+      "tarea": "Registra los **intereses de Mercado Pago**: Ingreso → Intereses Mercado Pago, $2.350,75.",
+      "esperado": "Guarda con los centavos y los muestra igual en Cashflow y Reportes.",
+      "linea_fuente": 48
+    },
+    {
+      "id": "10.21",
+      "quien": "Dueño",
+      "tarea": "**Valida a mano las 14 clases de septiembre** sin lista: son anteriores al sistema y las listas en papel se perdieron.",
+      "esperado": "«Sin asistencia» baja de **32 a 18**.",
+      "linea_fuente": 49
+    },
+    {
+      "id": "10.22",
+      "quien": "Dueño",
+      "tarea": "Cierre del día",
+      "esperado": "Deuda **$1.163.000**; **102 activos: 77 Al día, 1 En plazo (Tomás), 8 Morosos, 16 Deudores**. Reportes de octubre: ingresos **$1.007.750,75**, egresos **$107.600**, resultado **$900.150,75**. Aportes **$100.000**: los patines suman a aportes, no al resultado. Disponible **$2.635.150,75**: Efectivo $686.200, MP $1.780.950,75, Galicia $138.000, Nación $30.000. El ingreso del sábado 17/10 quedó con $100.000 de Joaquín (COB-035 f).",
+      "linea_fuente": 50
+    }
+  ]
+}

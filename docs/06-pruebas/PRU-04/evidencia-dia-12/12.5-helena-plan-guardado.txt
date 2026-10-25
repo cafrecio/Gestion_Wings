@@ -1,0 +1,93 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 6":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "6"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Iglesias, Helena" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "55400040"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 22/09/2011
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145120040"
+  - paragraph:
+    - text: Email
+  - paragraph: helena.iglesias@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Federadas
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $50,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 15/04/2022
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Moroso
+  - generic: "Total adeudado: $50,000.00"
+  - generic: Oct 2026
+  - generic: $50,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Tutor Iglesias
+  - paragraph: Teléfono
+  - paragraph: "1145120040"
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 4 clases
+  - generic: 06/10
+  - generic: 10/10
+  - generic: 13/10
+  - generic: 17/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

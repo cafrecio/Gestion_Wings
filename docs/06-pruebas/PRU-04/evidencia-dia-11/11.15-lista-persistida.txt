@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 13":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "13"
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Avanzadas" [level=1]
+- main:
+  - heading "Jueves 8 de octubre de 2026" [level=2]
+  - generic: 17:00 – 18:00
+  - generic: Patín
+  - generic: Patín — Avanzadas
+  - generic: Gaitán, Lucía
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "12"
+  - text: alumnos en el grupo ·
+  - strong: "8"
+  - text: presentes
+  - generic: Alvarez, Camila
+  - generic: 1/1 (Completo)
+  - generic: · DNI …037
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Benitez, Camila
+  - generic: 2/2 (Completo)
+  - generic: · DNI …700
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Benitez, Milagros
+  - generic: 2/2 (Completo)
+  - generic: · DNI …038
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Catalina
+  - generic: 2/2 (Completo)
+  - generic: · DNI …034
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Melina
+  - generic: 2/2 (Completo)
+  - generic: · DNI …803
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Fernandez, Emma
+  - generic: 2/2 (Completo)
+  - generic: · DNI …301
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gimenez, Delfina
+  - generic: 1/1 (Completo)
+  - generic: · DNI …035
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Herrera, Martina
+  - generic: 2/2 (Completo)
+  - generic: · DNI …032
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Morales, Carla
+  - generic: 1/1 (Completo)
+  - generic: · DNI …804
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Pereyra, Zoe
+  - generic: 2/2 (Completo)
+  - generic: · DNI …036
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramirez, Lucia
+  - generic: 2/2 (Completo)
+  - generic: · DNI …905
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Suarez, Valentina
+  - generic: 1/1 (Completo)
+  - generic: · DNI …033
+  - generic: Presente
+  - checkbox "Presente"
+  - paragraph: Estás corrigiendo una lista ya tomada — indicá el motivo
+  - 'textbox "Ej: Se nos pasó cargar a un alumno, se marcó por error..."'
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,100 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Romero, Santino" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "53300902"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 09/01/2016
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123415"
+  - paragraph:
+    - text: Email
+  - paragraph: diego.romero@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 01/08/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Deudor
+  - generic: "Total adeudado: $138,000.00"
+  - generic: Oct 2025
+  - generic: $18,000.00
+  - generic: Nov 2025
+  - generic: $18,000.00
+  - generic: Dic 2025
+  - generic: $18,000.00
+  - generic: Ago 2026
+  - generic: $28,000.00
+  - generic: Sep 2026
+  - generic: $28,000.00
+  - generic: Oct 2026
+  - generic: $28,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Diego Romero
+  - paragraph: Teléfono
+  - paragraph: "1145123415"
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 1 clase
+  - generic: 14/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

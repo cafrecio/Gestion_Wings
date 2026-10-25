@@ -1,0 +1,191 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Clase — Fútbol — Principiantes" [level=1]
+- main:
+  - generic: Clase validada para liquidación.
+  - heading "Miércoles 30 de septiembre de 2026" [level=2]
+  - generic: 18:00 – 19:00
+  - generic: Fútbol
+  - generic: Fútbol — Principiantes
+  - generic: Quintana, Hernán
+  - button "Editar"
+  - generic: Activa
+  - generic: Validada para liquidación
+  - button "Cancelar"
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "20"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Acosta, Agustin
+  - generic: 0/2
+  - generic: · DNI …005
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Benitez, Camila
+  - generic: 0/1
+  - generic: · DNI …700
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Castro, Bruno
+  - generic: 0/1
+  - generic: · DNI …009
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Castro, Mateo
+  - generic: 0/1
+  - generic: · DNI …918
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ferrari, Bautista
+  - generic: 0/2
+  - generic: · DNI …916
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Flores, Santino
+  - generic: 0/1
+  - generic: · DNI …004
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gutierrez, Tomas
+  - generic: 0/1
+  - generic: · DNI …010
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Herrera, Facundo
+  - generic: 0/1
+  - generic: · DNI …007
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Martinez, Bautista
+  - generic: 0/1
+  - generic: · DNI …602
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Medina, Lautaro
+  - generic: 0/1
+  - generic: · DNI …006
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Pereyra, Liam
+  - generic: 0/2
+  - generic: · DNI …908
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Pereyra, Manuel
+  - generic: 0/2
+  - generic: · DNI …011
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramirez, Felipe
+  - generic: 0/2
+  - generic: · DNI …003
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramos, Santiago
+  - generic: 0/1
+  - generic: · DNI …012
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rios, Facundo
+  - generic: 0/1
+  - generic: · DNI …912
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rodriguez, Joaquin
+  - generic: 0/2
+  - generic: · DNI …202
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Romero, Santino
+  - generic: 0/1
+  - generic: · DNI …902
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ruiz, Thiago
+  - generic: 0/1
+  - generic: · DNI …002
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Suarez, Ignacio
+  - generic: 0/2
+  - generic: · DNI …008
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Torres, Benicio
+  - generic: 0/1
+  - generic: · DNI …001
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

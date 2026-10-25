@@ -1,0 +1,7 @@
+{
+  "fuente_actual_sha256": "1730f5126f27cd28435eb3d6453aa424dd00802c45eaa628223a7e0cb1a2a205",
+  "sha256_congelado_antes_de_operar": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "nota": "El archivo actual volvió a la versión del commit 75fc34e9: no contiene 11.1b/c ni la variante negativa de 11.1. Esta entrega conserva los 74 esperados congelados al iniciar y el patch inicial de esos añadidos; no modifica ni incorpora el guion fuente.",
+  "casos_congelados": 74,
+  "casos_archivo_actual": 72
+}

@@ -1,0 +1,143 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 6":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "6"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - generic: Pago registrado para Silva, Paulina.
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/36?inline=1
+  - strong: "6"
+  - text: cajas
+  - button "Historial"
+  - heading "Miércoles 21 de octubre" [level=3]
+  - generic: Estado
+  - generic: ABIERTA
+  - generic: Movimientos
+  - generic: "4"
+  - generic: Ingresos
+  - generic: $155,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $155,000.00
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Agregar":
+    - /url: https://test.gestionar-te.com.ar/caja/10/editar
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/10/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/10/detalle
+  - heading "Viernes 16 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "8"
+  - generic: Ingresos
+  - generic: $173,000.00
+  - generic: Egresos
+  - generic: $6,800.00
+  - generic: Neto
+  - generic: $166,200.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/6/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/6/detalle
+  - heading "Jueves 15 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "2"
+  - generic: Ingresos
+  - generic: $75,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $75,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/4/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/4/detalle
+  - heading "Miércoles 14 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "4"
+  - generic: Ingresos
+  - generic: $131,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $131,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/3/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/3/detalle
+  - heading "Martes 13 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "7"
+  - generic: Ingresos
+  - generic: $201,000.00
+  - generic: Egresos
+  - generic: $8,500.00
+  - generic: Neto
+  - generic: $192,500.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/2/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/2/detalle
+  - heading "Sábado 10 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "5"
+  - generic: Ingresos
+  - generic: $164,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $164,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/1/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/1/detalle
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,130 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 31":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "31"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Federadas" [level=1]
+- main:
+  - heading "Jueves 24 de septiembre de 2026" [level=2]
+  - generic: 18:00 – 19:00
+  - generic: Patín
+  - generic: Patín — Federadas
+  - generic: Ocampo, Mariela · Quintana, Hernán
+  - button "Editar"
+  - generic: Activa
+  - generic: Validada para liquidación
+  - button "Cancelar"
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "8"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Diaz, Catalina
+  - generic: 0/2
+  - generic: · DNI …501
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Diaz, Martina
+  - generic: 0/2
+  - generic: · DNI …042
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Iglesias, Helena
+  - generic: 0/1
+  - generic: · DNI …040
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Nuñez, Guadalupe
+  - generic: 0/2
+  - generic: · DNI …910
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramos, Lucia
+  - generic: 0/2
+  - generic: · DNI …039
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Berenice
+  - generic: 0/2
+  - generic: · DNI …802
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Olivia
+  - generic: 0/2
+  - generic: · DNI …041
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Vega, Florencia
+  - generic: 0/2
+  - generic: · DNI …801
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

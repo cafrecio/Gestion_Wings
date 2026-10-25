@@ -1,0 +1,159 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 9":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "9"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Romero, Santino" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "53300902"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 09/01/2016
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123415"
+  - paragraph:
+    - text: Email
+  - paragraph: diego.romero@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 01/08/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Deudor
+  - generic: "Total adeudado: $84,000.00"
+  - generic: Ago 2026
+  - generic: $28,000.00
+  - button "Condonar"
+  - generic: Sep 2026
+  - generic: $28,000.00
+  - button "Condonar"
+  - generic: Oct 2026
+  - generic: $28,000.00
+  - button "Condonar"
+  - paragraph: Cuotas condonadas
+  - generic: 2025-10 · Condonada
+  - button "Reactivar"
+  - generic: 2025-11 · Condonada
+  - button "Reactivar"
+  - generic: 2025-12 · Condonada
+  - button "Reactivar"
+  - paragraph: Meses sin cuota generada
+  - combobox "Mes sin cuota":
+    - option "Agosto 2024 · $28,000.00" [selected]
+    - option "Septiembre 2024 · $28,000.00"
+    - option "Octubre 2024 · $28,000.00"
+    - option "Noviembre 2024 · $28,000.00"
+    - option "Diciembre 2024 · $28,000.00"
+    - option "Enero 2025 · $28,000.00"
+    - option "Febrero 2025 · $28,000.00"
+    - option "Marzo 2025 · $28,000.00"
+    - option "Abril 2025 · $28,000.00"
+    - option "Mayo 2025 · $28,000.00"
+    - option "Junio 2025 · $28,000.00"
+    - option "Julio 2025 · $28,000.00"
+    - option "Agosto 2025 · $28,000.00"
+    - option "Septiembre 2025 · $28,000.00"
+    - option "Enero 2026 · $28,000.00"
+    - option "Febrero 2026 · $28,000.00"
+    - option "Marzo 2026 · $28,000.00"
+    - option "Abril 2026 · $28,000.00"
+    - option "Mayo 2026 · $28,000.00"
+    - option "Junio 2026 · $28,000.00"
+    - option "Julio 2026 · $28,000.00"
+  - button "Crear"
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Diego Romero
+  - paragraph: Teléfono
+  - paragraph: "1145123415"
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 1 clase
+  - generic: 14/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,36 @@
+{
+  "dia": 11,
+  "situaciones": 27,
+  "resultados": {
+    "Sí": 23,
+    "No": 4
+  },
+  "esperados_literales": true,
+  "fuente_congelada_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "imagenes_decodificadas": 72,
+  "recibos": [
+    {
+      "archivo": "11.2-recibo-tomas.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "11.3-recibo-zoe.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "11.4-recibo-felipe.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "11.5-recibo-valentina.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "11.6-recibo-morena.pdf",
+      "paginas": 1
+    }
+  ],
+  "pausa_minima_registrada_segundos": 63.935,
+  "producto_y_tabla": "Sin cambios; ver diff del commit",
+  "limites": "Día 12: reactivación/pago de Julieta bloqueados en Chrome; cierre parcial. Revisión independiente pendiente."
+}

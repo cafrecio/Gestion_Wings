@@ -1,0 +1,80 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Resumen de caja" [level=1]
+- main:
+  - generic: Caja abierta con el efectivo declarado.
+  - paragraph: Operativo
+  - paragraph: Rocío Paz
+  - paragraph: Apertura
+  - paragraph: 19/10/2026 15:03
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "0"
+  - text: movimientos
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/caja/8/editar
+  - button "Cerrar"
+  - button "Rectificar"
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/8/detalle
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - heading "Efectivo del mostrador" [level=3]
+  - text: Inicial
+  - paragraph: $10,000.00
+  - text: Esperado
+  - paragraph: $10,000.00
+  - text: Contado
+  - paragraph: Sin declarar
+  - text: Diferencia
+  - paragraph: Sin declarar
+  - text: Cambio que queda
+  - paragraph: Sin declarar
+  - text: Retiro / entrega
+  - paragraph: Sin declarar
+  - paragraph: Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+  - heading "Sin movimientos" [level=3]
+  - paragraph: Esta caja no tiene movimientos registrados.
+- contentinfo:
+  - generic: Wings

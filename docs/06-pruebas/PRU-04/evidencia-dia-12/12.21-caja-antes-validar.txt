@@ -1,0 +1,174 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Sandra Vidal
+  - paragraph: Apertura
+  - paragraph: 21/10/2026 15:03
+  - paragraph: Cierre
+  - paragraph: 21/10/2026 15:15
+  - paragraph: Estado
+  - paragraph: CERRADA
+  - generic: 0 de 6 verificados
+  - button "Validar"
+  - button "Rechazar"
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/10/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "21/10/2026 I EFE Cuotas — Cuota Mensual Iglesias, Helena · PAT · 10/26 $50,000.00 Recibo Verificar movimiento 48":
+          - cell "21/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Iglesias, Helena · PAT · 10/26":
+            - generic: Iglesias, Helena · PAT · 10/26
+          - cell "$50,000.00"
+          - cell "Recibo Verificar movimiento 48":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/34?inline=1
+            - checkbox "Verificar movimiento 48"
+        - row "21/10/2026 I EFE Cuotas — Cuota Mensual Suarez, Ignacio · Fú · 09/26, 10/26 $70,000.00 Recibo Verificar movimiento 49":
+          - cell "21/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Suarez, Ignacio · Fú · 09/26, 10/26":
+            - generic: Suarez, Ignacio · Fú · 09/26, 10/26
+          - cell "$70,000.00"
+          - cell "Recibo Verificar movimiento 49":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/35?inline=1
+            - checkbox "Verificar movimiento 49"
+        - row "21/10/2026 I MP Cuotas — Cuota Mensual Silva, Paulina · PAT · 10/26 $30,000.00 Recibo Verificar movimiento 50":
+          - cell "21/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Silva, Paulina · PAT · 10/26":
+            - generic: Silva, Paulina · PAT · 10/26
+          - cell "$30,000.00"
+          - cell "Recibo Verificar movimiento 50":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/36?inline=1
+            - checkbox "Verificar movimiento 50"
+        - row "21/10/2026 I MP Inscripciones — Inscripción al club Silva, Paulina · PAT · 10/26 $5,000.00 Recibo Verificar movimiento 51":
+          - cell "21/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Silva, Paulina · PAT · 10/26":
+            - generic: Silva, Paulina · PAT · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 51":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/36?inline=1
+            - checkbox "Verificar movimiento 51"
+        - 'row "21/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 2 inscripciones más $16,000.00 Verificar movimiento 52"':
+          - cell "21/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de primavera: 2 inscripciones más"':
+            - generic: "Torneo de primavera: 2 inscripciones más"
+          - cell "$16,000.00"
+          - cell "Verificar movimiento 52":
+            - checkbox "Verificar movimiento 52"
+        - row "21/10/2026 E EFE Gastos Operativos — Insumos Varios Bidón de agua $3,300.00 Verificar movimiento 53":
+          - cell "21/10/2026"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Insumos Varios"
+          - cell "Bidón de agua":
+            - generic: Bidón de agua
+          - cell "$3,300.00"
+          - cell "Verificar movimiento 53":
+            - checkbox "Verificar movimiento 53"
+      - rowgroup:
+        - 'row "Ingresos: $171,000.00 · Egresos: $3,300.00 $167,700.00"':
+          - 'cell "Ingresos: $171,000.00 · Egresos: $3,300.00"':
+            - text: "Ingresos:"
+            - strong: $171,000.00
+            - text: "· Egresos:"
+            - strong: $3,300.00
+          - cell "$167,700.00"
+          - cell
+- contentinfo:
+  - generic: Wings

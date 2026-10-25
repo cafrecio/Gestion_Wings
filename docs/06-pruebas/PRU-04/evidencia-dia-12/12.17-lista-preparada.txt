@@ -1,0 +1,130 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 3":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "3"
+- generic: Hernán Quintana
+- button "Salir"
+- banner:
+  - heading "Clase — Fútbol — Avanzadas" [level=1]
+- main:
+  - heading "Jueves 8 de octubre de 2026" [level=2]
+  - generic: 19:00 – 20:00
+  - generic: Fútbol
+  - generic: Fútbol — Avanzadas
+  - generic: Quintana, Hernán
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "14"
+  - text: alumnos en el grupo ·
+  - strong: "8"
+  - text: presentes
+  - generic: Diaz, Thiago
+  - generic: 2/1 (Excede)
+  - generic: · DNI …502
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Fernandez, Benjamin
+  - generic: 2/2 (Completo)
+  - generic: · DNI …302
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Ferrari, Nicolas
+  - generic: 2/2 (Completo)
+  - generic: · DNI …805
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Gimenez, Tomas
+  - generic: 2/2 (Completo)
+  - generic: · DNI …919
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Molina, Franco
+  - generic: 2/1 (Excede)
+  - generic: · DNI …015
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Morales, Lorenzo
+  - generic: 2/1 (Excede)
+  - generic: · DNI …017
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Navarro, Julian
+  - generic: 2/2 (Completo)
+  - generic: · DNI …806
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Ortiz, Tobias
+  - generic: 2/2 (Completo)
+  - generic: · DNI …016
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Ramos, Dante
+  - generic: 1/2
+  - generic: · DNI …909
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rodriguez, Mateo
+  - generic: 2/1 (Excede)
+  - generic: · DNI …203
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Leon
+  - generic: 1/1 (Completo)
+  - generic: · DNI …013
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Silva, Simon
+  - generic: 2/2 (Completo)
+  - generic: · DNI …014
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Sosa, Felipe
+  - generic: 2/1 (Excede)
+  - generic: · DNI …904
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Vega, Joaquin
+  - generic: 2/2 (Completo)
+  - generic: · DNI …914
+  - generic: Presente
+  - checkbox "Presente" [checked] [active]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

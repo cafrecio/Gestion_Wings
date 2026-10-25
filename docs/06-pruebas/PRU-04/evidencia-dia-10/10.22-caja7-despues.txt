@@ -1,0 +1,144 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 18":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "18"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Resumen de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Pablo Ledesma
+  - paragraph: Apertura
+  - paragraph: 17/10/2026 09:31
+  - paragraph: Cierre
+  - paragraph: 17/10/2026 09:57
+  - paragraph: Estado
+  - paragraph: VALIDADA
+  - strong: "3"
+  - text: movimientos
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/7/detalle
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - heading "Efectivo del mostrador" [level=3]
+  - text: Inicial
+  - paragraph: $10,000.00
+  - text: Esperado
+  - paragraph: $36,100.00
+  - text: Contado
+  - paragraph: $36,100.00
+  - text: Diferencia
+  - paragraph: $0.00
+  - text: Cambio que queda
+  - paragraph: $10,000.00
+  - text: Retiro / entrega
+  - paragraph: $26,100.00
+  - paragraph: Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+  - paragraph: Por medio de pago
+  - table:
+    - rowgroup:
+      - row "Abr. Medio Total":
+        - columnheader "Abr."
+        - columnheader "Medio"
+        - columnheader "Total"
+    - rowgroup:
+      - row "EFE Efectivo $26,100.00":
+        - cell "EFE"
+        - cell "Efectivo"
+        - cell "$26,100.00"
+      - row "MP Mercado Pago $144,000.00":
+        - cell "MP"
+        - cell "Mercado Pago"
+        - cell "$144,000.00"
+  - paragraph: Por rubro
+  - table:
+    - rowgroup:
+      - row "Rubro Tipo Total":
+        - columnheader "Rubro"
+        - columnheader "Tipo"
+        - columnheader "Total"
+    - rowgroup:
+      - row "Torneos INGRESO $32,000.00":
+        - cell "Torneos"
+        - cell "INGRESO"
+        - cell "$32,000.00"
+      - row "Cuotas INGRESO $144,000.00":
+        - cell "Cuotas"
+        - cell "INGRESO"
+        - cell "$144,000.00"
+      - row "Mantenimiento y arreglos EGRESO $5,900.00":
+        - cell "Mantenimiento y arreglos"
+        - cell "EGRESO"
+        - cell "$5,900.00"
+  - paragraph: Ingresos
+  - paragraph: $176,000.00
+  - paragraph: Egresos
+  - paragraph: $5,900.00
+  - paragraph: Neto
+  - paragraph: $170,100.00
+- contentinfo:
+  - generic: Wings

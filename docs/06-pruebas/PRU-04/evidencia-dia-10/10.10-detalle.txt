@@ -1,0 +1,138 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Rocío Paz
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Rocío Paz
+  - paragraph: Apertura
+  - paragraph: 19/10/2026 15:03
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "5"
+  - text: movimientos
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/8/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "19/10/2026 I EFE Cuotas — Cuota Mensual Quiroga, Lara · PAT · 10/26 $30,800.00 Recibo Cancelar":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Quiroga, Lara · PAT · 10/26":
+            - generic: Quiroga, Lara · PAT · 10/26
+          - cell "$30,800.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/26?inline=1
+            - button "Cancelar"
+        - row "19/10/2026 I EFE Inscripciones — Inscripción al club Quiroga, Lara · PAT · 10/26 $5,000.00 Recibo Cancelar":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Quiroga, Lara · PAT · 10/26":
+            - generic: Quiroga, Lara · PAT · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/26?inline=1
+            - button "Cancelar"
+        - row "19/10/2026 I EFE Cuotas — Cuota Mensual Pereyra, Bianca · PAT · 10/26 $40,000.00 Recibo Cancelar":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Pereyra, Bianca · PAT · 10/26":
+            - generic: Pereyra, Bianca · PAT · 10/26
+          - cell "$40,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/27?inline=1
+            - button "Cancelar"
+        - row "19/10/2026 I BGA Cuotas — Cuota Mensual Perez, Carla · PAT · 10/26 $33,000.00 Recibo Cancelar":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "BGA"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Perez, Carla · PAT · 10/26":
+            - generic: Perez, Carla · PAT · 10/26
+          - cell "$33,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/28?inline=1
+            - button "Cancelar"
+        - row "19/10/2026 I MP Indumentaria — Patines Patines talle 34 $85,000.00 Editar Eliminar":
+          - cell "19/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Indumentaria — Patines"
+          - cell "Patines talle 34":
+            - generic: Patines talle 34
+          - cell "$85,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/8/movimientos/39/editar
+            - button "Eliminar"
+      - rowgroup:
+        - 'row "Ingresos: $193,800.00 · Egresos: $0.00 $193,800.00"':
+          - 'cell "Ingresos: $193,800.00 · Egresos: $0.00"':
+            - text: "Ingresos:"
+            - strong: $193,800.00
+            - text: "· Egresos:"
+            - strong: $0.00
+          - cell "$193,800.00"
+          - cell
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,172 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 32":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "32"
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Principiantes" [level=1]
+- main:
+  - heading "Lunes 19 de octubre de 2026" [level=2]
+  - generic: 16:00 – 17:00
+  - generic: Patín
+  - generic: Patín — Principiantes
+  - generic: Gaitán, Lucía
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "28"
+  - text: alumnos en el grupo ·
+  - strong: "26"
+  - text: presentes
+  - generic: Acosta, Victoria
+  - generic: 0/1
+  - generic: · DNI …001
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Benítez, Mora
+  - generic: 0/2
+  - generic: · DNI …456
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Martina
+  - generic: 0/1
+  - generic: · DNI …917
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Renata
+  - generic: 0/1
+  - generic: · DNI …002
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Zoe
+  - generic: 0/1
+  - generic: · DNI …903
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gomez, Sofia
+  - generic: 0/1
+  - generic: · DNI …101
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gutierrez, Olivia
+  - generic: 0/2
+  - generic: · DNI …907
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gutierrez, Paulina
+  - generic: 0/1
+  - generic: · DNI …006
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Herrera, Alma
+  - generic: 0/2
+  - generic: · DNI …004
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Iglesias, Clara
+  - generic: 0/1
+  - generic: · DNI …009
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Lopez, Martina
+  - generic: 0/1
+  - generic: · DNI …401
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Lopez, Valentina
+  - generic: 0/2
+  - generic: · DNI …402
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Medina, Emilia
+  - generic: 0/2
+  - generic: · DNI …003
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Molina, Milagros
+  - generic: 0/1
+  - generic: · DNI …012
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Morales, Agustina
+  - generic: 0/1
+  - generic: · DNI …014
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Morales, Julieta
+  - generic: 0/1
+  - generic: · DNI …911
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ortiz, Micaela
+  - generic: 0/2
+  - generic: · DNI …013
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Pereyra, Bianca
+  - generic: 0/2
+  - generic: · DNI …007
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Perez, Mia
+  - generic: 0/2
+  - generic: · DNI …017
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Quiroga, Lara
+  - generic: 0/2
+  - generic: · DNI …111
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramos, Pilar
+  - generic: 0/1
+  - generic: · DNI …008
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rios, Lola
+  - generic: 0/1
+  - generic: · DNI …015
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Romero, Catalina
+  - generic: 0/1
+  - generic: · DNI …018
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rossi, Morena
+  - generic: 0/2
+  - generic: · DNI …010
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Silva, Abril
+  - generic: 0/1
+  - generic: · DNI …011
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Silva, Paulina
+  - generic: 0/1
+  - generic: · DNI …920
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Suarez, Juana
+  - generic: 0/1
+  - generic: · DNI …005
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Torres, Luciana
+  - generic: 0/1
+  - generic: · DNI …016
+  - generic: Presente
+  - checkbox "Presente" [checked] [active]
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

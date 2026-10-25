@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 6":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "6"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Silva, Paulina" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $0.00"
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "57100920"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 20/07/2020
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145129908"
+  - paragraph:
+    - text: Email
+  - paragraph: veronica.silva@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $30,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 01/09/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Veronica Silva
+  - paragraph: Teléfono
+  - paragraph: "1145129908"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 21/10/2026 · Oct 2026
+  - generic: $35,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/36?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 3 clases
+  - generic: 05/10
+  - generic: 14/10
+  - generic: 19/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

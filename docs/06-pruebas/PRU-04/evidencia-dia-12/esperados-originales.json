@@ -1,0 +1,184 @@
+{
+  "dia": 12,
+  "capturado_antes_de_operar": "2026-10-25T20:44:03.241814+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-10-12.md",
+  "fuente_sha256": "a7041eb2f8fb48468e8fe88689a8d1edddd7fef2e6aac2b57bcaca352298ab25",
+  "commit_local": "75fc34e91bf0f54bbb05f6a763a245db661068ff",
+  "casos": [
+    {
+      "id": "12.1",
+      "quien": "Verónica",
+      "tarea": "Carga atrasada **#18**, 02/10, Patín Intermedias",
+      "esperado": "**18.** Ausentes, las de plan 1 vez, 9: Constanza Cabrera, Josefina Ferrari, Juana Flores, Delfina Martínez, Alma Navarro, Carla Pérez, Florencia Romero, Rocío Sosa y Candela Vega. **9 presentes.**",
+      "linea_fuente": 88
+    },
+    {
+      "id": "12.2",
+      "quien": "Verónica",
+      "tarea": "Carga atrasada **#13**, 05/10",
+      "esperado": "**18, todas presentes.**",
+      "linea_fuente": 89
+    },
+    {
+      "id": "12.3",
+      "quien": "Verónica",
+      "tarea": "Carga atrasada **#19**, 09/10",
+      "esperado": "**18.** Ausentes: las mismas 9 que en la #18. **9 presentes.**",
+      "linea_fuente": 90
+    },
+    {
+      "id": "12.4",
+      "quien": "Sandra",
+      "tarea": "Abre caja",
+      "esperado": "Propone **$10.000**, lo que retuvo Pablo.",
+      "linea_fuente": 91
+    },
+    {
+      "id": "12.5",
+      "quien": "Sandra",
+      "tarea": "**Helena Iglesias** (Patín Federadas 1 vez, Moroso, octubre $40.000) pasa a **2 veces** ($50.000), desde su ficha.",
+      "esperado": "Como debe octubre, el plan nuevo **rige este mes**: octubre pasa a **$50.000**.",
+      "linea_fuente": 92
+    },
+    {
+      "id": "12.6",
+      "quien": "Sandra",
+      "tarea": "Helena paga $50.000 en efectivo.",
+      "esperado": "Pasa a **Al día**.",
+      "linea_fuente": 93
+    },
+    {
+      "id": "12.7",
+      "quien": "Sandra",
+      "tarea": "**Ignacio Suárez** (Deudor: septiembre y octubre, $35.000 cada uno) quiere pagar **noviembre** dejando lo viejo.",
+      "esperado": "Avisa que debe meses anteriores y pide confirmar. Sandra no confirma.",
+      "linea_fuente": 94
+    },
+    {
+      "id": "12.8",
+      "quien": "Sandra",
+      "tarea": "Ignacio paga septiembre y octubre, $70.000 en efectivo.",
+      "esperado": "Pasa a **Al día**.",
+      "linea_fuente": 95
+    },
+    {
+      "id": "12.9",
+      "quien": "Sandra",
+      "tarea": "**Paulina Silva** (Deudor: inscripción $5.000 y octubre $30.000) paga $35.000 por Mercado Pago, con **doble clic** en Cobrar.",
+      "esperado": "**Un solo** cobro. Pasa a **Al día**.",
+      "linea_fuente": 96
+    },
+    {
+      "id": "12.10",
+      "quien": "Sandra",
+      "tarea": "Ingreso **Torneos → Inscripciones**: $16.000 en efectivo, «Torneo de primavera: 2 inscripciones más».",
+      "esperado": "En su caja.",
+      "linea_fuente": 97
+    },
+    {
+      "id": "12.11",
+      "quien": "Sandra",
+      "tarea": "Gasto en **Insumos Varios**: $3.300 en efectivo, «Bidón de agua».",
+      "esperado": "El efectivo esperado baja $3.300.",
+      "linea_fuente": 98
+    },
+    {
+      "id": "12.12",
+      "quien": "Lucía",
+      "tarea": "Lista **#8**, Patín Principiantes 16–17",
+      "esperado": "**28, Lara incluida.** Presentes: las de plan 2 veces más Zoe Flores y Pilar Ramos, que el lunes faltaron: **12**. Ausentes, 16: Victoria Acosta, Martina Castro, Renata Flores, Sofía Gómez, Paulina Gutiérrez, Clara Iglesias, Martina López, Milagros Molina, Agustina Morales, Julieta Morales, Lola Ríos, Catalina Romero, Abril Silva, Paulina Silva, Juana Suárez y Luciana Torres. Sin «Clase adicional».",
+      "linea_fuente": 99
+    },
+    {
+      "id": "12.13",
+      "quien": "Hernán",
+      "tarea": "Lista **#59**, Fútbol Principiantes 18–19",
+      "esperado": "**21.** Presentes: los de plan 2 veces más Santino Romero, que faltó el lunes: **8**. Ausentes, 13: Camila Benítez, Bruno Castro, Mateo Castro, Santino Flores, Tomás Gutiérrez, Facundo Herrera, Bautista Martínez, Lautaro Medina, Santiago Ramos, Facundo Ríos, Thiago Ruiz, Benicio Torres y **Tomás Quiroga**. Sin «Clase adicional».",
+      "linea_fuente": 100
+    },
+    {
+      "id": "12.14",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#63**, 01/10, Fútbol Avanzadas",
+      "esperado": "**14.** Ausentes: Thiago Díaz, Franco Molina, Lorenzo Morales, Mateo Rodríguez, León Rossi y Felipe Sosa. **8 presentes.**",
+      "linea_fuente": 101
+    },
+    {
+      "id": "12.15",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#73**, 03/10",
+      "esperado": "**14.** Ausentes: los mismos 6. **8 presentes.**",
+      "linea_fuente": 102
+    },
+    {
+      "id": "12.16",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#64**, 06/10",
+      "esperado": "**14, todos presentes.** Propone «Clase adicional» para **Thiago Díaz, Franco Molina, Lorenzo Morales, Mateo Rodríguez y Felipe Sosa**.",
+      "linea_fuente": 103
+    },
+    {
+      "id": "12.17",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#65**, 08/10",
+      "esperado": "**14.** Ausentes: los mismos 6 de la #63. **8 presentes.** Propone «Clase adicional» para **Benjamín Fernández, Nicolás Ferrari, Tomás Giménez, Julián Navarro, Tobías Ortiz, Simón Silva y Joaquín Vega**.",
+      "linea_fuente": 104
+    },
+    {
+      "id": "12.18",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#52**, 05/10, Fútbol Principiantes",
+      "esperado": "**20, todos presentes.**",
+      "linea_fuente": 105
+    },
+    {
+      "id": "12.19",
+      "quien": "Hernán",
+      "tarea": "Carga atrasada **#57**, 07/10",
+      "esperado": "**20.** Ausentes, 13: Camila Benítez, Bruno Castro, Mateo Castro, Santino Flores, Tomás Gutiérrez, Facundo Herrera, Bautista Martínez, Lautaro Medina, Santiago Ramos, Facundo Ríos, Santino Romero, Thiago Ruiz y Benicio Torres. **7 presentes.**",
+      "linea_fuente": 106
+    },
+    {
+      "id": "12.20",
+      "quien": "Sandra",
+      "tarea": "Cierra y cuenta **$142.700**",
+      "esperado": "Esperado $142.700, diferencia $0. Retiene $10.000 y entrega $132.700.",
+      "linea_fuente": 107
+    },
+    {
+      "id": "12.21",
+      "quien": "Dueño",
+      "tarea": "Valida la caja de Sandra. **Corrige** el gasto de Internet del lunes: era **$18.950** y no $18.500.",
+      "esperado": "Queda **un solo** movimiento de Internet, de $18.950, con fecha 19/10.",
+      "linea_fuente": 108
+    },
+    {
+      "id": "12.22",
+      "quien": "Dueño",
+      "tarea": "**Julieta Álvarez** vuelve a Patín Intermedias: la reactiva desde su ficha.",
+      "esperado": "Vuelve con su deuda tal cual: **$143.000**, Deudor. No se genera otra cuota de octubre.",
+      "linea_fuente": 109
+    },
+    {
+      "id": "12.23",
+      "quien": "Dueño",
+      "tarea": "La familia de Julieta paga los **$143.000** por Mercado Pago.",
+      "esperado": "Un cobro de cinco meses. Recibo con los cinco. **Al día**.",
+      "linea_fuente": 110
+    },
+    {
+      "id": "12.24",
+      "quien": "Dueño",
+      "tarea": "Rocío olvidó su clave: el dueño le pone una nueva. Rocío ingresa con ella y sale.",
+      "esperado": "Ingresa con la clave nueva. La anterior ya no sirve.",
+      "linea_fuente": 111
+    },
+    {
+      "id": "12.25",
+      "quien": "Dueño",
+      "tarea": "Cierre del día",
+      "esperado": "Deuda **$804.000**; **103 activos: 84 Al día, 0 En plazo, 7 Morosos, 12 Deudores**. Ingresos **$1.496.750,75**, egresos **$235.550**, resultado **$1.261.200,75**. Aportes $100.000, retiros $50.000. Disponible **$2.946.200,75**: Efectivo $859.700, MP $1.883.950,75, Galicia $137.550, Nación $65.000. **«Sin asistencia» 0.**",
+      "linea_fuente": 112
+    }
+  ]
+}

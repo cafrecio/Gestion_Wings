@@ -1,0 +1,88 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 6":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "6"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Alumnos" [level=1]
+- main:
+  - combobox "Buscar por nombre, apellido o DNI...": "54400008"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - button "Limpiar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "1"
+  - text: de
+  - strong: "1"
+  - text: alumnos
+  - button "Nuevo"
+  - generic "Al día"
+  - heading "Suarez, Ignacio" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "54400008"
+  - generic: "Celular:"
+  - generic: "1145120008"
+  - generic: "Edad:"
+  - generic: 7 años
+  - generic: "Tutor:"
+  - generic: Tutor Suarez
+  - generic: "Tel. tutor:"
+  - generic: "1145120008"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+- contentinfo:
+  - generic: Wings
