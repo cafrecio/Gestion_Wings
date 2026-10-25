@@ -6,9 +6,9 @@ Carlos decidió no ofrecer deuda sin cuota guardada; autorizó hacer el cambio y
 Cobrar retira la cuota en memoria; selector T18 incluye el corriente manual y el envío exige elección explícita bajo bloqueo. Precio/descuento y pagos conservados, servicio intacto.
 Nueve pruebas nuevas; finales: 68/442 verdes. Completa Codex: 1034 aprobadas/6 omitidas/1 fallo de fixture T78, 8959 aserciones, 1073,34 s; T78 repetida después, sus tres pruebas verdes. Contador 1041 (9 propias + 3 ajenas).
 Chrome local: alumno al día $0, deuda guardada $30.000 y cobro manual con pago/imputación/movimiento únicos. Bases descartables propias; suite siempre en wings_testing_codex. HTML T34 restaurado con copia recuperable previa.
-Carlos observó el importe móvil: corregido a columna completa, 280 px como Mes, botón debajo a la derecha; escritorio conserva 150 px. Ocho capturas renovadas, aspecto pendiente de aprobación.
+Carlos observó el importe móvil: corregido a columna completa, 280 px como Mes, botón debajo a la derecha; escritorio conserva 150 px. Tras ver la captura corregida aprobó: «Ahora esta Ok» (25/10).
 [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md) y [galería](../06-pruebas/PRU-04/APROBAR-T77.html). Tabla intacta, propuesta COB-028 acción/a/b. Sin servidor remoto, datos del club ni despliegue.
-T77 quedó a_verificar, tiene nadie, hizo Codex; guardianes 7/34 verdes. El tablero ajeno T78 ya estaba commiteado antes de registrar T77. Pendiente aprobación visual de Carlos y revisión independiente de reglas/código. Sin push manual.
+T77 sigue a_verificar, tiene nadie, hizo Codex; guardianes 7/34 verdes. Aprobación visual registrada en informe, galería, resumen y tablero; resta revisión independiente de reglas/código. ESTADO-ACTUAL con cambios ajenos: no se mezcla; sincronizar su frase pendiente cuando quede libre. Solo documentación, diff/enlaces verificados; sin push manual.
 
 ## 2026-10-24 — Codex CAB — Prueba humana III: Días 5 y 6
 

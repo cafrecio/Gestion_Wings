@@ -1,11 +1,11 @@
 # T77 — Cobrar muestra solamente la deuda guardada
 
-Codex CAB, 25/10/2026. **Implementada localmente; revisión visual y control independiente pendientes. No desplegada.**
+Codex CAB, 25/10/2026. **Implementada localmente; aspecto aprobado por Carlos. Control independiente de lógica pendiente. No desplegada.**
 
 Decisión de Carlos: «Si no tiene deuda, ¿por qué ofrece cobrar octubre? No se puede cobrar dos veces.»
 Autorización de trabajo y vista en este chat: «Hace lo que tengas que hacer, para eso te paso el prompt.
-Despues yo apruebo la parte visual». La aprobación de las capturas y la revisión independiente de
-reglas quedan pendientes; esta autorización no se presenta como aprobación visual.
+Despues yo apruebo la parte visual». Después de ver la captura corregida, Carlos aprobó el aspecto:
+«Ahora esta Ok» (25/10/2026). La revisión independiente de reglas sigue pendiente.
 
 ## Cambio
 
@@ -132,7 +132,11 @@ no se puso en mantenimiento la aplicación compartida ni se modificó el servici
 Capturas renovadas de las cuatro situaciones a ambos anchos. Medición final: Mes e Importe a
 375 comparten `x=40`, `width=280`, `right=320`; Agregar mide 96 px, termina en 320 y queda 8 px
 debajo del importe. A 1366 el importe sigue midiendo 150 px. [Medidas](evidencia-t77/mediciones-correccion-visual.json)
-y [consola final](evidencia-t77/consola-corregida.json). Aprobación de esta corrección aún pendiente.
+y [consola final](evidencia-t77/consola-corregida.json). Carlos aprobó esta corrección después de
+recibir en el chat la imagen `selector-375.jpg`: «Ahora esta Ok» (25/10/2026).
+La aprobación visual corresponde a las capturas de [la galería](APROBAR-T77.html), con
+[huellas guardadas](evidencia-t77/imagenes.json), y al cambio entregado en `5f618c9c`.
+Carlos verifica el aspecto según AGENTS.md §6a; esa aprobación no verifica la lógica financiera.
 
 ## Propuesta para COB-028 — solo Carlos/Claude actualizan la tabla
 
@@ -152,5 +156,8 @@ La fuente y la referencia de tarea deberían incorporar T77; no se modifica la c
 Contrato: [Cuotas, deudas y pagos V2](../../02-contratos/Wings-contrato-cuotas-deudas-pagos-V2.md#3b-auto-creación-de-deudacuota-período-vigente-o-futuro).
 Tablero T77 registrado en `a_verificar`, tiene nadie, hizo Codex, con referencia a esta entrega.
 Guardianes finales del contador/tablero: **7 aprobadas, 34 aserciones, salida 0**
-([salida](evidencia-t77/guardianes-finales.txt)). Carlos aprueba las capturas y otro agente verifica
-reglas/código; no autocierre. Commit solo propio, sin push manual.
+([salida](evidencia-t77/guardianes-finales.txt)). Aspecto aprobado por Carlos: «Ahora esta Ok».
+Otro agente debe verificar reglas/código; no autocierre. Commit solo propio, sin push manual.
+Al registrar esta aprobación, `ESTADO-ACTUAL.md` tenía cambios ajenos en curso: se conserva sin
+editar ni incluir en el commit. Su frase de aprobación pendiente debe sincronizarse cuando quede libre;
+el estado vigente de la aprobación queda registrado aquí, en la galería, el resumen y el tablero.
