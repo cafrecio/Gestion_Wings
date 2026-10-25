@@ -76,3 +76,11 @@ usa el mismo cálculo una vez. La causa de Cashflow no se midió.
 
 Límites: los datos de volumen no incluyen liquidaciones ni el historial de reportes; la máquina local
 no es el servidor. Las proporciones (de decenas de milisegundos a segundos) son lo que importa.
+
+## Después de las reparaciones (25/10, T79 y T80)
+
+- **Performance (T79):** con los mismos dos años de datos, Reportes · Finanzas 22.280 → 2.613 ms y Cashflow
+  2.976 → 101 ms, con los mismos números (comparación completa antes y después en `comparar-t79.php` y
+  `comparar-cobranza-t79.php`). Medición en `performance-volumen-2-anios-t79.json`. [Informe](../IMPLEMENTACION-T79.md).
+- **Seguridad (T80):** la política de contenido ahora bloquea; `SeguridadDiasPruebaTest` lo exige.
+  [Informe](../IMPLEMENTACION-T80.md).

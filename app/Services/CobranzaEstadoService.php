@@ -133,7 +133,7 @@ class CobranzaEstadoService
      * @param Collection<int, Alumno> $alumnos
      * @return array<int, array{cuotas: float, inscripcion: float, total: float, cuotas_impagas: int, mas_antigua: string}>
      */
-    public function saldoDeAlumnos(Collection $alumnos): array
+    public function saldoDeAlumnos(Collection $alumnos, ?Collection $recargosPorAlumno = null): array
     {
         if ($alumnos->isEmpty()) {
             return [];
@@ -141,12 +141,13 @@ class CobranzaEstadoService
 
         $alumnoIds = $alumnos->pluck('id');
 
-        $deudasPorAlumno = DeudaCuota::whereIn('alumno_id', $alumnoIds)
-            ->get()
-            ->groupBy('alumno_id');
+        // T79: si las deudas ya vinieron con los alumnos, no se vuelven a leer.
+        $deudasPorAlumno = $alumnos->every(fn ($a) => $a->relationLoaded('deudaCuotas'))
+            ? $alumnos->mapWithKeys(fn ($a) => [$a->id => $a->deudaCuotas])
+            : DeudaCuota::whereIn('alumno_id', $alumnoIds)->get()->groupBy('alumno_id');
 
         $inscripcionPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
-        $recargosPorAlumno = $this->recargosPendientesPorAlumno($alumnoIds);
+        $recargosPorAlumno ??= $this->recargosPendientesPorAlumno($alumnoIds);
 
         $necesitaFechas = $alumnos->contains(fn($a) => !array_key_exists('fecha_alta', $a->getAttributes()));
         $fechasAlta = $necesitaFechas
@@ -365,8 +366,8 @@ class CobranzaEstadoService
             ])
             ->get();
 
-        $saldos = $this->saldoDeAlumnos($todosAlumnos);
         $recargosPorAlumno = $this->recargosPendientesPorAlumno($todosAlumnos->pluck('id'));
+        $saldos = $this->saldoDeAlumnos($todosAlumnos, $recargosPorAlumno);
 
         // Calcular estado y deuda para cada registro individual
         foreach ($todosAlumnos as $alumno) {

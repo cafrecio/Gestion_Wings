@@ -53,10 +53,9 @@ class ReporteWebController extends Controller
         abort_unless(Schema::hasTable('reporte_cobertura') && Schema::hasTable('reporte_eventos'), 503, 'Reportes requiere preparar su historial.');
         $mes = $datos['mes'] ?? today()->format('Y-m');
         $deporteId = isset($datos['deporte_id']) ? (int) $datos['deporte_id'] : null;
-        $reporte = $servicio->obtener($mes, $deporteId);
         // El mes elegido cerrado participa en las tarjetas y en las seis muestras.
         $limite = $mes === today()->format('Y-m') ? $mes : CarbonImmutable::createFromFormat('!Y-m', $mes)->addMonth()->format('Y-m');
-        $evolucion = $servicio->evolucion($limite, $deporteId);
+        [$reporte, $evolucion] = $servicio->enLote(fn () => [$servicio->obtener($mes, $deporteId), $servicio->evolucion($limite, $deporteId)]);
         if ($mes < today()->format('Y-m') && !collect($evolucion)->contains('mes', $mes)) {
             $evolucion = collect($evolucion)->push($reporte)->take(-6)->values()->all();
         }

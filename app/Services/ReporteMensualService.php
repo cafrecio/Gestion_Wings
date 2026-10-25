@@ -10,6 +10,26 @@ use InvalidArgumentException;
 
 class ReporteMensualService
 {
+    /**
+     * T79: dentro de un lote el historial de movimientos se lee una sola vez. Con dos años de
+     * datos cada lectura tarda más de un segundo, y Reportes la repetía ocho veces. Fuera de un
+     * lote cada llamada vuelve a leer la base: quien cambia datos y vuelve a pedir ve lo nuevo.
+     */
+    private bool $enLote = false;
+    private ?Collection $movimientosDelLote = null;
+
+    public function enLote(callable $calculo): mixed
+    {
+        if ($this->enLote) return $calculo();
+        $this->enLote = true;
+        try {
+            return $calculo();
+        } finally {
+            $this->enLote = false;
+            $this->movimientosDelLote = null;
+        }
+    }
+
     public function obtener(string $mes, ?int $deporteId = null): array
     {
         if (!preg_match('/^\d{4}-(0[1-9]|1[0-2])$/D', $mes) || $mes > today()->format('Y-m')) {
@@ -27,18 +47,8 @@ class ReporteMensualService
         $desconocidos = $delMes->filter(fn ($f) => $f['clasificacion'] === null);
         $deuda = $this->deudaDeAlumnos($fin, $mes, $deporteId);
         $porPagar = $this->saldoHistorico('LIQUIDACION', $fin, $mes, $deporteId);
-        $iniciales = DB::table('reporte_eventos')->where('tipo', 'CAJA_INICIAL')->whereDate('fecha', '<=', $fin)
-            ->selectRaw('origen_id, SUM(delta_centavos) AS centavos')->groupBy('origen_id')->pluck('centavos', 'origen_id');
-        $tipos = TipoCaja::orderBy('nombre')->get()->map(function ($tipo) use ($filas, $iniciales) {
-            $propias = $filas->where('tipo_caja_id', $tipo->id);
-            $confirmado = (int) ($iniciales[$tipo->id] ?? 0) + $propias->where('confirmado', true)->sum('centavos');
-            $pendiente = $propias->where('confirmado', false)->sum('centavos');
-            return ['id' => $tipo->id, 'nombre' => $tipo->abreviatura ?: $tipo->nombre,
-                'confirmado' => $confirmado, 'pendiente' => $pendiente, 'total' => $confirmado + $pendiente];
-        });
+        $cajas = $this->saldosPorCaja($fin);
         $hasta = DB::table('reporte_cobertura')->where('id', 1)->value('desde');
-        // Los saldos iniciales antiguos no tienen fecha efectiva: no inventar cortes previos.
-        $saldoDisponible = $fin >= $hasta;
         return [
             'mes' => $mes, 'fecha_corte' => $fin, 'deporte_id' => $deporteId,
             'ingresos' => $ingresos, 'egresos' => $egresos,
@@ -49,8 +59,8 @@ class ReporteMensualService
             'aportes' => $delMes->where('clasificacion', 'APORTE')->sum('centavos'),
             'retiros' => -$delMes->where('clasificacion', 'RETIRO')->sum('centavos'),
             'deuda' => $deuda, 'por_pagar' => $porPagar,
-            'cajas' => $saldoDisponible ? $tipos->all() : null,
-            'disponible' => $saldoDisponible ? $tipos->sum('total') : null,
+            'cajas' => $cajas,
+            'disponible' => $cajas === null ? null : array_sum(array_column($cajas, 'total')),
             'historial_desde' => $hasta,
             // Disponible es del negocio entero: el saldo inicial no tiene deporte.
             'filas' => $delMesEconomico->filter($enDeporte)->values()->all(),
@@ -62,13 +72,42 @@ class ReporteMensualService
         ];
     }
 
+    /**
+     * Saldo de cada medio a una fecha: lo confirmado en Cashflow más lo que espera en cajas sin
+     * validar, con el mismo signo que el reporte. Se suma en la base (T79): Cashflow lo muestra
+     * sin calcular el reporte entero. Null antes del historial: los saldos iniciales antiguos no
+     * tienen fecha efectiva y no se inventan cortes previos.
+     */
+    public function saldosPorCaja(string $fecha): ?array
+    {
+        if ($fecha < DB::table('reporte_cobertura')->where('id', 1)->value('desde')) return null;
+        $iniciales = DB::table('reporte_eventos')->where('tipo', 'CAJA_INICIAL')->whereDate('fecha', '<=', $fecha)
+            ->selectRaw('origen_id, SUM(delta_centavos) AS centavos')->groupBy('origen_id')->pluck('centavos', 'origen_id');
+        $confirmados = DB::table('cashflow_movimientos')->whereDate('fecha', '<=', $fecha)
+            ->selectRaw('tipo_caja_id, SUM(ROUND(monto * 100)) AS centavos')->groupBy('tipo_caja_id')->pluck('centavos', 'tipo_caja_id');
+        $pendientes = DB::table('movimientos_operativos as m')
+            ->join('cajas_operativas as c', 'c.id', '=', 'm.caja_operativa_id')
+            ->leftJoin('subrubros as s', 's.id', '=', 'm.subrubro_id')->leftJoin('rubros as r', 'r.id', '=', 's.rubro_id')
+            ->where('m.estado', 'ACTIVO')->where('c.estado', '!=', CajaOperativa::ESTADO_VALIDADA)->whereDate('m.fecha', '<=', $fecha)
+            ->selectRaw("m.tipo_caja_id, SUM(CASE WHEN COALESCE(m.reporte_tipo, r.tipo) = 'EGRESO' THEN -ABS(ROUND(m.monto * 100)) ELSE ABS(ROUND(m.monto * 100)) END) AS centavos")
+            ->groupBy('m.tipo_caja_id')->pluck('centavos', 'tipo_caja_id');
+        return TipoCaja::orderBy('nombre')->get()->map(function ($tipo) use ($iniciales, $confirmados, $pendientes) {
+            $confirmado = (int) ($iniciales[$tipo->id] ?? 0) + (int) ($confirmados[$tipo->id] ?? 0);
+            $pendiente = (int) ($pendientes[$tipo->id] ?? 0);
+            return ['id' => $tipo->id, 'nombre' => $tipo->abreviatura ?: $tipo->nombre,
+                'confirmado' => $confirmado, 'pendiente' => $pendiente, 'total' => $confirmado + $pendiente];
+        })->all();
+    }
+
     public function evolucion(string $mes, ?int $deporteId = null): array
     {
-        $filas = $this->movimientos();
-        $meses = $filas->map(fn ($f) => substr($f['fecha'], 0, 7))
-            ->concat($this->filasEconomicas($filas)->pluck('periodo_ingreso'))->unique()
-            ->filter(fn ($p) => $p < $mes && $p < today()->format('Y-m'))->sort()->take(-6);
-        return $meses->map(fn ($p) => $this->obtener($p, $deporteId))->values()->all();
+        return $this->enLote(function () use ($mes, $deporteId) {
+            $filas = $this->movimientos();
+            $meses = $filas->map(fn ($f) => substr($f['fecha'], 0, 7))
+                ->concat($this->filasEconomicas($filas)->pluck('periodo_ingreso'))->unique()
+                ->filter(fn ($p) => $p < $mes && $p < today()->format('Y-m'))->sort()->take(-6);
+            return $meses->map(fn ($p) => $this->obtener($p, $deporteId))->values()->all();
+        });
     }
 
     /**
@@ -167,15 +206,25 @@ class ReporteMensualService
 
     private function movimientos(): Collection
     {
+        if (!$this->enLote) return $this->leerMovimientos();
+        return $this->movimientosDelLote ??= $this->leerMovimientos();
+    }
+
+    private function leerMovimientos(): Collection
+    {
         // Cashflow es fuente confirmada; solo se agregan operativos todavía no reflejados.
-        $cf = CashflowMovimiento::with(['subrubro.rubro', 'movimientoOperativo'])->get();
+        $cf = CashflowMovimiento::with('subrubro.rubro')->get();
         $pendientes = MovimientoOperativo::activos()->whereHas('cajaOperativa', fn ($q) => $q->where('estado', '!=', CajaOperativa::ESTADO_VALIDADA))
             ->with('subrubro.rubro')->get();
         $antiguos = $this->pagosDeAsientosAntiguos($cf);
+        // T79: del movimiento de caja reflejado solo se usa el cobro, y del cobro solo lo que
+        // lee PartesPagoCuotaService::partes(). Con dos años, armar los modelos enteros pesaba.
+        $cobroDelOperativo = MovimientoOperativo::whereIn('id', $cf->pluck('movimiento_operativo_id')->filter()->unique())->pluck('pago_id', 'id');
         $idPago = fn ($m) => $m->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA ? $m->referencia_id
-            : ($m->movimientoOperativo?->pago_id ?? $antiguos[$m->id] ?? null);
-        $pagos = Pago::with('deudasCuota')->whereIn('id', $cf->toBase()->map($idPago)
-            ->concat($pendientes->pluck('pago_id'))->filter()->unique())->get()->keyBy('id');
+            : ($cobroDelOperativo[$m->movimiento_operativo_id] ?? $antiguos[$m->id] ?? null);
+        $pagos = Pago::select(['id', 'mes', 'anio', 'fecha_pago', 'estado', 'detalle_anulacion', 'monto_cuota', 'monto_final'])
+            ->with(['deudasCuota' => fn ($q) => $q->select(['deuda_cuotas.id', 'deuda_cuotas.periodo'])])
+            ->whereIn('id', $cf->toBase()->map($idPago)->concat($pendientes->pluck('pago_id'))->filter()->unique())->get()->keyBy('id');
         return $cf->toBase()->map(fn ($m) => $this->fila($m, true, $pagos->get($idPago($m))))
             ->concat($pendientes->map(fn ($m) => $this->fila($m, false, $pagos->get($m->pago_id))));
     }

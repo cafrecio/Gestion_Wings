@@ -30,6 +30,11 @@ Comportamiento interno 16/16 sobre los datos reales; seguridad 7/7, con un halla
 contenido solo informa, no bloquea); performance bien con los datos de hoy, pero **con dos años de datos
 Reportes tarda 22 s** y Cashflow, Inicio del dueño, Sueldos, Reportes de Alumnos y Cobranza entre 1,4 y 3 s.
 
+**Reparado el mismo día, local y sin desplegar:** T80 pone la política de contenido en bloqueo
+([informe](IMPLEMENTACION-T80.md)). T79 baja, con dos años de datos, Reportes de 22 s a 2,6 s y Cashflow
+de 3 s a 0,1 s, con los mismos números ([informe](IMPLEMENTACION-T79.md)). Inicio, Sueldos, Reportes de
+Alumnos y Cobranza siguen entre 1,1 y 2 s con dos años de datos y tres veces los alumnos del club.
+
 ## Corte histórico después del día 4
 
 24/10/2026 · Claude CAB. Armado desde los relatos de cada día (`DIA-01.md` a `DIA-04.md`), las

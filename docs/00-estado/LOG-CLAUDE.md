@@ -11,6 +11,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-25 — Claude CAB — T79: Reportes y Cashflow rápidos con dos años de datos
+
+- Reportes releía la historia 8 veces por pedido: `enLote()` la lee una. Cashflow calculaba el reporte
+  entero para los saldos: `saldosPorCaja()` suma en la base y lo usan los dos. Cobranza no relee deudas.
+- Dos años de datos: Reportes 22,3 → 2,6 s; Cashflow 3,0 → 0,1 s; Cobranza ~1,15 s; Inicio 1,4 s.
+- Mismos números: volcado completo antes/después (52 reportes, saldos con pendientes, Cobranza), igual.
+- Completa 1037/6 omitidas, 0 fallidas; +4 pruebas (lento). Corte 1047. Sin desplegar. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T79.md).
+
 ## 2026-10-25 — Claude CAB — T80: la política de contenido bloquea
 
 - `SecurityHeaders`: misma política, ahora `Content-Security-Policy`. Pasos de AGENTS §2 cumplidos: en el

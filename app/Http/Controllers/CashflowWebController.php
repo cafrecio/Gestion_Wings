@@ -229,7 +229,7 @@ class CashflowWebController extends Controller
 
         // Saldos actuales del mismo libro de Reportes, independientes del filtro del listado.
         $saldosPorMedio = RegistroReporteDisponible::existe()
-            ? app(ReporteMensualService::class)->obtener(today()->format('Y-m'))['cajas']
+            ? app(ReporteMensualService::class)->saldosPorCaja(today()->toDateString())
             : null;
 
         return view('cashflow.index', compact(
