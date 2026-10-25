@@ -202,8 +202,9 @@ Obligatorio, en este orden:
 **T80 (25/10/2026) la pasó a bloqueo siguiendo los cuatro pasos**, con la misma política:
 (1) en reporte desde septiembre, con `/csp-reporte`; (2) en el sitio de prueba, desde el
 despliegue de T73 (21/10, 14:04) hasta el 25/10, unas 60 pantallas distintas recorridas por
-la prueba por días y **cero reportes** (los anteriores eran todos del bloque de `/login`
-que T73 sacó); (3) recorrido local en Chrome ya en bloqueo, 59 pantallas de los tres
+la prueba por días y **cero reportes**. De los 21 anteriores (17 al 21/10), 10 eran del bloque de
+`/login` y 11, del 19/10, de Alumnos, Clases, Grupos y Profesores, vistas de las que T73 sacó
+bloques; esa atribución es inferida (verificación de Codex); (3) recorrido local en Chrome ya en bloqueo, 59 pantallas de los tres
 roles: cero bloqueos y cero errores de JavaScript; (4) capturas de alumnos, caja,
 cobrar, clase, liquidaciones e inicio. Evidencia: `docs/06-pruebas/PRU-04/evidencia-t80-claude/`.
 `style-src` conserva `'unsafe-inline'` (quedan los estilos inline de las vistas): sacarlo

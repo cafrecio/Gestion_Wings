@@ -36,7 +36,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 ## 2026-10-25 — Claude CAB — T80: la política de contenido bloquea
 
 - `SecurityHeaders`: misma política, ahora `Content-Security-Policy`. Pasos de AGENTS §2 cumplidos: en el
-  sitio, cero reportes desde que T73 se desplegó (21/10 14:04; los anteriores eran el bloque de `/login`);
+  sitio, cero reportes desde que T73 se desplegó (21/10 14:04; de los anteriores, 10 de `/login` y 11 de otras
+  vistas que T73 limpió; corregido por Codex, yo había dicho «todos de login» sin mirar la página);
   local en bloqueo, Chrome sobre 59 pantallas de tres roles con dos años de datos: 0 bloqueos, 0 errores JS.
 - Encontrado de paso: texto donde va un número (`/alumnos/abc`) daba 500. `Route::patterns` → 404. +2 pruebas.
 - Rápida 922/6 omitidas, 0 fallidas. Corte 1043. Sin desplegar. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T80.md).
