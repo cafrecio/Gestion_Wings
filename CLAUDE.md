@@ -77,6 +77,18 @@ contrato del area tocada.
 se escribieron ordenes equivocadas. Hoy lo cubre `DocumentacionNoMienteTest`, que pone
 la suite en rojo si el numero no coincide.
 
+## Prueba en TEST: la función de Claude (orden de Carlos, 26/10/2026)
+
+En la prueba por días del sitio de prueba (PRU-04 / T14), Claude hace siempre esto, **sin que Carlos lo pida**:
+
+1. Escribe las historias (guiones de cada tanda de días).
+2. Cuando Codex devuelve días: revisión independiente (relato contra guion y código, plata al peso).
+3. En la misma vuelta, **prueba técnica de esos días**: funcionamiento interno, seguridad (forzando por
+   fuera de la pantalla lo nuevo de esos días) y performance. Todo en `docs/06-pruebas/PRU-04/prueba-tecnica/`.
+
+Se registra, se sube y recién después se informa. Si el servidor no responde, se hace la parte local
+y se dice qué faltó. Carlos lo tuvo que repetir el 24/10 y el 26/10: no esperar el pedido.
+
 ## Regla principal
 
 **Si sos un agente distinto de Claude Code (Codex u otro), leer primero `AGENTS.md`.**
