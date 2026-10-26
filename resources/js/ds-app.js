@@ -18,6 +18,21 @@ import './money-input';
 (function () {
     var csrf = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
 
+    try {
+        var storedMsg = sessionStorage.getItem('ds_flash_success');
+        if (storedMsg) {
+            sessionStorage.removeItem('ds_flash_success');
+            var content = document.querySelector('.ds-content');
+            if (content) {
+                content.querySelectorAll('.ds-flash--success, .ds-flash--error').forEach(function (el) { el.remove(); });
+                var flash = document.createElement('div');
+                flash.className = 'ds-flash ds-flash--success';
+                flash.textContent = storedMsg;
+                content.insertBefore(flash, content.firstChild);
+            }
+        }
+    } catch (e) {}
+
     document.querySelectorAll('.ds-toggle[data-url]').forEach(function (label) {
         var input = label.querySelector('.ds-toggle__input');
         if (!input || input.disabled) return;
@@ -42,7 +57,7 @@ import './money-input';
                     input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
                     var content = document.querySelector('.ds-content');
                     if (content) {
-                        content.querySelectorAll('.ds-flash--error').forEach(function (el) { el.remove(); });
+                        content.querySelectorAll('.ds-flash--error, .ds-flash--success').forEach(function (el) { el.remove(); });
                         var flash = document.createElement('div');
                         flash.className = 'ds-flash ds-flash--error';
                         flash.textContent = data.error;
@@ -52,6 +67,29 @@ import './money-input';
                 }
                 if (data.activo !== undefined && card) {
                     card.style.opacity = data.activo ? '' : '0.6';
+                }
+
+                // En la ficha de alumno recargar para ver cuotas y deuda actualizadas (T84)
+                var isFichaAlumno = !card && Boolean(window.location.pathname.match(/\/alumnos\/\d+/));
+                if (isFichaAlumno) {
+                    if (data.mensaje) {
+                        try {
+                            sessionStorage.setItem('ds_flash_success', data.mensaje);
+                        } catch (e) {}
+                    }
+                    window.location.reload();
+                    return;
+                }
+
+                if (data.mensaje) {
+                    var content = document.querySelector('.ds-content');
+                    if (content) {
+                        content.querySelectorAll('.ds-flash--success, .ds-flash--error').forEach(function (el) { el.remove(); });
+                        var flash = document.createElement('div');
+                        flash.className = 'ds-flash ds-flash--success';
+                        flash.textContent = data.mensaje;
+                        content.insertBefore(flash, content.firstChild);
+                    }
                 }
             })
             .catch(function () {

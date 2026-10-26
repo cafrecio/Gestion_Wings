@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-26 — LOG GEM CYE — T84: Ficha del alumno con interruptor Activo/Inactivo sin confirmación
+
+- **Objetivo y resultado:** Implementación de **T84** pedida por Carlos el 27/10/2026. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 2 pruebas automatizadas en `FichaToggleActivoT84Test`, capturas reales en Chrome (1366 px y marco móvil 375 px) y suite rápida en verde.
+- **Cambios realizados:**
+  - **1. Ficha del alumno (`resources/views/alumnos/show.blade.php`):** Se reemplazó el formulario y botón «Reactivar» con confirmación nativa (`data-confirmar`) por el componente `<x-ds.toggle>` idéntico al listado (`labelOn="Activo"`, `labelOff="Inactivo"`, `data-url="{{ route('web.alumnos.toggle-activo', $alumno->id) }}"`), visible tanto para alumnos activos como inactivos. Se eliminó la etiqueta `<span>` adyacente para no duplicar el estado. Cero código JavaScript inline en Blade (`AGENTS.md` §5-bis).
+  - **2. JavaScript global (`resources/js/ds-app.js`):** En el manejador de `.ds-toggle[data-url]`, se aprovecha `data.mensaje` devuelto por el controlador para mostrar el banner de éxito (`.ds-flash--success`) en `.ds-content`. En la ficha del alumno, persiste el mensaje en `sessionStorage` y recarga la página para que se actualicen las tablas de cuotas y deuda generadas por reingreso (T38). En los demás toggles, inserta el banner directamente sin recargar. Compilación de assets con `npm run build`.
+- **Pruebas y evidencia:** `FichaToggleActivoT84Test` (2 aprobadas, 11 aserciones). Guardianes `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest` y `DocumentacionNoMienteTest` en verde (corte actualizado a 1053 pruebas). 6 capturas reales en Chrome (1366 px y marco 375 px) en `docs/06-pruebas/PRU-04/evidencia-t84/`. Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T84.md`.
+- **Próximo paso:** Carlos evalúa las capturas para la aprobación visual del diseño (`Diseno-autorizado`). Claude verifica la implementación de la lógica.
+
 ## 2026-10-25 — LOG GEM CAB — T81: Teléfono en Alumnos y en Cobranza en lugar del DNI
 
 - **Objetivo y resultado:** Implementación de **T81** pedida por Carlos el 25/10/2026. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 4 pruebas automatizadas en `TelefonoAlumnosYCobranzaT81Test`, capturas reales en Chrome a 1366 y 375 px, y suite rápida completa en verde.

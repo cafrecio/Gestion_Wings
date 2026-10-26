@@ -45,21 +45,23 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T84** Ficha del alumno: interruptor Activo/Inactivo como en el listado, sin confirmacion, y aviso de la cuota generada | Hecho, espera verificación (hizo Gemini) | Verificar en pantalla y código la ficha sin confirmación y con toggle |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Guion de los dias 19 a 22 (28 al 31/10) listo: GUION-DIAS-19-22.md, armado contra la base de wingstest y con cada rutina simulada. 27 casos nuevos. Codex ejecuta; Claude revisa y hace la prueba tecnica. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Ejecutar dias 19 a 22 en TEST, registrar diferencias y entregar a Claude |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (20)
+## Sin empezar (19)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T84, B3 (antes de producción), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), B3 (antes de producción), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

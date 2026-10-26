@@ -46,21 +46,12 @@
 
 {{-- Barra de acciones --}}
 <div class="flex flex-wrap items-center gap-2 mb-4 acciones-celular-derecha cobro-acciones-movil justify-start sm:justify-end">
-    <span style="
-        font-size: 0.7rem; font-weight: 600;
-        padding: 0.2rem 0.65rem; border-radius: 999px;
-        background: {{ $alumno->activo ? 'color-mix(in srgb, var(--color-success) 15%, transparent)' : 'color-mix(in srgb, var(--color-danger) 15%, transparent)' }};
-        color: {{ $alumno->activo ? 'var(--color-success)' : 'var(--color-danger)' }};
-    ">{{ $alumno->activo ? 'Activo' : 'Inactivo' }}</span>
-    @if(!$alumno->activo)
-    <form method="POST" action="{{ route('web.alumnos.toggle-activo', $alumno->id) }}" style="display:inline;">
-        @csrf @method('PATCH')
-        <button type="submit" class="ds-btn ds-btn--primary"
-                data-confirmar="¿Reactivar a {{ $alumno->nombre }} {{ $alumno->apellido }}?">
-            Reactivar
-        </button>
-    </form>
-    @endif
+    <x-ds.toggle
+        labelOn="Activo"
+        labelOff="Inactivo"
+        :checked="(bool) $alumno->activo"
+        data-url="{{ route('web.alumnos.toggle-activo', $alumno->id) }}"
+    />
     @if(!auth()->user()?->isProfesor())
     <x-ds.button variant="primary" href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
     @endif
