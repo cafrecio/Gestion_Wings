@@ -23,6 +23,9 @@ class CobrarMesSinDeudaT77Test extends TestCase
     {
         parent::setUp();
         Carbon::setTestNow('2026-10-25 15:00:00');
+        // La migración fija la cobertura en la fecha real en que se arma la base: sin esto, la prueba
+        // empezó a fallar cuando el calendario real pasó el 25/10.
+        DB::table('reporte_cobertura')->updateOrInsert(['id' => 1], ['desde' => '2026-01-01']);
         Storage::fake();
         $this->seed(CatalogosSeeder::class);
         $this->medio = TipoCaja::where('nombre', 'Efectivo')->firstOrFail();

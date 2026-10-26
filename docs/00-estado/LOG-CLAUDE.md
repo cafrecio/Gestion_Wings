@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — Verificación de T84 (Gemini): lógica aprobada
+
+- Interruptor en la ficha sin confirmación y aviso de la cuota generada, también en el listado. CSP en verde; prueba propia 2/2. [Informe](../06-pruebas/PRU-04/VERIFICACION-T84-CLAUDE.md).
+- Rápida 927/6 omitidas/1 fallida ajena: `CobrarMesSinDeudaT77Test` dependía de la fecha real (la cobertura de reportes se fija «desde hoy»). Arreglado en la prueba; Wings no cambia.
+- Observación → T85: dos toques seguidos generan una cuota de reingreso (el interruptor no se bloquea y la ruta invierte el estado). Falta el OK visual de Carlos; no desplegar hasta terminar el día 22.
+
 ## 2026-10-27 — Claude CyE — Planilla «Prueba por días» al día 18; casos nuevos corregidos
 
 - Planilla (artifact 8cgmP6kq) con los días 17 y 18, cobertura 114/332, defectos y lo que sigue. Desde ahora se actualiza con cada paquete de días (CLAUDE.md, «Prueba en TEST», punto 4).
