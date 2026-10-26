@@ -1,3 +1,16 @@
+# Prueba técnica de los días 17 y 18 — 27/10/2026 · Claude CyE
+
+Sobre la base del sitio de prueba (`wingstest`, con el reloj en 27/10), como usuario `wingstest` y en
+solo lectura. Por SSH desde CyE, por el puerto 2222.
+
+| Área | Resultado |
+|---|---|
+| Funcionamiento interno | **16 de 16 bien** (`controles-internos-resultado-dias-17-18.json`): 15 cajas, 82 movimientos validados, 58 cobros y 70 cuotas cuadran; deuda $234.000 y disponible $3.483.700,75, iguales a lo que leyó Codex |
+| Seguridad | **12 de 12** en `wings_testing_claude`. Nuevo: con un turno abierto, otra operativa no abre el suyo ni forzando el envío; sale el aviso de CAJ-009 y no se crea ninguna caja. El control previo deja configurado el medio de efectivo, así el rechazo viene de esa regla y no de otra |
+| Velocidad con los datos de hoy | Todas las pantallas entre 2 y 211 ms (`performance-sitio-dias-17-18.json`). La más lenta es Cobranza del dueño. Reportes de Sueldos hace 149 consultas en 168 ms: no molesta hoy, pero conviene mirarla cuando crezca la historia |
+
+Hallazgo menor: el rechazo de una clave corta sale en inglés si se saltea el formulario (ver revisión del 17.1).
+
 # Prueba técnica de los días 7 a 16 — 26/10/2026 · Claude CyE
 
 **Seguridad: 4 de 4 bien, sin hallazgos.** Base descartable `wings_testing_claude`; mismas pruebas de

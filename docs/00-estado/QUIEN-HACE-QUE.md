@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17-18 recorridos: 7 Si,5 Parcial,1 No; cajas16/17 validadas, deuda234000 y disponible3483700,75. Claude revisa informes, control interno y velocidad. Julieta inactiva sin143000; incidente propio de lista vacia antes de14presentes. No repetir reloj ni operaciones; ultimo inicio27/10 15:00. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17-18 revisados con prueba tecnica (interno 16/16, seguridad 12/12, velocidad ok): sin defectos de plata. Pendiente Carlos: Julieta (confirmacion nativa que Chrome no acepta). Sigue: guion de los dias 19 en adelante. |
 
 ## Codex
 

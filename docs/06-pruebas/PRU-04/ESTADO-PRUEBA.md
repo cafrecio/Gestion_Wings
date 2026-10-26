@@ -8,6 +8,23 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Revisión de Claude de los días 17 y 18 — 27/10/2026
+
+Revisado contra el [guion](GUION-DIAS-17-18.md), los informes de Codex ([17](DIA-17.md), [18](DIA-18.md),
+commit `760c42a3`), el código y la base del sitio. **La plata cierra al peso:** la única diferencia en
+los dos cierres son los $143.000 y la alumna activa de Julieta, que el guion ya preveía. Los controles
+internos sobre la base dan lo mismo que leyó Codex: deuda $234.000, disponible $3.483.700,75.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 17.7 Julieta, por tercera vez sin hacer | **Límite de la herramienta**, no de Wings. «Reactivar» usa la confirmación nativa del navegador, y el Chrome automático no la puede aceptar | Decide Carlos: lo hace él a mano en el sitio, o se cambia esa confirmación por la ventana propia de Wings, como el resto de las pantallas. Mientras tanto, la diferencia sigue |
+| 17.1 clave de Rocío y 17.5 usuario de Martín | **Bien.** Se hicieron por la vía técnica, a pedido de Carlos, y el ingreso real se comprobó. Defecto menor: si se saltea el formulario, la clave corta se rechaza **en inglés**. La pantalla lo frena antes, en castellano (`minlength`), pero el servidor no tiene ese texto traducido (`UsuarioWebController`: falta `password.min`) | Traducir el mensaje; va a la lista de reparaciones |
+| 17.6 lista atrasada de la #76 | **Correcto: pasa a Sí.** No pidió motivo porque era la primera carga, y propuso «Clase adicional» para Lucas y Tomás, que ya habían venido esa semana | Nada |
+| 18.4 / 18.5 lista guardada vacía por error | **Error de ejecución**, anotado por Codex. La corrección de Martín, el mismo día, no pidió motivo, que es lo correcto; la lista quedó con 14 presentes | Nada |
+
+**Prueba técnica de los días 17 y 18:** funcionamiento interno 16/16 sobre la base del sitio, seguridad
+12/12 y velocidad entre 2 y 211 ms por pantalla ([informe](prueba-tecnica/INFORME.md)).
+
 ## Revisión de Claude de los días 13 a 16 — 26/10/2026
 
 Revisado contra el [guion](GUION-DIAS-13-16.md), los cuatro informes de Codex ([13](DIA-13.md),

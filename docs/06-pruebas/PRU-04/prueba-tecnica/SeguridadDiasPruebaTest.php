@@ -255,6 +255,19 @@ class SeguridadDiasPruebaTest extends TestCase
         $this->assertSame($antes + 1, DB::table('cashflow_movimientos')->count(), 'El movimiento válido no se guardó');
     }
 
+    public function test_dia_18_con_un_turno_abierto_otra_operativa_no_abre_ni_por_envio_directo(): void
+    {
+        $rocio = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
+        // Sin medio de efectivo configurado rechazaría por otro motivo y la prueba no probaría nada.
+        $this->actingAs($this->duenio)->post(route('web.caja.configuracion.store'), ['tipo_caja_id' => $this->efectivo->id])->assertSessionHasNoErrors();
+        $antes = CajaOperativa::count();
+        $r = $this->actingAs($rocio)->post(route('web.caja.abrir'), ['efectivo_inicial' => '10000', 'confirmacion' => '1']);
+        $this->assertTrue($this->prohibido($r), 'Abrió un turno con otro abierto: '.$r->getStatusCode());
+        $r->assertSessionHasErrors(['efectivo_inicial' => 'Hay un turno abierto. Cerralo antes de abrir otro.']);
+        $this->assertSame($antes, CajaOperativa::count());
+        $this->assertSame(0, CajaOperativa::where('usuario_operativo_id', $rocio->id)->count());
+    }
+
     public function test_dia_13_la_caja_rechazada_no_cambia_lo_contado_al_recerrar(): void
     {
         $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id),
