@@ -1,6 +1,8 @@
 # Wings — Estado actual
 
-## T14 — Días 17–18 sin iniciar por requisito técnico, Codex CyE 26/10/2026
+## T83 — Acceso CyE verificado; días 17–18 pendientes, Codex CyE 26/10/2026
+
+**Acceso resuelto y comprobado independientemente:** sobre `26e7f559` de Claude, desde `VENTAS_CYE`, `ssh vps hostname` devuelve `srv1753195.hstgr.cloud`, salida 0; alias en puerto 2222. Script leído, sin reinstalar alias ni cambiar servidor. T83 cerrada, hizo=Claude, verifica=Codex. [Evidencia y límites](../04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md). El bloqueo de acceso descrito abajo es el corte anterior; sigue pendiente el control previo de las jornadas, sin ejecutar días, reloj ni rutinas en esta verificación.
 
 [Día 17: comprobaciones y bloqueo](../06-pruebas/PRU-04/DIA-17.md) · [Día 18: no iniciado](../06-pruebas/PRU-04/DIA-18.md). `git pull` al día (`0542eec9`). SSH desde Ventas_CyE agota la conexión al puerto 22 antes de autenticar; igual fuera del entorno restringido y al ejecutar el instalador previsto. No se fijó reloj ni se envió simulación o rutina. El requisito previo del guion no está cumplido; cero operaciones de los días 17 y 18.
 Consulta actualizada por Chrome, todavía con fecha 25/10: deuda $391.000, 104 activos (99 Al día/0 En plazo/1 Moroso/4 Deudores), cinco filas de deuda coincidentes, ingresos $1.824.850,75, egresos $240.850, disponible $3.337.000,75 con medios coincidentes y por validar $0; clase #76 única pendiente; Julieta inactiva, cinco cuotas y $143.000. Son consultas previas al reloj, no una simulación contra base. Sin reparación, producto, tabla externa, suite, despliegue ni push. T14 en curso, tiene=Claude; sigue resolver acceso y completar el control previo antes de operar.

@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CyE — T83 verificada
+
+Revisado 26e7f559 de Claude.
+VENTAS_CYE: alias 2222; ssh vps hostname devuelve srv1753195.hstgr.cloud, salida 0.
+Script leído; sin reinstalar alias.
+T83 cerrada. Días 17–18 pendientes; no reloj ni rutinas.
+Evidencia: docs/04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md.
+
 ## 2026-10-26 — Codex CyE — Días 17–18: requisito previo bloqueado
 
 Git pull al día, HEAD 0542eec9; guion completo leído. SSH agotó conexión antes de autenticar, también fuera del entorno restringido y con el instalador previsto.

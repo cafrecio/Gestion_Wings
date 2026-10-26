@@ -51,9 +51,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T83** Entrar al servidor desde CyE: SSH en un puerto que la red de CyE deje pasar | Hecho, espera verificación (hizo Claude) | Comprobado por Claude en CyE: ssh vps entra por el 2222. Falta que otro agente lo confirme (correr ssh vps hostname en CyE) y cerrar. |
+Nada en este momento.
 
 ## Gemini
 
