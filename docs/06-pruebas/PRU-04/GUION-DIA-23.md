@@ -64,7 +64,7 @@ nada que liquidar.
 
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
-| 23.1 | — | Reloj a las 05:55. A las 06:02, mirar `storage/logs/scheduler.log` y la tabla `generaciones_cuotas`. | La generación corrió sola una vez y noviembre figura generado (CBZ-011). |
+| 23.1 | — | Reloj a las 05:55. **Antes de las 06:00**, foto del antes: Cobranza ($0) y `generaciones_cuotas` sin noviembre. A las 06:02, mirar `storage/logs/scheduler.log` y la tabla. | La generación corrió sola una vez y noviembre figura generado (CBZ-011). **Si a las 06:02 no corrió:** anotarlo como falla del camino automático, con el log, y correrla a mano una vez (`php artisan cobranza:generar-deudas`) para seguir. |
 | 23.2 | — | Correr el comparador. | **Coinciden 100 de 100**, total $3.783.000; sobran 0, faltan 0, importe distinto 0; duplicadas 0; Revisión 0. Copiar la salida entera al informe. |
 | 23.3 | — | Correr la generación **otra vez a mano**: `php artisan cobranza:generar-deudas`. Después, el comparador de nuevo. | No crea nada: el mismo resultado que en 23.2, sin duplicadas (CBZ-012). |
 | 23.4 | Dueño | Cobranza. | Total adeudado **$3.783.000**; 103 activos: **100 En plazo y 3 Al día**. |
