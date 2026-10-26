@@ -55,7 +55,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia23:100cuotas correctas,dos comparadores100/100;8liquidaciones generadas y13atrasadas validadas, todas abiertas. Esperar permisoCarlos para cierres desde integrado tras rechazo automatico; no pagar ni repetir reloj/generacion. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia23:100cuotas correctas;8liquidaciones abiertas y13atrasadas validadas. Carlos autorizo cierres desde integrado sin pagar; herramienta navegador local deshabilitada. Restablecer acceso, verificar Abierta y cerrar; no repetir reloj/generacion. |
 
 ## Gemini
 

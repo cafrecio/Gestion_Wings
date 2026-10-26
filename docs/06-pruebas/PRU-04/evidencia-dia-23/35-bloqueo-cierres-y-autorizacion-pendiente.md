@@ -9,3 +9,7 @@ Se abrió el navegador integrado para resolver la limitación técnica. La revis
 No se volvió a intentar el cierre ni se lo sustituyó por consola. Trabajo independiente permitido: generar las otras7liquidaciones y validar9atrasadas de Hernán/4de Martín. Listado final:8Abiertas, importes coincidentes, sin pagar ninguna. Se pidió a Carlos autorización explícita para cerrar las8desde el integrado, comprobando Abierta antes de cada una; pendiente respuesta.
 
 El riesgo indicado por la revisión es repetir un cierre; el estado real leído sigue Abierta. Ninguna autorización para pagar está solicitada ni concedida.
+
+## Resolución de la consulta
+
+Carlos autorizó los ocho cierres desde el integrado, sin pagar. El permiso ya no está pendiente; el bloqueo posterior es navegador local deshabilitado. Ver [constancia37](37-autorizacion-carlos-y-navegador-deshabilitado.md). Lo anterior conserva el estado histórico del rechazo.

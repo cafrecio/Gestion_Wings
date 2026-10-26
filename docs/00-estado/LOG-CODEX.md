@@ -1,11 +1,11 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-26 — Codex CyE — Día23 preparado; cierres pendientes de permiso
+## 2026-10-26 — Codex CyE — Día23 autorizado; navegador deshabilitado
 
 TEST500ce7bc, staging/wingstest; guion0abc15af. Reloj01/11 05:55 una vez; foto previaCobranza0/103Al día, noviembre sin generar. Scheduler automático06:00:07; constancia100creadas/3existentes/0Revisión.
 Dos comparadores100de100/3.783.000, sin sobrantes/faltantes/distintos/duplicadas/Revisión. Segunda manual0creadas/103existentes. Cobranza100En plazo/3Al día; fichasAlma/Lucas/Mora/Felipe comprobadas.
 Ocho liquidaciones generadas por1.370.280;9atrasadasHernán/4Martín validadas, totales484.680/186.600. Todas Abiertas; ninguna pagada. Lucía20en selector→17/204.000 generada.
-Dos confirmaciones Chrome fallaron; revisión automática rechazó reintentar cierre en navegador integrado sin permiso explícito. Ocho preparadas, consulta enviada aCarlos; esperar respuesta. No cerrar por consola ni repetir generación/reloj.
+Dos confirmacionesChrome fallaron; rechazo automático exigió permiso para integrado. Carlos autorizó: «Sí, cerrá las ocho desde el integrado, sin pagar». Al continuar,navegador local deshabilitado antes del clic. Última lectura8Abiertas; permiso vigente. Restablecer navegador y cerrar sin consola ni repetir generación/reloj.
 Inicio ya tenía103.000ingresosnoviembre, guion0; diferencia conservada. [Informe/salidas](../06-pruebas/PRU-04/DIA-23.md). T14en curso,Codex; entregar aClaude al completar. Sin producto,tabla,suite,deploy ni push.
 
 ## 2026-10-26 — Codex CyE — Días19–22 entregados con diferencias

@@ -11,7 +11,7 @@ Codex CyE · 26/10/2026 · TEST/wingstest · sitio500ce7bc · guion0abc15af.
 -23.4: Cobranza3.783.000,103activos,100En plazo/3Al día.
 -23.5: Alma44.000,Lucas38.000,Mora44.000Patín/28.000Fútbol;FelipeAl día,noviembre38.000pagado22/10 sin deuda nueva visible.
 -23.6: selectorLucía20, generada17/204.000; coincide con T87 conocido.
--23.7–23.10:8generadas/importes correctos;9atrasadasHernán(128.400) y4Martín(46.200)validadas. Cerrar no se ofrecía mientras quedaban pendientes. **Los8cierres siguen pendientes** de autorización de cambio de navegador tras rechazo automático.
+-23.7–23.10:8generadas/importes correctos;9atrasadasHernán(128.400) y4Martín(46.200)validadas. Cerrar no se ofrecía mientras quedaban pendientes. **Los8cierres siguen pendientes**. Carlos autorizó expresamente el integrado; al continuar, la herramienta informó navegador local deshabilitado antes de ejecutar el primer clic.
 -23.11: comprobación final de8Cerradas/por pagar1.370.280 pendiente; no se da como cumplida.
 -23.12: opcional; aún no se verificó.
 
@@ -34,7 +34,7 @@ Total confirmado: **$1.370.280**, todavía no son8cerradas. [Listado](evidencia-
 
 Inicio muestra ingresosnoviembre103.000 antes de generar, guion0; diferencia conservada, sin atribuir causa. Disponible inicial4.959.900,75. Los metadatos del esperado dicen precio_vigente_desde18/10 para10cuotas PatínPrincipiantes2veces; el guion dice aumento desde noviembre. Los importes de noviembre autorizados coinciden y se verificaron sin editar fuentes. JSON de liquidaciones contiene además Vanina/septiembre1clase/0; se generaron solamente las8positivas del guion.
 
-[Rechazo automático y permiso pendiente](evidencia-dia-23/35-bloqueo-cierres-y-autorizacion-pendiente.md). No se sustituyeron cierres por consola; ninguna liquidación pagada.
+[Rechazo automático histórico](evidencia-dia-23/35-bloqueo-cierres-y-autorizacion-pendiente.md). No se sustituyeron cierres por consola; ninguna liquidación pagada.
 
 ## Salidas completas
 
@@ -213,3 +213,7 @@ Revisión de 2026-11: 0
 ```
 
 [Control documental independiente del avance](evidencia-dia-23/VERIFICACION-DOCUMENTAL-PREPARACION.md). No acredita los cierres pendientes.
+
+## Continuación autorizada
+
+Carlos: «Sí, cerrá las ocho desde el integrado, sin pagar». Permiso vigente; acceso al navegador deshabilitado en Work. [Constancia y próximo paso](evidencia-dia-23/37-autorizacion-carlos-y-navegador-deshabilitado.md) · [última revalidación de ocho Abiertas](evidencia-dia-23/36-revalidacion-ocho-abiertas.txt). No se ejecutó ningún cierre después de esa respuesta.
