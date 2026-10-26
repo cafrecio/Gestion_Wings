@@ -47,7 +47,7 @@ qué se probó, qué dio, qué se hizo y qué falta.
 Se hicieron **4 de los ~60 días** previstos (10 al 13/10 del calendario ficticio). Ejercitaron **35 de
 los 331 casos** del catálogo. Todos los defectos que aparecieron están corregidos, salvo uno que
 necesita una decisión tuya (abajo, «Lo que hay que decidir»). El sitio de prueba corre el mismo
-código de `main` al 25/10 (commit `b816d181`, desplegado ese día con T77 a T80; antes, `56379295` del 21/10).
+código de `main` al 25/10 (commit `ec1b0c6e`, con T77 a T81 y el script de rutina; antes, `b816d181` y `56379295`).
 
 ## Qué hicimos cada día, qué dio y qué hicimos con eso
 
