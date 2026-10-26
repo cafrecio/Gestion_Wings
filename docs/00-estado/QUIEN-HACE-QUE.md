@@ -48,11 +48,12 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17 y 18 no iniciados: SSH agota conexion antes de autenticar desde CyE, tambien fuera del entorno restringido y con instalador. Reloj y rutinas sin ejecutar. Pantallas al 25/10 coinciden con partida; falta control obligatorio con reloj 26/10 y --simular antes de operar. Informe DIA-17.md; cero reparaciones. |
-| **T83** Entrar al servidor desde CyE: SSH en un puerto que la red de CyE deje pasar | Hecho, espera verificación (hizo Claude) | Hecho desde CAB 26/10 (7a3d46de): sshd escucha en 22, 2222 y 8022; CSF abierto; probado desde CAB por 2222 y 8022. En CyE: correr scripts/maquina/instalar-acceso-servidor.ps1, que deja el alias vps con el primer puerto que responde, y probar ssh vps hostname. |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T83** Entrar al servidor desde CyE: SSH en un puerto que la red de CyE deje pasar | Hecho, espera verificación (hizo Claude) | Comprobado por Claude en CyE: ssh vps entra por el 2222. Falta que otro agente lo confirme (correr ssh vps hostname en CyE) y cerrar. |
 
 ## Gemini
 
