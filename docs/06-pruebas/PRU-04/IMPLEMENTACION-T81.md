@@ -93,5 +93,5 @@ Capturas tomadas con Chrome headless emulando escritorio y móvil sobre el servi
 
 ## 5. Próximo paso
 
-- Aprobación visual de Carlos sobre las capturas en `evidencia-t81/`.
-- Verificación de lógica por otro agente conforme a `AGENTS.md §6a`.
+- **Visual:** Aprobado por Carlos el 25/10/2026 («Las imagenes estan OK»).
+- **Lógica:** Falta verificación de lógica por otro agente (Codex) conforme a `AGENTS.md §6a`.
