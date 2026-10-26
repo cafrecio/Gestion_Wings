@@ -1,0 +1,7 @@
+{"dia": "2026-10-24", "descripcion": "Día 15, sábado: Pablo abre, cobra a Berenice Rossi, carga las inscripciones del torneo y Mariela toma lista.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "abrir_caja"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Rossi, Berenice", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": 24000, "obs": "Torneo de primavera: 3 inscripciones"},
+  {"como": "Mariela Ocampo", "accion": "lista", "clase": 49, "ausentes": ["Diaz, Martina", "Diaz, Catalina", "Nuñez, Guadalupe", "Ramos, Lucia", "Rossi, Olivia", "Vega, Florencia"]}
+ ]}

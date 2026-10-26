@@ -1,0 +1,14 @@
+{"dia": "2026-10-22", "descripcion": "Día 13, jueves: turno de Sandra, cobros simples, un gasto y las listas de las tres clases del día.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Nuñez, Guadalupe", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Ramirez, Lucia", "periodos": ["2026-10"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Castro, Martina", "periodos": [], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Morales, Carla", "periodos": [], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Pereyra, Liam", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Gutierrez, Olivia", "periodos": ["2026-10"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": 3800, "obs": "Desodorante de ambientes y bolsas"},
+  {"como": "Lucía Gaitán", "accion": "lista", "clase": 31, "ausentes": ["Alvarez, Camila", "Gimenez, Delfina", "Morales, Carla", "Suarez, Valentina"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "clase": 42, "ausentes": []},
+  {"como": "Hernán Quintana", "accion": "lista", "clase": 69, "ausentes": ["Diaz, Thiago", "Gomez, Lucas", "Molina, Franco", "Morales, Lorenzo", "Rodriguez, Mateo", "Rossi, Leon"]}
+ ]}

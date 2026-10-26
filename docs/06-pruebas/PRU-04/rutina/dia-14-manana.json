@@ -1,0 +1,11 @@
+{"dia": "2026-10-23", "descripcion": "Día 14, viernes: turno de Pablo, cobros simples, un gasto y la lista de Patín Intermedias.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "abrir_caja"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Ramos, Dante", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Pereyra, Zoe", "periodos": ["2026-10"], "medio": "Mercado Pago"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Rossi, Morena", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Castro, Mateo", "periodos": ["2026-10"], "medio": "Banco Nación"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Lopez, Martina", "periodos": ["2026-10"], "medio": "Mercado Pago"},
+  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Librería", "medio": "Efectivo", "monto": 1500, "obs": "Resma de papel"},
+  {"como": "Verónica Salinas", "accion": "lista", "clase": 21, "ausentes": ["Cabrera, Constanza", "Ferrari, Josefina", "Flores, Juana", "Martinez, Delfina", "Romero, Florencia", "Sosa, Rocio", "Vega, Candela"]}
+ ]}

@@ -1,0 +1,5 @@
+{"dia": "2026-10-23", "descripcion": "Día 14, viernes a la noche: Pablo cierra sin diferencia y el dueño valida.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "cerrar_caja", "cambio": 10000},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Pablo Ledesma"}
+ ]}
