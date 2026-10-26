@@ -1,0 +1,173 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Configuración" [level=1]
+- main:
+  - alert [active]:
+    - strong: No se guardó.
+    - link "Revisar":
+      - /url: "#cfg-dias_gracia_cobranza"
+    - list:
+      - 'link "Días de gracia para pagar: Elegí un día del 1 al 28."':
+        - /url: "#cfg-dias_gracia_cobranza"
+  - region "La plata":
+    - heading "La plata" [level=2]
+    - article:
+      - heading "Inscripción al club" [level=3]
+      - paragraph: Se cobra una sola vez por persona. Cambiar este importe afecta las inscripciones nuevas; las deudas ya creadas conservan su precio.
+      - text: Importe de la inscripción ($)
+      - textbox "Importe de la inscripción ($)":
+        - /placeholder: "0"
+        - text: 5,000.00
+      - paragraph: Ingresá un importe mayor que cero, con hasta dos decimales.
+      - button "Guardar"
+  - region "La cobranza":
+    - heading "La cobranza" [level=2]
+    - article:
+      - heading "Días de gracia para pagar" [level=3]
+      - paragraph: Hasta este día del mes, el que no pagó todavía no es moroso.
+      - generic: Último día de gracia del mes
+      - spinbutton "Último día de gracia del mes": "-3"
+      - paragraph: Elegí un día del 1 al 28. Con 10, una cuota de este mes pasa a morosa el día 11. Si debe meses anteriores, sigue siendo deudor.
+      - paragraph:
+        - link "Elegí un día del 1 al 28.":
+          - /url: "#cfg-dias_gracia_cobranza"
+      - button "Guardar"
+    - article:
+      - 'heading "Recargo por mora: día" [level=3]'
+      - paragraph: Pasado este día, se aplica el porcentaje a la cuota impaga del mes en curso. Se respeta el plazo de los alumnos nuevos.
+      - generic: Último día sin recargo
+      - spinbutton "Último día sin recargo": "10"
+      - paragraph: Elegí un día del 1 al 28. Con 10, el recargo puede aplicarse desde el día 11.
+      - button "Guardar"
+    - article:
+      - 'heading "Recargo por mora: porcentaje" [level=3]'
+      - paragraph: Se calcula una sola vez sobre el importe original de cada cuota. No cambia recargos anteriores ni se aplica a meses cerrados o alumnos inactivos.
+      - generic: Porcentaje de recargo (%)
+      - textbox "Porcentaje de recargo (%)": "0"
+      - paragraph: De 0 a 100, con coma o punto y hasta dos decimales. Con 0 no se aplican recargos nuevos.
+      - button "Guardar"
+    - article:
+      - heading "Generación de cuotas mensuales" [level=3]
+      - paragraph: El sistema genera las cuotas automáticamente el día 1 de cada mes, a las 06:00.
+      - generic: "Día:"
+      - strong: 1 · Fijo
+      - generic: "Horario:"
+      - strong: 06:00 · Hora Argentina
+      - paragraph: No se cambia desde esta pantalla.
+    - article:
+      - heading "Importe de la primera cuota" [level=3]
+      - paragraph: Al dar de alta un alumno, su fecha real de ingreso determina qué porcentaje del plan se cobra ese primer mes. No modifica cuotas ya creadas.
+    - strong: "3"
+    - text: reglas configuradas
+    - button "Nuevo"
+    - heading "Primera quincena (1-15)" [level=3]
+    - generic: "Días:"
+    - generic: 1 al 15
+    - generic: "Porcentaje:"
+    - generic: 100%
+    - button "Editar"
+    - button "Eliminar"
+    - heading "Segunda quincena (16-23)" [level=3]
+    - generic: "Días:"
+    - generic: 16 al 23
+    - generic: "Porcentaje:"
+    - generic: 70%
+    - button "Editar"
+    - button "Eliminar"
+    - heading "Fin de mes (24-31)" [level=3]
+    - generic: "Días:"
+    - generic: 24 al 31
+    - generic: "Porcentaje:"
+    - generic: 40%
+    - button "Editar"
+    - button "Eliminar"
+  - region "Los avisos":
+    - heading "Los avisos" [level=2]
+    - article:
+      - heading "Correo para los avisos del club" [level=3]
+      - paragraph: Acá llegan los pendientes y las situaciones que necesitan atención. Si queda vacío, se usan los correos de los administradores.
+      - generic: Correo electrónico
+      - textbox "Correo electrónico":
+        - /placeholder: "Ejemplo: administracion@club.com"
+        - text: <redacted>
+      - paragraph: Ingresá una dirección completa o dejá el campo vacío.
+      - button "Guardar"
+    - article:
+      - heading "Telegram para los avisos del club" [level=3]
+      - paragraph: También permite recibir los avisos por Telegram. Dejarlo vacío conserva el chat de respaldo del club, si está configurado.
+      - generic: Número del chat de Telegram
+      - textbox "Número del chat de Telegram":
+        - /placeholder: Número del chat, no del teléfono
+        - text: <redacted>
+      - paragraph: Primero escribile al bot del club. Usá el número del chat que haya sido verificado; no ingreses tu teléfono.
+      - button "Guardar"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,91 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Flores, Zoe" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "56300903"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 11/12/2018
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123416"
+  - paragraph:
+    - text: Email
+  - paragraph: claudia.flores@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $30,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 15/03/2025
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Claudia Flores
+  - paragraph: Teléfono
+  - paragraph: 11-4567-1234
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 15/10/2026 · Oct 2026
+  - generic: $30,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/15?inline=1
+  - generic: 30/09/2026 · Ago 2026
+  - generic: $30,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/62?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 2 clases
+  - generic: 05/10
+  - generic: 21/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

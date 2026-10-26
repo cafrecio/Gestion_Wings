@@ -1,0 +1,132 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Pablo Ledesma
+  - paragraph: Apertura
+  - paragraph: 24/10/2026 15:00
+  - paragraph: Cierre
+  - paragraph: 25/10/2026 15:02
+  - paragraph: Estado
+  - paragraph: CERRADA
+  - generic: 2 de 2 verificados
+  - button "Validar"
+  - button "Rechazar"
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/14/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "24/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Berenice · PAT · 10/26 $50,000.00 Recibo Verificar movimiento 87":
+          - cell "24/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Rossi, Berenice · PAT · 10/26":
+            - generic: Rossi, Berenice · PAT · 10/26
+          - cell "$50,000.00"
+          - cell "Recibo Verificar movimiento 87":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/63?inline=1
+            - checkbox "Verificar movimiento 87" [checked]
+        - 'row "24/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 3 inscripciones $24,000.00 Verificar movimiento 88"':
+          - cell "24/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de primavera: 3 inscripciones"':
+            - generic: "Torneo de primavera: 3 inscripciones"
+          - cell "$24,000.00"
+          - cell "Verificar movimiento 88":
+            - checkbox "Verificar movimiento 88" [checked]
+      - rowgroup:
+        - 'row "Ingresos: $74,000.00 · Egresos: $0.00 $74,000.00"':
+          - 'cell "Ingresos: $74,000.00 · Egresos: $0.00"':
+            - text: "Ingresos:"
+            - strong: $74,000.00
+            - text: "· Egresos:"
+            - strong: $0.00
+          - cell "$74,000.00"
+          - cell
+- contentinfo:
+  - generic: Wings

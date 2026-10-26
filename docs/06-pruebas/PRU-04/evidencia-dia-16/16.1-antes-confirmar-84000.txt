@@ -1,0 +1,98 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Cierre de caja" [level=1]
+- main:
+  - paragraph: "Caja #14 · Pablo Ledesma. Contá solo el efectivo del mostrador, no las transferencias ni lo que cobró ADMIN aparte."
+  - text: Efectivo inicial
+  - paragraph: $10,000.00
+  - text: Efectivo esperado
+  - paragraph: $84,000.00
+  - text: Efectivo contado
+  - generic: "*"
+  - generic: $
+  - textbox "Efectivo contado *":
+    - /placeholder: "0"
+    - text: 84,000.00
+  - text: Cambio que queda
+  - generic: "*"
+  - generic: $
+  - textbox "Cambio que queda *" [active]:
+    - /placeholder: "0"
+    - text: "10000"
+  - text: Diferencia
+  - paragraph: Sin diferencia $0.00
+  - text: Retiro / entrega
+  - paragraph: $74,000.00
+  - paragraph: "Podés cerrar con faltante o sobrante: ADMIN revisará la diferencia. El retiro no se registra como gasto."
+  - button "Volver"
+  - button "Cerrar"
+- contentinfo:
+  - generic: Wings

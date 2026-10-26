@@ -1,0 +1,171 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Grupos" [level=1]
+- main:
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - button "Limpiar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "7"
+  - text: de
+  - strong: "7"
+  - text: grupos
+  - button "Nuevo"
+  - img "Activo"
+  - heading "Fútbol — Avanzadas" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Alumnos activos:"
+  - generic: "15"
+  - generic: "Planes:"
+  - generic: 1x/sem — $38,000.00 · 2x/sem — $48,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Fútbol — Principiantes" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Alumnos activos:"
+  - generic: "23"
+  - generic: "Planes:"
+  - generic: 1x/sem — $28,000.00 · 2x/sem — $35,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Patín — Adultos" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Alumnos activos:"
+  - generic: "0"
+  - generic: "Planes:"
+  - generic: 1x/sem — $32,000.00 · 2x/sem — $42,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Patín — Avanzadas" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Alumnos activos:"
+  - generic: "12"
+  - generic: "Planes:"
+  - generic: 1x/sem — $35,000.00 · 2x/sem — $45,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Patín — Federadas" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Alumnos activos:"
+  - generic: "8"
+  - generic: "Planes:"
+  - generic: 1x/sem — $40,000.00 · 2x/sem — $50,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Patín — Intermedias" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Alumnos activos:"
+  - generic: "18"
+  - generic: "Planes:"
+  - generic: 1x/sem — $33,000.00 · 2x/sem — $43,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+  - img "Activo"
+  - heading "Patín — Principiantes" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Alumnos activos:"
+  - generic: "28"
+  - generic: "Planes:"
+  - generic: 1x/sem — $30,000.00 · 2x/sem — $44,000.00
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Editar"
+  - button "Ver"
+- contentinfo:
+  - generic: Wings

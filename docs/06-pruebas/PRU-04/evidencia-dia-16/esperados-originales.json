@@ -1,0 +1,91 @@
+{
+  "dia": 16,
+  "capturado_antes_de_operar": "2026-10-26T02:43:04.403272+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-13-16.md",
+  "fuente_sha256": "0e91648ac0dd9d8000ac12a003f85d7244dadc9285b984d83f97a0f5bfe864a7",
+  "commit_local": "78d5b0a2559c285ff41dae84e335f3d0c776dfb2",
+  "casos": [
+    {
+      "id": "16.1",
+      "quien": "Dueño",
+      "tarea": "En su Inicio ve el turno de Pablo **abierto desde ayer**. Lo cierra él, contando **$84.000** y dejando $10.000.",
+      "esperado": "Lo deja cerrar. Queda guardado que lo cerró el dueño. Los cobros siguen a nombre de Pablo (CAJ-016).",
+      "linea_fuente": 127,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.2",
+      "quien": "Dueño",
+      "tarea": "Valida esa caja.",
+      "esperado": "Validada.",
+      "linea_fuente": 128,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.3",
+      "quien": "Dueño",
+      "tarea": "Reportes: comparación con septiembre y evolución.",
+      "esperado": "Septiembre muestra los $30.000 de Zoe del 30/09. La evolución dibuja los meses con datos (REP-012).",
+      "linea_fuente": 129,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.4",
+      "quien": "Dueño",
+      "tarea": "Reportes de Alumnos: cómo le va a cada grupo.",
+      "esperado": "Cada grupo con sus activos. Fútbol Principiantes cuenta a Valentín y a Mora (REP-015).",
+      "linea_fuente": 130,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.5",
+      "quien": "Dueño",
+      "tarea": "Liquidaciones → **Nueva**, con octubre sin terminar.",
+      "esperado": "La pantalla abre y lista a las profesoras con sus clases. Anotar si deja generar octubre antes de que termine el mes (LIQ-019). **No generar.**",
+      "linea_fuente": 131,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.6",
+      "quien": "Dueño",
+      "tarea": "En Usuarios, intenta cambiarse su propio rol a Operativa y desactivarse.",
+      "esperado": "No lo deja: la cuenta del dueño está protegida (USU-006, USU-009).",
+      "linea_fuente": 132,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.7",
+      "quien": "Dueño",
+      "tarea": "En Configuración, días de gracia «-3» y después «abc».",
+      "esperado": "Rechaza los dos. Queda el valor anterior, 10 (CFG-002).",
+      "linea_fuente": 133,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.8",
+      "quien": "Dueño",
+      "tarea": "Crea el grupo **Patín Adultos** con dos planes: 1 vez $32.000 y 2 veces $42.000.",
+      "esperado": "Se guarda, activo y sin alumnos (GRU-001).",
+      "linea_fuente": 134,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.9",
+      "quien": "Dueño",
+      "tarea": "Crea el subrubro **Botiquín** en Gastos Operativos, para la operativa.",
+      "esperado": "Aparece para la operativa al cargar un gasto (CAT-007).",
+      "linea_fuente": 135,
+      "quien_derivado_del_encabezado": true
+    },
+    {
+      "id": "16.10",
+      "quien": "Dueño",
+      "tarea": "Cierre del domingo",
+      "esperado": "Igual que el sábado, ahora sin nada por validar: deuda **$391.000**; ingresos **$1.967.850,75**; disponible **$3.480.000,75**: Efectivo $1.182.900, MP $2.031.550,75, Galicia $137.550, Nación $128.000. «Sin asistencia» 0.",
+      "linea_fuente": 136,
+      "quien_derivado_del_encabezado": true
+    }
+  ],
+  "bloque_completo_original": "## Día 16 — domingo 25/10: solo el dueño\n\n| # | Tarea | Esperado |\n|---|---|---|\n| 16.1 | En su Inicio ve el turno de Pablo **abierto desde ayer**. Lo cierra él, contando **$84.000** y dejando $10.000. | Lo deja cerrar. Queda guardado que lo cerró el dueño. Los cobros siguen a nombre de Pablo (CAJ-016). |\n| 16.2 | Valida esa caja. | Validada. |\n| 16.3 | Reportes: comparación con septiembre y evolución. | Septiembre muestra los $30.000 de Zoe del 30/09. La evolución dibuja los meses con datos (REP-012). |\n| 16.4 | Reportes de Alumnos: cómo le va a cada grupo. | Cada grupo con sus activos. Fútbol Principiantes cuenta a Valentín y a Mora (REP-015). |\n| 16.5 | Liquidaciones → **Nueva**, con octubre sin terminar. | La pantalla abre y lista a las profesoras con sus clases. Anotar si deja generar octubre antes de que termine el mes (LIQ-019). **No generar.** |\n| 16.6 | En Usuarios, intenta cambiarse su propio rol a Operativa y desactivarse. | No lo deja: la cuenta del dueño está protegida (USU-006, USU-009). |\n| 16.7 | En Configuración, días de gracia «-3» y después «abc». | Rechaza los dos. Queda el valor anterior, 10 (CFG-002). |\n| 16.8 | Crea el grupo **Patín Adultos** con dos planes: 1 vez $32.000 y 2 veces $42.000. | Se guarda, activo y sin alumnos (GRU-001). |\n| 16.9 | Crea el subrubro **Botiquín** en Gastos Operativos, para la operativa. | Aparece para la operativa al cargar un gasto (CAT-007). |\n| 16.10 | Cierre del domingo | Igual que el sábado, ahora sin nada por validar: deuda **$391.000**; ingresos **$1.967.850,75**; disponible **$3.480.000,75**: Efectivo $1.182.900, MP $2.031.550,75, Galicia $137.550, Nación $128.000. «Sin asistencia» 0. |\n",
+  "rutinas": []
+}

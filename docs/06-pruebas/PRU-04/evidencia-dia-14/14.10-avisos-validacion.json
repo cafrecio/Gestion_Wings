@@ -1,0 +1,12 @@
+{
+  "monto": {
+    "valor": "0",
+    "aviso": "El importe debe ser mayor que cero."
+  },
+  "fecha": {
+    "valor": "2026-10-30",
+    "max": "2026-10-23",
+    "aviso": "El valor debe ser igual o anterior a 23/10/2026."
+  },
+  "guardado": false
+}

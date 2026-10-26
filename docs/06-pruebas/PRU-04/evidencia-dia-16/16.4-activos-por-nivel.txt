@@ -1,0 +1,153 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Reporte de alumnos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10
+  - link "Ingresos y egresos":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-10
+  - strong: Alumnos
+  - link "Sueldos":
+    - /url: https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10
+  - combobox "Mes":
+    - option "Octubre 2026" [selected]
+    - option "Septiembre 2026"
+  - combobox "Deporte":
+    - option "Todos los deportes" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - button "Filtrar"
+  - heading "Octubre 2026" [level=2]
+  - generic: Asistencia hasta 25/10
+  - generic: Activos hoy
+  - generic: "104"
+  - generic: 1 inactivos
+  - text: Matrícula actual · 25/10
+  - generic: Asistencias del mes
+  - generic: "485"
+  - generic: 102 alumnos distintos
+  - text: Cada presente cuenta una vez
+  - generic: Presencia registrada
+  - generic: 74,0%
+  - generic: 170 ausencias registradas
+  - text: Sobre presentes + ausentes cargados
+  - generic: Clases sin registros
+  - generic: "1"
+  - generic: De 45 clases no canceladas
+  - text: No cuentan como ausencias
+  - heading "Evolución de asistencia" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - generic: Meses cerrados
+  - img "Evolución de presentes y ausentes registrados"
+  - generic "Detalle"
+  - heading "Activos por deporte" [level=3]
+  - generic: Hoy · 25/10
+  - img "Distribución actual de alumnos activos por deporte"
+  - strong: "104"
+  - generic: Activos
+  - strong: "38"
+  - text: Fútbol
+  - strong: "66"
+  - text: Patín
+  - heading "Deporte y nivel" [level=2]
+  - generic: Matrícula hoy · Asistencia del mes
+  - heading "Activos por nivel" [level=3]
+  - img "Activos actuales por deporte y nivel"
+  - generic "Detalle" [active]
+  - generic: Fútbol · Principiantes
+  - strong: "23"
+  - generic: Patín · Principiantes
+  - strong: "28"
+  - generic: Patín · Avanzadas
+  - strong: "12"
+  - generic: Patín · Intermedias
+  - strong: "18"
+  - generic: Patín · Federadas
+  - strong: "8"
+  - generic: Fútbol · Avanzadas
+  - strong: "15"
+  - heading "Asistencia por nivel" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - img "Asistencias y ausencias registradas por deporte y nivel"
+  - generic "Detalle"
+  - heading "Seguimiento" [level=2]
+  - generic: Sin cambios automáticos de estado
+  - generic "Activos hoy sin presentes en octubre · 2"
+  - text: 0 revisiones pendientes
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+  - generic: Matrícula actual · asistencia del mes elegido
+  - generic: Clases canceladas y futuras excluidas
+- contentinfo:
+  - generic: Wings

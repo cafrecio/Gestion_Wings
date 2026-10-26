@@ -1,0 +1,24 @@
+{
+  "recorrido_de_esta_jornada_registrado": true,
+  "estado_actual_del_recorrido": "Días13–16 registrados; entrega documental y revisión independiente. No repetir operaciones ni reloj.",
+  "continuidad_final": "../evidencia-dia-16/progreso-ejecucion.json",
+  "corte_previo_conservado": {
+    "actualizado_utc": "2026-10-26T04:58:17.538Z",
+    "reloj": "2026-10-23 15:00, una vez",
+    "rutina": "GUARDADO",
+    "casos_registrados": [
+      "14.1",
+      "14.2",
+      "14.3",
+      "14.4",
+      "14.5",
+      "14.6",
+      "14.7"
+    ],
+    "recibos": [
+      "CUOTA-59 Valentín 29500 EFE",
+      "CUOTA-60 Mora 19600 MP"
+    ],
+    "siguiente": "Pablo 14.8 Valentina $40000 EFE, 14.9 Zoe $30000 BNA fecha 30/09; luego dueño14.10 y rutina noche. No repetir cobros."
+  }
+}

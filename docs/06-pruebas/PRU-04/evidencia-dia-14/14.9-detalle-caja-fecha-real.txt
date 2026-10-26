@@ -1,0 +1,230 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Pablo Ledesma
+  - paragraph: Apertura
+  - paragraph: 23/10/2026 15:00
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "13"
+  - text: movimientos
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/13/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "23/10/2026 I EFE Cuotas — Cuota Mensual Ramos, Dante · Fú · 10/26 $38,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Ramos, Dante · Fú · 10/26":
+            - generic: Ramos, Dante · Fú · 10/26
+          - cell "$38,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/54?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I MP Cuotas — Cuota Mensual Pereyra, Zoe · PAT · 10/26 $45,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Pereyra, Zoe · PAT · 10/26":
+            - generic: Pereyra, Zoe · PAT · 10/26
+          - cell "$45,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/55?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Morena · PAT · 10/26 $40,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Rossi, Morena · PAT · 10/26":
+            - generic: Rossi, Morena · PAT · 10/26
+          - cell "$40,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/56?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I BNA Cuotas — Cuota Mensual Castro, Mateo · Fú · 10/26 $28,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "BNA"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Castro, Mateo · Fú · 10/26":
+            - generic: Castro, Mateo · Fú · 10/26
+          - cell "$28,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/57?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I BNA Inscripciones — Inscripción al club Castro, Mateo · Fú · 10/26 $5,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "BNA"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Castro, Mateo · Fú · 10/26":
+            - generic: Castro, Mateo · Fú · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/57?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I MP Cuotas — Cuota Mensual Lopez, Martina · PAT · 10/26 $30,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Lopez, Martina · PAT · 10/26":
+            - generic: Lopez, Martina · PAT · 10/26
+          - cell "$30,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/58?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I MP Inscripciones — Inscripción al club Lopez, Martina · PAT · 10/26 $5,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Lopez, Martina · PAT · 10/26":
+            - generic: Lopez, Martina · PAT · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/58?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 E EFE Gastos Operativos — Librería Resma de papel $1,500.00 Editar Eliminar":
+          - cell "23/10/2026"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Librería"
+          - cell "Resma de papel":
+            - generic: Resma de papel
+          - cell "$1,500.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/13/movimientos/81/editar
+            - button "Eliminar"
+        - row "23/10/2026 I EFE Cuotas — Cuota Mensual Ortega, Valentín · Fú · 10/26 $24,500.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Ortega, Valentín · Fú · 10/26":
+            - generic: Ortega, Valentín · Fú · 10/26
+          - cell "$24,500.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/59?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I EFE Inscripciones — Inscripción al club Ortega, Valentín · Fú · 10/26 $5,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Ortega, Valentín · Fú · 10/26":
+            - generic: Ortega, Valentín · Fú · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/59?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I MP Cuotas — Cuota Mensual Benítez, Mora · Fú · 10/26 $19,600.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Benítez, Mora · Fú · 10/26":
+            - generic: Benítez, Mora · Fú · 10/26
+          - cell "$19,600.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/60?inline=1
+            - button "Cancelar"
+        - row "23/10/2026 I EFE Cuotas — Cuota Mensual Lopez, Valentina · PAT · 10/26 $40,000.00 Recibo Cancelar":
+          - cell "23/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Lopez, Valentina · PAT · 10/26":
+            - generic: Lopez, Valentina · PAT · 10/26
+          - cell "$40,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/61?inline=1
+            - button "Cancelar"
+        - row "30/09/2026 I BNA Cuotas — Cuota Mensual Flores, Zoe · PAT · 08/26 $30,000.00 Recibo Cancelar":
+          - cell "30/09/2026"
+          - cell "I"
+          - cell "BNA"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Flores, Zoe · PAT · 08/26":
+            - generic: Flores, Zoe · PAT · 08/26
+          - cell "$30,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/62?inline=1
+            - button "Cancelar"
+      - rowgroup:
+        - 'row "Ingresos: $310,100.00 · Egresos: $1,500.00 $308,600.00"':
+          - 'cell "Ingresos: $310,100.00 · Egresos: $1,500.00"':
+            - text: "Ingresos:"
+            - strong: $310,100.00
+            - text: "· Egresos:"
+            - strong: $1,500.00
+          - cell "$308,600.00"
+          - cell
+- contentinfo:
+  - generic: Wings

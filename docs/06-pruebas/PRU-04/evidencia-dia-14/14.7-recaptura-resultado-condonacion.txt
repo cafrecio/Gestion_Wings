@@ -1,0 +1,92 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Lopez, Valentina" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $0.00"
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "55100402"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 03/05/2018
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123404"
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $40,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 20/08/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Moroso
+  - generic: "Total adeudado: $40,000.00"
+  - generic: Oct 2026
+  - generic: $40,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Mariana Lopez
+  - paragraph: Teléfono
+  - paragraph: "1145123404"
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 5 clases
+  - generic: 05/10
+  - generic: 07/10
+  - generic: 14/10
+  - generic: 19/10
+  - generic: 21/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

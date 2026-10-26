@@ -1,0 +1,109 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Pablo Ledesma
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - generic: Pago registrado para Lopez, Valentina.
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/61?inline=1
+  - strong: "4"
+  - text: cajas
+  - button "Historial"
+  - heading "Viernes 23 de octubre" [level=3]
+  - generic: Estado
+  - generic: ABIERTA
+  - generic: Movimientos
+  - generic: "12"
+  - generic: Ingresos
+  - generic: $280,100.00
+  - generic: Egresos
+  - generic: $1,500.00
+  - generic: Neto
+  - generic: $278,600.00
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Agregar":
+    - /url: https://test.gestionar-te.com.ar/caja/13/editar
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/13/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+  - heading "Martes 20 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "7"
+  - generic: Ingresos
+  - generic: $175,000.00
+  - generic: Egresos
+  - generic: $4,200.00
+  - generic: Neto
+  - generic: $170,800.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/9/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/9/detalle
+  - heading "Sábado 17 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $176,000.00
+  - generic: Egresos
+  - generic: $5,900.00
+  - generic: Neto
+  - generic: $170,100.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/7/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/7/detalle
+  - heading "Jueves 15 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $81,000.00
+  - generic: Egresos
+  - generic: $3,200.00
+  - generic: Neto
+  - generic: $77,800.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/5/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/5/detalle
+- contentinfo:
+  - generic: Wings

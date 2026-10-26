@@ -1,0 +1,261 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - combobox:
+    - option "Operativo" [selected]
+    - option "Pablo Ledesma"
+    - option "Rocío Paz"
+    - option "Sandra Vidal"
+  - textbox: 2026-10
+  - button "Filtrar"
+  - button "Limpiar"
+  - generic: Tu cobro entra directo al cashflow, sin abrir caja
+  - button "Cobrar"
+  - generic: "Cajón del mostrador: abrile la caja a un operativo"
+  - button "Abrir"
+  - strong: "11"
+  - text: cajas
+  - button "Historial"
+  - heading "Jueves 22 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "11"
+  - generic: Ingresos
+  - generic: $155,000.00
+  - generic: Egresos
+  - generic: $3,800.00
+  - generic: Neto
+  - generic: $151,200.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/12/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/12/detalle
+  - heading "Miércoles 21 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "6"
+  - generic: Ingresos
+  - generic: $171,000.00
+  - generic: Egresos
+  - generic: $3,300.00
+  - generic: Neto
+  - generic: $167,700.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/10/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/10/detalle
+  - heading "Martes 20 de octubre" [level=3]
+  - paragraph: Pablo Ledesma
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "7"
+  - generic: Ingresos
+  - generic: $175,000.00
+  - generic: Egresos
+  - generic: $4,200.00
+  - generic: Neto
+  - generic: $170,800.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/9/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/9/detalle
+  - heading "Lunes 19 de octubre" [level=3]
+  - paragraph: Rocío Paz
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "6"
+  - generic: Ingresos
+  - generic: $193,800.00
+  - generic: Egresos
+  - generic: $2,700.00
+  - generic: Neto
+  - generic: $191,100.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/8/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/8/detalle
+  - heading "Sábado 17 de octubre" [level=3]
+  - paragraph: Pablo Ledesma
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $176,000.00
+  - generic: Egresos
+  - generic: $5,900.00
+  - generic: Neto
+  - generic: $170,100.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/7/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/7/detalle
+  - heading "Viernes 16 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "8"
+  - generic: Ingresos
+  - generic: $173,000.00
+  - generic: Egresos
+  - generic: $6,800.00
+  - generic: Neto
+  - generic: $166,200.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/6/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/6/detalle
+  - heading "Jueves 15 de octubre" [level=3]
+  - paragraph: Pablo Ledesma
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $81,000.00
+  - generic: Egresos
+  - generic: $3,200.00
+  - generic: Neto
+  - generic: $77,800.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/5/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/5/detalle
+  - heading "Jueves 15 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "2"
+  - generic: Ingresos
+  - generic: $75,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $75,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/4/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/4/detalle
+  - heading "Miércoles 14 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "4"
+  - generic: Ingresos
+  - generic: $131,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $131,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/3/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/3/detalle
+  - heading "Martes 13 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "7"
+  - generic: Ingresos
+  - generic: $201,000.00
+  - generic: Egresos
+  - generic: $8,500.00
+  - generic: Neto
+  - generic: $192,500.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/2/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/2/detalle
+  - heading "Sábado 10 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "5"
+  - generic: Ingresos
+  - generic: $164,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $164,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/1/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/1/detalle
+- contentinfo:
+  - generic: Wings

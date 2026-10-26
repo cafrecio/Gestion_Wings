@@ -1,0 +1,10 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Ramos, Dante por Efectivo — Pago registrado para Ramos, Dante.
+ 3. Pablo Ledesma cobra a Pereyra, Zoe por Mercado Pago — Pago registrado para Pereyra, Zoe.
+ 4. Pablo Ledesma cobra a Rossi, Morena por Efectivo — Pago registrado para Rossi, Morena.
+ 5. Pablo Ledesma cobra a Castro, Mateo por Banco Nación — Pago registrado para Castro, Mateo.
+ 6. Pablo Ledesma cobra a Lopez, Martina por Mercado Pago — Pago registrado para Lopez, Martina.
+ 7. Pablo Ledesma Librería $1500 por Efectivo — Movimiento registrado.
+ 8. Verónica Salinas lista de la #21: 18 alumnos, 11 presentes — Asistencias guardadas.
+Cobranza: $516.000,00 · {"AL_DIA":94,"EN_PLAZO":0,"MOROSO":2,"DEUDOR":6}
+GUARDADO.

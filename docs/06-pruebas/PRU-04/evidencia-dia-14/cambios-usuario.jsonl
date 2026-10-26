@@ -1,0 +1,9 @@
+{"evento":"intento_ingreso","rol":"Pablo","incorrecta":false,"segundosDesdeSalir":68.924,"fecha":"2026-10-26T04:48:31.493Z"}
+{"evento":"intento_ingreso","rol":"Pablo","incorrecta":false,"segundosDesdeSalir":92.81,"fecha":"2026-10-26T04:48:55.999Z"}
+{"evento":"salir","rol":"Pablo","fecha":"2026-10-26T04:54:29.076Z"}
+{"evento":"intento_ingreso","rol":"Dueño","incorrecta":false,"segundosDesdeSalir":69.557,"fecha":"2026-10-26T04:55:40.192Z"}
+{"evento":"salir","rol":"Dueño","fecha":"2026-10-26T04:57:16.138Z"}
+{"evento":"intento_ingreso","rol":"Pablo","incorrecta":false,"segundosDesdeSalir":74.585,"fecha":"2026-10-26T04:58:32.100Z"}
+{"evento":"salir","rol":"Pablo","nota":"Observado formulario en pestaña activa; auxiliares antiguos descartados para UI","fecha":"2026-10-26T05:02:21.574Z"}
+{"evento":"intento_ingreso","rol":"Dueño","segundosDesdeSalir":71.291,"fecha":"2026-10-26T05:03:33.911Z"}
+{"evento":"salir","rol":"Dueño","nota":"pestaña activa, antes del día15","fecha":"2026-10-26T05:05:51.824Z"}

@@ -1,0 +1,1415 @@
+{
+  "controles": {
+    "casos": 39,
+    "si": 25,
+    "parcial": 12,
+    "no": 2,
+    "imagenes_decodificadas": 115,
+    "pdfs_legibles": 2,
+    "enlaces_controlados": 480,
+    "archivos_incidentales_excluidos_de_imagenes": 40,
+    "pausa_minima_registrada_segundos": 65.017,
+    "salidas_consola_literales": true,
+    "producto_sin_cambios": true,
+    "galeria_renderizada_en_navegador": false,
+    "limite_galeria": "Chrome rechazó el protocolo file; no se buscó otro acceso para eludirlo."
+  },
+  "archivos": [
+    {
+      "ruta": "docs/00-estado/ESTADO-ACTUAL.md",
+      "bytes": 142993,
+      "sha256": "3bf3894b826dd323cfd5893bf50a6bb07be1af228634ac9512d859964523becb"
+    },
+    {
+      "ruta": "docs/00-estado/LOG-CODEX.md",
+      "bytes": 10929,
+      "sha256": "dc27f12c590b6923ddbeca078ab2fcd01507c2429e61d95654a46236dbb5e190"
+    },
+    {
+      "ruta": "docs/00-estado/QUIEN-HACE-QUE.md",
+      "bytes": 7331,
+      "sha256": "2c4ccd7395a630b7c777e52257616905fc3771ebaf7408d44428a05a9728e2a5"
+    },
+    {
+      "ruta": "docs/00-estado/RESUMEN-ARRANQUE.md",
+      "bytes": 40422,
+      "sha256": "621ba921777e8829ca613ad9077adfd9d5a4a37033637508fe1d2555aa78beee"
+    },
+    {
+      "ruta": "docs/00-estado/TABLERO.html",
+      "bytes": 47391,
+      "sha256": "2590940c35ce6bd330d73e9a6a88089258579ad99f4f36fe8086a3b5aa232155"
+    },
+    {
+      "ruta": "docs/00-estado/tareas.json",
+      "bytes": 58957,
+      "sha256": "5b4fa825a2ff04111d9c54c4dfb5c1a345f2408cf7815bd69506948e56bb11b5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/DIA-13.md",
+      "bytes": 9704,
+      "sha256": "0f2512dc61236b70acb74c6d6c005eb795e38efcbf2ca5c58278436e1210b2a4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/DIA-14.md",
+      "bytes": 8070,
+      "sha256": "135bbe915977b09cd6654409eaf1195200899772ba356ca13f8df30181cd5bca"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/DIA-15.md",
+      "bytes": 5642,
+      "sha256": "6ab6858148e47f90c060f8a410ca6971e32d9504433cef6f3740a64eaa7905cf"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/DIA-16.md",
+      "bytes": 7371,
+      "sha256": "a40c54db20830c014991751b18ebfb62c114cb1f702fa9e0594db1ba9bb2326a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.1-clave-incorrecta.jpg",
+      "bytes": 34699,
+      "sha256": "6da9dbc98cd879b507940595910bf7cf8215b2f5f36782cc7758baa7eaa98c5b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.1-clave-incorrecta.txt",
+      "bytes": 551,
+      "sha256": "27e7809b2999a02e87bd03506ae6596881d8bf9149412095a69c730aec964561"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.1-ingreso-correcto.jpg",
+      "bytes": 81043,
+      "sha256": "35881f0d5fae144261fd040a1c56d384f6e827b89045f656a96ad2a46a6fd717"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.1-ingreso-correcto.txt",
+      "bytes": 3041,
+      "sha256": "47b858917f92d381630d58dc7d1cc928478d4a01aa64665c9f40659c673b6025"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-caja-validada.jpg",
+      "bytes": 94138,
+      "sha256": "6eeb2d5493aadad08a9742c8afecbfde60c81af9a8ffd03f63b29c5977333e77"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-caja-validada.txt",
+      "bytes": 7560,
+      "sha256": "360a87fa0526078a11aa84ca4e27046a61ce295189e56821fd7ab14851016c39"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-clase-reflejada-20000.jpg",
+      "bytes": 112181,
+      "sha256": "0db5b1f94149d500f632075d757811567a5f0f5181995ed295ace52a09a75fb9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-clase-reflejada-20000.txt",
+      "bytes": 21295,
+      "sha256": "0c813e4a52194cb906b9a9fa3808e4504bf2077f5e416a87f24d04d53f405d36"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-detalle-antes-verificar.txt",
+      "bytes": 9769,
+      "sha256": "c4313f9f1793af31fb23eb0f3de5030c982a128ec76953107b7982af85524d94"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-once-verificados.jpg",
+      "bytes": 132865,
+      "sha256": "666a0c362cf25d21e5b73a031b432dbbd82073999b3d445a6534f14ac196480a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-once-verificados.txt",
+      "bytes": 9880,
+      "sha256": "fadde5301e8cc9785d0887251ff03d5e9ab45b02841b7bf079a0b5757377cd53"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-resumen-antes-validar.jpg",
+      "bytes": 104033,
+      "sha256": "41650c7cd0464ef5a2350c6c97721d6a36e9a9f722c8f062e4bb0a413180ae64"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.10-resumen-antes-validar.txt",
+      "bytes": 4511,
+      "sha256": "090b10104575152fa693346d8217dae94396d2923774d7e5e05aee514abd7022"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.11-julieta-antes.jpg",
+      "bytes": 92611,
+      "sha256": "7cebf98f291daa92e8f98572d4cb5225bea7eac69a2ac31286cc0a9709c39ecd"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.11-julieta-antes.txt",
+      "bytes": 4784,
+      "sha256": "00a2f9e8f25675f59ae8a1c5684457a0801f664ef78a68943fca64b40e76edfa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-alumnos.jpg",
+      "bytes": 92670,
+      "sha256": "43a69ccdfec9a3c5bdb1039813d9d6c251fd97f2991f4b2461c651f474fcff63"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-alumnos.txt",
+      "bytes": 4793,
+      "sha256": "6c1a35c6c07f7818dba22942112fb4af0470644d6089c3c3198def1665008102"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-cobranza.jpg",
+      "bytes": 92670,
+      "sha256": "43a69ccdfec9a3c5bdb1039813d9d6c251fd97f2991f4b2461c651f474fcff63"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-cobranza.txt",
+      "bytes": 4793,
+      "sha256": "6c1a35c6c07f7818dba22942112fb4af0470644d6089c3c3198def1665008102"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-inicio-cierre.jpg",
+      "bytes": 92670,
+      "sha256": "43a69ccdfec9a3c5bdb1039813d9d6c251fd97f2991f4b2461c651f474fcff63"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-inicio-cierre.txt",
+      "bytes": 4793,
+      "sha256": "6c1a35c6c07f7818dba22942112fb4af0470644d6089c3c3198def1665008102"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-reportes.jpg",
+      "bytes": 92670,
+      "sha256": "43a69ccdfec9a3c5bdb1039813d9d6c251fd97f2991f4b2461c651f474fcff63"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.12-reportes.txt",
+      "bytes": 4793,
+      "sha256": "6c1a35c6c07f7818dba22942112fb4af0470644d6089c3c3198def1665008102"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.2-movimiento-guardado.jpg",
+      "bytes": 127739,
+      "sha256": "145cd07588c0d33634e30c5f668f1d16e6dd73f2d231ea70a0513fae7eb2555b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.2-movimiento-guardado.txt",
+      "bytes": 7824,
+      "sha256": "4f3fd8b3e0338e464cc4fc09487874dfd53c827f62307981fc5038cb64019aa9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.2-movimiento-preparado.jpg",
+      "bytes": 72409,
+      "sha256": "4bdd573c6d87dfdd3f66068512dac092f8f2a6b7dd22e092cc2e6c2acb2daee7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.2-movimiento-preparado.txt",
+      "bytes": 2156,
+      "sha256": "805a3f7a03ad9708439922688ca04b22b19a4f50f437372724885aef15b9a493"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-antes-confirmar.txt",
+      "bytes": 3586,
+      "sha256": "7051cdfce3523bc4bbfda1e69b94495417e4c12dd1a9d67e26a9cffff6885d51"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-aviso-adelanto.txt",
+      "bytes": 486,
+      "sha256": "3d5013989a36b4d1d81e547eda8ffd38761500a984abc7e9078b4fa4eef4741e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-aviso-siguiente.txt",
+      "bytes": 4352,
+      "sha256": "cdcae3ae27d6fd015955173db984e0d691f76fc3b39dd7e5dc6e39901a970e91"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-deuda-anterior-motivo.jpg",
+      "bytes": 82563,
+      "sha256": "4aa5e094b6c0c0b023e29d4461f81101dac5209864febe28a6acefb49f71686f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-deuda-anterior-motivo.txt",
+      "bytes": 3586,
+      "sha256": "7051cdfce3523bc4bbfda1e69b94495417e4c12dd1a9d67e26a9cffff6885d51"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-deuda-antes.txt",
+      "bytes": 3189,
+      "sha256": "fe8072d22fa5d0a8665e6c89bc034c6b7410191733a4f0f1bf7f619dce10bf3b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-felipe-deuda-conservada.jpg",
+      "bytes": 83324,
+      "sha256": "9eccdf409247b2271c970fe57f983ba25b7b5b8f59fe1b0fd37894594124b85b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-felipe-deuda-conservada.txt",
+      "bytes": 2521,
+      "sha256": "9f00969499361df60e93d461a1b78ef7d00536cca9ff543323cfed6f1e84c2ae"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-pago-registrado.jpg",
+      "bytes": 90258,
+      "sha256": "a3e95f9e5c788046f91f04f9d49961c2fa5270a9a00a3582431efc868eca880d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-pago-registrado.txt",
+      "bytes": 4395,
+      "sha256": "ba63e33050c4e259275ee0e1262c473070c5104742994da7931de88fb359a11c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-recibo-felipe.pdf",
+      "bytes": 1698039,
+      "sha256": "380991b679c9bbec33d604df8aaa7509b13207906f2801f26e6dcd94638e6eb7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-recibo-felipe.png",
+      "bytes": 43423,
+      "sha256": "e89a548102f0ee9023cb186ccb12255fc3087c2ce795f8c8648c071184ed4ee1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-recibo-felipe.txt",
+      "bytes": 613,
+      "sha256": "bea882b0e9f507d419863fada3d993b27b9d79c9c4f2505c9e761b3554ebe779"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.3-total-antes-confirmar.jpg",
+      "bytes": 84008,
+      "sha256": "9721bdb4804bdfeef51ea10e05262212244087508587c9a7b1cd1419c9837f98"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.4-arqueo-antes-cerrar.jpg",
+      "bytes": 70686,
+      "sha256": "23606ec03e387d419f3a630127f62cd84c16181d2b44c3c5fbd8cfd0f89a81b1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.4-arqueo-antes-cerrar.txt",
+      "bytes": 1899,
+      "sha256": "e8c0c8832c7e1e9148c4e1dcb09ff38c45b187746ef8461d4ee8b89867ba1ebd"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.4-cierre-con-faltante.jpg",
+      "bytes": 96694,
+      "sha256": "45e67c58f99ec7b0a4dec2be97129045d7dadc9e2ad97697f446f42f5667f3c0"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.4-cierre-con-faltante.txt",
+      "bytes": 3283,
+      "sha256": "df417661fc4c86305685ae2c1b52dfd8ce4688bfb7c5f9eaec1db012b66711b8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.5-destino-caja-sandra.jpg",
+      "bytes": 85322,
+      "sha256": "c0e930988fcc2bb8c4324c1e00a337261cd3afe73cd2fb9a5f40835f726e55da"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.5-destino-caja-sandra.txt",
+      "bytes": 3041,
+      "sha256": "d373cbbba0e7550788d7a77a4bf713b2c3571e0638d2820ae5e112fed04a43f3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.5-inicio-aviso.jpg",
+      "bytes": 78685,
+      "sha256": "65da9b8fd1742d6ccaaf16ac949d9b322334424a329e2944b0dbf7fa9ff6fd0e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.5-inicio-aviso.txt",
+      "bytes": 4217,
+      "sha256": "01cc6cd26cbb5ff03d47c044c6372891882c6e23e47b4101967bfb81b8083088"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.6-cobranza-telefonos.jpg",
+      "bytes": 118484,
+      "sha256": "201a4fe87711486a7173740ae573159c0d40c798482a1d554036dea8466c28be"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.6-cobranza-telefonos.txt",
+      "bytes": 12170,
+      "sha256": "1056bd2ee7d353541e88800ffe3be7cbbd7064229ad9352c937f8769b8691e19"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-caja-rechazada.jpg",
+      "bytes": 96145,
+      "sha256": "c48cd2cd1c9b8c617e4c795ac60cf7a6ba435648bced79355f5708f1198a3361"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-caja-rechazada.txt",
+      "bytes": 7717,
+      "sha256": "181d5552bbe980d0c53398f9436c61aa45d60233dc79928de73456606e4d05ca"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-cashflow-tras-rechazo.jpg",
+      "bytes": 111437,
+      "sha256": "684ff8a5872e17eeb78e302f17c84d4e6c38b980778cc6b09a8e26886580d20f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-cashflow-tras-rechazo.txt",
+      "bytes": 24523,
+      "sha256": "ef8fa80ffe28989a84bfca3e0cb464edc70cabb272b3501bf192f0bd09bb3ad6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-rechazo-con-motivo-preparado.jpg",
+      "bytes": 88645,
+      "sha256": "a7808949b8b5ec3bf4c63036aec0133a9d1c74869571014c47b7cd2fe118c549"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-rechazo-con-motivo-preparado.txt",
+      "bytes": 4593,
+      "sha256": "1e0a2aaf8e4fc963fa68e25c5c0f9b8b3b784a565eb5de6187c22f59d6b6fc4c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-rechazo-sin-motivo.jpg",
+      "bytes": 87984,
+      "sha256": "28b11e465900db49a34e2c6e19817b9e49b8b8581a4e25c465d8baa0baffea0a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-rechazo-sin-motivo.txt",
+      "bytes": 4542,
+      "sha256": "76220bc0461546a607d17e5b572d903ce6ee549146b8433c6456bd2f8d326436"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-resumen-faltante.jpg",
+      "bytes": 105822,
+      "sha256": "d63e1212a8eeb1eca8cc3870882ad77dba23c4e25ef64580314d147cd0be7e98"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.7-resumen-faltante.txt",
+      "bytes": 4418,
+      "sha256": "32f7000e8a40ad5f7d86c2d321a96ca12954b2b75f5e8fbea03e881e1457bbe2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-contado-no-editable.jpg",
+      "bytes": 73477,
+      "sha256": "9e46b70c2added8502d084d0edd17260e78070ebd7dfb23a0721e74a8ec36458"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-contado-no-editable.txt",
+      "bytes": 1927,
+      "sha256": "2030c7329daee6ea1bf22ce26bd9f6b73e57b01c48e8942cbb6026d4863b6cf4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-movimiento-corregido-antes-guardar.jpg",
+      "bytes": 75536,
+      "sha256": "1ca359493fe6f1bd37edc84a8eb21c472d91eee04ae3835823d857c7e5e34f71"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-movimiento-corregido-antes-guardar.txt",
+      "bytes": 2195,
+      "sha256": "f6f47d45fee564066a580968bbd39d75174abcc5e04af2ef934cbc72cee2526d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-movimiento-corregido-guardado.jpg",
+      "bytes": 130892,
+      "sha256": "ecc66c88a0d14061c078cf69f78a48a5a98146e74c265faf03268b15a59f5e78"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-movimiento-corregido-guardado.txt",
+      "bytes": 8381,
+      "sha256": "66f38475c20996cbcd1223da1913d1ef35febc40ccdaf187ad24c82863f30b7f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-sandra-ve-rechazo.jpg",
+      "bytes": 97835,
+      "sha256": "1feec768a6933e1bb03b657383aa87877c8ed97f8944c104603e954717d34e38"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.8-sandra-ve-rechazo.txt",
+      "bytes": 3557,
+      "sha256": "17e6b04ce588e98855c7ee0dba2fabc616bd62e0487972a2c8658622afa65425"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.9-recierre-antes-confirmar.jpg",
+      "bytes": 73477,
+      "sha256": "9e46b70c2added8502d084d0edd17260e78070ebd7dfb23a0721e74a8ec36458"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.9-recierre-antes-confirmar.txt",
+      "bytes": 1927,
+      "sha256": "2030c7329daee6ea1bf22ce26bd9f6b73e57b01c48e8942cbb6026d4863b6cf4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.9-recierre-guardado.jpg",
+      "bytes": 94658,
+      "sha256": "d7720c29992000ed38283283818096c202254b759f3046b8f652ac6c1a3532ac"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/13.9-recierre-guardado.txt",
+      "bytes": 3376,
+      "sha256": "10d230ea3949bb18d9149f34ce3fce8f1f778f709c0ed12ec2a6f55dbb0cb5a7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/cambios-usuario.jsonl",
+      "bytes": 1075,
+      "sha256": "3baf17f41bebe4bde0334cf790a1f2021e27f89360f1f359168c1668a2d52cbf"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/entorno-previo.txt",
+      "bytes": 202,
+      "sha256": "b8667f4b1be70a4e0d11886ec43fe5359f34cd1d750a119c83120bb58c4e238d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/esperados-originales.json",
+      "bytes": 11437,
+      "sha256": "47f199c8966280c484c13f3878dd7650be03d4978352be4cf4f4343cdf512987"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/LEEME.md",
+      "bytes": 5415,
+      "sha256": "8be95c7173a180e3bdcfbfd18fdaba4c76dfcac9205f5aa143892e70f0b0303e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/progreso-ejecucion.json",
+      "bytes": 775,
+      "sha256": "65450ef6b0fe2d05e01b57b4332cd03d65b5591c12e7c570c746ce04d4d9ceb9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/reloj-inicio.txt",
+      "bytes": 265,
+      "sha256": "45f0a75d3958ab757fc5ed53ae944b8645941f2a43c92721d02207de05d037c9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-13/rutina-manana.txt",
+      "bytes": 1088,
+      "sha256": "f36b328e607c7d4e019fe573aa8394f2168ad1cca2dd5b17d0accd9f160436e3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.1-ingreso-completo.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.1-primer-ingreso-sin-sesion.txt",
+      "bytes": 468,
+      "sha256": "7aec924952fed710b536e0ebb7de5ad6ef0ba4936ba03295dc61e433c8dcd498"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.1-validacion-invalida.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.1-validacion-invalida.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-antes-rutina-noche.jpg",
+      "bytes": 94256,
+      "sha256": "f78462c94d4d058b1ba67e2b32998fa31dbb0c12a03e576fdaef78d5dedef4fc"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-antes-rutina-noche.txt",
+      "bytes": 4407,
+      "sha256": "8b70572ff65fae36eb7bcfbd8cc89e7d10ac9c8845f4b9d264f7ccd198f44a12"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-avisos-validacion.json",
+      "bytes": 245,
+      "sha256": "8f2845efad48db376e86e5beba4858d728e215e8d180e799eff9f907e274834d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-caja-validada-noche.jpg",
+      "bytes": 93832,
+      "sha256": "8adce40c7d5663982c92a0994953be567555b6ace72284cbc4282d434a3f4cba"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-caja-validada-noche.txt",
+      "bytes": 4366,
+      "sha256": "2dfadcfc6106b86fb3d140d1f8785d8eab0230a4afe2b1f4354edbeb41f716ff"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-cierre-cobranza.jpg",
+      "bytes": 110882,
+      "sha256": "6cf0c7f5934583ad6dbde220573ca77599a09df46d9aa874a11e58d2d3896f8b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-cierre-cobranza.txt",
+      "bytes": 7445,
+      "sha256": "69908eafd7204e3303a7c3abfdb245403e59fb1869c5dd916810cd012d26f030"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-cierre-inicio.jpg",
+      "bytes": 74303,
+      "sha256": "e2894c6265c53a14070582276ca5852ad9c7466e235b014610bbb8944b188d48"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-cierre-inicio.txt",
+      "bytes": 4214,
+      "sha256": "572684d034e68d8cd06d7febf64f930420c300d862a6cb821b41cc3aa10c8f02"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-fecha-futura-rechazada.jpg",
+      "bytes": 81702,
+      "sha256": "b58a9ed1ffefb9a0f1d274629d6185f6f004297f81e6e14a6d83c529f27a4528"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-fecha-futura-rechazada.txt",
+      "bytes": 3396,
+      "sha256": "dba80d4203513d0e1f1bfc73c6c1af70809fef8aa5998bab4d22652cf03ca269"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-importe-cero-rechazado.jpg",
+      "bytes": 81074,
+      "sha256": "4ff2662ad24dc784a90dcb8bdcb4bf70a8e5a8dbab1b1cc55434abc408438032"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.10-importe-cero-rechazado.txt",
+      "bytes": 3391,
+      "sha256": "58447ecfca0f7430c08ea8e4a261c80e51c065d1594a016ac35a9b09d75f84eb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.2-ficha-valentin.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.2-ficha-valentin.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-antes-confirmar.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-cobro-registrado.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-cobro-registrado.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-ficha-despues.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-ficha-despues.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-recaptura-posterior-valentin-al-dia.jpg",
+      "bytes": 85508,
+      "sha256": "6b3989b88c330abde1866d18b7e263140cfe8abe80b3651e9bd19565fb348ef8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-recaptura-posterior-valentin-al-dia.txt",
+      "bytes": 3531,
+      "sha256": "60eb8c9670c8dfd765ab6f4d131bee0db006e2da47cadfe03aaba575a11c5154"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-total-antes-confirmar.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-total-verificado-29500.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.3-total-verificado-29500.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.4-duplicado-rechazado.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.4-duplicado-rechazado.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.5-mora-futbol.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.5-mora-futbol.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.5-mora-patin-antes.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.5-mora-patin-antes.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-antes-confirmar.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-antes-confirmar.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-ficha-al-dia.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-ficha-al-dia.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-pago-registrado.jpg",
+      "bytes": 77791,
+      "sha256": "a20c14c8ff9a480e02e40adbe958357abd862004192f8ce5e819f316902f7499"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-pago-registrado.txt",
+      "bytes": 2753,
+      "sha256": "78d21e4a5e83d65a95d3f89e0242f617050aa30f4cf34d4fca5817cacb7b699e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-recaptura-posterior-mora-al-dia.jpg",
+      "bytes": 89344,
+      "sha256": "1b27567d631841aa7819b35e20f6d5766212335bf0bb95e3d38dbbed5ec627c2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.6-recaptura-posterior-mora-al-dia.txt",
+      "bytes": 3623,
+      "sha256": "d1087df2551c56c4eb4c24c3bf1bdfe72f44af95c2ff49a242a06db84a327850"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-antes-condonar.jpg",
+      "bytes": 78636,
+      "sha256": "d399ef94b9a96d5112ee241da5d81433d10126c24cdd55f1bbd7f1057b3b38c8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-antes-condonar.txt",
+      "bytes": 4219,
+      "sha256": "c493df01e8be95fb2a26b0508b555501e46bfb00a0bb61b9325dd4ffa6a8d0ad"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-condonada.jpg",
+      "bytes": 78636,
+      "sha256": "d399ef94b9a96d5112ee241da5d81433d10126c24cdd55f1bbd7f1057b3b38c8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-condonada.txt",
+      "bytes": 4219,
+      "sha256": "c493df01e8be95fb2a26b0508b555501e46bfb00a0bb61b9325dd4ffa6a8d0ad"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-recaptura-resultado-condonacion.jpg",
+      "bytes": 78863,
+      "sha256": "45f4c06bc957f4cc0b92f5709a21c5d6d294f6ec75cc76166687ea1905767a57"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.7-recaptura-resultado-condonacion.txt",
+      "bytes": 2335,
+      "sha256": "85c6c407f694ef75d4784cef7f055463967da592fcde823d4074ad159fc4fd19"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-antes-confirmar.jpg",
+      "bytes": 96241,
+      "sha256": "7cd846600471f6e65a428fbe910aa2481b9f3a2e608bf384345328b64d7a848d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-antes-confirmar.txt",
+      "bytes": 3172,
+      "sha256": "fed3ac280528211799b66407ed00fc13e41a0b3f31fc8f02ae6e41573547635e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-ficha-al-dia.jpg",
+      "bytes": 79255,
+      "sha256": "3ad8f579a1b3a2dbee150ec6a9126239507784ade33e81234ddf5f4b9dd908c9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-ficha-al-dia.txt",
+      "bytes": 2360,
+      "sha256": "99e04059aecaf0ade4780a66c36e39520edb19bae4c0ec24d186b9c426264581"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-pago-registrado.jpg",
+      "bytes": 84759,
+      "sha256": "699928a699ec1fbd626de3951e27eb87268ef6d569facc109d95ddca316b2e17"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.8-pago-registrado.txt",
+      "bytes": 3133,
+      "sha256": "40b61a9fe129598b84f94f4c004d8c4ccf825acedc1af67ee626d33213339a68"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-antes-confirmar.jpg",
+      "bytes": 96141,
+      "sha256": "0b381b506edf28bdb1c386492dbb1df4afd660746d506e0224725f9d44a1f57b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-antes-confirmar.txt",
+      "bytes": 3166,
+      "sha256": "4fc0573a0e6252a474fd3fdfbab46a2cf8a4e2e597de67f2cf5096f6cd04bb89"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-detalle-caja-fecha-real.jpg",
+      "bytes": 118486,
+      "sha256": "20e4966e2596d42b03e6330168ab85d757ad78fd84837fd475f44cdbbd6884f8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-detalle-caja-fecha-real.txt",
+      "bytes": 9377,
+      "sha256": "8112e8022e7a84a4b0389f76cf2b112ba7c83cc36f0247c0787844022bca0025"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-ficha-al-dia.jpg",
+      "bytes": 74745,
+      "sha256": "31e201130a95ee2a1865fe67bca817d5872738b1bf02aba64d3337a8fccf0b7d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-ficha-al-dia.txt",
+      "bytes": 2360,
+      "sha256": "92f413a64d64a96ed41ec92bd51dd800695fb6c7f2b58b9186ea5ee547815a6d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-inicio-dueno-aviso.jpg",
+      "bytes": 74303,
+      "sha256": "e2894c6265c53a14070582276ca5852ad9c7466e235b014610bbb8944b188d48"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-inicio-dueno-aviso.txt",
+      "bytes": 4220,
+      "sha256": "b8808d82ce6e06130c5761d30c6f5e3f38b4f5257d139c1c17210818040b1e43"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-pago-registrado.jpg",
+      "bytes": 84532,
+      "sha256": "ed611ecb1802a11aba6af4cdc306cc537ded2ce07892e5a94671a47cd4695fb5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-pago-registrado.txt",
+      "bytes": 3128,
+      "sha256": "1812f89a1a61902716e1918421efd9921ec1923ba41af7094546d547c40b4a75"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-recibo-zoe-pagina-1.png",
+      "bytes": 39249,
+      "sha256": "228e97dc818a34cba6ed2a26dc514b0c4569432f6dd9efdf9b3f4ae31974ea80"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-recibo-zoe.pdf",
+      "bytes": 1696178,
+      "sha256": "a788bf996733caebf89808ad359f55cbf72ed12427e7fdb14248348f61b8bcf5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-recibo-zoe.txt",
+      "bytes": 531,
+      "sha256": "6e44c7665345c73d558a34d1439128071ffe9ca095ca96c95425465c02ca4e5d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-reportes-octubre-septiembre.jpg",
+      "bytes": 92435,
+      "sha256": "37a0a5192adba5babb23a1665190145e6f5d350976fbe322037308570638811a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-reportes-octubre-septiembre.txt",
+      "bytes": 5397,
+      "sha256": "32467b95f889d029f6c09526c835e172f192908d3e3c7dbdf68b8152fd14d7ad"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-reportes-septiembre.jpg",
+      "bytes": 92722,
+      "sha256": "f2cdecbe1c0a280c1b1406593c957d2f174c1228c14516b449152671521330f2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/14.9-reportes-septiembre.txt",
+      "bytes": 4860,
+      "sha256": "16e40bcb398075e5afe47ce333f12544ed1dc25fd75357a268803322327f15f7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/ADVERTENCIA-EVIDENCIA.txt",
+      "bytes": 439,
+      "sha256": "4ea626506951a388a17b771dd944f18c16e1d8cf0caa7ed696f5ee3cd0ee01a7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/cambios-usuario.jsonl",
+      "bytes": 1014,
+      "sha256": "34e88c2879b1374023df576e571d01fe5c7f78d3dbec187616be6b357a035d33"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/esperados-originales.json",
+      "bytes": 9610,
+      "sha256": "5afedec3c2086c084eafa8393976270dd6e4a00a6aea148ab71975e682987f53"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/incidentes-evidencia.json",
+      "bytes": 7258,
+      "sha256": "a7d083b49173c3fa5712702bcb757ca3c24f3db4520577d2179aafedcc96f70e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/LEEME.md",
+      "bytes": 5344,
+      "sha256": "02ede6b8df2d03779eccd22b415a9ebf00f53e260032824ab6bf4188fb5cdb27"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/progreso-ejecucion.json",
+      "bytes": 779,
+      "sha256": "aea4f9919e74c4e06e5446eef1bab3aec9dfe9460adb24dc656464ff19803968"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/reloj-inicio.txt",
+      "bytes": 266,
+      "sha256": "ecc8dbc22c002be9ddf0e4dced50aa746535c830455f9d8091796b160f58b3c5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/rutina-manana.txt",
+      "bytes": 812,
+      "sha256": "ec498702c2579f3f0fe58b56c1891ca36c799fd81cec29f2ad3c4922bc3d84b9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-14/rutina-noche.txt",
+      "bytes": 285,
+      "sha256": "fe93ce089b6e90be7642e1c6291f6c6634b5bd5f872e9452a065695ad93e5219"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-despues-guardar.jpg",
+      "bytes": 83059,
+      "sha256": "e41104a6bbb82af293223754178c8627ca18a4705391a8f4661e5159ee341ad8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-despues-guardar.txt",
+      "bytes": 2068,
+      "sha256": "a7f2a81120664ee6f4e46809d698e4d576ebcb0fd507158c08a408db4ef1afaf"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-lista-original.jpg",
+      "bytes": 80005,
+      "sha256": "d40970c70434af15ae21c49539d8d22497f1f807503f3f55d622bfad13c75385"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-lista-original.txt",
+      "bytes": 1908,
+      "sha256": "c3a53e84941f9927f167bf659b47460482756b87aaba9ca90a6b6e3561da8f0a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-persistido-tras-recargar.jpg",
+      "bytes": 82655,
+      "sha256": "9716b8843c76b1206ccd709b3d738ea702856c82c0557da24a23c934484f8e8a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.1-persistido-tras-recargar.txt",
+      "bytes": 2055,
+      "sha256": "4aaf1c95fd922b771bdd2a8488100d6cc9d8cf36f87a5de3832abb1a077b6479"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.2-ingreso-rocio-rechazado.jpg",
+      "bytes": 34697,
+      "sha256": "da458c9fc1b1f8ce912c9b087230b072fa301db56a0d09579843e7f474ac88b8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.2-ingreso-rocio-rechazado.txt",
+      "bytes": 551,
+      "sha256": "27e7809b2999a02e87bd03506ae6596881d8bf9149412095a69c730aec964561"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.3-futbol-solo-comision.jpg",
+      "bytes": 90722,
+      "sha256": "e55cd0b6bc220459b04b2e812a39bdc468e2fa1afecf27e108f8aa649f29b886"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.3-futbol-solo-comision.txt",
+      "bytes": 3455,
+      "sha256": "bc6bba168a95b481790dedf3a757a33623be9d9a805ab3379c58689eac8db7a1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.4-profesores-disponibles.jpg",
+      "bytes": 69577,
+      "sha256": "1d8b7b473f256ee84bfe338da55c18c5d11dc2309fb294ad272ca9630ca35693"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.4-profesores-disponibles.txt",
+      "bytes": 2696,
+      "sha256": "ccfc7a860d16635df0939a57debe0a976d8005b4c47b8a8a26f10225daee1e34"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-antes-guardar.jpg",
+      "bytes": 70562,
+      "sha256": "a638d4bf7cc3c8f9090d822f053f1d001d3d1a14095e99678b7dfd60ade3435c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-antes-guardar.txt",
+      "bytes": 2705,
+      "sha256": "75e453b173da67e8a8d4357c774059c2514432716c54ac7b8ca05f935c5f6da0"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-hernan-ficha-77.jpg",
+      "bytes": 81174,
+      "sha256": "9e1616099506f0ee473cc50d90a35b3f61f89e32c7b6f5e7f81272de835aa7a2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-hernan-ficha-77.txt",
+      "bytes": 2709,
+      "sha256": "7152a95bd7cc17c9432817c6efcbc2f196a9b54772c5501c32759b57c79e0ed4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-hernan-horario-visible.jpg",
+      "bytes": 79483,
+      "sha256": "21e1318ad9ab4221f985c2bae6ecdf7b7c26a670a0bb4cc90e4735276940bc83"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-hernan-horario-visible.txt",
+      "bytes": 5309,
+      "sha256": "c198e68a6d655889fab8eba11fb81a28dc649e89431deed39b93dd9d6842b788"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-resultado-cambio.jpg",
+      "bytes": 94959,
+      "sha256": "9cd5a3ce6c308852a0d8a1732590da17c33b6301a9b91aee82c638c179b88fec"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.6-resultado-cambio.txt",
+      "bytes": 4625,
+      "sha256": "d3fdead6693eb9e5e22121d799b270817769a12b9f7aed601cb9a6f27f5414ec"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-caja-abierta.jpg",
+      "bytes": 95125,
+      "sha256": "2832d31f3bc5ed01eab4b17e490dc71d3d1aa0c67ce266f8392b17e095b2e030"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-caja-abierta.txt",
+      "bytes": 4003,
+      "sha256": "a139417d3311c64670f0f7ad7a8592abffa6c83645dc814b535b9896a905ab74"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-cierre-cobranza.jpg",
+      "bytes": 110896,
+      "sha256": "dca12a6a9c3e42dcb13ee0a01655923d823dc2847cc1d2adde83510ab9b261a1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-cierre-cobranza.txt",
+      "bytes": 6799,
+      "sha256": "857d5eb7ba87ff6f5e5d77613f54dece714e78b3fee9474cf2b42791d3528869"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-inicio-cierre.jpg",
+      "bytes": 74318,
+      "sha256": "4d2f605796f16e4f6a3dfa1f7047c00dfad6f7718039976aca456417d3362f41"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/15.7-inicio-cierre.txt",
+      "bytes": 4219,
+      "sha256": "bb418bd26d61d3a55d27da3282e9bec2ace9184c0d530d09e6d77130f4e76918"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/cambios-usuario.jsonl",
+      "bytes": 816,
+      "sha256": "540a9a0f815c688d130ff5b0c03d6440e41ecfe75e963a08ef3531e27639a12e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/esperados-originales.json",
+      "bytes": 6211,
+      "sha256": "2831af3c44bb146957bb4a380b9c4323dc33ec52dde85ebfbafe7eeca1f5879f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/LEEME.md",
+      "bytes": 2190,
+      "sha256": "e9b12524750afdf2022bee1dfb57d4c6002bebc5d930919c964f2e35ce0ff254"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/progreso-ejecucion.json",
+      "bytes": 543,
+      "sha256": "e3176af3b6c81a13b83aec934f2f6ba169d03912f4299e957ae2374b2c0a0486"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/reloj-inicio.txt",
+      "bytes": 266,
+      "sha256": "4a84557aa009f36834377fb1b059136ec6a22f3c6e12d11ba6a871deeedb29ce"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-15/rutina-manana.txt",
+      "bytes": 433,
+      "sha256": "bf2748a176719b49167a77c65de078cb0736d932f51c474a54f628ec7c0a4e5d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-antes-confirmar-84000.jpg",
+      "bytes": 77656,
+      "sha256": "c511a4fb5e6397a42e7d0e82462b1ac2961a932ce1ff892183ee3dd962d9b320"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-antes-confirmar-84000.txt",
+      "bytes": 3142,
+      "sha256": "9669bc964cb7e0ee355b69a9056600bf5ac27dceea73fa321d7812d24689589e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-cerrada-por-dueno.jpg",
+      "bytes": 89563,
+      "sha256": "8f7d0bc6070e5e59d4359588a1d140d97fc793bb2e476dd6c510ed531b5cc700"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-cerrada-por-dueno.txt",
+      "bytes": 8617,
+      "sha256": "6b9ac6346ab493b4464adf2478da8607e147d10d27c5b2315a408154b9fd7938"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-detalle-movimientos-pablo.jpg",
+      "bytes": 85695,
+      "sha256": "82c29d47dcaccc1f8bba241d522659a1f4ea6bd5dffdabcf4ffe0a45c97bd3c5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-detalle-movimientos-pablo.txt",
+      "bytes": 4592,
+      "sha256": "e379c06910a2f28b64b965c667126f3d0a395df1294e01745f3858df229ea38b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-inicio-turno-pendiente.jpg",
+      "bytes": 74918,
+      "sha256": "ffd572ca8a12f802e417adf3955d6fe5c87a8e72ec30faf619d4388cae6078c9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-inicio-turno-pendiente.txt",
+      "bytes": 4372,
+      "sha256": "ee8afd76a6513503846b8045aab0d11606f23dc6c6684a6f8306b0c22dbb6d04"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-resumen-antes-abrir-cierre.jpg",
+      "bytes": 95695,
+      "sha256": "818e3cea284374256ff3f6d066fa988b0f6950744f40cfab39127fac5c967540"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-resumen-antes-abrir-cierre.txt",
+      "bytes": 4156,
+      "sha256": "929c3135cc6b85508e393362c55d61ca7d65637d766f25007c734ce505fc994e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-resumen-cierre-dueno.jpg",
+      "bytes": 96894,
+      "sha256": "e879d40efc56e9195263718287be2e83ef3fe797df1814e01ba75946f97b5f53"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.1-resumen-cierre-dueno.txt",
+      "bytes": 4155,
+      "sha256": "cf152d8f3e51c38ebefb7e577704893ba827f8910f605096fef1e7c2f3ec4906"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-cierre-cobranza.jpg",
+      "bytes": 111738,
+      "sha256": "e984b64cff39df6c1e18805ae1c8141f9d6909447c38c596aecf0f24deb48daf"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-cierre-cobranza.txt",
+      "bytes": 6986,
+      "sha256": "035666cd0c00d20faf42ede3bce1083eb4ec0bedff9a15989d549e0cf50c71dd"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-cierre-inicio.jpg",
+      "bytes": 75276,
+      "sha256": "824398e4481e4aa477c4dd1599f681df4bdba56d48ce3124467dfd5ebb1878c3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-cierre-inicio.txt",
+      "bytes": 4367,
+      "sha256": "aaee6709b2d6a5318de32068d4f105185d56b4144f3393aab4908c726c0bd07c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-clase-sin-asistencia.jpg",
+      "bytes": 84124,
+      "sha256": "76d9f4a52f3008b94e8393834ad1aa9501a5180284f98cd829e2072286144a2b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-clase-sin-asistencia.txt",
+      "bytes": 3840,
+      "sha256": "fabc40011a9850accdf79944147851aba955319f67948ddb3be2a8eb3504500c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-resultado-final.jpg",
+      "bytes": 75276,
+      "sha256": "824398e4481e4aa477c4dd1599f681df4bdba56d48ce3124467dfd5ebb1878c3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.10-resultado-final.txt",
+      "bytes": 4367,
+      "sha256": "aaee6709b2d6a5318de32068d4f105185d56b4144f3393aab4908c726c0bd07c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-antes-validar-dos-de-dos.jpg",
+      "bytes": 87823,
+      "sha256": "0bd52bb9e025143330df3a98fd139fb0899ac4cc78bad0ecd14a811092222c94"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-antes-validar-dos-de-dos.txt",
+      "bytes": 4612,
+      "sha256": "57074513ea6981a46570ed2b6a0333878669e4eb269d8ef0684590078c4667e6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-cashflow-registrado-pablo.jpg",
+      "bytes": 105270,
+      "sha256": "eeb6afd6581e26b445c7b0dc644eb77727e19ca9f4c4dd878e6d7ee889f16bfb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-cashflow-registrado-pablo.txt",
+      "bytes": 21127,
+      "sha256": "e9dd73ab12851f12cd340126b4f8a44b4260562235b600934087b3280c98c72c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-dos-verificados.jpg",
+      "bytes": 87728,
+      "sha256": "18e4511c70ffd5c0dcf040ee808008282a9c6fd9dfecb61a8e0c16d4958b1cd4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-dos-verificados.txt",
+      "bytes": 4634,
+      "sha256": "de4ff1a7c5f24c4af164defff825491f58ee86b0bde92c44e3d0a31d5937bb0d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-validada.jpg",
+      "bytes": 89679,
+      "sha256": "5158c9ba0c43be27cb1a7eee555bb93a3a1cc356ed560e6759cbfe1299515fda"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.2-validada.txt",
+      "bytes": 8618,
+      "sha256": "2d7dd552c328cd115974ddf36ee7e455aa1f5d9ae8dc5e32edde36b26b6145cb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.3-evolucion-y-septiembre.jpg",
+      "bytes": 88197,
+      "sha256": "b2892ee66075b7bbfe7a39dffa4faeab1f009774a31dec1dd30205de3031492d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.3-evolucion-y-septiembre.txt",
+      "bytes": 5653,
+      "sha256": "aa67c2fe2f2ac2dba4ba4f240256d458ac3385381ae5c299498b8a9f85ca0795"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.3-reportes-completo.jpg",
+      "bytes": 218818,
+      "sha256": "1284bda1d355191e44d1faa6ed8c252a0c56823aec25ff5ef97302a056000e33"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-activos-por-nivel.jpg",
+      "bytes": 94566,
+      "sha256": "968bfabe44f1f8028a0f8a7464eae2d96aae7f4d1083b8a2e285ce61f938f99d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-activos-por-nivel.txt",
+      "bytes": 4961,
+      "sha256": "744d3b9ca83f49ad39c74918928b843886a4c0fc44b7d30bdc89f138e4e90e8d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-mora-grupo.jpg",
+      "bytes": 97834,
+      "sha256": "c4484d0944df5486a3df073b0d27c26a6840b6d01fc79a9745941b7dd73184d0"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-mora-grupo.txt",
+      "bytes": 4044,
+      "sha256": "943084af737067e28ef9252e83a588ed83c9b65647593a4243b9066c1251c09e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-valentin-grupo.jpg",
+      "bytes": 78050,
+      "sha256": "d0857b34f76f612a61f23851dba2945b4fe978db87fe49138e17a4d303259eeb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.4-valentin-grupo.txt",
+      "bytes": 3482,
+      "sha256": "6e5d533b61a84642c78a3b980f7c26311faca2a7863351b299785fa4dd311cf6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.5-liquidacion-nueva-sin-generar.jpg",
+      "bytes": 83091,
+      "sha256": "9c0c69851acc0d70c7f40f5b7fdcc7a252491e593a0a6c4206dd844bebea894f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.5-liquidacion-nueva-sin-generar.txt",
+      "bytes": 3948,
+      "sha256": "ffc10ed6e594ca859bf3c07a6afa7289b209a83f71f41534ba3bc59cc782b4d7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.6-cuenta-protegida-listado.jpg",
+      "bytes": 82788,
+      "sha256": "9faa84cd817b4e0ceb477d6583ba34832ba8e8ef5de2b0de49c353f312b9d8d2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.6-cuenta-protegida-listado.txt",
+      "bytes": 4613,
+      "sha256": "08021b0bdd5bd3f8297ab0963f158f110dc71fc997c785d05039f3b50349c266"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.6-edicion-propia.jpg",
+      "bytes": 76072,
+      "sha256": "66fd604561b8bd7282d0c35c7c012c4bfaefdabb4f7dfe4dddac510a852dd867"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.6-edicion-propia.txt",
+      "bytes": 3345,
+      "sha256": "41da82cf890628ab7ab97ebe74fa97af6c2a574c78f1e787ceba0eec9683d7a0"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-abc-no-admitido.jpg",
+      "bytes": 95923,
+      "sha256": "99ca80a401eb19d5b6f8b1cd605e830864b946f09b6bccd80f59328bb9addd51"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-abc-no-admitido.txt",
+      "bytes": 6948,
+      "sha256": "7a8a39afa065e71914353f9f517ec51085e1c137e5372f9e89afa1e7ed51f688"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-menos-tres-rechazado.jpg",
+      "bytes": 98462,
+      "sha256": "5e3cec9a5dd909fa92ef17f906a0587a1f60ae4a5863e39bfb44b667c5cee077"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-menos-tres-rechazado.txt",
+      "bytes": 6609,
+      "sha256": "f6062921830c7339a3eeb8073f4d73399b0e59b9f2a626c77d4cb93606af0dba"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-menos-tres-respuesta-final.jpg",
+      "bytes": 96697,
+      "sha256": "21a0a54cc262fa8b413916aa770669ec9143c0699aa5c047f0956bcc514e5227"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-menos-tres-respuesta-final.txt",
+      "bytes": 6941,
+      "sha256": "1d8013e3d428254b67c1a9911c0af43beafd76e9be68721c52d7d6ff3c5533d1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-reconfirmado-10.jpg",
+      "bytes": 91501,
+      "sha256": "3daec394063f008c5f2227d8a377cd89cfac1d070149bf7424f8ff2516f2085f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-reconfirmado-10.txt",
+      "bytes": 6587,
+      "sha256": "cfd4b80df4e15e8e6352a719e0c3e1f0fe89d408910adc7388c497f7c2d29d38"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-valor-original-conservado.jpg",
+      "bytes": 91501,
+      "sha256": "3daec394063f008c5f2227d8a377cd89cfac1d070149bf7424f8ff2516f2085f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.7-valor-original-conservado.txt",
+      "bytes": 6587,
+      "sha256": "cfd4b80df4e15e8e6352a719e0c3e1f0fe89d408910adc7388c497f7c2d29d38"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-grupo-creado.jpg",
+      "bytes": 92661,
+      "sha256": "6e62efd5960c5e592f301846008de5f40278a39371edcd00e9a1dd2fa10d348b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-grupo-creado.txt",
+      "bytes": 4867,
+      "sha256": "183be08b433a735751148ed6dc5850bfd08e1663fa20c98f91e4c3d7efa3fbe2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-nivel-adultos-aun-no-existe.jpg",
+      "bytes": 70169,
+      "sha256": "d51687763a508f84faca23b006ed2a6f279395de3b7429e84245380bf98fe203"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-nivel-adultos-aun-no-existe.txt",
+      "bytes": 3003,
+      "sha256": "97944ca6aaab0e584ac1a59427ea60340b2c39c4acbb5b5d244e4fc47f0c18eb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-nivel-adultos-creado.jpg",
+      "bytes": 74981,
+      "sha256": "0771019c60eec99f3ee0bb16641832c20b03a0c406c097ccc8894630441fef89"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-nivel-adultos-creado.txt",
+      "bytes": 3500,
+      "sha256": "0d8727dc9fb3e7bdac54aa8ad48e7dcb5b6580c8c80c05ff6b3a0d27bb4df2d4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-planes-antes-guardar.jpg",
+      "bytes": 85238,
+      "sha256": "62a4f63e5c7f2370853ca2fbf50952377aadf82a135aa44e1a5de191645a10fb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.8-planes-antes-guardar.txt",
+      "bytes": 3488,
+      "sha256": "ed79728e72b2a592dc760d5b196f351496ea6f00142992cc48c1e6182f55e768"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.9-antes-guardar.jpg",
+      "bytes": 85750,
+      "sha256": "2ab2259ddf507e6d3346b96b9545b5dbe923847ddfcf2d5eee2f183e8c0d015f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.9-antes-guardar.txt",
+      "bytes": 3213,
+      "sha256": "2c4786deeaf45c040f109744dbc196118139d0ed81bad1fcbe9fe63f5dc39a1d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.9-subrubro-guardado.jpg",
+      "bytes": 88723,
+      "sha256": "b8b58680827a9480450f8c47426ba957298f121ff3cf39e0346c2460f0662769"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/16.9-subrubro-guardado.txt",
+      "bytes": 16801,
+      "sha256": "709952ab970b5d6e88a13f1f32d0c46ebdc95227e3c9c2934964ff6be04b86eb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/cambios-usuario.jsonl",
+      "bytes": 248,
+      "sha256": "5da6cc10ce691cf5e42ac4034a4b7a98d6e63be843ca89d58e8bb2265fa642b6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/esperados-originales.json",
+      "bytes": 5245,
+      "sha256": "0032bcc6e4d8ed2318761e5c04d285e52d6726424ada2a9bf8a379ef55031dac"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/LEEME.md",
+      "bytes": 4880,
+      "sha256": "8d072befd5416305dec31dbc8d36eda389887266d81fd977ad08657be4cc6cf5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/preparar-entrega.py",
+      "bytes": 7473,
+      "sha256": "746b73ebff116eb37ac662c5c9bb5d12e5e1c103ce4c03f1daada15fbfd74103"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/progreso-ejecucion.json",
+      "bytes": 547,
+      "sha256": "b600cc8e77bcbac700b576381c9435d0a90ea8f498b7dc627e7a616f40ac15b6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/reloj-inicio.txt",
+      "bytes": 266,
+      "sha256": "bad5b0a02936de325c55574ab230c9d1c3e16947a9f85473e4ab9c6c570dfa28"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/verificar-entrega.py",
+      "bytes": 1560,
+      "sha256": "95006592c70d098745472ebd5d3f7ca6dc8bb7bcce9b7616178609d1702174ce"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-dia-16/verificar-integridad.py",
+      "bytes": 6272,
+      "sha256": "0692888227fb4ed7ed93b71d0da3117af234ad5e9572a0ce828716aa8dbd2195"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html",
+      "bytes": 50933,
+      "sha256": "1bb504dff8c07bf156f89885eaaf165cb82d8cc37ad3161b24d58d79c4054e94"
+    },
+    {
+      "ruta": "docs/99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-13-16-ANTECEDENTES.json",
+      "bytes": 290,
+      "sha256": "486505acd19d413d42830f479e865a8ba9ce2876caa0a984ff33fddaca328122"
+    },
+    {
+      "ruta": "docs/99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-13-16-ANTECEDENTES.md",
+      "bytes": 2754,
+      "sha256": "d97643e641b2bb180bc0ae57b757082dad125aaf7545074e269f4a24d5b787d8"
+    }
+  ],
+  "excluido_del_autosellado": "docs/06-pruebas/PRU-04/INTEGRIDAD-DIAS-13-16.json"
+}

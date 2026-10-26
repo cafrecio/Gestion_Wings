@@ -1,0 +1,6 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Rossi, Berenice por Efectivo — Pago registrado para Rossi, Berenice.
+ 3. Pablo Ledesma Inscripciones $24000 por Efectivo — Movimiento registrado.
+ 4. Mariela Ocampo lista de la #49: 8 alumnos, 2 presentes — Asistencias guardadas.
+Cobranza: $391.000,00 · {"AL_DIA":99,"EN_PLAZO":0,"MOROSO":1,"DEUDOR":4}
+GUARDADO.

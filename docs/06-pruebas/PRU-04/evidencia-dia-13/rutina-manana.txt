@@ -1,0 +1,13 @@
+ 1. Sandra Vidal abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal cobra a Nuñez, Guadalupe por Efectivo — Pago registrado para Nuñez, Guadalupe.
+ 3. Sandra Vidal cobra a Ramirez, Lucia por Mercado Pago — Pago registrado para Ramirez, Lucia.
+ 4. Sandra Vidal cobra a Castro, Martina por Efectivo — Pago registrado para Castro, Martina.
+ 5. Sandra Vidal cobra a Morales, Carla por Efectivo — Pago registrado para Morales, Carla.
+ 6. Sandra Vidal cobra a Pereyra, Liam por Efectivo — Pago registrado para Pereyra, Liam.
+ 7. Sandra Vidal cobra a Gutierrez, Olivia por Mercado Pago — Pago registrado para Gutierrez, Olivia.
+ 8. Sandra Vidal Limpieza $3800 por Efectivo — Movimiento registrado.
+ 9. Lucía Gaitán lista de la #31: 12 alumnos, 8 presentes — Asistencias guardadas.
+10. Mariela Ocampo lista de la #42: 8 alumnos, 8 presentes — Asistencias guardadas.
+11. Hernán Quintana lista de la #69: 15 alumnos, 9 presentes — Asistencias guardadas.
+Cobranza: $707.000,00 · {"AL_DIA":89,"EN_PLAZO":0,"MOROSO":5,"DEUDOR":8}
+GUARDADO.

@@ -1,0 +1,193 @@
+{
+  "dia": 14,
+  "capturado_antes_de_operar": "2026-10-26T02:43:04.403272+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-13-16.md",
+  "fuente_sha256": "0e91648ac0dd9d8000ac12a003f85d7244dadc9285b984d83f97a0f5bfe864a7",
+  "commit_local": "78d5b0a2559c285ff41dae84e335f3d0c776dfb2",
+  "casos": [
+    {
+      "id": "14.1",
+      "quien": "Pablo",
+      "tarea": "Alta de **Valentín Ortega**: nacido el 10/02/2010, Fútbol Principiantes 2 veces, ingreso hoy. Primero mal: DNI «45A12» y nacimiento 10/02/2030.",
+      "esperado": "Rechaza con avisos en castellano en cada campo, sin perder lo cargado (ALU-003).",
+      "linea_fuente": 81,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.2",
+      "quien": "Pablo",
+      "tarea": "Lo corrige: DNI 50123987, nacido el 10/02/2010, tutor Raúl Ortega (11-5551-3434). Guarda.",
+      "esperado": "Inscripción $5.000; octubre **$24.500** (el 70% de $35.000); En plazo, vence 30/10; total $29.500.",
+      "linea_fuente": 82,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.3",
+      "quien": "Pablo",
+      "tarea": "Raúl paga **$29.500** en efectivo.",
+      "esperado": "**Al día**.",
+      "linea_fuente": 83,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.4",
+      "quien": "Pablo",
+      "tarea": "Intenta dar de alta otra vez a **Camila Benítez** en Patín, con su DNI 51200700.",
+      "esperado": "No la deja: ya está anotada en Patín (ALU-004).",
+      "linea_fuente": 84,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.5",
+      "quien": "Pablo",
+      "tarea": "**Mora Benítez** se anota también en **Fútbol Principiantes**, 1 vez, ingreso hoy.",
+      "esperado": "No le cobra otra inscripción: ya la pagó en Patín. Octubre **$19.600** (el 70% de $28.000) (ALU-005).",
+      "linea_fuente": 85,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.6",
+      "quien": "Pablo",
+      "tarea": "Laura, la mamá de Mora, paga $19.600 por Mercado Pago.",
+      "esperado": "La inscripción de Fútbol de Mora pasa a **Al día**.",
+      "linea_fuente": 86,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.7",
+      "quien": "Dueño",
+      "tarea": "**Perdona la inscripción** de Valentina López («Beca de inscripción por hermana»).",
+      "esperado": "Con motivo la perdona. Le queda octubre $40.000 y pasa de Deudor a **Moroso** (CBZ-010).",
+      "linea_fuente": 87,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.8",
+      "quien": "Pablo",
+      "tarea": "Valentina López paga octubre, $40.000 en efectivo.",
+      "esperado": "**Al día**.",
+      "linea_fuente": 88,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.9",
+      "quien": "Pablo",
+      "tarea": "La familia de **Zoe Flores** había pagado **agosto** ($30.000) por Banco Nación el **30/09**, y nadie lo cargó. Pablo lo cobra con **fecha de pago 30/09/2026**.",
+      "esperado": "Pide confirmar que es una fecha de un mes cerrado. Entra en la caja de hoy con fecha 30/09. El dueño recibe el aviso. El ingreso cuenta en **septiembre**, no en octubre (COB-022). Zoe pasa a **Al día**.",
+      "linea_fuente": 89,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "14.10",
+      "quien": "Dueño",
+      "tarea": "Carga mal un movimiento directo en Cashflow: Luz con importe **0**; después con fecha **30/10** (futura). No lo corrige: lo deja sin guardar.",
+      "esperado": "Rechaza los dos con avisos claros. No se guarda nada (CSH-006).",
+      "linea_fuente": 90,
+      "quien_derivado_del_encabezado": false
+    }
+  ],
+  "bloque_completo_original": "## Día 14 — viernes 23/10: alumnos y altas con problemas\n\n**Script de la mañana:** `dia-14-manana.json`.\n- Pablo abre la caja con $10.000.\n- Cinco cobros:\n  - Dante Ramos, $38.000 en efectivo;\n  - Zoe Pereyra, $45.000 por MP;\n  - Morena Rossi, $40.000 en efectivo;\n  - Mateo Castro, $33.000 por Banco Nación;\n  - Martina López, $35.000 por MP.\n- Librería, $1.500.\n- Lista #21: 19 alumnas, Julieta incluida; 12 presentes.\n- **Al terminar imprime:** Cobranza $516.000.\n\n| # | Quién | Tarea | Esperado |\n|---|---|---|---|\n| 14.1 | Pablo | Alta de **Valentín Ortega**: nacido el 10/02/2010, Fútbol Principiantes 2 veces, ingreso hoy. Primero mal: DNI «45A12» y nacimiento 10/02/2030. | Rechaza con avisos en castellano en cada campo, sin perder lo cargado (ALU-003). |\n| 14.2 | Pablo | Lo corrige: DNI 50123987, nacido el 10/02/2010, tutor Raúl Ortega (11-5551-3434). Guarda. | Inscripción $5.000; octubre **$24.500** (el 70% de $35.000); En plazo, vence 30/10; total $29.500. |\n| 14.3 | Pablo | Raúl paga **$29.500** en efectivo. | **Al día**. |\n| 14.4 | Pablo | Intenta dar de alta otra vez a **Camila Benítez** en Patín, con su DNI 51200700. | No la deja: ya está anotada en Patín (ALU-004). |\n| 14.5 | Pablo | **Mora Benítez** se anota también en **Fútbol Principiantes**, 1 vez, ingreso hoy. | No le cobra otra inscripción: ya la pagó en Patín. Octubre **$19.600** (el 70% de $28.000) (ALU-005). |\n| 14.6 | Pablo | Laura, la mamá de Mora, paga $19.600 por Mercado Pago. | La inscripción de Fútbol de Mora pasa a **Al día**. |\n| 14.7 | Dueño | **Perdona la inscripción** de Valentina López («Beca de inscripción por hermana»). | Con motivo la perdona. Le queda octubre $40.000 y pasa de Deudor a **Moroso** (CBZ-010). |\n| 14.8 | Pablo | Valentina López paga octubre, $40.000 en efectivo. | **Al día**. |\n| 14.9 | Pablo | La familia de **Zoe Flores** había pagado **agosto** ($30.000) por Banco Nación el **30/09**, y nadie lo cargó. Pablo lo cobra con **fecha de pago 30/09/2026**. | Pide confirmar que es una fecha de un mes cerrado. Entra en la caja de hoy con fecha 30/09. El dueño recibe el aviso. El ingreso cuenta en **septiembre**, no en octubre (COB-022). Zoe pasa a **Al día**. |\n| 14.10 | Dueño | Carga mal un movimiento directo en Cashflow: Luz con importe **0**; después con fecha **30/10** (futura). No lo corrige: lo deja sin guardar. | Rechaza los dos con avisos claros. No se guarda nada (CSH-006). |\n\n**Script de la noche:** `dia-14-noche.json`. Pablo cierra con el efectivo esperado, **$156.000**, deja $10.000 y el dueño valida.\n\n**Cierre del día 14:**\n- Deuda **$441.000**; **105 activos: 99 Al día, 2 Morosos (Joaquín y Berenice Rossi), 4 Deudores**.\n- Ingresos de octubre **$1.893.850,75**; egresos **$240.850**; resultado **$1.653.000,75**.\n- Disponible **$3.406.000,75**: Efectivo $1.108.900, MP $2.031.550,75, Galicia $137.550, Nación $128.000.\n- **Septiembre** suma $30.000 de ingresos.\n",
+  "rutinas": [
+    {
+      "archivo": "docs/06-pruebas/PRU-04/rutina/dia-14-manana.json",
+      "sha256": "29bf47555ccdd56795d64a6cb26acc80a553d1d22cd12c4824ee954126882917",
+      "plan": {
+        "dia": "2026-10-23",
+        "descripcion": "Día 14, viernes: turno de Pablo, cobros simples, un gasto y la lista de Patín Intermedias.",
+        "pasos": [
+          {
+            "como": "Pablo Ledesma",
+            "accion": "abrir_caja"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Ramos, Dante",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Pereyra, Zoe",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Mercado Pago"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Rossi, Morena",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Castro, Mateo",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Banco Nación"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Lopez, Martina",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Mercado Pago"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "movimiento",
+            "subrubro": "Librería",
+            "medio": "Efectivo",
+            "monto": 1500,
+            "obs": "Resma de papel"
+          },
+          {
+            "como": "Verónica Salinas",
+            "accion": "lista",
+            "clase": 21,
+            "ausentes": [
+              "Cabrera, Constanza",
+              "Ferrari, Josefina",
+              "Flores, Juana",
+              "Martinez, Delfina",
+              "Romero, Florencia",
+              "Sosa, Rocio",
+              "Vega, Candela"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "archivo": "docs/06-pruebas/PRU-04/rutina/dia-14-noche.json",
+      "sha256": "131bc59d6b1121cc7baf3ff90fe776eb447cfc9bcacba777415ae0e7f8e25a3e",
+      "plan": {
+        "dia": "2026-10-23",
+        "descripcion": "Día 14, viernes a la noche: Pablo cierra sin diferencia y el dueño valida.",
+        "pasos": [
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cerrar_caja",
+            "cambio": 10000
+          },
+          {
+            "como": "Admin Prueba",
+            "accion": "validar_caja",
+            "de": "Pablo Ledesma"
+          }
+        ]
+      }
+    }
+  ]
+}

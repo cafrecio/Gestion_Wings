@@ -1,0 +1,150 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Usuarios" [level=1]
+- main:
+  - strong: "8"
+  - text: usuarios
+  - button "Nuevo"
+  - heading "Admin Prueba (vos)" [level=3]
+  - generic: "Email:"
+  - generic: admin@wings.test
+  - generic: "Rol:"
+  - generic: Administrador
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/1/edit
+  - generic "No podés desactivar tu propia cuenta.":
+    - strong: Activo
+    - generic: Tu cuenta
+  - heading "Quintana, Hernán" [level=3]
+  - generic: "Email:"
+  - generic: hernan.quintana@wings.test
+  - generic: "Rol:"
+  - generic: Profesor
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/7/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Gaitán, Lucía" [level=3]
+  - generic: "Email:"
+  - generic: lucia.gaitan@wings.test
+  - generic: "Rol:"
+  - generic: Profesor
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/4/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Ocampo, Mariela" [level=3]
+  - generic: "Email:"
+  - generic: mariela.ocampo@wings.test
+  - generic: "Rol:"
+  - generic: Profesor
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/6/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Pablo Ledesma" [level=3]
+  - generic: "Email:"
+  - generic: pablo.ledesma@wings.test
+  - generic: "Rol:"
+  - generic: Operativo
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/3/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Rocío Paz" [level=3]
+  - generic: "Email:"
+  - generic: rocio.paz@example.com
+  - generic: "Rol:"
+  - generic: Operativo
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/8/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Sandra Vidal" [level=3]
+  - generic: "Email:"
+  - generic: sandra.vidal@wings.test
+  - generic: "Rol:"
+  - generic: Operativo
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/2/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+  - heading "Salinas, Verónica" [level=3]
+  - generic: "Email:"
+  - generic: veronica.salinas@wings.test
+  - generic: "Rol:"
+  - generic: Profesor
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/usuarios/5/edit
+  - generic: Activo
+  - switch "Activo" [checked]
+- contentinfo:
+  - generic: Wings

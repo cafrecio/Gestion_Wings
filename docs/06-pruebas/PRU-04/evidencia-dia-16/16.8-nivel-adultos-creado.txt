@@ -1,0 +1,114 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Niveles" [level=1]
+- main:
+  - strong: "5"
+  - text: niveles
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/niveles/create
+  - img "Sin grupos"
+  - heading "Adultos" [level=3]
+  - paragraph: Nivel del grupo Patín Adultos de la prueba del día 16
+  - generic: "Grupos:"
+  - generic: "0"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/niveles/8/edit
+  - button "Eliminar"
+  - img "Con grupos"
+  - heading "Avanzadas" [level=3]
+  - generic: "Grupos:"
+  - generic: "2"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/niveles/6/edit
+  - button "Eliminar"
+  - img "Con grupos"
+  - heading "Federadas" [level=3]
+  - generic: "Grupos:"
+  - generic: "1"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/niveles/7/edit
+  - button "Eliminar"
+  - img "Con grupos"
+  - heading "Intermedias" [level=3]
+  - generic: "Grupos:"
+  - generic: "1"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/niveles/5/edit
+  - button "Eliminar"
+  - img "Con grupos"
+  - heading "Principiantes" [level=3]
+  - generic: "Grupos:"
+  - generic: "2"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/niveles/4/edit
+  - button "Eliminar"
+- contentinfo:
+  - generic: Wings

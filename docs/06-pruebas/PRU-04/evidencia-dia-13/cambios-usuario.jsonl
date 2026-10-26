@@ -1,0 +1,10 @@
+{"evento":"intento_ingreso","rol":"Sandra","incorrecta":true,"segundosDesdeSalir":null,"fecha":"2026-10-26T02:44:59.305Z"}
+{"evento":"intento_ingreso","rol":"Sandra","incorrecta":false,"segundosDesdeSalir":null,"fecha":"2026-10-26T02:45:49.587Z"}
+{"evento":"salir","rol":"Sandra","fecha":"2026-10-26T02:51:08.481Z"}
+{"evento":"intento_ingreso","rol":"Dueño","incorrecta":false,"segundosDesdeSalir":90.913,"fecha":"2026-10-26T02:52:40.588Z"}
+{"evento":"salir","rol":"Dueño","fecha":"2026-10-26T02:54:37.846Z"}
+{"evento":"intento_ingreso","rol":"Sandra","incorrecta":false,"segundosDesdeSalir":67.381,"fecha":"2026-10-26T02:55:46.154Z"}
+{"evento":"salir","rol":"Sandra","fecha":"2026-10-26T02:58:10.838Z"}
+{"evento":"intento_ingreso","rol":"Dueño","incorrecta":false,"segundosDesdeSalir":86.251,"fecha":"2026-10-26T02:59:38.163Z"}
+{"tipo":"limite_herramienta","caso":"13.11","intentos":2,"detalle":"Confirmación nativa de reactivación; no probado por la herramienta","fecha":"2026-10-26T03:07:31.707Z"}
+{"evento":"salir","rol":"Dueño","fecha":"2026-10-26T04:47:21.605Z"}

@@ -1,15 +1,24 @@
 # Wings — Estado actual
 
+## T14 — Días 13 a 16 registrados, Codex CAB 26/10/2026
+
+[Informes y evidencia acreditada](../06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html): **39 casos, 25 Sí/12 Parcial/2 No**. Cuatro relojes y cuatro rutinas ejecutados una vez cada uno, stdout copiado. Servidor ec1b0c6e/staging/wingstest comprobado al inicio después del aviso de despliegue de Carlos.
+Cajas #12/#13/#14 validadas. Final: deuda $391.000; 104 activos (99 Al día/0 En plazo/1 Moroso/4 Deudores); octubre ingresos $1.824.850,75, egresos $240.850, resultado $1.584.000,75; disponible $3.337.000,75, por validar $0 y sin asistencia 1 (#76).
+Julieta no pudo reactivarse por confirmación nativa fallida (13.11); no se cobró: una activa y $143.000 menos que el guion. Rocío no ingresó con la clave documentada; Martín no se creó porque Fútbol solo ofreció comisión, no hora: 15.4/15.5 dependen de esa alta y se saltearon. No se repararon diferencias.
+Lista #49 y horario #77 guardados sin pedir motivo; Hernán vio el nuevo horario. Adultos creado con planes $32.000/$42.000 y cero alumnos; Botiquín habilitado para OPERATIVO, sin prueba con su sesión el domingo. Gracia sigue 10. Liquidaciones solo abierta, sin generar.
+Incidente propio: 40 archivos de evidencia conservaron la pestaña anterior tras recuperarla; identificados y excluidos de las imágenes de la galería. Observaciones directas conservadas y recapturas posteriores rotuladas. No se atribuye evidencia histórica a una recaptura.
+T14 continúa en curso; Claude revisa independientemente entrega y diferencias. No repetir operaciones, rutinas ni reloj: último inicio 25/10/2026 15:00. Sin producto, tabla externa, suite, despliegue ni push; dashboard por casos conserva corte anterior. Los cortes 10–12 y anteriores de abajo son históricos, no la siguiente orden.
+
 ## T81 — Lógica verificada por Codex CAB, 25/10/2026
 
-**APROBADA**, sin cerrar T81. Verificador independiente: **4 aprobadas/142 aserciones**;
+**APROBADA en el corte de verificación**; el tablero actual ya declara T81 cerrada y desplegada en test. Verificador independiente: **4 aprobadas/142 aserciones**;
 suite rápida en `wings_testing_codex`: **926 aprobadas, 6 omitidas, 7.425 aserciones,
 170,53 s, salida 0**. Tres teléfonos probados con ADMIN/OPERATIVO: celular propio,
 fallback real al tutor y vacío. Cobranza conserva importes y celdas económicas frente
 a la vista del padre de T81. Búsqueda/autocomplete por DNI, ficha, serialización,
 recibo PDF real y plantilla Excel comprobados. Accessor nuevo solo consumido por las
 dos vistas del pedido; rastreo MCP completado contra fuentes por cobertura insuficiente.
-Carlos ya aprobó lo visual. T81 permanece `a_verificar`, `hizo=Gemini`, `verifica=Codex`.
+Carlos ya aprobó lo visual. T81 figura ahora `cerrado`, `hizo=Gemini`, `verifica=Codex`; el aviso de despliegue posterior dio inicio al recorrido 13–16.
 [Informe y límites](../06-pruebas/PRU-04/VERIFICACION-T81-CODEX.md). Sin producto, tabla,
 servidor, datos del club ni push; no suite completa. La salida lateral regenerada de T34
 se preservó en la evidencia propia y su archivo original se devolvió a HEAD.
@@ -50,7 +59,7 @@ Cajas #8/#9/#10 cerradas y validadas, todas sin diferencia; cambios retenidos $1
 
 Bloqueo pendiente: 12.22 mostró confirmación de reactivación de Julieta, pero el control de Chrome falló al aceptarla. Última búsqueda siguió Inactivo; pago 12.23 no ejecutado. Sin reparación por base ni fabricación de recibo. La herramienta de control nativo venció sin obtener aprobación de aplicación. Internet corregido a $18.950, fecha 19/10 y una sola fila con historial. Último Inicio leído: deuda $779.600, ingresos $1.378.150,75, egresos $235.550, resultado $1.142.600,75 y disponible $2.827.600,75; Sin asistencia 0 y cajas pendientes 0. Distribución final de estados sin reconsulta, no heredada.
 
-Sigue recuperar el control de Chrome y retomar solo 12.22/12.23, contrastar 12.25 y obtener revisión independiente de la entrega. No repetir operaciones ni reloj: último inicio 21/10/2026 15:00. Tabla de pruebas y producto intactos; sin suite/despliegue por esta entrega documental. Dashboard por casos conserva corte anterior.
+El siguiente paso de aquel corte fue reemplazado por el guion 13–16, ya recorrido arriba; la reactivación se reintentó en 13.11 y siguió sin completarse. No reejecutar los días 10–12 ni su reloj. La entrega conserva revisión independiente pendiente. Tabla de pruebas y producto intactos; sin suite/despliegue por esta entrega documental. Dashboard por casos conserva corte anterior.
 
 ## T14 — Días 7 a 9 recorridos, Codex CAB 25/10/2026
 

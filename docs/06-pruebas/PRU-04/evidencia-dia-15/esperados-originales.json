@@ -1,0 +1,112 @@
+{
+  "dia": 15,
+  "capturado_antes_de_operar": "2026-10-26T02:43:04.403272+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-13-16.md",
+  "fuente_sha256": "0e91648ac0dd9d8000ac12a003f85d7244dadc9285b984d83f97a0f5bfe864a7",
+  "commit_local": "78d5b0a2559c285ff41dae84e335f3d0c776dfb2",
+  "casos": [
+    {
+      "id": "15.1",
+      "quien": "Mariela",
+      "tarea": "Se equivocó en la #49: no vino **Helena**, vino **Olivia Rossi**. Corrige la lista.",
+      "esperado": "Pide motivo porque ya tenía lista tomada. Con «Me confundí de alumna» guarda: Helena ausente y Olivia presente. Propone «Clase adicional» para **Olivia** y **Berenice**, que ya vinieron martes y jueves (ASI-004).",
+      "linea_fuente": 110,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.2",
+      "quien": "Rocío",
+      "tarea": "Llega para un turno corto e intenta **abrir caja**.",
+      "esperado": "«Hay un turno abierto. Cerralo antes de abrir otro.» Muestra la caja abierta de Pablo. No puede cobrar (CAJ-009).",
+      "linea_fuente": 111,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.3",
+      "quien": "Dueño",
+      "tarea": "Alta de un profesor de fútbol: **Martín Acosta**, por hora, $15.000.",
+      "esperado": "Queda activo. En Sueldos aparece «Fútbol-Martín Acosta» (PRO-001).",
+      "linea_fuente": 112,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.4",
+      "quien": "Dueño",
+      "tarea": "Hernán avisó que no viene: cambia la profesora de la **#76** (Fútbol Avanzadas 11–12, hoy) a **Martín Acosta**, con el motivo «Hernán enfermo».",
+      "esperado": "Solo ofrece profesores de Fútbol. Queda Martín y el motivo guardado (CLA-009).",
+      "linea_fuente": 113,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.5",
+      "quien": "Martín",
+      "tarea": "Toma lista en la **#76**: 15 alumnos; presentes **Lucas Gómez y Tomás Giménez**.",
+      "esperado": "Propone «Clase adicional» para los dos: Lucas ya vino el martes y Tomás, martes y jueves.",
+      "linea_fuente": 114,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.6",
+      "quien": "Dueño",
+      "tarea": "Cambia el horario de la **#77** (sábado 31/10, Fútbol Avanzadas) de 11–12 a **12–13**, con motivo.",
+      "esperado": "Se guarda. Hernán la ve en el horario nuevo (CLA-016).",
+      "linea_fuente": 115,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "15.7",
+      "quien": "—",
+      "tarea": "**Pablo se va sin cerrar la caja.** No se cierra.",
+      "esperado": "Queda abierta para el domingo.",
+      "linea_fuente": 116,
+      "quien_derivado_del_encabezado": false
+    }
+  ],
+  "bloque_completo_original": "## Día 15 — sábado 24/10: caja y clases fuera de lo normal\n\n**Script de la mañana:** `dia-15-manana.json`.\n- Pablo abre la caja con $10.000.\n- Cobra a Berenice Rossi $50.000 en efectivo.\n- Inscripciones al torneo: $24.000 en efectivo.\n- Lista #49 de Mariela: 8 alumnas; presentes Helena Iglesias y Berenice Rossi.\n\n| # | Quién | Tarea | Esperado |\n|---|---|---|---|\n| 15.1 | Mariela | Se equivocó en la #49: no vino **Helena**, vino **Olivia Rossi**. Corrige la lista. | Pide motivo porque ya tenía lista tomada. Con «Me confundí de alumna» guarda: Helena ausente y Olivia presente. Propone «Clase adicional» para **Olivia** y **Berenice**, que ya vinieron martes y jueves (ASI-004). |\n| 15.2 | Rocío | Llega para un turno corto e intenta **abrir caja**. | «Hay un turno abierto. Cerralo antes de abrir otro.» Muestra la caja abierta de Pablo. No puede cobrar (CAJ-009). |\n| 15.3 | Dueño | Alta de un profesor de fútbol: **Martín Acosta**, por hora, $15.000. | Queda activo. En Sueldos aparece «Fútbol-Martín Acosta» (PRO-001). |\n| 15.4 | Dueño | Hernán avisó que no viene: cambia la profesora de la **#76** (Fútbol Avanzadas 11–12, hoy) a **Martín Acosta**, con el motivo «Hernán enfermo». | Solo ofrece profesores de Fútbol. Queda Martín y el motivo guardado (CLA-009). |\n| 15.5 | Martín | Toma lista en la **#76**: 15 alumnos; presentes **Lucas Gómez y Tomás Giménez**. | Propone «Clase adicional» para los dos: Lucas ya vino el martes y Tomás, martes y jueves. |\n| 15.6 | Dueño | Cambia el horario de la **#77** (sábado 31/10, Fútbol Avanzadas) de 11–12 a **12–13**, con motivo. | Se guarda. Hernán la ve en el horario nuevo (CLA-016). |\n| 15.7 | — | **Pablo se va sin cerrar la caja.** No se cierra. | Queda abierta para el domingo. |\n\n**Cierre del día 15:**\n- Deuda **$391.000**; 105 activos: **100 Al día, 1 Moroso (Joaquín), 4 Deudores**.\n- Ingresos **$1.967.850,75**; egresos **$240.850**; resultado **$1.727.000,75**.\n- Disponible **$3.480.000,75**, con $74.000 por validar en la caja abierta.\n",
+  "rutinas": [
+    {
+      "archivo": "docs/06-pruebas/PRU-04/rutina/dia-15-manana.json",
+      "sha256": "814781e12ca3c35d0a4a9f9d25182a705c3a3aba0af677957ba099dc72971dad",
+      "plan": {
+        "dia": "2026-10-24",
+        "descripcion": "Día 15, sábado: Pablo abre, cobra a Berenice Rossi, carga las inscripciones del torneo y Mariela toma lista.",
+        "pasos": [
+          {
+            "como": "Pablo Ledesma",
+            "accion": "abrir_caja"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "cobrar",
+            "alumno": "Rossi, Berenice",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Pablo Ledesma",
+            "accion": "movimiento",
+            "subrubro": "Inscripciones",
+            "medio": "Efectivo",
+            "monto": 24000,
+            "obs": "Torneo de primavera: 3 inscripciones"
+          },
+          {
+            "como": "Mariela Ocampo",
+            "accion": "lista",
+            "clase": 49,
+            "ausentes": [
+              "Diaz, Martina",
+              "Diaz, Catalina",
+              "Nuñez, Guadalupe",
+              "Ramos, Lucia",
+              "Rossi, Olivia",
+              "Vega, Florencia"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

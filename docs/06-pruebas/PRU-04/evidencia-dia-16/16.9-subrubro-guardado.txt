@@ -1,0 +1,507 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Rubros" [level=1]
+- main:
+  - generic: Ingresos 8 rubros
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/rubros/create
+  - generic: Cuotas
+  - paragraph: Cobro de cuotas mensuales de alumnos
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Cuota Mensual OPERATIVO ✓":
+        - cell "Cuota Mensual"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell
+  - generic: Indumentaria
+  - paragraph: Indumentaria y accesorios en general
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Patines OPERATIVO ✓ Editar Pausar":
+        - cell "Patines"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/9/subrubros/14/edit
+          - button "Pausar"
+      - row "Indumentaria institucional OPERATIVO ✓ Editar Pausar":
+        - cell "Indumentaria institucional"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/9/subrubros/15/edit
+          - button "Pausar"
+      - row "VG Indumentaria OPERATIVO ✓ Editar Pausar":
+        - cell "VG Indumentaria"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/9/subrubros/16/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/9/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/9/edit
+  - button "Eliminar"
+  - generic: Inscripciones
+  - paragraph: Inscripción por única vez por persona
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Inscripción al club OPERATIVO ✓":
+        - cell "Inscripción al club"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell
+  - generic: Intereses
+  - paragraph: Intereses generados por cuentas bancarias o plataformas de pago
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Intereses Mercado Pago ADMIN – Editar Pausar":
+        - cell "Intereses Mercado Pago"
+        - cell "ADMIN"
+        - cell "–"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/3/subrubros/3/edit
+          - button "Pausar"
+      - row "Intereses Banco ADMIN – Editar Pausar":
+        - cell "Intereses Banco"
+        - cell "ADMIN"
+        - cell "–"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/3/subrubros/4/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/3/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/3/edit
+  - button "Eliminar"
+  - generic: Otras clases
+  - paragraph: Ingresos por clases particulares
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Clase particular OPERATIVO ✓ Editar Pausar":
+        - cell "Clase particular"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/11/subrubros/25/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/11/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/11/edit
+  - button "Eliminar"
+  - generic: Punitorios
+  - paragraph: Recargos por mora de cuotas
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Punitorio Cuota OPERATIVO ✓":
+        - cell "Punitorio Cuota"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell
+  - generic: Torneos
+  - paragraph: Inscripciones a torneos
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Inscripciones OPERATIVO ✓ Editar Pausar":
+        - cell "Inscripciones"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/8/subrubros/13/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/8/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/8/edit
+  - button "Eliminar"
+  - generic: Transferencias internas — entradas
+  - paragraph: Transferencia entre medios propios; no cuenta en el resultado del club
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Entrada desde otro medio ADMIN ✓":
+        - cell "Entrada desde otro medio"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell
+  - generic: Egresos 8 rubros
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/rubros/create
+  - generic: Alquileres
+  - paragraph: Alquileres de pistas
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "San Carlos ADMIN ✓ Editar Pausar":
+        - cell "San Carlos"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/7/subrubros/10/edit
+          - button "Pausar"
+      - row "Centenera ADMIN ✓ Editar Pausar":
+        - cell "Centenera"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/7/subrubros/11/edit
+          - button "Pausar"
+      - row "Eventos ADMIN ✓ Editar Pausar":
+        - cell "Eventos"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/7/subrubros/12/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/7/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/7/edit
+  - button "Eliminar"
+  - generic: Gastos de torneos
+  - paragraph: Lo que el club paga por participar en torneos
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Pago al organizador ADMIN ✓ Editar Pausar":
+        - cell "Pago al organizador"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/13/subrubros/27/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/13/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/13/edit
+  - button "Eliminar"
+  - generic: Gastos Operativos
+  - paragraph: Gastos menores del día a día (limpieza, librería, insumos)
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Limpieza OPERATIVO ✓ Editar Pausar":
+        - cell "Limpieza"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/6/subrubros/7/edit
+          - button "Pausar"
+      - row "Librería OPERATIVO ✓ Editar Pausar":
+        - cell "Librería"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/6/subrubros/8/edit
+          - button "Pausar"
+      - row "Insumos Varios OPERATIVO ✓ Editar Pausar":
+        - cell "Insumos Varios"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/6/subrubros/9/edit
+          - button "Pausar"
+      - row "Botiquín OPERATIVO ✓ Editar Pausar":
+        - cell "Botiquín"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/6/subrubros/32/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/6/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/6/edit
+  - button "Eliminar"
+  - generic: Mantenimiento y arreglos
+  - paragraph: Mantenimiento y reparaciones de infraestructura
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Reparaciones menores OPERATIVO ✓ Editar Pausar":
+        - cell "Reparaciones menores"
+        - cell "OPERATIVO"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/10/subrubros/24/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/10/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/10/edit
+  - button "Eliminar"
+  - generic: Retiros
+  - paragraph: Plata que se llevan los dueños; no es gasto del club
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Retiro de dueños ADMIN ✓ Editar Pausar":
+        - cell "Retiro de dueños"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/12/subrubros/26/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/12/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/12/edit
+  - button "Eliminar"
+  - generic: Servicios
+  - paragraph: Pagos de servicios (luz, agua, internet, alquiler)
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Luz ADMIN – Editar Pausar":
+        - cell "Luz"
+        - cell "ADMIN"
+        - cell "–"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/5/subrubros/5/edit
+          - button "Pausar"
+      - row "Internet ADMIN – Editar Pausar":
+        - cell "Internet"
+        - cell "ADMIN"
+        - cell "–"
+        - cell "Editar Pausar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/rubros/5/subrubros/6/edit
+          - button "Pausar"
+  - link "Subrubro":
+    - /url: https://test.gestionar-te.com.ar/rubros/5/subrubros/create
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/rubros/5/edit
+  - button "Eliminar"
+  - generic: Sueldos
+  - paragraph: Pagos al personal docente y administrativo
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Patín-Lucía Gaitán ADMIN –":
+        - cell "Patín-Lucía Gaitán"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Patín-Verónica Salinas ADMIN –":
+        - cell "Patín-Verónica Salinas"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Patín-Mariela Ocampo ADMIN –":
+        - cell "Patín-Mariela Ocampo"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Fútbol-Hernán Quintana ADMIN –":
+        - cell "Fútbol-Hernán Quintana"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Op-Sandra Vidal ADMIN –":
+        - cell "Op-Sandra Vidal"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Op-Pablo Ledesma ADMIN –":
+        - cell "Op-Pablo Ledesma"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Patín-Vanina Directora ADMIN –":
+        - cell "Patín-Vanina Directora"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+      - row "Op-Rocío Paz ADMIN –":
+        - cell "Op-Rocío Paz"
+        - cell "ADMIN"
+        - cell "–"
+        - cell
+  - generic: Transferencias internas — salidas
+  - paragraph: Transferencia entre medios propios; no cuenta en el resultado del club
+  - table:
+    - rowgroup:
+      - row "Nombre Permitido para Caja":
+        - columnheader "Nombre"
+        - columnheader "Permitido para"
+        - columnheader "Caja"
+        - columnheader
+    - rowgroup:
+      - row "Salida a otro medio ADMIN ✓":
+        - cell "Salida a otro medio"
+        - cell "ADMIN"
+        - cell "✓"
+        - cell
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,1 @@
+Chequeo de solo lectura previo: servidor ec1b0c6e; APP_ENV=staging, DB_DATABASE=wingstest; telefonoContacto/telefono_contacto presentes en modelo y vistas. Carlos confirmó despliegue antes de iniciar.

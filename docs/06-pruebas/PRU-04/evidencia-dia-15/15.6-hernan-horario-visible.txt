@@ -1,0 +1,187 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+- generic: Hernán Quintana
+- button "Salir"
+- banner:
+  - heading "Clases" [level=1]
+- main:
+  - text: Tus clases de hoy — sábado 24 de octubre ·
+  - strong: "1"
+  - text: clase(s)
+  - heading "11:00 – 12:00 Finalizada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - generic "Otras clases de hoy (1)"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - combobox:
+    - option "Profesor" [selected]
+    - option "Directora, Vanina"
+    - option "Gaitán, Lucía"
+    - option "Ocampo, Mariela"
+    - option "Quintana, Hernán"
+    - option "Salinas, Verónica"
+  - combobox:
+    - option "Estado" [selected]
+    - option "Programada"
+    - option "Sin asistencia"
+    - option "Cerrada"
+    - option "Cancelada"
+  - textbox
+  - combobox:
+    - option "Orden" [selected]
+    - option "Más recientes"
+    - option "Más antiguas"
+    - option "Grupo A–Z"
+  - button "Limpiar"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "15"
+  - text: de
+  - strong: "15"
+  - text: clase(s)
+  - heading "Lun 26/10/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 26/10/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 26/10/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 27/10/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 27/10/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 27/10/2026 — 19:00 a 20:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mié 28/10/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mié 28/10/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 29/10/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 29/10/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 29/10/2026 — 19:00 a 20:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Vie 30/10/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Salinas
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 31/10/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 31/10/2026 — 12:00 a 13:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 31/10/2026 — 12:00 a 13:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+- contentinfo:
+  - generic: Wings

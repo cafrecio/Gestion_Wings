@@ -1,0 +1,93 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - heading "Mostrador Operativo" [level=1]
+  - paragraph: Jueves 22 de octubre de 2026 · Turno de Sandra Vidal
+  - link "Caja":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - link "Cobranza":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/alumnos
+  - generic: Mostrador activo
+  - paragraph: Caja abierta
+  - paragraph: Abierta por vos a las 15:00
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Registrar":
+    - /url: https://test.gestionar-te.com.ar/caja/movimiento
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/12/resumen
+  - text: Clases de hoy —
+  - strong: "3"
+  - paragraph: 17:00 — Patín — Avanzadas
+  - paragraph: 8 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/31
+  - paragraph: 18:00 — Patín — Federadas
+  - paragraph: 8 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/42
+  - paragraph: 19:00 — Fútbol — Avanzadas
+  - paragraph: 9 presentes
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/69
+  - generic: Atención a alumnos
+  - link "Vencidos 13 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+    - paragraph: Vencidos
+    - paragraph: "13"
+    - paragraph: Ir a cobranza →
+  - link "En plazo 0 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza?estado=EN_PLAZO
+    - paragraph: En plazo
+    - paragraph: "0"
+    - paragraph: Ir a cobranza →
+  - link "Posibles inactivos 0 Ir a revisión →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+    - paragraph: Posibles inactivos
+    - paragraph: "0"
+    - paragraph: Ir a revisión →
+  - generic: Recaudación de hoy
+  - paragraph: Cobrado hoy
+  - paragraph: $97,000.00
+  - paragraph: Cobros registrados
+  - paragraph: "8"
+  - paragraph: Cajas del turno
+  - paragraph: "1"
+- contentinfo:
+  - generic: Wings

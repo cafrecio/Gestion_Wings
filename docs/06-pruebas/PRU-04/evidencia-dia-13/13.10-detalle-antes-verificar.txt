@@ -1,0 +1,234 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Sandra Vidal
+  - paragraph: Apertura
+  - paragraph: 22/10/2026 15:00
+  - paragraph: Cierre
+  - paragraph: 22/10/2026 15:07
+  - paragraph: Estado
+  - paragraph: CERRADA
+  - generic: 0 de 11 verificados
+  - button "Validar"
+  - button "Rechazar"
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/12/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "22/10/2026 I EFE Cuotas — Cuota Mensual Nuñez, Guadalupe · PAT · 10/26 $22,000.00 Recibo Verificar movimiento 63":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Nuñez, Guadalupe · PAT · 10/26":
+            - generic: Nuñez, Guadalupe · PAT · 10/26
+          - cell "$22,000.00"
+          - cell "Recibo Verificar movimiento 63":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/47?inline=1
+            - checkbox "Verificar movimiento 63"
+        - row "22/10/2026 I MP Cuotas — Cuota Mensual Ramirez, Lucia · PAT · 10/26 $25,000.00 Recibo Verificar movimiento 64":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Ramirez, Lucia · PAT · 10/26":
+            - generic: Ramirez, Lucia · PAT · 10/26
+          - cell "$25,000.00"
+          - cell "Recibo Verificar movimiento 64":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/48?inline=1
+            - checkbox "Verificar movimiento 64"
+        - row "22/10/2026 I EFE Inscripciones — Inscripción al club Castro, Martina · PAT $5,000.00 Recibo Verificar movimiento 65":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Castro, Martina · PAT":
+            - generic: Castro, Martina · PAT
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 65":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/49?inline=1
+            - checkbox "Verificar movimiento 65"
+        - row "22/10/2026 I EFE Inscripciones — Inscripción al club Morales, Carla · PAT $5,000.00 Recibo Verificar movimiento 66":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Morales, Carla · PAT":
+            - generic: Morales, Carla · PAT
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 66":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/50?inline=1
+            - checkbox "Verificar movimiento 66"
+        - row "22/10/2026 I EFE Cuotas — Cuota Mensual Pereyra, Liam · Fú · 10/26 $12,000.00 Recibo Verificar movimiento 67":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Pereyra, Liam · Fú · 10/26":
+            - generic: Pereyra, Liam · Fú · 10/26
+          - cell "$12,000.00"
+          - cell "Recibo Verificar movimiento 67":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/51?inline=1
+            - checkbox "Verificar movimiento 67"
+        - row "22/10/2026 I EFE Inscripciones — Inscripción al club Pereyra, Liam · Fú · 10/26 $5,000.00 Recibo Verificar movimiento 68":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Pereyra, Liam · Fú · 10/26":
+            - generic: Pereyra, Liam · Fú · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 68":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/51?inline=1
+            - checkbox "Verificar movimiento 68"
+        - row "22/10/2026 I MP Cuotas — Cuota Mensual Gutierrez, Olivia · PAT · 10/26 $18,000.00 Recibo Verificar movimiento 69":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Gutierrez, Olivia · PAT · 10/26":
+            - generic: Gutierrez, Olivia · PAT · 10/26
+          - cell "$18,000.00"
+          - cell "Recibo Verificar movimiento 69":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/52?inline=1
+            - checkbox "Verificar movimiento 69"
+        - row "22/10/2026 I MP Inscripciones — Inscripción al club Gutierrez, Olivia · PAT · 10/26 $5,000.00 Recibo Verificar movimiento 70":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "MP"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Gutierrez, Olivia · PAT · 10/26":
+            - generic: Gutierrez, Olivia · PAT · 10/26
+          - cell "$5,000.00"
+          - cell "Recibo Verificar movimiento 70":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/52?inline=1
+            - checkbox "Verificar movimiento 70"
+        - row "22/10/2026 E EFE Gastos Operativos — Limpieza Desodorante de ambientes y bolsas $3,800.00 Verificar movimiento 71":
+          - cell "22/10/2026"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Limpieza"
+          - cell "Desodorante de ambientes y bolsas":
+            - generic: Desodorante de ambientes y bolsas
+          - cell "$3,800.00"
+          - cell "Verificar movimiento 71":
+            - checkbox "Verificar movimiento 71"
+        - row "22/10/2026 I EFE Otras clases — Clase particular Clase particular de patín, Lucía $20,000.00 Verificar movimiento 72":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Otras clases — Clase particular"
+          - cell "Clase particular de patín, Lucía":
+            - generic: Clase particular de patín, Lucía
+          - cell "$20,000.00"
+          - cell "Verificar movimiento 72":
+            - checkbox "Verificar movimiento 72"
+        - row "22/10/2026 I EFE Cuotas — Cuota Mensual Sosa, Felipe · Fú · 11/26 $38,000.00 Recibo Verificar movimiento 73":
+          - cell "22/10/2026"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Sosa, Felipe · Fú · 11/26":
+            - generic: Sosa, Felipe · Fú · 11/26
+          - cell "$38,000.00"
+          - cell "Recibo Verificar movimiento 73":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/53?inline=1
+            - checkbox "Verificar movimiento 73"
+      - rowgroup:
+        - 'row "Ingresos: $155,000.00 · Egresos: $3,800.00 $151,200.00"':
+          - 'cell "Ingresos: $155,000.00 · Egresos: $3,800.00"':
+            - text: "Ingresos:"
+            - strong: $155,000.00
+            - text: "· Egresos:"
+            - strong: $3,800.00
+          - cell "$151,200.00"
+          - cell
+- contentinfo:
+  - generic: Wings

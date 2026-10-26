@@ -1,0 +1,98 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+- generic: Sandra Vidal
+- button "Salir"
+- banner:
+  - heading "Sosa, Felipe" [level=1]
+- main:
+  - generic: Activo
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "50300904"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 03/03/2013
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123417"
+  - paragraph:
+    - text: Email
+  - paragraph: jorge.sosa@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Avanzadas
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $38,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 05/04/2023
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Deudor
+  - generic: "Total adeudado: $76,000.00"
+  - generic: Ago 2026
+  - generic: $38,000.00
+  - generic: Oct 2026
+  - generic: $38,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Jorge Sosa
+  - paragraph: Teléfono
+  - paragraph: "1145123417"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 22/10/2026 · Nov 2026
+  - generic: $38,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/53?inline=1
+  - generic: 15/10/2026 · Jul 2026
+  - generic: $38,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/16?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: 4 clases
+  - generic: 06/10
+  - generic: 10/10
+  - generic: 17/10
+  - generic: 22/10
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

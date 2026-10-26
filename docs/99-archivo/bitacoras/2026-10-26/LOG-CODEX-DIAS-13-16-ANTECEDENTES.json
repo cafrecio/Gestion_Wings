@@ -1,0 +1,8 @@
+{
+  "origen": "HEAD:docs/00-estado/LOG-CODEX.md",
+  "commit": "78d5b0a2559c285ff41dae84e335f3d0c776dfb2",
+  "bloque_offset": 295,
+  "bloque_bytes": 2422,
+  "sha256_bloque": "a67f1e2dc690163a8dc385b3c7293fb7e9ff6a5fa2bf48670d20288bf31d2cab",
+  "base_enlaces_originales": "docs/00-estado/"
+}

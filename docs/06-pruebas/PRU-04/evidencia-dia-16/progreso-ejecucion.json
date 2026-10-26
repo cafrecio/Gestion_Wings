@@ -1,0 +1,15 @@
+{
+  "actualizado_utc": "2026-10-26T05:27:54.671Z",
+  "recorrido": "39 casos registrados, incluidos pasos salteados con motivo",
+  "dia_final": 16,
+  "reloj": "2026-10-25 15:00, no repetir",
+  "cajas12_13_14": "VALIDADAS",
+  "deuda": 391000,
+  "ingresos_octubre": 1824850.75,
+  "egresos": 240850,
+  "resultado": 1584000.75,
+  "disponible": 3337000.75,
+  "sin_asistencia": 1,
+  "por_validar": 0,
+  "proximo": "Entrega documental y commit sin push. T14 continúa en curso y requiere revisión independiente. No repetir operaciones de estos días."
+}

@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CAB — PRU-04 días 13 a 16: recorrido y diferencias
+
+39 casos registrados: **25 Sí, 12 Parcial y 2 No**; [informes y capturas acreditadas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html), sin conformidad integral.
+Staging/wingstest, servidor ec1b0c6e comprobado al inicio tras aviso de despliegue de Carlos. Cuatro relojes y cuatro rutinas, una ejecución de cada uno; stdout en informes.
+Cajas #12/#13/#14 validadas; final deuda $391.000, ingresos octubre $1.824.850,75, resultado $1.584.000,75 y disponible $3.337.000,75; sin asistencia 1 y por validar $0.
+Julieta no se reactivó/cobró por confirmación fallida: diferencia de $143.000 y una activa conservada. Rocío no ingresó; Fútbol solo ofreció comisión para Martín, por eso no hubo alta, asignación ni lista #76. No se repararon datos.
+Lista #49 y horario #77 persistieron sin pedir motivo; Hernán vio 12–13. Adultos y Botiquín creados; gracia sigue 10. Liquidaciones solo abierta, sin generar.
+Incidente propio: 40 archivos capturaron la pestaña anterior; identificados y excluidos de la galería. Recapturas posteriores rotuladas; observaciones directas y límites conservados. Auxiliares corregidos para recibir la pestaña explícita.
+Esperados literales, enlaces, integridad y diff controlados; sin código de aplicación, tabla externa, suite, despliegue ni push. T81 ya figura cerrada y desplegada en el tablero actual.
+T14 sigue en curso, revisión independiente pendiente de Claude. No repetir cobros, rutinas ni reloj: último inicio simulado 25/10/2026 15:00. Dashboard por casos conserva su corte anterior.
+
 ## 2026-10-25 — Codex CAB — Verificación independiente de T81
 
 Leídos implementación y commits d5c4df00/0f6ebbd5/d55dcc02. Lógica **APROBADA** en c6555ea0; Carlos ya aprobó aspecto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T81-CODEX.md).
@@ -69,22 +80,4 @@ T14 permanece en curso: otro agente verifica la evidencia y se continúa con el 
 
 [Antecedente intacto al corregir colores](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-COLORES-ANTECEDENTES.md).
 
-## 2026-10-23 — Codex CyE — Colores y leyenda del reporte
-
-Carlos señaló que los colores no se distinguían. Fondos pálidos reemplazados por verde, amarillo, azul, verde oscuro y gris sólidos.
-Leyenda con cinco muestras visibles y textos/símbolos; misma paleta en calendario y estados de casos.
-Contraste texto/fondo calculado: mínimo 4,76:1. Sin afirmar revisión visual en navegador.
-Regeneración y control documental; no cambian resultados, casos, producto ni base.
-T14 sigue en curso, revisión independiente pendiente. Entrega en el dashboard habitual.
-
-## 2026-10-23 — Codex CyE — Dashboard por módulo, caso, jornada y ambiente real
-
-Carlos precisó que el caso es la unidad: estado general numérico, cronología, intentos, resultados, óptimos y seguimiento de solución/retest. La entrega previa por situaciones queda como anexo, no como unidad de aprobación.
-[Dashboard](../06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html): 20 módulos/331 casos, acceso directo a 60 jornadas, diez casos por página y ficha con fechas, método, esperado, obtenido, probador/rol, versión/base y evidencia. [IA](../06-pruebas/PRU-04/control-integral/informes-ia/SEGUIMIENTO-CASOS.md).
-Aceptación del sitio test/wingstest: 15 casos parciales, 18 asociaciones caso–ejecución de 16 operaciones; 316 sin prueba consolidada, cero completos OK/Fallo/Reparado. Tres planes, sin implementación ni retest acreditados; no son tres fallas completas demostradas.
-41 métodos locales excluidos de aceptación; corrige los anteriores totales mixtos 21/310 y 20/69. Dos consultas se vinculan retrospectivamente a ALU-002.e; D4-T12 sin vínculo justificado. Catálogo Carlos/Claude intacto; días 1–3 por conciliar.
-Metas y resultados por caso; rendimiento CLI n=1 sin objetivo comparable. Objetivo visible propuesto pendiente de medir/ratificar. Sin reejecutar Wings, datos/reloj ni despliegue.
-Validación de documentos, enlaces, recuentos, ambientes, determinismo y lógica JavaScript; sin nueva revisión visual/móvil. Evidencia en integridad-entregables.json. Actualizados estado/resumen/objetivos y tablero T14, que sigue en curso.
-Otro agente revisa la entrega y evidencia; resolver discrepancia Al día/Cobrar, asignar retests cuando haya solución y continuar Día 5 sin repetir cobros.
-
-[Antecedentes intactos de esta entrega](../99-archivo/bitacoras/2026-10-25/LOG-CODEX-DIAS-10-12-ANTECEDENTES.md).
+[Antecedentes intactos de días 13–16](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-13-16-ANTECEDENTES.md).

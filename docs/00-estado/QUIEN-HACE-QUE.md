@@ -51,7 +51,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 10/11 recorridos y día 12 parcial: 61 Sí, 3 Parcial, 10 No en 74 situaciones. Cajas 8/9/10 validadas sin diferencia, Sin asistencia 0. Chrome bloqueó reactivación 12.22 y cobro 12.23; retomar solo esos pasos y contrastar 12.25. USU-005 adelantado parcial, diferencias y arrastre $24.400 sin reparar. Informes y galería EVIDENCIA-DIAS-10-12.html; revisión independiente pendiente. No repetir operaciones ni reloj: último inicio 21/10 15:00. Dashboard por casos conserva corte anterior. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 13-16 registrados:25 Si,12 Parcial,2 No en39 casos. Informes y EVIDENCIA-DIAS-13-16.html;40 archivos incidentales excluidos de capturas. Final deuda391000,disponible3337000.75,cajas12/13/14 validadas,por validar0,sin asistencia1. Julieta no cobrada143000;Rocio sin ingreso;Martin sin alta por modalidad y dependencias salteadas. Claude verifica independientemente. No repetir cobros,rutinas ni reloj:ultimo inicio25/10/2026 15:00. Sin push;dashboard por casos conserva corte anterior. |
 
 ## Gemini
 

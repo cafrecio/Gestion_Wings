@@ -1,0 +1,101 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - combobox:
+    - option "Operativo" [selected]
+    - option "Pablo Ledesma"
+    - option "Rocío Paz"
+    - option "Sandra Vidal"
+  - textbox
+  - button "Filtrar"
+  - button "Limpiar"
+  - generic: Tu cobro entra directo al cashflow, sin abrir caja
+  - button "Cobrar"
+  - generic: "Cajón del mostrador: abrile la caja a un operativo"
+  - button "Abrir"
+  - strong: "1"
+  - text: caja
+  - button "Historial"
+  - heading "Jueves 22 de octubre" [level=3]
+  - paragraph: Sandra Vidal
+  - generic: Estado
+  - generic: CERRADA
+  - generic: Movimientos
+  - generic: "11"
+  - generic: Ingresos
+  - generic: $160,000.00
+  - generic: Egresos
+  - generic: $3,800.00
+  - generic: Neto
+  - generic: $156,200.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/12/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/12/detalle
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,210 @@
+{
+  "dia": 13,
+  "capturado_antes_de_operar": "2026-10-26T02:43:04.403272+00:00",
+  "fuente": "docs/06-pruebas/PRU-04/GUION-DIAS-13-16.md",
+  "fuente_sha256": "0e91648ac0dd9d8000ac12a003f85d7244dadc9285b984d83f97a0f5bfe864a7",
+  "commit_local": "78d5b0a2559c285ff41dae84e335f3d0c776dfb2",
+  "casos": [
+    {
+      "id": "13.1",
+      "quien": "Sandra",
+      "tarea": "Entra primero con una **clave equivocada** y después con la buena.",
+      "esperado": "Con la mala: un aviso en castellano que no dice si el mail existe, y no entra. Con la buena entra (ACC-002).",
+      "linea_fuente": 52,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.2",
+      "quien": "Sandra",
+      "tarea": "Carga una **clase particular**: Otras clases → Clase particular, en efectivo, «Clase particular de patín, Lucía». Se equivoca y pone **25000**: eran $20.000.",
+      "esperado": "Queda en su caja por $25.000. El error es a propósito y todavía no se nota.",
+      "linea_fuente": 53,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.3",
+      "quien": "Sandra",
+      "tarea": "**Felipe Sosa** (Deudor: agosto y octubre, $38.000 cada uno) quiere pagar **noviembre**, $38.000 en efectivo, y dejar lo atrasado para fin de mes. Sandra confirma el adelanto y **sigue hasta el final**: si pide motivo, «La familia paga lo atrasado a fin de mes».",
+      "esperado": "Avisa que debe meses anteriores y pide confirmar (COB-033). Confirmado, noviembre queda pagado **sin tocar** agosto ni octubre. Felipe sigue **Deudor** con $76.000.",
+      "linea_fuente": 54,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.4",
+      "quien": "Sandra",
+      "tarea": "Cierra la caja contando **el efectivo real: $113.200**.",
+      "esperado": "Esperado **$118.200**: incluye los $25.000 de la clase. Muestra **faltante $5.000** antes de confirmar y deja cerrar. Retiene $10.000.",
+      "linea_fuente": 55,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.5",
+      "quien": "Dueño",
+      "tarea": "En su Inicio toca el aviso de **cajas por validar**.",
+      "esperado": "Lo lleva a la caja de Sandra (REP-017).",
+      "linea_fuente": 56,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.6",
+      "quien": "Dueño",
+      "tarea": "En **Cobranza**, la lista para llamar.",
+      "esperado": "Cada fila muestra el **teléfono** y no el DNI. Primero aparece **Alma Navarro**, con deuda desde noviembre de 2025 (CBZ-019, T81).",
+      "linea_fuente": 57,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.7",
+      "quien": "Dueño",
+      "tarea": "Ve el faltante de $5.000 y no valida. **Rechaza** la caja: primero sin motivo, después con «La clase particular fue de $20.000, no de $25.000».",
+      "esperado": "Sin motivo no rechaza. Con motivo la caja queda **Rechazada**. Nada pasa a Cashflow (CAJ-029).",
+      "linea_fuente": 58,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.8",
+      "quien": "Sandra",
+      "tarea": "Ve su caja rechazada con el motivo. **Corrige** la clase particular de 25000 a **20000**. Al volver a cerrar, primero intenta cambiar lo contado a 118200.",
+      "esperado": "Con otro contado: «La corrección no puede cambiar el efectivo que ya se contó y entregó» (CAJ-031).",
+      "linea_fuente": 59,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.9",
+      "quien": "Sandra",
+      "tarea": "Vuelve a cerrar con lo contado original, **$113.200**.",
+      "esperado": "Ahora el esperado es **$113.200**, diferencia $0. Queda Cerrada (CAJ-030).",
+      "linea_fuente": 60,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.10",
+      "quien": "Dueño",
+      "tarea": "Tilda y **valida**.",
+      "esperado": "Validada y reflejada. La clase particular entra por **$20.000**.",
+      "linea_fuente": 61,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.11",
+      "quien": "Dueño",
+      "tarea": "**Julieta Álvarez** vuelve: la reactiva desde su ficha y le cobra los **$143.000** por Mercado Pago, sin caja.",
+      "esperado": "Vuelve con su deuda tal cual, Deudor, sin una cuota de octubre nueva. Con el cobro, recibo de cinco meses y **Al día** (ALU-018).",
+      "linea_fuente": 62,
+      "quien_derivado_del_encabezado": false
+    },
+    {
+      "id": "13.12",
+      "quien": "Dueño",
+      "tarea": "Cierre del día",
+      "esperado": "Deuda **$707.000**; **103 activos: 90 Al día, 0 En plazo, 5 Morosos, 8 Deudores**. Ingresos de octubre **$1.613.750,75** (el noviembre de Felipe no suma), egresos **$239.350**, resultado **$1.374.400,75**. Disponible **$3.097.400,75**: Efectivo $962.900, MP $1.931.950,75, Galicia $137.550, Nación $65.000. «Sin asistencia» 0.",
+      "linea_fuente": 63,
+      "quien_derivado_del_encabezado": false
+    }
+  ],
+  "bloque_completo_original": "## Día 13 — jueves 22/10: hacer bien lo que el lunes se hizo mal\n\n**Script de la mañana:** `dia-13-manana.json`.\n- Sandra abre la caja con $10.000.\n- Seis cobros:\n  - Guadalupe Núñez, $22.000 en efectivo;\n  - Lucía Ramírez, $25.000 por MP;\n  - inscripción de Martina Castro, $5.000 en efectivo;\n  - inscripción de Carla Morales, $5.000 en efectivo;\n  - Liam Pereyra, $17.000 en efectivo;\n  - Olivia Gutiérrez, $23.000 por MP.\n- Gasto de Limpieza, $3.800.\n- Listas:\n  - #31: 12 alumnas, 8 presentes;\n  - #42: 8 alumnas, 8 presentes;\n  - #69: 15 alumnos, 9 presentes.\n- **Al terminar imprime:** Cobranza $707.000; 89 Al día, 5 Morosos y 8 Deudores.\n\n| # | Quién | Tarea | Esperado |\n|---|---|---|---|\n| 13.1 | Sandra | Entra primero con una **clave equivocada** y después con la buena. | Con la mala: un aviso en castellano que no dice si el mail existe, y no entra. Con la buena entra (ACC-002). |\n| 13.2 | Sandra | Carga una **clase particular**: Otras clases → Clase particular, en efectivo, «Clase particular de patín, Lucía». Se equivoca y pone **25000**: eran $20.000. | Queda en su caja por $25.000. El error es a propósito y todavía no se nota. |\n| 13.3 | Sandra | **Felipe Sosa** (Deudor: agosto y octubre, $38.000 cada uno) quiere pagar **noviembre**, $38.000 en efectivo, y dejar lo atrasado para fin de mes. Sandra confirma el adelanto y **sigue hasta el final**: si pide motivo, «La familia paga lo atrasado a fin de mes». | Avisa que debe meses anteriores y pide confirmar (COB-033). Confirmado, noviembre queda pagado **sin tocar** agosto ni octubre. Felipe sigue **Deudor** con $76.000. |\n| 13.4 | Sandra | Cierra la caja contando **el efectivo real: $113.200**. | Esperado **$118.200**: incluye los $25.000 de la clase. Muestra **faltante $5.000** antes de confirmar y deja cerrar. Retiene $10.000. |\n| 13.5 | Dueño | En su Inicio toca el aviso de **cajas por validar**. | Lo lleva a la caja de Sandra (REP-017). |\n| 13.6 | Dueño | En **Cobranza**, la lista para llamar. | Cada fila muestra el **teléfono** y no el DNI. Primero aparece **Alma Navarro**, con deuda desde noviembre de 2025 (CBZ-019, T81). |\n| 13.7 | Dueño | Ve el faltante de $5.000 y no valida. **Rechaza** la caja: primero sin motivo, después con «La clase particular fue de $20.000, no de $25.000». | Sin motivo no rechaza. Con motivo la caja queda **Rechazada**. Nada pasa a Cashflow (CAJ-029). |\n| 13.8 | Sandra | Ve su caja rechazada con el motivo. **Corrige** la clase particular de 25000 a **20000**. Al volver a cerrar, primero intenta cambiar lo contado a 118200. | Con otro contado: «La corrección no puede cambiar el efectivo que ya se contó y entregó» (CAJ-031). |\n| 13.9 | Sandra | Vuelve a cerrar con lo contado original, **$113.200**. | Ahora el esperado es **$113.200**, diferencia $0. Queda Cerrada (CAJ-030). |\n| 13.10 | Dueño | Tilda y **valida**. | Validada y reflejada. La clase particular entra por **$20.000**. |\n| 13.11 | Dueño | **Julieta Álvarez** vuelve: la reactiva desde su ficha y le cobra los **$143.000** por Mercado Pago, sin caja. | Vuelve con su deuda tal cual, Deudor, sin una cuota de octubre nueva. Con el cobro, recibo de cinco meses y **Al día** (ALU-018). |\n| 13.12 | Dueño | Cierre del día | Deuda **$707.000**; **103 activos: 90 Al día, 0 En plazo, 5 Morosos, 8 Deudores**. Ingresos de octubre **$1.613.750,75** (el noviembre de Felipe no suma), egresos **$239.350**, resultado **$1.374.400,75**. Disponible **$3.097.400,75**: Efectivo $962.900, MP $1.931.950,75, Galicia $137.550, Nación $65.000. «Sin asistencia» 0. |\n",
+  "rutinas": [
+    {
+      "archivo": "docs/06-pruebas/PRU-04/rutina/dia-13-manana.json",
+      "sha256": "00b1211aedf95b6bcb344bf62323ce6b67491b655dc2cd06e8784cdedc032254",
+      "plan": {
+        "dia": "2026-10-22",
+        "descripcion": "Día 13, jueves: turno de Sandra, cobros simples, un gasto y las listas de las tres clases del día.",
+        "pasos": [
+          {
+            "como": "Sandra Vidal",
+            "accion": "abrir_caja"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Nuñez, Guadalupe",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Ramirez, Lucia",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Mercado Pago"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Castro, Martina",
+            "periodos": [],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Morales, Carla",
+            "periodos": [],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Pereyra, Liam",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Efectivo"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "cobrar",
+            "alumno": "Gutierrez, Olivia",
+            "periodos": [
+              "2026-10"
+            ],
+            "medio": "Mercado Pago"
+          },
+          {
+            "como": "Sandra Vidal",
+            "accion": "movimiento",
+            "subrubro": "Limpieza",
+            "medio": "Efectivo",
+            "monto": 3800,
+            "obs": "Desodorante de ambientes y bolsas"
+          },
+          {
+            "como": "Lucía Gaitán",
+            "accion": "lista",
+            "clase": 31,
+            "ausentes": [
+              "Alvarez, Camila",
+              "Gimenez, Delfina",
+              "Morales, Carla",
+              "Suarez, Valentina"
+            ]
+          },
+          {
+            "como": "Mariela Ocampo",
+            "accion": "lista",
+            "clase": 42,
+            "ausentes": []
+          },
+          {
+            "como": "Hernán Quintana",
+            "accion": "lista",
+            "clase": 69,
+            "ausentes": [
+              "Diaz, Thiago",
+              "Gomez, Lucas",
+              "Molina, Franco",
+              "Morales, Lorenzo",
+              "Rodriguez, Mateo",
+              "Rossi, Leon"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

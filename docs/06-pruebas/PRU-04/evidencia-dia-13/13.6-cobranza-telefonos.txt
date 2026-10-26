@@ -1,0 +1,329 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - heading "Cobranza" [level=1]
+- main:
+  - paragraph: Total adeudado
+  - paragraph: $707,000.00
+  - paragraph: Total activos
+  - paragraph: "102"
+  - paragraph: Al día
+  - paragraph: "89"
+  - paragraph: En plazo
+  - paragraph: "0"
+  - paragraph: Morosos
+  - paragraph: "5"
+  - paragraph: Deudores
+  - paragraph: "8"
+  - combobox:
+    - option "Con deuda (Deudores y morosos)" [selected]
+    - option "Todos los estados"
+    - option "Al día"
+    - option "En plazo"
+    - option "Moroso"
+    - option "Deudor"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "13"
+  - text: alumnos con deuda de
+  - strong: "102"
+  - text: alumnos activos (ordenado de deuda más antigua a más reciente)
+  - table:
+    - rowgroup:
+      - row "Alumno Deporte Grupo Deuda desde Deuda Estado Acciones":
+        - columnheader "Alumno"
+        - columnheader "Deporte"
+        - columnheader "Grupo"
+        - columnheader "Deuda desde"
+        - columnheader "Deuda"
+        - columnheader "Estado"
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "Navarro, Alma 1145129905 Patín Intermedias Nov. 2025 (2 cuotas) $58,000.00 Deudor Cobrar Ver":
+        - cell "Navarro, Alma 1145129905":
+          - text: Navarro, Alma
+          - generic: "1145129905"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Intermedias"
+        - cell "Nov. 2025 (2 cuotas)":
+          - generic: Nov. 2025 (2 cuotas)
+        - cell "$58,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/335
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/335
+      - row "Castro, Mateo 1145129907 Fútbol Principiantes Mar. 2026 (1 cuota) + Inscripción $33,000.00 Deudor Cobrar Ver":
+        - cell "Castro, Mateo 1145129907":
+          - text: Castro, Mateo
+          - generic: "1145129907"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Mar. 2026 (1 cuota) + Inscripción":
+          - generic: Mar. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$33,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/338
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/338
+      - row "Flores, Zoe 1145123416 Patín Principiantes Ago. 2026 (1 cuota) $30,000.00 Deudor Cobrar Ver":
+        - cell "Flores, Zoe 1145123416":
+          - text: Flores, Zoe
+          - generic: "1145123416"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota)":
+          - generic: Ago. 2026 (1 cuota)
+        - cell "$30,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/264
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/264
+      - row "Lopez, Martina 1145123404 Patín Principiantes Ago. 2026 (1 cuota) + Inscripción $35,000.00 Deudor Cobrar Ver":
+        - cell "Lopez, Martina 1145123404":
+          - text: Lopez, Martina
+          - generic: "1145123404"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota) + Inscripción":
+          - generic: Ago. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$35,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/248
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/248
+      - row "Lopez, Valentina 1145123404 Patín Principiantes Ago. 2026 (1 cuota) + Inscripción $45,000.00 Deudor Cobrar Ver":
+        - cell "Lopez, Valentina 1145123404":
+          - text: Lopez, Valentina
+          - generic: "1145123404"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Ago. 2026 (1 cuota) + Inscripción":
+          - generic: Ago. 2026 (1 cuota)
+          - generic: + Inscripción
+        - cell "$45,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/249
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/249
+      - row "Romero, Santino 1145123415 Fútbol Principiantes Ago. 2026 (3 cuotas) $84,000.00 Deudor Cobrar Ver":
+        - cell "Romero, Santino 1145123415":
+          - text: Romero, Santino
+          - generic: "1145123415"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Principiantes"
+        - cell "Ago. 2026 (3 cuotas)":
+          - generic: Ago. 2026 (3 cuotas)
+        - cell "$84,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/263
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/263
+      - row "Sanchez, Berenice 1145120024 Patín Intermedias Ago. 2026 (3 cuotas) $129,000.00 Deudor Cobrar Ver":
+        - cell "Sanchez, Berenice 1145120024":
+          - text: Sanchez, Berenice
+          - generic: "1145120024"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Intermedias"
+        - cell "Ago. 2026 (3 cuotas)":
+          - generic: Ago. 2026 (3 cuotas)
+        - cell "$129,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/295
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/295
+      - row "Sosa, Felipe 1145123417 Fútbol Avanzadas Ago. 2026 (2 cuotas) $76,000.00 Deudor Cobrar Ver":
+        - cell "Sosa, Felipe 1145123417":
+          - text: Sosa, Felipe
+          - generic: "1145123417"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Avanzadas"
+        - cell "Ago. 2026 (2 cuotas)":
+          - generic: Ago. 2026 (2 cuotas)
+        - cell "$76,000.00"
+        - cell "Deudor"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/265
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/265
+      - row "Pereyra, Zoe 1145120036 Patín Avanzadas Oct. 2026 (1 cuota) $45,000.00 Moroso Cobrar Ver":
+        - cell "Pereyra, Zoe 1145120036":
+          - text: Pereyra, Zoe
+          - generic: "1145120036"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$45,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/307
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/307
+      - row "Ramos, Dante 1145123422 Fútbol Avanzadas Oct. 2026 (1 cuota) $38,000.00 Moroso Cobrar Ver":
+        - cell "Ramos, Dante 1145123422":
+          - text: Ramos, Dante
+          - generic: "1145123422"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$38,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/270
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/270
+      - row "Rossi, Berenice 1145123409 Patín Federadas Oct. 2026 (1 cuota) $50,000.00 Moroso Cobrar Ver":
+        - cell "Rossi, Berenice 1145123409":
+          - text: Rossi, Berenice
+          - generic: "1145123409"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Federadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$50,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/257
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/257
+      - row "Rossi, Morena 1145120010 Patín Principiantes Oct. 2026 (1 cuota) $40,000.00 Moroso Cobrar Ver":
+        - cell "Rossi, Morena 1145120010":
+          - text: Rossi, Morena
+          - generic: "1145120010"
+        - cell "Patín":
+          - generic: Patín
+        - cell "Principiantes"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$40,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/281
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/281
+      - row "Vega, Joaquin 1145129904 Fútbol Avanzadas Oct. 2026 (1 cuota) $44,000.00 Moroso Cobrar Ver":
+        - cell "Vega, Joaquin 1145129904":
+          - text: Vega, Joaquin
+          - generic: "1145129904"
+        - cell "Fútbol":
+          - generic: Fútbol
+        - cell "Avanzadas"
+        - cell "Oct. 2026 (1 cuota)":
+          - generic: Oct. 2026 (1 cuota)
+        - cell "$44,000.00"
+        - cell "Moroso"
+        - cell "Cobrar Ver":
+          - link "Cobrar":
+            - /url: https://test.gestionar-te.com.ar/caja/cobrar/334
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/alumnos/334
+- contentinfo:
+  - generic: Wings

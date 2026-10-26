@@ -1,0 +1,9 @@
+{"evento":"intento_ingreso","rol":"Mariela","segundosDesdeSalir":71.071,"fecha":"2026-10-26T05:07:03.378Z"}
+{"evento":"salir","rol":"Mariela","fecha":"2026-10-26T05:08:12.749Z"}
+{"evento":"intento_ingreso","rol":"Rocío","segundosDesdeSalir":71.888,"fecha":"2026-10-26T05:09:25.656Z"}
+{"evento":"intento_ingreso","rol":"Dueño","segundosDesdeSalir":110.911,"fecha":"2026-10-26T05:10:04.738Z"}
+{"evento":"salir","rol":"Dueño","fecha":"2026-10-26T05:12:40.070Z"}
+{"evento":"intento_ingreso","rol":"Hernán","segundosDesdeSalir":75.456,"fecha":"2026-10-26T05:13:56.583Z"}
+{"evento":"salir","rol":"Hernán","fecha":"2026-10-26T05:14:40.735Z"}
+{"evento":"intento_ingreso","rol":"Dueño","segundosDesdeSalir":65.017,"fecha":"2026-10-26T05:15:46.465Z"}
+{"evento":"salir","rol":"Dueño","fecha":"2026-10-26T05:16:38.875Z"}

@@ -1,0 +1,97 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+- generic: Admin Prueba
+- button "Salir"
+- banner:
+  - 'heading "Nuevo Subrubro en: Gastos Operativos" [level=1]'
+- main:
+  - paragraph: Rubro
+  - paragraph: Gastos Operativos EGRESO
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *" [active]:
+    - /placeholder: Nombre del subrubro
+    - text: Botiquín
+  - text: Permitido para
+  - generic: "*"
+  - combobox "Permitido para *":
+    - option "Ambos" [selected]
+    - option "Solo Admin"
+  - paragraph: "\"Ambos\": el operativo lo usa en su caja y el admin en cashflow. \"Solo Admin\": el operativo no lo ve ni lo usa."
+  - text: Qué es
+  - generic: "*"
+  - combobox "Qué es *":
+    - option "Del club" [selected]
+    - option "Retiro de los dueños"
+  - paragraph: "\"Del club\": cuenta en los ingresos o gastos de Inicio y Reportes. \"De los dueños\": se muestra aparte y no cambia el resultado del club."
+  - generic: Afecta caja
+  - switch "Afecta caja" [checked]
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings
