@@ -1,0 +1,115 @@
+Browser tab: 1293178816, Title: "Sosa, Felipe – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/265".
+1 AXWebArea Sosa, Felipe – Wings, URL: test.gestionar-te.com.ar/alumnos/265
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Sosa, Felipe, Value: 1
+		30 text Sosa, Felipe
+	31 container
+		32 text Activo
+		33 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adfab3047df7
+		34 button Cobrar
+		35 button Editar
+		36 image
+		37 text DNI 50300904
+		38 image
+		39 text NACIMIENTO 03/03/2013
+		40 image
+		41 text CELULAR 1145123417
+		42 image
+		43 text EMAIL jorge.sosa@testmail.com
+		44 image
+		45 text DEPORTE Fútbol
+		46 image
+		47 text GRUPO Fútbol — Avanzadas
+		48 image
+		49 text PLAN 1x sem. — $38,000.00/mes
+		50 image
+		51 text ALTA 05/04/2023
+		52 image
+		53 text ESTADO DE COBRANZA Al día
+		54 container cuotas-pasadas
+			55 text Meses sin cuota generada
+			56 container
+				57 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Abril 2023 · $38,000.00, Secondary Actions: Expand
+					58 menu
+						59 (selected) Abril 2023 · $38,000.00
+						60 Mayo 2023 · $38,000.00
+						61 Junio 2023 · $38,000.00
+						62 Julio 2023 · $38,000.00
+						63 Agosto 2023 · $38,000.00
+						64 Septiembre 2023 · $38,000.00
+						65 Octubre 2023 · $38,000.00
+						66 Noviembre 2023 · $38,000.00
+						67 Diciembre 2023 · $38,000.00
+						68 Enero 2024 · $38,000.00
+						69 Febrero 2024 · $38,000.00
+						70 Marzo 2024 · $38,000.00
+						71 Abril 2024 · $38,000.00
+						72 Mayo 2024 · $38,000.00
+						73 Junio 2024 · $38,000.00
+						74 Julio 2024 · $38,000.00
+						75 Agosto 2024 · $38,000.00
+						76 Septiembre 2024 · $38,000.00
+						77 Octubre 2024 · $38,000.00
+						78 Noviembre 2024 · $38,000.00
+						79 Diciembre 2024 · $38,000.00
+						80 Enero 2025 · $38,000.00
+						81 Febrero 2025 · $38,000.00
+						82 Marzo 2025 · $38,000.00
+						83 Abril 2025 · $38,000.00
+						84 Mayo 2025 · $38,000.00
+						85 Junio 2025 · $38,000.00
+						86 Julio 2025 · $38,000.00
+						87 Agosto 2025 · $38,000.00
+						88 Septiembre 2025 · $38,000.00
+						89 Octubre 2025 · $38,000.00
+						90 Noviembre 2025 · $38,000.00
+						91 Diciembre 2025 · $38,000.00
+						92 Enero 2026 · $38,000.00
+						93 Febrero 2026 · $38,000.00
+						94 Marzo 2026 · $38,000.00
+						95 Abril 2026 · $38,000.00
+						96 Mayo 2026 · $38,000.00
+						97 Junio 2026 · $38,000.00
+						98 Septiembre 2026 · $38,000.00
+				99 button Crear
+		100 image
+		101 text TUTOR NOMBRE Jorge Sosa TELÉFONO 1145123417
+		102 image
+		103 text HISTORIAL DE PAGOS 30/10/2026 · Ago 2026, Oct 2026 $76,000.00
+		104 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/171?inline=1
+		105 text 22/10/2026 · Nov 2026 $38,000.00
+		106 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/53?inline=1
+		107 text 15/10/2026 · Jul 2026 $38,000.00
+		108 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/16?inline=1
+		109 image
+		110 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		111 button Volver
+	112 text Wings
+
+The focused UI element is 1 AXWebArea Sosa, Felipe – Wings, URL: test.gestionar-te.com.ar/alumnos/265

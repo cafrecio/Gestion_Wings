@@ -1,0 +1,23 @@
+500ce7bc
+
+   INFO  The application environment is [staging].  
+
+Fecha simulada fijada: 2026-10-31 15:00:00. Para Wings ahora son las 31/10/2026 18:03
+total 36
+-rw-r--r-- 1 root root  3293 Oct 26 19:24 comparar-generacion.php
+-rw-r--r-- 1 root root 32232 Oct 26 19:24 esperado.json
+283076 storage/logs/scheduler.log
+DB=wingstest; ahora=2026-10-31 18:03:52
+[
+    {
+        "id": 1,
+        "periodo": "2026-10",
+        "terminada_at": "2026-10-21 14:05:23",
+        "creadas": 0,
+        "a_revision": 0,
+        "ya_existian": 0,
+        "sin_plan": 0,
+        "created_at": "2026-10-21 14:05:23",
+        "updated_at": "2026-10-21 14:05:23"
+    }
+]

@@ -1,0 +1,102 @@
+Browser tab: 1293178816, Title: "Herrera, Alma – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/275".
+1 AXWebArea Herrera, Alma – Wings, URL: test.gestionar-te.com.ar/alumnos/275
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Herrera, Alma, Value: 1
+		30 text Herrera, Alma
+	31 container
+		32 text Activo
+		33 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adfaaf4a54b0
+		34 button Cobrar
+		35 button Editar
+		36 image
+		37 text DNI 55400004
+		38 image
+		39 text NACIMIENTO 22/01/2019
+		40 image
+		41 text CELULAR 1145120004
+		42 image
+		43 text EMAIL alma.herrera@testmail.com
+		44 image
+		45 text DEPORTE Patín
+		46 image
+		47 text GRUPO Patín — Principiantes
+		48 image
+		49 text PLAN 2x sem. — $44,000.00/mes
+		50 image
+		51 text ALTA 15/04/2024
+		52 image
+		53 text ESTADO DE COBRANZA En plazo 9 días de gracia Total adeudado:  $44,000.00 Nov 2026 $44,000.00
+		54 button Condonar
+		55 container cuotas-pasadas
+			56 text Meses sin cuota generada
+			57 container
+				58 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Abril 2024 · $40,000.00, Secondary Actions: Expand
+					59 menu
+						60 (selected) Abril 2024 · $40,000.00
+						61 Mayo 2024 · $40,000.00
+						62 Junio 2024 · $40,000.00
+						63 Julio 2024 · $40,000.00
+						64 Agosto 2024 · $40,000.00
+						65 Septiembre 2024 · $40,000.00
+						66 Octubre 2024 · $40,000.00
+						67 Noviembre 2024 · $40,000.00
+						68 Diciembre 2024 · $40,000.00
+						69 Enero 2025 · $40,000.00
+						70 Febrero 2025 · $40,000.00
+						71 Marzo 2025 · $40,000.00
+						72 Abril 2025 · $40,000.00
+						73 Mayo 2025 · $40,000.00
+						74 Junio 2025 · $40,000.00
+						75 Julio 2025 · $40,000.00
+						76 Agosto 2025 · $40,000.00
+						77 Septiembre 2025 · $40,000.00
+						78 Octubre 2025 · $40,000.00
+						79 Noviembre 2025 · $40,000.00
+						80 Diciembre 2025 · $40,000.00
+						81 Enero 2026 · $40,000.00
+						82 Febrero 2026 · $40,000.00
+						83 Marzo 2026 · $40,000.00
+						84 Abril 2026 · $40,000.00
+						85 Mayo 2026 · $40,000.00
+						86 Junio 2026 · $40,000.00
+						87 Julio 2026 · $40,000.00
+						88 Agosto 2026 · $40,000.00
+						89 Septiembre 2026 · $40,000.00
+				90 button Crear
+		91 image
+		92 text TUTOR NOMBRE Tutor Herrera TELÉFONO 1145120004
+		93 image
+		94 text HISTORIAL DE PAGOS 28/10/2026 · Oct 2026 $40,000.00
+		95 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/125?inline=1
+		96 image
+		97 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		98 button Volver
+	99 text Wings
+
+The focused UI element is 1 AXWebArea Herrera, Alma – Wings, URL: test.gestionar-te.com.ar/alumnos/275

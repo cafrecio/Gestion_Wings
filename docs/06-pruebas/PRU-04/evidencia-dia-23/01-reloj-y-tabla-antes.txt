@@ -1,0 +1,9 @@
+7b2ad2a5431bdae3d108eac4e40af59b7fbc266c6e8d6b25bf49575d7589749f  /tmp/wings-dia23-20261026/comparar-generacion.php
+f5b1229b9f41c71bef062272169bb562b8795e967ce38c1601a778e961ea642b  /tmp/wings-dia23-20261026/esperado.json
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es domingo 1 de noviembre de 2026, 05:55
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+inactive

@@ -1,0 +1,61 @@
+Browser tab: 1293178816, Title: "Cobranza – Wings", URL: "https://test.gestionar-te.com.ar/cobranza".
+1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Cobranza, Value: 1
+		30 text Cobranza
+	31 container
+		32 text TOTAL ADEUDADO $0.00 TOTAL ACTIVOS 103 AL DÍA 103 EN PLAZO 0 MOROSOS 0 DEUDORES 0
+		33 pop up button (collapsed, settable) Value: Con deuda (Deudores y morosos), Secondary Actions: Expand
+			34 menu
+				35 (selected) Con deuda (Deudores y morosos)
+				36 Todos los estados
+				37 Al día
+				38 En plazo
+				39 Moroso
+				40 Deudor
+		41 pop up button (collapsed, settable) Value: Deporte, Secondary Actions: Expand
+			42 menu
+				43 (selected) Deporte
+				44 Fútbol
+				45 Patín
+		46 pop up button (collapsed, settable) Value: Grupo, Secondary Actions: Expand
+			47 menu
+				48 (selected) Grupo
+				49 Fútbol — Avanzadas
+				50 Fútbol — Principiantes
+				51 Patín — Adultos
+				52 Patín — Avanzadas
+				53 Patín — Federadas
+				54 Patín — Intermedias
+				55 Patín — Principiantes
+		56 button Filtrar
+		57 text No hay alumnos para los filtros seleccionados.
+	58 text Wings
+
+The focused UI element is 1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza

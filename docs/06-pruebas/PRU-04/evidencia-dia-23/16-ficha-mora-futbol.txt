@@ -1,0 +1,69 @@
+Browser tab: 1293178816, Title: "Benítez, Mora – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/345".
+1 AXWebArea Benítez, Mora – Wings, URL: test.gestionar-te.com.ar/alumnos/345
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Benítez, Mora, Value: 1
+		30 text Benítez, Mora
+	31 container
+		32 heading Inscripción al club, Value: 3
+			33 text Inscripción al club
+		34 text La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de Patín.
+		35 text Activo
+		36 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adfab1e5a4ad
+		37 button Cobrar
+		38 button Editar
+		39 image
+		40 text DNI 48123456
+		41 image
+		42 text NACIMIENTO 15/05/2014
+		43 image
+		44 text CELULAR 1145678901
+		45 image
+		46 text EMAIL –
+		47 image
+		48 text DEPORTE Fútbol
+		49 image
+		50 text GRUPO Fútbol — Principiantes
+		51 image
+		52 text PLAN 1x sem. — $28,000.00/mes
+		53 image
+		54 text ALTA 23/10/2026
+		55 image
+		56 text ESTADO DE COBRANZA En plazo 9 días de gracia Total adeudado:  $28,000.00 Nov 2026 $28,000.00
+		57 button Condonar
+		58 image
+		59 text TUTOR NOMBRE Laura Benítez TELÉFONO 1145678901
+		60 image
+		61 text HISTORIAL DE PAGOS 23/10/2026 · Oct 2026 $19,600.00
+		62 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/60?inline=1
+		63 image
+		64 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		65 button Volver
+	66 text Wings
+
+The focused UI element is 1 AXWebArea Benítez, Mora – Wings, URL: test.gestionar-te.com.ar/alumnos/345

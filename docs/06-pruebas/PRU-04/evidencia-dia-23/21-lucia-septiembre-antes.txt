@@ -1,0 +1,76 @@
+Browser tab: 1, Title: "Nueva Liquidación – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/crear".
+1 AXWebArea Nueva Liquidación – Wings, URL: test.gestionar-te.com.ar/liquidaciones/crear
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Nueva Liquidación, Value: 1
+		30 text Nueva Liquidación
+	31 container form-liquidacion
+		32 container
+			33 image
+			34 text Profesor *
+		35 container
+			36 radio button (settable, integer) Description: Acosta, Martín Fútbol Por comisión 1 clase liquidable, Value: 0, ID: prof-6
+			37 text Acosta, Martín Fútbol Por comisión 1 clase liquidable
+			38 radio button (settable, integer) Description: Directora, Vanina Patín Por hora 1 clase liquidable, Value: 0, ID: prof-5
+			39 text Directora, Vanina Patín Por hora 1 clase liquidable
+			40 radio button (settable, integer) Description: Gaitán, Lucía Patín Por hora 20 clases liquidables, Value: 1, ID: prof-1
+			41 text Gaitán, Lucía Patín Por hora 20 clases liquidables
+			42 radio button (settable, integer) Description: Ocampo, Mariela Patín Por hora 18 clases liquidables, Value: 0, ID: prof-3
+			43 text Ocampo, Mariela Patín Por hora 18 clases liquidables
+			44 radio button (settable, integer) Description: Quintana, Hernán Fútbol Por comisión 25 clases liquidables, Value: 0, ID: prof-4
+			45 text Quintana, Hernán Fútbol Por comisión 25 clases liquidables
+			46 radio button (settable, integer) Description: Salinas, Verónica Patín Por hora 9 clases liquidables, Value: 0, ID: prof-2
+			47 text Salinas, Verónica Patín Por hora 9 clases liquidables
+		48 container
+			49 image
+			50 text Mes *
+		51 pop up button (collapsed, settable) Mes *, Value: Septiembre, ID: mes, Secondary Actions: Expand
+			52 menu
+				53 — Seleccioná —
+				54 Enero
+				55 Febrero
+				56 Marzo
+				57 Abril
+				58 Mayo
+				59 Junio
+				60 Julio
+				61 Agosto
+				62 (selected) Septiembre
+				63 Octubre
+				64 Noviembre
+				65 Diciembre
+		66 container
+			67 image
+			68 text Año *
+		69 stepper (settable, integer) Año *, Value: 2026, ID: anio
+		70 text Se generará la liquidación con todas las clases liquidables del período seleccionado.
+		71 button Cancelar
+		72 button Generar
+	73 text Wings
+
+The focused UI element is 40 radio button (settable, integer) Description: Gaitán, Lucía Patín Por hora 20 clases liquidables, Value: 1, ID: prof-1

@@ -55,7 +55,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 (1/11): generacion de noviembre contra lista calculada aparte (100 cuotas, 3783000) y liquidaciones de octubre y septiembre cerradas sin pagar (por pagar 1370280). GUION-DIA-23.md. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia23:100cuotas correctas,dos comparadores100/100;8liquidaciones generadas y13atrasadas validadas, todas abiertas. Esperar permisoCarlos para cierres desde integrado tras rechazo automatico; no pagar ni repetir reloj/generacion. |
 
 ## Gemini
 

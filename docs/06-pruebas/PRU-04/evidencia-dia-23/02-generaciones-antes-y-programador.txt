@@ -1,0 +1,16 @@
+Ahora=2026-11-01 05:55:20
+Generaciones noviembre: []
+active
+
+
+
+SHELL=/bin/bash
+* * * * * /bin/bash /home/wingstest/app/scripts/servidor/ejecutar-scheduler-test.sh >> /home/wingstest/app/storage/logs/scheduler.log 2>&1
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:24:02+00:00 scheduler-test fin estado=0
+2026-10-26T19:25:02+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:25:03+00:00 scheduler-test fin estado=0

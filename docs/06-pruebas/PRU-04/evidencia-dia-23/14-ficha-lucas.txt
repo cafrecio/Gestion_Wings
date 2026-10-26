@@ -1,0 +1,94 @@
+Browser tab: 1293178816, Title: "Gomez, Lucas – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/242".
+1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Gomez, Lucas, Value: 1
+		30 text Gomez, Lucas
+	31 container
+		32 heading Inscripción al club, Value: 3
+			33 text Inscripción al club
+		34 text Por única vez por persona. Saldo pendiente: $0.00
+		35 text Activo
+		36 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adfab0742c08
+		37 button Cobrar
+		38 button Editar
+		39 image
+		40 text DNI 54100102
+		41 image
+		42 text NACIMIENTO 10/08/2017
+		43 image
+		44 text CELULAR 1145123499
+		45 image
+		46 text EMAIL marcelo.gomez@testmail.com
+		47 image
+		48 text DEPORTE Fútbol
+		49 image
+		50 text GRUPO Fútbol — Avanzadas
+		51 image
+		52 text PLAN 1x sem. — $38,000.00/mes
+		53 image
+		54 text ALTA 15/03/2025
+		55 image
+		56 text ESTADO DE COBRANZA En plazo 9 días de gracia Total adeudado:  $38,000.00 Nov 2026 $38,000.00
+		57 button Condonar
+		58 container cuotas-pasadas
+			59 text Meses sin cuota generada
+			60 container
+				61 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2025 · $28,000.00, Secondary Actions: Expand
+					62 menu
+						63 (selected) Marzo 2025 · $28,000.00
+						64 Abril 2025 · $28,000.00
+						65 Mayo 2025 · $28,000.00
+						66 Junio 2025 · $28,000.00
+						67 Julio 2025 · $28,000.00
+						68 Agosto 2025 · $28,000.00
+						69 Septiembre 2025 · $28,000.00
+						70 Octubre 2025 · $28,000.00
+						71 Noviembre 2025 · $28,000.00
+						72 Diciembre 2025 · $28,000.00
+						73 Enero 2026 · $28,000.00
+						74 Febrero 2026 · $28,000.00
+						75 Marzo 2026 · $28,000.00
+						76 Abril 2026 · $28,000.00
+						77 Mayo 2026 · $28,000.00
+						78 Junio 2026 · $28,000.00
+						79 Julio 2026 · $28,000.00
+						80 Agosto 2026 · $28,000.00
+						81 Septiembre 2026 · $28,000.00
+				82 button Crear
+		83 image
+		84 text TUTOR NOMBRE Marcelo Gomez TELÉFONO 1145123401
+		85 image
+		86 text HISTORIAL DE PAGOS 10/10/2026 · Oct 2026 $33,000.00
+		87 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/4?inline=1
+		88 image
+		89 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		90 button Volver
+	91 text Wings
+
+The focused UI element is 1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242

@@ -1,0 +1,57 @@
+[
+  {
+    "profesor": "Lucía Gaitán",
+    "periodo": "2026-10",
+    "id": 2,
+    "total": 204000,
+    "clases": 17,
+    "estado": "Abierta",
+    "archivo": "19-lucia-octubre-generada17-204000"
+  },
+  {
+    "tag": "21-lucia-septiembre",
+    "url": "https://test.gestionar-te.com.ar/liquidaciones/3",
+    "expected": "$36,000.00",
+    "estado": "Abierta"
+  },
+  {
+    "tag": "22-veronica-octubre",
+    "url": "https://test.gestionar-te.com.ar/liquidaciones/4",
+    "expected": "$105,000.00",
+    "estado": "Abierta"
+  },
+  {
+    "tag": "23-veronica-septiembre",
+    "url": "https://test.gestionar-te.com.ar/liquidaciones/5",
+    "expected": "$30,000.00",
+    "estado": "Abierta"
+  },
+  {
+    "tag": "24-mariela-octubre",
+    "url": "https://test.gestionar-te.com.ar/liquidaciones/6",
+    "expected": "$270,000.00",
+    "estado": "Abierta"
+  },
+  {
+    "tag": "25-mariela-septiembre",
+    "url": "https://test.gestionar-te.com.ar/liquidaciones/7",
+    "expected": "$54,000.00",
+    "estado": "Abierta"
+  },
+  {
+    "profesor": "Hernán Quintana",
+    "periodo": "2026-10",
+    "id": 8,
+    "total": 484680,
+    "atrasadas": 9,
+    "estado": "Abierta, atrasadas validadas"
+  },
+  {
+    "profesor": "Martín Acosta",
+    "periodo": "2026-10",
+    "id": 9,
+    "total": 186600,
+    "atrasadas": 4,
+    "estado": "Abierta, atrasadas validadas"
+  }
+]

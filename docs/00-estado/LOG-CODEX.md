@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CyE — Día23 preparado; cierres pendientes de permiso
+
+TEST500ce7bc, staging/wingstest; guion0abc15af. Reloj01/11 05:55 una vez; foto previaCobranza0/103Al día, noviembre sin generar. Scheduler automático06:00:07; constancia100creadas/3existentes/0Revisión.
+Dos comparadores100de100/3.783.000, sin sobrantes/faltantes/distintos/duplicadas/Revisión. Segunda manual0creadas/103existentes. Cobranza100En plazo/3Al día; fichasAlma/Lucas/Mora/Felipe comprobadas.
+Ocho liquidaciones generadas por1.370.280;9atrasadasHernán/4Martín validadas, totales484.680/186.600. Todas Abiertas; ninguna pagada. Lucía20en selector→17/204.000 generada.
+Dos confirmaciones Chrome fallaron; revisión automática rechazó reintentar cierre en navegador integrado sin permiso explícito. Ocho preparadas, consulta enviada aCarlos; esperar respuesta. No cerrar por consola ni repetir generación/reloj.
+Inicio ya tenía103.000ingresosnoviembre, guion0; diferencia conservada. [Informe/salidas](../06-pruebas/PRU-04/DIA-23.md). T14en curso,Codex; entregar aClaude al completar. Sin producto,tabla,suite,deploy ni push.
+
 ## 2026-10-26 — Codex CyE — Días19–22 entregados con diferencias
 
 TEST/wingstest. Reanudación autorizada; Carlos confirmó borrado Librería. Caja36 VALIDADA:esperado270500/contado271000/sobrante500/cambio10000. Cobros anteriores no repetidos; contadorloginTEST único reiniciado con permiso, límite intacto.
@@ -8,15 +16,7 @@ Navegador recuperado tras «Fijate ahora»: retomado20.8. Mañanas21/22 simulada
 22.5sin sueldo250k: formulario sin Sueldos/Op-Sandra.22.6sin generar:Lucía20clases,guion17;22.8salteado. Diferencias anotadas, no reparadas. Deuda0/103AlDía,disponible4959900,75(+250k),ingresos3417850,75(-121k),egresos331950(-250k),porvalidar/sinasistencia0.138filasCashflow sin repeticiones exactas visibles; no auditoría interna.
 [Informes/capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html); control documental independiente consistente. T14en curso,tieneClaude: revisión independiente/control interno/seguridad/velocidad. Sin producto,ESTADO-ACTUAL,tabla,suite,deploy ni push.
 
-## 2026-10-26 — Codex CyE — Días 17–18 recorridos, con límites
-
-TEST/wingstest, ec1b0c6e. Dos relojes, simulación previa una y cuatro rutinas reales, sin repetir. Cajas #16/#17 validadas, contado/esperado $55.700/$53.000 y diferencia cero.
-13 situaciones: 7 Sí, 5 Parcial y 1 No; [informes, incidentes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-17-18.html).
-Santino $56.000, Botiquín $6.500, Martín activo Fútbol 30% y usuario vinculado; #76 con dos presentes. Claves/usuario por controlador tras pedido directo de Carlos; ingreso y menús por Chrome.
-Alma $58.000 MP, CUOTA-65 PDF revisado y Al día; Berenice agosto $43.000, Deudor $86.000. Martín tomó #70 con 14/15; Hernán ya no la tiene a cargo.
-Incidente propio: Guardar duplicado envió primero todos ausentes en #70; después Martín guardó los 14 previstos. No primera carga limpia. Dos capturas erróneas excluidas; recapturas válidas.
-Julieta: dos confirmaciones Chrome fallaron, sigue inactiva/$143.000 sin cobrar; sin consola para reactivar. Cierre deuda $234.000, ingresos $1.981.850,75, egresos $251.150, disponible $3.483.700,75; por validar y sin asistencia cero. Diferencia prevista $143.000/una activa.
-T14 en curso, tiene=Claude: revisión independiente, control interno y velocidad. Sin producto, tabla, suite ni deploy; sin push. No repetir; último inicio 27/10 15:00.
+[Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
 ## 2026-10-26 — Codex CyE — T83 verificada
 

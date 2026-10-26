@@ -1,0 +1,13 @@
+Fecha simulada fijada: 2026-11-01 05:55:00. Para Wings ahora son las 01/11/2026 05:59
+
+2026-10-26T19:27:03+00:00 scheduler-test fin estado=0
+2026-10-26T19:28:01+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:28:02+00:00 scheduler-test fin estado=0
+2026-10-26T19:29:01+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:29:02+00:00 scheduler-test fin estado=0

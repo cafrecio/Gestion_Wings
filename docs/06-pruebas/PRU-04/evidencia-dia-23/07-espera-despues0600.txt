@@ -1,0 +1,25 @@
+Fecha simulada fijada: 2026-11-01 05:55:00. Para Wings ahora son las 01/11/2026 06:01
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:27:03+00:00 scheduler-test fin estado=0
+2026-10-26T19:28:01+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:28:02+00:00 scheduler-test fin estado=0
+2026-10-26T19:29:01+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:29:02+00:00 scheduler-test fin estado=0
+2026-10-26T19:30:02+00:00 scheduler-test inicio usuario=wingstest
+
+  2026-11-01 06:00:07 Running ['artisan' cobranza:generar-deudas --si-falta]  1s DONE
+  ⇂ '/opt/remi/php82/root/usr/bin/php' 'artisan' cobranza:generar-deudas --si-falta > '/dev/null' 2>&1  
+
+2026-10-26T19:30:05+00:00 scheduler-test fin estado=0
+2026-10-26T19:31:01+00:00 scheduler-test inicio usuario=wingstest
+
+   INFO  No scheduled commands are ready to run.  
+
+2026-10-26T19:31:02+00:00 scheduler-test fin estado=0
