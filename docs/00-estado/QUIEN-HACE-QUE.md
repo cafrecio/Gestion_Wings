@@ -45,13 +45,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17 y 18 no iniciados: SSH agota conexion antes de autenticar desde CyE, tambien fuera del entorno restringido y con instalador. Reloj y rutinas sin ejecutar. Pantallas al 25/10 coinciden con partida; falta control obligatorio con reloj 26/10 y --simular antes de operar. Informe DIA-17.md; cero reparaciones. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Guion de los dias 17 y 18 (lunes 26 y martes 27/10) listo en GUION-DIAS-17-18.md, con rutinas. Retoma Julieta, Rocio con clave conocida, Martin por comision y Botiquin. Claude: falta revisar dias 7-12 y control interno/performance en el servidor. |
+Nada en este momento.
 
 ## Gemini
 

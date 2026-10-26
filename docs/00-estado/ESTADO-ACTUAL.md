@@ -1,5 +1,10 @@
 # Wings — Estado actual
 
+## T14 — Días 17–18 sin iniciar por requisito técnico, Codex CyE 26/10/2026
+
+[Día 17: comprobaciones y bloqueo](../06-pruebas/PRU-04/DIA-17.md) · [Día 18: no iniciado](../06-pruebas/PRU-04/DIA-18.md). `git pull` al día (`0542eec9`). SSH desde Ventas_CyE agota la conexión al puerto 22 antes de autenticar; igual fuera del entorno restringido y al ejecutar el instalador previsto. No se fijó reloj ni se envió simulación o rutina. El requisito previo del guion no está cumplido; cero operaciones de los días 17 y 18.
+Consulta actualizada por Chrome, todavía con fecha 25/10: deuda $391.000, 104 activos (99 Al día/0 En plazo/1 Moroso/4 Deudores), cinco filas de deuda coincidentes, ingresos $1.824.850,75, egresos $240.850, disponible $3.337.000,75 con medios coincidentes y por validar $0; clase #76 única pendiente; Julieta inactiva, cinco cuotas y $143.000. Son consultas previas al reloj, no una simulación contra base. Sin reparación, producto, tabla externa, suite, despliegue ni push. T14 en curso, tiene=Claude; sigue resolver acceso y completar el control previo antes de operar.
+
 ## T14 — Días 13 a 16 registrados, Codex CAB 26/10/2026
 
 [Informes y evidencia acreditada](../06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html): **39 casos, 25 Sí/12 Parcial/2 No**. Cuatro relojes y cuatro rutinas ejecutados una vez cada uno, stdout copiado. Servidor ec1b0c6e/staging/wingstest comprobado al inicio después del aviso de despliegue de Carlos.

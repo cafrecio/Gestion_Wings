@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CyE — Días 17–18: requisito previo bloqueado
+
+Git pull al día, HEAD 0542eec9; guion completo leído. SSH agotó conexión antes de autenticar, también fuera del entorno restringido y con el instalador previsto.
+Cero ejecuciones de reloj, simulación y rutinas; ninguna operación de 17.1–18.6. No se repararon datos.
+Chrome actualizado: deuda $391.000, 104 activos (99/0/1/4), ingresos $1.824.850,75, egresos $240.850, disponible $3.337.000,75, por validar $0.
+Cinco filas de deuda, clase #76 única pendiente y Julieta inactiva con cinco cuotas/$143.000 coinciden antes del reloj; no reemplaza el control requerido del 26/10.
+[Día17](../06-pruebas/PRU-04/DIA-17.md) y [Día18](../06-pruebas/PRU-04/DIA-18.md): bloqueo/evidencia, sin afirmar ejecución. Sin producto, tabla, suite, despliegue ni push.
+T14 en curso, tiene=Claude: acceso SSH y control previo pendientes antes de iniciar jornadas.
+
 ## 2026-10-26 — Codex CAB — PRU-04 días 13 a 16: recorrido y diferencias
 
 39 casos registrados: **25 Sí, 12 Parcial y 2 No**; [informes y capturas acreditadas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html), sin conformidad integral.

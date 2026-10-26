@@ -1,0 +1,6 @@
+
+Destino    Puerto Resultado
+-------    ------ ---------
+VPS            22 Tiempo agotado
+VPS HTTPS     443 Tiempo agotado
+GitHub SSH     22 Tiempo agotado
