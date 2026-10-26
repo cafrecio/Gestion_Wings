@@ -1,0 +1,57 @@
+Browser tab: 1293178766, Title: "Sosa, Felipe – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/265".
+1 AXWebArea Sosa, Felipe – Wings, URL: test.gestionar-te.com.ar/alumnos/265
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Sosa, Felipe, Value: 1
+		19 text Sosa, Felipe
+	20 container
+		21 text Activo
+		22 button Cobrar
+		23 button Editar
+		24 image
+		25 text DNI 50300904
+		26 image
+		27 text NACIMIENTO 03/03/2013
+		28 image
+		29 text CELULAR 1145123417
+		30 image
+		31 text EMAIL jorge.sosa@testmail.com
+		32 image
+		33 text DEPORTE Fútbol
+		34 image
+		35 text GRUPO Fútbol — Avanzadas
+		36 image
+		37 text PLAN 1x sem. — $38,000.00/mes
+		38 image
+		39 text ALTA 05/04/2023
+		40 image
+		41 text ESTADO DE COBRANZA Al día
+		42 image
+		43 text TUTOR NOMBRE Jorge Sosa TELÉFONO 1145123417
+		44 image
+		45 text HISTORIAL DE PAGOS 30/10/2026 · Ago 2026, Oct 2026 $76,000.00
+		46 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/171?inline=1
+		47 text 22/10/2026 · Nov 2026 $38,000.00
+		48 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/53?inline=1
+		49 text 15/10/2026 · Jul 2026 $38,000.00
+		50 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/16?inline=1
+		51 image
+		52 text ASISTENCIAS — OCT 2026 4 clases 06/10 10/10 17/10 22/10
+		53 button Volver
+	54 text Wings
+
+The focused UI element is 1 AXWebArea Sosa, Felipe – Wings, URL: test.gestionar-te.com.ar/alumnos/265

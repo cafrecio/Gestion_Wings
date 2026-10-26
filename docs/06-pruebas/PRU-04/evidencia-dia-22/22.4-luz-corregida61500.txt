@@ -1,0 +1,63 @@
+Browser tab: 1293178775, Title: "Movimiento – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/movimientos/135".
+1 AXWebArea Movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimientos/135
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Movimiento, Value: 1
+		30 text Movimiento
+	31 container
+		32 text Movimiento actualizado. El historial se conserva.
+		33 heading Luz, Value: 3
+			34 text Luz
+		35 text Fecha
+		36 text 31/10/2026
+		37 text Medio
+		38 text Banco Galicia
+		39 text Importe
+		40 text $-61,500.00
+		41 text Luz de octubre, día 22 de prueba
+		42 button Volver
+		43 button Editar
+		44 container cashflow-historial-correcciones
+			45 heading Historial de correcciones, Value: 3
+				46 text Historial de correcciones
+			47 container
+				48 text Edición  · 31/10/2026 15:04 · Admin Prueba
+			49 text Antes
+			50 container
+				51 text $-62,000.00  · 31/10/2026
+			52 text Luz · Banco Galicia
+			53 text Luz de octubre, día 22 de prueba
+			54 text Después
+			55 container
+				56 text $-61,500.00  · 31/10/2026
+			57 text Luz · Banco Galicia
+			58 text Luz de octubre, día 22 de prueba
+			59 text Motivo: Descuento por débito automático
+	60 text Wings
+
+The focused UI element is 1 AXWebArea Movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimientos/135

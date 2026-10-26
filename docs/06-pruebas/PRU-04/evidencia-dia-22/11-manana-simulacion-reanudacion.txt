@@ -1,0 +1,12 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Perez, Mia $40.000,00 por Mercado Pago — Pago registrado para Perez, Mia.
+ 3. Pablo Ledesma cobra a Navarro, Malena $43.000,00 por Efectivo — Pago registrado para Navarro, Malena.
+ 4. Pablo Ledesma cobra a Diaz, Martina $50.000,00 por Efectivo — Pago registrado para Diaz, Martina.
+ 5. Pablo Ledesma cobra a Medina, Lautaro $28.000,00 por Mercado Pago — Pago registrado para Medina, Lautaro.
+ 6. Pablo Ledesma cobra a Ortiz, Tobias $48.000,00 por Efectivo — Pago registrado para Ortiz, Tobias.
+ 7. Pablo Ledesma Inscripciones $16000 por Efectivo — Movimiento registrado.
+ 8. Mariela Ocampo lista de la #50: 8 alumnos, 7 presentes — Asistencias guardadas.
+ 9. Mariela Ocampo lista de la #81: 8 alumnos, 6 presentes — Asistencias guardadas.
+10. Hernán Quintana lista de la #77: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $66.000,00 · {"AL_DIA":102,"EN_PLAZO":0,"MOROSO":0,"DEUDOR":1}
+SIMULADO: no se guardó nada.

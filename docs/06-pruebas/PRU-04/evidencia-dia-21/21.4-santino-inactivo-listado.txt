@@ -1,0 +1,126 @@
+Browser tab: 1293178766, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos?search=Romero&deporte_id=&grupo_id=".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=Romero&deporte_id=&grupo_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Alumnos, Value: 1
+		19 text Alumnos
+	20 container
+		21 container
+			22 image
+			23 combo box (collapsed, settable) Value: Romero, ID: search-input, Secondary Actions: Expand
+		24 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			25 menu
+				26 (selected) Deporte
+				27 Fútbol
+				28 Patín
+		29 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+			30 menu
+				31 (selected) Grupo
+				32 Fútbol — Avanzadas
+				33 Fútbol — Principiantes
+				34 Patín — Adultos
+				35 Patín — Avanzadas
+				36 Patín — Federadas
+				37 Patín — Intermedias
+				38 Patín — Principiantes
+		39 button Limpiar
+		40 text Mostrando 
+		41 text 1
+		42 text  a 
+		43 text 3
+		44 text  de 
+		45 text 3
+		46 text  alumnos
+		47 button Nuevo
+		48 container
+			49 heading Romero, Catalina, Value: 3
+				50 text Romero, Catalina
+		51 image
+		52 text Deporte: Patín
+		53 image
+		54 text Grupo: Patín — Principiantes
+		55 image
+		56 text Plan: 1 clase/semana
+		57 image
+		58 text DNI: 55400018
+		59 image
+		60 text Teléfono: 1145120018
+		61 image
+		62 text Edad: 7 años
+		63 image
+		64 text Tutor: Tutor Romero
+		65 image
+		66 text Tel. tutor: 1145120018
+		67 button Cobrar
+		68 button Ver
+		69 button Editar
+		70 container
+			71 text Activo
+			72 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adf7c98cbead
+		73 container
+			74 heading Romero, Florencia, Value: 3
+				75 text Romero, Florencia
+		76 image
+		77 text Deporte: Patín
+		78 image
+		79 text Grupo: Patín — Intermedias
+		80 image
+		81 text Plan: 1 clase/semana
+		82 image
+		83 text DNI: 55400025
+		84 image
+		85 text Teléfono: 1145120025
+		86 image
+		87 text Edad: 11 años 🎂
+		88 image
+		89 text Tutor: Tutor Romero
+		90 image
+		91 text Tel. tutor: 1145120025
+		92 button Cobrar
+		93 button Ver
+		94 button Editar
+		95 container
+			96 text Activo
+			97 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adf7c98cc25d
+		98 container
+			99 heading Romero, Santino, Value: 3
+				100 text Romero, Santino
+		101 image
+		102 text Deporte: Fútbol
+		103 image
+		104 text Grupo: Fútbol — Principiantes
+		105 image
+		106 text Plan: 1 clase/semana
+		107 image
+		108 text DNI: 53300902
+		109 image
+		110 text Teléfono: 1145123415
+		111 image
+		112 text Edad: 10 años
+		113 image
+		114 text Tutor: Diego Romero
+		115 image
+		116 text Tel. tutor: 1145123415
+		117 button Cobrar
+		118 button Ver
+		119 button Editar
+		120 container
+			124 text Inactivo
+			122 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6adf7c98cc694
+	123 text Wings
+
+The focused UI element is 122 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6adf7c98cc694

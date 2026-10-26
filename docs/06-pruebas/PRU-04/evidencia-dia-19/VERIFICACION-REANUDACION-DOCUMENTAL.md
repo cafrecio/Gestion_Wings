@@ -1,4 +1,4 @@
-# Control independiente documental de la reanudación
+# Control independiente documental de la reanudación — CORTE HISTÓRICO 773ec98a
 
 26/10/2026 · subagente Codex `/root/verificar_php_vps` · revisión requerida por AGENTS.md§6a. Solo documentos/evidencia, sin servidor ni navegador, sin modificaciones.
 

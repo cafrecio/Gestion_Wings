@@ -1,0 +1,4 @@
+ 1. Pablo Ledesma cierra la caja #40: esperado $270.000,00, contado $270.000,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #40 (12 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $66.000,00 · {"AL_DIA":102,"EN_PLAZO":0,"MOROSO":0,"DEUDOR":1}
+GUARDADO.

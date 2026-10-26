@@ -1,0 +1,104 @@
+Browser tab: 1293178775, Title: "Nuevo movimiento – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/movimiento".
+1 AXWebArea Nuevo movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimiento
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Nuevo movimiento, Value: 1
+		30 text Nuevo movimiento
+	31 container mov-form
+		32 container tipo-card
+			33 text Tipo de movimiento *
+			34 text INGRESO
+			35 text EGRESO
+			36 container
+				37 text Fecha *
+			38 date field (settable) Fecha *, Value: 2026-10-31, ID: fecha
+				39 container
+					40 stepper
+					41 stepper
+					42 stepper
+				43 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+			44 container
+				45 text Medio de pago *
+			46 pop up button (collapsed, settable) Medio de pago *, Value: BGA — Banco Galicia, ID: tipo_caja_id, Secondary Actions: Expand
+				47 menu
+					48 Seleccionar...
+					49 (selected) BGA — Banco Galicia
+					50 BNA — Banco Nación
+					51 Banco Nacion ahorro
+					52 EFE — Efectivo
+					53 MP — Mercado Pago
+			54 container
+				55 text Rubro *
+			56 pop up button (collapsed, settable) Rubro *, Value: Servicios, ID: rubro_id, Secondary Actions: Expand
+				57 menu
+					58 Seleccionar...
+					59 Alquileres
+					60 Gastos de torneos
+					61 Gastos Operativos
+					62 Indumentaria
+					63 Intereses
+					64 Mantenimiento y arreglos
+					65 Otras clases
+					66 Retiros
+					67 (selected) Servicios
+					68 Torneos
+			69 container
+				70 text Subrubro *
+			71 pop up button (collapsed, settable) Subrubro *, Value: Luz, ID: subrubro_id, Secondary Actions: Expand
+				72 menu
+					73 Seleccionar...
+					74 Centenera
+					75 Eventos
+					76 San Carlos
+					77 Pago al organizador
+					78 Botiquín
+					79 Insumos Varios
+					80 Librería
+					81 Limpieza
+					82 Indumentaria institucional
+					83 Patines
+					84 VG Indumentaria
+					85 Intereses Banco
+					86 Intereses Mercado Pago
+					87 Reparaciones menores
+					88 Clase particular
+					89 Retiro de dueños
+					90 Internet
+					91 (selected) Luz
+					92 Inscripciones
+			93 container
+				94 text Monto *
+			95 text field (settable) Monto *, Value: 62,000.00, ID: monto
+			96 container
+				97 text Observaciones *
+			98 text field (settable) Observaciones *, Value: Luz de octubre, día 22 de prueba, ID: observaciones
+		99 button Cancelar
+		100 button Registrar
+	101 text Wings
+
+The focused UI element is 98 text field (settable) Observaciones *, Value: Luz de octubre, día 22 de prueba, ID: observaciones

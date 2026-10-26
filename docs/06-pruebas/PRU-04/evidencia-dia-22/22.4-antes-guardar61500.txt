@@ -1,0 +1,107 @@
+Browser tab: 1293178775, Title: "Editar movimiento – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/movimientos/135/editar".
+1 AXWebArea Editar movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimientos/135/editar
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Editar movimiento, Value: 1
+		30 text Editar movimiento
+	31 container mov-form
+		32 text La corrección actualiza el reporte del período del movimiento y conserva su historial.
+		33 container tipo-card
+			34 text Tipo de movimiento *
+			35 text INGRESO
+			36 text EGRESO
+			37 container
+				38 text Fecha *
+			39 date field (settable) Fecha *, Value: 2026-10-31, ID: fecha
+				40 container
+					41 stepper
+					42 stepper
+					43 stepper
+				44 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+			45 container
+				46 text Medio de pago *
+			47 pop up button (collapsed, settable) Medio de pago *, Value: BGA — Banco Galicia, ID: tipo_caja_id, Secondary Actions: Expand
+				48 menu
+					49 Seleccionar...
+					50 (selected) BGA — Banco Galicia
+					51 BNA — Banco Nación
+					52 Banco Nacion ahorro
+					53 EFE — Efectivo
+					54 MP — Mercado Pago
+			55 container
+				56 text Rubro *
+			57 pop up button (collapsed, settable) Rubro *, Value: Servicios, ID: rubro_id, Secondary Actions: Expand
+				58 menu
+					59 Seleccionar...
+					60 Alquileres
+					61 Gastos de torneos
+					62 Gastos Operativos
+					63 Indumentaria
+					64 Intereses
+					65 Mantenimiento y arreglos
+					66 Otras clases
+					67 Retiros
+					68 (selected) Servicios
+					69 Torneos
+			70 container
+				71 text Subrubro *
+			72 pop up button (collapsed, settable) Subrubro *, Value: Luz, ID: subrubro_id, Secondary Actions: Expand
+				73 menu
+					74 Seleccionar...
+					75 Centenera
+					76 Eventos
+					77 San Carlos
+					78 Pago al organizador
+					79 Botiquín
+					80 Insumos Varios
+					81 Librería
+					82 Limpieza
+					83 Indumentaria institucional
+					84 Patines
+					85 VG Indumentaria
+					86 Intereses Banco
+					87 Intereses Mercado Pago
+					88 Reparaciones menores
+					89 Clase particular
+					90 Retiro de dueños
+					91 Internet
+					92 (selected) Luz
+					93 Inscripciones
+			94 container
+				95 text Monto *
+			96 text field (settable) Monto *, Value: 61,500.00, ID: monto
+			97 container
+				98 text Observaciones *
+			99 text field (settable) Observaciones *, Value: Luz de octubre, día 22 de prueba, ID: observaciones
+			100 text Motivo (opcional)
+			101 text field (settable) Motivo (opcional), Value: Descuento por débito automático, ID: motivo
+		102 button Cancelar
+		103 button Guardar
+	104 text Wings
+
+The focused UI element is 101 text field (settable) Motivo (opcional), Value: Descuento por débito automático, ID: motivo

@@ -1,0 +1,93 @@
+Browser tab: 1293178772, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+	5 container
+		6 text Hernán Quintana
+		7 button Salir
+	8 heading Clases, Value: 1
+		9 text Clases
+	10 container
+		11 text TUS CLASES DE HOY — SÁBADO 31 DE OCTUBRE · 
+		12 text 2
+		13 text  CLASE(S)
+		14 container clases-hoy-container
+			15 container clase-hoy-77
+				16 heading 12:00 – 13:00 Cerrada, Value: 3
+					17 text 12:00 – 13:00  Cerrada
+				18 image
+				19 text Grupo: Fútbol — Avanzadas
+				20 image
+				21 text Profesores: Quintana
+				22 image
+				23 text Asistencia: Cargada
+				24 button Ver
+			25 container clase-hoy-82
+				26 heading 14:00 – 15:00 Finalizada, Value: 3
+					27 text 14:00 – 15:00  Finalizada
+				28 image
+				29 text Grupo: Fútbol — Avanzadas
+				30 image
+				31 text Profesores: Quintana
+				32 image
+				33 text Asistencia: Pendiente
+				34 button Ver
+		35 button (collapsed) Otras clases de hoy (2), Secondary Actions: Expand
+			36 text Otras clases de hoy (2)
+		37 container filter-form
+			38 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				39 menu
+					40 (selected) Deporte
+					41 Fútbol
+					42 Patín
+			43 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+				44 menu
+					45 (selected) Grupo
+					46 Fútbol — Avanzadas
+					47 Fútbol — Principiantes
+					48 Patín — Adultos
+					49 Patín — Avanzadas
+					50 Patín — Federadas
+					51 Patín — Intermedias
+					52 Patín — Principiantes
+			53 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				54 menu
+					55 (selected) Profesor
+					56 Acosta, Martín
+					57 Directora, Vanina
+					58 Gaitán, Lucía
+					59 Ocampo, Mariela
+					60 Quintana, Hernán
+					61 Salinas, Verónica
+			62 pop up button (collapsed, settable) Value: Estado, ID: filter-estado, Secondary Actions: Expand
+				63 menu
+					64 (selected) Estado
+					65 Programada
+					66 Sin asistencia
+					67 Cerrada
+					68 Cancelada
+			69 date field (settable)
+				70 container
+					71 stepper
+					72 stepper
+					73 stepper
+				74 pop up button Mostrar el selector de fechas
+			75 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				76 menu
+					77 (selected) Orden
+					78 Más recientes
+					79 Más antiguas
+					80 Grupo A–Z
+			81 button Limpiar
+			82 button Filtrar
+		83 text 0
+		84 text  clases encontradas
+		85 container clases-listado
+			86 image
+			87 heading No se encontraron clases, Value: 3
+				88 text No se encontraron clases
+			89 text Intentá con otros filtros
+	90 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases

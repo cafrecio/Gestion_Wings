@@ -1,15 +1,18 @@
 {
-  "corte": "26/10/2026; hasta20.7",
+  "corte": "26/10/2026; paquete recorrido hasta noche22 y conciliacion22.9",
   "casos": 37,
   "resultados": {
-    "Parcial": 5,
-    "Sí": 12,
-    "No ejecutado": 20
+    "Parcial": 11,
+    "Sí": 23,
+    "No": 2,
+    "No ejecutado": 1
   },
-  "proximo": "20.8 por navegador local habilitado; no repetir cobros/ventas/manana20",
-  "ultimo_reloj": "2026-10-29 15:00",
-  "noche20": "no ejecutada",
-  "dias21_22": "no reanudados",
-  "revision_documental": "VERIFICACION-REANUDACION-DOCUMENTAL.md",
+  "proximo": "Claude: revision independiente, control interno y velocidad; resolver diferencias22.5/22.6 sin repetir operaciones",
+  "ultimo_reloj": "2026-10-31 15:00",
+  "noche20": "GUARDADO; caja38VALIDADA",
+  "noche21": "GUARDADO; caja40VALIDADA",
+  "noche22": "GUARDADO; caja42VALIDADA",
+  "deuda": 0,
+  "disponible": 4959900.75,
   "verificacion_negocio": "pendiente Claude"
 }

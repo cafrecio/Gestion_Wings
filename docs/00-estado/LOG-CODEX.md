@@ -1,12 +1,12 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-26 — Codex CyE — Días19–22 reanudados; pendiente navegador
+## 2026-10-26 — Codex CyE — Días19–22 entregados con diferencias
 
-Carlos autorizó volver al28/10, repetir19.5/noche19 y controles20–22; cobros anteriores intactos. Él confirmó Librería: borrado,13movimientos,esperado270500.19.4a/19.7a rechazan en castellano.19.6b parcial: sin hora. Caja36 VALIDADA,contado271000,sobrante500,cambio10000; sin ingreso extra.
-Día20: simulación13/13 y mañana real13/13; caja38Rocío. Ventas85000MP/18000efectivo,esperado178200,MP241000.71cancelada con motivo,Hernán bloqueado;82recuperación31/10 14–15 creada tras rechazo14–13; Mariela50futura bloqueada; celularLucas1145123499,pago conservado.20.7correcto.
-Ingreso rechazado tras87s: con permisoCarlos, SSH encontró contador hasta31/10 con reloj29/10. Se limpió una clave,0intentos/0segundos después; Hernán entró. Límite,usuarios,claves y negocio intactos. Evidencia completa.
-20.8no ejecutado: revisión automática agotó uso. Al continuar,uso liberado pero navegador local desactivado enWork. Carlos tiene aviso. Sin noche20 ni reanudación21–22; último reloj29/10 15h. No repetir ventas/mañana20/cobros19.
-[Informes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html); primera corrida conservada. Diferencias de Reportes sin reparar ni causa atribuida. T14en curso,Codex;Claude revisa al entregar. Sin producto,ESTADO-ACTUAL,tabla,suite,deploy ni push.
+TEST/wingstest. Reanudación autorizada; Carlos confirmó borrado Librería. Caja36 VALIDADA:esperado270500/contado271000/sobrante500/cambio10000. Cobros anteriores no repetidos; contadorloginTEST único reiniciado con permiso, límite intacto.
+Navegador recuperado tras «Fijate ahora»: retomado20.8. Mañanas21/22 simuladas y reales una vez; noches20/21/22 una vez. Cajas38/40/42VALIDADA:178200/270000/167000,diferencia0,cambio10000. Último reloj31/10 15h; no repetir.
+37situaciones:23Sí/11Parcial/2No/1Noejecutado. Berenice20k aceptado sin motivo;Felipe76k/PDF171;Santino baja conservando28k;traspaso500k;recuperación82 con15presentes.20.4visibilidadHernán completada.
+22.5sin sueldo250k: formulario sin Sueldos/Op-Sandra.22.6sin generar:Lucía20clases,guion17;22.8salteado. Diferencias anotadas, no reparadas. Deuda0/103AlDía,disponible4959900,75(+250k),ingresos3417850,75(-121k),egresos331950(-250k),porvalidar/sinasistencia0.138filasCashflow sin repeticiones exactas visibles; no auditoría interna.
+[Informes/capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html); control documental independiente consistente. T14en curso,tieneClaude: revisión independiente/control interno/seguridad/velocidad. Sin producto,ESTADO-ACTUAL,tabla,suite,deploy ni push.
 
 ## 2026-10-26 — Codex CyE — Días 17–18 recorridos, con límites
 

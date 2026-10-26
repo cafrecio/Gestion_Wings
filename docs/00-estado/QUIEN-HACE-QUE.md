@@ -46,13 +46,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias19-22 recorridos con diferencias; cajas36/38/40/42 validadas. Revisar interno y velocidad;22.5 sueldo ausente,22.6 Lucia20vs17 sin generar. No repetir operaciones ni reloj31/10 15h. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Reanudado:19 cerrado/validado;20 hasta20.7. Pendiente20.8-20.10: navegador local desactivado en Work. Noche20 y controles21-22 no corridos. Habilitar navegador y continuar sin repetir cobros/ventas/manana20. |
+Nada en este momento.
 
 ## Gemini
 

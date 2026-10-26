@@ -1,0 +1,82 @@
+Browser tab: 1293178778, Title: "Nueva Liquidación – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/crear".
+1 AXWebArea Nueva Liquidación – Wings, URL: test.gestionar-te.com.ar/liquidaciones/crear
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Nueva Liquidación, Value: 1
+		30 text Nueva Liquidación
+	31 container
+		32 container aviso-hoy
+			33 image
+			34 text Hoy es el último día del mes. Las clases de hoy programadas no están incluidas aún. ¿Querés incluirlas?
+			35 button Incluir clases de hoy, ID: btn-incluir
+			36 button No incluir, ID: btn-no-incluir
+		37 container form-liquidacion
+			38 container
+				39 image
+				40 text Profesor *
+			41 container
+				42 radio button (settable, integer) Description: Acosta, Martín Fútbol Por comisión 1 clase liquidable, Value: 0, ID: prof-6
+				43 text Acosta, Martín Fútbol Por comisión 1 clase liquidable
+				44 radio button (settable, integer) Description: Directora, Vanina Patín Por hora 1 clase liquidable, Value: 0, ID: prof-5
+				45 text Directora, Vanina Patín Por hora 1 clase liquidable
+				46 radio button (settable, integer) Description: Gaitán, Lucía Patín Por hora 20 clases liquidables, Value: 1, ID: prof-1
+				47 text Gaitán, Lucía Patín Por hora 20 clases liquidables
+				48 radio button (settable, integer) Description: Ocampo, Mariela Patín Por hora 18 clases liquidables, Value: 0, ID: prof-3
+				49 text Ocampo, Mariela Patín Por hora 18 clases liquidables
+				50 radio button (settable, integer) Description: Quintana, Hernán Fútbol Por comisión 25 clases liquidables, Value: 0, ID: prof-4
+				51 text Quintana, Hernán Fútbol Por comisión 25 clases liquidables
+				52 radio button (settable, integer) Description: Salinas, Verónica Patín Por hora 9 clases liquidables, Value: 0, ID: prof-2
+				53 text Salinas, Verónica Patín Por hora 9 clases liquidables
+			54 container
+				55 image
+				56 text Mes *
+			57 pop up button (collapsed, settable) Mes *, Value: Octubre, ID: mes, Secondary Actions: Expand
+				58 menu
+					59 — Seleccioná —
+					60 Enero
+					61 Febrero
+					62 Marzo
+					63 Abril
+					64 Mayo
+					65 Junio
+					66 Julio
+					67 Agosto
+					68 Septiembre
+					69 (selected) Octubre
+					70 Noviembre
+					71 Diciembre
+			72 container
+				73 image
+				74 text Año *
+			75 stepper (settable, integer) Año *, Value: 2026, ID: anio
+			76 text Se generará la liquidación con todas las clases liquidables del período seleccionado.
+			77 button Cancelar
+			78 button Generar
+	79 text Wings
+
+The focused UI element is 46 radio button (settable, integer) Description: Gaitán, Lucía Patín Por hora 20 clases liquidables, Value: 1, ID: prof-1

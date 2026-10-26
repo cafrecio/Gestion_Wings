@@ -1,0 +1,282 @@
+Browser tab: 1293178751, Title: "Movimientos – Wings", URL: "https://test.gestionar-te.com.ar/movimientos?desde=2026-10-28&hasta=2026-10-28&tipo=&tipo_caja_id=&rubro_id=".
+1 AXWebArea Movimientos – Wings, URL: test.gestionar-te.com.ar/movimientos?desde=2026-10-28&hasta=2026-10-28&tipo=&tipo_caja_id=&rubro_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Movimientos, Value: 1
+		19 text Movimientos
+	20 container
+		21 text DESDE
+		22 date field (settable) DESDE, Value: 2026-10-28, ID: filtro-desde
+			23 container
+				24 stepper
+				25 stepper
+				26 stepper
+			27 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		28 text HASTA
+		29 date field (settable) HASTA, Value: 2026-10-28, ID: filtro-hasta
+			30 container
+				31 stepper
+				32 stepper
+				33 stepper
+			34 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		35 pop up button (collapsed, settable) Value: Ingreso / Egreso, Secondary Actions: Expand
+			36 menu
+				37 (selected) Ingreso / Egreso
+				38 Ingreso
+				39 Egreso
+		40 pop up button (collapsed, settable) Value: Medio, Secondary Actions: Expand
+			41 menu
+				42 (selected) Medio
+				43 BGA
+				44 BNA
+				45 Banco Nacion ahorro
+				46 EFE
+				47 MP
+		48 pop up button (collapsed, settable) Value: Rubro, Secondary Actions: Expand
+			49 menu
+				50 (selected) Rubro
+				51 Cuotas
+				52 Gastos Operativos
+				53 Indumentaria
+				54 Inscripciones
+				55 Mantenimiento y arreglos
+				56 Otras clases
+				57 Punitorios
+				58 Torneos
+		59 button Limpiar
+		60 button Filtrar
+		61 text 13
+		62 text  movimientos  ·  Ingresos 
+		63 text $410,000.00
+		64 text   ·  Egresos 
+		65 text $3,500.00
+		66 text   ·  Neto 
+		67 text $406,500.00
+		68 table
+			69 row
+				70 cell
+					71 text FECHA
+				72 cell
+					73 text I/E
+				74 cell
+					75 text MEDIO
+				76 cell
+					77 text RUBRO — SUBRUBRO
+				78 cell
+					79 text ALUMNO / OBS.
+				80 cell
+					81 text MONTO
+				82 cell
+					83 text CAJA
+			84 row
+				85 cell
+					86 text 28/10/2026
+				87 cell
+					88 text I
+				89 cell
+					90 text EFE
+				91 cell
+					92 text Cuotas  — Cuota Mensual
+				93 cell
+					94 text Vega, Joaquin
+				95 cell
+					96 text $44,000.00
+				97 cell
+					98 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			99 row
+				100 cell
+					101 text 28/10/2026
+				102 cell
+					103 text I
+				104 cell
+					105 text EFE
+				106 cell
+					107 text Cuotas  — Cuota Mensual
+				108 cell
+					109 text Acosta, Victoria
+				110 cell
+					111 text $30,000.00
+				112 cell
+					113 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			114 row
+				115 cell
+					116 text 28/10/2026
+				117 cell
+					118 text I
+				119 cell
+					120 text MP
+				121 cell
+					122 text Cuotas  — Cuota Mensual
+				123 cell
+					124 text Flores, Renata
+				125 cell
+					126 text $30,000.00
+				127 cell
+					128 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			129 row
+				130 cell
+					131 text 28/10/2026
+				132 cell
+					133 text I
+				134 cell
+					135 text EFE
+				136 cell
+					137 text Cuotas  — Cuota Mensual
+				138 cell
+					139 text Herrera, Alma
+				140 cell
+					141 text $40,000.00
+				142 cell
+					143 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			144 row
+				145 cell
+					146 text 28/10/2026
+				147 cell
+					148 text I
+				149 cell
+					150 text MP
+				151 cell
+					152 text Cuotas  — Cuota Mensual
+				153 cell
+					154 text Medina, Emilia
+				155 cell
+					156 text $40,000.00
+				157 cell
+					158 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			159 row
+				160 cell
+					161 text 28/10/2026
+				162 cell
+					163 text I
+				164 cell
+					165 text EFE
+				166 cell
+					167 text Cuotas  — Cuota Mensual
+				168 cell
+					169 text Benitez, Paulina
+				170 cell
+					171 text $43,000.00
+				172 cell
+					173 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			174 row
+				175 cell
+					176 text 28/10/2026
+				177 cell
+					178 text I
+				179 cell
+					180 text EFE
+				181 cell
+					182 text Cuotas  — Cuota Mensual
+				183 cell
+					184 text Cabrera, Constanza
+				185 cell
+					186 text $33,000.00
+				187 cell
+					188 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			189 row
+				190 cell
+					191 text 28/10/2026
+				192 cell
+					193 text I
+				194 cell
+					195 text EFE
+				196 cell
+					197 text Cuotas  — Cuota Mensual
+				198 cell
+					199 text Castro, Bruno
+				200 cell
+					201 text $28,000.00
+				202 cell
+					203 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			204 row
+				205 cell
+					206 text 28/10/2026
+				207 cell
+					208 text I
+				209 cell
+					210 text MP
+				211 cell
+					212 text Cuotas  — Cuota Mensual
+				213 cell
+					214 text Diaz, Thiago
+				215 cell
+					216 text $38,000.00
+				217 cell
+					218 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			219 row
+				220 cell
+					221 text 28/10/2026
+				222 cell
+					223 text I
+				224 cell
+					225 text EFE
+				226 cell
+					227 text Cuotas  — Cuota Mensual
+				228 cell
+					229 text Torres, Benicio
+				230 cell
+					231 text $28,000.00
+				232 cell
+					233 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			234 row
+				235 cell
+					236 text 28/10/2026
+				237 cell
+					238 text I
+				239 cell
+					240 text MP
+				241 cell
+					242 text Cuotas  — Cuota Mensual
+				243 cell
+					244 text Rossi, Leon
+				245 cell
+					246 text $38,000.00
+				247 cell
+					248 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			249 row
+				250 cell
+					251 text 28/10/2026
+				252 cell
+					253 text E
+				254 cell
+					255 text EFE
+				256 cell
+					257 text Gastos Operativos  — Limpieza
+				258 cell
+					259 text Limpieza del miércoles
+				260 cell
+					261 text $3,500.00
+				262 cell
+					263 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+			264 row
+				265 cell
+					266 text 28/10/2026
+				267 cell
+					268 text I
+				269 cell
+					270 text EFE
+				271 cell
+					272 text Indumentaria  — Indumentaria institucional
+				273 cell
+					274 text Remera del club, talle 10
+				275 cell
+					276 text $18,000.00
+				277 cell
+					278 link Description: 28/10/2026, Value: test.gestionar-te.com.ar/caja/36/detalle
+	279 text Wings
+
+The focused UI element is 1 AXWebArea Movimientos – Wings, URL: test.gestionar-te.com.ar/movimientos?desde=2026-10-28&hasta=2026-10-28&tipo=&tipo_caja_id=&rubro_id=

@@ -1,0 +1,164 @@
+Browser tab: 1293178751, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Clases, Value: 1
+		19 text Clases
+	20 container
+		21 text CLASES DE HOY — JUEVES 29 DE OCTUBRE · 
+		22 text 2
+		23 text  CLASE(S)
+		24 container clases-hoy-container
+			25 container clase-hoy-33
+				26 heading 17:00 – 18:00 Programada, Value: 3
+					27 text 17:00 – 18:00  Programada
+				28 image
+				29 text Grupo: Patín — Avanzadas
+				30 image
+				31 text Profesores: Gaitán
+				32 image
+				33 text Asistencia: Cargada
+				34 button Ver
+			35 container clase-hoy-44
+				36 heading 18:00 – 19:00 Programada, Value: 3
+					37 text 18:00 – 19:00  Programada
+				38 image
+				39 text Grupo: Patín — Federadas
+				40 image
+				41 text Profesores: Ocampo
+				42 image
+				43 text Asistencia: Cargada
+				44 button Ver
+			45 container clase-hoy-71
+				46 heading 19:00 – 20:00 Cancelada, Value: 3
+					47 text 19:00 – 20:00  Cancelada
+				48 container
+					49 text Motivo:  Cancha inundada
+				50 image
+				51 text Grupo: Fútbol — Avanzadas
+				52 image
+				53 text Profesores: Quintana
+				54 image
+				55 text Asistencia: Pendiente
+				56 button Ver
+		57 container filter-form
+			58 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				59 menu
+					60 (selected) Deporte
+					61 Fútbol
+					62 Patín
+			63 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+				64 menu
+					65 (selected) Grupo
+					66 Fútbol — Avanzadas
+					67 Fútbol — Principiantes
+					68 Patín — Adultos
+					69 Patín — Avanzadas
+					70 Patín — Federadas
+					71 Patín — Intermedias
+					72 Patín — Principiantes
+			73 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				74 menu
+					75 (selected) Profesor
+					76 Acosta, Martín
+					77 Directora, Vanina
+					78 Gaitán, Lucía
+					79 Ocampo, Mariela
+					80 Quintana, Hernán
+					81 Salinas, Verónica
+			82 pop up button (collapsed, settable) Value: Estado, ID: filter-estado, Secondary Actions: Expand
+				83 menu
+					84 (selected) Estado
+					85 Programada
+					86 Sin asistencia
+					87 Cerrada
+					88 Cancelada
+			89 date field (settable)
+				90 container
+					91 stepper
+					92 stepper
+					93 stepper
+				94 pop up button Mostrar el selector de fechas
+			95 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				96 menu
+					97 (selected) Orden
+					98 Más recientes
+					99 Más antiguas
+					100 Grupo A–Z
+			101 button Limpiar
+			102 button Filtrar
+		103 text Mostrando 
+		104 text 1
+		105 text  a 
+		106 text 5
+		107 text  de 
+		108 text 5
+		109 text  clase(s)
+		110 container clases-listado
+			111 container
+				112 heading Vie 30/10/2026 — 16:00 a 17:00 Programada, Value: 3
+					113 text Vie 30/10/2026 — 16:00 a 17:00  Programada
+				114 image
+				115 text Grupo: Patín — Intermedias
+				116 image
+				117 text Profesores: Salinas
+				118 image
+				119 text Asistencia: Pendiente
+				120 button Ver
+			121 container
+				122 heading Sáb 31/10/2026 — 10:00 a 11:00 Programada, Value: 3
+					123 text Sáb 31/10/2026 — 10:00 a 11:00  Programada
+				124 image
+				125 text Grupo: Patín — Federadas
+				126 image
+				127 text Profesores: Ocampo
+				128 image
+				129 text Asistencia: Pendiente
+				130 button Ver
+			131 container
+				132 heading Sáb 31/10/2026 — 12:00 a 13:00 Programada, Value: 3
+					133 text Sáb 31/10/2026 — 12:00 a 13:00  Programada
+				134 image
+				135 text Grupo: Fútbol — Avanzadas
+				136 image
+				137 text Profesores: Quintana
+				138 image
+				139 text Asistencia: Pendiente
+				140 button Ver
+			141 container
+				142 heading Sáb 31/10/2026 — 12:00 a 13:00 Programada, Value: 3
+					143 text Sáb 31/10/2026 — 12:00 a 13:00  Programada
+				144 image
+				145 text Grupo: Patín — Federadas
+				146 image
+				147 text Profesores: Ocampo
+				148 image
+				149 text Asistencia: Pendiente
+				150 button Ver
+			151 container
+				152 heading Sáb 31/10/2026 — 14:00 a 15:00 Programada, Value: 3
+					153 text Sáb 31/10/2026 — 14:00 a 15:00  Programada
+				154 image
+				155 text Grupo: Fútbol — Avanzadas
+				156 image
+				157 text Profesores: Quintana
+				158 image
+				159 text Asistencia: Pendiente
+				160 button Ver
+	161 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases

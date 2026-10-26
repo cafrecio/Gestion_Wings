@@ -1,0 +1,81 @@
+Browser tab: 1293178778, Title: "Liquidaciones – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones".
+1 AXWebArea Liquidaciones – Wings, URL: test.gestionar-te.com.ar/liquidaciones
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Liquidaciones, Value: 1
+		30 text Liquidaciones
+	31 container
+		32 text 0
+		33 text  liquidaciones
+		34 link Description: Nuevo, Value: test.gestionar-te.com.ar/liquidaciones/crear
+		35 text Profesor
+		36 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			37 menu
+				38 (selected) Todos
+				39 Acosta, Martín
+				40 Directora, Vanina
+				41 Gaitán, Lucía
+				42 Ocampo, Mariela
+				43 Quintana, Hernán
+				44 Salinas, Verónica
+		45 text Mes
+		46 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			47 menu
+				48 (selected) Todos
+				49 Enero
+				50 Febrero
+				51 Marzo
+				52 Abril
+				53 Mayo
+				54 Junio
+				55 Julio
+				56 Agosto
+				57 Septiembre
+				58 Octubre
+				59 Noviembre
+				60 Diciembre
+		61 text Año
+		62 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			63 menu
+				64 (selected) Todos
+		65 text Estado
+		66 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			67 menu
+				68 (selected) Todos
+				69 Abierta
+				70 Cerrada
+				71 Cancelada
+				72 Pagada
+		73 button Filtrar
+		74 image
+		75 heading Sin liquidaciones, Value: 3
+			76 text Sin liquidaciones
+		77 text Generá la primera liquidación mensual para un profesor.
+	78 text Wings
+
+The focused UI element is 1 AXWebArea Liquidaciones – Wings, URL: test.gestionar-te.com.ar/liquidaciones

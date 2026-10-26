@@ -1,0 +1,57 @@
+Browser tab: 1293178766, Title: "Romero, Santino – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/263".
+1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Romero, Santino, Value: 1
+		19 text Romero, Santino
+	20 container
+		21 text Inactivo
+		22 button Reactivar
+		23 button Cobrar
+		24 button Editar
+		25 image
+		26 text DNI 53300902
+		27 image
+		28 text NACIMIENTO 09/01/2016
+		29 image
+		30 text CELULAR 1145123415
+		31 image
+		32 text EMAIL diego.romero@testmail.com
+		33 image
+		34 text DEPORTE Fútbol
+		35 image
+		36 text GRUPO Fútbol — Principiantes
+		37 image
+		38 text PLAN 1x sem. — $28,000.00/mes
+		39 image
+		40 text ALTA 01/08/2024
+		41 image
+		42 text ESTADO DE COBRANZA Moroso Total adeudado:  $28,000.00 Oct 2026 $28,000.00
+		43 container cuotas-condonadas
+			44 text Cuotas condonadas
+			45 text 2025-10 · Condonada 2025-11 · Condonada 2025-12 · Condonada
+		46 image
+		47 text TUTOR NOMBRE Diego Romero TELÉFONO 1145123415
+		48 image
+		49 text HISTORIAL DE PAGOS 26/10/2026 · Ago 2026, Sep 2026 $56,000.00
+		50 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/64?inline=1
+		51 image
+		52 text ASISTENCIAS — OCT 2026 3 clases 05/10 14/10 21/10
+		53 button Volver
+	54 text Wings
+
+The focused UI element is 1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263

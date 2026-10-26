@@ -1,0 +1,102 @@
+Browser tab: 1293178751, Title: "Resumen – Caja del 29/10/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/38/resumen".
+1 AXWebArea Resumen – Caja del 29/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/38/resumen
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Resumen de caja, Value: 1
+		19 text Resumen de caja
+	20 container
+		21 text OPERATIVO Rocío Paz APERTURA 29/10/2026 15:00 CIERRE – ESTADO ABIERTA
+		22 text 12
+		23 text  movimientos
+		24 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+		25 link Description: Nuevo, Value: test.gestionar-te.com.ar/caja/38/editar
+		26 button Cerrar
+		27 button Rectificar
+		28 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/38/detalle
+		29 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		30 heading Efectivo del mostrador, Value: 3
+			31 text Efectivo del mostrador
+		32 text Inicial
+		33 text $10,000.00
+		34 text Esperado
+		35 text $178,200.00
+		36 text Contado
+		37 text Sin declarar
+		38 text Diferencia
+		39 text Sin declarar
+		40 text Cambio que queda
+		41 text Sin declarar
+		42 text Retiro / entrega
+		43 text Sin declarar
+		44 text Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+		45 text POR MEDIO DE PAGO
+		46 table
+			47 row
+				48 cell
+					49 text ABR.
+				50 cell
+					51 text MEDIO
+				52 cell
+					53 text TOTAL
+			54 row
+				55 cell
+					56 text EFE
+				57 cell
+					58 text Efectivo
+				59 cell
+					60 text $168,200.00
+			61 row
+				62 cell
+					63 text MP
+				64 cell
+					65 text Mercado Pago
+				66 cell
+					67 text $241,000.00
+		68 text POR RUBRO
+		69 table
+			70 row
+				71 cell
+					72 text RUBRO
+				73 cell
+					74 text TIPO
+				75 cell
+					76 text TOTAL
+			77 row
+				78 cell
+					79 text Cuotas
+				80 cell
+					81 text INGRESO
+				82 cell
+					83 text $310,000.00
+			84 row
+				85 cell
+					86 text Gastos Operativos
+				87 cell
+					88 text EGRESO
+				89 cell
+					90 text $3,800.00
+			91 row
+				92 cell
+					93 text Indumentaria
+				94 cell
+					95 text INGRESO
+				96 cell
+					97 text $103,000.00
+		98 text INGRESOS $413,000.00 EGRESOS $3,800.00 NETO $409,200.00
+	99 text Wings
+
+The focused UI element is 1 AXWebArea Resumen – Caja del 29/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/38/resumen

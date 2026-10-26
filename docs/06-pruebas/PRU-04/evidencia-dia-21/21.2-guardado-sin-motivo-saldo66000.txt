@@ -1,0 +1,55 @@
+Browser tab: 1293178763, Title: "Sanchez, Berenice – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/295".
+1 AXWebArea Sanchez, Berenice – Wings, URL: test.gestionar-te.com.ar/alumnos/295
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Sanchez, Berenice, Value: 1
+		19 text Sanchez, Berenice
+	20 container
+		21 text Activo
+		22 button Cobrar
+		23 button Editar
+		24 image
+		25 text DNI 55400024
+		26 image
+		27 text NACIMIENTO 12/06/2014
+		28 image
+		29 text CELULAR 1145120024
+		30 image
+		31 text EMAIL berenice.sanchez@testmail.com
+		32 image
+		33 text DEPORTE Patín
+		34 image
+		35 text GRUPO Patín — Intermedias
+		36 image
+		37 text PLAN 2x sem. — $43,000.00/mes
+		38 image
+		39 text ALTA 12/03/2022
+		40 image
+		41 text ESTADO DE COBRANZA Deudor Total adeudado:  $66,000.00 Sep 2026 $23,000.00 Oct 2026 $43,000.00
+		42 image
+		43 text TUTOR NOMBRE Tutor Sanchez TELÉFONO 1145120024
+		44 image
+		45 text HISTORIAL DE PAGOS 30/10/2026 · Sep 2026 $20,000.00
+		46 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/170?inline=1
+		47 text 27/10/2026 · Ago 2026 $43,000.00
+		48 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/66?inline=1
+		49 image
+		50 text ASISTENCIAS — OCT 2026 5 clases 02/10 05/10 09/10 19/10 23/10
+		51 button Volver
+	52 text Wings
+
+The focused UI element is 1 AXWebArea Sanchez, Berenice – Wings, URL: test.gestionar-te.com.ar/alumnos/295

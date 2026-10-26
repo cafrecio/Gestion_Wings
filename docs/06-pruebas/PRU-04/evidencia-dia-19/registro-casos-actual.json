@@ -173,11 +173,12 @@
     "quien": "Dueño",
     "tarea": "Crea una **clase única de recuperación**: Fútbol Avanzadas, **sábado 31/10**, con Hernán. Primero pone de **14:00 a 13:00**; después corrige a **14:00 a 15:00**.",
     "esperado": "Con la hora de fin antes del inicio, rechaza con un aviso claro y conserva lo cargado (CLA-005). Con 14 a 15 se crea; solo ofrece profesores de Fútbol, y Hernán la ve en sus clases del 31 (CLA-002).",
-    "resultado": "Parcial",
-    "observado": "Horario14–13 rechazado en formulario conservando campos. Corregido14–15 creó una clase única31/10, grupoFútbolAvanzadas, solo Martín/Hernán ofrecidos. Verificación de visibilidad por Hernán pendiente para22.2.",
+    "resultado": "Sí",
+    "observado": "Horario14–13 rechazado conservando campos;14–15 creó clase82 única31/10 con Hernán. Solo Martín/Hernán de Fútbol ofrecidos. Visibilidad por Hernán comprobada22.2.",
     "evidencia": [
       "evidencia-dia-20/20.4-horario-invalido-rechazado.txt",
-      "evidencia-dia-20/20.4-clase-creada.txt"
+      "evidencia-dia-20/20.4-clase-creada.txt",
+      "evidencia-dia-22/22.2-hernan-ve-recuperacion82.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -224,10 +225,11 @@
     "quien": "Rocío",
     "tarea": "En **Movimientos**, busca los cobros del miércoles.",
     "esperado": "Ve los cobros de cuota de Sandra del 28/10, con quién los hizo, y puede abrir sus recibos. No ve gastos del dueño (MOV-011).",
-    "resultado": "No ejecutado",
-    "observado": "Pendiente desde20.8: la revisión automática del navegador primero agotó uso; al continuar, la herramienta informó navegador local desactivado en Work. El ingreso de Hernán ya se resolvió. No se ejecutó esta acción ni se sustituyó por consola.",
+    "resultado": "Parcial",
+    "observado": "Ve los 11 cobros de cuota del 28/10 y otros 2 movimientos operativos; no muestra quién los hizo ni enlaces a recibos. El enlace a caja 36 devuelve Sin permiso. Rubros del dueño no ofrecidos en el filtro.",
     "evidencia": [
-      "evidencia-dia-20/40-bloqueo-navegador.md"
+      "evidencia-dia-20/41-20.8-movimientos-28.txt",
+      "evidencia-dia-20/42-20.8-caja-ajena-restringida.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -236,10 +238,10 @@
     "quien": "Rocío",
     "tarea": "En **Caja**, el listado de cajas.",
     "esperado": "Esperado según el catálogo: ve solo sus cajas de los últimos 30 días (la del 26/10 y la de hoy), no las de Sandra ni Pablo (CAJ-035).",
-    "resultado": "No ejecutado",
-    "observado": "Pendiente desde20.8: la revisión automática del navegador primero agotó uso; al continuar, la herramienta informó navegador local desactivado en Work. El ingreso de Hernán ya se resolvió. No se ejecutó esta acción ni se sustituyó por consola.",
+    "resultado": "Parcial",
+    "observado": "Listado muestra 3 cajas: 29/10 #38, 26/10 #16 y 19/10 #8. El guion esperaba dos. No aparecen cajas de Sandra ni Pablo; no se verificó aquí el límite temporal de 30 días.",
     "evidencia": [
-      "evidencia-dia-20/40-bloqueo-navegador.md"
+      "evidencia-dia-20/43-20.9-cajas-rocio.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -248,10 +250,11 @@
     "quien": "Rocío",
     "tarea": "Quiere crear una clase de prueba para una amiga: Clases → Nueva (y, si no aparece el botón, entrando a la dirección `/clases/create`).",
     "esperado": "No puede: crear clases es del dueño; forzando, acceso restringido (CLA-008).",
-    "resultado": "No ejecutado",
-    "observado": "Pendiente desde20.8: la revisión automática del navegador primero agotó uso; al continuar, la herramienta informó navegador local desactivado en Work. El ingreso de Hernán ya se resolvió. No se ejecutó esta acción ni se sustituyó por consola.",
+    "resultado": "Sí",
+    "observado": "No hay Nuevo en Clases. /clases/create muestra restricción en castellano; Volver regresa a Inicio de Rocío.",
     "evidencia": [
-      "evidencia-dia-20/40-bloqueo-navegador.md"
+      "evidencia-dia-20/44-20.10-clases-sin-nuevo.txt",
+      "evidencia-dia-20/45-20.10-acceso-restringido.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -260,11 +263,11 @@
     "quien": "Verónica",
     "tarea": "Toma la lista de **Patín Intermedias 16–17** (#22): 18 alumnas; todas presentes menos **Berenice Sánchez**.",
     "esperado": "Esperado según el catálogo: la lista indica que Berenice, que es Deudor, no puede entrar por deuda, sin mostrar importes (ASI-013). Guarda con 17 presentes.",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Parcial",
+    "observado": "Lista22 guardada y recargada:17/18 presentes; Berenice ausente. No muestra aviso de deuda ni bloqueo de entrada para Berenice. Ocho excesos muestran EXTRA predeterminado, conservado.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.1-antes-sin-aviso-deuda.txt",
+      "evidencia-dia-21/21.1-persistencia-17.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -273,11 +276,11 @@
     "quien": "Pablo",
     "tarea": "**Berenice Sánchez** (debe septiembre y octubre, $86.000) paga **$20.000** de septiembre en efectivo. Primero sin motivo; si lo pide, «Paga el resto el sábado».",
     "esperado": "Esperado según el catálogo: sin motivo no cobra (COB-009). Con motivo, septiembre queda con saldo $23.000, Berenice sigue Deudor y el total adeudado baja $20.000 (COB-008).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Parcial",
+    "observado": "Aceptó $20.000 efectivo sin motivo (rechazo esperado no ocurrió). Guardado una vez, recibo170; Berenice Deudor $66.000: septiembre23.000/octubre43.000. No se repitió el cobro ni se agregó motivo después.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.2-parcial-20000-sin-motivo.txt",
+      "evidencia-dia-21/21.2-guardado-sin-motivo-saldo66000.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -286,11 +289,12 @@
     "quien": "Pablo",
     "tarea": "**Felipe Sosa** paga agosto y octubre, **$76.000** en efectivo, y Pablo descarga el recibo.",
     "esperado": "Pasa a **Al día**. El recibo detalla agosto $38.000 y octubre $38.000, total $76.000 (REC-002).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Felipe quedó Al día tras un único pago EFE76.000. PDF CUOTA171 descargado, texto y render comprobados: agosto38.000 y octubre38.000, total76.000.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.3-felipe-al-dia.txt",
+      "evidencia-dia-21/21.3-recibo-cuota-171.pdf",
+      "evidencia-dia-21/21.3-recibo-cuota-171.png"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -299,11 +303,13 @@
     "quien": "Pablo",
     "tarea": "**Santino Romero** deja el club debiendo octubre ($28.000). Pablo lo da de baja **con el interruptor del listado de Alumnos**.",
     "esperado": "Queda Inactivo y su cuota pendiente sigue a la vista en la ficha (ALU-025). Sale de Cobranza: 103 activos y el total adeudado baja $28.000. Ya no aparece en el buscador de Cobrar (ALU-017).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Un solo toque en listado dejó Santino inactivo. Ficha conserva octubre28.000 pendiente. Cobranza66.000,103activos/102AlDía/1Deudor; búsqueda Cobrar por DNI no lo encuentra. No reactivado.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.4-santino-inactivo-listado.txt",
+      "evidencia-dia-21/21.4-ficha-inactivo-deuda28000.txt",
+      "evidencia-dia-21/21.4-cobranza66000-103activos.txt",
+      "evidencia-dia-21/21.4-cobrar-sin-resultados.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -312,11 +318,12 @@
     "quien": "Dueño",
     "tarea": "Lleva **$500.000** del efectivo al **Banco Galicia** (Cashflow → Transferir).",
     "esperado": "Un solo formulario: salida Efectivo, destino Galicia. Efectivo baja y Galicia sube $500.000; los ingresos y gastos del mes no cambian (CSH-018).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Transferencia2 registrada una vez, EFE -500.000/Galicia +500.000:1.460.300/637.550. Dashboard conserva ingresos3.126.850,75/egresos270.450 y disponible4.730.400,75. Cashflow Año sí suma ambos tramos en totales brutos (ingresos/egresos+500.000; resultado igual); diferencia de presentación registrada.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.5-antes-dashboard.txt",
+      "evidencia-dia-21/21.5-transferencia2-guardada.txt",
+      "evidencia-dia-21/21.5-despues-dashboard.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -325,11 +332,11 @@
     "quien": "Rocío",
     "tarea": "Pasa a mediodía y, desde Movimientos, intenta **editar el arreglo de $12.000** de la caja de Pablo (y, si no hay botón, entrando a su dirección de edición).",
     "esperado": "Acceso restringido; la caja de Pablo no cambia (MOV-016).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Rocío ve gasto12.000 en Movimientos sin Editar. Ruta de edición216 observada como Admin devuelve Sin permiso en castellano. No se envió modificación; gasto12.000 conservado luego en caja de Pablo.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.6-rocio-movimientos-sin-editar.txt",
+      "evidencia-dia-21/21.6-edicion-ajena-restringida.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -338,11 +345,11 @@
     "quien": "Pablo",
     "tarea": "En **Movimientos**, busca el cobro de Joaquín que hizo Sandra el 28/10.",
     "esperado": "Lo encuentra, con quién lo cobró. No ve la transferencia ni los gastos del dueño (MOV-012).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Parcial",
+    "observado": "Pablo encuentra cobro Joaquín44.000 EFE28/10 en caja36; no muestra quién cobró. Movimientos28–30 ofrece solo rubros operativos y no la transferencia del dueño; filtro28 muestra13filas.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.7-movimientos-28a30.txt",
+      "evidencia-dia-21/21.7-joaquin-sin-autor.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -351,11 +358,10 @@
     "quien": "Pablo",
     "tarea": "Antes de que corra el cierre de la noche, mira su caja.",
     "esperado": "El esperado, **$270.000**, cuenta solo el efectivo; los $171.000 de Mercado Pago figuran aparte (CAJ-036).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Caja40 Pablo abierta: esperado270.000=10.000+260.000netoEFE; MP171.000 aparte. Gasto Reparaciones sigue12.000.",
     "evidencia": [
-      "evidencia-dia-21/00-reloj.txt",
-      "evidencia-dia-21/01-manana-simulacion.txt"
+      "evidencia-dia-21/21.8-caja40-esperado270000.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -364,11 +370,11 @@
     "quien": "Pablo",
     "tarea": "**Berenice Sánchez** paga lo que debe, **$66.000 por MP**.",
     "esperado": "Pasa a **Al día**. Cobranza queda sin deuda.",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Cobro182 MP66.000 una vez, septiembre23.000/octubre43.000. Berenice Al día y Cobranza0:103activos/103AlDía.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.1-berenice-al-dia.txt",
+      "evidencia-dia-22/22.1-cobranza0-103aldia.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -377,11 +383,11 @@
     "quien": "Hernán",
     "tarea": "Toma la lista de la **clase de recuperación de 14 a 15** (20.4): los 15 presentes.",
     "esperado": "Se guarda. Si el 20.4 no se pudo hacer, se saltea.",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Hernán ve y abre su recuperación82 del31/10 14–15. Guardado único15/15, confirmado tras recarga. Catorce exceden plan; se conservó opción EXTRA predeterminada (guion no indicó otro motivo), registrada para revisión.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.2-hernan-ve-recuperacion82.txt",
+      "evidencia-dia-22/22.2-persistencia15.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -390,11 +396,11 @@
     "quien": "Dueño",
     "tarea": "Paga la **luz, $62.000** por Banco Galicia, desde Cashflow.",
     "esperado": "Egreso directo a su nombre, con Editar y Eliminar. Galicia baja; el gasto del mes sube (CSH-002).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Movimiento directo135 Luz62.000 Galicia, Admin Prueba, Editar/Eliminar visibles. Galicia637.550→575.550; Dashboard egresos270.450→332.450.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.3-luz135-62000-guardada.txt",
+      "evidencia-dia-22/22.3-despues-luz-dashboard.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -403,11 +409,11 @@
     "quien": "Dueño",
     "tarea": "La factura tenía descuento: corrige la luz a **$61.500**, motivo «Descuento por débito automático».",
     "esperado": "Queda en $61.500. El detalle muestra el valor anterior, el nuevo, el motivo, quién y cuándo (CSH-007).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Parcial",
+    "observado": "Luz135 corregida62.000→61.500 con motivo Descuento por débito automático. Galicia576.050. Listado solo Editar/Eliminar, sin enlace a detalle/historial; anterior/nuevo/actor/fecha de corrección no comprobados por pantalla.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.4-antes-guardar61500.txt",
+      "evidencia-dia-22/22.4-luz61500-confirmada.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -416,11 +422,11 @@
     "quien": "Dueño",
     "tarea": "Paga el **sueldo de Sandra**, $250.000 en efectivo, desde Cashflow (Sueldos → Op-Sandra Vidal).",
     "esperado": "Gasto de Sueldos; el Reporte de Sueldos lo incluye. Sandra no lo ve en sus Movimientos (CSH-015).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "No",
+    "observado": "No se pudo registrar sueldo250.000: Cashflow Nuevo EGRESO no ofrece rubro Sueldos ni subrubro Op-Sandra Vidal. No se creó rubro ni se usó otro. Reporte/invisibilidad Sandra sin gasto quedan sin probar; cierre esperado tendrá+250.000EFE y-250.000egresos respecto guion. Reporte Sueldos consultado: Sandra no figura; no demuestra la inclusión de un sueldo registrado.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.5-sueldos-no-disponible.txt",
+      "evidencia-dia-22/37-reporte-sueldos-sin-sandra.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -429,11 +435,10 @@
     "quien": "Dueño",
     "tarea": "Liquidaciones → Nueva → **Lucía Gaitán, octubre**. La genera y después intenta **Cerrar**.",
     "esperado": "Se genera: **17 clases × 1 h × $12.000 = $204.000**. No incluye la cancelada del 12/10 (LIQ-001). Al cerrar: «No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el 01/11/2026.» (LIQ-005). Queda abierta y sin pagar.",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "No",
+    "observado": "Formulario Nueva, Lucía/octubre2026, muestra20 clases liquidables; guion17×12.000=204.000. No muestra total previo. No se pulsó Generar por diferencia de cantidad; bloqueo de Cerrar antes01/11 queda sin probar. No se creó ni pagó liquidación.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.6-lucia20clases-antes-generar.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": false
   },
@@ -442,11 +447,11 @@
     "quien": "Pablo",
     "tarea": "Entra a **Liquidaciones** desde el menú o por la dirección `/liquidaciones`.",
     "esperado": "Acceso restringido en castellano, sin importes, con vuelta a su Inicio (LIQ-016).",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Sí",
+    "observado": "Pablo no tiene Liquidaciones en menú; ruta forzada muestra Sin permiso en castellano, sin importes. Volver regresa a Inicio.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.7-pablo-menu-sin-liquidaciones.txt",
+      "evidencia-dia-22/22.7-liquidaciones-restringida.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -456,10 +461,9 @@
     "tarea": "Listado de **Liquidaciones**.",
     "esperado": "Muestra la de Lucía: octubre, por hora, $204.000, Abierta (LIQ-018).",
     "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "observado": "Dependiente de22.6: no hay liquidación de Lucía creada porque formulario ofrece20clases contra17delguion. Listado0liquidaciones, sin cargo ni pago.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/22.8-listado-sin-liquidacion.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   },
@@ -468,11 +472,13 @@
     "quien": "Dueño",
     "tarea": "**Después de la validación de la noche:** compara los saldos de Cashflow por medio con la cuenta del cierre de abajo, y abre el Reporte de Finanzas de octubre.",
     "esperado": "Cada medio coincide con la cuenta y con el disponible de Reportes; ningún movimiento aparece dos veces (CSH-013). La liquidación abierta no suma como gasto.",
-    "resultado": "No ejecutado",
-    "observado": "Todavía no reanudado. Los controles aquí enlazados son los de la primera corrida fallida, no un intento nuevo. No repetir cobros anteriores.",
+    "resultado": "Parcial",
+    "observado": "Tras noche22: Cashflow y Reportes coinciden por medio y disponible4.959.900,75; Galicia576.050/Nación128.000/MP2.638.550,75; EFE1.617.300 (+250.000 por sueldo no registrado). Reportes ingresos3.417.850,75(-121.000),egresos331.950(-250.000),resultado3.085.900,75(+129.000) respecto guion.138filas de octubre recorridas en5páginas,0repeticiones exactas texto+enlaces. No se generó liquidación por diferencia20/17, por pagar0; no prueba gasto de una liquidación abierta.",
     "evidencia": [
-      "evidencia-dia-22/00-reloj.txt",
-      "evidencia-dia-22/01-manana-simulacion.txt"
+      "evidencia-dia-22/33-cierre-dashboard.txt",
+      "evidencia-dia-22/34-cashflow-octubre-final.txt",
+      "evidencia-dia-22/35-cashflow-filas-octubre.json",
+      "evidencia-dia-22/36-reportes-octubre-final.txt"
     ],
     "agregado_o_reemplazado_durante_ejecucion": true
   }

@@ -1,0 +1,163 @@
+Browser tab: 1293178760, Title: "Viernes 30 de octubre de 2026 — Patín — Intermedias – Wings", URL: "https://test.gestionar-te.com.ar/clases/22".
+1 AXWebArea Viernes 30 de octubre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/22
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+	5 container
+		6 text Verónica Salinas
+		7 button Salir
+	8 heading Clase — Patín — Intermedias, Value: 1
+		9 text Clase — Patín — Intermedias
+	10 container
+		11 heading Viernes 30 De Octubre De 2026, Value: 2
+			12 text Viernes 30 De Octubre De 2026
+		13 text 16:00 – 17:00 Patín Patín — Intermedias
+		14 text Salinas, Verónica
+		15 text Activa
+		16 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		17 text 18
+		18 text  alumnos en el grupo  ·  
+		19 text 17
+		20 text  presentes
+		21 container card-302
+			22 text Benitez, Paulina 2/2 (Completo) · DNI …031
+			23 container
+				24 text Presente
+				25 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-302
+		26 container card-292
+			27 text Cabrera, Constanza 2/1 (Excede) · DNI …021
+			28 container
+				29 text Presente
+				30 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-292
+			31 container exceso-292
+				32 text EXCEDE EL PLAN — INDICAR MOTIVO
+				33 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-292, Secondary Actions: Expand
+					34 menu
+						35 (selected) Clase adicional (EXTRA)
+						36 Recupera clase perdida (RECUPERA)
+		37 container card-333
+			38 text Cabrera, Renata 2/2 (Completo) · DNI …913
+			39 container
+				40 text Presente
+				41 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-333
+		42 container card-290
+			43 text Ferrari, Josefina 2/1 (Excede) · DNI …019
+			44 container
+				45 text Presente
+				46 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-290
+			47 container exceso-290
+				48 text EXCEDE EL PLAN — INDICAR MOTIVO
+				49 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-290, Secondary Actions: Expand
+					50 menu
+						51 (selected) Clase adicional (EXTRA)
+						52 Recupera clase perdida (RECUPERA)
+		53 container card-301
+			54 text Flores, Juana 2/1 (Excede) · DNI …030
+			55 container
+				56 text Presente
+				57 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-301
+			58 container exceso-301
+				59 text EXCEDE EL PLAN — INDICAR MOTIVO
+				60 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-301, Secondary Actions: Expand
+					61 menu
+						62 (selected) Clase adicional (EXTRA)
+						63 Recupera clase perdida (RECUPERA)
+		64 container card-300
+			65 text Garcia, Melina 2/2 (Completo) · DNI …029
+			66 container
+				67 text Presente
+				68 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-300
+		69 container card-267
+			70 text Gimenez, Helena 2/2 (Completo) · DNI …906
+			71 container
+				72 text Presente
+				73 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-267
+		74 container card-293
+			75 text Ledesma, Paula 2/2 (Completo) · DNI …022
+			76 container
+				77 text Presente
+				78 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-293
+		79 container card-252
+			80 text Martinez, Delfina 2/1 (Excede) · DNI …601
+			81 container
+				82 text Presente
+				83 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-252
+			84 container exceso-252
+				85 text EXCEDE EL PLAN — INDICAR MOTIVO
+				86 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-252, Secondary Actions: Expand
+					87 menu
+						88 (selected) Clase adicional (EXTRA)
+						89 Recupera clase perdida (RECUPERA)
+		90 container card-335
+			91 text Navarro, Alma 1/1 (Completo) · DNI …915
+			92 container
+				93 text Presente
+				94 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-335
+		95 container card-291
+			96 text Navarro, Malena 2/2 (Completo) · DNI …020
+			97 container
+				98 text Presente
+				99 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-291
+		100 container card-299
+			101 text Perez, Carla 2/1 (Excede) · DNI …028
+			102 container
+				103 text Presente
+				104 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-299
+			105 container exceso-299
+				106 text EXCEDE EL PLAN — INDICAR MOTIVO
+				107 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-299, Secondary Actions: Expand
+					108 menu
+						109 (selected) Clase adicional (EXTRA)
+						110 Recupera clase perdida (RECUPERA)
+		111 container card-243
+			112 text Rodriguez, Mia 2/2 (Completo) · DNI …201
+			113 container
+				114 text Presente
+				115 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-243
+		116 container card-296
+			117 text Romero, Florencia 2/1 (Excede) · DNI …025
+			118 container
+				119 text Presente
+				120 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-296
+			121 container exceso-296
+				122 text EXCEDE EL PLAN — INDICAR MOTIVO
+				123 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-296, Secondary Actions: Expand
+					124 menu
+						125 (selected) Clase adicional (EXTRA)
+						126 Recupera clase perdida (RECUPERA)
+		127 container card-298
+			128 text Ruiz, Sol 2/2 (Completo) · DNI …027
+			129 container
+				130 text Presente
+				131 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-298
+		132 container card-295
+			133 text Sanchez, Berenice 0/2 · DNI …024
+			134 container
+				135 text Presente
+				136 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-295
+		137 container card-297
+			138 text Sosa, Rocio 2/1 (Excede) · DNI …026
+			139 container
+				140 text Presente
+				141 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-297
+			142 container exceso-297
+				143 text EXCEDE EL PLAN — INDICAR MOTIVO
+				144 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-297, Secondary Actions: Expand
+					145 menu
+						146 (selected) Clase adicional (EXTRA)
+						147 Recupera clase perdida (RECUPERA)
+		148 container card-294
+			149 text Vega, Candela 2/1 (Excede) · DNI …023
+			150 container
+				151 text Presente
+				152 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-294
+			153 container exceso-294
+				154 text EXCEDE EL PLAN — INDICAR MOTIVO
+				155 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-294, Secondary Actions: Expand
+					156 menu
+						157 (selected) Clase adicional (EXTRA)
+						158 Recupera clase perdida (RECUPERA)
+		159 button Guardar, ID: btn-guardar-asistencias
+	160 text Wings
+
+The focused UI element is 1 AXWebArea Viernes 30 de octubre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/22

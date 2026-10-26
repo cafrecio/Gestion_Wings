@@ -1,0 +1,28 @@
+Browser tab: 1293178751, Title: "Sin permiso – Wings", URL: "https://test.gestionar-te.com.ar/clases/create".
+1 AXWebArea Sin permiso – Wings, URL: test.gestionar-te.com.ar/clases/create
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Sin permiso, Value: 1
+		19 text Sin permiso
+	20 container No podés entrar a esta sección
+		21 heading No podés entrar a esta sección, Value: 2, ID: sin-permiso
+			22 text No podés entrar a esta sección
+		23 text No tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.
+		24 button Volver
+	25 text Wings
+
+The focused UI element is 1 AXWebArea Sin permiso – Wings, URL: test.gestionar-te.com.ar/clases/create

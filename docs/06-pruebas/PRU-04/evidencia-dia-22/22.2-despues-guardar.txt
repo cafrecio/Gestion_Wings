@@ -1,0 +1,184 @@
+Browser tab: 1293178772, Title: "Sábado 31 de octubre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/82".
+1 AXWebArea Sábado 31 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/82
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+	5 container
+		6 text Hernán Quintana
+		7 button Salir
+	8 heading Clase — Fútbol — Avanzadas, Value: 1
+		9 text Clase — Fútbol — Avanzadas
+	10 container
+		11 heading Sábado 31 De Octubre De 2026, Value: 2
+			12 text Sábado 31 De Octubre De 2026
+		13 text 14:00 – 15:00 Fútbol Fútbol — Avanzadas
+		14 text Quintana, Hernán
+		15 text Activa
+		16 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		17 text 15
+		18 text  alumnos en el grupo  ·  
+		98 text 15
+		20 text  presentes
+		21 container card-251
+			22 text Diaz, Thiago 2/1 (Excede) · DNI …502
+			23 container
+				24 text Presente
+				25 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-251
+			99 container exceso-251
+				100 text EXCEDE EL PLAN — INDICAR MOTIVO
+				101 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-251, Secondary Actions: Expand
+					102 menu
+						103 (selected) Clase adicional (EXTRA)
+						104 Recupera clase perdida (RECUPERA)
+		26 container card-247
+			27 text Fernandez, Benjamin 2/2 (Completo) · DNI …302
+			28 container
+				29 text Presente
+				30 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-247
+			105 container exceso-247
+				106 text EXCEDE EL PLAN — INDICAR MOTIVO
+				107 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-247, Secondary Actions: Expand
+					108 menu
+						109 (selected) Clase adicional (EXTRA)
+						110 Recupera clase perdida (RECUPERA)
+		31 container card-260
+			32 text Ferrari, Nicolas 2/2 (Completo) · DNI …805
+			33 container
+				34 text Presente
+				35 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-260
+			111 container exceso-260
+				112 text EXCEDE EL PLAN — INDICAR MOTIVO
+				113 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-260, Secondary Actions: Expand
+					114 menu
+						115 (selected) Clase adicional (EXTRA)
+						116 Recupera clase perdida (RECUPERA)
+		36 container card-339
+			37 text Gimenez, Tomas 2/2 (Completo) · DNI …919
+			38 container
+				39 text Presente
+				40 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-339
+			117 container exceso-339
+				118 text EXCEDE EL PLAN — INDICAR MOTIVO
+				119 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-339, Secondary Actions: Expand
+					120 menu
+						121 (selected) Clase adicional (EXTRA)
+						122 Recupera clase perdida (RECUPERA)
+		41 container card-242
+			42 text Gomez, Lucas 2/1 (Excede) · DNI …102
+			43 container
+				44 text Presente
+				45 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-242
+			123 container exceso-242
+				124 text EXCEDE EL PLAN — INDICAR MOTIVO
+				125 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-242, Secondary Actions: Expand
+					126 menu
+						127 (selected) Clase adicional (EXTRA)
+						128 Recupera clase perdida (RECUPERA)
+		46 container card-328
+			47 text Molina, Franco 2/1 (Excede) · DNI …015
+			48 container
+				49 text Presente
+				50 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-328
+			129 container exceso-328
+				130 text EXCEDE EL PLAN — INDICAR MOTIVO
+				131 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-328, Secondary Actions: Expand
+					132 menu
+						133 (selected) Clase adicional (EXTRA)
+						134 Recupera clase perdida (RECUPERA)
+		51 container card-330
+			52 text Morales, Lorenzo 2/1 (Excede) · DNI …017
+			53 container
+				54 text Presente
+				55 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-330
+			135 container exceso-330
+				136 text EXCEDE EL PLAN — INDICAR MOTIVO
+				137 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-330, Secondary Actions: Expand
+					138 menu
+						139 (selected) Clase adicional (EXTRA)
+						140 Recupera clase perdida (RECUPERA)
+		56 container card-261
+			57 text Navarro, Julian 2/2 (Completo) · DNI …806
+			58 container
+				59 text Presente
+				60 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-261
+			141 container exceso-261
+				142 text EXCEDE EL PLAN — INDICAR MOTIVO
+				143 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-261, Secondary Actions: Expand
+					144 menu
+						145 (selected) Clase adicional (EXTRA)
+						146 Recupera clase perdida (RECUPERA)
+		61 container card-329
+			62 text Ortiz, Tobias 2/2 (Completo) · DNI …016
+			63 container
+				64 text Presente
+				65 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-329
+			147 container exceso-329
+				148 text EXCEDE EL PLAN — INDICAR MOTIVO
+				149 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-329, Secondary Actions: Expand
+					150 menu
+						151 (selected) Clase adicional (EXTRA)
+						152 Recupera clase perdida (RECUPERA)
+		66 container card-270
+			67 text Ramos, Dante 2/2 (Completo) · DNI …909
+			68 container
+				69 text Presente
+				70 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-270
+			153 container exceso-270
+				154 text EXCEDE EL PLAN — INDICAR MOTIVO
+				155 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-270, Secondary Actions: Expand
+					156 menu
+						157 (selected) Clase adicional (EXTRA)
+						158 Recupera clase perdida (RECUPERA)
+		71 container card-245
+			72 text Rodriguez, Mateo 2/1 (Excede) · DNI …203
+			73 container
+				74 text Presente
+				75 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-245
+			159 container exceso-245
+				160 text EXCEDE EL PLAN — INDICAR MOTIVO
+				161 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-245, Secondary Actions: Expand
+					162 menu
+						163 (selected) Clase adicional (EXTRA)
+						164 Recupera clase perdida (RECUPERA)
+		76 container card-326
+			77 text Rossi, Leon 2/1 (Excede) · DNI …013
+			78 container
+				79 text Presente
+				80 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-326
+			165 container exceso-326
+				166 text EXCEDE EL PLAN — INDICAR MOTIVO
+				167 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-326, Secondary Actions: Expand
+					168 menu
+						169 (selected) Clase adicional (EXTRA)
+						170 Recupera clase perdida (RECUPERA)
+		81 container card-327
+			82 text Silva, Simon 1/2 · DNI …014
+			83 container
+				84 text Presente
+				85 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-327
+		86 container card-265
+			87 text Sosa, Felipe 1/1 (Completo) · DNI …904
+			88 container
+				89 text Presente
+				90 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-265
+			171 container exceso-265
+				172 text EXCEDE EL PLAN — INDICAR MOTIVO
+				173 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-265, Secondary Actions: Expand
+					174 menu
+						175 (selected) Clase adicional (EXTRA)
+						176 Recupera clase perdida (RECUPERA)
+		91 container card-334
+			92 text Vega, Joaquin 2/2 (Completo) · DNI …914
+			93 container
+				94 text Presente
+				95 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-334
+			177 container exceso-334
+				178 text EXCEDE EL PLAN — INDICAR MOTIVO
+				179 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-334, Secondary Actions: Expand
+					180 menu
+						181 (selected) Clase adicional (EXTRA)
+						182 Recupera clase perdida (RECUPERA)
+		96 button Guardar, ID: btn-guardar-asistencias
+	97 text Wings
+
+The focused UI element is 1 AXWebArea Sábado 31 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/82

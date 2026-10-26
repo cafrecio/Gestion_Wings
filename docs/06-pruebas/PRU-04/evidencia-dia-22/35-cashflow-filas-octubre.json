@@ -1,0 +1,836 @@
+[
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/135/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/135/eliminar"
+    ],
+    "text": "31/10/2026 E BGA Servicios — Luz Luz de octubre, día 22 de prueba Directo −$61,500.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I MP Cuotas — Cuota Mensual Perez, Mia Caja validada $40,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I EFE Cuotas — Cuota Mensual Navarro, Malena Caja validada $43,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I EFE Cuotas — Cuota Mensual Diaz, Martina Caja validada $50,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I MP Cuotas — Cuota Mensual Medina, Lautaro Caja validada $28,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I EFE Cuotas — Cuota Mensual Ortiz, Tobias Caja validada $48,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 2 inscripciones Caja validada $16,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/42/detalle"
+    ],
+    "text": "31/10/2026 I MP Cuotas — Cuota Mensual Sanchez, Berenice Caja validada $66,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/121"
+    ],
+    "text": "30/10/2026 E EFE Transferencias internas — salidas — Salida a otro medio Traspaso de efectivo a Galicia, día 21 de prueba Traspaso −$500,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/122"
+    ],
+    "text": "30/10/2026 I BGA Transferencias internas — entradas — Entrada desde otro medio Traspaso de efectivo a Galicia, día 21 de prueba Traspaso $500,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Morales, Agustina Caja validada $30,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I MP Cuotas — Cuota Mensual Ortiz, Micaela Caja validada $40,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Garcia, Melina Caja validada $43,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I MP Cuotas — Cuota Mensual Martinez, Delfina Caja validada $33,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Castro, Catalina Caja validada $45,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I MP Cuotas — Cuota Mensual Diaz, Catalina Caja validada $50,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Gutierrez, Tomas Caja validada $28,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I MP Cuotas — Cuota Mensual Ferrari, Nicolas Caja validada $48,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Rios, Lola Caja validada $30,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Arreglo de la puerta del vestuario Caja validada −$12,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Sanchez, Berenice Caja validada $20,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/40/detalle"
+    ],
+    "text": "30/10/2026 I EFE Cuotas — Cuota Mensual Sosa, Felipe Caja validada $76,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Cuotas — Cuota Mensual Iglesias, Clara Caja validada $30,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I MP Cuotas — Cuota Mensual Molina, Milagros Caja validada $30,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Cuotas — Cuota Mensual Ferrari, Josefina Caja validada $33,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I MP Cuotas — Cuota Mensual Flores, Juana Caja validada $33,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Cuotas — Cuota Mensual Alvarez, Camila Caja validada $35,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I MP Cuotas — Cuota Mensual Benitez, Milagros Caja validada $45,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Cuotas — Cuota Mensual Flores, Santino Caja validada $28,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I MP Cuotas — Cuota Mensual Fernandez, Benjamin Caja validada $48,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Cuotas — Cuota Mensual Herrera, Facundo Caja validada $28,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 E EFE Gastos Operativos — Limpieza Limpieza del jueves Caja validada −$3,800.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I MP Indumentaria — Patines Venta de patines, día 20 Caja validada $85,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/38/detalle"
+    ],
+    "text": "29/10/2026 I EFE Indumentaria — Indumentaria institucional Venta de remera, día 20 Caja validada $18,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Acosta, Victoria Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I MP Cuotas — Cuota Mensual Flores, Renata Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Herrera, Alma Caja validada $40,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I MP Cuotas — Cuota Mensual Medina, Emilia Caja validada $40,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Benitez, Paulina Caja validada $43,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Cabrera, Constanza Caja validada $33,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Castro, Bruno Caja validada $28,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I MP Cuotas — Cuota Mensual Diaz, Thiago Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Torres, Benicio Caja validada $28,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I MP Cuotas — Cuota Mensual Rossi, Leon Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 E EFE Gastos Operativos — Limpieza Limpieza del miércoles Caja validada −$3,500.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 10 Caja validada $18,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/36/detalle"
+    ],
+    "text": "28/10/2026 I EFE Cuotas — Cuota Mensual Vega, Joaquin Caja validada $44,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/17/detalle"
+    ],
+    "text": "27/10/2026 I MP Cuotas — Cuota Mensual Navarro, Alma Caja validada $58,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/17/detalle"
+    ],
+    "text": "27/10/2026 I EFE Cuotas — Cuota Mensual Sanchez, Berenice Caja validada $43,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/16/detalle"
+    ],
+    "text": "26/10/2026 E EFE Gastos Operativos — Limpieza Limpieza del lunes Caja validada −$3,800.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/16/detalle"
+    ],
+    "text": "26/10/2026 I EFE Cuotas — Cuota Mensual Romero, Santino Caja validada $56,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/16/detalle"
+    ],
+    "text": "26/10/2026 E EFE Gastos Operativos — Botiquín Gasas y alcohol Caja validada −$6,500.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/14/detalle"
+    ],
+    "text": "24/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Berenice Caja validada $50,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/14/detalle"
+    ],
+    "text": "24/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 3 inscripciones Caja validada $24,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I EFE Cuotas — Cuota Mensual Ramos, Dante Caja validada $38,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I MP Cuotas — Cuota Mensual Pereyra, Zoe Caja validada $45,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Morena Caja validada $40,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I BNA Cuotas — Cuota Mensual Castro, Mateo Caja validada $28,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I BNA Inscripciones — Inscripción al club Castro, Mateo Caja validada $5,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I MP Cuotas — Cuota Mensual Lopez, Martina Caja validada $30,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I MP Inscripciones — Inscripción al club Lopez, Martina Caja validada $5,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 E EFE Gastos Operativos — Librería Resma de papel Caja validada −$1,500.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I EFE Cuotas — Cuota Mensual Ortega, Valentín Caja validada $24,500.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I EFE Inscripciones — Inscripción al club Ortega, Valentín Caja validada $5,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I MP Cuotas — Cuota Mensual Benítez, Mora Caja validada $19,600.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/13/detalle"
+    ],
+    "text": "23/10/2026 I EFE Cuotas — Cuota Mensual Lopez, Valentina Caja validada $40,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Cuotas — Cuota Mensual Nuñez, Guadalupe Caja validada $22,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I MP Cuotas — Cuota Mensual Ramirez, Lucia Caja validada $25,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Inscripciones — Inscripción al club Castro, Martina Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Inscripciones — Inscripción al club Morales, Carla Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Cuotas — Cuota Mensual Pereyra, Liam Caja validada $12,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Inscripciones — Inscripción al club Pereyra, Liam Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I MP Cuotas — Cuota Mensual Gutierrez, Olivia Caja validada $18,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I MP Inscripciones — Inscripción al club Gutierrez, Olivia Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 E EFE Gastos Operativos — Limpieza Desodorante de ambientes y bolsas Caja validada −$3,800.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Otras clases — Clase particular Clase particular de patín, Lucía Caja validada $20,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/12/detalle"
+    ],
+    "text": "22/10/2026 I EFE Cuotas — Cuota Mensual Sosa, Felipe Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 I EFE Cuotas — Cuota Mensual Iglesias, Helena Caja validada $50,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 I EFE Cuotas — Cuota Mensual Suarez, Ignacio Caja validada $70,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 I MP Cuotas — Cuota Mensual Silva, Paulina Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 I MP Inscripciones — Inscripción al club Silva, Paulina Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 2 inscripciones más Caja validada $16,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/10/detalle"
+    ],
+    "text": "21/10/2026 E EFE Gastos Operativos — Insumos Varios Bidón de agua Caja validada −$3,300.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I EFE Inscripciones — Inscripción al club Quiroga, Tomás Caja validada $5,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I MP Cuotas — Cuota Mensual Pereyra, Zoe Caja validada $45,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I EFE Cuotas — Cuota Mensual Ramirez, Felipe Caja validada $35,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I BNA Cuotas — Cuota Mensual Suarez, Valentina Caja validada $35,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Morena Caja validada $40,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 I EFE Otras clases — Clase particular Clase particular de patín, Lucía, sábado 24 Caja validada $15,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/9/detalle"
+    ],
+    "text": "20/10/2026 E EFE Gastos Operativos — Limpieza Lavandina y trapos Caja validada −$4,200.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/51/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/51/eliminar"
+    ],
+    "text": "20/10/2026 E MP Alquileres — San Carlos Alquiler de San Carlos Directo −$120,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/52/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/52/eliminar"
+    ],
+    "text": "20/10/2026 E EFE Retiros — Retiro de dueños Retiro de dueños Retiro −$50,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 I EFE Cuotas — Cuota Mensual Quiroga, Lara Caja validada $30,800.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 I EFE Inscripciones — Inscripción al club Quiroga, Lara Caja validada $5,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 I EFE Cuotas — Cuota Mensual Pereyra, Bianca Caja validada $40,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 I BGA Cuotas — Cuota Mensual Perez, Carla Caja validada $33,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 I MP Indumentaria — Patines Patines talle 34 Caja validada $85,000.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/8/detalle"
+    ],
+    "text": "19/10/2026 E EFE Gastos Operativos — Librería Planillas de asistencia en papel Caja validada −$2,700.00 Rocío Paz AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/42/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/42/eliminar"
+    ],
+    "text": "19/10/2026 E BGA Servicios — Internet Internet Directo −$18,950.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/43/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/43/eliminar"
+    ],
+    "text": "19/10/2026 I MP Intereses — Intereses Mercado Pago Intereses Mercado Pago Directo $2,350.75 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/alumnos/343"
+    ],
+    "text": "19/10/2026 I MP Cuotas — Cuota Mensual Quiroga, Tomás Cobro del dueño $19,600.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/7/detalle"
+    ],
+    "text": "17/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 4 inscripciones Caja validada $32,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/7/detalle"
+    ],
+    "text": "17/10/2026 I MP Cuotas — Cuota Mensual Vega, Joaquin Caja validada $144,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/7/detalle"
+    ],
+    "text": "17/10/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Ruedas del carro de conos Caja validada −$5,900.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/alumnos/334"
+    ],
+    "text": "17/10/2026 E MP Cuotas — Cuota Mensual Vega, Joaquin Cobro del dueño −$144,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/alumnos/334"
+    ],
+    "text": "17/10/2026 I MP Cuotas — Cuota Mensual Vega, Joaquin Cobro del dueño $100,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I MP Cuotas — Cuota Mensual Acosta, Agustin Caja validada $35,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I EFE Inscripciones — Inscripción al club Gomez, Sofia Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I MP Cuotas — Cuota Mensual Benitez, Camila Caja validada $45,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I MP Inscripciones — Inscripción al club Benitez, Camila Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I EFE Cuotas — Cuota Mensual Ferrari, Bautista Caja validada $15,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 E EFE Gastos Operativos — Insumos Varios Botiquín: gasas y cinta Caja validada −$6,800.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I EFE Cuotas — Cuota Mensual Molina, Franco Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/6/detalle"
+    ],
+    "text": "16/10/2026 I BNA Cuotas — Cuota Mensual Gutierrez, Paulina Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/5/detalle"
+    ],
+    "text": "15/10/2026 I BGA Cuotas — Cuota Mensual Sosa, Felipe Caja validada $38,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/5/detalle"
+    ],
+    "text": "15/10/2026 I EFE Cuotas — Cuota Mensual Ledesma, Paula Caja validada $43,000.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/5/detalle"
+    ],
+    "text": "15/10/2026 E EFE Gastos Operativos — Librería Fotocopias de planillas Caja validada −$3,200.00 Pablo Ledesma AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/4/detalle"
+    ],
+    "text": "15/10/2026 I EFE Cuotas — Cuota Mensual Fernandez, Emma Caja validada $45,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/4/detalle"
+    ],
+    "text": "15/10/2026 I EFE Cuotas — Cuota Mensual Flores, Zoe Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/3/detalle"
+    ],
+    "text": "14/10/2026 I EFE Cuotas — Cuota Mensual Benítez, Mora Caja validada $40,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/3/detalle"
+    ],
+    "text": "14/10/2026 I EFE Inscripciones — Inscripción al club Benítez, Mora Caja validada $5,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/3/detalle"
+    ],
+    "text": "14/10/2026 I MP Cuotas — Cuota Mensual Gimenez, Helena Caja validada $58,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/3/detalle"
+    ],
+    "text": "14/10/2026 I MP Cuotas — Cuota Mensual Ramos, Santiago Caja validada $28,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/17"
+    ],
+    "text": "14/10/2026 E EFE Transferencias internas — salidas — Salida a otro medio – Traspaso −$109,500.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/18"
+    ],
+    "text": "14/10/2026 I BGA Transferencias internas — entradas — Entrada desde otro medio – Traspaso $109,500.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/19/editar",
+      "https://test.gestionar-te.com.ar/cashflow/movimientos/19/eliminar"
+    ],
+    "text": "14/10/2026 E BGA Servicios — Luz Pago de Luz Directo −$62,000.00 Admin Prueba"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I EFE Cuotas — Cuota Mensual Cabrera, Renata Caja validada $43,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I MP Cuotas — Cuota Mensual Fernandez, Emma Caja validada $45,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I EFE Cuotas — Cuota Mensual Ramos, Dante Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I BGA Cuotas — Cuota Mensual Rodriguez, Mateo Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I EFE Cuotas — Cuota Mensual Morales, Julieta Caja validada $30,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 I EFE Indumentaria — Indumentaria institucional Remera oficial talle 12 Caja validada $15,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/2/detalle"
+    ],
+    "text": "13/10/2026 E EFE Gastos Operativos — Limpieza Artículos para pista Caja validada −$8,500.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/1/detalle"
+    ],
+    "text": "10/10/2026 I EFE Cuotas — Cuota Mensual Navarro, Julian Caja validada $48,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/1/detalle"
+    ],
+    "text": "10/10/2026 I MP Cuotas — Cuota Mensual Rodriguez, Mateo Caja validada $38,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/1/detalle"
+    ],
+    "text": "10/10/2026 I EFE Cuotas — Cuota Mensual Fernandez, Emma Caja validada $45,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/1/detalle"
+    ],
+    "text": "10/10/2026 I EFE Cuotas — Cuota Mensual Gomez, Lucas Caja validada $28,000.00 Sandra Vidal AP"
+  },
+  {
+    "links": [
+      "https://test.gestionar-te.com.ar/caja/1/detalle"
+    ],
+    "text": "10/10/2026 I EFE Inscripciones — Inscripción al club Gomez, Lucas Caja validada $5,000.00 Sandra Vidal AP"
+  }
+]

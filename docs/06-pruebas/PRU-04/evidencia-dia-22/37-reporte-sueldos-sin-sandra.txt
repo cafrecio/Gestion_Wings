@@ -1,0 +1,166 @@
+Browser tab: 1293178778, Title: "Reporte de sueldos – Wings", URL: "https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10".
+1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Reporte de sueldos, Value: 1
+		30 text Reporte de sueldos
+	31 container
+		32 text Reportes
+		33 link Description: Volver, Value: test.gestionar-te.com.ar/reportes?mes=2026-10
+		34 link Description: Ingresos y egresos, Value: test.gestionar-te.com.ar/reportes?mes=2026-10
+		35 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-10
+		36 text Sueldos
+		37 pop up button (collapsed, settable) Description: Mes, Value: Octubre 2026, Secondary Actions: Expand
+			38 menu
+				39 (selected) Octubre 2026
+				40 Septiembre 2026
+		41 pop up button (collapsed, settable) Description: Deporte, Value: Todos los deportes, Secondary Actions: Expand
+			42 menu
+				43 (selected) Todos los deportes
+				44 Fútbol
+				45 Patín
+		46 button Filtrar
+		47 heading Octubre 2026, Value: 2
+			48 text Octubre 2026
+		49 text Costo del mes · hasta 31/10 Costo de profesores
+		50 text Sin historial
+		51 text Aunque se pague después
+		52 text Cuotas atribuidas
+		53 text Sin historial
+		54 text Importe real del mismo mes
+		55 text Sueldos / cuotas
+		56 text Sin datos
+		57 text Parte de las cuotas destinada a profesores
+		58 text Costo por asistencia
+		59 text Sin datos
+		60 text 688 asistencias del mes
+		61 heading Evolución: cuotas y sueldos, Value: 3
+			62 text Evolución: cuotas y sueldos
+		63 text Cuotas atribuidas Costo de profesores
+		64 image Evolución de cuotas atribuidas y costo de profesores
+		65 button (collapsed) Detalle, Secondary Actions: Expand
+			66 text Detalle
+		67 heading Por deporte, Value: 3
+			68 text Por deporte
+		69 image Cuotas y sueldos por deporte
+		70 button (collapsed) Detalle, Secondary Actions: Expand
+			71 text Detalle
+		72 heading Por profesor, Value: 2
+			73 text Por profesor
+		74 text Cada asistencia cuenta
+		75 heading Quintana, Hernán, Value: 3
+			76 text Quintana, Hernán
+		77 text $484,680.00
+		78 text Costo · Fútbol
+		79 text Sin historial
+		80 text Cuotas atribuidas
+		81 text Sin datos
+		82 text Sueldos / cuotas
+		83 text $2,107.30
+		84 text Por asistencia
+		85 text 28
+		86 text Alumnos con pagos registrados
+		87 text 64
+		88 text Asistencias sin pago de cuota
+		89 text 230
+		90 text Asistencias totales
+		91 text Comisión sobre cuotas cobradas
+		92 heading Acosta, Martín, Value: 3
+			93 text Acosta, Martín
+		94 text $186,600.00
+		95 text Costo · Fútbol
+		96 text Sin historial
+		97 text Cuotas atribuidas
+		98 text Sin datos
+		99 text Sueldos / cuotas
+		100 text $13,328.57
+		101 text Por asistencia
+		102 text 11
+		103 text Alumnos con pagos registrados
+		104 text 3
+		105 text Asistencias sin pago de cuota
+		106 text 14
+		107 text Asistencias totales
+		108 text Comisión sobre cuotas cobradas
+		109 heading Gaitán, Lucía, Value: 3
+			110 text Gaitán, Lucía
+		111 text Sin historial
+		112 text Costo · Patín
+		113 text Sin historial
+		114 text Cuotas atribuidas
+		115 text Sin datos
+		116 text Sueldos / cuotas
+		117 text Sin datos
+		118 text Por asistencia
+		119 text 28
+		120 text Alumnos con pagos registrados
+		121 text 66
+		122 text Asistencias sin pago de cuota
+		123 text 251
+		124 text Asistencias totales
+		125 text Sin historial
+		126 heading Salinas, Verónica, Value: 3
+			127 text Salinas, Verónica
+		128 text Sin historial
+		129 text Costo · Patín
+		130 text Sin historial
+		131 text Cuotas atribuidas
+		132 text Sin datos
+		133 text Sueldos / cuotas
+		134 text Sin datos
+		135 text Por asistencia
+		136 text 13
+		137 text Alumnos con pagos registrados
+		138 text 26
+		139 text Asistencias sin pago de cuota
+		140 text 96
+		141 text Asistencias totales
+		142 text Sin historial
+		143 heading Ocampo, Mariela, Value: 3
+			144 text Ocampo, Mariela
+		145 text Sin historial
+		146 text Costo · Patín
+		147 text Sin historial
+		148 text Cuotas atribuidas
+		149 text Sin datos
+		150 text Sueldos / cuotas
+		151 text Sin datos
+		152 text Por asistencia
+		153 text 5
+		154 text Alumnos con pagos registrados
+		155 text 37
+		156 text Asistencias sin pago de cuota
+		157 text 97
+		158 text Asistencias totales
+		159 text Sin historial
+		160 button (collapsed) Cómo se calcula, Secondary Actions: Expand
+			161 text Cómo se calcula
+		162 text Comparación económica · no determina ganancias del club Datos faltantes no se dibujan como cero
+	163 text Wings
+
+The focused UI element is 1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10

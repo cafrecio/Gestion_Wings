@@ -1,0 +1,66 @@
+Browser tab: 1293178769, Title: "Transferir – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/transferencia".
+1 AXWebArea Transferir – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/transferencia
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Transferir, Value: 1
+		30 text Transferir
+	31 container
+		32 text Mové plata entre cuentas del club. La salida y la entrada se guardan juntas, por el mismo importe. Cuenta de salida  *
+		33 pop up button (collapsed, settable) Cuenta de salida *, Value: EFE — Efectivo, ID: salida_id, Secondary Actions: Expand
+			34 menu
+				35 Seleccionar...
+				36 BGA — Banco Galicia
+				37 BNA — Banco Nación
+				38 Banco Nacion ahorro
+				39 (selected) EFE — Efectivo
+				40 MP — Mercado Pago
+		41 text Cuenta de destino  *
+		42 pop up button (collapsed, settable) Cuenta de destino *, Value: BGA — Banco Galicia, ID: destino_id, Secondary Actions: Expand
+			43 menu
+				44 Seleccionar...
+				45 (selected) BGA — Banco Galicia
+				46 BNA — Banco Nación
+				47 Banco Nacion ahorro
+				48 EFE — Efectivo
+				49 MP — Mercado Pago
+		50 text Importe  *
+		51 text field (settable) Importe *, Value: 500,000.00, ID: monto
+		52 text Fecha  *
+		53 date field (settable) Fecha *, Value: 2026-10-30, ID: fecha
+			54 container
+				55 stepper
+				56 stepper
+				57 stepper
+			58 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		59 text Observación
+		60 text entry area (settable) Observación, Value: Traspaso de efectivo a Galicia, día 21 de prueba, ID: observaciones
+		61 button Volver
+		62 button Transferir
+	63 text Wings
+
+The focused UI element is 60 text entry area (settable) Observación, Value: Traspaso de efectivo a Galicia, día 21 de prueba, ID: observaciones

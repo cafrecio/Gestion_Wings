@@ -1,0 +1,36 @@
+Browser tab: 1293178766, Title: "Cobrar cuota – Wings", URL: "https://test.gestionar-te.com.ar/caja/cobrar?search=53300902".
+1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=53300902
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Cobrar cuota, Value: 1
+		19 text Cobrar cuota
+	20 container
+		21 container
+			22 image
+			23 text field (settable) 53300902
+		24 button Buscar
+		25 button Limpiar
+		26 text 1
+		27 text  alumno con deuda pendiente
+		28 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		29 image
+		30 heading Sin resultados, Value: 3
+			31 text Sin resultados
+		32 text Ningún alumno activo coincide con "53300902"
+	33 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=53300902

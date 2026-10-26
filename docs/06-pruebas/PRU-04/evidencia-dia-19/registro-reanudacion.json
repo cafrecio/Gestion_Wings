@@ -72,15 +72,6 @@
     ]
   },
   {
-    "id": "20.4",
-    "resultado": "Parcial",
-    "observado": "Horario14–13 rechazado en formulario conservando campos. Corregido14–15 creó una clase única31/10, grupoFútbolAvanzadas, solo Martín/Hernán ofrecidos. Verificación de visibilidad por Hernán pendiente para22.2.",
-    "evidencia": [
-      "evidencia-dia-20/20.4-horario-invalido-rechazado.txt",
-      "evidencia-dia-20/20.4-clase-creada.txt"
-    ]
-  },
-  {
     "id": "20.5",
     "resultado": "Sí",
     "observado": "Mariela abrió50 del31/10 estando29/10. Aviso Esta clase todavía no ocurrió; casillas y Guardar deshabilitados. No se guardaron marcas.",
@@ -104,6 +95,198 @@
     "observado": "Inicio Rocío muestra Caja abierta, hora15:00, Cobrar y Registrar.",
     "evidencia": [
       "evidencia-dia-20/20.7-inicio-rocio-caja-abierta.txt"
+    ]
+  },
+  {
+    "id": "20.8",
+    "resultado": "Parcial",
+    "observado": "Ve los 11 cobros de cuota del 28/10 y otros 2 movimientos operativos; no muestra quién los hizo ni enlaces a recibos. El enlace a caja 36 devuelve Sin permiso. Rubros del dueño no ofrecidos en el filtro.",
+    "evidencia": [
+      "evidencia-dia-20/41-20.8-movimientos-28.txt",
+      "evidencia-dia-20/42-20.8-caja-ajena-restringida.txt"
+    ]
+  },
+  {
+    "id": "20.9",
+    "resultado": "Parcial",
+    "observado": "Listado muestra 3 cajas: 29/10 #38, 26/10 #16 y 19/10 #8. El guion esperaba dos. No aparecen cajas de Sandra ni Pablo; no se verificó aquí el límite temporal de 30 días.",
+    "evidencia": [
+      "evidencia-dia-20/43-20.9-cajas-rocio.txt"
+    ]
+  },
+  {
+    "id": "20.10",
+    "resultado": "Sí",
+    "observado": "No hay Nuevo en Clases. /clases/create muestra restricción en castellano; Volver regresa a Inicio de Rocío.",
+    "evidencia": [
+      "evidencia-dia-20/44-20.10-clases-sin-nuevo.txt",
+      "evidencia-dia-20/45-20.10-acceso-restringido.txt"
+    ]
+  },
+  {
+    "id": "21.1",
+    "resultado": "Parcial",
+    "observado": "Lista22 guardada y recargada:17/18 presentes; Berenice ausente. No muestra aviso de deuda ni bloqueo de entrada para Berenice. Ocho excesos muestran EXTRA predeterminado, conservado.",
+    "evidencia": [
+      "evidencia-dia-21/21.1-antes-sin-aviso-deuda.txt",
+      "evidencia-dia-21/21.1-persistencia-17.txt"
+    ]
+  },
+  {
+    "id": "21.2",
+    "resultado": "Parcial",
+    "observado": "Aceptó $20.000 efectivo sin motivo (rechazo esperado no ocurrió). Guardado una vez, recibo170; Berenice Deudor $66.000: septiembre23.000/octubre43.000. No se repitió el cobro ni se agregó motivo después.",
+    "evidencia": [
+      "evidencia-dia-21/21.2-parcial-20000-sin-motivo.txt",
+      "evidencia-dia-21/21.2-guardado-sin-motivo-saldo66000.txt"
+    ]
+  },
+  {
+    "id": "21.3",
+    "resultado": "Sí",
+    "observado": "Felipe quedó Al día tras un único pago EFE76.000. PDF CUOTA171 descargado, texto y render comprobados: agosto38.000 y octubre38.000, total76.000.",
+    "evidencia": [
+      "evidencia-dia-21/21.3-felipe-al-dia.txt",
+      "evidencia-dia-21/21.3-recibo-cuota-171.pdf",
+      "evidencia-dia-21/21.3-recibo-cuota-171.png"
+    ]
+  },
+  {
+    "id": "21.4",
+    "resultado": "Sí",
+    "observado": "Un solo toque en listado dejó Santino inactivo. Ficha conserva octubre28.000 pendiente. Cobranza66.000,103activos/102AlDía/1Deudor; búsqueda Cobrar por DNI no lo encuentra. No reactivado.",
+    "evidencia": [
+      "evidencia-dia-21/21.4-santino-inactivo-listado.txt",
+      "evidencia-dia-21/21.4-ficha-inactivo-deuda28000.txt",
+      "evidencia-dia-21/21.4-cobranza66000-103activos.txt",
+      "evidencia-dia-21/21.4-cobrar-sin-resultados.txt"
+    ]
+  },
+  {
+    "id": "21.5",
+    "resultado": "Sí",
+    "observado": "Transferencia2 registrada una vez, EFE -500.000/Galicia +500.000:1.460.300/637.550. Dashboard conserva ingresos3.126.850,75/egresos270.450 y disponible4.730.400,75. Cashflow Año sí suma ambos tramos en totales brutos (ingresos/egresos+500.000; resultado igual); diferencia de presentación registrada.",
+    "evidencia": [
+      "evidencia-dia-21/21.5-antes-dashboard.txt",
+      "evidencia-dia-21/21.5-transferencia2-guardada.txt",
+      "evidencia-dia-21/21.5-despues-dashboard.txt"
+    ]
+  },
+  {
+    "id": "21.6",
+    "resultado": "Sí",
+    "observado": "Rocío ve gasto12.000 en Movimientos sin Editar. Ruta de edición216 observada como Admin devuelve Sin permiso en castellano. No se envió modificación; gasto12.000 conservado luego en caja de Pablo.",
+    "evidencia": [
+      "evidencia-dia-21/21.6-rocio-movimientos-sin-editar.txt",
+      "evidencia-dia-21/21.6-edicion-ajena-restringida.txt"
+    ]
+  },
+  {
+    "id": "21.7",
+    "resultado": "Parcial",
+    "observado": "Pablo encuentra cobro Joaquín44.000 EFE28/10 en caja36; no muestra quién cobró. Movimientos28–30 ofrece solo rubros operativos y no la transferencia del dueño; filtro28 muestra13filas.",
+    "evidencia": [
+      "evidencia-dia-21/21.7-movimientos-28a30.txt",
+      "evidencia-dia-21/21.7-joaquin-sin-autor.txt"
+    ]
+  },
+  {
+    "id": "21.8",
+    "resultado": "Sí",
+    "observado": "Caja40 Pablo abierta: esperado270.000=10.000+260.000netoEFE; MP171.000 aparte. Gasto Reparaciones sigue12.000.",
+    "evidencia": [
+      "evidencia-dia-21/21.8-caja40-esperado270000.txt"
+    ]
+  },
+  {
+    "id": "22.1",
+    "resultado": "Sí",
+    "observado": "Cobro182 MP66.000 una vez, septiembre23.000/octubre43.000. Berenice Al día y Cobranza0:103activos/103AlDía.",
+    "evidencia": [
+      "evidencia-dia-22/22.1-berenice-al-dia.txt",
+      "evidencia-dia-22/22.1-cobranza0-103aldia.txt"
+    ]
+  },
+  {
+    "id": "22.2",
+    "resultado": "Sí",
+    "observado": "Hernán ve y abre su recuperación82 del31/10 14–15. Guardado único15/15, confirmado tras recarga. Catorce exceden plan; se conservó opción EXTRA predeterminada (guion no indicó otro motivo), registrada para revisión.",
+    "evidencia": [
+      "evidencia-dia-22/22.2-hernan-ve-recuperacion82.txt",
+      "evidencia-dia-22/22.2-persistencia15.txt"
+    ]
+  },
+  {
+    "id": "20.4",
+    "resultado": "Sí",
+    "observado": "Horario14–13 rechazado conservando campos;14–15 creó clase82 única31/10 con Hernán. Solo Martín/Hernán de Fútbol ofrecidos. Visibilidad por Hernán comprobada22.2.",
+    "evidencia": [
+      "evidencia-dia-20/20.4-horario-invalido-rechazado.txt",
+      "evidencia-dia-20/20.4-clase-creada.txt",
+      "evidencia-dia-22/22.2-hernan-ve-recuperacion82.txt"
+    ]
+  },
+  {
+    "id": "22.3",
+    "resultado": "Sí",
+    "observado": "Movimiento directo135 Luz62.000 Galicia, Admin Prueba, Editar/Eliminar visibles. Galicia637.550→575.550; Dashboard egresos270.450→332.450.",
+    "evidencia": [
+      "evidencia-dia-22/22.3-luz135-62000-guardada.txt",
+      "evidencia-dia-22/22.3-despues-luz-dashboard.txt"
+    ]
+  },
+  {
+    "id": "22.4",
+    "resultado": "Parcial",
+    "observado": "Luz135 corregida62.000→61.500 con motivo Descuento por débito automático. Galicia576.050. Listado solo Editar/Eliminar, sin enlace a detalle/historial; anterior/nuevo/actor/fecha de corrección no comprobados por pantalla.",
+    "evidencia": [
+      "evidencia-dia-22/22.4-antes-guardar61500.txt",
+      "evidencia-dia-22/22.4-luz61500-confirmada.txt"
+    ]
+  },
+  {
+    "id": "22.5",
+    "resultado": "No",
+    "observado": "No se pudo registrar sueldo250.000: Cashflow Nuevo EGRESO no ofrece rubro Sueldos ni subrubro Op-Sandra Vidal. No se creó rubro ni se usó otro. Reporte/invisibilidad Sandra sin gasto quedan sin probar; cierre esperado tendrá+250.000EFE y-250.000egresos respecto guion. Reporte Sueldos consultado: Sandra no figura; no demuestra la inclusión de un sueldo registrado.",
+    "evidencia": [
+      "evidencia-dia-22/22.5-sueldos-no-disponible.txt",
+      "evidencia-dia-22/37-reporte-sueldos-sin-sandra.txt"
+    ]
+  },
+  {
+    "id": "22.6",
+    "resultado": "No",
+    "observado": "Formulario Nueva, Lucía/octubre2026, muestra20 clases liquidables; guion17×12.000=204.000. No muestra total previo. No se pulsó Generar por diferencia de cantidad; bloqueo de Cerrar antes01/11 queda sin probar. No se creó ni pagó liquidación.",
+    "evidencia": [
+      "evidencia-dia-22/22.6-lucia20clases-antes-generar.txt"
+    ]
+  },
+  {
+    "id": "22.8",
+    "resultado": "No ejecutado",
+    "observado": "Dependiente de22.6: no hay liquidación de Lucía creada porque formulario ofrece20clases contra17delguion. Listado0liquidaciones, sin cargo ni pago.",
+    "evidencia": [
+      "evidencia-dia-22/22.8-listado-sin-liquidacion.txt"
+    ]
+  },
+  {
+    "id": "22.7",
+    "resultado": "Sí",
+    "observado": "Pablo no tiene Liquidaciones en menú; ruta forzada muestra Sin permiso en castellano, sin importes. Volver regresa a Inicio.",
+    "evidencia": [
+      "evidencia-dia-22/22.7-pablo-menu-sin-liquidaciones.txt",
+      "evidencia-dia-22/22.7-liquidaciones-restringida.txt"
+    ]
+  },
+  {
+    "id": "22.9",
+    "resultado": "Parcial",
+    "observado": "Tras noche22: Cashflow y Reportes coinciden por medio y disponible4.959.900,75; Galicia576.050/Nación128.000/MP2.638.550,75; EFE1.617.300 (+250.000 por sueldo no registrado). Reportes ingresos3.417.850,75(-121.000),egresos331.950(-250.000),resultado3.085.900,75(+129.000) respecto guion.138filas de octubre recorridas en5páginas,0repeticiones exactas texto+enlaces. No se generó liquidación por diferencia20/17, por pagar0; no prueba gasto de una liquidación abierta.",
+    "evidencia": [
+      "evidencia-dia-22/33-cierre-dashboard.txt",
+      "evidencia-dia-22/34-cashflow-octubre-final.txt",
+      "evidencia-dia-22/35-cashflow-filas-octubre.json",
+      "evidencia-dia-22/36-reportes-octubre-final.txt"
     ]
   }
 ]

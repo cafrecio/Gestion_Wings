@@ -1,0 +1,50 @@
+Browser tab: 1293178772, Title: "Cobranza – Wings", URL: "https://test.gestionar-te.com.ar/cobranza".
+1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Cobranza, Value: 1
+		19 text Cobranza
+	20 container
+		21 text TOTAL ADEUDADO $0.00 TOTAL ACTIVOS 103 AL DÍA 103 EN PLAZO 0 MOROSOS 0 DEUDORES 0
+		22 pop up button (collapsed, settable) Value: Con deuda (Deudores y morosos), Secondary Actions: Expand
+			23 menu
+				24 (selected) Con deuda (Deudores y morosos)
+				25 Todos los estados
+				26 Al día
+				27 En plazo
+				28 Moroso
+				29 Deudor
+		30 pop up button (collapsed, settable) Value: Deporte, Secondary Actions: Expand
+			31 menu
+				32 (selected) Deporte
+				33 Fútbol
+				34 Patín
+		35 pop up button (collapsed, settable) Value: Grupo, Secondary Actions: Expand
+			36 menu
+				37 (selected) Grupo
+				38 Fútbol — Avanzadas
+				39 Fútbol — Principiantes
+				40 Patín — Adultos
+				41 Patín — Avanzadas
+				42 Patín — Federadas
+				43 Patín — Intermedias
+				44 Patín — Principiantes
+		45 button Filtrar
+		46 text No hay alumnos para los filtros seleccionados.
+	47 text Wings
+
+The focused UI element is 1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza

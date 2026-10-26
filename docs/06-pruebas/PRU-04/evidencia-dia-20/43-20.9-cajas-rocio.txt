@@ -1,0 +1,44 @@
+Browser tab: 1293178751, Title: "Caja – Wings", URL: "https://test.gestionar-te.com.ar/caja".
+1 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Caja, Value: 1
+		19 text Caja
+	20 container
+		21 text 3
+		22 text  cajas
+		23 button Historial
+		24 heading Jueves 29 de octubre, Value: 3
+			25 text Jueves 29 de octubre
+		26 text Estado ABIERTA Movimientos 12 Ingresos $413,000.00 Egresos $3,800.00 Neto $409,200.00
+		27 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+		28 link Description: Agregar, Value: test.gestionar-te.com.ar/caja/38/editar
+		29 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/38/resumen
+		30 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/38/detalle
+		31 heading Lunes 26 de octubre, Value: 3
+			32 text Lunes 26 de octubre
+		33 text Estado VALIDADA Movimientos 3 Ingresos $56,000.00 Egresos $10,300.00 Neto $45,700.00
+		34 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/16/resumen
+		35 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/16/detalle
+		36 heading Lunes 19 de octubre, Value: 3
+			37 text Lunes 19 de octubre
+		38 text Estado VALIDADA Movimientos 6 Ingresos $193,800.00 Egresos $2,700.00 Neto $191,100.00
+		39 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/8/resumen
+		40 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/8/detalle
+	41 text Wings
+
+The focused UI element is 1 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja

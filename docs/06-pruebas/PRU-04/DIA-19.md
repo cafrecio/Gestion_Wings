@@ -6,7 +6,7 @@
 
 [Carlos autorizó](evidencia-dia-19/10-autorizacion-reanudacion.md) volver al28/10, repetir19.5 con confirmación manual suya, completar19.4a/19.6b/19.7a, cerrar y repetir noche19 y controles20–22. No se repiten cobros ni mañana19. [Primera corrida conservada](evidencia-dia-19/informe-primera-corrida.md). [Guion vigente](GUION-DIAS-19-22.md).
 
-Último reloj de esta reanudación: **29/10/2026 15:00**. La primera corrida había llegado al31/10, con los días20–22 sin operar. No confundir ambos intentos.
+Último reloj del paquete reanudado: **31/10/2026 15:00**. El del día19 se inició en28/10 15:00. La primera corrida había llegado al31/10, con los días20–22 sin operar. No confundir ambos intentos.
 
 ## Situaciones
 
@@ -64,4 +64,4 @@ GUARDADO.
 
 ## Entrega y límites
 
-Objetivo pendiente, no cierre deT14. Tabla externa y ESTADO-ACTUAL.md intactos. Sin producto ni despliegue. Se conserva evidencia del intento anterior; el control documental independiente anterior vale solo para febabcd6. Sin push.
+Paquete recorrido hasta noche22 con diferencias en22.5/22.6; no cierre deT14. Tabla externa y ESTADO-ACTUAL.md intactos. Sin producto ni despliegue. Se conserva evidencia del intento anterior; el control documental independiente anterior vale solo para febabcd6. Sin push.

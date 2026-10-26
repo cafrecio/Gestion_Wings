@@ -1,0 +1,13 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Morales, Agustina $30.000,00 por Efectivo — Pago registrado para Morales, Agustina.
+ 3. Pablo Ledesma cobra a Ortiz, Micaela $40.000,00 por Mercado Pago — Pago registrado para Ortiz, Micaela.
+ 4. Pablo Ledesma cobra a Garcia, Melina $43.000,00 por Efectivo — Pago registrado para Garcia, Melina.
+ 5. Pablo Ledesma cobra a Martinez, Delfina $33.000,00 por Mercado Pago — Pago registrado para Martinez, Delfina.
+ 6. Pablo Ledesma cobra a Castro, Catalina $45.000,00 por Efectivo — Pago registrado para Castro, Catalina.
+ 7. Pablo Ledesma cobra a Diaz, Catalina $50.000,00 por Mercado Pago — Pago registrado para Diaz, Catalina.
+ 8. Pablo Ledesma cobra a Gutierrez, Tomas $28.000,00 por Efectivo — Pago registrado para Gutierrez, Tomas.
+ 9. Pablo Ledesma cobra a Ferrari, Nicolas $48.000,00 por Mercado Pago — Pago registrado para Ferrari, Nicolas.
+10. Pablo Ledesma cobra a Rios, Lola $30.000,00 por Efectivo — Pago registrado para Rios, Lola.
+11. Pablo Ledesma Reparaciones menores $12000 por Efectivo — Movimiento registrado.
+Cobranza: $190.000,00 · {"AL_DIA":101,"EN_PLAZO":0,"MOROSO":1,"DEUDOR":2}
+SIMULADO: no se guardó nada.

@@ -1,0 +1,97 @@
+Browser tab: 1293178760, Title: "Cobrar – Sanchez, Berenice", URL: "https://test.gestionar-te.com.ar/caja/cobrar/295".
+1 AXWebArea Cobrar – Sanchez, Berenice, URL: test.gestionar-te.com.ar/caja/cobrar/295
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Pablo Ledesma
+		17 button Salir
+	18 heading Cobrar: Sanchez, Berenice, Value: 1
+		19 text Cobrar: Sanchez, Berenice
+	20 container
+		21 text DNI 55400024 DEPORTE Patín GRUPO Patín — Intermedias TOTAL PENDIENTE $86,000.00
+		22 container cobrar-form
+			23 text PLAN — FRECUENCIA SEMANAL
+			24 container plan-options
+				25 container
+					26 radio button (settable, integer) Description: 1 vez/semana $33,000.00/mes, Value: 0
+					27 text 1 vez/semana $33,000.00/mes
+				28 container
+					29 radio button (settable, integer) Description: 2 veces/semana $43,000.00/mes, Value: 1
+					30 text 2 veces/semana $43,000.00/mes
+			31 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			32 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			33 checkbox (settable, integer) 1
+			34 text Septiembre 2026
+			35 text field (settable) 20000
+			36 checkbox (settable, integer) 0
+			37 text Octubre 2026
+			38 text field (disabled) 43,000.00
+			39 container adelanto-bloque
+				40 text MES SIN DEUDA O COBRO ADELANTADO
+				41 container
+					42 image
+					43 text Mes
+				44 pop up button (collapsed, settable) Mes, Value: Seleccionar..., ID: adelanto-periodo, Secondary Actions: Expand
+					45 menu
+						46 (selected) Seleccionar...
+						47 Noviembre 2026
+						48 Diciembre 2026
+						49 Enero 2027
+						50 Febrero 2027
+						51 Marzo 2027
+						52 Abril 2027
+						53 Mayo 2027
+						54 Junio 2027
+						55 Julio 2027
+						56 Agosto 2027
+						57 Septiembre 2027
+						58 Octubre 2027
+				59 container
+					60 image
+					61 text Importe
+				62 text field (settable) Importe, ID: adelanto-monto
+				63 button (disabled) Agregar, ID: adelanto-agregar
+				64 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			65 container
+				66 image
+				67 text Medio de pago *
+			68 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				69 menu
+					70 Seleccionar...
+					71 BGA — Banco Galicia
+					72 BNA — Banco Nación
+					73 Banco Nacion ahorro
+					74 (selected) EFE — Efectivo
+					75 MP — Mercado Pago
+			76 container
+				77 image
+				78 text Fecha del pago
+			79 date field (settable) Fecha del pago, Value: 2026-10-30, ID: fecha_pago
+				80 container
+					81 stepper
+					82 stepper
+					83 stepper
+				84 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+			85 container
+				86 image
+				87 text Observaciones
+			88 text field (settable) Observaciones, ID: observaciones
+			92 container resumen-total
+				93 text Total a cobrar:
+				94 text $20,000.00
+			89 button Cancelar
+			90 button Cobrar, ID: btn-cobrar
+	91 text Wings
+
+The focused UI element is 35 text field (settable) 20000
