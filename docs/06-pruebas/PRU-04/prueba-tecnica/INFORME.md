@@ -1,3 +1,14 @@
+# Prueba técnica de los días 19 a 22 — 27/10/2026 · Claude CyE
+
+Sobre la base del sitio de prueba con el reloj en el 31/10, como `wingstest` y en solo lectura; seguridad en
+`wings_testing_claude`.
+
+| Área | Resultado |
+|---|---|
+| Funcionamiento interno | **16 de 16 bien** (`controles-internos-resultado-dias-19-22.json`): 19 cajas, 126 movimientos validados, 2 transferencias, 95 cobros y 104 cuotas cuadran. Deuda $0 (103 Al día); disponible $4.959.900,75, igual a lo que leyó Codex |
+| Seguridad | **18 de 18.** Nuevas: la liquidación del mes no se cierra antes de fin de mes ni forzando el envío. Cinco pruebas retratan hallazgos y se van a poner en rojo cuando se corrijan: gasto mayor que el cajón (MOV-004), parcial sin motivo (COB-009), «Nueva liquidación» que cuenta otros meses, dos toques del interruptor (T85) y el sueldo de una operativa, que Cashflow no ofrece y que forzando también se rechaza (`sueldo-operativa-forzado.txt`) |
+| Velocidad con los datos de hoy | 21 pantallas, todas por debajo de 192 ms (`performance-sitio-dias-19-22.json`). La más lenta sigue siendo Reportes de Sueldos, con 149 consultas |
+
 # Prueba técnica de los días 17 y 18 — 27/10/2026 · Claude CyE
 
 Sobre la base del sitio de prueba (`wingstest`, con el reloj en 27/10), como usuario `wingstest` y en

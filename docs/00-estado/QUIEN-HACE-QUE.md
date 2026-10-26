@@ -38,6 +38,10 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
 | **T84** Ficha del alumno: interruptor Activo/Inactivo como en el listado, sin confirmacion, y aviso de la cuota generada | Hecho, espera verificación (hizo Gemini) | Logica verificada por Claude (VERIFICACION-T84-CLAUDE.md): aprobada. Falta tu OK visual con las capturas de evidencia-t84. No desplegar hasta que Codex termine el dia 22. |
+| **T86** Pagar el sueldo de una operativa: hoy no hay forma | Sin empezar | Prueba dia 22.5 (27/10): el subrubro Op-Nombre se crea reservado del sistema; Cashflow no lo ofrece y rechaza el envio forzado; liquidaciones son solo de profesores. Decidir como se paga (Cashflow con ese subrubro, recomendado) y asignar. |
+| **T87** Nueva liquidacion: el numero de clases mezcla meses | Sin empezar | Prueba dia 22.6: al lado del mes elegido muestra las clases pendientes de todos los meses (Lucia 20 = 17 de octubre + 3 de septiembre validadas a mano). El calculo esta bien (17). Mostrar solo las del mes elegido; asignar. |
+| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Sin empezar | Prueba dias 19-22: MOV-004 (el esperado de la caja queda negativo) y COB-009 (ni pantalla ni servidor piden motivo). Hay pruebas que los retratan en prueba-tecnica. Asignar. |
+| **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -48,7 +52,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias19-22 recorridos con diferencias; cajas36/38/40/42 validadas. Revisar interno y velocidad;22.5 sueldo ausente,22.6 Lucia20vs17 sin generar. No repetir operaciones ni reloj31/10 15h. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 19-22 revisados con prueba tecnica (interno 16/16, seguridad 18/18, velocidad ok); planilla al dia. Defectos nuevos T86-T89. Sigue: guion de noviembre, empezando por las liquidaciones de Lucia (octubre y septiembre). |
 
 ## Codex
 

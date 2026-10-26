@@ -8,6 +8,39 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Revisión de Claude de los días 19 a 22 — 27/10/2026
+
+Revisado contra el [guion](GUION-DIAS-19-22.md), los informes de Codex ([19](DIA-19.md), [20](DIA-20.md),
+[21](DIA-21.md), [22](DIA-22.md), commit `74cb2d13`), el código y la base del sitio al 31/10.
+
+**La plata cierra.** Deuda $0 y 103 activos Al día, como el guion. Hay dos diferencias, explicadas y sin
+error de Wings:
+- Disponible y efectivo **+$250.000** y gastos **−$250.000**: el sueldo de Sandra no se pudo pagar (22.5).
+- Ingresos **−$121.000**: **error de mi guion**. Wings clasifica las ventas de Indumentaria (remeras $18.000 + $18.000
+  y patines $85.000) como aporte de los dueños, no como ingreso del negocio (`ClasificacionSubrubros`). El
+  disponible no cambia por eso.
+
+Los controles internos sobre la base dan lo mismo que leyó Codex: disponible $4.959.900,75 y deuda $0.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 22.5 sueldo de Sandra (CSH-015) | **Defecto de Wings.** Al dar de alta una operativa se crea su renglón de sueldo marcado como reservado del sistema; Cashflow no ofrece los reservados y lo rechaza aunque se fuerce el envío. Las liquidaciones son solo de profesores. **No hay forma de pagarle el sueldo a una operativa.** El contrato de Reportes dice que ese renglón se crea a mano: está desactualizado | T86 |
+| 22.6 Lucía: 20 clases en vez de 17 | **Defecto de la pantalla.** «Nueva liquidación» cuenta las clases pendientes de todos los meses al lado del mes elegido. Lucía tiene 17 en octubre (el cálculo da 17 × $12.000 = $204.000) y 3 de septiembre validadas a mano que nunca se liquidaron. Codex hizo bien en frenar | T87; generar octubre y septiembre en el próximo paquete |
+| 21.2 parcial sin motivo (COB-009) | **Defecto de Wings**, previsto al armar el guion: ni la pantalla ni el servidor piden motivo | T88 |
+| Gasto mayor que el cajón (MOV-004) | **Defecto de Wings**, comprobado en la prueba técnica: se acepta y el esperado queda negativo | T88 |
+| 21.1 deudor en la lista (ASI-013) | **Falta en Wings:** la lista no marca a quien no puede entrar por deuda | Decide Carlos si se programa |
+| 20.8 y 21.7 Movimientos (MOV-011, MOV-012) | **Falta en Wings:** no muestra quién hizo cada cobro ni enlaza el recibo; el enlace a la caja de otra operativa lleva a «Sin permiso» | T89 |
+| 22.4 historial de la corrección (CSH-007) | **Falta en Wings:** la página del historial existe (`cashflow/movimientos/{id}`), pero ninguna pantalla enlaza a ella | T89 |
+| 19.6 clase con todos ausentes | **Defecto menor:** el Inicio de la operativa la rotula «Sin lista» porque solo mira los presentes (`operativo/dashboard`) | T89 |
+| 19.6b sin hora por movimiento (CAJ-017) | Falta menor: el detalle de caja no muestra la hora | T89 |
+| 21.5 Cashflow por año | Observación: la vista anual suma la transferencia en ingresos y egresos brutos; el resultado y el Inicio no cambian | Nada |
+| 19.1 apertura con un cero de más (CAJ-007) y 19.3 cobrar de más (COB-010) | **No probados:** la herramienta no pudo escribir 100000 y el formulario de $50.000 no se envió | Repetir en el próximo paquete |
+| 19.5 eliminar Librería | **Bien**, con la confirmación del navegador hecha por Carlos. Borrar un movimiento usa la misma confirmación nativa que el Chrome de Codex no acepta | Nada |
+| 20.9 Rocío ve 3 cajas | **Error de mi guion:** olvidé su caja del 19/10, que está dentro de los 30 días. Wings hizo lo correcto | Nada |
+
+**Prueba técnica de los días 19 a 22:** funcionamiento interno 16/16, seguridad 18/18 (con 5 pruebas que
+retratan los hallazgos de arriba) y velocidad por debajo de 192 ms ([informe](prueba-tecnica/INFORME.md)).
+
 ## Revisión de Claude de los días 17 y 18 — 27/10/2026
 
 Revisado contra el [guion](GUION-DIAS-17-18.md), los informes de Codex ([17](DIA-17.md), [18](DIA-18.md),

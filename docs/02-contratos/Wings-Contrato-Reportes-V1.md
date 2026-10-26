@@ -164,7 +164,7 @@ intereses. No tienen alumno, así que no tienen deporte.
 | **Sueldos de profesores** | **Por deporte.** El subrubro ya se llama `Patín-Jorge Mitre`: trae el deporte adentro |
 | Alquiler de canchas | **Gastos generales**, sin repartir. Ver la limitación abajo |
 | Servicios, gastos operativos | Gastos generales, por rubro y subrubro |
-| Sueldo del operativo | **No existe la categoría todavía.** Ver pendientes |
+| Sueldo del operativo | El subrubro existe, pero no se puede usar: ver pendientes (T86) |
 
 ### Los movimientos no económicos NO entran en el resultado
 
@@ -227,9 +227,11 @@ tabla de precios por día y horario. Queda como pendiente futuro, fuera de alcan
 
 ### El sueldo del operativo no tiene dónde registrarse
 
-El rubro Sueldos tiene solo subrubros de profesores, creados automáticamente al dar de
-alta cada uno. **Para el operativo hay que crear el subrubro a mano**, marcado como
-`ADMIN` para que él mismo no lo vea.
+**Corregido el 27/10/2026 (prueba por días, 22.5):** hoy Wings crea solo el subrubro de cada
+operativa («Op-Nombre», en Sueldos, `ADMIN`) al darla de alta, pero lo marca como reservado del
+sistema. Cashflow no ofrece los subrubros reservados y rechaza el envío forzado, y las
+liquidaciones son solo de profesores: **no hay forma de registrar el sueldo de una operativa.**
+Pendiente en la tarea T86.
 
 ---
 

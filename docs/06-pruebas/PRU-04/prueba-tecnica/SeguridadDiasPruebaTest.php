@@ -268,6 +268,82 @@ class SeguridadDiasPruebaTest extends TestCase
         $this->assertSame(0, CajaOperativa::where('usuario_operativo_id', $rocio->id)->count());
     }
 
+    // ── Días 19 a 22 (Claude, 27/10/2026). Las «hallazgo» afirman lo que Wings hace HOY contra lo que pide
+    // el catálogo: se ponen en rojo cuando se corrija, y ahí se dan vuelta.
+
+    public function test_hallazgo_dia_19_un_gasto_en_efectivo_mayor_que_el_cajon_se_acepta(): void
+    {
+        $esperadoAntes = app(\App\Services\CajaService::class)->arqueoCaja($this->cajaSandra->id)['efectivo_esperado'];
+        $this->actingAs($this->sandra)->post(route('web.caja.movimiento.store'), [
+            'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => (string) ($esperadoAntes + 50000), 'observaciones' => 'Gasto mayor que el cajón',
+        ]);
+        $esperado = app(\App\Services\CajaService::class)->arqueoCaja($this->cajaSandra->id)['efectivo_esperado'];
+        // MOV-004 pide rechazarlo y que el esperado nunca quede negativo. Hoy queda negativo.
+        $this->assertLessThan(0, $esperado, 'Ya no se acepta: MOV-004 corregido, dar vuelta esta prueba');
+    }
+
+    public function test_hallazgo_dia_21_el_servidor_acepta_un_pago_parcial_sin_motivo(): void
+    {
+        $cuota = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->firstOrFail();
+        $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 10000], 'fecha_pago' => '2026-10-15',
+        ]);
+        // COB-009 pide el motivo antes de cobrar un parcial. Hoy se cobra sin motivo.
+        $this->assertSame('10000.00', $cuota->fresh()->monto_pagado, 'Ya pide motivo: COB-009 corregido, dar vuelta esta prueba');
+    }
+
+    public function test_dia_22_la_liquidacion_del_mes_no_se_cierra_antes_de_fin_de_mes_ni_forzando(): void
+    {
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $profesoraId, 'mes' => 10, 'anio' => 2026]);
+        $liq = \App\Models\Liquidacion::where('profesor_id', $profesoraId)->firstOrFail();
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.cerrar', $liq->id))
+            ->assertSessionHas('error', 'No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el 01/11/2026.');
+        $this->assertSame('ABIERTA', $liq->fresh()->estado);
+    }
+
+    public function test_hallazgo_dia_22_nueva_liquidacion_cuenta_clases_de_otros_meses(): void
+    {
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        $septiembre = Clase::create(['grupo_id' => $this->claseMariela->grupo_id, 'fecha' => '2026-09-30', 'hora_inicio' => '17:00', 'hora_fin' => '18:00',
+            'cancelada' => false, 'validada_para_liquidacion' => true]);
+        $septiembre->profesores()->attach($profesoraId);
+        $mariela = collect($this->actingAs($this->duenio)->get(route('web.liquidaciones.create'))->assertOk()->viewData('profesores'))->firstWhere('id', $profesoraId);
+        // La pantalla muestra el número al lado del mes elegido, pero suma la clase de septiembre: Lucía, 20 en vez de 17.
+        $this->assertSame(2, (int) $mariela->clases_count, 'Ya cuenta solo el mes: dar vuelta esta prueba');
+    }
+
+    public function test_hallazgo_t85_dos_toques_seguidos_del_interruptor_generan_una_cuota(): void
+    {
+        $otro = Alumno::create(['nombre' => 'Agustín', 'apellido' => 'Acosta', 'dni' => '54400005', 'fecha_nacimiento' => '2012-01-01', 'celular' => '1',
+            'deporte_id' => $this->alumno->deporte_id, 'grupo_id' => $this->alumno->grupo_id, 'fecha_alta' => '2024-03-10', 'activo' => true]);
+        AlumnoPlan::create(['alumno_id' => $otro->id, 'plan_id' => AlumnoPlan::where('alumno_id', $this->alumno->id)->value('plan_id'), 'fecha_desde' => '2024-03-10', 'activo' => true]);
+        $this->actingAs($this->sandra)->patchJson(route('web.alumnos.toggle-activo', $otro->id))->assertOk();
+        $this->actingAs($this->sandra)->patchJson(route('web.alumnos.toggle-activo', $otro->id))->assertOk();
+        $this->assertTrue((bool) $otro->fresh()->activo);
+        // Quedó como estaba, pero con una cuota de reingreso: lo de Agustín Acosta el 27/10.
+        $this->assertSame(1, DeudaCuota::where('alumno_id', $otro->id)->count(), 'Ya no genera cuota: T85 corregida, dar vuelta esta prueba');
+    }
+
+    public function test_hallazgo_dia_22_el_sueldo_de_una_operativa_no_se_puede_elegir_en_cashflow(): void
+    {
+        $sub = app(\App\Services\SubrubroSueldoService::class)->paraUsuarioOperativo($this->sandra);
+        $this->assertNotNull($sub);
+        $ofrecidos = collect($this->actingAs($this->duenio)->get(route('web.cashflow.movimiento'))->assertOk()->viewData('rubros'))
+            ->flatMap(fn ($r) => $r->subrubros->pluck('id'));
+        $this->assertNotContains($sub->id, $ofrecidos->all(), 'Ya se ofrece: CSH-015 corregido, dar vuelta esta prueba');
+        // Forzando el envío, ¿lo acepta? Se registra el resultado para el informe, sin afirmar.
+        $antes = DB::table('cashflow_movimientos')->count();
+        $r = $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => '1000', 'fecha' => '2026-10-15', 'observaciones' => 'Sueldo forzado']);
+        file_put_contents(__DIR__.'/sueldo-operativa-forzado.txt', 'Respuesta '.$r->getStatusCode().'; movimientos creados: '.(DB::table('cashflow_movimientos')->count() - $antes)."\n");
+    }
+
     public function test_dia_13_la_caja_rechazada_no_cambia_lo_contado_al_recerrar(): void
     {
         $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id),

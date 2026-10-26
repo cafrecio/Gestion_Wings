@@ -1,0 +1,136 @@
+{
+    "fecha_wings": "2026-10-31 16:39:08",
+    "base": "wingstest",
+    "controles": 16,
+    "aprobados": 16,
+    "resultados": [
+        {
+            "id": "CAJ-1",
+            "regla": "El efectivo esperado de cada caja cerrada es el inicial más sus movimientos en efectivo no cancelados; la diferencia es contado menos esperado; retenido más retirado es lo contado",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "19 cajas"
+        },
+        {
+            "id": "CAJ-2",
+            "regla": "Lo heredado por cada apertura es lo que retuvo la caja de origen",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-1",
+            "regla": "Cada movimiento no cancelado de una caja validada aparece una sola vez en Cashflow; un cancelado no aparece",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "126 movimientos de cajas validadas"
+        },
+        {
+            "id": "CSH-2",
+            "regla": "El reflejo conserva importe, fecha del día y medio de pago del movimiento de caja",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-3",
+            "regla": "Cada transferencia tiene exactamente dos patas TRASPASO, salida negativa y entrada positiva por el mismo importe; no hay TRASPASO suelto",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "2 transferencias"
+        },
+        {
+            "id": "COB-1",
+            "regla": "Cada cobro vigente reparte exactamente su importe entre cuotas e inscripción, y entra a caja (o a Cashflow si lo cobró el dueño) por ese mismo importe; un anulado no conserva imputaciones",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "95 cobros"
+        },
+        {
+            "id": "COB-2",
+            "regla": "Lo pagado de cada cuota es la suma de sus imputaciones vigentes; PAGADA sin saldo y PENDIENTE con saldo; nunca pagada de más",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "104 cuotas"
+        },
+        {
+            "id": "COB-3",
+            "regla": "Un alumno tiene a lo sumo una cuota por mes",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CBZ-1",
+            "regla": "La deuda de Cobranza es la de Reportes; vencidos más en plazo son los que deben; nadie Al día con deuda",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "deuda 0; {\"AL_DIA\":103}"
+        },
+        {
+            "id": "ALU-1",
+            "regla": "Todo alumno activo tiene plan para el mes en curso",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "29 activos sin cuota del mes guardada (decisión pendiente de Carlos, D4-OBS-01)"
+        },
+        {
+            "id": "REP-1",
+            "regla": "El disponible de Reportes es saldos iniciales más Cashflow más lo de cajas sin validar",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "disponible 4959900.75"
+        },
+        {
+            "id": "ASI-1",
+            "regla": "A lo sumo una marca por alumno y clase",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-2",
+            "regla": "No hay marcas en clases canceladas ni en clases que todavía no ocurrieron",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-3",
+            "regla": "Nadie tiene marca en una clase de su grupo actual anterior a su llegada",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CLA-1",
+            "regla": "Toda clase activa tiene al menos una profesora",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "SIS-1",
+            "regla": "No hay registros que apunten a algo que no existe",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        }
+    ]
+}
