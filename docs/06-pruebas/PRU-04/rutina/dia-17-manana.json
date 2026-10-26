@@ -1,0 +1,8 @@
+{"dia": "2026-10-26", "descripcion": "Día 17, lunes: Rocío abre, carga la limpieza y las tres profesoras del lunes toman lista.",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "abrir_caja"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": 3800, "obs": "Limpieza del lunes"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Flores, Zoe"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Principiantes", "hora": "16:00", "ausentes": ["Romero, Santino"]},
+  {"como": "Verónica Salinas", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "17:00", "ausentes": ["Navarro, Alma", "Sanchez, Berenice"]}
+ ]}

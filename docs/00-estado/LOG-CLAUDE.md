@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-26 — Claude CyE — Guion de los días 17 y 18 (lunes 26 y martes 27)
+
+- [Guion](../06-pruebas/PRU-04/GUION-DIAS-17-18.md) y cuatro rutinas. Retoma lo que la semana pasada no salió: Julieta, Rocío con clave conocida, Martín por comisión, la #76 y Botiquín para la operativa.
+- Números de partida tomados del texto de las pantallas del día 16. Los códigos de caso se controlaron contra el catálogo y se corrigieron tres.
+- `rutina.php`: las listas también se piden por grupo y hora. 1 prueba propia en verde (`prueba-tecnica/RutinaClasePorGrupoTest.php`).
+- `ssh vps` desde CyE: esta red corta toda salida por el puerto 22 (GitHub incluido; por el 443 SSH pasa). No es la clave ni el servidor, y desde acá no se puede arreglar.
+
 ## 2026-10-26 — Claude CyE — Días 13 a 16 revisados (T14)
 
 - Ningún defecto nuevo de Wings. Las cuentas cuadran al peso: toda la diferencia son los $143.000 de Julieta (13.11), que no se hizo por un límite del navegador automático.

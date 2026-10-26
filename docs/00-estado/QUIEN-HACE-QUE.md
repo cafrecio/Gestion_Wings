@@ -45,13 +45,13 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 13-16 revisados; seguridad 7-16 hecha (todo bien). Falta: control interno y performance sobre el sitio (sin ssh desde CyE) y revisar dias 7-12. Para Carlos: DNI con letras y liquidar mes en curso. |
+Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Guion de los dias 17 y 18 (lunes 26 y martes 27/10) listo en GUION-DIAS-17-18.md, con rutinas. Retoma Julieta, Rocio con clave conocida, Martin por comision y Botiquin. Claude: falta revisar dias 7-12 y control interno/performance en el servidor. |
 
 ## Gemini
 

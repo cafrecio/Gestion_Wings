@@ -111,7 +111,15 @@ try {
                 $texto = "{$paso['subrubro']} \${$paso['monto']} por {$paso['medio']}";
                 break;
             case 'lista':
-                $clase = Clase::findOrFail($paso['clase']);
+                // Por número, o por grupo y hora del día cuando el guion se arma sin ver la base.
+                $clase = isset($paso['clase']) ? Clase::findOrFail($paso['clase']) : (function () use ($paso) {
+                    [$dep, $niv] = array_map('trim', explode('—', $paso['grupo'], 2));
+                    $c = Clase::whereDate('fecha', today())->whereTime('hora_inicio', $paso['hora'].':00')->where('cancelada', false)
+                        ->whereHas('grupo', fn ($g) => $g->whereHas('deporte', fn ($d) => $d->where('nombre', $dep))
+                            ->whereHas('nivel', fn ($n) => $n->where('nombre', $niv)))->get();
+                    if ($c->count() !== 1) throw new RuntimeException("Clase {$paso['grupo']} {$paso['hora']}: hay {$c->count()} hoy.");
+                    return $c->first();
+                })();
                 $ausentes = array_map(fn ($x) => $alumno($x)->id, $paso['ausentes'] ?? []);
                 $items = Alumno::enGrupoElDia($clase->grupo_id, $clase->fecha)->where('activo', true)->pluck('id')
                     ->map(fn ($id) => ['alumno_id' => $id, 'presente' => !in_array($id, $ausentes, true) ? 1 : 0, 'motivo_exceso' => 'EXTRA'])->all();

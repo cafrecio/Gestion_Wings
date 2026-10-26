@@ -1,0 +1,6 @@
+{"dia": "2026-10-27", "descripcion": "Día 18, martes: Pablo abre y las profesoras de patín del martes toman lista.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "abrir_caja"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00"},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Iglesias, Helena"]}
+ ]}

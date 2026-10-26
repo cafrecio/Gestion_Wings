@@ -1,0 +1,5 @@
+{"dia": "2026-10-26", "descripcion": "Día 17, noche: Rocío cierra con lo esperado, deja $10.000 y el dueño valida.",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "cerrar_caja", "cambio": 10000},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Rocío Paz"}
+ ]}
