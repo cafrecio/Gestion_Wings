@@ -1,0 +1,24 @@
+{
+  "veredicto": "APROBADA; T81 a_verificar sin cierre",
+  "independiente": {
+    "aprobadas": 4,
+    "aserciones": 142
+  },
+  "rapida": {
+    "aprobadas": 926,
+    "omitidas": 6,
+    "aserciones": 7425,
+    "salida": 0,
+    "base": "wings_testing_codex"
+  },
+  "enlaces_locales_revisados": 293,
+  "fuentes_de_producto_intactas": 14,
+  "t34_original_restaurado": true,
+  "limites": [
+    "Sin nueva aprobación visual: Carlos ya la otorgó",
+    "Sin suite completa ni grupo lento",
+    "Sin despliegue ni push",
+    "Cobertura del grafo insuficiente: fuentes y rastreo literal complementarios"
+  ],
+  "baseline_igual_al_padre_normalizando_lf_y_blanco_final": true
+}

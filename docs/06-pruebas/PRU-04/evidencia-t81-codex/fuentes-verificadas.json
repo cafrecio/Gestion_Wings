@@ -1,0 +1,83 @@
+{
+  "head": "c6555ea01d83ca8f8cbbb7374e11b47647b6c6dc",
+  "commits_t81": [
+    "d5c4df00",
+    "0f6ebbd5",
+    "d55dcc02"
+  ],
+  "fuentes": [
+    {
+      "archivo": "app/Models/Alumno.php",
+      "sha256_actual_normalizado_lf": "21d48273b3adde7caeec70766dcb80e828e0d46c3c5677b888678a7d009d4b42",
+      "igual_al_padre_t81": false
+    },
+    {
+      "archivo": "app/Http/Controllers/AlumnoWebController.php",
+      "sha256_actual_normalizado_lf": "4abe85ee09aa021be2906962291bf6a07c06ae7175823f4532cbd261d23632d2",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "app/Http/Controllers/CobranzaWebController.php",
+      "sha256_actual_normalizado_lf": "d1bf5cc59fc9d74a87500e5715ac699fd7ea7afe9a668a8b12733b5ec97c9783",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "app/Services/CobranzaEstadoService.php",
+      "sha256_actual_normalizado_lf": "a5aa2cd33a0eec79d70963298a0211865487c4cb6b4cce494f794135b35d5542",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "app/Services/ReciboService.php",
+      "sha256_actual_normalizado_lf": "05f22c9dd520c93cd01211edfd3f0582a101ae57c35b5a8019ba89324a68f37f",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "app/Services/PrimeraCargaExcelService.php",
+      "sha256_actual_normalizado_lf": "dde6c858405cf81793b0236d9e4eade8e65d294c0f821992fcc4f5add5bb827f",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "app/Http/Controllers/PrimeraCargaWebController.php",
+      "sha256_actual_normalizado_lf": "733798bb88f603f0a054d9859ef3621a93268a46e2f94e4a2adc1c42a43f4780",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "resources/views/alumnos/index.blade.php",
+      "sha256_actual_normalizado_lf": "645d7da00d57f5571594dfc7de859c18db4b388bca11cfdabeea307e6cecd767",
+      "igual_al_padre_t81": false
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "sha256_actual_normalizado_lf": "510426d3bc97e4592195c3905ea12cc529c2e58fda5a18fbde873118f41bf3c8",
+      "igual_al_padre_t81": false
+    },
+    {
+      "archivo": "resources/views/alumnos/show.blade.php",
+      "sha256_actual_normalizado_lf": "990c0072130b1c4ee83deec1dfe27340b40da960bb55961ba7add9a1f0ea039e",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "resources/views/pdfs/recibo-cuota.blade.php",
+      "sha256_actual_normalizado_lf": "fd8ebfdeea6c2283a7a309fadf800d5ca55127405c4c31a137b40b10f597d61b",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "resources/js/alumnos-index.js",
+      "sha256_actual_normalizado_lf": "a3f3aa17481cffa40791ad1230578366810b79814f83dd601b4d5f7501a97474",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "routes/web.php",
+      "sha256_actual_normalizado_lf": "b81639c33cf23caaee087118e384c2a3be00f87ab4dbef78a09f5ef4bac6b9a5",
+      "igual_al_padre_t81": true
+    },
+    {
+      "archivo": "bootstrap/app.php",
+      "sha256_actual_normalizado_lf": "790292e43314f82276d1b627deb25094e4165faec5cb30ce8924b1a7a9b523cb",
+      "igual_al_padre_t81": true
+    }
+  ],
+  "baseline_git_sha256": "bc2e00f73c4e7dd78f9ce4be49e7d53459301b9f2bc5991b2470786fe188a923",
+  "baseline_evidencia_sha256": "3514adc0e82c38b13396e7b672193c56b15d2449ef8ca5bd52663db0c13559fa",
+  "normalizacion_baseline": "LF y una sola nueva línea al final; contenido de la vista intacto"
+}

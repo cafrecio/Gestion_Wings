@@ -1,0 +1,8 @@
+{
+  "base": "wings_testing_codex",
+  "comando": "php artisan test --exclude-group=lento --colors=never",
+  "inicio_utc": "2026-10-26T01:58:07.5219619Z",
+  "fin_utc": "2026-10-26T02:00:58.6346246Z",
+  "segundos": 171.1084389,
+  "salida": 0
+}

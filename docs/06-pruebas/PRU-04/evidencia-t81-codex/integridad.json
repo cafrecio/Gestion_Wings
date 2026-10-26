@@ -1,0 +1,79 @@
+{
+  "archivos": [
+    {
+      "archivo": "evidencia-t81-codex/cobranza-antes-t81.blade.php",
+      "bytes": 14394,
+      "sha256": "3514adc0e82c38b13396e7b672193c56b15d2449ef8ca5bd52663db0c13559fa"
+    },
+    {
+      "archivo": "evidencia-t81-codex/codebase-memory.json",
+      "bytes": 13884,
+      "sha256": "3e6f5ef5acdef46a94c0770afecc10ab5454c084e48ae1c6f77919e4023eb8eb"
+    },
+    {
+      "archivo": "evidencia-t81-codex/control-entrega.json",
+      "bytes": 667,
+      "sha256": "266b88521efc27fd4fad007a09b6a504d4e913fa5a0bd0d9ace29844033a40d3"
+    },
+    {
+      "archivo": "evidencia-t81-codex/fuentes-verificadas.json",
+      "bytes": 3352,
+      "sha256": "49505c1af629a8fa7e444b19d72a2aa31f126a610a4d8a64712a117283c150e9"
+    },
+    {
+      "archivo": "evidencia-t81-codex/recibo-contacto.pdf",
+      "bytes": 1696186,
+      "sha256": "414575bf014224d271b3b745dad1fe0bf5eaf109650109bfaa0868c0468ebe3c"
+    },
+    {
+      "archivo": "evidencia-t81-codex/recibo-contacto.png",
+      "bytes": 39341,
+      "sha256": "b3ec3f079f5c8fb8a426db4be80a88f028efb83d4db51a9523a29c6bbce26e94"
+    },
+    {
+      "archivo": "evidencia-t81-codex/recibo-contacto.txt",
+      "bytes": 556,
+      "sha256": "6a0fbab05c1c8c6b3214fa10c8b2528b5d4d1ba9e7d84eb974341d4a99b3c752"
+    },
+    {
+      "archivo": "evidencia-t81-codex/suite-rapida-meta.json",
+      "bytes": 241,
+      "sha256": "4f466d0934a461cc53329cdb78a4b7041d10349a264107074f12d988bf203c35"
+    },
+    {
+      "archivo": "evidencia-t81-codex/suite-rapida.txt",
+      "bytes": 119114,
+      "sha256": "09cf2d0274f490fc5f2eb49a9f5d3997c3cf20aeee82004342b959ea48b44e1e"
+    },
+    {
+      "archivo": "evidencia-t81-codex/t34-restauracion.json",
+      "bytes": 441,
+      "sha256": "f921dda882207241b69a7b85fa38c09da8dc1bf9b98875b65d951c18c9d0b8d0"
+    },
+    {
+      "archivo": "evidencia-t81-codex/t34-salida-regenerada-original.json",
+      "bytes": 30369,
+      "sha256": "195d2b88fe1116a50c76b8a91ef0e469c63f1897a598f97ae3f801d76b0c4921"
+    },
+    {
+      "archivo": "evidencia-t81-codex/verificacion-independiente-inicial-fixture.txt",
+      "bytes": 6093,
+      "sha256": "8a8e4bf12474a018d40e537d9e8eb2ab194bb8da63181cbdc12d5c6a975cc4fb"
+    },
+    {
+      "archivo": "evidencia-t81-codex/verificacion-independiente.txt",
+      "bytes": 596,
+      "sha256": "46a6a5d1a0f4a5c48dfb57d17c3fb70fa9f029e95bafa5da44556af5cf8bc750"
+    },
+    {
+      "archivo": "evidencia-t81-codex/VerificarT81Test.php",
+      "bytes": 9387,
+      "sha256": "33a498fea38ba5835f15bbe5ddc071aef71d1d78694f2250653bb31608e87da1"
+    },
+    {
+      "archivo": "VERIFICACION-T81-CODEX.md",
+      "bytes": 7741,
+      "sha256": "4194118e0ebfddc669dbaae3ee034834eac27106ec9c9b95127098e29e2e6ea6"
+    }
+  ]
+}

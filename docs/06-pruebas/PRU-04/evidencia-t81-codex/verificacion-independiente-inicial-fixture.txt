@@ -1,0 +1,69 @@
+
+   FAIL  Tests\VerificacionT81Codex\VerificarT81Test
+  ✓ accessor prioriza conserva formato y no modifica datos                                                      12.18s
+  ⨯ tres casos por rol y cobranza igual a la vista anterior                                                      0.06s
+  ⨯ busqueda dni y autocomplete discriminan sin perder dni en la ficha                                           0.05s
+  ⨯ serializacion recibo real y plantilla excel conservan dni y campos originales                                0.06s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\VerificacionT81Codex\VerificarT81Test > tres casos por rol y cobranza igual a la vi…  QueryException
+  SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `alumnos` (`activo`, `nombre`, `apellido`, `dni`, `fecha_nacimiento`, `fecha_alta`, `celular`, `nombre_tutor`, `telefono_tutor`, `deporte_id`, `grupo_id`, `updated_at`, `created_at`) values (1, Tutor, Control T81, 58181002, 2015-01-01 00:00:00, 2026-01-01 00:00:00, ?, Tutor de prueba, 011-8765-4321, 2, 2, 2026-10-25 15:00:00, 2026-10-25 15:00:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null")
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\VerificacionT81Codex\VerificarT81Test > busqueda dni y autocomplete discriminan sin…  QueryException
+  SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `alumnos` (`activo`, `nombre`, `apellido`, `dni`, `fecha_nacimiento`, `fecha_alta`, `celular`, `nombre_tutor`, `telefono_tutor`, `deporte_id`, `grupo_id`, `updated_at`, `created_at`) values (1, Objetivo, Control T81, 58182001, 2015-01-01 00:00:00, 2026-01-01 00:00:00, ?, Tutor de prueba, 011-8765-4321, 3, 3, 2026-10-25 15:00:00, 2026-10-25 15:00:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null")
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\VerificacionT81Codex\VerificarT81Test > serializacion recibo real y plantilla excel…  QueryException
+  SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `alumnos` (`activo`, `nombre`, `apellido`, `dni`, `fecha_nacimiento`, `fecha_alta`, `celular`, `nombre_tutor`, `telefono_tutor`, `deporte_id`, `grupo_id`, `updated_at`, `created_at`) values (1, Recibo, Control T81, 58183001, 2015-01-01 00:00:00, 2026-01-01 00:00:00, ?, Tutor de prueba, 011-8765-4321, 4, 4, 2026-10-25 15:00:00, 2026-10-25 15:00:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'celular' cannot be null")
+
+
+  Tests:    3 failed, 1 passed (33 assertions)
+  Duration: 12.47s

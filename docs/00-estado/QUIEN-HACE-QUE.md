@@ -52,7 +52,7 @@ Nada en este momento.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Días 10/11 recorridos y día 12 parcial: 61 Sí, 3 Parcial, 10 No en 74 situaciones. Cajas 8/9/10 validadas sin diferencia, Sin asistencia 0. Chrome bloqueó reactivación 12.22 y cobro 12.23; retomar solo esos pasos y contrastar 12.25. USU-005 adelantado parcial, diferencias y arrastre $24.400 sin reparar. Informes y galería EVIDENCIA-DIAS-10-12.html; revisión independiente pendiente. No repetir operaciones ni reloj: último inicio 21/10 15:00. Dashboard por casos conserva corte anterior. |
-| **T81** Teléfono en Alumnos y en Cobranza en lugar del DNI | Hecho, espera verificación (hizo Gemini) | Visual aprobado por Carlos («Las imagenes estan OK», 25/10). Falta verificación de lógica por Codex |
+| **T81** Teléfono en Alumnos y en Cobranza en lugar del DNI | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificación Codex: APROBADA. Tres teléfonos por ADMIN/OPERATIVO, Cobranza conserva importes frente al padre T81, DNI en búsqueda/autocomplete/ficha/recibo y plantilla Excel comprobados. Independientes 4/142; rápida 926 aprobadas/6 omitidas, 7425 aserciones, salida 0 en wings_testing_codex. Visual aprobado por Carlos. Informe VERIFICACION-T81-CODEX.md; sin cierre ni despliegue. |
 
 ## Gemini
 

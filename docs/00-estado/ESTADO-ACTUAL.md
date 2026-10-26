@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## T81 — Lógica verificada por Codex CAB, 25/10/2026
+
+**APROBADA**, sin cerrar T81. Verificador independiente: **4 aprobadas/142 aserciones**;
+suite rápida en `wings_testing_codex`: **926 aprobadas, 6 omitidas, 7.425 aserciones,
+170,53 s, salida 0**. Tres teléfonos probados con ADMIN/OPERATIVO: celular propio,
+fallback real al tutor y vacío. Cobranza conserva importes y celdas económicas frente
+a la vista del padre de T81. Búsqueda/autocomplete por DNI, ficha, serialización,
+recibo PDF real y plantilla Excel comprobados. Accessor nuevo solo consumido por las
+dos vistas del pedido; rastreo MCP completado contra fuentes por cobertura insuficiente.
+Carlos ya aprobó lo visual. T81 permanece `a_verificar`, `hizo=Gemini`, `verifica=Codex`.
+[Informe y límites](../06-pruebas/PRU-04/VERIFICACION-T81-CODEX.md). Sin producto, tabla,
+servidor, datos del club ni push; no suite completa. La salida lateral regenerada de T34
+se preservó en la evidencia propia y su archivo original se devolvió a HEAD.
+
 ## T79 y T80 — Verificación independiente, Codex CAB, 25/10/2026
 
 T79 aprobada: 52 reportes, 26 cortes y dos evoluciones iguales salvo IDs temporales; Cobranza

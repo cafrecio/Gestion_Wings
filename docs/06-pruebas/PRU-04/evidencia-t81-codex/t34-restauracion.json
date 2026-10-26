@@ -1,0 +1,7 @@
+{
+  "causa": "ClaseSinAsistenciaYDniT34T67Test.php:302 guarda sin-presentes.html durante la suite; el archivo estaba limpio antes de la corrida.",
+  "sha256_salida_conservada": "aae1804169d33a32fcb5b43860dceee377a1f05251419bc2208b955739c90a6a",
+  "sha256_head_restaurado": "d1a4ebb97d9a55f77c96a6ba476e816e7e03427e06b94ed1c392c6119f2835af",
+  "restaurado_igual_head": true,
+  "copia_salida_original": "t34-salida-regenerada-original.json"
+}

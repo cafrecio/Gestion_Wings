@@ -1,0 +1,9 @@
+
+   PASS  Tests\VerificacionT81Codex\VerificarT81Test
+  ✓ accessor prioriza conserva formato y no modifica datos                                                      12.05s
+  ✓ tres casos por rol y cobranza igual a la vista anterior                                                      0.48s
+  ✓ busqueda dni y autocomplete discriminan sin perder dni en la ficha                                           0.48s
+  ✓ serializacion recibo real y plantilla excel conservan dni y campos originales                                3.76s
+
+  Tests:    4 passed (142 assertions)
+  Duration: 16.89s

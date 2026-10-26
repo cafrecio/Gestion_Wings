@@ -94,4 +94,4 @@ Capturas tomadas con Chrome headless emulando escritorio y móvil sobre el servi
 ## 5. Próximo paso
 
 - **Visual:** Aprobado por Carlos el 25/10/2026 («Las imagenes estan OK»).
-- **Lógica:** Falta verificación de lógica por otro agente (Codex) conforme a `AGENTS.md §6a`.
+- **Lógica:** Verificada por Codex CAB el 25/10/2026: **APROBADA**. [Informe y evidencia](VERIFICACION-T81-CODEX.md): 4/142 independientes; rápida 926 aprobadas/6 omitidas, 7.425 aserciones, salida 0 en `wings_testing_codex`. Se conserva `a_verificar`, sin cierre.

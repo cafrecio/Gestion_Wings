@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-25 — Codex CAB — Verificación independiente de T81
+
+Leídos implementación y commits d5c4df00/0f6ebbd5/d55dcc02. Lógica **APROBADA** en c6555ea0; Carlos ya aprobó aspecto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T81-CODEX.md).
+Independientes 4/142: celular propio, tutor con celular vacío y sin números, ambos roles; Cobranza igual a vista anterior en importes/celdas económicas. DNI en búsqueda/autocomplete/ficha y PDF real conservado; serialización y plantilla Excel comprobadas.
+Rastreo MCP con cobertura insuficiente, completado por fuentes/rg; solo dos vistas consumen el nuevo accessor. Catorce fuentes contrastadas, sin tocar producto ni tabla.
+Rápida en wings_testing_codex: 926 aprobadas, 6 omitidas, 7.425 aserciones, 170,53 s, salida 0. Fixture propio NULL corregido a cadena vacía (columna NOT NULL), salida inicial conservada; no defecto atribuido al producto.
+Suite regeneró HTML histórico T34: copia propia preservada y original devuelto a HEAD. Sin datos del club, servidor, suite completa ni push.
+Tablero: T81 sigue a_verificar, hizo=Gemini, verifica=Codex; no se cierra. Sigue decisión de cierre del dueño, con aprobación visual existente.
+
 ## 2026-10-25 — Codex CAB — Días 10–12: entrega parcial y bloqueo de Chrome
 
 74 situaciones congeladas antes de operar en test/wingstest; [Día 10](../06-pruebas/PRU-04/DIA-10.md) 18 Sí/4 No, [Día 11](../06-pruebas/PRU-04/DIA-11.md) 23 Sí/4 No, [Día 12](../06-pruebas/PRU-04/DIA-12.md) 20 Sí/3 Parcial/2 No. [Galería](../06-pruebas/PRU-04/EVIDENCIA-DIAS-10-12.html).
