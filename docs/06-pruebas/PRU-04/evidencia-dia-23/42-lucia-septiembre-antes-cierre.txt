@@ -1,0 +1,58 @@
+Browser tab: 3, Title: "Septiembre 2026 — Gaitán – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/3".
+1 AXWebArea Septiembre 2026 — Gaitán – Wings, URL: test.gestionar-te.com.ar/liquidaciones/3
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Liquidación — Gaitán, Lucía, Value: 1
+		30 text Liquidación — Gaitán, Lucía
+	31 container
+		32 heading Gaitán, Lucía, Value: 2
+			33 text Gaitán, Lucía
+		34 text Septiembre 2026 Patín Tipo Por hora Monto final $36,000.00 Estado Abierta
+		35 button Cerrar
+		36 button Recalcular
+		37 button Eliminar
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		39 text CLASES LIQUIDADAS 3 VALOR POR HORA $12,000.00 TOTAL $36,000.00
+		40 container
+			41 heading Lunes 28 de septiembre, Value: 3
+				42 text Lunes 28 de septiembre
+			43 text Validada
+		44 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		45 container
+			46 heading Martes 29 de septiembre, Value: 3
+				47 text Martes 29 de septiembre
+			48 text Validada
+		49 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		50 container
+			51 heading Miércoles 30 de septiembre, Value: 3
+				52 text Miércoles 30 de septiembre
+			53 text Validada
+		54 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00 CÁLCULO DE LOS DETALLES $36,000.00
+	55 text Wings
+
+The focused UI element is 1 AXWebArea Septiembre 2026 — Gaitán – Wings, URL: test.gestionar-te.com.ar/liquidaciones/3

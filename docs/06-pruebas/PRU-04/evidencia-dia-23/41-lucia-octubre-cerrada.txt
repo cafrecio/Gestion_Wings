@@ -1,0 +1,152 @@
+Browser tab: 3, Title: "Octubre 2026 — Gaitán – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/2".
+1 AXWebArea Octubre 2026 — Gaitán – Wings, URL: test.gestionar-te.com.ar/liquidaciones/2
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Liquidación — Gaitán, Lucía, Value: 1
+		30 text Liquidación — Gaitán, Lucía
+	31 container
+		32 heading Gaitán, Lucía, Value: 2
+			33 text Gaitán, Lucía
+		34 text Octubre 2026 Patín Tipo Por hora Monto final $204,000.00 Estado Cerrada
+		35 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		36 text CLASES LIQUIDADAS 17 VALOR POR HORA $12,000.00 TOTAL $204,000.00
+		37 container
+			38 heading Jueves 1 de octubre, Value: 3
+				39 text Jueves 1 de octubre
+			40 text Con asistencia
+		41 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		42 container
+			43 heading Lunes 5 de octubre, Value: 3
+				44 text Lunes 5 de octubre
+			45 text Con asistencia
+		46 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		47 container
+			48 heading Martes 6 de octubre, Value: 3
+				49 text Martes 6 de octubre
+			50 text Con asistencia
+		51 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		52 container
+			53 heading Miércoles 7 de octubre, Value: 3
+				54 text Miércoles 7 de octubre
+			55 text Con asistencia
+		56 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		57 container
+			58 heading Jueves 8 de octubre, Value: 3
+				59 text Jueves 8 de octubre
+			60 text Con asistencia
+		61 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		62 container
+			63 heading Martes 13 de octubre, Value: 3
+				64 text Martes 13 de octubre
+			65 text Con asistencia
+		66 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		67 container
+			68 heading Miércoles 14 de octubre, Value: 3
+				69 text Miércoles 14 de octubre
+			70 text Con asistencia
+		71 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		72 container
+			73 heading Jueves 15 de octubre, Value: 3
+				74 text Jueves 15 de octubre
+			75 text Con asistencia
+		76 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		77 container
+			78 heading Viernes 16 de octubre, Value: 3
+				79 text Viernes 16 de octubre
+			80 text Con asistencia
+		81 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		82 container
+			83 heading Lunes 19 de octubre, Value: 3
+				84 text Lunes 19 de octubre
+			85 text Con asistencia
+		86 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		87 container
+			88 heading Martes 20 de octubre, Value: 3
+				89 text Martes 20 de octubre
+			90 text Con asistencia
+		91 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		92 container
+			93 heading Miércoles 21 de octubre, Value: 3
+				94 text Miércoles 21 de octubre
+			95 text Con asistencia
+		96 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		97 container
+			98 heading Jueves 22 de octubre, Value: 3
+				99 text Jueves 22 de octubre
+			100 text Con asistencia
+		101 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		102 container
+			103 heading Lunes 26 de octubre, Value: 3
+				104 text Lunes 26 de octubre
+			105 text Con asistencia
+		106 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		107 container
+			108 heading Martes 27 de octubre, Value: 3
+				109 text Martes 27 de octubre
+			110 text Con asistencia
+		111 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00
+		112 container
+			113 heading Miércoles 28 de octubre, Value: 3
+				114 text Miércoles 28 de octubre
+			115 text Con asistencia
+		116 text Grupo: Patín — Principiantes Duración: 1 h Subtotal: $12,000.00
+		117 container
+			118 heading Jueves 29 de octubre, Value: 3
+				119 text Jueves 29 de octubre
+			120 text Con asistencia
+		121 text Grupo: Patín — Avanzadas Duración: 1 h Subtotal: $12,000.00 CÁLCULO DE LOS DETALLES $204,000.00 Registrar pago de liquidación Lucía no tiene CBU ni alias cargado.
+		122 link Description: Editar, Value: test.gestionar-te.com.ar/profesores/1/edit
+		123 container
+			124 text Tipo de caja  *
+		125 pop up button (collapsed, settable) Tipo de caja *, Value: — Seleccioná —, ID: tipo_caja_id, Secondary Actions: Expand
+			126 menu
+				127 (selected) — Seleccioná —
+				128 Banco Galicia — Saldo: $576,050.00 (descubierto permitido)
+				129 Banco Nación — Saldo: $128,000.00 (descubierto permitido)
+				130 Banco Nacion ahorro — Saldo: $0.00 (descubierto permitido)
+				131 Efectivo — Saldo: $1,617,300.00
+				132 Mercado Pago — Saldo: $2,638,550.75
+		133 container
+			134 text Fecha de pago  *
+		135 date field (settable) Fecha de pago *, Value: 2026-11-01, ID: fecha_pago
+			136 container
+				137 stepper
+				138 stepper
+				139 stepper
+			140 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		141 text Observaciones
+		142 text field (settable) Observaciones, ID: observaciones
+		143 button Pagar
+		144 text Cancelar liquidación Permite volver a revisar las asistencias de las clases y generar una nueva liquidación para este período. Esta liquidación quedará registrada como cancelada.
+		145 container
+			146 text Motivo de cancelación  *
+		147 text field (settable) Motivo de cancelación *, ID: motivo_cancelacion
+		148 button Cancelar
+	149 text Wings
+
+The focused UI element is 1 AXWebArea Octubre 2026 — Gaitán – Wings, URL: test.gestionar-te.com.ar/liquidaciones/2

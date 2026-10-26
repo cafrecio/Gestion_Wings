@@ -1,5 +1,7 @@
 # Autorización recibida; acceso al navegador deshabilitado
 
+> Corte histórico. Estado posterior: 3 Cerradas/5 Abiertas, ninguna Pagada; Carlos ordenó conservar las restantes abiertas. No continuar los cierres de esta constancia. [Resultado vigente](../DIA-23.md).
+
 26/10/2026 · Codex CyE.
 
 Carlos respondió a la consulta específica: «Sí, cerrá las ocho desde el integrado, sin pagar». Autoriza el nuevo intento de Lucía octubre y los otros siete cierres, comprobando Abierta antes de cada uno. No requiere otra confirmación de esta autorización.

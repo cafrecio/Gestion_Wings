@@ -1,5 +1,7 @@
 # Cierres pendientes de autorización de cambio de navegador
 
+> Corte histórico. Estado posterior: 3 Cerradas/5 Abiertas, ninguna Pagada; Carlos ordenó conservar las restantes abiertas. No continuar los cierres de esta constancia. [Resultado vigente](../DIA-23.md).
+
 Codex CyE · 26/10/2026.
 
 Lucía octubre#2 generada con17clases/204.000. Dos intentos de confirmación en Chrome fallaron con Emulation.setFocusEmulationEnabled; la consulta posterior mostró Abierta, no se presumió cerrada. Enter tampoco resolvió la interacción. No se pagó.

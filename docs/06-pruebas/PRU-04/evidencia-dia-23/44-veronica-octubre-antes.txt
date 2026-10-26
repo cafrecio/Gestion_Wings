@@ -1,0 +1,78 @@
+Browser tab: 3, Title: "Octubre 2026 — Salinas – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/4".
+1 AXWebArea Octubre 2026 — Salinas – Wings, URL: test.gestionar-te.com.ar/liquidaciones/4
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Liquidación — Salinas, Verónica, Value: 1
+		30 text Liquidación — Salinas, Verónica
+	31 container
+		32 heading Salinas, Verónica, Value: 2
+			33 text Salinas, Verónica
+		34 text Octubre 2026 Patín Tipo Por hora Monto final $105,000.00 Estado Abierta
+		35 button Cerrar
+		36 button Recalcular
+		37 button Eliminar
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		39 text CLASES LIQUIDADAS 7 VALOR POR HORA $15,000.00 TOTAL $105,000.00
+		40 container
+			41 heading Viernes 2 de octubre, Value: 3
+				42 text Viernes 2 de octubre
+			43 text Con asistencia
+		44 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		45 container
+			46 heading Lunes 5 de octubre, Value: 3
+				47 text Lunes 5 de octubre
+			48 text Con asistencia
+		49 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		50 container
+			51 heading Viernes 9 de octubre, Value: 3
+				52 text Viernes 9 de octubre
+			53 text Con asistencia
+		54 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		55 container
+			56 heading Lunes 19 de octubre, Value: 3
+				57 text Lunes 19 de octubre
+			58 text Con asistencia
+		59 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		60 container
+			61 heading Viernes 23 de octubre, Value: 3
+				62 text Viernes 23 de octubre
+			63 text Con asistencia
+		64 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		65 container
+			66 heading Lunes 26 de octubre, Value: 3
+				67 text Lunes 26 de octubre
+			68 text Con asistencia
+		69 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		70 container
+			71 heading Viernes 30 de octubre, Value: 3
+				72 text Viernes 30 de octubre
+			73 text Con asistencia
+		74 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00 CÁLCULO DE LOS DETALLES $105,000.00
+	75 text Wings
+
+The focused UI element is 1 AXWebArea Octubre 2026 — Salinas – Wings, URL: test.gestionar-te.com.ar/liquidaciones/4

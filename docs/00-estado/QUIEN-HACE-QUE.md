@@ -49,13 +49,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Revisar Dia23 e interno/seguridad/velocidad:100cuotas correctas;3Cerradas345000/5Abiertas1025280,sin pagos. Carlos confirmo las tres y detuvo cierres; pidio modal propio para proxima prueba. No cerrar ni repetir reloj/generacion/decisiones. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia23:100cuotas correctas;8liquidaciones abiertas y13atrasadas validadas. Carlos autorizo cierres desde integrado sin pagar; herramienta navegador local deshabilitada. Restablecer acceso, verificar Abierta y cerrar; no repetir reloj/generacion. |
+Nada en este momento.
 
 ## Gemini
 

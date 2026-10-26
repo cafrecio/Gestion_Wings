@@ -1,0 +1,85 @@
+{
+  "entorno": "TEST/wingstest",
+  "fecha_real": "2026-10-26",
+  "orden_vigente": "Conservar cinco abiertas; sin más cierres ni pagos",
+  "evidencia": "47-revalidacion-continuidad-tres-cerradas-cinco-abiertas.txt",
+  "liquidaciones": [
+    {
+      "id": 2,
+      "profesor": "Lucía Gaitán",
+      "periodo": "2026-10",
+      "total": 204000,
+      "estado": "Cerrada",
+      "pagada": false
+    },
+    {
+      "id": 3,
+      "profesor": "Lucía Gaitán",
+      "periodo": "2026-09",
+      "total": 36000,
+      "estado": "Cerrada",
+      "pagada": false
+    },
+    {
+      "id": 4,
+      "profesor": "Verónica Salinas",
+      "periodo": "2026-10",
+      "total": 105000,
+      "estado": "Cerrada",
+      "pagada": false
+    },
+    {
+      "id": 5,
+      "profesor": "Verónica Salinas",
+      "periodo": "2026-09",
+      "total": 30000,
+      "estado": "Abierta",
+      "pagada": false
+    },
+    {
+      "id": 6,
+      "profesor": "Mariela Ocampo",
+      "periodo": "2026-10",
+      "total": 270000,
+      "estado": "Abierta",
+      "pagada": false
+    },
+    {
+      "id": 7,
+      "profesor": "Mariela Ocampo",
+      "periodo": "2026-09",
+      "total": 54000,
+      "estado": "Abierta",
+      "pagada": false
+    },
+    {
+      "id": 8,
+      "profesor": "Hernán Quintana",
+      "periodo": "2026-10",
+      "total": 484680,
+      "estado": "Abierta",
+      "pagada": false
+    },
+    {
+      "id": 9,
+      "profesor": "Martín Acosta",
+      "periodo": "2026-10",
+      "total": 186600,
+      "estado": "Abierta",
+      "pagada": false
+    }
+  ],
+  "total_generado": 1370280,
+  "total_cerradas": 345000,
+  "total_abiertas": 1025280,
+  "confirmaciones_manuales": {
+    "ids": [
+      2,
+      3,
+      4
+    ],
+    "autor": "Carlos, según declaración expresa",
+    "aclaracion": "Confirme tambien las otras dos, salieron compulsivamente",
+    "limite": "La herramienta también envió aceptación para Lucía septiembre; no se atribuye exclusivamente a Codex."
+  }
+}
