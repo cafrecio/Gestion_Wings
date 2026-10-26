@@ -1,0 +1,474 @@
+[
+  {
+    "id": "19.1",
+    "quien": "Sandra",
+    "tarea": "Abre la caja y escribe **100000** por error; el turno anterior dejó $10.000. Después corrige a **10000**.",
+    "esperado": "Con 100000: «El efectivo recibido difiere en más de un 50% del cierre anterior ($10.000)…», y pide confirmar aparte. No lo confirma. Con 10000 abre sin aviso (CAJ-007, CAJ-005).",
+    "resultado": "Parcial",
+    "observado": "Se abrió caja #36 con $10.000. El intento de escribir 100000 mediante fill quedó en 10000.00 por interacción con el campo. No se obtuvo el aviso >50%, no se reabrió ni rectificó. Límite de ejecución, no rechazo de Wings demostrado.",
+    "evidencia": [
+      "evidencia-dia-19/19.1-apertura-10000-aviso-no-probado.txt",
+      "evidencia-dia-19/19.1-apertura-10000-aviso-no-probado.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.2",
+    "quien": "Dueño",
+    "tarea": "En la ficha de **Agustín Acosta**, condona la cuota de reingreso de octubre de **$14.000**: primero sin motivo, después con «Reingreso generado por error: nunca dejó el club».",
+    "esperado": "Sin motivo no condona. Con motivo queda condonada, sin mover plata. Agustín sale de Cobranza y pasa a Al día (CBZ-007).",
+    "resultado": "Sí",
+    "observado": "Sin motivo: validación HTML «Completa este campo». Con el motivo del guion se condonaron $14.000. Cobranza pasó de $248.000 a $234.000; 100 Al día y 0 En plazo. No se generó un movimiento de plata visible por esta acción.",
+    "evidencia": [
+      "evidencia-dia-19/19.2-despues-condonar.txt",
+      "evidencia-dia-19/19.2-despues-condonar.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.3",
+    "quien": "Sandra",
+    "tarea": "La mamá de **Joaquín Vega** (debe octubre, $44.000) trae **$50.000** y Sandra los carga. Ve el aviso y **cancela**. Después cobra **$44.000** en efectivo.",
+    "esperado": "Esperado según el catálogo: con $50.000 avisa que no se pueden cargar otros conceptos como si fueran cuota, con Continuar y Cancelar. Cancelar no cobra nada. Con $44.000, Joaquín pasa a **Al día** (COB-010).",
+    "resultado": "Parcial",
+    "observado": "Con el importe de fila $50.000, el resumen mostró $44.000. No se envió ese formulario ni se probó el diálogo Continuar/Cancelar. Se sustituyó por $44.000 y se cobró una vez en efectivo (CUOTA-133). Deuda total $190.000, 101 Al día: Joaquín dejó la lista de morosos. Diferencia frente al catálogo en la presentación del exceso; confirmación no probada.",
+    "evidencia": [
+      "evidencia-dia-19/19.3-cobranza-190000.txt",
+      "evidencia-dia-19/19.3-cobranza-190000.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.4a",
+    "quien": "Sandra",
+    "tarea": "Antes de corregir, carga un gasto **sin elegir rubro** y después otro con **importe 0**. No los completa.",
+    "esperado": "Ninguno se guarda; cada error se explica en castellano y conserva lo demás. El efectivo esperado no cambia (MOV-005).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. No se recorrió: agregado al guion después de comenzar. No se rehízo el día ni se repitió el reloj.",
+    "evidencia": [],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "19.4",
+    "quien": "Sandra",
+    "tarea": "La limpieza costó **$3.500**, no $3.800: corrige el movimiento.",
+    "esperado": "Queda en $3.500 y el efectivo esperado se recalcula (MOV-007).",
+    "resultado": "Sí",
+    "observado": "Movimiento #171 de Limpieza corregido $3.800 → $3.500 como exige este caso. Pantalla «Movimiento actualizado». Los gastos de la caja bajaron $6.300 → $6.000 y el esperado $267.700 → $268.000 (el primer esperado es cuenta inferida de los renglones, no captura anterior).",
+    "evidencia": [
+      "evidencia-dia-19/19.4-limpieza-3500-guardada.txt",
+      "evidencia-dia-19/19.4-limpieza-3500-guardada.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.5",
+    "quien": "Sandra",
+    "tarea": "El cuaderno de $2.500 lo pagó el dueño de su bolsillo: **elimina** el gasto de Librería.",
+    "esperado": "Desaparece de la caja, el esperado se recalcula y queda registro de qué se eliminó, quién y cuándo (MOV-008).",
+    "resultado": "No probado por la herramienta",
+    "observado": "Dos intentos desde pantallas nuevas. Confirmación nativa falló: primero Emulation.setFocusEmulationEnabled; segundo No dialog is showing. No se hizo un tercer intento ni se usó consola. Librería #172 continúa en la caja, $2.500; 14 movimientos. Historial de eliminación no probado.",
+    "evidencia": [
+      "evidencia-dia-19/19.5-esperado-final.txt",
+      "evidencia-dia-19/19.5-esperado-final.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.6",
+    "quien": "Hernán",
+    "tarea": "Llueve y no viene nadie a Fútbol Principiantes 18–19: toma la lista con **los 23 ausentes**.",
+    "esperado": "Se guarda y la clase sale de «Sin asistencia» aunque no haya presentes (ASI-003).",
+    "resultado": "Sí",
+    "observado": "Hernán guardó la #60 con 23 ausentes, botón exacto btn-guardar-asistencias una vez. Su listado cambió Pendiente → Sin presentes. El 31/10 la lista filtrada Sin asistencia no contiene esa clase. Observación adicional: el Inicio de Sandra la rotuló «Sin lista» aun después del guardado; no se corrigió.",
+    "evidencia": [
+      "evidencia-dia-19/19.6-listado-despues.txt",
+      "evidencia-dia-19/19.6-listado-despues.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "19.6b",
+    "quien": "Sandra",
+    "tarea": "Antes de cerrar, mira **su caja del día**.",
+    "esperado": "Cada movimiento con hora, concepto, medio e importe; el eliminado ya no está. Efectivo esperado **$270.500**; Mercado Pago **$146.000** aparte, sin sumarse al cajón (CAJ-017).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. No se recorrió: agregado al guion después de comenzar. No se rehízo el día ni se repitió el reloj.",
+    "evidencia": [],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "19.7a",
+    "quien": "Sandra",
+    "tarea": "Empieza el cierre y, por error, pone **dejar de cambio $300.000** con contado $271.000.",
+    "esperado": "Esperado según el catálogo: no cierra y avisa que el cambio no puede superar lo contado; la caja sigue abierta (CAJ-021).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. No se recorrió: agregado al guion después de comenzar. No se rehízo el día ni se repitió el reloj.",
+    "evidencia": [],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "19.7",
+    "quien": "Sandra",
+    "tarea": "Cierra contando **$271.000**, $500 más que lo esperado. Deja $10.000.",
+    "esperado": "Esperado **$270.500** (10.000 + 202.000 en efectivo de la rutina + 44.000 de Joaquín + 18.000 de la remera − 3.500). Muestra **sobrante $500** y deja cerrar. No crea ningún ingreso por la diferencia (CAJ-020).",
+    "resultado": "No ejecutado",
+    "observado": "El formulario muestra esperado $268.000 frente a $270.500 del guion. No se ingresó ni confirmó el contado $271.000; no se cerró. La diferencia deriva de Librería pendiente de eliminar. Se aplicó la regla de no confirmar con total distinto.",
+    "evidencia": [
+      "evidencia-dia-19/19.7-esperado-distinto-no-cierra.txt",
+      "evidencia-dia-19/19.7-esperado-distinto-no-cierra.jpg"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.1",
+    "quien": "Rocío",
+    "tarea": "Vende un par de **patines, $85.000 por MP** (Indumentaria → Patines) y una **remera, $18.000 en efectivo**.",
+    "esperado": "Los dos aparecen como ingresos de la caja; solo la remera sube el efectivo esperado (MOV-002).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.2",
+    "quien": "Dueño",
+    "tarea": "Se inunda la cancha: **cancela la clase de hoy de Fútbol Avanzadas 19–20** (#71). Primero sin motivo, después con «Cancha inundada».",
+    "esperado": "Sin motivo no cancela. Con motivo sigue en el listado de hoy, apagada, con «Cancelada» y el motivo (CLA-011).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.3",
+    "quien": "Hernán",
+    "tarea": "Entra a la #71 para tomar lista.",
+    "esperado": "La ve cancelada: aviso de bloqueo y Guardar deshabilitado; no se guarda ninguna marca (ASI-005).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.4",
+    "quien": "Dueño",
+    "tarea": "Crea una **clase única de recuperación**: Fútbol Avanzadas, **sábado 31/10**, con Hernán. Primero pone de **14:00 a 13:00**; después corrige a **14:00 a 15:00**.",
+    "esperado": "Con la hora de fin antes del inicio, rechaza con un aviso claro y conserva lo cargado (CLA-005). Con 14 a 15 se crea; solo ofrece profesores de Fútbol, y Hernán la ve en sus clases del 31 (CLA-002).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.5",
+    "quien": "Mariela",
+    "tarea": "Quiere adelantar la lista de la clase del **sábado 31, Federadas 10–11** (#50).",
+    "esperado": "No deja guardar una clase cuyo día no llegó, y lo explica (ASI-011).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.6",
+    "quien": "Rocío",
+    "tarea": "La familia de **Lucas Gómez** cambió de celular: lo corrige de 1145123401 a **1145123499**.",
+    "esperado": "La ficha y el listado muestran el número nuevo; sus pagos y cuotas no cambian (ALU-012).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "20.7",
+    "quien": "Rocío",
+    "tarea": "En su **Inicio**, a mitad del turno.",
+    "esperado": "«Caja abierta», con la hora en que la abrió, Cobrar y Registrar (REP-016).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "20.8",
+    "quien": "Rocío",
+    "tarea": "En **Movimientos**, busca los cobros del miércoles.",
+    "esperado": "Ve los cobros de cuota de Sandra del 28/10, con quién los hizo, y puede abrir sus recibos. No ve gastos del dueño (MOV-011).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "20.9",
+    "quien": "Rocío",
+    "tarea": "En **Caja**, el listado de cajas.",
+    "esperado": "Esperado según el catálogo: ve solo sus cajas de los últimos 30 días (la del 26/10 y la de hoy), no las de Sandra ni Pablo (CAJ-035).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "20.10",
+    "quien": "Rocío",
+    "tarea": "Quiere crear una clase de prueba para una amiga: Clases → Nueva (y, si no aparece el botón, entrando a la dirección `/clases/create`).",
+    "esperado": "No puede: crear clases es del dueño; forzando, acceso restringido (CLA-008).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-20/00-reloj.txt",
+      "evidencia-dia-20/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "21.1",
+    "quien": "Verónica",
+    "tarea": "Toma la lista de **Patín Intermedias 16–17** (#22): 18 alumnas; todas presentes menos **Berenice Sánchez**.",
+    "esperado": "Esperado según el catálogo: la lista indica que Berenice, que es Deudor, no puede entrar por deuda, sin mostrar importes (ASI-013). Guarda con 17 presentes.",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "21.2",
+    "quien": "Pablo",
+    "tarea": "**Berenice Sánchez** (debe septiembre y octubre, $86.000) paga **$20.000** de septiembre en efectivo. Primero sin motivo; si lo pide, «Paga el resto el sábado».",
+    "esperado": "Esperado según el catálogo: sin motivo no cobra (COB-009). Con motivo, septiembre queda con saldo $23.000, Berenice sigue Deudor y el total adeudado baja $20.000 (COB-008).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "21.3",
+    "quien": "Pablo",
+    "tarea": "**Felipe Sosa** paga agosto y octubre, **$76.000** en efectivo, y Pablo descarga el recibo.",
+    "esperado": "Pasa a **Al día**. El recibo detalla agosto $38.000 y octubre $38.000, total $76.000 (REC-002).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "21.4",
+    "quien": "Pablo",
+    "tarea": "**Santino Romero** deja el club debiendo octubre ($28.000). Pablo lo da de baja **con el interruptor del listado de Alumnos**.",
+    "esperado": "Queda Inactivo y su cuota pendiente sigue a la vista en la ficha (ALU-025). Sale de Cobranza: 103 activos y el total adeudado baja $28.000. Ya no aparece en el buscador de Cobrar (ALU-017).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "21.5",
+    "quien": "Dueño",
+    "tarea": "Lleva **$500.000** del efectivo al **Banco Galicia** (Cashflow → Transferir).",
+    "esperado": "Un solo formulario: salida Efectivo, destino Galicia. Efectivo baja y Galicia sube $500.000; los ingresos y gastos del mes no cambian (CSH-018).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "21.6",
+    "quien": "Rocío",
+    "tarea": "Pasa a mediodía y, desde Movimientos, intenta **editar el arreglo de $12.000** de la caja de Pablo (y, si no hay botón, entrando a su dirección de edición).",
+    "esperado": "Acceso restringido; la caja de Pablo no cambia (MOV-016).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "21.7",
+    "quien": "Pablo",
+    "tarea": "En **Movimientos**, busca el cobro de Joaquín que hizo Sandra el 28/10.",
+    "esperado": "Lo encuentra, con quién lo cobró. No ve la transferencia ni los gastos del dueño (MOV-012).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "21.8",
+    "quien": "Pablo",
+    "tarea": "Antes de que corra el cierre de la noche, mira su caja.",
+    "esperado": "El esperado, **$270.000**, cuenta solo el efectivo; los $171.000 de Mercado Pago figuran aparte (CAJ-036).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-21/00-reloj.txt",
+      "evidencia-dia-21/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "22.1",
+    "quien": "Pablo",
+    "tarea": "**Berenice Sánchez** paga lo que debe, **$66.000 por MP**.",
+    "esperado": "Pasa a **Al día**. Cobranza queda sin deuda.",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.2",
+    "quien": "Hernán",
+    "tarea": "Toma la lista de la **clase de recuperación de 14 a 15** (20.4): los 15 presentes.",
+    "esperado": "Se guarda. Si el 20.4 no se pudo hacer, se saltea.",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.3",
+    "quien": "Dueño",
+    "tarea": "Paga la **luz, $62.000** por Banco Galicia, desde Cashflow.",
+    "esperado": "Egreso directo a su nombre, con Editar y Eliminar. Galicia baja; el gasto del mes sube (CSH-002).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.4",
+    "quien": "Dueño",
+    "tarea": "La factura tenía descuento: corrige la luz a **$61.500**, motivo «Descuento por débito automático».",
+    "esperado": "Queda en $61.500. El detalle muestra el valor anterior, el nuevo, el motivo, quién y cuándo (CSH-007).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.5",
+    "quien": "Dueño",
+    "tarea": "Paga el **sueldo de Sandra**, $250.000 en efectivo, desde Cashflow (Sueldos → Op-Sandra Vidal).",
+    "esperado": "Gasto de Sueldos; el Reporte de Sueldos lo incluye. Sandra no lo ve en sus Movimientos (CSH-015).",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.6",
+    "quien": "Dueño",
+    "tarea": "Liquidaciones → Nueva → **Lucía Gaitán, octubre**. La genera y después intenta **Cerrar**.",
+    "esperado": "Se genera: **17 clases × 1 h × $12.000 = $204.000**. No incluye la cancelada del 12/10 (LIQ-001). Al cerrar: «No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el 01/11/2026.» (LIQ-005). Queda abierta y sin pagar.",
+    "resultado": "No ejecutado",
+    "observado": "Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": false
+  },
+  {
+    "id": "22.7",
+    "quien": "Pablo",
+    "tarea": "Entra a **Liquidaciones** desde el menú o por la dirección `/liquidaciones`.",
+    "esperado": "Acceso restringido en castellano, sin importes, con vuelta a su Inicio (LIQ-016).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "22.8",
+    "quien": "Dueño",
+    "tarea": "Listado de **Liquidaciones**.",
+    "esperado": "Muestra la de Lucía: octubre, por hora, $204.000, Abierta (LIQ-018).",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  },
+  {
+    "id": "22.9",
+    "quien": "Dueño",
+    "tarea": "**Después de la validación de la noche:** compara los saldos de Cashflow por medio con la cuenta del cierre de abajo, y abre el Reporte de Finanzas de octubre.",
+    "esperado": "Cada medio coincide con la cuenta y con el disponible de Reportes; ningún movimiento aparece dos veces (CSH-013). La liquidación abierta no suma como gasto.",
+    "resultado": "No ejecutado",
+    "observado": "Agregado al guion durante la ejecución; no estaba en la versión congelada inicial. Día sin operar: la simulación de la mañana rechazó abrir por turno anterior abierto; no se ejecutaron pasos de pantalla ni rutinas reales.",
+    "evidencia": [
+      "evidencia-dia-22/00-reloj.txt",
+      "evidencia-dia-22/01-manana-simulacion.txt"
+    ],
+    "agregado_o_reemplazado_durante_ejecucion": true
+  }
+]

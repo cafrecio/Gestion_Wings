@@ -1,0 +1,52 @@
+Browser tab: 1293178658, Title: "Resumen – Caja del 28/10/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/36/resumen".
+0 AXWebArea Resumen – Caja del 28/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/36/resumen
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		12 text EL CLUB
+		13 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	14 container
+		15 text Sandra Vidal
+		16 button Salir
+	17 heading Resumen de caja, Value: 1
+		18 text Resumen de caja
+	19 container
+		20 text OPERATIVO Sandra Vidal APERTURA 28/10/2026 15:02 CIERRE – ESTADO ABIERTA
+		21 text 0
+		22 text  movimientos
+		23 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+		24 link Description: Nuevo, Value: test.gestionar-te.com.ar/caja/36/editar
+		25 button Cerrar
+		26 button Rectificar
+		27 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/36/detalle
+		28 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		29 heading Efectivo del mostrador, Value: 3
+			30 text Efectivo del mostrador
+		31 text Inicial
+		32 text $10,000.00
+		33 text Esperado
+		34 text $10,000.00
+		35 text Contado
+		36 text Sin declarar
+		37 text Diferencia
+		38 text Sin declarar
+		39 text Cambio que queda
+		40 text Sin declarar
+		41 text Retiro / entrega
+		42 text Sin declarar
+		43 text Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+		44 image
+		45 heading Sin movimientos, Value: 3
+			46 text Sin movimientos
+		47 text Esta caja no tiene movimientos registrados.
+	48 text Wings
+
+The focused UI element is 0 AXWebArea Resumen – Caja del 28/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/36/resumen

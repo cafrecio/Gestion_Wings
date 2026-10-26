@@ -46,13 +46,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 19-22: 19 parcial; caja36 Sandra ABIERTA esperado268000, Libreria2500 sin eliminar por dos fallos Chrome. Simulaciones20-22 fallan por turno abierto; sin operar. Revisar informes y continuidad; excepciones consultadas a Carlos. No repetir cobros. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Ejecutar dias 19 a 22 en TEST, registrar diferencias y entregar a Claude |
+Nada en este momento.
 
 ## Gemini
 

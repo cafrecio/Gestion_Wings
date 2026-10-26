@@ -1,0 +1,65 @@
+Browser tab: 1293178693, Title: "Inicio – Wings", URL: "https://test.gestionar-te.com.ar/admin/dashboard".
+1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/admin/dashboard
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 link Description: Sin asistencia 4, Help: Clases que ya pasaron sin lista tomada: no se pueden liquidar, Value: test.gestionar-te.com.ar/clases?estado=finalizada
+		9 text PLATA
+		10 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		11 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		12 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		13 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		14 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		15 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		16 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		17 text EL CLUB
+		18 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		19 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		20 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		21 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		22 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		23 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		24 text SISTEMA
+		25 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		26 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Inicio, Value: 1
+		31 text Inicio
+	32 container
+		33 text Octubre 2026
+		34 text  · Todo el negocio
+		35 link Description: Ver, Value: test.gestionar-te.com.ar/reportes?mes=2026-10
+		36 text Mes en curso · hasta el 31 de octubre
+		37 link Description: Ingresos del mes $2,373,850.75, Value: test.gestionar-te.com.ar/reportes?mes=2026-10#ingresos
+		38 link Description: Egresos del mes $257,150.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-10#egresos
+		39 link Description: Alumnos por cobrar $190,000.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-10#deuda
+		40 link Description: Profesores por pagar $0.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-10#profesores
+		41 text Resultado de octubre $2,116,700.75
+		42 heading Disponible, Value: 3
+			43 text Disponible
+		44 text $3,887,700.75
+		45 text BGA
+		46 text $137,550.00
+		47 text BNA
+		48 text $128,000.00
+		49 text Banco Nacion ahorro
+		50 text $0.00
+		51 text EFE
+		52 text $1,529,600.00
+		53 text MP
+		54 text $2,092,550.75
+		55 text Incluye arrastre · $404,000.00 por validar
+		56 heading Para revisar, Value: 3
+			57 text Para revisar
+		58 link Description: Cajas por validar 0 →, Value: test.gestionar-te.com.ar/caja?pendientes=1
+		59 link Description: Liquidaciones pendientes 0 →, Value: test.gestionar-te.com.ar/liquidaciones?pendientes=1
+		60 link Description: Clases sin asistencia 4 →, Value: test.gestionar-te.com.ar/clases?estado=finalizada
+		61 link Description: Revisión de alumnos 0 →, Value: test.gestionar-te.com.ar/revision-cobranza?estado=PENDIENTE
+	62 text Wings
+
+The focused UI element is 1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/admin/dashboard

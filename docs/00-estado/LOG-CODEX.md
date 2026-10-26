@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CyE — Días 19–22: parcial y bloqueo
+
+TEST/wingstest, app ec1b0c6e. Guion inicial congelado5b2f16a2; ampliado durante ejecución en d66eba1e. [Cuatro informes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html).
+Día19: caja36 Sandra10.000; simulación y rutina mañana14/14. Agustín condonado14.000 con motivo; Joaquín44.000 efectivo/CUOTA133, deuda190.000; Limpieza171 a3500; #60 con23ausentes/Sin presentes. Apertura100000 y exceso50000: parciales.
+Librería172/$2500 sigue: dos confirmaciones Chrome fallidas. Esperado268000, no270500; no se cerró. Noche19 falla sin caja CERRADA, rollback. Sin reparación por consola.
+Días20–22: reloj15h una vez cada uno; cada simulación falla paso1 por turno abierto y revierte. Sin rutinas reales ni casos. Último reloj31/10 15h. Guion ampliado37situaciones:3Sí,2Parcial,1herramienta,31sin ejecutar.
+Inicio/Reportes: ingresos2.373.850,75, egresos257.150, resultado2.116.700,75, disponible3.887.700,75; ingresos18000 debajo del guion además de Librería. Causa no atribuida; revisar Indumentaria. Caja ABIERTA,404000 por validar.
+Claude recibe revisión y continuidad. Carlos tiene pregunta pendiente para adaptar cierre/repetir controles; no repetir cobros. Sin producto, ESTADO-ACTUAL, tabla, suite, deploy ni push.
+
 ## 2026-10-26 — Codex CyE — Días 17–18 recorridos, con límites
 
 TEST/wingstest, ec1b0c6e. Dos relojes, simulación previa una y cuatro rutinas reales, sin repetir. Cajas #16/#17 validadas, contado/esperado $55.700/$53.000 y diferencia cero.
@@ -75,16 +84,6 @@ SSH solo lectura: 21 reportes del 17–21/10; 11 del 19/10 no son de Login, cont
 Dirigidas 38/271 verdes; completa 1041 aprobadas/6 omitidas, 8996 aserciones, 1059,07 s, salida 0, wings_testing_codex y una suite a la vez. T34 restaurado con copia previa.
 [Informe](../06-pruebas/PRU-04/VERIFICACION-T79-T80-CODEX.md). T79 aprobada; T80 aprobada con observación documental. Verifica Codex, sin cierre. Claves retiradas, sin producto ni push manual.
 
-## 2026-10-25 — Codex CAB — T77: Cobrar no inventa deuda del mes
-
-Carlos decidió no ofrecer deuda sin cuota guardada; autorizó hacer el cambio y aprobar luego el aspecto.
-Cobrar retira la cuota en memoria; selector T18 incluye el corriente manual y el envío exige elección explícita bajo bloqueo. Precio/descuento y pagos conservados, servicio intacto.
-Nueve pruebas nuevas; finales: 68/442 verdes. Completa Codex: 1034 aprobadas/6 omitidas/1 fallo de fixture T78, 8959 aserciones, 1073,34 s; T78 repetida después, sus tres pruebas verdes. Contador 1041 (9 propias + 3 ajenas).
-Chrome local: alumno al día $0, deuda guardada $30.000 y cobro manual con pago/imputación/movimiento únicos. Bases descartables propias; suite siempre en wings_testing_codex. HTML T34 restaurado con copia recuperable previa.
-Carlos observó el importe móvil: corregido a columna completa, 280 px como Mes, botón debajo a la derecha; escritorio conserva 150 px. Tras ver la captura corregida aprobó: «Ahora esta Ok» (25/10).
-[Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md) y [galería](../06-pruebas/PRU-04/APROBAR-T77.html). Tabla intacta, propuesta COB-028 acción/a/b. Sin servidor remoto, datos del club ni despliegue.
-T77 sigue a_verificar, guardianes 7/34 verdes; Carlos aprobó el aspecto y Gemini registró lógica aprobada en su informe del 25/10. ESTADO-ACTUAL se sincronizó al quedar libre de cambios ajenos. Sin autocierre ni push manual.
-
 [Antecedente intacto de días 5–6](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-05-06-ANTECEDENTE.md).
 
 [Antecedentes archivados intactos al contrastar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-VERIFICACION-DIA04-ANTECEDENTES.md).
@@ -100,3 +99,5 @@ T77 sigue a_verificar, guardianes 7/34 verdes; Carlos aprobó el aspecto y Gemin
 [Antecedente intacto al corregir colores](../99-archivo/bitacoras/2026-10-23/LOG-CODEX-COLORES-ANTECEDENTES.md).
 
 [Antecedentes intactos de días 13–16](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-13-16-ANTECEDENTES.md).
+
+[Antecedente íntegro de T77](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-T77-ANTECEDENTE.md).

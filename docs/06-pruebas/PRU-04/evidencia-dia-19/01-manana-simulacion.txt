@@ -1,0 +1,16 @@
+ 1. Sandra Vidal cobra a Acosta, Victoria $30.000,00 por Efectivo — Pago registrado para Acosta, Victoria.
+ 2. Sandra Vidal cobra a Flores, Renata $30.000,00 por Mercado Pago — Pago registrado para Flores, Renata.
+ 3. Sandra Vidal cobra a Herrera, Alma $40.000,00 por Efectivo — Pago registrado para Herrera, Alma.
+ 4. Sandra Vidal cobra a Medina, Emilia $40.000,00 por Mercado Pago — Pago registrado para Medina, Emilia.
+ 5. Sandra Vidal cobra a Benitez, Paulina $43.000,00 por Efectivo — Pago registrado para Benitez, Paulina.
+ 6. Sandra Vidal cobra a Cabrera, Constanza $33.000,00 por Efectivo — Pago registrado para Cabrera, Constanza.
+ 7. Sandra Vidal cobra a Castro, Bruno $28.000,00 por Efectivo — Pago registrado para Castro, Bruno.
+ 8. Sandra Vidal cobra a Diaz, Thiago $38.000,00 por Mercado Pago — Pago registrado para Diaz, Thiago.
+ 9. Sandra Vidal cobra a Torres, Benicio $28.000,00 por Efectivo — Pago registrado para Torres, Benicio.
+10. Sandra Vidal cobra a Rossi, Leon $38.000,00 por Mercado Pago — Pago registrado para Rossi, Leon.
+11. Sandra Vidal Limpieza $3800 por Efectivo — Movimiento registrado.
+12. Sandra Vidal Librería $2500 por Efectivo — Movimiento registrado.
+13. Sandra Vidal Indumentaria institucional $18000 por Efectivo — Movimiento registrado.
+14. Lucía Gaitán lista de la #10: 28 alumnos, 26 presentes — Asistencias guardadas.
+Cobranza: $248.000,00 · {"AL_DIA":99,"EN_PLAZO":1,"MOROSO":2,"DEUDOR":2}
+SIMULADO: no se guardó nada.

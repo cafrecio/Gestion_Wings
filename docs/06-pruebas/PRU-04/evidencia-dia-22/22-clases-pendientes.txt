@@ -1,0 +1,173 @@
+Browser tab: 1293178693, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases?estado=finalizada".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?estado=finalizada
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 link Description: Sin asistencia 4, Help: Clases que ya pasaron sin lista tomada: no se pueden liquidar, Value: test.gestionar-te.com.ar/clases?estado=finalizada
+		9 text PLATA
+		10 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		11 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		12 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		13 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		14 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		15 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		16 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		17 text EL CLUB
+		18 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		19 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		20 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		21 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		22 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		23 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		24 text SISTEMA
+		25 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		26 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Clases, Value: 1
+		31 text Clases
+	32 container
+		33 text CLASES DE HOY — SÁBADO 31 DE OCTUBRE ·
+		34 text 3
+		35 text  CLASE(S)
+		36 container clases-hoy-container
+			37 container clase-hoy-50
+				38 heading 10:00 – 11:00 Finalizada, Value: 3
+					39 text 10:00 – 11:00  Finalizada
+				40 image
+				41 text Grupo: Patín — Federadas
+				42 image
+				43 text Profesores: Ocampo
+				44 image
+				45 text Asistencia: Pendiente
+				46 button Ver
+				47 button Editar
+			48 container clase-hoy-77
+				49 heading 12:00 – 13:00 Finalizada, Value: 3
+					50 text 12:00 – 13:00  Finalizada
+				51 image
+				52 text Grupo: Fútbol — Avanzadas
+				53 image
+				54 text Profesores: Quintana
+				55 image
+				56 text Asistencia: Pendiente
+				57 button Ver
+				58 button Editar
+			59 container clase-hoy-81
+				60 heading 12:00 – 13:00 Finalizada, Value: 3
+					61 text 12:00 – 13:00  Finalizada
+				62 image
+				63 text Grupo: Patín — Federadas
+				64 image
+				65 text Profesores: Ocampo
+				66 image
+				67 text Asistencia: Pendiente
+				68 button Ver
+				69 button Editar
+		70 container filter-form
+			71 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				72 menu
+					73 (selected) Deporte
+					74 Fútbol
+					75 Patín
+			76 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+				77 menu
+					78 (selected) Grupo
+					79 Fútbol — Avanzadas
+					80 Fútbol — Principiantes
+					81 Patín — Adultos
+					82 Patín — Avanzadas
+					83 Patín — Federadas
+					84 Patín — Intermedias
+					85 Patín — Principiantes
+			86 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				87 menu
+					88 (selected) Profesor
+					89 Acosta, Martín
+					90 Directora, Vanina
+					91 Gaitán, Lucía
+					92 Ocampo, Mariela
+					93 Quintana, Hernán
+					94 Salinas, Verónica
+			95 pop up button (collapsed, settable) Value: Sin asistencia, ID: filter-estado, Secondary Actions: Expand
+				96 menu
+					97 Estado
+					98 Programada
+					99 (selected) Sin asistencia
+					100 Sin presentes
+					101 Cerrada
+					102 Cancelada
+			103 date field (settable)
+				104 container
+					105 stepper
+					106 stepper
+					107 stepper
+				108 pop up button Mostrar el selector de fechas
+			109 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				110 menu
+					111 (selected) Orden
+					112 Más recientes
+					113 Más antiguas
+					114 Grupo A–Z
+			115 button Limpiar
+			116 button Filtrar
+		117 text Mostrando
+		118 text 1
+		119 text  a
+		120 text 4
+		121 text  de
+		122 text 4
+		123 text  clase(s)
+		124 button Nuevo
+		125 container clases-listado
+			126 container
+				127 heading Vie 30/10/2026 — 16:00 a 17:00 Finalizada, Value: 3
+					128 text Vie 30/10/2026 — 16:00 a 17:00  Finalizada
+				129 image
+				130 text Grupo: Patín — Intermedias
+				131 image
+				132 text Profesores: Salinas
+				133 image
+				134 text Asistencia: Pendiente
+				135 button Ver
+				136 button Editar
+			137 container
+				138 heading Jue 29/10/2026 — 19:00 a 20:00 Finalizada, Value: 3
+					139 text Jue 29/10/2026 — 19:00 a 20:00  Finalizada
+				140 image
+				141 text Grupo: Fútbol — Avanzadas
+				142 image
+				143 text Profesores: Quintana
+				144 image
+				145 text Asistencia: Pendiente
+				146 button Ver
+				147 button Editar
+			148 container
+				149 heading Jue 29/10/2026 — 18:00 a 19:00 Finalizada, Value: 3
+					150 text Jue 29/10/2026 — 18:00 a 19:00  Finalizada
+				151 image
+				152 text Grupo: Patín — Federadas
+				153 image
+				154 text Profesores: Ocampo
+				155 image
+				156 text Asistencia: Pendiente
+				157 button Ver
+				158 button Editar
+			159 container
+				160 heading Jue 29/10/2026 — 17:00 a 18:00 Finalizada, Value: 3
+					161 text Jue 29/10/2026 — 17:00 a 18:00  Finalizada
+				162 image
+				163 text Grupo: Patín — Avanzadas
+				164 image
+				165 text Profesores: Gaitán
+				166 image
+				167 text Asistencia: Pendiente
+				168 button Ver
+				169 button Editar
+	170 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?estado=finalizada

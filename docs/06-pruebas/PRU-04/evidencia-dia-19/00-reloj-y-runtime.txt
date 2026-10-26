@@ -1,0 +1,15 @@
+ab9862309b8d52661c7060789d94d456203fef8ae75041cc8cbd903d5b670139  /tmp/wings-dias1922-20261026/dia-19-manana.json
+3ee2843bc9dc1119229088b1c96053f9b59d404af6a95e68d42593cf80cf14dc  /tmp/wings-dias1922-20261026/dia-19-noche.json
+ccd1eeddf3838f19f5abefe5e1502528061bc9022e8734028c754bf8cce7652f  /tmp/wings-dias1922-20261026/dia-20-manana.json
+4b8376e83afa8dab6705582ca902f8b76cf3aaa6828fc4f580eed7ce61ac92b2  /tmp/wings-dias1922-20261026/dia-20-noche.json
+5bb31ffdfbc3f7214cc904df5f939d8b7be555370ad1d3a6d6034932b4d46d64  /tmp/wings-dias1922-20261026/dia-21-manana.json
+0c8aa91a440010a6ff508dd6618956ac03933d489d900e72205ee4e59460d381  /tmp/wings-dias1922-20261026/dia-21-noche.json
+99ba76197f2dee8962ea2ae896a8ff2112fac555ca8607eee35f9e8fce24691c  /tmp/wings-dias1922-20261026/dia-22-manana.json
+e05eb69fc5ed41cf16ac44eab277df718b6fd51a952fbfe9b0625984a9d616a4  /tmp/wings-dias1922-20261026/dia-22-noche.json
+9376ea7fa1e71d50aeba6f4daabdee3a302d30be80c762fcf0c623857673ca70  /tmp/wings-dias1922-20261026/rutina.php
+
+   INFO  Configuration cache cleared successfully.
+
+Wings ahora cree que es miércoles 28 de octubre de 2026, 15:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
