@@ -50,9 +50,12 @@ Sandra abre **por pantalla** (19.1) y **después** se corre la rutina de la mañ
 | 19.1 | Sandra | Abre la caja y escribe **100000** por error; el turno anterior dejó $10.000. Después corrige a **10000**. | Con 100000: «El efectivo recibido difiere en más de un 50% del cierre anterior ($10.000)…», y pide confirmar aparte. No lo confirma. Con 10000 abre sin aviso (CAJ-007, CAJ-005). |
 | 19.2 | Dueño | En la ficha de **Agustín Acosta**, condona la cuota de reingreso de octubre de **$14.000**: primero sin motivo, después con «Reingreso generado por error: nunca dejó el club». | Sin motivo no condona. Con motivo queda condonada, sin mover plata. Agustín sale de Cobranza y pasa a Al día (CBZ-007). |
 | 19.3 | Sandra | La mamá de **Joaquín Vega** (debe octubre, $44.000) trae **$50.000** y Sandra los carga. Ve el aviso y **cancela**. Después cobra **$44.000** en efectivo. | Esperado según el catálogo: con $50.000 avisa que no se pueden cargar otros conceptos como si fueran cuota, con Continuar y Cancelar. Cancelar no cobra nada. Con $44.000, Joaquín pasa a **Al día** (COB-010). |
+| 19.4a | Sandra | Antes de corregir, carga un gasto **sin elegir rubro** y después otro con **importe 0**. No los completa. | Ninguno se guarda; cada error se explica en castellano y conserva lo demás. El efectivo esperado no cambia (MOV-005). |
 | 19.4 | Sandra | La limpieza costó **$3.500**, no $3.800: corrige el movimiento. | Queda en $3.500 y el efectivo esperado se recalcula (MOV-007). |
 | 19.5 | Sandra | El cuaderno de $2.500 lo pagó el dueño de su bolsillo: **elimina** el gasto de Librería. | Desaparece de la caja, el esperado se recalcula y queda registro de qué se eliminó, quién y cuándo (MOV-008). |
 | 19.6 | Hernán | Llueve y no viene nadie a Fútbol Principiantes 18–19: toma la lista con **los 23 ausentes**. | Se guarda y la clase sale de «Sin asistencia» aunque no haya presentes (ASI-003). |
+| 19.6b | Sandra | Antes de cerrar, mira **su caja del día**. | Cada movimiento con hora, concepto, medio e importe; el eliminado ya no está. Efectivo esperado **$270.500**; Mercado Pago **$146.000** aparte, sin sumarse al cajón (CAJ-017). |
+| 19.7a | Sandra | Empieza el cierre y, por error, pone **dejar de cambio $300.000** con contado $271.000. | Esperado según el catálogo: no cierra y avisa que el cambio no puede superar lo contado; la caja sigue abierta (CAJ-021). |
 | 19.7 | Sandra | Cierra contando **$271.000**, $500 más que lo esperado. Deja $10.000. | Esperado **$270.500** (10.000 + 202.000 en efectivo de la rutina + 44.000 de Joaquín + 18.000 de la remera − 3.500). Muestra **sobrante $500** y deja cerrar. No crea ningún ingreso por la diferencia (CAJ-020). |
 
 **Noche** (`dia-19-noche.json`): el dueño valida la caja de Sandra.
@@ -83,6 +86,10 @@ Sandra abre **por pantalla** (19.1) y **después** se corre la rutina de la mañ
 | 20.4 | Dueño | Crea una **clase única de recuperación**: Fútbol Avanzadas, **sábado 31/10**, con Hernán. Primero pone de **14:00 a 13:00**; después corrige a **14:00 a 15:00**. | Con la hora de fin antes del inicio, rechaza con un aviso claro y conserva lo cargado (CLA-005). Con 14 a 15 se crea; solo ofrece profesores de Fútbol, y Hernán la ve en sus clases del 31 (CLA-002). |
 | 20.5 | Mariela | Quiere adelantar la lista de la clase del **sábado 31, Federadas 10–11** (#50). | No deja guardar una clase cuyo día no llegó, y lo explica (ASI-011). |
 | 20.6 | Rocío | La familia de **Lucas Gómez** cambió de celular: lo corrige de 1145123401 a **1145123499**. | La ficha y el listado muestran el número nuevo; sus pagos y cuotas no cambian (ALU-012). |
+| 20.7 | Rocío | En su **Inicio**, a mitad del turno. | «Caja abierta», con la hora en que la abrió, Cobrar y Registrar (REP-016). |
+| 20.8 | Rocío | En **Movimientos**, busca los cobros del miércoles. | Ve los cobros de cuota de Sandra del 28/10, con quién los hizo, y puede abrir sus recibos. No ve gastos del dueño (MOV-011). |
+| 20.9 | Rocío | En **Caja**, el listado de cajas. | Esperado según el catálogo: ve solo sus cajas de los últimos 30 días (la del 26/10 y la de hoy), no las de Sandra ni Pablo (CAJ-035). |
+| 20.10 | Rocío | Quiere crear una clase de prueba para una amiga: Clases → Nueva (y, si no aparece el botón, entrando a la dirección `/clases/create`). | No puede: crear clases es del dueño; forzando, acceso restringido (CLA-008). |
 
 **Noche** (`dia-20-noche.json`): Rocío cierra con el esperado, **$178.200** (10.000 + 154.000 + 18.000 − 3.800),
 deja $10.000 y el dueño valida.
@@ -109,6 +116,9 @@ deja $10.000 y el dueño valida.
 | 21.3 | Pablo | **Felipe Sosa** paga agosto y octubre, **$76.000** en efectivo, y Pablo descarga el recibo. | Pasa a **Al día**. El recibo detalla agosto $38.000 y octubre $38.000, total $76.000 (REC-002). |
 | 21.4 | Pablo | **Santino Romero** deja el club debiendo octubre ($28.000). Pablo lo da de baja **con el interruptor del listado de Alumnos**. | Queda Inactivo y su cuota pendiente sigue a la vista en la ficha (ALU-025). Sale de Cobranza: 103 activos y el total adeudado baja $28.000. Ya no aparece en el buscador de Cobrar (ALU-017). |
 | 21.5 | Dueño | Lleva **$500.000** del efectivo al **Banco Galicia** (Cashflow → Transferir). | Un solo formulario: salida Efectivo, destino Galicia. Efectivo baja y Galicia sube $500.000; los ingresos y gastos del mes no cambian (CSH-018). |
+| 21.6 | Rocío | Pasa a mediodía y, desde Movimientos, intenta **editar el arreglo de $12.000** de la caja de Pablo (y, si no hay botón, entrando a su dirección de edición). | Acceso restringido; la caja de Pablo no cambia (MOV-016). |
+| 21.7 | Pablo | En **Movimientos**, busca el cobro de Joaquín que hizo Sandra el 28/10. | Lo encuentra, con quién lo cobró. No ve la transferencia ni los gastos del dueño (MOV-012). |
+| 21.8 | Pablo | Antes de que corra el cierre de la noche, mira su caja. | El esperado, **$270.000**, cuenta solo el efectivo; los $171.000 de Mercado Pago figuran aparte (CAJ-036). |
 
 **Noche** (`dia-21-noche.json`): Pablo cierra con el esperado, **$270.000** (10.000 + 176.000 + 20.000 +
 76.000 − 12.000), deja $10.000 y el dueño valida.
@@ -138,7 +148,9 @@ deja $10.000 y el dueño valida.
 | 22.4 | Dueño | La factura tenía descuento: corrige la luz a **$61.500**, motivo «Descuento por débito automático». | Queda en $61.500. El detalle muestra el valor anterior, el nuevo, el motivo, quién y cuándo (CSH-007). |
 | 22.5 | Dueño | Paga el **sueldo de Sandra**, $250.000 en efectivo, desde Cashflow (Sueldos → Op-Sandra Vidal). | Gasto de Sueldos; el Reporte de Sueldos lo incluye. Sandra no lo ve en sus Movimientos (CSH-015). |
 | 22.6 | Dueño | Liquidaciones → Nueva → **Lucía Gaitán, octubre**. La genera y después intenta **Cerrar**. | Se genera: **17 clases × 1 h × $12.000 = $204.000**. No incluye la cancelada del 12/10 (LIQ-001). Al cerrar: «No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el 01/11/2026.» (LIQ-005). Queda abierta y sin pagar. |
-| 22.7 | Dueño | Reporte de Finanzas de octubre. | Muestra los números del cierre de abajo. La liquidación abierta no suma como gasto (REP-003). |
+| 22.7 | Pablo | Entra a **Liquidaciones** desde el menú o por la dirección `/liquidaciones`. | Acceso restringido en castellano, sin importes, con vuelta a su Inicio (LIQ-016). |
+| 22.8 | Dueño | Listado de **Liquidaciones**. | Muestra la de Lucía: octubre, por hora, $204.000, Abierta (LIQ-018). |
+| 22.9 | Dueño | **Después de la validación de la noche:** compara los saldos de Cashflow por medio con la cuenta del cierre de abajo, y abre el Reporte de Finanzas de octubre. | Cada medio coincide con la cuenta y con el disponible de Reportes; ningún movimiento aparece dos veces (CSH-013). La liquidación abierta no suma como gasto. |
 
 **Noche** (`dia-22-noche.json`): Pablo cierra con el esperado, **$167.000** (10.000 + 141.000 + 16.000),
 deja $10.000 y el dueño valida.
@@ -149,14 +161,17 @@ deja $10.000 y el dueño valida.
 - Disponible **$4.709.900,75**: Efectivo $1.367.300, MP $2.638.550,75, Galicia $576.050, Nación $128.000.
 - «Sin asistencia» 0.
 
-## Casos nuevos (27)
+## Casos nuevos (25)
+
+Controlados contra la planilla «Prueba por días», que registra los casos de los días 1 a 16, y contra los
+informes de los días 17 y 18. Los demás casos del guion repiten algo ya probado, en otra situación.
 
 | Día | Casos que nunca se habían ejecutado |
 |---|---|
-| 19 | CAJ-007, CBZ-007, COB-010, MOV-007, MOV-008, ASI-003, CAJ-020 |
-| 20 | MOV-002, CLA-011, ASI-005, CLA-005, CLA-002, ASI-011, ALU-012 |
-| 21 | ASI-013, COB-009, COB-008, REC-002, ALU-025, ALU-017, CSH-018 |
-| 22 | CSH-002, CSH-007, CSH-015, LIQ-001, LIQ-005, REP-003 |
+| 19 | CAJ-007, COB-010, MOV-005, MOV-008, ASI-003, CAJ-017, CAJ-021 |
+| 20 | CLA-005, ASI-011, REP-016, MOV-011, CAJ-035, CLA-008 |
+| 21 | ASI-013, COB-009, ALU-025, MOV-016, MOV-012, CAJ-036 |
+| 22 | CSH-015, LIQ-001, LIQ-005, LIQ-016, LIQ-018, CSH-013 |
 
 ## Entrega
 
