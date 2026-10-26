@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-25 — LOG GEM CAB — T81: Teléfono en Alumnos y en Cobranza en lugar del DNI
+
+- **Objetivo y resultado:** Implementación de **T81** pedida por Carlos el 25/10/2026. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 4 pruebas automatizadas en `TelefonoAlumnosYCobranzaT81Test`, capturas reales en Chrome a 1366 y 375 px, y suite rápida completa en verde.
+- **Cambios realizados:**
+  - **1. Modelo `Alumno` (`app/Models/Alumno.php`):** Accessor `telefono_contacto` que prioriza `celular` (el que el club usa para llamar), recae en `telefono_tutor` si no tiene celular (menores según A26) y devuelve `null` si ninguno existe.
+  - **2. Vista `Cobranza` (`resources/views/cobranza/index.blade.php`):** Reemplazo del bloque `DNI: ...` por el teléfono de contacto. Si no tiene teléfono queda la celda limpia sin mostrar nada ni leyendas como «Sin teléfono». Se mantiene el `<colgroup>` y `table-layout: fixed; min-width: 860px;`.
+  - **3. Vista `Alumnos` (`resources/views/alumnos/index.blade.php`):** Tarjetas actualizadas con etiqueta `Teléfono:` mostrando `$alumno->telefono_contacto ?? '–'`. La búsqueda por DNI en el buscador de cabecera y el autocomplete continúan funcionando sin alteraciones.
+- **Pruebas y evidencia:** `TelefonoAlumnosYCobranzaT81Test` (4 aprobadas, 28 aserciones); suite rápida (`--exclude-group=lento`) en `wings_testing_gemini`: **925 aprobadas, 6 omitidas, 0 fallidas** (7.421 aserciones). 4 capturas en Chrome real (1366 y 375 px) en `docs/06-pruebas/PRU-04/evidencia-t81/`. Guardianes `DocumentacionNoMienteTest`, `TableroAlDiaTest` y `CspSinCodigoIncrustadoTest` en verde. Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T81.md`.
+- **Próximo paso:** Aprobación visual de Carlos sobre las capturas y verificación por otro agente.
+
 ## 2026-10-25 — LOG GEM CAB — Verificación independiente de T77 (Cobro de mes sin deuda)
 
 - **Objetivo y resultado:** Verificación técnica e independiente de la lógica implementada por Codex en **T77** («Cobrar muestra solamente la deuda guardada»), tras la aprobación visual de Carlos. Dictamen: **APROBADA**.

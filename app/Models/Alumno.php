@@ -77,6 +77,25 @@ class Alumno extends Model
     }
 
     /**
+     * Teléfono de contacto para avisos y cobranza: el celular del alumno, o el del tutor
+     * si es menor sin celular propio. Null si no hay ninguno.
+     */
+    protected function telefonoContacto(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if (!blank($this->celular)) {
+                    return $this->celular;
+                }
+                if (!blank($this->telefono_tutor)) {
+                    return $this->telefono_tutor;
+                }
+                return null;
+            }
+        );
+    }
+
+    /**
      * Accessor para es_menor (calculado dinámicamente)
      * 
      * No existe columna en BD, se calcula en base a fecha_nacimiento

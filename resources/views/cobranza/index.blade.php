@@ -142,9 +142,9 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                 {{-- Alumno --}}
                 <td style="padding:10px 14px; font-size:0.85rem; font-weight:600; color:var(--color-text);">
                     {{ $alumno->apellido }}, {{ $alumno->nombre }}
-                    @if($alumno->dni)
+                    @if($alumno->telefono_contacto)
                         <div style="font-size:0.72rem; font-weight:400; color:var(--color-text-muted); margin-top:2px;">
-                            DNI: {{ number_format((int)$dniNorm, 0, '', '.') }}
+                            {{ $alumno->telefono_contacto }}
                         </div>
                     @endif
                     @if(!empty($alumno->ayuda_otro_deporte))
