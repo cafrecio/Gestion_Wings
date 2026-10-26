@@ -48,6 +48,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17 y 18 no iniciados: SSH agota conexion antes de autenticar desde CyE, tambien fuera del entorno restringido y con instalador. Reloj y rutinas sin ejecutar. Pantallas al 25/10 coinciden con partida; falta control obligatorio con reloj 26/10 y --simular antes de operar. Informe DIA-17.md; cero reparaciones. |
+| **T83** Entrar al servidor desde CyE: SSH en un puerto que la red de CyE deje pasar | Hecho, espera verificación (hizo Claude) | Hecho desde CAB 26/10 (7a3d46de): sshd escucha en 22, 2222 y 8022; CSF abierto; probado desde CAB por 2222 y 8022. En CyE: correr scripts/maquina/instalar-acceso-servidor.ps1, que deja el alias vps con el primer puerto que responde, y probar ssh vps hostname. |
 
 ## Codex
 
@@ -57,9 +58,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (20)
+## Sin empezar (19)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T83, B3 (antes de producción), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), B3 (antes de producción), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
