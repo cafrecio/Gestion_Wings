@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17 y 18 no iniciados: SSH agota conexion antes de autenticar desde CyE, tambien fuera del entorno restringido y con instalador. Reloj y rutinas sin ejecutar. Pantallas al 25/10 coinciden con partida; falta control obligatorio con reloj 26/10 y --simular antes de operar. Informe DIA-17.md; cero reparaciones. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17-18 recorridos: 7 Si,5 Parcial,1 No; cajas16/17 validadas, deuda234000 y disponible3483700,75. Claude revisa informes, control interno y velocidad. Julieta inactiva sin143000; incidente propio de lista vacia antes de14presentes. No repetir reloj ni operaciones; ultimo inicio27/10 15:00. |
 
 ## Codex
 

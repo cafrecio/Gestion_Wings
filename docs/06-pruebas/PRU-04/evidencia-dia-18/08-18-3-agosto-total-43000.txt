@@ -1,0 +1,3 @@
+Browser tab: 1293178628, Title: "Cobrar – Sanchez, Berenice", URL: "https://test.gestionar-te.com.ar/caja/cobrar/295".
+There has been no change in the accessibility tree.
+The focused UI element is 33 checkbox (settable, integer) 1

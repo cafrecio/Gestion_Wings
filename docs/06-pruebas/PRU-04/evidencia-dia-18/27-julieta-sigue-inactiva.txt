@@ -1,0 +1,106 @@
+Browser tab: 1293178631, Title: "Alvarez, Julieta – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/262".
+1 AXWebArea Alvarez, Julieta – Wings, URL: test.gestionar-te.com.ar/alumnos/262
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Alvarez, Julieta, Value: 1
+		30 text Alvarez, Julieta
+	31 container
+		32 text Inactivo
+		33 button Reactivar
+		34 button Cobrar
+		35 button Editar
+		36 image
+		37 text DNI 52300901
+		38 image
+		39 text NACIMIENTO 14/06/2015
+		40 image
+		41 text CELULAR 1145123414
+		42 image
+		43 text EMAIL marta.alvarez@testmail.com
+		44 image
+		45 text DEPORTE Patín
+		46 image
+		47 text GRUPO Patín — Intermedias
+		48 image
+		49 text PLAN 1x sem. — $33,000.00/mes
+		50 image
+		51 text ALTA 10/03/2024
+		52 image
+		53 text ESTADO DE COBRANZA Deudor Total adeudado:  $143,000.00 Nov 2025 $22,000.00
+		54 button Condonar
+		55 text Dic 2025 $22,000.00
+		56 button Condonar
+		57 text Ago 2026 $33,000.00
+		58 button Condonar
+		59 text Sep 2026 $33,000.00
+		60 button Condonar
+		61 text Oct 2026 $33,000.00
+		62 button Condonar
+		63 container cuotas-pasadas
+			64 text Meses sin cuota generada
+			65 container
+				66 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2024 · $33,000.00, Secondary Actions: Expand
+					67 menu
+						68 (selected) Marzo 2024 · $33,000.00
+						69 Abril 2024 · $33,000.00
+						70 Mayo 2024 · $33,000.00
+						71 Junio 2024 · $33,000.00
+						72 Julio 2024 · $33,000.00
+						73 Agosto 2024 · $33,000.00
+						74 Septiembre 2024 · $33,000.00
+						75 Octubre 2024 · $33,000.00
+						76 Noviembre 2024 · $33,000.00
+						77 Diciembre 2024 · $33,000.00
+						78 Enero 2025 · $33,000.00
+						79 Febrero 2025 · $33,000.00
+						80 Marzo 2025 · $33,000.00
+						81 Abril 2025 · $33,000.00
+						82 Mayo 2025 · $33,000.00
+						83 Junio 2025 · $33,000.00
+						84 Julio 2025 · $33,000.00
+						85 Agosto 2025 · $33,000.00
+						86 Septiembre 2025 · $33,000.00
+						87 Octubre 2025 · $33,000.00
+						88 Enero 2026 · $33,000.00
+						89 Febrero 2026 · $33,000.00
+						90 Marzo 2026 · $33,000.00
+						91 Abril 2026 · $33,000.00
+						92 Mayo 2026 · $33,000.00
+						93 Junio 2026 · $33,000.00
+						94 Julio 2026 · $33,000.00
+				95 button Crear
+		96 image
+		97 text TUTOR NOMBRE Marta Alvarez TELÉFONO 1145123414
+		98 image
+		99 text HISTORIAL DE PAGOS Sin pagos registrados.
+		100 image
+		101 text ASISTENCIAS — OCT 2026 Sin asistencias en Oct 2026.
+		102 button Volver
+	103 text Wings
+
+The focused UI element is 1 AXWebArea Alvarez, Julieta – Wings, URL: test.gestionar-te.com.ar/alumnos/262

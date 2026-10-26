@@ -1,0 +1,169 @@
+[
+  {
+    "id": "17.1",
+    "quien": "Dueño",
+    "tarea": "Rocío no recuerda su clave. En **Usuarios**, edita a Rocío Paz y le pone **Wings-Rocio-2026**, dos veces. Antes prueba con «corta».",
+    "esperado": "«corta» no la acepta: pide al menos 12 caracteres. Con la buena guarda. Rocío entra con **Wings-Rocio-2026** y ve el menú de la operativa (USU-005).",
+    "resultado": "Parcial",
+    "observado": "Controlador como ADMIN: rechaza corta con mensaje en inglés de mínimo 12; guarda clave válida. Ingreso real como Rocío y menú operativo comprobados. Cambio por vía técnica solicitado por Carlos; no se acredita envío de clave por formulario.",
+    "evidencia": [
+      "11-17-1-controlador-clave.txt",
+      "13-17-1-ingreso-rocio.txt"
+    ]
+  },
+  {
+    "id": "17.2",
+    "quien": "Rocío",
+    "tarea": "La mamá de **Santino Romero** trae **$56.000** en efectivo: «lo que puedo ahora». Rocío elige agosto y septiembre.",
+    "esperado": "Antes de confirmar, total $56.000. Quedan **octubre $28.000**. Santino pasa de Deudor a **Moroso** (COB-006).",
+    "resultado": "Sí",
+    "observado": "Total 56000 antes de confirmar. Pago registrado; Santino Moroso con octubre28000.",
+    "evidencia": [
+      "14-17-2-total-antes-cobrar.txt",
+      "15-17-2-cobro-guardado.txt",
+      "16-17-2-saldo-santino.txt"
+    ]
+  },
+  {
+    "id": "17.3",
+    "quien": "Rocío",
+    "tarea": "Compra gasas y alcohol: gasto **Botiquín**, $6.500 en efectivo, «Gasas y alcohol».",
+    "esperado": "**Botiquín** aparece en su lista de gastos, creado por el dueño el domingo, y se guarda (CAT-007).",
+    "resultado": "Sí",
+    "observado": "Botiquín disponible como Rocío, egreso6500 con Gasas y alcohol. Resumen caja16: egresos10300, ingresos56000, neto45700.",
+    "evidencia": [
+      "17-17-3-botiquin-antes.txt",
+      "18-17-3-botiquin-guardado.txt"
+    ]
+  },
+  {
+    "id": "17.4",
+    "quien": "Dueño",
+    "tarea": "Alta de profesor: **Martín Acosta**, Fútbol, **comisión 30%**.",
+    "esperado": "Queda activo. En Rubros → Sueldos aparece «Fútbol-Martín Acosta» (PRO-001).",
+    "resultado": "Sí",
+    "observado": "Martín Acosta activo, Fútbol30%; subrubro Fútbol-Martín Acosta comprobado. Campos obligatorios ausentes del guion completados con datos ficticios: DNI30600117, nacimiento1988-05-17, Calle de Prueba170, Avellaneda, teléfono1155500017.",
+    "evidencia": [
+      "19-17-4-profesor-antes.txt",
+      "20-17-4-profesor-creado.txt",
+      "21-17-4-subrubro-sueldo.txt"
+    ]
+  },
+  {
+    "id": "17.5",
+    "quien": "Dueño",
+    "tarea": "Le crea a Martín su usuario de **profesor**, vinculado a Martín Acosta, mail martin.acosta@example.com, clave **Wings-Martin-2026**.",
+    "esperado": "Queda activo con rol Profesor. Martín entra y ve solo Clases (USU-003).",
+    "resultado": "Parcial",
+    "observado": "Usuario activo y vinculado creado por controlador como ADMIN, a pedido de Carlos por vía técnica. Ingreso web como Martín comprobado: menú solo Clases. No se acredita alta por formulario.",
+    "evidencia": [
+      "22-17-5-controlador-usuario.txt",
+      "23-17-5-usuario-creado.txt",
+      "24-17-5-martin-menu.txt"
+    ]
+  },
+  {
+    "id": "17.6",
+    "quien": "Hernán",
+    "tarea": "Carga la lista de la **#76**, del sábado 24/10, que quedó sin tomar: presentes **Lucas Gómez** y **Tomás Giménez**, el resto ausente.",
+    "esperado": "**No pide motivo:** la clase nunca tuvo lista, así que es una primera carga. Guarda. «Sin asistencia» baja.",
+    "resultado": "Parcial",
+    "observado": "Clase76 guardada por Hernán: TomasGimenez y LucasGomez presentes, otros13 ausentes; recarga conserva2. No pidió motivo de corrección histórica, pero ambos mostraron exceder plan y la opción predeterminada EXTRA, que se conservó.",
+    "evidencia": [
+      "25-17-6-dos-presentes-antes.txt",
+      "26-17-6-lista-guardada.txt",
+      "27-17-6-persistencia.txt"
+    ]
+  },
+  {
+    "id": "17.7",
+    "quien": "Dueño",
+    "tarea": "**Julieta Álvarez** vuelve: la reactiva desde su ficha y le cobra los **$143.000** por Mercado Pago, sin caja.",
+    "esperado": "Vuelve con su deuda tal cual, sin una cuota de octubre nueva. Con el cobro: recibo de cinco meses y **Al día** (ALU-018).",
+    "resultado": "No",
+    "observado": "Dos intentos desde cero de Reactivar. Chrome abre confirmación nativa pero accept falla por Emulation.setFocusEmulationEnabled; primera recarga conservó Inactivo y143000. No se hace por consola, no se cobra. Se conserva la diferencia prevista por guion.",
+    "evidencia": [
+      "incidente-julieta-chrome.txt",
+      "../evidencia-dia-18/27-julieta-sigue-inactiva.txt",
+      "../evidencia-dia-18/27-julieta-sigue-inactiva.jpg"
+    ]
+  },
+  {
+    "id": "18.1",
+    "quien": "Rocío",
+    "tarea": "Pasa a mediodía a cubrir y quiere **abrir caja**.",
+    "esperado": "«Hay un turno abierto. Cerralo antes de abrir otro.» Muestra el turno de Pablo. No puede cobrar (CAJ-009).",
+    "resultado": "Sí",
+    "observado": "Inicio identifica turno de Pablo. Abrir lleva al aviso Hay un turno abierto de Pablo Ledesma. Debe cerrarse antes de abrir el siguiente. Al intentar Cobrar a Alma no habilita operación propia sin caja.",
+    "evidencia": [
+      "02-18-1-turno-de-pablo.txt",
+      "03-18-1-apertura-bloqueada.txt",
+      "04-18-1-cobro-rocio-bloqueado.txt"
+    ]
+  },
+  {
+    "id": "18.2",
+    "quien": "Pablo",
+    "tarea": "**Alma Navarro** paga todo: **$58.000** por Mercado Pago.",
+    "esperado": "Total $58.000 antes de confirmar. Recibo con sus dos cuotas. Pasa a **Al día**.",
+    "resultado": "Sí",
+    "observado": "Total58000 antes de confirmar, MP; ficha Alma Al día, pago27/10 por Nov2025+Oct2026. PDF CUOTA65 descargado, texto y render comprobados:25000+33000=58000.",
+    "evidencia": [
+      "05-18-2-total-58000.txt",
+      "06-18-2-cobro-alma.txt",
+      "12-18-2-alma-ficha-al-dia.txt",
+      "recibo-alma-65.pdf",
+      "recibo-alma-65.png"
+    ]
+  },
+  {
+    "id": "18.3",
+    "quien": "Pablo",
+    "tarea": "**Berenice Sánchez** paga **$43.000** en efectivo, una cuota.",
+    "esperado": "Se imputa a la **más vieja, agosto**. Quedan septiembre y octubre, $86.000: sigue **Deudor**.",
+    "resultado": "Sí",
+    "observado": "Agosto43000 cobrado; ficha muestra historial Ago2026 y pendientes Sep/Oct43000cadauno, Deudor86000. Dos capturas anteriores de pestaña equivocada se excluyen; recaptura posterior acreditada.",
+    "evidencia": [
+      "08-18-3-agosto-total-43000.txt",
+      "13-18-3-cobranza-recategorizada.txt",
+      "14-18-3-ficha-septiembre-octubre.txt"
+    ]
+  },
+  {
+    "id": "18.4",
+    "quien": "Dueño",
+    "tarea": "Hernán avisa que no viene: en la clase de hoy **Fútbol Avanzadas 19–20** cambia a Hernán por **Martín Acosta**.",
+    "esperado": "Solo ofrece profesores de Fútbol. **No pide motivo**, porque la clase todavía no pasó. Queda Martín (CLA-009).",
+    "resultado": "Parcial",
+    "observado": "Opciones solo Acosta/Quintana y sin motivo; reasignación a Martín persistió. Error del ejecutor: el primer Guardar fue el de asistencias con todos0. Confirmado después por Martín: la tarjeta decía Sin presentes. Luego se ejecutó la lista prevista14presentes como Martín, sin otra reparación.",
+    "evidencia": [
+      "15-18-4-opciones-futbol.txt",
+      "16-18-4-clase-martin-y-lista-accidental.txt",
+      "17-18-5-martin-su-clase.txt"
+    ]
+  },
+  {
+    "id": "18.5",
+    "quien": "Martín",
+    "tarea": "Entra y toma lista de esa clase: **15 alumnos**; ausente **Felipe Sosa**.",
+    "esperado": "La ve en sus clases. **14 presentes**. Guarda (ASI-001).",
+    "resultado": "Parcial",
+    "observado": "Martín ve la clase70 a su cargo y guarda14 presentes, Felipeausente, recarga conserva14. Al ingresar ya decía Sin presentes por el envío accidental del ejecutor en18.4: no se acredita primera carga limpia.",
+    "evidencia": [
+      "17-18-5-martin-su-clase.txt",
+      "18-18-5-catorce-antes.txt",
+      "19-18-5-catorce-persisten.txt"
+    ]
+  },
+  {
+    "id": "18.6",
+    "quien": "Hernán",
+    "tarea": "Entra y busca la clase de Fútbol Avanzadas de hoy.",
+    "esperado": "Ya no figura a su cargo.",
+    "resultado": "Sí",
+    "observado": "Hernán entra el27/10: Tus clases de hoy0 y No tenés clases programadas para hoy. La70 queda a cargo de Acosta.",
+    "evidencia": [
+      "20-18-6-hernan-sin-clases-propias.txt"
+    ]
+  }
+]

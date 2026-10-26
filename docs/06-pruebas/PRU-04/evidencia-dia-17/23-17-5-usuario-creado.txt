@@ -1,0 +1,3 @@
+Browser tab: 1293178616, Title: "Usuarios – Wings", URL: "https://test.gestionar-te.com.ar/usuarios".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Usuarios – Wings, URL: test.gestionar-te.com.ar/usuarios

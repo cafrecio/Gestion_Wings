@@ -1,0 +1,3 @@
+Browser tab: 1293178631, Title: "Martes 27 de octubre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/70".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Martes 27 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/70

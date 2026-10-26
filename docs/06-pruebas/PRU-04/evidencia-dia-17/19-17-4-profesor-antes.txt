@@ -1,0 +1,4 @@
+Browser tab: 1293178616, Title: "Nuevo Profesor – Wings", URL: "https://test.gestionar-te.com.ar/profesores/create".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~			82 stepper (settable, integer) Porcentaje de comisión (%) *, Value: 30, ID: porcentaje_comision
+The focused UI element is 82 stepper (settable, integer) Porcentaje de comisión (%) *, Value: 30, ID: porcentaje_comision

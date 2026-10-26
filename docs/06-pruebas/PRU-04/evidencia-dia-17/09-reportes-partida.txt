@@ -1,0 +1,3 @@
+Browser tab: 1293178616, Title: "Ingresos y egresos – Wings", URL: "https://test.gestionar-te.com.ar/reportes".
+There has been no change in the accessibility tree.
+The focused UI element is 115 button (expanded) Detalle de cajas y aportes, Secondary Actions: Collapse

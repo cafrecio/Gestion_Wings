@@ -1,0 +1,2 @@
+17.1 corta rechazada: The password field must be at least 12 characters.
+17.1 clave valida guardada por controlador como ADMIN; rol OPERATIVO conservado. Ingreso web pendiente.

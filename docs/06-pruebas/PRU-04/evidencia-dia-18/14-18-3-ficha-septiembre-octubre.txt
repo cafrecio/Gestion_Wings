@@ -1,0 +1,3 @@
+Browser tab: 1293178631, Title: "Sanchez, Berenice – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/295".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Sanchez, Berenice – Wings, URL: test.gestionar-te.com.ar/alumnos/295

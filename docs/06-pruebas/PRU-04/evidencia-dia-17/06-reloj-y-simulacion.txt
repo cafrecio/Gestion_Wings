@@ -1,0 +1,13 @@
+
+   INFO  Configuration cache cleared successfully.
+
+Wings ahora cree que es lunes 26 de octubre de 2026, 15:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz Limpieza $3800 por Efectivo — Movimiento registrado.
+ 3. Lucía Gaitán lista de la #9: 28 alumnos, 27 presentes — Asistencias guardadas.
+ 4. Hernán Quintana lista de la #55: 23 alumnos, 22 presentes — Asistencias guardadas.
+ 5. Verónica Salinas lista de la #16: 18 alumnos, 16 presentes — Asistencias guardadas.
+Cobranza: $391.000,00 · {"AL_DIA":99,"EN_PLAZO":0,"MOROSO":1,"DEUDOR":4}
+SIMULADO: no se guardó nada.

@@ -1,0 +1,3 @@
+Browser tab: 1293178631, Title: "Cobranza – Wings", URL: "https://test.gestionar-te.com.ar/cobranza".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza

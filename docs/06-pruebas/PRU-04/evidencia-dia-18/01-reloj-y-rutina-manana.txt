@@ -1,0 +1,11 @@
+
+   INFO  Configuration cache cleared successfully.
+
+Wings ahora cree que es martes 27 de octubre de 2026, 15:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Lucía Gaitán lista de la #32: 12 alumnos, 12 presentes — Asistencias guardadas.
+ 3. Mariela Ocampo lista de la #43: 8 alumnos, 7 presentes — Asistencias guardadas.
+Cobranza: $335.000,00 · {"AL_DIA":99,"EN_PLAZO":0,"MOROSO":2,"DEUDOR":3}
+GUARDADO.

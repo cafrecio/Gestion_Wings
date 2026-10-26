@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-26 — Codex CyE — Días 17–18 recorridos, con límites
+
+TEST/wingstest, ec1b0c6e. Dos relojes, simulación previa una y cuatro rutinas reales, sin repetir. Cajas #16/#17 validadas, contado/esperado $55.700/$53.000 y diferencia cero.
+13 situaciones: 7 Sí, 5 Parcial y 1 No; [informes, incidentes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-17-18.html).
+Santino $56.000, Botiquín $6.500, Martín activo Fútbol 30% y usuario vinculado; #76 con dos presentes. Claves/usuario por controlador tras pedido directo de Carlos; ingreso y menús por Chrome.
+Alma $58.000 MP, CUOTA-65 PDF revisado y Al día; Berenice agosto $43.000, Deudor $86.000. Martín tomó #70 con 14/15; Hernán ya no la tiene a cargo.
+Incidente propio: Guardar duplicado envió primero todos ausentes en #70; después Martín guardó los 14 previstos. No primera carga limpia. Dos capturas erróneas excluidas; recapturas válidas.
+Julieta: dos confirmaciones Chrome fallaron, sigue inactiva/$143.000 sin cobrar; sin consola para reactivar. Cierre deuda $234.000, ingresos $1.981.850,75, egresos $251.150, disponible $3.483.700,75; por validar y sin asistencia cero. Diferencia prevista $143.000/una activa.
+T14 en curso, tiene=Claude: revisión independiente, control interno y velocidad. Sin producto, tabla, suite ni deploy; sin push. No repetir; último inicio 27/10 15:00.
+
 ## 2026-10-26 — Codex CyE — T83 verificada
 
 Revisado 26e7f559 de Claude.
@@ -75,15 +85,7 @@ Carlos observó el importe móvil: corregido a columna completa, 280 px como Mes
 [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T77.md) y [galería](../06-pruebas/PRU-04/APROBAR-T77.html). Tabla intacta, propuesta COB-028 acción/a/b. Sin servidor remoto, datos del club ni despliegue.
 T77 sigue a_verificar, guardianes 7/34 verdes; Carlos aprobó el aspecto y Gemini registró lógica aprobada en su informe del 25/10. ESTADO-ACTUAL se sincronizó al quedar libre de cambios ajenos. Sin autocierre ni push manual.
 
-## 2026-10-24 — Codex CAB — Prueba humana III: Días 5 y 6
-
-Carlos autorizó recorrer ambos días sin preguntas, registrar diferencias y seguir. Chrome, menús/formularios en test/wingstest; reloj solo al inicio de cada día, sin consultas de datos de negocio ni reparaciones.
-[Día 5](../06-pruebas/PRU-04/DIA-05.md): 12 Sí/2 Parcial; [Día 6](../06-pruebas/PRU-04/DIA-06.md): 10 Sí/2 Parcial/1 No. Esperados copiados antes de actuar; capturas reales y seis recibos descargados/renderizados.
-Cajas #3–#5 validadas; #3 con faltante $500 sin gasto. Transferencia #1 por $109.500 y Luz $62.000. Pablo validado antes de Sandra el 15/10; cierre financiero coincide: deuda $1.612.000, resultado $533.300, disponible $2.148.300, por validar $0.
-Listas persistidas #6 25/27, #58 19/20, #29 11/12, #40 7/8 (Verónica sin reasignar a Mariela), #67 14/15 con Lucas. Sin reemplazos.
-Alta extra bloqueada por fecha mínima de navegador 24/10; Sin asistencia 34, esperado 32. Motivo anulado solo comprobado en PDF; precio Lucas noviembre y recepción aviso Zoe sin acreditar. Se conservan las diferencias.
-Control documental: 27 esperados íntegros, archivos de imagen/PDF y enlaces revisados; sin suite, vistas/CSS ni despliegue. Estado/resumen/tablero actualizados; el dashboard por casos sigue en su corte del 23/10.
-T14 permanece en curso: otro agente verifica la evidencia y se continúa con el siguiente guion autorizado. No repetir cobros ni mover reloj; último inicio simulado 15/10 15:00.
+[Antecedente intacto de días 5–6](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-05-06-ANTECEDENTE.md).
 
 [Antecedentes archivados intactos al contrastar el Día 4](../99-archivo/bitacoras/2026-10-22/LOG-CODEX-VERIFICACION-DIA04-ANTECEDENTES.md).
 

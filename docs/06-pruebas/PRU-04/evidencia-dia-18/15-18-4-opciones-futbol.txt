@@ -1,0 +1,5 @@
+Browser tab: 1293178631, Title: "Martes 27 de octubre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/70".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~			127 checkbox (settable, integer) Description: Acosta, Martín, Value: 1
+~			128 checkbox (settable, integer) Description: Quintana, Hernán, Value: 0
+The focused UI element is 128 checkbox (settable, integer) Description: Quintana, Hernán, Value: 0

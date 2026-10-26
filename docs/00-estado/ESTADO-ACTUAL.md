@@ -1,11 +1,20 @@
 # Wings — Estado actual
 
-## T83 — Acceso CyE verificado; días 17–18 pendientes, Codex CyE 26/10/2026
+## T14 — Días 17–18 recorridos con límites, Codex CyE 26/10/2026
 
-**Acceso resuelto y comprobado independientemente:** sobre `26e7f559` de Claude, desde `VENTAS_CYE`, `ssh vps hostname` devuelve `srv1753195.hstgr.cloud`, salida 0; alias en puerto 2222. Script leído, sin reinstalar alias ni cambiar servidor. T83 cerrada, hizo=Claude, verifica=Codex. [Evidencia y límites](../04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md). El bloqueo de acceso descrito abajo es el corte anterior; sigue pendiente el control previo de las jornadas, sin ejecutar días, reloj ni rutinas en esta verificación.
+[Informes y galería](../06-pruebas/PRU-04/EVIDENCIA-DIAS-17-18.html): **13 situaciones, 7 Sí, 5 Parcial y 1 No**. TEST/staging/wingstest, ec1b0c6e. Reloj del 26/10 y del 27/10 una vez cada uno, simulación previa una y cuatro rutinas reales una vez cada una; cajas #16 y #17 validadas, contado/esperado $55.700/$53.000, diferencia cero. No despliegue de producto.
 
-[Día 17: comprobaciones y bloqueo](../06-pruebas/PRU-04/DIA-17.md) · [Día 18: no iniciado](../06-pruebas/PRU-04/DIA-18.md). `git pull` al día (`0542eec9`). SSH desde Ventas_CyE agota la conexión al puerto 22 antes de autenticar; igual fuera del entorno restringido y al ejecutar el instalador previsto. No se fijó reloj ni se envió simulación o rutina. El requisito previo del guion no está cumplido; cero operaciones de los días 17 y 18.
-Consulta actualizada por Chrome, todavía con fecha 25/10: deuda $391.000, 104 activos (99 Al día/0 En plazo/1 Moroso/4 Deudores), cinco filas de deuda coincidentes, ingresos $1.824.850,75, egresos $240.850, disponible $3.337.000,75 con medios coincidentes y por validar $0; clase #76 única pendiente; Julieta inactiva, cinco cuotas y $143.000. Son consultas previas al reloj, no una simulación contra base. Sin reparación, producto, tabla externa, suite, despliegue ni push. T14 en curso, tiene=Claude; sigue resolver acceso y completar el control previo antes de operar.
+Santino cobró agosto/septiembre $56.000 y quedó Moroso $28.000; Botiquín $6.500 registrado; Martín creado en Fútbol al 30% y usuario vinculado. Claves/usuario por controlador como ADMIN tras pedido directo de Carlos; ingreso/menús web comprobados. #76 guardada con Lucas y Tomás presentes, opción EXTRA propuesta por exceso; sin motivo de corrección histórica. Alma $58.000 MP, CUOTA-65 real revisado y Al día. Berenice agosto $43.000 pagado, pendientes septiembre/octubre $86.000, Deudor. #70 reasignada a Martín y lista final 14/15, Felipe ausente; Hernán sin clases propias hoy.
+
+**Límites conservados:** Julieta no se reactivó después de dos confirmaciones nativas fallidas de Chrome; sigue inactiva con cinco cuotas/$143.000, sin cobro ni reactivación por consola. En #70, Codex pulsó primero el Guardar de asistencias y envió todos ausentes por error; luego Martín guardó la lista prevista de 14. No acredita primera lista limpia. Dos pares de capturas de otra pestaña están identificados y excluidos; recapturas 13/14 posteriores válidas.
+
+**Cierre final comprobado en Inicio, Cobranza, Reportes y caja:** deuda $234.000; 104 activos (100 Al día/0 En plazo/2 Morosos/2 Deudores); ingresos octubre $1.981.850,75, egresos $251.150, resultado $1.730.700,75, disponible $3.483.700,75 (EFE $1.271.600, MP $1.946.550,75, Galicia $137.550, Nación $128.000); sin asistencia 0 y por validar $0. Diferencia prevista del guion por Julieta: −$143.000 en ingresos/resultado/MP/disponible y una activa Al día menos. No conformidad integral.
+
+T14 sigue en curso con Claude: revisión independiente, control interno y medición de velocidad. No repetir jornadas, reloj ni rutinas. Último inicio simulado 27/10/2026 15:00. Sin código de producto, tabla externa, suite, migraciones ni push. Antecedentes del intento bloqueado conservados en las carpetas de evidencia.
+
+## T83 — Acceso CyE verificado y cerrado, 26/10/2026
+
+Implementó Claude y verificó Codex sobre 26e7f559: desde VENTAS_CYE, ssh vps hostname devolvió srv1753195.hstgr.cloud, salida 0, alias por 2222. [Evidencia y límites](../04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md). El bloqueo previo de acceso quedó resuelto; las jornadas posteriores se describen arriba.
 
 ## T14 — Días 13 a 16 registrados, Codex CAB 26/10/2026
 

@@ -1,0 +1,3 @@
+Browser tab: 1293178628, Title: "Apertura de caja – Wings", URL: "https://test.gestionar-te.com.ar/caja/apertura".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Apertura de caja – Wings, URL: test.gestionar-te.com.ar/caja/apertura

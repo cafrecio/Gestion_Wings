@@ -1,0 +1,3 @@
+Browser tab: 1293178616, Title: "Nuevo movimiento – Wings", URL: "https://test.gestionar-te.com.ar/caja/16/editar".
+There has been no change in the accessibility tree.
+The focused UI element is 74 text field (settable) Observaciones *, Value: Gasas y alcohol, ID: observaciones
