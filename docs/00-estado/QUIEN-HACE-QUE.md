@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 13-16 revisados por Claude: ningun defecto nuevo, todo cuadra salvo los 143000 de Julieta (no se hizo). Para Carlos: Telegram de Zoe, DNI con letras, liquidar mes en curso. Falta revisar dias 7-12. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 13-16 revisados; seguridad 7-16 hecha (todo bien). Falta: control interno y performance sobre el sitio (sin ssh desde CyE) y revisar dias 7-12. Para Carlos: DNI con letras y liquidar mes en curso. |
 
 ## Codex
 

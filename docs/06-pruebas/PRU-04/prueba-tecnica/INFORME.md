@@ -1,3 +1,19 @@
+# Prueba técnica de los días 7 a 16 — 26/10/2026 · Claude CyE
+
+**Seguridad: 4 de 4 bien, sin hallazgos.** Base descartable `wings_testing_claude`; mismas pruebas de
+`SeguridadDiasPruebaTest.php`, con 11/11 y 81 aserciones en verde.
+
+| Prueba | Resultado |
+|---|---|
+| La operativa fuerza 10 acciones nuevas del dueño: rechazar caja, cambiar la gracia, crear usuario, ascenderse a ADMIN, desactivar a otra, alta de profesor, nivel, grupo, subrubro y liquidación | Las 10 dan 403 y no cambia ningún dato (`seguridad-operativa-dias-07-16.txt`) |
+| El dueño intenta quitarse el rol o desactivarse por envío directo, sin pasar por la pantalla (día 16; Codex solo lo vio en pantalla) | Sigue siendo ADMIN y activo |
+| Gracia «-3», «abc», 0, 29 y vacío; Cashflow con 0, negativo y fecha futura, por envío directo (días 14 y 16; Codex solo vio el aviso del navegador) | El servidor rechaza todo. El control con datos buenos sí se guarda |
+| Caja rechazada: Sandra la vuelve a cerrar con otro contado; Pablo intenta cerrarla (día 13.8, que Codex no pudo probar) | Da el texto de CAJ-031 y lo contado no cambia; Pablo no la toca |
+
+**Funcionamiento interno y performance sobre los datos del sitio: no se hicieron.** Necesitan el servidor, y
+desde la red de CyE el puerto de `ssh vps` no responde, aunque la web sí (`/login` da 200). Quedan
+para la próxima sesión con acceso. El volumen de dos años ya se midió después de T79.
+
 # Prueba técnica de los días 1 a 6 — seguridad, performance y comportamiento interno
 
 25/10/2026 · Claude CAB. Sobre las mismas operaciones de los días de la prueba humana.

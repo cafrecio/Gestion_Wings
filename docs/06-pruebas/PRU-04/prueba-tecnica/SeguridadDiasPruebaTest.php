@@ -188,4 +188,88 @@ class SeguridadDiasPruebaTest extends TestCase
         $this->assertStringContainsString("script-src 'self'", (string) $r->headers->get('Content-Security-Policy'));
         $this->assertNull($r->headers->get('Content-Security-Policy-Report-Only'));
     }
+
+    // ── Días 7 a 16 (Claude, 26/10/2026): lo nuevo de esas jornadas, forzado por fuera de la pantalla ──
+
+    private function fotoCatalogos(): array
+    {
+        return collect(['users', 'configuraciones', 'profesores', 'grupos', 'grupo_planes', 'niveles', 'subrubros', 'liquidaciones', 'cashflow_movimientos'])
+            ->mapWithKeys(fn ($t) => [$t => md5(DB::table($t)->orderBy('id')->get()->toJson())])->all();
+    }
+
+    public function test_dias_7_a_16_la_operativa_no_hace_lo_del_duenio_por_envio_directo(): void
+    {
+        $antes = [$this->foto(), $this->fotoCatalogos()];
+        $sueldos = \App\Models\Rubro::where('nombre', 'Gastos Operativos')->value('id') ?? 1;
+        $intentos = [
+            ['post', route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'Rechazo forzado por la operativa']],     // 13.7
+            ['patch', route('web.configuraciones.update', 'dias_gracia_cobranza'), ['valor' => 3]],                             // 16.7
+            ['post', route('web.usuarios.store'), ['name' => 'Intrusa', 'email' => 'intrusa@example.com', 'password' => 'Clave-Larga-123', 'password_confirmation' => 'Clave-Larga-123', 'rol' => 'ADMIN']], // 9.5
+            ['put', route('web.usuarios.update', $this->sandra->id), ['name' => $this->sandra->name, 'email' => $this->sandra->email, 'rol' => 'ADMIN']], // se asciende sola
+            ['patch', route('web.usuarios.toggle-activo', $this->pablo->id)],
+            ['post', route('web.profesores.store'), ['nombre' => 'Martín', 'apellido' => 'Acosta', 'deporte_id' => $this->claseMariela->grupo->deporte_id, 'dni' => '31000000', 'fecha_nacimiento' => '1990-01-01', 'direccion' => 'x', 'localidad' => 'x', 'telefono' => '1', 'valor_hora' => 15000]], // 15.3
+            ['post', route('web.niveles.store'), ['nombre' => 'Adultos']],                                                       // 16.8
+            ['post', route('web.grupos.store'), ['deporte_id' => $this->claseMariela->grupo->deporte_id, 'nivel_id' => $this->claseMariela->grupo->nivel_id, 'planes' => [['clases_por_semana' => 1, 'precio_mensual' => 32000]]]],
+            ['post', route('web.subrubros.store', $sueldos), ['nombre' => 'Botiquín', 'tipo' => 'EGRESO', 'permitido_para' => 'OPERATIVO']], // 16.9
+            ['post', route('web.liquidaciones.store'), ['profesor_id' => $this->claseMariela->profesores()->value('profesores.id'), 'mes' => 10, 'anio' => 2026]], // 16.5
+        ];
+        $resultados = [];
+        foreach ($intentos as $i) {
+            $r = $this->actingAs($this->sandra)->{$i[0]}($i[1], $i[2] ?? []);
+            $resultados[] = strtoupper($i[0]).' '.$i[1].' → '.$r->getStatusCode();
+            $this->assertTrue($this->prohibido($r), "La operativa ejecutó {$i[1]}: ".$r->getStatusCode());
+        }
+        $this->assertSame($antes, [$this->foto(), $this->fotoCatalogos()], 'Un intento prohibido de la operativa cambió datos');
+        file_put_contents(__DIR__.'/seguridad-operativa-dias-07-16.txt', implode("\n", $resultados)."\n");
+    }
+
+    public function test_dia_16_el_duenio_no_se_quita_el_rol_ni_se_desactiva_por_envio_directo(): void
+    {
+        $this->actingAs($this->duenio)->put(route('web.usuarios.update', $this->duenio->id),
+            ['name' => $this->duenio->name, 'email' => $this->duenio->email, 'rol' => 'OPERATIVO']);
+        $this->actingAs($this->duenio)->patch(route('web.usuarios.toggle-activo', $this->duenio->id));
+        $this->actingAs($this->duenio)->patchJson(route('web.usuarios.toggle-activo', $this->duenio->id));
+        $fresco = $this->duenio->fresh();
+        $this->assertSame('ADMIN', $fresco->rol);
+        $this->assertTrue((bool) $fresco->activo);
+    }
+
+    public function test_dias_14_y_16_los_datos_invalidos_se_frenan_en_el_servidor(): void
+    {
+        $gracia = DB::table('configuraciones')->where('clave', 'dias_gracia_cobranza')->value('valor');
+        foreach (['-3', 'abc', '0', '29', ''] as $valor) {
+            $this->actingAs($this->duenio)->patch(route('web.configuraciones.update', 'dias_gracia_cobranza'), ['valor' => $valor]);
+            $this->assertSame($gracia, DB::table('configuraciones')->where('clave', 'dias_gracia_cobranza')->value('valor'), "Guardó gracia «{$valor}»");
+        }
+        $antes = DB::table('cashflow_movimientos')->count();
+        $luz = Subrubro::where('nombre', 'Luz')->value('id');
+        foreach ([['monto' => '0', 'fecha' => '2026-10-15'], ['monto' => '-1000', 'fecha' => '2026-10-15'], ['monto' => '1000', 'fecha' => '2026-10-30']] as $caso) {
+            $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), $caso + ['subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'observaciones' => 'x']);
+        }
+        $this->assertSame($antes, DB::table('cashflow_movimientos')->count(), 'Cashflow guardó un importe cero, negativo o con fecha futura');
+
+        // Control: con datos buenos sí guarda; si no, los rechazos de arriba no probarían nada.
+        $this->actingAs($this->duenio)->patch(route('web.configuraciones.update', 'dias_gracia_cobranza'), ['valor' => '12']);
+        $this->assertEquals('12', DB::table('configuraciones')->where('clave', 'dias_gracia_cobranza')->value('valor'));
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['monto' => '1000', 'fecha' => '2026-10-15', 'subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'observaciones' => 'x']);
+        $this->assertSame($antes + 1, DB::table('cashflow_movimientos')->count(), 'El movimiento válido no se guardó');
+    }
+
+    public function test_dia_13_la_caja_rechazada_no_cambia_lo_contado_al_recerrar(): void
+    {
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id),
+            ['efectivo_contado' => '35000', 'cambio_retenido' => '10000'])->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'La clase particular fue de $20.000'])
+            ->assertSessionHasNoErrors();
+        $this->assertSame('RECHAZADA', $this->cajaSandra->fresh()->estado);
+
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id),
+            ['efectivo_contado' => '40000', 'cambio_retenido' => '10000'])
+            ->assertSessionHasErrors(['efectivo_contado' => 'La corrección no puede cambiar el efectivo que ya se contó y entregó.']);
+        $this->assertSame('35000.00', $this->cajaSandra->fresh()->efectivo_contado);
+
+        // Otra operativa tampoco recierra la caja rechazada de Sandra.
+        $this->actingAs($this->pablo)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '35000', 'cambio_retenido' => '10000']);
+        $this->assertSame('RECHAZADA', $this->cajaSandra->fresh()->estado);
+    }
 }
