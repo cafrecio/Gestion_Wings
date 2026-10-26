@@ -32,6 +32,15 @@ punto de miles; mirar el total antes de confirmar; las diferencias se anotan y n
 /usr/bin/php82 scripts/pruebas/rutina/rutina.php docs/06-pruebas/PRU-04/rutina/dia-17-manana.json
 ```
 
+**Antes de operar, control contra la base (obligatorio).** Este guion se armó con las pantallas del
+día 16, sin consultar la base. Antes del primer paso:
+1. Fijar el reloj del día 17 y correr la rutina de la mañana **con `--simular`**: no guarda nada y falla
+   si un usuario, un alumno o una clase del plan no existe tal como está escrito.
+2. Comparar en pantalla el punto de partida de arriba: Cobranza (deuda, estados y los cinco con deuda),
+   Reportes (ingresos, egresos y disponible por medio), «Sin asistencia» y la ficha de Julieta
+   (inactiva, cinco cuotas, $143.000).
+3. Si algo no coincide, **no operar**: anotar la diferencia y avisar. Claude corrige el guion y se sigue.
+
 **Novedad del script:** las listas ahora se piden por grupo y hora («Patín — Principiantes», 16:00), no
 por número. Si dice «hay 0 hoy» o «hay 2 hoy», no guarda nada: se anota y se sigue por pantalla.
 
