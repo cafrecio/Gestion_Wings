@@ -11,6 +11,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — Planilla «Prueba por días» al día 18; casos nuevos corregidos
+
+- Planilla (artifact 8cgmP6kq) con los días 17 y 18, cobertura 114/332, defectos y lo que sigue. Desde ahora se actualiza con cada paquete de días (CLAUDE.md, «Prueba en TEST», punto 4).
+- Error mío corregido: de los 27 casos «nuevos» del guion 19–22, 15 ya estaban probados según la planilla, porque los había sacado solo de los informes de Codex. Reemplazados: ahora son 25 nuevos de verdad (`d66eba1e`).
+
 ## 2026-10-27 — Claude CyE — Guion de los días 19 a 22 (28 al 31/10), armado contra la base
 
 - [Guion](../06-pruebas/PRU-04/GUION-DIAS-19-22.md): 27 casos nuevos, unas 20 a 25 operaciones por día y cierre de mes. Datos leídos de `wingstest` y cada rutina simulada con su fecha (`rutina.php --simular --fecha`, nuevo): así salieron los precios de octubre y el aumento de Principiantes 2 veces, que rige desde noviembre.
