@@ -57,6 +57,13 @@ rearma `/root/.ssh/authorized_keys` cada 15 minutos desde `https://github.com/ca
 nada. Un aviso diario por Telegram avisa si la sincronizacion quedo rota, en vez de
 descubrirlo cuando un agente necesita el servidor.
 
+**La red de CyE corta toda salida por el puerto 22** (comprobado el 26/10/2026 contra GitHub,
+GitLab y Bitbucket; deja salir por 443, 465, 587 y 993). Desde CyE `ssh vps` no puede andar por el 22,
+y no es culpa de la clave ni del servidor. Arreglo pendiente, tarea **T83**: el primer agente que
+arranque en CAB habilita sshd en un puerto extra, sin pedírselo a Carlos. Hasta entonces, lo que necesite
+el servidor (despliegue, reloj y rutinas de la prueba, controles internos) se hace desde CAB. No se le
+pide a Carlos que toque nada.
+
 Pasó dos veces: el 22/09 solo CAB entraba y todo quedaba "para la otra maquina", y el
 05/10 CyE dejo de entrar aunque su clave seguia publicada — algo repuso una lista de
 claves vieja. **No volver a arreglarlo a mano:** eso es lo que hacia que se repitiera. Si
