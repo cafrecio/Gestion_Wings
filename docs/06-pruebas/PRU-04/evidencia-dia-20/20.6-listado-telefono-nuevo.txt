@@ -1,0 +1,76 @@
+Browser tab: 1293178724, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Alumnos, Value: 1
+		19 text Alumnos
+	20 container
+		21 container
+			22 image
+			23 combo box (collapsed, settable) Value: 54100102, ID: search-input, Secondary Actions: Expand
+		24 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			25 menu
+				26 (selected) Deporte
+				27 Fútbol
+				28 Patín
+		29 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+			30 menu
+				31 (selected) Grupo
+				32 Fútbol — Avanzadas
+				33 Fútbol — Principiantes
+				34 Patín — Adultos
+				35 Patín — Avanzadas
+				36 Patín — Federadas
+				37 Patín — Intermedias
+				38 Patín — Principiantes
+		39 button Limpiar
+		40 text Mostrando
+		41 text 1
+		42 text  a
+		43 text 1
+		44 text  de
+		45 text 1
+		46 text  alumnos
+		47 button Nuevo
+		48 container
+			49 heading Gomez, Lucas, Value: 3
+				50 text Gomez, Lucas
+		51 image
+		52 text Deporte: Fútbol
+		53 image
+		54 text Grupo: Fútbol — Avanzadas
+		55 image
+		56 text Plan: 1 clase/semana
+		57 image
+		58 text DNI: 54100102
+		59 image
+		60 text Teléfono: 1145123499
+		61 image
+		62 text Edad: 9 años
+		63 image
+		64 text Tutor: Marcelo Gomez
+		65 image
+		66 text Tel. tutor: 1145123401
+		67 button Cobrar
+		68 button Ver
+		69 button Editar
+		70 container
+			71 text Activo
+			72 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6adf74b8684eb
+	73 text Wings
+
+The focused UI element is 1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=

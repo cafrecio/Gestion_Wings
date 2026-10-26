@@ -1,0 +1,84 @@
+Browser tab: 1293178724, Title: "Nueva Clase – Wings", URL: "https://test.gestionar-te.com.ar/clases/create".
+1 AXWebArea Nueva Clase – Wings, URL: test.gestionar-te.com.ar/clases/create
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Nueva Clase, Value: 1
+		30 text Nueva Clase
+	31 container
+		32 radio button (settable, integer) Description: Clase única, Value: 1
+		33 radio button (settable, integer) Description: Clases recurrentes, Value: 0
+		34 container seccion-unica
+			35 container
+				36 image
+				37 text Fecha *
+			38 date field (settable) Fecha *, Value: 2026-10-31, ID: fecha
+				39 container
+					88 stepper
+					89 stepper
+					90 stepper
+				43 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		44 image
+		45 text Grupo *
+		46 pop up button (collapsed, settable) Grupo *, Value: Fútbol — Avanzadas, ID: grupo_id, Secondary Actions: Expand
+			47 menu
+				48 Seleccionar grupo...
+				49 (selected) Fútbol — Avanzadas
+				50 Fútbol — Principiantes
+				51 Patín — Adultos
+				52 Patín — Avanzadas
+				53 Patín — Federadas
+				54 Patín — Intermedias
+				55 Patín — Principiantes
+		91 text Deporte: Fútbol
+		56 image
+		57 text Hora inicio *
+		58 time field (settable) Hora inicio *, Value: 14:00, ID: hora_inicio
+			59 container
+				92 stepper
+				93 stepper
+			62 pop up button Mostrar el selector de hora Mostrar el selector de hora
+		63 image
+		64 text Hora fin *
+		65 time field (settable) Hora fin *, Value: 13:00, ID: hora_fin
+			66 container
+				94 stepper
+				95 stepper
+			69 pop up button Mostrar el selector de hora Mostrar el selector de hora
+		96 text La hora de fin debe ser posterior a la hora de inicio.
+		70 image
+		71 text Profesores * Seleccioná al menos una profesora activa del deporte.
+		72 checkbox (settable, integer) Description: Acosta, Martín Fútbol, Value: 0
+		73 text Acosta, Martín Fútbol
+		80 checkbox (settable, integer) Description: Quintana, Hernán Fútbol, Value: 1
+		81 text Quintana, Hernán Fútbol
+		97 text Solo se muestran profesores activos de Fútbol.
+		85 button Volver
+		86 button Guardar
+	87 text Wings
+
+The focused UI element is 94 stepper

@@ -1,0 +1,3 @@
+{"clave_hash":"ingresoad22fdc9f5b732f5403777e7d2108e5bd890e662","antes_intentos":5,"antes_segundos":171354}
+REINICIADO solo el contador autorizado y su temporizador.
+{"despues_intentos":0,"despues_segundos":0,"bloqueado":false}

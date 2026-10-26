@@ -1,0 +1,244 @@
+Browser tab: 1293178719, Title: "Detalle caja 29/10/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/38/detalle".
+1 AXWebArea Detalle caja 29/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/38/detalle
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Detalle de caja, Value: 1
+		19 text Detalle de caja
+	20 container
+		21 text OPERATIVO Rocío Paz APERTURA 29/10/2026 15:00 CIERRE – ESTADO ABIERTA
+		22 text 12
+		23 text  movimientos
+		24 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/38/resumen
+		25 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		26 container Movimientos de la caja
+			27 table
+				28 row
+					29 cell
+						30 text FECHA
+					31 cell
+						32 text I/E
+					33 cell
+						34 text MEDIO
+					35 cell
+						36 text RUBRO — SUBRUBRO
+					37 cell
+						38 text ALUMNO / OBS.
+					39 cell
+						40 text MONTO
+				41 row
+					42 cell
+						43 text 29/10/2026
+					44 cell
+						45 text I
+					46 cell
+						47 text EFE
+					48 cell
+						49 text Cuotas  — Cuota Mensual
+					50 cell
+						51 text Iglesias, Clara · PAT · 10/26
+					52 cell
+						53 text $30,000.00
+					54 cell
+						55 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/143?inline=1
+						56 button Cancelar
+				57 row
+					58 cell
+						59 text 29/10/2026
+					60 cell
+						61 text I
+					62 cell
+						63 text MP
+					64 cell
+						65 text Cuotas  — Cuota Mensual
+					66 cell
+						67 text Molina, Milagros · PAT · 10/26
+					68 cell
+						69 text $30,000.00
+					70 cell
+						71 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/144?inline=1
+						72 button Cancelar
+				73 row
+					74 cell
+						75 text 29/10/2026
+					76 cell
+						77 text I
+					78 cell
+						79 text EFE
+					80 cell
+						81 text Cuotas  — Cuota Mensual
+					82 cell
+						83 text Ferrari, Josefina · PAT · 10/26
+					84 cell
+						85 text $33,000.00
+					86 cell
+						87 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/145?inline=1
+						88 button Cancelar
+				89 row
+					90 cell
+						91 text 29/10/2026
+					92 cell
+						93 text I
+					94 cell
+						95 text MP
+					96 cell
+						97 text Cuotas  — Cuota Mensual
+					98 cell
+						99 text Flores, Juana · PAT · 10/26
+					100 cell
+						101 text $33,000.00
+					102 cell
+						103 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/146?inline=1
+						104 button Cancelar
+				105 row
+					106 cell
+						107 text 29/10/2026
+					108 cell
+						109 text I
+					110 cell
+						111 text EFE
+					112 cell
+						113 text Cuotas  — Cuota Mensual
+					114 cell
+						115 text Alvarez, Camila · PAT · 10/26
+					116 cell
+						117 text $35,000.00
+					118 cell
+						119 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/147?inline=1
+						120 button Cancelar
+				121 row
+					122 cell
+						123 text 29/10/2026
+					124 cell
+						125 text I
+					126 cell
+						127 text MP
+					128 cell
+						129 text Cuotas  — Cuota Mensual
+					130 cell
+						131 text Benitez, Milagros · PAT · 10/26
+					132 cell
+						133 text $45,000.00
+					134 cell
+						135 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/148?inline=1
+						136 button Cancelar
+				137 row
+					138 cell
+						139 text 29/10/2026
+					140 cell
+						141 text I
+					142 cell
+						143 text EFE
+					144 cell
+						145 text Cuotas  — Cuota Mensual
+					146 cell
+						147 text Flores, Santino · Fú · 10/26
+					148 cell
+						149 text $28,000.00
+					150 cell
+						151 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/149?inline=1
+						152 button Cancelar
+				153 row
+					154 cell
+						155 text 29/10/2026
+					156 cell
+						157 text I
+					158 cell
+						159 text MP
+					160 cell
+						161 text Cuotas  — Cuota Mensual
+					162 cell
+						163 text Fernandez, Benjamin · Fú · 10/26
+					164 cell
+						165 text $48,000.00
+					166 cell
+						167 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/150?inline=1
+						168 button Cancelar
+				169 row
+					170 cell
+						171 text 29/10/2026
+					172 cell
+						173 text I
+					174 cell
+						175 text EFE
+					176 cell
+						177 text Cuotas  — Cuota Mensual
+					178 cell
+						179 text Herrera, Facundo · Fú · 10/26
+					180 cell
+						181 text $28,000.00
+					182 cell
+						183 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/151?inline=1
+						184 button Cancelar
+				185 row
+					186 cell
+						187 text 29/10/2026
+					188 cell
+						189 text E
+					190 cell
+						191 text EFE
+					192 cell
+						193 text Gastos Operativos  — Limpieza
+					194 cell
+						195 text Limpieza del jueves
+					196 cell
+						197 text $3,800.00
+					198 cell
+						199 link Description: Editar, Value: test.gestionar-te.com.ar/caja/38/movimientos/194/editar
+						200 button Eliminar
+				201 row
+					202 cell
+						203 text 29/10/2026
+					204 cell
+						205 text I
+					206 cell
+						207 text MP
+					208 cell
+						209 text Indumentaria  — Patines
+					210 cell
+						211 text Venta de patines, día 20
+					212 cell
+						213 text $85,000.00
+					214 cell
+						215 link Description: Editar, Value: test.gestionar-te.com.ar/caja/38/movimientos/195/editar
+						216 button Eliminar
+				217 row
+					218 cell
+						219 text 29/10/2026
+					220 cell
+						221 text I
+					222 cell
+						223 text EFE
+					224 cell
+						225 text Indumentaria  — Indumentaria institucional
+					226 cell
+						227 text Venta de remera, día 20
+					228 cell
+						229 text $18,000.00
+					230 cell
+						231 link Description: Editar, Value: test.gestionar-te.com.ar/caja/38/movimientos/196/editar
+						232 button Eliminar
+				233 row
+					234 cell
+						235 text Ingresos:
+						236 text $413,000.00
+						237 text   ·  Egresos:
+						238 text $3,800.00
+					239 cell
+						240 text $409,200.00
+	241 text Wings
+
+The focused UI element is 1 AXWebArea Detalle caja 29/10/2026 – Wings, URL: test.gestionar-te.com.ar/caja/38/detalle

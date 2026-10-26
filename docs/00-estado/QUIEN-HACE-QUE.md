@@ -46,13 +46,13 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 19-22: 19 parcial; caja36 Sandra ABIERTA esperado268000, Libreria2500 sin eliminar por dos fallos Chrome. Simulaciones20-22 fallan por turno abierto; sin operar. Revisar informes y continuidad; excepciones consultadas a Carlos. No repetir cobros. |
+Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Reanudado:19 cerrado/validado;20 hasta20.7. Pendiente20.8-20.10: navegador local desactivado en Work. Noche20 y controles21-22 no corridos. Habilitar navegador y continuar sin repetir cobros/ventas/manana20. |
 
 ## Gemini
 

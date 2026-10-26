@@ -1,0 +1,38 @@
+Browser tab: 1293178712, Title: "Cierre de caja – Wings", URL: "https://test.gestionar-te.com.ar/caja/36/cerrar".
+1 AXWebArea Cierre de caja – Wings, URL: test.gestionar-te.com.ar/caja/36/cerrar
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Sandra Vidal
+		17 button Salir
+	18 heading Cierre de caja, Value: 1
+		19 text Cierre de caja
+	20 container
+		21 text Caja #36 · Sandra Vidal. Contá solo el efectivo del mostrador, no las transferencias ni lo que cobró ADMIN aparte. Efectivo inicial $10,000.00 Efectivo esperado $270,500.00
+		22 container
+			23 image
+			24 text Efectivo contado *
+		25 text field (settable) Efectivo contado *, Value: 271000.00, ID: efectivo_contado
+		26 container
+			27 image
+			28 text Cambio que queda *
+		29 text field (settable) Cambio que queda *, Value: 10,000.00, ID: cambio_retenido
+		30 container
+			31 text Diferencia Sobrante $500.00 Retiro / entrega $261,000.00
+		32 text Podés cerrar con faltante o sobrante: ADMIN revisará la diferencia. El retiro no se registra como gasto.
+		33 button Volver
+		34 button Cerrar
+	35 text Wings
+
+The focused UI element is 25 text field (settable) Efectivo contado *, Value: 271000.00, ID: efectivo_contado

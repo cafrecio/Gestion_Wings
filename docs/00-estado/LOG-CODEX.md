@@ -1,13 +1,12 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-26 — Codex CyE — Días 19–22: parcial y bloqueo
+## 2026-10-26 — Codex CyE — Días19–22 reanudados; pendiente navegador
 
-TEST/wingstest, app ec1b0c6e. Guion inicial congelado5b2f16a2; ampliado durante ejecución en d66eba1e. [Cuatro informes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html).
-Día19: caja36 Sandra10.000; simulación y rutina mañana14/14. Agustín condonado14.000 con motivo; Joaquín44.000 efectivo/CUOTA133, deuda190.000; Limpieza171 a3500; #60 con23ausentes/Sin presentes. Apertura100000 y exceso50000: parciales.
-Librería172/$2500 sigue: dos confirmaciones Chrome fallidas. Esperado268000, no270500; no se cerró. Noche19 falla sin caja CERRADA, rollback. Sin reparación por consola.
-Días20–22: reloj15h una vez cada uno; cada simulación falla paso1 por turno abierto y revierte. Sin rutinas reales ni casos. Último reloj31/10 15h. Guion ampliado37situaciones:3Sí,2Parcial,1herramienta,31sin ejecutar.
-Inicio/Reportes: ingresos2.373.850,75, egresos257.150, resultado2.116.700,75, disponible3.887.700,75; ingresos18000 debajo del guion además de Librería. Causa no atribuida; revisar Indumentaria. Caja ABIERTA,404000 por validar.
-Claude recibe revisión y continuidad. Carlos tiene pregunta pendiente para adaptar cierre/repetir controles; no repetir cobros. Sin producto, ESTADO-ACTUAL, tabla, suite, deploy ni push.
+Carlos autorizó volver al28/10, repetir19.5/noche19 y controles20–22; cobros anteriores intactos. Él confirmó Librería: borrado,13movimientos,esperado270500.19.4a/19.7a rechazan en castellano.19.6b parcial: sin hora. Caja36 VALIDADA,contado271000,sobrante500,cambio10000; sin ingreso extra.
+Día20: simulación13/13 y mañana real13/13; caja38Rocío. Ventas85000MP/18000efectivo,esperado178200,MP241000.71cancelada con motivo,Hernán bloqueado;82recuperación31/10 14–15 creada tras rechazo14–13; Mariela50futura bloqueada; celularLucas1145123499,pago conservado.20.7correcto.
+Ingreso rechazado tras87s: con permisoCarlos, SSH encontró contador hasta31/10 con reloj29/10. Se limpió una clave,0intentos/0segundos después; Hernán entró. Límite,usuarios,claves y negocio intactos. Evidencia completa.
+20.8no ejecutado: revisión automática agotó uso. Al continuar,uso liberado pero navegador local desactivado enWork. Carlos tiene aviso. Sin noche20 ni reanudación21–22; último reloj29/10 15h. No repetir ventas/mañana20/cobros19.
+[Informes y capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html); primera corrida conservada. Diferencias de Reportes sin reparar ni causa atribuida. T14en curso,Codex;Claude revisa al entregar. Sin producto,ESTADO-ACTUAL,tabla,suite,deploy ni push.
 
 ## 2026-10-26 — Codex CyE — Días 17–18 recorridos, con límites
 

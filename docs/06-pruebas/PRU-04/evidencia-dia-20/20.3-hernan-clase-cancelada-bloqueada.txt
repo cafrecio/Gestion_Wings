@@ -1,0 +1,102 @@
+Browser tab: 1293178724, Title: "Jueves 29 de octubre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/71".
+1 AXWebArea Jueves 29 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/71
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+	5 container
+		6 text Hernán Quintana
+		7 button Salir
+	8 heading Clase — Fútbol — Avanzadas, Value: 1
+		9 text Clase — Fútbol — Avanzadas
+	10 container
+		11 heading Jueves 29 De Octubre De 2026, Value: 2
+			12 text Jueves 29 De Octubre De 2026
+		13 text 19:00 – 20:00 Fútbol Fútbol — Avanzadas
+		14 text Quintana, Hernán
+		15 text Cancelada
+		16 text — Cancha inundada
+		17 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		18 text Esta clase está cancelada. No se pueden registrar asistencias.
+		19 text 15
+		20 text  alumnos en el grupo  ·
+		21 text 0
+		22 text  presentes
+		23 container card-251
+			24 text Diaz, Thiago 1/1 (Completo) · DNI …502
+			25 container
+				26 text Presente
+				27 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-251
+		28 container card-247
+			29 text Fernandez, Benjamin 1/2 · DNI …302
+			30 container
+				31 text Presente
+				32 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-247
+		33 container card-260
+			34 text Ferrari, Nicolas 1/2 · DNI …805
+			35 container
+				36 text Presente
+				37 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-260
+		38 container card-339
+			39 text Gimenez, Tomas 1/2 · DNI …919
+			40 container
+				41 text Presente
+				42 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-339
+		43 container card-242
+			44 text Gomez, Lucas 1/1 (Completo) · DNI …102
+			45 container
+				46 text Presente
+				47 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-242
+		48 container card-328
+			49 text Molina, Franco 1/1 (Completo) · DNI …015
+			50 container
+				51 text Presente
+				52 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-328
+		53 container card-330
+			54 text Morales, Lorenzo 1/1 (Completo) · DNI …017
+			55 container
+				56 text Presente
+				57 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-330
+		58 container card-261
+			59 text Navarro, Julian 1/2 · DNI …806
+			60 container
+				61 text Presente
+				62 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-261
+		63 container card-329
+			64 text Ortiz, Tobias 1/2 · DNI …016
+			65 container
+				66 text Presente
+				67 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-329
+		68 container card-270
+			69 text Ramos, Dante 1/2 · DNI …909
+			70 container
+				71 text Presente
+				72 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-270
+		73 container card-245
+			74 text Rodriguez, Mateo 1/1 (Completo) · DNI …203
+			75 container
+				76 text Presente
+				77 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-245
+		78 container card-326
+			79 text Rossi, Leon 1/1 (Completo) · DNI …013
+			80 container
+				81 text Presente
+				82 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-326
+		83 container card-327
+			84 text Silva, Simon 1/2 · DNI …014
+			85 container
+				86 text Presente
+				87 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-327
+		88 container card-265
+			89 text Sosa, Felipe 0/1 · DNI …904
+			90 container
+				91 text Presente
+				92 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-265
+		93 container card-334
+			94 text Vega, Joaquin 1/2 · DNI …914
+			95 container
+				96 text Presente
+				97 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-334
+		98 button (disabled) Guardar, ID: btn-guardar-asistencias
+	99 text Wings
+
+The focused UI element is 1 AXWebArea Jueves 29 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/71

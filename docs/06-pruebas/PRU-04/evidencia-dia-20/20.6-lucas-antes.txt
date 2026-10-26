@@ -1,0 +1,56 @@
+Browser tab: 1293178724, Title: "Gomez, Lucas – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/242".
+1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Gomez, Lucas, Value: 1
+		19 text Gomez, Lucas
+	20 container
+		21 heading Inscripción al club, Value: 3
+			22 text Inscripción al club
+		23 text Por única vez por persona. Saldo pendiente: $0.00
+		24 text Activo
+		25 button Cobrar
+		26 button Editar
+		27 image
+		28 text DNI 54100102
+		29 image
+		30 text NACIMIENTO 10/08/2017
+		31 image
+		32 text CELULAR 1145123401
+		33 image
+		34 text EMAIL marcelo.gomez@testmail.com
+		35 image
+		36 text DEPORTE Fútbol
+		37 image
+		38 text GRUPO Fútbol — Avanzadas
+		39 image
+		40 text PLAN 1x sem. — $28,000.00/mes
+		41 image
+		42 text ALTA 15/03/2025
+		43 image
+		44 text ESTADO DE COBRANZA Al día
+		45 image
+		46 text TUTOR NOMBRE Marcelo Gomez TELÉFONO 1145123401
+		47 image
+		48 text HISTORIAL DE PAGOS 10/10/2026 · Oct 2026 $33,000.00
+		49 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/4?inline=1
+		50 image
+		51 text ASISTENCIAS — OCT 2026 5 clases 15/10 17/10 20/10 24/10 27/10
+		52 button Volver
+	53 text Wings
+
+The focused UI element is 1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242

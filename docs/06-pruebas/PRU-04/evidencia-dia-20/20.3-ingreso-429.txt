@@ -1,0 +1,14 @@
+Browser tab: 1293178724, Title: "Esperá un momento – Wings", URL: "https://test.gestionar-te.com.ar/login".
+1 AXWebArea Esperá un momento – Wings, URL: test.gestionar-te.com.ar/login
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+	4 heading Esperá un momento, Value: 1
+		5 text Esperá un momento
+	6 container Demasiados intentos seguidos
+		7 heading Demasiados intentos seguidos, Value: 2, ID: error-titulo
+			8 text Demasiados intentos seguidos
+		9 text Esperá un momento y probá de nuevo.
+		10 button Volver
+	11 text Wings
+
+The focused UI element is 1 AXWebArea Esperá un momento – Wings, URL: test.gestionar-te.com.ar/login

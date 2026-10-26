@@ -1,0 +1,4 @@
+{"entorno":"staging","base":"wingstest","cache":"database","fecha_simulada":"2026-10-29 15:25:42","fecha_real_utc":"2026-10-26T15:35:09+00:00"}
+{"clave_hash":"ingreso3264e007503d8e28fbabc7a5fff3bfe80e172a5b","intentos":0,"bloqueado":false,"segundos_restantes":0,"vence_utc":null}
+{"clave_hash":"ingresoad22fdc9f5b732f5403777e7d2108e5bd890e662","intentos":5,"bloqueado":true,"segundos_restantes":171386,"vence_utc":"2026-10-31T18:02:08+00:00"}
+SOLO LECTURA: ningun contador reiniciado.

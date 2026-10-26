@@ -1,0 +1,109 @@
+[
+  {
+    "id": "19.5",
+    "resultado": "Parcial",
+    "observado": "Carlos confirmó manualmente; Librería172 desapareció y gastos3500/13movimientos. No se verificó por pantalla auditoría de quién/cuándo eliminó.",
+    "evidencia": [
+      "evidencia-dia-19/13-libreria-eliminada-confirmo-carlos.txt",
+      "evidencia-dia-19/13-confirmacion-carlos.md"
+    ]
+  },
+  {
+    "id": "19.4a",
+    "resultado": "Sí",
+    "observado": "Sin rubro: Selecciona un elemento de la lista. Con monto0: El importe debe ser mayor que cero. Conserva campos; 13movimientos y esperado270500 sin cambios.",
+    "evidencia": [
+      "evidencia-dia-19/15-19.4a-sin-rubro-rechazado.txt",
+      "evidencia-dia-19/16-19.4a-cero-rechazado.txt"
+    ]
+  },
+  {
+    "id": "19.6b",
+    "resultado": "Parcial",
+    "observado": "Esperado270500, MP146000 separado y Librería ausente. El detalle muestra fecha, concepto, medio e importe, pero no hora por movimiento.",
+    "evidencia": [
+      "evidencia-dia-19/13-libreria-eliminada-confirmo-carlos.txt",
+      "evidencia-dia-19/17-19.6b-caja-270500-mp146000.txt"
+    ]
+  },
+  {
+    "id": "19.7a",
+    "resultado": "Sí",
+    "observado": "Contado271000/cambio300000 rechazado: El cambio no puede superar el efectivo contado. Caja siguió abierta.",
+    "evidencia": [
+      "evidencia-dia-19/18-19.7a-cambio-mayor-rechazado.txt"
+    ]
+  },
+  {
+    "id": "19.7",
+    "resultado": "Sí",
+    "observado": "Contado271000, esperado270500, sobrante500, cambio10000. CERRADA y luego VALIDADA, ingresos caja410000; no ingreso extra por diferencia.",
+    "evidencia": [
+      "evidencia-dia-19/21-caja-validada-sobrante500.txt",
+      "evidencia-dia-19/20-noche-reanudacion.txt"
+    ]
+  },
+  {
+    "id": "20.1",
+    "resultado": "Sí",
+    "observado": "Patines85000MP y remera18000efectivo registrados una vez; esperado178200, MP241000, ingresos413000.",
+    "evidencia": [
+      "evidencia-dia-20/20.1-caja-178200.txt",
+      "evidencia-dia-20/20.1-ventas-guardadas.txt"
+    ]
+  },
+  {
+    "id": "20.2",
+    "resultado": "Sí",
+    "observado": "Sin motivo no cancela (El motivo es obligatorio); Cancha inundada cancela solo71 y permanece en hoy, Cancelada con motivo.",
+    "evidencia": [
+      "evidencia-dia-20/20.2-sin-motivo.txt",
+      "evidencia-dia-20/20.2-cancelada-con-motivo.txt",
+      "evidencia-dia-20/20.2-listado-cancelada.txt"
+    ]
+  },
+  {
+    "id": "20.3",
+    "resultado": "Sí",
+    "observado": "Hernán ve clase71 Cancelada, aviso no se pueden registrar asistencias y Guardar deshabilitado. No se enviaron marcas. Ingreso recuperado mediante reinicio de un contador autorizado por Carlos.",
+    "evidencia": [
+      "evidencia-dia-20/20.3-hernan-clase-cancelada-bloqueada.txt",
+      "evidencia-dia-20/32-autorizacion-y-alcance-contador.md"
+    ]
+  },
+  {
+    "id": "20.4",
+    "resultado": "Parcial",
+    "observado": "Horario14–13 rechazado en formulario conservando campos. Corregido14–15 creó una clase única31/10, grupoFútbolAvanzadas, solo Martín/Hernán ofrecidos. Verificación de visibilidad por Hernán pendiente para22.2.",
+    "evidencia": [
+      "evidencia-dia-20/20.4-horario-invalido-rechazado.txt",
+      "evidencia-dia-20/20.4-clase-creada.txt"
+    ]
+  },
+  {
+    "id": "20.5",
+    "resultado": "Sí",
+    "observado": "Mariela abrió50 del31/10 estando29/10. Aviso Esta clase todavía no ocurrió; casillas y Guardar deshabilitados. No se guardaron marcas.",
+    "evidencia": [
+      "evidencia-dia-20/20.5-mariela-clase-futura-bloqueada.txt"
+    ]
+  },
+  {
+    "id": "20.6",
+    "resultado": "Sí",
+    "observado": "Celular1145123401→1145123499 en ficha y listado. Tutor conserva1145123401. Al día y pagoOct33.000/recibo4 iguales; sin nueva cuota visible.",
+    "evidencia": [
+      "evidencia-dia-20/20.6-lucas-antes.txt",
+      "evidencia-dia-20/20.6-listado-telefono-nuevo.txt",
+      "evidencia-dia-20/20.6-ficha-telefono-nuevo.txt"
+    ]
+  },
+  {
+    "id": "20.7",
+    "resultado": "Sí",
+    "observado": "Inicio Rocío muestra Caja abierta, hora15:00, Cobrar y Registrar.",
+    "evidencia": [
+      "evidencia-dia-20/20.7-inicio-rocio-caja-abierta.txt"
+    ]
+  }
+]

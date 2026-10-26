@@ -1,0 +1,15 @@
+{
+  "corte": "26/10/2026; hasta20.7",
+  "casos": 37,
+  "resultados": {
+    "Parcial": 5,
+    "Sí": 12,
+    "No ejecutado": 20
+  },
+  "proximo": "20.8 por navegador local habilitado; no repetir cobros/ventas/manana20",
+  "ultimo_reloj": "2026-10-29 15:00",
+  "noche20": "no ejecutada",
+  "dias21_22": "no reanudados",
+  "revision_documental": "VERIFICACION-REANUDACION-DOCUMENTAL.md",
+  "verificacion_negocio": "pendiente Claude"
+}

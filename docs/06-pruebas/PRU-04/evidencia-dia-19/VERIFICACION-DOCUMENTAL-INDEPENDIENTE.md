@@ -1,3 +1,5 @@
+> Corte histórico: este control corresponde a febabcd6, antes de la reanudación autorizada. No certifica los resultados posteriores.
+
 # Control documental independiente · días19–22
 
 26/10/2026 · subagente Codex `/root/verificar_php_vps`, requerido por AGENTS.md §6a. Solo lectura de documentos y evidencia, sin servidor ni navegador.

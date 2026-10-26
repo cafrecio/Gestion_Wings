@@ -1,0 +1,77 @@
+Browser tab: 1293178716, Title: "Nuevo movimiento – Wings", URL: "https://test.gestionar-te.com.ar/caja/movimiento".
+1 AXWebArea Nuevo movimiento – Wings, URL: test.gestionar-te.com.ar/caja/movimiento
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Nuevo movimiento, Value: 1
+		19 text Nuevo movimiento
+	20 container mov-form
+		21 container tipo-card
+			22 image
+			23 text Tipo de movimiento *
+			24 text INGRESO
+			25 text EGRESO
+			26 container
+				27 image
+				28 text Medio de pago *
+			29 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				30 menu
+					31 Seleccionar...
+					32 BGA — Banco Galicia
+					33 BNA — Banco Nación
+					34 Banco Nacion ahorro
+					35 (selected) EFE — Efectivo
+					36 MP — Mercado Pago
+			37 container
+				38 image
+				39 text Rubro *
+			40 pop up button (collapsed, settable) Rubro *, Value: Indumentaria, ID: rubro_id, Secondary Actions: Expand
+				41 menu
+					42 Seleccionar...
+					43 Gastos Operativos
+					44 (selected) Indumentaria
+					45 Mantenimiento y arreglos
+					46 Otras clases
+					47 Torneos
+			48 container
+				49 image
+				50 text Subrubro *
+			51 pop up button (collapsed, settable) Subrubro *, Value: Indumentaria institucional, ID: subrubro_id, Secondary Actions: Expand
+				52 menu
+					53 Seleccionar...
+					54 Botiquín
+					55 Insumos Varios
+					56 Librería
+					57 Limpieza
+					58 (selected) Indumentaria institucional
+					59 Patines
+					60 VG Indumentaria
+					61 Reparaciones menores
+					62 Clase particular
+					63 Inscripciones
+			64 container
+				65 image
+				66 text Monto *
+			67 text field (settable) Monto *, Value: 18,000.00, ID: monto
+			68 container
+				69 image
+				70 text Observaciones (opcional)
+			71 text field (settable) Observaciones (opcional), Value: Venta de remera, día 20, ID: observaciones
+		72 button Cancelar
+		73 button Registrar
+	74 text Wings
+
+The focused UI element is 71 text field (settable) Observaciones (opcional), Value: Venta de remera, día 20, ID: observaciones

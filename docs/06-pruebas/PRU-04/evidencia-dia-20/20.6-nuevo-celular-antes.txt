@@ -1,0 +1,88 @@
+Browser tab: 1293178724, Title: "Editar – Gomez, Lucas", URL: "https://test.gestionar-te.com.ar/alumnos/242/edit".
+1 AXWebArea Editar – Gomez, Lucas, URL: test.gestionar-te.com.ar/alumnos/242/edit
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Rocío Paz
+		17 button Salir
+	18 heading Editar: Gomez, Lucas, Value: 1
+		19 text Editar: Gomez, Lucas
+	20 container
+		86 text Esta persona ya tiene una inscripción registrada. Saldo: $0.00
+		22 image
+		23 text Nombre *
+		24 text field (settable) Nombre *, Value: Lucas, ID: nombre
+		25 image
+		26 text Apellido *
+		27 text field (settable) Apellido *, Value: Gomez, ID: apellido
+		28 image
+		29 text DNI *
+		30 text field (settable) DNI *, Value: 54100102, ID: dni
+		31 image
+		32 text Fecha de nacimiento *
+		33 date field (settable) Fecha de nacimiento *, Value: 2017-08-10, ID: fecha_nacimiento
+			34 container
+				35 stepper
+				36 stepper
+				37 stepper
+			38 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		39 image
+		40 text Fecha de alta *
+		41 date field (settable) Fecha de alta *, Value: 2025-03-15, ID: fecha_alta
+			42 container
+				43 stepper
+				44 stepper
+				45 stepper
+			46 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+		47 image
+		48 text Celular
+		49 text field (settable) Celular, Value: 1145123499, ID: celular
+		50 checkbox (settable, integer) Description: Mismo que el teléfono del tutor, Value: 0, ID: celular-mismo-tutor
+		51 image
+		52 text Email
+		53 text field (settable) Email, Value: <redacted>
+		54 image
+		55 text Deporte Fútbol
+		56 image
+		57 text Grupo *
+		58 pop up button (collapsed, settable) Grupo *, Value: Fútbol — Avanzadas, ID: grupo_id, Secondary Actions: Expand
+			59 menu
+				60 Seleccionar...
+				61 (selected) Fútbol — Avanzadas
+				62 Fútbol — Principiantes
+		63 image
+		64 text Motivo si corrige la fecha de ingreso
+		65 text field (settable) Motivo si corrige la fecha de ingreso, ID: motivo_fecha_alta
+		66 container plan-section
+			67 text Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.
+			68 container
+				69 image
+				70 text Frecuencia semanal (define el precio mensual)
+			71 pop up button (collapsed, settable) Frecuencia semanal (define el precio mensual), Value: 1 vez/semana — $38,000.00, ID: plan_id, Secondary Actions: Expand
+				72 menu
+					73 Seleccionar frecuencia...
+					74 (selected) 1 vez/semana — $38,000.00
+					75 2 veces/semana — $48,000.00
+		76 text Datos del tutor —  obligatorio para menores de edad
+		77 image
+		78 text Nombre del tutor
+		79 text field (settable) Nombre del tutor, Value: Marcelo Gomez, ID: nombre_tutor
+		80 image
+		81 text Teléfono del tutor
+		82 text field (settable) Teléfono del tutor, Value: 1145123401, ID: telefono_tutor
+		83 button Cancelar
+		84 button Guardar
+	85 text Wings
+
+The focused UI element is 49 text field (settable) Celular, Value: 1145123499, ID: celular

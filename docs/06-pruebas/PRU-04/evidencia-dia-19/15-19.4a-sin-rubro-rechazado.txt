@@ -1,0 +1,80 @@
+Browser tab: 1293178712, Title: "Nuevo movimiento – Wings", URL: "https://test.gestionar-te.com.ar/caja/36/editar".
+1 AXWebArea Nuevo movimiento – Wings, URL: test.gestionar-te.com.ar/caja/36/editar
+	77 container Selecciona un elemento de la lista
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+	15 container
+		16 text Sandra Vidal
+		17 button Salir
+	18 heading Nuevo movimiento, Value: 1
+		19 text Nuevo movimiento
+	20 container mov-form
+		21 container tipo-card
+			22 text Tipo de movimiento *
+			23 text INGRESO
+			24 text EGRESO
+			25 container
+				26 text Fecha *
+			27 date field (settable) Fecha *, Value: 2026-10-28, ID: fecha
+				28 container
+					29 stepper
+					30 stepper
+					31 stepper
+				32 pop up button Mostrar el selector de fechas Mostrar el selector de fechas
+			33 container
+				34 text Medio de pago *
+			35 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				36 menu
+					37 Seleccionar...
+					38 BGA — Banco Galicia
+					39 BNA — Banco Nación
+					40 Banco Nacion ahorro
+					41 (selected) EFE — Efectivo
+					42 MP — Mercado Pago
+			43 container
+				44 text Rubro *
+			45 pop up button (collapsed, settable) Rubro *, Value: Seleccionar..., ID: rubro_id, Secondary Actions: Expand
+				46 menu
+					47 (selected) Seleccionar...
+					48 Gastos Operativos
+					49 Indumentaria
+					50 Mantenimiento y arreglos
+					51 Otras clases
+					52 Torneos
+			53 container
+				54 text Subrubro *
+			55 pop up button (collapsed, settable) Subrubro *, Value: Seleccionar rubro primero..., ID: subrubro_id, Secondary Actions: Expand
+				56 menu
+					57 (selected) Seleccionar rubro primero...
+					58 Botiquín
+					59 Insumos Varios
+					60 Librería
+					61 Limpieza
+					62 Indumentaria institucional
+					63 Patines
+					64 VG Indumentaria
+					65 Reparaciones menores
+					66 Clase particular
+					67 Inscripciones
+			68 container
+				69 text Monto *
+			70 text field (settable) Monto *, Value: 1,000.00, ID: monto
+			71 container
+				72 text Observaciones *
+			73 text field (settable) Observaciones *, Value: Prueba sin rubro: no guardar, ID: observaciones
+		74 button Cancelar
+		75 button Registrar
+	76 text Wings
+
+The focused UI element is 45 pop up button (collapsed, settable) Rubro *, Value: Seleccionar..., ID: rubro_id, Secondary Actions: Expand

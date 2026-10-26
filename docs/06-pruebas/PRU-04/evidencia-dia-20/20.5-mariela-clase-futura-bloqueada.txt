@@ -1,0 +1,65 @@
+Browser tab: 1293178724, Title: "Sábado 31 de octubre de 2026 — Patín — Federadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/50".
+1 AXWebArea Sábado 31 de octubre de 2026 — Patín — Federadas – Wings, URL: test.gestionar-te.com.ar/clases/50
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+	5 container
+		6 text Mariela Ocampo
+		7 button Salir
+	8 heading Clase — Patín — Federadas, Value: 1
+		9 text Clase — Patín — Federadas
+	10 container
+		11 heading Sábado 31 De Octubre De 2026, Value: 2
+			12 text Sábado 31 De Octubre De 2026
+		13 text 10:00 – 11:00 Patín Patín — Federadas
+		14 text Ocampo, Mariela
+		15 text Activa
+		16 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		17 text Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.
+		18 text 8
+		19 text  alumnos en el grupo  ·
+		20 text 0
+		21 text  presentes
+		22 container card-250
+			23 text Diaz, Catalina 2/2 (Completo) · DNI …501
+			24 container
+				25 text Presente
+				26 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-250
+		27 container card-313
+			28 text Diaz, Martina 2/2 (Completo) · DNI …042
+			29 container
+				30 text Presente
+				31 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-313
+		32 container card-311
+			33 text Iglesias, Helena 0/2 · DNI …040
+			34 container
+				35 text Presente
+				36 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-311
+		37 container card-271
+			38 text Nuñez, Guadalupe 2/2 (Completo) · DNI …910
+			39 container
+				40 text Presente
+				41 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-271
+		42 container card-310
+			43 text Ramos, Lucia 2/2 (Completo) · DNI …039
+			44 container
+				45 text Presente
+				46 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-310
+		47 container card-257
+			48 text Rossi, Berenice 2/2 (Completo) · DNI …802
+			49 container
+				50 text Presente
+				51 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-257
+		52 container card-312
+			53 text Rossi, Olivia 2/2 (Completo) · DNI …041
+			54 container
+				55 text Presente
+				56 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-312
+		57 container card-256
+			58 text Vega, Florencia 2/2 (Completo) · DNI …801
+			59 container
+				60 text Presente
+				61 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-256
+	62 text Wings
+
+The focused UI element is 1 AXWebArea Sábado 31 de octubre de 2026 — Patín — Federadas – Wings, URL: test.gestionar-te.com.ar/clases/50

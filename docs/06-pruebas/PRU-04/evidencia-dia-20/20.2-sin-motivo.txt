@@ -1,0 +1,132 @@
+Browser tab: 1293178719, Title: "Jueves 29 de octubre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/71".
+1 AXWebArea Jueves 29 de octubre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/71
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Clase — Fútbol — Avanzadas, Value: 1
+		30 text Clase — Fútbol — Avanzadas
+	31 container
+		32 heading Jueves 29 De Octubre De 2026, Value: 2
+			33 text Jueves 29 De Octubre De 2026
+		34 text 19:00 – 20:00 Fútbol Fútbol — Avanzadas
+		35 text Quintana, Hernán
+		36 button Editar, ID: btn-modificar-profesores
+		37 text Activa
+		38 button Cancelar, ID: btn-abrir-cancelar
+		39 button Validar
+		40 link Description: Editar, Value: test.gestionar-te.com.ar/clases/71/edit
+		41 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		123 container panel-cancelar
+			124 text Indicá el motivo de cancelación
+			125 text field (settable) input-motivo-cancelacion
+			126 button Cancelar esta, ID: btn-confirmar-cancelar
+			127 button Cancelar serie, ID: btn-cancelar-serie
+			128 button Cerrar, ID: btn-cerrar-cancelar
+			129 text El motivo es obligatorio.
+		42 text 15
+		43 text  alumnos en el grupo  ·
+		44 text 0
+		45 text  presentes
+		46 container card-251
+			47 text Diaz, Thiago 1/1 (Completo) · DNI …502
+			48 container
+				49 text Presente
+				50 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-251
+		51 container card-247
+			52 text Fernandez, Benjamin 1/2 · DNI …302
+			53 container
+				54 text Presente
+				55 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-247
+		56 container card-260
+			57 text Ferrari, Nicolas 1/2 · DNI …805
+			58 container
+				59 text Presente
+				60 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-260
+		61 container card-339
+			62 text Gimenez, Tomas 1/2 · DNI …919
+			63 container
+				64 text Presente
+				65 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-339
+		66 container card-242
+			67 text Gomez, Lucas 1/1 (Completo) · DNI …102
+			68 container
+				69 text Presente
+				70 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-242
+		71 container card-328
+			72 text Molina, Franco 1/1 (Completo) · DNI …015
+			73 container
+				74 text Presente
+				75 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-328
+		76 container card-330
+			77 text Morales, Lorenzo 1/1 (Completo) · DNI …017
+			78 container
+				79 text Presente
+				80 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-330
+		81 container card-261
+			82 text Navarro, Julian 1/2 · DNI …806
+			83 container
+				84 text Presente
+				85 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-261
+		86 container card-329
+			87 text Ortiz, Tobias 1/2 · DNI …016
+			88 container
+				89 text Presente
+				90 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-329
+		91 container card-270
+			92 text Ramos, Dante 1/2 · DNI …909
+			93 container
+				94 text Presente
+				95 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-270
+		96 container card-245
+			97 text Rodriguez, Mateo 1/1 (Completo) · DNI …203
+			98 container
+				99 text Presente
+				100 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-245
+		101 container card-326
+			102 text Rossi, Leon 1/1 (Completo) · DNI …013
+			103 container
+				104 text Presente
+				105 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-326
+		106 container card-327
+			107 text Silva, Simon 1/2 · DNI …014
+			108 container
+				109 text Presente
+				110 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-327
+		111 container card-265
+			112 text Sosa, Felipe 0/1 · DNI …904
+			113 container
+				114 text Presente
+				115 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-265
+		116 container card-334
+			117 text Vega, Joaquin 1/2 · DNI …914
+			118 container
+				119 text Presente
+				120 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-334
+		121 button Guardar, ID: btn-guardar-asistencias
+	122 text Wings
+
+The focused UI element is 126 button Cancelar esta, ID: btn-confirmar-cancelar

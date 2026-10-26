@@ -1,0 +1,15 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz cobra a Iglesias, Clara $30.000,00 por Efectivo — Pago registrado para Iglesias, Clara.
+ 3. Rocío Paz cobra a Molina, Milagros $30.000,00 por Mercado Pago — Pago registrado para Molina, Milagros.
+ 4. Rocío Paz cobra a Ferrari, Josefina $33.000,00 por Efectivo — Pago registrado para Ferrari, Josefina.
+ 5. Rocío Paz cobra a Flores, Juana $33.000,00 por Mercado Pago — Pago registrado para Flores, Juana.
+ 6. Rocío Paz cobra a Alvarez, Camila $35.000,00 por Efectivo — Pago registrado para Alvarez, Camila.
+ 7. Rocío Paz cobra a Benitez, Milagros $45.000,00 por Mercado Pago — Pago registrado para Benitez, Milagros.
+ 8. Rocío Paz cobra a Flores, Santino $28.000,00 por Efectivo — Pago registrado para Flores, Santino.
+ 9. Rocío Paz cobra a Fernandez, Benjamin $48.000,00 por Mercado Pago — Pago registrado para Fernandez, Benjamin.
+10. Rocío Paz cobra a Herrera, Facundo $28.000,00 por Efectivo — Pago registrado para Herrera, Facundo.
+11. Rocío Paz Limpieza $3800 por Efectivo — Movimiento registrado.
+12. Lucía Gaitán lista de la #33: 12 alumnos, 11 presentes — Asistencias guardadas.
+13. Mariela Ocampo lista de la #44: 8 alumnos, 7 presentes — Asistencias guardadas.
+Cobranza: $190.000,00 · {"AL_DIA":101,"EN_PLAZO":0,"MOROSO":1,"DEUDOR":2}
+GUARDADO.

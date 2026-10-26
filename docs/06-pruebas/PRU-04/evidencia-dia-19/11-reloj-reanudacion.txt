@@ -1,0 +1,11 @@
+srv1753195.hstgr.cloud
+
+   INFO  The application environment is [staging].
+
+9376ea7fa1e71d50aeba6f4daabdee3a302d30be80c762fcf0c623857673ca70  /tmp/wings-dias1922-20261026/rutina.php
+
+   INFO  Configuration cache cleared successfully.
+
+Wings ahora cree que es miércoles 28 de octubre de 2026, 15:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
