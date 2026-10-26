@@ -37,7 +37,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
-| **T84** Ficha del alumno: interruptor Activo/Inactivo como en el listado, sin confirmacion, y aviso de la cuota generada | Hecho, espera verificación (hizo Gemini) | Logica verificada por Claude (VERIFICACION-T84-CLAUDE.md): aprobada. Falta tu OK visual con las capturas de evidencia-t84. No desplegar hasta que Codex termine el dia 22. |
 | **T86** Pagar el sueldo de una operativa: hoy no hay forma | Sin empezar | Prueba dia 22.5 (27/10): el subrubro Op-Nombre se crea reservado del sistema; Cashflow no lo ofrece y rechaza el envio forzado; liquidaciones son solo de profesores. Decidir como se paga (Cashflow con ese subrubro, recomendado) y asignar. |
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Sin empezar | Prueba dia 22.6: al lado del mes elegido muestra las clases pendientes de todos los meses (Lucia 20 = 17 de octubre + 3 de septiembre validadas a mano). El calculo esta bien (17). Mostrar solo las del mes elegido; asignar. |
 | **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Sin empezar | Prueba dias 19-22: MOV-004 (el esperado de la caja queda negativo) y COB-009 (ni pantalla ni servidor piden motivo). Hay pruebas que los retratan en prueba-tecnica. Asignar. |
@@ -50,13 +49,13 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 19-22 revisados con prueba tecnica (interno 16/16, seguridad 18/18, velocidad ok); planilla al dia. Defectos nuevos T86-T89. Sigue: guion de noviembre, empezando por las liquidaciones de Lucia (octubre y septiembre). |
+Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 (1/11): generacion de noviembre contra lista calculada aparte (100 cuotas, 3783000) y liquidaciones de octubre y septiembre cerradas sin pagar (por pagar 1370280). GUION-DIA-23.md. |
 
 ## Gemini
 

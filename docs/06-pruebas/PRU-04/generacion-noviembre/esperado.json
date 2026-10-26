@@ -1,0 +1,1040 @@
+{
+    "periodo": "2026-11",
+    "resumen": {
+        "CUOTA": 100,
+        "YA_TIENE": 3
+    },
+    "total_cuotas": 3783000,
+    "filas": [
+        {
+            "id": 251,
+            "alumno": "Diaz, Thiago",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 8 veces en octubre"
+        },
+        {
+            "id": 247,
+            "alumno": "Fernandez, Benjamin",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 260,
+            "alumno": "Ferrari, Nicolas",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 339,
+            "alumno": "Gimenez, Tomas",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 14 veces en octubre"
+        },
+        {
+            "id": 242,
+            "alumno": "Gomez, Lucas",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 328,
+            "alumno": "Molina, Franco",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 8 veces en octubre"
+        },
+        {
+            "id": 330,
+            "alumno": "Morales, Lorenzo",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 8 veces en octubre"
+        },
+        {
+            "id": 261,
+            "alumno": "Navarro, Julian",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 329,
+            "alumno": "Ortiz, Tobias",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 270,
+            "alumno": "Ramos, Dante",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 11 veces en octubre"
+        },
+        {
+            "id": 245,
+            "alumno": "Rodriguez, Mateo",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 8 veces en octubre"
+        },
+        {
+            "id": 326,
+            "alumno": "Rossi, Leon",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 38000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 327,
+            "alumno": "Silva, Simon",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 11 veces en octubre"
+        },
+        {
+            "id": 265,
+            "alumno": "Sosa, Felipe",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 1,
+            "resultado": "YA_TIENE",
+            "importe": null,
+            "precio_vigente_desde": null,
+            "motivo": "ya tiene noviembre (PAGADA, $38.000)"
+        },
+        {
+            "id": 334,
+            "alumno": "Vega, Joaquin",
+            "grupo": "Fútbol — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 48000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 318,
+            "alumno": "Acosta, Agustin",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "YA_TIENE",
+            "importe": null,
+            "precio_vigente_desde": null,
+            "motivo": "ya tiene noviembre (PAGADA, $35.000)"
+        },
+        {
+            "id": 255,
+            "alumno": "Benitez, Camila",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 345,
+            "alumno": "Benítez, Mora",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 1 veces en octubre"
+        },
+        {
+            "id": 322,
+            "alumno": "Castro, Bruno",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 338,
+            "alumno": "Castro, Mateo",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 336,
+            "alumno": "Ferrari, Bautista",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 317,
+            "alumno": "Flores, Santino",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 323,
+            "alumno": "Gutierrez, Tomas",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 320,
+            "alumno": "Herrera, Facundo",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 253,
+            "alumno": "Martinez, Bautista",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 319,
+            "alumno": "Medina, Lautaro",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 344,
+            "alumno": "Ortega, Valentín",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 1 veces en octubre"
+        },
+        {
+            "id": 269,
+            "alumno": "Pereyra, Liam",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 324,
+            "alumno": "Pereyra, Manuel",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 343,
+            "alumno": "Quiroga, Tomás",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 2 veces en octubre"
+        },
+        {
+            "id": 316,
+            "alumno": "Ramirez, Felipe",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 325,
+            "alumno": "Ramos, Santiago",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 332,
+            "alumno": "Rios, Facundo",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 244,
+            "alumno": "Rodriguez, Joaquin",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 315,
+            "alumno": "Ruiz, Thiago",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 321,
+            "alumno": "Suarez, Ignacio",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 314,
+            "alumno": "Torres, Benicio",
+            "grupo": "Fútbol — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 28000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 308,
+            "alumno": "Alvarez, Camila",
+            "grupo": "Patín — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 254,
+            "alumno": "Benitez, Camila",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 309,
+            "alumno": "Benitez, Milagros",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 305,
+            "alumno": "Castro, Catalina",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 258,
+            "alumno": "Castro, Melina",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 246,
+            "alumno": "Fernandez, Emma",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 9 veces en octubre"
+        },
+        {
+            "id": 306,
+            "alumno": "Gimenez, Delfina",
+            "grupo": "Patín — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 303,
+            "alumno": "Herrera, Martina",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 259,
+            "alumno": "Morales, Carla",
+            "grupo": "Patín — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 307,
+            "alumno": "Pereyra, Zoe",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 266,
+            "alumno": "Ramirez, Lucia",
+            "grupo": "Patín — Avanzadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 45000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 10 veces en octubre"
+        },
+        {
+            "id": 304,
+            "alumno": "Suarez, Valentina",
+            "grupo": "Patín — Avanzadas",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 35000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 6 veces en octubre"
+        },
+        {
+            "id": 250,
+            "alumno": "Diaz, Catalina",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 313,
+            "alumno": "Diaz, Martina",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 12 veces en octubre"
+        },
+        {
+            "id": 311,
+            "alumno": "Iglesias, Helena",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 271,
+            "alumno": "Nuñez, Guadalupe",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 14 veces en octubre"
+        },
+        {
+            "id": 310,
+            "alumno": "Ramos, Lucia",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 13 veces en octubre"
+        },
+        {
+            "id": 257,
+            "alumno": "Rossi, Berenice",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 15 veces en octubre"
+        },
+        {
+            "id": 312,
+            "alumno": "Rossi, Olivia",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 13 veces en octubre"
+        },
+        {
+            "id": 256,
+            "alumno": "Vega, Florencia",
+            "grupo": "Patín — Federadas",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 50000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 11 veces en octubre"
+        },
+        {
+            "id": 302,
+            "alumno": "Benitez, Paulina",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 292,
+            "alumno": "Cabrera, Constanza",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 333,
+            "alumno": "Cabrera, Renata",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 290,
+            "alumno": "Ferrari, Josefina",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 301,
+            "alumno": "Flores, Juana",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 300,
+            "alumno": "Garcia, Melina",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 267,
+            "alumno": "Gimenez, Helena",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 293,
+            "alumno": "Ledesma, Paula",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 252,
+            "alumno": "Martinez, Delfina",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 335,
+            "alumno": "Navarro, Alma",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 3 veces en octubre"
+        },
+        {
+            "id": 291,
+            "alumno": "Navarro, Malena",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 299,
+            "alumno": "Perez, Carla",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 243,
+            "alumno": "Rodriguez, Mia",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 296,
+            "alumno": "Romero, Florencia",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 298,
+            "alumno": "Ruiz, Sol",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 295,
+            "alumno": "Sanchez, Berenice",
+            "grupo": "Patín — Intermedias",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 43000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 297,
+            "alumno": "Sosa, Rocio",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 294,
+            "alumno": "Vega, Candela",
+            "grupo": "Patín — Intermedias",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 33000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 272,
+            "alumno": "Acosta, Victoria",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 341,
+            "alumno": "Benítez, Mora",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 337,
+            "alumno": "Castro, Martina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 273,
+            "alumno": "Flores, Renata",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 264,
+            "alumno": "Flores, Zoe",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 3 veces en octubre"
+        },
+        {
+            "id": 241,
+            "alumno": "Gomez, Sofia",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 268,
+            "alumno": "Gutierrez, Olivia",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 277,
+            "alumno": "Gutierrez, Paulina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 275,
+            "alumno": "Herrera, Alma",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 280,
+            "alumno": "Iglesias, Clara",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 248,
+            "alumno": "Lopez, Martina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 249,
+            "alumno": "Lopez, Valentina",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 274,
+            "alumno": "Medina, Emilia",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 283,
+            "alumno": "Molina, Milagros",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 285,
+            "alumno": "Morales, Agustina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 331,
+            "alumno": "Morales, Julieta",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "YA_TIENE",
+            "importe": null,
+            "precio_vigente_desde": null,
+            "motivo": "ya tiene noviembre (PAGADA, $30.000)"
+        },
+        {
+            "id": 284,
+            "alumno": "Ortiz, Micaela",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 278,
+            "alumno": "Pereyra, Bianca",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 288,
+            "alumno": "Perez, Mia",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 342,
+            "alumno": "Quiroga, Lara",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 279,
+            "alumno": "Ramos, Pilar",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 3 veces en octubre"
+        },
+        {
+            "id": 286,
+            "alumno": "Rios, Lola",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 289,
+            "alumno": "Romero, Catalina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 281,
+            "alumno": "Rossi, Morena",
+            "grupo": "Patín — Principiantes",
+            "veces": 2,
+            "resultado": "CUOTA",
+            "importe": 44000,
+            "precio_vigente_desde": "2026-10-18",
+            "motivo": "vino 7 veces en octubre"
+        },
+        {
+            "id": 282,
+            "alumno": "Silva, Abril",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 4 veces en octubre"
+        },
+        {
+            "id": 340,
+            "alumno": "Silva, Paulina",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 276,
+            "alumno": "Suarez, Juana",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        },
+        {
+            "id": 287,
+            "alumno": "Torres, Luciana",
+            "grupo": "Patín — Principiantes",
+            "veces": 1,
+            "resultado": "CUOTA",
+            "importe": 30000,
+            "precio_vigente_desde": null,
+            "motivo": "vino 5 veces en octubre"
+        }
+    ]
+}

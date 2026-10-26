@@ -1,0 +1,180 @@
+[
+    {
+        "profesor": "Lucía Gaitán",
+        "periodo": "2026-10",
+        "tipo": "HORA",
+        "valor_hora": 12000,
+        "clases": 17,
+        "minutos": 1020,
+        "total": 204000
+    },
+    {
+        "profesor": "Lucía Gaitán",
+        "periodo": "2026-09",
+        "tipo": "HORA",
+        "valor_hora": 12000,
+        "clases": 3,
+        "minutos": 180,
+        "total": 36000
+    },
+    {
+        "profesor": "Verónica Salinas",
+        "periodo": "2026-10",
+        "tipo": "HORA",
+        "valor_hora": 15000,
+        "clases": 7,
+        "minutos": 420,
+        "total": 105000
+    },
+    {
+        "profesor": "Verónica Salinas",
+        "periodo": "2026-09",
+        "tipo": "HORA",
+        "valor_hora": 15000,
+        "clases": 2,
+        "minutos": 120,
+        "total": 30000
+    },
+    {
+        "profesor": "Mariela Ocampo",
+        "periodo": "2026-10",
+        "tipo": "HORA",
+        "valor_hora": 18000,
+        "clases": 15,
+        "minutos": 900,
+        "total": 270000
+    },
+    {
+        "profesor": "Mariela Ocampo",
+        "periodo": "2026-09",
+        "tipo": "HORA",
+        "valor_hora": 18000,
+        "clases": 3,
+        "minutos": 180,
+        "total": 54000
+    },
+    {
+        "profesor": "Hernán Quintana",
+        "periodo": "2026-10",
+        "tipo": "COMISION",
+        "porcentaje": 40,
+        "alumnos": 28,
+        "base_cobrada": 1211700,
+        "total": 484680,
+        "de_cuotas_atrasadas": 128400,
+        "atrasadas": [
+            {
+                "alumno": "Rodriguez, Mateo",
+                "periodo": "2026-09",
+                "monto": 38000,
+                "comision": 15200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Romero, Santino",
+                "periodo": "2026-08",
+                "monto": 28000,
+                "comision": 11200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Romero, Santino",
+                "periodo": "2026-09",
+                "monto": 28000,
+                "comision": 11200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Sosa, Felipe",
+                "periodo": "2026-07",
+                "monto": 38000,
+                "comision": 15200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Sosa, Felipe",
+                "periodo": "2026-08",
+                "monto": 38000,
+                "comision": 15200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Ramos, Dante",
+                "periodo": "2026-09",
+                "monto": 20000,
+                "comision": 8000,
+                "atrasada": true
+            },
+            {
+                "alumno": "Suarez, Ignacio",
+                "periodo": "2026-09",
+                "monto": 35000,
+                "comision": 14000,
+                "atrasada": true
+            },
+            {
+                "alumno": "Vega, Joaquin",
+                "periodo": "2026-08",
+                "monto": 48000,
+                "comision": 19200,
+                "atrasada": true
+            },
+            {
+                "alumno": "Vega, Joaquin",
+                "periodo": "2026-09",
+                "monto": 48000,
+                "comision": 19200,
+                "atrasada": true
+            }
+        ]
+    },
+    {
+        "profesor": "Vanina Directora",
+        "periodo": "2026-09",
+        "tipo": "HORA",
+        "valor_hora": 0,
+        "clases": 1,
+        "minutos": 60,
+        "total": 0
+    },
+    {
+        "profesor": "Martín Acosta",
+        "periodo": "2026-10",
+        "tipo": "COMISION",
+        "porcentaje": 30,
+        "alumnos": 11,
+        "base_cobrada": 622000,
+        "total": 186600,
+        "de_cuotas_atrasadas": 46200,
+        "atrasadas": [
+            {
+                "alumno": "Rodriguez, Mateo",
+                "periodo": "2026-09",
+                "monto": 38000,
+                "comision": 11400,
+                "atrasada": true
+            },
+            {
+                "alumno": "Ramos, Dante",
+                "periodo": "2026-09",
+                "monto": 20000,
+                "comision": 6000,
+                "atrasada": true
+            },
+            {
+                "alumno": "Vega, Joaquin",
+                "periodo": "2026-08",
+                "monto": 48000,
+                "comision": 14400,
+                "atrasada": true
+            },
+            {
+                "alumno": "Vega, Joaquin",
+                "periodo": "2026-09",
+                "monto": 48000,
+                "comision": 14400,
+                "atrasada": true
+            }
+        ]
+    }
+]
