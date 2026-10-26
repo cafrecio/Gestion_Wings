@@ -8,6 +8,33 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Revisión de Claude de los días 13 a 16 — 26/10/2026
+
+Revisado contra el [guion](GUION-DIAS-13-16.md), los cuatro informes de Codex ([13](DIA-13.md),
+[14](DIA-14.md), [15](DIA-15.md), [16](DIA-16.md)) y el código en `345a3997`. **Ningún defecto de Wings
+nuevo.** La plata cierra al peso: todas las diferencias de los cuatro cierres son exactamente los
+$143.000 y la alumna activa de Julieta (13.11), que no se hizo. Ingresos esperados el domingo
+$1.967.850,75 − $143.000 = $1.824.850,75, el número leído. Lo mismo en MP y disponible. La lista #21
+(18/11 en vez de 19/12) es Julieta, que sigue inactiva.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 13.11 Julieta no se reactivó ni cobró | **Límite de la herramienta.** El navegador automático no pudo aceptar la confirmación nativa | Hacerlo a mano en el sitio (reactivar y cobrar $143.000 por MP); arrastra la diferencia hasta entonces |
+| 13.8 no deja escribir otro contado al recerrar | **Correcto, doble protección.** La pantalla ni lo ofrece, y el servidor lo rechaza igual con el texto de CAJ-031 (`CajaService.php:375`, leído en el código; no ejercitado en el sitio) | Nada |
+| 14.1 DNI «45A12» sin aviso | **No hay regla.** El alta pide DNI de hasta 20 caracteres, sin exigir números (`AlumnoWebController.php:378`); ningún contrato dice otra cosa. El guion daba por hecho una regla que no existe | Decide Carlos: ¿solo números, o se admiten letras (documentos extranjeros)? |
+| 14.9 aviso al dueño por el cobro del 30/09 | **Buscado en el lugar equivocado.** El aviso existe (`AvisoAdminService::fechaVieja`, FIN-09) y sale por Telegram y correo, no en Inicio. No pude comprobar que salió: `ssh vps` no respondió hoy | Carlos mira si le llegó el Telegram del 23/10 por Zoe Flores |
+| 15.1 corregir la #49 no pidió motivo | **Error del guion (Claude).** La lista la tomó la rutina ese mismo día; Wings pide motivo solo si la clase ya pasó (`ClaseWebController.php:374`) | Nada |
+| 15.6 cambio de horario de la #77 sin motivo | **Error del guion (Claude).** Clase futura (31/10); el motivo se pide solo para clases pasadas (`ClaseWebController.php:508`) | Nada |
+| 15.2 Rocío no pudo entrar | **Error de ejecución.** El día 9 se le puso una clave al azar que no se guardó | Darle una clave conocida y repetir 15.2 |
+| 15.3–15.5 Martín por hora | **Error del guion (Claude).** La forma de pago la define el deporte, y Fútbol liquida por comisión. Arrastra la #76 sin asistencia | Repetir con un porcentaje, o elegir un deporte por hora |
+| 16.1 no se ve quién cerró | **Se guarda, pero no se ve.** `usuario_cierre_id` y `cerrada_por_admin` se graban (`CajaService.php:380`); ninguna pantalla los muestra | Mejora de presentación si Carlos la quiere |
+| 16.5 deja generar octubre sin terminar | Anotado como pedía LIQ-019; no se generó | Decide Carlos si debe bloquearse |
+| 16.9 Botiquín visto por la operativa | Permiso correcto en el catálogo; formulario de la operativa sin probar (el domingo es solo del dueño) | Comprobarlo en el próximo día con operativa |
+
+**Pendiente de Carlos:** el Telegram de Zoe (14.9), el DNI con letras (14.1) y la liquidación del mes en
+curso (16.5). **Para el próximo guion:** Julieta a mano, Rocío con clave conocida, Martín por comisión,
+Botiquín visto por la operativa.
+
 ## Revisión de Claude de los días 5 y 6 — 25/10/2026
 
 Las cifras de plata de los dos días coinciden al peso con lo esperado (deuda $1.612.000; resultado de

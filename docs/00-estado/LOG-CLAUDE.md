@@ -11,6 +11,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-26 — Claude CyE — Días 13 a 16 revisados (T14)
+
+- Ningún defecto nuevo de Wings. Las cuentas cuadran al peso: toda la diferencia son los $143.000 de Julieta (13.11), que no se hizo por un límite del navegador automático.
+- Errores de mi guion: motivo en la #49 (mismo día) y en la #77 (futura); Martín por hora en Fútbol, que liquida por comisión.
+- Rocío: la clave del día 9 no se guardó.
+- Para Carlos: el Telegram de Zoe (14.9; `ssh vps` no respondió desde CyE), el DNI con letras (14.1, no hay regla) y la liquidación del mes en curso (16.5).
+- Error mío: no revisé los días 7 a 16 cuando volvieron de Codex. Carlos ya lo había pedido el 24/10 sin necesidad de repetirlo. Faltan los días 7 a 12. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md).
+
 ## 2026-10-25 — Claude CAB — T77 a T80 cerradas y desplegadas en el sitio de prueba
 
 - Carlos: «si están bien, subilas». Verificadas por otro agente cada una; cerradas en el tablero.
