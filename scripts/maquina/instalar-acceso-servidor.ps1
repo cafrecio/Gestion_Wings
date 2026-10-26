@@ -60,9 +60,27 @@ Host vps
 }
 
 Paso '3. prueba'
-$salida = & ssh -o ConnectTimeout=15 -o BatchMode=yes -o StrictHostKeyChecking=accept-new vps hostname 2>&1 |
-    Where-Object { $_ -notmatch 'post-quantum|store now|openssh.com|vulnerable' }
+# Desde el 26/10/2026 el servidor tambien escucha en 2222 y 8022: en CyE la red bloquea el 22.
+# Se prueba en orden y el alias queda con el primer puerto que responde.
+foreach ($puerto in 22, 2222, 8022) {
+    $salida = & ssh -o ConnectTimeout=15 -o BatchMode=yes -o StrictHostKeyChecking=accept-new -p $puerto vps hostname 2>&1 |
+        Where-Object { $_ -notmatch 'post-quantum|store now|openssh.com|vulnerable' }
+    if ($LASTEXITCODE -eq 0) { break }
+    Write-Host "Puerto ${puerto}: no responde."
+}
 if ($LASTEXITCODE -eq 0) {
+    if ($puerto -ne 22) {
+        # Solo se toca el bloque `Host vps`: se le saca el Port viejo y se pone el que respondió.
+        $enVps = $false
+        $salidaConfig = foreach ($l in Get-Content $Config) {
+            if ($l -match '^\s*Host\s') { $enVps = $l -match '^\s*Host\s+vps\s*$' }
+            if ($enVps -and $l -match '^\s*Port\s+\d+\s*$') { continue }
+            $l
+            if ($l -match '^\s*Host\s+vps\s*$') { "    Port $puerto" }
+        }
+        Set-Content -Path $Config -Value $salidaConfig -Encoding ascii
+        Write-Host "El 22 esta bloqueado en esta red: el alias vps queda con el puerto $puerto."
+    }
     Write-Host "Acceso OK: $salida" -ForegroundColor Green
 } else {
     Write-Host "No entra: $salida" -ForegroundColor Red

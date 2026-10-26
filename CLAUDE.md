@@ -46,7 +46,8 @@ tengo acceso" ni "eso lo hacemos en la otra maquina" sin haber corrido antes
 
 Si falla, **lo arregla el agente, no Carlos**: correr
 `scripts/maquina/instalar-acceso-servidor.ps1`, que arma el alias con la clave propia de
-la maquina y prueba. Una maquina nueva entra cargando su clave publica en el GitHub de
+la maquina y prueba. **Desde el 26/10/2026 el SSH escucha en 22, 2222 y 8022**: en CyE la red
+bloquea el 22, y el script deja el alias con el primer puerto que responde. Una maquina nueva entra cargando su clave publica en el GitHub de
 Carlos. Ninguna clave privada viaja ni pasa por el repositorio. `ssh vps` no pide
 permiso: esta en `.claude/settings.json`.
 
