@@ -22,7 +22,7 @@ $1.967.850,75 − $143.000 = $1.824.850,75, el número leído. Lo mismo en MP y 
 | 13.11 Julieta no se reactivó ni cobró | **Límite de la herramienta.** El navegador automático no pudo aceptar la confirmación nativa | Hacerlo a mano en el sitio (reactivar y cobrar $143.000 por MP); arrastra la diferencia hasta entonces |
 | 13.8 no deja escribir otro contado al recerrar | **Correcto, doble protección.** La pantalla ni lo ofrece, y el servidor lo rechaza igual con el texto de CAJ-031 (`CajaService.php:375`, leído en el código; no ejercitado en el sitio) | Nada |
 | 14.1 DNI «45A12» sin aviso | **No hay regla.** El alta pide DNI de hasta 20 caracteres, sin exigir números (`AlumnoWebController.php:378`); ningún contrato dice otra cosa. El guion daba por hecho una regla que no existe | Decide Carlos: ¿solo números, o se admiten letras (documentos extranjeros)? |
-| 14.9 aviso al dueño por el cobro del 30/09 | **Buscado en el lugar equivocado.** El aviso existe (`AvisoAdminService::fechaVieja`, FIN-09) y sale por Telegram y correo, no en Inicio. No pude comprobar que salió: `ssh vps` no respondió hoy | Carlos mira si le llegó el Telegram del 23/10 por Zoe Flores |
+| 14.9 aviso al dueño por el cobro del 30/09 | **Correcto: pasa a Sí.** El aviso sale por Telegram, no en Inicio (`AvisoAdminService::fechaVieja`). Carlos lo recibió (captura, 26/10 02:01 hora real) con Zoe, fecha 30/09, $30.000, Pablo Ledesma y «la caja abierta de hoy» | Nada |
 | 15.1 corregir la #49 no pidió motivo | **Error del guion (Claude).** La lista la tomó la rutina ese mismo día; Wings pide motivo solo si la clase ya pasó (`ClaseWebController.php:374`) | Nada |
 | 15.6 cambio de horario de la #77 sin motivo | **Error del guion (Claude).** Clase futura (31/10); el motivo se pide solo para clases pasadas (`ClaseWebController.php:508`) | Nada |
 | 15.2 Rocío no pudo entrar | **Error de ejecución.** El día 9 se le puso una clave al azar que no se guardó | Darle una clave conocida y repetir 15.2 |
@@ -31,8 +31,12 @@ $1.967.850,75 − $143.000 = $1.824.850,75, el número leído. Lo mismo en MP y 
 | 16.5 deja generar octubre sin terminar | Anotado como pedía LIQ-019; no se generó | Decide Carlos si debe bloquearse |
 | 16.9 Botiquín visto por la operativa | Permiso correcto en el catálogo; formulario de la operativa sin probar (el domingo es solo del dueño) | Comprobarlo en el próximo día con operativa |
 
-**Pendiente de Carlos:** el Telegram de Zoe (14.9), el DNI con letras (14.1) y la liquidación del mes en
-curso (16.5). **Para el próximo guion:** Julieta a mano, Rocío con clave conocida, Martín por comisión,
+**Pendiente de Carlos:** el DNI con letras (14.1) y la liquidación del mes en curso (16.5).
+
+**Resumen diario por Telegram: el último llegó el 22/10.** Causa, leída en el código y sin comprobar en el
+servidor: el resumen está programado para las 08:00 (`routes/console.php:20`), y el reloj de prueba arranca
+cada día a las 15:00 y se frena a la medianoche (`RelojSimulado.php:88`). Las 08:00 nunca llegan.
+En producción no pasa, porque ahí se ignora la fecha simulada. Además, si no hay nada pendiente, el resumen no se manda. **Para el próximo guion:** Julieta a mano, Rocío con clave conocida, Martín por comisión,
 Botiquín visto por la operativa.
 
 ## Revisión de Claude de los días 5 y 6 — 25/10/2026
