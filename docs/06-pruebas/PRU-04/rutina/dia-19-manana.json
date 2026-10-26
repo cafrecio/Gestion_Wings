@@ -1,0 +1,190 @@
+{
+ "dia": "2026-10-28",
+ "descripcion": "Día 19, miércoles: después de que Sandra abre por pantalla (19.1), cobros de octubre, gastos, venta de una remera y la lista de Lucía.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Acosta, Victoria",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Flores, Renata",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Herrera, Alma",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 40000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Medina, Emilia",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 40000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Benitez, Paulina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 43000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Cabrera, Constanza",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 33000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Castro, Bruno",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Diaz, Thiago",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 38000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Torres, Benicio",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Rossi, Leon",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 38000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": 3800,
+   "obs": "Limpieza del miércoles"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": 2500,
+   "obs": "Cuaderno de asistencia"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": 18000,
+   "obs": "Remera del club, talle 10"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar",
+    "Silva, Abril"
+   ]
+  }
+ ]
+}

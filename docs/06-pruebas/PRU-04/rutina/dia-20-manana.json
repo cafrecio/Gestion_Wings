@@ -1,0 +1,171 @@
+{
+ "dia": "2026-10-29",
+ "descripcion": "Día 20, jueves: Rocío abre, cobros de octubre y las listas de patín del jueves.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Iglesias, Clara",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Molina, Milagros",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Ferrari, Josefina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 33000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Flores, Juana",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 33000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Alvarez, Camila",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 35000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Benitez, Milagros",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 45000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Flores, Santino",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Fernandez, Benjamin",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 48000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Herrera, Facundo",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": 3800,
+   "obs": "Limpieza del jueves"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Gimenez, Delfina"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Iglesias, Helena"
+   ]
+  }
+ ]
+}

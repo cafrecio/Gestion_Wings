@@ -1,0 +1,11 @@
+{
+ "dia": "2026-10-28",
+ "descripcion": "Día 19, noche: solo la validación del dueño; Sandra cierra por pantalla con sobrante (19.7).",
+ "pasos": [
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Sandra Vidal"
+  }
+ ]
+}

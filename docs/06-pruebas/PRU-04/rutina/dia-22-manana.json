@@ -1,0 +1,121 @@
+{
+ "dia": "2026-10-31",
+ "descripcion": "Día 22, sábado: Pablo abre, últimos cobros de octubre y las listas del sábado.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Perez, Mia",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 40000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Navarro, Malena",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 43000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Diaz, Martina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 50000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Medina, Lautaro",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Tobias",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 48000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": 16000,
+   "obs": "Torneo de primavera: 2 inscripciones"
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "10:00",
+   "ausentes": [
+    "Vega, Florencia"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "12:00",
+   "ausentes": [
+    "Diaz, Catalina",
+    "Diaz, Martina"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "12:00",
+   "ausentes": [
+    "Silva, Simon"
+   ]
+  }
+ ]
+}

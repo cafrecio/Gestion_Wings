@@ -45,13 +45,13 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 17-18 revisados con prueba tecnica (interno 16/16, seguridad 12/12, velocidad ok): sin defectos de plata. Pendiente Carlos: Julieta (confirmacion nativa que Chrome no acepta). Sigue: guion de los dias 19 en adelante. |
+Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Guion de los dias 19 a 22 (28 al 31/10) listo: GUION-DIAS-19-22.md, armado contra la base de wingstest y con cada rutina simulada. 27 casos nuevos. Codex ejecuta; Claude revisa y hace la prueba tecnica. |
 
 ## Gemini
 

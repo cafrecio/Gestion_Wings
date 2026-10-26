@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — Guion de los días 19 a 22 (28 al 31/10), armado contra la base
+
+- [Guion](../06-pruebas/PRU-04/GUION-DIAS-19-22.md): 27 casos nuevos, unas 20 a 25 operaciones por día y cierre de mes. Datos leídos de `wingstest` y cada rutina simulada con su fecha (`rutina.php --simular --fecha`, nuevo): así salieron los precios de octubre y el aumento de Principiantes 2 veces, que rige desde noviembre.
+- `rutina.php`: muestra el importe de cada cobro y acepta el mes elegido a mano (`manuales`), como la pantalla (T77).
+- Hallazgos: Agustín Acosta tiene una cuota de reingreso de $14.000 por un toque del interruptor el 27/10, sin registrar (se condona en el 19.2; nota en T84). Un gasto en efectivo mayor que el cajón se acepta (MOV-004 pide rechazo). El servidor acepta un pago parcial sin motivo (COB-009). Las dos cosas se comprueban en la prueba técnica.
+- Liquidación de Lucía simulada al 31/10: hoy 15 clases, $180.000; no cierra antes de fin de mes, con el texto esperado.
+
 ## 2026-10-27 — Claude CyE — Días 17 y 18 revisados, con su prueba técnica
 
 - La plata cierra al peso: la única diferencia es Julieta (17.7, tercera vez que el Chrome automático no acepta la confirmación nativa). Decide Carlos: lo hace a mano o se cambia esa confirmación por la ventana propia de Wings.

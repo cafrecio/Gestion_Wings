@@ -36,6 +36,13 @@ if (!is_array($plan) || !isset($plan['dia'], $plan['pasos'])) {
     fwrite(STDERR, "Plan inválido: {$archivo}\n");
     exit(2);
 }
+// Solo para simular un día que todavía no llegó, al armar el guion: no toca el reloj del sitio.
+foreach ($argv as $a) {
+    if (str_starts_with($a, '--fecha=')) {
+        if (!$simular) { fwrite(STDERR, "--fecha solo se usa con --simular.\n"); exit(2); }
+        Carbon\Carbon::setTestNow(substr($a, 8));
+    }
+}
 if (now()->toDateString() !== $plan['dia']) {
     fwrite(STDERR, 'El reloj de Wings dice '.now()->toDateString().", el plan es del {$plan['dia']}. Fijá el reloj primero.\n");
     exit(2);
@@ -100,9 +107,12 @@ try {
                 $datos = ['tipo_caja_id' => $medio($paso['medio']), 'periodos' => $paso['periodos'] ?? [], 'fecha_pago' => now()->toDateString(),
                     'observaciones' => $paso['obs'] ?? null];
                 if (isset($paso['montos'])) $datos['montos_cuota'] = $paso['montos'];
+                // Mes en curso sin cuota guardada: la pantalla lo manda como elegido a mano (T77).
+                if (isset($paso['manuales'])) $datos['periodos_manuales'] = $paso['manuales'];
                 if (isset($paso['entrega'])) $datos['monto_entregado'] = $paso['entrega'];
                 $msg = $enviar($como, "/caja/cobrar/{$a->id}", $datos, fn ($r) => $cajaCtrl->pagar($r, $a->id));
-                $texto = "cobra a {$paso['alumno']} por {$paso['medio']}";
+                $pago = App\Models\Pago::where('alumno_id', $a->id)->latest('id')->first();
+                $texto = "cobra a {$paso['alumno']} \$".number_format((float) $pago?->monto_final, 2, ',', '.')." por {$paso['medio']}";
                 break;
             case 'movimiento':
                 $sub = Subrubro::where('nombre', $paso['subrubro'])->firstOrFail();

@@ -1,0 +1,153 @@
+{
+ "dia": "2026-10-30",
+ "descripcion": "Día 21, viernes: Pablo abre, cobros de octubre y un arreglo.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Morales, Agustina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Micaela",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 40000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Garcia, Melina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 43000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Martinez, Delfina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 33000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Castro, Catalina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 45000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Diaz, Catalina",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 50000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Tomas",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 28000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ferrari, Nicolas",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 48000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Rios, Lola",
+   "periodos": [
+    "2026-10"
+   ],
+   "montos": {
+    "2026-10": 30000
+   },
+   "manuales": [
+    "2026-10"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Reparaciones menores",
+   "medio": "Efectivo",
+   "monto": 12000,
+   "obs": "Arreglo de la puerta del vestuario"
+  }
+ ]
+}
