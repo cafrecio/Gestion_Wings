@@ -62,6 +62,8 @@ Host vps
 Paso '3. prueba'
 # Desde el 26/10/2026 el servidor tambien escucha en 2222 y 8022: en CyE la red bloquea el 22.
 # Se prueba en orden y el alias queda con el primer puerto que responde.
+# En PowerShell 5.1, con 'Stop', el error de ssh por el 22 cortaba el script antes de probar el 2222.
+$ErrorActionPreference = 'Continue'
 foreach ($puerto in 22, 2222, 8022) {
     $salida = & ssh -o ConnectTimeout=15 -o BatchMode=yes -o StrictHostKeyChecking=accept-new -p $puerto vps hostname 2>&1 |
         Where-Object { $_ -notmatch 'post-quantum|store now|openssh.com|vulnerable' }
