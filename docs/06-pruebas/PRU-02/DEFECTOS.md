@@ -8,7 +8,7 @@ como *verificado* se comprobaron en el código o en pantalla; los marcados como 
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
-> **Avance al 27/10/2026: 68 cerrados de 70.** Quedan 2 abiertos, de los cuales **0 frenan**.
+> **Avance al 27/10/2026: 69 cerrados de 70.** Quedan 1 abiertos, de los cuales **0 frenan**.
 > El estado de cada defecto sale del tablero (`docs/00-estado/tareas.json`) y se cambia con `scripts/tablero`; no se edita a mano.
 <!-- TABLERO:FIN -->
 
@@ -660,7 +660,7 @@ estado leída en el código, sin rastros de "tiene pagos" en los listados masivo
 que no se aplica dos veces y suite corrida (331 pruebas). De esa verificación salió A43.
 Falta desplegarlo al sitio de prueba.
 
-### B3. Las excepciones del contrato no existen · Falta · Hecho, espera verificación, la tiene Carlos
+### B3. Las excepciones del contrato no existen · Falta · CERRADO 27/10, verificó Claude
 
 El contrato de cobranza exige **motivo obligatorio y aviso al admin** en cuatro situaciones:
 cobro parcial, cobro que deja impago un mes anterior, deudor que entra a clase, y alumno

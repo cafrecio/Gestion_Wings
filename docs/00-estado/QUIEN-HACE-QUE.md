@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 27/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 27/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -37,9 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T87-CLAUDE.md, roja con el codigo anterior). Falta el OK visual de Carlos: con 0 clases en el mes elegido la fila dice 0 clases liquidables en gris (evidencia-t87). Despues: sitio de prueba. |
-| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T88-B3-CLAUDE.md): gasto mayor que el cajon rechazado en servidor, al editar y en concurrencia. Falta el OK visual de Carlos (APROBAR-T88-B3-DINERO.html). No va a prueba hasta que B3 asistencia vuelva corregida. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
-| **B3** Las excepciones del contrato no existen | Hecho, espera verificación (hizo Codex, verifica Claude) | Logica verificada por Claude 27/10 en 2a vuelta (1de85aef): primera carga con historia, altas posteriores con margen. Falta OK visual de Carlos (APROBAR-B3-ASISTENCIA y APROBAR-B3-PRIMERA-CARGA). Con su OK, T88 y B3 juntas al sitio de prueba. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
