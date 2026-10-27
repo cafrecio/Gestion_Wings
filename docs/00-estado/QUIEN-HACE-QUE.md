@@ -50,7 +50,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T93** Nuevo movimiento de Cashflow: sin rubro elegido muestra todos los subrubros | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado en cashflow-movimiento.js y compilado. Probado en Chrome real (4 casos OK). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T93.md |
 
 ## Codex
 
