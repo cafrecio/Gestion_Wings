@@ -23,3 +23,28 @@ document.addEventListener('click', function (event) {
 document.getElementById('modal-condonar')?.addEventListener('click', function (event) {
     if (event.target === this) window.cerrarCondonar();
 });
+
+// T65: Panel de confirmación para eliminar alumno
+function initEliminarAlumno() {
+    const btnAbrir = document.getElementById('btn-abrir-eliminar-alumno');
+    const panel = document.getElementById('panel-eliminar-alumno');
+    const btnCerrar = document.getElementById('btn-cerrar-eliminar-alumno');
+
+    if (btnAbrir && panel) {
+        btnAbrir.addEventListener('click', function () {
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    if (btnCerrar && panel) {
+        btnCerrar.addEventListener('click', function () {
+            panel.style.display = 'none';
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEliminarAlumno);
+} else {
+    initEliminarAlumno();
+}

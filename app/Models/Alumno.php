@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 
 class Alumno extends Model
 {
@@ -203,5 +204,55 @@ class Alumno extends Model
     public function asistenciaExcesos(): HasMany
     {
         return $this->hasMany(AsistenciaExceso::class);
+    }
+
+    /**
+     * T65 (DU-48, ALU-024): Un alumno es eliminable por el dueño solo si no tiene cobros,
+     * asistencias ni movimientos asociados.
+     */
+    public function esEliminable(): bool
+    {
+        return $this->motivoNoEliminable() === null;
+    }
+
+    public function motivoNoEliminable(): ?string
+    {
+        if ($this->pagos()->exists()) {
+            return 'Tiene pagos registrados.';
+        }
+
+        if ($this->asistencias()->exists() || $this->asistenciaExcesos()->exists()) {
+            return 'Tiene asistencias registradas.';
+        }
+
+        if (MovimientoOperativo::where('alumno_id', $this->id)->exists()) {
+            return 'Tiene movimientos de caja asociados.';
+        }
+
+        $tieneCuotasConCobro = $this->deudaCuotas()
+            ->where(function ($q) {
+                $q->where('monto_pagado', '>', 0)
+                    ->orWhere('estado', '!=', DeudaCuota::ESTADO_PENDIENTE);
+            })->exists();
+
+        if ($tieneCuotasConCobro) {
+            return 'Tiene cuotas con cobro o condonadas.';
+        }
+
+        $tieneCargosConCobro = CargoAlumno::where('alumno_id', $this->id)
+            ->where(function ($q) {
+                $q->where('monto_condonado', '>', 0)
+                    ->orWhereExists(function ($sub) {
+                        $sub->select(DB::raw(1))
+                            ->from('pago_cargo_alumno')
+                            ->whereColumn('pago_cargo_alumno.cargo_alumno_id', 'cargos_alumno.id');
+                    });
+            })->exists();
+
+        if ($tieneCargosConCobro) {
+            return 'Tiene cargos con cobro o condonados.';
+        }
+
+        return null;
     }
 }

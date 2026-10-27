@@ -10,6 +10,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T65: El dueño elimina un alumno o una clase cargados por error
+
+- **Objetivo y resultado:** Implementación de **T65** (DU-48, casos ALU-024 y CLA-021 del catálogo). Permite al ADMIN (dueño) eliminar de forma definitiva un alumno sin cobros, pagos ni asistencias, y una clase o serie de clases sin asistencias ni liquidaciones cerradas/pagadas/validadas. Operativos y profesores reciben 403. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **1. Relevamiento y borrado explícito (AUD-025):** Se auditó la base de datos y se programó borrado bajo transacción con bloqueo `lockForUpdate()`, eliminando explícitamente registros dependientes sin delegar en las cascadas de BD (`alumnos_revision_cobranza`, `alumno_planes`, `deuda_cuotas`, `cargo_alumno_eventos`, `cargos_alumno` y `inscripcion_personas`). En inscripción compartida (mismo DNI en otro deporte), se transfiere el cargo al alumno restante preservando la inscripción y liberando el vínculo; si es exclusiva, se elimina para liberar el DNI en el catálogo general.
+  - **2. Modelos (`Alumno.php`, `Clase.php`):** Se crearon los métodos `esEliminable()` y `motivoNoEliminable()`. Si un alumno tiene cobros/pagos/asistencias, el sistema rechaza la eliminación con mensaje explicativo exacto y ofrece dar de baja (Activo/Inactivo). En clases, valida asistencias, liquidaciones y profesores asociados antes de eliminar clase individual o serie completa.
+  - **3. Controladores y Rutas (`AlumnoWebController.php`, `ClaseWebController.php`, `routes/web.php`):** Rutas `DELETE /alumnos/{id}` y `DELETE /clases/{id}` bajo middleware `ensure.admin.web`. Control estricto de roles (403 para OPERATIVO y PROFESOR).
+  - **4. Vistas y JavaScript (`alumnos/show.blade.php`, `clases/show.blade.php`, `alumnos-show.js`, `clases-show.js`):** Botón `Eliminar` visible solo para ADMIN si es eliminable, con panel de confirmación inline embebido (sin `window.confirm`, sin `data-confirmar`, sin `data-confirmar-envio`, MF10). En clases, el panel permite elegir entre eliminar la clase individual o la serie completa. Sin JavaScript inline en Blade (`AGENTS.md` §5-bis). Compilación con `npm run build`.
+- **Pruebas y evidencia:**
+  - Suite de pruebas de regresión permanente en `tests/Feature/EliminarAlumnoYClaseT65Test.php` (18 pruebas, 105 aserciones) en verde.
+  - Verificación en Google Chrome headless: 10 capturas a 1366 px y 375 px (marco) en `docs/06-pruebas/PRU-04/evidencia-t65/`.
+  - Suite rápida (`--exclude-group=lento`) en verde en `wings_testing_gemini` (991 pasadas, 6 omitidas).
+  - Guardianes `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest` y `DocumentacionNoMienteTest` en verde.
+  - Informe detallado y auditoría de tablas en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T65.md`.
+- **Próximo paso:** Tarea T65 en estado `a_verificar`, asignada a Claude para verificación cruzada.
+
 ## 2026-10-27 — LOG GEM CAB — T87: Nueva liquidación cuenta las clases del mes elegido
 
 - **Objetivo y resultado:** Implementación de **T87** para que en Nueva liquidación (`/liquidaciones/crear`), el indicador de «N clases liquidables» y el aviso de clases pasadas sin asistencia cuenten exclusivamente las clases del mes y año seleccionados en el formulario (`#mes` e `#anio`), y se actualicen reactivamente en el cliente sin recargar la página. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.

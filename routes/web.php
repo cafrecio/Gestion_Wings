@@ -153,6 +153,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         // A13/B1: el cobro del dueño no pasa por ninguna caja, asi que tampoco se puede
         // anular desde el detalle de una caja. Se anula desde el historial de la ficha.
         Route::post('/pagos/{id}/anular', [AlumnoWebController::class, 'anularPago'])->name('web.pagos.anular');
+        Route::delete('/alumnos/{id}', [AlumnoWebController::class, 'destroy'])->name('web.alumnos.destroy');
     });
 
     // Alumnos CRUD — accesible para ADMIN y OPERATIVO
@@ -221,6 +222,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/clases/{id}/edit', [ClaseWebController::class, 'edit'])->name('web.clases.edit');
         Route::put('/clases/{id}', [ClaseWebController::class, 'update'])->name('web.clases.update');
         Route::patch('/clases/{id}/validar', [ClaseWebController::class, 'toggleValidada'])->name('web.clases.toggle-validada');
+        Route::delete('/clases/{id}', [ClaseWebController::class, 'destroy'])->name('web.clases.destroy');
     });
     // Clases — accesibles para todos los roles autenticados
     Route::get('/clases', [ClaseWebController::class, 'index'])->name('web.clases.index');

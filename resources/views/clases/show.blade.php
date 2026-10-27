@@ -149,6 +149,17 @@
                     </a>
                 @endif
 
+                @if($esAdmin && $puedeEliminar)
+                    <button type="button" id="btn-abrir-eliminar-clase"
+                            style="display:inline-flex; align-items:center; justify-content:center;
+                                   width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                   border:none; font-family:inherit;
+                                   background:var(--color-btn-danger); color:var(--color-surface);">
+                        Eliminar
+                    </button>
+                @endif
+
                 <a href="{{ route('web.clases.index') }}"
                    style="display:inline-flex; align-items:center; justify-content:center;
                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
@@ -162,6 +173,59 @@
         </div>
     </div>
 </div>
+
+{{-- Panel: confirmar eliminación de clase o serie --}}
+@if($esAdmin && $puedeEliminar)
+<div id="panel-eliminar-clase" style="display:none; margin-bottom:12px;">
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
+                border-radius:var(--radius-card);">
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
+            ¿Confirmás la eliminación permanente de esta clase?
+        </p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin:0 0 12px;">
+            Esta acción no se puede deshacer. La clase no tiene asistencias ni liquidaciones asociadas.
+        </p>
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <form method="POST" action="{{ route('web.clases.destroy', $clase->id) }}" style="display:inline; margin:0;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="btn-confirmar-eliminar-clase"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:none; font-family:inherit;
+                               background:var(--color-btn-danger); color:var(--color-surface);">
+                    Eliminar
+                </button>
+            </form>
+            @if($clase->serie_id)
+                <form method="POST" action="{{ route('web.clases.destroy', $clase->id) }}" style="display:inline; margin:0;">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="eliminar_serie" value="1">
+                    <button type="submit" id="btn-eliminar-serie"
+                            style="display:inline-flex; align-items:center; justify-content:center;
+                                   height:32px; padding:0 12px; font-size:0.82rem; font-weight:600;
+                                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                   border:1px solid var(--color-btn-danger); font-family:inherit;
+                                   background:transparent; color:var(--color-btn-danger);">
+                        Eliminar serie
+                    </button>
+                </form>
+            @endif
+            <button type="button" id="btn-cerrar-eliminar-clase"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-secondary); color:var(--color-surface);">
+                Cerrar
+            </button>
+        </div>
+    </div>
+</div>
+@endif
 
 {{-- Panel: motivo de cancelación --}}
 <div id="panel-cancelar" style="display:none; margin-bottom:12px;">

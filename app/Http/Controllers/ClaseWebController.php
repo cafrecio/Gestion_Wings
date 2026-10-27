@@ -328,11 +328,13 @@ class ClaseWebController extends Controller
         $correccionAsistencia = $esPasada && $clase->asistencias->isNotEmpty();
         $correccionProfesores = $esPasada && $clase->profesores->isNotEmpty();
         $todaviaNoOcurrio     = $clase->todaviaNoOcurrio();
+        $puedeEliminar        = $esAdmin && $clase->esEliminable();
+        $motivoNoEliminable   = $clase->motivoNoEliminable();
 
         return view('clases.show', compact(
             'clase', 'alumnos', 'yaNoEstan', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
             'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores',
-            'todaviaNoOcurrio'
+            'todaviaNoOcurrio', 'puedeEliminar', 'motivoNoEliminable'
         ));
     }
 
@@ -480,8 +482,10 @@ class ClaseWebController extends Controller
     {
         $clase      = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores'])->findOrFail($id);
         $profesores = Profesor::where('activo', true)->where('deporte_id', $clase->grupo->deporte_id)->orderBy('apellido')->get();
+        $puedeEliminar = Auth::user()->isAdmin() && $clase->esEliminable();
+        $motivoNoEliminable = $clase->motivoNoEliminable();
 
-        return view('clases.edit', compact('clase', 'profesores'));
+        return view('clases.edit', compact('clase', 'profesores', 'puedeEliminar', 'motivoNoEliminable'));
     }
 
     public function update(Request $request, int $id)
@@ -687,5 +691,74 @@ class ClaseWebController extends Controller
 
         $estado = $clase->validada_para_liquidacion ? 'validada para liquidación' : 'desmarcada de validación';
         return back()->with('success', "Clase {$estado}.");
+    }
+
+    /**
+     * T65 (DU-48, CLA-021): El dueño elimina una clase o serie cargadas por error sin asistencias.
+     */
+    public function destroy(Request $request, int $id)
+    {
+        if (!Auth::user()?->isAdmin()) {
+            abort(403, 'Solo el dueño puede eliminar clases.');
+        }
+
+        $clase = Clase::findOrFail($id);
+        $eliminarSerie = $request->boolean('eliminar_serie') && !empty($clase->serie_id);
+
+        return DB::transaction(function () use ($clase, $eliminarSerie, $request) {
+            if ($eliminarSerie) {
+                $clasesSerie = Clase::where('serie_id', $clase->serie_id)
+                    ->lockForUpdate()
+                    ->orderBy('fecha')
+                    ->get();
+
+                foreach ($clasesSerie as $c) {
+                    if (!$c->esEliminable()) {
+                        $fechaFmt = $c->fecha->format('d/m/Y');
+                        $motivo = $c->motivoNoEliminable();
+                        $mensaje = "No se puede eliminar la serie: la clase del {$fechaFmt} no es eliminable ({$motivo}).";
+                        if ($request->wantsJson()) {
+                            return response()->json(['success' => false, 'message' => $mensaje], 422);
+                        }
+                        return redirect()->route('web.clases.show', $clase->id)->with('error', $mensaje);
+                    }
+                }
+
+                $count = $clasesSerie->count();
+                $ids = $clasesSerie->pluck('id');
+
+                DB::table('clase_profesor')->whereIn('clase_id', $ids)->delete();
+                Clase::whereIn('id', $ids)->delete();
+
+                $mensaje = "Serie de {$count} clases eliminada correctamente.";
+                if ($request->wantsJson()) {
+                    return response()->json(['success' => true, 'message' => $mensaje]);
+                }
+                return redirect()->route('web.clases.index')->with('success', $mensaje);
+            }
+
+            $claseBloqueada = Clase::where('id', $clase->id)->lockForUpdate()->first();
+            if (!$claseBloqueada) {
+                return redirect()->route('web.clases.index')->with('error', 'La clase no fue encontrada.');
+            }
+
+            if (!$claseBloqueada->esEliminable()) {
+                $motivo = $claseBloqueada->motivoNoEliminable();
+                $mensaje = "No se puede eliminar la clase: {$motivo}";
+                if ($request->wantsJson()) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return redirect()->route('web.clases.show', $claseBloqueada->id)->with('error', $mensaje);
+            }
+
+            DB::table('clase_profesor')->where('clase_id', $claseBloqueada->id)->delete();
+            $claseBloqueada->delete();
+
+            $mensaje = 'Clase eliminada correctamente.';
+            if ($request->wantsJson()) {
+                return response()->json(['success' => true, 'message' => $mensaje]);
+            }
+            return redirect()->route('web.clases.index')->with('success', $mensaje);
+        });
     }
 }

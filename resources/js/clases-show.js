@@ -275,4 +275,20 @@
             guardarProfesores(false);
         });
     }
+
+    // ── Panel: eliminar clase (T65) ──────────────────────────────────────────
+    const btnAbrirEliminar  = document.getElementById('btn-abrir-eliminar-clase');
+    const panelEliminar     = document.getElementById('panel-eliminar-clase');
+    const btnCerrarEliminar = document.getElementById('btn-cerrar-eliminar-clase');
+
+    if (btnAbrirEliminar && panelEliminar) {
+        btnAbrirEliminar.addEventListener('click', function () {
+            panelEliminar.style.display = panelEliminar.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+    if (btnCerrarEliminar && panelEliminar) {
+        btnCerrarEliminar.addEventListener('click', function () {
+            panelEliminar.style.display = 'none';
+        });
+    }
 })();

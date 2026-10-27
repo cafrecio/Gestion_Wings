@@ -12,6 +12,7 @@ use App\Support\FechaIngresoRegla;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -205,7 +206,9 @@ class AlumnoWebController extends Controller
             ->where('estado', 'VIGENTE')->with(['deudaCuota', 'pagos'])->orderBy('deuda_cuota_id')->get();
         // T58: solo el dueño ve los meses pasados que puede crear.
         $mesesPasados = auth()->user()?->isAdmin() ? app(PagoCuotaService::class)->mesesPasadosSinCuota($alumno) : [];
-        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios', 'mesesPasados', 'totalAdeudado', 'fechaVencimiento'));
+        $puedeEliminar = auth()->user()?->isAdmin() && $alumno->esEliminable();
+        $motivoNoEliminable = $alumno->motivoNoEliminable();
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios', 'mesesPasados', 'totalAdeudado', 'fechaVencimiento', 'puedeEliminar', 'motivoNoEliminable'));
     }
 
     public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)
@@ -631,6 +634,80 @@ class AlumnoWebController extends Controller
         }
 
         return $validated;
+    }
+
+    /**
+     * T65 (DU-48, ALU-024): El dueño elimina un alumno cargado por error sin cobros ni asistencias.
+     */
+    public function destroy(Request $request, int $id)
+    {
+        if (!Auth::user()?->isAdmin()) {
+            abort(403, 'Solo el dueño puede eliminar alumnos.');
+        }
+
+        $alumno = Alumno::findOrFail($id);
+
+        return DB::transaction(function () use ($alumno, $request) {
+            $alumnoBloqueado = Alumno::where('id', $alumno->id)->lockForUpdate()->first();
+            if (!$alumnoBloqueado) {
+                return redirect()->route('web.alumnos.index')->with('error', 'El alumno no fue encontrado.');
+            }
+
+            if (!$alumnoBloqueado->esEliminable()) {
+                $motivo = $alumnoBloqueado->motivoNoEliminable();
+                $mensaje = "No se puede eliminar el alumno: {$motivo} Puede darlo de baja cambiando su estado a inactivo.";
+                if ($request->wantsJson()) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return redirect()->route('web.alumnos.show', $alumnoBloqueado->id)->with('error', $mensaje);
+            }
+
+            // 1. Revisiones de cobranza
+            DB::table('alumnos_revision_cobranza')->where('alumno_id', $alumnoBloqueado->id)->delete();
+
+            // 2. Planes del alumno
+            DB::table('alumno_planes')->where('alumno_id', $alumnoBloqueado->id)->delete();
+
+            // 3. Deuda cuotas impagas
+            DB::table('deuda_cuotas')->where('alumno_id', $alumnoBloqueado->id)->delete();
+
+            // 4. Cargos de inscripción
+            $dniNorm = \App\Services\InscripcionService::dni($alumnoBloqueado->dni);
+            $otroAlumnoMismoDni = Alumno::where('id', '!=', $alumnoBloqueado->id)
+                ->where('dni', $alumnoBloqueado->dni)
+                ->first();
+
+            $cargos = DB::table('cargos_alumno')->where('alumno_id', $alumnoBloqueado->id)->get();
+            foreach ($cargos as $cargo) {
+                if ($otroAlumnoMismoDni) {
+                    // Inscripción compartida con otro deporte: conservar reasignando alumno_id
+                    DB::table('cargos_alumno')
+                        ->where('id', $cargo->id)
+                        ->update(['alumno_id' => $otroAlumnoMismoDni->id]);
+                } else {
+                    // Cargo exclusivo sin cobrar: borrar eventos y cargo
+                    DB::table('cargo_alumno_eventos')->where('cargo_alumno_id', $cargo->id)->delete();
+                    DB::table('cargos_alumno')->where('id', $cargo->id)->delete();
+                }
+            }
+
+            if (!$otroAlumnoMismoDni) {
+                $hayMasCargos = DB::table('cargos_alumno')->where('dni', $dniNorm)->exists();
+                $hayMasAlumnos = DB::table('alumnos')->where('id', '!=', $alumnoBloqueado->id)->where('dni', $alumnoBloqueado->dni)->exists();
+                if (!$hayMasCargos && !$hayMasAlumnos) {
+                    DB::table('inscripcion_personas')->where('dni', $dniNorm)->delete();
+                }
+            }
+
+            // 5. Eliminar alumno
+            $alumnoBloqueado->delete();
+
+            $mensaje = 'Alumno eliminado correctamente.';
+            if ($request->wantsJson()) {
+                return response()->json(['success' => true, 'message' => $mensaje]);
+            }
+            return redirect()->route('web.alumnos.index')->with('success', $mensaje);
+        });
     }
 
     private function validationMessages(): array

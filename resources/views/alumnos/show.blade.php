@@ -460,8 +460,48 @@
 </div>
 @endif
 
-{{-- Volver --}}
+{{-- Panel: eliminar alumno --}}
+@if(Auth::user()->isAdmin() && $puedeEliminar)
+<div id="panel-eliminar-alumno" style="display:none; margin-top:16px; margin-bottom:12px;">
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
+                border-radius:var(--radius-card);">
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
+            ¿Confirmás la eliminación permanente de este alumno?
+        </p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin:0 0 12px;">
+            Esta acción eliminará la ficha, planes y deudas sin cobrar asociadas. El DNI quedará liberado.
+        </p>
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <form method="POST" action="{{ route('web.alumnos.destroy', $alumno->id) }}" style="display:inline; margin:0;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="btn-confirmar-eliminar-alumno" class="ds-btn ds-btn-danger"
+                        style="height:32px; font-size:0.82rem; font-weight:600; padding:0 14px;">
+                    Eliminar
+                </button>
+            </form>
+            <button type="button" id="btn-cerrar-eliminar-alumno" class="ds-btn ds-btn-secondary"
+                    style="height:32px; font-size:0.82rem; font-weight:600; padding:0 14px;">
+                Cerrar
+            </button>
+        </div>
+    </div>
+</div>
+@endif
+
+{{-- Volver y Acciones al pie --}}
 <div class="flex flex-wrap items-center gap-2 mt-4 acciones-celular-derecha justify-start sm:justify-end">
+    @if(Auth::user()->isAdmin() && $puedeEliminar)
+        <button type="button" id="btn-abrir-eliminar-alumno"
+                style="display:inline-flex; align-items:center; justify-content:center;
+                       height:36px; padding:0 16px; font-size:0.82rem; font-weight:600;
+                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                       border:none; font-family:inherit;
+                       background:var(--color-btn-danger); color:var(--color-surface);">
+            Eliminar
+        </button>
+    @endif
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Volver</x-ds.button>
 </div>
 

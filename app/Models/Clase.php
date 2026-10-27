@@ -161,4 +161,34 @@ class Clase extends Model
 
         return false;
     }
+
+    /**
+     * T65 (DU-48, CLA-021): Una clase es eliminable por el dueño solo si no tiene asistencias,
+     * no está validada para liquidación y no integra ninguna liquidación.
+     */
+    public function esEliminable(): bool
+    {
+        return $this->motivoNoEliminable() === null;
+    }
+
+    public function motivoNoEliminable(): ?string
+    {
+        if ($this->asistencias()->exists()) {
+            return 'Tiene asistencias registradas: debe cancelarse con motivo.';
+        }
+
+        if ($this->validada_para_liquidacion) {
+            return 'Está validada para liquidación.';
+        }
+
+        $enLiquidacion = LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+            ->where('referencia_id', $this->id)
+            ->exists();
+
+        if ($enLiquidacion || $this->integraLiquidacionCerrada()) {
+            return 'Integra una liquidación.';
+        }
+
+        return null;
+    }
 }
