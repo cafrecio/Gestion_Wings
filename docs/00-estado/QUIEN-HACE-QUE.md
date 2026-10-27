@@ -36,6 +36,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
+| **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T87-CLAUDE.md, roja con el codigo anterior). Falta el OK visual de Carlos: con 0 clases en el mes elegido la fila dice 0 clases liquidables en gris (evidencia-t87). Despues: sitio de prueba. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -48,7 +49,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Mes y aviso por periodo en liquidaciones/crear. Prueba permanente NuevaLiquidacionConteoMesT87Test y navegador real OK. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T87.md |
 
 ## Codex
 
