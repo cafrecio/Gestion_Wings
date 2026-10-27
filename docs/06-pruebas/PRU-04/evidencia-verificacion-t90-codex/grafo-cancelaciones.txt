@@ -1,0 +1,20 @@
+results_refs: 4  (cols: id prefix)
+  0 C-xampp-htdocs-gestion-wings.app.Http.Controllers.
+  1 C-xampp-htdocs-gestion-wings.app.Models.Liquidacion.Liquidacion.
+  2 app/Http/Controllers/
+  3 app/Models/Liquidacion.php
+results_ref_rule: @N+suffix=prefix+suffix
+results: 9  (cols: qn label file lines in out)
+  @0+LiquidacionWebController.LiquidacionWebController.cancelar Method @2+LiquidacionWebController.php 266-286 0 6
+  C-xampp-htdocs-gestion-wings.app.Services.PagoCuotaService.PagoCuotaService.cancelarCobroOperativo Method app/Services/PagoCuotaService.php 1131-1210 10 25
+  C-xampp-htdocs-gestion-wings.app.Services.LiquidacionService.LiquidacionService.cancelarLiquidacion Method app/Services/LiquidacionService.php 478-509 8 7
+  @0+CajaWebController.CajaWebController.cancelarMovimiento Method @2+CajaWebController.php 617-641 0 11
+  @0+CajaWebController.CajaWebController.cancelarMovimientoForm Method @2+CajaWebController.php 594-615 0 9
+  @1+estaCancelada Method @3+ 254-257 6 1
+  @1+liquidacionesCanceladas Method @3+ 377-380 0 0
+  @1+scopeCanceladas Method @3+ 297-300 0 0
+  @0+ClaseWebController.ClaseWebController.toggleCancelada Method @2+ClaseWebController.php 555-613 0 7
+total: 9
+returned: 9
+has_more: false
+truncated: false

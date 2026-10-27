@@ -1,0 +1,83 @@
+{
+  "implementacion": "563749b2",
+  "head_al_iniciar": "563749b2",
+  "head_actual": "c30bb7c2430f91d150088bea0dedcc5887d4b92a",
+  "fuentes": [
+    {
+      "ruta": "app/Http/Controllers/ClaseWebController.php",
+      "sha256": "c83f5266aa88b9492c4345aa3594caa98560f5fc1bdd2f72f6f4a60bc676c152",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Models/Clase.php",
+      "sha256": "99d9227f475e129adf32afa56266a7d99223ef8b62961ab8a6cab439e02d9360",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Models/Liquidacion.php",
+      "sha256": "efe4518169ede103cffda398fd4ba679aa64a6f84da1bde1b85a2f37a1789dd6",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Services/LiquidacionService.php",
+      "sha256": "a3604afb7352d426d820845f05d690dca143c741bf14d8770331c83f5539d91e",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Services/LiquidacionPagoService.php",
+      "sha256": "ad14c4de0a1c12d22d1c1ff148be28d4b21b85f623f8fee92b3d6cb78fd677e9",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "resources/js/clases-show.js",
+      "sha256": "99519ceaa1776e84122c226e6f9296963b602161c0c9745f772527231519fccf",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "resources/views/clases/show.blade.php",
+      "sha256": "f5d50af1582fc547c28dbc0cc139db42c3232f1a03ce6213cfe1418f10e483c3",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "routes/web.php",
+      "sha256": "b81639c33cf23caaee087118e384c2a3be00f87ab4dbef78a09f5ef4bac6b9a5",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "routes/api.php",
+      "sha256": "d37d35c9ce2735eb12fd2d7026d2401242c4c0dac93eb9a2592a6e1b49cbac78",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "bootstrap/app.php",
+      "sha256": "790292e43314f82276d1b627deb25094e4165faec5cb30ce8924b1a7a9b523cb",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Http/Controllers/Admin/ClaseController.php",
+      "sha256": "083c6b80500675dafe824eb8f13de462628e4f378168e00c3eef908acbb499d7",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "app/Http/Requests/Admin/UpdateClaseRequest.php",
+      "sha256": "a68b0077ca74eeab53cd4ceeea8b035888d027c00c9783a428a8de06f92517cc",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "tests/Feature/CancelarClaseLiquidadaT90Test.php",
+      "sha256": "319cbf91020a6d950f2ace3bcfb120292348cd65a318a67b5516acaabb82eb40",
+      "igual_a_563749b2": true
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/prueba-tecnica/SeguridadDiasPruebaTest.php",
+      "sha256": "4a8c279107a06b9f4384f7f2ce22f987589f1f200ba6ba735259501bcd2c1580",
+      "igual_a_563749b2": true
+    }
+  ],
+  "cambio_paralelo": "GenerarDeudasMensualesCommand.php era ajeno y estaba modificado al iniciar; T92 avanzó por otro agente. Ninguna fuente de T90 cambió.",
+  "archivo_ajeno_no_incluido": {
+    "ruta": "tests/Feature/VerificacionT32GeminiTest.php",
+    "sha256_observado": "7f19d06cf3244e78a1a1712e470ba57819a6a816ce10cdf02869d5efc83c2430",
+    "nota": "Apareció al preparar la entrega; no fue escrito, ejecutado ni agregado por la verificación T90."
+  }
+}

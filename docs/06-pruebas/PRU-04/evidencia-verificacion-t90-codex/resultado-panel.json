@@ -1,0 +1,22 @@
+{
+  "metodo": "JS real ejecutado con DOM mínimo; sin navegador ni red",
+  "js_sha256": "99519ceaa1776e84122c226e6f9296963b602161c0c9745f772527231519fccf",
+  "casos": [
+    {
+      "boton": "btn-confirmar-cancelar",
+      "cancelar_serie": false,
+      "status_simulado": 422,
+      "texto_panel": "✗ No se puede cancelar: la clase está en una liquidación cerrada o pagada.",
+      "panel_permanece_abierto": true,
+      "botones_restaurados": true
+    },
+    {
+      "boton": "btn-cancelar-serie",
+      "cancelar_serie": true,
+      "status_simulado": 422,
+      "texto_panel": "✗ No se puede cancelar: la clase está en una liquidación cerrada o pagada.",
+      "panel_permanece_abierto": true,
+      "botones_restaurados": true
+    }
+  ]
+}

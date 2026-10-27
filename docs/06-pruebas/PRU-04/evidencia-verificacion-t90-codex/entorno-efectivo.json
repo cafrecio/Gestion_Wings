@@ -1,0 +1,6 @@
+{
+    "entorno": "testing",
+    "conexion": "mysql",
+    "base_efectiva": "wings_testing_codex",
+    "motor": "10.4.32-MariaDB"
+}

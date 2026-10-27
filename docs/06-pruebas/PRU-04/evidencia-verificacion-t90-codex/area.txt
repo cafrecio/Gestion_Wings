@@ -1,0 +1,207 @@
+
+   PASS  Tests\Feature\AjusteFinalLiquidacionTest
+  ✓ admin ajusta abierta y cerrada sin cambiar calculo o detalle                                                11.21s
+  ✓ operativo profesor inactivo y anonimo no ajustan                                                             0.16s
+  ✓ pagada cancelada y por hora rechazan ajustes                                                                 0.61s
+  ✓ pago usa final una sola vez y rechaza formulario viejo                                                       0.40s
+  ✓ ajuste conserva cortes anteriores y saldo pendiente coherente                                                0.08s
+  ✓ falla historial revierte importe y auditoria                                                                 0.12s
+  ✓ guardado directo sin auditoria y edicion vieja rechazados                                                    0.11s
+
+   PASS  Tests\Feature\AsistenciaClaseFuturaTest
+  ✓ no se toma asistencia de una clase de manana                                                                 0.10s
+  ✓ sin javascript vuelve con el aviso y no guarda                                                               0.06s
+  ✓ el dia de la clase si se toma                                                                                0.08s
+  ✓ una clase pasada sin lista se carga sin motivo                                                               0.07s
+  ✓ el limite es la medianoche de wings                                                                          0.07s
+  ✓ el servicio tambien lo rechaza                                                                               0.04s
+  ✓ la pantalla de una clase futura avisa y no ofrece guardar                                                    0.09s
+  ✓ la pantalla de una clase de hoy no cambia                                                                    0.08s
+
+   PASS  Tests\Feature\AsistenciasAtomicidadTest
+  ✓ un fallo intermedio no deja asistencias parciales                                                            0.13s
+  ✓ rechaza alumno que no pertenece al grupo de la clase                                                         0.07s
+
+   PASS  Tests\Feature\CancelarClaseLiquidadaT90Test
+  ✓ clase de una liquidacion cerrada no se cancela para ningun rol                                               0.10s
+  ✓ clase de una liquidacion pagada no se cancela                                                                0.14s
+  ✓ clase del mes de una liquidacion por comision cerrada no se cancela                                          0.07s
+  ✓ sin liquidacion cerrada se sigue cancelando                                                                  0.11s
+
+   PASS  Tests\Feature\CancelarLiquidacionCerradaTest
+  ✓ admin cancela liquidacion cerrada no pagada                                                                  0.14s
+  ✓ liquidacion pagada es intocable y rechaza cancelacion                                                        0.13s
+  ✓ operativo profesor y anonimo son rechazados al cancelar                                                      0.14s
+  ✓ liquidacion cerrada bloquea asistencias y cancelada las desbloquea                                           0.16s
+  ✓ bloqueo de asistencia en liquidacion comision cerrada                                                        0.15s
+  ✓ regenerar liquidacion tras cancelacion vincula reemplazada por                                               0.13s
+  ✓ idempotencia cancelacion                                                                                     0.10s
+  ✓ modelo impide modificar o eliminar liquidacion cancelada                                                     0.07s
+  ✓ modelo impide editar campos de liquidacion cancelada salvo reemplazo                                         0.07s
+
+   PASS  Tests\Feature\CancelarLiquidacionConcurrenteTest
+  ✓ pago en curso bloquea cancelacion y tras pagar la cancelacion se rechaza                                     2.47s
+  ✓ cancelacion en curso bloquea pago y tras cancelar el pago se rechaza                                         2.02s
+
+   PASS  Tests\Feature\CerrarLiquidacionMesTerminadoTest
+  ✓ cerrar octubre el 31 de octubre a las 23 59 no cierra                                                        0.10s
+  ✓ cerrar octubre el 1 de noviembre a las 00 00 cierra                                                          0.10s
+  ✓ cerrar un mes anterior cierra                                                                                0.10s
+  ✓ servicio cerrar liquidacion llamado directo respeta el limite                                                0.12s
+  ✓ pantalla muestra texto en vez del boton cerrar si el mes no termino                                          0.16s
+
+   PASS  Tests\Feature\ClaseListaHaciaAdelanteT52Test
+  ✓ la clase vieja sigue mostrando a quien tenia marca                                                           0.13s
+  ✓ hoy cada uno aparece solo en su grupo y la baja en ninguno                                                   0.11s
+  ✓ corregir la lista vieja acepta a quien ya no esta y no pierde marcas                                         0.16s
+  ✓ quien no es del grupo ni tiene marca sigue rechazado                                                         0.12s
+  ✓ quien entro al grupo despues no aparece en la clase vieja                                                    0.13s
+  ✓ la fecha en el grupo solo se completa al cambiar de grupo                                                    0.11s
+  ✓ corregir el ingreso no retrotrae un cambio de grupo del mismo dia                                            0.10s
+  ✓ un ingreso futuro no aparece en clases anteriores                                                            0.12s
+  ✓ cambiar de grupo antes del ingreso futuro no lo adelanta                                                     0.17s
+  ✓ un inactivo sin marca no se puede cargar                                                                     0.16s
+  ✓ la ficha no hace consultas por alumno                                                                        0.18s
+  ✓ la profesora ve la misma lista vieja                                                                         0.11s
+
+   PASS  Tests\Feature\ClaseProfesoraObligatoriaT66Test
+  ✓ alta unica rechaza ausencia vacio null y formato invalido                                                    0.09s
+  ✓ serie sin profesora no crea ninguna clase                                                                    0.07s
+  ✓ una profesora valida permite alta unica y serie completa                                                     0.13s
+  ✓ profesora inactiva ajena o inexistente no cuenta en ninguna entrada                                          0.16s
+  ✓ edicion y reasignacion no permiten quitar todas ni escribir parcialmente                                     0.07s
+  ✓ reemplazar por una valida y guardar sin cambios sigue permitido                                              0.10s
+  ✓ omitir profesoras en edicion y reasignacion tambien se rechaza                                               0.13s
+  ✓ primera asignacion a pasada historica sin profesora no exige motivo                                          0.08s
+  ✓ serie con solape posterior revierte todas las clases                                                         0.08s
+  ✓ cambio pasado exige motivo y lo guarda                                                                       0.08s
+  ✓ cancelada no admite reasignacion ni edicion que cambie profesoras                                            0.07s
+  ✓ liquidacion cerrada bloquea y cancelarla permite conservar historial                                         0.18s
+  ✓ pagada no permite forzar el cambio con confirmacion                                                          0.12s
+  ✓ comision cerrada bloquea aunque no haya detalle directo de clase                                             0.09s
+  ✓ permisos conservan operativo hoy y profesor sin reasignar                                                    0.07s
+  ✓ formularios indican minimo y error conserva los datos                                                        0.11s
+
+   PASS  Tests\Feature\ClasesCanceladasHoyTest
+  ✓ admin y operativo ven clase cancelada de hoy en bloque hoy                                                   0.14s
+  ✓ profesora ve su clase cancelada en tus clases y otra en otras clases                                         0.11s
+  ✓ clase cancelada de hoy aparece al final despues de las clases en pie                                         0.11s
+  ✓ encabezado de hoy no cuenta las canceladas como clases a dar                                                 0.10s
+  ✓ si todas las de hoy estan canceladas se ven y no muestra cartel vacio                                        0.10s
+  ✓ filtro cancelada encuentra la clase cancelada de hoy                                                         0.16s
+  ✓ sin filtros no repite clases de hoy en listado inferior                                                      0.10s
+  ✓ asistencia sigue bloqueada en clase cancelada de hoy                                                         0.09s
+  ✓ contador sin asistencia no cuenta clases canceladas de hoy                                                   0.08s
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.18s
+  ✓ permisos filtro sin presentes                                                                                0.15s
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.10s
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.11s
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.15s
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.15s
+  ✓ c1 consultas no crecen por tarjeta en listado de clases                                                      0.30s
+  ✓ c1 contador se actualiza entre peticiones sucesivas                                                          0.21s
+  ✓ c2 generacion rechazada no deja validaciones persistidas                                                     0.10s
+  ✓ c2 incluir hoy no modifica clases ajenas al periodo solicitado                                               0.09s
+  ✓ c2 incluir hoy en periodo vigente valida clases y genera correctamente                                       0.08s
+
+   PASS  Tests\Feature\ComisionPorPeriodoT42Test
+  ✓ adelantado se liquida en el mes pagado y no en el cobro                                                      0.13s
+  ✓ cuota del mes y atrasada siguen en el mes del cobro                                                          0.15s
+  ✓ un cobro mixto se reparte sin duplicar su importe                                                            0.19s
+  ✓ adelantado exige asistencia en el mes de liquidacion                                                         0.13s
+  ✓ cambio de anio lleva diciembre adelantado a enero                                                            0.13s
+  ✓ anulado no aporta comision ni al cobro ni al mes pagado                                                      0.14s
+  ✓ sin imputaciones conserva mes anio historicos aunque difiera la fecha                                        0.09s
+  ✓ cerrada y pagada conservan cabecera y detalles tras anular el pago                                           0.18s
+  ✓ centavos se suman por pago y mes antes de redondear comision                                                 0.12s
+  ✓ solo las cuotas imputadas forman la base sin inscripcion                                                     0.14s
+
+   PASS  Tests\Feature\DecisionComisionAtrasadaT43Test
+  ✓ cobro mixto persiste tres origenes y separa adelantada                                                       0.16s
+  ✓ pendiente impide cierre incluso desde modelo                                                                 0.12s
+  ✓ validar rechazar y reenviar conservan calculo y auditoria sin mover caja                                     0.20s
+  ✓ formulario viejo no pisa decision nueva                                                                      0.37s
+  ✓ recalculo conserva decision equivalente y auditoria                                                          0.76s
+  ✓ cambio de base exige nueva decision sin borrar la anterior                                                   0.73s
+  ✓ anulado sale de abierta pero cerrada y pagada no cambian                                                     0.46s
+  ✓ cambio de anio atrasada en enero adelantada en febrero                                                       0.23s
+  ✓ redondeo por pago se conserva al partir centavos                                                             0.22s
+  ✓ historico sin imputacion no inventa origen ni decision                                                       0.15s
+  ✓ http roles y detalle ajeno no pueden decidir                                                                 0.25s
+  ✓ ajuste final absoluto se conserva y recibo excluye rechazada                                                 0.25s
+  ✓ cerrada pagada y cuota del mes rechazan decisiones                                                           0.16s
+  ✓ detalle de otra liquidacion e inactivo no escriben auditoria                                                 0.23s
+  ✓ pago y saldo por pagar usan solo comisiones confirmadas                                                      0.17s
+  ✓ decision json actualiza importes y cierre sin consultas de pantalla                                          0.16s
+  ✓ json idempotente y pestana desactualizada no pisan decision                                                  0.14s
+
+   PASS  Tests\Feature\EditarClaseTest
+  ✓ fecha pasada no se mueve                                                                                     0.08s
+  ✓ futura no se mueve al pasado                                                                                 0.06s
+  ✓ horario pasado exige y guarda motivo sin asistencia                                                          0.08s
+  ✓ profesor existente bloquea solape y revierte fecha y lista                                                   0.08s
+  ✓ presentes se validan hoy y pasado con rollback completo                                                      0.12s
+  ✓ liquidacion cerrada bloquea abierta permite                                                                  0.12s
+  ✓ pasada ignora profesores y guardar sin cambios no pide motivo                                                0.11s
+  ✓ hoy permite contiguas sin autosolape pero exige una profesora                                                0.11s
+  ✓ profesor agregado se valida sin mover horario                                                                0.10s
+  ✓ hoy permite fecha futura y nuevo profesor sin motivo                                                         0.08s
+  ✓ presente propio no bloquea y ausente en otra no cuenta                                                       0.11s
+  ✓ pantalla pasada muestra motivo y controles protegidos                                                        0.11s
+
+   PASS  Tests\Feature\GrupoNombreLiquidacionTest
+  ✓ nombre completo carga las relaciones si no estaban cargadas                                                  0.06s
+  ✓ detalle de liquidacion por hora incluye el nombre del grupo                                                  0.08s
+
+   PASS  Tests\Feature\LiquidacionComisionHistoricaTest
+  ✓ comision excluye inscripcion del pago mixto                                                                  0.10s
+  ✓ alumno dado de baja posteriormente aparece en liquidacion del mes que pago y asistio                         0.11s
+  ✓ alumno que cambia de deporte posteriormente aparece en liquidacion del mes que pago y asistio                0.12s
+  ✓ cambio posterior en porcentaje del profesor no altera liquidacion recalculada                                0.10s
+  ✓ liquidacion legacy con porcentaje nulo calcula con porcentaje actual del profesor                            0.06s
+  ✓ anulacion de pago hace que recalculo remueva la comision                                                     0.10s
+  ✓ alumno con pago pero sin asistencia a clase del profesor no genera comision                                  0.08s
+  ✓ vista show muestra porcentaje congelado de la liquidacion                                                    0.13s
+
+   PASS  Tests\Feature\LiquidacionHoraPorDuracionTest
+  ✓ cada clase se paga por su duracion                                                                           0.10s
+  ✓ vista previa y liquidacion calculan lo mismo                                                                 0.09s
+  ✓ cambiar la tarifa despues no altera la liquidacion recalculada                                               0.09s
+  ✓ cambiar el horario despues de cerrar no altera minutos ni monto                                              0.09s
+  ✓ clase sin duracion valida frena la liquidacion                                                               0.12s
+  ✓ la migracion no recalcula lo ya liquidado                                                                    0.07s
+
+   PASS  Tests\Feature\LiquidacionHoraVistaYReciboTest
+  ✓ pantalla y recibo muestran duracion en horas minutos y subtotales con centavos                               0.15s
+  ✓ cambiar horario despues de cerrar no cambia duracion en pantalla ni recibo                                   0.14s
+  ✓ liquidacion antigua con minutos null muestra guion                                                           0.12s
+
+   PASS  Tests\Feature\PagoLiquidacionConcurrenteTest
+  ✓ no registra un egreso mientras otro pago tiene la liquidacion                                                2.32s
+  ✓ cuando el otro pago termina este no vuelve a pagar                                                           0.13s
+
+   PASS  Tests\Feature\PagoLiquidacionFechaTest
+  ✓ fecha futura se rechaza                                                                                      0.08s
+  ✓ fecha del mes en curso paga sin preguntar ni avisar                                                          0.09s
+  ✓ fecha de un mes anterior sin confirmar no paga y pregunta                                                    0.10s
+  ✓ fecha de un mes anterior confirmada paga con su fecha y avisa                                                0.09s
+
+   PASS  Tests\Feature\ProgramarClasesA15A16Test
+  ✓ a15 avisa sin guardar y confirmar guarda una vez                                                             0.21s
+  ✓ a15 horario en punto se guarda directamente                                                                  0.20s
+  ✓ a15 firma falsa o de horario anterior no permite guardar                                                     0.22s
+  ✓ a16 seis cargas guardan las 76 clases y seis series                                                          0.58s
+  ✓ serie con media hora avisa toda la carga y admite domingo                                                    0.21s
+  ✓ horario invalido de un dia conserva el formulario sin guardar                                                0.18s
+  ✓ conflicto en segundo dia revierte la serie entera                                                            0.18s
+  ✓ horarios por dia no eluden el deporte del profesor                                                           0.16s
+  ✓ horario comun anterior sigue creando series                                                                  0.23s
+
+   PASS  Tests\Feature\SeguridadRutasProfesorTest
+  ✓ profesor no puede entrar a dominios operativos o de dinero                                                   0.13s
+  ✓ profesor conserva acceso a clases                                                                            0.08s
+
+  Tests:    160 passed (1160 assertions)
+  Duration: 40.79s

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\VerificacionCodex\SeguridadDia23T90CodexTest" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t90-codex\SeguridadDia23T90CodexTest.php" tests="1" assertions="7" errors="0" failures="0" skipped="0" time="12.937532">
+    <testcase name="test_dia_23_una_clase_de_una_liquidacion_cerrada_no_se_cancela_ni_forzando" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t90-codex\SeguridadDiasPruebaFuente.php" line="380" class="Tests\VerificacionCodex\SeguridadDia23T90CodexTest" classname="Tests.VerificacionCodex.SeguridadDia23T90CodexTest" assertions="7" time="12.937532"/>
+  </testsuite>
+</testsuites>

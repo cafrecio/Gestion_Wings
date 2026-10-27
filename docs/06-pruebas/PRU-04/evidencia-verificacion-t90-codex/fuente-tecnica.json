@@ -1,0 +1,6 @@
+{
+  "fuente": "docs/06-pruebas/PRU-04/prueba-tecnica/SeguridadDiasPruebaTest.php",
+  "copia": "SeguridadDiasPruebaFuente.php",
+  "sha256": "4a8c279107a06b9f4384f7f2ce22f987589f1f200ba6ba735259501bcd2c1580",
+  "adaptacion": "Subclase cambia únicamente beforeRefreshingDatabase a wings_testing_codex. __DIR__ de la copia envía los archivos de prueba al directorio propio; método original sin cambios."
+}

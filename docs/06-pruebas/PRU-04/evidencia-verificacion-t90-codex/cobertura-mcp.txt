@@ -1,0 +1,39 @@
+project: C-xampp-htdocs-gestion-wings
+signal: best_effort
+indexed_at: 2026-10-27T02:33:34Z
+metadata:
+  generation: 2026-10-27T02:33:34Z
+  index_mode: full
+  recorded_at: 2026-10-27T02:33:36Z
+  recording_status: truncated
+  ignored_files_stored: 2000
+  ignored_files_total: 7773
+  hash_records_complete: true
+  coverage_version: 3
+  generation_matches: true
+paths: 14  (cols: requested_path path status freshness recommended_action coverage)
+  app/Http/Controllers/ClaseWebController.php app/Http/Controllers/ClaseWebController.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Http/Controllers/ClaseController.php app/Http/Controllers/ClaseController.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Models/Clase.php app/Models/Clase.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Models/Liquidacion.php app/Models/Liquidacion.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/LiquidacionService.php app/Services/LiquidacionService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/LiquidacionPagoService.php app/Services/LiquidacionPagoService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  resources/js/clases-show.js resources/js/clases-show.js coverage_unavailable metadata_changed read_source_and_reindex []
+  resources/views/clases/show.blade.php resources/views/clases/show.blade.php coverage_unavailable metadata_changed read_source_and_reindex []
+  routes/web.php routes/web.php coverage_unavailable metadata_changed read_source_and_reindex []
+  routes/api.php routes/api.php coverage_unavailable metadata_changed read_source_and_reindex []
+  bootstrap/app.php bootstrap/app.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/TestCase.php tests/TestCase.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/Feature/CancelarClaseLiquidadaT90Test.php tests/Feature/CancelarClaseLiquidadaT90Test.php coverage_unavailable metadata_changed read_source_and_reindex []
+  docs/06-pruebas/PRU-04/prueba-tecnica/SeguridadDiasPruebaTest.php docs/06-pruebas/PRU-04/prueba-tecnica/SeguridadDiasPruebaTest.php coverage_unavailable metadata_changed read_source_and_reindex []
+path_total: 14
+path_returned: 14
+path_has_more: false
+scopes: 2  (cols: requested_scope scope total returned truncated entries status)
+  app app 0 0 false [] coverage_unavailable
+  routes routes 0 0 false [] coverage_unavailable
+scope_total: 0
+scope_returned: 0
+scope_truncated: false
+has_more: false
+caveat: "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."

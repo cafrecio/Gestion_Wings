@@ -1,0 +1,8 @@
+{
+  "archivo": "docs/06-pruebas/PRU-04/evidencia-correccion-t34/sin-presentes.html",
+  "origen": "La prueba del área regenera su HTML histórico. El archivo estaba limpio al iniciar T90.",
+  "sha256_original": "d1a4ebb97d9a55f77c96a6ba476e816e7e03427e06b94ed1c392c6119f2835af",
+  "sha256_generado": "71033e9955913f2307e0053cc37c67a16bb32ffe28b9163bde87b49841c0cde6",
+  "restauracion": "Finalizada: bytes originales de HEAD restituidos tras las pruebas; solo salió de la suite propia.",
+  "sha256_generado_final": "71033e9955913f2307e0053cc37c67a16bb32ffe28b9163bde87b49841c0cde6"
+}

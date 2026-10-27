@@ -1,0 +1,40 @@
+{
+  "independientes-final": {
+    "name": "Tests\\VerificacionCodex\\VerificacionT90CodexTest",
+    "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-verificacion-t90-codex\\VerificacionT90CodexTest.php",
+    "tests": "77",
+    "assertions": "528",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "time": "21.137650"
+  },
+  "area": {
+    "name": "CLI Arguments",
+    "tests": "160",
+    "assertions": "1160",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "time": "40.342219"
+  },
+  "tecnica-dia23": {
+    "name": "Tests\\VerificacionCodex\\SeguridadDia23T90CodexTest",
+    "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-verificacion-t90-codex\\SeguridadDia23T90CodexTest.php",
+    "tests": "1",
+    "assertions": "7",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "time": "12.937532"
+  },
+  "rapida": {
+    "name": "C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml",
+    "tests": "939",
+    "assertions": "7465",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "6",
+    "time": "202.452451"
+  }
+}

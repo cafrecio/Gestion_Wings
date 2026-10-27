@@ -1,5 +1,12 @@
 # Wings — Estado actual
 
+## T90 — Verificación independiente aprobada, Codex CAB 27/10/2026
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md). Implementación Claude563749b2;14 fuentes T90 idénticas tras la publicación paralela de T92. Solo wings_testing_codex local, MariaDB10.4.32 y destino efectivo verificado.
+Siete puntos aprobados: HORA/COMISIÓN cerradas o pagadas rechazan cancelar para ambos roles, por formulario/JSON/XHR y serie; filas de seis tablas intactas. Abierta, sin liquidación, FIN-12, reactivación y serie libre conservados. Panel muestra el mensaje recibido; API alternativa deshabilitada, sin escrituras por el PUT de prueba.
+Propias77/528, área160/1160 (T904/21 incluida), técnica día231/7, rápida933 aprobadas/6 omitidas/7465 aserciones/204,82s y JS2/2. Fuente técnica copiada sin cambiar bytes y guardia estricta Codex; ninguna salida ajena sobrescrita.
+T90 cerrada con verifica=Codex; despliegue no realizado. CLA-012 y CLA-015 siguen en T62. Copia de tabla solo leída; propuesta CLA-013 en el informe. Sin servidor ni base del club, sin producto ni push; sin prometer concurrencia no probada.
+
 ## T14 — Días 17–18 recorridos con límites, Codex CyE 26/10/2026
 
 [Informes y galería](../06-pruebas/PRU-04/EVIDENCIA-DIAS-17-18.html): **13 situaciones, 7 Sí, 5 Parcial y 1 No**. TEST/staging/wingstest, ec1b0c6e. Reloj del 26/10 y del 27/10 una vez cada uno, simulación previa una y cuatro rutinas reales una vez cada una; cajas #16 y #17 validadas, contado/esperado $55.700/$53.000, diferencia cero. No despliegue de producto.

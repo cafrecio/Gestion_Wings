@@ -1,0 +1,266 @@
+{
+  "controles": {
+    "propias": "77/528",
+    "rechazos_protegidos": 48,
+    "permitidas": 24,
+    "area": "160/1160",
+    "t90_en_area": "4/21",
+    "tecnica_dia23": "1/7",
+    "rapida": "933 aprobadas,6 omitidas,7465 aserciones",
+    "js": "2/2",
+    "base_efectiva": "wings_testing_codex",
+    "fuentes_identicas_563749b2": 14,
+    "tabla_solo_lectura": true,
+    "salida_t34_restaurada": true,
+    "tablero_t90": "cerrado,verifica=Codex",
+    "enlaces_nuevos_revisados": 67
+  },
+  "archivos": [
+    {
+      "ruta": "docs/00-estado/ESTADO-ACTUAL.md",
+      "bytes": 147386,
+      "sha256": "bb4f78eca6d60125c1a234b1a7ae4a1af236bcb12630c909d253ef206a38fc8f"
+    },
+    {
+      "ruta": "docs/00-estado/LOG-CODEX.md",
+      "bytes": 8412,
+      "sha256": "38164664498a7ef6ec699c8340a5be7d665870daaeeac562fbe4b8662d4ab6c0"
+    },
+    {
+      "ruta": "docs/00-estado/QUIEN-HACE-QUE.md",
+      "bytes": 8581,
+      "sha256": "6b61c0a6227c7052a4e6393e3f711c5ba822f21d722d1644748fc14704a709b7"
+    },
+    {
+      "ruta": "docs/00-estado/RESUMEN-ARRANQUE.md",
+      "bytes": 44125,
+      "sha256": "39240c00ebdbf5d4b4364f331a301c19695bea8cfcd8a4978e7ff39dff3a91a2"
+    },
+    {
+      "ruta": "docs/00-estado/TABLERO.html",
+      "bytes": 53000,
+      "sha256": "8539fb9470265ead78666fe2a78e87ec40c09ae976ccfe961bba936822a0986a"
+    },
+    {
+      "ruta": "docs/00-estado/tareas.json",
+      "bytes": 63310,
+      "sha256": "4af336350893bd92027d339355b0b19398b9ba8f5ca44d5f5c1e802ce3d8f9d4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/archivos-area.txt",
+      "bytes": 1692,
+      "sha256": "ea8b4bf7859c8f92c99a72a296f0ab8e6bf21c0cd759db1dff575fef75d799b2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/area-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/area.txt",
+      "bytes": 20585,
+      "sha256": "50f67a598f4ceed82b98f66fd3adaeabc98b1d5fa9b1dca88aa3eb24ac39ee5c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/area.xml",
+      "bytes": 56278,
+      "sha256": "d6ba783dfc1698b6d665ac9664e4562d3c55b0e01e8b966c8fb8abbb7a617dee"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/bootstrap.php",
+      "bytes": 485,
+      "sha256": "a83afb21ec36ce5c061118870c11fadd6b57630dda2e4312d7bc394a35fb0c55"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/cancelar-clase-liquidada.txt",
+      "bytes": 124,
+      "sha256": "39759c33e660d66ab91d02b8d6f4f570c34145eafb7f55bc2d1fb251bbc2ba25"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/cobertura-mcp.txt",
+      "bytes": 2770,
+      "sha256": "2b2a339b23616d2f5ea1f95ad53536c74fc26d8ba8cf2bfe54cce1797c5fd0e8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/comprobar-lanzador.txt",
+      "bytes": 188,
+      "sha256": "42b4829ac12709119cfeed13b8f62fc0097d086dcc1bbade5182110f04943668"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/entorno-efectivo.json",
+      "bytes": 130,
+      "sha256": "66494e3f63cf9c87d2099a46c9050387bfaeca6060c28612c9ed214a0cc5485c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/entorno.php",
+      "bytes": 927,
+      "sha256": "281a2b426b99a5a7679d9314f4a80c34f2d61b042f1f02298ed8625af17558a5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/fuente-tecnica.json",
+      "bytes": 405,
+      "sha256": "a436d808086acd32551463e828624c2fa7ac0dba1adb12f7d0ce1f23874250d2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/fuentes-t90.json",
+      "bytes": 3129,
+      "sha256": "ca8c5003ca90059c201e58879e5bdbe67eb0cc4188fa23e466d68a92e553c332"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/grafo-cancelaciones.txt",
+      "bytes": 1244,
+      "sha256": "64139a4c1e5e4b6ffb2465fd4b915014e289703d22aff17d7fd7aa0c86d0fc4e"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-exit.txt",
+      "bytes": 2,
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-final-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-final.txt",
+      "bytes": 9563,
+      "sha256": "f53e8c6ec7a048aa9dfc3891a7549106e2f8519dbb3c1c0ea83daf324409a1e8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-final.xml",
+      "bytes": 33018,
+      "sha256": "815c5cf7e31758f5f095867fe951ba9b58896b8656e7f1cd91752ba017986504"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-inicial-fixture-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-inicial-fixture.txt",
+      "bytes": 10798,
+      "sha256": "b461418b8125b41e5fdba90754694b0fc1b47d1bdfb4a042a4fb8859ea5a6756"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes-inicial-fixture.xml",
+      "bytes": 33778,
+      "sha256": "5e26cd1d82ed8a4a173838a430dae8dbb9ebc2029cf7f90afe57b2f45db5da68"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/independientes.txt",
+      "bytes": 188,
+      "sha256": "42b4829ac12709119cfeed13b8f62fc0097d086dcc1bbade5182110f04943668"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/intento-bootstrap-relativo-exit.txt",
+      "bytes": 2,
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/intento-bootstrap-relativo.txt",
+      "bytes": 158,
+      "sha256": "d0794b2212069f189da5b90009f3aa5e934881c4083789501b2ece2ff223d6f1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/LEEME.md",
+      "bytes": 3489,
+      "sha256": "375dde266227a3b95f918ec9b25d77795d94b9a9c3b7edcd650a89ad43925595"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/panel-cancelar.test.cjs",
+      "bytes": 4025,
+      "sha256": "496f970a36dccf029ec369ca6a75d6b630cab667349e638dbf858450d4c29305"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/panel-cancelar.txt",
+      "bytes": 110,
+      "sha256": "0fca74a59855dc68c8efe687483d84c55012c507ab4739fc286ef99c03e08158"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/rapida-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/rapida.txt",
+      "bytes": 120142,
+      "sha256": "069d8e2f0f66653ddaf1516c0224f50c2d451db42bc60b80e269239d43cfb953"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/rapida.xml",
+      "bytes": 326809,
+      "sha256": "6da3eef4466a41ea0ec93642173cb85e1af64d55d5b6474e1f16ba4598828650"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/respuesta-rechazo.json",
+      "bytes": 118,
+      "sha256": "bc291ef1eeafc217a28160aac5a697c94f4a57abca6cafaf5cd7815c94c9c54a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/resultado-panel.json",
+      "bytes": 751,
+      "sha256": "026f51b42e7f37b9b9aad04febc2612563a602c69e4fa7e83e7b02ebb443d5ab"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/resultados-pruebas.json",
+      "bytes": 1114,
+      "sha256": "b6b31ca55cb56ce451db297c68a8191a826f06607c6875cef19f85d4f21fac25"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/salida-lateral-t34.json",
+      "bytes": 584,
+      "sha256": "60b4afba0abf0c2f98ec065837dffc209cfca7020a9176b7f7e4b1a9b3ffadaa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/SeguridadDia23T90CodexTest.php",
+      "bytes": 790,
+      "sha256": "080fe127a03d2c52eff425735a5903d896cb461f9bbcdd34915d741343213252"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/SeguridadDiasPruebaFuente.php",
+      "bytes": 34388,
+      "sha256": "4a8c279107a06b9f4384f7f2ce22f987589f1f200ba6ba735259501bcd2c1580"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/tecnica-dia23-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/tecnica-dia23.txt",
+      "bytes": 238,
+      "sha256": "a23d0f282a89a018b443d6712b78ff419fb37680c9eaa7a0bc19f8db8583dc30"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/tecnica-dia23.xml",
+      "bytes": 741,
+      "sha256": "718702f7affd4ee445ad9ef504133ef580d56eb2f2a8a5a6a284529b39a5af69"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/VerificacionT90CodexTest.php",
+      "bytes": 13906,
+      "sha256": "da5f030915da42298539132d9c5d865f20502964a3b74b488fb1237da0746f45"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/verificar-entrega.py",
+      "bytes": 6917,
+      "sha256": "cdf344a142e79808005e4f38260ad81b0c8ea9eacdae84221b2487a28ec56cbe"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md",
+      "bytes": 10796,
+      "sha256": "653999fb77278a79b45cbda8ccff49f758431149546b9caa037cafa7fb520aa2"
+    },
+    {
+      "ruta": "docs/99-archivo/bitacoras/2026-10-27/LOG-CODEX-T90-ANTECEDENTES.json",
+      "bytes": 238,
+      "sha256": "b993b5742957c6613b185e97bd777d4690d68b180f81e39432536d281e86af96"
+    },
+    {
+      "ruta": "docs/99-archivo/bitacoras/2026-10-27/LOG-CODEX-T90-ANTECEDENTES.md",
+      "bytes": 5630,
+      "sha256": "cbaa185bd87239d580542152f09ef490d8988426607e9edba116f2721704ba3f"
+    }
+  ],
+  "manifiesto_excluido_de_autohash": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/INTEGRIDAD.json"
+}

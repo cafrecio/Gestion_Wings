@@ -1,0 +1,82 @@
+
+   PASS  Tests\VerificacionCodex\VerificacionT90CodexTest
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-json… 13.31s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-json-… 0.10s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-html-… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-html-… 0.05s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-xhr-s… 0.06s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- a d m i n-xhr-s… 0.07s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.18s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.07s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- c e r r a d a- o p e r a t i v… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-json-se… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-json-se… 0.13s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-html-se… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-html-se… 0.10s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-xhr-ser… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- a d m i n-xhr-ser… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " h o r a- p a g a d a- o p e r a t i v o… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- a d m i… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.11s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.11s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.19s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.11s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- c e r r a d a- o p e r… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.10s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.15s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.08s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- a d m i n… 0.07s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.12s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.09s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.07s
+  ✓ rechaza sin modificar clase lista detalles ni plata with data set " c o m i s i o n- p a g a d a- o p e r a… 0.09s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- s i n- a d m i n-json"             0.06s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- s i n- a d m i n-html"             0.05s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- s i n- o p e r a t i v o-json"     0.05s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- s i n- o p e r a t i v o-html"     0.05s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- a b i e r t a- a d m i n-json"     0.08s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- a b i e r t a- a d m i n-html"     0.09s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- a b i e r t a- o p e r a t i v o-… 0.08s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- a b i e r t a- o p e r a t i v o-… 0.08s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- c a n c e l a d a- a d m i n-json… 0.11s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- c a n c e l a d a- a d m i n-html… 0.12s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- c a n c e l a d a- o p e r a t i…  0.12s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " h o r a- c a n c e l a d a- o p e r a t i…  0.67s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- s i n- a d m i n-json"     0.07s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- s i n- a d m i n-html"     0.07s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- s i n- o p e r a t i v o-… 0.07s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- s i n- o p e r a t i v o-… 0.07s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- a b i e r t a- a d m i n-… 0.11s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- a b i e r t a- a d m i n-… 0.09s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- a b i e r t a- o p e r a…  0.07s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- a b i e r t a- o p e r a…  0.10s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- c a n c e l a d a- a d m…  0.09s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- c a n c e l a d a- a d m…  0.09s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- c a n c e l a d a- o p e…  0.10s
+  ✓ cancelaciones permitidas y desbloqueo real fin12 with data set " c o m i s i o n- c a n c e l a d a- o p e…  0.09s
+  ✓ comision cubre clase sin detalle otro profesor no y otro mes no                                              0.20s
+  ✓ hora no extiende bloqueo a clases sin detalle y mira todos los profesores                                    0.10s
+  ✓ serie solo cancela hoy y futuras sin tocar pasadas ni otra serie                                             0.07s
+  ✓ reactivacion del duenio conserva asistencias y operativa no puede reactivar                                  0.12s
+  ✓ ficha contiene panel y no existe api activa para saltar el control                                           0.14s
+
+  Tests:    77 passed (528 assertions)
+  Duration: 21.62s

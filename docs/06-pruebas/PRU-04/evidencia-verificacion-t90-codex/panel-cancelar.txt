@@ -1,0 +1,1 @@
+2/2: rechazo real visible en el panel, para cancelar esta y cancelar serie; sin recargar ni ocultar el error.

@@ -1,0 +1,6 @@
+
+   PASS  Tests\VerificacionCodex\SeguridadDia23T90CodexTest
+  ✓ dia 23 una clase de una liquidacion cerrada no se cancela ni forzando                                       12.94s
+
+  Tests:    1 passed (7 assertions)
+  Duration: 13.06s
