@@ -60,11 +60,13 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T54** Buscar alumnos: con y sin acento, por cualquier parte del nombre y ofreciendo opciones desde la primera letra | En curso (hizo Gemini, verifica Claude) | Carlos 27/10: Gemini. DU-13: con y sin acento igual, desde la primera letra, cualquier parte del nombre; nombre y apellido juntos. Listado, autocompletar y Cobrar. Aspecto Carlos. |
 
-## Sin empezar (17)
+## Sin empezar (16)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T62 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (10)
 
