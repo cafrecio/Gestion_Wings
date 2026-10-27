@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — Verificación de T85 (Gemini): aprobada
+
+- Código de `ds-app.js` leído; los seis interruptores con `data-url` responden JSON; sin estilo `:disabled` (el aspecto no cambia).
+- Chrome real, segundo clic de mouse a los 300 ms con la respuesta retenida 1,5 s: con T85, 1 pedido y sin cuota; con el código anterior, 2 pedidos y cuota de reingreso (caso Agustín). Control: un clic posterior sí se manda. [Informe](../06-pruebas/PRU-04/VERIFICACION-T85-CLAUDE.md).
+- Observación menor: con sesión vencida el aviso no dice que hay que volver a entrar. T85 cerrada; se sube a prueba con T92.
+
 ## 2026-10-27 — Claude CyE — T92 segunda vuelta: Revisión no se cuenta dos veces
 
 - Codex devolvió T92 (`5c851d38`): al repetir la generación, quien ya estaba en Revisión se volvía a contar (constancia 1, 2, 4 con dos alumnos). Correcto.
@@ -68,9 +74,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - `rutina.php`: muestra el importe de cada cobro y acepta el mes elegido a mano (`manuales`), como la pantalla (T77).
 - Hallazgos: Agustín Acosta tiene una cuota de reingreso de $14.000 por un toque del interruptor el 27/10, sin registrar (se condona en el 19.2; nota en T84). Un gasto en efectivo mayor que el cajón se acepta (MOV-004 pide rechazo). El servidor acepta un pago parcial sin motivo (COB-009). Las dos cosas se comprueban en la prueba técnica.
 - Liquidación de Lucía simulada al 31/10: hoy 15 clases, $180.000; no cierra antes de fin de mes, con el texto esperado.
-
-## 2026-10-27 — Claude CyE — Días 17 y 18 revisados, con su prueba técnica
-
-- La plata cierra al peso: la única diferencia es Julieta (17.7, tercera vez que el Chrome automático no acepta la confirmación nativa). Decide Carlos: lo hace a mano o se cambia esa confirmación por la ventana propia de Wings.
-- 17.6 pasa a Sí. 17.1/17.5 bien, hechos por vía técnica a pedido de Carlos. Defecto menor: el rechazo de una clave corta sale en inglés si se saltea el formulario (falta `password.min`).
-- Prueba técnica: interno 16/16 sobre `wingstest` (por `ssh vps` en el 2222), seguridad 12/12 (nueva: abrir con otro turno abierto) y velocidad entre 2 y 211 ms. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
