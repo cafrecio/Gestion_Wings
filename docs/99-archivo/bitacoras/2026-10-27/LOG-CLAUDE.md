@@ -2,6 +2,20 @@
 
 Movidas intactas desde `docs/00-estado/LOG-CLAUDE.md` por Claude CyE al superar el límite del protocolo.
 
+## 2026-10-27 — Claude CyE — Día 23 revisado, con su prueba técnica
+
+- Generación de noviembre igual a la calculada aparte: corrió sola a las 06:00, 100 cuotas, $3.783.000, y la segunda corrida no creó nada. Las ocho liquidaciones dan lo esperado ($1.370.280); 13 atrasadas validadas con registro.
+- 3 cerradas ($345.000) y 5 abiertas por orden de Carlos; ninguna pagada. «Por pagar» del Inicio y Reportes = cerradas.
+- Errores de mi guion: ingresos de noviembre son $103.000 (los tres adelantos, T42), no $0; el aumento rige desde el 18/10, no desde noviembre.
+- Técnica: interno 21/21 (cinco controles nuevos de liquidaciones y del reporte de octubre), seguridad 22/22, velocidad < 271 ms. Hallazgo **T90**: una clase de una liquidación cerrada se puede cancelar, también la operativa y desde la pantalla. **T91**: ventana propia de confirmación, pedida por Carlos. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
+- Bitácora: entradas anteriores al 25/10 (desde «Control cruzado de T77») archivadas intactas.
+
+## 2026-10-27 — Claude CyE — Preparación del 1/11: T84 desplegada y lo esperado calculado aparte
+
+- Respaldo `/root/respaldos/wingstest-antes-generacion-noviembre-2026-10-27.sql.gz`. Sitio de prueba de `ec1b0c6e` a `500ce7bc` (T84): build, 0 migraciones, cachés; /login 200, reloj simulado intacto.
+- Lo que tiene que generar noviembre, con las reglas del contrato y consultas propias, sin el código del generador: 100 cuotas, $3.783.000, 3 con adelanto, Revisión 0. Comparador alumno por alumno. Liquidaciones esperadas: octubre y septiembre, por pagar $1.370.280. Todo en `PRU-04/generacion-noviembre/`.
+- [Guion del día 23](../06-pruebas/PRU-04/GUION-DIA-23.md): reloj a las 05:55 para que la generación corra sola a las 06:00, como en producción.
+
 ## 2026-10-27 — Claude CyE — Días 19 a 22 revisados, prueba técnica y planilla
 
 - Octubre cerró con deuda $0 y 103 Al día. Diferencias explicadas: +$250.000 por el sueldo no pagado y −$121.000 de ingresos por error de mi guion (Indumentaria es aporte, no ingreso).

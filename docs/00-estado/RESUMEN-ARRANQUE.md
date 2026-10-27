@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
 | SEG-01 | Retiro de Axios y audit/build verificados al 11/09; no afirma estado actual de dependencias locales |
 | FDS-02 / alertas | Cierre documentado 09/09 con recepción de email y Telegram; no revalidado hoy |
-| Servidor | **Sitio de prueba en `f5306953`** (Claude, 27/10): T90, T92, T85 y T86 (aspecto aprobado por Carlos). Migración T86: solo Op-Sandra, Op-Pablo y Op-Rocío sin reserva; profesoras siguen reservadas. Respaldos `wingstest-antes-despliegue-2026-10-27-0808` y `wingstest-antes-t86-2026-10-27-0811` en `/root/respaldos`. /login 200, reloj simulado intacto (01/11). Producción no consultada ni modificada. |
+| Servidor | **Sitio de prueba en `f8d71d5c`** (Claude, 27/10): T90, T92, T85, T86 y T93 (aspecto aprobado por Carlos). Migración T86: solo Op-Sandra, Op-Pablo y Op-Rocío sin reserva; profesoras siguen reservadas. Respaldos `wingstest-antes-despliegue-2026-10-27-0808` y `wingstest-antes-t86-2026-10-27-0811` en `/root/respaldos`. /login 200, reloj simulado intacto (01/11). Producción no consultada ni modificada. |
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa

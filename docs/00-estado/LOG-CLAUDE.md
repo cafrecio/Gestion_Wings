@@ -11,6 +11,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — T93 verificada y subida; producción leída
+
+- T93 (Gemini, `ada0ac06`) aprobada: sin rubro no hay subrubros; edición y vuelta de error conservan lo elegido. Sitio de prueba en `f8d71d5c`, sin migraciones, /login 200. Observación: `display: none` en opciones puede no ocultarlas en iPhone; no comprobado.
+- Producción leída sin tocar (anotado en PLAN-PRODUCCION): `314e485` del 22/09, 7 migraciones pendientes de su propio código + 25 nuevas, 0 medios de pago y 3 subrubros.
+
 ## 2026-10-27 — Claude CyE — Verificación de T86 (Codex): lógica aprobada
 
 - La migración, en solo lectura sobre el sitio de prueba, cambiaría exactamente Op-Sandra, Op-Pablo y Op-Rocío. Pruebas de Codex 32/32 en mi base.
@@ -42,17 +47,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - `CancelarClaseLiquidadaT90Test` 4/4: rojo sin el arreglo (3 fallan), verde con él. La prueba técnica del hallazgo se dio vuelta. Corte 1057.
 - Carlos: T91 como mejora futura → MF10. Error mío: T90 ya estaba decidido en DU-30 y anotado en T62; no lo busqué antes de crear la tarea.
 - Día 23, preguntas de Carlos: 105 alumnos (103 activos, 2 inactivos); los 103 tuvieron un presente en octubre, por eso Revisión 0 y CBZ-013 sigue sin probar. La segunda generación pisó la constancia de la primera (observación).
-
-## 2026-10-27 — Claude CyE — Día 23 revisado, con su prueba técnica
-
-- Generación de noviembre igual a la calculada aparte: corrió sola a las 06:00, 100 cuotas, $3.783.000, y la segunda corrida no creó nada. Las ocho liquidaciones dan lo esperado ($1.370.280); 13 atrasadas validadas con registro.
-- 3 cerradas ($345.000) y 5 abiertas por orden de Carlos; ninguna pagada. «Por pagar» del Inicio y Reportes = cerradas.
-- Errores de mi guion: ingresos de noviembre son $103.000 (los tres adelantos, T42), no $0; el aumento rige desde el 18/10, no desde noviembre.
-- Técnica: interno 21/21 (cinco controles nuevos de liquidaciones y del reporte de octubre), seguridad 22/22, velocidad < 271 ms. Hallazgo **T90**: una clase de una liquidación cerrada se puede cancelar, también la operativa y desde la pantalla. **T91**: ventana propia de confirmación, pedida por Carlos. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
-- Bitácora: entradas anteriores al 25/10 (desde «Control cruzado de T77») archivadas intactas.
-
-## 2026-10-27 — Claude CyE — Preparación del 1/11: T84 desplegada y lo esperado calculado aparte
-
-- Respaldo `/root/respaldos/wingstest-antes-generacion-noviembre-2026-10-27.sql.gz`. Sitio de prueba de `ec1b0c6e` a `500ce7bc` (T84): build, 0 migraciones, cachés; /login 200, reloj simulado intacto.
-- Lo que tiene que generar noviembre, con las reglas del contrato y consultas propias, sin el código del generador: 100 cuotas, $3.783.000, 3 con adelanto, Revisión 0. Comparador alumno por alumno. Liquidaciones esperadas: octubre y septiembre, por pagar $1.370.280. Todo en `PRU-04/generacion-noviembre/`.
-- [Guion del día 23](../06-pruebas/PRU-04/GUION-DIA-23.md): reloj a las 05:55 para que la generación corra sola a las 06:00, como en producción.
