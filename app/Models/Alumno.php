@@ -255,4 +255,34 @@ class Alumno extends Model
 
         return null;
     }
+
+    /**
+     * T54 (DU-13, ALU-020): Búsqueda de alumnos por nombre, apellido o DNI.
+     * Permite múltiples palabras en cualquier orden (cada palabra debe coincidir con
+     * nombre, apellido o DNI). Comparación insensible a mayúsculas y acentos
+     * (garantizada por la colación utf8mb4_unicode_ci en MySQL/MariaDB).
+     */
+    public function scopeBuscar($query, ?string $termino)
+    {
+        $termino = trim((string) $termino);
+        if ($termino === '') {
+            return $query;
+        }
+
+        $palabras = preg_split('/\s+/', $termino, -1, PREG_SPLIT_NO_EMPTY);
+        if (empty($palabras)) {
+            return $query;
+        }
+
+        return $query->where(function ($q) use ($palabras) {
+            foreach ($palabras as $palabra) {
+                $escapada = addcslashes($palabra, '%_\\');
+                $q->where(function ($sub) use ($escapada) {
+                    $sub->where('nombre', 'like', "%{$escapada}%")
+                        ->orWhere('apellido', 'like', "%{$escapada}%")
+                        ->orWhere('dni', 'like', "%{$escapada}%");
+                });
+            }
+        });
+    }
 }

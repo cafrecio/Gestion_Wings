@@ -10,6 +10,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T54: Buscar alumnos como busca la gente
+
+- **Objetivo y resultado:** Implementación de **T54** (DU-13, caso ALU-020 del catálogo). Permite buscar alumnos de forma insensible a acentos y mayúsculas («Gomez» encuentra «Gómez»), por múltiples palabras en cualquier orden («perez juan» encuentra «Juan Pérez»), ofreciendo sugerencias de autocompletar desde la primera letra, y unificando el criterio en listado, autocompletar, cobro de cuota y API. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **1. Modelo `Alumno.php`:** Creación de `scopeBuscar($query, ?string $termino)`, que divide el término en palabras (tokens) e impone que cada palabra coincida con `nombre`, `apellido` o `dni`.
+  - **2. Controladores (`AlumnoWebController.php`, `CajaWebController.php`, `Admin\AlumnoController.php`):** Uso de `$query->buscar(...)` en el listado de alumnos, autocompletar (con umbral de longitud `>= 1` y límite de 8) y cobro de cuota (`cobrarCuotaSelect`, preservando T29 sin término de búsqueda).
+  - **3. Frontend (`resources/js/alumnos-index.js`):** Ajuste del listener para disparar el desplegable de autocompletar a partir de 1 caracter (`q.length < 1` en lugar de `< 2`). Compilación limpia con `npm run build`. Sin tocar vistas Blade ni CSS.
+- **Pruebas y evidencia:**
+  - Suite de pruebas completa en `tests/Feature/BusquedaAlumnosT54Test.php` (10 pruebas, 80 aserciones, todas verdes): acentos, 1 letra, múltiples palabras en cualquier orden, DNI, filtros combinados, paginación, homónimos, estado vacío, T29 en Cobrar, y rendimiento con más de 300 alumnos (< 100 ms).
+  - Suite rápida (`--exclude-group=lento`) en verde en `wings_testing_gemini` (1021 pasadas, 6 omitidas).
+  - Verificación en Google Chrome real: 6 capturas a 1366 px y 375 px (marco) en `docs/06-pruebas/PRU-04/evidencia-t54/`.
+  - Guardianes `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest` y `DocumentacionNoMienteTest` en verde.
+  - Informe detallado en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T54.md`.
+- **Próximo paso:** Tarea T54 en estado `a_verificar`, asignada a Claude para verificación cruzada.
+
 ## 2026-10-27 — LOG GEM CAB — T65: El dueño elimina un alumno o una clase cargados por error
 
 - **Objetivo y resultado:** Implementación de **T65** (DU-48, casos ALU-024 y CLA-021 del catálogo). Permite al ADMIN (dueño) eliminar de forma definitiva un alumno sin cobros, pagos ni asistencias, y una clase o serie de clases sin asistencias ni liquidaciones cerradas/pagadas/validadas. Operativos y profesores reciben 403. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.

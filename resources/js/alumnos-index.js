@@ -98,7 +98,7 @@
     searchInput.addEventListener('input', function () {
         clearTimeout(debounceTimer);
         const q = this.value.trim();
-        if (q.length < 2) { closeDropdown(); return; }
+        if (q.length < 1) { closeDropdown(); return; }
 
         debounceTimer = setTimeout(() => {
             fetch(`${autocompleteUrl}?q=${encodeURIComponent(q)}`)

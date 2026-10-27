@@ -28,12 +28,7 @@ class AlumnoController extends Controller
         }
 
         if ($request->has('search')) {
-            $search = addcslashes($request->input('search'), '%_\\');
-            $query->where(function ($q) use ($search) {
-                $q->where('nombre', 'like', "%{$search}%")
-                  ->orWhere('apellido', 'like', "%{$search}%")
-                  ->orWhere('dni', 'like', "%{$search}%");
-            });
+            $query->buscar($request->input('search'));
         }
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->get();

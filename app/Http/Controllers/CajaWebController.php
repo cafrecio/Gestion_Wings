@@ -734,12 +734,7 @@ class CajaWebController extends Controller
             ->where('activo', true);
 
         if ($request->filled('search')) {
-            $s = addcslashes($request->input('search'), '%_\\');
-            $query->where(fn($q) => $q
-                ->where('nombre', 'like', "%{$s}%")
-                ->orWhere('apellido', 'like', "%{$s}%")
-                ->orWhere('dni', 'like', "%{$s}%")
-            );
+            $query->buscar($request->input('search'));
         } else {
             $query->whereIn('id', $conDeudaIds);
         }

@@ -100,12 +100,7 @@ class AlumnoWebController extends Controller
         }
 
         if ($request->filled('search')) {
-            $search = addcslashes($request->input('search'), '%_\\');
-            $query->where(function ($q) use ($search) {
-                $q->where('nombre', 'like', "%{$search}%")
-                  ->orWhere('apellido', 'like', "%{$search}%")
-                  ->orWhere('dni', 'like', "%{$search}%");
-            });
+            $query->buscar($request->input('search'));
         }
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
@@ -125,18 +120,13 @@ class AlumnoWebController extends Controller
 
     public function autocomplete(Request $request)
     {
-        $q = trim($request->input('q', ''));
-        if (strlen($q) < 2) {
+        $q = trim((string) $request->input('q', ''));
+        if (mb_strlen($q) < 1) {
             return response()->json([]);
         }
-        $qEscaped = addcslashes($q, '%_\\');
 
         $results = Alumno::with(['grupo.deporte', 'grupo.nivel'])
-            ->where(function ($query) use ($qEscaped) {
-                $query->where('nombre', 'like', "%{$qEscaped}%")
-                      ->orWhere('apellido', 'like', "%{$qEscaped}%")
-                      ->orWhere('dni', 'like', "%{$qEscaped}%");
-            })
+            ->buscar($q)
             ->orderBy('apellido')->orderBy('nombre')
             ->limit(8)
             ->get(['id', 'nombre', 'apellido', 'dni', 'grupo_id'])
