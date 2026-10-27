@@ -10,6 +10,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — Verificación independiente de T32 (Límite de intentos de ingreso y reloj simulado)
+
+- **Objetivo y resultado:** Verificación técnica e independiente de **T32** (commits `602efcc` y `c699bc1` implementados por Claude, casos DU-46, SIS-009, ACC-003). Dictamen: **APROBADA Y CERRADA**.
+- **Puntos verificados en código y ejecución:**
+  - **1. El ingreso frena contra fuerza bruta:** Con clave equivocada, el 6º intento dentro del minuto se rechaza con HTTP 429. Bloqueada la IP, el intento con clave correcta también se rechaza (429). Transcurridos 60 s, el bloqueo decae y permite el ingreso normal.
+  - **2. Contadores separados:** `throttle:5,1,ingreso` y `throttle:60,1,csp` poseen prefijos unívocos. 60 avisos de CSP consecutivos no consumen intentos de login; el bloqueo de login no interrumpe el reporte de CSP (204 No Content).
+  - **3. Límite no debilitado:** La firma en Laravel es `sha1($domain . '|' . $ip)`. Los datos del formulario (`email`, `password`) no forman parte de la firma; rotar el correo en cada intento no evade el límite por IP.
+  - **4. Protección estricta en producción:** En `production`, `RelojSimulado::aplicar()` devuelve `null` incondicionalmente, `RelojSimulado::detenido()` es `false`, y `LimiteConRelojDetenido` jamás se registra en el contenedor de servicios.
+  - **5. Sitio de prueba con reloj simulado:** Con el reloj avanzando funciona idéntico a producción; con el reloj detenido a medianoche, `tooManyAttempts()` devuelve `false`, evitando bloqueos permanentes durante las pruebas.
+  - **6. Otros límites:** Relevamiento con codebase-memory confirmó que no existen otros limitadores web ni de API afectados.
+- **Pruebas y evidencia:** `LoginThrottleTest` (1/1), `RelojSimuladoTest` (7/7) y suite dedicada `VerificacionT32GeminiTest` (7/7, 168 aserciones) en verde. Suite rápida (`--exclude-group=lento`) en `wings_testing_gemini`: 939 aprobadas, 6 omitidas, 0 fallidas (7.629 aserciones). Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T32-GEMINI.md`.
+- **Próximo paso:** Tarea T32 cerrada en el tablero. Lista para su despliegue en producción.
+
 ## 2026-10-26 — LOG GEM CYE — T84: Ficha del alumno con interruptor Activo/Inactivo sin confirmación
 
 - **Objetivo y resultado:** Implementación de **T84** pedida por Carlos el 27/10/2026. Resultado: **IMPLEMENTADA Y EN `a_verificar`**, con 2 pruebas automatizadas en `FichaToggleActivoT84Test`, capturas reales en Chrome (1366 px y marco móvil 375 px) y suite rápida en verde.

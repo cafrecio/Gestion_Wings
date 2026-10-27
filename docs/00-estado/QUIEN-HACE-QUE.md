@@ -60,9 +60,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude, verifica Gemini) | Carlos pide a Gemini verificar (27/10), sobre todo 602efcc: el limite de 5 ingresos por minuto con su propio contador, separado del de avisos de seguridad (60 por minuto). Y c699bc1: con el reloj simulado parado el limite no se aplica, nunca en produccion. Despues va a produccion. |
+Nada en este momento.
 
 ## Sin empezar (20)
 
