@@ -17,6 +17,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Defecto: todo alumno de la primera carga queda como nuevo y pide motivo desde la 3a clase. En el sitio de prueba son 25 alumnos; en producción sería todo el club. Prueba roja en `evidencia-verificacion-t88-b3-claude`. [Informe](../06-pruebas/PRU-04/VERIFICACION-T88-B3-CLAUDE.md).
 - T54 asignada a Gemini y T65 a Codex para verificar (pedido de Carlos).
 - B3 segunda vuelta (Codex, `1de85aef`): aprobada en lógica, la primera carga ya no es nueva. T88 y B3 esperan el aspecto de Carlos.
+- T88 y B3 cerradas con OK visual de Carlos; no se suben a prueba hasta T65 (Codex) y los OK de T54 y T87.
+- T54 segunda vuelta (`a9e7e37b`): aprobada en lógica; falta OK visual de Carlos.
 - T54 (Gemini, `c4094222`) devuelta: bien en listado, autocompletar y Cobrar; el Historial de caja sigue buscando exacto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T54-CLAUDE.md).
 
 ## 2026-10-27 — Claude CyE — T87 verificada en lógica; contador corregido

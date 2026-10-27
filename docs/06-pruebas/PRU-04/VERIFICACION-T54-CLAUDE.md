@@ -39,3 +39,20 @@ alumno» y que se listaran los lugares encontrados. Quedó uno afuera y el infor
 
 No cambia el diseño. Las capturas (`evidencia-t54`) muestran el desplegable con una letra;
 las mira Carlos.
+
+## Segunda vuelta — 27/10, commit `a9e7e37b`
+
+**Aprobada en lógica.** Falta el OK visual de Carlos.
+
+- Historial de caja: normaliza con `Str::ascii` y minúsculas la búsqueda y el texto de la
+  fila (alumno, DNI, observación y subrubro). Cada palabra tiene que aparecer, en cualquier
+  orden. «gomez» encuentra a «Gómez» y «perez juan» encuentra a «Pérez, Juan».
+  *Verificado por lectura.* Cambio menor: antes, el texto completo tenía que aparecer en uno
+  de los tres campos; ahora cada palabra puede estar en cualquiera.
+- Autocompletar: descarta la respuesta si el campo ya no tiene el texto que la pidió.
+  *Verificado por lectura.*
+- Barrido: Gemini lista seis lugares tocados. Profesores y Cobranza no buscan alumnos por
+  texto.
+- `BusquedaAlumnosT54Test`: 14 aprobadas, 110 aserciones, corridas acá. Las 4 nuevas del
+  Historial no se corrieron contra el código anterior; que fallarían con él es una
+  inferencia (antes la comparación era exacta).
