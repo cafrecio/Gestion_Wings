@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — T88 aprobada en lógica; B3 devuelta
+
+- T88 y B3 dinero (Codex, `17f99d13`): aprobadas en lógica; falta el aspecto de Carlos. B3 asistencia (`51d26fb8`): devuelta a Codex.
+- Defecto: todo alumno de la primera carga queda como nuevo y pide motivo desde la 3a clase. En el sitio de prueba son 25 alumnos; en producción sería todo el club. Prueba roja en `evidencia-verificacion-t88-b3-claude`. [Informe](../06-pruebas/PRU-04/VERIFICACION-T88-B3-CLAUDE.md).
+- T54 asignada a Gemini y T65 a Codex para verificar (pedido de Carlos).
+
 ## 2026-10-27 — Claude CyE — T87 verificada en lógica; contador corregido
 
 - T87 (Gemini, `b079b0ca`): conteos de Nueva liquidación por mes elegido; prueba roja con el código anterior. Falta el OK visual de Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T87-CLAUDE.md).

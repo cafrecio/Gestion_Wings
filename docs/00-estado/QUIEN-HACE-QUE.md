@@ -37,6 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T87-CLAUDE.md, roja con el codigo anterior). Falta el OK visual de Carlos: con 0 clases en el mes elegido la fila dice 0 clases liquidables en gris (evidencia-t87). Despues: sitio de prueba. |
+| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T88-B3-CLAUDE.md): gasto mayor que el cajon rechazado en servidor, al editar y en concurrencia. Falta el OK visual de Carlos (APROBAR-T88-B3-DINERO.html). No va a prueba hasta que B3 asistencia vuelva corregida. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -50,14 +51,13 @@ Nada.
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
 | **T54** Buscar alumnos: con y sin acento, por cualquier parte del nombre y ofreciendo opciones desde la primera letra | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar busqueda insensible a acentos, multiple palabra en cualquier orden, autocompletar desde 1 letra y busqueda en Cobrar. Pruebas 10/10 verdes, suite rapida verde. Capturas 1366/375 en evidencia-t54. |
-| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar dinero T88/B3: area32/143, tecnica2/11 y concurrencia real7/115 verdes; completa final tras asistencia1130/6 omitidas,9454 aserciones,salida0,corte1136. Informe y capturas1366/375; aspecto pendiente de Carlos. Primera completa40 fallos luego verdes aislados conservada. Sin despliegue. |
-| **B3** Las excepciones del contrato no existen | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar ambas entregas B3: cobros y asistencia con motivo, registro comun e Inicio/resumen diario. Propias asistencia20, area71/344; rapida1011/6 y completa1130/6 verdes, corte1136. Capturas1366/375 y preguntas en informes. Aspecto pendiente de Carlos. Sin despliegue. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Carlos 27/10: verifica Codex (no Claude). Hecho por Gemini en 13b85f68. Logica, roles, concurrencia, cascadas (AUD-025) y tablas nuevas de T88/B3; aspecto Carlos. |
+| **B3** Las excepciones del contrato no existen | Devuelto (hizo Codex, verifica Claude) | Devuelta por Claude 27/10 (VERIFICACION-T88-B3-CLAUDE.md). Dinero aprobado en logica. Asistencia: todo alumno de la primera carga es nuevo (sin pagos en Wings) y pide motivo desde la 3a clase; en prueba son 25. Contrato 4, enmienda 06/09: no son nuevos; dato: primera_carga.detalle.alumnos. Prueba roja en evidencia-verificacion-t88-b3-claude. |
 
 ## Gemini
 
