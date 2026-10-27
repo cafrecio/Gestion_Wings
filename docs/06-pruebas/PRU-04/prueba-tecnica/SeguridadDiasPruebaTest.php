@@ -330,13 +330,14 @@ class SeguridadDiasPruebaTest extends TestCase
         $this->assertSame(1, DeudaCuota::where('alumno_id', $otro->id)->count(), 'Ya no genera cuota: T85 corregida, dar vuelta esta prueba');
     }
 
-    public function test_hallazgo_dia_22_el_sueldo_de_una_operativa_no_se_puede_elegir_en_cashflow(): void
+    public function test_dia_22_el_sueldo_de_una_operativa_se_elige_en_cashflow_t86(): void
     {
         $sub = app(\App\Services\SubrubroSueldoService::class)->paraUsuarioOperativo($this->sandra);
         $this->assertNotNull($sub);
         $ofrecidos = collect($this->actingAs($this->duenio)->get(route('web.cashflow.movimiento'))->assertOk()->viewData('rubros'))
             ->flatMap(fn ($r) => $r->subrubros->pluck('id'));
-        $this->assertNotContains($sub->id, $ofrecidos->all(), 'Ya se ofrece: CSH-015 corregido, dar vuelta esta prueba');
+        // T86 (Codex, verificada por Claude 27/10): antes no se ofrecía (hallazgo del día 22.5).
+        $this->assertContains($sub->id, $ofrecidos->all());
         // Forzando el envío, ¿lo acepta? Se registra el resultado para el informe, sin afirmar.
         $antes = DB::table('cashflow_movimientos')->count();
         $r = $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
@@ -440,6 +441,23 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->actingAs($this->duenio)->post(route('web.liquidaciones.cerrar', $liq->id))->assertSessionHasNoErrors();
         $this->actingAs($this->duenio)->post(route('web.liquidaciones.pagar', $liq->id), $pagar);
         $this->assertNotSame('PENDIENTE', $liq->fresh()->estado_pago, 'El envío de control no paga: la prueba no demuestra nada');
+    }
+
+    public function test_t86_la_operativa_no_se_carga_su_sueldo_desde_la_caja_ni_forzando(): void
+    {
+        // T86 sacó la reserva al sueldo de las operativas para que el dueño lo pague por Cashflow.
+        // La reserva también la frenaba en la caja: comprobar que la caja la sigue frenando.
+        $sub = app(\App\Services\SubrubroSueldoService::class)->paraUsuarioOperativo($this->sandra) ?? Subrubro::find($this->sandra->fresh()->subrubro_id);
+        $this->assertFalse((bool) $sub->fresh()->es_reservado_sistema);
+        $antes = $this->foto();
+        $this->actingAs($this->sandra)->post(route('web.caja.movimiento.store'), ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => '5000', 'observaciones' => 'Mi sueldo, forzado']);
+        $this->assertSame($antes, $this->foto(), 'La operativa cargó su sueldo desde la caja');
+        // Control: el dueño sí lo paga por Cashflow.
+        $this->efectivo->update(['saldo_inicial' => 1000000]);
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->efectivo->id,
+            'monto' => '5000', 'fecha' => '2026-10-15', 'observaciones' => 'Sueldo de Sandra'])->assertSessionHasNoErrors();
+        $this->assertSame(1, DB::table('cashflow_movimientos')->where('subrubro_id', $sub->id)->count());
     }
 
     public function test_dia_13_la_caja_rechazada_no_cambia_lo_contado_al_recerrar(): void

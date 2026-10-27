@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — Verificación de T86 (Codex): lógica aprobada
+
+- La migración, en solo lectura sobre el sitio de prueba, cambiaría exactamente Op-Sandra, Op-Pablo y Op-Rocío. Pruebas de Codex 32/32 en mi base.
+- Prueba propia: sin la reserva, la operativa igual no se carga su sueldo desde la caja forzando (la caja exige renglón de operativa que afecte caja). La prueba del hallazgo 22.5 se dio vuelta. Seguridad 23/23.
+- Falta el OK visual de Carlos de Reportes → Sueldos (Codex amplió el alcance con su confirmación). T92 cerrada por Codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T86-CLAUDE.md).
+
 ## 2026-10-27 — Claude CyE — Verificación de T85 (Gemini): aprobada
 
 - Código de `ds-app.js` leído; los seis interruptores con `data-url` responden JSON; sin estilo `:disabled` (el aspecto no cambia).
@@ -50,27 +56,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Respaldo `/root/respaldos/wingstest-antes-generacion-noviembre-2026-10-27.sql.gz`. Sitio de prueba de `ec1b0c6e` a `500ce7bc` (T84): build, 0 migraciones, cachés; /login 200, reloj simulado intacto.
 - Lo que tiene que generar noviembre, con las reglas del contrato y consultas propias, sin el código del generador: 100 cuotas, $3.783.000, 3 con adelanto, Revisión 0. Comparador alumno por alumno. Liquidaciones esperadas: octubre y septiembre, por pagar $1.370.280. Todo en `PRU-04/generacion-noviembre/`.
 - [Guion del día 23](../06-pruebas/PRU-04/GUION-DIA-23.md): reloj a las 05:55 para que la generación corra sola a las 06:00, como en producción.
-
-## 2026-10-27 — Claude CyE — Días 19 a 22 revisados, prueba técnica y planilla
-
-- Octubre cerró con deuda $0 y 103 Al día. Diferencias explicadas: +$250.000 por el sueldo no pagado y −$121.000 de ingresos por error de mi guion (Indumentaria es aporte, no ingreso).
-- Defectos nuevos verificados en código y base: T86, no hay forma de pagar el sueldo de una operativa (subrubro reservado; también se rechaza forzando); T87, Nueva liquidación cuenta clases de todos los meses (Lucía 20 = 17 + 3 de septiembre); T88, gasto mayor que el cajón y parcial sin motivo; T89, faltas de pantalla. Contrato de Reportes corregido.
-- Técnica: interno 16/16 al 31/10, seguridad 18/18 (cinco pruebas retratan hallazgos), velocidad < 192 ms. Planilla: 22 días, 134/332. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md).
-
-## 2026-10-27 — Claude CyE — Verificación de T84 (Gemini): lógica aprobada
-
-- Interruptor en la ficha sin confirmación y aviso de la cuota generada, también en el listado. CSP en verde; prueba propia 2/2. [Informe](../06-pruebas/PRU-04/VERIFICACION-T84-CLAUDE.md).
-- Rápida 927/6 omitidas/1 fallida ajena: `CobrarMesSinDeudaT77Test` dependía de la fecha real (la cobertura de reportes se fija «desde hoy»). Arreglado en la prueba; Wings no cambia.
-- Observación → T85: dos toques seguidos generan una cuota de reingreso (el interruptor no se bloquea y la ruta invierte el estado). Falta el OK visual de Carlos; no desplegar hasta terminar el día 22.
-
-## 2026-10-27 — Claude CyE — Planilla «Prueba por días» al día 18; casos nuevos corregidos
-
-- Planilla (artifact 8cgmP6kq) con los días 17 y 18, cobertura 114/332, defectos y lo que sigue. Desde ahora se actualiza con cada paquete de días (CLAUDE.md, «Prueba en TEST», punto 4).
-- Error mío corregido: de los 27 casos «nuevos» del guion 19–22, 15 ya estaban probados según la planilla, porque los había sacado solo de los informes de Codex. Reemplazados: ahora son 25 nuevos de verdad (`d66eba1e`).
-
-## 2026-10-27 — Claude CyE — Guion de los días 19 a 22 (28 al 31/10), armado contra la base
-
-- [Guion](../06-pruebas/PRU-04/GUION-DIAS-19-22.md): 27 casos nuevos, unas 20 a 25 operaciones por día y cierre de mes. Datos leídos de `wingstest` y cada rutina simulada con su fecha (`rutina.php --simular --fecha`, nuevo): así salieron los precios de octubre y el aumento de Principiantes 2 veces, que rige desde noviembre.
-- `rutina.php`: muestra el importe de cada cobro y acepta el mes elegido a mano (`manuales`), como la pantalla (T77).
-- Hallazgos: Agustín Acosta tiene una cuota de reingreso de $14.000 por un toque del interruptor el 27/10, sin registrar (se condona en el 19.2; nota en T84). Un gasto en efectivo mayor que el cajón se acepta (MOV-004 pide rechazo). El servidor acepta un pago parcial sin motivo (COB-009). Las dos cosas se comprueban en la prueba técnica.
-- Liquidación de Lucía simulada al 31/10: hoy 15 clases, $180.000; no cierra antes de fin de mes, con el texto esperado.
