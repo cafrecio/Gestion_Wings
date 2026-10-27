@@ -2,6 +2,19 @@
 
 Movidas intactas desde `docs/00-estado/LOG-CLAUDE.md` por Claude CyE al superar el límite del protocolo.
 
+## 2026-10-27 — Claude CyE — T92: la segunda generación ya no pisa la constancia; Revisión planificada
+
+- Carlos: «Corregir». `GenerarDeudasMensualesCommand`: la primera corrida del mes deja la constancia; otra posterior suma lo que crea o manda a Revisión y no toca la hora ni los existentes. La columna `terminada_at` tiene ON UPDATE CURRENT_TIMESTAMP en MariaDB: se repite su valor al actualizar. Las otras dos columnas así (`cargo_alumno_eventos.created_at`, `reporte_eventos.registrado_en`) nunca se actualizan.
+- Prueba nueva en `GeneracionCuotasReintentoT40Test` (roja sin el arreglo). Corte 1058. La constancia de noviembre del sitio sigue en 0 creadas: no se repara.
+- Error mío de planificación: octubre no dejó a nadie para Revisión aunque Carlos lo había pedido. Plan para el guion de noviembre en ESTADO-PRUEBA (día 23); regla guardada en memoria.
+
+## 2026-10-27 — Claude CyE — T90 reparada; T91 pasa a mejora futura MF10
+
+- Pedido de Carlos: reparar T90. `ClaseWebController::toggleCancelada` rechaza cancelar una clase que integra una liquidación cerrada o pagada (DU-30 / CLA-013), con el texto que la pantalla ya muestra en el panel. Sin cambios de vista. Reactivar y el aviso por lista tomada siguen en T62.
+- `CancelarClaseLiquidadaT90Test` 4/4: rojo sin el arreglo (3 fallan), verde con él. La prueba técnica del hallazgo se dio vuelta. Corte 1057.
+- Carlos: T91 como mejora futura → MF10. Error mío: T90 ya estaba decidido en DU-30 y anotado en T62; no lo busqué antes de crear la tarea.
+- Día 23, preguntas de Carlos: 105 alumnos (103 activos, 2 inactivos); los 103 tuvieron un presente en octubre, por eso Revisión 0 y CBZ-013 sigue sin probar. La segunda generación pisó la constancia de la primera (observación).
+
 ## 2026-10-27 — Claude CyE — Día 23 revisado, con su prueba técnica
 
 - Generación de noviembre igual a la calculada aparte: corrió sola a las 06:00, 100 cuotas, $3.783.000, y la segunda corrida no creó nada. Las ocho liquidaciones dan lo esperado ($1.370.280); 13 atrasadas validadas con registro.
