@@ -29,10 +29,19 @@ pagar» del Inicio y de Reportes es $345.000, igual a la suma de las cerradas (L
 | «El aumento rige desde noviembre» | **Mal dicho en mi guion.** El precio de $44.000 rige desde el 18/10 (día 9); lo ya generado de octubre no cambió, y noviembre es la primera cuota nueva de esas alumnas. Lo que Codex anotó es correcto | Nada |
 | 23.6 Lucía: 20 en la pantalla, 17 generadas | Defecto ya conocido | T87 |
 | Cierres con la confirmación del navegador | **Límite de la herramienta**, el mismo que con Julieta: el diálogo nativo traba al Chrome automático y Carlos tuvo que aceptarlos a mano. Carlos pidió una ventana propia de Wings | Mejora futura MF10 (Carlos, 27/10) |
-| Revisión vacía | **No probado, no es un defecto.** Los 103 activos tuvieron al menos un presente en octubre (contado en la base), así que nadie podía ir a Revisión. El camino de Revisión (CBZ-013 a CBZ-016) queda sin probar: necesita un alumno activo sin ningún presente en el mes | Armarlo en el guion de diciembre |
-| Constancia de la generación | **Observación.** La segunda corrida a mano (23.3) pisó la constancia de la primera: el registro de noviembre dice ahora 0 creadas y 103 existentes, en vez de las 100 que creó la automática (`GenerarDeudasMensualesCommand`, `updateOrCreate`). Las cuotas están bien; se pierde el dato de qué hizo la corrida automática | Decide Carlos |
+| Revisión vacía | **No probado, no es un defecto.** Los 103 activos tuvieron al menos un presente en octubre (contado en la base), así que nadie podía ir a Revisión. El camino de Revisión (CBZ-013 a CBZ-017) queda sin probar. **Error mío de planificación:** el guion de octubre tenía que dejar alumnos preparados para Revisión y no lo hizo; Carlos lo había pedido | Guion de noviembre (abajo) |
+| Constancia de la generación | **Defecto, corregido el 27/10 (T92).** La segunda corrida a mano (23.3) pisó la constancia de la primera: el registro de noviembre dice ahora 0 creadas y 103 existentes, en vez de las 100 que creó la automática (`GenerarDeudasMensualesCommand`, `updateOrCreate`). Las cuotas están bien; se pierde el dato de qué hizo la corrida automática. Además, la columna de la hora se actualizaba sola a la hora real del servidor al tocar la fila | T92: Carlos pidió corregir; a verificar por Codex |
 | Cancelar una clase ya liquidada | **Defecto de Wings, hallado en la prueba técnica.** Con la liquidación cerrada, asistencias, horario, validación y profesoras quedan bloqueados, pero «Cancelar» no lo mira: la operativa la cancela desde la ficha de la clase y la liquidación queda con una clase cancelada adentro (LIQ-008 c, CLA-013). Ya estaba decidido en DU-30 y anotado en T62; no lo vi al crear T90 | T90 **reparada por Claude el 27/10**, a verificar |
 | 23.12 resumen por Telegram | No ejecutado (opcional) | Nada |
+
+**Revisión, a preparar en el guion de noviembre** (para la generación del 1/12; la regla: va a Revisión el activo sin
+ningún presente en el mes anterior, salvo un alta de los últimos 15 días que ya pagó):
+- Tres alumnos que no vienen en todo noviembre (ausentes en cada lista). El 1/12: los tres en Revisión, sin cuota de diciembre.
+  Uno lo resuelve el dueño y se intenta resolver dos veces (CBZ-014, CBZ-015); otro lo resuelve la operativa desde el
+  mostrador; el tercero vuelve a clase o paga estando en Revisión (CBZ-016).
+- Un alta entre el 17 y el 30/11 que no viene: si pagó, recibe cuota; si no pagó, va a Revisión (CBZ-017).
+- Mirar cómo lo ve cada uno: Inicio y menú del dueño, tarjeta de la operativa en su Inicio, Reportes de Alumnos, resumen
+  diario por Telegram, y que la profesora no lo vea. Y qué estado muestra Cobranza para un alumno en Revisión sin cuota.
 
 **Casos nuevos acreditados:** CBZ-011, CBZ-012, LIQ-001, LIQ-002 y LIQ-018. LIQ-008 queda parcial (3 de 8 y
 el defecto T90). LIQ-005 se probó en el día 22 (no cierra antes de fin de mes) y hoy cerró después: completo.

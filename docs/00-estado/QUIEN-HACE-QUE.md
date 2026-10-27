@@ -51,13 +51,14 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado por Claude con prueba tecnica (interno 21/21, seguridad 22/22, velocidad <271 ms). Sigue el guion de noviembre. Cinco liquidaciones quedaron abiertas por orden de Carlos: el proximo paquete las cierra cuando Carlos diga, sin pagar. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T90** Una clase que ya esta en una liquidacion cerrada se puede cancelar | Hecho, espera verificación (hizo Claude, verifica Codex) | Reparado por Claude el 27/10 (DU-30, CLA-013): toggleCancelada rechaza cancelar una clase de una liquidacion cerrada o pagada, con texto en el panel de la ficha. CancelarClaseLiquidadaT90Test 4/4 (rojo sin el arreglo); rapida 932/6 omitidas. Codex verifica logica; despues se sube al sitio de prueba. |
+| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregido por Claude el 27/10 a pedido de Carlos (PRU-04 dia 23: la constancia de noviembre paso de 100 creadas a 0). La primera corrida deja la constancia; otra posterior suma lo que crea o manda a Revision y conserva la hora (terminada_at tiene ON UPDATE en MariaDB). Prueba nueva en GeneracionCuotasReintentoT40Test; rapida 933/6 omitidas. Codex verifica logica. |
 
 ## Gemini
 

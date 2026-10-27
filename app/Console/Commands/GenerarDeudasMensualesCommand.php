@@ -12,6 +12,7 @@ use App\Services\AvisoAdminService;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class GenerarDeudasMensualesCommand extends Command
@@ -184,7 +185,7 @@ class GenerarDeudasMensualesCommand extends Command
 
         // Constancia de que el mes terminó (T40). Solo al final: si algo corta la
         // corrida a mitad, el mes sigue figurando como pendiente y se reintenta.
-        GeneracionCuotas::updateOrCreate(
+        $generacion = GeneracionCuotas::firstOrCreate(
             ['periodo' => $periodo],
             [
                 'terminada_at' => Carbon::now(),
@@ -194,6 +195,21 @@ class GenerarDeudasMensualesCommand extends Command
                 'sin_plan' => $contSinPlan,
             ],
         );
+        // Una corrida posterior del mismo mes (a mano, o repetida) no pisa la constancia
+        // de la que generó el mes: suma lo que haya creado o mandado a Revisión ella y
+        // actualiza los que siguen sin plan. Antes la pisaba: en la prueba del 1/11 la
+        // constancia pasó de 100 creadas a 0 (PRU-04, día 23).
+        if (!$generacion->wasRecentlyCreated) {
+            GeneracionCuotas::whereKey($generacion->id)->update([
+                'creadas' => DB::raw('creadas + '.(int) $contCreados),
+                'a_revision' => DB::raw('a_revision + '.(int) $contRevision),
+                'sin_plan' => $contSinPlan,
+                // MariaDB declaró terminada_at con ON UPDATE CURRENT_TIMESTAMP: si no se
+                // repite su valor, tocar la fila la cambiaría a la hora real del servidor.
+                'terminada_at' => $generacion->terminada_at,
+                'updated_at' => Carbon::now(),
+            ]);
+        }
 
         return Command::SUCCESS;
     }

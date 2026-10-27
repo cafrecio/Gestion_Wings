@@ -2,6 +2,16 @@
 
 Movidas intactas desde `docs/00-estado/LOG-CLAUDE.md` por Claude CyE al superar el límite del protocolo.
 
+## 2026-10-26 — Claude CyE — Días 13 a 16 revisados (T14)
+
+- Ningún defecto nuevo de Wings. Las cuentas cuadran al peso: toda la diferencia son los $143.000 de Julieta (13.11), que no se hizo por un límite del navegador automático.
+- Errores de mi guion: motivo en la #49 (mismo día) y en la #77 (futura); Martín por hora en Fútbol, que liquida por comisión.
+- Rocío: la clave del día 9 no se guardó.
+- Para Carlos: el Telegram de Zoe (14.9; `ssh vps` no respondió desde CyE), el DNI con letras (14.1, no hay regla) y la liquidación del mes en curso (16.5).
+- Prueba técnica 7–16, seguridad: 4/4 bien (archivo 11/11 pruebas, 81 aserciones, con control positivo). Funcionamiento interno y performance sobre el sitio, pendientes: `ssh vps` no responde desde CyE. [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
+- Orden de Carlos escrita en CLAUDE.md: en TEST, historias, revisión y prueba técnica sin que lo pida.
+- Error mío: no revisé los días 7 a 16 cuando volvieron de Codex. Carlos ya lo había pedido el 24/10 sin necesidad de repetirlo. Faltan los días 7 a 12. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md).
+
 ## 2026-10-25 — Claude CAB — T77 a T80 cerradas y desplegadas en el sitio de prueba
 
 - Carlos: «si están bien, subilas». Verificadas por otro agente cada una; cerradas en el tablero.

@@ -171,6 +171,29 @@ class GeneracionCuotasReintentoT40Test extends TestCase
         $this->assertAviso('las cuotas del mes se generaron con atraso', ['Generadas el' => '02/11/2026']);
     }
 
+    public function test_otra_corrida_del_mismo_mes_no_pisa_la_constancia_de_la_primera(): void
+    {
+        // PRU-04 día 23: la automática creó 100 y la corrida a mano posterior dejó la constancia en 0 creadas.
+        $this->alumnoQueVinoEnOctubre();
+        $this->alumnoQueVinoEnOctubre();
+        Carbon::setTestNow('2026-11-01 06:00:00');
+        $this->artisan('cobranza:generar-deudas --si-falta')->assertSuccessful();
+
+        Carbon::setTestNow('2026-11-01 06:02:00');
+        $this->artisan('cobranza:generar-deudas')->assertSuccessful();
+
+        $generacion = GeneracionCuotas::where('periodo', '2026-11')->firstOrFail();
+        $this->assertSame(2, $generacion->creadas);
+        $this->assertSame(0, $generacion->ya_existian);
+        $this->assertSame('2026-11-01 06:00:00', $generacion->terminada_at->format('Y-m-d H:i:s'));
+
+        // Si la corrida posterior sí crea algo (un alumno que faltaba), se suma.
+        $this->alumnoQueVinoEnOctubre();
+        $this->artisan('cobranza:generar-deudas')->assertSuccessful();
+        $this->assertSame(3, $generacion->fresh()->creadas);
+        $this->assertSame(1, GeneracionCuotas::count());
+    }
+
     public function test_si_falta_no_se_combina_con_un_periodo(): void
     {
         Carbon::setTestNow('2026-11-01 06:00:00');
