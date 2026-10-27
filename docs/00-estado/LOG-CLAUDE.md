@@ -15,7 +15,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 - La migración, en solo lectura sobre el sitio de prueba, cambiaría exactamente Op-Sandra, Op-Pablo y Op-Rocío. Pruebas de Codex 32/32 en mi base.
 - Prueba propia: sin la reserva, la operativa igual no se carga su sueldo desde la caja forzando (la caja exige renglón de operativa que afecte caja). La prueba del hallazgo 22.5 se dio vuelta. Seguridad 23/23.
-- Falta el OK visual de Carlos de Reportes → Sueldos (Codex amplió el alcance con su confirmación). T92 cerrada por Codex. Sitio de prueba de `500ce7bc` a `79340268` (T90, T92, T85; T32 ya estaba): respaldo `/root/respaldos/wingstest-antes-despliegue-2026-10-27-0808.sql.gz` (el primer intento salió vacío y se rehizo antes de seguir trabajando; el despliegue no tocó la base), build, 0 migraciones, cachés; /login 200, CSP bloqueando, reloj simulado intacto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T86-CLAUDE.md).
+- Falta el OK visual de Carlos de Reportes → Sueldos (Codex amplió el alcance con su confirmación). T92 cerrada por Codex. Sitio de prueba de `500ce7bc` a `79340268` (T90, T92, T85; T32 ya estaba): respaldo `/root/respaldos/wingstest-antes-despliegue-2026-10-27-0808.sql.gz` (el primer intento salió vacío y se rehizo antes de seguir trabajando; el despliegue no tocó la base), build, 0 migraciones, cachés; /login 200, CSP bloqueando, reloj simulado intacto. Después, con el «Parte visual OK» de Carlos, T86 cerrada y subida (`f5306953`): respaldo `wingstest-antes-t86-2026-10-27-0811.sql.gz`, migración DONE (solo las tres operativas sin reserva), /login 200. [Informe](../06-pruebas/PRU-04/VERIFICACION-T86-CLAUDE.md).
 
 ## 2026-10-27 — Claude CyE — Verificación de T85 (Gemini): aprobada
 
