@@ -16,7 +16,12 @@
     }
 
     // ── Checkboxes de asistencia ────────────────────────────────────────────
+    function mostrarExcepcion(card, presente) {
+        const panel = document.getElementById('excepcion-asistencia-' + card.dataset.alumnoId);
+        panel.hidden = !presente || (card.dataset.requiereExcepcion !== '1' && card.dataset.motivoGuardado !== '1');
+    }
     document.querySelectorAll('.presente-checkbox').forEach(function (cb) {
+        mostrarExcepcion(document.getElementById('card-' + cb.dataset.alumnoId), cb.checked);
         if (cb.checked) {
             const info = infoSemana[cb.dataset.alumnoId] || {};
             if (info.excede) {
@@ -43,6 +48,7 @@
                 card.style.background = '';
                 exceso.style.display  = 'none';
             }
+            mostrarExcepcion(card, this.checked);
             actualizarContador();
         });
     });
@@ -77,12 +83,21 @@
             }
 
             const items = [];
+            let faltaMotivo = null;
             document.querySelectorAll('.alumno-asistencia-card').forEach(function (card) {
                 const aid    = card.dataset.alumnoId;
                 const cb     = card.querySelector('.presente-checkbox');
                 const sel    = card.querySelector('select[id^="motivo-"]');
-                items.push({ alumno_id: parseInt(aid), presente: cb && cb.checked ? 1 : 0, motivo_exceso: sel ? sel.value : null });
+                const motivoExcepcion = document.getElementById('motivo-excepcion-' + aid);
+                if (cb.checked && card.dataset.requiereExcepcion === '1' && !motivoExcepcion.value.trim() && !faltaMotivo) faltaMotivo = motivoExcepcion;
+                items.push({ alumno_id: parseInt(aid), presente: cb && cb.checked ? 1 : 0, motivo_exceso: sel ? sel.value : null,
+                    motivo_excepcion: motivoExcepcion.value.trim() });
             });
+            if (faltaMotivo) {
+                mostrarToast('Indicá el motivo para admitir al alumno.', false);
+                faltaMotivo.focus();
+                return;
+            }
             btnGuardar.disabled = true;
             btnGuardar.textContent = '…';
 
@@ -93,6 +108,31 @@
             })
             .then(function (r) { return r.json(); })
             .then(function (d) {
+                if (d.success && d.condiciones) {
+                    const etiquetas = { AL_DIA: 'Al día', EN_PLAZO: 'En plazo', MOROSO: 'Moroso', DEUDOR: 'Deudor' };
+                    Object.entries(d.condiciones).forEach(function ([aid, condicion]) {
+                        const card = document.getElementById('card-' + aid);
+                        if (!card) return;
+                        card.dataset.requiereExcepcion = condicion.requiere_motivo ? '1' : '0';
+                        card.dataset.motivoGuardado = condicion.motivo_guardado ? '1' : '0';
+                        card.querySelector('[data-condicion-cobranza]').textContent = (condicion.nuevo ? 'Nuevo · ' : '') + etiquetas[condicion.estado];
+                        card.querySelector('[data-aviso-excepcion]').hidden = !condicion.requiere_motivo;
+                        const input = document.getElementById('motivo-excepcion-' + aid);
+                        input.value = condicion.motivo_guardado || '';
+                        input.readOnly = !!condicion.motivo_guardado;
+                        card.querySelector('[data-ayuda-excepcion]').textContent = (condicion.motivo_guardado ? 'Motivo registrado.' : condicion.message) + ' El dueño lo verá en Inicio y en el resumen diario.';
+                        mostrarExcepcion(card, card.querySelector('.presente-checkbox').checked);
+                    });
+                } else if (d.requiere_motivo && d.alumno_id) {
+                    const card = document.getElementById('card-' + d.alumno_id);
+                    if (card) {
+                        card.dataset.requiereExcepcion = '1';
+                        card.querySelector('[data-aviso-excepcion]').hidden = false;
+                        card.querySelector('[data-ayuda-excepcion]').textContent = d.message;
+                        mostrarExcepcion(card, true);
+                        document.getElementById('motivo-excepcion-' + d.alumno_id).focus();
+                    }
+                }
                 mostrarToast(d.success ? (d.message || 'Lista guardada.') : (d.message || 'Error.'), !!d.success);
             })
             .catch(function () {

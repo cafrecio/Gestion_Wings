@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — B3 asistencia entregada; T88/B3 a verificar
+
+[Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md), después de dinero17f99d13: condición en lista, margen interno, Nuevo/DEUDOR con motivo; MOROSO sin justificar, EXTRA/RECUPERA fuera de B3.
+20 permanentes:15 iniciales11 rojas/4 verdes, cinco adicionales3 rojas/2 verdes; área71/344. Rápida1011/6 omitidas/7855 aserciones/190,04s y completa1130/6 omitidas/9454 aserciones/962,45s, salida0, corte1136. Seis fuentes propias congeladas.
+Navegador profesora: cuatro presentes, dos motivos, reenvío sin duplicar; dueño ve el origen y abre la clase. [Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-B3-ASISTENCIA.html), aspecto pendiente de Carlos. Sintaxis PHP/JS, Blade y build correctos.
+B3 y T88 a_verificar,hizoCodex,verificaClaude,tieneClaude; sin autocierre. Registro común atómico; readmisión conserva decisiones y avisos agrupados, no individuales.
+Preguntas conservadas: primera carga, corte de correcciones históricas y avisos de orígenes anulados/corregidos. T54 posterior fuera del corte de suite y del producto/pruebas propios; contador del checkout calificado.
+Solo wings_testing_codex; localhost detenido antes de suites. Sin sitio/servidor/base del club, tabla externa/copia, push manual ni despliegue.
+
 ## 2026-10-27 — Codex CAB — T88/B3 dinero entregado; sigue asistencia
 
 Objetivo adjunto: rechazo de gasto efectivo sin saldo y excepciones con motivo, autor, fecha, alumno/registro; cuatro casos, exceso de plan excluido por DU-34. Pull al día y grafo reindexado, lagunas completadas con fuentes.
@@ -70,13 +79,7 @@ Script leído; sin reinstalar alias.
 T83 cerrada. Días 17–18 pendientes; no reloj ni rutinas.
 Evidencia: docs/04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md.
 
-## 2026-10-26 — Codex CyE — Días 17–18: requisito previo bloqueado
-
-Git pull al día, HEAD 0542eec9; guion completo leído. SSH agotó conexión antes de autenticar, también fuera del entorno restringido y con el instalador previsto.
-Cero ejecuciones de reloj, simulación y rutinas; ninguna operación de 17.1–18.6. No se repararon datos.
-Chrome actualizado: deuda $391.000, 104 activos (99/0/1/4), ingresos $1.824.850,75, egresos $240.850, disponible $3.337.000,75, por validar $0.
-Cinco filas de deuda, clase #76 única pendiente y Julieta inactiva con cinco cuotas/$143.000 coinciden antes del reloj; no reemplaza el control requerido del 26/10.
-[Día17](../06-pruebas/PRU-04/DIA-17.md) y [Día18](../06-pruebas/PRU-04/DIA-18.md): bloqueo/evidencia, sin afirmar ejecución. Sin producto, tabla, suite, despliegue ni push.
-T14 en curso, tiene=Claude: acceso SSH y control previo pendientes antes de iniciar jornadas.
 
 [Dos entradas anteriores archivadas intactas al iniciar T88/B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-inicio-T88-B3.txt).
+
+[Entrada histórica previa de días17–18 archivada intacta al cerrar B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-cierre-B3.txt).

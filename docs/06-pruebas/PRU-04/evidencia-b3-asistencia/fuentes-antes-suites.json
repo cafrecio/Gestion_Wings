@@ -1,0 +1,26 @@
+[
+  {
+    "path": "app/Http/Controllers/ClaseWebController.php",
+    "sha256": "6A942DDB2F543F8E0ABEB6B13FB0EEBEEEBF832EC1DD1F0B8E35770436F8B122"
+  },
+  {
+    "path": "app/Services/ExcepcionCobranzaService.php",
+    "sha256": "1C29D1E490D2120130FFCC6766B122B1C92B8C926491E0CC33D4D85789E74919"
+  },
+  {
+    "path": "resources/js/clases-show.js",
+    "sha256": "E69C1E3D938D6ABCA0941DBFD9F1CAF34EADDBA270138BAAEAC94B4C0BA545D0"
+  },
+  {
+    "path": "resources/views/clases/show.blade.php",
+    "sha256": "B11CCE50B5D60D89D3DD96E40A88B54DEA1F429EB12E0F460EF972094DE61D92"
+  },
+  {
+    "path": "database/migrations/2026_10_27_170000_conservar_decisiones_de_asistencia.php",
+    "sha256": "78BCB7C1DBC3E67E7A02318DB29BF5B3E3943A772A770CD5692E04090301E396"
+  },
+  {
+    "path": "tests/Feature/B3AsistenciaTest.php",
+    "sha256": "26856618A49EE2791A3E00D4E63FC7FE03B101A5B37944C3E48BC6C6FEFB21BC"
+  }
+]

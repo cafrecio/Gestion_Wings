@@ -1,0 +1,8 @@
+No syntax errors detected in app/Http/Controllers/ClaseWebController.php
+No syntax errors detected in app/Services/ExcepcionCobranzaService.php
+No syntax errors detected in database/migrations/2026_10_27_170000_conservar_decisiones_de_asistencia.php
+No syntax errors detected in tests/Feature/B3AsistenciaTest.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-b3-asistencia/preparar-navegador.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-b3-asistencia/verificar-recorrido.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-b3-asistencia/bootstrap-sin-arreglo.php
+clases-show.js: PASS

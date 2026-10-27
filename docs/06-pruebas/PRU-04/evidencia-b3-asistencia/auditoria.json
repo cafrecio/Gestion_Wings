@@ -1,0 +1,216 @@
+{
+  "estado": "PASS",
+  "resultados": {
+    "rojo": {
+      "tests": 15,
+      "failures": 10,
+      "errors": 1,
+      "skipped": 0,
+      "assertions": 32,
+      "exit": 2
+    },
+    "rojo-adicionales": {
+      "tests": 5,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 13,
+      "exit": 1
+    },
+    "verde-inicial": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 68,
+      "exit": 0
+    },
+    "area-inicial": {
+      "tests": 71,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 344,
+      "exit": 0
+    },
+    "rapida": {
+      "tests": 1017,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 6,
+      "assertions": 7855,
+      "exit": 0
+    },
+    "completa": {
+      "tests": 1136,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 6,
+      "assertions": 9454,
+      "exit": 0
+    },
+    "documentacion-final": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 34,
+      "exit": 0
+    }
+  },
+  "fuentes_congeladas": [
+    {
+      "path": "app/Http/Controllers/ClaseWebController.php",
+      "sha256": "6A942DDB2F543F8E0ABEB6B13FB0EEBEEEBF832EC1DD1F0B8E35770436F8B122"
+    },
+    {
+      "path": "app/Services/ExcepcionCobranzaService.php",
+      "sha256": "1C29D1E490D2120130FFCC6766B122B1C92B8C926491E0CC33D4D85789E74919"
+    },
+    {
+      "path": "resources/js/clases-show.js",
+      "sha256": "E69C1E3D938D6ABCA0941DBFD9F1CAF34EADDBA270138BAAEAC94B4C0BA545D0"
+    },
+    {
+      "path": "resources/views/clases/show.blade.php",
+      "sha256": "B11CCE50B5D60D89D3DD96E40A88B54DEA1F429EB12E0F460EF972094DE61D92"
+    },
+    {
+      "path": "database/migrations/2026_10_27_170000_conservar_decisiones_de_asistencia.php",
+      "sha256": "78BCB7C1DBC3E67E7A02318DB29BF5B3E3943A772A770CD5692E04090301E396"
+    },
+    {
+      "path": "tests/Feature/B3AsistenciaTest.php",
+      "sha256": "26856618A49EE2791A3E00D4E63FC7FE03B101A5B37944C3E48BC6C6FEFB21BC"
+    }
+  ],
+  "contador_checkout": 1146,
+  "corte_completa": 1136,
+  "imagenes": {
+    "guardada-final-1366.png": [
+      1366,
+      2200
+    ],
+    "guardada-final-375.png": [
+      600,
+      2080
+    ],
+    "inicio-final-1366.png": [
+      1366,
+      2600
+    ],
+    "inicio-final-375.png": [
+      600,
+      2580
+    ],
+    "lista-final-1366.png": [
+      1366,
+      1800
+    ],
+    "lista-final-375.png": [
+      600,
+      2080
+    ],
+    "login-final-375.png": [
+      600,
+      880
+    ],
+    "motivos-final-1366.png": [
+      1366,
+      1800
+    ],
+    "motivos-final-375.png": [
+      600,
+      2080
+    ]
+  },
+  "alcance": "Solo B3/T88 propios; T54 concurrente no certificado. Sin servidor, despliegue ni datos del club.",
+  "archivos": {
+    "actualizar-contadores.py": "c7973893874699a28b54c1f26b469377e6c88f9c2115bc7142bb22e3d91ee442",
+    "antes\\clases-show.js": "6cebbd72167bc5c9b5b2d0da05db5a29f4d8bed6af476a23032b6e9adddb75f9",
+    "antes\\ClaseWebController.php": "822a0be02b0902da3a433388b082fdfd18eb320c64dcee0495a9408f34437fa9",
+    "antes\\ExcepcionCobranzaService.php": "5412c25c0746844ede29640f41e4e04b10366d597a6e522d1a2730c6d176a029",
+    "antes\\show.blade.php": "d74f02cc5f72a142667bf203bb669da7faf151afdf1849f0f22368630b764bd4",
+    "area-inicial-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "area-inicial.txt": "802c4b11cbaaf78be2e2ae281d779ccd42c1454f9f283557fd93eb3285bd43d4",
+    "area-inicial.xml": "cf9cdb04cb3fa4bc97f571491155fec7de421a9417e6e8944c87cb3a604bdbd1",
+    "auditar-entrega.py": "ed4c0af5d0ebb6ca2abb2a61a02b9b96ae122e461114133f05d22aaa6839c05a",
+    "B3AsistenciaTest.php": "70048796f5edd739e89c14a3d0c780cc014a4f0e9c2fe2316996054b3201a465",
+    "bootstrap-sin-arreglo.php": "18bfaa84709b561bf5df11f5e2b1cb3641a8fa3aae6fdd80934c68fb0b07ca34",
+    "build-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "build.txt": "31eda4a4310a887885d58ec38aa9a1c75ef54e08a6b5d5cb226c0198f6eef7a4",
+    "cobertura-grafo.json": "be068ad19e25811aab9a5d322edf345b11e3000a91112b48ea6ecc2d5d2814e4",
+    "completa-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "completa.txt": "2b152976b7c89717d1045ba9b01679f0bc103e7cc80e28fa122694200471e017",
+    "completa.xml": "2966acc87324995e033f1e38ab8ec6abcbd282af6d5e7ac64c28730859e299de",
+    "contador-antes-suites.json": "0aad6119ce27c54887412b2c8dbd8c9b25ac7ac5ee082bc011c4867b08acbc0e",
+    "contador-pruebas.json": "45618785716fefaa785202bd7df260d9ba63b5ede8d34742265ca51e138f8026",
+    "documentacion-final-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "documentacion-final.txt": "430786e7bb899e1aa48b6056781ae4a4d626be83bdd82bd95ba39991185a34fa",
+    "documentacion-final.xml": "0473725b5514e163208e798719f1f7977556ce09717146dada7dcaa9490e9782",
+    "exportar-marcos.py": "60b42a462611676eeaa1288445a782a2b07dedb522ded4c7dff383c323ca4288",
+    "fixture-navegador.json": "0e92cb233e839dc2c5dbb74a57fcb6f34d818cd23c631c1f40f1985de6e381cc",
+    "fuentes-antes-suites.json": "816a3e92d0d7a85ebc52c15001896d97976bbdd3a0f9e7ece8decbfb9c7b2dba",
+    "fuentes-originales.json": "d690e5c9d7292445309880ad408f48a7ad2c6758739340a638f9fbea03740047",
+    "guardada-1366-chrome.txt": "129b41a3a81db79253f12edfebba73954d233eb7cddce7d0cf77e6210112afc9",
+    "guardada-375-chrome.txt": "a3efb43cc25b7677b92da0798e20b37727e7ddff281e441ea277460b50d356f1",
+    "guardada-dom.json": "f66c277ba43dbf7bc2368cea50a69b7385b986877ebb7133b5791db507c1c7de",
+    "guardada-final-1366.png": "83b6df16cecc272d9269918a0fec5ce4d9258a01b02d4c4f50e48cf85d3b3f91",
+    "guardada-final-375.png": "49f3384b3ee21be79572e38d4f2a43651ce83199c14fdd427c2402ef46586ce7",
+    "guardada-profesora-dom.json": "810fbc4173d0df508df118e111a27973f798f28428931a9af06a0b5ddd87efe3",
+    "guardada-profesora-real.html": "0e87f9182fecdb15e37e6b2693e3ff5a66ecee1f3dbd15c8d2141fecd4069752",
+    "guardada-real.html": "7cc7a1c74e97eb7df2dc9e30a46d3b2b2ab27d0445b88329cfd2e3e42a111865",
+    "inicio-1366-chrome.txt": "f159d019e7e4cf47301f259b93133c94cb474cabad97a3919027894192ebece6",
+    "inicio-375-chrome.txt": "e2d3aec994740184e76edf3d9ba873d05eb1eee0316eba9139cd67e178c617a0",
+    "inicio-dom.json": "f4ffa17b660f8d6e9e21d652ee369d4dd5bc0eafe034b3674b2e5e896714e9e8",
+    "inicio-final-1366.png": "865294f47f5ff2d6d374b9bb0659be979fc79f35f097fee68a84505a7ba7c46f",
+    "inicio-final-375.png": "d5524142ecfa33663b45e1cadf9d049df85b23dee4eee2b6ed8d6007b76c4706",
+    "inicio-real.html": "f43397a848d8ee003e77608ff9c2fa519377d3a0e2dc3400dbf0a921bcb2aa88",
+    "lista-1366-chrome.txt": "2576f6d1ffe529fc3541d8427a8d27b695ab0563468fe754d1cbfd92ff4fc90f",
+    "lista-375-chrome.txt": "7c902eedc41615232ea781f0e2be2e0aa34c02a259254890d30d28cb51fea4be",
+    "lista-dom.json": "9d09fe49a5581be3c1cee97fa5a6f0e8c4ca0c9b72d76bc5b2d0823c5cd9645e",
+    "lista-final-1366.png": "cf13dded5fd9ba1827d695ad7dc98c184799ffc439c7c6e0703fcae83a5e687d",
+    "lista-final-375.png": "1adb722b2fe88a1cf05fc849a1e419f9567b75878a6a196983970cfa3086c31c",
+    "lista-real.html": "45dfd838abce5df3dc72afe7a22f20ba4a653c913278711f453d6e544c626d83",
+    "login-375-chrome.txt": "af27c2641279c9a938147987c9f6e9cc83c6b7a443dc4cf07c6f3ee0d023cc00",
+    "login-dom.json": "c18ea3f979e7a4548e91586320b003ca31e1d818ba184d97d13fd9cfd5cf94bb",
+    "login-final-375.png": "5bec48d5ba9a92bd603271f2973f03ef68b91089e6266ce795a8d99e29e158c4",
+    "login-real.html": "ea0795ededa46aa3a949dc724de2b7512f221c169ee4be1a99ee255aed0556e5",
+    "marco-guardada-375.html": "53a23841eeb3e9f4b38c084f79ef841b7b9c70e03772497c3eb762110a88f95e",
+    "marco-guardada-profesora-375.html": "92269cdad48a7cf2982387a9892efd7c73b99890e08e6663545a40455f644742",
+    "marco-inicio-375.html": "35264ac91af7e941a512bf4f64a0fe0367fe9b5e6d834972f386e2a861d8f2c0",
+    "marco-lista-375.html": "696ddceda372079939e6ddf5cde183d19bd763313acdbbaf023364f67be62754",
+    "marco-login-375.html": "a7cc88b8ec670eb19d53bbfc1183aca90444f34eba4acc4611d450e25e1498ca",
+    "marco-motivos-375.html": "4187123e331c3fe38daad3352c18d0d974e3b0986af9cf8b1603f8f17ee0e268",
+    "medir-marco.js": "9733c3f11e48994acad1cfa34e73aaa7f0bed6d8ea132072e27a00196663aef7",
+    "motivos-1366-chrome.txt": "2b3ecf8378828ac62cec8992cf1e8c0ac54d8b2b952be35cfd5dfece7a3a1cc1",
+    "motivos-375-chrome.txt": "471e5a39ccfa5b11d6a1d3433cab90bf3f66110e5336e6d6fdeca0bc68363345",
+    "motivos-dom.json": "f59ec7809bc792bba2700283292b2da0fe1800a4b0a660c8164eaf0dbcc1410d",
+    "motivos-final-1366.png": "a1517fc928dc85e2c29be333f25b1c92c756f8bc81a657fba364f6b393fa6bce",
+    "motivos-final-375.png": "f0d5c70bbf59dc79aba8064aee86a0b764d9ab7cc0d6b7ea1967176a9d94ead4",
+    "motivos-real.html": "088ca3a72c1494fcbfd35305f212c087dfc8e9a9b523a7cea7c6b5791f05e1c8",
+    "preparar-navegador.php": "2f640af60b24783c1112d24fb798606979f581d4e1c5a1ad2be4b00bb9a7ef56",
+    "rapida-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "rapida.txt": "e459d54e728f1bedaab6518a91986598e0eda21340bdc438188705220ebe40b3",
+    "rapida.xml": "42a7ed59e97aeac4dd7304f579c6ebb80b3bf46618d11d3fbc0c41fe04ccb505",
+    "recorrido-final.json": "f020e194dee7f8602f11acc28f9295cbb8c825610b8afae395d3839ff8a06503",
+    "recorrido-inicial-antes-padding.jpg": "59d115331497c0976d11cacaa6ccd321722ed8ddb8d8f3cae47adba6cf5d78f8",
+    "recorrido-sin-motivo.json": "ffe1cb60f6f8b82fc0a4b68665d2fe61e09ad24ae2faa09f1ff637203d412b0e",
+    "registrar-cierre.py": "1a398ec18429fb07686dead1e544717c612acbbd12377b997516cd4d5ae4e3b1",
+    "renderizar.ps1": "7f4765c616aad8e2792765f4e9c5f4a10bbb216305c29a3dc534c260612f5da4",
+    "restauracion-lateral-t34.json": "e26b108b90b4f416df7e3b23ebf3b4b96a07a45e581db99806e2924e5e023d93",
+    "rojo-adicionales-exit.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "rojo-adicionales.txt": "e6c0dff0b22dba86e5b2f640310601d225c8da769ad4624145fb1039e214e478",
+    "rojo-adicionales.xml": "28d862d79d6a18b11cf43b50c338b1cd64ec501866ba9ac57bc31b71b7449850",
+    "rojo-exit.txt": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+    "rojo.txt": "343b5204a697c9f1975f005cc5e77fa16a6fc388f78be4ad43a073e60960b50f",
+    "rojo.xml": "9694fff2d143e71f8de413db470f4b643e3f8f234ff0d89ba448b18c3f898549",
+    "sintaxis.txt": "7570c0c74b0b44c7302d0c9aaaedc4f1289be34cf5c3dbb1cd1b68f81c021e94",
+    "verde-inicial-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verde-inicial-interrumpido.md": "f21acc822e07af24185882069f584333214f8aa50136aef86a1ef3385f8df11f",
+    "verde-inicial.txt": "b053cb1d24ee536bde381832dc99cba80d3c6d99a0e2b739b10744a5b7c728f8",
+    "verde-inicial.xml": "a3356ecb767af7c852c924bd96f7bf90be012e8ca204e4904ab2d22c2e2f4da9",
+    "verificar-recorrido.php": "e2855f82b889d9e9aa771f9520f4eafe8a0bfcb0ba8c24b76bc8d55044ae90cb",
+    "vistas.txt": "7138f5f50323c0858d01bd29e8d6e05efef5e4ce21a19cc1925b54e9b5e711cf"
+  }
+}

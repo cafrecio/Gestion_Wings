@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\B3AsistenciaTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" tests="5" assertions="13" errors="0" failures="3" skipped="0" time="12.580076">
+    <testcase name="test_volver_a_admitir_despues_de_ausente_conserva_ambas_decisiones" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="222" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="3" time="12.267781">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_volver_a_admitir_despues_de_ausente_conserva_ambas_decisiones&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:227</failure>
+    </testcase>
+    <testcase name="test_fallo_posterior_revierte_asistencia_y_excepcion_juntas" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="238" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.078952">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_fallo_posterior_revierte_asistencia_y_excepcion_juntas&#13;
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Fallo posterior a la decisión B3'
++'Failed asserting that table [excepciones_cobranza] matches expected entries count of 1. Entries found: 0.
++.'
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:253</failure>
+    </testcase>
+    <testcase name="test_una_marca_presente_sin_cambios_no_se_justifica_retroactivamente" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="259" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.075267"/>
+    <testcase name="test_los_dos_tipos_de_asistencia_van_juntos_al_resumen_diario" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="267" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="4" time="0.097910">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_los_dos_tipos_de_asistencia_van_juntos_al_resumen_diario&#13;
+Failed asserting that false is true.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:275</failure>
+    </testcase>
+    <testcase name="test_ausencias_y_clases_posteriores_no_consumen_el_margen_del_nuevo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="284" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.060166"/>
+  </testsuite>
+</testsuites>

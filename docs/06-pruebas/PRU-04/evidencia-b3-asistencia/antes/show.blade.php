@@ -1,0 +1,502 @@
+@extends('layouts.app')
+
+@php
+    $dep  = mb_strtolower($clase->grupo->deporte->nombre ?? '');
+    $dep  = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
+    $rail = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
+
+    $diasSemana = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+    $meses = ['','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    $fechaTexto = $diasSemana[$clase->fecha->dayOfWeek]
+        . ' ' . $clase->fecha->day
+        . ' de ' . $meses[$clase->fecha->month]
+        . ' de ' . $clase->fecha->year;
+
+    $cantPresentes = $asistenciasMap->where('presente', true)->count();
+    $profesoresActualesIds = $clase->profesores->pluck('id')->toArray();
+    // $esPasada, $correccionAsistencia y $correccionProfesores vienen del controller.
+    $puedeModificarProfesores = !$esProfesor && (!$esPasada || $esAdmin);
+@endphp
+
+@section('title', $fechaTexto . ' — ' . $clase->grupo->nombre . ' – Wings')
+@section('module-title', 'Clase — ' . $clase->grupo->nombre)
+
+@section('content')
+
+{{-- ── Header de la clase ─────────────────────────────────────────────────── --}}
+<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">
+    <div style="display:flex;">
+
+        {{-- Rail de deporte --}}
+        <div style="width:6px; flex-shrink:0; background:var(--color-sport-{{ $rail }});"></div>
+
+        <div style="flex:1; padding:1.25rem 1.5rem;">
+
+            {{-- Fecha + hora --}}
+            <div style="display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem;">
+                <h2 style="font-size:1.1rem; font-weight:800; color:var(--color-text); margin:0; text-transform:capitalize;">
+                    {{ $fechaTexto }}
+                </h2>
+                <span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);">
+                    {{ $clase->hora_inicio->format('H:i') }} – {{ $clase->hora_fin->format('H:i') }}
+                </span>
+            </div>
+
+            {{-- Grupo + deporte badge --}}
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem;">
+                <span style="font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;
+                             background:color-mix(in srgb, var(--color-sport-{{ $rail }}) 18%, transparent);
+                             color:var(--color-sport-{{ $rail }}); white-space:nowrap;">
+                    {{ $clase->grupo->deporte->nombre ?? '–' }}
+                </span>
+                <span style="font-size:0.88rem; font-weight:600; color:var(--color-text);">
+                    {{ $clase->grupo->nombre_completo }}
+                </span>
+            </div>
+
+            {{-- Profesores + botón modificar --}}
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;">
+                <span id="texto-profesores" style="font-size:0.8rem; color:var(--color-text-muted);">
+                    @if($clase->profesores->isNotEmpty())
+                        {{ $clase->profesores->map(fn($p) => $p->apellido . ', ' . $p->nombre)->implode(' · ') }}
+                    @else
+                        <span style="opacity:0.5;">Sin profesor asignado</span>
+                    @endif
+                </span>
+                @if(!$clase->cancelada && $puedeModificarProfesores)
+                    <button id="btn-modificar-profesores" class="accion-celular-final"
+                            style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
+                                   border:1px solid var(--color-border); background:transparent;
+                                   color:var(--color-text-muted); cursor:pointer; font-family:inherit;">
+                        Editar
+                    </button>
+                @endif
+            </div>
+
+            {{-- Badges de estado --}}
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:1rem;">
+                @if($clase->cancelada)
+                    <span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;
+                                 background:color-mix(in srgb, var(--color-danger) 15%, transparent);
+                                 color:var(--color-danger);">Cancelada</span>
+                    @if($clase->motivo_cancelacion)
+                        <span style="font-size:0.78rem; color:var(--color-text-muted);">— {{ $clase->motivo_cancelacion }}</span>
+                    @endif
+                @else
+                    <span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;
+                                 background:color-mix(in srgb, var(--color-success) 15%, transparent);
+                                 color:var(--color-success);">Activa</span>
+                @endif
+                @if($clase->validada_para_liquidacion)
+                    <span style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;
+                                 background:color-mix(in srgb, var(--color-btn-primary) 15%, transparent);
+                                 color:var(--color-btn-primary);">Validada para liquidación</span>
+                @endif
+            </div>
+
+            {{-- Acciones --}}
+            <div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto">
+
+                {{-- Cancelar clase: panel inline (solo si no cancelada, no para profesor) --}}
+                @if(!$clase->cancelada && !$esProfesor)
+                    <button id="btn-abrir-cancelar"
+                            style="display:inline-flex; align-items:center; justify-content:center;
+                                   width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                   border:none; font-family:inherit;
+                                   background:var(--color-btn-danger); color:var(--color-surface);">
+                        Cancelar
+                    </button>
+                @endif
+
+                {{-- Reactivar clase: solo admin, solo si cancelada --}}
+                @if($clase->cancelada && $esAdmin)
+                    <form method="POST" action="{{ route('web.clases.toggle-cancelada', $clase->id) }}" style="display:inline;">
+                        @csrf @method('PATCH')
+                        <input type="hidden" name="motivo_cancelacion" value="">
+                        <button type="submit"
+                                style="display:inline-flex; align-items:center; justify-content:center;
+                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                       border:none; font-family:inherit;
+                                       background:var(--color-btn-primary); color:var(--color-surface);">
+                            Activar
+                        </button>
+                    </form>
+                @endif
+
+                {{-- Validar: solo admin, solo si no validada y sin presentes --}}
+                @if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)
+                    <form method="POST" action="{{ route('web.clases.toggle-validada', $clase->id) }}" style="display:inline;">
+                        @csrf @method('PATCH')
+                        <button type="submit"
+                                style="display:inline-flex; align-items:center; justify-content:center;
+                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                       border:none; font-family:inherit;
+                                       background:{{ $clase->validada_para_liquidacion ? 'var(--color-btn-secondary)' : 'var(--color-btn-primary)' }};
+                                       color:var(--color-surface);">
+                            {{ $clase->validada_para_liquidacion ? 'Desvalidar' : 'Validar' }}
+                        </button>
+                    </form>
+                    <a href="{{ route('web.clases.edit', $clase->id) }}"
+                       style="display:inline-flex; align-items:center; justify-content:center;
+                              width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                              border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                              text-decoration:none; border:none; font-family:inherit;
+                              background:var(--color-btn-secondary); color:var(--color-surface);">
+                        Editar
+                    </a>
+                @endif
+
+                @if($esAdmin && $puedeEliminar)
+                    <button type="button" id="btn-abrir-eliminar-clase"
+                            style="display:inline-flex; align-items:center; justify-content:center;
+                                   width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                   border:none; font-family:inherit;
+                                   background:var(--color-btn-danger); color:var(--color-surface);">
+                        Eliminar
+                    </button>
+                @endif
+
+                <a href="{{ route('web.clases.index') }}"
+                   style="display:inline-flex; align-items:center; justify-content:center;
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                          text-decoration:none; border:none; font-family:inherit;
+                          background:var(--color-btn-secondary); color:var(--color-surface);">
+                    Volver
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{-- Panel: confirmar eliminación de clase o serie --}}
+@if($esAdmin && $puedeEliminar)
+<div id="panel-eliminar-clase" style="display:none; margin-bottom:12px;">
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
+                border-radius:var(--radius-card);">
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
+            ¿Confirmás la eliminación permanente de esta clase?
+        </p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin:0 0 12px;">
+            Esta acción no se puede deshacer. La clase no tiene asistencias ni liquidaciones asociadas.
+        </p>
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <form method="POST" action="{{ route('web.clases.destroy', $clase->id) }}" style="display:inline; margin:0;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="btn-confirmar-eliminar-clase"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:none; font-family:inherit;
+                               background:var(--color-btn-danger); color:var(--color-surface);">
+                    Eliminar
+                </button>
+            </form>
+            @if($clase->serie_id)
+                <form method="POST" action="{{ route('web.clases.destroy', $clase->id) }}" style="display:inline; margin:0;">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="eliminar_serie" value="1">
+                    <button type="submit" id="btn-eliminar-serie"
+                            style="display:inline-flex; align-items:center; justify-content:center;
+                                   height:32px; padding:0 12px; font-size:0.82rem; font-weight:600;
+                                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                   border:1px solid var(--color-btn-danger); font-family:inherit;
+                                   background:transparent; color:var(--color-btn-danger);">
+                        Eliminar serie
+                    </button>
+                </form>
+            @endif
+            <button type="button" id="btn-cerrar-eliminar-clase"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-secondary); color:var(--color-surface);">
+                Cerrar
+            </button>
+        </div>
+    </div>
+</div>
+@endif
+
+{{-- Panel: motivo de cancelación --}}
+<div id="panel-cancelar" style="display:none; margin-bottom:12px;">
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
+                border-radius:var(--radius-card);">
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
+            Indicá el motivo de cancelación
+        </p>
+        <div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <input type="text" id="input-motivo-cancelacion"
+                   placeholder="Ej: Feriado, Pista insegura, Lluvia..."
+                   maxlength="255"
+                   style="flex:1; min-width:220px; padding:8px 12px; font-size:0.82rem;
+                          border:1px solid var(--color-border); border-radius:var(--radius-btn);
+                          background:var(--color-surface); color:var(--color-text); font-family:inherit;">
+            <button id="btn-confirmar-cancelar"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-danger); color:var(--color-surface);">
+                Cancelar esta
+            </button>
+            @if($esAdmin && $clase->serie_id)
+                <button id="btn-cancelar-serie"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               height:32px; padding:0 12px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:1px solid var(--color-btn-danger); font-family:inherit;
+                               background:transparent; color:var(--color-btn-danger);">
+                    Cancelar serie
+                </button>
+            @endif
+            <button id="btn-cerrar-cancelar"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-secondary); color:var(--color-surface);">
+                Cerrar
+            </button>
+        </div>
+        <span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"></span>
+    </div>
+</div>
+
+{{-- Panel: modificar profesores --}}
+<div id="panel-profesores" style="display:none; margin-bottom:12px;">
+    <div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);
+                border:1px solid var(--color-border); border-radius:var(--radius-card);">
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;">
+            Profesores asignados a esta clase <span class="form-required">*</span>
+        </p>
+        <p class="text-xs mb-2 text-wings-muted">Seleccioná al menos una profesora activa del deporte.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+            @foreach($profesoresDisponibles as $prof)
+                <label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;
+                              cursor:pointer; user-select:none;">
+                    <input type="checkbox"
+                           class="prof-checkbox"
+                           value="{{ $prof->id }}"
+                           {{ in_array($prof->id, $profesoresActualesIds) ? 'checked' : '' }}
+                           style="width:16px; height:16px; cursor:pointer; accent-color:var(--color-btn-primary);">
+                    {{ $prof->apellido }}, {{ $prof->nombre }}
+                </label>
+            @endforeach
+        </div>
+        @if($correccionProfesores)
+            <div style="margin-bottom:12px;">
+                <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 6px;">
+                    Ya tenía profesor asignado — indicá el motivo del cambio
+                </p>
+                <input type="text" id="input-motivo-profesores"
+                       placeholder="Ej: Se asignó mal al cargar, cubrió una suplencia..."
+                       maxlength="255"
+                       style="width:100%; max-width:420px; padding:8px 12px; font-size:0.82rem;
+                              border:1px solid var(--color-border); border-radius:var(--radius-btn);
+                              background:var(--color-surface); color:var(--color-text); font-family:inherit;">
+            </div>
+        @endif
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;">
+            <button id="btn-guardar-profesores" class="accion-movil-principal"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-primary); color:var(--color-surface);">
+                Guardar
+            </button>
+            <button id="btn-cerrar-profesores"
+                    style="display:inline-flex; align-items:center; justify-content:center;
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                           border:none; font-family:inherit;
+                           background:var(--color-btn-secondary); color:var(--color-surface);">
+                Cancelar
+            </button>
+            <span id="flash-profesores" style="display:none; font-size:0.78rem; font-weight:600;"></span>
+        </div>
+    </div>
+</div>
+
+{{-- Banner de cancelada --}}
+@if($clase->cancelada)
+    <div class="ds-flash ds-flash--error mb-4">
+        Esta clase está cancelada. No se pueden registrar asistencias.
+    </div>
+@elseif($todaviaNoOcurrio)
+    <div class="ds-flash ds-flash--error mb-4">
+        Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.
+    </div>
+@endif
+
+{{-- ── Stats bar ──────────────────────────────────────────────────────────── --}}
+<div class="stats-bar mb-3">
+    <div class="stats-info">
+        <strong>{{ $alumnos->count() - $yaNoEstan->count() }}</strong> alumnos en el grupo
+        &nbsp;·&nbsp;
+        @if($yaNoEstan->isNotEmpty())
+            <strong>{{ $yaNoEstan->count() }}</strong> ya no {{ $yaNoEstan->count() === 1 ? 'está' : 'están' }}
+            &nbsp;·&nbsp;
+        @endif
+        <span id="contador-presentes"><strong>{{ $cantPresentes }}</strong></span> presentes
+    </div>
+</div>
+
+{{-- ── Cards de alumnos ───────────────────────────────────────────────────── --}}
+@forelse($alumnos as $alumno)
+@php
+    $asistencia   = $asistenciasMap->get($alumno->id);
+    $estaPresente = $asistencia ? (bool) $asistencia->presente : false;
+    $info         = $infoSemana[$alumno->id] ?? ['asistencias_semana' => 0, 'plan_semana' => null, 'excede' => false];
+    $planSemana   = $info['plan_semana'];
+    $asisSemana   = $info['asistencias_semana'];
+    $excede       = $info['excede'];
+
+    if (!$planSemana)                   $dotEstado = 'neutral';
+    elseif ($excede)                    $dotEstado = 'danger';
+    elseif ($asisSemana >= $planSemana) $dotEstado = 'warning';
+    else                                $dotEstado = 'success';
+@endphp
+
+<div class="alumno-card alumno-card--{{ $rail }} alumno-asistencia-card"
+     id="card-{{ $alumno->id }}"
+     data-alumno-id="{{ $alumno->id }}"
+     data-plan="{{ $planSemana ?? 0 }}"
+     data-asistencias-semana="{{ $asisSemana }}"
+     style="margin-bottom:10px; padding: 10px 14px;
+            {{ $estaPresente ? 'background:color-mix(in srgb, var(--color-success) 8%, var(--color-surface));' : '' }}
+            {{ $clase->cancelada ? 'opacity:0.6; pointer-events:none;' : '' }}
+            transition: background 200ms ease;">
+
+    <div class="flex items-center justify-between gap-3">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="ds-dot ds-dot--{{ $dotEstado }} flex-shrink-0"></span>
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">
+                        {{ $alumno->apellido }}, {{ $alumno->nombre }}
+                    </span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
+                    @if($planSemana)
+                        <span style="font-weight:600; color:{{ $excede ? 'var(--color-danger)' : ($asisSemana >= $planSemana ? 'var(--color-warning)' : 'var(--color-success)') }};">
+                            {{ $asisSemana }}/{{ $planSemana }}
+                            @if($excede) (Excede) @elseif($asisSemana >= $planSemana) (Completo) @endif
+                        </span>
+                    @else
+                        <span>Sin plan</span>
+                    @endif
+                    @if($alumno->dni)
+                        <span>· DNI …{{ substr((string) $alumno->dni, -3) }}</span>
+                    @endif
+                    @if($yaNoEstan->has($alumno->id))
+                        {{-- T52: tiene marca guardada en esta clase y después cambió de grupo o se dio de baja --}}
+                        <span>· {{ $yaNoEstan[$alumno->id] }}</span>
+                    @endif
+                </div>
+            </div>
+
+            <div class="flex-shrink-0">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"
+                       for="presente-{{ $alumno->id }}">
+                    <span class="hidden sm:inline">Presente</span>
+                    <input type="checkbox"
+                           id="presente-{{ $alumno->id }}"
+                           class="presente-checkbox"
+                           data-alumno-id="{{ $alumno->id }}"
+                           {{ $estaPresente ? 'checked' : '' }}
+                           {{ $todaviaNoOcurrio ? 'disabled' : '' }}
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
+                </label>
+            </div>
+        </div>
+
+        {{-- Panel de exceso --}}
+        <div id="exceso-{{ $alumno->id }}"
+             style="display:none; margin-top:8px; padding:8px 12px;
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);
+                    border-radius:var(--radius-btn);
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">
+                Excede el plan — indicar motivo
+            </span>
+            <select id="motivo-{{ $alumno->id }}"
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);
+                           border:1px solid var(--color-border); background:var(--color-surface);
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">
+                <option value="EXTRA">Clase adicional (EXTRA)</option>
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>
+            </select>
+        </div>
+
+    </div>
+@empty
+    <div class="empty-state">
+        <svg class="empty-state__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197"/>
+        </svg>
+        <h3>Sin alumnos en este grupo</h3>
+        <p>No hay alumnos activos en el grupo {{ $clase->grupo->nombre }}.</p>
+    </div>
+@endforelse
+
+{{-- UP4.0: cartel grande e imposible de perder al guardar asistencias --}}
+<div id="toast-asistencias"
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>
+
+{{-- Botón guardar asistencias --}}
+@if($alumnos->isNotEmpty() && !$todaviaNoOcurrio)
+@if($correccionAsistencia)
+    <div style="margin-top:16px; padding:12px 16px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); border-radius:var(--radius-card);">
+        <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 8px;">
+            Estás corrigiendo una lista ya tomada — indicá el motivo
+        </p>
+        <input type="text" id="input-motivo-asistencias"
+               placeholder="Ej: Se nos pasó cargar a un alumno, se marcó por error..."
+               maxlength="255"
+               style="width:100%; padding:8px 12px; font-size:0.82rem;
+                      border:1px solid var(--color-border); border-radius:var(--radius-btn);
+                      background:var(--color-surface); color:var(--color-text); font-family:inherit;">
+    </div>
+@endif
+<div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;">
+    <button id="btn-guardar-asistencias"
+            {{ $clase->cancelada ? 'disabled' : '' }}
+            style="display:inline-flex; align-items:center; justify-content:center;
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                   border:none; font-family:inherit;
+                   background:var(--color-btn-primary); color:var(--color-surface);">
+        Guardar
+    </button>
+</div>
+@endif
+
+{{-- Datos para resources/js/clases-show.js (T73: sin JavaScript en la vista) --}}
+<div id="clase-show-datos" hidden
+     data-clase-id="{{ $clase->id }}"
+     data-info-semana="{{ json_encode($infoSemana) }}"
+     data-correccion-asistencia="{{ $correccionAsistencia ? 1 : 0 }}"
+     data-correccion-profesores="{{ $correccionProfesores ? 1 : 0 }}"></div>
+
+@endsection
+
+@push('scripts')
+    @vite('resources/js/clases-show.js')
+@endpush

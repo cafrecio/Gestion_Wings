@@ -1,0 +1,106 @@
+{
+    "base": "wings_testing_codex",
+    "etapa": "final",
+    "clase_id": 1,
+    "asistencias": [
+        {
+            "id": 8,
+            "clase_id": 1,
+            "alumno_id": 1,
+            "presente": true,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 4,
+            "clase_id": 1,
+            "alumno_id": 2,
+            "presente": true,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 7,
+            "clase_id": 1,
+            "alumno_id": 3,
+            "presente": true,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 5,
+            "clase_id": 1,
+            "alumno_id": 4,
+            "presente": false,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 3,
+            "clase_id": 1,
+            "alumno_id": 5,
+            "presente": false,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 6,
+            "clase_id": 1,
+            "alumno_id": 6,
+            "presente": true,
+            "motivo_correccion": null,
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        }
+    ],
+    "excepciones_asistencia": [
+        {
+            "id": 2,
+            "tipo": "ASISTENCIA_DEUDOR",
+            "motivo": "El dueño acordó que asista y regularice esta semana.",
+            "autor_id": 3,
+            "alumno_id": 2,
+            "registro_tipo": "ASISTENCIA",
+            "registro_id": 4,
+            "ocurrida_at": "2026-10-27T10:34:52.000000Z",
+            "contexto": {
+                "tipos": [
+                    "ASISTENCIA_DEUDOR"
+                ],
+                "clase_id": 1,
+                "alumno_id": 2,
+                "estado": "DEUDOR",
+                "message": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar."
+            },
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        },
+        {
+            "id": 3,
+            "tipo": "ASISTENCIA_NUEVO",
+            "motivo": "La familia registra el primer pago al terminar la clase.",
+            "autor_id": 3,
+            "alumno_id": 1,
+            "registro_tipo": "ASISTENCIA",
+            "registro_id": 8,
+            "ocurrida_at": "2026-10-27T10:34:52.000000Z",
+            "contexto": {
+                "tipos": [
+                    "ASISTENCIA_NUEVO"
+                ],
+                "clase_id": 1,
+                "alumno_id": 1,
+                "estado": "AL_DIA",
+                "message": "Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar."
+            },
+            "created_at": "2026-10-27T10:34:52.000000Z",
+            "updated_at": "2026-10-27T10:34:52.000000Z"
+        }
+    ],
+    "excepciones_totales": 3
+}

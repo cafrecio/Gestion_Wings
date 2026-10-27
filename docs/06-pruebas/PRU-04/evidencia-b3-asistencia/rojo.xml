@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\B3AsistenciaTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" tests="15" assertions="32" errors="1" failures="10" skipped="0" time="14.788841">
+    <testcase name="test_nuevo_tiene_dos_clases_de_margen_aunque_su_estado_sea_deudor" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="72" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="5" time="13.729387"/>
+    <testcase name="test_tercera_clase_nuevo_sin_motivo_rechaza_sin_guardar" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="82" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.073209">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_tercera_clase_nuevo_sin_motivo_rechaza_sin_guardar&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:86</failure>
+    </testcase>
+    <testcase name="test_tercera_con_motivo_guarda_autor_alumno_registro_y_no_notifica_individualmente" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="91" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.128783">
+      <error type="Illuminate\Database\Eloquent\ModelNotFoundException">Tests\Feature\B3AsistenciaTest::test_tercera_con_motivo_guarda_autor_alumno_registro_y_no_notifica_individualmente&#13;
+Illuminate\Database\Eloquent\ModelNotFoundException: No query results for model [App\Models\ExcepcionCobranza].
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:821
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2544
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2560
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:97</error>
+    </testcase>
+    <testcase name="test_deudor_con_historia_necesita_motivo_y_permite_con_el" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="109" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.064264">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_deudor_con_historia_necesita_motivo_y_permite_con_el&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:112</failure>
+    </testcase>
+    <testcase name="test_moroso_con_historia_entra_sin_justificar_y_se_ve_su_condicion" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="117" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="4" time="0.090768">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_moroso_con_historia_entra_sin_justificar_y_se_ve_su_condicion&#13;
+Failed asserting that '&lt;!DOCTYPE html&gt;\n
+&lt;html lang="es" data-formato-importes="{&amp;quot;locale&amp;quot;:&amp;quot;en-US&amp;quot;,&amp;quot;decimales&amp;quot;:2,&amp;quot;decimal&amp;quot;:&amp;quot;.&amp;quot;,&amp;quot;miles&amp;quot;:&amp;quot;,&amp;quot;,&amp;quot;moneda&amp;quot;:&amp;quot;$&amp;quot;}"&gt;\n
+&lt;head&gt;\n
+    &lt;meta charset="utf-8"&gt;\n
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;\n
+    &lt;meta name="csrf-token" content="Xnd8V1K3QcZqBN0PlCqMO0LBaqWELuEGcT6NGnYs"&gt;\n
+    &lt;title&gt;Martes 27 de octubre de 2026 — Patín B3 — B3 – Wings&lt;/title&gt;\n
+    &lt;link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png"&gt;\n
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png"&gt;\n
+    &lt;link rel="manifest" href="http://gestion-wings/site.webmanifest"&gt;\n
+    &lt;meta name="theme-color" content="#0F172A"&gt;\n
+    &lt;link rel="preload" as="style" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /&gt;&lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-DOC7vG8b.js" /&gt;&lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /&gt;&lt;link rel="stylesheet" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /&gt;&lt;script type="module" src="http://gestion-wings/build/assets/app-DOC7vG8b.js"&gt;&lt;/script&gt;&lt;/head&gt;\n
+&lt;body&gt;\n
+\n
+&lt;div class="ds-layout"&gt;\n
+\n
+    \n
+    &lt;aside class="ds-sidebar"&gt;\n
+\n
+        \n
+        &lt;div class="ds-brand"&gt;\n
+            &lt;a href="/" class="ds-brand__link"&gt;\n
+                &lt;img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo"&gt;\n
+                &lt;span class="ds-brand__name"&gt;Wings&lt;/span&gt;\n
+            &lt;/a&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;nav class="flex flex-col gap-0.5"&gt;\n
+            \n
+                \n
+                    \n
+                    &lt;a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ds-nav-link--active"&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Clases\n
+                    &lt;/a&gt;\n
+                    \n
+                                    &lt;/nav&gt;\n
+\n
+    &lt;/aside&gt;\n
+\n
+    \n
+    &lt;div id="ds-sidebar-overlay" class="ds-sidebar-overlay"&gt;&lt;/div&gt;\n
+\n
+    \n
+    &lt;div class="ds-main"&gt;\n
+\n
+        \n
+        &lt;div class="ds-topbar"&gt;\n
+                            &lt;div style="display:flex; align-items:center; gap:8px; min-width:0;"&gt;\n
+                    &lt;button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú"&gt;\n
+                        &lt;svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/&gt;\n
+                        &lt;/svg&gt;\n
+                    &lt;/button&gt;\n
+                    &lt;span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"&gt;Otis Watsica&lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;form method="POST" action="http://gestion-wings/logout"&gt;\n
+                    &lt;input type="hidden" name="_token" value="Xnd8V1K3QcZqBN0PlCqMO0LBaqWELuEGcT6NGnYs" autocomplete="off"&gt;                    &lt;button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            &gt;\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    &lt;/button&gt;\n
+\n
+                &lt;/form&gt;\n
+                    &lt;/div&gt;\n
+\n
+        \n
+                    &lt;header class="ds-module-header"&gt;\n
+    &lt;div class="ds-module-header__inner"&gt;\n
+                &lt;h1 class="ds-module-header__title"&gt;Clase — Patín B3 — B3&lt;/h1&gt;\n
+    &lt;/div&gt;\n
+&lt;/header&gt;\n
+        \n
+        \n
+        &lt;main class="ds-content"&gt;\n
+\n
+            \n
+            \n
+            \n
+\n
+&lt;div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;"&gt;\n
+    &lt;div style="display:flex;"&gt;\n
+\n
+        \n
+        &lt;div style="width:6px; flex-shrink:0; background:var(--color-sport-patin);"&gt;&lt;/div&gt;\n
+\n
+        &lt;div style="flex:1; padding:1.25rem 1.5rem;"&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem;"&gt;\n
+                &lt;h2 style="font-size:1.1rem; font-weight:800; color:var(--color-text); margin:0; text-transform:capitalize;"&gt;\n
+                    Martes 27 de octubre de 2026\n
+                &lt;/h2&gt;\n
+                &lt;span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);"&gt;\n
+                    18:00 – 19:00\n
+                &lt;/span&gt;\n
+            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem;"&gt;\n
+                &lt;span style="font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;\n
+                             background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent);\n
+                             color:var(--color-sport-patin); white-space:nowrap;"&gt;\n
+                    Patín B3\n
+                &lt;/span&gt;\n
+                &lt;span style="font-size:0.88rem; font-weight:600; color:var(--color-text);"&gt;\n
+                    Patín B3 — B3\n
+                &lt;/span&gt;\n
+            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"&gt;\n
+                &lt;span id="texto-profesores" style="font-size:0.8rem; color:var(--color-text-muted);"&gt;\n
+                                            B3, Profesora\n
+                                    &lt;/span&gt;\n
+                            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:1rem;"&gt;\n
+                                    &lt;span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;\n
+                                 background:color-mix(in srgb, var(--color-success) 15%, transparent);\n
+                                 color:var(--color-success);"&gt;Activa&lt;/span&gt;\n
+                                            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto"&gt;\n
+\n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                &lt;a href="http://gestion-wings/clases"\n
+                   style="display:inline-flex; align-items:center; justify-content:center;\n
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                          text-decoration:none; border:none; font-family:inherit;\n
+                          background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                    Volver\n
+                &lt;/a&gt;\n
+            &lt;/div&gt;\n
+\n
+        &lt;/div&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+\n
+&lt;div id="panel-cancelar" style="display:none; margin-bottom:12px;"&gt;\n
+    &lt;div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));\n
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);\n
+                border-radius:var(--radius-card);"&gt;\n
+        &lt;p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;"&gt;\n
+            Indicá el motivo de cancelación\n
+        &lt;/p&gt;\n
+        &lt;div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;"&gt;\n
+            &lt;input type="text" id="input-motivo-cancelacion"\n
+                   placeholder="Ej: Feriado, Pista insegura, Lluvia..."\n
+                   maxlength="255"\n
+                   style="flex:1; min-width:220px; padding:8px 12px; font-size:0.82rem;\n
+                          border:1px solid var(--color-border); border-radius:var(--radius-btn);\n
+                          background:var(--color-surface); color:var(--color-text); font-family:inherit;"&gt;\n
+            &lt;button id="btn-confirmar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-danger); color:var(--color-surface);"&gt;\n
+                Cancelar esta\n
+            &lt;/button&gt;\n
+                        &lt;button id="btn-cerrar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                Cerrar\n
+            &lt;/button&gt;\n
+        &lt;/div&gt;\n
+        &lt;span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"&gt;&lt;/span&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;div id="panel-profesores" style="display:none; margin-bottom:12px;"&gt;\n
+    &lt;div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);\n
+                border:1px solid var(--color-border); border-radius:var(--radius-card);"&gt;\n
+        &lt;p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;"&gt;\n
+            Profesores asignados a esta clase &lt;span class="form-required"&gt;*&lt;/span&gt;\n
+        &lt;/p&gt;\n
+        &lt;p class="text-xs mb-2 text-wings-muted"&gt;Seleccioná al menos una profesora activa del deporte.&lt;/p&gt;\n
+        &lt;div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;"&gt;\n
+                            &lt;label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;\n
+                              cursor:pointer; user-select:none;"&gt;\n
+                    &lt;input type="checkbox"\n
+                           class="prof-checkbox"\n
+                           value="5"\n
+                           checked\n
+                           style="width:16px; height:16px; cursor:pointer; accent-color:var(--color-btn-primary);"&gt;\n
+                    B3, Profesora\n
+                &lt;/label&gt;\n
+                    &lt;/div&gt;\n
+                &lt;div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;"&gt;\n
+            &lt;button id="btn-guardar-profesores" class="accion-movil-principal"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-primary); color:var(--color-surface);"&gt;\n
+                Guardar\n
+            &lt;/button&gt;\n
+            &lt;button id="btn-cerrar-profesores"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                Cancelar\n
+            &lt;/button&gt;\n
+            &lt;span id="flash-profesores" style="display:none; font-size:0.78rem; font-weight:600;"&gt;&lt;/span&gt;\n
+        &lt;/div&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+\n
+&lt;div class="stats-bar mb-3"&gt;\n
+    &lt;div class="stats-info"&gt;\n
+        &lt;strong&gt;1&lt;/strong&gt; alumnos en el grupo\n
+        &amp;nbsp;·&amp;nbsp;\n
+                &lt;span id="contador-presentes"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/span&gt; presentes\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-6"\n
+     data-alumno-id="6"\n
+     data-plan="1"\n
+     data-asistencias-semana="1"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            background:color-mix(in srgb, var(--color-success) 8%, var(--color-surface));\n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--warning flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888001, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-warning);"&gt;\n
+                            1/1\n
+                             (Completo)                         &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …001&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-6"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-6"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="6"\n
+                           checked\n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-6"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-6"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+\n
+&lt;div id="toast-asistencias"\n
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);\n
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);\n
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;\n
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"&gt;&lt;/div&gt;\n
+\n
+\n
+&lt;div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;"&gt;\n
+    &lt;button id="btn-guardar-asistencias"\n
+            \n
+            style="display:inline-flex; align-items:center; justify-content:center;\n
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                   border:none; font-family:inherit;\n
+                   background:var(--color-btn-primary); color:var(--color-surface);"&gt;\n
+        Guardar\n
+    &lt;/button&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;div id="clase-show-datos" hidden\n
+     data-clase-id="10"\n
+     data-info-semana="{&amp;quot;6&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:1,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false}}"\n
+     data-correccion-asistencia="0"\n
+     data-correccion-profesores="0"&gt;&lt;/div&gt;\n
+\n
+\n
+        &lt;/main&gt;\n
+\n
+        \n
+        &lt;footer class="ds-footer"&gt;\n
+            &lt;div class="ds-footer__inner"&gt;Wings&lt;/div&gt;\n
+        &lt;/footer&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;/div&gt;\n
+\n
+    &lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js" /&gt;&lt;script type="module" src="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js"&gt;&lt;/script&gt;\n
+&lt;/body&gt;\n
+&lt;/html&gt;\n
+' [UTF-8](length: 17005) contains "Moroso" [ASCII](length: 6).
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:710
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:122</failure>
+    </testcase>
+    <testcase name="test_un_pago_de_cuota_parcial_termina_la_condicion_de_nuevo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="125" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.067989"/>
+    <testcase name="test_pagar_solo_inscripcion_no_elude_el_control_de_primera_cuota" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="134" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.058067">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_pagar_solo_inscripcion_no_elude_el_control_de_primera_cuota&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:139</failure>
+    </testcase>
+    <testcase name="test_rechazo_de_segundo_alumno_revierte_toda_la_lista" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="142" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.097971">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_rechazo_de_segundo_alumno_revierte_toda_la_lista&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:148</failure>
+    </testcase>
+    <testcase name="test_motivo_blanco_y_mayor_de_500_rechazados" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="153" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.059424">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_motivo_blanco_y_mayor_de_500_rechazados&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:156</failure>
+    </testcase>
+    <testcase name="test_reenviar_lista_guardada_no_duplica_ni_reescribe_el_motivo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="160" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="3" time="0.068602">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_reenviar_lista_guardada_no_duplica_ni_reescribe_el_motivo&#13;
+Failed asserting that table [excepciones_cobranza] matches expected entries count of 1. Entries found: 0.
+.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase.php:94
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:165</failure>
+    </testcase>
+    <testcase name="test_ausente_no_necesita_motivo_y_ausente_a_presente_si" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="169" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.063413">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_ausente_no_necesita_motivo_y_ausente_a_presente_si&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:173</failure>
+    </testcase>
+    <testcase name="test_exceso_de_plan_solo_conserva_la_anotacion_recupera" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="177" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="3" time="0.036355"/>
+    <testcase name="test_lista_muestra_condicion_de_cada_alumno_sin_contador_de_nuevo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="188" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="2" time="0.092270">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_lista_muestra_condicion_de_cada_alumno_sin_contador_de_nuevo&#13;
+Failed asserting that '&lt;!DOCTYPE html&gt;\n
+&lt;html lang="es" data-formato-importes="{&amp;quot;locale&amp;quot;:&amp;quot;en-US&amp;quot;,&amp;quot;decimales&amp;quot;:2,&amp;quot;decimal&amp;quot;:&amp;quot;.&amp;quot;,&amp;quot;miles&amp;quot;:&amp;quot;,&amp;quot;,&amp;quot;moneda&amp;quot;:&amp;quot;$&amp;quot;}"&gt;\n
+&lt;head&gt;\n
+    &lt;meta charset="utf-8"&gt;\n
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;\n
+    &lt;meta name="csrf-token" content="cdpqbGAiBBqm8l5WAy2HvhLTJ1y5i5PvCEC0VIP4"&gt;\n
+    &lt;title&gt;Martes 27 de octubre de 2026 — Patín B3 — B3 – Wings&lt;/title&gt;\n
+    &lt;link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png"&gt;\n
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png"&gt;\n
+    &lt;link rel="manifest" href="http://gestion-wings/site.webmanifest"&gt;\n
+    &lt;meta name="theme-color" content="#0F172A"&gt;\n
+    &lt;link rel="preload" as="style" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /&gt;&lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-DOC7vG8b.js" /&gt;&lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /&gt;&lt;link rel="stylesheet" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /&gt;&lt;script type="module" src="http://gestion-wings/build/assets/app-DOC7vG8b.js"&gt;&lt;/script&gt;&lt;/head&gt;\n
+&lt;body&gt;\n
+\n
+&lt;div class="ds-layout"&gt;\n
+\n
+    \n
+    &lt;aside class="ds-sidebar"&gt;\n
+\n
+        \n
+        &lt;div class="ds-brand"&gt;\n
+            &lt;a href="/" class="ds-brand__link"&gt;\n
+                &lt;img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo"&gt;\n
+                &lt;span class="ds-brand__name"&gt;Wings&lt;/span&gt;\n
+            &lt;/a&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;nav class="flex flex-col gap-0.5"&gt;\n
+            \n
+                \n
+                    \n
+                    &lt;a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ds-nav-link--active"&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Clases\n
+                    &lt;/a&gt;\n
+                    \n
+                                    &lt;/nav&gt;\n
+\n
+    &lt;/aside&gt;\n
+\n
+    \n
+    &lt;div id="ds-sidebar-overlay" class="ds-sidebar-overlay"&gt;&lt;/div&gt;\n
+\n
+    \n
+    &lt;div class="ds-main"&gt;\n
+\n
+        \n
+        &lt;div class="ds-topbar"&gt;\n
+                            &lt;div style="display:flex; align-items:center; gap:8px; min-width:0;"&gt;\n
+                    &lt;button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú"&gt;\n
+                        &lt;svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/&gt;\n
+                        &lt;/svg&gt;\n
+                    &lt;/button&gt;\n
+                    &lt;span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"&gt;Sarai Wuckert&lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;form method="POST" action="http://gestion-wings/logout"&gt;\n
+                    &lt;input type="hidden" name="_token" value="cdpqbGAiBBqm8l5WAy2HvhLTJ1y5i5PvCEC0VIP4" autocomplete="off"&gt;                    &lt;button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            &gt;\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    &lt;/button&gt;\n
+\n
+                &lt;/form&gt;\n
+                    &lt;/div&gt;\n
+\n
+        \n
+                    &lt;header class="ds-module-header"&gt;\n
+    &lt;div class="ds-module-header__inner"&gt;\n
+                &lt;h1 class="ds-module-header__title"&gt;Clase — Patín B3 — B3&lt;/h1&gt;\n
+    &lt;/div&gt;\n
+&lt;/header&gt;\n
+        \n
+        \n
+        &lt;main class="ds-content"&gt;\n
+\n
+            \n
+            \n
+            \n
+\n
+&lt;div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;"&gt;\n
+    &lt;div style="display:flex;"&gt;\n
+\n
+        \n
+        &lt;div style="width:6px; flex-shrink:0; background:var(--color-sport-patin);"&gt;&lt;/div&gt;\n
+\n
+        &lt;div style="flex:1; padding:1.25rem 1.5rem;"&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem;"&gt;\n
+                &lt;h2 style="font-size:1.1rem; font-weight:800; color:var(--color-text); margin:0; text-transform:capitalize;"&gt;\n
+                    Martes 27 de octubre de 2026\n
+                &lt;/h2&gt;\n
+                &lt;span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);"&gt;\n
+                    18:00 – 19:00\n
+                &lt;/span&gt;\n
+            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem;"&gt;\n
+                &lt;span style="font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;\n
+                             background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent);\n
+                             color:var(--color-sport-patin); white-space:nowrap;"&gt;\n
+                    Patín B3\n
+                &lt;/span&gt;\n
+                &lt;span style="font-size:0.88rem; font-weight:600; color:var(--color-text);"&gt;\n
+                    Patín B3 — B3\n
+                &lt;/span&gt;\n
+            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"&gt;\n
+                &lt;span id="texto-profesores" style="font-size:0.8rem; color:var(--color-text-muted);"&gt;\n
+                                            B3, Profesora\n
+                                    &lt;/span&gt;\n
+                            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:1rem;"&gt;\n
+                                    &lt;span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;\n
+                                 background:color-mix(in srgb, var(--color-success) 15%, transparent);\n
+                                 color:var(--color-success);"&gt;Activa&lt;/span&gt;\n
+                                            &lt;/div&gt;\n
+\n
+            \n
+            &lt;div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto"&gt;\n
+\n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                &lt;a href="http://gestion-wings/clases"\n
+                   style="display:inline-flex; align-items:center; justify-content:center;\n
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                          text-decoration:none; border:none; font-family:inherit;\n
+                          background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                    Volver\n
+                &lt;/a&gt;\n
+            &lt;/div&gt;\n
+\n
+        &lt;/div&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+\n
+&lt;div id="panel-cancelar" style="display:none; margin-bottom:12px;"&gt;\n
+    &lt;div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));\n
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);\n
+                border-radius:var(--radius-card);"&gt;\n
+        &lt;p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;"&gt;\n
+            Indicá el motivo de cancelación\n
+        &lt;/p&gt;\n
+        &lt;div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;"&gt;\n
+            &lt;input type="text" id="input-motivo-cancelacion"\n
+                   placeholder="Ej: Feriado, Pista insegura, Lluvia..."\n
+                   maxlength="255"\n
+                   style="flex:1; min-width:220px; padding:8px 12px; font-size:0.82rem;\n
+                          border:1px solid var(--color-border); border-radius:var(--radius-btn);\n
+                          background:var(--color-surface); color:var(--color-text); font-family:inherit;"&gt;\n
+            &lt;button id="btn-confirmar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-danger); color:var(--color-surface);"&gt;\n
+                Cancelar esta\n
+            &lt;/button&gt;\n
+                        &lt;button id="btn-cerrar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                Cerrar\n
+            &lt;/button&gt;\n
+        &lt;/div&gt;\n
+        &lt;span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"&gt;&lt;/span&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;div id="panel-profesores" style="display:none; margin-bottom:12px;"&gt;\n
+    &lt;div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);\n
+                border:1px solid var(--color-border); border-radius:var(--radius-card);"&gt;\n
+        &lt;p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;"&gt;\n
+            Profesores asignados a esta clase &lt;span class="form-required"&gt;*&lt;/span&gt;\n
+        &lt;/p&gt;\n
+        &lt;p class="text-xs mb-2 text-wings-muted"&gt;Seleccioná al menos una profesora activa del deporte.&lt;/p&gt;\n
+        &lt;div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;"&gt;\n
+                            &lt;label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;\n
+                              cursor:pointer; user-select:none;"&gt;\n
+                    &lt;input type="checkbox"\n
+                           class="prof-checkbox"\n
+                           value="13"\n
+                           checked\n
+                           style="width:16px; height:16px; cursor:pointer; accent-color:var(--color-btn-primary);"&gt;\n
+                    B3, Profesora\n
+                &lt;/label&gt;\n
+                    &lt;/div&gt;\n
+                &lt;div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;"&gt;\n
+            &lt;button id="btn-guardar-profesores" class="accion-movil-principal"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-primary); color:var(--color-surface);"&gt;\n
+                Guardar\n
+            &lt;/button&gt;\n
+            &lt;button id="btn-cerrar-profesores"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);"&gt;\n
+                Cancelar\n
+            &lt;/button&gt;\n
+            &lt;span id="flash-profesores" style="display:none; font-size:0.78rem; font-weight:600;"&gt;&lt;/span&gt;\n
+        &lt;/div&gt;\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+\n
+&lt;div class="stats-bar mb-3"&gt;\n
+    &lt;div class="stats-info"&gt;\n
+        &lt;strong&gt;5&lt;/strong&gt; alumnos en el grupo\n
+        &amp;nbsp;·&amp;nbsp;\n
+                &lt;span id="contador-presentes"&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;/span&gt; presentes\n
+    &lt;/div&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-15"\n
+     data-alumno-id="15"\n
+     data-plan="1"\n
+     data-asistencias-semana="1"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--warning flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888001, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-warning);"&gt;\n
+                            1/1\n
+                             (Completo)                         &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …001&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-15"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-15"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="15"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-15"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-15"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-16"\n
+     data-alumno-id="16"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--success flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888002, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-success);"&gt;\n
+                            0/1\n
+                                                    &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …002&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-16"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-16"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="16"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-16"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-16"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-17"\n
+     data-alumno-id="17"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--success flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888003, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-success);"&gt;\n
+                            0/1\n
+                                                    &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …003&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-17"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-17"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="17"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-17"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-17"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-18"\n
+     data-alumno-id="18"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--success flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888004, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-success);"&gt;\n
+                            0/1\n
+                                                    &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …004&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-18"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-18"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="18"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-18"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-18"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-19"\n
+     data-alumno-id="19"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;"&gt;\n
+\n
+    &lt;div class="flex items-center justify-between gap-3"&gt;\n
+            &lt;div class="min-w-0 flex-1"&gt;\n
+                &lt;div class="flex items-center gap-2"&gt;\n
+                    &lt;span class="ds-dot ds-dot--success flex-shrink-0"&gt;&lt;/span&gt;\n
+                    &lt;span style="font-weight:700; font-size:0.9rem;" class="truncate"&gt;\n
+                        B3 33888005, Alumno\n
+                    &lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;"&gt;\n
+                                            &lt;span style="font-weight:600; color:var(--color-success);"&gt;\n
+                            0/1\n
+                                                    &lt;/span&gt;\n
+                                                                &lt;span&gt;· DNI …005&lt;/span&gt;\n
+                                                        &lt;/div&gt;\n
+            &lt;/div&gt;\n
+\n
+            &lt;div class="flex-shrink-0"&gt;\n
+                &lt;label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-19"&gt;\n
+                    &lt;span class="hidden sm:inline"&gt;Presente&lt;/span&gt;\n
+                    &lt;input type="checkbox"\n
+                           id="presente-19"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="19"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);"&gt;\n
+                &lt;/label&gt;\n
+            &lt;/div&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;div id="exceso-19"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);"&gt;\n
+            &lt;span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;"&gt;\n
+                Excede el plan — indicar motivo\n
+            &lt;/span&gt;\n
+            &lt;select id="motivo-19"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;"&gt;\n
+                &lt;option value="EXTRA"&gt;Clase adicional (EXTRA)&lt;/option&gt;\n
+                &lt;option value="RECUPERA"&gt;Recupera clase perdida (RECUPERA)&lt;/option&gt;\n
+            &lt;/select&gt;\n
+        &lt;/div&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+\n
+&lt;div id="toast-asistencias"\n
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);\n
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);\n
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;\n
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"&gt;&lt;/div&gt;\n
+\n
+\n
+&lt;div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;"&gt;\n
+    &lt;button id="btn-guardar-asistencias"\n
+            \n
+            style="display:inline-flex; align-items:center; justify-content:center;\n
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                   border:none; font-family:inherit;\n
+                   background:var(--color-btn-primary); color:var(--color-surface);"&gt;\n
+        Guardar\n
+    &lt;/button&gt;\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;div id="clase-show-datos" hidden\n
+     data-clase-id="23"\n
+     data-info-semana="{&amp;quot;15&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:1,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false},&amp;quot;16&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:0,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false},&amp;quot;17&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:0,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false},&amp;quot;18&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:0,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false},&amp;quot;19&amp;quot;:{&amp;quot;asistencias_semana&amp;quot;:0,&amp;quot;plan_semana&amp;quot;:1,&amp;quot;excede&amp;quot;:false}}"\n
+     data-correccion-asistencia="0"\n
+     data-correccion-profesores="0"&gt;&lt;/div&gt;\n
+\n
+\n
+        &lt;/main&gt;\n
+\n
+        \n
+        &lt;footer class="ds-footer"&gt;\n
+            &lt;div class="ds-footer__inner"&gt;Wings&lt;/div&gt;\n
+        &lt;/footer&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;/div&gt;\n
+\n
+    &lt;link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js" /&gt;&lt;script type="module" src="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js"&gt;&lt;/script&gt;\n
+&lt;/body&gt;\n
+&lt;/html&gt;\n
+' [UTF-8](length: 29575) contains "Nuevo" [ASCII](length: 5).
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:710
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:197</failure>
+    </testcase>
+    <testcase name="test_admin_operativa_y_profesora_pueden_justificar_sin_cambiar_permisos" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="201" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="1" time="0.084669">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\B3AsistenciaTest::test_admin_operativa_y_profesora_pueden_justificar_sin_cambiar_permisos&#13;
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Concerns\AssertsStatusCodes.php:221
+C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php:205</failure>
+    </testcase>
+    <testcase name="test_un_motivo_no_habilita_clases_canceladas_ni_futuras" file="C:\xampp\htdocs\gestion-wings\tests\Feature\B3AsistenciaTest.php" line="211" class="Tests\Feature\B3AsistenciaTest" classname="Tests.Feature.B3AsistenciaTest" assertions="4" time="0.073670"/>
+  </testsuite>
+</testsuites>

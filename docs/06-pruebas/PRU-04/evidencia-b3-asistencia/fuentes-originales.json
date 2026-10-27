@@ -1,0 +1,9 @@
+{
+  "revision": "17f99d13",
+  "sha256": {
+    "app/Http/Controllers/ClaseWebController.php": "822a0be02b0902da3a433388b082fdfd18eb320c64dcee0495a9408f34437fa9",
+    "app/Services/ExcepcionCobranzaService.php": "5412c25c0746844ede29640f41e4e04b10366d597a6e522d1a2730c6d176a029",
+    "resources/js/clases-show.js": "6cebbd72167bc5c9b5b2d0da05db5a29f4d8bed6af476a23032b6e9adddb75f9",
+    "resources/views/clases/show.blade.php": "d74f02cc5f72a142667bf203bb669da7faf151afdf1849f0f22368630b764bd4"
+  }
+}

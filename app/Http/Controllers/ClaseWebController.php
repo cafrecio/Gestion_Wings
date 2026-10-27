@@ -12,6 +12,7 @@ use App\Models\Liquidacion;
 use App\Models\LiquidacionDetalle;
 use App\Models\Profesor;
 use App\Services\ClaseService;
+use App\Services\ExcepcionCobranzaService;
 use App\Services\ProgramacionClasesService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -310,6 +311,7 @@ class ClaseWebController extends Controller
             ->mapWithKeys(fn ($a) => [$a->id => $a->activo ? 'Cambió de grupo' : 'De baja']);
 
         $asistenciasMap = $clase->asistencias->keyBy('alumno_id');
+        $condicionesCobranza = app(ExcepcionCobranzaService::class)->condicionesAsistencia($alumnos, $clase);
 
         // Una sola vuelta para toda la lista (antes eran consultas por alumno).
         $infoSemana = $this->claseService->contarAsistenciasSemanaDeVarios(
@@ -332,7 +334,7 @@ class ClaseWebController extends Controller
         $motivoNoEliminable   = $clase->motivoNoEliminable();
 
         return view('clases.show', compact(
-            'clase', 'alumnos', 'yaNoEstan', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
+            'clase', 'alumnos', 'yaNoEstan', 'asistenciasMap', 'infoSemana', 'condicionesCobranza', 'profesoresDisponibles',
             'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores',
             'todaviaNoOcurrio', 'puedeEliminar', 'motivoNoEliminable'
         ));
@@ -390,6 +392,10 @@ class ClaseWebController extends Controller
             return back()->with('error', $mensaje);
         }
 
+        $request->validate([
+            'items' => 'required|array', 'items.*.alumno_id' => 'required|integer|distinct',
+            'items.*.presente' => 'required|boolean', 'items.*.motivo_excepcion' => 'nullable|string|max:500',
+        ]);
         $items = $request->input('items', []);
 
         // Primera pasada: validar solapamiento de todos los presentes antes
@@ -433,7 +439,24 @@ class ClaseWebController extends Controller
         }
 
         // Segunda pasada: guardar como una sola unidad.
-        DB::transaction(function () use ($items, $clase, $esCorreccion, $motivoCorreccion) {
+        try {
+        $condiciones = DB::transaction(function () use ($items, $clase, $esCorreccion, $motivoCorreccion) {
+            $clase = Clase::whereKey($clase->id)->lockForUpdate()->firstOrFail();
+            if ($clase->cancelada || $clase->todaviaNoOcurrio() || $clase->integraLiquidacionCerrada()) {
+                throw ValidationException::withMessages(['clase' => 'La clase no admite cambios de asistencia.']);
+            }
+            // Mismo bloqueo del alumno que usa Cobrar: el pago y la admisión no
+            // pueden decidir sobre dos condiciones distintas al mismo tiempo.
+            $alumnos = Alumno::whereIn('id', collect($items)->pluck('alumno_id'))->orderBy('id')->lockForUpdate()->get();
+            $excepciones = app(ExcepcionCobranzaService::class);
+            $condiciones = $excepciones->condicionesAsistencia($alumnos, $clase);
+            $decisiones = [];
+            foreach ($items as $item) {
+                if ($item['presente']) {
+                    $decisiones[$item['alumno_id']] = $excepciones->validarAsistencia(
+                        $condiciones[$item['alumno_id']], $clase, (int) $item['alumno_id'], $item['motivo_excepcion'] ?? null);
+                }
+            }
             foreach ($items as $item) {
                 $alumnoId = (int) ($item['alumno_id'] ?? 0);
                 $presente  = (bool) ($item['presente'] ?? false);
@@ -450,6 +473,8 @@ class ClaseWebController extends Controller
                     ['clase_id' => $clase->id, 'alumno_id' => $alumnoId],
                     $datosAsistencia
                 );
+                $excepciones->guardar($decisiones[$alumnoId] ?? [], (string) ($item['motivo_excepcion'] ?? ''),
+                    (int) Auth::id(), $alumnoId, 'ASISTENCIA', $asistencia->id);
 
                 if ($presente) {
                     $info = $this->claseService->contarAsistenciasSemana(
@@ -468,10 +493,15 @@ class ClaseWebController extends Controller
                     }
                 }
             }
+            return $excepciones->condicionesAsistencia($alumnos, $clase);
         });
+        } catch (\App\Exceptions\ExcepcionCobranzaRequerida $error) {
+            if ($esJson) return response()->json($error->detalle + ['success' => false, 'requiere_motivo' => true], 422);
+            return back()->with('error', $error->getMessage());
+        }
 
         if ($esJson) {
-            return response()->json(['success' => true, 'message' => 'Asistencias guardadas.']);
+            return response()->json(['success' => true, 'message' => 'Asistencias guardadas.', 'condiciones' => $condiciones]);
         }
 
         return redirect()->route('web.clases.show', $clase->id)

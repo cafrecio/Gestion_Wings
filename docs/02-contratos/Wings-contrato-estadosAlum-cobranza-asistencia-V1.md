@@ -577,8 +577,9 @@ Son dos cosas distintas y no deben confundirse:
 ## 11. Estado de implementación
 
 Las filas conservan su corte histórico salvo actualización fechada. El corte local
-del 27/10/2026 de B3 dinero está implementado y en pruebas, pendiente de
-verificación independiente y sin despliegue; no certifica el sitio de prueba.
+del 27/10/2026 de B3 dinero y asistencia está implementado localmente, con pruebas
+propias verdes y pendiente de verificación independiente. Sin despliegue; no
+certifica el sitio de prueba. Informes por entrega en PRU-04.
 
 ### Generación de la deuda (§2)
 
@@ -609,21 +610,25 @@ verificación independiente y sin despliegue; no certifica el sitio de prueba.
 | Deudor o moroso por inscripción impaga y plazo propio de alta | ✅ **Implementado y verificado (13/10/2026, T31).** Enmiendas del 12/10 y 13/10: el estado de inscripción y cuota del mes de ingreso usa la fecha de ingreso (`fecha_alta`) con plazo propio (`dias_plazo_alta`, default 7) y días de gracia general; el estado del alumno es el peor entre cuotas e inscripción. Para ingreso futuro, la inscripción se debe desde el alta registral conforme a la aclaración de Carlos del 21/10 en T50. |
 | Fecha de ingreso futura solo hasta fin de mes siguiente | **T50 CERRADA el 21/10/2026, verificación final Codex de 738de598.** Límite y mensaje desde Wings; edición inválida 422; idioma y guardia efectiva/DB_URL aprobados. H1 decidido por Carlos: inscripción desde el alta, cuota futura excluida. Ver informe final. |
 | Reglas de primer pago sin huecos ni superposiciones | ✅ **Implementado (20/10/2026, T64).** Enmienda del 20/10 (DU-45, CFG-004): cobertura obligatoria continua del 1 al 31 con guardado atómico en lote, preservación de IDs y validación de conjunto. |
-| El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
-| Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
-| Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |
-| Contador de clases del alumno nuevo | ❌ No existe |
-| Justificación al dejar entrar a un DEUDOR | ❌ No existe |
+| Estado y condición al tomar asistencia | Implementados localmente el 27/10/2026: la lista muestra el estado existente de cobranza junto a cada alumno. MOROSO con historia entra sin motivo. Pendiente de verificación independiente. |
+| Concepto de alumno nuevo en asistencia | Sin un primer pago de cuota registrado (`Pago::conCuota`); una inscripción sola no termina esa condición. La identificación de primera carga del §4 conserva su pregunta pendiente. |
+| Contador de clases del alumno nuevo | Interno, calculado con presentes en clases anteriores no canceladas. No cuenta ausencias ni clases posteriores y no se envía en HTML/JSON. Desde la siguiente a las dos de margen, motivo obligatorio. |
+| Justificación al dejar entrar a un DEUDOR con historia | Implementada localmente el 27/10/2026: motivo obligatorio y registro atómico antes de admitir una nueva marca presente. Reenviar marcas sin cambios no crea decisiones retroactivas. Pendiente de verificación independiente. |
 | Exceso de plan | Anotación EXTRA/RECUPERA; fuera de B3 por DU-34. No se agrega motivo libre. |
-| Justificación en cobro parcial y al dejar meses anteriores impagos | Implementada localmente el 27/10/2026: control de servidor, motivo obligatorio y registro atómico común. En pruebas; pendiente de verificación independiente. |
-| Aviso al dueño por excepciones de dinero | Implementado localmente el 27/10/2026: historial paginado en Inicio y resumen diario de las últimas 24 horas por los canales existentes, sin mensajes individuales. En pruebas; pendiente de verificación independiente. |
+| Justificación en cobro parcial y al dejar meses anteriores impagos | Implementada localmente el 27/10/2026: control de servidor, motivo obligatorio y registro atómico común. Pruebas propias verdes; pendiente de verificación independiente. |
+| Aviso al dueño por las cuatro excepciones | Implementado localmente el 27/10/2026: historial paginado en Inicio y resumen diario de las últimas 24 horas por los canales existentes, sin mensajes individuales. Pruebas propias verdes; pendiente de verificación independiente. |
 | Movimientos visibles para todos | ✅ **Corregido el 23/09/2026.** El historial ya lo hacía; `/movimientos` filtraba por caja propia y ahora filtra por rubro, como manda PERMISOS-ROLES. Lo cubre `MovimientosVisibilidadPorRubroTest` |
 | Caja restringida a su dueño | ✅ Implementado correctamente |
 
 **Registro común B3:** `excepciones_cobranza` conserva tipo, motivo, autor, fecha,
 alumno y registro de origen. La corrección de una lista y el cambio de profesor
-conservan sus motivos propios; EXTRA/RECUPERA queda fuera de B3. La incorporación
-de los dos casos de asistencia es la segunda entrega.
+conservan sus motivos propios; EXTRA/RECUPERA queda fuera de B3. Los dos casos de
+asistencia están incluidos en la segunda entrega. Se conservan las decisiones
+anteriores si se vuelve a admitir tras una ausencia; no se duplica al reenviar una
+marca sin cambios. Quedan abiertas las preguntas de primera carga, el corte
+financiero histórico y el tratamiento de avisos de orígenes anulados/corregidos;
+no se inventan esas políticas. [Entrega dinero](../06-pruebas/PRU-04/IMPLEMENTACION-T88-B3-DINERO.md)
+· [Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md).
 
 ---
 

@@ -3,13 +3,55 @@
 namespace App\Services;
 
 use App\Exceptions\ExcepcionCobranzaRequerida;
-use App\Models\{DeudaCuota, ExcepcionCobranza};
+use App\Models\{Asistencia, Clase, DeudaCuota, ExcepcionCobranza, Pago};
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
 class ExcepcionCobranzaService
 {
+    /** La cuenta de clases nuevas no sale de este método ni se envía al navegador. */
+    public function condicionesAsistencia(Collection $alumnos, Clase $clase): array
+    {
+        if ($alumnos->isEmpty()) return [];
+        $ids = $alumnos->pluck('id');
+        $estados = app(CobranzaEstadoService::class)->estadosParaAlumnos($alumnos);
+        // Una inscripción sola no es el primer pago de cuota. Un pago de cuota
+        // registrado termina la condición de nuevo para siempre (§4).
+        $conCuota = Pago::whereIn('alumno_id', $ids)->conCuota()->distinct()->pluck('alumno_id')->flip();
+        $previas = Asistencia::whereIn('alumno_id', $ids)->where('presente', true)
+            ->whereHas('clase', fn ($q) => $q->where('cancelada', false)->where(fn ($f) =>
+                $f->where('fecha', '<', $clase->fecha->toDateString())->orWhere(fn ($dia) =>
+                    $dia->where('fecha', $clase->fecha->toDateString())->where('hora_inicio', '<', $clase->hora_inicio->format('H:i:s')))))
+            ->selectRaw('alumno_id, COUNT(*) as cantidad')->groupBy('alumno_id')->pluck('cantidad', 'alumno_id');
+        $marcas = Asistencia::where('clase_id', $clase->id)->whereIn('alumno_id', $ids)->get()->keyBy('alumno_id');
+        $justificaciones = ExcepcionCobranza::where('registro_tipo', 'ASISTENCIA')->whereIn('registro_id', $marcas->pluck('id'))
+            ->orderBy('id')->get()->keyBy('registro_id');
+        return $alumnos->mapWithKeys(function ($alumno) use ($estados, $conCuota, $previas, $marcas, $justificaciones) {
+            $nuevo = !$conCuota->has($alumno->id);
+            $estado = $estados[$alumno->id] ?? CobranzaEstadoService::ESTADO_AL_DIA;
+            $tipo = $nuevo ? ((int) $previas->get($alumno->id, 0) >= 2 ? 'ASISTENCIA_NUEVO' : null)
+                : ($estado === CobranzaEstadoService::ESTADO_DEUDOR ? 'ASISTENCIA_DEUDOR' : null);
+            $marca = $marcas->get($alumno->id);
+            $motivo = $marca?->presente ? $justificaciones->get($marca->id)?->motivo : null;
+            return [$alumno->id => ['estado' => $estado, 'nuevo' => $nuevo,
+                'requiere_motivo' => $tipo !== null && !$marca?->presente, 'tipo' => $tipo, 'motivo_guardado' => $motivo,
+                'message' => $nuevo ? 'Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.'
+                    : 'Tiene deuda vencida. Indicá el motivo para dejarlo entrar.']];
+        })->all();
+    }
+
+    public function validarAsistencia(array $condicion, Clase $clase, int $alumnoId, ?string $motivo): array
+    {
+        if (!$condicion['requiere_motivo']) return [];
+        $detalle = ['tipos' => [$condicion['tipo']], 'clase_id' => $clase->id, 'alumno_id' => $alumnoId,
+            'estado' => $condicion['estado'], 'message' => $condicion['message']];
+        if (trim((string) $motivo) === '') throw new ExcepcionCobranzaRequerida($detalle);
+        $this->exigirMotivo($motivo);
+        return $detalle;
+    }
+
     /** Se llama bajo el bloqueo del alumno y antes de aplicar el pago. */
     public function validarCobro(int $alumnoId, array $items, array $precios, array $punitorios, ?string $motivo): array
     {
@@ -60,8 +102,12 @@ class ExcepcionCobranzaService
         if (DB::transactionLevel() === 0) throw new \LogicException('La excepción se guarda dentro de la acción.');
         $this->exigirMotivo($motivo);
         foreach ($detalle['tipos'] as $tipo) {
-            ExcepcionCobranza::firstOrCreate(['tipo' => $tipo, 'registro_tipo' => $registroTipo, 'registro_id' => $registroId],
-                ['alumno_id' => $alumnoId, 'autor_id' => $autorId, 'motivo' => trim($motivo), 'ocurrida_at' => now(), 'contexto' => $detalle]);
+            $origen = ['tipo' => $tipo, 'registro_tipo' => $registroTipo, 'registro_id' => $registroId];
+            $decision = ['alumno_id' => $alumnoId, 'autor_id' => $autorId, 'motivo' => trim($motivo), 'ocurrida_at' => now(), 'contexto' => $detalle];
+            // Reenviar una lista sin cambios no llama guardar. Si después se pasó
+            // a ausente y se vuelve a admitir, es otra decisión y conserva ambas.
+            if ($registroTipo === 'ASISTENCIA') ExcepcionCobranza::create($origen + $decision);
+            else ExcepcionCobranza::firstOrCreate($origen, $decision);
         }
     }
 

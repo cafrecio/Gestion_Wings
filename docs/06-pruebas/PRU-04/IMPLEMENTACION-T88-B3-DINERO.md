@@ -59,3 +59,10 @@ Todas las ejecuciones propias usan `APP_ENV=testing`, `DB_DATABASE=wings_testing
 ## Entrega
 
 T88 se entrega `a_verificar`, hizoCodex, verificaClaude, tieneClaude. B3 sigue `en_curso` hasta terminar asistencia. La tabla de pruebas externa y su copia no se modifican. Se invierten solo los dos casos técnicos solicitados; el producto y las pruebas T65 se preservan fuera del commit propio. El tablero compartido conserva también el estado T65 que Gemini ya movió a revisión; no se le atribuye esa implementación a Codex. T87 ya estaba commiteada. Sin push manual ni despliegue. Sintaxis PHP/JS y compilación Blade comprobadas; build Vite correcto. Ver `auditoria.json` para fuentes, resultados e imágenes definitivas.
+
+**Actualización al terminar asistencia,27/10/2026:** B3 también se entrega
+`a_verificar`, hizoCodex, verificaClaude, tieneClaude. La última rápida pasa1011
+casos y omite6; la completa pasa1130 y omite6,9454 aserciones,962,45s, salida0,
+corte1136. Los resultados anteriores de este informe conservan su corte, incluido
+el rojo de la primera completa. [Segunda entrega y evidencia conjunta](IMPLEMENTACION-B3-ASISTENCIA.md).
+Aspecto de ambas galerías pendiente de Carlos; sin despliegue.

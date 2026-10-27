@@ -1,0 +1,21 @@
+
+   PASS  Tests\Feature\B3AsistenciaTest
+  ✓ nuevo tiene dos clases de margen aunque su estado sea deudor                                                11.83s
+  ✓ tercera clase nuevo sin motivo rechaza sin guardar                                                           0.06s
+  ✓ tercera con motivo guarda autor alumno registro y no notifica individualmente                                0.43s
+  ✓ deudor con historia necesita motivo y permite con el                                                         0.08s
+  ✓ moroso con historia entra sin justificar y se ve su condicion                                                0.21s
+  ✓ un pago de cuota parcial termina la condicion de nuevo                                                       0.08s
+  ✓ pagar solo inscripcion no elude el control de primera cuota                                                  0.07s
+  ✓ rechazo de segundo alumno revierte toda la lista                                                             0.05s
+  ✓ motivo blanco y mayor de 500 rechazados                                                                      0.05s
+  ✓ reenviar lista guardada no duplica ni reescribe el motivo                                                    0.08s
+  ✓ ausente no necesita motivo y ausente a presente si                                                           0.17s
+  ✓ exceso de plan solo conserva la anotacion recupera                                                           0.07s
+  ✓ lista muestra condicion de cada alumno sin contador de nuevo                                                 0.14s
+  ✓ admin operativa y profesora pueden justificar sin cambiar permisos                                           0.18s
+  ✓ un motivo no habilita clases canceladas ni futuras                                                           0.08s
+
+  Tests:    15 passed (68 assertions)
+  Duration: 13.72s
+

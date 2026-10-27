@@ -1,0 +1,1157 @@
+
+   FAIL  Tests\Feature\B3AsistenciaTest
+  ✓ nuevo tiene dos clases de margen aunque su estado sea deudor                                                13.73s
+  ⨯ tercera clase nuevo sin motivo rechaza sin guardar                                                           0.07s
+  ⨯ tercera con motivo guarda autor alumno registro y no notifica individualmente                                0.13s
+  ⨯ deudor con historia necesita motivo y permite con el                                                         0.06s
+  ⨯ moroso con historia entra sin justificar y se ve su condicion                                                0.09s
+  ✓ un pago de cuota parcial termina la condicion de nuevo                                                       0.07s
+  ⨯ pagar solo inscripcion no elude el control de primera cuota                                                  0.06s
+  ⨯ rechazo de segundo alumno revierte toda la lista                                                             0.10s
+  ⨯ motivo blanco y mayor de 500 rechazados                                                                      0.06s
+  ⨯ reenviar lista guardada no duplica ni reescribe el motivo                                                    0.07s
+  ⨯ ausente no necesita motivo y ausente a presente si                                                           0.06s
+  ✓ exceso de plan solo conserva la anotacion recupera                                                           0.04s
+  ⨯ lista muestra condicion de cada alumno sin contador de nuevo                                                 0.09s
+  ⨯ admin operativa y profesora pueden justificar sin cambiar permisos                                           0.08s
+  ✓ un motivo no habilita clases canceladas ni futuras                                                           0.07s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > tercera clase nuevo sin motivo rechaza sin guardar
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:86
+     82▕     public function test_tercera_clase_nuevo_sin_motivo_rechaza_sin_guardar(): void
+     83▕     {
+     84▕         $a = $this->alumno();
+     85▕         $this->previas($a, 2);
+  ➜  86▕         $this->marcar($a)->assertUnprocessable()->assertJsonPath('requiere_motivo', true);
+     87▕         $this->assertDatabaseMissing('asistencias', ['clase_id' => $this->clase->id, 'alumno_id' => $a->id]);
+     88▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+     89▕     }
+     90▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > tercera con motivo guarda autor alumno registro…   ModelNotFoundException
+  No query results for model [App\Models\ExcepcionCobranza].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:821
+    817▕     {
+    818▕         try {
+    819▕             return $this->baseSole($columns);
+    820▕         } catch (RecordsNotFoundException) {
+  ➜ 821▕             throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    822▕         }
+    823▕     }
+    824▕
+    825▕     /**
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:821
+  2   vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > deudor con historia necesita motivo y permite con el
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:112
+    108▕
+    109▕     public function test_deudor_con_historia_necesita_motivo_y_permite_con_el(): void
+    110▕     {
+    111▕         $a = $this->alumno(true, '2026-09');
+  ➜ 112▕         $this->marcar($a)->assertUnprocessable();
+    113▕         $this->marcar($a, 'Acuerdo de pago con el dueño.')->assertOk();
+    114▕         $this->assertDatabaseHas('excepciones_cobranza', ['tipo' => 'ASISTENCIA_DEUDOR', 'alumno_id' => $a->id]);
+    115▕     }
+    116▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > moroso con historia entra sin justificar y se ve su condicion
+  Expected: <!DOCTYPE html>\n
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">\n
+<head>\n
+    <meta charset="utf-8">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\n
+    <meta name="csrf-token" content="Xnd8V1K3QcZqBN0PlCqMO0LBaqWELuEGcT6NGnYs">\n
+    <title>Martes 27 de octubre de 2026 — Patín B3 — B3 – Wings</title>\n
+    <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">\n
+    <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">\n
+    <link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png">\n
+    <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">\n
+    <link rel="manifest" href="http://gestion-wings/site.webmanifest">\n
+    <meta name="theme-color" content="#0F172A">\n
+    <link rel="preload" as="style" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-DOC7vG8b.js" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /><script type="module" src="http://gestion-wings/build/assets/app-DOC7vG8b.js"></script></head>\n
+<body>\n
+\n
+<div class="ds-layout">\n
+\n
+    \n
+    <aside class="ds-sidebar">\n
+\n
+        \n
+        <div class="ds-brand">\n
+            <a href="/" class="ds-brand__link">\n
+                <img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo">\n
+                <span class="ds-brand__name">Wings</span>\n
+            </a>\n
+        </div>\n
+\n
+        \n
+        <nav class="flex flex-col gap-0.5">\n
+            \n
+                \n
+                    \n
+                    <a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ds-nav-link--active">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>\n
+                        </svg>\n
+                        Clases\n
+                    </a>\n
+                    \n
+                                    </nav>\n
+\n
+    </aside>\n
+\n
+    \n
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>\n
+\n
+    \n
+    <div class="ds-main">\n
+\n
+        \n
+        <div class="ds-topbar">\n
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">\n
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">\n
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>\n
+                        </svg>\n
+                    </button>\n
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Otis Watsica</span>\n
+                </div>\n
+                <form method="POST" action="http://gestion-wings/logout">\n
+                    <input type="hidden" name="_token" value="Xnd8V1K3QcZqBN0PlCqMO0LBaqWELuEGcT6NGnYs" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            >\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    </button>\n
+\n
+                </form>\n
+                    </div>\n
+\n
+        \n
+                    <header class="ds-module-header">\n
+    <div class="ds-module-header__inner">\n
+                <h1 class="ds-module-header__title">Clase — Patín B3 — B3</h1>\n
+    </div>\n
+</header>\n
+        \n
+        \n
+        <main class="ds-content">\n
+\n
+            \n
+            \n
+            \n
+\n
+<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">\n
+    <div style="display:flex;">\n
+\n
+        \n
+        <div style="width:6px; flex-shrink:0; background:var(--color-sport-patin);"></div>\n
+\n
+        <div style="flex:1; padding:1.25rem 1.5rem;">\n
+\n
+            \n
+            <div style="display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem;">\n
+                <h2 style="font-size:1.1rem; font-weight:800; color:var(--color-text); margin:0; text-transform:capitalize;">\n
+                    Martes 27 de octubre de 2026\n
+                </h2>\n
+                <span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);">\n
+                    18:00 – 19:00\n
+                </span>\n
+            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem;">\n
+                <span style="font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;\n
+                             background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent);\n
+                             color:var(--color-sport-patin); white-space:nowrap;">\n
+                    Patín B3\n
+                </span>\n
+                <span style="font-size:0.88rem; font-weight:600; color:var(--color-text);">\n
+                    Patín B3 — B3\n
+                </span>\n
+            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;">\n
+                <span id="texto-profesores" style="font-size:0.8rem; color:var(--color-text-muted);">\n
+                                            B3, Profesora\n
+                                    </span>\n
+                            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:1rem;">\n
+                                    <span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;\n
+                                 background:color-mix(in srgb, var(--color-success) 15%, transparent);\n
+                                 color:var(--color-success);">Activa</span>\n
+                                            </div>\n
+\n
+            \n
+            <div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto">\n
+\n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                <a href="http://gestion-wings/clases"\n
+                   style="display:inline-flex; align-items:center; justify-content:center;\n
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                          text-decoration:none; border:none; font-family:inherit;\n
+                          background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                    Volver\n
+                </a>\n
+            </div>\n
+\n
+        </div>\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+\n
+<div id="panel-cancelar" style="display:none; margin-bottom:12px;">\n
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));\n
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);\n
+                border-radius:var(--radius-card);">\n
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">\n
+            Indicá el motivo de cancelación\n
+        </p>\n
+        <div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">\n
+            <input type="text" id="input-motivo-cancelacion"\n
+                   placeholder="Ej: Feriado, Pista insegura, Lluvia..."\n
+                   maxlength="255"\n
+                   style="flex:1; min-width:220px; padding:8px 12px; font-size:0.82rem;\n
+                          border:1px solid var(--color-border); border-radius:var(--radius-btn);\n
+                          background:var(--color-surface); color:var(--color-text); font-family:inherit;">\n
+            <button id="btn-confirmar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-danger); color:var(--color-surface);">\n
+                Cancelar esta\n
+            </button>\n
+                        <button id="btn-cerrar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                Cerrar\n
+            </button>\n
+        </div>\n
+        <span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"></span>\n
+    </div>\n
+</div>\n
+\n
+\n
+<div id="panel-profesores" style="display:none; margin-bottom:12px;">\n
+    <div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);\n
+                border:1px solid var(--color-border); border-radius:var(--radius-card);">\n
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;">\n
+            Profesores asignados a esta clase <span class="form-required">*</span>\n
+        </p>\n
+        <p class="text-xs mb-2 text-wings-muted">Seleccioná al menos una profesora activa del deporte.</p>\n
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;">\n
+                            <label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;\n
+                              cursor:pointer; user-select:none;">\n
+                    <input type="checkbox"\n
+                           class="prof-checkbox"\n
+                           value="5"\n
+                           checked\n
+                           style="width:16px; height:16px; cursor:pointer; accent-color:var(--color-btn-primary);">\n
+                    B3, Profesora\n
+                </label>\n
+                    </div>\n
+                <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;">\n
+            <button id="btn-guardar-profesores" class="accion-movil-principal"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-primary); color:var(--color-surface);">\n
+                Guardar\n
+            </button>\n
+            <button id="btn-cerrar-profesores"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                Cancelar\n
+            </button>\n
+            <span id="flash-profesores" style="display:none; font-size:0.78rem; font-weight:600;"></span>\n
+        </div>\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+\n
+<div class="stats-bar mb-3">\n
+    <div class="stats-info">\n
+        <strong>1</strong> alumnos en el grupo\n
+        &nbsp;·&nbsp;\n
+                <span id="contador-presentes"><strong>1</strong></span> presentes\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-6"\n
+     data-alumno-id="6"\n
+     data-plan="1"\n
+     data-asistencias-semana="1"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            background:color-mix(in srgb, var(--color-success) 8%, var(--color-surface));\n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--warning flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888001, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-warning);">\n
+                            1/1\n
+                             (Completo)                         </span>\n
+                                                                <span>· DNI …001</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-6">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-6"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="6"\n
+                           checked\n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-6"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-6"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+\n
+<div id="toast-asistencias"\n
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);\n
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);\n
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;\n
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>\n
+\n
+\n
+<div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;">\n
+    <button id="btn-guardar-asistencias"\n
+            \n
+            style="display:inline-flex; align-items:center; justify-content:center;\n
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                   border:none; font-family:inherit;\n
+                   background:var(--color-btn-primary); color:var(--color-surface);">\n
+        Guardar\n
+    </button>\n
+</div>\n
+\n
+\n
+<div id="clase-show-datos" hidden\n
+     data-clase-id="10"\n
+     data-info-semana="{&quot;6&quot;:{&quot;asistencias_semana&quot;:1,&quot;plan_semana&quot;:1,&quot;excede&quot;:false}}"\n
+     data-correccion-asistencia="0"\n
+     data-correccion-profesores="0"></div>\n
+\n
+\n
+        </main>\n
+\n
+        \n
+        <footer class="ds-footer">\n
+            <div class="ds-footer__inner">Wings</div>\n
+        </footer>\n
+\n
+    </div>\n
+\n
+</div>\n
+\n
+    <link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js" /><script type="module" src="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js"></script>\n
+</body>\n
+</html>\n
+
+
+  To contain: Moroso
+
+  at tests\Feature\B3AsistenciaTest.php:122
+    118▕     {
+    119▕         $a = $this->alumno(true, '2026-10');
+    120▕         $this->marcar($a)->assertOk();
+    121▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+  ➜ 122▕         $this->actingAs($this->profesora)->get(route('web.clases.show', $this->clase->id))->assertOk()->assertSee('Moroso');
+    123▕     }
+    124▕
+    125▕     public function test_un_pago_de_cuota_parcial_termina_la_condicion_de_nuevo(): void
+    126▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > pagar solo inscripcion no elude el control de primera cuota
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:139
+    135▕     {
+    136▕         $a = $this->alumno();
+    137▕         $this->previas($a, 2);
+    138▕         $this->pago($a, 0);
+  ➜ 139▕         $this->marcar($a)->assertUnprocessable();
+    140▕     }
+    141▕
+    142▕     public function test_rechazo_de_segundo_alumno_revierte_toda_la_lista(): void
+    143▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > rechazo de segundo alumno revierte toda la lista
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:148
+    144▕         $libre = $this->alumno(true);
+    145▕         $deudor = $this->alumno(true, '2026-09');
+    146▕         $this->actingAs($this->operativa)->postJson(route('web.clases.asistencias', $this->clase->id), ['items' => [
+    147▕             ['alumno_id' => $libre->id, 'presente' => true], ['alumno_id' => $deudor->id, 'presente' => true],
+  ➜ 148▕         ]])->assertUnprocessable();
+    149▕         $this->assertDatabaseCount('asistencias', 0);
+    150▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+    151▕     }
+    152▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > motivo blanco y mayor de 500 rechazados
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:156
+    152▕
+    153▕     public function test_motivo_blanco_y_mayor_de_500_rechazados(): void
+    154▕     {
+    155▕         $a = $this->alumno(true, '2026-09');
+  ➜ 156▕         foreach (['   ', str_repeat('a', 501)] as $motivo) $this->marcar($a, $motivo)->assertUnprocessable();
+    157▕         $this->assertDatabaseCount('asistencias', 0);
+    158▕     }
+    159▕
+    160▕     public function test_reenviar_lista_guardada_no_duplica_ni_reescribe_el_motivo(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > reenviar lista guardada no duplica ni reescribe el motivo
+  Failed asserting that table [excepciones_cobranza] matches expected entries count of 1. Entries found: 0.
+.
+
+  at tests\Feature\B3AsistenciaTest.php:165
+    161▕     {
+    162▕         $a = $this->alumno(true, '2026-09');
+    163▕         $this->marcar($a, 'Primera decisión.')->assertOk();
+    164▕         $this->marcar($a)->assertOk();
+  ➜ 165▕         $this->assertDatabaseCount('excepciones_cobranza', 1);
+    166▕         $this->assertSame('Primera decisión.', ExcepcionCobranza::sole()->motivo);
+    167▕     }
+    168▕
+    169▕     public function test_ausente_no_necesita_motivo_y_ausente_a_presente_si(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > ausente no necesita motivo y ausente a presente si
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:173
+    169▕     public function test_ausente_no_necesita_motivo_y_ausente_a_presente_si(): void
+    170▕     {
+    171▕         $a = $this->alumno(true, '2026-09');
+    172▕         $this->marcar($a, null, false)->assertOk();
+  ➜ 173▕         $this->marcar($a)->assertUnprocessable();
+    174▕         $this->assertFalse(Asistencia::sole()->presente);
+    175▕     }
+    176▕
+    177▕     public function test_exceso_de_plan_solo_conserva_la_anotacion_recupera(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > lista muestra condicion de cada alumno sin contador de nuevo
+  Expected: <!DOCTYPE html>\n
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">\n
+<head>\n
+    <meta charset="utf-8">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\n
+    <meta name="csrf-token" content="cdpqbGAiBBqm8l5WAy2HvhLTJ1y5i5PvCEC0VIP4">\n
+    <title>Martes 27 de octubre de 2026 — Patín B3 — B3 – Wings</title>\n
+    <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">\n
+    <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">\n
+    <link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png">\n
+    <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">\n
+    <link rel="manifest" href="http://gestion-wings/site.webmanifest">\n
+    <meta name="theme-color" content="#0F172A">\n
+    <link rel="preload" as="style" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-DOC7vG8b.js" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="http://gestion-wings/build/assets/app-BUcPTxT2.css" /><script type="module" src="http://gestion-wings/build/assets/app-DOC7vG8b.js"></script></head>\n
+<body>\n
+\n
+<div class="ds-layout">\n
+\n
+    \n
+    <aside class="ds-sidebar">\n
+\n
+        \n
+        <div class="ds-brand">\n
+            <a href="/" class="ds-brand__link">\n
+                <img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo">\n
+                <span class="ds-brand__name">Wings</span>\n
+            </a>\n
+        </div>\n
+\n
+        \n
+        <nav class="flex flex-col gap-0.5">\n
+            \n
+                \n
+                    \n
+                    <a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ds-nav-link--active">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>\n
+                        </svg>\n
+                        Clases\n
+                    </a>\n
+                    \n
+                                    </nav>\n
+\n
+    </aside>\n
+\n
+    \n
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>\n
+\n
+    \n
+    <div class="ds-main">\n
+\n
+        \n
+        <div class="ds-topbar">\n
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">\n
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">\n
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>\n
+                        </svg>\n
+                    </button>\n
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Sarai Wuckert</span>\n
+                </div>\n
+                <form method="POST" action="http://gestion-wings/logout">\n
+                    <input type="hidden" name="_token" value="cdpqbGAiBBqm8l5WAy2HvhLTJ1y5i5PvCEC0VIP4" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            >\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    </button>\n
+\n
+                </form>\n
+                    </div>\n
+\n
+        \n
+                    <header class="ds-module-header">\n
+    <div class="ds-module-header__inner">\n
+                <h1 class="ds-module-header__title">Clase — Patín B3 — B3</h1>\n
+    </div>\n
+</header>\n
+        \n
+        \n
+        <main class="ds-content">\n
+\n
+            \n
+            \n
+            \n
+\n
+<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">\n
+    <div style="display:flex;">\n
+\n
+        \n
+        <div style="width:6px; flex-shrink:0; background:var(--color-sport-patin);"></div>\n
+\n
+        <div style="flex:1; padding:1.25rem 1.5rem;">\n
+\n
+            \n
+            <div style="display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem;">\n
+                <h2 style="font-size:1.1rem; font-weight:800; color:var(--color-text); margin:0; text-transform:capitalize;">\n
+                    Martes 27 de octubre de 2026\n
+                </h2>\n
+                <span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);">\n
+                    18:00 – 19:00\n
+                </span>\n
+            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem;">\n
+                <span style="font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;\n
+                             background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent);\n
+                             color:var(--color-sport-patin); white-space:nowrap;">\n
+                    Patín B3\n
+                </span>\n
+                <span style="font-size:0.88rem; font-weight:600; color:var(--color-text);">\n
+                    Patín B3 — B3\n
+                </span>\n
+            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;">\n
+                <span id="texto-profesores" style="font-size:0.8rem; color:var(--color-text-muted);">\n
+                                            B3, Profesora\n
+                                    </span>\n
+                            </div>\n
+\n
+            \n
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:1rem;">\n
+                                    <span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;\n
+                                 background:color-mix(in srgb, var(--color-success) 15%, transparent);\n
+                                 color:var(--color-success);">Activa</span>\n
+                                            </div>\n
+\n
+            \n
+            <div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto">\n
+\n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                \n
+                <a href="http://gestion-wings/clases"\n
+                   style="display:inline-flex; align-items:center; justify-content:center;\n
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                          text-decoration:none; border:none; font-family:inherit;\n
+                          background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                    Volver\n
+                </a>\n
+            </div>\n
+\n
+        </div>\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+\n
+<div id="panel-cancelar" style="display:none; margin-bottom:12px;">\n
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));\n
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);\n
+                border-radius:var(--radius-card);">\n
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">\n
+            Indicá el motivo de cancelación\n
+        </p>\n
+        <div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">\n
+            <input type="text" id="input-motivo-cancelacion"\n
+                   placeholder="Ej: Feriado, Pista insegura, Lluvia..."\n
+                   maxlength="255"\n
+                   style="flex:1; min-width:220px; padding:8px 12px; font-size:0.82rem;\n
+                          border:1px solid var(--color-border); border-radius:var(--radius-btn);\n
+                          background:var(--color-surface); color:var(--color-text); font-family:inherit;">\n
+            <button id="btn-confirmar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-danger); color:var(--color-surface);">\n
+                Cancelar esta\n
+            </button>\n
+                        <button id="btn-cerrar-cancelar"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                Cerrar\n
+            </button>\n
+        </div>\n
+        <span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"></span>\n
+    </div>\n
+</div>\n
+\n
+\n
+<div id="panel-profesores" style="display:none; margin-bottom:12px;">\n
+    <div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);\n
+                border:1px solid var(--color-border); border-radius:var(--radius-card);">\n
+        <p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;">\n
+            Profesores asignados a esta clase <span class="form-required">*</span>\n
+        </p>\n
+        <p class="text-xs mb-2 text-wings-muted">Seleccioná al menos una profesora activa del deporte.</p>\n
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;">\n
+                            <label style="display:flex; align-items:center; gap:6px; font-size:0.82rem;\n
+                              cursor:pointer; user-select:none;">\n
+                    <input type="checkbox"\n
+                           class="prof-checkbox"\n
+                           value="13"\n
+                           checked\n
+                           style="width:16px; height:16px; cursor:pointer; accent-color:var(--color-btn-primary);">\n
+                    B3, Profesora\n
+                </label>\n
+                    </div>\n
+                <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;">\n
+            <button id="btn-guardar-profesores" class="accion-movil-principal"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-primary); color:var(--color-surface);">\n
+                Guardar\n
+            </button>\n
+            <button id="btn-cerrar-profesores"\n
+                    style="display:inline-flex; align-items:center; justify-content:center;\n
+                           width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                           border:none; font-family:inherit;\n
+                           background:var(--color-btn-secondary); color:var(--color-surface);">\n
+                Cancelar\n
+            </button>\n
+            <span id="flash-profesores" style="display:none; font-size:0.78rem; font-weight:600;"></span>\n
+        </div>\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+\n
+<div class="stats-bar mb-3">\n
+    <div class="stats-info">\n
+        <strong>5</strong> alumnos en el grupo\n
+        &nbsp;·&nbsp;\n
+                <span id="contador-presentes"><strong>0</strong></span> presentes\n
+    </div>\n
+</div>\n
+\n
+\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-15"\n
+     data-alumno-id="15"\n
+     data-plan="1"\n
+     data-asistencias-semana="1"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--warning flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888001, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-warning);">\n
+                            1/1\n
+                             (Completo)                         </span>\n
+                                                                <span>· DNI …001</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-15">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-15"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="15"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-15"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-15"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-16"\n
+     data-alumno-id="16"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888002, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-success);">\n
+                            0/1\n
+                                                    </span>\n
+                                                                <span>· DNI …002</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-16">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-16"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="16"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-16"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-16"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-17"\n
+     data-alumno-id="17"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888003, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-success);">\n
+                            0/1\n
+                                                    </span>\n
+                                                                <span>· DNI …003</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-17">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-17"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="17"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-17"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-17"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-18"\n
+     data-alumno-id="18"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888004, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-success);">\n
+                            0/1\n
+                                                    </span>\n
+                                                                <span>· DNI …004</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-18">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-18"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="18"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-18"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-18"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"\n
+     id="card-19"\n
+     data-alumno-id="19"\n
+     data-plan="1"\n
+     data-asistencias-semana="0"\n
+     style="margin-bottom:10px; padding: 10px 14px;\n
+            \n
+            \n
+            transition: background 200ms ease;">\n
+\n
+    <div class="flex items-center justify-between gap-3">\n
+            <div class="min-w-0 flex-1">\n
+                <div class="flex items-center gap-2">\n
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>\n
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">\n
+                        B3 33888005, Alumno\n
+                    </span>\n
+                </div>\n
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">\n
+                                            <span style="font-weight:600; color:var(--color-success);">\n
+                            0/1\n
+                                                    </span>\n
+                                                                <span>· DNI …005</span>\n
+                                                        </div>\n
+            </div>\n
+\n
+            <div class="flex-shrink-0">\n
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"\n
+                       for="presente-19">\n
+                    <span class="hidden sm:inline">Presente</span>\n
+                    <input type="checkbox"\n
+                           id="presente-19"\n
+                           class="presente-checkbox"\n
+                           data-alumno-id="19"\n
+                           \n
+                           \n
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">\n
+                </label>\n
+            </div>\n
+        </div>\n
+\n
+        \n
+        <div id="exceso-19"\n
+             style="display:none; margin-top:8px; padding:8px 12px;\n
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);\n
+                    border-radius:var(--radius-btn);\n
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">\n
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;\n
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">\n
+                Excede el plan — indicar motivo\n
+            </span>\n
+            <select id="motivo-19"\n
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);\n
+                           border:1px solid var(--color-border); background:var(--color-surface);\n
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">\n
+                <option value="EXTRA">Clase adicional (EXTRA)</option>\n
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>\n
+            </select>\n
+        </div>\n
+\n
+    </div>\n
+\n
+\n
+<div id="toast-asistencias"\n
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);\n
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);\n
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;\n
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>\n
+\n
+\n
+<div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;">\n
+    <button id="btn-guardar-asistencias"\n
+            \n
+            style="display:inline-flex; align-items:center; justify-content:center;\n
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;\n
+                   border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;\n
+                   border:none; font-family:inherit;\n
+                   background:var(--color-btn-primary); color:var(--color-surface);">\n
+        Guardar\n
+    </button>\n
+</div>\n
+\n
+\n
+<div id="clase-show-datos" hidden\n
+     data-clase-id="23"\n
+     data-info-semana="{&quot;15&quot;:{&quot;asistencias_semana&quot;:1,&quot;plan_semana&quot;:1,&quot;excede&quot;:false},&quot;16&quot;:{&quot;asistencias_semana&quot;:0,&quot;plan_semana&quot;:1,&quot;excede&quot;:false},&quot;17&quot;:{&quot;asistencias_semana&quot;:0,&quot;plan_semana&quot;:1,&quot;excede&quot;:false},&quot;18&quot;:{&quot;asistencias_semana&quot;:0,&quot;plan_semana&quot;:1,&quot;excede&quot;:false},&quot;19&quot;:{&quot;asistencias_semana&quot;:0,&quot;plan_semana&quot;:1,&quot;excede&quot;:false}}"\n
+     data-correccion-asistencia="0"\n
+     data-correccion-profesores="0"></div>\n
+\n
+\n
+        </main>\n
+\n
+        \n
+        <footer class="ds-footer">\n
+            <div class="ds-footer__inner">Wings</div>\n
+        </footer>\n
+\n
+    </div>\n
+\n
+</div>\n
+\n
+    <link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js" /><script type="module" src="http://gestion-wings/build/assets/clases-show-C-KXJgcd.js"></script>\n
+</body>\n
+</html>\n
+
+
+  To contain: Nuevo
+
+  at tests\Feature\B3AsistenciaTest.php:197
+    193▕         $this->alumno(true, '2026-10');
+    194▕         $this->alumno(true, '2026-10', '2026-10-26');
+    195▕         $this->alumno(true);
+    196▕         $this->actingAs($this->profesora)->get(route('web.clases.show', $this->clase->id))
+  ➜ 197▕             ->assertOk()->assertSee('Nuevo')->assertSee('Deudor')->assertSee('Moroso')->assertSee('En plazo')->assertSee('Al día')
+    198▕             ->assertDontSee('asistencias_nuevo')->assertDontSee('tercera clase')->assertDontSee('3ª');
+    199▕     }
+    200▕
+    201▕     public function test_admin_operativa_y_profesora_pueden_justificar_sin_cambiar_permisos(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > admin operativa y profesora pueden justificar sin cambiar permisos
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:205
+    201▕     public function test_admin_operativa_y_profesora_pueden_justificar_sin_cambiar_permisos(): void
+    202▕     {
+    203▕         foreach ([$this->admin, $this->operativa, $this->profesora] as $user) {
+    204▕             $a = $this->alumno(true, '2026-09');
+  ➜ 205▕             $this->marcar($a, null, true, $user)->assertUnprocessable();
+    206▕             $this->marcar($a, 'Acuerdo autorizado.', true, $user)->assertOk();
+    207▕             $this->assertDatabaseHas('excepciones_cobranza', ['autor_id' => $user->id, 'alumno_id' => $a->id]);
+    208▕         }
+    209▕     }
+
+
+  Tests:    11 failed, 4 passed (32 assertions)
+  Duration: 14.94s
+

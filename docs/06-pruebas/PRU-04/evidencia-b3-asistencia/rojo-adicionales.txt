@@ -1,0 +1,67 @@
+
+   FAIL  Tests\Feature\B3AsistenciaTest
+  ⨯ volver a admitir despues de ausente conserva ambas decisiones                                               12.27s
+  ⨯ fallo posterior revierte asistencia y excepcion juntas                                                       0.08s
+  ✓ una marca presente sin cambios no se justifica retroactivamente                                              0.08s
+  ⨯ los dos tipos de asistencia van juntos al resumen diario                                                     0.10s
+  ✓ ausencias y clases posteriores no consumen el margen del nuevo                                               0.06s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > volver a admitir despues de ausente conserva ambas decisiones
+  Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+  at tests\Feature\B3AsistenciaTest.php:227
+    223▕     {
+    224▕         $a = $this->alumno(true, '2026-09');
+    225▕         $this->marcar($a, 'Primer acuerdo.')->assertOk();
+    226▕         $this->marcar($a, null, false)->assertOk();
+  ➜ 227▕         $this->marcar($a)->assertUnprocessable();
+    228▕         $this->marcar($a, 'Segundo acuerdo.', true, $this->profesora)->assertOk();
+    229▕         $filas = ExcepcionCobranza::orderBy('id')->get();
+    230▕         $this->assertCount(2, $filas);
+    231▕         $this->assertSame(['Primer acuerdo.', 'Segundo acuerdo.'], $filas->pluck('motivo')->all());
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > fallo posterior revierte asistencia y excepcion juntas
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Fallo posterior a la decisión B3'
++'Failed asserting that table [excepciones_cobranza] matches expected entries count of 1. Entries found: 0.
++.'
+
+  at tests\Feature\B3AsistenciaTest.php:253
+    249▕         try {
+    250▕             $this->marcar($a, 'Admisión que fallará después.');
+    251▕             $this->fail('Debía fallar después de registrar la excepción.');
+    252▕         } catch (\RuntimeException $error) {
+  ➜ 253▕             $this->assertSame('Fallo posterior a la decisión B3', $error->getMessage());
+    254▕         }
+    255▕         $this->assertDatabaseCount('asistencias', 0);
+    256▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+    257▕     }
+
+  1   tests\Feature\B3AsistenciaTest.php:253
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3AsistenciaTest > los dos tipos de asistencia van juntos al resumen diario
+  Failed asserting that false is true.
+
+  at tests\Feature\B3AsistenciaTest.php:275
+    271▕         $deudor = $this->alumno(true, '2026-09');
+    272▕         $this->marcar($nuevo, 'Se registra el primer pago al salir.')->assertOk();
+    273▕         $this->marcar($deudor, 'Acuerdo de pago.')->assertOk();
+    274▕         Notification::assertNothingSent();
+  ➜ 275▕         $this->assertTrue(app(\App\Services\AvisoAdminService::class)->resumenDiario());
+    276▕         Notification::assertSentTo($this->admin, \App\Notifications\AvisoOperativo::class, function ($aviso) {
+    277▕             $texto = $aviso->toArray($this->admin)['datos']['Excepciones justificadas (últimas 24 horas)'];
+    278▕             return str_contains($texto, 'Alumno nuevo sin primer pago: 1') && str_contains($texto, 'Asistencia de alumno deudor: 1');
+    279▕         });
+
+  1   tests\Feature\B3AsistenciaTest.php:275
+
+
+  Tests:    3 failed, 2 passed (13 assertions)
+  Duration: 12.74s
+

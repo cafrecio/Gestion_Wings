@@ -362,6 +362,9 @@
     $planSemana   = $info['plan_semana'];
     $asisSemana   = $info['asistencias_semana'];
     $excede       = $info['excede'];
+    $condicion    = $condicionesCobranza[$alumno->id];
+    $estadoTexto  = ['AL_DIA' => 'Al día', 'EN_PLAZO' => 'En plazo', 'MOROSO' => 'Moroso', 'DEUDOR' => 'Deudor'][$condicion['estado']];
+    $motivoGuardado = $condicion['motivo_guardado'];
 
     if (!$planSemana)                   $dotEstado = 'neutral';
     elseif ($excede)                    $dotEstado = 'danger';
@@ -372,6 +375,8 @@
 <div class="alumno-card alumno-card--{{ $rail }} alumno-asistencia-card"
      id="card-{{ $alumno->id }}"
      data-alumno-id="{{ $alumno->id }}"
+     data-requiere-excepcion="{{ $condicion['requiere_motivo'] ? '1' : '0' }}"
+     data-motivo-guardado="{{ $motivoGuardado ? '1' : '0' }}"
      data-plan="{{ $planSemana ?? 0 }}"
      data-asistencias-semana="{{ $asisSemana }}"
      style="margin-bottom:10px; padding: 10px 14px;
@@ -387,6 +392,12 @@
                         {{ $alumno->apellido }}, {{ $alumno->nombre }}
                     </span>
                 </div>
+                <p class="text-xs mt-1" style="margin-left:14px; color:var(--color-text-muted);" data-condicion-cobranza>
+                    {{ $condicion['nuevo'] ? 'Nuevo · ' : '' }}{{ $estadoTexto }}
+                </p>
+                <p class="text-xs mt-1" style="margin-left:14px; color:var(--color-warning);" data-aviso-excepcion @if(!$condicion['requiere_motivo']) hidden @endif>
+                    Requiere motivo al marcar presente
+                </p>
                 <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
                     @if($planSemana)
                         <span style="font-weight:600; color:{{ $excede ? 'var(--color-danger)' : ($asisSemana >= $planSemana ? 'var(--color-warning)' : 'var(--color-success)') }};">
@@ -419,6 +430,13 @@
                            style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
                 </label>
             </div>
+        </div>
+
+        <div id="excepcion-asistencia-{{ $alumno->id }}" class="mt-3" @if(!$estaPresente || !$motivoGuardado) hidden @endif>
+            <p class="text-xs text-wings-muted mb-2" data-ayuda-excepcion>{{ $motivoGuardado ? 'Motivo registrado.' : $condicion['message'] }} El dueño lo verá en Inicio y en el resumen diario.</p>
+            <label for="motivo-excepcion-{{ $alumno->id }}" class="text-xs font-semibold">Motivo <span class="form-required">*</span></label>
+            <textarea id="motivo-excepcion-{{ $alumno->id }}" class="wings-input w-full px-4 py-2.5 text-sm mt-1" rows="2" maxlength="500"
+                      placeholder="Motivo para admitir al alumno..." @if($motivoGuardado) readonly @endif>{{ $motivoGuardado }}</textarea>
         </div>
 
         {{-- Panel de exceso --}}
