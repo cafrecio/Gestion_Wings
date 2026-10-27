@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — B3 devuelta: primera carga corregida
+
+[Devolución27/10](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md): ids de primera carga TERMINADA dan historia, no era pregunta pendiente. Dinero aprobado por Claude, sin tocarlo.
+7 permanentes: rojo5/2 antes; área58/292, técnica día21 1/5 y rápida1028/6 omitidas/7983 aserciones/224,98s verdes; contador1153.
+Capturas nuevas1366/375 del HTML real de Wings; sin Blade/CSS/JS. Alta posterior conserva Nuevo y margen; PENDIENTE/sin detalle no exime.
+Otros usos: mes de alta web, API apagada y protección de borrados, sin tocar. Detalle en informe.
+B3 a_verificar para Claude; aspecto pendiente de Carlos. Sin sitio/servidor/base del club, tabla, push manual ni despliegue.
+
 ## 2026-10-27 — Codex CAB — B3 asistencia entregada; T88/B3 a verificar
 
 [Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md), después de dinero17f99d13: condición en lista, margen interno, Nuevo/DEUDOR con motivo; MOROSO sin justificar, EXTRA/RECUPERA fuera de B3.
@@ -71,15 +79,9 @@ Navegador recuperado tras «Fijate ahora»: retomado20.8. Mañanas21/22 simulada
 
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
-## 2026-10-26 — Codex CyE — T83 verificada
-
-Revisado 26e7f559 de Claude.
-VENTAS_CYE: alias 2222; ssh vps hostname devuelve srv1753195.hstgr.cloud, salida 0.
-Script leído; sin reinstalar alias.
-T83 cerrada. Días 17–18 pendientes; no reloj ni rutinas.
-Evidencia: docs/04-tecnico/seguridad-vps/2026-10-26-acceso-ssh-cye/README.md.
-
 
 [Dos entradas anteriores archivadas intactas al iniciar T88/B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-inicio-T88-B3.txt).
 
 [Entrada histórica previa de días17–18 archivada intacta al cerrar B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-cierre-B3.txt).
+
+[T83 archivada intacta al registrar la devolución B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-devolucion-B3.txt).

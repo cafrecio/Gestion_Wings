@@ -1,0 +1,114 @@
+{
+  "estado": "PASS",
+  "resultados": {
+    "rojo": {
+      "tests": 7,
+      "failures": 5,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 33,
+      "exit": 1
+    },
+    "area": {
+      "tests": 58,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 292,
+      "exit": 0
+    },
+    "tecnica-dia21": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 5,
+      "exit": 0
+    },
+    "captura": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 7,
+      "exit": 0
+    },
+    "rapida": {
+      "tests": 1034,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 6,
+      "assertions": 7983,
+      "exit": 0
+    },
+    "documentacion": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assertions": 34,
+      "exit": 0
+    }
+  },
+  "nuevos_verdes": 7,
+  "imagenes": {
+    "lista-1366.png": [
+      1366,
+      1600
+    ],
+    "lista-375.png": [
+      600,
+      1880
+    ],
+    "login-375.png": [
+      600,
+      880
+    ]
+  },
+  "alcance": "Solo condicion de asistencia. Sin cambiar cobros, Blade/CSS/JS ni usar datos del club/servidor.",
+  "archivos": {
+    "actualizar-contador.py": "1b1b3478e684408dbc683964c96e1504430b5c5bda6a1af57096cc5abb17a1bf",
+    "area-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "area.txt": "9f95787076be1afc9e79c6176b7f91f5bd72900c10d013e2d3dce332e11facee",
+    "area.xml": "4eb9d447e5c73039fbfedbf3c1f2e5490682b802cdc7cb7341b524776291aba0",
+    "auditar.py": "9deba5eca2faff841763ecd6a4271eeacad8afa99e48cbd95b6c3ab52b28917e",
+    "captura-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "captura.txt": "edfad1ba649e88bacdce9fd7302ae6d8a2656ad47a483d3bcab20e2d192b4bef",
+    "captura.xml": "c909d0d32926a7b1638a93514516e2d7ce6c04fa7b3ce340d5bdf904b017d7d3",
+    "CapturaB3PrimeraCargaTest.php": "46ecdb497a23b7954e551e25d630ac2e99b5c7583a1c63fd2e33a2b804dc4d38",
+    "cobertura-grafo.json": "0ba6cf20511e073343af0f6b1fedeaaebd5c054ca7311943192114c18c38e942",
+    "contador.json": "53814a4009424021de1e69bafd1a874c672a9b65a7feaa856c9a54636c0e394f",
+    "datos-captura.json": "26e79de73d9efe40c5453dd363436081b9679bc2104dadf7e415ef2708410f69",
+    "documentacion-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "documentacion.txt": "3b766edd706407c52b2f8b2c84da00333a37121da024d23f48b8e64116a3792f",
+    "documentacion.xml": "4ae106ac272ea5b729c524908f2ac66a93ba05a6e7fafd559fd15368707fc30b",
+    "ExcepcionCobranzaService-antes.php": "1c29d1e490d2120130ffcc6766b122b1c92b8c926491e0cc33d4d85789e74919",
+    "fuentes-antes-rapida.json": "b625db7c64936b38b8487b7e2a338bf38f1d89e10e3a566388b4bfa9dcc51a3c",
+    "lista-1366-chrome.txt": "ba77fd3f7992d0a1c2ddae1c10ad778d06bde4f82371fa09485fd36f36aa1cac",
+    "lista-1366.png": "89ff05376282aaddf9d9ffbea3022ac4269662f6705fc8b0e9ef6c98380272a8",
+    "lista-375-chrome.txt": "d67d2c837ba639dbfa42319f413b0962e99c96858d69c76dfe64f02c189985e4",
+    "lista-375.png": "e3d31d5d48c663a3d076c4aa3ccfab4260781cc8ea50dff3c4f1680958001540",
+    "lista-real.html": "0e73a63cbdd5d1c7787c53b7285eec09125bfe17651cb389e83707384eb265b6",
+    "login-375-chrome.txt": "ac7b1124cacd8e5f256cf5f55bcaf67bc75b39d2af8c9fb470ca0e524db794a7",
+    "login-375.png": "0c68e09eb3e606084661176ce7e90b5a51779580c96391d9a4bc8470ec92ccc4",
+    "login-real.html": "592c8c54d52587200908abfd663d7699013e9898ccf9324867448c2a4fc50f59",
+    "marco-lista-375.html": "f9c9208e33e8d7af79ed1edf006ef79e656ee6dccc0dcbcc1738e92419eb5288",
+    "marco-login-375.html": "9963c6142f9b6d47c57e85e236cd398f88c7091a9e653a477a0f0d01aced70eb",
+    "medir-marco.js": "9733c3f11e48994acad1cfa34e73aaa7f0bed6d8ea132072e27a00196663aef7",
+    "preparar-render.py": "bc7abe86ce4be777ce2680b7421b74dd10c97d4c9622ef1d638aca065f870253",
+    "rapida-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "rapida.txt": "c0253b136c1709f21c244b45b23d625d591c4b7308ca94a21f6d94fa7df44393",
+    "rapida.xml": "18fa1fce8405014bb577a766038bf5f66edfd988838d8999659d1c0f318cd59d",
+    "registrar-bitacora.py": "94ca69071b62269d77e87e4fc429cd7f469b0fc39eaff9d86cb44853e6375c1c",
+    "renderizar.ps1": "7ebc66aff59ee5b6fa901845a70a310f23cda981878538177d7e5e3b4dfa568e",
+    "rojo-exit.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "rojo.txt": "ee0037487c95e163331c62c16e767fbe53cea56b4a9657a0fbe64fc2e9a741e0",
+    "rojo.xml": "334fd812c066ae26832f910f2dc9b13d15fbbe08f304f6952a76987862426468",
+    "sintaxis.txt": "cbb11cfa4699a5e14a28c451ad9251dea70b3763c69090d442343126f1fc259f",
+    "t34-preservado.json": "cf1bdf0a2609878461541643a3e624ea5e460d13a46ba7b3df254ff908111d3c",
+    "tecnica-dia21-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "tecnica-dia21.txt": "7b4766d547af34e5ed6dc2fa70d4c53cf4174a7bff7697bb3eee8476d118ea4b",
+    "tecnica-dia21.xml": "a6bcb20b893ffd6165657351f600f7d2f8fdcdcc5eca48ba22a9f5ea649f6760",
+    "vistas.txt": "7138f5f50323c0858d01bd29e8d6e05efef5e4ce21a19cc1925b54e9b5e711cf"
+  }
+}

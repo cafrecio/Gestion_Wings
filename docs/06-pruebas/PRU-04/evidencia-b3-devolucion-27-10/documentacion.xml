@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CLI Arguments" tests="7" assertions="34" errors="0" failures="0" skipped="0" time="0.037722">
+    <testsuite name="Tests\Feature\DocumentacionNoMienteTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\DocumentacionNoMienteTest.php" tests="1" assertions="7" errors="0" failures="0" skipped="0" time="0.019716">
+      <testcase name="test_los_documentos_declaran_la_cantidad_real_de_pruebas" file="C:\xampp\htdocs\gestion-wings\tests\Feature\DocumentacionNoMienteTest.php" line="34" class="Tests\Feature\DocumentacionNoMienteTest" classname="Tests.Feature.DocumentacionNoMienteTest" assertions="7" time="0.019716"/>
+    </testsuite>
+    <testsuite name="Tests\Feature\TableroAlDiaTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" tests="6" assertions="27" errors="0" failures="0" skipped="0" time="0.018006">
+      <testcase name="test_las_tareas_son_validas" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="28" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="1" time="0.008685"/>
+      <testcase name="test_lo_generado_coincide_con_tareas_json" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="33" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="1" time="0.003694"/>
+      <testcase name="test_cada_defecto_del_tablero_esta_en_la_lista_y_al_reves" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="51" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="1" time="0.000700"/>
+      <testcase name="test_cambiar_otro_dato_de_un_cerrado_no_mueve_su_fecha_de_cierre" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="67" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="8" time="0.001207"/>
+      <testcase name="test_al_cerrar_se_guarda_el_dia_del_cierre_y_no_cambia_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="82" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="10" time="0.002840"/>
+      <testcase name="test_cerrar_un_defecto_abierto_marca_el_html_sin_avisos" file="C:\xampp\htdocs\gestion-wings\tests\Feature\TableroAlDiaTest.php" line="109" class="Tests\Feature\TableroAlDiaTest" classname="Tests.Feature.TableroAlDiaTest" assertions="6" time="0.000880"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

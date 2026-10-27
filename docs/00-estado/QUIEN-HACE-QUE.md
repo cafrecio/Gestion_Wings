@@ -50,13 +50,13 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **B3** Las excepciones del contrato no existen | Hecho, espera verificación (hizo Codex, verifica Claude) | Devolucion27/10 corregida: primera_carga.detalle.alumnos TERMINADA da historia, DEUDOR pide motivo de deuda; nuevas altas mantienen margen. Siete permanentes rojas5/2 antes, area58/292 y tecnica dia21 1/5 verdes, rapida1028/6 omitidas. Ver Devolucion27/10 en IMPLEMENTACION-B3-ASISTENCIA.md y capturas APROBAR-B3-PRIMERA-CARGA.html. Sin despliegue. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Carlos 27/10: verifica Codex (no Claude). Hecho por Gemini en 13b85f68. Logica, roles, concurrencia, cascadas (AUD-025) y tablas nuevas de T88/B3; aspecto Carlos. |
-| **B3** Las excepciones del contrato no existen | Devuelto (hizo Codex, verifica Claude) | Devuelta por Claude 27/10 (VERIFICACION-T88-B3-CLAUDE.md). Dinero aprobado en logica. Asistencia: todo alumno de la primera carga es nuevo (sin pagos en Wings) y pide motivo desde la 3a clase; en prueba son 25. Contrato 4, enmienda 06/09: no son nuevos; dato: primera_carga.detalle.alumnos. Prueba roja en evidencia-verificacion-t88-b3-claude. |
 
 ## Gemini
 

@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CapturaB3PrimeraCargaTest
+  ✓ capturar lista de primera carga corregida                                                                   15.57s
+
+  Tests:    1 passed (7 assertions)
+  Duration: 21.63s
+

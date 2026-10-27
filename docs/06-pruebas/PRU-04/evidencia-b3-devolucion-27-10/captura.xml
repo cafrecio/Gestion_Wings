@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CapturaB3PrimeraCargaTest" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-b3-devolucion-27-10\CapturaB3PrimeraCargaTest.php" tests="1" assertions="7" errors="0" failures="0" skipped="0" time="15.565351">
+    <testcase name="test_capturar_lista_de_primera_carga_corregida" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-b3-devolucion-27-10\CapturaB3PrimeraCargaTest.php" line="10" class="Tests\Feature\CapturaB3PrimeraCargaTest" classname="Tests.Feature.CapturaB3PrimeraCargaTest" assertions="7" time="15.565351"/>
+  </testsuite>
+</testsuites>

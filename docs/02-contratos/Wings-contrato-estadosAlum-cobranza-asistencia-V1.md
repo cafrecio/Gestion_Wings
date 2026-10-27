@@ -346,15 +346,23 @@ Implementado el 20/10/2026 por Gemini: `App\Support\ReglasPrimerPagoValidator`, 
 
 No se hace ninguna distinción adicional por antigüedad. Un alumno de dos años y uno de dos meses son lo mismo: alumnos con historia. **Fuera de alcance.**
 
-*Nota técnica: el sistema ya puede derivar esto sin campos nuevos — es "no tiene pagos registrados".*
+*Nota técnica actualizada27/10/2026: para asistencia, nuevo significa que no tiene
+un pago de cuota registrado y no figura en `primera_carga.detalle.alumnos` de una
+carga TERMINADA. No hace falta agregar campos. La carga PENDIENTE o sin detalle
+no concede la condición de alumno con historia.*
 
-### Enmienda pendiente del 06/09 — la carga inicial rompe esta definición
+### Enmienda del 06/09 — los alumnos de la primera carga tienen historia
 
 **Planteado por Carlos el 06/09: los alumnos que se cargan en la primera carga no
 tienen que reconocerse como nuevos.** Tiene razón, y la definición de arriba tal como
 está no lo permite.
 
-**Verificado en el código, no inferido.** `CajaWebController.php:598-607` hace
+**Actualización27/10/2026:** la condición de asistencia usa los ids de la carga
+TERMINADA guardados en `primera_carga.detalle.alumnos`. La regla del06/09 ya estaba
+decidida; la devolución B3 corrige su implementación. El análisis siguiente
+conserva el corte histórico del06/09, no describe el comportamiento actual.
+
+**Observación histórica del06/09.** `CajaWebController.php:598-607` hace
 `$tienePagos = Pago::where('alumno_id', $alumnoId)->exists()` y trata como nuevo a
 todo alumno sin pagos, sin mirar la fecha de alta. La fecha de alta se usa **después**,
 solo para elegir el tramo de descuento.
@@ -611,7 +619,7 @@ certifica el sitio de prueba. Informes por entrega en PRU-04.
 | Fecha de ingreso futura solo hasta fin de mes siguiente | **T50 CERRADA el 21/10/2026, verificación final Codex de 738de598.** Límite y mensaje desde Wings; edición inválida 422; idioma y guardia efectiva/DB_URL aprobados. H1 decidido por Carlos: inscripción desde el alta, cuota futura excluida. Ver informe final. |
 | Reglas de primer pago sin huecos ni superposiciones | ✅ **Implementado (20/10/2026, T64).** Enmienda del 20/10 (DU-45, CFG-004): cobertura obligatoria continua del 1 al 31 con guardado atómico en lote, preservación de IDs y validación de conjunto. |
 | Estado y condición al tomar asistencia | Implementados localmente el 27/10/2026: la lista muestra el estado existente de cobranza junto a cada alumno. MOROSO con historia entra sin motivo. Pendiente de verificación independiente. |
-| Concepto de alumno nuevo en asistencia | Sin un primer pago de cuota registrado (`Pago::conCuota`); una inscripción sola no termina esa condición. La identificación de primera carga del §4 conserva su pregunta pendiente. |
+| Concepto de alumno nuevo en asistencia | Sin un primer pago de cuota registrado (`Pago::conCuota`) y fuera de `primera_carga.detalle.alumnos` de la carga TERMINADA. Una inscripción sola no termina esa condición. Corrección local27/10 tras devolución de Claude; pendiente su nueva verificación. |
 | Contador de clases del alumno nuevo | Interno, calculado con presentes en clases anteriores no canceladas. No cuenta ausencias ni clases posteriores y no se envía en HTML/JSON. Desde la siguiente a las dos de margen, motivo obligatorio. |
 | Justificación al dejar entrar a un DEUDOR con historia | Implementada localmente el 27/10/2026: motivo obligatorio y registro atómico antes de admitir una nueva marca presente. Reenviar marcas sin cambios no crea decisiones retroactivas. Pendiente de verificación independiente. |
 | Exceso de plan | Anotación EXTRA/RECUPERA; fuera de B3 por DU-34. No se agrega motivo libre. |
@@ -625,8 +633,9 @@ alumno y registro de origen. La corrección de una lista y el cambio de profesor
 conservan sus motivos propios; EXTRA/RECUPERA queda fuera de B3. Los dos casos de
 asistencia están incluidos en la segunda entrega. Se conservan las decisiones
 anteriores si se vuelve a admitir tras una ausencia; no se duplica al reenviar una
-marca sin cambios. Quedan abiertas las preguntas de primera carga, el corte
-financiero histórico y el tratamiento de avisos de orígenes anulados/corregidos;
+marca sin cambios. La primera carga tiene historia por la enmienda del06/09;
+su identificación por ids está corregida localmente el27/10. Quedan abiertas las
+preguntas del corte financiero histórico y los avisos de orígenes anulados/corregidos;
 no se inventan esas políticas. [Entrega dinero](../06-pruebas/PRU-04/IMPLEMENTACION-T88-B3-DINERO.md)
 · [Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md).
 

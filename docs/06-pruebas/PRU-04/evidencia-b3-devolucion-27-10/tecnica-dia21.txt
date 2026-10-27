@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\SeguridadDiasPruebaTest
+  ✓ dia 21 el servidor rechaza pago parcial sin motivo                                                          20.99s
+
+  Tests:    1 passed (5 assertions)
+  Duration: 21.20s
+

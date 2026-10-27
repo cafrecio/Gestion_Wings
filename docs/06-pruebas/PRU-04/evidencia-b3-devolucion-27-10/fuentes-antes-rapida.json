@@ -1,0 +1,10 @@
+[
+  {
+    "path": "app/Services/ExcepcionCobranzaService.php",
+    "sha256": "3B92F6423D9D840B1AB65A2F66F819C43BFE7D3655C116D4F11D02DCC9327F4D"
+  },
+  {
+    "path": "tests/Feature/B3PrimeraCargaTest.php",
+    "sha256": "A48DDAFAA5638BB8974656B8E49327794C246DEBEDCACB1A979ABB8A4741298F"
+  }
+]

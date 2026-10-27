@@ -1,0 +1,52 @@
+{
+    "base": "wings_testing_codex",
+    "primera_carga": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "posterior": 5,
+    "condiciones": {
+        "1": {
+            "estado": "AL_DIA",
+            "nuevo": false,
+            "requiere_motivo": false,
+            "tipo": null,
+            "motivo_guardado": null,
+            "message": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar."
+        },
+        "2": {
+            "estado": "DEUDOR",
+            "nuevo": false,
+            "requiere_motivo": true,
+            "tipo": "ASISTENCIA_DEUDOR",
+            "motivo_guardado": null,
+            "message": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar."
+        },
+        "3": {
+            "estado": "MOROSO",
+            "nuevo": false,
+            "requiere_motivo": false,
+            "tipo": null,
+            "motivo_guardado": null,
+            "message": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar."
+        },
+        "4": {
+            "estado": "EN_PLAZO",
+            "nuevo": false,
+            "requiere_motivo": false,
+            "tipo": null,
+            "motivo_guardado": null,
+            "message": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar."
+        },
+        "5": {
+            "estado": "EN_PLAZO",
+            "nuevo": true,
+            "requiere_motivo": true,
+            "tipo": "ASISTENCIA_NUEVO",
+            "motivo_guardado": null,
+            "message": "Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar."
+        }
+    }
+}

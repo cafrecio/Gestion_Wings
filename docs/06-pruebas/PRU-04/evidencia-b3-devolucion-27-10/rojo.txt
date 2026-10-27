@@ -1,0 +1,104 @@
+
+   FAIL  Tests\Feature\B3PrimeraCargaTest
+  ⨯ alumno de la primera carga al dia entra a su tercera clase sin justificar                                   12.17s
+  ⨯ deudor de primera carga pide motivo de deuda y guarda con el                                                 0.32s
+  ⨯ moroso de primera carga entra sin justificar                                                                 0.11s
+  ⨯ en plazo de primera carga entra sin justificar                                                               0.12s
+  ✓ alta posterior sin pago sigue nueva y necesita motivo desde la tercera                                       0.10s
+  ✓ pendiente o sin detalle valido no falla ni exime al alumno                                                   0.07s
+  ⨯ la lista no muestra nuevo al cargado y si al posterior                                                       0.07s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3PrimeraCargaTest > alumno de la primera carga al dia entra a su tercera clase sin justifi…
+  Expected response status code [200] but received 422.
+Failed asserting that 422 is identical to 200.
+
+  at tests\Feature\B3PrimeraCargaTest.php:66
+     62▕
+     63▕     public function test_alumno_de_la_primera_carga_al_dia_entra_a_su_tercera_clase_sin_justificar(): void
+     64▕     {
+     65▕         $this->assertDatabaseCount('pagos', 0);
+  ➜  66▕         $this->marcar($this->alumno)->assertOk();
+     67▕         $this->assertDatabaseHas('asistencias', ['clase_id' => $this->clase->id, 'alumno_id' => $this->alumno->id, 'presente' => true]);
+     68▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+     69▕         $this->assertFalse($this->condicion($this->alumno)['nuevo']);
+     70▕     }
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3PrimeraCargaTest > deudor de primera carga pide motivo de deuda y guarda con el
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
+-    0 => 'ASISTENCIA_DEUDOR',
++    0 => 'ASISTENCIA_NUEVO',
+ ]
+
+  at tests\Feature\B3PrimeraCargaTest.php:75
+     71▕
+     72▕     public function test_deudor_de_primera_carga_pide_motivo_de_deuda_y_guarda_con_el(): void
+     73▕     {
+     74▕         DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-09', 'monto_original' => 28000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
+  ➜  75▕         $respuesta = $this->marcar($this->alumno)->assertUnprocessable()->assertJsonPath('tipos', ['ASISTENCIA_DEUDOR']);
+     76▕         $this->assertStringContainsString('deuda vencida', $respuesta->json('message'));
+     77▕         $this->assertStringNotContainsString('Todavía no registró', $respuesta->json('message'));
+     78▕         $this->assertDatabaseMissing('asistencias', ['clase_id' => $this->clase->id]);
+     79▕         $this->marcar($this->alumno, 'Acuerdo de deuda con el dueño.')->assertOk();
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3PrimeraCargaTest > moroso de primera carga entra sin justificar
+  Expected response status code [200] but received 422.
+Failed asserting that 422 is identical to 200.
+
+  at tests\Feature\B3PrimeraCargaTest.php:91
+     87▕     public function test_moroso_de_primera_carga_entra_sin_justificar(): void
+     88▕     {
+     89▕         DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-10', 'monto_original' => 28000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
+     90▕         $this->assertSame('MOROSO', $this->condicion($this->alumno)['estado']);
+  ➜  91▕         $this->marcar($this->alumno)->assertOk();
+     92▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+     93▕     }
+     94▕
+     95▕     public function test_en_plazo_de_primera_carga_entra_sin_justificar(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3PrimeraCargaTest > en plazo de primera carga entra sin justificar
+  Expected response status code [200] but received 422.
+Failed asserting that 422 is identical to 200.
+
+  at tests\Feature\B3PrimeraCargaTest.php:100
+     96▕     {
+     97▕         $this->alumno->update(['fecha_alta' => '2026-10-26']);
+     98▕         DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-10', 'monto_original' => 28000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
+     99▕         $this->assertSame('EN_PLAZO', $this->condicion($this->alumno)['estado']);
+  ➜ 100▕         $this->marcar($this->alumno)->assertOk();
+    101▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+    102▕     }
+    103▕
+    104▕     public function test_alta_posterior_sin_pago_sigue_nueva_y_necesita_motivo_desde_la_tercera(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\B3PrimeraCargaTest > la lista no muestra nuevo al cargado y si al posterior
+  Expected: \n
+                    Nuevo · Al día\n
+
+
+  Not to contain: Nuevo
+
+  at tests\Feature\B3PrimeraCargaTest.php:134
+    130▕         @$doc->loadHTML('<?xml encoding="utf-8" ?>'.$respuesta->getContent());
+    131▕         $xpath = new \DOMXPath($doc);
+    132▕         $cargado = $xpath->query('//*[@id="card-'.$this->alumno->id.'"]//*[@data-condicion-cobranza]')->item(0)->textContent;
+    133▕         $alta = $xpath->query('//*[@id="card-'.$posterior->id.'"]//*[@data-condicion-cobranza]')->item(0)->textContent;
+  ➜ 134▕         $this->assertStringNotContainsString('Nuevo', $cargado);
+    135▕         $this->assertStringContainsString('Nuevo', $alta);
+    136▕         $this->assertDatabaseCount('pagos', 0);
+    137▕     }
+    138▕ }
+
+  1   tests\Feature\B3PrimeraCargaTest.php:134
+
+
+  Tests:    5 failed, 2 passed (33 assertions)
+  Duration: 13.12s
+

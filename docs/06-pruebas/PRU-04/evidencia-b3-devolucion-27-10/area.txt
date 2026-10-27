@@ -1,0 +1,72 @@
+
+   PASS  Tests\Feature\B3PrimeraCargaTest
+  ✓ alumno de la primera carga al dia entra a su tercera clase sin justificar                                   12.10s
+  ✓ deudor de primera carga pide motivo de deuda y guarda con el                                                 0.08s
+  ✓ moroso de primera carga entra sin justificar                                                                 0.09s
+  ✓ en plazo de primera carga entra sin justificar                                                               0.07s
+  ✓ alta posterior sin pago sigue nueva y necesita motivo desde la tercera                                       0.07s
+  ✓ pendiente o sin detalle valido no falla ni exime al alumno                                                   0.07s
+  ✓ la lista no muestra nuevo al cargado y si al posterior                                                       0.08s
+
+   PASS  Tests\Feature\B3AsistenciaTest
+  ✓ nuevo tiene dos clases de margen aunque su estado sea deudor                                                 0.11s
+  ✓ tercera clase nuevo sin motivo rechaza sin guardar                                                           0.05s
+  ✓ tercera con motivo guarda autor alumno registro y no notifica individualmente                                0.17s
+  ✓ deudor con historia necesita motivo y permite con el                                                         0.15s
+  ✓ moroso con historia entra sin justificar y se ve su condicion                                                0.38s
+  ✓ un pago de cuota parcial termina la condicion de nuevo                                                       0.12s
+  ✓ pagar solo inscripcion no elude el control de primera cuota                                                  0.08s
+  ✓ rechazo de segundo alumno revierte toda la lista                                                             0.07s
+  ✓ motivo blanco y mayor de 500 rechazados                                                                      0.07s
+  ✓ reenviar lista guardada no duplica ni reescribe el motivo                                                    0.10s
+  ✓ ausente no necesita motivo y ausente a presente si                                                           0.08s
+  ✓ exceso de plan solo conserva la anotacion recupera                                                           0.15s
+  ✓ lista muestra condicion de cada alumno sin contador de nuevo                                                 0.10s
+  ✓ admin operativa y profesora pueden justificar sin cambiar permisos                                           0.19s
+  ✓ un motivo no habilita clases canceladas ni futuras                                                           0.06s
+  ✓ volver a admitir despues de ausente conserva ambas decisiones                                                0.16s
+  ✓ fallo posterior revierte asistencia y excepcion juntas                                                       0.12s
+  ✓ una marca presente sin cambios no se justifica retroactivamente                                              0.13s
+  ✓ los dos tipos de asistencia van juntos al resumen diario                                                     0.27s
+  ✓ ausencias y clases posteriores no consumen el margen del nuevo                                               0.08s
+
+   PASS  Tests\Feature\T88B3DineroTest
+  ✓ rechaza gasto que supera el cajon sin escribir                                                               0.12s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.12s
+  ✓ editar no puede dejar negativo ni cambiar el registro                                                        0.14s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.14s
+  ✓ tambien se valida el alta en caja existente por servicio                                                     0.09s
+  ✓ cambiar un gasto de transferencia a efectivo no evade el saldo                                               0.10s
+  ✓ un parcial sin motivo pide excepcion y no escribe                                                            0.11s
+  ✓ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.12s
+  ✓ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.13s
+  ✓ avisa tambien un mes impago entre dos seleccionados                                                          0.11s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.13s
+  ✓ si es parcial y salta deuda registra ambos tipos una vez                                                     0.24s
+  ✓ el servicio directo tampoco permite omitir el motivo                                                         0.11s
+  ✓ el importe entregado se distribuye antes de detectar el parcial                                              0.11s
+  ✓ espacios no son un motivo y no dejan excepcion ni pago                                                       0.12s
+  ✓ el duenio ve la excepcion y su motivo en inicio                                                              0.14s
+  ✓ se incluyen juntas en un resumen por canal sin avisos individuales                                           0.22s
+  ✓ si falla el movimiento tambien revierte pago deuda y excepcion                                               0.15s
+
+   PASS  Tests\Feature\T88EfectivoConcurrenteTest
+  ✓ el segundo gasto no usa una foto vieja del efectivo                                                          2.51s
+
+   PASS  Tests\Feature\ClaseListaHaciaAdelanteT52Test
+  ✓ la clase vieja sigue mostrando a quien tenia marca                                                           0.07s
+  ✓ hoy cada uno aparece solo en su grupo y la baja en ninguno                                                   0.09s
+  ✓ corregir la lista vieja acepta a quien ya no esta y no pierde marcas                                         0.08s
+  ✓ quien no es del grupo ni tiene marca sigue rechazado                                                         0.07s
+  ✓ quien entro al grupo despues no aparece en la clase vieja                                                    0.09s
+  ✓ la fecha en el grupo solo se completa al cambiar de grupo                                                    0.10s
+  ✓ corregir el ingreso no retrotrae un cambio de grupo del mismo dia                                            0.08s
+  ✓ un ingreso futuro no aparece en clases anteriores                                                            0.08s
+  ✓ cambiar de grupo antes del ingreso futuro no lo adelanta                                                     0.10s
+  ✓ un inactivo sin marca no se puede cargar                                                                     0.08s
+  ✓ la ficha no hace consultas por alumno                                                                        0.15s
+  ✓ la profesora ve la misma lista vieja                                                                         0.10s
+
+  Tests:    58 passed (292 assertions)
+  Duration: 21.41s
+

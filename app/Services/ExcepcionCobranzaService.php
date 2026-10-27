@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Exceptions\ExcepcionCobranzaRequerida;
-use App\Models\{Asistencia, Clase, DeudaCuota, ExcepcionCobranza, Pago};
+use App\Models\{Asistencia, Clase, DeudaCuota, ExcepcionCobranza, Pago, PrimeraCarga};
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +20,13 @@ class ExcepcionCobranzaService
         // Una inscripción sola no es el primer pago de cuota. Un pago de cuota
         // registrado termina la condición de nuevo para siempre (§4).
         $conCuota = Pago::whereIn('alumno_id', $ids)->conCuota()->distinct()->pluck('alumno_id')->flip();
+        // §4 (06/09): los alumnos de la primera carga ya tienen historia aunque
+        // sus pagos anteriores al inicio de Wings no estén registrados acá.
+        $detalle = PrimeraCarga::whereKey(1)->where('estado', 'TERMINADA')->first()?->detalle;
+        $idsCarga = is_array($detalle) && is_array($detalle['alumnos'] ?? null) ? $detalle['alumnos'] : [];
+        $conHistoriaInicial = collect($idsCarga)
+            ->filter(fn ($id) => filter_var($id, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) !== false)
+            ->map(fn ($id) => (int) $id)->flip();
         $previas = Asistencia::whereIn('alumno_id', $ids)->where('presente', true)
             ->whereHas('clase', fn ($q) => $q->where('cancelada', false)->where(fn ($f) =>
                 $f->where('fecha', '<', $clase->fecha->toDateString())->orWhere(fn ($dia) =>
@@ -28,8 +35,8 @@ class ExcepcionCobranzaService
         $marcas = Asistencia::where('clase_id', $clase->id)->whereIn('alumno_id', $ids)->get()->keyBy('alumno_id');
         $justificaciones = ExcepcionCobranza::where('registro_tipo', 'ASISTENCIA')->whereIn('registro_id', $marcas->pluck('id'))
             ->orderBy('id')->get()->keyBy('registro_id');
-        return $alumnos->mapWithKeys(function ($alumno) use ($estados, $conCuota, $previas, $marcas, $justificaciones) {
-            $nuevo = !$conCuota->has($alumno->id);
+        return $alumnos->mapWithKeys(function ($alumno) use ($estados, $conCuota, $conHistoriaInicial, $previas, $marcas, $justificaciones) {
+            $nuevo = !$conCuota->has($alumno->id) && !$conHistoriaInicial->has($alumno->id);
             $estado = $estados[$alumno->id] ?? CobranzaEstadoService::ESTADO_AL_DIA;
             $tipo = $nuevo ? ((int) $previas->get($alumno->id, 0) >= 2 ? 'ASISTENCIA_NUEVO' : null)
                 : ($estado === CobranzaEstadoService::ESTADO_DEUDOR ? 'ASISTENCIA_DEUDOR' : null);

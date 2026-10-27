@@ -1,0 +1,5 @@
+{
+  "ruta": "docs/06-pruebas/PRU-04/evidencia-correccion-t34/sin-presentes.html",
+  "sha256": "ffee333c6d64d1d0f188080da6037165d8fe596e96d4c1172a2b19f3b85622ce",
+  "nota": "Se conservan los bytes que ya estaban modificados al inicio; no se restaura HEAD ni se incluye el archivo en el commit propio."
+}

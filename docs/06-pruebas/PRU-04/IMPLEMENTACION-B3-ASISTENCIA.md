@@ -1,7 +1,9 @@
 # B3 — Excepciones al tomar asistencia
 
 Codex CAB,27/10/2026. Segunda entrega local, después del dinero en17f99d13.
-Implementada y entregada a verificación independiente; sin despliegue ni uso del sitio de prueba, servidor
+Entrega inicial51d26fb8 devuelta por Claude el27/10 por identificar como nuevos a
+los alumnos de primera carga. La corrección está en «Devolución27/10», al final.
+Sin despliegue ni uso del sitio de prueba, servidor
 o base del club. Solo `wings_testing_codex`.
 
 ## Comportamiento
@@ -12,6 +14,8 @@ o base del club. Solo `wings_testing_codex`.
   desde la siguiente se admite con motivo obligatorio. El contador es interno y
   no se envía en HTML ni JSON. Una inscripción sola no sustituye el pago de cuota;
   un pago parcial de cuota ya termina la condición de nuevo, conforme al §4.
+  **Corrección27/10:** quien figura en la primera carga terminada tampoco es nuevo,
+  aunque nunca haya pagado una cuota en Wings.
 - Con historia, DEUDOR necesita motivo y MOROSO entra sin justificar. Los estados
   salen del mismo servicio de cobranza actual; no se introduce otra clasificación.
 - El servidor controla el pedido forzado, valida la lista completa antes de
@@ -92,11 +96,9 @@ de la profesora. Aprobación visual de Carlos pendiente.
 - Tratamiento del aviso histórico si se anula/corrige su origen: mantener,
   identificar como anulado o excluir del resumen. Mismo pendiente que dinero;
   no se borra ni reescribe la decisión original.
-- §4 conserva pendiente la identificación de alumnos de primera carga sin pagos
-  en Wings. No hay un marcador de origen en Alumno y no se inventa una exención
-  por antigüedad. Se aplica la definición de primer pago de cuota; falta decidir
-  cómo identificar la excepción de primera carga antes de un despliegue que la
-  necesite. Las fuentes revisadas y la diferencia se dejan explícitas.
+- **Primera carga: no era una pregunta abierta.** La regla estaba decidida desde
+  el06/09 y los ids ya existían en `primera_carga.detalle.alumnos`. La entrega
+  inicial omitió ese dato; se corrige en la devolución, sin cambiar política.
 - Las condiciones de cobranza se consultan al realizar la acción; no se
   reconstruye un estado financiero histórico al corregir una clase vieja. El
   contrato no fija ese corte histórico. Las marcas presentes que no se cambian
@@ -117,3 +119,70 @@ manual, despliegue, sitio de prueba ni datos del club.
 El auditor `evidencia-b3-asistencia/auditar-entrega.py` comprueba resultados,
 fuentes congeladas, estados, enlaces, límites de bitácora, tokens neutralizados,
 nueve PNG y alcance. Su resultado y las huellas están en `auditoria.json`.
+
+## Devolución 27/10
+
+Claude devolvió asistencia de51d26fb8 ([verificación](VERIFICACION-T88-B3-CLAUDE.md)).
+El dinero de17f99d13 quedó aprobado en lógica y no se modifica. El error era
+ignorar la regla ya tomada de §4; no faltaba una decisión de Carlos.
+
+`ExcepcionCobranzaService::condicionesAsistencia` ahora lee una vez la lista
+`primera_carga.detalle.alumnos` de la carga TERMINADA. Sus alumnos tienen historia:
+AL_DIA, EN_PLAZO y MOROSO entran sin motivo; DEUDOR exige motivo de deuda y guarda
+`ASISTENCIA_DEUDOR`, sin el mensaje de falta de primer pago. Las altas que no
+figuran en esa lista siguen nuevas hasta su primer pago de cuota y conservan
+dos clases de margen. Una carga PENDIENTE, sin detalle o sin lista válida no
+exime a nadie ni provoca un error. No se crean pagos ficticios ni se infiere
+historia por antigüedad.
+
+La lista deja de mostrar Nuevo a los alumnos cargados. No se tocaron Blade,
+JavaScript, CSS, rutas ni permisos: el cambio visible sale del dato corregido.
+[Capturas nuevas1366/375 y login de calibración](APROBAR-B3-PRIMERA-CARGA.html),
+del HTML devuelto por la aplicación autenticada, renderizado con Chrome. Celular
+en marco375 medido, no ventana recortada. La profesora ve cuatro alumnos cargados
+con sus estados y el alta posterior identificada como Nuevo. Aspecto pendiente
+de Carlos; su aprobación anterior de T86 no se reutiliza.
+
+La prueba roja de Claude fue adaptada a `tests/Feature/B3PrimeraCargaTest.php`,
+con datos sintéticos y el mismo recorrido por ruta. Siete casos permanentes:
+el original al día en tercera clase; DEUDOR sin/con motivo; MOROSO; EN_PLAZO;
+alta posterior; carga PENDIENTE/sin detalle/lista inválida; y etiquetas en HTML.
+
+| Comprobación | Resultado |
+|---|---|
+| Siete casos antes del arreglo | 5 fallidas/2 aprobadas,33 aserciones,13,12s. |
+| B3 primera carga, B3 asistencia, T88 dinero/concurrencia y T52 | 58 aprobadas,292 aserciones,21,41s. |
+| Técnica del día21 solicitada | 1 aprobada,5 aserciones,21,20s. |
+| HTML real para capturar | 1 aprobada,7 aserciones,21,63s. No cuenta como prueba permanente ni recorrido humano de navegador. |
+| Suite rápida | 1028 aprobadas,6 omitidas,7983 aserciones,224,98s, salida0. Contador1153 métodos. |
+| Documentación y tablero | 7 aprobadas,34 aserciones,0,15s, salida0. |
+
+Resultados, fuente anterior y datos sintéticos de captura en
+`evidencia-b3-devolucion-27-10/`. Solo `wings_testing_codex`, con bootstrap que
+comprueba entorno, host, DB_URL y ausencia de caché de configuración. No se
+repite completa por esta corrección localizada en la condición de asistencia;
+los cuerpos de cobro y guardado común permanecen iguales. La completa anterior
+del informe conserva su corte y no acredita el arreglo nuevo.
+Sintaxis PHP y compilación Blade correctas; diff de vistas/CSS vacío. El auditor
+`evidencia-b3-devolucion-27-10/auditar.py` comprueba resultados, siete casos nuevos
+verdes, fuentes congeladas, etiquetas reales, enlaces, tokens y tres PNG. Resultado
+PASS en `auditoria.json`. El HTML T34 que ya estaba modificado se conserva byte
+por byte y queda fuera del commit propio.
+
+### Barrido de «sin pagos = nuevo»
+
+Usos encontrados en `app/`, `resources/` y `routes/`, con grafo como orientación,
+lectura de cuerpos y comprobación de rutas. El índice informa lagunas de cobertura;
+no se usa para afirmar una ausencia de código.
+
+| Lugar | Efecto y acción |
+|---|---|
+| `ExcepcionCobranzaService::condicionesAsistencia` | Defecto alcanzable en lista/guardado. **Corregido** con los ids de carga terminada. |
+| `CajaWebController::cobrar` y `PagoCuotaService::calcularReglaPrimerPago` | Pagos completados de cuota para descuento informativo/precio. Está limitado al mes de alta y respeta el porcentaje congelado de la carga. La vista solo consume esa decisión. **No tocados**; no se cambian importes ni el dinero aprobado. |
+| `PagoService::registrarPago` y `obtenerProximoPago` | Conservan sin pagos = primer pago, regla por día de alta y estimación. Los llama PagoController por rutas de `routes/api.php`, deshabilitada en `bootstrap/app.php`. **No tocados ni reactivados**; revisar ese supuesto antes de habilitar la API. |
+| `Alumno::tienePagos`, `Admin\\AlumnoController::destroy` y `Alumno::motivoNoEliminable` | Existencia de registros para impedir borrado con pagos; no clasifican admisión ni muestran Nuevo. **No tocados**. |
+| `GenerarDeudasMensualesCommand` | Alta reciente y pago reciente como criterio positivo para generar deuda; no convierte ausencia de pago en nuevo ni decide admisión. **No tocado**. |
+
+La corrección vuelve a Claude en B3 `a_verificar`; dinero sigue aprobado en lógica
+y su aspecto pendiente de Carlos. Sin sitio de prueba, servidor, base del club,
+tabla externa/copia, push manual ni despliegue.

@@ -1,0 +1,3 @@
+No syntax errors detected in app/Services/ExcepcionCobranzaService.php
+No syntax errors detected in tests/Feature/B3PrimeraCargaTest.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-b3-devolucion-27-10/CapturaB3PrimeraCargaTest.php
