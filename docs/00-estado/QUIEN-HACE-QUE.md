@@ -36,7 +36,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
-| **T86** Pagar el sueldo de una operativa: hoy no hay forma | Sin empezar | Prueba dia 22.5 (27/10): el subrubro Op-Nombre se crea reservado del sistema; Cashflow no lo ofrece y rechaza el envio forzado; liquidaciones son solo de profesores. Decidir como se paga (Cashflow con ese subrubro, recomendado) y asignar. |
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Sin empezar | Prueba dia 22.6: al lado del mes elegido muestra las clases pendientes de todos los meses (Lucia 20 = 17 de octubre + 3 de septiembre validadas a mano). El calculo esta bien (17). Mostrar solo las del mes elegido; asignar. |
 | **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Sin empezar | Prueba dias 19-22: MOV-004 (el esperado de la caja queda negativo) y COB-009 (ni pantalla ni servidor piden motivo). Hay pruebas que los retratan en prueba-tecnica. Asignar. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
@@ -62,9 +61,9 @@ Nada.
 
 Nada en este momento.
 
-## Sin empezar (20)
+## Sin empezar (22)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T85, B3 (antes de producción), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T85, T86, T93, B3 (antes de producción), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (10)
 
