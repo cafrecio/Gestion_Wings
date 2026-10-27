@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — T92 segunda vuelta aprobada
+
+[Informe, segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md): 6a06cf09 suma Revisión solo al crear fila; leído y comprobado. T85 contenida en ese commit no se revisa aquí.
+Ocho casos originales sin cambiar bytes ni esperados: 8/44 verdes; Revisión 1→1→2, cuotas 2→2→3, hora fija, corte/reintento, aviso e índice único conservados.
+Tres casos resueltos CONTINUA/INACTIVO/REACTIVADO_AUTO: 3/24; fila completa intacta, sin repetir ni contar. Son fixtures de alcance del guard, no nuevas reglas de resolución.
+Área 45/151 (incluye adicionales; T40 11/54), rápida 934 aprobadas/6 omitidas/7472 aserciones, 220,18 s, salidas 0. Solo wings_testing_codex; prueba copiada exacta para conservar la evidencia roja anterior.
+T92 cerrada, verifica=Codex, tiene=nadie. Auditor anterior distingue fuentes históricas del código corregido. HTML lateral T34 repuesto; sin servidor, base del club, push manual ni despliegue.
+Siguiente paso: implementar T86 según aprobación escrita del adjunto; Reportes Sueldos actual solo analiza profesoras, registrar ese límite y las dudas de cambios de rol.
+
 ## 2026-10-27 — Codex CAB — T92 devuelta; entrega documental de T90 resuelta
 
 [Verificación T92](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md) sobre c30bb7c2: Revisión se cuenta otra vez aunque no se crea una fila. Un alumno: 1→2; con otro nuevo en la tercera corrida: 1→2→4, con solo dos revisiones. Sin corregir producto.

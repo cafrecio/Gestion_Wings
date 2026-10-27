@@ -1,0 +1,95 @@
+{
+  "corte": "6a06cf09",
+  "estado": "aprobada",
+  "archivos": [
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/area-y-resueltas-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/area-y-resueltas.txt",
+      "sha256": "cee8a557038d75433d4049f4dffc5bd5a492df283aa97813fc5cc54b00b264f7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/area-y-resueltas.xml",
+      "sha256": "a723606f56dfd41382358699f42cd51b85530b7625366151cc339bc536aa26ba"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/aviso-atraso.json",
+      "sha256": "4189b64a60a604fdb0e188b9ebc72aaef05d535f97fa0f33ea5eb7c8a42453c1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/columnas-on-update.json",
+      "sha256": "358c636ff97bc29494a94751a3d704483a4543a043484890d38dcfb74e5bcf18"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/corrida-interrumpida.json",
+      "sha256": "420197eb241f25a4fad5b35efebee72e5131adcb3c10501f600e83a29ce6cab4"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/propias-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/propias.txt",
+      "sha256": "d92dc30a5e8d6b3a09b708f2eddfb987c3301ebef4ce401afd7f206165b2ec8c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/propias.xml",
+      "sha256": "e39ca16700362acb5fd17b00b2731ba0d7579d5e8eb147090d9747469ba85d67"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/rapida-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/rapida.txt",
+      "sha256": "f81a2cbe0521b4badff77e5f70250e3b77c7e9272ea7d2ca9d26e4a35f3eca3c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/rapida.xml",
+      "sha256": "5b3bf0c466f3684e142773578ef068b7072e38e6c32b38895f9d9f6d823cc54f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/resuelta-CONTINUA.json",
+      "sha256": "18a5e5fcbebc6849b29053194e91d68c45b5988bc998a5cd0326b1fe5b88c23a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/resuelta-INACTIVO.json",
+      "sha256": "7dc9f6b4d968780b7a68f2d3f44a5ede58ea9043f73fa25a72f11e49ede866d1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/resuelta-REACTIVADO_AUTO.json",
+      "sha256": "00b2aa90ca49c810e7bc9503c908ad9bccaa2db9d7ebec40329ae5c6b766354d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/resultados.json",
+      "sha256": "f3c68a01a551d9396f6d8bbf2760b42a517a9bb23b4f4d7e1c10caf8e1da9bb6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/revision-nueva.json",
+      "sha256": "7e82961e44b5e9725b49e15016bb16449f6d16e335637139fe6c606db3350b47"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/revision-repetida.json",
+      "sha256": "6c4d37065daa051e935f996faa3bea06442f54780d17676f74eb19bcb373948f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/RevisionResueltaT92Test.php",
+      "sha256": "6c2af7f037a32b9f51ff5364ef7da8f4ee85ccc85e26f62f2fbad5e2a7bb8048"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/tres-corridas-cuotas.json",
+      "sha256": "f0d3fed4c4a97801c0f66798c79f84f265629d995d650715e163aca2612c6473"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-segunda-verificacion-t92-codex/VerificacionT92CodexTest.php",
+      "sha256": "9266f4092ee60ed2a8691c78426c121f72a9394b93a6b299d22ddf9ec0c6eaff"
+    }
+  ],
+  "prueba_original_sin_cambios": true,
+  "propias": "8/44",
+  "resueltas": "3/24",
+  "area_incluye_resueltas": "45/151",
+  "rapida": "934 aprobadas,6 omitidas,7472 aserciones"
+}

@@ -1,4 +1,4 @@
-"""Audita evidencia T92 ya guardada; no ejecuta Laravel ni conecta a una base."""
+"""Audita la primera vuelta historica T92; no certifica implementaciones posteriores."""
 import ast
 import hashlib
 import json
@@ -29,10 +29,10 @@ assert len(permanent) == 1 and permanent[0].get('tests') == '10' and permanent[0
 source = json.loads((folder / 'fuentes.json').read_text(encoding='utf-8'))
 assert len(source['fuentes']) == 19
 for item in source['fuentes']:
-    b = (root / item['ruta']).read_bytes()
-    assert hashlib.sha256(b).hexdigest() == item['sha256'], item['ruta']
     original = subprocess.check_output(['git', 'show', 'c30bb7c2:' + item['ruta']], cwd=root)
+    b = original if item['bytes_identicos_git'] else (root / item['ruta']).read_bytes()
     assert b.replace(b'\r\n', b'\n') == original.replace(b'\r\n', b'\n')
+    assert hashlib.sha256(b).hexdigest() == item['sha256'], item['ruta']
 repeated = json.loads((folder / 'revision-repetida.json').read_text(encoding='utf-8'))
 assert repeated['primera']['a_revision'] == 1 and repeated['segunda']['a_revision'] == 2
 assert len(repeated['revisiones']) == 1
@@ -47,13 +47,13 @@ assert schema['base']['nombre'] == 'wings_testing_codex' and 'MariaDB' in schema
 assert [(c['TABLE_NAME'], c['COLUMN_NAME']) for c in schema['columnas']] == [('cargo_alumno_eventos', 'created_at'), ('generaciones_cuotas', 'terminada_at'), ('reporte_eventos', 'registrado_en')]
 assert all('on update' in c['EXTRA'].lower() for c in schema['columnas'])
 text = report.read_text(encoding='utf-8')
-assert 'Dictamen: DEVUELTA' in text and 'PENDIENTE_RESULTADO' not in text
+assert 'Primera vuelta: DEVUELTA' in text and 'PENDIENTE_RESULTADO' not in text
 
 # Los documentos compartidos siguen evolucionando; sus bytes completos no son evidencia propia congelada.
 shared = [root / 'docs/00-estado' / f for f in ['LOG-CODEX.md', 'ESTADO-ACTUAL.md', 'RESUMEN-ARRANQUE.md', 'tareas.json', 'TABLERO.html', 'QUIEN-HACE-QUE.md']]
 shared.append(folder.parent / 'ESTADO-PRUEBA.md')
 if '--tablero' in sys.argv:
-    board = json.loads((root / 'docs/00-estado/tareas.json').read_text(encoding='utf-8'))
+    board = json.loads(subprocess.check_output(['git', 'show', '5c851d38:docs/00-estado/tareas.json'], cwd=root))
     t = next(t for t in board if t['id'] == 'T92')
     assert (t['estado'], t['tiene'], t['hizo'], t['verifica']) == ('devuelto', 'Claude', 'Claude', 'Codex')
     assert next(t for t in board if t['id'] == 'T90')['estado'] == 'cerrado'
@@ -71,7 +71,7 @@ for p in files:
                 continue
             assert (p.parent / unquote(urlsplit(link).path)).resolve().exists(), (p, link)
             links += 1
-data = {'dictamen': 'devuelto', 'resultados': results, 'fallos': failures, 'fuentes_estables': 19,
+data = {'dictamen': 'devuelto (primera vuelta historica c30bb7c2)', 'resultados': results, 'fallos': failures, 'fuentes_estables': 19,
         'enlaces_revisados': links, 'archivos': [{'ruta': p.relative_to(root).as_posix(), 'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'bytes': p.stat().st_size} for p in files],
         'compartidos_actualizados': [p.relative_to(root).as_posix() for p in shared],
         'limite': 'Los compartidos se revisan por diff al entregar; no se congelan sus bytes para otras tareas. --tablero comprueba el estado al entregar. El manifiesto se excluye de su propia huella.'}

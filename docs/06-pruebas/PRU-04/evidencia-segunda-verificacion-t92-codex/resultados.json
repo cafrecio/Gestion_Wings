@@ -1,0 +1,57 @@
+{
+  "implementacion": "6a06cf09",
+  "sha256_prueba_original_y_copia": "9266f4092ee60ed2a8691c78426c121f72a9394b93a6b299d22ddf9ec0c6eaff",
+  "resultados": {
+    "propias": {
+      "name": "Tests\\VerificacionCodex\\VerificacionT92CodexTest",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-segunda-verificacion-t92-codex\\VerificacionT92CodexTest.php",
+      "tests": "8",
+      "assertions": "44",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "13.703219"
+    },
+    "area-y-resueltas": {
+      "name": "CLI Arguments",
+      "tests": "45",
+      "assertions": "151",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "17.114339"
+    },
+    "rapida": {
+      "name": "C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml",
+      "tests": "940",
+      "assertions": "7472",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "6",
+      "time": "217.747281"
+    }
+  },
+  "fuentes": [
+    {
+      "ruta": "app/Console/Commands/GenerarDeudasMensualesCommand.php",
+      "sha256": "657d727936b07d3f4395512de03207533cae54de3d73f33409067936f4b6df22"
+    },
+    {
+      "ruta": "tests/Feature/GeneracionCuotasReintentoT40Test.php",
+      "sha256": "1d86c681b5b68163d58b9949f21aa6080fe439abb966cc1fbc689b425a74f258"
+    },
+    {
+      "ruta": "app/Models/AlumnoRevisionCobranza.php",
+      "sha256": "ec22a932a19a806742b7b6a642a57bae6dd5ba6dd36264ce08c27c8cd07edeea"
+    },
+    {
+      "ruta": "app/Models/GeneracionCuotas.php",
+      "sha256": "218db1568b67ea2cfc5016a4a1576430ffbcc820d767dd4f71c10dbbb0214aa3"
+    },
+    {
+      "ruta": "app/Services/AvisoAdminService.php",
+      "sha256": "496fe2a6f4338874e8ae06fb2ef20b1eb60aeac5021973e26eba33ea9606608b"
+    }
+  ],
+  "limite": "T85 incluida en el commit de Claude no fue revisada. Pruebas originales copiadas sin cambiar bytes; salidas nuevas separadas."
+}

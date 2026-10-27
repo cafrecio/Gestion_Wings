@@ -1,6 +1,8 @@
 # Verificación independiente de T92 — Codex CAB
 
-**Dictamen: DEVUELTA a Claude.** Verificación del 27/10/2026 sobre `c30bb7c2`, sin modificar producto. La corrección conserva las cuotas creadas y la hora de la primera corrida, pero infla `a_revision` al repetir alumnos que ya estaban en Revisión. La constancia no representa los nuevos envíos reales.
+**Dictamen vigente: APROBADA en segunda vuelta sobre `6a06cf09`.** Ver sección «Segunda vuelta» al final.
+
+**Primera vuelta: DEVUELTA a Claude.** Verificación del 27/10/2026 sobre `c30bb7c2`, sin modificar producto. La corrección conserva las cuotas creadas y la hora de la primera corrida, pero infla `a_revision` al repetir alumnos que ya estaban en Revisión. La constancia no representa los nuevos envíos reales.
 
 ## Caso concreto que falla
 
@@ -72,3 +74,18 @@ php artisan test --exclude-group=lento --bootstrap=C:/xampp/htdocs/gestion-wings
 T90 conserva su dictamen aprobado y su cierre. En esta vuelta se corrige únicamente su integridad documental tras el commit concurrente que había incorporado la entrega con cambios ajenos de T85; no se reescribe ese commit. [Informe T90](VERIFICACION-T90-CODEX.md).
 
 Los cambios concurrentes de T85 en `resources/js/ds-app.js` y las asignaciones de T86/T93 quedan fuera de esta verificación y del commit propio; sus registros del tablero se conservan. [Auditor de la evidencia](evidencia-verificacion-t92-codex/verificar-entrega.py) · [Manifiesto](evidencia-verificacion-t92-codex/INTEGRIDAD.json). El auditor no conecta a una base; distingue evidencia propia de documentos compartidos que continúan cambiando.
+
+## Segunda vuelta — 27/10/2026, Codex CAB
+
+**APROBADA.** `git pull --ff-only` sin novedades y MCP reindexado. Leído el cuerpo actualizado: `firstOrCreate` busca alumno y período sin filtrar el estado; `a_revision` suma solo si `wasRecentlyCreated`. La fila existente produce «ya estaba en revisión». El acumulado de cuotas, la hora explícita y el índice único se mantienen.
+
+- **8/8 propias, 44 aserciones**, 13,721 s, salida 0: se ejecutó una copia idéntica byte por byte de la prueba original, sin cambiar ningún esperado. Sus salidas se guardan aparte: Revisión **1→1** y luego **1→1→2**; cuotas **2→2→3**. Los rojos de la primera vuelta se conservan como evidencia histórica.
+- **3/3 adicionales, 24 aserciones:** filas RESUELTO con CONTINUA, INACTIVO y REACTIVADO_AUTO. Estado, resolución, nota, autor y fechas intactos tras repetir; una sola fila, sin nuevo incremento ni deuda. Fixture deliberado con alumno activo y sin deuda para alcanzar la rama de Revisión, sin convertir esas combinaciones en una nueva regla de negocio.
+- **Área 45/151**, 17,210 s, salida 0, incluyendo los tres casos adicionales. Generación, Revisión y avisos; permanente T40/T92 **11/54**, incluida la regresión de Claude.
+- **Rápida 934 aprobadas/6 omitidas, 7.472 aserciones**, 220,18 s, salida 0, antes de implementar T86. Todas las corridas secuenciales en `wings_testing_codex`, con guardias y notificaciones simuladas.
+
+Corte a mitad sin constancia, reintento sin duplicados, aviso de atraso y ausencia de un segundo aviso, hora fija y rechazo SQL de otra constancia: pasaron los mismos controles originales. No se accedió al sitio ni al servidor; no se reparó la constancia histórica del sitio. T85 y los cambios concurrentes de T93 quedan fuera de esta revisión.
+
+[Resultados y fuentes](evidencia-segunda-verificacion-t92-codex/resultados.json) · [Prueba original copiada](evidencia-segunda-verificacion-t92-codex/VerificacionT92CodexTest.php) · [JUnit propias](evidencia-segunda-verificacion-t92-codex/propias.xml) · [Revisiones resueltas](evidencia-segunda-verificacion-t92-codex/RevisionResueltaT92Test.php) · [JUnit área](evidencia-segunda-verificacion-t92-codex/area-y-resueltas.xml) · [JUnit rápida](evidencia-segunda-verificacion-t92-codex/rapida.xml).
+
+Las fuentes actuales difieren de c30bb7c2 por la corrección revisada. El auditor de primera vuelta verifica ahora las fuentes históricas de ese commit; no exige que el código siga roto. **T92 cerrada, verifica=Codex, tiene=nadie.** Sin push manual ni despliegue. Siguiente tarea autorizada: T86.

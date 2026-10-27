@@ -1,0 +1,26 @@
+{
+    "base": {
+        "nombre": "wings_testing_codex",
+        "motor": "10.4.32-MariaDB"
+    },
+    "columnas": [
+        {
+            "TABLE_NAME": "cargo_alumno_eventos",
+            "COLUMN_NAME": "created_at",
+            "COLUMN_DEFAULT": "current_timestamp()",
+            "EXTRA": "on update current_timestamp()"
+        },
+        {
+            "TABLE_NAME": "generaciones_cuotas",
+            "COLUMN_NAME": "terminada_at",
+            "COLUMN_DEFAULT": "current_timestamp()",
+            "EXTRA": "on update current_timestamp()"
+        },
+        {
+            "TABLE_NAME": "reporte_eventos",
+            "COLUMN_NAME": "registrado_en",
+            "COLUMN_DEFAULT": "current_timestamp()",
+            "EXTRA": "on update current_timestamp()"
+        }
+    ]
+}

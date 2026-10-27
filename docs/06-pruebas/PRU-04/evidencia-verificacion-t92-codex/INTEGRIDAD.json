@@ -1,5 +1,5 @@
 {
-  "dictamen": "devuelto",
+  "dictamen": "devuelto (primera vuelta historica c30bb7c2)",
   "resultados": {
     "propias-final": {
       "name": "Tests\\VerificacionCodex\\VerificacionT92CodexTest",
@@ -38,7 +38,7 @@
     "test_tercera_corrida_suma_solo_la_revision_nueva"
   ],
   "fuentes_estables": 19,
-  "enlaces_revisados": 20,
+  "enlaces_revisados": 26,
   "archivos": [
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/area-exit.txt",
@@ -172,13 +172,13 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/verificar-entrega.py",
-      "sha256": "7910687168dcecd25c34262591ba71db115af3cc1b916e3bbaaf9b0213c64cc9",
-      "bytes": 5387
+      "sha256": "c3fb849f9138767b76093ba06aec6b01e4b0c3ad7b6eb9a2b1359ebfaa0c5c28",
+      "bytes": 5505
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md",
-      "sha256": "670b99fb87fd9d8285f07b14b3298bb048a1a75d3510d50d9446145257cb283d",
-      "bytes": 9702
+      "sha256": "b7423f8f52ac8ad8552cc029e2c38d464f36bedbabc3d801a484b16f70f4ce3a",
+      "bytes": 12412
     }
   ],
   "compartidos_actualizados": [

@@ -53,9 +53,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Hecho, espera verificación (hizo Claude, verifica Codex) | Segunda vuelta (Claude 27/10): la devolucion de Codex era correcta; ahora solo cuenta Revision si la fila es nueva (wasRecentlyCreated). Prueba permanente con el caso 1,1,2 (roja sin el arreglo). Codex vuelve a correr su VerificacionT92CodexTest. Despues: T86. |
+Nada en este momento.
 
 ## Gemini
 

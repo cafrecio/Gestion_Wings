@@ -1,0 +1,39 @@
+{
+    "antes": {
+        "id": 2,
+        "alumno_id": 2,
+        "periodo_objetivo": "2026-11",
+        "motivo": "SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES",
+        "estado_revision": "RESUELTO",
+        "resolucion": "INACTIVO",
+        "nota_resolucion": "Nota que debe conservarse",
+        "usuario_resolucion_id": 2,
+        "resuelto_at": "2026-11-01 07:00:00",
+        "created_at": "2026-11-01 06:00:00",
+        "updated_at": "2026-11-01 06:00:00"
+    },
+    "despues": {
+        "id": 2,
+        "alumno_id": 2,
+        "periodo_objetivo": "2026-11",
+        "motivo": "SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES",
+        "estado_revision": "RESUELTO",
+        "resolucion": "INACTIVO",
+        "nota_resolucion": "Nota que debe conservarse",
+        "usuario_resolucion_id": 2,
+        "resuelto_at": "2026-11-01 07:00:00",
+        "created_at": "2026-11-01 06:00:00",
+        "updated_at": "2026-11-01 06:00:00"
+    },
+    "constancia": {
+        "id": 2,
+        "periodo": "2026-11",
+        "terminada_at": "2026-11-01T09:00:00.000000Z",
+        "creadas": 0,
+        "a_revision": 1,
+        "ya_existian": 0,
+        "sin_plan": 0,
+        "created_at": "2026-11-01T09:00:00.000000Z",
+        "updated_at": "2026-11-02T12:00:00.000000Z"
+    }
+}
