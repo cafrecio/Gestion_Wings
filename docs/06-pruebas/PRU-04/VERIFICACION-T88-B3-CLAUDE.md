@@ -78,3 +78,22 @@ vigente, un alumno de esa lista tiene historia, no es nuevo.
 
 Ni T88 ni B3 van al sitio de prueba todavía: falta el aspecto de Carlos, y B3 asistencia
 pondría a 25 alumnos a pedir motivo en cada clase.
+
+## Segunda vuelta de B3 asistencia — 27/10, commit `1de85aef`
+
+**Aprobada en lógica.** Falta el aspecto de Carlos.
+
+- `condicionesAsistencia` ahora excluye de «nuevo» a los ids de `primera_carga.detalle.alumnos`,
+  y solo con la carga TERMINADA. Una carga pendiente, sin detalle o con ids inválidos no
+  exime a nadie. *Verificado por lectura; `detalle` se lee como array desde el modelo.*
+- La prueba roja de esta verificación pasa con el arreglo. Las 7 de `B3PrimeraCargaTest`
+  cubren al día, DEUDOR (pide motivo de deuda), MOROSO, en plazo, alta posterior (sigue
+  nueva), carga pendiente y la etiqueta «Nuevo» en la lista. Corridas acá con B3 y T88:
+  46 aprobadas, 206 aserciones.
+- Barrido de «sin pagos = nuevo»: el descuento ya usaba el mes de alta. `PagoService`
+  queda en la API apagada, y el borrado y la generación de deuda no clasifican nuevos.
+  *Revisado en la tabla del informe de Codex; no releído línea por línea.*
+
+**Para Carlos:** capturas en [APROBAR-B3-ASISTENCIA.html](APROBAR-B3-ASISTENCIA.html) y
+[APROBAR-B3-PRIMERA-CARGA.html](APROBAR-B3-PRIMERA-CARGA.html). Con su OK, T88 y B3 van
+juntas al sitio de prueba.

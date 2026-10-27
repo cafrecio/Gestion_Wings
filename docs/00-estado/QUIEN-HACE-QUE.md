@@ -39,6 +39,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T87-CLAUDE.md, roja con el codigo anterior). Falta el OK visual de Carlos: con 0 clases en el mes elegido la fila dice 0 clases liquidables en gris (evidencia-t87). Despues: sitio de prueba. |
 | **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Logica verificada por Claude 27/10 (VERIFICACION-T88-B3-CLAUDE.md): gasto mayor que el cajon rechazado en servidor, al editar y en concurrencia. Falta el OK visual de Carlos (APROBAR-T88-B3-DINERO.html). No va a prueba hasta que B3 asistencia vuelva corregida. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
+| **B3** Las excepciones del contrato no existen | Hecho, espera verificación (hizo Codex, verifica Claude) | Logica verificada por Claude 27/10 en 2a vuelta (1de85aef): primera carga con historia, altas posteriores con margen. Falta OK visual de Carlos (APROBAR-B3-ASISTENCIA y APROBAR-B3-PRIMERA-CARGA). Con su OK, T88 y B3 juntas al sitio de prueba. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -50,7 +51,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **B3** Las excepciones del contrato no existen | Hecho, espera verificación (hizo Codex, verifica Claude) | Devolucion27/10 corregida: primera_carga.detalle.alumnos TERMINADA da historia, DEUDOR pide motivo de deuda; nuevas altas mantienen margen. Siete permanentes rojas5/2 antes, area58/292 y tecnica dia21 1/5 verdes, rapida1028/6 omitidas. Ver Devolucion27/10 en IMPLEMENTACION-B3-ASISTENCIA.md y capturas APROBAR-B3-PRIMERA-CARGA.html. Sin despliegue. |
 
 ## Codex
 
