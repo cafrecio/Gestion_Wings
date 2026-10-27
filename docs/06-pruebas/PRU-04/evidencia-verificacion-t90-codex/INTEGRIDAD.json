@@ -13,38 +13,46 @@
     "tabla_solo_lectura": true,
     "salida_t34_restaurada": true,
     "tablero_t90": "cerrado,verifica=Codex",
-    "enlaces_nuevos_revisados": 67
+    "enlaces_nuevos_revisados": 68
   },
+  "revision_compartidos": "691b1f839871677391de402d9f4d921ed4f863bc",
+  "alcance_compartidos": "Seis archivos compartidos del commit concurrente que incorporo la entrega T90 y el cambio ajeno T85; no se atribuye propiedad exclusiva de esos archivos ni se sellan sus ediciones posteriores.",
   "archivos": [
     {
       "ruta": "docs/00-estado/ESTADO-ACTUAL.md",
       "bytes": 147386,
-      "sha256": "bb4f78eca6d60125c1a234b1a7ae4a1af236bcb12630c909d253ef206a38fc8f"
+      "sha256": "bb4f78eca6d60125c1a234b1a7ae4a1af236bcb12630c909d253ef206a38fc8f",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/00-estado/LOG-CODEX.md",
       "bytes": 8412,
-      "sha256": "38164664498a7ef6ec699c8340a5be7d665870daaeeac562fbe4b8662d4ab6c0"
+      "sha256": "38164664498a7ef6ec699c8340a5be7d665870daaeeac562fbe4b8662d4ab6c0",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/00-estado/QUIEN-HACE-QUE.md",
       "bytes": 8581,
-      "sha256": "6b61c0a6227c7052a4e6393e3f711c5ba822f21d722d1644748fc14704a709b7"
+      "sha256": "6b61c0a6227c7052a4e6393e3f711c5ba822f21d722d1644748fc14704a709b7",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/00-estado/RESUMEN-ARRANQUE.md",
       "bytes": 44125,
-      "sha256": "39240c00ebdbf5d4b4364f331a301c19695bea8cfcd8a4978e7ff39dff3a91a2"
+      "sha256": "39240c00ebdbf5d4b4364f331a301c19695bea8cfcd8a4978e7ff39dff3a91a2",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/00-estado/TABLERO.html",
-      "bytes": 53000,
-      "sha256": "8539fb9470265ead78666fe2a78e87ec40c09ae976ccfe961bba936822a0986a"
+      "bytes": 52968,
+      "sha256": "33e8c979023e1ca294c680c3e086b31c74e4e9f38d906a4e9b3581265d329244",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/00-estado/tareas.json",
-      "bytes": 63310,
-      "sha256": "4af336350893bd92027d339355b0b19398b9ba8f5ca44d5f5c1e802ce3d8f9d4"
+      "bytes": 63278,
+      "sha256": "227be2bc3cfb70fd4d7ae6cadeff6fcae382b7fbfcd6efdf96a3899af2eda522",
+      "revision": "691b1f839871677391de402d9f4d921ed4f863bc"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/archivos-area.txt",
@@ -163,8 +171,8 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/LEEME.md",
-      "bytes": 3489,
-      "sha256": "375dde266227a3b95f918ec9b25d77795d94b9a9c3b7edcd650a89ad43925595"
+      "bytes": 4021,
+      "sha256": "2941383558c437314968ce8761de582e74e723ab04b7e4427f908adec6926164"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/panel-cancelar.test.cjs",
@@ -243,13 +251,13 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t90-codex/verificar-entrega.py",
-      "bytes": 6917,
-      "sha256": "cdf344a142e79808005e4f38260ad81b0c8ea9eacdae84221b2487a28ec56cbe"
+      "bytes": 7434,
+      "sha256": "6c5b57c19add7e1c246b4e314ea39423de1fd13662da7dc0641c5d4c32ac78b3"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md",
-      "bytes": 10796,
-      "sha256": "653999fb77278a79b45cbda8ccff49f758431149546b9caa037cafa7fb520aa2"
+      "bytes": 11708,
+      "sha256": "163624cdfca2a6d215ed564745739c3d8bc9a99e0bb4ac8b2a5056e0fd545612"
     },
     {
       "ruta": "docs/99-archivo/bitacoras/2026-10-27/LOG-CODEX-T90-ANTECEDENTES.json",

@@ -50,12 +50,11 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Devuelto (hizo Claude, verifica Codex) | Devuelta por Codex CAB 27/10: a_revision suma revisiones ya existentes; 1 alumno da 1->2 y al agregar otro da 4 con solo 2 filas. Ver VERIFICACION-T92-CODEX.md. Propias 6 aprobadas/2 fallidas, area91/461, rapida933/6 omitidas. Corregir contador sin perder creadas/hora y repetir los dos casos rojos. Sin producto, servidor, deploy ni push. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregido por Claude el 27/10 a pedido de Carlos (PRU-04 dia 23: la constancia de noviembre paso de 100 creadas a 0). La primera corrida deja la constancia; otra posterior suma lo que crea o manda a Revision y conserva la hora (terminada_at tiene ON UPDATE en MariaDB). Prueba nueva en GeneracionCuotasReintentoT40Test; rapida 933/6 omitidas. Codex verifica logica. |
+Nada en este momento.
 
 ## Gemini
 

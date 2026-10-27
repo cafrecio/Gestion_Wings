@@ -1,0 +1,25 @@
+{
+    "avisos": [
+        {
+            "titulo": "las cuotas del mes se generaron con atraso",
+            "datos": {
+                "Mes": "11\/2026",
+                "Generadas el": "03\/11\/2026",
+                "Cuotas creadas": "2",
+                "Enviados a revisión": "1"
+            },
+            "texto": "Wings: las cuotas del mes se generaron con atraso\n\nMes: 11\/2026\nGeneradas el: 03\/11\/2026\nCuotas creadas: 2\nEnviados a revisión: 1\n\nEl proceso del día 1 no corrió; se recuperó solo. Conviene revisar qué pasó con el servidor ese día."
+        }
+    ],
+    "constancia": {
+        "id": 8,
+        "periodo": "2026-11",
+        "terminada_at": "2026-11-03 06:00:00",
+        "creadas": 2,
+        "a_revision": 1,
+        "ya_existian": 0,
+        "sin_plan": 0,
+        "created_at": "2026-11-03 06:00:00",
+        "updated_at": "2026-11-03 06:00:00"
+    }
+}

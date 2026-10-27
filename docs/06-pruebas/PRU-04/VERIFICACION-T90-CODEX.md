@@ -73,3 +73,9 @@ La copia `tabla-de-pruebas/catalogo/CLA.json` sigue en solo lectura. Para que su
 | `tarea`, línea 580 | `T62` | `T90`; T62 conserva CLA-012 y CLA-015. |
 
 No se cambió la respuesta de DU-30 ni la tabla externa o su copia. **T90 cerrada en el tablero, `verifica=Codex`, `tiene=nadie`.** El despliegue queda fuera de esta orden.
+
+## Entrega e integridad documental — 27/10
+
+El commit concurrente `691b1f83`, titulado «tablero: T85 opcion 1 para Gemini», incorporó los 50 archivos preparados para esta entrega junto con el cambio ajeno de T85 en los archivos compartidos. No se reescribe ese commit ni se atribuye a Codex su título o el cambio de T85. Las huellas originales de `tareas.json` y `TABLERO.html` quedaron desactualizadas por esa incorporación concurrente.
+
+El auditor y el manifiesto corregidos distinguen la evidencia propia actual de los seis documentos compartidos **tal como quedaron en `691b1f83`**. Así se verifica ese corte sin congelar sus siguientes ediciones de T32/T85/T92. El estado actual de T90 también se comprueba por separado. No se repiten las pruebas de T90 por esta corrección documental, ni se cambia su dictamen. La verificación agregada de T92 tiene [informe propio](VERIFICACION-T92-CODEX.md).

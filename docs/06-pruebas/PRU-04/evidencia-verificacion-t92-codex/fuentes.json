@@ -1,0 +1,121 @@
+{
+  "implementacion": "c30bb7c2",
+  "head_al_registrar": "b759439b6497191d83e0e7e5cfa60bb5d5917474",
+  "fuentes": [
+    {
+      "ruta": "app/Console/Commands/GenerarDeudasMensualesCommand.php",
+      "sha256": "5e9dc4a758a3c0a7b8f168481e7b7fb9527dad82366e2d1ba8ed514aef9f7677",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Models/GeneracionCuotas.php",
+      "sha256": "218db1568b67ea2cfc5016a4a1576430ffbcc820d767dd4f71c10dbbb0214aa3",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/AvisoAdminService.php",
+      "sha256": "496fe2a6f4338874e8ae06fb2ef20b1eb60aeac5021973e26eba33ea9606608b",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/PagoCuotaService.php",
+      "sha256": "d70da72db7e8a98afa59e643e61decfa69b829b26993b2a1cc4b628396fb01d8",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Models/AlumnoRevisionCobranza.php",
+      "sha256": "ec22a932a19a806742b7b6a642a57bae6dd5ba6dd36264ce08c27c8cd07edeea",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/PunitorioService.php",
+      "sha256": "2ec70f0cbb260f6bd3abdca5b86abbbef007d5c350bd91c67f748f4db823cff0",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/InscripcionService.php",
+      "sha256": "1ebea105af6b6cf3281619d46443ace19cab5709f5c9d96bb201963d0d6cb925",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/PrimeraCargaExcelService.php",
+      "sha256": "dde6c858405cf81793b0236d9e4eade8e65d294c0f821992fcc4f5add5bb827f",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Observers/HistorialReporteObserver.php",
+      "sha256": "c4efd3a726ac70bf7fec6755698bc69c159890dd4fa595bb5972df3ca1902940",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Observers/MovimientoReporteObserver.php",
+      "sha256": "1be1312c0dfa6985c85d2033534a0fd806f3746db8ecd8899d7d281490e6c9e2",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Services/ReporteMensualService.php",
+      "sha256": "106fc014dab09a517e88f34818360c51605b21d93daa77d6a08843a8108a0e8f",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "database/migrations/2026_09_22_180000_create_cargos_alumno.php",
+      "sha256": "54ea60f525ac12e0885bd9099bda291fba089509ad5400a1a480eaa9bbf5cf3f",
+      "bytes_identicos_git": false,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "database/migrations/2026_10_09_120000_create_historial_reportes.php",
+      "sha256": "68c13f89697df9f80ddd4a010f7083e17688b45d80b9b09fb04fabc40eb8ab21",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "database/migrations/2026_10_19_120000_create_generaciones_cuotas.php",
+      "sha256": "d4ffddb5e85527630088eb9653b08d41202b070910a86b31d1517a12c1ea5a02",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "routes/console.php",
+      "sha256": "662f07576252702e75338f09b95d900c2ed10553ee3842171fbaf39d5e9e8563",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "app/Notifications/AvisoOperativo.php",
+      "sha256": "a642921308ac72f4be502c67ba92fbbea8437d7f11d6b274d4edb077d2484dce",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "tests/Feature/GeneracionCuotasReintentoT40Test.php",
+      "sha256": "f3b3d921c3fddc040b270dcf35a22b03523a31e3391e2453bcae414d129365c4",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "tests/TestCase.php",
+      "sha256": "eedce8da7a1ca8a8207c32d1de259d6b9592e350606ea4406e6077353857466e",
+      "bytes_identicos_git": true,
+      "contenido_identico_sin_diferencia_crlf": true
+    },
+    {
+      "ruta": "phpunit.xml",
+      "sha256": "36fb310fe2a1aacf9bc21ee45489a8f82614c08f4b94160bb65304eed4318f21",
+      "bytes_identicos_git": false,
+      "contenido_identico_sin_diferencia_crlf": true
+    }
+  ],
+  "nota": "T32 publicada por Gemini durante esta verificacion; fuentes de T92 iguales al commit revisado salvo terminadores CRLF en dos archivos. Sin push propio."
+}

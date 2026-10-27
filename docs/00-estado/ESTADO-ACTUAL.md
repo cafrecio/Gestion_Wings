@@ -1,5 +1,11 @@
 # Wings — Estado actual
 
+## T92 — Verificación devuelta a Claude, Codex CAB 27/10/2026
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md). c30bb7c2 conserva creadas y hora, pero suma nuevamente las revisiones existentes: con un alumno 1→2; al agregar otro en la tercera, 1→2→4 aunque solo hay dos filas. T92 devuelta, tiene=Claude, verifica=Codex; falta corregir ese contador y repetir los casos rojos. Sin cambios de producto.
+Propias 6 aprobadas/2 fallidas, 44 aserciones; área 91/461 (T40 10/47 incluida); rápida 933 aprobadas/6 omitidas/7465 aserciones/163,75 s, salida 0. MariaDB local wings_testing_codex, sin servidor ni base del club, notificaciones simuladas, sin despliegue ni push. Corte a mitad, reintento, hora, aviso e índice único comprobados; tres columnas ON UPDATE revisadas.
+T90 conserva el cierre aprobado. Su auditor documental se corrigió para verificar los seis archivos compartidos en el commit concurrente 691b1f83, que ya había incorporado la entrega junto con T85; las ediciones posteriores del tablero no alteran ese corte.
+
 ## T90 — Verificación independiente aprobada, Codex CAB 27/10/2026
 
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md). Implementación Claude563749b2;14 fuentes T90 idénticas tras la publicación paralela de T92. Solo wings_testing_codex local, MariaDB10.4.32 y destino efectivo verificado.

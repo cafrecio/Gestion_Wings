@@ -1,0 +1,194 @@
+{
+  "dictamen": "devuelto",
+  "resultados": {
+    "propias-final": {
+      "name": "Tests\\VerificacionCodex\\VerificacionT92CodexTest",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-verificacion-t92-codex\\VerificacionT92CodexTest.php",
+      "tests": "8",
+      "assertions": "44",
+      "errors": "0",
+      "failures": "2",
+      "skipped": "0",
+      "time": "12.696515",
+      "exit": 1
+    },
+    "area": {
+      "name": "CLI Arguments",
+      "tests": "91",
+      "assertions": "461",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "183.675118",
+      "exit": 0
+    },
+    "rapida": {
+      "name": "C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml",
+      "tests": "939",
+      "assertions": "7465",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "6",
+      "time": "162.210523",
+      "exit": 0
+    }
+  },
+  "fallos": [
+    "test_repetir_no_suma_otra_vez_la_misma_revision",
+    "test_tercera_corrida_suma_solo_la_revision_nueva"
+  ],
+  "fuentes_estables": 19,
+  "enlaces_revisados": 20,
+  "archivos": [
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/area-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/area.txt",
+      "sha256": "27a0decd96c8c4465ff2a2dc8e6bc65b3b8ee9aac5ac3daa98c1951f6f8ca6de",
+      "bytes": 370
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/area.xml",
+      "sha256": "138a6cec317d807b65c3e9fb5dfb2d1f98ab2ed7dada7a1fdb1bbc7d62207d80",
+      "bytes": 29281
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/aviso-atraso.json",
+      "sha256": "4189b64a60a604fdb0e188b9ebc72aaef05d535f97fa0f33ea5eb7c8a42453c1",
+      "bytes": 896
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/bootstrap.php",
+      "sha256": "e15a8837523c920a40f4d0204527098c4222f116992ee0fc52410bec0ecc8215",
+      "bytes": 469
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/columnas-on-update.json",
+      "sha256": "358c636ff97bc29494a94751a3d704483a4543a043484890d38dcfb74e5bcf18",
+      "bytes": 777
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/compartidos-antes.json",
+      "sha256": "a4e6cd0e861fa62320a481558db484e071f767649a2d2418598a957fcd445ee2",
+      "bytes": 737
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/corrida-interrumpida.json",
+      "sha256": "420197eb241f25a4fad5b35efebee72e5131adcb3c10501f600e83a29ce6cab4",
+      "bytes": 1179
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/diagnostico.php",
+      "sha256": "1f7f363454d9eec70d0d4860ae6c5603861a50525ee1dc0a7af7ac5d69fe0b81",
+      "bytes": 703
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/fuentes.json",
+      "sha256": "5e6c15484380fcc8805e1fa62fa66dc6af804f2fca5a0c634169c485c7feb673",
+      "bytes": 4896
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/grafo-y-cobertura.json",
+      "sha256": "4ebbb82e008cf8ed0375b9de82b79c6dc191e5d6c07f724497efe2e69e805cd0",
+      "bytes": 11608
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias-final-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias-final.txt",
+      "sha256": "2ea26d4d61d1af30fe31eebca28a9b0ac54d7efa7d35a1bb46f9febee0fbbc81",
+      "bytes": 1027
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias-final.xml",
+      "sha256": "048e2ffe1c7e340dd055000385518efb425df284748c8ce1a1dd44bcaa3ebd8f",
+      "bytes": 4181
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias.txt",
+      "sha256": "1869efeccd82156ed41e515894709f95438fc8a6bc00b7b1bdfebe67195ed929",
+      "bytes": 1027
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/propias.xml",
+      "sha256": "68b1ef7a82b2b02ddc7a318e1b84b3765b83a1a1537cf0d3d49450dbde6299a3",
+      "bytes": 4181
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/rapida-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/rapida.txt",
+      "sha256": "deffd37e657a103f44019d6e9fd8970fadc020b934750af7455a4efd2dfaf44e",
+      "bytes": 120142
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/rapida.xml",
+      "sha256": "ac9ffc5d4683cae5fa24ba0080d6c73af7c22a0afb1731ae9649550d953e49da",
+      "bytes": 326805
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/revision-nueva.json",
+      "sha256": "843d243cdc7bea5a16d321ec15ca34ed57d63f7f049d88252c8945ee5288981d",
+      "bytes": 1991
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/revision-repetida.json",
+      "sha256": "ab308a439eb5766c4dcf9e6e2513040bd1e0138095f88f33f001a225af85fd2f",
+      "bytes": 1098
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/rutas-revisadas-on-update.txt",
+      "sha256": "e21ca6a4a5f18a9fb8db8a9292ab09297c76982109a09c51bb418924917ef4b3",
+      "bytes": 3190
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/salida-lateral-t34.json",
+      "sha256": "441fc0383435ab53478baa2296fb8da3ba56eed6a42ee3883bab73f16f3b0c83",
+      "bytes": 483
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/tres-corridas-cuotas.json",
+      "sha256": "f0d3fed4c4a97801c0f66798c79f84f265629d995d650715e163aca2612c6473",
+      "bytes": 2329
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/VerificacionT92CodexTest.php",
+      "sha256": "9266f4092ee60ed2a8691c78426c121f72a9394b93a6b299d22ddf9ec0c6eaff",
+      "bytes": 11855
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-verificacion-t92-codex/verificar-entrega.py",
+      "sha256": "7910687168dcecd25c34262591ba71db115af3cc1b916e3bbaaf9b0213c64cc9",
+      "bytes": 5387
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md",
+      "sha256": "670b99fb87fd9d8285f07b14b3298bb048a1a75d3510d50d9446145257cb283d",
+      "bytes": 9702
+    }
+  ],
+  "compartidos_actualizados": [
+    "docs/00-estado/LOG-CODEX.md",
+    "docs/00-estado/ESTADO-ACTUAL.md",
+    "docs/00-estado/RESUMEN-ARRANQUE.md",
+    "docs/00-estado/tareas.json",
+    "docs/00-estado/TABLERO.html",
+    "docs/00-estado/QUIEN-HACE-QUE.md",
+    "docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md"
+  ],
+  "limite": "Los compartidos se revisan por diff al entregar; no se congelan sus bytes para otras tareas. --tablero comprueba el estado al entregar. El manifiesto se excluye de su propia huella."
+}

@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — T92 devuelta; entrega documental de T90 resuelta
+
+[Verificación T92](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md) sobre c30bb7c2: Revisión se cuenta otra vez aunque no se crea una fila. Un alumno: 1→2; con otro nuevo en la tercera corrida: 1→2→4, con solo dos revisiones. Sin corregir producto.
+Propias finales: 6 aprobadas/2 fallidas, 44 aserciones; área 91/461 (T40 10/47 incluida); rápida 933/6 omitidas/7465 aserciones, 163,75 s, salida 0. Rojos y filas completas conservados.
+Cuotas creadas 2→2→3 y hora inicial preservada; corte antes de segunda cuota no deja constancia; reintento sin duplicar, aviso real simulado correcto y sin repetición. Índice único rechaza otro registro del mes.
+Esquema real MariaDB 10.4.32: tres columnas ON UPDATE. Otros eventos se insertan; fuentes y usos históricos revisados. Solo wings_testing_codex con guardias antes de migrar; notificaciones simuladas, sin servidor/base del club.
+T92 devuelta a Claude: corregir el contador de revisiones existentes y repetir los dos casos. Tabla externa/copia intactas; sin despliegue ni push. El HTML T34 regenerado por la suite se repuso a sus bytes originales.
+T90 sigue aprobada/cerrada: 691b1f83 incorporó su entrega con T85 ajena. Auditor/manifiesto ahora distinguen evidencia actual y seis documentos compartidos históricos de ese commit; no se reescribe el commit concurrente.
+
 ## 2026-10-27 — Codex CAB — T90 verificada y aprobada
 
 [Informe independiente](../06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md): siete puntos aprobados sobre563749b2;14 fuentes idénticas pese a la publicación ajena de T92 durante la revisión. Sin producto propio.

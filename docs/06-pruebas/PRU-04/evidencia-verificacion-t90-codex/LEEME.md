@@ -43,3 +43,7 @@ La [copia técnica](SeguridadDiasPruebaFuente.php) conserva todos los bytes del 
 - [Salida lateral de T34 restaurada](salida-lateral-t34.json).
 
 No usar esos intentos como resultado final ni sumar corridas repetidas para inflar cobertura. Los resultados y límites están en el informe.
+
+## Documentos compartidos
+
+`verificar-entrega.py` sella la evidencia actual y consulta los seis documentos compartidos en `691b1f83`, el commit concurrente que incorporó esta entrega con T85. No exige que bitácora y tablero queden congelados: sus cambios posteriores son de otras tareas. `INTEGRIDAD.json` identifica esas entradas con `revision`; el resto se compara con los archivos locales. No se atribuye propiedad exclusiva de los documentos compartidos. El informe explica la corrección de las dos huellas desactualizadas.

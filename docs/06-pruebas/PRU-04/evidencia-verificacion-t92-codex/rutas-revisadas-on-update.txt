@@ -1,0 +1,25 @@
+app\Observers\MovimientoReporteObserver.php:40:            $origen = \Illuminate\Support\Facades\DB::table('reporte_eventos')->where('tipo', 'LIQUIDACION')
+app\Observers\HistorialReporteObserver.php:31:        $origen = DB::table('reporte_eventos')->where('tipo', $tipo)->where('origen_id', $modelo->id)->orderBy('id')->first();
+app\Observers\HistorialReporteObserver.php:38:        DB::table('reporte_eventos')->insert([
+app\Console\Commands\GenerarDeudasMensualesCommand.php:191:                'terminada_at' => Carbon::now(),
+app\Console\Commands\GenerarDeudasMensualesCommand.php:207:                // MariaDB declaró terminada_at con ON UPDATE CURRENT_TIMESTAMP: si no se
+app\Console\Commands\GenerarDeudasMensualesCommand.php:209:                'terminada_at' => $generacion->terminada_at,
+app\Support\RegistroReporteDisponible.php:13:        return Schema::hasTable('reporte_eventos');
+app\Models\GeneracionCuotas.php:17:        'terminada_at',
+app\Models\GeneracionCuotas.php:25:        'terminada_at' => 'datetime',
+app\Services\InscripcionService.php:115:        DB::table('cargo_alumno_eventos')->insert(['cargo_alumno_id' => $cargo->id, 'usuario_id' => $usuario,
+app\Http\Controllers\ReporteWebController.php:53:        abort_unless(Schema::hasTable('reporte_cobertura') && Schema::hasTable('reporte_eventos'), 503, 'Reportes requiere preparar su historial.');
+app\Services\PrimeraCargaExcelService.php:344:            DB::table('cargo_alumno_eventos')->whereIn('cargo_alumno_id', $detalle['cargos'])->delete();
+app\Services\PunitorioService.php:126:        DB::table('cargo_alumno_eventos')->insert([
+app\Services\ReporteMensualService.php:84:        $iniciales = DB::table('reporte_eventos')->where('tipo', 'CAJA_INICIAL')->whereDate('fecha', '<=', $fecha)
+app\Services\ReporteMensualService.php:145:        $eventos = DB::table('cargo_alumno_eventos')->whereIn('cargo_alumno_id', $cargos->pluck('id'))
+app\Services\ReporteMensualService.php:195:        $filas = DB::table('reporte_eventos')->where('tipo', $tipo)->whereDate('fecha', '<=', $fecha)
+database\migrations\2026_09_22_180000_create_cargos_alumno.php:35:        Schema::create('cargo_alumno_eventos', function (Blueprint $t) {
+database\migrations\2026_09_22_180000_create_cargos_alumno.php:66:        Schema::dropIfExists('cargo_alumno_eventos');
+database\migrations\2026_10_09_120000_create_historial_reportes.php:16:        Schema::create('reporte_eventos', function (Blueprint $t) {
+database\migrations\2026_10_09_120000_create_historial_reportes.php:50:            DB::table('reporte_eventos')->insert([
+database\migrations\2026_10_09_120000_create_historial_reportes.php:61:                DB::table('reporte_eventos')->insert([
+database\migrations\2026_10_09_120000_create_historial_reportes.php:74:                    DB::table('reporte_eventos')->insert([
+database\migrations\2026_10_09_120000_create_historial_reportes.php:92:        Schema::dropIfExists('reporte_eventos');
+database\migrations\2026_10_19_120000_create_generaciones_cuotas.php:22:            $table->timestamp('terminada_at');
+database\migrations\2026_10_19_120000_create_generaciones_cuotas.php:42:            'terminada_at' => now(),

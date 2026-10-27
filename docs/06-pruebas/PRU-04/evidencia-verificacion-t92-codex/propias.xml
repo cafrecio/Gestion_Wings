@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\VerificacionCodex\VerificacionT92CodexTest" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" tests="8" assertions="42" errors="0" failures="2" skipped="0" time="14.613853">
+    <testcase name="test_repeticion_conserva_contadores_iniciales_y_actualiza_solo_updated_at" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="72" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="5" time="13.713182"/>
+    <testcase name="test_tres_corridas_suman_una_cuota_nueva_y_mantienen_terminada_at" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="90" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="9" time="0.161375"/>
+    <testcase name="test_repetir_no_suma_otra_vez_la_misma_revision" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="111" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="5" time="0.124698">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\VerificacionCodex\VerificacionT92CodexTest::test_repetir_no_suma_otra_vez_la_misma_revision&#13;
+La misma revision pendiente no es un nuevo envio.
+Failed asserting that 2 is identical to 1.
+&#13;
+C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php:123</failure>
+    </testcase>
+    <testcase name="test_tercera_corrida_suma_solo_la_revision_nueva" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="126" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="5" time="0.125517">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\VerificacionCodex\VerificacionT92CodexTest::test_tercera_corrida_suma_solo_la_revision_nueva&#13;
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &amp;0 [
+     0 =&gt; 1,
+-    1 =&gt; 1,
+-    2 =&gt; 2,
++    1 =&gt; 2,
++    2 =&gt; 4,
+ ]
+&#13;
+C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php:139</failure>
+    </testcase>
+    <testcase name="test_corrida_interrumpida_no_deja_constancia_y_reintenta_sin_duplicar" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="142" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="8" time="0.195302"/>
+    <testcase name="test_aviso_de_atraso_refleja_la_corrida_y_no_se_repite" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="166" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="4" time="0.153110"/>
+    <testcase name="test_indice_unico_rechaza_dos_constancias_del_mismo_mes" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="185" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="3" time="0.082190"/>
+    <testcase name="test_mariadb_on_update_se_activa_y_repetir_el_valor_lo_evita" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t92-codex\VerificacionT92CodexTest.php" line="198" class="Tests\VerificacionCodex\VerificacionT92CodexTest" classname="Tests.VerificacionCodex.VerificacionT92CodexTest" assertions="3" time="0.058480"/>
+  </testsuite>
+</testsuites>

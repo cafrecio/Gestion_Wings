@@ -1,0 +1,7 @@
+{
+  "archivo": "docs/06-pruebas/PRU-04/evidencia-correccion-t34/sin-presentes.html",
+  "origen": "La suite rapida regenera el HTML historico; estaba limpio antes de nuestras corridas.",
+  "sha256_original": "d1a4ebb97d9a55f77c96a6ba476e816e7e03427e06b94ed1c392c6119f2835af",
+  "sha256_generado": "3501d3ab7d39ddb6127da8c6357797b9f233078322ccf37aa4800eb3d4b578a8",
+  "restauracion": "Restituido byte por byte desde HEAD al terminar las pruebas propias; no se incluye en el commit."
+}

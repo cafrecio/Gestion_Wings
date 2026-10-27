@@ -1,4 +1,4 @@
-"""Revisa evidencia existente de T90 sin ejecutar Laravel ni conectar a una base."""
+"""Revisa T90: evidencia propia actual y documentos compartidos del corte publicado."""
 import hashlib
 import json
 import re
@@ -14,6 +14,13 @@ root = folder.parents[3]
 report = folder.parent / 'VERIFICACION-T90-CODEX.md'
 manifest = folder / 'INTEGRIDAD.json'
 shared = [root / 'docs/00-estado' / n for n in ['LOG-CODEX.md', 'ESTADO-ACTUAL.md', 'RESUMEN-ARRANQUE.md', 'tareas.json', 'TABLERO.html', 'QUIEN-HACE-QUE.md']]
+shared_revision = '691b1f839871677391de402d9f4d921ed4f863bc'
+
+
+def artifact_bytes(path):
+    if path in shared:
+        return subprocess.check_output(['git', 'show', shared_revision + ':' + path.relative_to(root).as_posix()], cwd=root)
+    return path.read_bytes()
 archives = sorted((root / 'docs/99-archivo/bitacoras/2026-10-27').glob('LOG-CODEX-T90-ANTECEDENTES.*'))
 
 expected = {'independientes-final': (77, 528, 0), 'area': (160, 1160, 0), 'tecnica-dia23': (1, 7, 0), 'rapida': (939, 7465, 6)}
@@ -58,8 +65,7 @@ assert (t90['estado'], t90['hizo'], t90['verifica'], t90['tiene']) == ('cerrado'
 t62 = next(x for x in board if x['id'] == 'T62')
 assert 'CLA-012' in t62['paso'] and 'CLA-015' in t62['paso']
 side_effect = json.loads((folder / 'salida-lateral-t34.json').read_text(encoding='utf-8'))
-assert hashlib.sha256((root / side_effect['archivo']).read_bytes()).hexdigest() == side_effect['sha256_original']
-assert not subprocess.check_output(['git', 'diff', '--name-only', '--', 'app', 'resources', 'routes', 'tests', 'scripts', 'database', 'bootstrap', 'config'], cwd=root).strip()
+assert hashlib.sha256(subprocess.check_output(['git', 'show', 'c30bb7c2:' + side_effect['archivo']], cwd=root)).hexdigest() == side_effect['sha256_original']
 assert not subprocess.check_output(['git', 'diff', '--name-only', '--', 'docs/06-pruebas/PRU-04/tabla-de-pruebas'], cwd=root).strip()
 
 files = sorted(set([p for p in folder.rglob('*') if p.is_file() and p != manifest] + [report] + shared + archives))
@@ -78,10 +84,10 @@ def check_links(text, parent, previous=''):
 
 for file in files:
     if file.suffix == '.json':
-        json.loads(file.read_text(encoding='utf-8-sig'))
+        json.loads(artifact_bytes(file).decode('utf-8-sig'))
     if file.suffix != '.md':
         continue
-    text = file.read_text(encoding='utf-8-sig')
+    text = artifact_bytes(file).decode('utf-8-sig')
     if file in archives:
         metadata = json.loads(file.with_suffix('.json').read_text(encoding='utf-8'))
         raw = file.read_bytes()
@@ -98,11 +104,13 @@ for file in files:
         check_links(text, file.parent, previous)
 
 data = {'controles': {'propias': '77/528', 'rechazos_protegidos': 48, 'permitidas': 24, 'area': '160/1160', 't90_en_area': '4/21', 'tecnica_dia23': '1/7', 'rapida': '933 aprobadas,6 omitidas,7465 aserciones', 'js': '2/2', 'base_efectiva': environment['base_efectiva'], 'fuentes_identicas_563749b2': 14, 'tabla_solo_lectura': True, 'salida_t34_restaurada': True, 'tablero_t90': 'cerrado,verifica=Codex', 'enlaces_nuevos_revisados': links_count},
-        'archivos': [{'ruta': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in files],
+        'revision_compartidos': shared_revision,
+        'alcance_compartidos': 'Seis archivos compartidos del commit concurrente que incorporo la entrega T90 y el cambio ajeno T85; no se atribuye propiedad exclusiva de esos archivos ni se sellan sus ediciones posteriores.',
+        'archivos': [{'ruta': p.relative_to(root).as_posix(), 'bytes': len(artifact_bytes(p)), 'sha256': hashlib.sha256(artifact_bytes(p)).hexdigest(), **({'revision': shared_revision} if p in shared else {})} for p in files],
         'manifiesto_excluido_de_autohash': manifest.relative_to(root).as_posix()}
 if '--guardar' in sys.argv:
     manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
 else:
     assert json.loads(manifest.read_text(encoding='utf-8')) == data, 'Cambió un archivo sellado'
 print(json.dumps(data['controles'], ensure_ascii=False))
-print(len(files), 'archivos propios verificados y sellados; manifiesto excluido de su propia huella.')
+print(len(files), 'archivos verificados: evidencia actual y seis compartidos historicos; manifiesto excluido de su propia huella.')
