@@ -1,0 +1,6 @@
+{
+    "error": "El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.",
+    "errores": null,
+    "base": "wings_testing_codex",
+    "hoy": "2026-10-27"
+}

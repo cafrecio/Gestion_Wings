@@ -1,0 +1,11 @@
+{
+    "base": "wings_testing_codex",
+    "entorno": "testing",
+    "alumnos": {
+        "Parcial": 1,
+        "Anteriores": 2
+    },
+    "efectivo": 1,
+    "gasto": 12,
+    "fecha": "2026-10-27"
+}

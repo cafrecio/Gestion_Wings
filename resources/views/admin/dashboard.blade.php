@@ -44,4 +44,5 @@
         <a href="{{ $enlace }}" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>{{ $etiqueta }}</span><strong>{{ $reporte['avisos'][$clave] }} →</strong></a>
     @endforeach
 </div>
+@include('admin._excepciones')
 @endsection

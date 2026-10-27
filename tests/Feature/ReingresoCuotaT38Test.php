@@ -345,7 +345,7 @@ class ReingresoCuotaT38Test extends TestCase
 
     private function cobrarAdmin(Alumno $alumno, array $items): array
     {
-        return app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $alumno->id,
+        return app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $alumno->id,
             'tipo_caja_id' => $this->efectivo->id, 'items' => $items, 'usuario_admin_id' => $this->admin->id,
             'monto_entregado' => array_sum(array_column($items, 'monto'))]);
     }
@@ -355,7 +355,7 @@ class ReingresoCuotaT38Test extends TestCase
         $caja = app(\App\Services\CajaService::class);
         $caja->configurarMostrador($this->efectivo->id, $this->admin->id);
         $caja->abrirCajaOperativa($this->operativo->id, ['efectivo_inicial' => 0, 'confirmacion' => 1, 'caja_origen_id' => null]);
-        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo(['alumno_id' => $alumno->id,
+        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $alumno->id,
             'tipo_caja_id' => $this->efectivo->id, 'items' => $items, 'usuario_operativo_id' => $this->operativo->id,
             'monto_entregado' => array_sum(array_column($items, 'monto'))]);
     }

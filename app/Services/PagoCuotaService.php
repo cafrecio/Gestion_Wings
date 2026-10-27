@@ -79,6 +79,10 @@ class PagoCuotaService
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
 
+            $excepciones = app(ExcepcionCobranzaService::class)->validarCobro(
+                $data['alumno_id'], $items, $montosOriginalesNuevasDeudas, $punitorios, $data['motivo'] ?? null
+            );
+
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
@@ -100,6 +104,9 @@ class PagoCuotaService
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
+
+            app(ExcepcionCobranzaService::class)->guardar($excepciones, $data['motivo'] ?? '',
+                $data['usuario_operativo_id'], $data['alumno_id'], 'PAGO', $pago->id);
 
             if ($montoInscripcion > 0) {
                 $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);
@@ -215,6 +222,10 @@ class PagoCuotaService
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
 
+            $excepciones = app(ExcepcionCobranzaService::class)->validarCobro(
+                $data['alumno_id'], $items, $montosOriginalesNuevasDeudas, $punitorios, $data['motivo'] ?? null
+            );
+
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
@@ -236,6 +247,9 @@ class PagoCuotaService
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
+
+            app(ExcepcionCobranzaService::class)->guardar($excepciones, $data['motivo'] ?? '',
+                $data['usuario_admin_id'], $data['alumno_id'], 'PAGO', $pago->id);
 
             if ($montoInscripcion > 0) {
                 $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);

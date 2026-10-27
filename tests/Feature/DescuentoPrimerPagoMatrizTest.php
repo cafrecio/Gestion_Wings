@@ -235,7 +235,7 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
     {
         $this->actingAs($this->operativo)
             ->post(route('web.caja.pagar', $alumno->id), [
-                'tipo_caja_id' => $this->tipoCaja->id,
+                'motivo' => 'Parcial autorizado en prueba del descuento', 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => [$periodo],
                 // T77: el corriente sin cuota se elige a mano; los futuros conservan T18.
                 'periodos_manuales' => $periodo === '2026-08' && !$alumno->deudaCuotas()->where('periodo', $periodo)->exists()

@@ -1,0 +1,21 @@
+{
+  "revision": "7fde50fb",
+  "archivos": [
+    {
+      "ruta_original": "app/Services/CajaService.php",
+      "copia": "CajaService.php",
+      "sha256": "8d63fa83b9bdbc359bb69dba7c36be0398d372bedeb53336024354b50a6497b0"
+    },
+    {
+      "ruta_original": "app/Services/PagoCuotaService.php",
+      "copia": "PagoCuotaService.php",
+      "sha256": "d70da72db7e8a98afa59e643e61decfa69b829b26993b2a1cc4b628396fb01d8"
+    },
+    {
+      "ruta_original": "app/Http/Controllers/CajaWebController.php",
+      "copia": "CajaWebController.php",
+      "sha256": "09971e03b64b7a255707828871dce15db988c7a1a8af057ef494b5c0f501f020"
+    }
+  ],
+  "alcance": "Tres clases originales cargadas solo en la corrida roja; no se reemplaza codigo del checkout compartido."
+}

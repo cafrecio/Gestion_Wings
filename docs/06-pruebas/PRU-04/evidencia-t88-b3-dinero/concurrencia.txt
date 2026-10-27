@@ -1,0 +1,25 @@
+
+   FAIL  Tests\Feature\T88EfectivoConcurrenteTest
+  ⨯ el segundo gasto no usa una foto vieja del efectivo                                                         16.32s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88EfectivoConcurrenteTest > el segundo gasto no usa una foto vieja del…   DeadlockException
+  SQLSTATE[HY000]: General error: 1205 Lock wait timeout exceeded; try restarting transaction (Connection: t88_otra, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select * from `cajas_operativas` where `usuario_operativo_id` = 1 and `estado` = ABIERTA limit 1 for update)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php:101
+     97▕             $this->transactionsManager?->rollback(
+     98▕                 $this->getName(), $this->transactions
+     99▕             );
+    100▕
+  ➜ 101▕             throw new DeadlockException($e->getMessage(), is_int($e->getCode()) ? $e->getCode() : 0, $e);
+    102▕         }
+    103▕
+    104▕         // If there was an exception we will rollback this transaction and then we
+    105▕         // can check if we have exceeded the maximum attempt count for this and
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php:101
+  2   vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php:42
+
+
+  Tests:    1 failed (7 assertions)
+  Duration: 16.52s
+

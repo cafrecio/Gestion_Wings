@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\T88B3DineroTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" tests="2" assertions="6" errors="0" failures="2" skipped="0" time="13.202000">
+    <testcase name="test_el_duenio_ve_la_excepcion_y_su_motivo_en_inicio" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="202" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="3" time="13.096572">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_el_duenio_ve_la_excepcion_y_su_motivo_en_inicio&#13;
+Failed asserting that '&lt;!DOCTYPE html&gt;\n
+&lt;html lang="es" data-formato-importes="{&amp;quot;locale&amp;quot;:&amp;quot;en-US&amp;quot;,&amp;quot;decimales&amp;quot;:2,&amp;quot;decimal&amp;quot;:&amp;quot;.&amp;quot;,&amp;quot;miles&amp;quot;:&amp;quot;,&amp;quot;,&amp;quot;moneda&amp;quot;:&amp;quot;$&amp;quot;}"&gt;\n
+&lt;head&gt;\n
+    &lt;meta charset="utf-8"&gt;\n
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;\n
+    &lt;meta name="csrf-token" content="in424lKOBqJfDfQYwzrvVUM69JcKDGrW97Vaujcd"&gt;\n
+    &lt;title&gt;Inicio – Wings&lt;/title&gt;\n
+    &lt;link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png"&gt;\n
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png"&gt;\n
+    &lt;link rel="manifest" href="http://gestion-wings/site.webmanifest"&gt;\n
+    &lt;meta name="theme-color" content="#0F172A"&gt;\n
+    &lt;/head&gt;\n
+&lt;body&gt;\n
+\n
+&lt;div class="ds-layout"&gt;\n
+\n
+    \n
+    &lt;aside class="ds-sidebar"&gt;\n
+\n
+        \n
+        &lt;div class="ds-brand"&gt;\n
+            &lt;a href="/" class="ds-brand__link"&gt;\n
+                &lt;img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo"&gt;\n
+                &lt;span class="ds-brand__name"&gt;Wings&lt;/span&gt;\n
+            &lt;/a&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;nav class="flex flex-col gap-0.5"&gt;\n
+            \n
+                \n
+                    \n
+\n
+                    &lt;div class="ds-nav-group"&gt;Día a día&lt;/div&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/admin/dashboard"\n
+                           class="ds-nav-link ds-nav-link--active"&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Inicio\n
+                        &lt;/a&gt;\n
+                    \n
+                    &lt;a href="http://gestion-wings/alumnos"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Alumnos\n
+                    &lt;/a&gt;\n
+\n
+                    &lt;a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Clases\n
+                    &lt;/a&gt;\n
+                    \n
+                        &lt;div class="ds-nav-group"&gt;Plata&lt;/div&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/cobranza"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Cobranza\n
+                        &lt;/a&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/caja"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Caja\n
+                        &lt;/a&gt;\n
+                    \n
+                        &lt;a href="http://gestion-wings/movimientos"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Movimientos\n
+                        &lt;/a&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/cashflow"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Cashflow\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/liquidaciones"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Liquidaciones\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/reportes"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Reportes\n
+                        &lt;/a&gt;\n
+                    \n
+                    &lt;a href="http://gestion-wings/revision-cobranza"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Revisión\n
+                    &lt;/a&gt;\n
+\n
+                    \n
+                        &lt;div class="ds-nav-group"&gt;El club&lt;/div&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/deportes"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Deportes\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/niveles"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Niveles\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/grupos"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Grupos\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/profesores"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Profesores\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/rubros"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Rubros\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/tipos-caja"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Tipos de Caja\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;div class="ds-nav-group"&gt;Sistema&lt;/div&gt;\n
+\n
+                        \n
+                        &lt;a href="http://gestion-wings/configuraciones"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Configuración\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/usuarios"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Usuarios\n
+                        &lt;/a&gt;\n
+\n
+                    \n
+                                    &lt;/nav&gt;\n
+\n
+    &lt;/aside&gt;\n
+\n
+    \n
+    &lt;div id="ds-sidebar-overlay" class="ds-sidebar-overlay"&gt;&lt;/div&gt;\n
+\n
+    \n
+    &lt;div class="ds-main"&gt;\n
+\n
+        \n
+        &lt;div class="ds-topbar"&gt;\n
+                            &lt;div style="display:flex; align-items:center; gap:8px; min-width:0;"&gt;\n
+                    &lt;button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú"&gt;\n
+                        &lt;svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/&gt;\n
+                        &lt;/svg&gt;\n
+                    &lt;/button&gt;\n
+                    &lt;span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"&gt;Vallie Wisoky&lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;form method="POST" action="http://gestion-wings/logout"&gt;\n
+                    &lt;input type="hidden" name="_token" value="in424lKOBqJfDfQYwzrvVUM69JcKDGrW97Vaujcd" autocomplete="off"&gt;                    &lt;button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            &gt;\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    &lt;/button&gt;\n
+\n
+                &lt;/form&gt;\n
+                    &lt;/div&gt;\n
+\n
+        \n
+                    &lt;header class="ds-module-header"&gt;\n
+    &lt;div class="ds-module-header__inner"&gt;\n
+                &lt;h1 class="ds-module-header__title"&gt;Inicio&lt;/h1&gt;\n
+    &lt;/div&gt;\n
+&lt;/header&gt;\n
+        \n
+        \n
+        &lt;main class="ds-content"&gt;\n
+\n
+                            &lt;div class="ds-flash ds-flash--success" style="display:flex; justify-content:space-between; align-items:center; gap:12px;"&gt;\n
+                    &lt;div&gt;Pago registrado para Excepcion, Alumno.&lt;/div&gt;\n
+                                                                &lt;a href="http://gestion-wings/recibos/cuota/1?inline=1"\n
+                           target="_blank"\n
+                           class="ds-btn-row ds-btn-row--sec"\n
+                           style="background:var(--color-surface); flex-shrink:0;"&gt;Recibo&lt;/a&gt;\n
+                                    &lt;/div&gt;\n
+            \n
+            \n
+            &lt;div class="stats-bar mb-4"&gt;&lt;div class="stats-info"&gt;&lt;strong&gt;Octubre 2026&lt;/strong&gt; · Todo el negocio&lt;/div&gt;\r\n
+    &lt;a class="ds-btn ds-btn--secondary" href="http://gestion-wings/reportes?mes=2026-10"&gt;Ver&lt;/a&gt;&lt;/div&gt;\r\n
+&lt;p style="color:var(--color-text-muted);font-size:.8rem;margin-bottom:16px"&gt;Mes en curso · hasta el 27 de octubre&lt;/p&gt;\r\n
+&lt;div class="money-kpis" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px"&gt;\r\n
+    &lt;a  href="http://gestion-wings/reportes?mes=2026-10#ingresos"  class="filtros-card" style="text-decoration:none;display:block;min-width:0"&gt;\r\n
+        &lt;p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px"&gt;Ingresos del mes&lt;/p&gt;\r\n
+        &lt;p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-success);overflow-wrap:anywhere"&gt;&lt;span class="ds-money ds-money--total"&gt;$10,000.00&lt;/span&gt;&lt;/p&gt;\r\n
+    &lt;/a&gt;\r\n
+    &lt;a  href="http://gestion-wings/reportes?mes=2026-10#egresos"  class="filtros-card" style="text-decoration:none;display:block;min-width:0"&gt;\r\n
+        &lt;p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px"&gt;Egresos del mes&lt;/p&gt;\r\n
+        &lt;p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-danger);overflow-wrap:anywhere"&gt;&lt;span class="ds-money ds-money--total"&gt;$0.00&lt;/span&gt;&lt;/p&gt;\r\n
+    &lt;/a&gt;\r\n
+    &lt;a  href="http://gestion-wings/reportes?mes=2026-10#deuda"  class="filtros-card" style="text-decoration:none;display:block;min-width:0"&gt;\r\n
+        &lt;p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px"&gt;Alumnos por cobrar&lt;/p&gt;\r\n
+        &lt;p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-warning);overflow-wrap:anywhere"&gt;&lt;span class="ds-money ds-money--total"&gt;$18,000.00&lt;/span&gt;&lt;/p&gt;\r\n
+    &lt;/a&gt;\r\n
+    &lt;a  href="http://gestion-wings/reportes?mes=2026-10#profesores"  class="filtros-card" style="text-decoration:none;display:block;min-width:0"&gt;\r\n
+        &lt;p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px"&gt;Profesores por pagar&lt;/p&gt;\r\n
+        &lt;p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-info);overflow-wrap:anywhere"&gt;&lt;span class="ds-money ds-money--total"&gt;$0.00&lt;/span&gt;&lt;/p&gt;\r\n
+    &lt;/a&gt;\r\n
+&lt;/div&gt;\r\n
+&lt;div class="filtros-card" style="margin-bottom:20px;display:flex;justify-content:space-between;gap:12px;align-items:center"&gt;\r\n
+    &lt;span style="font-weight:600"&gt;Resultado de octubre&lt;/span&gt;&lt;strong style="font-size:1.35rem;color:var(--color-success)"&gt;&lt;span class="ds-money ds-money--total"&gt;$10,000.00&lt;/span&gt;&lt;/strong&gt;\r\n
+&lt;/div&gt;\r\n
+&lt;div class="alumno-card" style="margin-bottom:20px"&gt;\r\n
+    &lt;div class="alumno-card-header"&gt;&lt;span class="alumno-dot alumno-dot--success"&gt;&lt;/span&gt;&lt;h3 class="alumno-nombre"&gt;Disponible&lt;/h3&gt;&lt;/div&gt;\r\n
+    &lt;p style="font-size:1.7rem;font-weight:750;padding:0 16px 12px"&gt;&lt;span class="ds-money ds-money--total"&gt;$10,000.00&lt;/span&gt;&lt;/p&gt;\r\n
+    &lt;div class="money-summary-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px"&gt;\r\n
+            &lt;div&gt;&lt;p style="font-size:.75rem;color:var(--color-text-muted)"&gt;BGA&lt;/p&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;$0.00&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;\r\n
+            &lt;div&gt;&lt;p style="font-size:.75rem;color:var(--color-text-muted)"&gt;BNA&lt;/p&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;$0.00&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;\r\n
+            &lt;div&gt;&lt;p style="font-size:.75rem;color:var(--color-text-muted)"&gt;Banco Nacion ahorro&lt;/p&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;$0.00&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;\r\n
+            &lt;div&gt;&lt;p style="font-size:.75rem;color:var(--color-text-muted)"&gt;EFT&lt;/p&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;$10,000.00&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;\r\n
+            &lt;div&gt;&lt;p style="font-size:.75rem;color:var(--color-text-muted)"&gt;MP&lt;/p&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;$0.00&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;\r\n
+        &lt;/div&gt;\r\n
+    &lt;div class="alumno-actions" style="border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted)"&gt;Incluye arrastre · &lt;span class="ds-money ds-money--row"&gt;$10,000.00&lt;/span&gt; por validar&lt;/div&gt;\r\n
+&lt;/div&gt;\r\n
+&lt;div class="alumno-card"&gt;\r\n
+    &lt;div class="alumno-card-header"&gt;&lt;span class="alumno-dot alumno-dot--warning"&gt;&lt;/span&gt;&lt;h3 class="alumno-nombre"&gt;Para revisar&lt;/h3&gt;&lt;/div&gt;\r\n
+            &lt;a href="http://gestion-wings/caja?pendientes=1" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"&gt;&lt;span&gt;Cajas por validar&lt;/span&gt;&lt;strong&gt;0 →&lt;/strong&gt;&lt;/a&gt;\r\n
+            &lt;a href="http://gestion-wings/liquidaciones?pendientes=1" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"&gt;&lt;span&gt;Liquidaciones pendientes&lt;/span&gt;&lt;strong&gt;0 →&lt;/strong&gt;&lt;/a&gt;\r\n
+            &lt;a href="http://gestion-wings/clases?estado=finalizada" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"&gt;&lt;span&gt;Clases sin asistencia&lt;/span&gt;&lt;strong&gt;0 →&lt;/strong&gt;&lt;/a&gt;\r\n
+            &lt;a href="http://gestion-wings/revision-cobranza?estado=PENDIENTE" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"&gt;&lt;span&gt;Revisión de alumnos&lt;/span&gt;&lt;strong&gt;0 →&lt;/strong&gt;&lt;/a&gt;\r\n
+    &lt;/div&gt;\r\n
+\n
+        &lt;/main&gt;\n
+\n
+        \n
+        &lt;footer class="ds-footer"&gt;\n
+            &lt;div class="ds-footer__inner"&gt;Wings&lt;/div&gt;\n
+        &lt;/footer&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;/body&gt;\n
+&lt;/html&gt;\n
+' [UTF-8](length: 20902) contains "Excepciones justificadas" [ASCII](length: 24).
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:710
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:208</failure>
+    </testcase>
+    <testcase name="test_se_incluyen_juntas_en_un_resumen_por_canal_sin_avisos_individuales" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="212" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="3" time="0.105428">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_se_incluyen_juntas_en_un_resumen_por_canal_sin_avisos_individuales&#13;
+Failed asserting that false is true.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:218</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

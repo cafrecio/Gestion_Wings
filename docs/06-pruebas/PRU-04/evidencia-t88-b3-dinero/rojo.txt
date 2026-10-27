@@ -1,0 +1,190 @@
+
+   FAIL  Tests\Feature\T88B3DineroTest
+  ⨯ rechaza gasto que supera el cajon sin escribir                                                              12.87s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.25s
+  ⨯ editar no puede dejar negativo ni cambiar el registro                                                        0.38s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.18s
+  ⨯ tambien se valida el alta en caja existente por servicio                                                     0.16s
+  ⨯ un parcial sin motivo pide excepcion y no escribe                                                            0.28s
+  ⨯ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.25s
+  ⨯ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.25s
+  ⨯ avisa tambien un mes impago entre dos seleccionados                                                          0.27s
+  ⨯ pagar todos los anteriores no pide excepcion                                                                 0.27s
+  ⨯ si es parcial y salta deuda registra ambos tipos una vez                                                     0.34s
+  ⨯ el servicio directo tampoco permite omitir el motivo                                                         0.22s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > rechaza gasto que supera el cajon sin escribir
+  Failed asserting that false is true.
+
+  at tests\Feature\T88B3DineroTest.php:73
+     69▕
+     70▕     public function test_rechaza_gasto_que_supera_el_cajon_sin_escribir(): void
+     71▕     {
+     72▕         $this->actingAs($this->operativa)->post(route('web.caja.movimiento.store'), $this->datosGasto(100.01))
+  ➜  73▕             ->assertSessionHas('error', fn ($m) => str_contains($m, 'aporte'));
+     74▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+     75▕         $this->assertSame('100.00', app(CajaService::class)->arqueoCaja($this->caja->id)['efectivo_esperado']);
+     76▕     }
+     77▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > editar no puede dejar negativo ni cambiar el registro
+  Failed asserting that false is true.
+
+  at tests\Feature\T88B3DineroTest.php:92
+     88▕     {
+     89▕         $m = app(CajaService::class)->registrarMovimientoOperativo($this->datosGasto(50));
+     90▕         $antes = $m->getRawOriginal();
+     91▕         $this->actingAs($this->operativa)->put(route('web.caja.movimientos.update', [$this->caja->id, $m->id]), $this->datosGasto(101))
+  ➜  92▕             ->assertSessionHas('error', fn ($s) => str_contains($s, 'aporte'));
+     93▕         $this->assertSame($antes, $m->fresh()->getRawOriginal());
+     94▕     }
+     95▕
+     96▕     public function test_editar_descuenta_la_version_anterior_y_admite_agotar_el_cajon(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > tambien se valida el alta en caja existente por ser…  AssertionFailedError
+  Se acepto gasto sin efectivo.
+
+  at tests\Feature\T88B3DineroTest.php:107
+    103▕     public function test_tambien_se_valida_el_alta_en_caja_existente_por_servicio(): void
+    104▕     {
+    105▕         try {
+    106▕             app(CajaService::class)->registrarMovimientoEnCaja($this->caja->id, $this->datosGasto(101));
+  ➜ 107▕             $this->fail('Se acepto gasto sin efectivo.');
+    108▕         } catch (\Illuminate\Validation\ValidationException $e) {
+    109▕             $this->assertStringContainsString('aporte', $e->getMessage());
+    110▕         }
+    111▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+
+  1   tests\Feature\T88B3DineroTest.php:107
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > un parcial sin motivo pide excepcion y no escribe
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:118
+    114▕     public function test_un_parcial_sin_motivo_pide_excepcion_y_no_escribe(): void
+    115▕     {
+    116▕         $d = $this->deuda('2026-10');
+    117▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000]))
+  ➜ 118▕             ->assertStatus(409)->assertJsonPath('requiere_confirmacion', true)->assertJsonPath('requiere_motivo', true);
+    119▕         $this->assertSame('0.00', $d->fresh()->monto_pagado);
+    120▕         $this->assertDatabaseCount('pagos', 0);
+    121▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+    122▕     }
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > parcial con motivo guarda excepcion atomica sin aviso ind…  QueryException
+  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select exists(select * from `excepciones_cobranza` where (`tipo` = COBRO_PARCIAL and `alumno_id` = 7 and `autor_id` = 14 and `motivo` = Completa al cobrar el sueldo and `registro_tipo` = PAGO and `registro_id` = 2)) as `exists`)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:420
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist")
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el duenio desde la ficha tambien necesita motivo y lo registra
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:138
+    134▕
+    135▕     public function test_el_duenio_desde_la_ficha_tambien_necesita_motivo_y_lo_registra(): void
+    136▕     {
+    137▕         $d = $this->deuda('2026-10');
+  ➜ 138▕         $this->actingAs($this->admin)->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000]))->assertStatus(409);
+    139▕         $this->assertSame('0.00', $d->fresh()->monto_pagado);
+    140▕         $this->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000], ['motivo' => 'Acuerdo del duenio']))->assertRedirect();
+    141▕         $this->assertDatabaseHas('excepciones_cobranza', ['autor_id' => $this->admin->id, 'tipo' => 'COBRO_PARCIAL']);
+    142▕         $this->assertDatabaseMissing('cajas_operativas', ['usuario_operativo_id' => $this->admin->id]);
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > avisa tambien un mes impago entre dos seleccionados
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:149
+    145▕     public function test_avisa_tambien_un_mes_impago_entre_dos_seleccionados(): void
+    146▕     {
+    147▕         foreach (['2026-03', '2026-05', '2026-10'] as $p) $this->deuda($p);
+    148▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+  ➜ 149▕             $this->cobro(['2026-03' => 28000, '2026-10' => 28000]))->assertStatus(409)
+    150▕             ->assertJsonPath('cantidad_meses', 1)->assertJsonPath('periodos.0', '2026-05')->assertJsonPath('monto_total', 28000);
+    151▕         $this->assertDatabaseCount('pagos', 0);
+    152▕     }
+    153▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > pagar todos los anteriores no pide excepcion                QueryException
+  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select count(*) as aggregate from `excepciones_cobranza`)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:420
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist")
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > si es parcial y salta deuda registra ambos tipos una vez    QueryException
+  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select `tipo` from `excepciones_cobranza` order by `tipo` asc)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:420
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist")
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el servicio directo tampoco permite omitir el motiv…  AssertionFailedError
+  Se acepto parcial sin motivo por servicio.
+
+  at tests\Feature\T88B3DineroTest.php:178
+    174▕         try {
+    175▕             app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $this->alumno->id,
+    176▕                 'usuario_admin_id' => $this->admin->id, 'tipo_caja_id' => $this->efectivo->id,
+    177▕                 'items' => [['periodo' => '2026-10', 'monto' => 10000]]]);
+  ➜ 178▕             $this->fail('Se acepto parcial sin motivo por servicio.');
+    179▕         } catch (\App\Exceptions\ExcepcionCobranzaRequerida $e) {
+    180▕             $this->assertStringContainsString('parcial', $e->getMessage());
+    181▕         }
+    182▕         $this->assertDatabaseCount('pagos', 0);
+
+  1   tests\Feature\T88B3DineroTest.php:178
+
+
+  Tests:    10 failed, 2 passed (15 assertions)
+  Duration: 15.89s
+

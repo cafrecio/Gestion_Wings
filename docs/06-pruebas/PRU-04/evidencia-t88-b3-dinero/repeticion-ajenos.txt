@@ -1,0 +1,71 @@
+
+   PASS  Tests\Feature\ClaseProfesoraObligatoriaT66Test
+  ✓ formularios indican minimo y error conserva los datos                                                       14.24s
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.08s
+
+   PASS  Tests\Feature\CondonarDeudaWebTest
+  ✓ admin condona desde web sin generar movimientos y sale de deudores                                           0.22s
+
+   PASS  Tests\Feature\CuotaMesPasadoT58Test
+  ✓ la ficha ofrece el mes al dueno y no a la operativa                                                          0.21s
+  ✓ sin meses faltantes la ficha no muestra el bloque                                                            0.17s
+
+   PASS  Tests\Feature\DetalleCajaCanceladoYFichaAltaT78Test
+  ✓ la ficha de un alumno con alta reciente muestra vencimiento y total igual a cobranza                         0.20s
+
+   PASS  Tests\Feature\EliminarAlumnoYClaseT65Test
+  ✓ operativo y profesor reciben 403 al intentar eliminar alumno                                                 0.09s
+  ✓ operativo y profesor reciben 403 al intentar eliminar clase                                                  0.06s
+  ✓ duenio elimina alumno sin cobros ni asistencias limpia deuda e inscripcion y libera dni                      0.09s
+  ✓ alumno con pago no se elimina explica por que y ofrece darlo de baja                                         0.07s
+  ✓ alumno con pago anulado tampoco se elimina                                                                   0.20s
+  ✓ alumno con asistencia presente o ausente no se elimina                                                       0.07s
+  ✓ alumno con movimiento de caja no se elimina                                                                  0.09s
+  ✓ alumno con cuota con pago o condonada no se elimina                                                          0.07s
+  ✓ alumno con inscripcion cobrada no se elimina                                                                 0.08s
+  ✓ alumno en segundo deporte con inscripcion compartida se elimina sin tocar la inscripcion del otro deporte    0.09s
+  ✓ duenio elimina clase sin asistencias ni liquidaciones                                                        0.10s
+  ✓ clase con asistencia no se elimina debe cancelarse                                                           0.07s
+  ✓ clase en liquidacion abierta o cerrada no se elimina                                                         0.06s
+  ✓ clase validada para liquidacion no se elimina                                                                0.05s
+  ✓ serie se elimina completa si todas estan limpias                                                             0.08s
+  ✓ serie rechaza eliminacion si alguna clase tiene asistencia o liquidacion e indica cual                       0.06s
+  ✓ concurrencia cobro entrante durante intento de eliminacion rechaza el borrado                                0.08s
+  ✓ pantalla ficha alumno y clase muestran boton eliminar solo para admin y cuando es eliminable                 0.35s
+
+   PASS  Tests\Feature\FichaAlumnoResponsiveA37Test
+  ✓ ficha alumno posee estructura responsive en acciones deudas e historial                                      0.20s
+
+   PASS  Tests\Feature\FichaToggleActivoT84Test
+  ✓ ficha alumno activo muestra toggle sin confirmacion ni boton reactivar                                       0.15s
+  ✓ ficha alumno inactivo muestra toggle sin confirmacion ni form reactivar                                      0.13s
+
+   PASS  Tests\Feature\FormulariosA4A5Test
+  ✓ a5 ficha y edicion solo ofrecen profesores activos del deporte                                               0.06s
+
+   PASS  Tests\Feature\MostrarImportesT30Test
+  ✓ cada pantalla muestra centavos e importes largos sin cambiar lo guardado                                    25.24s
+
+   PASS  Tests\Feature\P2Entrega2FichaCobroAdelantadoTest
+  ✓ a17 admin y operativo ven boton cobrar en cabecera de ficha                                                  0.22s
+
+   PASS  Tests\Feature\PerdonReactivacionT33Test
+  ✓ admin ve condonar inscripcion y reutiliza el modal                                                           0.31s
+  ✓ condonar inscripcion guarda solo saldo y evento con autor fecha motivo importe                               0.17s
+  ✓ ficha lista cuotas condonadas y reactivar solo para admin                                                    0.16s
+  ✓ dos deportes un cargo solo ficha duena ofrece decidir                                                        0.71s
+
+   PASS  Tests\Feature\PunitoriosCobroTest
+  ✓ condonar recargo solo no limpia capital y reactivar conserva historial                                       1.03s
+  ✓ porcentaje cero sin cargos conserva pantallas y exporta evidencia a pedido                                   8.90s
+
+   PASS  Tests\Feature\SaldoYAnulacionCoherentesTest
+  ✓ la inscripcion de quien hace dos deportes figura en un solo registro                                         0.41s
+  ✓ la ficha del otro deporte no duplica el saldo y dice donde esta                                              0.18s
+  ✓ el historial de un cobro anulado muestra los meses cobrados                                                  0.25s
+
+  Tests:    39 passed (375 assertions)
+  Duration: 55.54s
+

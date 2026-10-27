@@ -1,0 +1,202 @@
+[
+  {
+    "clase": "Tests\\Feature\\ClaseProfesoraObligatoriaT66Test",
+    "metodo": "test_formularios_indican_minimo_y_error_conserva_los_datos",
+    "detalle": "Tests\\Feature\\ClaseProfesoraObligatoriaT66Test::test_formularios_indican_minimo_y_error_conserva_los_datos\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\577948866b8c8242605d7dd86e529a89.php:156\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illumi"
+  },
+  {
+    "clase": "Tests\\Feature\\ClaseSinAsistenciaYDniT34T67Test",
+    "metodo": "test_lista_asistencia_muestra_solo_ultimos_tres_digitos_del_dni",
+    "detalle": "Tests\\Feature\\ClaseSinAsistenciaYDniT34T67Test::test_lista_asistencia_muestra_solo_ultimos_tres_digitos_del_dni\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\577948866b8c8242605d7dd86e529a89.php:156\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\I"
+  },
+  {
+    "clase": "Tests\\Feature\\CondonarDeudaWebTest",
+    "metodo": "test_admin_condona_desde_web_sin_generar_movimientos_y_sale_de_deudores",
+    "detalle": "Tests\\Feature\\CondonarDeudaWebTest::test_admin_condona_desde_web_sin_generar_movimientos_y_sale_de_deudores\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illum"
+  },
+  {
+    "clase": "Tests\\Feature\\CuotaMesPasadoT58Test",
+    "metodo": "test_la_ficha_ofrece_el_mes_al_dueno_y_no_a_la_operativa",
+    "detalle": "Tests\\Feature\\CuotaMesPasadoT58Test::test_la_ficha_ofrece_el_mes_al_dueno_y_no_a_la_operativa\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundati"
+  },
+  {
+    "clase": "Tests\\Feature\\CuotaMesPasadoT58Test",
+    "metodo": "test_sin_meses_faltantes_la_ficha_no_muestra_el_bloque",
+    "detalle": "Tests\\Feature\\CuotaMesPasadoT58Test::test_sin_meses_faltantes_la_ficha_no_muestra_el_bloque\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation"
+  },
+  {
+    "clase": "Tests\\Feature\\DetalleCajaCanceladoYFichaAltaT78Test",
+    "metodo": "test_la_ficha_de_un_alumno_con_alta_reciente_muestra_vencimiento_y_total_igual_a_cobranza",
+    "detalle": "Tests\\Feature\\DetalleCajaCanceladoYFichaAltaT78Test::test_la_ficha_de_un_alumno_con_alta_reciente_muestra_vencimiento_y_total_igual_a_cobranza\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_operativo_y_profesor_reciben_403_al_intentar_eliminar_alumno",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_operativo_y_profesor_reciben_403_al_intentar_eliminar_alumno\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (273, 2, 1, 2026-10-27 06:46:48, 2026-10-27 06:46:48))\n\r\nC:\\xampp\\htdocs\\g"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_operativo_y_profesor_reciben_403_al_intentar_eliminar_clase",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_operativo_y_profesor_reciben_403_al_intentar_eliminar_clase\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (275, 2, 1, 2026-10-27 06:46:48, 2026-10-27 06:46:48))\n\r\nC:\\xampp\\htdocs\\ge"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_duenio_elimina_alumno_sin_cobros_ni_asistencias_limpia_deuda_e_inscripcion_y_libera_dni",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_duenio_elimina_alumno_sin_cobros_ni_asistencias_limpia_deuda_e_inscripcion_y_libera_dni\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (277, 2, 1, 2026-10-27 06:46:48, 2026-10-27 06:"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_pago_no_se_elimina_explica_por_que_y_ofrece_darlo_de_baja",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_pago_no_se_elimina_explica_por_que_y_ofrece_darlo_de_baja\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (279, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_pago_anulado_tampoco_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_pago_anulado_tampoco_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (281, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-wings\\vendo"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_asistencia_presente_o_ausente_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_asistencia_presente_o_ausente_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (283, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_movimiento_de_caja_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_movimiento_de_caja_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (285, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-wings\\vend"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_cuota_con_pago_o_condonada_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_cuota_con_pago_o_condonada_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (287, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-wi"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_con_inscripcion_cobrada_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_con_inscripcion_cobrada_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (289, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-wings\\ven"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_alumno_en_segundo_deporte_con_inscripcion_compartida_se_elimina_sin_tocar_la_inscripcion_del_otro_deporte",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_alumno_en_segundo_deporte_con_inscripcion_compartida_se_elimina_sin_tocar_la_inscripcion_del_otro_deporte\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (291, 2, 1, 2026-10-27 06:46:"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_duenio_elimina_clase_sin_asistencias_ni_liquidaciones",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_duenio_elimina_clase_sin_asistencias_ni_liquidaciones\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (293, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_clase_con_asistencia_no_se_elimina_debe_cancelarse",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_clase_con_asistencia_no_se_elimina_debe_cancelarse\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (295, 2, 1, 2026-10-27 06:46:49, 2026-10-27 06:46:49))\n\r\nC:\\xampp\\htdocs\\gestion-win"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_clase_en_liquidacion_abierta_o_cerrada_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_clase_en_liquidacion_abierta_o_cerrada_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (297, 2, 1, 2026-10-27 06:46:50, 2026-10-27 06:46:50))\n\r\nC:\\xampp\\htdocs\\gestion-w"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_clase_validada_para_liquidacion_no_se_elimina",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_clase_validada_para_liquidacion_no_se_elimina\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (299, 2, 1, 2026-10-27 06:46:50, 2026-10-27 06:46:50))\n\r\nC:\\xampp\\htdocs\\gestion-wings\\ve"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_serie_se_elimina_completa_si_todas_estan_limpias",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_serie_se_elimina_completa_si_todas_estan_limpias\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (301, 2, 1, 2026-10-27 06:46:50, 2026-10-27 06:46:50))\n\r\nC:\\xampp\\htdocs\\gestion-wings"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_serie_rechaza_eliminacion_si_alguna_clase_tiene_asistencia_o_liquidacion_e_indica_cual",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_serie_rechaza_eliminacion_si_alguna_clase_tiene_asistencia_o_liquidacion_e_indica_cual\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (303, 2, 1, 2026-10-27 06:46:50, 2026-10-27 06:4"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_concurrencia_cobro_entrante_durante_intento_de_eliminacion_rechaza_el_borrado",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_concurrencia_cobro_entrante_durante_intento_de_eliminacion_rechaza_el_borrado\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (305, 2, 1, 2026-10-27 06:46:50, 2026-10-27 06:46:50))\n\r\n"
+  },
+  {
+    "clase": "Tests\\Feature\\EliminarAlumnoYClaseT65Test",
+    "metodo": "test_pantalla_ficha_alumno_y_clase_muestran_boton_eliminar_solo_para_admin_y_cuando_es_eliminable",
+    "detalle": "Tests\\Feature\\EliminarAlumnoYClaseT65Test::test_pantalla_ficha_alumno_y_clase_muestran_boton_eliminar_solo_para_admin_y_cuando_es_eliminable\r\nIlluminate\\Database\\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'precio_mensual' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupo_planes` (`grupo_id`, `clases_por_semana`, `activo`, `updated_at`, `created_at`) values (307, 2, 1, 2026-10-27 06:46:50, 2026-10-2"
+  },
+  {
+    "clase": "Tests\\Feature\\FichaAlumnoResponsiveA37Test",
+    "metodo": "test_ficha_alumno_posee_estructura_responsive_en_acciones_deudas_e_historial",
+    "detalle": "Tests\\Feature\\FichaAlumnoResponsiveA37Test::test_ficha_alumno_posee_estructura_responsive_en_acciones_deudas_e_historial\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framew"
+  },
+  {
+    "clase": "Tests\\Feature\\FichaToggleActivoT84Test",
+    "metodo": "test_ficha_alumno_activo_muestra_toggle_sin_confirmacion_ni_boton_reactivar",
+    "detalle": "Tests\\Feature\\FichaToggleActivoT84Test::test_ficha_alumno_activo_muestra_toggle_sin_confirmacion_ni_boton_reactivar\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\s"
+  },
+  {
+    "clase": "Tests\\Feature\\FichaToggleActivoT84Test",
+    "metodo": "test_ficha_alumno_inactivo_muestra_toggle_sin_confirmacion_ni_form_reactivar",
+    "detalle": "Tests\\Feature\\FichaToggleActivoT84Test::test_ficha_alumno_inactivo_muestra_toggle_sin_confirmacion_ni_form_reactivar\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\"
+  },
+  {
+    "clase": "Tests\\Feature\\FormulariosA4A5Test",
+    "metodo": "test_a5_ficha_y_edicion_solo_ofrecen_profesores_activos_del_deporte",
+    "detalle": "Tests\\Feature\\FormulariosA4A5Test::test_a5_ficha_y_edicion_solo_ofrecen_profesores_activos_del_deporte\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\577948866b8c8242605d7dd86e529a89.php:156\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate"
+  },
+  {
+    "clase": "Tests\\Feature\\MostrarImportesT30Test",
+    "metodo": "test_cada_pantalla_muestra_centavos_e_importes_largos_sin_cambiar_lo_guardado",
+    "detalle": "Tests\\Feature\\MostrarImportesT30Test::test_cada_pantalla_muestra_centavos_e_importes_largos_sin_cambiar_lo_guardado\r\nalumno-ficha/centavos: HTTP 500\nalumno-ficha/millones: HTTP 500\nFailed asserting that two arrays are identical.\n--- Expected\n+++ Actual\n@@ @@\n-Array &0 []\n+Array &0 [\n+    0 => 'alumno-ficha/centavos: HTTP 500',\n+    1 => 'alumno-ficha/millones: HTTP 500',\n+]\n\r\nC:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\MostrarImportesT30Test.php:153"
+  },
+  {
+    "clase": "Tests\\Feature\\P2Entrega2FichaCobroAdelantadoTest",
+    "metodo": "test_a17_admin_y_operativo_ven_boton_cobrar_en_cabecera_de_ficha",
+    "detalle": "Tests\\Feature\\P2Entrega2FichaCobroAdelantadoTest::test_a17_admin_y_operativo_ven_boton_cobrar_en_cabecera_de_ficha\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\sr"
+  },
+  {
+    "clase": "Tests\\Feature\\PerdonReactivacionT33Test",
+    "metodo": "test_admin_ve_condonar_inscripcion_y_reutiliza_el_modal",
+    "detalle": "Tests\\Feature\\PerdonReactivacionT33Test::test_admin_ve_condonar_inscripcion_y_reutiliza_el_modal\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate\\Found"
+  },
+  {
+    "clase": "Tests\\Feature\\PerdonReactivacionT33Test",
+    "metodo": "test_condonar_inscripcion_guarda_solo_saldo_y_evento_con_autor_fecha_motivo_importe",
+    "detalle": "Tests\\Feature\\PerdonReactivacionT33Test::test_condonar_inscripcion_guarda_solo_saldo_y_evento_con_autor_fecha_motivo_importe\r\nFailed asserting that '<!DOCTYPE html>\\n\n<html lang=\"es\">\\n\n<head>\\n\n    <meta charset=\"utf-8\">\\n\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n\n    <title>Algo falló – Wings</title>\\n\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"http://gestion-wings/favicon.ico\">\\n\n    <link rel=\"preload\" as=\"style\" href=\"http://gestion-wings/build/assets/ap"
+  },
+  {
+    "clase": "Tests\\Feature\\PerdonReactivacionT33Test",
+    "metodo": "test_ficha_lista_cuotas_condonadas_y_reactivar_solo_para_admin",
+    "detalle": "Tests\\Feature\\PerdonReactivacionT33Test::test_ficha_lista_cuotas_condonadas_y_reactivar_solo_para_admin\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminat"
+  },
+  {
+    "clase": "Tests\\Feature\\PerdonReactivacionT33Test",
+    "metodo": "test_dos_deportes_un_cargo_solo_ficha_duena_ofrece_decidir",
+    "detalle": "Tests\\Feature\\PerdonReactivacionT33Test::test_dos_deportes_un_cargo_solo_ficha_duena_ofrece_decidir\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate\\Fo"
+  },
+  {
+    "clase": "Tests\\Feature\\PunitoriosCobroTest",
+    "metodo": "test_condonar_recargo_solo_no_limpia_capital_y_reactivar_conserva_historial",
+    "detalle": "Tests\\Feature\\PunitoriosCobroTest::test_condonar_recargo_solo_no_limpia_capital_y_reactivar_conserva_historial\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Il"
+  },
+  {
+    "clase": "Tests\\Feature\\PunitoriosCobroTest",
+    "metodo": "test_importe_parcial_de_cuota_sin_total_entregado_no_cobra_recargo",
+    "detalle": "Tests\\Feature\\PunitoriosCobroTest::test_importe_parcial_de_cuota_sin_total_entregado_no_cobra_recargo\r\nApp\\Exceptions\\ExcepcionCobranzaRequerida: Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.\n\r\nC:\\xampp\\htdocs\\gestion-wings\\app\\Services\\ExcepcionCobranzaService.php:52\nC:\\xampp\\htdocs\\gestion-wings\\app\\Services\\PagoCuotaService.php:225\nC:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Conce"
+  },
+  {
+    "clase": "Tests\\Feature\\PunitoriosCobroTest",
+    "metodo": "test_porcentaje_cero_sin_cargos_conserva_pantallas_y_exporta_evidencia_a_pedido",
+    "detalle": "Tests\\Feature\\PunitoriosCobroTest::test_porcentaje_cero_sin_cargos_conserva_pantallas_y_exporta_evidencia_a_pedido\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\sr"
+  },
+  {
+    "clase": "Tests\\Feature\\SaldoYAnulacionCoherentesTest",
+    "metodo": "test_la_inscripcion_de_quien_hace_dos_deportes_figura_en_un_solo_registro",
+    "detalle": "Tests\\Feature\\SaldoYAnulacionCoherentesTest::test_la_inscripcion_de_quien_hace_dos_deportes_figura_en_un_solo_registro\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framewor"
+  },
+  {
+    "clase": "Tests\\Feature\\SaldoYAnulacionCoherentesTest",
+    "metodo": "test_la_ficha_del_otro_deporte_no_duplica_el_saldo_y_dice_donde_esta",
+    "detalle": "Tests\\Feature\\SaldoYAnulacionCoherentesTest::test_la_ficha_del_otro_deporte_no_duplica_el_saldo_y_dice_donde_esta\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src"
+  },
+  {
+    "clase": "Tests\\Feature\\SaldoYAnulacionCoherentesTest",
+    "metodo": "test_el_historial_de_un_cobro_anulado_muestra_los_meses_cobrados",
+    "detalle": "Tests\\Feature\\SaldoYAnulacionCoherentesTest::test_el_historial_de_un_cobro_anulado_muestra_los_meses_cobrados\r\nExpected response status code [200] but received 500.\nFailed asserting that 500 is identical to 200.\r\n\r\nThe following exception occurred during the last request:\n\nErrorException: Undefined variable $puedeEliminar in C:\\xampp\\htdocs\\gestion-wings\\storage\\framework\\views\\237525fa220ef66b7f293c7d129d1ae3.php:522\nStack trace:\n#0 C:\\xampp\\htdocs\\gestion-wings\\vendor\\laravel\\framework\\src\\Ill"
+  }
+]

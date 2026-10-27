@@ -271,26 +271,30 @@ class SeguridadDiasPruebaTest extends TestCase
     // ── Días 19 a 22 (Claude, 27/10/2026). Las «hallazgo» afirman lo que Wings hace HOY contra lo que pide
     // el catálogo: se ponen en rojo cuando se corrija, y ahí se dan vuelta.
 
-    public function test_hallazgo_dia_19_un_gasto_en_efectivo_mayor_que_el_cajon_se_acepta(): void
+    public function test_dia_19_rechaza_gasto_en_efectivo_mayor_que_el_cajon(): void
     {
         $esperadoAntes = app(\App\Services\CajaService::class)->arqueoCaja($this->cajaSandra->id)['efectivo_esperado'];
+        $cantidadAntes = MovimientoOperativo::count();
         $this->actingAs($this->sandra)->post(route('web.caja.movimiento.store'), [
             'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'tipo_caja_id' => $this->efectivo->id,
             'monto' => (string) ($esperadoAntes + 50000), 'observaciones' => 'Gasto mayor que el cajón',
-        ]);
+        ])->assertSessionHas('error', fn ($m) => str_contains($m, 'aporte'));
         $esperado = app(\App\Services\CajaService::class)->arqueoCaja($this->cajaSandra->id)['efectivo_esperado'];
-        // MOV-004 pide rechazarlo y que el esperado nunca quede negativo. Hoy queda negativo.
-        $this->assertLessThan(0, $esperado, 'Ya no se acepta: MOV-004 corregido, dar vuelta esta prueba');
+        $this->assertSame($esperadoAntes, $esperado);
+        $this->assertSame($cantidadAntes, MovimientoOperativo::count());
+        $this->assertGreaterThanOrEqual(0, (float) $esperado);
     }
 
-    public function test_hallazgo_dia_21_el_servidor_acepta_un_pago_parcial_sin_motivo(): void
+    public function test_dia_21_el_servidor_rechaza_pago_parcial_sin_motivo(): void
     {
         $cuota = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->firstOrFail();
-        $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), [
+        $pagadoAntes = $cuota->monto_pagado;
+        $pagosAntes = Pago::count();
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), [
             'tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 10000], 'fecha_pago' => '2026-10-15',
-        ]);
-        // COB-009 pide el motivo antes de cobrar un parcial. Hoy se cobra sin motivo.
-        $this->assertSame('10000.00', $cuota->fresh()->monto_pagado, 'Ya pide motivo: COB-009 corregido, dar vuelta esta prueba');
+        ])->assertStatus(409)->assertJsonPath('requiere_motivo', true);
+        $this->assertSame($pagadoAntes, $cuota->fresh()->monto_pagado);
+        $this->assertSame($pagosAntes, Pago::count());
     }
 
     public function test_dia_22_la_liquidacion_del_mes_no_se_cierra_antes_de_fin_de_mes_ni_forzando(): void

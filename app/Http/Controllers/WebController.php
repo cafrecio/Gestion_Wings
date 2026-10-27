@@ -70,7 +70,9 @@ class WebController extends Controller
 
         // T19: la deuda ya llega completa del reporte —cuotas más inscripciones, de alumnos
         // activos—. Inicio no hace su propia suma: así no puede decir otro número que Reportes.
-        return view('admin.dashboard', compact('reporte'));
+        $excepciones = \App\Models\ExcepcionCobranza::with(['alumno', 'autor'])
+            ->orderByDesc('ocurrida_at')->orderByDesc('id')->paginate(10, ['*'], 'excepciones_pagina');
+        return view('admin.dashboard', compact('reporte', 'excepciones'));
     }
 
     private function redirectByRole($user)

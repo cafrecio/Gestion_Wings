@@ -57,7 +57,7 @@ class InscripcionTest extends TestCase
             \Tests\Support\CajaDeclarada::crear($this->cobrador->id, TipoCaja::firstOrFail()->id);
         }
         DeudaCuota::firstOrCreate(['alumno_id' => $alumno->id, 'periodo' => '2026-09'], ['monto_original' => 30000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
-        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo([
+        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo(['motivo' => 'Parcial autorizado para la prueba de regresion', 
             'alumno_id' => $alumno->id, 'tipo_caja_id' => TipoCaja::first()->id,
             'usuario_operativo_id' => $this->cobrador->id, 'fecha_pago' => '2026-09-24',
             'monto_entregado' => $importe, 'items' => [['periodo' => '2026-09', 'monto' => 30000]],

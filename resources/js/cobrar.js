@@ -14,6 +14,14 @@ import {pesos} from './formato-importe';
     var formConfirmarDeuda = document.getElementById('form-confirmar-deuda-anterior');
     var cerrarDeuda = document.getElementById('cerrar-deuda-anterior');
     var datosCobroPendientes = null;
+    var confirmacionCampo = null;
+    var requiereMotivo = false;
+    var enviando = false;
+    var errorCobro = document.getElementById('error-cobro');
+    var motivoBloque = document.getElementById('motivo-confirmacion-cobro');
+    var motivoInput = formConfirmarDeuda.querySelector('textarea[name="motivo"]');
+    function mostrarError(texto) { errorCobro.textContent = texto; errorCobro.hidden = !texto; }
+
 
     // El mes de alta llega ya descontado desde el servidor, así que el tope de cada
     // período es el que se ve en pantalla. No hay que volver a aplicar el porcentaje
@@ -79,6 +87,7 @@ import {pesos} from './formato-importe';
             btnCobrar.style.opacity = '0.4';
             btnCobrar.style.cursor = 'not-allowed';
         }
+        if (enviando || datosCobroPendientes) btnCobrar.disabled = true;
     }
 
     cobrarForm.addEventListener('change', function (event) {
@@ -106,90 +115,76 @@ import {pesos} from './formato-importe';
         modalDeuda.style.display = 'none';
         formConfirmarDeuda.reset();
         datosCobroPendientes = null;
+        actualizar();
     }
 
-    function abrirModalDeuda(datos, formData) {
+    function abrirModalDeuda(datos, formData, campo) {
         datosCobroPendientes = formData;
+        confirmacionCampo = campo;
+        requiereMotivo = !!datos.requiere_motivo;
+        motivoBloque.hidden = !requiereMotivo;
+        motivoInput.required = requiereMotivo;
         mensajeDeuda.textContent = datos.message;
-        modalDeuda.style.display = 'flex';
-        formConfirmarDeuda.querySelector('textarea[name="motivo"]').focus();
+        modalDeuda.style.display = 'block';
+        modalDeuda.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        if (requiereMotivo) motivoInput.focus({preventScroll: true});
+        else formConfirmarDeuda.querySelector('button[type="submit"]').focus({preventScroll: true});
     }
 
     function enviarCobro(formData) {
+        if (enviando) return;
+        enviando = true;
         btnCobrar.disabled = true;
-
+        formConfirmarDeuda.querySelector('button[type="submit"]').disabled = true;
+        mostrarError('');
         fetch(cobrarForm.action, {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
+            headers: {'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest'},
             body: formData
         }).then(function (response) {
-            if (response.redirected) {
-                window.location.assign(response.url);
-                return null;
-            }
-
-            return response.json().then(function (datos) {
-                return { status: response.status, ok: response.ok, datos: datos };
-            });
+            if (response.redirected) { window.location.assign(response.url); return null; }
+            return response.json().then(function (datos) { return {status: response.status, ok: response.ok, datos: datos}; });
         }).then(function (resultado) {
             if (!resultado) return;
-
-            if (resultado.status === 409 && resultado.datos.requiere_confirmacion) {
-                abrirModalDeuda(resultado.datos, formData);
-                return;
+            var datos = resultado.datos;
+            if (resultado.status === 409) {
+                var campo = datos.requiere_confirmacion ? 'confirmar_deuda_anterior'
+                    : datos.requiere_confirmacion_adelantado ? 'confirmar_pago_adelantado'
+                    : datos.requiere_confirmacion_fecha_vieja ? 'confirmar_fecha_vieja' : null;
+                if (campo) { abrirModalDeuda(datos, formData, campo); return; }
             }
-
-            if (resultado.status === 409 && resultado.datos.requiere_confirmacion_adelantado) {
-                if (window.confirm(resultado.datos.message + '\n\n¿Confirmás el cobro?')) {
-                    formData.set('confirmar_pago_adelantado', '1');
-                    enviarCobro(formData);
-                }
-                return;
-            }
-
-            if (resultado.status === 409 && resultado.datos.requiere_confirmacion_fecha_vieja) {
-                if (window.confirm(resultado.datos.message + '\n\n¿Desea continuar con el cobro?')) {
-                    formData.set('confirmar_fecha_vieja', '1');
-                    enviarCobro(formData);
-                }
-                return;
-            }
-
             if (!resultado.ok) {
-                window.alert(resultado.datos.message || 'No se pudo registrar el cobro.');
+                var errores = datos.errors ? Object.values(datos.errors).flat().join(' ') : '';
+                mostrarError(errores || datos.message || 'No se pudo registrar el cobro.');
             }
-        }).catch(function () {
-            window.alert('No se pudo registrar el cobro.');
-        }).finally(function () {
+        }).catch(function () { mostrarError('No se pudo registrar el cobro. Revisá la conexión e intentá nuevamente.'); })
+        .finally(function () {
+            enviando = false;
+            formConfirmarDeuda.querySelector('button[type="submit"]').disabled = false;
             actualizar();
         });
     }
 
     cobrarForm.addEventListener('submit', function (event) {
         event.preventDefault();
+        cerrarModalDeuda();
         enviarCobro(window.WingsMoney.prepararDatos(cobrarForm, new FormData(cobrarForm)));
     });
-
+    // Si cambia el cobro, se descarta la confirmación pendiente de los datos anteriores.
+    cobrarForm.addEventListener('input', cerrarModalDeuda);
+    cobrarForm.addEventListener('change', cerrarModalDeuda);
     formConfirmarDeuda.addEventListener('submit', function (event) {
         event.preventDefault();
-        if (!datosCobroPendientes) return;
-
-        var motivo = formConfirmarDeuda.querySelector('textarea[name="motivo"]').value.trim();
-        if (!motivo) return;
-
-        datosCobroPendientes.set('confirmar_deuda_anterior', '1');
-        datosCobroPendientes.set('motivo', motivo);
-        modalDeuda.style.display = 'none';
-        enviarCobro(datosCobroPendientes);
+        if (!datosCobroPendientes || enviando) return;
+        var motivo = motivoInput.value.trim();
+        if (requiereMotivo && !motivo) { motivoInput.focus(); return; }
+        var datos = datosCobroPendientes;
+        datos.set(confirmacionCampo, '1');
+        if (requiereMotivo) datos.set('motivo', motivo);
+        cerrarModalDeuda();
+        enviarCobro(datos);
     });
-
     cerrarDeuda.addEventListener('click', cerrarModalDeuda);
-    modalDeuda.addEventListener('click', function (event) {
-        if (event.target === modalDeuda) cerrarModalDeuda();
-    });
 
     document.querySelectorAll('.cuota-row').forEach(function (row) {
         row.addEventListener('mouseenter', function () { this.style.background = 'var(--color-surface-alt)'; });

@@ -61,7 +61,7 @@ class PunitoriosCobroTest extends TestCase
 
     private function cobrar(float $entregado = 10500, array $items = [], bool $operativo = false): array
     {
-        $datos = ['alumno_id' => $this->alumno->id, 'tipo_caja_id' => $this->efectivo->id,
+        $datos = ['motivo' => 'Parcial autorizado para probar prioridad del recargo', 'alumno_id' => $this->alumno->id, 'tipo_caja_id' => $this->efectivo->id,
             'monto_entregado' => $entregado, 'items' => $items ?: [['periodo' => '2026-10', 'monto' => 10000]]];
         return $operativo
             ? app(PagoCuotaService::class)->registrarPagoCuotaOperativo($datos + ['usuario_operativo_id' => $this->operativo->id])
@@ -243,6 +243,7 @@ class PunitoriosCobroTest extends TestCase
         $pago = app(PagoCuotaService::class)->registrarPagoCuotaAdmin([
             'alumno_id' => $this->alumno->id, 'tipo_caja_id' => $this->efectivo->id, 'usuario_admin_id' => $this->admin->id,
             'items' => [['periodo' => '2026-10', 'monto' => 4000]],
+            'motivo' => 'Parcial autorizado para conservar el recargo pendiente.',
         ])['pago'];
         $this->assertSame('4000.00', $pago->monto_final);
         $this->assertSame(500.0, $this->cargo->fresh()->saldo_pendiente);

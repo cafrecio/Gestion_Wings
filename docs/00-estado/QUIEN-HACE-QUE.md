@@ -50,7 +50,7 @@ Nada.
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
 | **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar eliminacion de alumno y clase sin movimientos, panel inline y liberacion de DNI |
-| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar dinero T88/B3: rechazo efectivo y edicion, parciales y meses anteriores con motivo, Inicio y resumen diario. Informe y capturas reales entregados; Carlos revisa aspecto. Completa tuvo40 fallos luego verdes aislados, rapida991/6. Sin despliegue. |
+| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar entrega dinero T88/B3: area32/143 y tecnica2/11 verdes, concurrencia real7/115, rapida991/6. Completa original40 fallos luego verdes aislados; no declarada verde. Informe y capturas1366/375 disponibles, aspecto pendiente de Carlos. B3 sigue con asistencia. Sin despliegue. |
 
 ## Codex
 

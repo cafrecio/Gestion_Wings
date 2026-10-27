@@ -1,0 +1,128 @@
+{
+    "base": "wings_testing_codex",
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "10000.00",
+            "estado": "COMPLETADO"
+        },
+        {
+            "id": 2,
+            "alumno_id": 2,
+            "monto_final": "28000.00",
+            "estado": "COMPLETADO"
+        }
+    ],
+    "excepciones": [
+        {
+            "id": 1,
+            "tipo": "COBRO_PARCIAL",
+            "motivo": "La familia completa el importe al cobrar su sueldo.",
+            "autor_id": 2,
+            "alumno_id": 1,
+            "registro_tipo": "PAGO",
+            "registro_id": 1,
+            "ocurrida_at": "2026-10-27T09:16:47.000000Z",
+            "contexto": {
+                "tipos": [
+                    "COBRO_PARCIAL"
+                ],
+                "cantidad_meses": 0,
+                "periodos": [],
+                "monto_total": 0,
+                "cuotas_cobradas": [
+                    "2026-10"
+                ],
+                "message": "Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario."
+            },
+            "created_at": "2026-10-27T09:16:47.000000Z",
+            "updated_at": "2026-10-27T09:16:47.000000Z"
+        },
+        {
+            "id": 2,
+            "tipo": "COBRO_DEUDA_ANTERIOR",
+            "motivo": "La familia paga octubre y acuerda los meses anteriores por separado.",
+            "autor_id": 2,
+            "alumno_id": 2,
+            "registro_tipo": "PAGO",
+            "registro_id": 2,
+            "ocurrida_at": "2026-10-27T09:18:37.000000Z",
+            "contexto": {
+                "tipos": [
+                    "COBRO_DEUDA_ANTERIOR"
+                ],
+                "cantidad_meses": 2,
+                "periodos": [
+                    "2026-03",
+                    "2026-05"
+                ],
+                "monto_total": 56000,
+                "cuotas_cobradas": [
+                    "2026-10"
+                ],
+                "message": "Quedan 2 meses anteriores impagos por $56,000.00 (marzo 2026, mayo 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario."
+            },
+            "created_at": "2026-10-27T09:18:37.000000Z",
+            "updated_at": "2026-10-27T09:18:37.000000Z"
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "monto": "10000.00",
+            "subrubro_id": 7,
+            "tipo_caja_id": 1,
+            "estado": "ACTIVO"
+        },
+        {
+            "id": 2,
+            "monto": "28000.00",
+            "subrubro_id": 7,
+            "tipo_caja_id": 1,
+            "estado": "ACTIVO"
+        }
+    ],
+    "deudas": [
+        {
+            "alumno_id": 1,
+            "periodo": "2026-10",
+            "monto_original": "28000.00",
+            "monto_pagado": "10000.00",
+            "estado": "PENDIENTE"
+        },
+        {
+            "alumno_id": 2,
+            "periodo": "2026-03",
+            "monto_original": "28000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE"
+        },
+        {
+            "alumno_id": 2,
+            "periodo": "2026-05",
+            "monto_original": "28000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE"
+        },
+        {
+            "alumno_id": 2,
+            "periodo": "2026-10",
+            "monto_original": "28000.00",
+            "monto_pagado": "28000.00",
+            "estado": "PAGADA"
+        }
+    ],
+    "arqueo": {
+        "efectivo_esperado": "39000.00",
+        "diferencia_efectivo": null
+    },
+    "comprobado": [
+        "Parcial de10000 confirmado con motivo",
+        "Octubre28000 confirmado dejando marzo\/mayo56000 intactos",
+        "Volver sobre la seña de5000 no guardo",
+        "Gasto40000 rechazado con efectivo39000",
+        "Inicio muestra ambas excepciones"
+    ],
+    "limites": "Solo datos sinteticos locales. Primer intento de tipeo incorrecto fue descartado reiniciando el fixture. Aviso de gasto conserva cierre automatico estandar de3s."
+}

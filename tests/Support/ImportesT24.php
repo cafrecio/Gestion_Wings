@@ -80,7 +80,7 @@ final class ImportesT24
     {
         $mov = ['tipo_caja_id' => $this->medio->id, 'subrubro_id' => $this->ingreso->id,
             'monto' => $importe, 'fecha' => today()->toDateString(), 'observaciones' => 'Prueba de centavos T24'];
-        $cobro = ['tipo_caja_id' => $this->medio->id, 'periodos' => ['2026-10'],
+        $cobro = ['motivo' => 'Parcial autorizado para verificar centavos T24', 'tipo_caja_id' => $this->medio->id, 'periodos' => ['2026-10'],
             'montos_cuota' => ['2026-10' => $importe], 'fecha_pago' => today()->toDateString()];
         $precio = ['planes' => [['id' => $this->plan->id, 'clases_por_semana' => 2, 'precio_mensual' => $importe]]];
         return match ($caso) {

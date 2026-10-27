@@ -300,25 +300,26 @@
 
 </form>
 
-{{-- Aviso por cobro con deudas anteriores pendientes --}}
-<div id="modal-deuda-anterior" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
-    <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
-        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Deudas anteriores pendientes</p>
-        <p id="mensaje-deuda-anterior" style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;"></p>
-        <form id="form-confirmar-deuda-anterior">
-            <textarea name="motivo" required maxlength="500" rows="3"
+<p id="error-cobro" class="filtros-card text-sm" style="color:var(--color-danger);" role="alert" hidden></p>
+<section id="modal-deuda-anterior" class="alumno-card mt-4" style="display:none;" aria-labelledby="titulo-confirmacion-cobro">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 id="titulo-confirmacion-cobro" class="alumno-nombre">Confirmar cobro</h3></div>
+    <form id="form-confirmar-deuda-anterior">
+    <div class="alumno-info" style="display:block;">
+        <p id="mensaje-deuda-anterior" role="status" style="font-size:0.85rem; margin-bottom:1rem;"></p>
+            <div id="motivo-confirmacion-cobro">
+            <label for="motivo-excepcion-cobro" class="{{ $labelClass }}">Motivo <span class="form-required">*</span></label>
+            <textarea id="motivo-excepcion-cobro" name="motivo" required maxlength="500" rows="3"
                       placeholder="Motivo del cobro..."
                       class="w-full px-4 py-2.5 text-sm wings-input"
                       style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
-            <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <button type="button" id="cerrar-deuda-anterior"
-                        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
-                <button type="submit"
-                        class="ds-btn" style="background:var(--color-btn-primary); color:var(--color-surface);">Cobrar</button>
             </div>
-        </form>
     </div>
-</div>
+            <div class="alumno-actions acciones-celular-derecha">
+                <x-ds.button type="button" id="cerrar-deuda-anterior" variant="secondary">Volver</x-ds.button>
+                <x-ds.button type="submit" variant="primary">Cobrar</x-ds.button>
+            </div>
+    </form>
+</section>
 
 @endsection
 

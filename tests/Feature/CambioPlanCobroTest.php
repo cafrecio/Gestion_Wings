@@ -15,7 +15,6 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
-use App\Notifications\CobroConDeudaAnteriorNotification;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
@@ -301,7 +300,7 @@ class CambioPlanCobroTest extends TestCase
         $this->assertDatabaseCount('movimientos_operativos', 0);
     }
 
-    public function test_confirmar_con_motivo_registra_cobro_y_notifica_admin(): void
+    public function test_confirmar_con_motivo_registra_excepcion_sin_aviso_individual(): void
     {
         Notification::fake();
         $this->crearEscenarioDeudasAnteriores();
@@ -321,12 +320,12 @@ class CambioPlanCobroTest extends TestCase
             ])
             ->assertRedirect(route('web.caja.index'));
 
-        $this->assertDatabaseHas('pagos', [
-            'alumno_id' => $this->alumno->id,
-            'observaciones' => 'Motivo por deuda anterior: La familia pidió cancelar junio primero.',
+        $this->assertDatabaseHas('excepciones_cobranza', [
+            'alumno_id' => $this->alumno->id, 'tipo' => 'COBRO_DEUDA_ANTERIOR',
+            'motivo' => 'La familia pidió cancelar junio primero.',
         ]);
         $this->assertDatabaseCount('movimientos_operativos', 1);
-        Notification::assertSentTo($admin, CobroConDeudaAnteriorNotification::class);
+        Notification::assertNothingSent();
     }
 
     public function test_cobrar_todos_los_periodos_no_dispara_aviso(): void

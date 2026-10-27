@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CLI Arguments" tests="7" assertions="115" errors="0" failures="0" skipped="0" time="26.658513">
+    <testsuite name="Tests\Feature\T88EfectivoConcurrenteTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88EfectivoConcurrenteTest.php" tests="1" assertions="12" errors="0" failures="0" skipped="0" time="14.525016">
+      <testcase name="test_el_segundo_gasto_no_usa_una_foto_vieja_del_efectivo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88EfectivoConcurrenteTest.php" line="16" class="Tests\Feature\T88EfectivoConcurrenteTest" classname="Tests.Feature.T88EfectivoConcurrenteTest" assertions="12" time="14.525016"/>
+    </testsuite>
+    <testsuite name="Tests\Feature\CobrarCancelarValidarConcurrenteTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" tests="6" assertions="103" errors="0" failures="0" skipped="0" time="12.133496">
+      <testcase name="test_cobrar_primero_cancelar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="245" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="16" time="2.157158"/>
+      <testcase name="test_cancelar_primero_cobrar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="246" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="16" time="1.922719"/>
+      <testcase name="test_cobrar_primero_validar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="247" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="16" time="2.085901"/>
+      <testcase name="test_validar_primero_cobrar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="248" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="20" time="2.001486"/>
+      <testcase name="test_cancelar_primero_validar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="249" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="17" time="1.979465"/>
+      <testcase name="test_validar_primero_cancelar_despues" file="C:\xampp\htdocs\gestion-wings\tests\Feature\CobrarCancelarValidarConcurrenteTest.php" line="250" class="Tests\Feature\CobrarCancelarValidarConcurrenteTest" classname="Tests.Feature.CobrarCancelarValidarConcurrenteTest" assertions="18" time="1.986766"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

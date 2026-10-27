@@ -1,0 +1,11 @@
+{
+    "error": "El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.",
+    "flash": {
+        "old": [
+            "error",
+            "_old_input"
+        ],
+        "new": []
+    },
+    "driver": "file"
+}

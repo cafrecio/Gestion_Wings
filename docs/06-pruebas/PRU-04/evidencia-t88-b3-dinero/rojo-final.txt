@@ -1,0 +1,590 @@
+
+   FAIL  Tests\Feature\T88B3DineroTest
+  ⨯ rechaza gasto que supera el cajon sin escribir                                                              13.72s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.14s
+  ⨯ editar no puede dejar negativo ni cambiar el registro                                                        0.14s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.14s
+  ⨯ tambien se valida el alta en caja existente por servicio                                                     0.12s
+  ⨯ cambiar un gasto de transferencia a efectivo no evade el saldo                                               0.12s
+  ⨯ un parcial sin motivo pide excepcion y no escribe                                                            0.29s
+  ⨯ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.18s
+  ⨯ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.30s
+  ⨯ avisa tambien un mes impago entre dos seleccionados                                                          0.17s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.17s
+  ⨯ si es parcial y salta deuda registra ambos tipos una vez                                                     0.27s
+  ⨯ el servicio directo tampoco permite omitir el motivo                                                         0.11s
+  ⨯ el importe entregado se distribuye antes de detectar el parcial                                              0.13s
+  ⨯ espacios no son un motivo y no dejan excepcion ni pago                                                       0.16s
+  ⨯ el duenio ve la excepcion y su motivo en inicio                                                              0.21s
+  ⨯ se incluyen juntas en un resumen por canal sin avisos individuales                                           0.14s
+  ✓ si falla el movimiento tambien revierte pago deuda y excepcion                                               0.14s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > rechaza gasto que supera el cajon sin escribir
+  Failed asserting that false is true.
+
+  at tests\Feature\T88B3DineroTest.php:73
+     69▕
+     70▕     public function test_rechaza_gasto_que_supera_el_cajon_sin_escribir(): void
+     71▕     {
+     72▕         $this->actingAs($this->operativa)->post(route('web.caja.movimiento.store'), $this->datosGasto(100.01))
+  ➜  73▕             ->assertSessionHas('error', fn ($m) => str_contains($m, 'aporte'));
+     74▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+     75▕         $this->assertSame('100.00', app(CajaService::class)->arqueoCaja($this->caja->id)['efectivo_esperado']);
+     76▕     }
+     77▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > editar no puede dejar negativo ni cambiar el registro
+  Failed asserting that false is true.
+
+  at tests\Feature\T88B3DineroTest.php:92
+     88▕     {
+     89▕         $m = app(CajaService::class)->registrarMovimientoOperativo($this->datosGasto(50));
+     90▕         $antes = $m->fresh()->getRawOriginal();
+     91▕         $this->actingAs($this->operativa)->put(route('web.caja.movimientos.update', [$this->caja->id, $m->id]), $this->datosGasto(101))
+  ➜  92▕             ->assertSessionHas('error', fn ($s) => str_contains($s, 'aporte'));
+     93▕         $this->assertSame($antes, $m->fresh()->getRawOriginal());
+     94▕     }
+     95▕
+     96▕     public function test_editar_descuenta_la_version_anterior_y_admite_agotar_el_cajon(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > tambien se valida el alta en caja existente por ser…  AssertionFailedError
+  Se acepto gasto sin efectivo.
+
+  at tests\Feature\T88B3DineroTest.php:107
+    103▕     public function test_tambien_se_valida_el_alta_en_caja_existente_por_servicio(): void
+    104▕     {
+    105▕         try {
+    106▕             app(CajaService::class)->registrarMovimientoEnCaja($this->caja->id, $this->datosGasto(101));
+  ➜ 107▕             $this->fail('Se acepto gasto sin efectivo.');
+    108▕         } catch (\Illuminate\Validation\ValidationException $e) {
+    109▕             $this->assertStringContainsString('aporte', $e->getMessage());
+    110▕         }
+    111▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+
+  1   tests\Feature\T88B3DineroTest.php:107
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > cambiar un gasto de transferencia a efectivo no eva…  AssertionFailedError
+  Cambiar de medio eludio el efectivo disponible.
+
+  at tests\Feature\T88B3DineroTest.php:121
+    117▕         $m = app(CajaService::class)->registrarMovimientoOperativo($this->datosGasto(101, $otro->id));
+    118▕         $antes = $m->fresh()->getRawOriginal();
+    119▕         try {
+    120▕             app(CajaService::class)->actualizarMovimientoEnCaja($this->caja->id, $m->id, $this->datosGasto(101));
+  ➜ 121▕             $this->fail('Cambiar de medio eludio el efectivo disponible.');
+    122▕         } catch (\Illuminate\Validation\ValidationException $e) {
+    123▕             $this->assertStringContainsString('aporte', $e->getMessage());
+    124▕         }
+    125▕         $this->assertSame($antes, $m->fresh()->getRawOriginal());
+
+  1   tests\Feature\T88B3DineroTest.php:121
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > un parcial sin motivo pide excepcion y no escribe
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:132
+    128▕     public function test_un_parcial_sin_motivo_pide_excepcion_y_no_escribe(): void
+    129▕     {
+    130▕         $d = $this->deuda('2026-10');
+    131▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000]))
+  ➜ 132▕             ->assertStatus(409)->assertJsonPath('requiere_confirmacion', true)->assertJsonPath('requiere_motivo', true);
+    133▕         $this->assertSame('0.00', $d->fresh()->monto_pagado);
+    134▕         $this->assertDatabaseCount('pagos', 0);
+    135▕         $this->assertDatabaseCount('movimientos_operativos', 0);
+    136▕     }
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > parcial con motivo guarda excepcion atomica sin aviso individual
+  Failed asserting that a row in the table [excepciones_cobranza] matches the attributes {
+    "tipo": "COBRO_PARCIAL",
+    "alumno_id": 8,
+    "autor_id": 16,
+    "motivo": "Completa al cobrar el sueldo",
+    "registro_tipo": "PAGO",
+    "registro_id": 2
+}.
+
+The table is empty.
+
+  at tests\Feature\T88B3DineroTest.php:144
+    140▕         $this->deuda('2026-10');
+    141▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+    142▕             $this->cobro(['2026-10' => 10000], ['motivo' => 'Completa al cobrar el sueldo']))->assertRedirect();
+    143▕         $p = Pago::sole();
+  ➜ 144▕         $this->assertDatabaseHas('excepciones_cobranza', ['tipo' => 'COBRO_PARCIAL', 'alumno_id' => $this->alumno->id,
+    145▕             'autor_id' => $this->operativa->id, 'motivo' => 'Completa al cobrar el sueldo', 'registro_tipo' => 'PAGO', 'registro_id' => $p->id]);
+    146▕         Notification::assertNothingSent();
+    147▕     }
+    148▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el duenio desde la ficha tambien necesita motivo y lo registra
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:152
+    148▕
+    149▕     public function test_el_duenio_desde_la_ficha_tambien_necesita_motivo_y_lo_registra(): void
+    150▕     {
+    151▕         $d = $this->deuda('2026-10');
+  ➜ 152▕         $this->actingAs($this->admin)->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000]))->assertStatus(409);
+    153▕         $this->assertSame('0.00', $d->fresh()->monto_pagado);
+    154▕         $this->postJson(route('web.caja.pagar', $this->alumno->id), $this->cobro(['2026-10' => 10000], ['motivo' => 'Acuerdo del duenio']))->assertRedirect();
+    155▕         $this->assertDatabaseHas('excepciones_cobranza', ['autor_id' => $this->admin->id, 'tipo' => 'COBRO_PARCIAL']);
+    156▕         $this->assertDatabaseMissing('cajas_operativas', ['usuario_operativo_id' => $this->admin->id]);
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > avisa tambien un mes impago entre dos seleccionados
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:163
+    159▕     public function test_avisa_tambien_un_mes_impago_entre_dos_seleccionados(): void
+    160▕     {
+    161▕         foreach (['2026-03', '2026-05', '2026-10'] as $p) $this->deuda($p);
+    162▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+  ➜ 163▕             $this->cobro(['2026-03' => 28000, '2026-10' => 28000]))->assertStatus(409)
+    164▕             ->assertJsonPath('cantidad_meses', 1)->assertJsonPath('periodos.0', '2026-05')->assertJsonPath('monto_total', 28000);
+    165▕         $this->assertDatabaseCount('pagos', 0);
+    166▕     }
+    167▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > si es parcial y salta deuda registra ambos tipos una vez
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &0 [
+-    0 => 'COBRO_DEUDA_ANTERIOR',
+-    1 => 'COBRO_PARCIAL',
+-]
++Array &0 []
+
+  at tests\Feature\T88B3DineroTest.php:181
+    177▕     {
+    178▕         $this->deuda('2026-05'); $this->deuda('2026-10');
+    179▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+    180▕             $this->cobro(['2026-10' => 10000], ['confirmar_deuda_anterior' => 1, 'motivo' => 'Acuerdo con la familia']))->assertRedirect();
+  ➜ 181▕         $this->assertSame(['COBRO_DEUDA_ANTERIOR', 'COBRO_PARCIAL'], DB::table('excepciones_cobranza')->orderBy('tipo')->pluck('tipo')->all());
+    182▕         Notification::assertNothingSent();
+    183▕     }
+    184▕
+    185▕     public function test_el_servicio_directo_tampoco_permite_omitir_el_motivo(): void
+
+  1   tests\Feature\T88B3DineroTest.php:181
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el servicio directo tampoco permite omitir el motiv…  AssertionFailedError
+  Se acepto parcial sin motivo por servicio.
+
+  at tests\Feature\T88B3DineroTest.php:192
+    188▕         try {
+    189▕             app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $this->alumno->id,
+    190▕                 'usuario_admin_id' => $this->admin->id, 'tipo_caja_id' => $this->efectivo->id,
+    191▕                 'items' => [['periodo' => '2026-10', 'monto' => 10000]]]);
+  ➜ 192▕             $this->fail('Se acepto parcial sin motivo por servicio.');
+    193▕         } catch (\App\Exceptions\ExcepcionCobranzaRequerida $e) {
+    194▕             $this->assertStringContainsString('parcial', $e->getMessage());
+    195▕         }
+    196▕         $this->assertDatabaseCount('pagos', 0);
+
+  1   tests\Feature\T88B3DineroTest.php:192
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el importe entregado se distribuye antes de detectar el parcial
+  Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+
+  at tests\Feature\T88B3DineroTest.php:203
+    199▕     public function test_el_importe_entregado_se_distribuye_antes_de_detectar_el_parcial(): void
+    200▕     {
+    201▕         $this->deuda('2026-10');
+    202▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+  ➜ 203▕             $this->cobro(['2026-10' => 28000], ['monto_entregado' => 10000]))->assertStatus(409)->assertJsonPath('requiere_motivo', true);
+    204▕         $this->assertDatabaseCount('pagos', 0);
+    205▕     }
+    206▕
+    207▕     public function test_espacios_no_son_un_motivo_y_no_dejan_excepcion_ni_pago(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > espacios no son un motivo y no dejan excepcion ni pago
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\T88B3DineroTest.php:211
+    207▕     public function test_espacios_no_son_un_motivo_y_no_dejan_excepcion_ni_pago(): void
+    208▕     {
+    209▕         $this->deuda('2026-10');
+    210▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+  ➜ 211▕             $this->cobro(['2026-10' => 10000], ['motivo' => '   ', 'confirmar_deuda_anterior' => 1]))->assertStatus(422);
+    212▕         $this->assertDatabaseCount('pagos', 0);
+    213▕         $this->assertDatabaseCount('excepciones_cobranza', 0);
+    214▕     }
+    215▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > el duenio ve la excepcion y su motivo en inicio
+  Expected: <!DOCTYPE html>\n
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">\n
+<head>\n
+    <meta charset="utf-8">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\n
+    <meta name="csrf-token" content="w0YFmlqdoONq6rBCcMxQaHFOQ2Mrfhp06TvrfKCF">\n
+    <title>Inicio – Wings</title>\n
+    <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">\n
+    <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">\n
+    <link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png">\n
+    <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">\n
+    <link rel="manifest" href="http://gestion-wings/site.webmanifest">\n
+    <meta name="theme-color" content="#0F172A">\n
+    </head>\n
+<body>\n
+\n
+<div class="ds-layout">\n
+\n
+    \n
+    <aside class="ds-sidebar">\n
+\n
+        \n
+        <div class="ds-brand">\n
+            <a href="/" class="ds-brand__link">\n
+                <img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo">\n
+                <span class="ds-brand__name">Wings</span>\n
+            </a>\n
+        </div>\n
+\n
+        \n
+        <nav class="flex flex-col gap-0.5">\n
+            \n
+                \n
+                    \n
+\n
+                    <div class="ds-nav-group">Día a día</div>\n
+\n
+                                            <a href="http://gestion-wings/admin/dashboard"\n
+                           class="ds-nav-link ds-nav-link--active">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>\n
+                            </svg>\n
+                            Inicio\n
+                        </a>\n
+                    \n
+                    <a href="http://gestion-wings/alumnos"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>\n
+                        </svg>\n
+                        Alumnos\n
+                    </a>\n
+\n
+                    <a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>\n
+                        </svg>\n
+                        Clases\n
+                    </a>\n
+                    \n
+                        <div class="ds-nav-group">Plata</div>\n
+\n
+                        <a href="http://gestion-wings/cobranza"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>\n
+                            </svg>\n
+                            Cobranza\n
+                        </a>\n
+\n
+                                            <a href="http://gestion-wings/caja"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>\n
+                            </svg>\n
+                            Caja\n
+                        </a>\n
+                    \n
+                        <a href="http://gestion-wings/movimientos"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>\n
+                            </svg>\n
+                            Movimientos\n
+                        </a>\n
+\n
+                                            <a href="http://gestion-wings/cashflow"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>\n
+                            </svg>\n
+                            Cashflow\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/liquidaciones"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>\n
+                            </svg>\n
+                            Liquidaciones\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/reportes"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/>\n
+                            </svg>\n
+                            Reportes\n
+                        </a>\n
+                    \n
+                    <a href="http://gestion-wings/revision-cobranza"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>\n
+                        </svg>\n
+                        Revisión\n
+                    </a>\n
+\n
+                    \n
+                        <div class="ds-nav-group">El club</div>\n
+\n
+                        <a href="http://gestion-wings/deportes"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>\n
+                            </svg>\n
+                            Deportes\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/niveles"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>\n
+                            </svg>\n
+                            Niveles\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/grupos"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>\n
+                            </svg>\n
+                            Grupos\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/profesores"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>\n
+                            </svg>\n
+                            Profesores\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/rubros"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>\n
+                            </svg>\n
+                            Rubros\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/tipos-caja"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>\n
+                            </svg>\n
+                            Tipos de Caja\n
+                        </a>\n
+\n
+                        <div class="ds-nav-group">Sistema</div>\n
+\n
+                        \n
+                        <a href="http://gestion-wings/configuraciones"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>\n
+                            </svg>\n
+                            Configuración\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/usuarios"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>\n
+                            </svg>\n
+                            Usuarios\n
+                        </a>\n
+\n
+                    \n
+                                    </nav>\n
+\n
+    </aside>\n
+\n
+    \n
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>\n
+\n
+    \n
+    <div class="ds-main">\n
+\n
+        \n
+        <div class="ds-topbar">\n
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">\n
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">\n
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>\n
+                        </svg>\n
+                    </button>\n
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Dr. Cornell Jones</span>\n
+                </div>\n
+                <form method="POST" action="http://gestion-wings/logout">\n
+                    <input type="hidden" name="_token" value="w0YFmlqdoONq6rBCcMxQaHFOQ2Mrfhp06TvrfKCF" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            >\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    </button>\n
+\n
+                </form>\n
+                    </div>\n
+\n
+        \n
+                    <header class="ds-module-header">\n
+    <div class="ds-module-header__inner">\n
+                <h1 class="ds-module-header__title">Inicio</h1>\n
+    </div>\n
+</header>\n
+        \n
+        \n
+        <main class="ds-content">\n
+\n
+                            <div class="ds-flash ds-flash--success" style="display:flex; justify-content:space-between; align-items:center; gap:12px;">\n
+                    <div>Pago registrado para Excepcion, Alumno.</div>\n
+                                                                <a href="http://gestion-wings/recibos/cuota/10?inline=1"\n
+                           target="_blank"\n
+                           class="ds-btn-row ds-btn-row--sec"\n
+                           style="background:var(--color-surface); flex-shrink:0;">Recibo</a>\n
+                                    </div>\n
+            \n
+            \n
+            <div class="stats-bar mb-4"><div class="stats-info"><strong>Octubre 2026</strong> · Todo el negocio</div>\r\n
+    <a class="ds-btn ds-btn--secondary" href="http://gestion-wings/reportes?mes=2026-10">Ver</a></div>\r\n
+<p style="color:var(--color-text-muted);font-size:.8rem;margin-bottom:16px">Mes en curso · hasta el 27 de octubre</p>\r\n
+<div class="money-kpis" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px">\r\n
+    <a  href="http://gestion-wings/reportes?mes=2026-10#ingresos"  class="filtros-card" style="text-decoration:none;display:block;min-width:0">\r\n
+        <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">Ingresos del mes</p>\r\n
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-success);overflow-wrap:anywhere"><span class="ds-money ds-money--total">$10,000.00</span></p>\r\n
+    </a>\r\n
+    <a  href="http://gestion-wings/reportes?mes=2026-10#egresos"  class="filtros-card" style="text-decoration:none;display:block;min-width:0">\r\n
+        <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">Egresos del mes</p>\r\n
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-danger);overflow-wrap:anywhere"><span class="ds-money ds-money--total">$0.00</span></p>\r\n
+    </a>\r\n
+    <a  href="http://gestion-wings/reportes?mes=2026-10#deuda"  class="filtros-card" style="text-decoration:none;display:block;min-width:0">\r\n
+        <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">Alumnos por cobrar</p>\r\n
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-warning);overflow-wrap:anywhere"><span class="ds-money ds-money--total">$18,000.00</span></p>\r\n
+    </a>\r\n
+    <a  href="http://gestion-wings/reportes?mes=2026-10#profesores"  class="filtros-card" style="text-decoration:none;display:block;min-width:0">\r\n
+        <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">Profesores por pagar</p>\r\n
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-info);overflow-wrap:anywhere"><span class="ds-money ds-money--total">$0.00</span></p>\r\n
+    </a>\r\n
+</div>\r\n
+<div class="filtros-card" style="margin-bottom:20px;display:flex;justify-content:space-between;gap:12px;align-items:center">\r\n
+    <span style="font-weight:600">Resultado de octubre</span><strong style="font-size:1.35rem;color:var(--color-success)"><span class="ds-money ds-money--total">$10,000.00</span></strong>\r\n
+</div>\r\n
+<div class="alumno-card" style="margin-bottom:20px">\r\n
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Disponible</h3></div>\r\n
+    <p style="font-size:1.7rem;font-weight:750;padding:0 16px 12px"><span class="ds-money ds-money--total">$10,000.00</span></p>\r\n
+    <div class="money-summary-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px">\r\n
+            <div><p style="font-size:.75rem;color:var(--color-text-muted)">BGA</p><strong><span class="ds-money ds-money--row">$0.00</span></strong></div>\r\n
+            <div><p style="font-size:.75rem;color:var(--color-text-muted)">BNA</p><strong><span class="ds-money ds-money--row">$0.00</span></strong></div>\r\n
+            <div><p style="font-size:.75rem;color:var(--color-text-muted)">Banco Nacion ahorro</p><strong><span class="ds-money ds-money--row">$0.00</span></strong></div>\r\n
+            <div><p style="font-size:.75rem;color:var(--color-text-muted)">EFT</p><strong><span class="ds-money ds-money--row">$10,000.00</span></strong></div>\r\n
+            <div><p style="font-size:.75rem;color:var(--color-text-muted)">MP</p><strong><span class="ds-money ds-money--row">$0.00</span></strong></div>\r\n
+        </div>\r\n
+    <div class="alumno-actions" style="border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted)">Incluye arrastre · <span class="ds-money ds-money--row">$10,000.00</span> por validar</div>\r\n
+</div>\r\n
+<div class="alumno-card">\r\n
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Para revisar</h3></div>\r\n
+            <a href="http://gestion-wings/caja?pendientes=1" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>Cajas por validar</span><strong>0 →</strong></a>\r\n
+            <a href="http://gestion-wings/liquidaciones?pendientes=1" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>Liquidaciones pendientes</span><strong>0 →</strong></a>\r\n
+            <a href="http://gestion-wings/clases?estado=finalizada" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>Clases sin asistencia</span><strong>0 →</strong></a>\r\n
+            <a href="http://gestion-wings/revision-cobranza?estado=PENDIENTE" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>Revisión de alumnos</span><strong>0 →</strong></a>\r\n
+    </div>\r\n
+<section id="excepciones" class="mt-4" aria-labelledby="titulo-excepciones">\n
+    <div class="rv-section"><h2 id="titulo-excepciones">Excepciones justificadas</h2></div>\n
+    <p class="text-sm text-wings-muted mb-3">Decisiones registradas por el equipo. Se incluyen juntas en el resumen diario, sin avisos individuales.</p>\n
+            <p class="filtros-card text-sm text-wings-muted">Sin excepciones registradas.</p>\n
+        \n
+</section>\n
+\n
+        </main>\n
+\n
+        \n
+        <footer class="ds-footer">\n
+            <div class="ds-footer__inner">Wings</div>\n
+        </footer>\n
+\n
+    </div>\n
+\n
+</div>\n
+\n
+\n
+</body>\n
+</html>\n
+
+
+  To contain: Completa en noviembre
+
+  at tests\Feature\T88B3DineroTest.php:222
+    218▕         $this->deuda('2026-10');
+    219▕         $this->actingAs($this->operativa)->postJson(route('web.caja.pagar', $this->alumno->id),
+    220▕             $this->cobro(['2026-10' => 10000], ['motivo' => 'Completa en noviembre']))->assertRedirect();
+    221▕         $this->actingAs($this->admin)->get(route('admin.dashboard'))->assertOk()
+  ➜ 222▕             ->assertSee('Excepciones justificadas')->assertSee('Completa en noviembre')->assertSee('Excepcion, Alumno');
+    223▕         $this->assertDatabaseCount('excepciones_cobranza', 1);
+    224▕     }
+    225▕
+    226▕     public function test_se_incluyen_juntas_en_un_resumen_por_canal_sin_avisos_individuales(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > se incluyen juntas en un resumen por canal sin avisos individuales
+  The following notifications were sent unexpectedly:
+
+- App\Notifications\CobroConDeudaAnteriorNotification
+
+Failed asserting that an array is empty.
+
+  at vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:172
+    168▕                 ->map(fn ($notifiables) => (new Collection($notifiables))->keys())
+    169▕             )
+    170▕             ->flatten()->join("\n- ");
+    171▕
+  ➜ 172▕         PHPUnit::assertEmpty($this->notifications, "The following notifications were sent unexpectedly:\n\n- $notificationNames\n");
+    173▕     }
+    174▕
+    175▕     /**
+    176▕      * Assert that no notifications were sent to the given notifiable.
+
+  1   vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:172
+  2   vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+
+
+  Tests:    14 failed, 4 passed (31 assertions)
+  Duration: 16.78s
+

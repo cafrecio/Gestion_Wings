@@ -110,7 +110,7 @@ class ReporteMensualTest extends TestCase
         $alumno = Alumno::orderBy('id')->skip(21)->firstOrFail();
         $admin = User::where('rol', 'ADMIN')->firstOrFail();
         $tipo = \App\Models\TipoCaja::where('abreviatura', 'MP')->firstOrFail();
-        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $alumno->id, 'tipo_caja_id' => $tipo->id,
+        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $alumno->id, 'tipo_caja_id' => $tipo->id,
             'usuario_admin_id' => $admin->id, 'fecha_pago' => '2026-09-20', 'items' => [['periodo' => '2026-04', 'monto' => 30000]]]);
         $this->assertSame(54000000, $s->obtener('2026-09')['deuda']['total']);
         $this->assertSame(60000000, $s->obtener('2026-08')['deuda']['total']);
@@ -225,7 +225,7 @@ class ReporteMensualTest extends TestCase
         \App\Models\AlumnoPlan::create(['alumno_id' => $a->id, 'plan_id' => $modelo->planActivo->plan_id, 'fecha_desde' => '2026-09-20', 'activo' => true]);
         DeudaCuota::create(['alumno_id' => $a->id, 'periodo' => '2026-09', 'monto_original' => 30000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
         Carbon::setTestNow('2026-10-09 10:00:00');
-        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $a->id, 'tipo_caja_id' => \App\Models\TipoCaja::where('abreviatura', 'MP')->first()->id,
+        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $a->id, 'tipo_caja_id' => \App\Models\TipoCaja::where('abreviatura', 'MP')->first()->id,
             'usuario_admin_id' => User::where('rol', 'ADMIN')->first()->id, 'fecha_pago' => '2026-09-25', 'items' => [['periodo' => '2026-09', 'monto' => 21000]]]);
         $this->assertSame($base, $s->obtener('2026-09')['deuda']['total']);
         $this->assertSame('PAGADA', DeudaCuota::where('alumno_id', $a->id)->first()->estado);

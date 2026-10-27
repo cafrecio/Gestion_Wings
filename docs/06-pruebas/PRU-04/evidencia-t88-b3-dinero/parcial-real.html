@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es" data-formato-importes='{"locale":"en-US","decimales":2,"decimal":".","miles":",","moneda":"$"}'><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="FICTICIO">
+    <title>Cobrar – Prueba, Parcial</title>
+    <link rel="icon" type="image/x-icon" href="file:///C:/xampp/htdocs/gestion-wings/public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="file:///C:/xampp/htdocs/gestion-wings/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="file:///C:/xampp/htdocs/gestion-wings/public/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1:8878/apple-touch-icon.png">
+    <link rel="manifest" href="http://127.0.0.1:8878/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-BUcPTxT2.css"><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DOC7vG8b.js"><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js"><link rel="stylesheet" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-BUcPTxT2.css"><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DOC7vG8b.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+    
+    <aside class="ds-sidebar">
+
+        
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="file:///C:/xampp/htdocs/gestion-wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+        
+        <nav class="flex flex-col gap-0.5">
+            
+                
+                    
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://127.0.0.1:8878/operativo" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"></path>
+                            </svg>
+                            Inicio
+                        </a>
+                    
+                    <a href="http://127.0.0.1:8878/alumnos" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://127.0.0.1:8878/clases" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Clases
+                    </a>
+                    
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://127.0.0.1:8878/cobranza" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://127.0.0.1:8878/caja" class="ds-nav-link ds-nav-link--active">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Caja
+                        </a>
+                    
+                        <a href="http://127.0.0.1:8878/movimientos" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                    
+                    <a href="http://127.0.0.1:8878/revision-cobranza" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Revisión
+                    </a>
+
+                    
+                        
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://127.0.0.1:8878/grupos" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Grupos
+                        </a>
+
+                    
+                                    </nav>
+
+    </aside>
+
+    
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+    
+    <div class="ds-main">
+
+        
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Operativa de prueba T88</span>
+                </div>
+                <form method="POST" action="http://127.0.0.1:8878/logout">
+                    <input type="hidden" name="_token" autocomplete="off" value="FICTICIO">                    <button class="ds-btn ds-btn--ghost" type="submit">
+
+                    
+                            Salir
+                    
+    </button>
+
+                </form>
+                    </div>
+
+        
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Cobrar: Prueba, Parcial</h1>
+    </div>
+</header>
+        
+        
+        <main class="ds-content">
+
+            
+            
+            
+
+
+
+<div class="filtros-card mb-4" style="border-left: 4px solid var(--color-sport-patin);">
+    
+    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+        <div class="hidden sm:block">
+            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">DNI</p>
+            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">31888001</p>
+        </div>
+        <div>
+            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Deporte</p>
+            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Patín</p>
+        </div>
+        <div>
+            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Grupo</p>
+            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Patín — Principiantes</p>
+        </div>
+        <div>
+            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Total pendiente</p>
+            <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">
+                
+                $18,000.00
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<form method="POST" action="http://127.0.0.1:8878/caja/cobrar/1" id="cobrar-form" data-periodo-descuento="" data-periodo-actual="2026-10" data-inscripcion="0">
+<input type="hidden" name="_token" autocomplete="off" value="FICTICIO">
+
+
+
+    
+    <div class="filtros-card mb-4">
+        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
+            Cuotas pendientes — seleccioná las que querés cobrar
+        </p>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                                                        <div class="cuota-row" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); transition: background 0.15s;">
+                        <input type="checkbox" name="periodos[]" value="2026-10" class="cuota-check" data-saldo="18000" data-recargo="0" data-pagado="10000" data-periodo="2026-10" style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);" checked>
+                        <div style="flex:1; cursor:default;">
+                            <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Octubre 2026</span>
+                                                                                        <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:8px;">
+                                    Orig: $28,000.00 · Pagado: $10,000.00
+                                </span>
+                                                    </div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                                                        <div class="money-input-wrap money-input-wrap--cuota">
+        <input type="text" name="montos_cuota[2026-10]" value="5000.00" placeholder="0" inputmode="decimal" autocomplete="off" data-money="true" required="" min="0.01" class="w-full py-2.5 text-sm wings-input px-4 monto-cuota" data-periodo="2026-10" data-saldo="18000" aria-invalid="false">
+</div>
+                                                    </div>
+                    </div>
+                                                </div>
+                        </div>
+
+    
+        <div class="filtros-card mb-4" id="adelanto-bloque">
+        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
+            Mes sin deuda o cobro adelantado
+        </p>
+        <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <template id="adelanto-importe-template">
+            <div class="money-input-wrap money-input-wrap--cuota">
+        <input type="text" name="montos_cuota[__PERIODO__]" value="" placeholder="0" inputmode="decimal" autocomplete="off" data-money="true" required="" min="0.01" class="w-full py-2.5 text-sm wings-input px-4 monto-cuota" data-periodo="__PERIODO__">
+</div>
+        </template>
+        <div class="acciones-celular-derecha grid grid-cols-1 sm:flex" style="align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
+            <div style="flex:1; min-width:180px;">
+                <label for="adelanto-periodo" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Mes
+                </label>
+                <select id="adelanto-periodo" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                    <option value="" selected>Seleccionar...</option>
+                                            <option value="2026-11" data-precio="28000">Noviembre 2026</option>
+                                            <option value="2026-12" data-precio="28000">Diciembre 2026</option>
+                                            <option value="2027-01" data-precio="28000">Enero 2027</option>
+                                            <option value="2027-02" data-precio="28000">Febrero 2027</option>
+                                            <option value="2027-03" data-precio="28000">Marzo 2027</option>
+                                            <option value="2027-04" data-precio="28000">Abril 2027</option>
+                                            <option value="2027-05" data-precio="28000">Mayo 2027</option>
+                                            <option value="2027-06" data-precio="28000">Junio 2027</option>
+                                            <option value="2027-07" data-precio="28000">Julio 2027</option>
+                                            <option value="2027-08" data-precio="28000">Agosto 2027</option>
+                                            <option value="2027-09" data-precio="28000">Septiembre 2027</option>
+                                            <option value="2027-10" data-precio="28000">Octubre 2027</option>
+                                    </select>
+            </div>
+            <div class="w-full sm:w-[150px]">
+                <label for="adelanto-monto" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"></path></svg>
+                    Importe
+                </label>
+                <div class="money-input-wrap ">
+        <input type="text" id="adelanto-monto" value="" placeholder="0" inputmode="decimal" autocomplete="off" data-money="true" min="0.01" class="w-full py-2.5 text-sm wings-input px-4 text-right">
+</div>
+            </div>
+            <button type="button" id="adelanto-agregar" class="ds-btn justify-self-end" disabled style="background:var(--color-btn-secondary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">Agregar</button>
+        </div>
+        <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
+            Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+        </p>
+    </div>
+    
+    
+    <div class="filtros-card mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label for="tipo_caja_id" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    Medio de pago <span class="form-required">*</span>
+                </label>
+                <select id="tipo_caja_id" name="tipo_caja_id" required="" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                    <option value="">Seleccionar...</option>
+                                            <option value="5">
+                            BGA — Banco Galicia
+                        </option>
+                                            <option value="2">
+                            BNA — Banco Nación
+                        </option>
+                                            <option value="4">
+                            Banco Nacion ahorro
+                        </option>
+                                            <option value="1" selected>
+                            EFT — Efectivo
+                        </option>
+                                            <option value="3">
+                            MP — Mercado Pago
+                        </option>
+                                    </select>
+                            </div>
+            <div>
+                <label for="fecha_pago" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Fecha del pago
+                </label>
+                <input type="date" id="fecha_pago" name="fecha_pago" value="2026-10-27" max="2026-10-27" class="w-full px-4 py-2.5 text-sm wings-input">
+            </div>
+            <div>
+                <label for="observaciones" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                    Observaciones
+                </label>
+                <input type="text" id="observaciones" name="observaciones" value="" maxlength="500" class="w-full px-4 py-2.5 text-sm wings-input" placeholder="Opcional">
+            </div>
+        </div>
+
+        <div id="resumen-total" class="mt-4 pt-4" style="border-top: 1px solid var(--color-border);">
+            <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px;">
+                <span style="font-size:0.85rem; color:var(--color-text-muted);">Total a cobrar:</span>
+                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">$5,000.00</span>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="filtros-actions" style="justify-content:flex-end;">
+        <a class="ds-btn ds-btn--secondary" href="http://127.0.0.1:8878/caja/cobrar" role="button">
+
+                    
+                            Cancelar
+                    
+    </a>
+
+        <button type="submit" id="btn-cobrar" class="ds-btn" style="background: var(--color-btn-primary); color: var(--color-surface); opacity: 1; cursor: pointer;" disabled>
+            Cobrar
+        </button>
+    </div>
+
+</form>
+
+
+<section id="modal-deuda-anterior" class="alumno-card mt-4" style="display: block;" aria-labelledby="titulo-confirmacion-cobro">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 id="titulo-confirmacion-cobro" class="alumno-nombre">Confirmar cobro</h3></div>
+    <form id="form-confirmar-deuda-anterior">
+    <div class="alumno-info" style="display:block;">
+        <p id="mensaje-deuda-anterior" role="status" style="font-size:0.85rem; margin-bottom:1rem;">Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.</p>
+            <div id="motivo-confirmacion-cobro">
+            <label for="motivo-excepcion-cobro" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Motivo <span class="form-required">*</span></label>
+            <textarea id="motivo-excepcion-cobro" name="motivo" required="" maxlength="500" rows="3" placeholder="Motivo del cobro..." class="w-full px-4 py-2.5 text-sm wings-input" style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
+            </div>
+    </div>
+            <div class="alumno-actions acciones-celular-derecha">
+                <button class="ds-btn ds-btn--secondary" id="cerrar-deuda-anterior" type="button">
+
+                    
+                            Volver
+                    
+    </button>
+
+                <button class="ds-btn ds-btn--primary" type="submit">
+
+                    
+                            Cobrar
+                    
+    </button>
+
+            </div>
+    </form>
+</section>
+
+
+        </main>
+
+        
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+<link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/cobrar-Cu60Hcw4.js"><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js"><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/cobrar-Cu60Hcw4.js"></script>
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

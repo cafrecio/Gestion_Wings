@@ -325,6 +325,8 @@ class CajaService
             // Mantener el bloqueo hasta registrar el movimiento: el cierre no se intercala.
             $caja = $this->abrirCajaSiNoExiste($usuarioOperativoId);
 
+            $this->exigirEfectivoDisponible($caja, $data);
+
             // Crear movimiento
             return MovimientoOperativo::create([
                 'caja_operativa_id' => $caja->id,
@@ -536,6 +538,8 @@ class CajaService
 
             $this->validarSubrubroManual($data['subrubro_id']);
 
+            $this->exigirEfectivoDisponible($caja, $data);
+
             return MovimientoOperativo::create([
                 'caja_operativa_id' => $cajaId,
                 'fecha'             => $data['fecha'] ?? Carbon::now()->toDateString(),
@@ -574,6 +578,8 @@ class CajaService
 
             $this->validarSubrubroManual($data['subrubro_id']);
 
+            $this->exigirEfectivoDisponible($caja, $data, $movimiento);
+
             $movimiento->update([
                 'tipo_caja_id' => $data['tipo_caja_id'],
                 'subrubro_id' => $data['subrubro_id'],
@@ -584,6 +590,30 @@ class CajaService
 
             return $movimiento;
         });
+    }
+
+    /** La caja ya esta bloqueada. Lectura actual, incluso tras esperar otro gasto. */
+    private function exigirEfectivoDisponible(CajaOperativa $caja, array $data, ?MovimientoOperativo $anterior = null): void
+    {
+        if ($caja->efectivo_inicial === null || $caja->tipo_caja_efectivo_id === null) return;
+
+        $efecto = function (array $datos) use ($caja): int {
+            if ((int) $datos['tipo_caja_id'] !== (int) $caja->tipo_caja_efectivo_id) return 0;
+            $monto = abs($this->centavos($datos['monto']));
+            return Subrubro::findOrFail($datos['subrubro_id'])->rubro->tipo === 'EGRESO' ? -$monto : $monto;
+        };
+        $nuevo = $efecto($data);
+        $viejo = $anterior?->estado === MovimientoOperativo::ESTADO_ACTIVO ? $efecto($anterior->toArray()) : 0;
+        if ($nuevo >= $viejo) return;
+
+        $disponible = $this->centavos($caja->efectivo_inicial);
+        // FOR UPDATE evita reutilizar la foto anterior a la espera del bloqueo de caja.
+        $actuales = $caja->movimientos()->where('estado', MovimientoOperativo::ESTADO_ACTIVO)
+            ->where('tipo_caja_id', $caja->tipo_caja_efectivo_id)->lockForUpdate()->get();
+        foreach ($actuales as $actual) $disponible += $efecto($actual->toArray());
+        if ($disponible - $viejo + $nuevo < 0) {
+            throw ValidationException::withMessages(['monto' => 'El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.']);
+        }
     }
 
     private function validarSubrubroManual(int $subrubroId): Subrubro

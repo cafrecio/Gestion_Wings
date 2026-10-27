@@ -184,7 +184,7 @@ class ReciboMedioDePagoTest extends TestCase
             'periodos' => ['2026-08', '2026-09'],
             'montos_cuota' => ['2026-08' => 60000, '2026-09' => 10000],
             'fecha_pago' => '2026-09-10',
-            'observaciones' => 'Entrega parcial',
+            'observaciones' => 'Entrega parcial', 'motivo' => 'Acuerdo de pago parcial para probar la anulacion',
         ])->assertSessionHas('success');
         $pago = $this->ultimoPago();
         $this->cancelarUltimoCobro();

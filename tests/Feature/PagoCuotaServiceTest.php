@@ -116,7 +116,7 @@ class PagoCuotaServiceTest extends TestCase
      */
     private function pagarAdmin(int $alumnoId, array $items, ?string $fechaPago = null): array
     {
-        return $this->service->registrarPagoCuotaAdmin([
+        return $this->service->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 
             'alumno_id' => $alumnoId,
             'tipo_caja_id' => $this->tipoCaja->id,
             'usuario_admin_id' => $this->admin->id,

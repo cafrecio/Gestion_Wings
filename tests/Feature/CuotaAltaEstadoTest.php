@@ -245,7 +245,7 @@ class CuotaAltaEstadoTest extends TestCase
         $alumno = $this->alta('2026-09-20');
         \Tests\Support\CajaDeclarada::crear($this->usuario->id, TipoCaja::firstOrFail()->id);
         $service = app(PagoCuotaService::class);
-        $datos = ['alumno_id' => $alumno->id, 'usuario_operativo_id' => $this->usuario->id,
+        $datos = ['motivo' => 'Parcial autorizado para prueba de cuota inicial', 'alumno_id' => $alumno->id, 'usuario_operativo_id' => $this->usuario->id,
             'tipo_caja_id' => TipoCaja::first()->id, 'fecha_pago' => '2026-09-20',
             'items' => [['periodo' => '2026-09', 'monto' => 6000]]];
         $resultado = $service->registrarPagoCuotaOperativo($datos);

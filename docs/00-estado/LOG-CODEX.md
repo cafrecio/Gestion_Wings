@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — T88/B3 dinero entregado; sigue asistencia
+
+Objetivo adjunto: rechazo de gasto efectivo sin saldo y excepciones con motivo, autor, fecha, alumno/registro; cuatro casos, exceso de plan excluido por DU-34. Pull al día y grafo reindexado, lagunas completadas con fuentes.
+Servidor dinero implementado: saldo con lectura actual bajo bloqueo al registrar/editar; parciales y meses anteriores residuales controlados tras distribuir el pago; registro atómico común, Inicio con historial paginado y resumen24h sin mensajes individuales.
+Rojo final18:14 fallidas/4 aprobadas con clases originales; avisos2 rojas previas. Área32/143, técnica2/11, regresiones141/1652 y concurrencia real7/115 verdes. Rápida de cierre991 aprobadas/6 omitidas/7761 aserciones/184,37s, salida0. Completa1070/6 omitidas/40 fallidas/9148 aserciones/1191,77s;39 ajenas y un fixture propio corregido luego verdes aislados. Completa no verde; contador1116 incluye18 T65 concurrentes.
+Navegador local: parcial10000 y octubre28000 con motivo; Volver sobre5000 no guarda; gasto40000 rechazado, cajón39000. Dos excepciones visibles al dueño. Capturas reales1366/375; sin aprobar aún. Solo wings_testing_codex; localhost detenido antes de suites, sin sitio/servidor/base del club.
+[Informe dinero](../06-pruebas/PRU-04/IMPLEMENTACION-T88-B3-DINERO.md) y [galería](../06-pruebas/PRU-04/APROBAR-T88-B3-DINERO.html). T88 a_verificar por Claude; B3 sigue en_curso. Después asistencia, informe separado y suites; no autocierre. Pregunta para Carlos: tratamiento de la excepción al anular/corregir su registro. Producto/pruebas T65 fuera del commit; tablero conserva su estado movido por Gemini. Sintaxis, Blade y build correctos.
+
 ## 2026-10-27 — Codex CAB — T86 cerrada: lógica Claude y aspecto Carlos
 
 [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md): Cashflow habilitado, docentes protegidas, migración FK/rol idempotente. Carlos confirmó «No, incluir operativas en Sueldos es parte de T86»; vista y servicio ampliados, sin CSS/JS de producto.
@@ -71,24 +79,4 @@ Cinco filas de deuda, clase #76 única pendiente y Julieta inactiva con cinco cu
 [Día17](../06-pruebas/PRU-04/DIA-17.md) y [Día18](../06-pruebas/PRU-04/DIA-18.md): bloqueo/evidencia, sin afirmar ejecución. Sin producto, tabla, suite, despliegue ni push.
 T14 en curso, tiene=Claude: acceso SSH y control previo pendientes antes de iniciar jornadas.
 
-## 2026-10-26 — Codex CAB — PRU-04 días 13 a 16: recorrido y diferencias
-
-39 casos registrados: **25 Sí, 12 Parcial y 2 No**; [informes y capturas acreditadas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-13-16.html), sin conformidad integral.
-Staging/wingstest, servidor ec1b0c6e comprobado al inicio tras aviso de despliegue de Carlos. Cuatro relojes y cuatro rutinas, una ejecución de cada uno; stdout en informes.
-Cajas #12/#13/#14 validadas; final deuda $391.000, ingresos octubre $1.824.850,75, resultado $1.584.000,75 y disponible $3.337.000,75; sin asistencia 1 y por validar $0.
-Julieta no se reactivó/cobró por confirmación fallida: diferencia de $143.000 y una activa conservada. Rocío no ingresó; Fútbol solo ofreció comisión para Martín, por eso no hubo alta, asignación ni lista #76. No se repararon datos.
-Lista #49 y horario #77 persistieron sin pedir motivo; Hernán vio 12–13. Adultos y Botiquín creados; gracia sigue 10. Liquidaciones solo abierta, sin generar.
-Incidente propio: 40 archivos capturaron la pestaña anterior; identificados y excluidos de la galería. Recapturas posteriores rotuladas; observaciones directas y límites conservados. Auxiliares corregidos para recibir la pestaña explícita.
-Esperados literales, enlaces, integridad y diff controlados; sin código de aplicación, tabla externa, suite, despliegue ni push. T81 ya figura cerrada y desplegada en el tablero actual.
-T14 sigue en curso, revisión independiente pendiente de Claude. No repetir cobros, rutinas ni reloj: último inicio simulado 25/10/2026 15:00. Dashboard por casos conserva su corte anterior.
-
-## 2026-10-25 — Codex CAB — Verificación independiente de T81
-
-Leídos implementación y commits d5c4df00/0f6ebbd5/d55dcc02. Lógica **APROBADA** en c6555ea0; Carlos ya aprobó aspecto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T81-CODEX.md).
-Independientes 4/142: celular propio, tutor con celular vacío y sin números, ambos roles; Cobranza igual a vista anterior en importes/celdas económicas. DNI en búsqueda/autocomplete/ficha y PDF real conservado; serialización y plantilla Excel comprobadas.
-Rastreo MCP con cobertura insuficiente, completado por fuentes/rg; solo dos vistas consumen el nuevo accessor. Catorce fuentes contrastadas, sin tocar producto ni tabla.
-Rápida en wings_testing_codex: 926 aprobadas, 6 omitidas, 7.425 aserciones, 170,53 s, salida 0. Fixture propio NULL corregido a cadena vacía (columna NOT NULL), salida inicial conservada; no defecto atribuido al producto.
-Suite regeneró HTML histórico T34: copia propia preservada y original devuelto a HEAD. Sin datos del club, servidor, suite completa ni push.
-Tablero: T81 sigue a_verificar, hizo=Gemini, verifica=Codex; no se cierra. Sigue decisión de cierre del dueño, con aprobación visual existente.
-
-[Antecedentes intactos al verificar T90](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-T90-ANTECEDENTES.md).
+[Dos entradas anteriores archivadas intactas al iniciar T88/B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-inicio-T88-B3.txt).

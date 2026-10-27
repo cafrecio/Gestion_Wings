@@ -1,0 +1,44 @@
+
+   PASS  Tests\Feature\T88B3DineroTest
+  ✓ rechaza gasto que supera el cajon sin escribir                                                              14.49s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.17s
+  ✓ editar no puede dejar negativo ni cambiar el registro                                                        0.12s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.24s
+  ✓ tambien se valida el alta en caja existente por servicio                                                     0.10s
+  ✓ cambiar un gasto de transferencia a efectivo no evade el saldo                                               0.11s
+  ✓ un parcial sin motivo pide excepcion y no escribe                                                            0.14s
+  ✓ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.18s
+  ✓ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.18s
+  ✓ avisa tambien un mes impago entre dos seleccionados                                                          0.13s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.27s
+  ✓ si es parcial y salta deuda registra ambos tipos una vez                                                     0.17s
+  ✓ el servicio directo tampoco permite omitir el motivo                                                         0.10s
+  ✓ el importe entregado se distribuye antes de detectar el parcial                                              0.13s
+  ✓ espacios no son un motivo y no dejan excepcion ni pago                                                       0.14s
+  ✓ el duenio ve la excepcion y su motivo en inicio                                                              0.50s
+  ✓ se incluyen juntas en un resumen por canal sin avisos individuales                                           0.20s
+  ✓ si falla el movimiento tambien revierte pago deuda y excepcion                                               0.16s
+
+   PASS  Tests\Feature\CobrarMesSinDeudaT77Test
+  ✓ al dia sin cuota no tiene fila pendiente y total es cero                                                     0.19s
+  ✓ selector incluye actual al precio del plan y conserva doce futuros                                           0.17s
+  ✓ envio del mes como deuda se rechaza sin escribir para ambos roles                                            0.13s
+  ✓ mes elegido manualmente se cobra una vez y el segundo envio se rechaza                                       0.36s
+  ✓ admin cobra mes elegido a cashflow sin movimiento operativo                                                  0.23s
+  ✓ alumno que debe octubre sigue viendolo y pagandolo como deuda                                                0.22s
+  ✓ en revision el cobro manual resuelve la cola                                                                 0.22s
+  ✓ eleccion manual sin importe no crea cuota                                                                    0.11s
+  ✓ cobranza buscador ficha e inicio conservan solo deuda guardada                                               0.36s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.13s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.15s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.11s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.06s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.04s
+
+  Tests:    32 passed (143 assertions)
+  Duration: 20.18s
+

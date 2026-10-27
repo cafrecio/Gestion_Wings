@@ -1,0 +1,171 @@
+
+   PASS  Tests\Feature\T88B3DineroTest
+  ✓ rechaza gasto que supera el cajon sin escribir                                                              13.43s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.30s
+  ✓ editar no puede dejar negativo ni cambiar el registro                                                        0.21s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.38s
+  ✓ tambien se valida el alta en caja existente por servicio                                                     0.20s
+  ✓ cambiar un gasto de transferencia a efectivo no evade el saldo                                               0.22s
+  ✓ un parcial sin motivo pide excepcion y no escribe                                                            0.18s
+  ✓ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.25s
+  ✓ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.26s
+  ✓ avisa tambien un mes impago entre dos seleccionados                                                          0.19s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.21s
+  ✓ si es parcial y salta deuda registra ambos tipos una vez                                                     0.18s
+  ✓ el servicio directo tampoco permite omitir el motivo                                                         0.12s
+  ✓ el importe entregado se distribuye antes de detectar el parcial                                              0.13s
+  ✓ espacios no son un motivo y no dejan excepcion ni pago                                                       0.17s
+  ✓ el duenio ve la excepcion y su motivo en inicio                                                              0.24s
+  ✓ se incluyen juntas en un resumen por canal sin avisos individuales                                           0.34s
+  ✓ si falla el movimiento tambien revierte pago deuda y excepcion                                               0.26s
+
+   PASS  Tests\Feature\CambioPlanCobroTest
+  ✓ el selector de plan viaja dentro del formulario de cobro                                                     0.14s
+  ✓ al cambiar de plan el tope del total se mueve con el precio                                                  0.14s
+  ✓ baja con asistencia aplica desde el mes siguiente                                                            0.13s
+  ✓ baja sin asistencia aplica al mes siguiente                                                                  0.16s
+  ✓ subida con asistencia aplica al mes en curso                                                                 0.13s
+  ✓ fallo del pago revierte cambio de plan y deuda                                                               0.08s
+  ✓ cobrar un mes dejando anteriores devuelve aviso sin escribir                                                 0.10s
+  ✓ confirmar cobro con deuda anterior exige motivo                                                              0.10s
+  ✓ confirmar con motivo registra excepcion sin aviso individual                                                 0.14s
+  ✓ cobrar todos los periodos no dispara aviso                                                                   0.15s
+
+   PASS  Tests\Feature\CobrarCondonarConcurrenteTest
+  ✓ parcial en curso bloquea condonacion y solo se perdona saldo actual                                          2.82s
+  ✓ condonacion en curso bloquea cobro y despues lo rechaza sin escrituras                                       2.99s
+  ✓ pago completo en curso impide condonar una vez confirmado                                                    3.28s
+
+   PASS  Tests\Feature\CuotaAltaEstadoTest
+  ✓ alta crea cuota con los tres porcentajes configurados                                                        1.16s
+  ✓ cobro y preview respetan importe del alta aunque cambien reglas y precio                                     2.27s
+  ✓ alta el 30 y generacion el 1 no duplican periodos                                                            0.48s
+  ✓ padron conciliado sin pagos y contadores coinciden                                                           3.95s
+  ✓ nuevo sin pagos pasa de en plazo a moroso y deudor                                                           1.16s
+  ✓ mes cerrado impago gana sobre corriente pagado                                                               0.51s
+  ✓ fallo despues de insertar cuota revierte toda el alta                                                        0.34s
+  ✓ reintento no duplica y alumnos existentes no reciben cuotas                                                  0.18s
+  ✓ ingreso antiguo con si crea mes corriente completo                                                           0.18s
+  ✓ no para ingreso antiguo no genera cuota                                                                      0.17s
+  ✓ cobrar cuota corriente de ingreso antiguo no reaplica porcentaje                                             0.23s
+  ✓ ingreso antiguo fin de mes no descuenta cuota corriente                                                      0.22s
+  ✓ ingreso del mes proximo genera la cuota de ese mes                                                           0.19s
+  ✓ no se acepta un ingreso mas alla del mes proximo                                                             0.20s
+  ✓ parcial anulacion y recobro conservan la cuota del alta                                                      0.41s
+
+   PASS  Tests\Feature\DescuentoNoAlteraOtroPeriodoTest
+  ✓ un parcial de otro periodo conserva su monto original                                                        0.15s
+
+   PASS  Tests\Feature\DescuentoPrimerPagoMatrizTest
+  ✓ pago completo con deuda existente deja el mes en el precio con descuento                                     0.12s
+  ✓ pago completo sin deuda previa crea el mes con descuento                                                     0.31s
+  ✓ un parcial con deuda existente no cierra el mes                                                              0.15s
+  ✓ un parcial sin deuda previa no cierra el mes                                                                 0.11s
+  ✓ el saldo que queda despues del parcial se puede terminar de cobrar                                           0.20s
+  ✓ el tramo de fin de mes tambien descuenta el precio y no la sena                                              0.15s
+  ✓ sin descuento el parcial se imputa contra el precio entero                                                   0.13s
+  ✓ un cobro cancelado no le saca el descuento al mes de alta                                                    0.18s
+  ✓ cancelar y volver a cobrar el mes de alta no descuenta dos veces                                             0.19s
+  ✓ despues de cancelar la pantalla muestra el mismo precio que va a cobrar                                      0.22s
+
+   PASS  Tests\Feature\DuenoMovimientoCajaT59Test
+  ✓ el duenio que entra a nuevo movimiento de caja va a cashflow                                                 0.17s
+  ✓ si el duenio envia el formulario de caja no se registra nada                                                 0.13s
+  ✓ la operativa sigue cargando movimientos en su caja                                                           0.15s
+
+   PASS  Tests\Feature\ImportesPesosT24Test
+  ✓ cada pedido directo rechaza tres decimales sin escribir                                                      3.16s
+  ✓ cada pantalla guarda dos decimales sin perder centavos                                                       4.83s
+  ✓ el cero conserva la regla de cada flujo                                                                      1.22s
+  ✓ el saldo con historial sigue siendo de solo lectura                                                          0.65s
+  ✓ las pantallas renderizan el componente comun y conservan centavos al editar                                  6.09s
+
+   PASS  Tests\Feature\InscripcionTest
+  ✓ alta manual genera inscripcion sin corte incluso con ingreso antiguo                                         0.53s
+  ✓ dos deportes no duplican inscripcion                                                                         1.45s
+  ✓ configuracion invalida no deja alta parcial                                                                  0.51s
+  ✓ reintento no duplica y precio queda congelado                                                                0.57s
+  ✓ fallo durante el cargo revierte alumno y plan                                                                0.45s
+  ✓ cobro completo separa conceptos y caja                                                                       0.99s
+  ✓ pago insuficiente cubre inscripcion primero y no cambia estado mensual                                       1.14s
+  ✓ editar fecha conserva inscripcion e importe con auditoria                                                    0.21s
+  ✓ no se edita fecha con inscripcion parcialmente pagada                                                        0.24s
+  ✓ cancelar restituye cuota inscripcion y todos los movimientos                                                 0.24s
+  ✓ importe inscripcion obligatorio sin parametro corte                                                          0.32s
+  ✓ retirar parametro legacy no altera cargos ni importe                                                         0.17s
+  ✓ editar alumno existente sin cargo no crea inscripcion                                                        0.16s
+  ✓ recibo pdf contiene cuota e inscripcion y conserva detalle anulado                                           8.86s
+  ✓ el descuento solo alcanza la cuota                                                                           0.21s
+  ✓ pagos historicos conservan su importe de cuota                                                               0.13s
+  ✓ configuracion cambiada no cobra otro importe sin avisar                                                      0.19s
+
+   PASS  Tests\Feature\PagoCuotaServiceTest
+  ✓ autocrea deuda futura con monto del plan                                                                     0.15s
+  ✓ autocrea deuda periodo vigente                                                                               0.14s
+  ✓ admin y fifo autocrean deudas con monto descontado                                                           0.17s
+  ✓ idempotencia no duplica deuda existente                                                                      0.11s
+  ✓ rechaza item que supera el saldo pendiente                                                                   0.10s
+  ✓ bloquea periodo pasado sin deuda previa                                                                      0.07s
+  ✓ permite periodo pasado si deuda ya existe                                                                    0.09s
+  ✓ error alumno sin plan activo                                                                                 0.05s
+  ✓ fifo rechaza deuda vieja parcial                                                                             0.10s
+  ✓ fifo permite ultima deuda parcial                                                                            0.15s
+  ✓ fifo item unico sin restriccion                                                                              0.11s
+  ✓ fifo ordena items automaticamente                                                                            0.11s
+  ✓ cambio plan programado usa plan del periodo                                                                  0.12s
+  ✓ cambio plan cobra febrero con plan viejo                                                                     0.12s
+
+   PASS  Tests\Feature\PerdonReactivacionT33Test
+  ✓ admin ve condonar inscripcion y reutiliza el modal                                                           0.27s
+  ✓ condonar inscripcion guarda solo saldo y evento con autor fecha motivo importe                               0.27s
+  ✓ inscripcion parcial perdona resto y anular pago deja debiendo el parcial                                     0.25s
+  ✓ reactivar inscripcion conserva parcial original y ambos eventos                                              0.28s
+  ✓ reactivar cuota conserva parciales imputaciones y historial                                                  0.30s
+  ✓ ficha lista cuotas condonadas y reactivar solo para admin                                                    0.27s
+  ✓ motivos invalidos rechazados en las tres acciones sin escribir                                               0.27s
+  ✓ motivos limite diez y quinientos caracteres se aceptan                                                       3.21s
+  ✓ operativo y profesor rechazados por post directo                                                             1.10s
+  ✓ inscripcion ya perdonada no admite segundo perdon                                                            0.26s
+  ✓ inscripcion pagada entera no admite perdon                                                                   0.26s
+  ✓ inscripcion anulada rechaza condonar y reactivar                                                             0.23s
+  ✓ cuota no condonada no admite reactivacion                                                                    0.24s
+  ✓ inscripcion sin perdon no admite reactivacion                                                                0.25s
+  ✓ perdonada no se cobra sin crear pago movimiento o recibo                                                     0.31s
+  ✓ tres pantallas y buscador coinciden antes perdon despues y reactivacion                                      2.47s
+  ✓ cuota futura reactivada no suma hasta el primer dia del mes                                                  0.35s
+  ✓ alumno de baja admite ambas decisiones sin reactivar al alumno                                               0.29s
+  ✓ dos deportes un cargo solo ficha duena ofrece decidir                                                        1.48s
+  ✓ mes anterior conserva cuota historica pero usa perdon actual de inscripcion                                  0.47s
+  ✓ evidencia ficha real opcional sin sumar una prueba omitida                                                   0.24s
+
+   PASS  Tests\Feature\ReciboMedioDePagoTest
+  ✓ el recibo muestra el medio con el que se cobro                                                               0.22s
+  ✓ dos cobros iguales el mismo dia con medios distintos tienen cada uno su medio                                0.26s
+  ✓ cancelar y volver a cobrar por otro medio no hereda el medio del cancelado                                   0.34s
+  ✓ anular conserva periodos importes y motivo sin imputaciones activas                                          0.35s
+  ✓ anulacion antigua sin detalle no inventa periodos                                                            0.21s
+  ✓ pdf anulado se regenera con detalle y motivo                                                                12.92s
+
+   PASS  Tests\Feature\ReingresoCuotaT38Test
+  ✓ reactivar genera la cuota del mes con el porcentaje del dia y conserva la deuda vieja                        0.22s
+  ✓ lo que ve la operativa despues de reactivar                                                                  0.26s
+  ✓ el interruptor del listado tambien la genera                                                                 0.17s
+  ✓ si ya tiene la cuota del mes no se genera otra ni se toca                                                    0.19s
+  ✓ dar de baja y volver a reactivar en el mismo mes no duplica                                                  0.20s
+  ✓ dar de baja no genera nada                                                                                   0.19s
+  ✓ sin plan para el mes no se reactiva y avisa                                                                  0.17s
+  ✓ si todavia no empezo reactivar no genera la cuota de este mes                                                0.20s
+  ✓ sin una unica regla para el dia va al 100                                                                    0.19s
+  ✓ reactivar responde la revision pendiente del mes                                                             0.21s
+  ✓ la cuota del reingreso esta en plazo siete dias y despues vence                                              0.23s
+  ✓ reactivado a fin de mes el plazo cruza al mes siguiente                                                      0.20s
+  ✓ las demas cuotas del alumno siguen con su vencimiento                                                        0.28s
+  ✓ el recargo por mora espera el plazo del reingreso                                                            0.25s
+  ✓ cobrar solo deuda vieja a un inactivo genera la cuota del mes                                                0.31s
+  ✓ cobrar parte del mes a un inactivo deja el saldo con plazo                                                   0.44s
+  ✓ cobrar a un activo no cambia                                                                                 0.28s
+  ✓ el cobro no recalcula la cuota del reingreso en el mes del alta                                              0.25s
+
+  Tests:    141 passed (1652 assertions)
+  Duration: 107.47s
+

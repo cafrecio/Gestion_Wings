@@ -99,7 +99,7 @@ class InscripcionConcurrenteTest extends TestCase
         $alumno = Alumno::firstOrFail();
         // La cuota ya nace en el alta (enmienda 23/09); no recrearla en el fixture.
         $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id, 'periodo' => '2026-09', 'monto_original' => 30000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
-        $data = ['alumno_id' => $alumno->id, 'usuario_operativo_id' => $cobrador->id, 'tipo_caja_id' => TipoCaja::first()->id,
+        $data = ['motivo' => 'Parcial autorizado para concurrencia de inscripcion', 'alumno_id' => $alumno->id, 'usuario_operativo_id' => $cobrador->id, 'tipo_caja_id' => TipoCaja::first()->id,
             'fecha_pago' => '2026-09-24', 'items' => [['periodo' => '2026-09', 'monto' => 30000]]];
         $this->iniciar(fn () => app(PagoCuotaService::class)->registrarPagoCuotaOperativo($data + ['monto_entregado' => 3000]));
         $this->esperaSinEscribir(fn () => app(PagoCuotaService::class)->registrarPagoCuotaOperativo($data + ['monto_entregado' => 7000]));

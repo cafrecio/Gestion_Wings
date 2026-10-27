@@ -1,0 +1,8 @@
+
+   PASS  Tests\Feature\SeguridadDiasPruebaTest
+  ✓ dia 19 rechaza gasto en efectivo mayor que el cajon                                                         12.03s
+  ✓ dia 21 el servidor rechaza pago parcial sin motivo                                                           0.20s
+
+  Tests:    2 passed (11 assertions)
+  Duration: 12.52s
+

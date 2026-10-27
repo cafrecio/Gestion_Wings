@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\PunitoriosCobroTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\PunitoriosCobroTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="14.242517">
+    <testcase name="test_importe_parcial_de_cuota_sin_total_entregado_no_cobra_recargo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\PunitoriosCobroTest.php" line="241" class="Tests\Feature\PunitoriosCobroTest" classname="Tests.Feature.PunitoriosCobroTest" assertions="3" time="14.242517"/>
+  </testsuite>
+</testsuites>

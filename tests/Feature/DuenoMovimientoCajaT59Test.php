@@ -62,6 +62,7 @@ class DuenoMovimientoCajaT59Test extends TestCase
 
     public function test_la_operativa_sigue_cargando_movimientos_en_su_caja(): void
     {
+        \App\Models\CajaOperativa::where('usuario_operativo_id', $this->operativo->id)->update(['efectivo_inicial' => 1500]);
         $this->actingAs($this->operativo)->get(route('web.caja.movimiento'))->assertOk();
 
         $this->actingAs($this->operativo)->post(route('web.caja.movimiento.store'), [

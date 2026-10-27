@@ -1,0 +1,22 @@
+
+   PASS  Tests\Feature\T88B3DineroTest
+  ✓ rechaza gasto que supera el cajon sin escribir                                                              13.67s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.85s
+  ✓ editar no puede dejar negativo ni cambiar el registro                                                        0.12s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.09s
+  ✓ tambien se valida el alta en caja existente por servicio                                                     0.14s
+  ✓ un parcial sin motivo pide excepcion y no escribe                                                            0.16s
+  ✓ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.21s
+  ✓ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.21s
+  ✓ avisa tambien un mes impago entre dos seleccionados                                                          0.20s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.18s
+  ✓ si es parcial y salta deuda registra ambos tipos una vez                                                     0.21s
+  ✓ el servicio directo tampoco permite omitir el motivo                                                         0.09s
+  ✓ el importe entregado se distribuye antes de detectar el parcial                                              0.18s
+  ✓ espacios no son un motivo y no dejan excepcion ni pago                                                       0.16s
+  ✓ el duenio ve la excepcion y su motivo en inicio                                                              0.65s
+  ✓ se incluyen juntas en un resumen por canal sin avisos individuales                                           0.20s
+
+  Tests:    16 passed (54 assertions)
+  Duration: 17.83s
+

@@ -80,6 +80,7 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
             DB::purge('fin11_otra');
         }
         if (isset($this->alumno)) {
+            DB::table('excepciones_cobranza')->where('alumno_id', $this->alumno->id)->delete();
             $pagos = DB::table('pagos')->where('alumno_id', $this->alumno->id)->pluck('id');
             DB::table('pago_deuda_cuota')->whereIn('pago_id', $pagos)->delete();
             DB::table('movimientos_operativos')->where('alumno_id', $this->alumno->id)->delete();
@@ -95,7 +96,7 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
 
     private function cobrar(): array
     {
-        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo([
+        return app(PagoCuotaService::class)->registrarPagoCuotaOperativo(['motivo' => 'Parcial autorizado para la prueba de regresion', 
             'alumno_id' => $this->alumno->id, 'usuario_operativo_id' => $this->operativo->id,
             'tipo_caja_id' => $this->caja->id, 'items' => [['periodo' => '2026-08', 'monto' => 10000]],
         ]);

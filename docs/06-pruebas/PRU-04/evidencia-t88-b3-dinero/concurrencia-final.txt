@@ -1,0 +1,15 @@
+
+   PASS  Tests\Feature\T88EfectivoConcurrenteTest
+  ✓ el segundo gasto no usa una foto vieja del efectivo                                                         14.53s
+
+   PASS  Tests\Feature\CobrarCancelarValidarConcurrenteTest
+  ✓ cobrar primero cancelar despues                                                                              2.16s
+  ✓ cancelar primero cobrar despues                                                                              1.92s
+  ✓ cobrar primero validar despues                                                                               2.09s
+  ✓ validar primero cobrar despues                                                                               2.00s
+  ✓ cancelar primero validar despues                                                                             1.98s
+  ✓ validar primero cancelar despues                                                                             1.99s
+
+  Tests:    7 passed (115 assertions)
+  Duration: 26.83s
+

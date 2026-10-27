@@ -1,0 +1,67 @@
+
+   FAIL  Tests\Feature\T88B3DineroTest
+  ✓ rechaza gasto que supera el cajon sin escribir                                                              12.67s
+  ✓ el gasto exacto se permite y una transferencia no usa el cajon                                               0.14s
+  ⨯ editar no puede dejar negativo ni cambiar el registro                                                        0.14s
+  ✓ editar descuenta la version anterior y admite agotar el cajon                                                0.15s
+  ✓ tambien se valida el alta en caja existente por servicio                                                     0.09s
+  ✓ un parcial sin motivo pide excepcion y no escribe                                                            0.18s
+  ✓ parcial con motivo guarda excepcion atomica sin aviso individual                                             0.22s
+  ✓ el duenio desde la ficha tambien necesita motivo y lo registra                                               0.20s
+  ✓ avisa tambien un mes impago entre dos seleccionados                                                          0.29s
+  ✓ pagar todos los anteriores no pide excepcion                                                                 0.19s
+  ✓ si es parcial y salta deuda registra ambos tipos una vez                                                     0.18s
+  ✓ el servicio directo tampoco permite omitir el motivo                                                         0.14s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\T88B3DineroTest > editar no puede dejar negativo ni cambiar el registro
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
++    'id' => 3,
+     'caja_operativa_id' => 3,
+-    'fecha' => '2026-10-27 00:00:00',
++    'fecha' => '2026-10-27',
+     'tipo_caja_id' => 12,
+     'subrubro_id' => 42,
+-    'monto' => 50.0,
++    'monto' => '50.00',
+     'observaciones' => 'Prueba gasto T88',
+     'usuario_id' => 6,
+     'alumno_id' => null,
+     'pago_id' => null,
+     'estado' => 'ACTIVO',
++    'motivo_cancelacion' => null,
++    'created_at' => '2026-10-27 12:00:00',
++    'updated_at' => '2026-10-27 12:00:00',
++    'reporte_deporte_id' => null,
++    'reporte_clasificacion' => 'NEGOCIO',
+     'reporte_tipo' => 'EGRESO',
+-    'reporte_clasificacion' => 'NEGOCIO',
+-    'reporte_deporte_id' => null,
+-    'updated_at' => '2026-10-27 12:00:00',
+-    'created_at' => '2026-10-27 12:00:00',
+-    'id' => 3,
++    'verificado_at' => null,
++    'verificado_por' => null,
++    'verificacion_huella' => null,
+ ]
+
+  at tests\Feature\T88B3DineroTest.php:93
+     89▕         $m = app(CajaService::class)->registrarMovimientoOperativo($this->datosGasto(50));
+     90▕         $antes = $m->getRawOriginal();
+     91▕         $this->actingAs($this->operativa)->put(route('web.caja.movimientos.update', [$this->caja->id, $m->id]), $this->datosGasto(101))
+     92▕             ->assertSessionHas('error', fn ($s) => str_contains($s, 'aporte'));
+  ➜  93▕         $this->assertSame($antes, $m->fresh()->getRawOriginal());
+     94▕     }
+     95▕
+     96▕     public function test_editar_descuenta_la_version_anterior_y_admite_agotar_el_cajon(): void
+     97▕     {
+
+  1   tests\Feature\T88B3DineroTest.php:93
+
+
+  Tests:    1 failed, 11 passed (36 assertions)
+  Duration: 14.75s
+

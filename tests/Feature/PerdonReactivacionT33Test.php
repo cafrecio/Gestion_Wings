@@ -74,7 +74,7 @@ class PerdonReactivacionT33Test extends TestCase
 
     private function cobrar(float $importe, array $items = []): Pago
     {
-        return app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $this->alumno->id,
+        return app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $this->alumno->id,
             'usuario_admin_id' => $this->admin->id, 'tipo_caja_id' => TipoCaja::first()->id,
             'items' => $items, 'monto_entregado' => $importe, 'fecha_pago' => today()->toDateString()])['pago'];
     }

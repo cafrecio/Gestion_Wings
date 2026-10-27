@@ -120,7 +120,7 @@ class DescuentoNoAlteraOtroPeriodoTest extends TestCase
         // Paga agosto entero (con descuento) y deja seña de septiembre.
         $respuesta = $this->actingAs($this->operativo)
             ->post(route('web.caja.pagar', $this->alumno->id), [
-                'tipo_caja_id' => $this->tipoCaja->id,
+                'motivo' => 'Parcial autorizado en prueba del descuento', 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08', '2026-09'],
                 'periodos_manuales' => ['2026-08'], // T77: agosto sin cuota se elige a mano.
                 'montos_cuota' => [

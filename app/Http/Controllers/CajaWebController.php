@@ -16,7 +16,6 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
-use App\Notifications\CobroConDeudaAnteriorNotification;
 use App\Services\CajaService;
 use App\Rules\ImportePesos;
 use App\Services\PagoCuotaService;
@@ -26,7 +25,6 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
@@ -936,50 +934,7 @@ class CajaWebController extends Controller
                 ], 409);
             }
         }
-        $periodoMasAntiguo = $periodosSolicitados->first();
-        $recargosPendientes = app(\App\Services\CobranzaEstadoService::class)
-            ->recargosPendientesPorAlumno(collect([$alumnoId]))->get($alumnoId, collect())->keyBy('deuda_cuota_id');
-        $deudasAnteriores = DeudaCuota::where('alumno_id', $alumnoId)
-            ->when($periodoMasAntiguo === null, fn ($query) => $query->whereRaw('1 = 0'))
-            ->where(fn ($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                ->orWhereIn('id', $recargosPendientes->keys()))
-            ->when($periodoMasAntiguo !== null, fn ($query) => $query->where('periodo', '<', $periodoMasAntiguo))
-            ->orderBy('periodo')
-            ->get();
-        $saldoAnterior = round((float) $deudasAnteriores->sum(fn ($deuda) =>
-            ($deuda->estado === DeudaCuota::ESTADO_CONDONADA ? 0 : $deuda->saldo_pendiente)
-            + ($recargosPendientes->get($deuda->id)?->saldo_para_cobranza ?? 0)), 2);
-        $requiereAvisoDeudaAnterior = $deudasAnteriores->isNotEmpty();
-
-        if ($requiereAvisoDeudaAnterior && !$request->boolean('confirmar_deuda_anterior')) {
-            return response()->json([
-                'success' => false,
-                'requiere_confirmacion' => true,
-                'cantidad_meses' => $deudasAnteriores->count(),
-                'periodos' => $deudasAnteriores->pluck('periodo')->values()->all(),
-                'monto_total' => $saldoAnterior,
-                'message' => sprintf(
-                    'Quedan %d meses anteriores impagos por $%s (%s).',
-                    $deudasAnteriores->count(),
-                    \App\Support\FormatoImporte::numero($saldoAnterior),
-                    $deudasAnteriores->pluck('periodo')->implode(', ')
-                ),
-            ], 409);
-        }
-
-        if ($requiereAvisoDeudaAnterior) {
-            $request->validate([
-                'motivo' => 'required|string|max:500',
-            ]);
-        }
-
-        $motivoDeudaAnterior = $requiereAvisoDeudaAnterior
-            ? trim((string) $request->input('motivo'))
-            : null;
-        $observacionesPago = implode("\n", array_filter([
-            $request->input('observaciones'),
-            $motivoDeudaAnterior ? "Motivo por deuda anterior: {$motivoDeudaAnterior}" : null,
-        ]));
+        $observacionesPago = $request->input('observaciones');
 
         try {
             $resultadoPago = DB::transaction(function () use ($request, $alumno, $alumnoId, $user, $observacionesPago) {
@@ -1052,6 +1007,7 @@ class CajaWebController extends Controller
                     'monto_entregado' => $request->input('monto_entregado'),
                     'fecha_pago'      => $request->input('fecha_pago', today()->toDateString()),
                     'observaciones'   => $observacionesPago ?: null,
+                    'motivo' => $request->input('motivo'),
                 ];
 
                 // A13 y B1: el dueño no tiene caja. Hasta el 05/10 esta pantalla mandaba a
@@ -1062,27 +1018,6 @@ class CajaWebController extends Controller
                     ? $this->pagoCuotaService->registrarPagoCuotaAdmin($datosPago + ['usuario_admin_id' => $user->id])
                     : $this->pagoCuotaService->registrarPagoCuotaOperativo($datosPago + ['usuario_operativo_id' => $user->id]);
             });
-
-            if ($requiereAvisoDeudaAnterior) {
-                try {
-                    $administradores = User::where('rol', User::ROL_ADMIN)
-                        ->where('activo', true)
-                        ->get();
-                    Notification::send($administradores, new CobroConDeudaAnteriorNotification(
-                        alumno: $alumno,
-                        pagoId: $resultadoPago['pago']->id,
-                        periodos: $deudasAnteriores->pluck('periodo')->values()->all(),
-                        montoPendiente: $saldoAnterior,
-                        motivo: $motivoDeudaAnterior,
-                        operativo: $user
-                    ));
-                } catch (\Throwable $errorNotificacion) {
-                    Log::error('No se pudo notificar el cobro con deuda anterior.', [
-                        'pago_id' => $resultadoPago['pago']->id,
-                        'error' => $errorNotificacion->getMessage(),
-                    ]);
-                }
-            }
 
             if ($esFechaVieja) {
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
@@ -1097,6 +1032,14 @@ class CajaWebController extends Controller
             return redirect()->route('web.caja.index')
                 ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.")
                 ->with('recibo_pago_id', $resultadoPago['pago']->id);
+        } catch (\App\Exceptions\ExcepcionCobranzaRequerida $e) {
+            $confirmado = $request->boolean('confirmar_deuda_anterior');
+            return response()->json($e->detalle + [
+                'success' => false, 'requiere_confirmacion' => true, 'requiere_motivo' => true,
+                'errors' => ['motivo' => ['Indicá el motivo para registrar esta excepción.']],
+            ], $confirmado ? 422 : 409);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
             return back()->with('error', \App\Support\AvisoError::texto($e));
         }

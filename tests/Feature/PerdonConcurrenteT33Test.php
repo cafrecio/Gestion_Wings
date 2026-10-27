@@ -70,7 +70,7 @@ class PerdonConcurrenteT33Test extends TestCase
 
     private function cobrar(float $importe, bool $inscripcion): void
     {
-        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['alumno_id' => $this->alumno->id,
+        app(PagoCuotaService::class)->registrarPagoCuotaAdmin(['motivo' => 'Parcial autorizado para la prueba de regresion', 'alumno_id' => $this->alumno->id,
             'usuario_admin_id' => $this->admin->id, 'tipo_caja_id' => TipoCaja::first()->id,
             'items' => $inscripcion ? [] : [['periodo' => '2026-10', 'monto' => $importe]],
             'monto_entregado' => $importe, 'fecha_pago' => '2026-10-13']);

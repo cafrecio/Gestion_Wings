@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\PunitoriosCobroTest
+  ✓ importe parcial de cuota sin total entregado no cobra recargo                                               14.24s
+
+  Tests:    1 passed (3 assertions)
+  Duration: 14.38s
+

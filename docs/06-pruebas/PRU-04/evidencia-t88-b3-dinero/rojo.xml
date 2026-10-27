@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\T88B3DineroTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" tests="12" assertions="15" errors="3" failures="7" skipped="0" time="15.716807">
+    <testcase name="test_rechaza_gasto_que_supera_el_cajon_sin_escribir" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="70" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="12.865909">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_rechaza_gasto_que_supera_el_cajon_sin_escribir&#13;
+Failed asserting that false is true.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1552
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:73</failure>
+    </testcase>
+    <testcase name="test_el_gasto_exacto_se_permite_y_una_transferencia_no_usa_el_cajon" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="78" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="2" time="0.247757"/>
+    <testcase name="test_editar_no_puede_dejar_negativo_ni_cambiar_el_registro" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="87" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.380654">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_editar_no_puede_dejar_negativo_ni_cambiar_el_registro&#13;
+Failed asserting that false is true.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1552
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:92</failure>
+    </testcase>
+    <testcase name="test_editar_descuenta_la_version_anterior_y_admite_agotar_el_cajon" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="96" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.184293"/>
+    <testcase name="test_tambien_se_valida_el_alta_en_caja_existente_por_servicio" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="103" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.161159">
+      <failure type="PHPUnit\Framework\AssertionFailedError">Tests\Feature\T88B3DineroTest::test_tambien_se_valida_el_alta_en_caja_existente_por_servicio&#13;
+Se acepto gasto sin efectivo.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:107</failure>
+    </testcase>
+    <testcase name="test_un_parcial_sin_motivo_pide_excepcion_y_no_escribe" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="114" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.276432">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_un_parcial_sin_motivo_pide_excepcion_y_no_escribe&#13;
+Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:118</failure>
+    </testcase>
+    <testcase name="test_parcial_con_motivo_guarda_excepcion_atomica_sin_aviso_individual" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="124" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="2" time="0.250060">
+      <error type="Illuminate\Database\QueryException">Tests\Feature\T88B3DineroTest::test_parcial_con_motivo_guarda_excepcion_atomica_sin_aviso_individual&#13;
+Illuminate\Database\QueryException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select exists(select * from `excepciones_cobranza` where (`tipo` = COBRO_PARCIAL and `alumno_id` = 7 and `autor_id` = 14 and `motivo` = Completa al cobrar el sueldo and `registro_tipo` = PAGO and `registro_id` = 2)) as `exists`)
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:411
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3878
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Constraints\HasInDatabase.php:55
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase.php:43
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:130</error>
+    </testcase>
+    <testcase name="test_el_duenio_desde_la_ficha_tambien_necesita_motivo_y_lo_registra" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="135" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.247643">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_el_duenio_desde_la_ficha_tambien_necesita_motivo_y_lo_registra&#13;
+Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:138</failure>
+    </testcase>
+    <testcase name="test_avisa_tambien_un_mes_impago_entre_dos_seleccionados" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="145" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.273518">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\T88B3DineroTest::test_avisa_tambien_un_mes_impago_entre_dos_seleccionados&#13;
+Expected response status code [409] but received 302.
+Failed asserting that 302 is identical to 409.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:175
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:149</failure>
+    </testcase>
+    <testcase name="test_pagar_todos_los_anteriores_no_pide_excepcion" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="154" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="2" time="0.268049">
+      <error type="Illuminate\Database\QueryException">Tests\Feature\T88B3DineroTest::test_pagar_todos_los_anteriores_no_pide_excepcion&#13;
+Illuminate\Database\QueryException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select count(*) as aggregate from `excepciones_cobranza`)
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:411
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3505
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3490
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4080
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3489
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4004
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3932
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\Constraints\CountInDatabase.php:53
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase.php:94
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:159</error>
+    </testcase>
+    <testcase name="test_si_es_parcial_y_salta_deuda_registra_ambos_tipos_una_vez" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="162" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.340754">
+      <error type="Illuminate\Database\QueryException">Tests\Feature\T88B3DineroTest::test_si_es_parcial_y_salta_deuda_registra_ambos_tipos_una_vez&#13;
+Illuminate\Database\QueryException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wings_testing_codex.excepciones_cobranza' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: select `tipo` from `excepciones_cobranza` order by `tipo` asc)
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:411
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3505
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3763
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4080
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3759
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:167</error>
+    </testcase>
+    <testcase name="test_el_servicio_directo_tampoco_permite_omitir_el_motivo" file="C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php" line="171" class="Tests\Feature\T88B3DineroTest" classname="Tests.Feature.T88B3DineroTest" assertions="1" time="0.220580">
+      <failure type="PHPUnit\Framework\AssertionFailedError">Tests\Feature\T88B3DineroTest::test_el_servicio_directo_tampoco_permite_omitir_el_motivo&#13;
+Se acepto parcial sin motivo por servicio.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\T88B3DineroTest.php:178</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -155,14 +155,22 @@ class AvisoAdminService
         $cantRevisiones = $revisiones->count();
         $cantLiqCerradas = $liqCerradasSinPagar->count();
 
+        $excepciones = \App\Models\ExcepcionCobranza::whereBetween('ocurrida_at', [now()->subDay(), now()])
+            ->with(['alumno', 'autor'])->orderBy('ocurrida_at')->get();
+
         if ($cantCajas === 0 && $cantRevisiones === 0 && $cantLiqCerradas === 0 && $cantLiqAbiertas === 0
-            && $cantClasesSinAsistencia === 0 && !$cuotasSinGenerar) {
+            && $cantClasesSinAsistencia === 0 && !$cuotasSinGenerar && $excepciones->isEmpty()) {
             return false;
         }
 
         $formatoMonto = fn (float|int $monto): string => \App\Support\FormatoImporte::pesos($monto);
 
         $datos = [];
+
+        if ($excepciones->isNotEmpty()) {
+            $tipos = $excepciones->groupBy('tipo')->map(fn ($filas) => $filas->first()->etiqueta().': '.$filas->count())->implode('; ');
+            $datos['Excepciones justificadas (últimas 24 horas)'] = $excepciones->count().' — '.$tipos.' — '.route('admin.dashboard').'#excepciones';
+        }
 
         if ($cuotasSinGenerar) {
             $datos['Cuotas del mes sin generar'] = sprintf(

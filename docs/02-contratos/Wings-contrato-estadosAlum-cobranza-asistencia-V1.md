@@ -503,7 +503,6 @@ Cuatro situaciones distintas usan **exactamente el mismo mecanismo**. No son cua
 |---|---|
 | Alumno nuevo entra a la 3ª clase o posterior sin haber pagado | §5 |
 | Alumno con historia en estado DEUDOR asiste a clase | §6 |
-| Alumno asiste a más clases de las que su plan cubre | control de plan |
 | Se registra un cobro parcial de una cuota | §9 |
 | Se cobra un mes dejando impago uno anterior | §9b |
 
@@ -514,6 +513,12 @@ Cuatro situaciones distintas usan **exactamente el mismo mecanismo**. No son cua
 3. El **administrador es notificado**: al abrir su usuario, o por mail.
 
 La lógica es: el que está en el mostrador o en la cancha sabe lo que está haciendo y tiene contexto que el sistema no tiene. No se le bloquea el trabajo — se deja registro y se avisa a quien tiene que enterarse.
+
+**Aclaración de alcance B3, 27/10/2026:** el exceso del plan no integra estas cuatro
+excepciones. Conserva la anotación EXTRA/RECUPERA decidida en DU-34; no requiere
+un motivo libre ni un aviso de B3. Las excepciones se consultan en Inicio del dueño
+y se incluyen juntas en el resumen diario existente por Telegram y mail, sin
+enviar un mensaje individual al registrar cada decisión.
 
 ---
 
@@ -571,7 +576,9 @@ Son dos cosas distintas y no deben confundirse:
 
 ## 11. Estado de implementación
 
-**Nada de lo anterior debe darse por funcionando.** Estado real al 2026-08-09:
+Las filas conservan su corte histórico salvo actualización fechada. El corte local
+del 27/10/2026 de B3 dinero está implementado y en pruebas, pendiente de
+verificación independiente y sin despliegue; no certifica el sitio de prueba.
 
 ### Generación de la deuda (§2)
 
@@ -607,13 +614,16 @@ Son dos cosas distintas y no deben confundirse:
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |
 | Contador de clases del alumno nuevo | ❌ No existe |
 | Justificación al dejar entrar a un DEUDOR | ❌ No existe |
-| Justificación por exceso de plan | ⚠️ Existe parcialmente (motivo EXTRA/RECUPERA), no unificada |
-| Justificación en cobro parcial | ❌ No existe |
-| Notificación al administrador | ❌ **No existe en ninguna forma.** El sistema no notifica nada, por ningún medio |
+| Exceso de plan | Anotación EXTRA/RECUPERA; fuera de B3 por DU-34. No se agrega motivo libre. |
+| Justificación en cobro parcial y al dejar meses anteriores impagos | Implementada localmente el 27/10/2026: control de servidor, motivo obligatorio y registro atómico común. En pruebas; pendiente de verificación independiente. |
+| Aviso al dueño por excepciones de dinero | Implementado localmente el 27/10/2026: historial paginado en Inicio y resumen diario de las últimas 24 horas por los canales existentes, sin mensajes individuales. En pruebas; pendiente de verificación independiente. |
 | Movimientos visibles para todos | ✅ **Corregido el 23/09/2026.** El historial ya lo hacía; `/movimientos` filtraba por caja propia y ahora filtra por rubro, como manda PERMISOS-ROLES. Lo cubre `MovimientosVisibilidadPorRubroTest` |
 | Caja restringida a su dueño | ✅ Implementado correctamente |
 
-**Deuda técnica asociada:** hoy existen tres campos de "motivo" dispersos (exceso de plan, corrección de asistencia, cambio de profesor). Al implementar §8 conviene unificarlos en un registro único de excepciones, no agregar un cuarto.
+**Registro común B3:** `excepciones_cobranza` conserva tipo, motivo, autor, fecha,
+alumno y registro de origen. La corrección de una lista y el cambio de profesor
+conservan sus motivos propios; EXTRA/RECUPERA queda fuera de B3. La incorporación
+de los dos casos de asistencia es la segunda entrega.
 
 ---
 
