@@ -58,8 +58,12 @@
     "Sueldos analitico no incluye operativas",
     "Vinculos reservados anteriores al cambio de rol sin politica nueva"
   ],
-  "enlaces_revisados": 10,
+  "enlaces_revisados": 12,
   "archivos": [
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ALCANCE-PENDIENTE.md",
+      "sha256": "ddfdbe1b5fcb530aa8b02a5a06901188b73af8f038196aac9b6782aae67630a5"
+    },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/completa-exit.txt",
       "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
@@ -166,7 +170,7 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/IMPLEMENTACION-T86.md",
-      "sha256": "50ce8443bc8e5a131c71a21a10ccf7788d2a1db8a5f80db9b899d2087cbb0aa7"
+      "sha256": "60ecbe247b4355db7e463c91a2a9e3b81791a2a07f409a47c338fdd9c7bd89ba"
     }
   ],
   "alcance": "Evidencia propia actual. Documentos compartidos se revisan por diff al entregar; este manifiesto se excluye de su huella."

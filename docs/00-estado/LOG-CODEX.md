@@ -5,7 +5,7 @@
 [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md): operativas sin reserva, docentes reservadas; migración por FK/rol sin prefijo, sin tocar docentes/importes. Sin vistas/CSS.
 Diez permanentes: 7 rojas antes, 10/48 verdes después. Dirigidas24/162; rápida944/6 omitidas/7521; completa1063/6 omitidas/9120,1031,78s, salida0. Solo wings_testing_codex; sintaxis y vistas correctas.
 Pago48000,75 coincide en Cashflow, Ingresos/egresos e Inicio; POST docente y roles ajenos rechazados. Migración idempotente y renombrado conservan datos.
-Límites para Carlos: Sueldos analítico solo docentes; FK antiguas reservadas conservadas al cambiar de rol. Diagnóstico1/6 guarda el pago y el resultado real; no se decide política nueva.
+Límites para Carlos: Sueldos analítico solo docentes; FK antiguas reservadas conservadas al cambiar de rol. [Alcance pendiente](../06-pruebas/PRU-04/evidencia-t86-codex/ALCANCE-PENDIENTE.md): consultado, sin asumir respuesta. Diagnóstico1/6 guarda el pago y el resultado real; no se decide política nueva.
 T86 a_verificar,hizo=Codex,verifica=Claude,tiene=Claude. T92 cerrada79340268. HTML lateral T34 repuesto. Sin servidor/base del club, push manual ni despliegue; T85/T93 fuera.
 
 ## 2026-10-27 — Codex CAB — T92 segunda vuelta aprobada

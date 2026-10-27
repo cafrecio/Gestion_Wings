@@ -30,6 +30,8 @@ La migración solo se ejecutó como parte de las pruebas sobre `wings_testing_co
 
 **Reportes → Sueldos no incluye operativas.** Su servicio y su vista actuales analizan docentes, clases, asistencias y costo por deporte. Tras registrar el pago sintético, se pidió esa ruta real: devuelve una lista de profesoras vacía y costo cero en el escenario sin docentes; el sueldo operativo sí figura en Ingresos/egresos e Inicio. No se considera cumplida su inclusión en el análisis de Sueldos. Se deja la diferencia documentada: agregar operativas a ese análisis requiere decidir su presentación y alcance; esta entrega respeta la orden de no tocar vistas/CSS y no las disfraza como profesoras ni reparte su costo por deportes.
 
+[Comprobación posterior del alcance pendiente](evidencia-t86-codex/ALCANCE-PENDIENTE.md): rótulos exactos de la pantalla y por qué agregar datos desde el servidor no resuelve la diferencia. El objetivo sigue abierto por ese punto hasta aclarar el alcance; no se toma silencio como decisión.
+
 **Cambio de rol con un vínculo existente:** el controlador conserva la FK y el servicio no altera su reserva. Una operativa nueva promovida a ADMIN conserva un sueldo no reservado. Un ADMIN con FK antigua reservada que pasa a OPERATIVO conserva esa reserva y no queda habilitado por esta migración si el cambio de rol fue posterior. La migración mira el rol en el momento de ejecutarse. No se decide automáticamente qué hacer con esos casos ni se reescribe la historia; Carlos debe definirlo. [Observación por rutas reales](evidencia-t86-codex/observaciones.json).
 
 ## Pruebas
