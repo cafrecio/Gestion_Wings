@@ -37,9 +37,49 @@ import './money-input';
         var input = label.querySelector('.ds-toggle__input');
         if (!input || input.disabled) return;
 
+        var guardando = false;
+
+        // T85: evitar clics o toques adicionales sobre el label mientras espera respuesta
+        label.addEventListener('click', function (e) {
+            if (guardando) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+
         input.addEventListener('change', function () {
+            if (guardando) return;
+            guardando = true;
+            input.disabled = true;
+
+            var estadoPrevio = !input.checked;
+            input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
+
             var url  = label.dataset.url;
             var card = label.closest('.alumno-card');
+
+            function revertirYDestrabar(mensajeError) {
+                input.checked = estadoPrevio;
+                input.setAttribute('aria-checked', estadoPrevio ? 'true' : 'false');
+                input.disabled = false;
+                guardando = false;
+
+                if (mensajeError) {
+                    var content = document.querySelector('.ds-content');
+                    if (content) {
+                        content.querySelectorAll('.ds-flash--error, .ds-flash--success').forEach(function (el) { el.remove(); });
+                        var flash = document.createElement('div');
+                        flash.className = 'ds-flash ds-flash--error';
+                        flash.textContent = mensajeError;
+                        content.insertBefore(flash, content.firstChild);
+                    }
+                }
+            }
+
+            function destrabar() {
+                input.disabled = false;
+                guardando = false;
+            }
 
             fetch(url, {
                 method: 'PATCH',
@@ -50,21 +90,20 @@ import './money-input';
                     'Content-Type':     'application/json',
                 },
             })
-            .then(function (r) { return r.json(); })
-            .then(function (data) {
-                if (data.error) {
-                    input.checked = !input.checked;
-                    input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
-                    var content = document.querySelector('.ds-content');
-                    if (content) {
-                        content.querySelectorAll('.ds-flash--error, .ds-flash--success').forEach(function (el) { el.remove(); });
-                        var flash = document.createElement('div');
-                        flash.className = 'ds-flash ds-flash--error';
-                        flash.textContent = data.error;
-                        content.insertBefore(flash, content.firstChild);
-                    }
+            .then(function (r) {
+                return r.json().catch(function () {
+                    throw new Error('Respuesta no válida del servidor');
+                }).then(function (data) {
+                    return { ok: r.ok, data: data };
+                });
+            })
+            .then(function (res) {
+                var data = res.data;
+                if (!res.ok || data.error) {
+                    revertirYDestrabar(data.error || 'Error del servidor');
                     return;
                 }
+
                 if (data.activo !== undefined && card) {
                     card.style.opacity = data.activo ? '' : '0.6';
                 }
@@ -81,6 +120,8 @@ import './money-input';
                     return;
                 }
 
+                destrabar();
+
                 if (data.mensaje) {
                     var content = document.querySelector('.ds-content');
                     if (content) {
@@ -92,9 +133,9 @@ import './money-input';
                     }
                 }
             })
-            .catch(function () {
-                // revertir estado visual si la petición falló
-                input.checked = !input.checked;
+            .catch(function (err) {
+                var msg = (err && err.message) ? err.message : 'No se pudo comunicar con el servidor';
+                revertirYDestrabar(msg);
             });
         });
     });

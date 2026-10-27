@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T85: El interruptor Activo/Inactivo no acepta un segundo toque mientras espera
+
+- **Objetivo y resultado:** Implementación de **T85** pedida por Carlos el 27/10/2026 para evitar que toques seguidos en el toggle generen cuotas de reingreso no deseadas (caso Agustín Acosta). Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **1. JavaScript global (`resources/js/ds-app.js`):** En el bloque `.ds-toggle[data-url]`, se añadió bloqueo inmediato (`guardando = true; input.disabled = true;`) y escucha en captura sobre el `<label>` que descarta cualquier segundo toque o clic hasta que el servidor responde.
+  - **2. Reversión y accesibilidad:** Ante error del servidor (422, `data.error`), error de red o respuesta no JSON (sesión vencida 419), se revierte `input.checked`, se sincroniza `aria-checked`, se destraba el interruptor y se muestra el banner de error `.ds-flash--error`.
+  - **3. Compilación:** Ejecutado `npm run build` sin alterar estilos CSS (el aspecto no cambia durante la espera).
+- **Pruebas y evidencia:** Pruebas en Chrome real vía CDP con monitoreo de red (`probar-t85-browser.mjs`): doble clic en listado y en ficha envían exactamente 1 sola petición PATCH; error 422 forzado revierte estado y destraba el control. 6 capturas reales (1366 px y 375 px) en `docs/06-pruebas/PRU-04/evidencia-t85/`. Pruebas `FichaToggleActivoT84Test`, `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest`, `DocumentacionNoMienteTest` y suite rápida en verde en `wings_testing_gemini`. Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T85.md`.
+- **Próximo paso:** Tarea T85 en `a_verificar`, asignada a Claude para su verificación técnica.
+
 ## 2026-10-27 — LOG GEM CAB — Verificación independiente de T32 (Límite de intentos de ingreso y reloj simulado)
 
 - **Objetivo y resultado:** Verificación técnica e independiente de **T32** (commits `602efcc` y `c699bc1` implementados por Claude, casos DU-46, SIS-009, ACC-003). Dictamen: **APROBADA Y CERRADA**.

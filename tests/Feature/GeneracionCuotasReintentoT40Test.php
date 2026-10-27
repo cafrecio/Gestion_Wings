@@ -194,6 +194,28 @@ class GeneracionCuotasReintentoT40Test extends TestCase
         $this->assertSame(1, GeneracionCuotas::count());
     }
 
+    public function test_otra_corrida_no_vuelve_a_contar_a_quien_ya_estaba_en_revision(): void
+    {
+        // Devolución de Codex sobre T92: con un alumno ya en Revisión, la constancia daba 1, 2, 4.
+        $sinVenir = $this->alumnoQueVinoEnOctubre();
+        \App\Models\Asistencia::where('alumno_id', $sinVenir->id)->delete();
+        Carbon::setTestNow('2026-11-01 06:00:00');
+        $this->artisan('cobranza:generar-deudas --si-falta')->assertSuccessful();
+        $generacion = GeneracionCuotas::where('periodo', '2026-11')->firstOrFail();
+        $this->assertSame(1, $generacion->a_revision);
+
+        Carbon::setTestNow('2026-11-01 08:00:00');
+        $this->artisan('cobranza:generar-deudas')->assertSuccessful();
+        $this->assertSame(1, $generacion->fresh()->a_revision);
+
+        // Otro que tampoco vino: ese sí es un envío nuevo.
+        $otro = $this->alumnoQueVinoEnOctubre();
+        \App\Models\Asistencia::where('alumno_id', $otro->id)->delete();
+        $this->artisan('cobranza:generar-deudas')->assertSuccessful();
+        $this->assertSame(2, $generacion->fresh()->a_revision);
+        $this->assertSame(2, \App\Models\AlumnoRevisionCobranza::where('periodo_objetivo', '2026-11')->count());
+    }
+
     public function test_si_falta_no_se_combina_con_un_periodo(): void
     {
         Carbon::setTestNow('2026-11-01 06:00:00');

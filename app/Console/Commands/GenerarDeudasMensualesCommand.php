@@ -157,8 +157,10 @@ class GenerarDeudasMensualesCommand extends Command
                 $contCreados++;
                 $this->line("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): deuda creada - \${$precio}");
             } else {
-                // No elegible: enviar a revisión
-                AlumnoRevisionCobranza::firstOrCreate(
+                // No elegible: enviar a revisión. Solo cuenta como envío si la fila es nueva:
+                // un alumno que ya estaba en Revisión de este mes no se vuelve a contar al
+                // repetir la corrida (T92, devuelta por Codex: la constancia daba 1, 2, 4).
+                $revision = AlumnoRevisionCobranza::firstOrCreate(
                     [
                         'alumno_id' => $alumno->id,
                         'periodo_objetivo' => $periodo,
@@ -168,8 +170,12 @@ class GenerarDeudasMensualesCommand extends Command
                         'estado_revision' => AlumnoRevisionCobranza::ESTADO_PENDIENTE,
                     ]
                 );
-                $contRevision++;
-                $this->warn("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): enviado a revisión.");
+                if ($revision->wasRecentlyCreated) {
+                    $contRevision++;
+                    $this->warn("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): enviado a revisión.");
+                } else {
+                    $this->line("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): ya estaba en revisión.");
+                }
             }
         }
 

@@ -2,6 +2,13 @@
 
 Movidas intactas desde `docs/00-estado/LOG-CLAUDE.md` por Claude CyE al superar el límite del protocolo.
 
+## 2026-10-26 — Claude CyE — Guion de los días 17 y 18 (lunes 26 y martes 27)
+
+- [Guion](../06-pruebas/PRU-04/GUION-DIAS-17-18.md) y cuatro rutinas. Retoma lo que la semana pasada no salió: Julieta, Rocío con clave conocida, Martín por comisión, la #76 y Botiquín para la operativa.
+- Números de partida tomados del texto de las pantallas del día 16. Los códigos de caso se controlaron contra el catálogo y se corrigieron tres.
+- `rutina.php`: las listas también se piden por grupo y hora. 1 prueba propia en verde (`prueba-tecnica/RutinaClasePorGrupoTest.php`).
+- `ssh vps` desde CyE: esta red corta toda salida por el puerto 22 (GitHub incluido; por el 443 SSH pasa). No es la clave ni el servidor, y desde acá no se puede arreglar.
+
 ## 2026-10-26 — Claude CyE — Días 13 a 16 revisados (T14)
 
 - Ningún defecto nuevo de Wings. Las cuentas cuadran al peso: toda la diferencia son los $143.000 de Julieta (13.11), que no se hizo por un límite del navegador automático.

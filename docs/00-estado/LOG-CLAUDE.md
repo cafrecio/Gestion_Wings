@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — T92 segunda vuelta: Revisión no se cuenta dos veces
+
+- Codex devolvió T92 (`5c851d38`): al repetir la generación, quien ya estaba en Revisión se volvía a contar (constancia 1, 2, 4 con dos alumnos). Correcto.
+- `GenerarDeudasMensualesCommand`: solo cuenta la fila de Revisión si es nueva (`wasRecentlyCreated`). Prueba permanente con el caso de Codex (1, 1, 2), roja sin el arreglo. Corte 1059; rápida 933/6 omitidas (solo el contador en rojo, corregido).
+- T90 y T32 cerradas por Codex y Gemini. T92 vuelve a Codex.
+
 ## 2026-10-27 — Claude CyE — T92: la segunda generación ya no pisa la constancia; Revisión planificada
 
 - Carlos: «Corregir». `GenerarDeudasMensualesCommand`: la primera corrida del mes deja la constancia; otra posterior suma lo que crea o manda a Revisión y no toca la hora ni los existentes. La columna `terminada_at` tiene ON UPDATE CURRENT_TIMESTAMP en MariaDB: se repite su valor al actualizar. Las otras dos columnas así (`cargo_alumno_eventos.created_at`, `reporte_eventos.registrado_en`) nunca se actualizan.
@@ -67,10 +73,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - La plata cierra al peso: la única diferencia es Julieta (17.7, tercera vez que el Chrome automático no acepta la confirmación nativa). Decide Carlos: lo hace a mano o se cambia esa confirmación por la ventana propia de Wings.
 - 17.6 pasa a Sí. 17.1/17.5 bien, hechos por vía técnica a pedido de Carlos. Defecto menor: el rechazo de una clave corta sale en inglés si se saltea el formulario (falta `password.min`).
 - Prueba técnica: interno 16/16 sobre `wingstest` (por `ssh vps` en el 2222), seguridad 12/12 (nueva: abrir con otro turno abierto) y velocidad entre 2 y 211 ms. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
-
-## 2026-10-26 — Claude CyE — Guion de los días 17 y 18 (lunes 26 y martes 27)
-
-- [Guion](../06-pruebas/PRU-04/GUION-DIAS-17-18.md) y cuatro rutinas. Retoma lo que la semana pasada no salió: Julieta, Rocío con clave conocida, Martín por comisión, la #76 y Botiquín para la operativa.
-- Números de partida tomados del texto de las pantallas del día 16. Los códigos de caso se controlaron contra el catálogo y se corrigieron tres.
-- `rutina.php`: las listas también se piden por grupo y hora. 1 prueba propia en verde (`prueba-tecnica/RutinaClasePorGrupoTest.php`).
-- `ssh vps` desde CyE: esta red corta toda salida por el puerto 22 (GitHub incluido; por el 443 SSH pasa). No es la clave ni el servidor, y desde acá no se puede arreglar.

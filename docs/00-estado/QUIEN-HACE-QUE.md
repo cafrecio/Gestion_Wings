@@ -50,19 +50,21 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Devuelto (hizo Claude, verifica Codex) | Devuelta por Codex CAB 27/10: a_revision suma revisiones ya existentes; 1 alumno da 1->2 y al agregar otro da 4 con solo 2 filas. Ver VERIFICACION-T92-CODEX.md. Propias 6 aprobadas/2 fallidas, area91/461, rapida933/6 omitidas. Corregir contador sin perder creadas/hora y repetir los dos casos rojos. Sin producto, servidor, deploy ni push. |
+| **T85** Interruptor Activo/Inactivo: que dos toques seguidos no generen una cuota de reingreso | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado en ds-app.js y compilado. Probado en Chrome real (red y doble toque bloqueado). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T85.md |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T92** Una segunda corrida de la generacion de cuotas pisaba la constancia de la primera | Hecho, espera verificación (hizo Claude, verifica Codex) | Segunda vuelta (Claude 27/10): la devolucion de Codex era correcta; ahora solo cuenta Revision si la fila es nueva (wasRecentlyCreated). Prueba permanente con el caso 1,1,2 (roja sin el arreglo). Codex vuelve a correr su VerificacionT92CodexTest. Despues: T86. |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (22)
+## Sin empezar (21)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T85, T86, T93, B3 (antes de producción), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T86, T93, B3 (antes de producción), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (10)
 
