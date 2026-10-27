@@ -30,8 +30,8 @@ class SeguridadDiasPruebaTest extends TestCase
 
     protected function beforeRefreshingDatabase(): void
     {
-        if (config('database.connections.mysql.database') !== 'wings_testing_claude') {
-            throw new \RuntimeException('Solo wings_testing_claude.');
+        if (!in_array(config('database.connections.mysql.database'), ['wings_testing_claude', 'wings_testing_gemini', 'wings_testing_codex'], true)) {
+            throw new \RuntimeException('Solo bases wings_testing_*.');
         }
     }
 
@@ -314,8 +314,8 @@ class SeguridadDiasPruebaTest extends TestCase
             'cancelada' => false, 'validada_para_liquidacion' => true]);
         $septiembre->profesores()->attach($profesoraId);
         $mariela = collect($this->actingAs($this->duenio)->get(route('web.liquidaciones.create'))->assertOk()->viewData('profesores'))->firstWhere('id', $profesoraId);
-        // La pantalla muestra el número al lado del mes elegido, pero suma la clase de septiembre: Lucía, 20 en vez de 17.
-        $this->assertSame(2, (int) $mariela->clases_count, 'Ya cuenta solo el mes: dar vuelta esta prueba');
+        // T87: La pantalla muestra el número del mes elegido (1 en octubre, no suma septiembre).
+        $this->assertSame(1, (int) $mariela->clases_count);
     }
 
     public function test_hallazgo_t85_dos_toques_seguidos_del_interruptor_generan_una_cuota(): void

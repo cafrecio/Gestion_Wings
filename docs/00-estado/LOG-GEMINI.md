@@ -10,6 +10,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T87: Nueva liquidación cuenta las clases del mes elegido
+
+- **Objetivo y resultado:** Implementación de **T87** para que en Nueva liquidación (`/liquidaciones/crear`), el indicador de «N clases liquidables» y el aviso de clases pasadas sin asistencia cuenten exclusivamente las clases del mes y año seleccionados en el formulario (`#mes` e `#anio`), y se actualicen reactivamente en el cliente sin recargar la página. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **1. Backend (`app/Http/Controllers/LiquidacionWebController.php`):** En `create()`, se capturan `$mesActual` y `$anioActual`; se calcula `$clases_count_total` para mantener deshabilitados únicamente a los profesores que no tienen ninguna clase liquidable en todo el historial; `$clases_count` y `$clases_sin_asistencia` se calculan filtrando por el mes y año elegidos; se añade el mapa `periodos` discriminado por mes y profesor al JSON `#liquidacion-create-datos`.
+  - **2. Vista Blade (`resources/views/liquidaciones/create.blade.php`):** Se usa `($profesor->clases_count_total ?? $count) === 0` para el atributo `disabled` del radio, y se añaden clases semánticas `.profesor-clases-count` y `.profesor-sin-asistencia-aviso` para actualización en cliente sin tocar estilos ni estructura.
+  - **3. Frontend JavaScript (`resources/js/liquidaciones-create.js`):** Función `actualizarConteos()` con listeners en `#mes` (`change`) e `#anio` (`input`/`change`), actualizando en vivo los conteos por fila y el banner `#aviso-sin-asistencia`. Compilación con `npm run build`.
+- **Pruebas y evidencia:**
+  - Inversión de `test_hallazgo_dia_22_nueva_liquidacion_cuenta_clases_de_otros_meses` en `docs/06-pruebas/PRU-04/prueba-tecnica/SeguridadDiasPruebaTest.php`.
+  - Nueva prueba permanente en `tests/Feature/NuevaLiquidacionConteoMesT87Test.php` (2 pruebas, 24 aserciones).
+  - Verificación en Chrome real vía CDP (`probar-t87-browser.mjs`): selección de Lucía en Octubre (17 liquidables, 2 sin asistencia), cambio en caliente a Septiembre (3 liquidables, 1 sin asistencia) y vuelta a Octubre (17 y 2). 6 capturas en `docs/06-pruebas/PRU-04/evidencia-t87/`.
+  - Guardianes `CspSinCodigoIncrustadoTest` y suite rápida en verde en `wings_testing_gemini`.
+- **Próximo paso:** Asignada a Claude para verificación cruzada.
+
 ## 2026-10-27 — LOG GEM CAB — T93: Filtro de subrubros en Nuevo movimiento de Cashflow
 
 - **Objetivo y resultado:** Implementación de **T93** para que en Cashflow → Nuevo movimiento, sin rubro elegido no se muestre ningún subrubro en el desplegable, al cambiar de tipo se limpien los campos, y en edición se mantenga el subrubro precargado. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.

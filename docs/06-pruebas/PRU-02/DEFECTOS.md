@@ -660,7 +660,7 @@ estado leída en el código, sin rastros de "tiene pagos" en los listados masivo
 que no se aplica dos veces y suite corrida (331 pruebas). De esa verificación salió A43.
 Falta desplegarlo al sitio de prueba.
 
-### B3. Las excepciones del contrato no existen · Falta · Sin empezar, la tiene Codex
+### B3. Las excepciones del contrato no existen · Falta · En curso, la tiene Codex
 
 El contrato de cobranza exige **motivo obligatorio y aviso al admin** en cuatro situaciones:
 cobro parcial, cobro que deja impago un mes anterior, deudor que entra a clase, y alumno

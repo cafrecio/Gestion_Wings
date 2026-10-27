@@ -70,48 +70,122 @@ class LiquidacionWebController extends Controller
         ));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $profesores = Profesor::where('activo', true)
-            ->withCount(['clases as clases_count' => fn($q) =>
-                $q->where('clases.cancelada', false)
-                  ->where(function ($q2) {
-                      $q2->where('clases.validada_para_liquidacion', true)
-                         ->orWhereHas('asistencias', fn($a) => $a->where('presente', true));
-                  })
-                  ->whereNotIn('clases.id', function ($sub) {
-                      $sub->select('referencia_id')
-                          ->from('liquidacion_detalles')
-                          ->where('tipo_referencia', 'clase')
-                          ->whereIn('liquidacion_id', function ($lsub) {
-                              $lsub->select('id')->from('liquidaciones')->where('estado', 'CERRADA');
-                          });
-                  })
-            ])
-            ->withCount(['clases as clases_sin_asistencia' => fn($q) =>
-                $q->where('clases.cancelada', false)
-                  ->whereDate('clases.fecha', '<', today())
-                  ->where('clases.validada_para_liquidacion', false)
-                  ->doesntHave('asistencias')
-            ])
-            ->orderBy('apellido')
-            ->get();
-
         $meses = [
             1 => 'Enero',   2 => 'Febrero',   3 => 'Marzo',     4 => 'Abril',
             5 => 'Mayo',    6 => 'Junio',     7 => 'Julio',     8 => 'Agosto',
             9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre',
         ];
-        $anioActual      = now()->year;
-        $mesActual       = now()->month;
+        $anioActual      = (int) ($request->input('anio') ?? old('anio') ?? now()->year);
+        $mesActual       = (int) ($request->input('mes') ?? old('mes') ?? now()->month);
         $esUltimoDiaMes  = now()->isLastOfMonth();
 
-        $profesoresJson = $profesores->mapWithKeys(fn($p) => [
-            $p->id => [
-                'nombre'         => $p->apellido . ', ' . $p->nombre,
-                'sin_asistencia' => (int) $p->clases_sin_asistencia,
-            ]
-        ])->toArray();
+        $queryLiquidables = fn($q, $filtrarFecha = false) =>
+            $q->where('clases.cancelada', false)
+              ->when($filtrarFecha, fn($qf) => $qf->whereMonth('clases.fecha', $mesActual)->whereYear('clases.fecha', $anioActual))
+              ->where(function ($q2) {
+                  $q2->where('clases.validada_para_liquidacion', true)
+                     ->orWhereHas('asistencias', fn($a) => $a->where('presente', true));
+              })
+              ->whereNotIn('clases.id', function ($sub) {
+                  $sub->select('referencia_id')
+                      ->from('liquidacion_detalles')
+                      ->where('tipo_referencia', 'clase')
+                      ->whereIn('liquidacion_id', function ($lsub) {
+                          $lsub->select('id')->from('liquidaciones')->where('estado', 'CERRADA');
+                      });
+              });
+
+        $querySinAsistencia = fn($q, $filtrarFecha = false) =>
+            $q->where('clases.cancelada', false)
+              ->when($filtrarFecha, fn($qf) => $qf->whereMonth('clases.fecha', $mesActual)->whereYear('clases.fecha', $anioActual))
+              ->whereDate('clases.fecha', '<', today())
+              ->where('clases.validada_para_liquidacion', false)
+              ->doesntHave('asistencias');
+
+        $profesores = Profesor::where('activo', true)
+            ->with('deporte')
+            ->withCount([
+                'clases as clases_count_total' => fn($q) => $queryLiquidables($q, false),
+                'clases as clases_count' => fn($q) => $queryLiquidables($q, true),
+                'clases as clases_sin_asistencia' => fn($q) => $querySinAsistencia($q, true),
+            ])
+            ->orderBy('apellido')
+            ->get();
+
+        $periodosLiquidables = DB::table('clases')
+            ->join('clase_profesor', 'clases.id', '=', 'clase_profesor.clase_id')
+            ->where('clases.cancelada', false)
+            ->where(function ($q2) {
+                $q2->where('clases.validada_para_liquidacion', true)
+                   ->orWhereExists(function ($sub) {
+                       $sub->select(DB::raw(1))
+                           ->from('asistencias')
+                           ->whereColumn('asistencias.clase_id', 'clases.id')
+                           ->where('asistencias.presente', true);
+                   });
+            })
+            ->whereNotIn('clases.id', function ($sub) {
+                $sub->select('referencia_id')
+                    ->from('liquidacion_detalles')
+                    ->where('tipo_referencia', 'clase')
+                    ->whereIn('liquidacion_id', function ($lsub) {
+                        $lsub->select('id')->from('liquidaciones')->where('estado', 'CERRADA');
+                    });
+            })
+            ->select(
+                'clase_profesor.profesor_id',
+                DB::raw('YEAR(clases.fecha) as anio'),
+                DB::raw('MONTH(clases.fecha) as mes'),
+                DB::raw('COUNT(*) as total')
+            )
+            ->groupBy('clase_profesor.profesor_id', DB::raw('YEAR(clases.fecha)'), DB::raw('MONTH(clases.fecha)'))
+            ->get();
+
+        $periodosSinAsistencia = DB::table('clases')
+            ->join('clase_profesor', 'clases.id', '=', 'clase_profesor.clase_id')
+            ->where('clases.cancelada', false)
+            ->whereDate('clases.fecha', '<', today())
+            ->where('clases.validada_para_liquidacion', false)
+            ->whereNotExists(function ($sub) {
+                $sub->select(DB::raw(1))
+                    ->from('asistencias')
+                    ->whereColumn('asistencias.clase_id', 'clases.id');
+            })
+            ->select(
+                'clase_profesor.profesor_id',
+                DB::raw('YEAR(clases.fecha) as anio'),
+                DB::raw('MONTH(clases.fecha) as mes'),
+                DB::raw('COUNT(*) as total')
+            )
+            ->groupBy('clase_profesor.profesor_id', DB::raw('YEAR(clases.fecha)'), DB::raw('MONTH(clases.fecha)'))
+            ->get();
+
+        $profesoresJson = $profesores->mapWithKeys(function ($p) use ($periodosLiquidables, $periodosSinAsistencia) {
+            $periodos = [];
+            foreach ($periodosLiquidables->where('profesor_id', $p->id) as $row) {
+                $key = $row->anio . '-' . $row->mes;
+                $periodos[$key]['liquidables'] = (int) $row->total;
+            }
+            foreach ($periodosSinAsistencia->where('profesor_id', $p->id) as $row) {
+                $key = $row->anio . '-' . $row->mes;
+                if (!isset($periodos[$key])) {
+                    $periodos[$key] = ['liquidables' => 0];
+                }
+                $periodos[$key]['sin_asistencia'] = (int) $row->total;
+            }
+
+            return [
+                $p->id => [
+                    'nombre'           => $p->apellido . ', ' . $p->nombre,
+                    'total_pendientes' => (int) $p->clases_count_total,
+                    'clases_count'     => (int) $p->clases_count,
+                    'sin_asistencia'   => (int) $p->clases_sin_asistencia,
+                    'periodos'         => $periodos,
+                ]
+            ];
+        })->toArray();
 
         return view('liquidaciones.create', compact(
             'profesores', 'meses', 'anioActual', 'mesActual', 'esUltimoDiaMes', 'profesoresJson'

@@ -48,18 +48,22 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T87** Nueva liquidacion: el numero de clases mezcla meses | Hecho, espera verificación (hizo Gemini, verifica Claude) | Mes y aviso por periodo en liquidaciones/crear. Prueba permanente NuevaLiquidacionConteoMesT87Test y navegador real OK. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T87.md |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | En curso (hizo Codex) | Implementar rechazo de gasto efectivo sin saldo y edicion; B3 dinero con mecanismo persistente, aviso Inicio y resumen diario. Solo wings_testing_codex, sin servidor ni despliegue. Luego pruebas rojas/verdes y capturas reales. |
+| **B3** Las excepciones del contrato no existen | En curso (hizo Codex) | Primero dinero con T88, luego excepciones de asistencia. Motivo obligatorio, registro unico y aviso al dueno; exceso de plan fuera por DU-34. Entregar a Claude con pruebas y capturas reales. |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (21)
+## Sin empezar (18)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T87, T88, B3 (antes de producción), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (10)
 

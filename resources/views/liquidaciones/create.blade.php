@@ -78,7 +78,7 @@
                         $tipo            = $profesor->tipo_liquidacion === 'HORA' ? 'Por hora' : 'Por comisión';
                         $count           = (int) $profesor->clases_count;
                         $sinAsistencia   = (int) $profesor->clases_sin_asistencia;
-                        $tienePendientes = $count > 0;
+                        $tienePendientes = ($profesor->clases_count_total ?? $count) > 0;
                         $isSelected      = old('profesor_id') == $profesor->id;
                     @endphp
                     <label for="prof-{{ $profesor->id }}"
@@ -109,19 +109,17 @@
                                 </span>
                             </div>
                             @if($tienePendientes)
-                                <span style="font-size:0.72rem; font-weight:600; color:var(--color-success); display:block; margin-top:2px;">
+                                <span class="profesor-clases-count" style="font-size:0.72rem; font-weight:{{ $count > 0 ? '600' : '500' }}; color:{{ $count > 0 ? 'var(--color-success)' : 'var(--color-text-muted)' }}; display:block; margin-top:2px;">
                                     {{ $count }} {{ $count === 1 ? 'clase liquidable' : 'clases liquidables' }}
                                 </span>
                             @else
-                                <span style="font-size:0.72rem; font-weight:500; color:var(--color-text-muted); display:block; margin-top:2px;">
+                                <span class="profesor-clases-count" style="font-size:0.72rem; font-weight:500; color:var(--color-text-muted); display:block; margin-top:2px;">
                                     Sin clases pendientes
                                 </span>
                             @endif
-                            @if($sinAsistencia > 0)
-                                <span style="font-size:0.72rem; font-weight:600; color:var(--color-danger); display:block; margin-top:1px;">
-                                    &#9888; {{ $sinAsistencia }} {{ $sinAsistencia === 1 ? 'clase sin asistencia' : 'clases sin asistencia' }} — no se liquidarán
-                                </span>
-                            @endif
+                            <span class="profesor-sin-asistencia-aviso" style="font-size:0.72rem; font-weight:600; color:var(--color-danger); display:{{ $sinAsistencia > 0 ? 'block' : 'none' }}; margin-top:1px;">
+                                &#9888; {{ $sinAsistencia }} {{ $sinAsistencia === 1 ? 'clase sin asistencia' : 'clases sin asistencia' }} — no se liquidarán
+                            </span>
                         </div>
                     </label>
                     @empty
