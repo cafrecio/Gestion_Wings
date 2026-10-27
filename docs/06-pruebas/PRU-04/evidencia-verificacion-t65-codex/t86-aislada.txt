@@ -1,0 +1,46 @@
+
+   FAIL  Tests\Feature\ReporteSueldosOperativasT86Test
+  ⨯ la ruta de sueldos muestra el pago y la operativa                                                           13.62s
+  ✓ selecciona el mes y no incluye fechas futuras                                                                0.30s
+  ✓ agrupa varios pagos y excluye sueldos docentes y gastos ajenos                                               0.32s
+  ✓ anular el pago resta el contraasiento sin contarlo dos veces                                                 0.28s
+  ✓ el pago historico no desaparece al cambiar rol o desactivar                                                  0.21s
+  ⨯ el filtro de deporte no reparte el gasto del club                                                            0.17s
+  ✓ sin pagos muestra cero y el estado vacio                                                                     0.22s
+  ✓ identifica la operativa por fk y escapa su nombre                                                            0.22s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ReporteSueldosOperativasT86Test > la ruta de sueldos muestra el pago y la operativa
+  Failed asserting that the value at [reporte] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+
+  at tests\Feature\ReporteSueldosOperativasT86Test.php:66
+     62▕     {
+     63▕         $this->pago($this->operativa);
+     64▕         $this->actingAs($this->admin)->get(route('web.reportes.sueldos'))->assertOk()
+     65▕             ->assertSee('Pagos de operativas')->assertSee('Operativa del reporte')->assertSee('$48,000.75')
+  ➜  66▕             ->assertViewHas('reporte', fn ($r) => $r['pagos_operativas']['total_centavos'] === 4800075 && $r['costo'] === 0);
+     67▕     }
+     68▕
+     69▕     public function test_selecciona_el_mes_y_no_incluye_fechas_futuras(): void
+     70▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ReporteSueldosOperativasT86Test > el filtro de deporte no reparte el gasto del club
+  Failed asserting that null is identical to 0.
+
+  at tests\Feature\ReporteSueldosOperativasT86Test.php:126
+    122▕         $this->pago($this->operativa);
+    123▕         $deporte = Deporte::firstOrFail()->id;
+    124▕         $this->assertSame($this->pagos(), $this->pagos('2026-10', $deporte));
+    125▕         $r = app(ReporteSueldosService::class)->obtener('2026-10', $deporte);
+  ➜ 126▕         $this->assertSame(0, $r['costo']);
+    127▕         $this->assertSame([], $r['profesores']);
+    128▕     }
+    129▕
+    130▕     public function test_sin_pagos_muestra_cero_y_el_estado_vacio(): void
+
+  1   tests\Feature\ReporteSueldosOperativasT86Test.php:126
+
+
+  Tests:    2 failed, 6 passed (36 assertions)
+  Duration: 15.51s

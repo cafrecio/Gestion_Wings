@@ -1,0 +1,29 @@
+{
+  "fecha": "2026-10-27",
+  "base": "wings_testing_codex",
+  "head": "10cbaaa019bb2f4fd756fbc66490ca14227a45b7",
+  "fuentes_producto_intactas": 15,
+  "metodos_prueba": 1171,
+  "enlaces_informe_verificados": 15,
+  "bitacora_caracteres": 11845,
+  "resumen_lineas": 150,
+  "archivo_historico_identico_a_HEAD": true,
+  "archivo_historico_sha256": "d3da73340bef8e9318bc40905b19b956c4189cc1b9629e3dbdc4841596ca4765",
+  "fallas_area": [
+    "test_recargo_automatico_impago_no_produce_500_al_eliminar_alumno",
+    "test_el_borrado_retira_la_cuota_del_reporte_actual_de_sueldos",
+    "test_excepcion_sin_origen_debe_rechazar_con_explicacion_y_no_con_500"
+  ],
+  "fallas_rapida": [
+    "Tests.Feature.ReporteSueldosOperativasT86Test::test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa",
+    "Tests.Feature.ReporteSueldosOperativasT86Test::test_el_filtro_de_deporte_no_reparte_el_gasto_del_club",
+    "Tests.Feature.VerificacionEliminarT65CodexTest::test_recargo_automatico_impago_no_produce_500_al_eliminar_alumno",
+    "Tests.Feature.VerificacionEliminarT65CodexTest::test_el_borrado_retira_la_cuota_del_reporte_actual_de_sueldos",
+    "Tests.Feature.VerificacionEliminarT65CodexTest::test_excepcion_sin_origen_debe_rechazar_con_explicacion_y_no_con_500"
+  ],
+  "php_l_tres_archivos": "sin errores, comprobado por comando",
+  "view_cache_y_view_clear": "ambos salida0, comprobado por comando",
+  "producto_y_vistas_sin_diff": true,
+  "diff_check_exit": 0,
+  "normalizacion_salidas_txt": "Solo espacios finales y líneas vacías al final; contenido de resultados intacto, JUnit original conservado."
+}

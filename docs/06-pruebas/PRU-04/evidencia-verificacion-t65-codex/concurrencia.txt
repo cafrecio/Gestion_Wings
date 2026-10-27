@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\EliminarT65ConcurrenteCodexTest
+  ✓ borrado retiene alumno y clase frente a cuota inscripcion y asistencia                                      21.81s
+  ✓ cobro y asistencia retienen la misma fila antes del borrado                                                  9.02s
+
+  Tests:    2 passed (75 assertions)
+  Duration: 30.99s

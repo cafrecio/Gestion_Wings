@@ -1,0 +1,22 @@
+{
+  "head": "10cbaaa019bb2f4fd756fbc66490ca14227a45b7",
+  "implementacion": "13b85f68",
+  "base": "wings_testing_codex",
+  "sha256": {
+    "app/Models/Alumno.php": "4955cb1a6a74cdc8ad46e3ff686c0e21a879331ec106f5b9a6ffba3845901f00",
+    "app/Models/Clase.php": "c8ecfff49cd1617a9f193127312a66c23255cb8ffd78daf8d5f9d7cff0b1532b",
+    "app/Http/Controllers/AlumnoWebController.php": "75b863d1b84562cbf5ecc710f2e59516ceb0f18c35d12ebdb496ce2a108a24f8",
+    "app/Http/Controllers/ClaseWebController.php": "6a942ddb2f543f8e0abeb6b13fb0eebeeebf832ec1dd1f0b8e35770436f8b122",
+    "app/Services/PagoCuotaService.php": "c7934c37c6308cf2a8e43d8bcbb3e984fb50c8209c31071f665030d25a3fb1fe",
+    "app/Services/InscripcionService.php": "1ebea105af6b6cf3281619d46443ace19cab5709f5c9d96bb201963d0d6cb925",
+    "app/Services/PunitorioService.php": "2ec70f0cbb260f6bd3abdca5b86abbbef007d5c350bd91c67f748f4db823cff0",
+    "app/Observers/HistorialAnaliticoReportesObserver.php": "02edf47077450fde2e3886a635c795b1ab7079d8282dfbc1b2a9627bf7f31860",
+    "app/Services/HistorialAnaliticoReportesService.php": "38f878c5e31227a5ed6b6437d4e1fdef1d32cbf66e4425863978490789351a2c",
+    "app/Services/ReporteSueldosService.php": "e45bdac58448b297c78743c3beb807201f8bd90233904ca0fd9ce62b1ed03ec4",
+    "resources/views/alumnos/show.blade.php": "7a33f181d6d4b5aae077d90721d40e4cea1d2267b560d027d34d863bcef89eb1",
+    "resources/views/clases/show.blade.php": "b11cce50b5d60d89d3dd96e40a88b54dea1f429eb12e0f460ef972094de61d92",
+    "resources/js/alumnos-show.js": "7c8af73be29c05f0667ac5869a5286c742277a16acd663240b6f3d53b5aba136",
+    "resources/js/clases-show.js": "e69c1e3d938d6abca0941dbfd9f1caf34eaddba270138baaeac94b4c0ba545d0",
+    "routes/web.php": "c91b1965357f74062d7b08b6ed1e27d35f6312f276aef44768c865df52174198"
+  }
+}

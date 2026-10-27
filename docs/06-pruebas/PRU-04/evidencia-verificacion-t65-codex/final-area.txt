@@ -1,0 +1,445 @@
+
+   PASS  Tests\Feature\EliminarAlumnoYClaseT65Test
+  ✓ operativo y profesor reciben 403 al intentar eliminar alumno                                                12.55s
+  ✓ operativo y profesor reciben 403 al intentar eliminar clase                                                  0.08s
+  ✓ duenio elimina alumno sin cobros ni asistencias limpia deuda e inscripcion y libera dni                      0.08s
+  ✓ alumno con pago no se elimina explica por que y ofrece darlo de baja                                         0.09s
+  ✓ alumno con pago anulado tampoco se elimina                                                                   0.08s
+  ✓ alumno con asistencia presente o ausente no se elimina                                                       0.09s
+  ✓ alumno con movimiento de caja no se elimina                                                                  0.09s
+  ✓ alumno con cuota con pago o condonada no se elimina                                                          0.06s
+  ✓ alumno con inscripcion cobrada no se elimina                                                                 0.06s
+  ✓ alumno en segundo deporte con inscripcion compartida se elimina sin tocar la inscripcion del otro deporte    0.10s
+  ✓ duenio elimina clase sin asistencias ni liquidaciones                                                        1.31s
+  ✓ clase con asistencia no se elimina debe cancelarse                                                           0.06s
+  ✓ clase en liquidacion abierta o cerrada no se elimina                                                         0.06s
+  ✓ clase validada para liquidacion no se elimina                                                                0.08s
+  ✓ serie se elimina completa si todas estan limpias                                                             0.09s
+  ✓ serie rechaza eliminacion si alguna clase tiene asistencia o liquidacion e indica cual                       0.05s
+  ✓ concurrencia cobro entrante durante intento de eliminacion rechaza el borrado                                0.07s
+  ✓ pantalla ficha alumno y clase muestran boton eliminar solo para admin y cuando es eliminable                 0.17s
+
+   FAIL  Tests\Feature\VerificacionEliminarT65CodexTest
+  ⨯ recargo automatico impago no produce 500 al eliminar alumno                                                  0.12s
+  ⨯ el borrado retira la cuota del reporte actual de sueldos                                                     0.28s
+  ⨯ excepcion sin origen debe rechazar con explicacion y no con 500                                              0.09s
+  ✓ excepcion real de asistencia frena antes de la fk y conserva su origen                                       0.11s
+  ✓ borrar el ancla de inscripcion compartida preserva un solo cargo y saldo                                     0.13s
+  ✓ cuota vencida sin cobros no impide el borrado                                                                0.09s
+  ✓ inscripcion pagada desde otro deporte no se borra ni duplica                                                 0.09s
+  ✓ serie es atomica para liquidacion abierta cerrada y validacion manual                                        0.07s
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                0.21s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.25s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.07s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.06s
+
+   PASS  Tests\Feature\EliminarT65ConcurrenteCodexTest
+  ✓ borrado retiene alumno y clase frente a cuota inscripcion y asistencia                                       8.99s
+  ✓ cobro y asistencia retienen la misma fila antes del borrado                                                 10.10s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.12s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.11s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionEliminarT65CodexTest > recargo automatico impago no produce 500 al eliminar alu…
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`cargos_alumno`, CONSTRAINT `cargos_alumno_deuda_cuota_id_foreign` FOREIGN KEY (`deuda_cuota_id`) REFERENCES `deuda_cuotas` (`id`)) in C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:609
+Stack trace:
+#0 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(609): PDOStatement->execute()
+#1 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(827): Illuminate\Database\Connection->Illuminate\Database\{closure}('delete from `de...', Array)
+#2 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('delete from `de...', Array, Object(Closure))
+#3 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(597): Illuminate\Database\Connection->run('delete from `de...', Array, Object(Closure))
+#4 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(561): Illuminate\Database\Connection->affectingStatement('delete from `de...', Array)
+#5 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(4426): Illuminate\Database\Connection->delete('delete from `de...', Array)
+#6 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(662): Illuminate\Database\Query\Builder->delete()
+#7 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php(35): App\Http\Controllers\AlumnoWebController->App\Http\Controllers\{closure}(Object(Illuminate\Database\MySqlConnection))
+#8 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(491): Illuminate\Database\Connection->transaction(Object(Closure))
+#9 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(363): Illuminate\Database\DatabaseManager->__call('transaction', Array)
+#10 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(640): Illuminate\Support\Facades\Facade::__callStatic('transaction', Array)
+#11 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\AlumnoWebController->destroy(Object(Illuminate\Http\Request), 16)
+#12 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\AlumnoWebController), 'destroy')
+#13 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#14 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#15 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureAdminWeb.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureAdminWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\PrepararPrimeraCarga.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\PrepararPrimeraCarga->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureActiveUserWeb.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureActiveUserWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\SecurityHeaders.php(40): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\SecurityHeaders->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#34 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#39 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#41 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#43 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#44 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#46 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#47 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#48 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#52 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#57 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#58 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#59 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#60 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#61 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#62 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#63 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#64 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#65 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#66 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#67 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#68 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call('DELETE', 'http://gestion-...', Array, Array, Array, Array, '[]')
+#69 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(501): Illuminate\Foundation\Testing\TestCase->json('DELETE', 'http://gestion-...', Array, Array, 0)
+#70 C:\xampp\htdocs\gestion-wings\tests\Feature\VerificacionEliminarT65CodexTest.php(37): Illuminate\Foundation\Testing\TestCase->deleteJson('http://gestion-...')
+#71 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\VerificacionEliminarT65CodexTest->test_recargo_automatico_impago_no_produce_500_al_eliminar_alumno()
+#72 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#73 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#74 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run(Object(Tests\Feature\VerificacionEliminarT65CodexTest))
+#75 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#76 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#77 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#78 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#79 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#80 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`cargos_alumno`, CONSTRAINT `cargos_alumno_deuda_cuota_id_foreign` FOREIGN KEY (`deuda_cuota_id`) REFERENCES `deuda_cuotas` (`id`)) (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: delete from `deuda_cuotas` where `alumno_id` = 16) in C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+Stack trace:
+#0 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('delete from `de...', Array, Object(Closure))
+#1 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(597): Illuminate\Database\Connection->run('delete from `de...', Array, Object(Closure))
+#2 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(561): Illuminate\Database\Connection->affectingStatement('delete from `de...', Array)
+#3 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(4426): Illuminate\Database\Connection->delete('delete from `de...', Array)
+#4 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(662): Illuminate\Database\Query\Builder->delete()
+#5 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php(35): App\Http\Controllers\AlumnoWebController->App\Http\Controllers\{closure}(Object(Illuminate\Database\MySqlConnection))
+#6 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(491): Illuminate\Database\Connection->transaction(Object(Closure))
+#7 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(363): Illuminate\Database\DatabaseManager->__call('transaction', Array)
+#8 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(640): Illuminate\Support\Facades\Facade::__callStatic('transaction', Array)
+#9 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\AlumnoWebController->destroy(Object(Illuminate\Http\Request), 16)
+#10 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\AlumnoWebController), 'destroy')
+#11 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#12 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#13 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureAdminWeb.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureAdminWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\PrepararPrimeraCarga.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\PrepararPrimeraCarga->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureActiveUserWeb.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureActiveUserWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\SecurityHeaders.php(40): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\SecurityHeaders->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#32 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#41 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#43 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#44 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#46 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#50 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#51 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#52 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#57 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#58 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#59 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#60 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#61 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#62 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#63 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#64 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#65 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#66 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call('DELETE', 'http://gestion-...', Array, Array, Array, Array, '[]')
+#67 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(501): Illuminate\Foundation\Testing\TestCase->json('DELETE', 'http://gestion-...', Array, Array, 0)
+#68 C:\xampp\htdocs\gestion-wings\tests\Feature\VerificacionEliminarT65CodexTest.php(37): Illuminate\Foundation\Testing\TestCase->deleteJson('http://gestion-...')
+#69 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\VerificacionEliminarT65CodexTest->test_recargo_automatico_impago_no_produce_500_al_eliminar_alumno()
+#70 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#71 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#72 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run(Object(Tests\Feature\VerificacionEliminarT65CodexTest))
+#73 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#74 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#75 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#76 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#77 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#78 {main}
+
+----------------------------------------------------------------------------------
+
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`cargos_alumno`, CONSTRAINT `cargos_alumno_deuda_cuota_id_foreign` FOREIGN KEY (`deuda_cuota_id`) REFERENCES `deuda_cuotas` (`id`)) (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: delete from `deuda_cuotas` where `alumno_id` = 16)
+
+  at tests\Feature\VerificacionEliminarT65CodexTest.php:43
+     39▕         if ($respuesta->status() >= 500) {
+     40▕             $this->assertDatabaseHas('alumno_planes', ['alumno_id' => $this->alumnoT65->id]);
+     41▕             $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $this->alumnoT65->id]);
+     42▕         }
+  ➜  43▕         $respuesta->assertOk();
+     44▕         $this->assertDatabaseMissing('alumnos', ['id' => $this->alumnoT65->id]);
+     45▕     }
+     46▕
+     47▕     public function test_el_borrado_retira_la_cuota_del_reporte_actual_de_sueldos(): void
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionEliminarT65CodexTest > el borrado retira la cuota del reporte actual de sueldos
+  Una cuota eliminada sigue inflando el importe de cuotas sin asistencia en Sueldos.
+Failed asserting that 1500000 is identical to 0.
+
+  at tests\Feature\VerificacionEliminarT65CodexTest.php:56
+     52▕         $cuotaId = $this->alumnoT65->deudaCuotas()->sole()->id;
+     53▕         $this->deleteJson(route('web.alumnos.destroy', $this->alumnoT65))->assertOk();
+     54▕         $this->assertDatabaseMissing('deuda_cuotas', ['id' => $cuotaId]);
+     55▕         $despues = $this->get($url)->assertOk();
+  ➜  56▕         $this->assertSame(0, $despues->viewData('reporte')['sin_asistencia'],
+     57▕             'Una cuota eliminada sigue inflando el importe de cuotas sin asistencia en Sueldos.');
+     58▕         $this->assertSame([], app(HistorialAnaliticoReportesService::class)->obtener('CUOTA', CarbonImmutable::now(), $cuotaId)['filas']);
+     59▕     }
+     60▕
+
+  1   tests\Feature\VerificacionEliminarT65CodexTest.php:56
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionEliminarT65CodexTest > excepcion sin origen debe rechazar con explicacion y no…
+  Expected response status code [422] but received 500.
+Failed asserting that 500 is identical to 422.
+
+The following exception occurred during the last request:
+
+PDOException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`excepciones_cobranza`, CONSTRAINT `excepciones_cobranza_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`)) in C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:609
+Stack trace:
+#0 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(609): PDOStatement->execute()
+#1 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(827): Illuminate\Database\Connection->Illuminate\Database\{closure}('delete from `al...', Array)
+#2 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('delete from `al...', Array, Object(Closure))
+#3 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(597): Illuminate\Database\Connection->run('delete from `al...', Array, Object(Closure))
+#4 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(561): Illuminate\Database\Connection->affectingStatement('delete from `al...', Array)
+#5 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(4426): Illuminate\Database\Connection->delete('delete from `al...', Array)
+#6 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1480): Illuminate\Database\Query\Builder->delete()
+#7 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1578): Illuminate\Database\Eloquent\Builder->delete()
+#8 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1510): Illuminate\Database\Eloquent\Model->performDeleteOnModel()
+#9 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(693): Illuminate\Database\Eloquent\Model->delete()
+#10 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php(35): App\Http\Controllers\AlumnoWebController->App\Http\Controllers\{closure}(Object(Illuminate\Database\MySqlConnection))
+#11 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(491): Illuminate\Database\Connection->transaction(Object(Closure))
+#12 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(363): Illuminate\Database\DatabaseManager->__call('transaction', Array)
+#13 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(640): Illuminate\Support\Facades\Facade::__callStatic('transaction', Array)
+#14 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\AlumnoWebController->destroy(Object(Illuminate\Http\Request), 18)
+#15 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\AlumnoWebController), 'destroy')
+#16 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#17 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#18 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureAdminWeb.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureAdminWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\PrepararPrimeraCarga.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\PrepararPrimeraCarga->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureActiveUserWeb.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureActiveUserWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\SecurityHeaders.php(40): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\SecurityHeaders->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#37 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#44 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#46 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#47 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#49 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#52 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#56 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#67 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#68 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#69 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#70 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#71 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call('DELETE', 'http://gestion-...', Array, Array, Array, Array, '[]')
+#72 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(501): Illuminate\Foundation\Testing\TestCase->json('DELETE', 'http://gestion-...', Array, Array, 0)
+#73 C:\xampp\htdocs\gestion-wings\tests\Feature\VerificacionEliminarT65CodexTest.php(67): Illuminate\Foundation\Testing\TestCase->deleteJson('http://gestion-...')
+#74 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\VerificacionEliminarT65CodexTest->test_excepcion_sin_origen_debe_rechazar_con_explicacion_y_no_con_500()
+#75 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#76 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#77 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run(Object(Tests\Feature\VerificacionEliminarT65CodexTest))
+#78 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#79 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#80 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#81 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#82 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#83 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`excepciones_cobranza`, CONSTRAINT `excepciones_cobranza_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`)) (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: delete from `alumnos` where `id` = 18) in C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+Stack trace:
+#0 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('delete from `al...', Array, Object(Closure))
+#1 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(597): Illuminate\Database\Connection->run('delete from `al...', Array, Object(Closure))
+#2 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Connection.php(561): Illuminate\Database\Connection->affectingStatement('delete from `al...', Array)
+#3 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(4426): Illuminate\Database\Connection->delete('delete from `al...', Array)
+#4 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1480): Illuminate\Database\Query\Builder->delete()
+#5 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1578): Illuminate\Database\Eloquent\Builder->delete()
+#6 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1510): Illuminate\Database\Eloquent\Model->performDeleteOnModel()
+#7 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(693): Illuminate\Database\Eloquent\Model->delete()
+#8 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\Concerns\ManagesTransactions.php(35): App\Http\Controllers\AlumnoWebController->App\Http\Controllers\{closure}(Object(Illuminate\Database\MySqlConnection))
+#9 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(491): Illuminate\Database\Connection->transaction(Object(Closure))
+#10 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(363): Illuminate\Database\DatabaseManager->__call('transaction', Array)
+#11 C:\xampp\htdocs\gestion-wings\app\Http\Controllers\AlumnoWebController.php(640): Illuminate\Support\Facades\Facade::__callStatic('transaction', Array)
+#12 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\AlumnoWebController->destroy(Object(Illuminate\Http\Request), 18)
+#13 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\AlumnoWebController), 'destroy')
+#14 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#15 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#16 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureAdminWeb.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureAdminWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\PrepararPrimeraCarga.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\PrepararPrimeraCarga->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\EnsureActiveUserWeb.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureActiveUserWeb->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 C:\xampp\htdocs\gestion-wings\app\Http\Middleware\SecurityHeaders.php(40): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\SecurityHeaders->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#35 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#42 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#43 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#44 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#46 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#47 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#50 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#51 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#52 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#54 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#56 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#67 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#68 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#69 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call('DELETE', 'http://gestion-...', Array, Array, Array, Array, '[]')
+#70 C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(501): Illuminate\Foundation\Testing\TestCase->json('DELETE', 'http://gestion-...', Array, Array, 0)
+#71 C:\xampp\htdocs\gestion-wings\tests\Feature\VerificacionEliminarT65CodexTest.php(67): Illuminate\Foundation\Testing\TestCase->deleteJson('http://gestion-...')
+#72 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\VerificacionEliminarT65CodexTest->test_excepcion_sin_origen_debe_rechazar_con_explicacion_y_no_con_500()
+#73 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#74 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#75 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run(Object(Tests\Feature\VerificacionEliminarT65CodexTest))
+#76 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#77 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#78 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#79 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#80 C:\xampp\htdocs\gestion-wings\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#81 {main}
+
+----------------------------------------------------------------------------------
+
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`wings_testing_codex`.`excepciones_cobranza`, CONSTRAINT `excepciones_cobranza_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`)) (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: delete from `alumnos` where `id` = 18)
+
+  at tests\Feature\VerificacionEliminarT65CodexTest.php:67
+     63▕         // Estado permitido por el esquema, NO producido por los flujos actuales conocidos.
+     64▕         ExcepcionCobranza::create(['alumno_id' => $this->alumnoT65->id, 'autor_id' => $this->duenioT65->id,
+     65▕             'tipo' => 'ASISTENCIA_NUEVO', 'motivo' => 'Historia de una admisión anterior',
+     66▕             'registro_tipo' => 'ASISTENCIA', 'registro_id' => 999999, 'ocurrida_at' => now(), 'contexto' => []]);
+  ➜  67▕         $this->actingAs($this->duenioT65)->deleteJson(route('web.alumnos.destroy', $this->alumnoT65))->assertStatus(422);
+     68▕         $this->assertDatabaseHas('alumnos', ['id' => $this->alumnoT65->id]);
+     69▕     }
+     70▕
+     71▕     public function test_excepcion_real_de_asistencia_frena_antes_de_la_fk_y_conserva_su_origen(): void
+
+
+  Tests:    3 failed, 31 passed (270 assertions)
+  Duration: 36.25s

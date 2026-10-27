@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\ReporteSueldosOperativasT86Test" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" tests="8" assertions="36" errors="0" failures="2" skipped="0" time="15.337660">
+    <testcase name="test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="61" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="5" time="13.623391">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa&#13;
+Failed asserting that the value at [reporte] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1308
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:66</failure>
+    </testcase>
+    <testcase name="test_selecciona_el_mes_y_no_incluye_fechas_futuras" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="69" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="4" time="0.297906"/>
+    <testcase name="test_agrupa_varios_pagos_y_excluye_sueldos_docentes_y_gastos_ajenos" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="80" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="5" time="0.318193"/>
+    <testcase name="test_anular_el_pago_resta_el_contraasiento_sin_contarlo_dos_veces" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="102" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="6" time="0.276387"/>
+    <testcase name="test_el_pago_historico_no_desaparece_al_cambiar_rol_o_desactivar" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="112" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="3" time="0.211111"/>
+    <testcase name="test_el_filtro_de_deporte_no_reparte_el_gasto_del_club" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="120" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="4" time="0.171701">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_el_filtro_de_deporte_no_reparte_el_gasto_del_club&#13;
+Failed asserting that null is identical to 0.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:126</failure>
+    </testcase>
+    <testcase name="test_sin_pagos_muestra_cero_y_el_estado_vacio" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="130" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="4" time="0.223325"/>
+    <testcase name="test_identifica_la_operativa_por_fk_y_escapa_su_nombre" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="136" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="5" time="0.215647"/>
+  </testsuite>
+</testsuites>

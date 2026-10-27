@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-27 — Codex CAB — T65 devuelta a Gemini
+
+Verificación independiente13b85f68/DU-48 sobre10cbaaa0, pull al día. Sin producto corregido.
+Recargo automático impago produce500 (rollback íntegro); Sueldos conserva15000 de cuota borrada. Excepción sin origen produce500, sin recorrido actual identificado; con asistencia real rechaza422.
+14 permanentes, tres rojas. Inscripción/roles/listados/DNI protegidos; dos pruebas verdes con dos sesiones MariaDB, ocho cruces, sin escrituras durante la espera.
+Rápida1039 verdes/6 omitidas/5 rojas/8101 aserciones/228,26s, salida1. Tres T65 y dos T86; estas repiten aisladas (6 verdes/2 rojas), causa sin establecer.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md). Devuelto,tieneGemini,verificaCodex; sigue arreglo y nueva verificación, después aspecto Carlos. Contador1171.
+Solo wings_testing_codex, fuentes SHA256 intactas. Sin sitio/servidor/club, tabla, push manual ni despliegue.
+
 ## 2026-10-27 — Codex CAB — B3 devuelta: primera carga corregida
 
 [Devolución27/10](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md): ids de primera carga TERMINADA dan historia, no era pregunta pendiente. Dinero aprobado por Claude, sin tocarlo.
@@ -69,13 +78,6 @@ Carlos informó confirmar las tres manualmente: «Confirme tambien las otras dos
 Pedido de Carlos para la próxima: modal propio de Wings; registrado, sin implementar. Inicio103.000ingresosnov frente guion0 conservado. [Informe/evidencias](../06-pruebas/PRU-04/DIA-23.md).
 T14en curso,tieneClaude: revisión independiente/interna/seguridad/velocidad. Sin producto,tabla,suite,deploy ni push.
 
-## 2026-10-26 — Codex CyE — Días19–22 entregados con diferencias
-
-TEST/wingstest. Reanudación autorizada; Carlos confirmó borrado Librería. Caja36 VALIDADA:esperado270500/contado271000/sobrante500/cambio10000. Cobros anteriores no repetidos; contadorloginTEST único reiniciado con permiso, límite intacto.
-Navegador recuperado tras «Fijate ahora»: retomado20.8. Mañanas21/22 simuladas y reales una vez; noches20/21/22 una vez. Cajas38/40/42VALIDADA:178200/270000/167000,diferencia0,cambio10000. Último reloj31/10 15h; no repetir.
-37situaciones:23Sí/11Parcial/2No/1Noejecutado. Berenice20k aceptado sin motivo;Felipe76k/PDF171;Santino baja conservando28k;traspaso500k;recuperación82 con15presentes.20.4visibilidadHernán completada.
-22.5sin sueldo250k: formulario sin Sueldos/Op-Sandra.22.6sin generar:Lucía20clases,guion17;22.8salteado. Diferencias anotadas, no reparadas. Deuda0/103AlDía,disponible4959900,75(+250k),ingresos3417850,75(-121k),egresos331950(-250k),porvalidar/sinasistencia0.138filasCashflow sin repeticiones exactas visibles; no auditoría interna.
-[Informes/capturas](../06-pruebas/PRU-04/EVIDENCIA-DIAS-19-22.html); control documental independiente consistente. T14en curso,tieneClaude: revisión independiente/control interno/seguridad/velocidad. Sin producto,ESTADO-ACTUAL,tabla,suite,deploy ni push.
 
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
@@ -85,3 +87,5 @@ Navegador recuperado tras «Fijate ahora»: retomado20.8. Mañanas21/22 simulada
 [Entrada histórica previa de días17–18 archivada intacta al cerrar B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-cierre-B3.txt).
 
 [T83 archivada intacta al registrar la devolución B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-devolucion-B3.txt).
+
+[Días19–22 archivada íntegra al verificar T65](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-verificacion-T65.txt). Base original de enlaces: docs/00-estado/. SHA256: d3da73340bef8e9318bc40905b19b956c4189cc1b9629e3dbdc4841596ca4765.

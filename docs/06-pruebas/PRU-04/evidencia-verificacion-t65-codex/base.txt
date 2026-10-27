@@ -1,0 +1,23 @@
+
+   PASS  Tests\Feature\EliminarAlumnoYClaseT65Test
+  ✓ operativo y profesor reciben 403 al intentar eliminar alumno                                                23.57s
+  ✓ operativo y profesor reciben 403 al intentar eliminar clase                                                  0.15s
+  ✓ duenio elimina alumno sin cobros ni asistencias limpia deuda e inscripcion y libera dni                      0.25s
+  ✓ alumno con pago no se elimina explica por que y ofrece darlo de baja                                         0.12s
+  ✓ alumno con pago anulado tampoco se elimina                                                                   0.08s
+  ✓ alumno con asistencia presente o ausente no se elimina                                                       0.09s
+  ✓ alumno con movimiento de caja no se elimina                                                                  0.10s
+  ✓ alumno con cuota con pago o condonada no se elimina                                                          0.11s
+  ✓ alumno con inscripcion cobrada no se elimina                                                                 0.07s
+  ✓ alumno en segundo deporte con inscripcion compartida se elimina sin tocar la inscripcion del otro deporte    0.22s
+  ✓ duenio elimina clase sin asistencias ni liquidaciones                                                        0.13s
+  ✓ clase con asistencia no se elimina debe cancelarse                                                           0.12s
+  ✓ clase en liquidacion abierta o cerrada no se elimina                                                         0.12s
+  ✓ clase validada para liquidacion no se elimina                                                                0.11s
+  ✓ serie se elimina completa si todas estan limpias                                                             0.18s
+  ✓ serie rechaza eliminacion si alguna clase tiene asistencia o liquidacion e indica cual                       0.15s
+  ✓ concurrencia cobro entrante durante intento de eliminacion rechaza el borrado                                0.62s
+  ✓ pantalla ficha alumno y clase muestran boton eliminar solo para admin y cuando es eliminable                 2.19s
+
+  Tests:    18 passed (105 assertions)
+  Duration: 35.10s

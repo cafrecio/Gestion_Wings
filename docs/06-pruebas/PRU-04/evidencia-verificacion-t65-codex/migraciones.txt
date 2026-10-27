@@ -1,0 +1,11 @@
+database/migrations/2026_01_12_091912_create_pagos_table.php:16 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->foreignId('plan_id')->constrained('grupo_planes')->onDelete('restrict');
+database/migrations/2026_01_12_091959_create_alumno_planes_table.php:16 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->foreignId('plan_id')->constrained('grupo_planes')->onDelete('restrict');
+database/migrations/2026_01_27_000003_create_clase_profesor_table.php:21 $table->foreignId('clase_id')->constrained('clases')->onDelete('cascade');             $table->foreignId('profesor_id')->constrained('profesores')->onDelete('cascade');
+database/migrations/2026_01_27_000004_create_asistencias_table.php:20 $table->foreignId('clase_id')->constrained('clases')->onDelete('cascade');             $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
+database/migrations/2026_01_27_000004_create_asistencias_table.php:21 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->boolean('presente');
+database/migrations/2026_02_01_000002_create_deuda_cuotas_table.php:19 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->string('periodo', 7); // Formato YYYY-MM
+database/migrations/2026_02_12_000001_create_alumnos_revision_cobranza_table.php:13 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->string('periodo_objetivo', 7); // YYYY-MM
+database/migrations/2026_02_12_000002_create_asistencia_excesos_table.php:14 $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');             $table->date('fecha_clase');
+database/migrations/2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table.php:16 ->constrained('alumnos')->nullOnDelete();         });
+database/migrations/2026_09_22_180000_create_cargos_alumno.php:15 $t->foreignId('alumno_id')->constrained('alumnos')->restrictOnDelete();             $t->enum('tipo', ['INSCRIPCION', 'PUNITORIO']);
+database/migrations/2026_10_27_150000_crear_excepciones_cobranza.php:16 $table->foreignId('alumno_id')->constrained('alumnos')->restrictOnDelete();             $table->string('registro_tipo', 20);

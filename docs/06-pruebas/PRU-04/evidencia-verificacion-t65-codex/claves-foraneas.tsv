@@ -1,0 +1,23 @@
+TABLE_NAME	COLUMN_NAME	REFERENCED_TABLE_NAME	REFERENCED_COLUMN_NAME	DELETE_RULE
+alumnos_revision_cobranza	alumno_id	alumnos	id	CASCADE
+alumno_planes	alumno_id	alumnos	id	CASCADE
+asistencias	alumno_id	alumnos	id	CASCADE
+asistencia_excesos	alumno_id	alumnos	id	CASCADE
+cargos_alumno	alumno_id	alumnos	id	RESTRICT
+deuda_cuotas	alumno_id	alumnos	id	CASCADE
+excepciones_cobranza	alumno_id	alumnos	id	RESTRICT
+movimientos_operativos	alumno_id	alumnos	id	SET NULL
+pagos	alumno_id	alumnos	id	CASCADE
+asistencia_excesos	asistencia_id	asistencias	id	CASCADE
+cargo_alumno_eventos	cargo_alumno_id	cargos_alumno	id	RESTRICT
+pago_cargo_alumno	cargo_alumno_id	cargos_alumno	id	RESTRICT
+asistencias	clase_id	clases	id	CASCADE
+clase_profesor	clase_id	clases	id	CASCADE
+cargos_alumno	deuda_cuota_id	deuda_cuotas	id	RESTRICT
+liquidacion_detalles	deuda_cuota_id	deuda_cuotas	id	RESTRICT
+pago_deuda_cuota	deuda_cuota_id	deuda_cuotas	id	CASCADE
+reporte_eventos	deuda_cuota_id	deuda_cuotas	id	CASCADE
+liquidacion_detalles	pago_id	pagos	id	RESTRICT
+movimientos_operativos	pago_id	pagos	id	SET NULL
+pago_cargo_alumno	pago_id	pagos	id	RESTRICT
+pago_deuda_cuota	pago_id	pagos	id	CASCADE

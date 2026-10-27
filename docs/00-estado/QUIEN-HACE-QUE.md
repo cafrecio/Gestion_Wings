@@ -53,13 +53,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Carlos 27/10: verifica Codex (no Claude). Hecho por Gemini en 13b85f68. Logica, roles, concurrencia, cascadas (AUD-025) y tablas nuevas de T88/B3; aspecto Carlos. |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Devuelto (hizo Gemini, verifica Codex) | Corregir recargo impago que produce 500 y cuota borrada que sigue sumando en Sueldos; proteger excepciones sin origen. Ver VERIFICACION-T65-CODEX.md y tres regresiones rojas; no desplegar. |
 
 ## Sin empezar (16)
 

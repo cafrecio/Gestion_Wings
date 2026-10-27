@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\EliminarT65ConcurrenteCodexTest" file="C:\xampp\htdocs\gestion-wings\tests\Feature\EliminarT65ConcurrenteCodexTest.php" tests="2" assertions="75" errors="0" failures="0" skipped="0" time="30.833102">
+    <testcase name="test_borrado_retiene_alumno_y_clase_frente_a_cuota_inscripcion_y_asistencia" file="C:\xampp\htdocs\gestion-wings\tests\Feature\EliminarT65ConcurrenteCodexTest.php" line="103" class="Tests\Feature\EliminarT65ConcurrenteCodexTest" classname="Tests.Feature.EliminarT65ConcurrenteCodexTest" assertions="43" time="21.809063"/>
+    <testcase name="test_cobro_y_asistencia_retienen_la_misma_fila_antes_del_borrado" file="C:\xampp\htdocs\gestion-wings\tests\Feature\EliminarT65ConcurrenteCodexTest.php" line="122" class="Tests\Feature\EliminarT65ConcurrenteCodexTest" classname="Tests.Feature.EliminarT65ConcurrenteCodexTest" assertions="32" time="9.024039"/>
+  </testsuite>
+</testsuites>

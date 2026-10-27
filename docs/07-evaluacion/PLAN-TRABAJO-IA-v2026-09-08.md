@@ -225,8 +225,10 @@ Guías prácticas para usuarios y preparación. **MUY IMPORTANTE:** explicar fec
 | **POS-06** | Clases particulares — PENDIENTE de implementación | [Contrato V1](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md), decisiones 13/09; criterios y bordes en el contrato. [Ficha](../05-pendientes/CLASES-PARTICULARES.md). Sin implementación ni despliegue en este turno |
 | **POS-07** | Ubicaciones, canchas y liquidaciones de clubes — PLAN DOCUMENTADO; implementación pendiente | [Plan de acción v2026-09-21](PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y matriz de aceptación. Bloques horarios completos, total manual protegido, costos solo ADMIN. Mes o fechas elegidas: solo clases dictadas al corte y pendientes de liquidar; sin repetir las de otro período, aunque estén sin pagar. Reporte Club → Deporte → Nivel. No confundir costo, liquidación y egreso; no implementar SaaS ni Reportes general por arrastre |
 
-Medir antes de corregir cualquier riesgo de precision por `float`. AUD-025 solo entra
-antes de agregar rutas destructivas hoy inexistentes.
+Medir antes de corregir cualquier riesgo de precision por `float`. T65 incorporó rutas
+destructivas en `13b85f68`: AUD-025 revisada por Codex CAB el27/10, con devolución a Gemini
+por recargo impago (500) e historial analítico vigente tras borrar la cuota.
+[Verificación y referencias](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md); no está aprobada para cierre.
 
 ## 9. Definiciones que este plan no reabre
 
