@@ -16,6 +16,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - T88 y B3 dinero (Codex, `17f99d13`): aprobadas en lógica; falta el aspecto de Carlos. B3 asistencia (`51d26fb8`): devuelta a Codex.
 - Defecto: todo alumno de la primera carga queda como nuevo y pide motivo desde la 3a clase. En el sitio de prueba son 25 alumnos; en producción sería todo el club. Prueba roja en `evidencia-verificacion-t88-b3-claude`. [Informe](../06-pruebas/PRU-04/VERIFICACION-T88-B3-CLAUDE.md).
 - T54 asignada a Gemini y T65 a Codex para verificar (pedido de Carlos).
+- T54 (Gemini, `c4094222`) devuelta: bien en listado, autocompletar y Cobrar; el Historial de caja sigue buscando exacto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T54-CLAUDE.md).
 
 ## 2026-10-27 — Claude CyE — T87 verificada en lógica; contador corregido
 

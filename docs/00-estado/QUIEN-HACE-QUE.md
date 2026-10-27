@@ -50,7 +50,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T54** Buscar alumnos: con y sin acento, por cualquier parte del nombre y ofreciendo opciones desde la primera letra | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar busqueda insensible a acentos, multiple palabra en cualquier orden, autocompletar desde 1 letra y busqueda en Cobrar. Pruebas 10/10 verdes, suite rapida verde. Capturas 1366/375 en evidencia-t54. |
 
 ## Codex
 
@@ -61,7 +60,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T54** Buscar alumnos: con y sin acento, por cualquier parte del nombre y ofreciendo opciones desde la primera letra | Devuelto (hizo Gemini, verifica Claude) | Devuelta por Claude 27/10 (VERIFICACION-T54-CLAUDE.md). Listado, autocompletar, Cobrar y API bien. Falta: Historial de caja (CajaWebController::historial) busca exacto en PHP: gomez no encuentra Gomez acentuado ni perez juan. Y descartar respuestas viejas del autocompletar. |
 
 ## Sin empezar (16)
 
