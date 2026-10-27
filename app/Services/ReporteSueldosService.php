@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\{Clase, Deporte, Profesor};
+use App\Models\{CashflowMovimiento, Clase, Deporte, Profesor, User};
 use Carbon\CarbonImmutable;
 use InvalidArgumentException;
 
@@ -165,7 +165,34 @@ class ReporteSueldosService
             'costo_por_asistencia'=>$costo !== null && $asistencias > 0 ? (int)round($costo/$asistencias) : null,
             'porcentaje_costo'=>$costo !== null && $ingreso > 0 ? round($costo*100/$ingreso,1) : null,
             'sin_asistencia'=>$disponible ? $sinAsistencia : null,'asistencias_sin_cuota'=>$disponible ? $sinCuota : null,
-            'profesores'=>$filas->all(),'deportes'=>$porDeporte];
+            'profesores'=>$filas->all(),'deportes'=>$porDeporte,
+            'pagos_operativas'=>$this->pagosOperativas($inicio, $corte)];
+    }
+
+    /** Pagos reales del club, sin atribuirlos a clases ni a un deporte. */
+    private function pagosOperativas(CarbonImmutable $inicio, CarbonImmutable $corte): array
+    {
+        // La FK se conserva al cambiar de rol o desactivar: un pago ya realizado
+        // no desaparece del historial por el estado actual del usuario.
+        $personas = User::whereNotNull('subrubro_id')->get(['id', 'name', 'subrubro_id'])->groupBy('subrubro_id');
+        if ($personas->isEmpty()) return ['total_centavos' => 0, 'filas' => []];
+
+        $movimientos = CashflowMovimiento::whereIn('subrubro_id', $personas->keys())
+            ->whereBetween('fecha', [$inicio->toDateString(), $corte->toDateString()])
+            ->whereHas('subrubro.rubro', fn ($q) => $q->where('nombre', SubrubroSueldoService::RUBRO_SUELDOS)->where('tipo', 'EGRESO'))
+            ->whereNotIn('subrubro_id', Profesor::whereNotNull('subrubro_id')->select('subrubro_id'))
+            ->whereNull('movimiento_operativo_id')
+            ->where(fn ($q) => $q->whereNull('referencia_tipo')->orWhere('referencia_tipo', CashflowMovimiento::REF_CORRECCION))
+            ->get();
+
+        $filas = $movimientos->groupBy('subrubro_id')->map(function ($grupo, $id) use ($personas) {
+            return ['subrubro_id' => (int) $id,
+                'nombre' => $personas[$id]->pluck('name')->unique()->sort()->implode(' / '),
+                'centavos' => -(int) $grupo->sum(fn ($m) => (int) round((float) $m->monto * 100)),
+                'movimientos' => $grupo->filter(fn ($m) => $m->esDirecto() && $m->anulado_at === null)->count()];
+        })->filter(fn ($fila) => $fila['centavos'] !== 0)->sortBy('nombre')->values();
+
+        return ['total_centavos' => (int) $filas->sum('centavos'), 'filas' => $filas->all()];
     }
 
     private function repartir(int $centavos, array $pesos): array

@@ -1,0 +1,233 @@
+{
+  "busqueda": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"cols\":[\"qn\",\"label\",\"file\",\"lines\",\"rank\"],\"rows\":[[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.__construct\",\"Method\",\"app/Services/ReporteSueldosService.php\",\"12-12\",-25.216507019308445],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.obtener\",\"Method\",\"app/Services/ReporteSueldosService.php\",\"14-170\",-25.216507019308445],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.repartir\",\"Method\",\"app/Services/ReporteSueldosService.php\",\"198-212\",-25.216507019308445],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.evolucion\",\"Method\",\"app/Services/ReporteSueldosService.php\",\"214-222\",-25.216507019308445],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.pagosOperativas\",\"Method\",\"app/Services/ReporteSueldosService.php\",\"173-196\",-24.172004048093385],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService\",\"Class\",\"app/Services/ReporteSueldosService.php\",\"10-223\",-20.184003223682932],[\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService\",\"Module\",\"app/Services/ReporteSueldosService.php\",\"1-224\",-14.715926527179997],[\"C-xampp-htdocs-gestion-wings.docs.06-pruebas.PRU-04.IMPLEMENTACION-T42.Alcance-del-código\",\"Section\",\"docs/06-pruebas/PRU-04/IMPLEMENTACION-T42.md\",\"54-55\",-2.418453809047007]],\"total\":8,\"total_relation\":\"eq\",\"search_mode\":\"bm25\",\"returned\":8,\"count\":8,\"has_more\":false,\"truncated\":false}"
+      }
+    ],
+    "structuredContent": {
+      "cols": [
+        "qn",
+        "label",
+        "file",
+        "lines",
+        "rank"
+      ],
+      "rows": [
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.__construct",
+          "Method",
+          "app/Services/ReporteSueldosService.php",
+          "12-12",
+          -25.216507019308445
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.obtener",
+          "Method",
+          "app/Services/ReporteSueldosService.php",
+          "14-170",
+          -25.216507019308445
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.repartir",
+          "Method",
+          "app/Services/ReporteSueldosService.php",
+          "198-212",
+          -25.216507019308445
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.evolucion",
+          "Method",
+          "app/Services/ReporteSueldosService.php",
+          "214-222",
+          -25.216507019308445
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.pagosOperativas",
+          "Method",
+          "app/Services/ReporteSueldosService.php",
+          "173-196",
+          -24.172004048093385
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService",
+          "Class",
+          "app/Services/ReporteSueldosService.php",
+          "10-223",
+          -20.184003223682932
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService",
+          "Module",
+          "app/Services/ReporteSueldosService.php",
+          "1-224",
+          -14.715926527179997
+        ],
+        [
+          "C-xampp-htdocs-gestion-wings.docs.06-pruebas.PRU-04.IMPLEMENTACION-T42.Alcance-del-código",
+          "Section",
+          "docs/06-pruebas/PRU-04/IMPLEMENTACION-T42.md",
+          "54-55",
+          -2.418453809047007
+        ]
+      ],
+      "total": 8,
+      "total_relation": "eq",
+      "search_mode": "bm25",
+      "returned": 8,
+      "count": 8,
+      "has_more": false,
+      "truncated": false
+    },
+    "isError": false
+  },
+  "traza": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"function\":\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.obtener\",\"direction\":\"inbound\",\"callers_total\":1,\"callers_total_relation\":\"eq\",\"callers\":{\"qn_rule\":\"qn = qn_prefix == \\\"\\\" ? name : qn_prefix + \\\".\\\" + name\",\"cols\":[\"name\",\"hop\"],\"groups\":[{\"qn_prefix\":\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService\",\"rows\":[[\"evolucion\",1]]}]}}"
+        }
+      ],
+      "structuredContent": {
+        "function": "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.obtener",
+        "direction": "inbound",
+        "callers_total": 1,
+        "callers_total_relation": "eq",
+        "callers": {
+          "qn_rule": "qn = qn_prefix == \"\" ? name : qn_prefix + \".\" + name",
+          "cols": [
+            "name",
+            "hop"
+          ],
+          "groups": [
+            {
+              "qn_prefix": "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService",
+              "rows": [
+                [
+                  "evolucion",
+                  1
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "isError": false
+    }
+  },
+  "fragmento": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"name\":\"pagosOperativas\",\"qualified_name\":\"C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.pagosOperativas\",\"label\":\"Method\",\"file_path\":\"C:/xampp/htdocs/gestion-wings/app/Services/ReporteSueldosService.php\",\"start_line\":173,\"end_line\":196,\"source_mode\":\"full\",\"source\":\"    private function pagosOperativas(CarbonImmutable $inicio, CarbonImmutable $corte): array\\n    {\\n        // La FK se conserva al cambiar de rol o desactivar: un pago ya realizado\\n        // no desaparece del historial por el estado actual del usuario.\\n        $personas = User::whereNotNull('subrubro_id')->get(['id', 'name', 'subrubro_id'])->groupBy('subrubro_id');\\n        if ($personas->isEmpty()) return ['total_centavos' => 0, 'filas' => []];\\n\\n        $movimientos = CashflowMovimiento::whereIn('subrubro_id', $personas->keys())\\n            ->whereBetween('fecha', [$inicio->toDateString(), $corte->toDateString()])\\n            ->whereHas('subrubro.rubro', fn ($q) => $q->where('nombre', SubrubroSueldoService::RUBRO_SUELDOS)->where('tipo', 'EGRESO'))\\n            ->whereNotIn('subrubro_id', Profesor::whereNotNull('subrubro_id')->select('subrubro_id'))\\n            ->whereNull('movimiento_operativo_id')\\n            ->where(fn ($q) => $q->whereNull('referencia_tipo')->orWhere('referencia_tipo', CashflowMovimiento::REF_CORRECCION))\\n            ->get();\\n\\n        $filas = $movimientos->groupBy('subrubro_id')->map(function ($grupo, $id) use ($personas) {\\n            return ['subrubro_id' => (int) $id,\\n                'nombre' => $personas[$id]->pluck('name')->unique()->sort()->implode(' / '),\\n                'centavos' => -(int) $grupo->sum(fn ($m) => (int) round((float) $m->monto * 100)),\\n                'movimientos' => $grupo->filter(fn ($m) => $m->esDirecto() && $m->anulado_at === null)->count()];\\n        })->filter(fn ($fila) => $fila['centavos'] !== 0)->sortBy('nombre')->values();\\n\\n        return ['total_centavos' => (int) $filas->sum('centavos'), 'filas' => $filas->all()];\\n    }\\n\",\"callers\":1,\"callees\":2}"
+        }
+      ],
+      "structuredContent": {
+        "name": "pagosOperativas",
+        "qualified_name": "C-xampp-htdocs-gestion-wings.app.Services.ReporteSueldosService.ReporteSueldosService.pagosOperativas",
+        "label": "Method",
+        "file_path": "C:/xampp/htdocs/gestion-wings/app/Services/ReporteSueldosService.php",
+        "start_line": 173,
+        "end_line": 196,
+        "source_mode": "full",
+        "source": "    private function pagosOperativas(CarbonImmutable $inicio, CarbonImmutable $corte): array\n    {\n        // La FK se conserva al cambiar de rol o desactivar: un pago ya realizado\n        // no desaparece del historial por el estado actual del usuario.\n        $personas = User::whereNotNull('subrubro_id')->get(['id', 'name', 'subrubro_id'])->groupBy('subrubro_id');\n        if ($personas->isEmpty()) return ['total_centavos' => 0, 'filas' => []];\n\n        $movimientos = CashflowMovimiento::whereIn('subrubro_id', $personas->keys())\n            ->whereBetween('fecha', [$inicio->toDateString(), $corte->toDateString()])\n            ->whereHas('subrubro.rubro', fn ($q) => $q->where('nombre', SubrubroSueldoService::RUBRO_SUELDOS)->where('tipo', 'EGRESO'))\n            ->whereNotIn('subrubro_id', Profesor::whereNotNull('subrubro_id')->select('subrubro_id'))\n            ->whereNull('movimiento_operativo_id')\n            ->where(fn ($q) => $q->whereNull('referencia_tipo')->orWhere('referencia_tipo', CashflowMovimiento::REF_CORRECCION))\n            ->get();\n\n        $filas = $movimientos->groupBy('subrubro_id')->map(function ($grupo, $id) use ($personas) {\n            return ['subrubro_id' => (int) $id,\n                'nombre' => $personas[$id]->pluck('name')->unique()->sort()->implode(' / '),\n                'centavos' => -(int) $grupo->sum(fn ($m) => (int) round((float) $m->monto * 100)),\n                'movimientos' => $grupo->filter(fn ($m) => $m->esDirecto() && $m->anulado_at === null)->count()];\n        })->filter(fn ($fila) => $fila['centavos'] !== 0)->sortBy('nombre')->values();\n\n        return ['total_centavos' => (int) $filas->sum('centavos'), 'filas' => $filas->all()];\n    }\n",
+        "callers": 1,
+        "callees": 2
+      },
+      "isError": false
+    }
+  },
+  "cobertura": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"project\":\"C-xampp-htdocs-gestion-wings\",\"signal\":\"best_effort\",\"indexed_at\":\"2026-10-27T05:22:57Z\",\"metadata\":{\"generation\":\"2026-10-27T05:22:57Z\",\"index_mode\":\"full\",\"recorded_at\":\"2026-10-27T05:22:59Z\",\"recording_status\":\"truncated\",\"ignored_files_stored\":2000,\"ignored_files_total\":7791,\"hash_records_complete\":true,\"coverage_version\":3,\"generation_matches\":true},\"paths\":[{\"requested_path\":\"app/Services/ReporteSueldosService.php\",\"path\":\"app/Services/ReporteSueldosService.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]},{\"requested_path\":\"app/Http/Controllers/ReporteWebController.php\",\"path\":\"app/Http/Controllers/ReporteWebController.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]},{\"requested_path\":\"resources/views/reportes/sueldos.blade.php\",\"path\":\"resources/views/reportes/sueldos.blade.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]},{\"requested_path\":\"tests/Feature/ReporteSueldosOperativasT86Test.php\",\"path\":\"tests/Feature/ReporteSueldosOperativasT86Test.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]},{\"requested_path\":\"docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php\",\"path\":\"docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]},{\"requested_path\":\"docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php\",\"path\":\"docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php\",\"status\":\"coverage_unavailable\",\"freshness\":\"metadata_changed\",\"recommended_action\":\"read_source_and_reindex\",\"coverage\":[]}],\"path_total\":6,\"path_returned\":6,\"path_has_more\":false,\"scopes\":[],\"scope_total\":0,\"scope_returned\":0,\"scope_truncated\":false,\"has_more\":false,\"caveat\":\"Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable.\"}"
+        }
+      ],
+      "structuredContent": {
+        "project": "C-xampp-htdocs-gestion-wings",
+        "signal": "best_effort",
+        "indexed_at": "2026-10-27T05:22:57Z",
+        "metadata": {
+          "generation": "2026-10-27T05:22:57Z",
+          "index_mode": "full",
+          "recorded_at": "2026-10-27T05:22:59Z",
+          "recording_status": "truncated",
+          "ignored_files_stored": 2000,
+          "ignored_files_total": 7791,
+          "hash_records_complete": true,
+          "coverage_version": 3,
+          "generation_matches": true
+        },
+        "paths": [
+          {
+            "requested_path": "app/Services/ReporteSueldosService.php",
+            "path": "app/Services/ReporteSueldosService.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          },
+          {
+            "requested_path": "app/Http/Controllers/ReporteWebController.php",
+            "path": "app/Http/Controllers/ReporteWebController.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          },
+          {
+            "requested_path": "resources/views/reportes/sueldos.blade.php",
+            "path": "resources/views/reportes/sueldos.blade.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          },
+          {
+            "requested_path": "tests/Feature/ReporteSueldosOperativasT86Test.php",
+            "path": "tests/Feature/ReporteSueldosOperativasT86Test.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          },
+          {
+            "requested_path": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php",
+            "path": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          },
+          {
+            "requested_path": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php",
+            "path": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php",
+            "status": "coverage_unavailable",
+            "freshness": "metadata_changed",
+            "recommended_action": "read_source_and_reindex",
+            "coverage": []
+          }
+        ],
+        "path_total": 6,
+        "path_returned": 6,
+        "path_has_more": false,
+        "scopes": [],
+        "scope_total": 0,
+        "scope_returned": 0,
+        "scope_truncated": false,
+        "has_more": false,
+        "caveat": "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."
+      },
+      "isError": false
+    }
+  },
+  "complemento": "Cobertura no disponible/metadata_changed: lectura directa de cuerpos, ruta real y pruebas. No se infieren ausencias del grafo."
+}

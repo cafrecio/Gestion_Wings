@@ -1,0 +1,348 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\gestion-wings\phpunit.xml
+
+FFFFFFFF                                                            8 / 8 (100%)
+
+Time: 00:13.375, Memory: 54.00 MB
+
+There were 8 failures:
+
+1) Tests\Feature\ReporteSueldosOperativasT86Test::test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa
+Failed asserting that '<!DOCTYPE html>\n
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">\n
+<head>\n
+    <meta charset="utf-8">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\n
+    <meta name="csrf-token" content="CqisIn5kMufRQf3Q4ah3DOTPbMM7cXy3wUs8DaKb">\n
+    <title>Reporte de sueldos – Wings</title>\n
+    <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">\n
+    <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">\n
+    <link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png">\n
+    <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">\n
+    <link rel="manifest" href="http://gestion-wings/site.webmanifest">\n
+    <meta name="theme-color" content="#0F172A">\n
+    </head>\n
+<body>\n
+\n
+<div class="ds-layout">\n
+\n
+    \n
+    <aside class="ds-sidebar">\n
+\n
+        \n
+        <div class="ds-brand">\n
+            <a href="/" class="ds-brand__link">\n
+                <img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo">\n
+                <span class="ds-brand__name">Wings</span>\n
+            </a>\n
+        </div>\n
+\n
+        \n
+        <nav class="flex flex-col gap-0.5">\n
+            \n
+                \n
+                    \n
+\n
+                    <div class="ds-nav-group">Día a día</div>\n
+\n
+                                            <a href="http://gestion-wings/admin/dashboard"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>\n
+                            </svg>\n
+                            Inicio\n
+                        </a>\n
+                    \n
+                    <a href="http://gestion-wings/alumnos"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>\n
+                        </svg>\n
+                        Alumnos\n
+                    </a>\n
+\n
+                    <a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>\n
+                        </svg>\n
+                        Clases\n
+                    </a>\n
+                    \n
+                        <div class="ds-nav-group">Plata</div>\n
+\n
+                        <a href="http://gestion-wings/cobranza"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>\n
+                            </svg>\n
+                            Cobranza\n
+                        </a>\n
+\n
+                                            <a href="http://gestion-wings/caja"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>\n
+                            </svg>\n
+                            Caja\n
+                        </a>\n
+                    \n
+                        <a href="http://gestion-wings/movimientos"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>\n
+                            </svg>\n
+                            Movimientos\n
+                        </a>\n
+\n
+                                            <a href="http://gestion-wings/cashflow"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>\n
+                            </svg>\n
+                            Cashflow\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/liquidaciones"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>\n
+                            </svg>\n
+                            Liquidaciones\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/reportes"\n
+                           class="ds-nav-link ds-nav-link--active">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/>\n
+                            </svg>\n
+                            Reportes\n
+                        </a>\n
+                    \n
+                    <a href="http://gestion-wings/revision-cobranza"\n
+                       class="ds-nav-link ">\n
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>\n
+                        </svg>\n
+                        Revisión\n
+                    </a>\n
+\n
+                    \n
+                        <div class="ds-nav-group">El club</div>\n
+\n
+                        <a href="http://gestion-wings/deportes"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>\n
+                            </svg>\n
+                            Deportes\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/niveles"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>\n
+                            </svg>\n
+                            Niveles\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/grupos"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>\n
+                            </svg>\n
+                            Grupos\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/profesores"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>\n
+                            </svg>\n
+                            Profesores\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/rubros"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>\n
+                            </svg>\n
+                            Rubros\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/tipos-caja"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>\n
+                            </svg>\n
+                            Tipos de Caja\n
+                        </a>\n
+\n
+                        <div class="ds-nav-group">Sistema</div>\n
+\n
+                        \n
+                        <a href="http://gestion-wings/configuraciones"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>\n
+                            </svg>\n
+                            Configuración\n
+                        </a>\n
+\n
+                        <a href="http://gestion-wings/usuarios"\n
+                           class="ds-nav-link ">\n
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>\n
+                            </svg>\n
+                            Usuarios\n
+                        </a>\n
+\n
+                    \n
+                                    </nav>\n
+\n
+    </aside>\n
+\n
+    \n
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>\n
+\n
+    \n
+    <div class="ds-main">\n
+\n
+        \n
+        <div class="ds-topbar">\n
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">\n
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">\n
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\n
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>\n
+                        </svg>\n
+                    </button>\n
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Dr. Reagan Hoeger</span>\n
+                </div>\n
+                <form method="POST" action="http://gestion-wings/logout">\n
+                    <input type="hidden" name="_token" value="CqisIn5kMufRQf3Q4ah3DOTPbMM7cXy3wUs8DaKb" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            >\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    </button>\n
+\n
+                </form>\n
+                    </div>\n
+\n
+        \n
+                    <header class="ds-module-header">\n
+    <div class="ds-module-header__inner">\n
+                <h1 class="ds-module-header__title">Reporte de sueldos</h1>\n
+    </div>\n
+</header>\n
+        \n
+        \n
+        <main class="ds-content">\n
+\n
+            \n
+            \n
+            <div class="reporte-visual reporte-analitico">\r\n
+    <div class="stats-bar mb-4"><div class="stats-info"><strong>Reportes</strong></div><a class="ds-btn ds-btn--secondary" href="http://gestion-wings/reportes?mes=2026-10">Volver</a></div>\r\n
+    <div class="ra-subnav"><a href="http://gestion-wings/reportes?mes=2026-10">Ingresos y egresos</a><a href="http://gestion-wings/reportes/alumnos?mes=2026-10">Alumnos</a><strong aria-current="page">Sueldos</strong></div>\r\n
+        <form class="filtros-card ra-filters" method="GET" action="http://gestion-wings/reportes/sueldos">\r\n
+        <select name="mes" class="filtros-control" aria-label="Mes"><option value="2026-10" selected>Octubre 2026</option></select>\r\n
+        <select name="deporte_id" class="filtros-control" aria-label="Deporte"><option value="">Todos los deportes</option><option value="2" >Fútbol</option><option value="1" >Patín</option></select>\r\n
+        <button class="ds-btn ds-btn--secondary" type="submit">Filtrar</button>\r\n
+    </form>\r\n
+    <div class="rv-section"><h2>Octubre 2026</h2><span class="rv-note">Costo del mes · hasta 27/10</span></div>\r\n
+    <div class="rv-kpis">\r\n
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-warning)"></i>Costo de profesores</div><div class="rv-amount"><span class="ds-money ds-money--total">$0.00</span></div><div class="ra-mini">Aunque se pague después</div></section>\r\n
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-success)"></i>Cuotas atribuidas</div><div class="rv-amount"><span class="ds-money ds-money--total">$0.00</span></div><div class="ra-mini">Importe real del mismo mes</div></section>\r\n
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-info)"></i>Sueldos / cuotas</div><div class="ra-count">Sin datos</div><div class="ra-mini">Parte de las cuotas destinada a profesores</div></section>\r\n
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-danger)"></i>Costo por asistencia</div><div class="rv-amount"><span class="ds-money ds-money--total">Sin datos</span></div><div class="ra-mini">0 asistencias del mes</div></section>\r\n
+    </div>\r\n
+    <div class="rv-main-grid">\r\n
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Evolución: cuotas y sueldos</h3></div><div class="rv-body"><div class="rv-legend"><span><i class="rv-swatch" style="background:var(--color-success)"></i>Cuotas atribuidas</span><span><i class="rv-swatch" style="background:var(--color-warning)"></i>Costo de profesores</span></div><div class="rv-chart"><canvas data-ra-chart="{&quot;type&quot;:&quot;line&quot;,&quot;labels&quot;:[&quot;abr.&quot;,&quot;may.&quot;,&quot;jun.&quot;,&quot;jul.&quot;,&quot;ago.&quot;,&quot;sep.&quot;],&quot;series&quot;:[{&quot;label&quot;:&quot;Cuotas ($)&quot;,&quot;values&quot;:[null,null,null,null,null,null],&quot;tone&quot;:&quot;success&quot;},{&quot;label&quot;:&quot;Sueldos ($)&quot;,&quot;values&quot;:[null,null,null,null,null,null],&quot;tone&quot;:&quot;warning&quot;}],&quot;horizontal&quot;:false}" role="img" aria-label="Evolución de cuotas atribuidas y costo de profesores"></canvas></div></div><details class="rv-detail"><summary>Detalle</summary><div class="rv-detail-row"><span>Abril 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div><div class="rv-detail-row"><span>Mayo 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div><div class="rv-detail-row"><span>Junio 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div><div class="rv-detail-row"><span>Julio 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div><div class="rv-detail-row"><span>Agosto 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div><div class="rv-detail-row"><span>Septiembre 2026<small>Cuotas <span class="ds-money ds-money--row">Sin historial</span></small></span><strong><span class="ds-money ds-money--row">Sin historial</span></strong></div></details></section>\r\n
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Por deporte</h3></div><div class="rv-body"><div class="ra-empty">Sin clases ni liquidaciones en este mes</div></div><details class="rv-detail"><summary>Detalle</summary></details></section>\r\n
+    </div>\r\n
+    <div class="rv-section"><h2>Por profesor</h2><span class="rv-note">Cada asistencia cuenta</span></div>\r\n
+    <div class="rv-pair">\r\n
+    <div class="filtros-card ra-empty">Sin clases ni liquidaciones en este mes</div>    </div>\r\n
+    <details class="filtros-card rv-detail"><summary>Cómo se calcula</summary><p class="ra-mini">Las cuotas reales del mes se reparten entre profesores según las asistencias. La comisión usa cuotas cobradas; un pago parcial cuenta como cobro. El monto final ajustado por ADMIN se conserva en la liquidación.</p><p class="ra-mini">Cuotas sin asistencias para atribuir: <span class="ds-money ds-money--row">$0.00</span>. Los meses sin respaldo muestran Sin historial.</p><p class="ra-mini">Cuotas, tarifas, cobros y liquidaciones se consultan al corte del mes. El reparto y los estimados usan las asistencias y horarios registrados actualmente: corregir una clase puede cambiar esos indicadores. Una liquidación cerrada conserva su importe.</p></details>\r\n
+    <div class="rv-footer"><span>Comparación económica · no determina ganancias del club</span><span>Datos faltantes no se dibujan como cero</span></div>\r\n
+</div>\r\n
+\n
+        </main>\n
+\n
+        \n
+        <footer class="ds-footer">\n
+            <div class="ds-footer__inner">Wings</div>\n
+        </footer>\n
+\n
+    </div>\n
+\n
+</div>\n
+\n
+\n
+</body>\n
+</html>\n
+' [UTF-8](length: 20949) contains "Pagos de operativas" [ASCII](length: 19).
+
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:710
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:65
+
+2) Tests\Feature\ReporteSueldosOperativasT86Test::test_selecciona_el_mes_y_no_incluye_fechas_futuras
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:76
+
+3) Tests\Feature\ReporteSueldosOperativasT86Test::test_agrupa_varios_pagos_y_excluye_sueldos_docentes_y_gastos_ajenos
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:90
+
+4) Tests\Feature\ReporteSueldosOperativasT86Test::test_anular_el_pago_resta_el_contraasiento_sin_contarlo_dos_veces
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:101
+
+5) Tests\Feature\ReporteSueldosOperativasT86Test::test_el_pago_historico_no_desaparece_al_cambiar_rol_o_desactivar
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:111
+
+6) Tests\Feature\ReporteSueldosOperativasT86Test::test_el_filtro_de_deporte_no_reparte_el_gasto_del_club
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:120
+
+7) Tests\Feature\ReporteSueldosOperativasT86Test::test_sin_pagos_muestra_cero_y_el_estado_vacio
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:128
+
+8) Tests\Feature\ReporteSueldosOperativasT86Test::test_identifica_la_operativa_por_fk_y_escapa_su_nombre
+Failed asserting that an array has the key 'pagos_operativas'.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:141
+
+FAILURES!
+Tests: 8, Assertions: 9, Failures: 8.

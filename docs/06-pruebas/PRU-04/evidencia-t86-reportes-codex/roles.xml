@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\VerificacionCodex\ObservacionesT86Test" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-t86-codex\ObservacionesT86Test.php" tests="1" assertions="8" errors="0" failures="0" skipped="0" time="11.684277">
+    <testcase name="test_observaciones_de_reporte_y_cambios_de_rol" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-t86-codex\ObservacionesT86Test.php" line="14" class="Tests\VerificacionCodex\ObservacionesT86Test" classname="Tests.VerificacionCodex.ObservacionesT86Test" assertions="8" time="11.684277"/>
+  </testsuite>
+</testsuites>

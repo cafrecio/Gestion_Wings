@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\ReporteSueldosOperativasT86Test" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" tests="8" assertions="9" errors="0" failures="8" skipped="0" time="13.359557">
+    <testcase name="test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="61" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="2" time="12.499410">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_la_ruta_de_sueldos_muestra_el_pago_y_la_operativa&#13;
+Failed asserting that '&lt;!DOCTYPE html&gt;\n
+&lt;html lang="es" data-formato-importes="{&amp;quot;locale&amp;quot;:&amp;quot;en-US&amp;quot;,&amp;quot;decimales&amp;quot;:2,&amp;quot;decimal&amp;quot;:&amp;quot;.&amp;quot;,&amp;quot;miles&amp;quot;:&amp;quot;,&amp;quot;,&amp;quot;moneda&amp;quot;:&amp;quot;$&amp;quot;}"&gt;\n
+&lt;head&gt;\n
+    &lt;meta charset="utf-8"&gt;\n
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;\n
+    &lt;meta name="csrf-token" content="CqisIn5kMufRQf3Q4ah3DOTPbMM7cXy3wUs8DaKb"&gt;\n
+    &lt;title&gt;Reporte de sueldos – Wings&lt;/title&gt;\n
+    &lt;link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png"&gt;\n
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png"&gt;\n
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png"&gt;\n
+    &lt;link rel="manifest" href="http://gestion-wings/site.webmanifest"&gt;\n
+    &lt;meta name="theme-color" content="#0F172A"&gt;\n
+    &lt;/head&gt;\n
+&lt;body&gt;\n
+\n
+&lt;div class="ds-layout"&gt;\n
+\n
+    \n
+    &lt;aside class="ds-sidebar"&gt;\n
+\n
+        \n
+        &lt;div class="ds-brand"&gt;\n
+            &lt;a href="/" class="ds-brand__link"&gt;\n
+                &lt;img src="http://gestion-wings/img/logo-wings.png" alt="" class="ds-brand__logo"&gt;\n
+                &lt;span class="ds-brand__name"&gt;Wings&lt;/span&gt;\n
+            &lt;/a&gt;\n
+        &lt;/div&gt;\n
+\n
+        \n
+        &lt;nav class="flex flex-col gap-0.5"&gt;\n
+            \n
+                \n
+                    \n
+\n
+                    &lt;div class="ds-nav-group"&gt;Día a día&lt;/div&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/admin/dashboard"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Inicio\n
+                        &lt;/a&gt;\n
+                    \n
+                    &lt;a href="http://gestion-wings/alumnos"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Alumnos\n
+                    &lt;/a&gt;\n
+\n
+                    &lt;a href="http://gestion-wings/clases"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Clases\n
+                    &lt;/a&gt;\n
+                    \n
+                        &lt;div class="ds-nav-group"&gt;Plata&lt;/div&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/cobranza"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Cobranza\n
+                        &lt;/a&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/caja"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Caja\n
+                        &lt;/a&gt;\n
+                    \n
+                        &lt;a href="http://gestion-wings/movimientos"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Movimientos\n
+                        &lt;/a&gt;\n
+\n
+                                            &lt;a href="http://gestion-wings/cashflow"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Cashflow\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/liquidaciones"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Liquidaciones\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/reportes"\n
+                           class="ds-nav-link ds-nav-link--active"&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Reportes\n
+                        &lt;/a&gt;\n
+                    \n
+                    &lt;a href="http://gestion-wings/revision-cobranza"\n
+                       class="ds-nav-link "&gt;\n
+                        &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/&gt;\n
+                        &lt;/svg&gt;\n
+                        Revisión\n
+                    &lt;/a&gt;\n
+\n
+                    \n
+                        &lt;div class="ds-nav-group"&gt;El club&lt;/div&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/deportes"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Deportes\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/niveles"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Niveles\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/grupos"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Grupos\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/profesores"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Profesores\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/rubros"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Rubros\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/tipos-caja"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Tipos de Caja\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;div class="ds-nav-group"&gt;Sistema&lt;/div&gt;\n
+\n
+                        \n
+                        &lt;a href="http://gestion-wings/configuraciones"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Configuración\n
+                        &lt;/a&gt;\n
+\n
+                        &lt;a href="http://gestion-wings/usuarios"\n
+                           class="ds-nav-link "&gt;\n
+                            &lt;svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                                &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"\n
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/&gt;\n
+                            &lt;/svg&gt;\n
+                            Usuarios\n
+                        &lt;/a&gt;\n
+\n
+                    \n
+                                    &lt;/nav&gt;\n
+\n
+    &lt;/aside&gt;\n
+\n
+    \n
+    &lt;div id="ds-sidebar-overlay" class="ds-sidebar-overlay"&gt;&lt;/div&gt;\n
+\n
+    \n
+    &lt;div class="ds-main"&gt;\n
+\n
+        \n
+        &lt;div class="ds-topbar"&gt;\n
+                            &lt;div style="display:flex; align-items:center; gap:8px; min-width:0;"&gt;\n
+                    &lt;button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú"&gt;\n
+                        &lt;svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;\n
+                            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/&gt;\n
+                        &lt;/svg&gt;\n
+                    &lt;/button&gt;\n
+                    &lt;span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"&gt;Dr. Reagan Hoeger&lt;/span&gt;\n
+                &lt;/div&gt;\n
+                &lt;form method="POST" action="http://gestion-wings/logout"&gt;\n
+                    &lt;input type="hidden" name="_token" value="CqisIn5kMufRQf3Q4ah3DOTPbMM7cXy3wUs8DaKb" autocomplete="off"&gt;                    &lt;button class="ds-btn ds-btn--ghost"\n
+            type="submit"\n
+            &gt;\n
+\n
+                    \n
+                            Salir\n
+                    \n
+    &lt;/button&gt;\n
+\n
+                &lt;/form&gt;\n
+                    &lt;/div&gt;\n
+\n
+        \n
+                    &lt;header class="ds-module-header"&gt;\n
+    &lt;div class="ds-module-header__inner"&gt;\n
+                &lt;h1 class="ds-module-header__title"&gt;Reporte de sueldos&lt;/h1&gt;\n
+    &lt;/div&gt;\n
+&lt;/header&gt;\n
+        \n
+        \n
+        &lt;main class="ds-content"&gt;\n
+\n
+            \n
+            \n
+            &lt;div class="reporte-visual reporte-analitico"&gt;\r\n
+    &lt;div class="stats-bar mb-4"&gt;&lt;div class="stats-info"&gt;&lt;strong&gt;Reportes&lt;/strong&gt;&lt;/div&gt;&lt;a class="ds-btn ds-btn--secondary" href="http://gestion-wings/reportes?mes=2026-10"&gt;Volver&lt;/a&gt;&lt;/div&gt;\r\n
+    &lt;div class="ra-subnav"&gt;&lt;a href="http://gestion-wings/reportes?mes=2026-10"&gt;Ingresos y egresos&lt;/a&gt;&lt;a href="http://gestion-wings/reportes/alumnos?mes=2026-10"&gt;Alumnos&lt;/a&gt;&lt;strong aria-current="page"&gt;Sueldos&lt;/strong&gt;&lt;/div&gt;\r\n
+        &lt;form class="filtros-card ra-filters" method="GET" action="http://gestion-wings/reportes/sueldos"&gt;\r\n
+        &lt;select name="mes" class="filtros-control" aria-label="Mes"&gt;&lt;option value="2026-10" selected&gt;Octubre 2026&lt;/option&gt;&lt;/select&gt;\r\n
+        &lt;select name="deporte_id" class="filtros-control" aria-label="Deporte"&gt;&lt;option value=""&gt;Todos los deportes&lt;/option&gt;&lt;option value="2" &gt;Fútbol&lt;/option&gt;&lt;option value="1" &gt;Patín&lt;/option&gt;&lt;/select&gt;\r\n
+        &lt;button class="ds-btn ds-btn--secondary" type="submit"&gt;Filtrar&lt;/button&gt;\r\n
+    &lt;/form&gt;\r\n
+    &lt;div class="rv-section"&gt;&lt;h2&gt;Octubre 2026&lt;/h2&gt;&lt;span class="rv-note"&gt;Costo del mes · hasta 27/10&lt;/span&gt;&lt;/div&gt;\r\n
+    &lt;div class="rv-kpis"&gt;\r\n
+        &lt;section class="rv-kpi"&gt;&lt;div class="rv-kpi-label"&gt;&lt;i class="rv-swatch" style="background:var(--color-warning)"&gt;&lt;/i&gt;Costo de profesores&lt;/div&gt;&lt;div class="rv-amount"&gt;&lt;span class="ds-money ds-money--total"&gt;$0.00&lt;/span&gt;&lt;/div&gt;&lt;div class="ra-mini"&gt;Aunque se pague después&lt;/div&gt;&lt;/section&gt;\r\n
+        &lt;section class="rv-kpi"&gt;&lt;div class="rv-kpi-label"&gt;&lt;i class="rv-swatch" style="background:var(--color-success)"&gt;&lt;/i&gt;Cuotas atribuidas&lt;/div&gt;&lt;div class="rv-amount"&gt;&lt;span class="ds-money ds-money--total"&gt;$0.00&lt;/span&gt;&lt;/div&gt;&lt;div class="ra-mini"&gt;Importe real del mismo mes&lt;/div&gt;&lt;/section&gt;\r\n
+        &lt;section class="rv-kpi"&gt;&lt;div class="rv-kpi-label"&gt;&lt;i class="rv-swatch" style="background:var(--color-info)"&gt;&lt;/i&gt;Sueldos / cuotas&lt;/div&gt;&lt;div class="ra-count"&gt;Sin datos&lt;/div&gt;&lt;div class="ra-mini"&gt;Parte de las cuotas destinada a profesores&lt;/div&gt;&lt;/section&gt;\r\n
+        &lt;section class="rv-kpi"&gt;&lt;div class="rv-kpi-label"&gt;&lt;i class="rv-swatch" style="background:var(--color-danger)"&gt;&lt;/i&gt;Costo por asistencia&lt;/div&gt;&lt;div class="rv-amount"&gt;&lt;span class="ds-money ds-money--total"&gt;Sin datos&lt;/span&gt;&lt;/div&gt;&lt;div class="ra-mini"&gt;0 asistencias del mes&lt;/div&gt;&lt;/section&gt;\r\n
+    &lt;/div&gt;\r\n
+    &lt;div class="rv-main-grid"&gt;\r\n
+        &lt;section class="alumno-card rv-panel"&gt;&lt;div class="alumno-card-header"&gt;&lt;span class="alumno-dot alumno-dot--info"&gt;&lt;/span&gt;&lt;h3 class="alumno-nombre"&gt;Evolución: cuotas y sueldos&lt;/h3&gt;&lt;/div&gt;&lt;div class="rv-body"&gt;&lt;div class="rv-legend"&gt;&lt;span&gt;&lt;i class="rv-swatch" style="background:var(--color-success)"&gt;&lt;/i&gt;Cuotas atribuidas&lt;/span&gt;&lt;span&gt;&lt;i class="rv-swatch" style="background:var(--color-warning)"&gt;&lt;/i&gt;Costo de profesores&lt;/span&gt;&lt;/div&gt;&lt;div class="rv-chart"&gt;&lt;canvas data-ra-chart="{&amp;quot;type&amp;quot;:&amp;quot;line&amp;quot;,&amp;quot;labels&amp;quot;:[&amp;quot;abr.&amp;quot;,&amp;quot;may.&amp;quot;,&amp;quot;jun.&amp;quot;,&amp;quot;jul.&amp;quot;,&amp;quot;ago.&amp;quot;,&amp;quot;sep.&amp;quot;],&amp;quot;series&amp;quot;:[{&amp;quot;label&amp;quot;:&amp;quot;Cuotas ($)&amp;quot;,&amp;quot;values&amp;quot;:[null,null,null,null,null,null],&amp;quot;tone&amp;quot;:&amp;quot;success&amp;quot;},{&amp;quot;label&amp;quot;:&amp;quot;Sueldos ($)&amp;quot;,&amp;quot;values&amp;quot;:[null,null,null,null,null,null],&amp;quot;tone&amp;quot;:&amp;quot;warning&amp;quot;}],&amp;quot;horizontal&amp;quot;:false}" role="img" aria-label="Evolución de cuotas atribuidas y costo de profesores"&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;&lt;details class="rv-detail"&gt;&lt;summary&gt;Detalle&lt;/summary&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Abril 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Mayo 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Junio 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Julio 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Agosto 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;div class="rv-detail-row"&gt;&lt;span&gt;Septiembre 2026&lt;small&gt;Cuotas &lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/small&gt;&lt;/span&gt;&lt;strong&gt;&lt;span class="ds-money ds-money--row"&gt;Sin historial&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;&lt;/details&gt;&lt;/section&gt;\r\n
+        &lt;section class="alumno-card rv-panel"&gt;&lt;div class="alumno-card-header"&gt;&lt;span class="alumno-dot alumno-dot--warning"&gt;&lt;/span&gt;&lt;h3 class="alumno-nombre"&gt;Por deporte&lt;/h3&gt;&lt;/div&gt;&lt;div class="rv-body"&gt;&lt;div class="ra-empty"&gt;Sin clases ni liquidaciones en este mes&lt;/div&gt;&lt;/div&gt;&lt;details class="rv-detail"&gt;&lt;summary&gt;Detalle&lt;/summary&gt;&lt;/details&gt;&lt;/section&gt;\r\n
+    &lt;/div&gt;\r\n
+    &lt;div class="rv-section"&gt;&lt;h2&gt;Por profesor&lt;/h2&gt;&lt;span class="rv-note"&gt;Cada asistencia cuenta&lt;/span&gt;&lt;/div&gt;\r\n
+    &lt;div class="rv-pair"&gt;\r\n
+    &lt;div class="filtros-card ra-empty"&gt;Sin clases ni liquidaciones en este mes&lt;/div&gt;    &lt;/div&gt;\r\n
+    &lt;details class="filtros-card rv-detail"&gt;&lt;summary&gt;Cómo se calcula&lt;/summary&gt;&lt;p class="ra-mini"&gt;Las cuotas reales del mes se reparten entre profesores según las asistencias. La comisión usa cuotas cobradas; un pago parcial cuenta como cobro. El monto final ajustado por ADMIN se conserva en la liquidación.&lt;/p&gt;&lt;p class="ra-mini"&gt;Cuotas sin asistencias para atribuir: &lt;span class="ds-money ds-money--row"&gt;$0.00&lt;/span&gt;. Los meses sin respaldo muestran Sin historial.&lt;/p&gt;&lt;p class="ra-mini"&gt;Cuotas, tarifas, cobros y liquidaciones se consultan al corte del mes. El reparto y los estimados usan las asistencias y horarios registrados actualmente: corregir una clase puede cambiar esos indicadores. Una liquidación cerrada conserva su importe.&lt;/p&gt;&lt;/details&gt;\r\n
+    &lt;div class="rv-footer"&gt;&lt;span&gt;Comparación económica · no determina ganancias del club&lt;/span&gt;&lt;span&gt;Datos faltantes no se dibujan como cero&lt;/span&gt;&lt;/div&gt;\r\n
+&lt;/div&gt;\r\n
+\n
+        &lt;/main&gt;\n
+\n
+        \n
+        &lt;footer class="ds-footer"&gt;\n
+            &lt;div class="ds-footer__inner"&gt;Wings&lt;/div&gt;\n
+        &lt;/footer&gt;\n
+\n
+    &lt;/div&gt;\n
+\n
+&lt;/div&gt;\n
+\n
+\n
+&lt;/body&gt;\n
+&lt;/html&gt;\n
+' [UTF-8](length: 20949) contains "Pagos de operativas" [ASCII](length: 19).
+&#13;
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:710
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:65</failure>
+    </testcase>
+    <testcase name="test_selecciona_el_mes_y_no_incluye_fechas_futuras" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="69" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.125915">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_selecciona_el_mes_y_no_incluye_fechas_futuras&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:76</failure>
+    </testcase>
+    <testcase name="test_agrupa_varios_pagos_y_excluye_sueldos_docentes_y_gastos_ajenos" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="80" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.130124">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_agrupa_varios_pagos_y_excluye_sueldos_docentes_y_gastos_ajenos&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:90</failure>
+    </testcase>
+    <testcase name="test_anular_el_pago_resta_el_contraasiento_sin_contarlo_dos_veces" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="98" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.102441">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_anular_el_pago_resta_el_contraasiento_sin_contarlo_dos_veces&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:101</failure>
+    </testcase>
+    <testcase name="test_el_pago_historico_no_desaparece_al_cambiar_rol_o_desactivar" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="108" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.106071">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_el_pago_historico_no_desaparece_al_cambiar_rol_o_desactivar&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:111</failure>
+    </testcase>
+    <testcase name="test_el_filtro_de_deporte_no_reparte_el_gasto_del_club" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="116" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.098494">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_el_filtro_de_deporte_no_reparte_el_gasto_del_club&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:120</failure>
+    </testcase>
+    <testcase name="test_sin_pagos_muestra_cero_y_el_estado_vacio" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="126" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.209983">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_sin_pagos_muestra_cero_y_el_estado_vacio&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:128</failure>
+    </testcase>
+    <testcase name="test_identifica_la_operativa_por_fk_y_escapa_su_nombre" file="C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php" line="132" class="Tests\Feature\ReporteSueldosOperativasT86Test" classname="Tests.Feature.ReporteSueldosOperativasT86Test" assertions="1" time="0.087119">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\ReporteSueldosOperativasT86Test::test_identifica_la_operativa_por_fk_y_escapa_su_nombre&#13;
+Failed asserting that an array has the key 'pagos_operativas'.
+&#13;
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:57
+C:\xampp\htdocs\gestion-wings\tests\Feature\ReporteSueldosOperativasT86Test.php:141</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

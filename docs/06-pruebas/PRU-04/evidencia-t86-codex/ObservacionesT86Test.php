@@ -29,15 +29,17 @@ class ObservacionesT86Test extends \Tests\Feature\SueldoOperativaT86Test
         $this->put(route('web.usuarios.update', $legado->id), ['name' => $legado->name, 'email' => $legado->email, 'rol' => 'OPERATIVO'])->assertSessionHas('success');
         $regreso = $legado->fresh();
         $r = $this->get(route('web.reportes.sueldos'))->assertOk()->viewData('reporte');
+        $this->assertArrayHasKey('pagos_operativas', $r);
+        $this->assertSame(4800075, $r['pagos_operativas']['total_centavos']);
         $this->assertNotNull($promovida->subrubro_id);
         $this->assertNotNull($regreso->subrubro_id);
-        file_put_contents(__DIR__.'/observaciones.json', json_encode([
+        file_put_contents(dirname(__DIR__).'/evidencia-t86-reportes-codex/observaciones-actualizadas.json', json_encode([
             'base' => DB::selectOne('SELECT DATABASE() AS nombre, VERSION() AS motor'),
             'pago_registrado_antes_de_consultar_reportes' => DB::table('cashflow_movimientos')->where('subrubro_id', $op->subrubro_id)->first(),
             'operativa_nueva_promovida_a_admin' => ['rol' => $promovida->rol, 'conserva_fk' => $promovida->subrubro_id === $op->subrubro_id, 'reserva' => $promovida->subrubro->es_reservado_sistema],
             'admin_con_fk_legacy_reservada_vuelve_a_operativo' => ['rol' => $regreso->rol, 'conserva_fk' => $regreso->subrubro_id === $legado->subrubro_id, 'reserva' => $regreso->subrubro->es_reservado_sistema],
-            'reporte_sueldos' => ['profesores' => $r['profesores'], 'costo' => $r['costo'], 'incluye_operativas' => false, 'alcance' => 'El servicio y la vista solo presentan docentes/clases; no se modifica ese contrato ni se inventa distribucion por deporte.'],
-            'pendiente_carlos' => 'Definir el tratamiento de una FK de sueldo al cambiar de rol y la inclusion de operativas en el analisis de Sueldos.',
+            'reporte_sueldos' => ['profesores' => $r['profesores'], 'costo_profesores' => $r['costo'], 'pagos_operativas' => $r['pagos_operativas']],
+            'pendiente_carlos' => 'Definir el tratamiento de una FK de sueldo reservada al cambiar de rol; los pagos historicos ya registrados permanecen visibles.',
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).PHP_EOL);
     }
 }

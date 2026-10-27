@@ -1,26 +1,15 @@
-# T86 — Diferencia pendiente de alcance
+# T86 — Alcance confirmado y completado
 
-Comprobación de Codex CAB, 27/10/2026, después de la entrega `13c4ee9d`.
+Codex CAB, 27/10/2026. Este archivo conserva su ruta para no romper enlaces de la primera entrega.
 
-El objetivo pide comprobar que el sueldo operativo aparezca en Reportes de Sueldos e Inicio, y ordena «No toques vistas ni CSS». El pago por Cashflow, Ingresos/egresos e Inicio ya está implementado y probado. La parte de Reportes de Sueldos no está satisfecha.
+Carlos respondió por escrito: **«No, incluir operativas en Sueldos es parte de T86»**. Esa confirmación reemplaza la interpretación inicial que dejaba la pantalla fuera por la frase «No toques vistas ni CSS» del objetivo.
 
-## Por qué no alcanza con agregar una fila desde el servidor
+La ampliación ya está implementada localmente: Reportes → Sueldos muestra «Pagos de operativas», con total, persona, importe y cantidad de pagos. Son gasto del club sin reparto por deporte; no se agregan como profesoras ni alteran sus indicadores. Se modificó únicamente la vista de Sueldos y su servicio; no se cambió CSS.
 
-La vista real `resources/views/reportes/sueldos.blade.php` dice:
+[Entrega actual y pruebas](../IMPLEMENTACION-T86.md) · [Capturas reales 1366/375](../APROBAR-T86-SUELDOS.html).
 
-- Línea 27: «Costo de profesores» y «Aunque se pague después».
-- Línea 29: «Parte de las cuotas destinada a profesores».
-- Línea 36: «Por profesor».
-- Líneas 40–41: costo por asistencia y alumnos con pagos/asistencias.
-- Línea 46: las cuotas se reparten entre profesores por asistencias.
+## Antecedente preservado
 
-`ReporteSueldosService::obtener`, líneas 154–168, construye costos por profesor y deporte y devuelve `profesores` y `deportes`. Inyectar una operativa en esas filas mostraría su sueldo bajo rótulos de profesor, clases y asistencia. Cambiar solo el total tampoco identificaría el pago y lo mezclaría con el costo docente. Ninguna de esas variantes cumple correctamente el pedido.
+En `13c4ee9d` y `f257fd6f`, el pago ya figuraba en Cashflow, Ingresos/egresos e Inicio, pero Sueldos solo devolvía docentes. El [diagnóstico inicial](observaciones.json) acredita esa ausencia en aquel código; no describe la versión ampliada. El informe y manifiesto de aquel corte se verifican contra `f257fd6f` con `verificar-entrega.py`.
 
-El [diagnóstico por rutas reales](observaciones.json) registró primero un egreso de $48.000,75 y luego consultó el reporte: la lista de profesores está vacía y su costo es cero en el escenario sin docentes. No se infiere la ausencia a partir de un agregado: también se leyó la lista devuelta, el servicio y los rótulos de la vista. Cobertura MCP no disponible/metadata_changed: se completó con lectura directa.
-
-## Decisión que falta
-
-1. Considerar la inclusión de operativas en este análisis como trabajo separado; T86 conserva su entrega de pago por Cashflow y su efecto financiero en Inicio e Ingresos/egresos.
-2. Mantener esa inclusión dentro de T86 y resolver cómo presentarla, compatible con la prohibición actual de editar vistas. No se modificó la pantalla ni se trató a una operativa como profesora para evitar esa decisión.
-
-Se consultó el alcance al usuario. La selección no se presupone por falta de respuesta. Los cambios de rol con vínculo antiguo siguen documentados aparte, sin adoptar una política nueva. T86 permanece `a_verificar` para Claude; este documento no la cierra ni cambia sus pruebas.
+La duda sobre reservas antiguas al cambiar de rol permanece para Carlos. No impide mostrar un pago ya realizado ni se resuelve cambiando sus datos. T86 sigue `a_verificar` para Claude; este documento no representa aprobación independiente ni visual.

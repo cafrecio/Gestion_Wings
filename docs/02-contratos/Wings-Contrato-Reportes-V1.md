@@ -164,7 +164,7 @@ intereses. No tienen alumno, así que no tienen deporte.
 | **Sueldos de profesores** | **Por deporte.** El subrubro ya se llama `Patín-Jorge Mitre`: trae el deporte adentro |
 | Alquiler de canchas | **Gastos generales**, sin repartir. Ver la limitación abajo |
 | Servicios, gastos operativos | Gastos generales, por rubro y subrubro |
-| Sueldo del operativo | Cashflow directo solo ADMIN; T86 implementada localmente, pendiente de Claude y sin despliegue. Ver límites del análisis de Sueldos y cambios de rol en la entrega |
+| Sueldo del operativo | Cashflow directo solo ADMIN; gasto del club sin reparto por deporte. También figura en Sueldos, como pago por persona. T86 local, pendiente de Claude y sin despliegue |
 
 ### Los movimientos no económicos NO entran en el resultado
 
@@ -235,9 +235,16 @@ por el prefijo del nombre. No se liberan sueldos vinculados a profesoras.
 
 Implementado localmente en T86, pendiente de verificación de Claude y sin despliegue.
 El egreso es gasto del club: entra en Ingresos/egresos e Inicio sin repartirlo por deporte.
-El análisis de Sueldos actual sigue dedicado a docentes/clases; la inclusión de operativas
-en ese análisis y el tratamiento de vínculos antiguos al cambiar de rol quedan como
-diferencias expresas para Carlos, sin decidirlas automáticamente.
+Carlos confirmó por escrito: «No, incluir operativas en Sueldos es parte de T86».
+Reportes → Sueldos incluye un bloque «Pagos de operativas»: total y detalle por persona
+de los pagos directos registrados en el mes, hasta el corte del reporte. Las correcciones
+se compensan con su contramovimiento; un pago eliminado no suma. Se identifican por
+`users.subrubro_id`, no por el nombre del concepto, y se excluyen los conceptos docentes.
+El bloque es gasto del club y conserva el mismo importe al filtrar por deporte; los
+indicadores de clases, asistencias y costo docente conservan su cálculo anterior.
+El pago histórico permanece visible si cambia el rol o se desactiva el usuario mientras
+conserve su vínculo. El tratamiento de reservas antiguas para nuevos pagos al cambiar
+de rol sigue pendiente de definición de Carlos; T86 no adopta una política automática.
 [Entrega y comprobaciones](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md).
 
 ---

@@ -29,6 +29,22 @@
         <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-info)"></i>Sueldos / cuotas</div><div class="ra-count">{{ $reporte['porcentaje_costo'] === null ? 'Sin datos' : number_format($reporte['porcentaje_costo'],1,',','.').'%' }}</div><div class="ra-mini">Parte de las cuotas destinada a profesores</div></section>
         <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-danger)"></i>Costo por asistencia</div><div class="rv-amount"><span class="ds-money ds-money--total">{{ $reporte['costo_por_asistencia'] === null ? 'Sin datos' : $plata($reporte['costo_por_asistencia']) }}</span></div><div class="ra-mini">{{ $numero($reporte['asistencias']) }} asistencias del mes</div></section>
     </div>
+    <div class="rv-section"><h2>Pagos de operativas</h2><span class="rv-note">Registrados en Cashflow durante el mes</span></div>
+    <section class="alumno-card rv-panel" id="pagos-operativas">
+        <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Total pagado</h3></div>
+        <div class="rv-body">
+            <div class="rv-amount"><span class="ds-money ds-money--total">{{ $plata($reporte['pagos_operativas']['total_centavos']) }}</span></div>
+            <p class="ra-mini">Gasto del club, sin reparto por deporte. Los indicadores de profesores corresponden a sus clases.</p>
+            @forelse($reporte['pagos_operativas']['filas'] as $operativa)
+                <div class="rv-detail-row">
+                    <span>{{ $operativa['nombre'] }}<small>{{ $operativa['movimientos'] }} {{ $operativa['movimientos'] === 1 ? 'pago' : 'pagos' }}</small></span>
+                    <strong><span class="ds-money ds-money--row">{{ $plata($operativa['centavos']) }}</span></strong>
+                </div>
+            @empty
+                <p class="rv-note">Sin pagos de operativas en este mes</p>
+            @endforelse
+        </div>
+    </section>
     <div class="rv-main-grid">
         <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Evolución: cuotas y sueldos</h3></div><div class="rv-body"><div class="rv-legend"><span><i class="rv-swatch" style="background:var(--color-success)"></i>Cuotas atribuidas</span><span><i class="rv-swatch" style="background:var(--color-warning)"></i>Costo de profesores</span></div><div class="rv-chart"><canvas data-ra-chart="{{ $grafico('line',$ejes,[['label'=>'Cuotas ($)','values'=>$enPesos($evolucion,'ingreso'),'tone'=>'success'],['label'=>'Sueldos ($)','values'=>$enPesos($evolucion,'costo'),'tone'=>'warning']]) }}" role="img" aria-label="Evolución de cuotas atribuidas y costo de profesores"></canvas></div></div><details class="rv-detail"><summary>Detalle</summary>@foreach($evolucion as $r)<div class="rv-detail-row"><span>{{ ucfirst($fecha($r['mes'])->translatedFormat('F Y')) }}<small>Cuotas <span class="ds-money ds-money--row">{{ $plata($r['ingreso']) }}</span></small></span><strong><span class="ds-money ds-money--row">{{ $plata($r['costo']) }}</span></strong></div>@endforeach</details></section>
         <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Por deporte</h3></div><div class="rv-body">@if(count($reporte['deportes']))<div class="rv-chart"><canvas data-ra-chart="{{ $grafico('bar',array_column($reporte['deportes'],'nombre'),[['label'=>'Cuotas ($)','values'=>$enPesos($reporte['deportes'],'ingreso'),'tone'=>'success'],['label'=>'Sueldos ($)','values'=>$enPesos($reporte['deportes'],'costo'),'tone'=>'warning']],true) }}" role="img" aria-label="Cuotas y sueldos por deporte"></canvas></div>@else<div class="ra-empty">Sin clases ni liquidaciones en este mes</div>@endif</div><details class="rv-detail"><summary>Detalle</summary>@foreach($reporte['deportes'] as $d)<div class="rv-detail-row"><span>{{ $d['nombre'] }}<small>Cuotas <span class="ds-money ds-money--row">{{ $plata($d['ingreso']) }}</span></small></span><strong><span class="ds-money ds-money--row">{{ $plata($d['costo']) }}</span></strong></div>@endforeach</details></section>

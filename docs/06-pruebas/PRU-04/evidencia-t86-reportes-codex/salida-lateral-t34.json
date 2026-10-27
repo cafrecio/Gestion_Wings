@@ -1,0 +1,6 @@
+{
+  "ruta": "docs/06-pruebas/PRU-04/evidencia-correccion-t34/sin-presentes.html",
+  "antes_reponer": "d73438791af028d19d5e0d724e5a841e8188f7cafab2a23c72345a3a4f5b3316",
+  "repuesto_HEAD": "d1a4ebb97d9a55f77c96a6ba476e816e7e03427e06b94ed1c392c6119f2835af",
+  "motivo": "Salida lateral de la suite; archivo limpio antes de correrla, restaurado byte a byte sin cambios de producto."
+}

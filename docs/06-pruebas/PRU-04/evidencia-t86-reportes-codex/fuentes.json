@@ -1,0 +1,44 @@
+{
+  "corte_base": "f257fd6f93137e5e2bc7cc178707c4dc7068ca62",
+  "fuentes": [
+    {
+      "ruta": "app/Services/ReporteSueldosService.php",
+      "sha256": "e45bdac58448b297c78743c3beb807201f8bd90233904ca0fd9ce62b1ed03ec4"
+    },
+    {
+      "ruta": "app/Http/Controllers/ReporteWebController.php",
+      "sha256": "a7e2a10d87c578d472371221dd73645fc0ef33caa9f41249622be1c9263768d1"
+    },
+    {
+      "ruta": "resources/views/reportes/sueldos.blade.php",
+      "sha256": "c7e48e0f031314543a193b8bc51c8e00833f66f53c9b84c26754e73ee1d13f43"
+    },
+    {
+      "ruta": "tests/Feature/ReporteSueldosOperativasT86Test.php",
+      "sha256": "9014fc206c1c0a0a854815b6d174a5d8e3dbf787614e89e635d75494e57a9033"
+    },
+    {
+      "ruta": "tests/Feature/SueldoOperativaT86Test.php",
+      "sha256": "8e160e1ae025631b2865549754954b7a97a06fdc0713f434ce4e4a9e35a26c8e"
+    },
+    {
+      "ruta": "app/Services/SubrubroSueldoService.php",
+      "sha256": "9ea8b8b26f3f9d3b80ad2ecb70e1594f2a7cccc66e031890973521a041b1c5b2"
+    },
+    {
+      "ruta": "database/migrations/2026_10_27_120000_habilitar_sueldos_operativas_en_cashflow.php",
+      "sha256": "55da9d23194980676a3c9c7b7373053c876c2a53bfe65cc9a6ff825530f0b20d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php",
+      "sha256": "716422982d0943ea254250010128b2e4f2cb8034577553c65dfff2584029d7af"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php",
+      "sha256": "938fa1c042a7d218ea943f46e3362d3a9d8b4f1c311384169a61ea6d2a8f6ac6"
+    }
+  ],
+  "base_exclusiva": "wings_testing_codex",
+  "nota": "Fuentes congeladas durante la suite completa. Cobertura del grafo incompleta, complementada con lectura directa.",
+  "normalizacion": "Solo finales de linea LF en la vista; contenido identico al probado. Capturas PNG preservadas."
+}

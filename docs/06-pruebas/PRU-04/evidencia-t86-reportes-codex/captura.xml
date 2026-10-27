@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\VerificacionCodex\CapturaSueldosT86Test" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-t86-reportes-codex\CapturaSueldosT86Test.php" tests="1" assertions="4" errors="0" failures="0" skipped="0" time="12.231786">
+    <testcase name="test_guardar_pantalla_real_con_pagos_sin_pagos_y_login" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-t86-reportes-codex\CapturaSueldosT86Test.php" line="32" class="Tests\VerificacionCodex\CapturaSueldosT86Test" classname="Tests.VerificacionCodex.CapturaSueldosT86Test" assertions="4" time="12.231786"/>
+  </testsuite>
+</testsuites>

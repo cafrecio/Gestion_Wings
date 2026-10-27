@@ -1,0 +1,337 @@
+{
+  "estado": "a_verificar",
+  "resultados": {
+    "rojo": {
+      "name": "Tests\\Feature\\ReporteSueldosOperativasT86Test",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\ReporteSueldosOperativasT86Test.php",
+      "tests": "8",
+      "assertions": "9",
+      "errors": "0",
+      "failures": "8",
+      "skipped": "0",
+      "time": "13.359557",
+      "exit": 1
+    },
+    "dirigidas": {
+      "name": "CLI Arguments",
+      "tests": "28",
+      "assertions": "131",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "15.646801",
+      "exit": 0
+    },
+    "dirigidas-final": {
+      "name": "CLI Arguments",
+      "tests": "30",
+      "assertions": "133",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "17.996384",
+      "exit": 0
+    },
+    "roles": {
+      "name": "Tests\\VerificacionCodex\\ObservacionesT86Test",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-t86-codex\\ObservacionesT86Test.php",
+      "tests": "1",
+      "assertions": "8",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "11.684277",
+      "exit": 0
+    },
+    "captura": {
+      "name": "Tests\\VerificacionCodex\\CapturaSueldosT86Test",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-t86-reportes-codex\\CapturaSueldosT86Test.php",
+      "tests": "1",
+      "assertions": "4",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "12.231786",
+      "exit": 0
+    },
+    "rapida": {
+      "name": "C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml",
+      "tests": "958",
+      "assertions": "7558",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "6",
+      "time": "165.315499",
+      "exit": 0
+    },
+    "completa": {
+      "name": "C:\\xampp\\htdocs\\gestion-wings\\phpunit.xml",
+      "tests": "1077",
+      "assertions": "9157",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "6",
+      "time": "971.012271",
+      "exit": 0
+    }
+  },
+  "imagenes": {
+    "con-pagos-1366.png": [
+      1366,
+      1800
+    ],
+    "sin-pagos-1366.png": [
+      1366,
+      1800
+    ],
+    "con-pagos-375.png": [
+      600,
+      2480
+    ],
+    "sin-pagos-375.png": [
+      600,
+      2480
+    ],
+    "enfoque-sueldos-con-pagos-375.png": [
+      600,
+      920
+    ],
+    "enfoque-login-375.png": [
+      600,
+      920
+    ]
+  },
+  "enlaces_revisados": 32,
+  "pendiente": [
+    "Verificacion independiente de Claude",
+    "Aprobacion visual de Carlos",
+    "Definir reservas antiguas al cambiar de rol"
+  ],
+  "archivos": [
+    {
+      "ruta": "docs/06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html",
+      "sha256": "23259857ac5a2c09fcc373e8ec0b47a602cb5a569257a87e4ccab9a77b36ca0d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ALCANCE-PENDIENTE.md",
+      "sha256": "0343eecbda3aaf6e382f7024b9e90c2d5e3a300787055691ea57461b8cfb15b9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php",
+      "sha256": "716422982d0943ea254250010128b2e4f2cb8034577553c65dfff2584029d7af"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/verificar-entrega.py",
+      "sha256": "c361b74d34e8dba2a2ec633742904b39ab5a0c7239320fd3db28d7433ed7d73c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/captura-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/captura.txt",
+      "sha256": "1bf93b7c18caa61c2bceadd2eeaac55cf78aa48024351622d9ebb0433879cff8"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/captura.xml",
+      "sha256": "0ec01800d4511dc4d6add6b59328bd7ff6d44d09e76d45cd55078c2c56844c94"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php",
+      "sha256": "938fa1c042a7d218ea943f46e3362d3a9d8b4f1c311384169a61ea6d2a8f6ac6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/completa-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/completa.txt",
+      "sha256": "cbc54f1f181bb02d6f0b8447e6ef0f0f9529ca8a9a75c3ea4e105f93a187b25f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/completa.xml",
+      "sha256": "4994c7117a7205c5f394b615039eadc6b4b968c82904eee6f4ced8fb1cfdcd5a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/con-pagos-1366-chrome.txt",
+      "sha256": "0641d216d32c91d41358bb168e4976f8e4ed954d33d4ddf35b2fcfab409e66d7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/con-pagos-1366.png",
+      "sha256": "0a04d71162184067f822f07be9acdb0f4249cddcc38413547a55a5b8cc379254"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/con-pagos-375-chrome.txt",
+      "sha256": "9c3f7a327908207ef5aef3554b001572765acd4a77461315b1dd093803955835"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/con-pagos-375.png",
+      "sha256": "31b73168d151ed056e9a98d3fabcc472cb570a7ad83ec3e9741d3d2f059816fe"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/datos-captura.json",
+      "sha256": "3e71a8abfdeb16f3676b0c1bebf56302c100d51fba8176578c2170dc8bb8b9fb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas-final-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas-final.txt",
+      "sha256": "e9004bdc7c097508361772ab1e4c5a3fbe2b8cd1e16014bbc8b3d52c40f40b59"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas-final.xml",
+      "sha256": "8c708cd41e185849ab0d708462119059aa8b36ff623943e4be8cdd39cc09616d"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas.txt",
+      "sha256": "c10ffed56fdacc5d3c8cb7cd771cb251325e089e5612dffeda2962ea5200e5e5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/dirigidas.xml",
+      "sha256": "9a07057ebd1b4322b8833ffb99bb050d93389ff9b970c4660b965c326e7d58bb"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-login-375-chrome.txt",
+      "sha256": "40a9f40f0dc2ebf5a121295304f272b995bbdf582d32d7057348c5182b8512ba"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-login-375.html",
+      "sha256": "d9a2cf2e816b88897c0f19dbfe77e3cb3312b8cb3a4bf2ed326cc97adee00e90"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-login-375.png",
+      "sha256": "6c1856ac58bfe840337dd72ea69c8237380e2d096c5903f77622f3fb54738c5f"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-sueldos-con-pagos-375-chrome.txt",
+      "sha256": "6ce2a6dc5ac5d55c9bc2d1b4d1040769641436146c9d2415d079d1da495901cd"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-sueldos-con-pagos-375.html",
+      "sha256": "ee9183d553631f78298f833f3367d71ae3816f3f3ef0a08023c8a3f599fe82b1"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/enfoque-sueldos-con-pagos-375.png",
+      "sha256": "d2c3e96de543813ced1e7ba97a839e28fd00d3096bb69684e284838f57281494"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/fuentes.json",
+      "sha256": "e11b5ac164c64fb68e7ca3e4b27cdf01e18eba65782888bfbd01114e76086c3a"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/grafo-y-cobertura.json",
+      "sha256": "abe6ff97180e2ca93623cbf370de2b830c77836986cc07c6a5768e04589d480c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/LEEME.md",
+      "sha256": "889ce632805d89509ff21e66692c3840d14f68a3cffb2ff29e17a6c3e77c388c"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/login.html",
+      "sha256": "fcc3221e37ff3cf1e07ea1679017a12a2f9596a2698a652678da4889cb1f4a04"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/marco-sueldos-con-pagos-375.html",
+      "sha256": "ec5c823dfe47793514d185ba2919f2813fe1ee349ecedfd7070dd329ece0894b"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/marco-sueldos-sin-pagos-375.html",
+      "sha256": "6c687a2fa258273dcc6d7768c422efb8127a0a1d5720b14bd182a38bc14267d7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/medir-marco.js",
+      "sha256": "d7bede499c2970a2edd4e0cab969d08483d43da3ec0c960501e43287e2965181"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/observaciones-actualizadas.json",
+      "sha256": "c66cd40d1c7e858acc7e9203f22ab891ad5e7f534946a2cfbb2ce0962ff92b98"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rapida-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rapida.txt",
+      "sha256": "62100bf1fcec345ad1edad0e01459bc66a45ab847301b0a37bf6879143d82971"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rapida.xml",
+      "sha256": "5aafe87edc1a115a7ef8d1db37ea2e5310c068713fb04e215a3988b572e9c318"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rojo-exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rojo.txt",
+      "sha256": "110212e1966c85a4565f0923325e18be7ec3921071f7a50a81c8a84fbba20b89"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/rojo.xml",
+      "sha256": "49ee6105fb692d3d961a56b2000a80e4939b4296a838b6feb8f926eaaaf630de"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/roles-exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/roles.txt",
+      "sha256": "ad5fa6d25033f511dab7573d3f808367647cd61e15725b5553e9616813563bda"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/roles.xml",
+      "sha256": "628e6a085fe1461443cd7b5e7a3383a1d248a1f22f0a76c30595cbe71ccb8d27"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/salida-lateral-t34.json",
+      "sha256": "dbb63e46c43ef584cd974d6828a1252c25bd8ab6c3d9e98f60df39b4a48f62e5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sin-pagos-1366-chrome.txt",
+      "sha256": "6891b75715d9e4ef85553ef5391e37da3d6afc4c69cf47601d787f43869f29ac"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sin-pagos-1366.png",
+      "sha256": "9fa5e244caa8b3399fd486b2095bd25f0d4e945a6340fcb7501c4d85a1304422"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sin-pagos-375-chrome.txt",
+      "sha256": "1d3b8f67b7d61d442abdceda693518c5bbad9d9a69545cd67ec3208cce4ee361"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sin-pagos-375.png",
+      "sha256": "deb6c6cdd35a566e5a3aacf57e1a3aebff5116a68bbfec028a413409c24480c7"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sintaxis.txt",
+      "sha256": "12942f43c71298793ca389bdce290882d43d43197a71646b9f7607c4a18c3620"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sueldos-con-pagos.html",
+      "sha256": "35a3e78044785098ce538c5083aa0f3c7128097ed24039b3d4466fd3b6eb5e92"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/sueldos-sin-pagos.html",
+      "sha256": "9c83a62aefb9da6eddc5b6ff674feb1edd737f77d29869b2a20eeed2fd199ce5"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/verificar-entrega.py",
+      "sha256": "489ef13fc805338c5afbdd18381b48b7f2a71b480568d75e49ad03b435ab6da2"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/vistas.txt",
+      "sha256": "de53547373a10ed2ecc4c1256952c3541f476674c7bff3e1f0e10acd5565d1a9"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/IMPLEMENTACION-T86.md",
+      "sha256": "839a8f45b54b7797f7c29fd11fdfbaf50686a9c124e8f97ef32c5e78fc177066"
+    }
+  ],
+  "alcance": "Ampliacion autorizada de T86. Evidencia inicial sellada aparte en f257fd6f. Documentos compartidos revisados por diff, no congelados aqui."
+}

@@ -1,0 +1,83 @@
+{
+    "base": "wings_testing_codex",
+    "ruta": "http:\/\/gestion-wings\/reportes\/sueldos",
+    "datos_sinteticos": true,
+    "reporte": {
+        "mes": "2026-10",
+        "deporte_id": null,
+        "fecha_corte": "2026-10-27",
+        "historial_desde": "2026-10-01 00:00:00.000000",
+        "disponible": true,
+        "costo": 2002,
+        "ingreso": 18001,
+        "asistencias": 6,
+        "costo_por_asistencia": 334,
+        "porcentaje_costo": 11.1,
+        "sin_asistencia": 30000,
+        "asistencias_sin_cuota": 0,
+        "profesores": [
+            {
+                "id": 2,
+                "nombre": "Prueba, Docente 1",
+                "deporte_id": 1,
+                "deporte": "Comisión prueba",
+                "asistencias": 1,
+                "alumnos_con_pago": 1,
+                "asistencias_sin_pago": 0,
+                "ingreso": 2500,
+                "costo": 1201,
+                "costo_por_asistencia": 1201,
+                "porcentaje_costo": 48,
+                "faltan_cuotas": false,
+                "base": "Comisión sobre cuotas cobradas"
+            },
+            {
+                "id": 1,
+                "nombre": "Prueba, Docente 0",
+                "deporte_id": 1,
+                "deporte": "Comisión prueba",
+                "asistencias": 5,
+                "alumnos_con_pago": 1,
+                "asistencias_sin_pago": 2,
+                "ingreso": 15501,
+                "costo": 801,
+                "costo_por_asistencia": 160,
+                "porcentaje_costo": 5.2,
+                "faltan_cuotas": false,
+                "base": "Comisión sobre cuotas cobradas"
+            }
+        ],
+        "deportes": [
+            {
+                "nombre": "Comisión prueba",
+                "costo": 2002,
+                "ingreso": 18001,
+                "asistencias": 6
+            }
+        ],
+        "pagos_operativas": {
+            "total_centavos": 13600125,
+            "filas": [
+                {
+                    "subrubro_id": 23,
+                    "nombre": "Pablo Diaz (prueba)",
+                    "centavos": 5000000,
+                    "movimientos": 1
+                },
+                {
+                    "subrubro_id": 24,
+                    "nombre": "Rocio Paz (prueba)",
+                    "centavos": 3800050,
+                    "movimientos": 1
+                },
+                {
+                    "subrubro_id": 22,
+                    "nombre": "Sandra Vidal (prueba)",
+                    "centavos": 4800075,
+                    "movimientos": 2
+                }
+            ]
+        }
+    },
+    "transformacion_html": "Solo URLs locales de assets y neutralizacion de tokens; contenido de la ruta real sin reemplazos."
+}

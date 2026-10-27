@@ -50,7 +50,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T86** Pagar el sueldo de una operativa: hoy no hay forma | Hecho, espera verificación (hizo Codex, verifica Claude) | Implementada por Codex CAB: operativas no reservadas, docentes reservadas, migracion FK/rol y pago Cashflow; renombrado conservado. Diez permanentes con rojo previo; dirigidas24/162, rapida944/6 omitidas, completa1063/6 omitidas/9120. Ver IMPLEMENTACION-T86.md. Limites para Carlos: Sueldos analitico solo docentes y FK antiguas al cambiar rol. Claude verifica. Sin vistas/CSS, push manual ni despliegue. |
+| **T86** Pagar el sueldo de una operativa: hoy no hay forma | Hecho, espera verificación (hizo Codex, verifica Claude) | Cashflow y Sueldos implementados: operativas habilitadas, docentes protegidas, migracion FK/rol y renombrado. Carlos confirmo inclusion en Sueldos; pagos netos por persona sin reparto por deporte. 18 permanentes con rojo previo; dirigidas30/133, rapida952/6 omitidas/7558, completa1071/6 omitidas/9157, salida0. Ver IMPLEMENTACION-T86.md y APROBAR-T86-SUELDOS.html. Claude verifica; aprobacion visual Carlos pendiente. Duda de reservas antiguas al cambiar rol documentada. Sin despliegue ni push manual. |
 
 ## Codex
 
