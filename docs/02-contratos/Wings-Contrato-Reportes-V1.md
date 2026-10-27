@@ -164,7 +164,7 @@ intereses. No tienen alumno, así que no tienen deporte.
 | **Sueldos de profesores** | **Por deporte.** El subrubro ya se llama `Patín-Jorge Mitre`: trae el deporte adentro |
 | Alquiler de canchas | **Gastos generales**, sin repartir. Ver la limitación abajo |
 | Servicios, gastos operativos | Gastos generales, por rubro y subrubro |
-| Sueldo del operativo | El subrubro existe, pero no se puede usar: ver pendientes (T86) |
+| Sueldo del operativo | Cashflow directo solo ADMIN; T86 implementada localmente, pendiente de Claude y sin despliegue. Ver límites del análisis de Sueldos y cambios de rol en la entrega |
 
 ### Los movimientos no económicos NO entran en el resultado
 
@@ -225,13 +225,20 @@ reparto sale proporcional.
 Eso necesita un ABM de canchas, que **solo requiere nombre y estado**: no hace falta una
 tabla de precios por día y horario. Queda como pendiente futuro, fuera de alcance.
 
-### El sueldo del operativo no tiene dónde registrarse
+### El sueldo del operativo se registra por Cashflow — T86, decisión 27/10/2026
 
-**Corregido el 27/10/2026 (prueba por días, 22.5):** hoy Wings crea solo el subrubro de cada
-operativa («Op-Nombre», en Sueldos, `ADMIN`) al darla de alta, pero lo marca como reservado del
-sistema. Cashflow no ofrece los subrubros reservados y rechaza el envío forzado, y las
-liquidaciones son solo de profesores: **no hay forma de registrar el sueldo de una operativa.**
-Pendiente en la tarea T86.
+Carlos aprobó que el sueldo de una operativa («Op-Nombre», en Sueldos) nazca sin reserva
+del sistema, solo `ADMIN` y sin afectar caja operativa. El dueño lo paga como egreso directo
+de Cashflow; los sueldos docentes siguen reservados y se pagan solo por Liquidaciones.
+La migración identifica sueldos existentes por `users.subrubro_id` y rol `OPERATIVO`, nunca
+por el prefijo del nombre. No se liberan sueldos vinculados a profesoras.
+
+Implementado localmente en T86, pendiente de verificación de Claude y sin despliegue.
+El egreso es gasto del club: entra en Ingresos/egresos e Inicio sin repartirlo por deporte.
+El análisis de Sueldos actual sigue dedicado a docentes/clases; la inclusión de operativas
+en ese análisis y el tratamiento de vínculos antiguos al cambiar de rol quedan como
+diferencias expresas para Carlos, sin decidirlas automáticamente.
+[Entrega y comprobaciones](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md).
 
 ---
 

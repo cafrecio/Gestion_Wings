@@ -156,7 +156,8 @@ class RubroReservadoTest extends TestCase
         $this->assertSame($sueldos->id, $usuario->subrubro->rubro_id);
         $this->assertSame('ADMIN', $usuario->subrubro->permitido_para);
         $this->assertFalse($usuario->subrubro->afecta_caja, 'El sueldo no se paga por caja operativa.');
-        $this->assertTrue($usuario->subrubro->es_reservado_sistema);
+        // T86, Carlos 27/10: operativas por Cashflow; docentes por Liquidaciones.
+        $this->assertFalse($usuario->subrubro->es_reservado_sistema);
     }
 
     public function test_el_alta_de_un_admin_no_crea_subrubro(): void

@@ -31,7 +31,7 @@ class SubrubroSueldoService
         $nombre = ($profesor->deporte->nombre ?? 'Sin deporte')
             . '-' . $profesor->nombre . ' ' . $profesor->apellido;
 
-        $subrubro = $this->crearOReutilizar($nombre);
+        $subrubro = $this->crearOReutilizar($nombre, reservado: true);
 
         $profesor->update(['subrubro_id' => $subrubro->id]);
 
@@ -59,7 +59,8 @@ class SubrubroSueldoService
             return null;
         }
 
-        $subrubro = $this->crearOReutilizar('Op-' . $usuario->name);
+        // T86: el sueldo de una operativa se registra por Cashflow; no tiene liquidacion.
+        $subrubro = $this->crearOReutilizar('Op-' . $usuario->name, reservado: false);
 
         $usuario->subrubro_id = $subrubro->id;
         $usuario->save();
@@ -117,7 +118,7 @@ class SubrubroSueldoService
      * liquida el admin por cashflow. De ahí `permitido_para=ADMIN` y
      * `afecta_caja=false`.
      */
-    private function crearOReutilizar(string $nombre): Subrubro
+    private function crearOReutilizar(string $nombre, bool $reservado): Subrubro
     {
         $rubroId = $this->rubroSueldos()->id;
         $registroDisponible = \App\Support\RegistroReporteDisponible::existe();
@@ -128,7 +129,7 @@ class SubrubroSueldoService
                 'permitido_para'       => 'ADMIN',
                 'afecta_caja'          => false,
                 ...($registroDisponible ? ['clasificacion_resultado' => 'NEGOCIO'] : []),
-                'es_reservado_sistema' => true,
+                'es_reservado_sistema' => $reservado,
             ]
         );
         if ($registroDisponible && $subrubro->rubro_id === $rubroId && $subrubro->clasificacion_resultado === null) {

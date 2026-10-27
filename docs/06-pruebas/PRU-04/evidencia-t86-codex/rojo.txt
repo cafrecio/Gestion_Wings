@@ -1,0 +1,70 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\gestion-wings\phpunit.xml
+
+FFF.FF.FF.                                                        10 / 10 (100%)
+
+Time: 00:14.284, Memory: 56.00 MB
+
+There were 7 failures:
+
+1) Tests\Feature\SueldoOperativaT86Test::test_el_sueldo_nuevo_es_admin_no_reservado_y_no_afecta_caja_operativa
+Failed asserting that true is false.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:77
+
+2) Tests\Feature\SueldoOperativaT86Test::test_nuevo_cashflow_ofrece_operativas_y_oculta_docentes
+Failed asserting that the value at [rubros] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1308
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:88
+
+3) Tests\Feature\SueldoOperativaT86Test::test_el_duenio_paga_y_el_egreso_coincide_en_cashflow_reportes_e_inicio
+Session is missing expected key [success].
+Failed asserting that false is true.
+
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1547
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:100
+
+4) Tests\Feature\SueldoOperativaT86Test::test_renombrar_conserva_vinculo_movimiento_y_condiciones_del_sueldo
+Session is missing expected key [success].
+Failed asserting that false is true.
+
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\gestion-wings\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1547
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:129
+
+5) Tests\Feature\SueldoOperativaT86Test::test_migracion_identifica_por_fk_y_rol_sin_inferir_prefijos
+Failed asserting that true is false.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:145
+
+6) Tests\Feature\SueldoOperativaT86Test::test_migracion_es_idempotente_y_solo_cambia_la_reserva
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+     'nombre' => 'Op-Operativa T86',
+     'permitido_para' => 'ADMIN',
+     'afecta_caja' => 0,
+-    'es_reservado_sistema' => 0,
++    'es_reservado_sistema' => 1,
+     'activo' => 1,
+     'created_at' => '2026-10-27 12:00:00',
+     'updated_at' => '2026-10-27 12:00:00',
+     'clasificacion_resultado' => 'NEGOCIO',
+ ]
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:166
+
+7) Tests\Feature\SueldoOperativaT86Test::test_admin_sin_subrubro_al_pasar_a_operativo_recibe_un_sueldo_habilitado
+Failed asserting that true is false.
+
+C:\xampp\htdocs\gestion-wings\tests\Feature\SueldoOperativaT86Test.php:176
+
+FAILURES!
+Tests: 10, Assertions: 18, Failures: 7.

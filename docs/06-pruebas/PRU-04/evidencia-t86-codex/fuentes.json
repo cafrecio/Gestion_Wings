@@ -1,0 +1,46 @@
+{
+  "base": "79340268",
+  "fuentes": [
+    {
+      "ruta": "app/Services/SubrubroSueldoService.php",
+      "sha256": "9ea8b8b26f3f9d3b80ad2ecb70e1594f2a7cccc66e031890973521a041b1c5b2"
+    },
+    {
+      "ruta": "database/migrations/2026_10_27_120000_habilitar_sueldos_operativas_en_cashflow.php",
+      "sha256": "55da9d23194980676a3c9c7b7373053c876c2a53bfe65cc9a6ff825530f0b20d"
+    },
+    {
+      "ruta": "tests/Feature/SueldoOperativaT86Test.php",
+      "sha256": "8e160e1ae025631b2865549754954b7a97a06fdc0713f434ce4e4a9e35a26c8e"
+    },
+    {
+      "ruta": "tests/Feature/RubroReservadoTest.php",
+      "sha256": "f48a6f4ad010abbb2e2b8e52ee6c378a339ef7f3a4e881985a5c0a37586e13a4"
+    },
+    {
+      "ruta": "app/Http/Controllers/CashflowWebController.php",
+      "sha256": "6eaa8180f13e9f26b31861e312847a667b8cd07f95c20bd09c9456eb98dd6191"
+    },
+    {
+      "ruta": "app/Services/CashflowService.php",
+      "sha256": "a979be7b285e4864d0fdb331b1da72c774b24dc6e0e72115db5999d72e5e297f"
+    },
+    {
+      "ruta": "app/Services/ReporteMensualService.php",
+      "sha256": "106fc014dab09a517e88f34818360c51605b21d93daa77d6a08843a8108a0e8f"
+    },
+    {
+      "ruta": "app/Services/ReporteSueldosService.php",
+      "sha256": "76e376608ea62e1a667419f7e3fcd2e2619b131a438a8185c40b408a7aa9f9ec"
+    },
+    {
+      "ruta": "app/Http/Controllers/UsuarioWebController.php",
+      "sha256": "ddca110339508f1d94fcba739721ea50e4392d13b1909592a50abbc8fb1d4e44"
+    },
+    {
+      "ruta": "app/Http/Controllers/WebController.php",
+      "sha256": "2c653012715c7c0c41aef0b54848a472795ab24e539c9be0530f239ea3f45cda"
+    }
+  ],
+  "limite": "T93 concurrente en resources/js/cashflow-movimiento.js excluida de la implementacion propia. Sin vistas/CSS/servidor/base del club."
+}
