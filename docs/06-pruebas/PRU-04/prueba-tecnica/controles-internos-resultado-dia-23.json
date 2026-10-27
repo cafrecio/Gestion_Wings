@@ -1,0 +1,176 @@
+{
+    "fecha_wings": "2026-11-01 12:19:41",
+    "base": "wingstest",
+    "controles": 21,
+    "aprobados": 21,
+    "resultados": [
+        {
+            "id": "CAJ-1",
+            "regla": "El efectivo esperado de cada caja cerrada es el inicial más sus movimientos en efectivo no cancelados; la diferencia es contado menos esperado; retenido más retirado es lo contado",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "19 cajas"
+        },
+        {
+            "id": "CAJ-2",
+            "regla": "Lo heredado por cada apertura es lo que retuvo la caja de origen",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-1",
+            "regla": "Cada movimiento no cancelado de una caja validada aparece una sola vez en Cashflow; un cancelado no aparece",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "126 movimientos de cajas validadas"
+        },
+        {
+            "id": "CSH-2",
+            "regla": "El reflejo conserva importe, fecha del día y medio de pago del movimiento de caja",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-3",
+            "regla": "Cada transferencia tiene exactamente dos patas TRASPASO, salida negativa y entrada positiva por el mismo importe; no hay TRASPASO suelto",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "2 transferencias"
+        },
+        {
+            "id": "COB-1",
+            "regla": "Cada cobro vigente reparte exactamente su importe entre cuotas e inscripción, y entra a caja (o a Cashflow si lo cobró el dueño) por ese mismo importe; un anulado no conserva imputaciones",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "95 cobros"
+        },
+        {
+            "id": "COB-2",
+            "regla": "Lo pagado de cada cuota es la suma de sus imputaciones vigentes; PAGADA sin saldo y PENDIENTE con saldo; nunca pagada de más",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "204 cuotas"
+        },
+        {
+            "id": "COB-3",
+            "regla": "Un alumno tiene a lo sumo una cuota por mes",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CBZ-1",
+            "regla": "La deuda de Cobranza es la de Reportes; vencidos más en plazo son los que deben; nadie Al día con deuda",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "deuda 3783000; {\"EN_PLAZO\":100,\"AL_DIA\":3}"
+        },
+        {
+            "id": "ALU-1",
+            "regla": "Todo alumno activo tiene plan para el mes en curso",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "0 activos sin cuota del mes guardada (decisión pendiente de Carlos, D4-OBS-01)"
+        },
+        {
+            "id": "REP-1",
+            "regla": "El disponible de Reportes es saldos iniciales más Cashflow más lo de cajas sin validar",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "disponible 4959900.75"
+        },
+        {
+            "id": "ASI-1",
+            "regla": "A lo sumo una marca por alumno y clase",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-2",
+            "regla": "No hay marcas en clases canceladas ni en clases que todavía no ocurrieron",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-3",
+            "regla": "Nadie tiene marca en una clase de su grupo actual anterior a su llegada",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CLA-1",
+            "regla": "Toda clase activa tiene al menos una profesora",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "LIQ-1",
+            "regla": "Por hora: cada clase paga valor hora × minutos; es del mes, de la profesora, no cancelada y con presentes o validada; el total es la suma",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "6 liquidaciones por hora"
+        },
+        {
+            "id": "LIQ-2",
+            "regla": "Por comisión: cada parte es el porcentaje de su cuota; ninguna cuota adelantada de un mes posterior; cada decisión de atrasada tiene su registro; ninguna cerrada con pendientes",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "2 liquidaciones por comisión"
+        },
+        {
+            "id": "LIQ-3",
+            "regla": "Una sola liquidación vigente por profesor y mes; ninguna clase se liquida dos veces a la misma profesora",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "LIQ-4",
+            "regla": "Lo cerrado sin pagar suma el «por pagar» de Reportes; ninguna liquidación sin pagar tiene movimiento en Cashflow",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "3 cerradas sin pagar, 345000; abiertas 5"
+        },
+        {
+            "id": "REP-2",
+            "regla": "El reporte de octubre sigue igual que el 31/10",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "ingresos 3417850.75, egresos 331950, deuda 0"
+        },
+        {
+            "id": "SIS-1",
+            "regla": "No hay registros que apunten a algo que no existe",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        }
+    ]
+}

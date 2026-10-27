@@ -43,6 +43,12 @@ $pantallas = [
     ['ADMIN', 'Ficha de clase', $r('web.clases.show', $clase?->id)],
     ['ADMIN', 'Liquidaciones', $r('web.liquidaciones.index')],
     ['ADMIN', 'Movimientos', $r('web.movimientos.index')],
+    // Día 23: lo que abrió el dueño al liquidar octubre.
+    ['ADMIN', 'Nueva liquidación', $r('web.liquidaciones.create')],
+    ['ADMIN', 'Liquidación por hora', ($l = DB::table('liquidaciones')->where('tipo', 'HORA')->orderByDesc('total_calculado')->value('id')) ? $r('web.liquidaciones.show', $l) : null],
+    ['ADMIN', 'Liquidación por comisión', ($l = DB::table('liquidaciones')->where('tipo', 'COMISION')->orderByDesc('total_calculado')->value('id')) ? $r('web.liquidaciones.show', $l) : null],
+    ['ADMIN', 'Reportes · Finanzas del mes anterior', $r('web.reportes.index', ['mes' => now()->subMonthNoOverflow()->format('Y-m')])],
+    ['ADMIN', 'Reportes · Sueldos del mes anterior', $r('web.reportes.sueldos', ['mes' => now()->subMonthNoOverflow()->format('Y-m')])],
     ['OPERATIVO', 'Inicio de la operativa', $r('web.operativo.dashboard')],
     ['OPERATIVO', 'Cobranza', $r('web.cobranza.index')],
     ['OPERATIVO', 'Buscador de Cobrar', $r('web.caja.cobrar-cuota')],

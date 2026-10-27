@@ -8,6 +8,36 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Revisión de Claude del día 23 (1/11, generación de noviembre y liquidaciones) — 27/10/2026
+
+Revisado contra el [guion](GUION-DIA-23.md), el [informe de Codex](DIA-23.md) (commits `e4fc0270` a `e8d31257`),
+el código y la base del sitio con el reloj en el 1/11.
+
+**La generación de noviembre es exactamente la calculada aparte.** Corrió sola a las 06:00:07, como en
+producción: 100 cuotas, $3.783.000, cero sobrantes, faltantes o importes distintos, y la segunda corrida no
+creó nada. Cobranza: 100 En plazo y 3 Al día (los que ya habían pagado noviembre). **Las ocho liquidaciones
+dan los importes esperados**, $1.370.280 en total; las 13 cuotas atrasadas de Hernán y Martín están validadas
+con su registro. Controles internos 21/21 sobre la base.
+
+**Lo que no se completó fue por orden de Carlos:** solo 3 de las 8 quedaron Cerradas (Lucía octubre y
+septiembre, Verónica octubre; $345.000). Las otras 5 siguen Abiertas ($1.025.280). Ninguna pagada. El «por
+pagar» del Inicio y de Reportes es $345.000, igual a la suma de las cerradas (LIQ-018 c).
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| Ingresos de noviembre $103.000 (guion: $0) | **Error de mi guion.** Son los tres noviembres cobrados por adelantado (Julieta $30.000, Agustín $35.000, Felipe $38.000): Wings los cuenta como ingreso del mes que pagan (T42). Ningún cobro con fecha de noviembre | Nada |
+| «El aumento rige desde noviembre» | **Mal dicho en mi guion.** El precio de $44.000 rige desde el 18/10 (día 9); lo ya generado de octubre no cambió, y noviembre es la primera cuota nueva de esas alumnas. Lo que Codex anotó es correcto | Nada |
+| 23.6 Lucía: 20 en la pantalla, 17 generadas | Defecto ya conocido | T87 |
+| Cierres con la confirmación del navegador | **Límite de la herramienta**, el mismo que con Julieta: el diálogo nativo traba al Chrome automático y Carlos tuvo que aceptarlos a mano. Carlos pidió una ventana propia de Wings | T91 |
+| Cancelar una clase ya liquidada | **Defecto de Wings, hallado en la prueba técnica.** Con la liquidación cerrada, asistencias, horario, validación y profesoras quedan bloqueados, pero «Cancelar» no lo mira: la operativa la cancela desde la ficha de la clase y la liquidación queda con una clase cancelada adentro (LIQ-008 c) | T90 |
+| 23.12 resumen por Telegram | No ejecutado (opcional) | Nada |
+
+**Casos nuevos acreditados:** CBZ-011, CBZ-012, LIQ-001, LIQ-002 y LIQ-018. LIQ-008 queda parcial (3 de 8 y
+el defecto T90). LIQ-005 se probó en el día 22 (no cierra antes de fin de mes) y hoy cerró después: completo.
+
+**Prueba técnica del día 23:** funcionamiento interno 21/21, seguridad 22/22 (cuatro pruebas nuevas, una
+retrata T90) y velocidad por debajo de 271 ms ([informe](prueba-tecnica/INFORME.md)).
+
 ## Revisión de Claude de los días 19 a 22 — 27/10/2026
 
 Revisado contra el [guion](GUION-DIAS-19-22.md), los informes de Codex ([19](DIA-19.md), [20](DIA-20.md),

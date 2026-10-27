@@ -185,6 +185,61 @@ try {
     $f = DB::table('clases as c')->leftJoin('clase_profesor as cp', 'cp.clase_id', '=', 'c.id')->whereNull('cp.clase_id')->where('c.cancelada', 0)->pluck('c.id')->map(fn ($id) => "clase $id sin profesora");
     control($resultados, 'CLA-1', 'Toda clase activa tiene al menos una profesora', $f);
 
+    // ── Liquidaciones (día 23) ───────────────────────────────────────────
+    $liqs = DB::table('liquidaciones')->where('estado', '!=', 'CANCELADA')->get();
+    $f = [];
+    foreach ($liqs->where('tipo', 'HORA') as $l) {
+        $dets = DB::table('liquidacion_detalles')->where('liquidacion_id', $l->id)->get();
+        foreach ($dets as $d) {
+            if ($c($d->monto) !== (int) round($c($l->valor_hora_aplicado) * $d->minutos / 60)) $f[] = "liq $l->id detalle $d->id: $d->monto no es valor hora × $d->minutos min";
+            $cl = DB::table('clases')->find($d->referencia_id);
+            if (!$cl || $cl->cancelada || (int) substr($cl->fecha, 5, 2) !== (int) $l->mes || (int) substr($cl->fecha, 0, 4) !== (int) $l->anio) $f[] = "liq $l->id: clase $d->referencia_id cancelada, inexistente o de otro mes";
+            elseif (!DB::table('clase_profesor')->where('clase_id', $cl->id)->where('profesor_id', $l->profesor_id)->exists()) $f[] = "liq $l->id: clase $cl->id no es de la profesora";
+            elseif (!$cl->validada_para_liquidacion && !DB::table('asistencias')->where('clase_id', $cl->id)->where('presente', 1)->exists()) $f[] = "liq $l->id: clase $cl->id sin presentes ni validación";
+        }
+        if ($dets->sum(fn ($d) => $c($d->monto)) !== $c($l->total_calculado)) $f[] = "liq $l->id: total $l->total_calculado no es la suma del detalle";
+    }
+    control($resultados, 'LIQ-1', 'Por hora: cada clase paga valor hora × minutos; es del mes, de la profesora, no cancelada y con presentes o validada; el total es la suma', $f, $liqs->where('tipo', 'HORA')->count().' liquidaciones por hora');
+
+    $f = [];
+    foreach ($liqs->where('tipo', 'COMISION') as $l) {
+        $dets = DB::table('liquidacion_detalles')->where('liquidacion_id', $l->id)->get();
+        foreach ($dets as $d) {
+            if (abs($c($d->monto) - (int) round($c($d->base_cuota) * $l->porcentaje_comision_aplicado / 100)) > 1) $f[] = "liq $l->id detalle $d->id: $d->monto no es {$l->porcentaje_comision_aplicado}% de $d->base_cuota";
+            if ($d->origen_cuota === 'atrasado') {
+                $ultima = DB::table('liquidacion_decisiones_atrasadas')->where('detalle_id', $d->id)->orderByDesc('id')->value('nueva');
+                if ($ultima !== $d->decision_atrasada) $f[] = "liq $l->id detalle $d->id: decisión $d->decision_atrasada sin registro igual ($ultima)";
+                if ($l->estado === 'CERRADA' && $d->decision_atrasada === 'PENDIENTE') $f[] = "liq $l->id cerrada con atrasada pendiente";
+            } elseif ($d->periodo_cuota && $d->periodo_cuota > sprintf('%04d-%02d', $l->anio, $l->mes)) $f[] = "liq $l->id: cuota adelantada $d->periodo_cuota cuenta en este mes";
+        }
+        if ($dets->sum(fn ($d) => $c($d->monto)) !== $c($l->total_calculado)) $f[] = "liq $l->id: total $l->total_calculado no es la suma del detalle";
+    }
+    control($resultados, 'LIQ-2', 'Por comisión: cada parte es el porcentaje de su cuota; ninguna cuota adelantada de un mes posterior; cada decisión de atrasada tiene su registro; ninguna cerrada con pendientes', $f, $liqs->where('tipo', 'COMISION')->count().' liquidaciones por comisión');
+
+    $f = $liqs->groupBy(fn ($l) => "$l->profesor_id-$l->anio-$l->mes")->filter(fn ($g) => $g->count() > 1)->keys()->map(fn ($k) => "profesor-año-mes $k: más de una");
+    foreach (DB::table('liquidacion_detalles as d')->join('liquidaciones as l', 'l.id', '=', 'd.liquidacion_id')->where('l.estado', '!=', 'CANCELADA')->where('d.tipo_referencia', 'clase')
+        ->select('l.profesor_id', 'd.referencia_id', DB::raw('count(*) n'))->groupBy('l.profesor_id', 'd.referencia_id')->having('n', '>', 1)->get() as $r) $f[] = "clase $r->referencia_id liquidada $r->n veces a la profesora $r->profesor_id";
+    control($resultados, 'LIQ-3', 'Una sola liquidación vigente por profesor y mes; ninguna clase se liquida dos veces a la misma profesora', $f);
+
+    $f = [];
+    $cerradas = $liqs->where('estado', 'CERRADA')->where('estado_pago', '!=', 'PAGADA');
+    $porPagar = $cerradas->sum(fn ($l) => $c($l->monto_final ?? $l->total_calculado));
+    $porPagarReportes = (int) ($rep['por_pagar']['total'] ?? -1);
+    if ($porPagar !== $porPagarReportes) $f[] = 'cerradas sin pagar '.($porPagar/100).'; Reportes por pagar '.($porPagarReportes/100);
+    $conMov = DB::table('cashflow_movimientos')->where('referencia_tipo', 'LIQUIDACION')->whereIn('referencia_id', $liqs->where('estado_pago', '!=', 'PAGADA')->pluck('id'))->count();
+    if ($conMov) $f[] = "$conMov movimientos de Cashflow de liquidaciones sin pagar";
+    control($resultados, 'LIQ-4', 'Lo cerrado sin pagar suma el «por pagar» de Reportes; ninguna liquidación sin pagar tiene movimiento en Cashflow', $f,
+        $cerradas->count().' cerradas sin pagar, '.($porPagar/100).'; abiertas '.$liqs->where('estado', 'ABIERTA')->count());
+
+    // El reporte de octubre no cambió con la generación de noviembre ni con las liquidaciones (CBZ-011 h).
+    if (now()->format('Y-m') === '2026-11') {
+        $oct = app(App\Services\ReporteMensualService::class)->obtener('2026-10');
+        $f = [];
+        if ((int) $oct['ingresos'] !== 341785075) $f[] = 'ingresos de octubre '.($oct['ingresos']/100).', el 31/10 eran 3417850.75';
+        if ((int) $oct['egresos'] !== 33195000) $f[] = 'egresos de octubre '.($oct['egresos']/100).', el 31/10 eran 331950';
+        control($resultados, 'REP-2', 'El reporte de octubre sigue igual que el 31/10', $f, 'ingresos '.($oct['ingresos']/100).', egresos '.($oct['egresos']/100).', deuda '.(($oct['deuda']['total'] ?? 0)/100));
+    }
+
     // ── Huérfanos ────────────────────────────────────────────────────────
     $f = [];
     foreach ([['pagos', 'alumno_id', 'alumnos'], ['deuda_cuotas', 'alumno_id', 'alumnos'], ['movimientos_operativos', 'caja_operativa_id', 'cajas_operativas'],

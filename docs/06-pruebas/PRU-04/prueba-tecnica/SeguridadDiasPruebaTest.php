@@ -344,6 +344,101 @@ class SeguridadDiasPruebaTest extends TestCase
         file_put_contents(__DIR__.'/sueldo-operativa-forzado.txt', 'Respuesta '.$r->getStatusCode().'; movimientos creados: '.(DB::table('cashflow_movimientos')->count() - $antes)."\n");
     }
 
+    /** Día 23: Mariela dio la clase del 15/10 con Zoe presente; el 1/11 el dueño genera y cierra octubre. */
+    private function liquidacionDeMarielaCerrada(): \App\Models\Liquidacion
+    {
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        Carbon::setTestNow('2026-11-01 10:00:00');
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $profesoraId, 'mes' => 10, 'anio' => 2026]);
+        $liq = \App\Models\Liquidacion::where('profesor_id', $profesoraId)->firstOrFail();
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.cerrar', $liq->id))->assertSessionHasNoErrors();
+        $this->assertSame('CERRADA', $liq->fresh()->estado);
+        return $liq;
+    }
+
+    public function test_dia_23_cerrada_bloquea_asistencias_horario_y_profesoras_para_todos_forzando(): void
+    {
+        $liq = $this->liquidacionDeMarielaCerrada();
+        $clase = $this->claseMariela;
+        $antes = $this->foto();
+
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $clase->id), ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 0]]]);
+        $this->actingAs($this->duenio)->postJson(route('web.clases.asistencias', $clase->id), ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 0]], 'motivo' => 'Corrección forzada']);
+        $this->actingAs($this->duenio)->put(route('web.clases.update', $clase->id), ['fecha' => '2026-10-15', 'hora_inicio' => '17:00', 'hora_fin' => '19:00', 'motivo' => 'Forzado']);
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-validada', $clase->id));
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.profesores', $clase->id), ['profesores' => [$this->lucia->profesor_id], 'motivo' => 'Forzado']);
+        // Otra liquidación del mismo mes, recalcular la cerrada y pagar una abierta: tampoco.
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $liq->profesor_id, 'mes' => 10, 'anio' => 2026]);
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.recalcular', $liq->id));
+
+        $this->assertSame($antes, $this->foto(), 'Algo de la liquidación cerrada cambió');
+        $this->assertSame(1, \App\Models\Liquidacion::where('profesor_id', $liq->profesor_id)->count());
+    }
+
+    public function test_hallazgo_dia_23_una_clase_de_una_liquidacion_cerrada_se_puede_cancelar(): void
+    {
+        $liq = $this->liquidacionDeMarielaCerrada();
+        // LIQ-008 c: «sus clases ya no se pueden editar». Asistencias, horario, validación y profesoras lo cumplen;
+        // cancelarla no lo mira (ClaseWebController::toggleCancelada). La hace la operativa, sin pasar por la pantalla.
+        $this->actingAs($this->sandra)->patchJson(route('web.clases.toggle-cancelada', $this->claseMariela->id), ['motivo_cancelacion' => 'Forzado']);
+        $cancelada = (bool) $this->claseMariela->fresh()->cancelada;
+        file_put_contents(__DIR__.'/cancelar-clase-liquidada.txt', 'Operativa cancela la clase de una liquidación CERRADA: '.($cancelada ? 'la cancela' : 'rechazado')
+            ."\nLiquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculado." y la clase dentro.\n");
+        $this->assertTrue($cancelada, 'Ya no se cancela: dar vuelta esta prueba');
+    }
+
+    public function test_dia_23_la_operativa_y_la_profesora_no_tocan_liquidaciones_forzando(): void
+    {
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        Carbon::setTestNow('2026-11-01 10:00:00');
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $profesoraId, 'mes' => 10, 'anio' => 2026]);
+        $liq = \App\Models\Liquidacion::firstOrFail();
+        $antes = $this->foto();
+        foreach ([$this->sandra, $this->mariela] as $quien) {
+            foreach ([
+                ['post', route('web.liquidaciones.store'), ['profesor_id' => $profesoraId, 'mes' => 9, 'anio' => 2026]],
+                ['post', route('web.liquidaciones.cerrar', $liq->id), []],
+                ['post', route('web.liquidaciones.recalcular', $liq->id), []],
+                ['post', route('web.liquidaciones.pagar', $liq->id), ['fecha_pago' => '2026-11-01', 'tipo_caja_id' => $this->efectivo->id]],
+                ['post', route('web.liquidaciones.ajustar', $liq->id), ['monto_final' => '1', 'monto_anterior' => '9000', 'motivo' => 'Forzado por otro rol']],
+                ['post', route('web.liquidaciones.cancelar', $liq->id), ['motivo' => 'Forzado por otro rol']],
+                ['delete', route('web.liquidaciones.eliminar', $liq->id), []],
+            ] as [$verbo, $url, $datos]) {
+                $r = $this->actingAs($quien)->$verbo($url, $datos);
+                $this->assertTrue($this->prohibido($r), "$quien->rol pudo $url");
+            }
+        }
+        $this->assertSame($antes, $this->foto());
+        $this->assertSame('ABIERTA', $liq->fresh()->estado);
+    }
+
+    public function test_dia_23_una_liquidacion_abierta_no_se_paga_ni_forzando(): void
+    {
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        Carbon::setTestNow('2026-11-01 10:00:00');
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $profesoraId, 'mes' => 10, 'anio' => 2026]);
+        $liq = \App\Models\Liquidacion::firstOrFail();
+        // Que el rechazo no venga de otra cosa: saldo de sobra y el subrubro de sueldo que se arma al guardar la ficha.
+        $this->efectivo->update(['saldo_inicial' => 1000000]);
+        app(\App\Services\SubrubroSueldoService::class)->paraProfesor(Profesor::findOrFail($profesoraId));
+        $antes = DB::table('cashflow_movimientos')->count();
+        $pagar = ['fecha_pago' => '2026-11-01', 'tipo_caja_id' => $this->efectivo->id];
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.pagar', $liq->id), $pagar)
+            ->assertSessionHas('error', fn ($m) => str_contains($m, 'debe estar CERRADA') || str_contains($m, 'cerrada'));
+        $this->assertSame('PENDIENTE', $liq->fresh()->estado_pago);
+        $this->assertSame($antes, DB::table('cashflow_movimientos')->count());
+        // Control positivo: cerrada, el mismo envío sí paga.
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.cerrar', $liq->id))->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.pagar', $liq->id), $pagar);
+        $this->assertNotSame('PENDIENTE', $liq->fresh()->estado_pago, 'El envío de control no paga: la prueba no demuestra nada');
+    }
+
     public function test_dia_13_la_caja_rechazada_no_cambia_lo_contado_al_recerrar(): void
     {
         $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id),

@@ -80,6 +80,10 @@ nada que liquidar.
 **Lo que el Inicio todavía no puede mostrar como deuda:** el sueldo de las operativas (no se puede ni
 registrar, T86) y el alquiler de las canchas (solo existe cuando se paga). Queda anotado para Carlos.
 
+**Corrección posterior (Claude, 27/10):** los ingresos de noviembre no son $0 sino **$103.000**, los tres
+noviembres pagados por adelantado (T42). Y el precio de $44.000 rige desde el 18/10: noviembre es solo la
+primera cuota nueva de esas alumnas. Detalle en la [revisión](ESTADO-PRUEBA.md).
+
 **Cierre del día 23:**
 - Deuda de noviembre **$3.783.000**; 103 activos: 100 En plazo, 3 Al día. Revisión vacía.
 - Disponible **$4.959.900,75**, igual que el sábado; ingresos de noviembre $0.

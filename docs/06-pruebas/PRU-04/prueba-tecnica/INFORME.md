@@ -1,3 +1,17 @@
+# Prueba técnica del día 23 (1/11) — 27/10/2026 · Claude CyE
+
+Sobre la base del sitio de prueba con el reloj en el 1/11, como `wingstest` y en solo lectura; seguridad en
+`wings_testing_claude`.
+
+| Área | Resultado |
+|---|---|
+| Funcionamiento interno | **21 de 21 bien** (`controles-internos-resultado-dia-23.json`). Cinco controles nuevos: cada clase liquidada paga valor hora × minutos y es del mes, de la profesora, no cancelada y con presentes o validada; cada parte de comisión es el porcentaje de su cuota, sin noviembres adelantados, y cada atrasada tiene su decisión registrada; una liquidación por profesor y mes; lo cerrado sin pagar ($345.000) es el «por pagar» de Reportes y no hay movimientos de Cashflow; el reporte de octubre quedó igual que el 31/10. Deuda $3.783.000 (100 En plazo, 3 Al día) y disponible $4.959.900,75 |
+| Seguridad | **22 de 22.** Nuevas: con la liquidación cerrada, ni la profesora ni el dueño cambian asistencias, horario, validación o profesoras, ni generan otra del mismo mes ni la recalculan; la operativa y la profesora no generan, cierran, recalculan, pagan, ajustan, cancelan ni borran una liquidación; una abierta no se paga forzando (con control positivo: cerrada, el mismo envío paga). **Hallazgo T90:** una clase de una liquidación cerrada se puede cancelar, también la operativa y desde la pantalla (`cancelar-clase-liquidada.txt`) |
+| Velocidad con los datos de hoy | 26 pantallas, todas por debajo de 271 ms (`performance-sitio-dia-23.json`); nuevas: Nueva liquidación 11 ms, detalle por hora 14 ms, por comisión 29 ms. La más lenta: Reportes de Sueldos de octubre, 159 consultas en 271 ms. La generación de las 100 cuotas tardó 1 s |
+
+Revisado y descartado: las horas del detalle de liquidación parecían corridas 3 horas; es la consola de MySQL,
+que muestra en UTC. Wings guarda bien.
+
 # Prueba técnica de los días 19 a 22 — 27/10/2026 · Claude CyE
 
 Sobre la base del sitio de prueba con el reloj en el 31/10, como `wingstest` y en solo lectura; seguridad en
