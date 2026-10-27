@@ -377,16 +377,19 @@ class SeguridadDiasPruebaTest extends TestCase
         $this->assertSame(1, \App\Models\Liquidacion::where('profesor_id', $liq->profesor_id)->count());
     }
 
-    public function test_hallazgo_dia_23_una_clase_de_una_liquidacion_cerrada_se_puede_cancelar(): void
+    public function test_dia_23_una_clase_de_una_liquidacion_cerrada_no_se_cancela_ni_forzando(): void
     {
         $liq = $this->liquidacionDeMarielaCerrada();
-        // LIQ-008 c: «sus clases ya no se pueden editar». Asistencias, horario, validación y profesoras lo cumplen;
-        // cancelarla no lo mira (ClaseWebController::toggleCancelada). La hace la operativa, sin pasar por la pantalla.
-        $this->actingAs($this->sandra)->patchJson(route('web.clases.toggle-cancelada', $this->claseMariela->id), ['motivo_cancelacion' => 'Forzado']);
+        // T90 (hallazgo de esta prueba, reparado el 27/10): antes la operativa la cancelaba y la liquidación
+        // quedaba con una clase cancelada adentro. Ahora se rechaza con el texto de CLA-013.
+        $this->actingAs($this->sandra)->patchJson(route('web.clases.toggle-cancelada', $this->claseMariela->id), ['motivo_cancelacion' => 'Forzado'])
+            ->assertStatus(422)->assertJson(['message' => 'No se puede cancelar: la clase está en una liquidación cerrada o pagada.']);
         $cancelada = (bool) $this->claseMariela->fresh()->cancelada;
         file_put_contents(__DIR__.'/cancelar-clase-liquidada.txt', 'Operativa cancela la clase de una liquidación CERRADA: '.($cancelada ? 'la cancela' : 'rechazado')
-            ."\nLiquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculado." y la clase dentro.\n");
-        $this->assertTrue($cancelada, 'Ya no se cancela: dar vuelta esta prueba');
+            ."
+Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculado." y la clase dentro.
+");
+        $this->assertFalse($cancelada);
     }
 
     public function test_dia_23_la_operativa_y_la_profesora_no_tocan_liquidaciones_forzando(): void

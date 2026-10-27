@@ -41,8 +41,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T87** Nueva liquidacion: el numero de clases mezcla meses | Sin empezar | Prueba dia 22.6: al lado del mes elegido muestra las clases pendientes de todos los meses (Lucia 20 = 17 de octubre + 3 de septiembre validadas a mano). El calculo esta bien (17). Mostrar solo las del mes elegido; asignar. |
 | **T88** Rechazos que faltan: gasto mayor que el cajon y pago parcial sin motivo | Sin empezar | Prueba dias 19-22: MOV-004 (el esperado de la caja queda negativo) y COB-009 (ni pantalla ni servidor piden motivo). Hay pruebas que los retratan en prueba-tecnica. Asignar. |
 | **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Sin empezar | Movimientos sin autor ni recibo (MOV-011/012); historial de correccion de Cashflow sin enlace (CSH-007); Inicio operativa dice Sin lista con todos ausentes; detalle de caja sin hora (CAJ-017). Visual: Codex o Gemini. |
-| **T90** Una clase que ya esta en una liquidacion cerrada se puede cancelar | Sin empezar | Prueba tecnica dia 23 (27/10): asistencias, horario, validacion y profesoras se bloquean con la liquidacion cerrada, pero Cancelar no lo mira (ClaseWebController::toggleCancelada) y el boton aparece en la ficha de la clase, tambien para la operativa. La liquidacion queda con una clase cancelada adentro. Prueba que lo retrata en prueba-tecnica. Asignar. |
-| **T91** Confirmaciones con ventana propia de Wings en vez de la del navegador | Sin empezar | Pedido de Carlos el 26/10 (dia 23): la confirmacion nativa del navegador traba al Chrome automatico y salto sola al cerrar liquidaciones; ya habia frenado a Julieta (dias 12, 13 y 17). Hoy son 11 usos (data-confirmar y data-confirmar-envio) que pasan por window.confirm en ds-app.js. Es vista: decidir quien la programa (Codex o Gemini) y aprobar el aspecto. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -57,7 +55,9 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T90** Una clase que ya esta en una liquidacion cerrada se puede cancelar | Hecho, espera verificación (hizo Claude, verifica Codex) | Reparado por Claude el 27/10 (DU-30, CLA-013): toggleCancelada rechaza cancelar una clase de una liquidacion cerrada o pagada, con texto en el panel de la ficha. CancelarClaseLiquidadaT90Test 4/4 (rojo sin el arreglo); rapida 932/6 omitidas. Codex verifica logica; despues se sube al sitio de prueba. |
 
 ## Gemini
 
@@ -67,9 +67,9 @@ Nada en este momento.
 
 T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T54 (antes de producción), T55 (después), T60 (después), T62 (antes de producción), T65 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T85, B3 (antes de producción), T82 (antes de producción).
 
-## Mejoras futuras, no se empiezan ahora (9)
+## Mejoras futuras, no se empiezan ahora (10)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 

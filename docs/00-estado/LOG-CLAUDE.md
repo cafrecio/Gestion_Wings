@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-27 — Claude CyE — T90 reparada; T91 pasa a mejora futura MF10
+
+- Pedido de Carlos: reparar T90. `ClaseWebController::toggleCancelada` rechaza cancelar una clase que integra una liquidación cerrada o pagada (DU-30 / CLA-013), con el texto que la pantalla ya muestra en el panel. Sin cambios de vista. Reactivar y el aviso por lista tomada siguen en T62.
+- `CancelarClaseLiquidadaT90Test` 4/4: rojo sin el arreglo (3 fallan), verde con él. La prueba técnica del hallazgo se dio vuelta. Corte 1057.
+- Carlos: T91 como mejora futura → MF10. Error mío: T90 ya estaba decidido en DU-30 y anotado en T62; no lo busqué antes de crear la tarea.
+- Día 23, preguntas de Carlos: 105 alumnos (103 activos, 2 inactivos); los 103 tuvieron un presente en octubre, por eso Revisión 0 y CBZ-013 sigue sin probar. La segunda generación pisó la constancia de la primera (observación).
+
 ## 2026-10-27 — Claude CyE — Día 23 revisado, con su prueba técnica
 
 - Generación de noviembre igual a la calculada aparte: corrió sola a las 06:00, 100 cuotas, $3.783.000, y la segunda corrida no creó nada. Las ocho liquidaciones dan lo esperado ($1.370.280); 13 atrasadas validadas con registro.
@@ -71,11 +78,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Prueba técnica 7–16, seguridad: 4/4 bien (archivo 11/11 pruebas, 81 aserciones, con control positivo). Funcionamiento interno y performance sobre el sitio, pendientes: `ssh vps` no responde desde CyE. [Informe](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
 - Orden de Carlos escrita en CLAUDE.md: en TEST, historias, revisión y prueba técnica sin que lo pida.
 - Error mío: no revisé los días 7 a 16 cuando volvieron de Codex. Carlos ya lo había pedido el 24/10 sin necesidad de repetirlo. Faltan los días 7 a 12. [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md).
-
-## 2026-10-25 — Claude CAB — T77 a T80 cerradas y desplegadas en el sitio de prueba
-
-- Carlos: «si están bien, subilas». Verificadas por otro agente cada una; cerradas en el tablero.
-- Sitio de prueba de `56379295` a `b816d181`: respaldo `/root/respaldos/wingstest-antes-despliegue-2026-10-25.sql.gz`,
-  down → merge --ff-only → npm ci/build → 0 migraciones → cachés → up. /login 200, CSP bloqueando,
-  reloj simulado intacto (15/10). Producción no se tocó.
-

@@ -566,6 +566,15 @@ class ClaseWebController extends Controller
         $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
         if (!$clase->cancelada) {
+            // T90 / DU-30: una clase que integra una liquidación cerrada o pagada no se cancela;
+            // la liquidación quedaría pagando una clase cancelada. La pantalla muestra este texto.
+            if ($clase->integraLiquidacionCerrada()) {
+                $mensaje = 'No se puede cancelar: la clase está en una liquidación cerrada o pagada.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
             $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
             $motivo = $request->input('motivo_cancelacion');
 

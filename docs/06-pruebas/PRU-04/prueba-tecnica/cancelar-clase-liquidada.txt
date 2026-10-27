@@ -1,2 +1,2 @@
-Operativa cancela la clase de una liquidación CERRADA: la cancela
+Operativa cancela la clase de una liquidación CERRADA: rechazado
 Liquidación sigue CERRADA con 9000.00 y la clase dentro.
