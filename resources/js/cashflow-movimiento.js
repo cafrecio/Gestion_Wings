@@ -44,22 +44,26 @@
             } else {
                 filtrarSubrubros(selectRubro.value);
             }
+        } else {
+            filtrarSubrubros('');
         }
     }
 
     function filtrarSubrubros(rubroId) {
         var opts = selectSub.querySelectorAll('option[data-rubro]');
         opts.forEach(function (opt) {
-            opt.style.display = (!rubroId || opt.dataset.rubro === String(rubroId)) ? '' : 'none';
+            opt.style.display = (rubroId && opt.dataset.rubro === String(rubroId)) ? '' : 'none';
         });
         if (selectSub.value) {
             var sel = selectSub.querySelector('option[value="' + selectSub.value + '"]:not([style*="display: none"])');
             if (!sel) selectSub.value = '';
         }
+        var placeholder = selectSub.querySelector('option[value=""]');
         if (!rubroId) {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar rubro primero...';
+            selectSub.value = '';
+            if (placeholder) placeholder.textContent = 'Seleccionar rubro primero...';
         } else {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar...';
+            if (placeholder) placeholder.textContent = 'Seleccionar...';
         }
     }
 
@@ -72,5 +76,5 @@
     var tipoInicial = tipoIngreso.checked ? 'INGRESO' : 'EGRESO';
     actualizarBotonesTipo(tipoInicial);
     filtrarSubrubros(rubroActual);
-    if (subrubroActual) selectSub.value = subrubroActual;
+    if (subrubroActual && rubroActual) selectSub.value = subrubroActual;
 })();

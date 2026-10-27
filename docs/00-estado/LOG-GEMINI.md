@@ -10,6 +10,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T93: Filtro de subrubros en Nuevo movimiento de Cashflow
+
+- **Objetivo y resultado:** Implementación de **T93** para que en Cashflow → Nuevo movimiento, sin rubro elegido no se muestre ningún subrubro en el desplegable, al cambiar de tipo se limpien los campos, y en edición se mantenga el subrubro precargado. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **JavaScript (`resources/js/cashflow-movimiento.js`):**
+    1. Se corrigió la condición en `filtrarSubrubros(rubroId)`: `opt.style.display = (rubroId && opt.dataset.rubro === String(rubroId)) ? '' : 'none';`. Sin rubro elegido se ocultan todas las opciones de subrubros y el placeholder dice «Seleccionar rubro primero...».
+    2. Al seleccionar un rubro válido, se muestran únicamente sus subrubros y el placeholder cambia a «Seleccionar...».
+    3. En `filtrarRubros(tipo)`, ante ausencia de rubro o si el rubro seleccionado queda oculto al alternar entre Ingreso y Egreso, se vacía el selector de rubros y se invoca `filtrarSubrubros('')`, lo cual vacía `subrubro_id` y oculta sus opciones.
+    4. En inicialización (`// Init`), al editar un movimiento se preservan rubro y subrubro precargados (`rubroActual` y `subrubroActual`).
+    5. No se tocaron vistas Blade, CSS, controladores ni los scripts de caja (`caja-movimiento.js`, `caja-editar.js`). Compilado con `npm run build`.
+- **Pruebas y evidencia:** Pruebas automatizadas en Google Chrome real vía CDP (`probar-t93-browser.mjs`): 4 casos verificados con éxito (alta sin rubro vacío, elegir rubro con subrubros acotados, cambio de tipo con reseteo total, y edición con subrubro precargado persistente). 8 capturas generadas a 1366 px y 375 px en `docs/06-pruebas/PRU-04/evidencia-t93/`. Guardianes `CspSinCodigoIncrustadoTest` y suite rápida (`--exclude-group=lento`) en verde en `wings_testing_gemini` (952 pasadas, 6 omitidas). Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T93.md`.
+- **Próximo paso:** Tarea T93 en estado `a_verificar`, asignada a Claude para verificación cruzada.
+
 ## 2026-10-27 — LOG GEM CAB — T85: El interruptor Activo/Inactivo no acepta un segundo toque mientras espera
 
 - **Objetivo y resultado:** Implementación de **T85** pedida por Carlos el 27/10/2026 para evitar que toques seguidos en el toggle generen cuotas de reingreso no deseadas (caso Agustín Acosta). Resultado: **IMPLEMENTADA Y EN `a_verificar`**.
