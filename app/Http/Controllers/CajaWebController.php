@@ -25,6 +25,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
@@ -261,6 +262,7 @@ class CajaWebController extends Controller
                 'subrubro' => $m->subrubro?->nombre ?? '–',
                 'medio'    => $m->tipoCaja?->nombre ?? '–',
                 'alumno'   => $m->alumno ? $m->alumno->apellido . ', ' . $m->alumno->nombre : null,
+                'dni'      => $m->alumno?->dni,
                 'obs'      => $m->observaciones,
                 'usuario'  => $m->usuario?->name ?? '–',
                 'monto'    => abs((float) $m->monto),
@@ -272,9 +274,11 @@ class CajaWebController extends Controller
 
         foreach ($movsAdmin as $m) {
             $alumno = null;
+            $dni = null;
             if ($m->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA) {
                 $a = $alumnosPorPago->get($m->referencia_id)?->alumno;
                 $alumno = $a ? $a->apellido . ', ' . $a->nombre : null;
+                $dni = $a?->dni;
             }
             $filas->push((object) [
                 'fecha'    => $m->fecha,
@@ -282,6 +286,7 @@ class CajaWebController extends Controller
                 'subrubro' => $m->subrubro?->nombre ?? '–',
                 'medio'    => $m->tipoCaja?->nombre ?? '–',
                 'alumno'   => $alumno,
+                'dni'      => $dni,
                 'obs'      => $m->observaciones,
                 'usuario'  => $m->usuarioAdmin?->name ?? '–',
                 'monto'    => abs((float) $m->monto),
@@ -298,12 +303,21 @@ class CajaWebController extends Controller
         }
 
         if ($request->filled('search')) {
-            $s = mb_strtolower(trim($request->input('search')));
-            $filas = $filas->filter(fn($f) =>
-                ($f->alumno && str_contains(mb_strtolower($f->alumno), $s)) ||
-                ($f->obs && str_contains(mb_strtolower($f->obs), $s)) ||
-                str_contains(mb_strtolower($f->subrubro), $s)
-            );
+            $search = trim((string) $request->input('search'));
+            $tokens = preg_split('/\s+/', strtolower(Str::ascii($search)), -1, PREG_SPLIT_NO_EMPTY);
+            if (!empty($tokens)) {
+                $filas = $filas->filter(function ($f) use ($tokens) {
+                    $target = strtolower(Str::ascii(
+                        ($f->alumno ?? '') . ' ' . ($f->dni ?? '') . ' ' . ($f->obs ?? '') . ' ' . ($f->subrubro ?? '')
+                    ));
+                    foreach ($tokens as $token) {
+                        if (!str_contains($target, $token)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+            }
         }
 
         $filas = $filas->sortBy([['fecha', 'desc'], ['orden', 'desc']])->values();

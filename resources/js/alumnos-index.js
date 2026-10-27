@@ -103,7 +103,13 @@
         debounceTimer = setTimeout(() => {
             fetch(`${autocompleteUrl}?q=${encodeURIComponent(q)}`)
                 .then(r => r.json())
-                .then(renderResults)
+                .then(data => {
+                    // Descartar respuestas si el texto del campo ya no coincide con lo pedido
+                    if (searchInput.value.trim() !== q) {
+                        return;
+                    }
+                    renderResults(data);
+                })
                 .catch(() => closeDropdown());
         }, 250);
     });

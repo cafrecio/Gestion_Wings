@@ -117,3 +117,54 @@ Generadas con Google Chrome en entorno real (escritorio 1366 px y móvil 375 px 
 - `docs/06-pruebas/PRU-04/evidencia-t54/01-desplegable-una-letra-1366.png` y `375.png`: Desplegable de autocompletar activándose con la letra «g».
 - `docs/06-pruebas/PRU-04/evidencia-t54/02-gomez-encuentra-gomez-1366.png` y `375.png`: Búsqueda «gomez» encontrando a «Gómez, Martín».
 - `docs/06-pruebas/PRU-04/evidencia-t54/03-perez-juan-1366.png` y `375.png`: Búsqueda «perez juan» encontrando a «Pérez, Juan».
+
+---
+
+## 6. Devolución 27/10: Historial de caja y descarte en autocompletar
+
+Tras la verificación de Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T54-CLAUDE.md`), se atendieron los dos puntos observados:
+
+### 1. Historial de caja (`CajaWebController::historial`)
+- **Diagnóstico:** El filtrado se realizaba en memoria PHP mediante `str_contains(mb_strtolower(...))` sobre filas ya formateadas (`$f->alumno`, `$f->obs`, `$f->subrubro`). Esto fallaba ante acentos («gomez» vs «Gómez») y múltiples palabras desordenadas («perez juan» vs «Pérez, Juan»).
+- **Solución implementada:** Se utilizó `Str::ascii()` y `strtolower()` para normalizar tanto los tokens de búsqueda ingresados como el texto consolidado de la fila (`alumno`, `dni`, `obs`, `subrubro`). Se tokeniza el término de búsqueda por espacios y se exige que cada token esté contenido en el texto normalizado de la fila. De esta forma:
+  - «gomez» y «GOMEZ» encuentran «Gómez, Martín».
+  - «alvarez» y «ÁLVAREZ» encuentran «Álvarez, Pedro».
+  - «perez juan» y «juan perez» encuentran «Pérez, Juan».
+  - La búsqueda por DNI o combinación de DNI con nombre también funciona.
+  - Se mantiene la compatibilidad con los filtros de tipo (`INGRESO`/`EGRESO`), paginación (preservando `search=...` en los enlaces de página) y la visualización de movimientos cancelados para el ADMIN.
+
+### 2. Descarte de respuestas desactualizadas en autocompletar (`resources/js/alumnos-index.js`)
+- En el listener de entrada del autocompletar, al resolverse la promesa de `fetch`:
+  ```javascript
+  .then(data => {
+      // Descartar respuestas si el texto del campo ya no coincide con lo pedido
+      if (searchInput.value.trim() !== q) {
+          return;
+      }
+      renderResults(data);
+  })
+  ```
+  Si el texto del campo cambió mientras la petición estaba en vuelo, o si el usuario borró el campo, la respuesta demorada se descarta de inmediato evitando que resultados viejos (por ejemplo de «g») pisen o se muestren cuando el usuario ya escribió «go» o vació el campo.
+
+### 3. Relevamiento completo de filtros por nombre de alumno
+Se realizó un relevamiento exhaustivo en todo el código fuente mediante búsqueda de expresiones regulares y `codebase-memory`:
+- **Puntos alcanzados y unificados por T54:**
+  1. `AlumnoWebController::index` (listado web de alumnos, vía `Alumno::scopeBuscar`)
+  2. `AlumnoWebController::autocomplete` (desplegable de búsqueda predictiva desde 1 letra, vía `Alumno::scopeBuscar`)
+  3. `CajaWebController::cobrarCuotaSelect` (buscador en Cobrar cuota, vía `Alumno::scopeBuscar`, respetando T29)
+  4. `Admin\AlumnoController::index` (controlador API para consistencia arquitectónica)
+  5. `CajaWebController::historial` (historial de movimientos de caja en PHP mediante normalización `Str::ascii`)
+  6. `resources/js/alumnos-index.js` (autocompletar desde 1 letra y protección contra respuestas asíncronas desordenadas)
+- **Puntos relevados que NO corresponden a T54:**
+  - `ProfesorWebController::index`: Búsqueda de profesores (no alumnos).
+  - `CobranzaWebController::index`: Filtrado únicamente por selects desplegables (estado, deporte, grupo); no tiene campo de búsqueda por texto.
+
+### 4. Nuevas pruebas permanentes
+Se añadieron 4 pruebas permanentes en `tests/Feature/BusquedaAlumnosT54Test.php`:
+- `test_historial_caja_busqueda_con_y_sin_acento_y_mayusculas`: Verificación en rojo previo al arreglo y en verde tras el mismo.
+- `test_historial_caja_busqueda_varias_palabras_en_cualquier_orden`: Ambos órdenes de nombres y apellidos.
+- `test_historial_caja_busqueda_se_combina_con_filtro_de_tipo_y_paginacion`: Interacción con tipos de movimiento y enlaces de paginación.
+- `test_historial_caja_busqueda_incluye_movimientos_cancelados`: Movimientos cancelados visibles para el ADMIN.
+
+**Total suite T54:** 14 pruebas, 110 aserciones, todas aprobadas.  
+**Suite rápida:** 1032 pruebas aprobadas, 6 omitidas. Contador actualizado a 1157 en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`.

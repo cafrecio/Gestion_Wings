@@ -10,6 +10,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-27 — LOG GEM CAB — T54: Devolución atendida — Historial de caja y descarte en autocompletar
+
+- **Objetivo y resultado:** Corrección y ampliación de **T54** tras la devolución de Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T54-CLAUDE.md`). Se unificó el criterio de búsqueda insensible a acentos, mayúsculas y múltiples palabras en el Historial de caja (`CajaWebController::historial`), y se protegió el autocompletar (`alumnos-index.js`) descartando respuestas demoradas o fuera de orden. Resultado: **CORREGIDA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **1. Historial de caja (`app/Http/Controllers/CajaWebController.php`):** Se reemplazó la comparación rígida con `str_contains(mb_strtolower(...))` por normalización con `Str::ascii()` y `strtolower()`, tokenizando las palabras ingresadas y validando que cada token coincida con el alumno, DNI, observación o subrubro. Preserva filtros de tipo (INGRESO/EGRESO), enlaces de paginación con query params y visualización de movimientos cancelados.
+  - **2. Autocompletar (`resources/js/alumnos-index.js`):** En la resolución del `fetch`, se valida `if (searchInput.value.trim() !== q) return;` antes de invocar `renderResults`, evitando que peticiones previas lentas pisen búsquedas más recientes o se desplieguen si el campo se limpió. Compilación con `npm run build`.
+  - **3. Relevamiento de filtros:** Se rastrearon todos los puntos de filtrado por nombre de alumno en la aplicación (`AlumnoWebController`, `CajaWebController::cobrarCuotaSelect`, `CajaWebController::historial` y `Admin\AlumnoController`), detallando en el informe los alcanzados y los que no aplican (`ProfesorWebController` y `CobranzaWebController`).
+- **Pruebas y evidencia:**
+  - Se añadieron 4 pruebas permanentes a `tests/Feature/BusquedaAlumnosT54Test.php` (14 pruebas, 110 aserciones, todas aprobadas): historial con/sin acentos y mayúsculas (Gómez, Álvarez), múltiples palabras en cualquier orden (Pérez Juan), combinación con tipo de movimiento y paginación, y cancelación. Se comprobó el estado rojo previo al arreglo y el verde posterior.
+  - Suite rápida (`--exclude-group=lento`) en verde en `wings_testing_gemini` (1032 aprobadas, 6 omitidas).
+  - Contador de pruebas actualizado a 1157 en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`.
+  - Guardianes `DocumentacionNoMienteTest`, `TableroAlDiaTest` y `CspSinCodigoIncrustadoTest` en verde.
+  - Sección «Devolución 27/10» agregada a `docs/06-pruebas/PRU-04/IMPLEMENTACION-T54.md`.
+- **Próximo paso:** Tarea T54 en estado `a_verificar`, asignada a Claude para segunda vuelta de verificación.
+
 ## 2026-10-27 — LOG GEM CAB — T54: Buscar alumnos como busca la gente
 
 - **Objetivo y resultado:** Implementación de **T54** (DU-13, caso ALU-020 del catálogo). Permite buscar alumnos de forma insensible a acentos y mayúsculas («Gomez» encuentra «Gómez»), por múltiples palabras en cualquier orden («perez juan» encuentra «Juan Pérez»), ofreciendo sugerencias de autocompletar desde la primera letra, y unificando el criterio en listado, autocompletar, cobro de cuota y API. Resultado: **IMPLEMENTADA Y EN `a_verificar`**.

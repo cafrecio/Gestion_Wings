@@ -8,7 +8,11 @@ use App\Models\Deporte;
 use App\Models\DeudaCuota;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
+use App\Models\MovimientoOperativo;
 use App\Models\Nivel;
+use App\Models\Rubro;
+use App\Models\Subrubro;
+use App\Models\TipoCaja;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -526,5 +530,320 @@ class BusquedaAlumnosT54Test extends TestCase
 
         // Debe responder en menos de 500 ms en entorno de pruebas
         $this->assertLessThan(500, $duracionMs, "La búsqueda tardó {$duracionMs} ms, excediendo el umbral esperado.");
+    }
+
+    /**
+     * 11. Historial de caja: búsqueda con y sin acento, y mayúsculas/minúsculas.
+     */
+    public function test_historial_caja_busqueda_con_y_sin_acento_y_mayusculas(): void
+    {
+        $rubro = Rubro::create(['nombre' => 'Ingresos Club', 'tipo' => 'INGRESO']);
+        $subrubro = Subrubro::create([
+            'rubro_id' => $rubro->id,
+            'nombre' => 'Cuota Mensual',
+            'permitido_para' => 'OPERATIVO',
+            'activo' => true,
+        ]);
+        $medio = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        $caja = CajaOperativa::create([
+            'usuario_operativo_id' => $this->operativo->id,
+            'apertura_at' => now(),
+            'estado' => CajaOperativa::ESTADO_ABIERTA,
+        ]);
+
+        $gomez = Alumno::create([
+            'nombre' => 'Martín',
+            'apellido' => 'Gómez',
+            'dni' => '30111222',
+            'fecha_nacimiento' => '2010-05-10',
+            'celular' => '1144445555',
+            'email' => 'gomez@test.com',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+
+        $alvarez = Alumno::create([
+            'nombre' => 'Pedro',
+            'apellido' => 'Álvarez',
+            'dni' => '30333444',
+            'fecha_nacimiento' => '2011-06-15',
+            'celular' => '1155556666',
+            'email' => 'alvarez@test.com',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subrubro->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => $gomez->id,
+            'monto' => 15000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Pago cuota Gómez',
+            'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+        ]);
+
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subrubro->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => $alvarez->id,
+            'monto' => 15000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Pago cuota Álvarez',
+            'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+        ]);
+
+        $this->actingAs($this->operativo);
+
+        // Búsqueda sin acento: 'gomez' debe encontrar 'Gómez, Martín'
+        $res = $this->get(route('web.caja.historial', ['search' => 'gomez']));
+        $res->assertOk();
+        $res->assertSee('Gómez, Martín');
+        $res->assertDontSee('Álvarez, Pedro');
+
+        // Búsqueda con mayúsculas: 'GOMEZ'
+        $res = $this->get(route('web.caja.historial', ['search' => 'GOMEZ']));
+        $res->assertOk();
+        $res->assertSee('Gómez, Martín');
+
+        // Búsqueda sin acento: 'alvarez' debe encontrar 'Álvarez, Pedro'
+        $res = $this->get(route('web.caja.historial', ['search' => 'alvarez']));
+        $res->assertOk();
+        $res->assertSee('Álvarez, Pedro');
+        $res->assertDontSee('Gómez, Martín');
+
+        // Búsqueda con acento y mayúsculas: 'ÁLVAREZ'
+        $res = $this->get(route('web.caja.historial', ['search' => 'ÁLVAREZ']));
+        $res->assertOk();
+        $res->assertSee('Álvarez, Pedro');
+    }
+
+    /**
+     * 12. Historial de caja: búsqueda de varias palabras en cualquier orden.
+     */
+    public function test_historial_caja_busqueda_varias_palabras_en_cualquier_orden(): void
+    {
+        $rubro = Rubro::create(['nombre' => 'Ingresos Club', 'tipo' => 'INGRESO']);
+        $subrubro = Subrubro::create([
+            'rubro_id' => $rubro->id,
+            'nombre' => 'Cuota Mensual',
+            'permitido_para' => 'OPERATIVO',
+            'activo' => true,
+        ]);
+        $medio = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        $caja = CajaOperativa::create([
+            'usuario_operativo_id' => $this->operativo->id,
+            'apertura_at' => now(),
+            'estado' => CajaOperativa::ESTADO_ABIERTA,
+        ]);
+
+        $perez = Alumno::create([
+            'nombre' => 'Juan',
+            'apellido' => 'Pérez',
+            'dni' => '31222333',
+            'fecha_nacimiento' => '2010-08-20',
+            'celular' => '1166667777',
+            'email' => 'perez@test.com',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subrubro->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => $perez->id,
+            'monto' => 15000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Cobro mensualidad Juan Pérez',
+            'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+        ]);
+
+        $this->actingAs($this->operativo);
+
+        // 'perez juan' encuentra 'Pérez, Juan'
+        $res = $this->get(route('web.caja.historial', ['search' => 'perez juan']));
+        $res->assertOk();
+        $res->assertSee('Pérez, Juan');
+
+        // 'juan perez' encuentra 'Pérez, Juan'
+        $res = $this->get(route('web.caja.historial', ['search' => 'juan perez']));
+        $res->assertOk();
+        $res->assertSee('Pérez, Juan');
+
+        // 'PEREZ JUAN' en mayúsculas también encuentra 'Pérez, Juan'
+        $res = $this->get(route('web.caja.historial', ['search' => 'PEREZ JUAN']));
+        $res->assertOk();
+        $res->assertSee('Pérez, Juan');
+    }
+
+    /**
+     * 13. Historial de caja: se combina con filtro de tipo (INGRESO/EGRESO) y paginación.
+     */
+    public function test_historial_caja_busqueda_se_combina_con_filtro_de_tipo_y_paginacion(): void
+    {
+        $rubroIngreso = Rubro::create(['nombre' => 'Ingresos', 'tipo' => 'INGRESO']);
+        $rubroEgreso = Rubro::create(['nombre' => 'Egresos', 'tipo' => 'EGRESO']);
+        $subIngreso = Subrubro::create([
+            'rubro_id' => $rubroIngreso->id,
+            'nombre' => 'Cuota Mensual',
+            'permitido_para' => 'OPERATIVO',
+            'activo' => true,
+        ]);
+        $subEgreso = Subrubro::create([
+            'rubro_id' => $rubroEgreso->id,
+            'nombre' => 'Devolución Cuota',
+            'permitido_para' => 'OPERATIVO',
+            'activo' => true,
+        ]);
+        $medio = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        $caja = CajaOperativa::create([
+            'usuario_operativo_id' => $this->operativo->id,
+            'apertura_at' => now(),
+            'estado' => CajaOperativa::ESTADO_ABIERTA,
+        ]);
+
+        $gomez = Alumno::create([
+            'nombre' => 'Martín',
+            'apellido' => 'Gómez',
+            'dni' => '32111444',
+            'fecha_nacimiento' => '2010-05-10',
+            'celular' => '1144445555',
+            'email' => 'gomez2@test.com',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+
+        // Movimiento 1: INGRESO asociado al alumno Gómez
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subIngreso->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => $gomez->id,
+            'monto' => 15000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Ingreso cuota Gómez',
+            'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+        ]);
+
+        // Movimiento 2: EGRESO con observación que menciona a Gómez
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subEgreso->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => null,
+            'monto' => 5000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Reintegro a Gómez por clase cancelada',
+            'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+        ]);
+
+        $this->actingAs($this->operativo);
+
+        // Búsqueda 'gomez' con tipo=INGRESO
+        $res = $this->get(route('web.caja.historial', ['search' => 'gomez', 'tipo' => 'INGRESO']));
+        $res->assertOk();
+        $res->assertSee('Gómez, Martín');
+        $res->assertDontSee('Reintegro a Gómez');
+
+        // Búsqueda 'gomez' con tipo=EGRESO
+        $res = $this->get(route('web.caja.historial', ['search' => 'gomez', 'tipo' => 'EGRESO']));
+        $res->assertOk();
+        $res->assertSee('Reintegro a Gómez');
+        $res->assertDontSee('Gómez, Martín');
+
+        // Paginación: crear 32 movimientos más asociados a Gómez
+        for ($i = 1; $i <= 32; $i++) {
+            MovimientoOperativo::create([
+                'caja_operativa_id' => $caja->id,
+                'usuario_id' => $this->operativo->id,
+                'subrubro_id' => $subIngreso->id,
+                'tipo_caja_id' => $medio->id,
+                'alumno_id' => $gomez->id,
+                'monto' => 1000 + $i,
+                'fecha' => now()->toDateString(),
+                'observaciones' => "Pago adicional {$i}",
+                'estado' => MovimientoOperativo::ESTADO_ACTIVO,
+            ]);
+        }
+
+        // Página 1 debe tener 30 registros y enlace a página 2 que conserva search=gomez
+        $resPag1 = $this->get(route('web.caja.historial', ['search' => 'gomez', 'tipo' => 'INGRESO', 'page' => 1]));
+        $resPag1->assertOk();
+        $resPag1->assertSee('page=2');
+        $resPag1->assertSee('search=gomez');
+
+        // Página 2 debe tener los restantes
+        $resPag2 = $this->get(route('web.caja.historial', ['search' => 'gomez', 'tipo' => 'INGRESO', 'page' => 2]));
+        $resPag2->assertOk();
+        $resPag2->assertSee('Gómez, Martín');
+    }
+
+    /**
+     * 14. Historial de caja: búsqueda incluye movimientos cancelados (vistos por ADMIN).
+     */
+    public function test_historial_caja_busqueda_incluye_movimientos_cancelados(): void
+    {
+        $rubro = Rubro::create(['nombre' => 'Ingresos Club', 'tipo' => 'INGRESO']);
+        $subrubro = Subrubro::create([
+            'rubro_id' => $rubro->id,
+            'nombre' => 'Cuota Mensual',
+            'permitido_para' => 'OPERATIVO',
+            'activo' => true,
+        ]);
+        $medio = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        $caja = CajaOperativa::create([
+            'usuario_operativo_id' => $this->operativo->id,
+            'apertura_at' => now(),
+            'estado' => CajaOperativa::ESTADO_ABIERTA,
+        ]);
+
+        $gomez = Alumno::create([
+            'nombre' => 'Martín',
+            'apellido' => 'Gómez',
+            'dni' => '33111555',
+            'fecha_nacimiento' => '2010-05-10',
+            'celular' => '1144445555',
+            'email' => 'gomez3@test.com',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'usuario_id' => $this->operativo->id,
+            'subrubro_id' => $subrubro->id,
+            'tipo_caja_id' => $medio->id,
+            'alumno_id' => $gomez->id,
+            'monto' => 15000,
+            'fecha' => now()->toDateString(),
+            'observaciones' => 'Cobro anulado Gómez',
+            'estado' => MovimientoOperativo::ESTADO_CANCELADO,
+        ]);
+
+        $this->actingAs($this->admin);
+
+        // El admin buscando 'gomez' debe ver el movimiento cancelado
+        $res = $this->get(route('web.caja.historial', ['search' => 'gomez']));
+        $res->assertOk();
+        $res->assertSee('Gómez, Martín');
+        $res->assertSee('Cancelado');
     }
 }
