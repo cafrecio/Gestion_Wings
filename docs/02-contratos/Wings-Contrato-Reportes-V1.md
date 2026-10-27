@@ -164,7 +164,7 @@ intereses. No tienen alumno, así que no tienen deporte.
 | **Sueldos de profesores** | **Por deporte.** El subrubro ya se llama `Patín-Jorge Mitre`: trae el deporte adentro |
 | Alquiler de canchas | **Gastos generales**, sin repartir. Ver la limitación abajo |
 | Servicios, gastos operativos | Gastos generales, por rubro y subrubro |
-| Sueldo del operativo | Cashflow directo solo ADMIN; gasto del club sin reparto por deporte. También figura en Sueldos, como pago por persona. T86 local, pendiente de Claude y sin despliegue |
+| Sueldo del operativo | Cashflow directo solo ADMIN; gasto del club sin reparto por deporte. También figura en Sueldos, como pago por persona. T86 cerrada: lógica Claude, aspecto Carlos; sin despliegue en esta entrega |
 
 ### Los movimientos no económicos NO entran en el resultado
 
@@ -233,7 +233,7 @@ de Cashflow; los sueldos docentes siguen reservados y se pagan solo por Liquidac
 La migración identifica sueldos existentes por `users.subrubro_id` y rol `OPERATIVO`, nunca
 por el prefijo del nombre. No se liberan sueldos vinculados a profesoras.
 
-Implementado localmente en T86, pendiente de verificación de Claude y sin despliegue.
+T86 cerrada: lógica aprobada por Claude y aspecto por Carlos («Las imagenes estan OK»), sin despliegue en esta entrega.
 El egreso es gasto del club: entra en Ingresos/egresos e Inicio sin repartirlo por deporte.
 Carlos confirmó por escrito: «No, incluir operativas en Sueldos es parte de T86».
 Reportes → Sueldos incluye un bloque «Pagos de operativas»: total y detalle por persona

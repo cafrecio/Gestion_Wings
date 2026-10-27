@@ -27,6 +27,6 @@ Las capturas son PNG originales de Chrome headless, escala 1, sin edición ni re
 
 Chrome se ejecutó oculto con `--headless=new --disable-gpu --allow-file-access-from-files --force-device-scale-factor=1 --hide-scrollbars`, presupuesto virtual4000/5000ms y perfiles propios ignorados bajo `storage/app/t86-chrome-*`. Los assets referidos por los HTML son los de `public/build` de este checkout; los PNG permiten revisar el corte aunque un build posterior cambie esos archivos. No se usa el perfil del navegador de Carlos.
 
-[Galería](../APROBAR-T86-SUELDOS.html) · [Implementación](../IMPLEMENTACION-T86.md). La revisión visual de Carlos y la verificación independiente de Claude siguen pendientes; T86 se entrega `a_verificar`.
+[Galería](../APROBAR-T86-SUELDOS.html) · [Implementación](../IMPLEMENTACION-T86.md). Lógica aprobada por Claude y aspecto por Carlos («Las imagenes estan OK»); T86 `cerrado`. Ver [registro de cierre](CIERRE-T86.md).
 
 `verificar-entrega.py --guardar` comprueba resultados, fuentes, datos, dimensiones, enlaces y tablero antes de sellar el manifiesto; sin argumento verifica su integridad. No inicia PHP ni toca ninguna base. El auditor de `evidencia-t86-codex` comprueba por separado el corte histórico `f257fd6f`.

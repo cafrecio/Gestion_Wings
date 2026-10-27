@@ -1,11 +1,11 @@
 # Wings — Estado actual
 
-## T86 — Pago operativo y Reportes Sueldos implementados; verifica Claude, Codex CAB 27/10/2026
+## T86 — Pago operativo y Reportes Sueldos cerrados; lógica Claude y aspecto Carlos, Codex CAB 27/10/2026
 
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md). Operativas no reservadas, solo ADMIN y sin caja operativa; docentes conservan reserva/Liquidaciones. Migración por FK/rol sin prefijo, excluye docentes y solo cambia reserva; idempotencia y renombrado comprobados. Sin migrar servidor/base del club.
 Carlos confirmó «No, incluir operativas en Sueldos es parte de T86». Sueldos muestra pagos netos por persona y total del mes; gasto del club sin reparto por deporte, indicadores docentes conservados. Cambios de rol/inactividad no ocultan pagos históricos con FK conservada. Duda para Carlos: reservas antiguas al cambiar de rol para nuevos pagos.
 18 permanentes T86: diez de pago y ocho de reporte, rojo previo conservado. Dirigidas30/133; rápida952 aprobadas/6 omitidas/7558 aserciones; completa 1071 aprobadas/6 omitidas/9157 aserciones/972,62s, salida0. Solo wings_testing_codex. Sintaxis y vistas correctas; única vista autorizada Sueldos, sin CSS/JS de producto.
-[Galería real1366/375 y login de calibración](../06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html), aprobación visual pendiente. T86 a_verificar,hizo=Codex,verifica=Claude,tiene=Claude. T92 sigue cerrada79340268. Sin push ni despliegue; T85/T93 ajenas fuera.
+[Galería real1366/375 y login de calibración](../06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html), Carlos: «Las imagenes estan OK». Lógica aprobada por [Claude](../06-pruebas/PRU-04/VERIFICACION-T86-CLAUDE.md). T86 cerrado,hizo=Codex,verifica=Claude,tiene=nadie. T92 sigue cerrada79340268. Sin push ni despliegue; T85/T93 ajenas fuera.
 
 ## T92 — Segunda verificación aprobada, Codex CAB 27/10/2026
 

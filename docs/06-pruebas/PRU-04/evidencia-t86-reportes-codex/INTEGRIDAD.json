@@ -1,5 +1,5 @@
 {
-  "estado": "a_verificar",
+  "estado": "cerrado",
   "resultados": {
     "rojo": {
       "name": "Tests\\Feature\\ReporteSueldosOperativasT86Test",
@@ -101,11 +101,13 @@
       920
     ]
   },
-  "enlaces_revisados": 32,
+  "enlaces_revisados": 38,
+  "verificacion": {
+    "logica": "Claude, ea07b6ae",
+    "aspecto": "Carlos: Las imagenes estan OK"
+  },
   "pendiente": [
-    "Verificacion independiente de Claude",
-    "Aprobacion visual de Carlos",
-    "Definir reservas antiguas al cambiar de rol"
+    "Definir reservas antiguas al cambiar de rol (no bloqueante)"
   ],
   "archivos": [
     {
@@ -114,7 +116,7 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ALCANCE-PENDIENTE.md",
-      "sha256": "0343eecbda3aaf6e382f7024b9e90c2d5e3a300787055691ea57461b8cfb15b9"
+      "sha256": "4742c91a618978f53280d1d75618753dfc77e7f4922867b981a5cfc096d34fda"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-codex/ObservacionesT86Test.php",
@@ -139,6 +141,10 @@
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CapturaSueldosT86Test.php",
       "sha256": "938fa1c042a7d218ea943f46e3362d3a9d8b4f1c311384169a61ea6d2a8f6ac6"
+    },
+    {
+      "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/CIERRE-T86.md",
+      "sha256": "f673b8de309266597f7fe7ed76d63c4ce706309def2b16d6d4ad3b7aa675dec6"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/completa-exit.txt",
@@ -230,7 +236,7 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/LEEME.md",
-      "sha256": "889ce632805d89509ff21e66692c3840d14f68a3cffb2ff29e17a6c3e77c388c"
+      "sha256": "7bbe7e12ea476ccad57b586c9307f38df863ea2f909103dce2e6a5191980d139"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/login.html",
@@ -322,7 +328,7 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/verificar-entrega.py",
-      "sha256": "489ef13fc805338c5afbdd18381b48b7f2a71b480568d75e49ad03b435ab6da2"
+      "sha256": "b8c4494d677dfa58cdde534677ef05f9321e7265b30dcd6d79c44e5d64267680"
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/evidencia-t86-reportes-codex/vistas.txt",
@@ -330,7 +336,7 @@
     },
     {
       "ruta": "docs/06-pruebas/PRU-04/IMPLEMENTACION-T86.md",
-      "sha256": "839a8f45b54b7797f7c29fd11fdfbaf50686a9c124e8f97ef32c5e78fc177066"
+      "sha256": "8ecec34ac2bc5b70a03cef0923c3f377b61af414c2fb90e80c8624da809bad9e"
     }
   ],
   "alcance": "Ampliacion autorizada de T86. Evidencia inicial sellada aparte en f257fd6f. Documentos compartidos revisados por diff, no congelados aqui."

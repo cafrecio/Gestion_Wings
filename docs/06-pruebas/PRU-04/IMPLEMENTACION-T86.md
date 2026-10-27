@@ -1,6 +1,6 @@
 # T86 — Sueldo de una operativa por Cashflow
 
-Codex CAB, 27/10/2026. **Implementada localmente; entrega a Claude para verificación.** Sin despliegue. La aprobación escrita está en el objetivo adjunto de Carlos del 27/10: operativas sin reserva, profesoras reservadas y migración por `users.subrubro_id`/rol.
+Codex CAB, 27/10/2026. **Cerrada: lógica aprobada por Claude y aspecto aprobado por Carlos.** Entrega inicial local; sin despliegue desde este chat. La aprobación escrita está en el objetivo adjunto de Carlos del 27/10: operativas sin reserva, profesoras reservadas y migración por `users.subrubro_id`/rol.
 
 El dueño puede elegir el sueldo de una operativa en Nuevo movimiento de Cashflow y registrar su pago. El rubro Sueldos sigue protegido; los sueldos docentes se siguen pagando por Liquidaciones. Reportes → Sueldos también muestra esos pagos por persona; el gasto no se reparte por deporte. Se modificó su vista con la confirmación escrita de Carlos; no se cambió CSS.
 
@@ -34,7 +34,7 @@ El bloque «Pagos de operativas» muestra total, persona, importe y cantidad de 
 
 Es gasto del club: al filtrar por deporte conserva el mismo total y lo aclara en pantalla. Los indicadores, filas y gráficos docentes conservan sus cálculos. El pago histórico sigue visible si el usuario cambia de rol o se desactiva mientras conserva su FK; eso no habilita nuevos pagos que sigan reservados.
 
-[Galería para revisión visual](APROBAR-T86-SUELDOS.html): con pagos y sin pagos, escritorio 1366 y celular en iframe de **375 reales**, con login de calibración. Son capturas de Chrome del HTML devuelto por la ruta real de Laravel, assets reales y datos sintéticos de `wings_testing_codex`; no son una maqueta ni navegación al sitio de prueba. El HTML solo adapta URLs locales y neutraliza tokens. Se revisaron las imágenes; aprobación visual de Carlos aún pendiente. No se modificó CSS ni JavaScript de producto.
+[Galería para revisión visual](APROBAR-T86-SUELDOS.html): con pagos y sin pagos, escritorio 1366 y celular en iframe de **375 reales**, con login de calibración. Son capturas de Chrome del HTML devuelto por la ruta real de Laravel, assets reales y datos sintéticos de `wings_testing_codex`; no son una maqueta ni navegación al sitio de prueba. El HTML solo adapta URLs locales y neutraliza tokens. Se revisaron las imágenes; Carlos aprobó las capturas: «Las imagenes estan OK». No se modificó CSS ni JavaScript de producto.
 
 ## Duda de cambio de rol, sin política nueva
 
@@ -79,6 +79,6 @@ Sintaxis PHP y compilación de vistas: cinco archivos PHP sin errores; `view:cac
 
 Misma base local exclusiva Codex y guardias, sin corridas simultáneas. La evidencia inicial permanece histórica: su auditor verifica fuentes e informe contra `f257fd6f`, sin exigir que persista la ausencia ya corregida. La evidencia ampliada tiene su propio manifiesto y auditor.
 
-**Entrega de tablero:** T86 `a_verificar`, `hizo=Codex`, `verifica=Claude`, `tiene=Claude`. Claude verifica pago, reporte y protecciones. La duda de reserva antigua al cambiar de rol queda expresa para Carlos. La tabla externa y su copia no se cambian. T85/T93 concurrentes quedan fuera del commit. Sin push manual, servidor, base del club ni despliegue.
+**Cierre de tablero, 27/10/2026:** T86 `cerrado`, `hizo=Codex`, `verifica=Claude`, `tiene=nadie`. [Verificación de lógica de Claude](VERIFICACION-T86-CLAUDE.md), 32/32 y seguridad23/23; Carlos aprobó el aspecto: «Las imagenes estan OK». [Registro del cierre y guía de uso](evidencia-t86-reportes-codex/CIERRE-T86.md). La duda de reservas antiguas al cambiar de rol permanece no bloqueante, sin decidir una política. Tabla externa/copia intactas. Sin despliegue en esta actuación.
 
 El diagnóstico inicial (1/5) consultó el reporte sin pago previo; el histórico final (1/6) agregó el pago y constató la ausencia de operativas entonces. El diagnóstico ampliado (1/8) acredita su inclusión actual. El HTML histórico T34 regenerado por la suite se devuelve a sus bytes originales de Git.

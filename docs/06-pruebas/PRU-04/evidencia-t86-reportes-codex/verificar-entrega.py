@@ -52,10 +52,10 @@ view = (root / 'resources/views/reportes/sueldos.blade.php').read_text(encoding=
 assert 'Pagos de operativas' in view and 'pagos_operativas' in view
 assert not re.search(r'<script\b(?![^>]*\bsrc=)|\bon(?:click|submit|change)\s*=', view, re.I)
 text = report.read_text(encoding='utf-8')
-assert 'EN_CURSO_' not in text and 'aprobación visual de Carlos aún pendiente' in text
+assert 'EN_CURSO_' not in text and 'Carlos aprobó las capturas' in text
 board = json.loads((root / 'docs/00-estado/tareas.json').read_text(encoding='utf-8'))
 t86 = next(t for t in board if t['id'] == 'T86')
-assert tuple(t86[k] for k in ('estado', 'hizo', 'verifica', 'tiene')) == ('a_verificar', 'Codex', 'Claude', 'Claude')
+assert tuple(t86[k] for k in ('estado', 'hizo', 'verifica', 'tiene')) == ('cerrado', 'Codex', 'Claude', 'nadie')
 assert next(t for t in board if t['id'] == 'T92')['estado'] == 'cerrado'
 files = sorted([p for p in folder.iterdir() if p.is_file() and p != manifest] + [report, gallery,
     root / 'docs/06-pruebas/PRU-04/evidencia-t86-codex/ALCANCE-PENDIENTE.md',
@@ -75,8 +75,9 @@ for path in files:
                 continue
             assert (path.parent / unquote(urlsplit(ref).path)).resolve().exists(), (path, ref)
             links += 1
-data = {'estado': 'a_verificar', 'resultados': results, 'imagenes': images, 'enlaces_revisados': links,
-        'pendiente': ['Verificacion independiente de Claude', 'Aprobacion visual de Carlos', 'Definir reservas antiguas al cambiar de rol'],
+data = {'estado': 'cerrado', 'resultados': results, 'imagenes': images, 'enlaces_revisados': links,
+        'verificacion': {'logica': 'Claude, ea07b6ae', 'aspecto': 'Carlos: Las imagenes estan OK'},
+        'pendiente': ['Definir reservas antiguas al cambiar de rol (no bloqueante)'],
         'archivos': [{'ruta': p.relative_to(root).as_posix(), 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in files],
         'alcance': 'Ampliacion autorizada de T86. Evidencia inicial sellada aparte en f257fd6f. Documentos compartidos revisados por diff, no congelados aqui.'}
 if '--guardar' in sys.argv:

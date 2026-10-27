@@ -12,4 +12,4 @@ La ampliación ya está implementada localmente: Reportes → Sueldos muestra «
 
 En `13c4ee9d` y `f257fd6f`, el pago ya figuraba en Cashflow, Ingresos/egresos e Inicio, pero Sueldos solo devolvía docentes. El [diagnóstico inicial](observaciones.json) acredita esa ausencia en aquel código; no describe la versión ampliada. El informe y manifiesto de aquel corte se verifican contra `f257fd6f` con `verificar-entrega.py`.
 
-La duda sobre reservas antiguas al cambiar de rol permanece para Carlos. No impide mostrar un pago ya realizado ni se resuelve cambiando sus datos. T86 sigue `a_verificar` para Claude; este documento no representa aprobación independiente ni visual.
+La duda sobre reservas antiguas al cambiar de rol permanece para Carlos. No impide mostrar un pago ya realizado ni se resuelve cambiando sus datos. T86 queda `cerrado`: lógica aprobada por Claude y aspecto por Carlos («Las imagenes estan OK»). Ver el [registro del cierre](../evidencia-t86-reportes-codex/CIERRE-T86.md).
