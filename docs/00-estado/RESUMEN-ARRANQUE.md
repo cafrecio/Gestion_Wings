@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
 | SEG-01 | Retiro de Axios y audit/build verificados al 11/09; no afirma estado actual de dependencias locales |
 | FDS-02 / alertas | Cierre documentado 09/09 con recepción de email y Telegram; no revalidado hoy |
-| Servidor | **Sitio de prueba**, comprobado al iniciar13–16: `ec1b0c6e`, staging/wingstest, tras aviso de despliegue de Carlos. [Entorno](../06-pruebas/PRU-04/evidencia-dia-13/entorno-previo.txt). Último reloj iniciado una vez: **25/10/2026 15:00**. Producción no consultada ni modificada en esta ejecución. |
+| Servidor | **Sitio de prueba en `79340268`** (Claude, 27/10): T90, T92 y T85 verificadas; respaldo `/root/respaldos/wingstest-antes-despliegue-2026-10-27-0808.sql.gz`, sin migraciones, /login 200 y CSP bloqueando. Reloj simulado intacto (01/11). T86 no subida: espera el OK visual de Carlos. Producción no consultada ni modificada. |
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
