@@ -49,15 +49,20 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T70** Reporte de Alumnos: cantidad de altas y de bajas del mes | En curso (hizo Codex) | Implementar fecha e indicadores mensuales; pruebas y capturas |
+| **T71** Deuda de alumnos inactivos: se muestra aparte y el duenio puede darla por perdida | En curso (hizo Codex) | Separar deuda inactiva y registrar perdida ADMIN; pruebas y capturas |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T62** Cancelar una clase con lista tomada avisa; no se cancela si esta en una liquidacion cerrada o pagada. Reactivar controla choques y conserva el motivo | En curso | Implementar CLA-012 y CLA-015 |
 
-## Sin empezar (16)
+## Sin empezar (13)
 
-T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T62 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
+T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T82 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (11)
 
