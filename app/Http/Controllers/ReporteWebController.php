@@ -36,7 +36,8 @@ class ReporteWebController extends Controller
         $reporte = $servicio->obtener($mes, isset($datos['deporte_id']) ? (int) $datos['deporte_id'] : null);
         $evolucion = $servicio->evolucion($mes, $reporte['deporte_id']);
         $deportes = Deporte::orderBy('nombre')->get(['id', 'nombre']);
-        $desde = min(substr((string) (Clase::min('fecha') ?? $mes), 0, 7), $mes);
+        $desde = collect([Clase::min('fecha'), Alumno::min('fecha_alta'), DB::table('alumno_estado_historial')->min('fecha'), $mes])
+            ->filter()->map(fn ($fecha) => substr((string) $fecha, 0, 7))->min();
         $meses = [];
         for ($p = CarbonImmutable::createFromFormat('!Y-m', today()->format('Y-m')); $p->format('Y-m') >= $desde; $p = $p->subMonth()) {
             $meses[] = $p->format('Y-m');
@@ -70,6 +71,7 @@ class ReporteWebController extends Controller
             $meses[] = $cursor->format('Y-m');
         }
 
-        return view('reportes.index', compact('reporte', 'evolucion', 'deportes', 'meses', 'nombresCajas', 'alumnos', 'profesores'));
+        $deudaInactivos = app(\App\Services\DeudaInactivosService::class)->obtener($deporteId);
+        return view('reportes.index', compact('reporte', 'evolucion', 'deportes', 'meses', 'nombresCajas', 'alumnos', 'profesores', 'deudaInactivos'));
     }
 }

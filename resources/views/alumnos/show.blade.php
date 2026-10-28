@@ -13,7 +13,17 @@
     $registroDeLaInscripcion = $inscripcion && !$inscripcionEsDeEsteRegistro
         ? \App\Models\Alumno::with('deporte')->find($inscripcion->alumno_id)
         : null;
+    $perdidas = $alumno->deudasPerdidas()->with('usuario')->orderByDesc('id')->get();
 @endphp
+@if($perdidas->isNotEmpty())
+<section class="alumno-card mb-3">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--neutral"></span><h3 class="alumno-nombre">Deuda dada por perdida</h3></div>
+    <p class="text-sm mb-2" style="color:var(--color-text-muted);">No es condonación ni pago. No vuelve a cobrarse al reactivar.</p>
+    @foreach($perdidas as $perdida)
+    <p class="text-sm mb-2"><span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($perdida->importe) }}</span> · {{ $perdida->created_at->format('d/m/Y H:i') }} · {{ $perdida->usuario?->name ?? 'Usuario #'.$perdida->usuario_id }}</p>
+    @endforeach
+</section>
+@endif
 @if($inscripcion)
 <div class="alumno-card mb-3">
     <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>

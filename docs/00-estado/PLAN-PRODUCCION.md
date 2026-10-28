@@ -11,6 +11,11 @@
 | T12 manual y T13 ayuda dentro de Wings | Gemini |
 | T82 ensayo de restauración | Claude |
 
+T70/T71 implementadas localmente por Codex CyE el 28/10 y `a_verificar` por Claude;
+aspecto pendiente de Carlos. Completa: 1214 aprobadas, 6 omitidas, salida 0 en
+`wings_testing_codex`. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T70-T71.md) ·
+[Capturas reales 1366/375](../06-pruebas/PRU-04/APROBAR-T70-T71.html). Sin despliegue.
+
 Con eso terminado: despliegue en el sitio de prueba (junto con T89, T25 y T65), prueba corta de 3-4 días sobre lo cambiado y despliegue en producción.
 
 T50 CERRADA, verificación final Codex CyE 21/10 sobre 738de598: guardia efectiva/DB_URL aprobada con los 3 casos originales rechazados antes de preparar. 13/71 permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Corte 1029; H1 decidido por Carlos, H2/H3 e idioma conservados. Gemini implementó, Codex verificó. Sin cambios de producto por Codex ni despliegue. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md).

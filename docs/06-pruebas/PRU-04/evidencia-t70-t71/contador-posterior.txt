@@ -1,0 +1,6 @@
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.03s
+
+  Tests:    1 passed (7 assertions)
+  Duration: 0.20s

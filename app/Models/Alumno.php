@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class Alumno extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
     protected $attributes = [
         'activo' => true,
     ];
@@ -34,6 +35,7 @@ class Alumno extends Model
     protected $casts = [
         'fecha_nacimiento' => 'date',
         'fecha_alta' => 'date',
+        'inactivo_desde' => 'datetime',
         'grupo_desde' => 'date',
         'activo' => 'boolean',
         'alta_cuota' => 'array',
@@ -57,8 +59,19 @@ class Alumno extends Model
         // el alumno nunca cambió de grupo: entonces vale su fecha de ingreso, aunque se corrija
         // o sea futura. Solo un cambio de grupo la completa, con el día del cambio.
         static::updating(function ($alumno) {
+            if ($alumno->isDirty('activo')) {
+                $alumno->inactivo_desde = $alumno->activo ? null : now();
+            }
             if ($alumno->isDirty('grupo_id')) {
                 $alumno->grupo_desde = Carbon::now()->toDateString();
+            }
+        });
+        static::updated(function ($alumno) {
+            if ($alumno->wasChanged('activo')) {
+                $alumno->getConnection()->table('alumno_estado_historial')->insert([
+                    'alumno_id' => $alumno->id, 'alumno_referencia' => $alumno->id,
+                    'deporte_id' => $alumno->deporte_id, 'activo' => $alumno->activo, 'fecha' => now(),
+                ]);
             }
         });
     }
@@ -222,6 +235,9 @@ class Alumno extends Model
 
     public function motivoNoEliminable(): ?string
     {
+        if ($this->deudasPerdidas()->exists()) {
+            return 'Tiene deuda dada por perdida registrada.';
+        }
         if ($this->pagos()->exists()) {
             return 'Tiene pagos registrados.';
         }
@@ -263,6 +279,11 @@ class Alumno extends Model
         }
 
         return null;
+    }
+
+    public function deudasPerdidas(): HasMany
+    {
+        return $this->hasMany(DeudaPerdida::class);
     }
 
     /**

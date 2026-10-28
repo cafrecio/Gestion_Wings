@@ -1,0 +1,100 @@
+{
+  "evidencia": [
+    {
+      "pagina": "00-login",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": []
+    },
+    {
+      "pagina": "01-reporte-alumnos",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": []
+    },
+    {
+      "pagina": "02-cobranza",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": [
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Perder",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Perder",
+          "ancho": 96,
+          "alto": 32
+        }
+      ]
+    },
+    {
+      "pagina": "03-reportes",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": [
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Perder",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Perder",
+          "ancho": 96,
+          "alto": 32
+        }
+      ]
+    },
+    {
+      "pagina": "04-ficha-perdida",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": []
+    },
+    {
+      "pagina": "05-cobranza-operativo",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360,
+      "botones": [
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "ancho": 96,
+          "alto": 32
+        }
+      ]
+    }
+  ],
+  "errores": []
+}

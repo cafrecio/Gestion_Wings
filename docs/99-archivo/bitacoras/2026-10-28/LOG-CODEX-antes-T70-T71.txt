@@ -1,0 +1,18 @@
+## 2026-10-27 — Codex CAB — T88/B3 dinero entregado; sigue asistencia
+
+Objetivo adjunto: rechazo de gasto efectivo sin saldo y excepciones con motivo, autor, fecha, alumno/registro; cuatro casos, exceso de plan excluido por DU-34. Pull al día y grafo reindexado, lagunas completadas con fuentes.
+Servidor dinero implementado: saldo con lectura actual bajo bloqueo al registrar/editar; parciales y meses anteriores residuales controlados tras distribuir el pago; registro atómico común, Inicio con historial paginado y resumen24h sin mensajes individuales.
+Rojo final18:14 fallidas/4 aprobadas con clases originales; avisos2 rojas previas. Área32/143, técnica2/11, regresiones141/1652 y concurrencia real7/115 verdes. Rápida de cierre991 aprobadas/6 omitidas/7761 aserciones/184,37s, salida0. Completa1070/6 omitidas/40 fallidas/9148 aserciones/1191,77s;39 ajenas y un fixture propio corregido luego verdes aislados. Completa no verde; contador1116 incluye18 T65 concurrentes.
+Navegador local: parcial10000 y octubre28000 con motivo; Volver sobre5000 no guarda; gasto40000 rechazado, cajón39000. Dos excepciones visibles al dueño. Capturas reales1366/375; sin aprobar aún. Solo wings_testing_codex; localhost detenido antes de suites, sin sitio/servidor/base del club.
+[Informe dinero](../06-pruebas/PRU-04/IMPLEMENTACION-T88-B3-DINERO.md) y [galería](../06-pruebas/PRU-04/APROBAR-T88-B3-DINERO.html). T88 a_verificar por Claude; B3 sigue en_curso. Después asistencia, informe separado y suites; no autocierre. Pregunta para Carlos: tratamiento de la excepción al anular/corregir su registro. Producto/pruebas T65 fuera del commit; tablero conserva su estado movido por Gemini. Sintaxis, Blade y build correctos.
+
+## 2026-10-27 — Codex CAB — T86 cerrada: lógica Claude y aspecto Carlos
+
+[Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md): Cashflow habilitado, docentes protegidas, migración FK/rol idempotente. Carlos confirmó «No, incluir operativas en Sueldos es parte de T86»; vista y servicio ampliados, sin CSS/JS de producto.
+Sueldos: total/persona/pagos netos, sin reparto por deporte; docentes intactos. Pago48000,75 conciliado con Inicio/Ingresos-egresos. Histórico visible tras cambio de rol; reservas antiguas siguen como duda de Carlos.
+18 permanentes T86: iniciales10 (7 rojas antes); ocho nuevas de reporte (8 rojas antes). Dirigidas30/133; rápida952/6 omitidas/7558; completa 1071 aprobadas/6 omitidas/9157 aserciones/972,62s, salida0. Solo wings_testing_codex, sintaxis y vistas correctas.
+[Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html), Carlos: «Las imagenes estan OK». Evidencia inicial histórica f257fd6f, diagnóstico actualizado1/8. T86 cerrado,hizo=Codex,verifica=Claude,tiene=nadie; lógica aprobada en ea07b6ae. T92 cerrada79340268. Sin push/despliegue/servidor/base del club; T85/T93 fuera.
+
+
+
+

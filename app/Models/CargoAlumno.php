@@ -30,7 +30,7 @@ class CargoAlumno extends Model
 
     public function getSaldoPendienteAttribute(): float
     {
-        return $this->estado === 'ANULADO' ? 0 : round((float) $this->monto_original - (float) $this->monto_condonado - $this->monto_cobrado, 2);
+        return $this->estado === 'ANULADO' ? 0 : max(0, round((float) $this->monto_original - (float) $this->monto_condonado - (float) $this->monto_perdido - $this->monto_cobrado, 2));
     }
 
     public function getMontoCobradoAttribute(): float

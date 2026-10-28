@@ -147,7 +147,8 @@ class ReporteMensualService
         // T39 (Carlos, 18/10): una anulación cuenta desde la fecha del cobro anulado, como su
         // asiento en Cashflow. Anular retira el pivot, así que ningún corte lo ve como pagado.
         $deportes = Alumno::whereIn('id', $cargos->pluck('alumno_id'))->pluck('deporte_id', 'id');
-        return $cargos->map(function ($cargo) use ($eventos, $deportes) {
+        $perdidas = $this->perdidasCargosAl($fecha);
+        return $cargos->map(function ($cargo) use ($eventos, $deportes, $perdidas) {
             $condonado = 0;
             foreach ($eventos->get($cargo->id, collect()) as $evento) {
                 $detalle = json_decode($evento->detalle, true);
@@ -158,7 +159,7 @@ class ReporteMensualService
             $pagado = (float) $cargo->pagos->sum('pivot.monto_aplicado');
             return ['id' => $cargo->id, 'persona_id' => $cargo->alumno_id,
                 'periodo' => $cargo->deudaCuota->periodo, 'deporte_id' => (int) $deportes[$cargo->alumno_id],
-                'centavos' => max(0, (int) round(((float) $cargo->monto_original - $condonado - $pagado) * 100)),
+                'centavos' => max(0, (int) round(((float) $cargo->monto_original - $condonado - $pagado) * 100) - ($perdidas[$cargo->id] ?? 0)),
                 'concepto' => $cargo->descripcion];
         })->filter(fn ($fila) => $fila['centavos'] > 0)->values();
     }
@@ -181,11 +182,23 @@ class ReporteMensualService
             ->selectRaw('pc.cargo_alumno_id AS id, SUM(pc.monto_aplicado) AS pagado')->groupBy('pc.cargo_alumno_id')->pluck('pagado', 'id');
         $deportes = Alumno::whereIn('id', $cargos->pluck('alumno_id'))->pluck('deporte_id', 'id');
 
+        $perdidas = $this->perdidasCargosAl($fecha);
         return $cargos->map(fn ($cargo) => ['id' => $cargo->id, 'persona_id' => $cargo->alumno_id,
             'periodo' => $cargo->created_at->format('Y-m'), 'deporte_id' => isset($deportes[$cargo->alumno_id]) ? (int) $deportes[$cargo->alumno_id] : null,
-            'centavos' => max(0, (int) round(((float) $cargo->monto_original - (float) $cargo->monto_condonado - (float) ($pagado[$cargo->id] ?? 0)) * 100)),
+            'centavos' => max(0, (int) round(((float) $cargo->monto_original - (float) $cargo->monto_condonado - (float) ($pagado[$cargo->id] ?? 0)) * 100) - ($perdidas[$cargo->id] ?? 0)),
             'concepto' => 'Inscripción'])
             ->filter(fn ($fila) => $fila['centavos'] > 0 && ($deporteId === null || $fila['deporte_id'] === $deporteId))->values();
+    }
+
+    private function perdidasCargosAl(string $fecha): array
+    {
+        $saldos = [];
+        foreach (\App\Models\DeudaPerdida::whereDate('created_at', '<=', $fecha)->get() as $perdida) {
+            foreach ($perdida->detalle as $parte) {
+                if ($parte['tipo'] !== 'CUOTA') $saldos[$parte['id']] = ($saldos[$parte['id']] ?? 0) + $parte['centavos'];
+            }
+        }
+        return $saldos;
     }
 
     public function saldoHistorico(string $tipo, string $fecha, string $mes, ?int $deporteId = null): array

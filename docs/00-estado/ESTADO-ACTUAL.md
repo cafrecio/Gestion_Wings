@@ -1,5 +1,21 @@
 # Wings — Estado actual
 
+## T70/T71 — Implementadas localmente, a verificar por Claude, Codex CyE 28/10/2026
+
+Historial de Inactivo y fecha del tramo actual; Reporte de Alumnos con altas por fecha
+de ingreso y registros distintos que pasaron a Inactivo en el mes, sin duplicar al
+alternar. Inactivos anteriores sin fecha. T84/T85 y reingreso T38 conservados.
+Deuda actual separada en Cobranza/Reportes, fuera de Inicio y del por cobrar; inscripción
+compartida sin duplicar. Pérdida solo ADMIN, campo distinto de condonación, auditoría
+atómica y ficha con autor/fecha/importe. Al volver, lo perdido no se repone.
+15 pruebas propias y área/repetición 37/222 verdes; capturas reales 1366/marco375 y cliente
+sin navegación comprobados. Completa: 1214 aprobadas, 6 omitidas, 10081 aserciones, 1671,44s;
+salida 0 en wings_testing_codex. Las 23 fuentes propias siguen iguales al corte probado.
+[Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T70-T71.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T70-T71.html).
+T70/T71 a_verificar, tiene=Claude, verifica=Claude; falta su revisión y el aspecto de Carlos.
+Sin base del club, sitio de prueba ni despliegue. Los cambios T62 concurrentes quedaron
+en 5b0869cd; el contador compartido 1220 incluye 15 T70/T71 y 10 T62, sin atribuirlas a Codex.
+
 ## T89 — Opciones A/A/B/B implementadas localmente, Codex CAB 28/10/2026
 
 Carlos eligió Movimientos A, Cashflow A, Inicio B y Detalle B y pidió ver Movimientos. Autor real y recibo por fila; consulta de otra caja filtrada por rubro OPERATIVO, sin acciones de escritura; acceso Historial junto a Editar en Cashflow; Todos ausentes en gris para lista cargada sin presentes; hora de registro separada de fecha contable. Se reutiliza el diseño existente, sin CSS compartido ni JavaScript nuevos. [Implementación y verificaciones](../06-pruebas/PRU-04/IMPLEMENTACION-T89-CODEX.md). Completa1182 aprobadas/6 omitidas y área final53/454 verdes; [capturas finales1366/375](../06-pruebas/PRU-04/APROBAR-T89.html). A verificar por Claude; aspecto final de Carlos pendiente, sin despliegue.

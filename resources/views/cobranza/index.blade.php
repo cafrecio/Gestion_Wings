@@ -235,5 +235,6 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 </div>
 @endif
 
+@include('cobranza._deuda-inactivos')
 @endsection
 

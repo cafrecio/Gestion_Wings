@@ -120,7 +120,7 @@ class PagoCuotaService
             // y quien cobra no contestó que sigue inactivo (T25).
             $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
             if ($montoCuota > 0 && $planPeriodoActual?->plan && ($data['reactivar'] ?? true)) {
-                Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+                if (!$alumnoAntes->activo) $alumnoAntes->update(['activo' => true]);
                 if ($reingreso !== null) {
                     $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
                 }
@@ -265,7 +265,7 @@ class PagoCuotaService
             // y quien cobra no contestó que sigue inactivo (T25).
             $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
             if ($montoCuota > 0 && $planPeriodoActual?->plan && ($data['reactivar'] ?? true)) {
-                Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+                if (!$alumnoAntes->activo) $alumnoAntes->update(['activo' => true]);
                 if ($reingreso !== null) {
                     $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
                 }

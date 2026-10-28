@@ -1,0 +1,50 @@
+
+   PASS  Tests\Feature\InactivosT70T71Test
+  ✓ fecha e historia se conservan al reactivar sin duplicar el mes                                               9.69s
+  ✓ inactivos anteriores sin fecha no se inventan y altas respeta mes y deporte                                  0.59s
+  ✓ pase de noviembre no borra la cantidad de octubre                                                            0.51s
+  ✓ alu017 b d deuda aparte no aumenta ningun total existente                                                    0.60s
+  ✓ perdida es aparte del perdon con rastro y sin movimiento de dinero                                           0.55s
+  ✓ operativo y profesor no pueden perder aunque fuercen la ruta                                                 0.52s
+  ✓ saldo desactualizado activo y repeticion rechazan sin escritura                                              0.47s
+  ✓ reingreso no restituye perdida ni la confunde con condonacion                                                0.50s
+  ✓ inscripcion compartida con activo no se duplica ni se pierde                                                 0.41s
+  ✓ perdida cubre inscripcion y recargo y excluye mes futuro                                                     0.45s
+  ✓ alu017 y alu025 ficha busqueda clases mes siguiente y reingreso                                              0.80s
+  ✓ fallo del registro de auditoria revierte toda la perdida                                                     0.28s
+  ✓ perdida no borra condonacion previa de cargos ni reescribe cortes anteriores                                 0.38s
+  ✓ reporte muestra cantidades y la ficha distingue la perdida                                                   0.78s
+  ✓ reingreso no regenera la cuota del mes que se dio por perdida                                                0.46s
+
+   PASS  Tests\Feature\FichaToggleActivoT84Test
+  ✓ ficha alumno activo muestra toggle sin confirmacion ni boton reactivar                                       0.31s
+  ✓ ficha alumno inactivo muestra toggle sin confirmacion ni form reactivar                                      0.35s
+
+   PASS  Tests\Feature\CobroInactivoT25Test
+  ✓ cobrar deuda vieja a un inactivo pregunta y ofrece no                                                        0.50s
+  ✓ no cobra la deuda vieja y lo deja inactivo sin cuota del mes                                                 0.51s
+  ✓ si cobra y reactiva como hasta ahora                                                                         0.59s
+  ✓ si el cobro incluye el mes no se ofrece no                                                                   0.57s
+  ✓ no forzado con el mes se rechaza sin cobrar                                                                  0.82s
+  ✓ el servicio tambien rechaza no con el mes                                                                    1.63s
+  ✓ a un activo no se le pregunta                                                                                0.70s
+  ✓ sin plan para el mes no se pregunta porque no se reactivaria                                                 1.07s
+  ✓ la pantalla tiene el panel con si no y cancelar                                                              0.82s
+
+   PASS  Tests\Feature\CancelarReactivarClaseT62Test
+  ✓ cancelar clase sin asistencia no pide confirmacion                                                           0.24s
+  ✓ cancelar clase con asistencia avisa y exige confirmacion                                                     0.20s
+  ✓ cancelar serie con asistencias informa cuantas tienen lista y pide confirmacion                              0.21s
+  ✓ marcas de asistencia quedan guardadas y clase no cuenta en liquidacion                                       0.21s
+  ✓ reactivar falla si la profesora ya tiene otra clase activa que se superpone                                  0.15s
+  ✓ reactivar permite si la otra clase superpuesta esta cancelada                                                0.12s
+  ✓ al reactivar se conserva el motivo en la base y se muestra en la ficha                                       0.17s
+  ✓ reactivada permite guardar asistencias                                                                       0.19s
+  ✓ reactivada pasada vuelve a contar en sin asistencia                                                          0.22s
+  ✓ operativo no puede reactivar y profesor no puede cancelar ni reactivar                                       0.11s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.14s
+
+  Tests:    37 passed (222 assertions)
+  Duration: 27.35s

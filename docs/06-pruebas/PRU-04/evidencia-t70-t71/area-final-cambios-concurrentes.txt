@@ -1,0 +1,56 @@
+
+   PASS  Tests\Feature\InactivosT70T71Test
+  ✓ fecha e historia se conservan al reactivar sin duplicar el mes                                               8.00s
+  ✓ inactivos anteriores sin fecha no se inventan y altas respeta mes y deporte                                  0.09s
+  ✓ pase de noviembre no borra la cantidad de octubre                                                            0.32s
+  ✓ alu017 b d deuda aparte no aumenta ningun total existente                                                    0.18s
+  ✓ perdida es aparte del perdon con rastro y sin movimiento de dinero                                           0.18s
+  ✓ operativo y profesor no pueden perder aunque fuercen la ruta                                                 0.10s
+  ✓ saldo desactualizado activo y repeticion rechazan sin escritura                                              0.12s
+  ✓ reingreso no restituye perdida ni la confunde con condonacion                                                0.13s
+  ✓ inscripcion compartida con activo no se duplica ni se pierde                                                 0.10s
+  ✓ perdida cubre inscripcion y recargo y excluye mes futuro                                                     0.10s
+  ✓ alu017 y alu025 ficha busqueda clases mes siguiente y reingreso                                              0.27s
+  ✓ fallo del registro de auditoria revierte toda la perdida                                                     0.26s
+  ✓ perdida no borra condonacion previa de cargos ni reescribe cortes anteriores                                 0.14s
+  ✓ reporte muestra cantidades y la ficha distingue la perdida                                                   0.12s
+  ✓ reingreso no regenera la cuota del mes que se dio por perdida                                                0.15s
+
+   FAIL  Tests\Feature\DocumentacionNoMienteTest
+  ⨯ los documentos declaran la cantidad real de pruebas                                                          0.04s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas
+  ✓ lo generado coincide con tareas json                                                                         0.01s
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\DocumentacionNoMienteTest > los documentos declaran la cantidad real de pruebas
+  docs/00-estado/PLAN-PRODUCCION.md MIENTE.
+  Declara: 1220 pruebas
+  Reales:  1221 pruebas
+
+Actualizar el documento en el mismo commit que agrego o quito la prueba.
+Un documento desactualizado hace que la proxima orden de trabajo se escriba
+sobre informacion falsa. Ya paso.
+
+Failed asserting that 1220 is identical to 1221.
+
+  at tests\Feature\DocumentacionNoMienteTest.php:64
+     60▕             }
+     61▕
+     62▕             $declarado = (int) $coincidencia[1];
+     63▕
+  ➜  64▕             $this->assertSame(
+     65▕                 $real,
+     66▕                 $declarado,
+     67▕                 "\n".
+     68▕                 "{$ruta} MIENTE.\n".
+
+  1   tests\Feature\DocumentacionNoMienteTest.php:64
+
+
+  Tests:    1 failed, 21 passed (152 assertions)
+  Duration: 10.46s

@@ -27,9 +27,10 @@ class CobranzaWebController extends Controller
             ? collect()
             : \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')->where('estado', 'VIGENTE')
                 ->whereIn('dni', $dnis)
-                ->with('pagos')->get()->mapWithKeys(fn ($c) => [$c->dni => round((float) $c->monto_original - (float) $c->monto_condonado - (float) $c->pagos->sum('pivot.monto_aplicado'), 2)]);
+                ->with('pagos')->get()->mapWithKeys(fn ($c) => [$c->dni => round((float) $c->monto_original - (float) $c->monto_condonado - (float) $c->monto_perdido - (float) $c->pagos->sum('pivot.monto_aplicado'), 2)]);
 
         $resumen = $this->cobranzaService->resumenDashboard();
+        $deudaInactivos = app(\App\Services\DeudaInactivosService::class)->obtener($deporteId, $grupoId);
 
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
         $grupos = Grupo::with(['deporte', 'nivel'])
@@ -43,7 +44,7 @@ class CobranzaWebController extends Controller
 
         return view('cobranza.index', compact(
             'alumnos', 'resumen', 'deportes', 'grupos',
-            'estadoFiltro', 'deporteId', 'grupoId', 'inscripciones'
+            'estadoFiltro', 'deporteId', 'grupoId', 'inscripciones', 'deudaInactivos'
         ));
     }
 }

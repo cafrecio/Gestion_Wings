@@ -1,0 +1,13 @@
+{
+  "rechazo": {
+    "filaIntacta": true,
+    "totalIntacto": true,
+    "aviso": "La deuda cambió. Actualizá la lista.",
+    "habilitado": true
+  },
+  "pedidos": 2,
+  "filasAntes": 2,
+  "filasDespues": 1,
+  "totalDespues": "$7,500.00",
+  "sinNavegacion": true
+}

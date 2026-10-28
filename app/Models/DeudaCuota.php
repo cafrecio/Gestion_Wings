@@ -33,6 +33,7 @@ class DeudaCuota extends Model
     protected $casts = [
         'monto_original' => 'decimal:2',
         'monto_pagado' => 'decimal:2',
+        'monto_perdido' => 'decimal:2',
         'porcentaje_alta' => 'decimal:2',
         'fecha_reingreso' => 'date',
     ];
@@ -73,7 +74,7 @@ class DeudaCuota extends Model
         // cobro mostraban saldo de más en una cuota con condonación parcial (A54).
         return max(0, (float) $this->monto_original
             - (float) $this->monto_pagado
-            - (float) $this->monto_condonado);
+            - (float) $this->monto_condonado - (float) $this->monto_perdido);
     }
 
     /**

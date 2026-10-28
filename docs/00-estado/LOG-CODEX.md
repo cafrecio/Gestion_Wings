@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CyE — T70/T71 implementadas y entregadas a Claude
+
+Fecha actual e historial de Inactivo; altas y pases distintos del mes. Interruptor T84/T85 y cuota T38 conservados. Deuda separada en Cobranza/Reportes, pérdida ADMIN con campo propio y auditoría; al volver no se repone lo perdido.
+15 pruebas propias. Área y repetición 37/222 verdes, incluidas 10 T62 ajenas, sin corregirlas ni incorporarlas. Rápida: 1072 verdes/6 omitidas/6 fallas: cinco T62 y contador concurrente; las seis luego verdes aisladas. Completa: 1214 aprobadas/6 omitidas/10081 aserciones/1671,44s, salida 0 en wings_testing_codex, después de esperar PID 35584/22056. 23 fuentes propias intactas.
+12 capturas reales Chrome 1366/marco375 revisadas; ancho/botones medidos y cliente sin navegación ante rechazo/reintento/doble clic. [Galería](../06-pruebas/PRU-04/APROBAR-T70-T71.html) · [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T70-T71.md).
+T62 ajena quedó en 5b0869cd; contador 1220 incluye 15 propias y 10 T62, sin atribuirlas a Codex. Se frenó el commit mientras los documentos estaban mezclados. Sin sitio de prueba, servidor, base del club, despliegue ni push manual.
+T70/T71 a_verificar, tiene=Claude, verifica=Claude; sigue revisión independiente y aspecto de Carlos. Commit solo de archivos propios, sin autocierre.
+Después, las 15 propias pasaron contra el generador corregido por T62; solo falló el contador mientras Gemini agregaba otra prueba (1221). Índice propio separado de esos cambios ajenos; completa conserva su corte.
+
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
 Carlos pidió después publicar también `evidencia-correccion-t34/sin-presentes.html`: se incorpora su regeneración actual en un commit documental separado, sin modificar la prueba que lo genera ni producto.
@@ -62,24 +71,6 @@ B3 y T88 a_verificar,hizoCodex,verificaClaude,tieneClaude; sin autocierre. Regis
 Preguntas conservadas: primera carga, corte de correcciones históricas y avisos de orígenes anulados/corregidos. T54 posterior fuera del corte de suite y del producto/pruebas propios; contador del checkout calificado.
 Solo wings_testing_codex; localhost detenido antes de suites. Sin sitio/servidor/base del club, tabla externa/copia, push manual ni despliegue.
 
-## 2026-10-27 — Codex CAB — T88/B3 dinero entregado; sigue asistencia
-
-Objetivo adjunto: rechazo de gasto efectivo sin saldo y excepciones con motivo, autor, fecha, alumno/registro; cuatro casos, exceso de plan excluido por DU-34. Pull al día y grafo reindexado, lagunas completadas con fuentes.
-Servidor dinero implementado: saldo con lectura actual bajo bloqueo al registrar/editar; parciales y meses anteriores residuales controlados tras distribuir el pago; registro atómico común, Inicio con historial paginado y resumen24h sin mensajes individuales.
-Rojo final18:14 fallidas/4 aprobadas con clases originales; avisos2 rojas previas. Área32/143, técnica2/11, regresiones141/1652 y concurrencia real7/115 verdes. Rápida de cierre991 aprobadas/6 omitidas/7761 aserciones/184,37s, salida0. Completa1070/6 omitidas/40 fallidas/9148 aserciones/1191,77s;39 ajenas y un fixture propio corregido luego verdes aislados. Completa no verde; contador1116 incluye18 T65 concurrentes.
-Navegador local: parcial10000 y octubre28000 con motivo; Volver sobre5000 no guarda; gasto40000 rechazado, cajón39000. Dos excepciones visibles al dueño. Capturas reales1366/375; sin aprobar aún. Solo wings_testing_codex; localhost detenido antes de suites, sin sitio/servidor/base del club.
-[Informe dinero](../06-pruebas/PRU-04/IMPLEMENTACION-T88-B3-DINERO.md) y [galería](../06-pruebas/PRU-04/APROBAR-T88-B3-DINERO.html). T88 a_verificar por Claude; B3 sigue en_curso. Después asistencia, informe separado y suites; no autocierre. Pregunta para Carlos: tratamiento de la excepción al anular/corregir su registro. Producto/pruebas T65 fuera del commit; tablero conserva su estado movido por Gemini. Sintaxis, Blade y build correctos.
-
-## 2026-10-27 — Codex CAB — T86 cerrada: lógica Claude y aspecto Carlos
-
-[Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T86.md): Cashflow habilitado, docentes protegidas, migración FK/rol idempotente. Carlos confirmó «No, incluir operativas en Sueldos es parte de T86»; vista y servicio ampliados, sin CSS/JS de producto.
-Sueldos: total/persona/pagos netos, sin reparto por deporte; docentes intactos. Pago48000,75 conciliado con Inicio/Ingresos-egresos. Histórico visible tras cambio de rol; reservas antiguas siguen como duda de Carlos.
-18 permanentes T86: iniciales10 (7 rojas antes); ocho nuevas de reporte (8 rojas antes). Dirigidas30/133; rápida952/6 omitidas/7558; completa 1071 aprobadas/6 omitidas/9157 aserciones/972,62s, salida0. Solo wings_testing_codex, sintaxis y vistas correctas.
-[Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html), Carlos: «Las imagenes estan OK». Evidencia inicial histórica f257fd6f, diagnóstico actualizado1/8. T86 cerrado,hizo=Codex,verifica=Claude,tiene=nadie; lógica aprobada en ea07b6ae. T92 cerrada79340268. Sin push/despliegue/servidor/base del club; T85/T93 fuera.
-
-
-
-
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
 
@@ -96,3 +87,5 @@ Sueldos: total/persona/pagos netos, sin reparto por deporte; docentes intactos. 
 [Dos entradas T92 íntegras, archivadas al implementar T89](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T92-antes-T89.txt). Base original de enlaces: docs/00-estado/. SHA256: 96aaf11c859e54e0a339f6c4941774f7ce8aecb197ffab025ceba0a46c767733.
 
 [T90 íntegra, archivada al publicar la bitácora](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T90-antes-publicacion.txt). Base original: docs/00-estado/; separador vacío final excluido. SHA256: 0d3df2dd8830174d27d8a5a92dc777685e20122f5f119506fc2c173a85a2acbd.
+
+[Dos entradas íntegras T88/B3 y T86, archivadas al implementar T70/T71](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T70-T71.txt). Base original: docs/00-estado/. SHA256: 922e3e4ae896f356fd08ea56fd9d50ae5f886df57fc4826fad1b1a628bf58ba3.

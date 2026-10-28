@@ -48,13 +48,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T70** Reporte de Alumnos: cantidad de altas y de bajas del mes | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar historial, cantidades del mes y capturas T70/T71; aspecto pendiente de Carlos |
+| **T71** Deuda de alumnos inactivos: se muestra aparte y el duenio puede darla por perdida | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar deuda separada, perdida ADMIN, auditoria y reingreso; aspecto pendiente de Carlos |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T70** Reporte de Alumnos: cantidad de altas y de bajas del mes | En curso (hizo Codex) | Implementar fecha e indicadores mensuales; pruebas y capturas |
-| **T71** Deuda de alumnos inactivos: se muestra aparte y el duenio puede darla por perdida | En curso (hizo Codex) | Separar deuda inactiva y registrar perdida ADMIN; pruebas y capturas |
+Nada en este momento.
 
 ## Gemini
 

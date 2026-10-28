@@ -53,7 +53,7 @@ class HistorialReporteObserver
         if ($modelo instanceof TipoCaja) return (int) round(($datos['saldo_inicial'] ?? 0) * 100);
         if ($modelo instanceof DeudaCuota) {
             return ($datos['estado'] ?? '') === 'CONDONADA' ? 0
-                : max(0, (int) round(((float) ($datos['monto_original'] ?? 0) - (float) ($datos['monto_pagado'] ?? 0)) * 100));
+                : max(0, (int) round(((float) ($datos['monto_original'] ?? 0) - (float) ($datos['monto_pagado'] ?? 0) - (float) ($datos['monto_perdido'] ?? 0)) * 100));
         }
         return ($datos['estado'] ?? '') === 'CERRADA' && ($datos['estado_pago'] ?? 'PENDIENTE') === 'PENDIENTE'
             ? (int) round(($datos['monto_final'] ?? ((float) ($datos['total_calculado'] ?? 0)

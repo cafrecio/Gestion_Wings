@@ -43,6 +43,11 @@ class ReporteAlumnosService
             'mes' => $mes, 'fecha_corte' => $fin, 'deporte_id' => $deporteId,
             'fecha_matricula' => today()->toDateString(), 'activos' => $activos->count(),
             'inactivos' => $alumnos->where('activo', false)->count(),
+            'altas_mes' => $alumnos->filter(fn ($a) => $a->fecha_alta && $a->fecha_alta->betweenIncluded($inicio, CarbonImmutable::parse($fin)->endOfDay()))->count(),
+            // Un alumno que alterna varias veces cuenta una sola vez en cada mes.
+            'pases_inactivo_mes' => \Illuminate\Support\Facades\DB::table('alumno_estado_historial')
+                ->where('activo', false)->whereBetween('fecha', [$inicio->startOfDay(), CarbonImmutable::parse($fin)->endOfDay()])
+                ->when($deporteId !== null, fn ($q) => $q->where('deporte_id', $deporteId))->distinct()->count('alumno_referencia'),
             'por_deporte' => $activos->groupBy('deporte_id')->map(fn ($g) => [
                 'nombre' => $g->first()->deporte?->nombre ?? 'Sin deporte', 'cantidad' => $g->count(),
             ])->values()->all(),

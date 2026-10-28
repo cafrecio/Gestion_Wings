@@ -167,7 +167,7 @@ class CobranzaEstadoService
 
                 $cuotas += max(0, (float) $deuda->monto_original
                     - (float) $deuda->monto_pagado
-                    - (float) $deuda->monto_condonado);
+                    - (float) $deuda->monto_condonado - (float) $deuda->monto_perdido);
                 $impagas++;
 
                 if ($masAntigua === null || $deuda->periodo < $masAntigua) {
@@ -238,7 +238,7 @@ class CobranzaEstadoService
         foreach ($cargos as $cargo) {
             $pendiente = max(0, (float) $cargo->monto_original
                 - (float) $cargo->pagos->sum('pivot.monto_aplicado')
-                - (float) $cargo->monto_condonado);
+                - (float) $cargo->monto_condonado - (float) $cargo->monto_perdido);
 
             if ($pendiente <= 0) {
                 continue;
@@ -270,7 +270,7 @@ class CobranzaEstadoService
             ->whereHas('deudaCuota', fn ($q) => $q->where('periodo', '<=', now()->format('Y-m')))
             ->with(['pagos', 'deudaCuota'])->get()
             ->each(fn ($cargo) => $cargo->setAttribute('saldo_para_cobranza', round(max(0,
-                (float) $cargo->monto_original - (float) $cargo->monto_condonado
+                (float) $cargo->monto_original - (float) $cargo->monto_condonado - (float) $cargo->monto_perdido
                 - (float) $cargo->pagos->sum('pivot.monto_aplicado')), 2)))
             ->filter(fn ($cargo) => $cargo->saldo_para_cobranza > 0)->groupBy('alumno_id');
     }
@@ -517,7 +517,7 @@ class CobranzaEstadoService
 
             foreach ($alumno->deudaCuotas as $deuda) {
                 if ($this->estaImpaga($deuda)) {
-                    $totalAdeudadoCuotas += max(0, (float)$deuda->monto_original - (float)$deuda->monto_pagado - (float)$deuda->monto_condonado);
+                    $totalAdeudadoCuotas += $deuda->saldo_pendiente;
                 }
             }
 
@@ -591,7 +591,7 @@ class CobranzaEstadoService
             $pagado = (float) $cargo->pagos->sum('pivot.monto_aplicado');
             $condonado = (float) $cargo->monto_condonado;
             $orig = (float) $cargo->monto_original;
-            $total += max(0, $orig - $pagado - $condonado);
+            $total += max(0, $orig - $pagado - $condonado - (float) $cargo->monto_perdido);
         }
 
         return round($total, 2);
@@ -604,7 +604,7 @@ class CobranzaEstadoService
     {
         // T18 (devolución de Gemini): un mes que todavía no empezó no es deuda. Puede quedar
         // guardado y pendiente si se anula un cobro adelantado; recién cuenta cuando empieza.
-        return (float) $deuda->monto_pagado < (float) $deuda->monto_original
+        return $deuda->saldo_pendiente > 0
             && !in_array($deuda->estado, [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
             && $deuda->periodo <= now()->format('Y-m');
     }

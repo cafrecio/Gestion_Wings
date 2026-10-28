@@ -129,6 +129,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
 
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/admin/dashboard', [WebController::class, 'adminDashboard'])->name('admin.dashboard');
+        Route::post('/alumnos/{id}/deuda-perdida', [\App\Http\Controllers\DeudaInactivosWebController::class, 'perder'])->name('web.inactivos.perder');
         Route::get('/reportes', [ReporteWebController::class, 'index'])->name('web.reportes.index');
         Route::get('/reportes/alumnos', [ReporteWebController::class, 'alumnos'])->name('web.reportes.alumnos');
         Route::get('/reportes/sueldos', [ReporteWebController::class, 'sueldos'])->name('web.reportes.sueldos');

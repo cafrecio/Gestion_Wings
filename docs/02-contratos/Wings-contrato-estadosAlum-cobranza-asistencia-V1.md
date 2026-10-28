@@ -10,6 +10,41 @@
 
 ---
 
+## Inactivos: fecha, cantidades y deuda separada — T70/T71, Carlos 28/10/2026
+
+- **Inactivo y baja no son lo mismo.** Baja es eliminar un alumno sin movimientos (T65).
+  El pase a Inactivo conserva el interruptor instantáneo, sin motivo ni aviso (T84/T85).
+- Cada cambio de estado conserva su fecha en un historial. `inactivo_desde` representa
+  el tramo actual y se limpia al reactivar; los tramos anteriores se conservan.
+  Los inactivos anteriores a esta migración quedan sin fecha; no se les inventa un mes.
+- Reporte de Alumnos: altas por `fecha_alta` y cantidad de registros distintos que
+  pasaron a Inactivo en el mes elegido. Una reactivación no es un alta nueva;
+  varios pases del mismo registro en un mes cuentan una vez. Volver a activo no borra
+  aquel pase. Dos deportes son dos registros, igual que la matrícula del reporte.
+  Los indicadores muestran cantidades, sin listas de nombres.
+- **Deuda de alumnos inactivos:** total y lista actuales en Cobranza y Reportes,
+  con nombre, saldo y fecha de inactividad (o «Sin fecha registrada»). Se rotula
+  con la fecha actual incluso si Reportes tiene seleccionado un mes anterior.
+  No suma al por cobrar, a Inicio ni a ningún otro total existente. Incluye cuotas
+  de períodos ya empezados, inscripción y punitorios vigentes, por su saldo neto.
+  La inscripción compartida por DNI se cuenta una sola vez; si corresponde a un
+  registro activo, sigue en su deuda y no se duplica en la de inactivos.
+- Solo ADMIN activo puede **dar por perdida** la deuda de un inactivo desde esa lista.
+  Quedan autor, fecha, importe y partidas en un registro permanente y visibles en
+  su ficha. Se rechazan alumnos activos y montos desactualizados; repetir no duplica.
+  La operación es atómica: sin auditoría guardada tampoco hay pérdida aplicada.
+- **Perder no es condonar ni cobrar:** `monto_perdido` está separado de cualquier
+  condonación. No crea pago, recibo, ingreso, egreso ni movimiento de caja. Conserva
+  los importes originales, los pagos anteriores y los devengados analíticos.
+  La pérdida reduce únicamente el saldo cobrable y sale de la lista al agotarlo.
+- Si vuelve, **lo perdido no se repone automáticamente**. T38 conserva su cuota de
+  reingreso cuando corresponde, sin duplicar un período existente; la deuda que no
+  se había perdido vuelve al circuito habitual. Los períodos futuros aún no iniciados
+  quedan fuera de esta decisión. La auditoría impide eliminar el alumno que la tiene.
+
+Implementación local de Codex CyE; requiere verificación independiente de Claude y
+revisión visual de Carlos. Sin despliegue con esta entrega.
+
 ## 1. Modelo de pago
 
 El servicio se paga **por adelantado**, entendido así:
