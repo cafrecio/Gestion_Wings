@@ -1,0 +1,166 @@
+t51-rapida.txt
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.21s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.41s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.20s
+
+  Tests:    6 skipped, 1088 passed (8371 assertions)
+  Duration: 318.47s
+
+
+t51-completa.txt
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.25s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.21s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioDeudaCuotasEInscripcionesTest > t19 reportes cuenta las inscripciones igual que inici…
+  Expected response status code [200] but received 503.
+Failed asserting that 503 is identical to 200.
+
+  at tests\Feature\InicioDeudaCuotasEInscripcionesTest.php:292
+    288▕     private function deudaEnLasTresPantallas(): array
+    289▕     {
+    290▕         return [
+    291▕             'cobranza' => (int) round(app(CobranzaEstadoService::class)->resumenDashboard()['total_adeudado'] * 100),
+  ➜ 292▕             'inicio' => $this->actingAs($this->admin)->get(route('admin.dashboard'))->assertOk()->viewData('reporte')['deuda']['total'],
+    293▕             'reportes' => $this->actingAs($this->admin)->get(route('web.reportes.index'))->assertOk()->viewData('reporte')['deuda']['total'],
+    294▕         ];
+    295▕     }
+    296▕
+
+  1   tests\Feature\InicioDeudaCuotasEInscripcionesTest.php:307
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioDeudaCuotasEInscripcionesTest > t19 quien se dio de baja no cuenta en ninguna de las…
+  Expected response status code [200] but received 503.
+Failed asserting that 503 is identical to 200.
+
+  at tests\Feature\InicioDeudaCuotasEInscripcionesTest.php:292
+    288▕     private function deudaEnLasTresPantallas(): array
+    289▕     {
+    290▕         return [
+    291▕             'cobranza' => (int) round(app(CobranzaEstadoService::class)->resumenDashboard()['total_adeudado'] * 100),
+  ➜ 292▕             'inicio' => $this->actingAs($this->admin)->get(route('admin.dashboard'))->assertOk()->viewData('reporte')['deuda']['total'],
+    293▕             'reportes' => $this->actingAs($this->admin)->get(route('web.reportes.index'))->assertOk()->viewData('reporte')['deuda']['total'],
+    294▕         ];
+    295▕     }
+    296▕
+
+  1   tests\Feature\InicioDeudaCuotasEInscripcionesTest.php:326
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 1 recien llega nadie abrio
+  Expected response status code [200] but received 503.
+Failed asserting that 503 is identical to 200.
+
+  at tests\Feature\InicioOperativoTest.php:142
+    138▕
+    139▕     public function test_situacion_1_recien_llega_nadie_abrio(): void
+    140▕     {
+    141▕         $r = $this->actingAs($this->sandra)->get(route('web.operativo.dashboard'));
+  ➜ 142▕         $r->assertStatus(200);
+    143▕
+    144▕         $html = $r->getContent();
+    145▕         $this->assertStringContainsString('Cajón listo para iniciar', $html);
+    146▕         $this->assertStringContainsString('No hay turno abierto hoy', $html);
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 2 turno propio abierto hoy
+  Failed asserting that 503 is identical to 302.
+
+  at tests\Feature\InicioOperativoTest.php:74
+     70▕             'caja_origen_id' => null,
+     71▕             'motivo_apertura' => 'Test apertura',
+     72▕         ]);
+     73▕         $r->assertSessionHasNoErrors();
+  ➜  74▕         $this->assertSame(302, $r->getStatusCode());
+     75▕
+     76▕         return CajaOperativa::where('usuario_operativo_id', $operativo->id)
+     77▕             ->where('estado', 'ABIERTA')
+     78▕             ->latest('id')
+
+  1   tests\Feature\InicioOperativoTest.php:74
+  2   tests\Feature\InicioOperativoTest.php:154
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 3 companero abrio hoy
+  Failed asserting that 503 is identical to 302.
+
+  at tests\Feature\InicioOperativoTest.php:74
+     70▕             'caja_origen_id' => null,
+     71▕             'motivo_apertura' => 'Test apertura',
+     72▕         ]);
+     73▕         $r->assertSessionHasNoErrors();
+  ➜  74▕         $this->assertSame(302, $r->getStatusCode());
+     75▕
+     76▕         return CajaOperativa::where('usuario_operativo_id', $operativo->id)
+     77▕             ->where('estado', 'ABIERTA')
+     78▕             ->latest('id')
+
+  1   tests\Feature\InicioOperativoTest.php:74
+  2   tests\Feature\InicioOperativoTest.php:172
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 4 sandra cerro y espera validacion
+  Failed asserting that 503 is identical to 302.
+
+  at tests\Feature\InicioOperativoTest.php:74
+     70▕             'caja_origen_id' => null,
+     71▕             'motivo_apertura' => 'Test apertura',
+     72▕         ]);
+     73▕         $r->assertSessionHasNoErrors();
+  ➜  74▕         $this->assertSame(302, $r->getStatusCode());
+     75▕
+     76▕         return CajaOperativa::where('usuario_operativo_id', $operativo->id)
+     77▕             ->where('estado', 'ABIERTA')
+     78▕             ->latest('id')
+
+  1   tests\Feature\InicioOperativoTest.php:74
+  2   tests\Feature\InicioOperativoTest.php:193
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 5 caja rechazada
+  Failed asserting that 503 is identical to 302.
+
+  at tests\Feature\InicioOperativoTest.php:74
+     70▕             'caja_origen_id' => null,
+     71▕             'motivo_apertura' => 'Test apertura',
+     72▕         ]);
+     73▕         $r->assertSessionHasNoErrors();
+  ➜  74▕         $this->assertSame(302, $r->getStatusCode());
+     75▕
+     76▕         return CajaOperativa::where('usuario_operativo_id', $operativo->id)
+     77▕             ->where('estado', 'ABIERTA')
+     78▕             ->latest('id')
+
+  1   tests\Feature\InicioOperativoTest.php:74
+  2   tests\Feature\InicioOperativoTest.php:221
+
+
+  Tests:    7 failed, 6 skipped, 1217 passed (10091 assertions)
+  Duration: 1588.63s
+
+
+t51-inicio-aislado.txt
+
+   PASS  Tests\Feature\InicioDeudaCuotasEInscripcionesTest
+  ✓ inicio y cobranza concilian con solo cuotas                                                                 16.59s
+  ✓ inicio y cobranza concilian con cuotas mas inscripcion                                                       1.84s
+  ✓ inicio y cobranza concilian con inscripcion pagada                                                           0.98s
+  ✓ inicio y cobranza concilian con inscripcion pagada parcial                                                   1.09s
+  ✓ inicio y cobranza concilian con alumna en dos deportes una sola inscripcion                                  1.09s
+  ✓ inicio y cobranza concilian con inscripcion condonada                                                        0.44s
+  ✓ inicio y cobranza excluyen inscripcion de alumno inactivo                                                    0.41s
+  ✓ t19 reportes cuenta las inscripciones igual que inicio y cobranza                                            0.89s
+  ✓ t19 quien se dio de baja no cuenta en ninguna de las tres                                                    1.15s
+
+   PASS  Tests\Feature\InicioOperativoTest
+  ✓ situacion 1 recien llega nadie abrio                                                                         1.18s
+  ✓ situacion 2 turno propio abierto hoy                                                                         1.79s
+  ✓ situacion 3 companero abrio hoy                                                                              0.71s
+  ✓ situacion 4 sandra cerro y espera validacion                                                                 0.47s
+  ✓ situacion 5 caja rechazada                                                                                   0.53s
+  ✓ situacion 6 companero dejo abierta ayer                                                                      0.53s
+  ✓ situacion 7 propia abierta ayer                                                                              0.96s
+  ✓ situacion 8 de noche                                                                                         0.52s
+
+  Tests:    17 passed (152 assertions)
+  Duration: 31.55s

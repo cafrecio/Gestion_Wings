@@ -203,7 +203,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                                 Cancelar
                             </button>
                         </div>
-                    @else
+                    @elseif($mov->esManualEditable())
                         <div style="display:flex; gap:6px; justify-content:center;">
                             <a href="{{ route('web.caja.movimientos.editar', [$caja->id, $mov->id]) }}"
                                class="ds-btn-row ds-btn-row--sec">Editar</a>
@@ -276,6 +276,28 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 @endif
 
 {{-- ── Modal cancelar cobro (solo $hasEditar) ─────────────────────────── --}}
+@if($correcciones->isNotEmpty())
+<section id="historia-correcciones" style="margin-top:1.5rem;">
+    <h2 style="font-size:1rem; font-weight:700; margin-bottom:0.75rem;">Historia de correcciones</h2>
+    @foreach($correcciones as $correccion)
+    <div class="filtros-card" style="margin-bottom:0.75rem; overflow-wrap:anywhere;">
+        <p style="font-weight:600;">{{ $correccion->accion === 'EDITAR' ? 'Editado' : 'Eliminado' }} · Movimiento #{{ $correccion->movimiento_id }}</p>
+        <p style="font-size:0.8rem; color:var(--color-text-muted);">{{ $correccion->autor }} · {{ $correccion->created_at->format('d/m/Y H:i:s') }}</p>
+        @foreach(['antes' => 'Antes', 'despues' => 'Después'] as $campo => $etiqueta)
+            @if($foto = $correccion->$campo)
+            <p style="margin-top:0.5rem; font-size:0.8rem;">
+                <strong>{{ $etiqueta }}:</strong>
+                <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($foto['monto']) }}</span>
+                · {{ \Carbon\Carbon::parse($foto['fecha'])->format('d/m/Y') }} · {{ $foto['tipo'] }} · {{ $foto['medio'] }} · {{ $foto['rubro'] }} / {{ $foto['subrubro'] }}
+            </p>
+            <p style="font-size:0.8rem;">{{ $foto['observaciones'] }}</p>
+            @endif
+        @endforeach
+    </div>
+    @endforeach
+</section>
+@endif
+
 @if($hasEditar)
 <div id="modal-cancelar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">

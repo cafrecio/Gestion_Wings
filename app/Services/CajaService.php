@@ -572,7 +572,7 @@ class CajaService
             $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)
                 ->lockForUpdate()->findOrFail($movimientoId);
 
-            if ($movimiento->subrubro?->es_reservado_sistema) {
+            if (!$movimiento->esManualEditable()) {
                 throw new \Exception('No se puede editar un movimiento generado automáticamente por el sistema.');
             }
 

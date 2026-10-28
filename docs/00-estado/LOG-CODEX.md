@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CyE — T51 entregada a Claude
+
+Historia manual en Detalle: edición antes/después y eliminación con foto permanente, autor y fecha/hora, en una transacción. Automáticos protegidos en pantalla y rutas; cancelación con motivo conservada.
+9 propias/77 verdes. Rápida1088/6 omitidas/8371 aserciones/318,47s, salida0. Completa1217/6 omitidas/7 HTTP503 en Inicio/10091 aserciones/1588,63s, salida1; los dos archivos repetidos solos17/152 verdes, 31,55s. Causa no comprobada; no se declara completa verde.
+Nueve fuentes propias intactas. PHP/Blade correctos. Chrome real1366/marco375, login calibrado; sin desborde ni erroresJS. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T51.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T51.html).
+Se frenó el commit al mezclarse T12/T13 en el tablero; índice propio generado desde HEAD con el script, trabajo ajeno conservado. T12/T13 posteriores fuera del corte. Solo archivos propios; tabla externa intacta.
+T51 a_verificar, tiene/verifica=Claude. Sigue T45 y después T46. Sin autocierre, base del club ni despliegue.
+
 ## 2026-10-28 — Codex CyE — T70/T71 implementadas y entregadas a Claude
 
 Fecha actual e historial de Inactivo; altas y pases distintos del mes. Interruptor T84/T85 y cuota T38 conservados. Deuda separada en Cobranza/Reportes, pérdida ADMIN con campo propio y auditoría; al volver no se repone lo perdido.

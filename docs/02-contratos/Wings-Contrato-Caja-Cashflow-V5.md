@@ -210,3 +210,11 @@ Segunda vuelta entregada por Codex; verificación independiente de Claude y revi
 pedidos directos, permisos, importes, historial, atomicidad, reenvío y dos conexiones.
 La entrega final requiere suite propia, capturas reales con marco 360 y login,
 aprobación de Carlos y verificación por otro agente. T27 no se autocierra.
+
+### Correcciones manuales de caja — T51 / DU-07, 28/10/2026
+
+- Editar conserva una foto anterior y posterior; eliminar conserva la foto anterior aunque el movimiento desaparezca. Cada registro guarda ID del movimiento, caja, autor y fecha/hora. Historia visible en Detalle para ADMIN y dentro del dominio OPERATIVO; la operativa puede consultar la de su caja.
+- La modificación y su historia se guardan en una sola transacción, bloqueando primero caja y después movimiento. Si falla la historia, tampoco se modifica ni elimina el movimiento.
+- Solo movimientos manuales activos de cajas ABIERTAS o RECHAZADAS. Escribe ADMIN o la operativa titular; PROFESOR no accede. Cobros vinculados a alumno/pago y conceptos reservados no admiten Editar/Eliminar, tampoco por rutas forzadas. La cancelación con motivo conserva su circuito.
+- Arqueo y gasto pendiente mensual usan el movimiento vigente. La historia es informativa: no genera asientos ni duplica importes. Una caja rechazada conserva lo contado/entregado según A25.
+- Implementada localmente; entrega a Claude y revisión visual de Carlos pendientes. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T51.md) · [Capturas](../06-pruebas/PRU-04/APROBAR-T51.html).

@@ -72,6 +72,12 @@ class MovimientoOperativo extends Model
             && hash_equals($this->verificacion_huella, $this->huellaVerificacion());
     }
 
+    public function esManualEditable(): bool
+    {
+        return $this->estado === self::ESTADO_ACTIVO && $this->alumno_id === null
+            && $this->pago_id === null && !$this->subrubro?->es_reservado_sistema;
+    }
+
     /**
      * Relación con CajaOperativa
      */

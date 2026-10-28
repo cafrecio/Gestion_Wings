@@ -1,0 +1,23 @@
+{
+  "medidas": [
+    {
+      "pagina": "00-login",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "01-detalle-admin",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "02-detalle-operativa",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    }
+  ],
+  "errores": []
+}

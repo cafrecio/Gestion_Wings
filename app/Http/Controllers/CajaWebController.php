@@ -421,7 +421,12 @@ class CajaWebController extends Controller
             )->values());
         }
 
-        return view('caja.detalle', compact('caja'));
+        $correcciones = \App\Models\MovimientoOperativoCorreccion::where('caja_operativa_id', $id)->orderByDesc('id')->get();
+        if (!$user->isAdmin()) {
+            $correcciones = $correcciones->filter(fn ($c) => ($c->antes['permitido_para'] ?? null) === 'OPERATIVO'
+                && ($c->despues === null || ($c->despues['permitido_para'] ?? null) === 'OPERATIVO'));
+        }
+        return view('caja.detalle', compact('caja', 'correcciones'));
     }
 
     // ── Editar: agregar movimiento a caja existente ──────────────────────
@@ -509,6 +514,7 @@ class CajaWebController extends Controller
         }
 
         $movimiento   = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
+        abort_unless($movimiento->esManualEditable(), 403);
         $rubros       = $this->cargarRubros($user);
         $tiposCaja    = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $subrubrosMap = $rubros->mapWithKeys(fn($r) => [
@@ -551,7 +557,7 @@ class CajaWebController extends Controller
         }
 
         try {
-            $this->cajaService->actualizarMovimientoEnCaja($cajaId, $movId, [
+            app(\App\Services\CajaCorreccionService::class)->corregir($cajaId, $movId, $user, [
                 'tipo_caja_id' => $request->input('tipo_caja_id'),
                 'subrubro_id' => $request->input('subrubro_id'),
                 'monto' => $request->input('monto'),
@@ -577,32 +583,8 @@ class CajaWebController extends Controller
 
     public function destroyMovimiento(int $cajaId, int $movId)
     {
-        return DB::transaction(function () use ($cajaId, $movId) {
-            $user = Auth::user();
-            $caja = CajaOperativa::whereKey($cajaId)->lockForUpdate()->firstOrFail();
-
-            if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
-                abort(403);
-            }
-
-            if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
-                return back()->with('error', 'Solo se pueden eliminar movimientos de una caja abierta o rechazada.');
-            }
-
-            $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->lockForUpdate()->findOrFail($movId);
-
-            if (!is_null($movimiento->alumno_id)) {
-                return back()->with('error', 'Los cobros de cuota no se pueden eliminar directamente. Usá la opción Cancelar.');
-            }
-
-            if ($movimiento->subrubro?->es_reservado_sistema) {
-                return back()->with('error', 'No se puede eliminar un movimiento generado automáticamente por el sistema.');
-            }
-
-            $movimiento->delete();
-
-            return back()->with('success', 'Movimiento eliminado.');
-        });
+        app(\App\Services\CajaCorreccionService::class)->corregir($cajaId, $movId, Auth::user(), null);
+        return back()->with('success', 'Movimiento eliminado.');
     }
 
     // ── Cancelar cobro de cuota ───────────────────────────────────────────

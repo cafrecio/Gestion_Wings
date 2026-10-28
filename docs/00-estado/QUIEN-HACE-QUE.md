@@ -48,6 +48,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T51** Editar o eliminar un movimiento manual de caja deja rastro, igual que en Cashflow | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar historia de edicion y eliminacion, permisos, arqueo y reporte; Carlos revisar APROBAR-T51.html |
 
 ## Codex
 
@@ -57,9 +58,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (12)
+## Sin empezar (11)
 
-T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
+T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

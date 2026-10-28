@@ -1,0 +1,11 @@
+{
+  "app/Http/Controllers/CajaWebController.php": "000d12bef1b077b62e69932c55a99dd8631cb41367179e3466d9f3afeb657949",
+  "app/Models/MovimientoOperativo.php": "3d09c3c6c473c3422a96f64c3558c9aef5cc5a379692c1e233447908def29426",
+  "app/Models/MovimientoOperativoCorreccion.php": "ff5cd05f164320576f5c5631264fd591694ed7f38e6e309dcc6e022c6e20d419",
+  "app/Services/CajaService.php": "aa9a438963ea4626edf1dd6623b3c20786a5795c8c411f19d5056c295104dcb8",
+  "app/Services/CajaCorreccionService.php": "97bbf1a382c18afcea5215926ea286a7fe25d96ebe51dee70366196e9bac328e",
+  "database/migrations/2026_10_28_000001_create_movimiento_operativo_correcciones_table.php": "447ebed289278e8e4c183f7fe169de7b573be6853531527b47e0a54d9364b52f",
+  "resources/views/caja/detalle.blade.php": "656a1da942e3c609152328ce1f4bba3a06ace690c0660d9a9a94799cb72d2f33",
+  "tests/Feature/CajaCorreccionesT51Test.php": "92d36ad76fe9b6b473958add6b1288ab94b5550e389d9cbd5e6906af5aba0c56",
+  "scripts/pruebas/capturar-t51-t45-t46.mjs": "f95e17373f60aac2b9452f23a5c8741084e95867a41cf9482da5e61682465783"
+}
