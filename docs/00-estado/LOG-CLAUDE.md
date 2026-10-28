@@ -15,7 +15,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 - Clave de respaldos: Carlos no la tenía; subió a Drive «Credenciales Back-ups» y coincide por huella con la del servidor. Checklist corregido (decía «a salvo» sin comprobar).
 - Ensayo en el VPS, aparte de producción: respaldo bajado de Drive, base, código de GitHub, `.env`, storage, build; /login 200 en 52 s. Todo borrado al final. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md); script en `scripts/servidor/ensayo-restauracion.sh`.
-- No probado: volumen real (producción vacía) ni servidor desde cero.
+- Repetido con datos (idea de Carlos): paquete del sitio de prueba armado como `respaldar.sh`; 105 alumnos, 909 asistencias y la plata al peso idénticas, /login 200, 56 s. No probado: servidor desde cero.
 - Pendientes: credencial propia de rclone (la compartida se retira en 2026), clave fuera de la carpeta de respaldos, y el repositorio es público con 33 dumps viejos con `users` de demostración en el historial.
 - Prompts guardados: `PROMPT-CODEX-T70-T71.md` y `PROMPT-GEMINI-T62.md`.
 

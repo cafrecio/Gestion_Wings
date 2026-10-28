@@ -2,7 +2,7 @@
 
 Claude CyE. Script: [scripts/servidor/ensayo-restauracion.sh](../../../../scripts/servidor/ensayo-restauracion.sh), corrido en el VPS como root. No toca `/home/wings`, `/home/wingstest` ni las bases `wings` y `wingstest`; al final borra su base, su usuario y su carpeta.
 
-## Resultado: Wings vuelve con lo guardado, en 52 segundos
+## Primer ensayo: producción, desde Drive — 52 segundos
 
 | Paso | Resultado |
 |---|---|
@@ -15,9 +15,24 @@ Claude CyE. Script: [scripts/servidor/ensayo-restauracion.sh](../../../../script
 | `composer install` y `npm run build` | Correctos |
 | Arranque | `/login` 200, `/` 302; tareas programadas listadas; `wings:preflight` 11/12 (el único rechazo es `APP_URL` sin HTTPS, que el ensayo cambió a propósito a `http://127.0.0.1`) |
 
+## Segundo ensayo, con datos: el sitio de prueba — 56 segundos
+
+Producción está vacía, así que se repitió con `FUENTE=wingstest`: el paquete se arma igual que `respaldar.sh` (solo lectura sobre `wingstest`), se cifra con la misma clave y sigue el mismo camino. Código en el commit del sitio de prueba (`f8d71d5c`), 0 migraciones pendientes, `/login` 200.
+
+| Tabla | Filas (viva = copia) |
+|---|---|
+| alumnos / pagos / deuda_cuotas | 105 / 95 / 204 |
+| clases / asistencias | 81 / 909 |
+| cajas_operativas / movimientos_operativos / cashflow_movimientos | 19 / 128 / 139 |
+| liquidaciones / profesores / users | 8 / 6 / 9 |
+
+Plata, al peso, idéntica en la copia: pagos $ 3.635.500,00; cuotas generadas $ 7.377.500,00 y pagadas $ 3.355.500,00; Cashflow $ 3.389.900,75; caja $ 3.929.400,00. Archivos subidos: 41. Diferencias: 0.
+
+`wings:preflight` rechaza 5 puntos en esta copia porque el `.env` es el del sitio de prueba (`staging`, sin cookies estrictas): es lo esperado, no un defecto del respaldo.
+
 ## Qué no prueba este ensayo
 
-- **Volumen real:** producción tiene 0 alumnos y 0 pagos. Se probó la estructura, la configuración y las cuentas, no una base cargada. Repetir con el club operando.
+- **Volumen de producción:** el de prueba tiene 105 alumnos y dos meses; el club real puede tener más historia. El respaldo de prueba pesa 51 MB y tardó 4 s en armarse.
 - **Un servidor nuevo:** se usó este mismo VPS, que ya tiene PHP 8.2, MariaDB, Node y Composer. Instalar todo eso en una máquina vacía no se midió.
 
 ## Qué no está en el respaldo
