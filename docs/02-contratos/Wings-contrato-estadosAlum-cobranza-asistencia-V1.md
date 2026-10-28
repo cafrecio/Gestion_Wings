@@ -295,6 +295,22 @@ Implementado el 17/10/2026 por Claude: `PagoCuotaService::crearCuotaReingreso` y
 `deuda_cuotas.fecha_reingreso`. Cubierto por `tests/Feature/ReingresoCuotaT38Test.php`.
 Verificado por Gemini el 18/10/2026 ([VERIFICACION-T38-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T38-GEMINI.md)) y cerrado.
 
+### Enmienda del 28/10/2026 — cobrarle a un inactivo pregunta si vuelve (T25)
+
+Decisión de Carlos (11/10, precisada el 28/10). Reemplaza «también lo reactiva» del punto 3:
+
+- Si el cobro lo reactivaría (incluye cuotas y hay plan para el mes), Cobrar pregunta
+  «¿Pasa a activo?» con **Sí**, **No** y **Cancelar**, en un panel de la misma página.
+- **Sí:** lo de siempre (punto 3).
+- **No:** cobra lo elegido y el alumno sigue inactivo; no se genera la cuota del mes ni corre
+  el descuento de reingreso.
+- Si el cobro incluye el mes en curso o uno futuro, **no se ofrece No**: pagar el mes es
+  volver. El servidor rechaza un «No» forzado con el mes.
+- Sin plan para el mes no se pregunta: el cobro no lo reactivaría.
+
+Implementado por Claude: `CajaWebController::pagar`, `PagoCuotaService::exigirActivoParaCobrarElMes`,
+panel `modal-reactivar` en `caja/cobrar` y `cobrar.js`. Pruebas: `CobroInactivoT25Test`.
+
 ### Enmienda del 20/10/2026 — fecha de ingreso futura solo hasta el fin del mes siguiente (T50)
 
 Decisión de Carlos: DU-06 («Aceptar solo hasta el mes siguiente»). Caso: ALU-007.

@@ -41,6 +41,7 @@ class PagoCuotaService
             $dni = Alumno::findOrFail($data['alumno_id'])->dni;
             app(InscripcionService::class)->bloquear($dni, false);
             $alumnoAntes = $this->bloquearAlumnoParaPago($data['alumno_id']);
+            $this->exigirActivoParaCobrarElMes($alumnoAntes, $data);
             // T38: si este cobro reactiva al alumno, la cuota del mes queda como la de un reingreso.
             $reingreso = $alumnoAntes->activo ? null : [
                 'cuota_del_mes_existia' => DeudaCuota::where('alumno_id', $data['alumno_id'])
@@ -116,8 +117,9 @@ class PagoCuotaService
             }
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar solo si tiene plan vigente para el mes
+            // y quien cobra no contestó que sigue inactivo (T25).
             $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
-            if ($montoCuota > 0 && $planPeriodoActual?->plan) {
+            if ($montoCuota > 0 && $planPeriodoActual?->plan && ($data['reactivar'] ?? true)) {
                 Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
                 if ($reingreso !== null) {
                     $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
@@ -191,6 +193,7 @@ class PagoCuotaService
             $dni = Alumno::findOrFail($data['alumno_id'])->dni;
             app(InscripcionService::class)->bloquear($dni, false);
             $alumnoAntes = $this->bloquearAlumnoParaPago($data['alumno_id']);
+            $this->exigirActivoParaCobrarElMes($alumnoAntes, $data);
             // T38: si este cobro reactiva al alumno, la cuota del mes queda como la de un reingreso.
             $reingreso = $alumnoAntes->activo ? null : [
                 'cuota_del_mes_existia' => DeudaCuota::where('alumno_id', $data['alumno_id'])
@@ -259,8 +262,9 @@ class PagoCuotaService
             }
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar solo si tiene plan vigente para el mes
+            // y quien cobra no contestó que sigue inactivo (T25).
             $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
-            if ($montoCuota > 0 && $planPeriodoActual?->plan) {
+            if ($montoCuota > 0 && $planPeriodoActual?->plan && ($data['reactivar'] ?? true)) {
                 Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
                 if ($reingreso !== null) {
                     $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
@@ -544,6 +548,23 @@ class PagoCuotaService
             'porcentaje_alta' => $porcentaje,
             'fecha_reingreso' => $hoy->toDateString(),
         ]);
+    }
+
+    /**
+     * T25 (Carlos, 28/10): un inactivo que sigue inactivo solo paga deuda vieja. Pagar el mes
+     * en curso o uno futuro es volver.
+     */
+    private function exigirActivoParaCobrarElMes(Alumno $alumno, array $data): void
+    {
+        if ($alumno->activo || ($data['reactivar'] ?? true)) {
+            return;
+        }
+        $periodoActual = now()->format('Y-m');
+        foreach ($data['items'] as $item) {
+            if ($item['periodo'] >= $periodoActual) {
+                throw new \RuntimeException('El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.');
+            }
+        }
     }
 
     /**

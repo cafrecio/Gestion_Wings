@@ -321,6 +321,18 @@
     </form>
 </section>
 
+<section id="modal-reactivar" class="alumno-card mt-4" style="display:none;" aria-labelledby="titulo-reactivar">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 id="titulo-reactivar" class="alumno-nombre">Alumno inactivo</h3></div>
+    <div class="alumno-info" style="display:block;">
+        <p id="mensaje-reactivar" role="status" style="font-size:0.85rem; margin-bottom:1rem;"></p>
+    </div>
+    <div class="alumno-actions acciones-celular-derecha">
+        <x-ds.button type="button" id="reactivar-cancelar" variant="secondary">Cancelar</x-ds.button>
+        <x-ds.button type="button" id="reactivar-no" variant="secondary">No</x-ds.button>
+        <x-ds.button type="button" id="reactivar-si" variant="primary">Sí</x-ds.button>
+    </div>
+</section>
+
 @endsection
 
 @push('scripts')

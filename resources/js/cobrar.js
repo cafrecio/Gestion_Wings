@@ -111,11 +111,35 @@ import {pesos} from './formato-importe';
     selectTipo.addEventListener('change', actualizar);
     if (entregado) entregado.addEventListener('input', actualizar);
 
+    // T25: a un inactivo se le pregunta si vuelve. «No» falta cuando el cobro incluye el mes.
+    var modalReactivar = document.getElementById('modal-reactivar');
+    var mensajeReactivar = document.getElementById('mensaje-reactivar');
+    var reactivarNo = document.getElementById('reactivar-no');
+    var reactivarSi = document.getElementById('reactivar-si');
+
     function cerrarModalDeuda() {
         modalDeuda.style.display = 'none';
+        modalReactivar.style.display = 'none';
         formConfirmarDeuda.reset();
         datosCobroPendientes = null;
         actualizar();
+    }
+
+    function abrirModalReactivar(datos, formData) {
+        datosCobroPendientes = formData;
+        mensajeReactivar.textContent = datos.message;
+        reactivarNo.style.display = datos.permite_no ? '' : 'none';
+        modalReactivar.style.display = 'block';
+        modalReactivar.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        reactivarSi.focus({preventScroll: true});
+    }
+
+    function responderReactivar(valor) {
+        if (!datosCobroPendientes || enviando) return;
+        var datos = datosCobroPendientes;
+        datos.set('reactivar', valor);
+        cerrarModalDeuda();
+        enviarCobro(datos);
     }
 
     function abrirModalDeuda(datos, formData, campo) {
@@ -152,6 +176,7 @@ import {pesos} from './formato-importe';
                     : datos.requiere_confirmacion_adelantado ? 'confirmar_pago_adelantado'
                     : datos.requiere_confirmacion_fecha_vieja ? 'confirmar_fecha_vieja' : null;
                 if (campo) { abrirModalDeuda(datos, formData, campo); return; }
+                if (datos.requiere_reactivacion) { abrirModalReactivar(datos, formData); return; }
             }
             if (!resultado.ok) {
                 var errores = datos.errors ? Object.values(datos.errors).flat().join(' ') : '';
@@ -185,6 +210,9 @@ import {pesos} from './formato-importe';
         enviarCobro(datos);
     });
     cerrarDeuda.addEventListener('click', cerrarModalDeuda);
+    document.getElementById('reactivar-cancelar').addEventListener('click', cerrarModalDeuda);
+    reactivarNo.addEventListener('click', function () { responderReactivar('0'); });
+    reactivarSi.addEventListener('click', function () { responderReactivar('1'); });
 
     document.querySelectorAll('.cuota-row').forEach(function (row) {
         row.addEventListener('mouseenter', function () { this.style.background = 'var(--color-surface-alt)'; });

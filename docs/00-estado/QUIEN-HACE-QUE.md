@@ -50,7 +50,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T25** Cobrar a un alumno inactivo: preguntar si pasa a activo (Si, No, Cancelar) | En curso (hizo Claude) | 28/10 Carlos: la regla 1 paso a MF11; la 2 la resolvio B3 dinero y la 4 T88. Queda la 3: hoy el cobro reactiva solo, sin preguntar. |
 
 ## Codex
 
@@ -60,7 +59,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T25** Cobrar a un alumno inactivo: preguntar si pasa a activo (Si, No, Cancelar) | Hecho, espera verificación (hizo Claude, verifica Gemini) | 28/10 Claude: cobrar a un inactivo pregunta Si/No/Cancelar; No solo con deuda vieja (decision de Carlos). CobroInactivoT25Test 9/9; completa 1175 aprobadas/6 omitidas. Falta verificacion de Gemini y OK visual de Carlos. |
 
 ## Sin empezar (15)
 

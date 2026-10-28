@@ -900,6 +900,7 @@ class CajaWebController extends Controller
             'confirmar_pago_adelantado' => 'nullable|boolean',
             'motivo' => 'nullable|string|max:500',
             'monto_entregado' => ['nullable', 'numeric', 'min:0.01', 'max:99999999.99', new ImportePesos],
+            'reactivar' => 'nullable|boolean',
         ]);
 
         $fechaPagoStr = $request->input('fecha_pago') ?: today()->toDateString();
@@ -943,6 +944,31 @@ class CajaWebController extends Controller
                 ], 409);
             }
         }
+        // T25 (Carlos, 11/10 y 28/10): cobrarle a un inactivo pregunta si vuelve. Solo se
+        // pregunta cuando el cobro lo reactivaría (cuotas y plan para el mes). Pagar el mes
+        // en curso o uno futuro es volver: entonces no se ofrece «No».
+        $reactivaria = !$alumno->activo && $periodosSolicitados->isNotEmpty()
+            && $this->pagoCuotaService->obtenerPlanParaPeriodo($alumnoId, $periodoActual)?->plan;
+        if ($reactivaria) {
+            $pagaElMes = $periodosSolicitados->contains(fn ($periodo) => $periodo >= $periodoActual);
+            if ($request->has('reactivar') && !$request->boolean('reactivar') && $pagaElMes) {
+                return response()->json(['success' => false,
+                    'message' => 'El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.'], 422);
+            }
+            if (!$request->has('reactivar')) {
+                $generaCuota = !$pagaElMes && !DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodoActual)->exists();
+                $nombreMes = Carbon::parse($periodoActual.'-01')->locale('es')->translatedFormat('F');
+                return response()->json([
+                    'success' => false,
+                    'requiere_reactivacion' => true,
+                    'permite_no' => !$pagaElMes,
+                    'message' => "{$alumno->apellido}, {$alumno->nombre} está inactivo. ¿Pasa a activo?"
+                        .($pagaElMes ? ' El cobro incluye el mes en curso, así que para cobrarlo tiene que volver.' : '')
+                        .($generaCuota ? " Si vuelve, se le genera la cuota de {$nombreMes}." : ''),
+                ], 409);
+            }
+        }
+
         $observacionesPago = $request->input('observaciones');
 
         try {
@@ -1017,6 +1043,7 @@ class CajaWebController extends Controller
                     'fecha_pago'      => $request->input('fecha_pago', today()->toDateString()),
                     'observaciones'   => $observacionesPago ?: null,
                     'motivo' => $request->input('motivo'),
+                    'reactivar' => !$request->has('reactivar') || $request->boolean('reactivar'),
                 ];
 
                 // A13 y B1: el dueño no tiene caja. Hasta el 05/10 esta pantalla mandaba a
