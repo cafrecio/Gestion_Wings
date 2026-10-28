@@ -146,27 +146,58 @@
     }
 
     // ── Panel de cancelación ────────────────────────────────────────────────
-    const btnAbrirCancelar     = document.getElementById('btn-abrir-cancelar');
-    const panelCancelar        = document.getElementById('panel-cancelar');
-    const btnConfirmarCancelar = document.getElementById('btn-confirmar-cancelar');
-    const btnCancelarSerie     = document.getElementById('btn-cancelar-serie');
-    const btnCerrarCancelar    = document.getElementById('btn-cerrar-cancelar');
-    const inputMotivo          = document.getElementById('input-motivo-cancelacion');
-    const flashCancelar        = document.getElementById('flash-cancelar');
+    const btnAbrirCancelar          = document.getElementById('btn-abrir-cancelar');
+    const panelCancelar             = document.getElementById('panel-cancelar');
+    const btnConfirmarCancelar      = document.getElementById('btn-confirmar-cancelar');
+    const btnCancelarSerie          = document.getElementById('btn-cancelar-serie');
+    const btnCerrarCancelar         = document.getElementById('btn-cerrar-cancelar');
+    const inputMotivo               = document.getElementById('input-motivo-cancelacion');
+    const flashCancelar             = document.getElementById('flash-cancelar');
+    const subpanelConfirmarLista    = document.getElementById('subpanel-confirmar-lista');
+    const textoConfirmarLista       = document.getElementById('texto-confirmar-lista');
+    const btnAceptarConfirmarCancel = document.getElementById('btn-aceptar-confirmar-cancelar');
+    const btnRechazarConfirmarCancel= document.getElementById('btn-rechazar-confirmar-cancelar');
+    let seriePendienteConfirmacion  = false;
+
+    function mostrarSubpanelConfirmacion(mensaje, esSerie) {
+        if (!subpanelConfirmarLista) return;
+        seriePendienteConfirmacion = !!esSerie;
+        if (textoConfirmarLista) textoConfirmarLista.textContent = mensaje;
+        subpanelConfirmarLista.style.display = 'block';
+    }
+
+    function ocultarSubpanelConfirmacion() {
+        if (subpanelConfirmarLista) subpanelConfirmarLista.style.display = 'none';
+        seriePendienteConfirmacion = false;
+    }
 
     if (btnAbrirCancelar) {
         btnAbrirCancelar.addEventListener('click', function () {
             panelCancelar.style.display = 'block';
+            ocultarSubpanelConfirmacion();
             if (inputMotivo) inputMotivo.focus();
         });
     }
     if (btnCerrarCancelar) {
         btnCerrarCancelar.addEventListener('click', function () {
             panelCancelar.style.display = 'none';
+            ocultarSubpanelConfirmacion();
         });
     }
 
-    function ejecutarCancelacion(cancelarSerie) {
+    if (btnAceptarConfirmarCancel) {
+        btnAceptarConfirmarCancel.addEventListener('click', function () {
+            ejecutarCancelacion(seriePendienteConfirmacion, true);
+        });
+    }
+
+    if (btnRechazarConfirmarCancel) {
+        btnRechazarConfirmarCancel.addEventListener('click', function () {
+            ocultarSubpanelConfirmacion();
+        });
+    }
+
+    function ejecutarCancelacion(cancelarSerie, confirmar) {
         const motivo = inputMotivo ? inputMotivo.value.trim() : '';
         if (!motivo) {
             flashCancelar.style.display = 'block';
@@ -176,16 +207,24 @@
         }
         if (btnConfirmarCancelar) { btnConfirmarCancelar.disabled = true; btnConfirmarCancelar.textContent = '…'; }
         if (btnCancelarSerie)     { btnCancelarSerie.disabled = true;     btnCancelarSerie.textContent = '…'; }
+        if (btnAceptarConfirmarCancel) { btnAceptarConfirmarCancel.disabled = true; btnAceptarConfirmarCancel.textContent = '…'; }
         flashCancelar.style.display = 'none';
 
         fetch('/clases/' + claseId + '/cancelar', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
-            body: JSON.stringify({ motivo_cancelacion: motivo, cancelar_serie: cancelarSerie }),
+            body: JSON.stringify({ motivo_cancelacion: motivo, cancelar_serie: !!cancelarSerie, confirmar: !!confirmar }),
         })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
+        .then(function (r) { return r.json().then(function (d) { return { status: r.status, body: d }; }); })
+        .then(function (res) {
+            const d = res.body;
+            if (res.status === 409 && d.requiere_confirmacion) {
+                // CLA-012.a: aviso por lista tomada y pedido de confirmación
+                mostrarSubpanelConfirmacion(d.message, cancelarSerie);
+                return;
+            }
             if (d.success) {
+                ocultarSubpanelConfirmacion();
                 if (cancelarSerie) {
                     // Recargar para reflejar el estado de toda la serie
                     flashCancelar.style.display = 'block';
@@ -200,6 +239,15 @@
                         badge.textContent = 'Cancelada';
                         badge.style.background = 'color-mix(in srgb, var(--color-danger) 15%, transparent)';
                         badge.style.color = 'var(--color-danger)';
+                    }
+                    const motivoTexto = document.getElementById('motivo-cancelacion-texto');
+                    if (motivoTexto) {
+                        motivoTexto.textContent = '— ' + motivo;
+                        motivoTexto.style.display = 'inline';
+                    }
+                    const rastro = document.getElementById('rastro-cancelacion');
+                    if (rastro) {
+                        rastro.style.display = 'none';
                     }
                     document.querySelectorAll('.alumno-asistencia-card').forEach(function (c) {
                         c.style.opacity = '0.6';
@@ -225,14 +273,15 @@
         .finally(function () {
             if (btnConfirmarCancelar) { btnConfirmarCancelar.disabled = false; btnConfirmarCancelar.textContent = 'Cancelar esta'; }
             if (btnCancelarSerie)     { btnCancelarSerie.disabled = false;     btnCancelarSerie.textContent = 'Cancelar serie'; }
+            if (btnAceptarConfirmarCancel) { btnAceptarConfirmarCancel.disabled = false; btnAceptarConfirmarCancel.textContent = 'Confirmar'; }
         });
     }
 
     if (btnConfirmarCancelar) {
-        btnConfirmarCancelar.addEventListener('click', function () { ejecutarCancelacion(false); });
+        btnConfirmarCancelar.addEventListener('click', function () { ejecutarCancelacion(false, false); });
     }
     if (btnCancelarSerie) {
-        btnCancelarSerie.addEventListener('click', function () { ejecutarCancelacion(true); });
+        btnCancelarSerie.addEventListener('click', function () { ejecutarCancelacion(true, false); });
     }
 
     // ── Panel de profesores ─────────────────────────────────────────────────

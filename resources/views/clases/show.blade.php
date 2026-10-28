@@ -80,12 +80,15 @@
                                  background:color-mix(in srgb, var(--color-danger) 15%, transparent);
                                  color:var(--color-danger);">Cancelada</span>
                     @if($clase->motivo_cancelacion)
-                        <span style="font-size:0.78rem; color:var(--color-text-muted);">— {{ $clase->motivo_cancelacion }}</span>
+                        <span id="motivo-cancelacion-texto" style="font-size:0.78rem; color:var(--color-text-muted);">— {{ $clase->motivo_cancelacion }}</span>
                     @endif
                 @else
                     <span id="badge-estado" style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;
                                  background:color-mix(in srgb, var(--color-success) 15%, transparent);
                                  color:var(--color-success);">Activa</span>
+                    @if($clase->motivo_cancelacion)
+                        <span id="rastro-cancelacion" style="font-size:0.78rem; color:var(--color-text-muted);">(Estuvo cancelada: {{ $clase->motivo_cancelacion }})</span>
+                    @endif
                 @endif
                 @if($clase->validada_para_liquidacion)
                     <span style="font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px;
@@ -235,6 +238,16 @@
         <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
             Indicá el motivo de cancelación
         </p>
+        @if($clase->asistencias()->exists())
+            <div id="aviso-asistencia-previa" style="margin-bottom:10px; padding:8px 12px;
+                        background:color-mix(in srgb, var(--color-warning) 10%, var(--color-surface));
+                        border:1px solid color-mix(in srgb, var(--color-warning) 30%, transparent);
+                        border-radius:var(--radius-btn);">
+                <p style="font-size:0.78rem; font-weight:600; color:var(--color-warning); margin:0;">
+                    Aviso: esta clase ya tiene asistencia registrada (presentes o ausentes).
+                </p>
+            </div>
+        @endif
         <div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <input type="text" id="input-motivo-cancelacion"
                    placeholder="Ej: Feriado, Pista insegura, Lluvia..."
@@ -243,6 +256,8 @@
                           border:1px solid var(--color-border); border-radius:var(--radius-btn);
                           background:var(--color-surface); color:var(--color-text); font-family:inherit;">
             <button id="btn-confirmar-cancelar"
+                    class="ds-btn ds-btn--danger"
+                    type="button"
                     style="display:inline-flex; align-items:center; justify-content:center;
                            width:96px; height:32px; font-size:0.82rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -252,6 +267,8 @@
             </button>
             @if($esAdmin && $clase->serie_id)
                 <button id="btn-cancelar-serie"
+                        class="ds-btn ds-btn--danger"
+                        type="button"
                         style="display:inline-flex; align-items:center; justify-content:center;
                                height:32px; padding:0 12px; font-size:0.82rem; font-weight:600;
                                border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -261,6 +278,8 @@
                 </button>
             @endif
             <button id="btn-cerrar-cancelar"
+                    class="ds-btn ds-btn--secondary"
+                    type="button"
                     style="display:inline-flex; align-items:center; justify-content:center;
                            width:96px; height:32px; font-size:0.82rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -270,6 +289,34 @@
             </button>
         </div>
         <span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"></span>
+
+        {{-- Subpanel de confirmación si la lista está tomada (CLA-012.a) --}}
+        <div id="subpanel-confirmar-lista" style="display:none; margin-top:12px; padding:12px 14px;
+                    background:color-mix(in srgb, var(--color-warning) 12%, var(--color-surface));
+                    border:1px solid color-mix(in srgb, var(--color-warning) 35%, transparent);
+                    border-radius:var(--radius-card);">
+            <p id="texto-confirmar-lista" style="font-size:0.82rem; font-weight:700; color:var(--color-warning); margin:0 0 6px;">
+                Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?
+            </p>
+            <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:10px;">
+                <button type="button" id="btn-aceptar-confirmar-cancelar" class="ds-btn ds-btn--danger"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:none; font-family:inherit;
+                               background:var(--color-btn-danger); color:var(--color-surface);">
+                    Confirmar
+                </button>
+                <button type="button" id="btn-rechazar-confirmar-cancelar" class="ds-btn ds-btn--secondary"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:none; font-family:inherit;
+                               background:var(--color-btn-secondary); color:var(--color-surface);">
+                    Cerrar
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 

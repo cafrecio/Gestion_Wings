@@ -141,12 +141,14 @@ class ClaseService
         Clase $claseNueva,
         ?int $excluirClaseId = null
     ): void {
-        // Obtener todas las clases del profesor en la misma fecha
+        // Obtener todas las clases activas del profesor en la misma fecha
         $clasesDelProfesor = $profesor->clases()
-            ->where('fecha', $claseNueva->fecha->format('Y-m-d'))
+            ->where('clases.cancelada', false)
+            ->where('clases.fecha', $claseNueva->fecha->format('Y-m-d'))
             ->when($excluirClaseId, function ($query) use ($excluirClaseId) {
                 return $query->where('clases.id', '!=', $excluirClaseId);
             })
+            ->with('grupo')
             ->get();
 
         foreach ($clasesDelProfesor as $claseExistente) {
@@ -155,8 +157,9 @@ class ClaseService
                 $claseNueva->hora_inicio->format('H:i:s'),
                 $claseNueva->hora_fin->format('H:i:s')
             )) {
+                $grupoNombre = $claseExistente->grupo?->nombre_completo ?? $claseExistente->grupo?->nombre ?? 'otra clase';
                 throw new \Exception(
-                    "El profesor {$profesor->nombre_completo} ya tiene asignada otra clase " .
+                    "la profesora {$profesor->nombre_completo} ya tiene asignada la clase '{$grupoNombre}' " .
                     "que se solapa en fecha {$claseNueva->fecha->format('Y-m-d')} " .
                     "entre {$claseExistente->hora_inicio->format('H:i')} y {$claseExistente->hora_fin->format('H:i')}."
                 );

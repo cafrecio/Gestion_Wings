@@ -10,6 +10,25 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CYE — T62: Cancelar y reactivar clase — Aviso por lista tomada, choque y motivo conservado
+
+- **Objetivo y resultado:** Implementación de **T62** conforme a DU-30, DU-31 y casos CLA-012 y CLA-015. Resultado: **IMPLEMENTADA, VERIFICADA CON 10 PRUEBAS Y PASADA A `a_verificar` PARA CLAUDE**.
+- **Cambios realizados:**
+  - **CLA-012.a (Aviso por lista tomada):** En `ClaseWebController::toggleCancelada`, si la clase (o alguna clase futura de la serie) tiene asistencias registradas y no viene `confirmar=1`, se responde HTTP 409 con mensaje de advertencia y conteo exacto de clases afectadas. En `resources/views/clases/show.blade.php` y `clases-show.js`, se implementó el subpanel de confirmación con botones canónicos `Confirmar` (`ds-btn ds-btn--danger`) y `Cerrar` (`ds-btn ds-btn--secondary`). Con `confirmar=1` se ejecuta la cancelación.
+  - **CLA-012.b y c (Marcas guardadas y exclusión de liquidación/comisión):** Se verificó mediante pruebas automatizadas que las asistencias no se eliminan al cancelar y que la clase cancelada deja de computar en liquidaciones y comisiones. Se identificó e informó en `IMPLEMENTACION-T62.md` que `GenerarDeudasMensualesCommand` no filtra `cancelada = false` en `asistenciasMesAnteriorCount` (se preservó sin modificar conforme a la regla de Carlos).
+  - **CLA-015.b (Control de choques al reactivar):** En `ClaseService::validarSolapamientoProfesor`, se filtró `where('clases.cancelada', false)` para no colisionar con clases inactivas. Al reactivar en `ClaseWebController::toggleCancelada`, se valida la disponibilidad de los profesores con `verificarDisponibilidadProfesor`; ante solapamiento horario con otra clase activa, se rechaza con HTTP 422 detallando profesor, clase y horario del choque.
+  - **CLA-015.c (Motivo conservado):** Al reactivar, se actualiza solo `cancelada = false`, preservando `motivo_cancelacion`. En la ficha de la clase (`clases/show.blade.php`), al estar activa con motivo previo, se muestra el badge «Activa» acompañado de «(Estuvo cancelada: [motivo])».
+  - **CLA-015.a y d (Vuelta a programada y conteos):** Verificado que la clase reactivada vuelve al estado activo, permite registrar asistencias y cuenta en el encabezado del listado y en «Sin asistencia» si ya pasó la fecha.
+- **Diseño, capturas y evidencias:**
+  - Cero JavaScript incrustado en Blade (`CspSinCodigoIncrustadoTest` 2/2). Botones del sistema canónicos (`ds-btn ds-btn--danger`, `ds-btn ds-btn--secondary`).
+  - Capturas reales con Chrome headless a 1366 px y marco 375 px en `docs/06-pruebas/PRU-04/evidencia-t62/` (aviso de lista tomada, rechazo por choque y motivo conservado).
+  - Galería `docs/06-pruebas/PRU-04/APROBAR-T62.html` y documentación en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T62.md`.
+- **Pruebas:**
+  - 10 pruebas nuevas en `CancelarReactivarClaseT62Test` (53 aserciones) en verde en `wings_testing_gemini`.
+  - `CancelarClaseLiquidadaT90Test` (4 pruebas, 21 aserciones) en verde.
+  - Suite rápida (`--exclude-group=lento`): 1078 pasadas, 6 omitidas. Guardianes `DocumentacionNoMienteTest` (1220 pruebas), `CspSinCodigoIncrustadoTest` y `TableroAlDiaTest` en verde.
+- **Próximo paso:** Claude verifica lógica y aspecto de T62.
+
 ## 2026-10-28 — LOG GEM CAB — T65: Corrección visual y OK de Carlos — Formato de botones en panel de eliminación de alumno
 
 - **Objetivo y resultado:** Corrección del defecto visual detectado por Carlos en el OK visual de **T65**: en `resources/views/alumnos/show.blade.php`, los botones «Eliminar» y «Cerrar» del panel de confirmación aparecían como texto plano sin formato de botón. Resultado: **CORREGIDO Y APROBADO POR CARLOS (28/10: «Ahora parte visual esta OK»)**.

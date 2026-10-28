@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T62 — Cancelar y reactivar una clase: aviso por lista tomada, choque y motivo conservado</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}
+main{max-width:1400px;margin:auto}h1{font-size:28px;margin-bottom:8px}h2{font-size:22px;margin-top:0}
+section{background:white;padding:24px;margin:20px 0;border:1px solid #cbd5df;border-radius:10px}
+.columns{display:flex;gap:24px;align-items:flex-start;overflow-x:auto}
+.desktop{flex:1;min-width:600px}.phone{width:375px;min-width:375px}
+img{display:block;max-width:100%;height:auto;border:1px solid #b7c5d2;border-radius:6px}
+.phone img{width:375px;max-width:none}
+a{color:#174c89;text-decoration:none}a:hover{text-decoration:underline}
+.status{border-left:5px solid #0284c7;padding:12px;background:#f0f9ff;margin:16px 0;border-radius:0 6px 6px 0}
+nav{display:flex;gap:20px;flex-wrap:wrap;margin:16px 0}
+figure{margin:0}figcaption{margin:8px 0;font-size:14px;color:#475569}
+ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
+.badge{display:inline-block;padding:2px 8px;font-size:12px;font-weight:700;border-radius:999px}
+.badge-warning{background:#fef3c7;color:#b45309}
+.badge-danger{background:#fee2e2;color:#b91c1c}
+.badge-success{background:#dcfce7;color:#15803d}
+</style>
+</head>
+<body>
+<main>
+<h1>T62 — Cancelar y reactivar una clase: aviso por lista tomada, choque y motivo conservado</h1>
+<p>28/10/2026 · Implementación Gemini CyE · Capturas reales en Chrome headless a 1366 px y marco de 375 px.</p>
+
+<div class="status">
+<strong>Decisiones de Carlos (DU-30 y DU-31, 13/10):</strong>
+<ul>
+  <li><strong>CLA-012.a:</strong> Si la clase tiene asistencia registrada (presente o ausente), antes de cancelar avisa que la lista ya está tomada y pide confirmación explícita. Si es serie, informa cuántas clases tienen lista tomada.</li>
+  <li><strong>CLA-012.b y c:</strong> Al confirmar la cancelación, las marcas de asistencia se conservan en la base pero la clase no suma para liquidación ni comisión.</li>
+  <li><strong>CLA-015.b:</strong> Al reactivar, si alguna profesora asignada tiene otra clase activa que se superpone en fecha y horario, se rechaza la reactivación y se explica con cuál choca.</li>
+  <li><strong>CLA-015.c:</strong> Al reactivar, se conserva que la clase estuvo cancelada, con su motivo, visible en la ficha de la clase.</li>
+  <li><strong>CLA-015.a y d:</strong> La clase reactivada vuelve a programada (Activa), permite registrar asistencia y vuelve a contar en listado y «Sin asistencia».</li>
+</ul>
+</div>
+
+<nav>
+<a href="#aviso-lista">1. Aviso por lista tomada (CLA-012.a)</a>
+<a href="#rechazo-choque">2. Rechazo por choque de horario (CLA-015.b)</a>
+<a href="#motivo-conservado">3. Motivo conservado al reactivar (CLA-015.c)</a>
+<a href="IMPLEMENTACION-T62.md">Documento de implementación</a>
+</nav>
+
+<section id="aviso-lista">
+<h2>1. Aviso por lista tomada y confirmación obligatoria <span class="badge badge-warning">CLA-012.a</span></h2>
+<p>La clase ya cuenta con alumnos con asistencia registrada. Al abrir el panel de cancelación e intentar cancelar, el sistema muestra el aviso destacado explicando que las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones, exigiendo confirmación con botones con formato canónico del design system (<code>ds-btn ds-btn--danger</code> y <code>ds-btn ds-btn--secondary</code>).</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t62/01-aviso-lista-tomada-1366.png"><img src="evidencia-t62/01-aviso-lista-tomada-1366.png" alt="Aviso por lista tomada en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Panel de cancelación con aviso de lista tomada y botones Confirmar / Cerrar</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t62/01-aviso-lista-tomada-375.png"><img src="evidencia-t62/01-aviso-lista-tomada-375.png" alt="Aviso por lista tomada en marco celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Acciones alineadas a la derecha sin desbordes</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="rechazo-choque">
+<h2>2. Rechazo por choque de horario al reactivar <span class="badge badge-danger">CLA-015.b</span></h2>
+<p>Al intentar reactivar una clase cancelada, el sistema valida la disponibilidad de las profesoras asignadas mediante <code>ClaseService::verificarDisponibilidadProfesor</code> (filtrando únicamente clases activas). Si la profesora ya tiene otra clase activa en ese horario, la reactivación se bloquea y se muestra el mensaje detallando exactamente la profesora, el grupo y el rango de horario del choque.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t62/02-rechazo-por-choque-1366.png"><img src="evidencia-t62/02-rechazo-por-choque-1366.png" alt="Rechazo por choque en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Alerta destacada indicando el choque de horario de la profesora</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t62/02-rechazo-por-choque-375.png"><img src="evidencia-t62/02-rechazo-por-choque-375.png" alt="Rechazo por choque en celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · La clase continúa cancelada y con botón Activar</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="motivo-conservado">
+<h2>3. Motivo conservado en ficha tras reactivar <span class="badge badge-success">CLA-015.c</span></h2>
+<p>Al reactivar una clase sin choques, vuelve al estado programado (Activa) y <code>motivo_cancelacion</code> no se vacía: se conserva en la base de datos y se muestra visiblemente en la cabecera de la ficha entre paréntesis: <code>(Estuvo cancelada: Feriado imprevisto)</code>. Las casillas de asistencia se reactivan y quedan disponibles para tomar lista.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t62/03-motivo-conservado-1366.png"><img src="evidencia-t62/03-motivo-conservado-1366.png" alt="Motivo conservado en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Badge Activa con leyenda (Estuvo cancelada: Feriado imprevisto)</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t62/03-motivo-conservado-375.png"><img src="evidencia-t62/03-motivo-conservado-375.png" alt="Motivo conservado en celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Rastro visible y checkboxes de asistencia funcionales</figcaption>
+</figure>
+</div>
+</section>
+
+</main>
+</body>
+</html>
