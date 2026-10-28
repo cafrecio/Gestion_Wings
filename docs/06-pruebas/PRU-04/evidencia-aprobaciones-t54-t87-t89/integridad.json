@@ -1,0 +1,28 @@
+{
+  "paginas": [
+    {
+      "pagina": "APROBAR-T54.html",
+      "imagenes": 24,
+      "enlaces_validos": true
+    },
+    {
+      "pagina": "APROBAR-T87.html",
+      "imagenes": 6,
+      "enlaces_validos": true
+    },
+    {
+      "pagina": "DECIDIR-T89.html",
+      "imagenes": 14,
+      "enlaces_validos": true
+    }
+  ],
+  "jpeg_validos": 45,
+  "credencial_real_de_fixture_ausente_de_artefactos": true,
+  "dimensiones": "1366 desktop / marco375 en imagen411",
+  "eleccion_T89": {
+    "Movimientos": "A, mostrar aspecto antes de aprobar",
+    "Cashflow": "A",
+    "Inicio": "B",
+    "Detalle": "B"
+  }
+}

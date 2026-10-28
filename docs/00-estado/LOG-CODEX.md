@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CAB — Galerías y OK de T54/T87; T89 por decidir
+
+45 JPEG de Chrome (44 en galerías y login), datos sintéticos en wings_testing_codex:1366 y DOM real remaquetado en marco375, sin maquetas/producto.
+T54:12 búsquedas/4 lugares. T87: misma profesora17/3/0. T89:4 faltantes y permisos por rubro; propuesta simplificada tras la observación de Carlos.
+Carlos «T54 OK» y «T87 Visualmente OK, asumo que el funcionamiento logico esta bien»: cerradas con lógica Claude27/10. T89: Carlos eligió A/A/B/B y pidió ver Movimientos; sigue implementación Codex.
+Chrome abrió3 archivos;44 imágenes verificadas en vista HTTP local acotada (herramienta bloquea file). Sin suite/migraciones/cachés, sitio/servidor/club ni push manual. T34 ajeno intacto.
+[Buscar](../06-pruebas/PRU-04/APROBAR-T54.html) · [Liquidación](../06-pruebas/PRU-04/APROBAR-T87.html) · [T89](../06-pruebas/PRU-04/DECIDIR-T89.html).
+
 ## 2026-10-27 — Codex CAB — T65 devuelta a Gemini
 
 Verificación independiente13b85f68/DU-48 sobre10cbaaa0, pull al día. Sin producto corregido.
@@ -70,14 +78,6 @@ Arranque PHP restringido rechazaba lectura; solucionado fuera de esa restricció
 La suite regeneró HTML histórico T34: huellas registradas y bytes de HEAD restituidos. No se incluyó ese HTML en la entrega. Bitácora antigua archivada intacta para respetar su límite.
 T90 se cierra con verifica=Codex; despliegue fuera de esta orden. Sin servidor, base del club, cambios de producto ni push. No se afirma cobertura de carreras entre cancelar y cerrar/pagar.
 
-## 2026-10-26 — Codex CyE — Día23 entregado; Carlos detuvo cierres
-
-TEST500ce7bc, staging/wingstest; guion0abc15af. Reloj01/11 05:55 una vez; scheduler06:00:07:100cuotas/3.783.000. Dos comparadores100/100 sin diferencias; segunda manual0creadas/103existentes.
-Ocho liquidaciones1.370.280;13atrasadas validadas. Navegador recuperado: Lucía octubre/septiembre y Verónica octubre Cerradas; cinco Abiertas; ninguna Pagada. Por pagar345.000, disponible4.959.900,75.
-Carlos informó confirmar las tres manualmente: «Confirme tambien las otras dos, salieron compulsivamente». Su orden sigue «deja las demas abiertas». Revalidación posterior3/5. No más cierres, pagos ni repeticiones de reloj/generación/decisiones.
-Pedido de Carlos para la próxima: modal propio de Wings; registrado, sin implementar. Inicio103.000ingresosnov frente guion0 conservado. [Informe/evidencias](../06-pruebas/PRU-04/DIA-23.md).
-T14en curso,tieneClaude: revisión independiente/interna/seguridad/velocidad. Sin producto,tabla,suite,deploy ni push.
-
 
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
@@ -89,3 +89,5 @@ T14en curso,tieneClaude: revisión independiente/interna/seguridad/velocidad. Si
 [T83 archivada intacta al registrar la devolución B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-devolucion-B3.txt).
 
 [Días19–22 archivada íntegra al verificar T65](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-verificacion-T65.txt). Base original de enlaces: docs/00-estado/. SHA256: d3da73340bef8e9318bc40905b19b956c4189cc1b9629e3dbdc4841596ca4765.
+
+[Día23 íntegro](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-DIA23-antes-galerias.txt). Base: docs/00-estado/. SHA256: 328a5888b652c9ad59245be38e19d7e87f1d3326480700861795a4580b70849f.

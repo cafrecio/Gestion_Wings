@@ -1,0 +1,7 @@
+## 2026-10-26 — Codex CyE — Día23 entregado; Carlos detuvo cierres
+
+TEST500ce7bc, staging/wingstest; guion0abc15af. Reloj01/11 05:55 una vez; scheduler06:00:07:100cuotas/3.783.000. Dos comparadores100/100 sin diferencias; segunda manual0creadas/103existentes.
+Ocho liquidaciones1.370.280;13atrasadas validadas. Navegador recuperado: Lucía octubre/septiembre y Verónica octubre Cerradas; cinco Abiertas; ninguna Pagada. Por pagar345.000, disponible4.959.900,75.
+Carlos informó confirmar las tres manualmente: «Confirme tambien las otras dos, salieron compulsivamente». Su orden sigue «deja las demas abiertas». Revalidación posterior3/5. No más cierres, pagos ni repeticiones de reloj/generación/decisiones.
+Pedido de Carlos para la próxima: modal propio de Wings; registrado, sin implementar. Inicio103.000ingresosnov frente guion0 conservado. [Informe/evidencias](../06-pruebas/PRU-04/DIA-23.md).
+T14en curso,tieneClaude: revisión independiente/interna/seguridad/velocidad. Sin producto,tabla,suite,deploy ni push.

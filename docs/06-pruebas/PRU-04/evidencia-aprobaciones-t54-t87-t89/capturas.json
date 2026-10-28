@@ -1,0 +1,695 @@
+{
+  "fecha": "2026-10-28",
+  "base": "wings_testing_codex",
+  "reloj": "2026-11-02 19:00",
+  "capturas": [
+    {
+      "file": "t54-listado-letra-1366.jpg",
+      "area": "listado",
+      "query": "g",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=g&deporte_id=&grupo_id=",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 2 de 2 alumnos\nNuevo\nGarcía, Ana\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950103\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "00fbfdb07226f9f426e68a72c88592ed73346dc86cc41bcdd0eff133570b8940",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-listado-acento-1366.jpg",
+      "area": "listado",
+      "query": "gomez",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=gomez&deporte_id=&grupo_id=",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 1 de 1 alumnos\nNuevo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "7d1a0edf9abb75ee6b242d9606d1483b5396d9c34118a24ce0dbf39ec93a0226",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-listado-orden-1366.jpg",
+      "area": "listado",
+      "query": "perez juan",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=perez+juan&deporte_id=&grupo_id=",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 1 de 1 alumnos\nNuevo\nPérez, Juan\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950101\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "976156d17d8d793907a2230f301d1846baf4e163b96a18225ffb18c26d8e817f",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-autocompletar-letra-1366.jpg",
+      "area": "autocompletar",
+      "query": "g",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=&deporte_id=&grupo_id=",
+      "visible": "García, Ana\n44950103 · Patín — Inicial\nGómez, Lucía\n44950102 · Patín — Inicial\nVer todos los resultados",
+      "sha256": "44b706672b074c720b1781f3d282cd50bed1f460d9647855f8e3c43a37a0049b",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-autocompletar-acento-1366.jpg",
+      "area": "autocompletar",
+      "query": "gomez",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=&deporte_id=&grupo_id=",
+      "visible": "Gómez, Lucía\n44950102 · Patín — Inicial\nVer todos los resultados",
+      "sha256": "b5957f63ca963e0a49b1a6941a10d038dd5e4dbae3ac492ff6b01377c0455063",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-autocompletar-orden-1366.jpg",
+      "area": "autocompletar",
+      "query": "perez juan",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/alumnos?search=&deporte_id=&grupo_id=",
+      "visible": "Pérez, Juan\n44950101 · Patín — Inicial\nVer todos los resultados",
+      "sha256": "561f15f5b5fd67dc3742d201c79a9ad2182ac82438a1fa5f0dab78238821051a",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t87-octubre-1366.jpg",
+      "slug": "t87-octubre",
+      "area": "liquidacion",
+      "width": 1366,
+      "mes": "10",
+      "url": "http://127.0.0.1:8788/liquidaciones/crear",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n17 clases liquidables\n⚠ 2 clases sin asistencia — no se liquidarán\nMéndez, Lucía tiene 2 clases sin asistencia cargada que no se incluirán en esta liquidación. Podés cargar las asistencias antes de continuar.\nIr a cargar asistencias →\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "8293d231ae836a31f8dbe220658b907318f120f6637f2b1c97022f785645b463",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t87-septiembre-1366.jpg",
+      "slug": "t87-septiembre",
+      "area": "liquidacion",
+      "width": 1366,
+      "mes": "9",
+      "url": "http://127.0.0.1:8788/liquidaciones/crear",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n3 clases liquidables\n⚠ 1 clase sin asistencia — no se liquidarán\nMéndez, Lucía tiene 1 clase sin asistencia cargada que no se incluirá en esta liquidación. Podés cargar las asistencias antes de continuar.\nIr a cargar asistencias →\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "2152473ee939bc93713d4baa20729a9c1a519a21cd32f9bc982934ccdcb0d711",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t87-cero-1366.jpg",
+      "slug": "t87-cero",
+      "area": "liquidacion",
+      "width": 1366,
+      "mes": "11",
+      "url": "http://127.0.0.1:8788/liquidaciones/crear",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n0 clases liquidables\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "80555ad9ed7367511f342bc0f71ce5a7c28547ef9a86de3c099f815774c3ffd7",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-cashflow-sin-enlace-1366.jpg",
+      "slug": "t89-cashflow-sin-enlace",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/cashflow",
+      "visible": "PERÍODO\nDía\nSemana\nMes\nAño\nAÑO\n2026\nTIPO DE CAJA\nTodos\nEfectivo\nTIPO\nTodos\nIngresos\nEgresos\n\nPeríodo:\nAño 2026 completo\n\nSaldos por medio\n\nAl 02/11/2026 · No dependen del período del listado.\n\nEfectivo\n$135,500.00\n\nConfirmado: $-4,500.00 · En cajas sin validar: $140,000.00\n\n$0.00\nINGRESOS\n$4,500.00\nEGRESOS\n$-4,500.00\nRESULTADO DEL PERÍODO\n1 movimiento\nTransferir\nNuevo\nFECHA\tI/E\tTIPO CAJA\tRUBRO — SUBRUBRO\tDETALLE\tMONTO\tREGISTRÓ\tVAL.\tACCIONES\n02/11/2026\tE\tEF\tGastos operativos — Librería\tMateriales para el taller - importe corregido\nDirecto\n\t−$4,500.00\tCarlos Demo\t\t\nMostrador · sin validar\n\nSe corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.\n\nCuota noviembre - Pérez, Juan\n\nCaja abierta · Ana Demo\n\n$28,000.00\n\nCuota noviembre - García, Ana\n\nCaja abierta · Ana Demo\n\n$28,000.00\n\nCuota noviembre - López, Sara\n\nCaja abierta · Ana Demo\n\n$28,000.00",
+      "marca": {
+        "x": 255,
+        "y": 495,
+        "w": 1090,
+        "h": 150
+      },
+      "sha256": "28a301357e4684052bc0ae31082411100517741c45a3d2638470870968f33329",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-cashflow-historial-existente-1366.jpg",
+      "slug": "t89-cashflow-historial-existente",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/cashflow/movimientos/6",
+      "visible": "Librería\nFecha\n\n02/11/2026\n\nMedio\n\nEfectivo\n\nImporte\n\n$-4,500.00\n\nMateriales para el taller - importe corregido\n\nVolver\nEditar\nHistorial de correcciones\n\nEdición · 02/11/2026 19:00 · Carlos Demo\n\nAntes\n\n$-4,000.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller\n\nDespués\n\n$-4,500.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller - importe corregido\n\nMotivo: Se corrigió el importe del comprobante de librería.",
+      "sha256": "e1f26b366d63fc16058bbad890d64f38c2991a187e4c888a87b8e669e2c7adc9",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-inicio-todos-ausentes-1366.jpg",
+      "slug": "t89-inicio-todos-ausentes",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/operativo",
+      "visible": "Mostrador Operativo\n\nLunes 2 de noviembre de 2026 · Turno de Ana Demo\n\nCaja\nCobranza\nAlumnos\nMOSTRADOR ACTIVO\n\nCaja abierta\n\nAbierta por vos a las 17:00\n\nCobrar\nRegistrar\nResumen\nClases de hoy — 1\n\n17:00 — Patín — Inicial\n\nSin lista\n\nLista\nAtención a alumnos\n\nVENCIDOS\n\n0\n\nIr a cobranza →\n\nEN PLAZO\n\n0\n\nIr a cobranza →\n\nPOSIBLES INACTIVOS\n\n0\n\nIr a revisión →\n\nRecaudación de hoy\n\nCOBRADO HOY\n\n$84,000.00\n\nCOBROS REGISTRADOS\n\n3\n\nCAJAS DEL TURNO\n\n1",
+      "sha256": "3269406b96cc19ca8add6e7df23a97033f3a0c31235e24cdd5dc0b3085716774",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-lista-cargada-1366.jpg",
+      "slug": "t89-lista-cargada",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/clases/74",
+      "visible": "Lunes 2 De Noviembre De 2026\n17:00 – 18:00\nPatín\nPatín — Inicial\nMéndez, Lucía\nEditar\nActiva\nCancelar\nVolver\n5 alumnos en el grupo  ·  0 presentes\nGarcía, Ana\n\nAl día\n\n0/2\n· DNI …103\nPresente\nGómez, Lucía\n\nAl día\n\n0/2\n· DNI …102\nPresente\nLópez, Sara\n\nAl día\n\n0/2\n· DNI …105\nPresente\nPérez, Juan\n\nAl día\n\n0/2\n· DNI …101\nPresente\nPérez, Mario\n\nAl día\n\n0/2\n· DNI …104\nPresente\nGuardar",
+      "sha256": "e1bc00e12cd123a3d82f41419f31b7993672a0de38629a3c4cc18aa60faaac1d",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-movimientos-1366.jpg",
+      "slug": "t89-movimientos",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/movimientos",
+      "visible": "DESDE\nHASTA\nIngreso / Egreso\nIngreso\nEgreso\nMedio\nEF\nRubro\nCuotas\nGastos operativos\nInscripciones\nPunitorios\nLimpiar\nFiltrar\n5 movimientos  ·  Ingresos $140,000.00  ·  Egresos $0.00  ·  Neto $140,000.00\nFECHA\tI/E\tMEDIO\tRUBRO — SUBRUBRO\tALUMNO / OBS.\tMONTO\tCAJA\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tLópez, Sara\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tGarcía, Ana\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tPérez, Juan\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tPérez, Mario\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tGómez, Lucía\t$28,000.00\t02/11/2026",
+      "links": [
+        "\n                                02/11/2026\n                            ",
+        "\n                                02/11/2026\n                            ",
+        "\n                                02/11/2026\n                            ",
+        "\n                                02/11/2026\n                            ",
+        "\n                                02/11/2026\n                            "
+      ],
+      "sha256": "70d82600b0408626ac26499b33fa12117c7b17ae99c992d291c223bc69b482f9",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-caja-ajena-sin-permiso-1366.jpg",
+      "slug": "t89-caja-ajena-sin-permiso",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/caja/6/detalle",
+      "visible": "No podés entrar a esta sección\n\nNo tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.\n\nVolver",
+      "sha256": "a36ec4a41b8fe6cad26743ec043c82d737b0c863ca6f4c25a44312d8c77e905f",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t89-detalle-sin-hora-1366.jpg",
+      "slug": "t89-detalle-sin-hora",
+      "area": "t89",
+      "width": 1366,
+      "url": "http://127.0.0.1:8788/caja/5/detalle",
+      "visible": "OPERATIVO\n\nAna Demo\n\nAPERTURA\n\n02/11/2026 17:00\n\nCIERRE\n\n–\n\nESTADO\n\nABIERTA\n\n3 movimientos\nResumen\nVolver\nFECHA\tI/E\tMEDIO\tRUBRO — SUBRUBRO\tALUMNO / OBS.\tMONTO\t\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nPérez, Juan · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nGarcía, Ana · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nLópez, Sara · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\nIngresos: $84,000.00  ·  Egresos: $0.00\t$84,000.00\t",
+      "sha256": "6e4e87d60fb32fc6dce0062fdac8bd9328084383f47943e03d35de742ff6cfdc",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-listado-letra-375.jpg",
+      "slug": "t54-listado-letra",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 2 de 2 alumnos\nNuevo\nGarcía, Ana\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950103\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "a97d7ca24926aee6b69d51cb2a50d427dfc9f97cfa1760a2197d01ac602aefec",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-listado-acento-375.jpg",
+      "slug": "t54-listado-acento",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 1 de 1 alumnos\nNuevo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "aded0b308b7346ca8195d5091e59a1d1c2cb1694a658fe6f0c209cad9ba32f0f",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-listado-orden-375.jpg",
+      "slug": "t54-listado-orden",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Deporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 1 de 1 alumnos\nNuevo\nPérez, Juan\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950101\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "6bdf7306fc44fd73dc3e65fb399c1b273a6c8cdc04d1812295fa015a2e80031b",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-autocompletar-letra-375.jpg",
+      "slug": "t54-autocompletar-letra",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "García, Ana\n44950103 · Patín — Inicial\nGómez, Lucía\n44950102 · Patín — Inicial\nVer todos los resultados\nDeporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 5 de 5 alumnos\nNuevo\nGarcía, Ana\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950103\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nLópez, Sara\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950105\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Juan\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950101\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Mario\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950104\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "16810439955bdafc619aead24d79c9b740a73fbd5b42d7514221a76610ffba1e",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-autocompletar-acento-375.jpg",
+      "slug": "t54-autocompletar-acento",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Gómez, Lucía\n44950102 · Patín — Inicial\nVer todos los resultados\nDeporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 5 de 5 alumnos\nNuevo\nGarcía, Ana\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950103\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nLópez, Sara\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950105\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Juan\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950101\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Mario\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950104\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "8d8334c3666c8cd56ed61404830344896e3e35f78553ebc5061198118e7044bb",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-autocompletar-orden-375.jpg",
+      "slug": "t54-autocompletar-orden",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Pérez, Juan\n44950101 · Patín — Inicial\nVer todos los resultados\nDeporte\nPatín\nGrupo\nPatín — Inicial\nLimpiar\nMostrando 1 a 5 de 5 alumnos\nNuevo\nGarcía, Ana\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950103\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nGómez, Lucía\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950102\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nLópez, Sara\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950105\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Juan\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950101\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo\nPérez, Mario\nDeporte:\nPatín\nGrupo:\nPatín — Inicial\nPlan:\n2 clases/semana\nDNI:\n44950104\nTeléfono:\n1100000000\nEdad:\n21 años\nTutor:\n–\nTel. tutor:\n–\nCobrar\nVer\nEditar\nActivo",
+      "sha256": "61dd433c910d9d54a23e4fc4c00778fe6ea88cc2bac0bb79cd54a64ed9267c2c",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-cobrar-letra-375.jpg",
+      "slug": "t54-cobrar-letra",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Buscar\nLimpiar\nSin deudas pendientes\nVolver\nGarcía, Ana\nSaldo:\n$0.00\nCuotas:\n0 pendientes\nGrupo:\nPatín — Inicial\nVer\nCobrar\nGómez, Lucía\nSaldo:\n$0.00\nCuotas:\n0 pendientes\nGrupo:\nPatín — Inicial\nVer\nCobrar",
+      "sha256": "16cbb6953727a0fe6aff8c393f90a019b6d73eacda6af3baf70f5d67c7192ee6",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-cobrar-acento-375.jpg",
+      "slug": "t54-cobrar-acento",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Buscar\nLimpiar\nSin deudas pendientes\nVolver\nGómez, Lucía\nSaldo:\n$0.00\nCuotas:\n0 pendientes\nGrupo:\nPatín — Inicial\nVer\nCobrar",
+      "sha256": "67dc5394b75a7add03ced9aaf65b2317eba57c27dde66f912f8971aeab2d449c",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-cobrar-orden-375.jpg",
+      "slug": "t54-cobrar-orden",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Buscar\nLimpiar\nSin deudas pendientes\nVolver\nPérez, Juan\nSaldo:\n$0.00\nCuotas:\n0 pendientes\nGrupo:\nPatín — Inicial\nVer\nCobrar",
+      "sha256": "ce392ccd58fcdbaef7245c316b1e6ef44c0c87d66fcd5f3282f50a682b5f2f42",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-historial-letra-375.jpg",
+      "slug": "t54-historial-letra",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Subrubro\nCuota Mensual\nEntrada desde otro medio\nInscripción al club\nLibrería\nPago al organizador\nPunitorio Cuota\nRetiro de dueños\nSalida a otro medio\nIngreso / Egreso\nIngresos\nEgresos\nDESDE\nHASTA\nFiltrar\nLimpiar\n3 movimientos · Ingresos $56,000.00 · Egresos $4,500.00\nVolver\nFECHA\tDETALLE\tMEDIO\tREGISTRÓ\tMONTO\n02/11/2026\t\n\nLibrería\n\nMateriales para el taller - importe corregido\n\n\t\nEfectivo\n\t\nCarlos Demo\n\t−$4,500.00\n02/11/2026\t\n\nCuota Mensual\n\nGarcía, Ana\n\n\t\nEfectivo\n\t\nAna Demo\n\t+$28,000.00\n02/11/2026\t\n\nCuota Mensual\n\nGómez, Lucía\n\n\t\nEfectivo\n\t\nRocío Demo\n\t+$28,000.00\n\nSin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.",
+      "sha256": "17fdfcfd18b493eb7515efb8adcfdeb1531480a9fc0372366e47893886f66589",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-historial-acento-375.jpg",
+      "slug": "t54-historial-acento",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Subrubro\nCuota Mensual\nEntrada desde otro medio\nInscripción al club\nLibrería\nPago al organizador\nPunitorio Cuota\nRetiro de dueños\nSalida a otro medio\nIngreso / Egreso\nIngresos\nEgresos\nDESDE\nHASTA\nFiltrar\nLimpiar\n1 movimiento · Ingresos $28,000.00 · Egresos $0.00\nVolver\nFECHA\tDETALLE\tMEDIO\tREGISTRÓ\tMONTO\n02/11/2026\t\n\nCuota Mensual\n\nGómez, Lucía\n\n\t\nEfectivo\n\t\nRocío Demo\n\t+$28,000.00\n\nSin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.",
+      "sha256": "780d13000acb699f799e6288b906097c7a9a933ded542ddbc1e7b8604d894b01",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-historial-orden-375.jpg",
+      "slug": "t54-historial-orden",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Subrubro\nCuota Mensual\nEntrada desde otro medio\nInscripción al club\nLibrería\nPago al organizador\nPunitorio Cuota\nRetiro de dueños\nSalida a otro medio\nIngreso / Egreso\nIngresos\nEgresos\nDESDE\nHASTA\nFiltrar\nLimpiar\n1 movimiento · Ingresos $28,000.00 · Egresos $0.00\nVolver\nFECHA\tDETALLE\tMEDIO\tREGISTRÓ\tMONTO\n02/11/2026\t\n\nCuota Mensual\n\nPérez, Juan\n\n\t\nEfectivo\n\t\nAna Demo\n\t+$28,000.00\n\nSin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.",
+      "sha256": "2b34eafb1653ed57141403d940b92d23a5e0b2384dc81dd5e04ec9b82937f3f2",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t87-octubre-375.jpg",
+      "slug": "t87-octubre",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n17 clases liquidables\n⚠ 2 clases sin asistencia — no se liquidarán\nMéndez, Lucía tiene 2 clases sin asistencia cargada que no se incluirán en esta liquidación. Podés cargar las asistencias antes de continuar.\nIr a cargar asistencias →\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "e4a68bb90426872fed71e413814b51ccdcdad3acbf35a154e10c73f0e2a93274",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t87-septiembre-375.jpg",
+      "slug": "t87-septiembre",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n3 clases liquidables\n⚠ 1 clase sin asistencia — no se liquidarán\nMéndez, Lucía tiene 1 clase sin asistencia cargada que no se incluirá en esta liquidación. Podés cargar las asistencias antes de continuar.\nIr a cargar asistencias →\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "95f800725cbf236e9db812f123f280dbad6ddabd86e766282ac0919a006f2ad6",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t87-cero-375.jpg",
+      "slug": "t87-cero",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Profesor\n*\nMéndez, Lucía\nPatín\nPor hora\n0 clases liquidables\nMes\n*\n— Seleccioná —\nEnero\nFebrero\nMarzo\nAbril\nMayo\nJunio\nJulio\nAgosto\nSeptiembre\nOctubre\nNoviembre\nDiciembre\nAño\n*\n\nSe generará la liquidación con todas las clases liquidables del período seleccionado.\n\nCancelar\nGenerar",
+      "sha256": "20b9a5b5a192a9b3b165cbc06115e6a3aa927fb3eea0de02309772aa15299f34",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-cashflow-sin-enlace-375.jpg",
+      "slug": "t89-cashflow-sin-enlace",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "PERÍODO\nDía\nSemana\nMes\nAño\nAÑO\n2026\nTIPO DE CAJA\nTodos\nEfectivo\nTIPO\nTodos\nIngresos\nEgresos\n\nPeríodo:\nAño 2026 completo\n\nSaldos por medio\n\nAl 02/11/2026 · No dependen del período del listado.\n\nEfectivo\n$135,500.00\n\nConfirmado: $-4,500.00 · En cajas sin validar: $140,000.00\n\n$0.00\nINGRESOS\n$4,500.00\nEGRESOS\n$-4,500.00\nRESULTADO DEL PERÍODO\n1 movimiento\nTransferir\nNuevo\n02/11/2026\nEF\nE\n−$4,500.00\nGastos operativos — Librería\nMateriales para el taller - importe corregido\nRegistró: Carlos Demo\nDirecto\nMostrador · sin validar\n\nSe corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.\n\nCuota noviembre - Pérez, Juan\n\nCaja abierta · Ana Demo\n\n$28,000.00\n\nCuota noviembre - García, Ana\n\nCaja abierta · Ana Demo\n\n$28,000.00\n\nCuota noviembre - López, Sara\n\nCaja abierta · Ana Demo\n\n$28,000.00",
+      "sha256": "634193814c1143d964bf36c9d7f4ad15416f3821c9e2a0777c6a900daebb949f",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-cashflow-historial-existente-375.jpg",
+      "slug": "t89-cashflow-historial-existente",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Librería\nFecha\n\n02/11/2026\n\nMedio\n\nEfectivo\n\nImporte\n\n$-4,500.00\n\nMateriales para el taller - importe corregido\n\nVolver\nEditar\nHistorial de correcciones\n\nEdición · 02/11/2026 19:00 · Carlos Demo\n\nAntes\n\n$-4,000.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller\n\nDespués\n\n$-4,500.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller - importe corregido\n\nMotivo: Se corrigió el importe del comprobante de librería.",
+      "sha256": "7be3a068db3cd50868122a0b08ee2118278906b3ade99b784ef78080c99d9965",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-inicio-todos-ausentes-375.jpg",
+      "slug": "t89-inicio-todos-ausentes",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Mostrador Operativo\n\nLunes 2 de noviembre de 2026 · Turno de Ana Demo\n\nCaja\nCobranza\nAlumnos\nMOSTRADOR ACTIVO\n\nCaja abierta\n\nAbierta por vos a las 17:00\n\nCobrar\nRegistrar\nResumen\nClases de hoy — 1\n\n17:00 — Patín — Inicial\n\nSin lista\n\nLista\nAtención a alumnos\n\nVENCIDOS\n\n0\n\nIr a cobranza →\n\nEN PLAZO\n\n0\n\nIr a cobranza →\n\nPOSIBLES INACTIVOS\n\n0\n\nIr a revisión →\n\nRecaudación de hoy\n\nCOBRADO HOY\n\n$84,000.00\n\nCOBROS REGISTRADOS\n\n3\n\nCAJAS DEL TURNO\n\n1",
+      "sha256": "ebc4269a05ba1f5ee99710d5f7316a8251f63e6db3c139f5069fbc41054691fe",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-lista-cargada-375.jpg",
+      "slug": "t89-lista-cargada",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "Lunes 2 De Noviembre De 2026\n17:00 – 18:00\nPatín\nPatín — Inicial\nMéndez, Lucía\nEditar\nActiva\nCancelar\nVolver\n5 alumnos en el grupo  ·  0 presentes\nGarcía, Ana\n\nAl día\n\n0/2\n· DNI …103\nGómez, Lucía\n\nAl día\n\n0/2\n· DNI …102\nLópez, Sara\n\nAl día\n\n0/2\n· DNI …105\nPérez, Juan\n\nAl día\n\n0/2\n· DNI …101\nPérez, Mario\n\nAl día\n\n0/2\n· DNI …104\nGuardar",
+      "sha256": "a9f8d6eb464e833399553cfca2910e3fafb3e0f6fea76e212a2bda4dbcfc0725",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-movimientos-375.jpg",
+      "slug": "t89-movimientos",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "DESDE\nHASTA\nIngreso / Egreso\nIngreso\nEgreso\nMedio\nEF\nRubro\nCuotas\nGastos operativos\nInscripciones\nPunitorios\nLimpiar\nFiltrar\n5 movimientos  ·  Ingresos $140,000.00  ·  Egresos $0.00  ·  Neto $140,000.00\nFECHA\tI/E\tMEDIO\tRUBRO — SUBRUBRO\tALUMNO / OBS.\tMONTO\tCAJA\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tLópez, Sara\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tGarcía, Ana\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tPérez, Juan\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tPérez, Mario\t$28,000.00\t02/11/2026\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\tGómez, Lucía\t$28,000.00\t02/11/2026",
+      "sha256": "980c0a90e072b72d690f157765d91042484cc3fa2dd3994de53a2ea0a3b69c72",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-caja-ajena-sin-permiso-375.jpg",
+      "slug": "t89-caja-ajena-sin-permiso",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "No podés entrar a esta sección\n\nNo tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.\n\nVolver",
+      "sha256": "ea8a7e38fa66cdc5551c869d4849043082609b3746549f4b879384659363e29c",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t89-detalle-sin-hora-375.jpg",
+      "slug": "t89-detalle-sin-hora",
+      "width": 375,
+      "marco": {
+        "ancho": 375,
+        "scroll": 360
+      },
+      "fuente": "DOM real de Chrome, remaquetado en iframe",
+      "visible": "OPERATIVO\n\nAna Demo\n\nAPERTURA\n\n02/11/2026 17:00\n\nCIERRE\n\n–\n\nESTADO\n\nABIERTA\n\n3 movimientos\nResumen\nVolver\n\nDeslizá la tabla para ver todas las columnas.\n\nFECHA\tI/E\tMEDIO\tRUBRO — SUBRUBRO\tALUMNO / OBS.\tMONTO\t\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nPérez, Juan · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nGarcía, Ana · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\n02/11/2026\tI\tEF\tCuotas — Cuota Mensual\t\nLópez, Sara · PAT · 11/26\n\t$28,000.00\t\nRecibo\nCancelar\n\nIngresos: $84,000.00  ·  Egresos: $0.00\t$84,000.00\t",
+      "sha256": "6dd04465aa66cb15b1df73c713dd0b9850538d43685d50810935f963ab888c28",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "login-calibracion-375.jpg",
+      "slug": "login-calibracion",
+      "width": 375,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "sha256": "35b509e2a0b53024c5c440de52eb7cdba4dccf308ca89c3df63ad5b9c88833d0",
+      "pixeles": [
+        411,
+        1270
+      ]
+    },
+    {
+      "file": "t54-cobrar-acento-1366.jpg",
+      "slug": "t54-cobrar-acento",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "cobrar",
+      "query": "gomez",
+      "url": "http://127.0.0.1:8788/caja/cobrar?search=gomez",
+      "sha256": "113b17c6c2f8df9280916938658d1a1a1b5954ff90ec3f61646769b2bdce81df",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-cobrar-letra-1366.jpg",
+      "slug": "t54-cobrar-letra",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "cobrar",
+      "query": "g",
+      "url": "http://127.0.0.1:8788/caja/cobrar?search=g",
+      "sha256": "c6690f1a83e3960fe634711bef689ef95bff4832d84e8afdfa0d38a843bfa003",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-cobrar-orden-1366.jpg",
+      "slug": "t54-cobrar-orden",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "cobrar",
+      "query": "perez juan",
+      "url": "http://127.0.0.1:8788/caja/cobrar?search=perez+juan",
+      "sha256": "9780f631baa2a1dbfb3b8e21b8e5869b885794490b913f775594ad0e0e7446b2",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-historial-acento-1366.jpg",
+      "slug": "t54-historial-acento",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "historial",
+      "query": "gomez",
+      "url": "http://127.0.0.1:8788/caja/historial?search=gomez",
+      "sha256": "2f0c1c829798f441dfb3ba2283d322bd02c19bd2391cbd785730f00370dc6b76",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-historial-letra-1366.jpg",
+      "slug": "t54-historial-letra",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "historial",
+      "query": "g",
+      "url": "http://127.0.0.1:8788/caja/historial?search=g",
+      "sha256": "50eda2aef8cbc188340e8fb2cfabf18035cd04f0970f1d53093bf992c001af21",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    },
+    {
+      "file": "t54-historial-orden-1366.jpg",
+      "slug": "t54-historial-orden",
+      "width": 1366,
+      "origen": "Chrome real; registro completado desde el par de JPEG y DOM guardados en la captura.",
+      "area": "historial",
+      "query": "perez juan",
+      "url": "http://127.0.0.1:8788/caja/historial?search=perez+juan",
+      "sha256": "b3bd4732b73c65b88180d08dc7229da11ee096d51f4557fdd4197d420b0d6692",
+      "pixeles": [
+        1366,
+        1000
+      ]
+    }
+  ],
+  "aprobaciones": {
+    "T54": {
+      "fecha": "2026-10-28",
+      "Carlos": "T54 OK"
+    },
+    "T87": {
+      "fecha": "2026-10-28",
+      "Carlos": "T87 Visualmente OK, asumo que el funcionamiento logico esta bien"
+    },
+    "T89": "Carlos eligió Movimientos A / Cashflow A / Inicio B / Detalle B; implementación por Codex y aspecto de Movimientos por revisar."
+  },
+  "eleccion_T89": {
+    "Movimientos": "A, mostrar aspecto antes de aprobar",
+    "Cashflow": "A",
+    "Inicio": "B",
+    "Detalle": "B"
+  }
+}

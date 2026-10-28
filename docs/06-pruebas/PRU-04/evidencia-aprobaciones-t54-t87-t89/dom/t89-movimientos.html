@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="captura-sin-token">
+    <title>Movimientos – Wings</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-codex-favicon-badge%3D%22codex-favicon-badge%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cimage%20href%3D%22data%3Aimage%2Fbmp%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAJIUlEQVR4nERWa2wU1xW%2B987M7szueneN3y%2BwwS%2BwwTyNMI8SHIIbmhCqEiJSJa2qSq36o0IJrVSRNO2P%2Fihqq6g%2FSNUqVKRNolKgCJGERwFjbLBxjF%2F4ba%2FX67XXa3u9r9nnzL25986ajK93Z2bvPY%2FvnPOdI06paUSAFk1INhlCAAD7p1cymbTICoRQyLzAkP3GtkDCngnJbCaEIAyoEExfEUz%2F2IURoE8EIkR3aaT%2FL1%2BiaArwk1SGy7dw%2BV6XjgiCBAIdQiwCQJcAAOIb6KInEd9ALRAQhggjBCESqEh%2BEUjP0m10sxDXcjsX%2FV8OIJ2%2BYq%2B7h2ceJlEU6whgukMA1BIqgvAFMovppm4R7hGVDbliQmUD%2FgCZLdQC%2BqNOLN4EavPChSjiTsSjyWR2xZ2e4QSTy9ykH%2FyMYRfXJBAoQiiye8IW4E6wRySwA%2FwgfQ2Alk7rdlS9Irs%2BfigE4zid7ml9UOHGd6Kge9qXZDbCVav5DQTfxoNjJYgMCpRxjnrGdUCuA2Ly9KvH0VqH2O%2BrUwtHPmolc2F9Op5q7ygJFFydD98aHFcBxtQzYsjlsHJw2aII04WBAA2BPIoC18GxokEilkh6KRqeSizp7Z46XN31p5vlKUfA3Vt9dz7PldON7H9v7%2B33LycApkoohnQJTBmTwuAiwAiIkYCIowzZDpZDwju%2FeV%2BdD5Rcn%2B3OT%2BbPJEIryGwpgetEVUo%2BmWzfGyiHEctSdUF%2FIjTqmi20W52y2YAoAxKXYyQsRwwaeWjkI7udVTUwF5pt%2FshWV3hzcqghUhErLBtyBu0v1cg12Y%2B%2BfkQmwdqibf66XH%2BDkoq4z2woqMlb03tvGCXA5pc3KSaWorwmVi%2FCCwDTsqBVAaA3hoW01vv%2Bpd3XI%2F5G%2B0XXE8dinixv8Bao3hpxw8mWrDIyev%2BJuQvl5Wzqq0jDWH9jQj%2F1%2BkGLSRoe8W99oVLgRUdlgYzVhOmjKrgOnnxmcdMvW9qyg%2BLX0Z9Xv5a3p6hH6Uwtx0uHrT1%2F%2FEdHu5u8elA%2BmTsbun%2FM5jl3fM8ap0UHgrPQHlmKGmUOMykFsEAILwgODy80nhLEUuiIn6i8Z%2FMN3%2B0tceee2vzWpDI0gXrWrORFz98IXOz1bqvXK8SWg7vGBmara4oGel30vK7rgNd2Rgf9xM%2BRMvSw%2Buf4CaS4tswrjz4onpE8s7I3f4dzc3qHJa4o8489wUtfmOqqIg5bIpnY2Vid1lLXLz9NpbCmpYxoQ%2FKcmWhiEUijQjFjhU64B4AVSF3zNmVLwc9wTfOWWmsdidi9j%2B7fWhga37rtcEDz2tqn%2FdRchGcm%2FS7XfCKejqt6miSNhOLGMkCoYOoEAUYWs6pDzz1CsnDgD6e6DyqR%2Frm97tJjUvMvGk5XyPUTgw%2FyLWV4zAV9EatFKS3LG%2Bwfk8xacFGTTEJ4aQWuBjejg9UYXM0nCP0JTD0UGckglr4p%2FPhKW%2Bfnbep8zBeKRQQzVrLCQkSyOVJ1RZc%2BOKnFNTlLvP3pw5VxzZ4rKBXmo6cOUpJkFM2yiTnAbMdEp%2BJ0KGZUA4P5IDDDbS07fF%2F0lY6ZrTk7lyxrRkm8Xx0dXO4uia2bcrlqKjcElyJSnuSemNCeEYdPfOHV3bLVwmGBJBNSYuQrfSGcee%2B3vOINIBnFmmSp7uiu2BbHYq46po6YLMHiIrNkl9xzbk2L7du3Q0%2FhwoLcqV7X6Ox0LKpPT8%2Fs2t8AOCw4I5oFmfCKoxDRfqKzDsEjxb5oN2JBgiilPzx%2Fc3f%2Bpli5kkDEG1z622ef%2Ffgn39%2B1oyG0HHbm2j781T89c4uJFK7bv%2F6np0%2BKZpF1M57%2FvKkxyIQzZ39HG1aGhlGGh41igTqZfjy21paDKm2S0yxA6fiJIyaTaM1SZKscWop851hjaDmWhlrHgKtzZKq2ssTmsPEGlCEjpuDdsx9w6IwuBFaR5ISogYnO0Qo1CztMxCaaLJIaiGUX2IxmYnUokWC8Zkt5Vf36FNSGlgL%2Fa%2B2JhFQ5J8tqtTznJbgQozFnXVeg1Mqs%2F5Z6kUY%2BPXvB%2FixKnFZ7aVFJdYVgVhwbbZYSRVREul0QkY71WCSJRND6bKp5e01S0%2FumvJPBaHVVaX1hHmuaiyomVDDU%2BADBGiOrfu4EjcR%2F%2F%2Fx57b%2Fme4L%2BCS0%2BqgWiCtq4saqpcceeQ9udlTZzlkQ7lyCwVq9T%2BGkOilQGjGJ84VbX8eZGGSCRBgPSoNIOBwwSzJA85LUuFTuDycmldHJR04ho7fB1%2BeHK477uquvljQd2HzzS5Cixm2yiKAtYpKkCNASTEK5oOLywrLEc0qE%2FrFPLuRMUKCCsFjcPOJme9Pz%2BxV9LKXGFwIRkdpOVqrqKjVvX37h6p1A15SJnTkkRKMyJ5ZpTdjFpE9JWs4pwLJV2%2BhcunHvXDAjzgLVCaPR%2FllqZYPNGWL5hbf3encr%2FPXdtiy3W3Wp%2BqceJ52fTtYffjpmSU%2F3PvAspMu5LjKyEQr412WVaNko3VZbWFb7oNJs5H4nA6OYMQYE5QYwcYzoGe0dvnvtqbEkdL0tEInrucl9kHZ7xDBUVmI%2B37E9oglpVc%2B36dLZg7esfUCRkTYKa6Fbf2Mq%2B%2BaivVE2n0qIkIsBphE4NjMox84JPEKwQr52%2B2HP74bMnHevXbbYdfmUuCy7mq17%2FXFwufuPN7%2F3o7eOmkHZogZiHBl7edbS46dBYavLa%2BPkT96UfDq5tgduvfHIDs4HP6GxMCaHchPmsRl9Gwqp%2FaD6QY3ur6rXwpDvs8a5YTb6pCbCw7BycNdyeujx4xd262b51qON%2BIJ0o3tQkIFMQhc%2B5rr139Vz97k06JVYmms0f%2FJsPrZg3cYtV0Ypk29amvy7ezk3Ddb0TI8NtM%2B2PNot5%2B07WE047qqIXvfSDBzGXDEXLmEcdfBpIhz%2FR29U311zq%2FHf1xiom2reos2TiHGRMT6wHsfJJdz3o%2Fc%2FZj0Eo2YvnXzny3aL6Ss%2Bst762pmlfo8HBba0drR9et9kccwFPMqVHy6WYGjt2oPn1d94wWyU5S2JlNc8aFfWEz8aQrE6xQNexlsJY1yMRVTYpjKDw875iMCVLM9ese6B%2FwCQrDQ31RcWFxuBHU0cwQUFi88Y3AAAA%2F%2F9QRBEuAAAABklEQVQDAPdCs5YISdfUAAAAAElFTkSuQmCC%22%20width%3D%2232%22%20height%3D%2232%22%20opacity%3D%220.3%22%20%2F%3E%3Cpath%20d%3D%22M3.04536%204.45259C2.7582%203.60299%203.60299%202.7582%204.45259%203.04536L14.1828%206.33403C15.1637%206.66558%2015.0872%208.08006%2014.0715%208.39045L10.2994%209.54319C9.93919%209.65327%209.65327%209.93919%209.54319%2010.2994L8.39046%2014.0715C8.08007%2015.0872%206.66558%2015.1637%206.33404%2014.1828L3.04536%204.45259Z%22%20fill%3D%22black%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%20transform%3D%22translate(-2%20-2)%20scale(2.1)%22%20%2F%3E%3C%2Fsvg%3E" data-codex-favicon-badge="true" data-codex-original-favicon-href="http://127.0.0.1:8788/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-codex-favicon-badge%3D%22codex-favicon-badge%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cimage%20href%3D%22data%3Aimage%2Fbmp%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAJIUlEQVR4nERWa2wU1xW%2B987M7szueneN3y%2BwwS%2BwwTyNMI8SHIIbmhCqEiJSJa2qSq36o0IJrVSRNO2P%2Fihqq6g%2FSNUqVKRNolKgCJGERwFjbLBxjF%2F4ba%2FX67XXa3u9r9nnzL25986ajK93Z2bvPY%2FvnPOdI06paUSAFk1INhlCAAD7p1cymbTICoRQyLzAkP3GtkDCngnJbCaEIAyoEExfEUz%2F2IURoE8EIkR3aaT%2FL1%2BiaArwk1SGy7dw%2BV6XjgiCBAIdQiwCQJcAAOIb6KInEd9ALRAQhggjBCESqEh%2BEUjP0m10sxDXcjsX%2FV8OIJ2%2BYq%2B7h2ceJlEU6whgukMA1BIqgvAFMovppm4R7hGVDbliQmUD%2FgCZLdQC%2BqNOLN4EavPChSjiTsSjyWR2xZ2e4QSTy9ykH%2FyMYRfXJBAoQiiye8IW4E6wRySwA%2FwgfQ2Alk7rdlS9Irs%2BfigE4zid7ml9UOHGd6Kge9qXZDbCVav5DQTfxoNjJYgMCpRxjnrGdUCuA2Ly9KvH0VqH2O%2BrUwtHPmolc2F9Op5q7ygJFFydD98aHFcBxtQzYsjlsHJw2aII04WBAA2BPIoC18GxokEilkh6KRqeSizp7Z46XN31p5vlKUfA3Vt9dz7PldON7H9v7%2B33LycApkoohnQJTBmTwuAiwAiIkYCIowzZDpZDwju%2FeV%2BdD5Rcn%2B3OT%2BbPJEIryGwpgetEVUo%2BmWzfGyiHEctSdUF%2FIjTqmi20W52y2YAoAxKXYyQsRwwaeWjkI7udVTUwF5pt%2FshWV3hzcqghUhErLBtyBu0v1cg12Y%2B%2BfkQmwdqibf66XH%2BDkoq4z2woqMlb03tvGCXA5pc3KSaWorwmVi%2FCCwDTsqBVAaA3hoW01vv%2Bpd3XI%2F5G%2B0XXE8dinixv8Bao3hpxw8mWrDIyev%2BJuQvl5Wzqq0jDWH9jQj%2F1%2BkGLSRoe8W99oVLgRUdlgYzVhOmjKrgOnnxmcdMvW9qyg%2BLX0Z9Xv5a3p6hH6Uwtx0uHrT1%2F%2FEdHu5u8elA%2BmTsbun%2FM5jl3fM8ap0UHgrPQHlmKGmUOMykFsEAILwgODy80nhLEUuiIn6i8Z%2FMN3%2B0tceee2vzWpDI0gXrWrORFz98IXOz1bqvXK8SWg7vGBmara4oGel30vK7rgNd2Rgf9xM%2BRMvSw%2Buf4CaS4tswrjz4onpE8s7I3f4dzc3qHJa4o8489wUtfmOqqIg5bIpnY2Vid1lLXLz9NpbCmpYxoQ%2FKcmWhiEUijQjFjhU64B4AVSF3zNmVLwc9wTfOWWmsdidi9j%2B7fWhga37rtcEDz2tqn%2FdRchGcm%2FS7XfCKejqt6miSNhOLGMkCoYOoEAUYWs6pDzz1CsnDgD6e6DyqR%2Frm97tJjUvMvGk5XyPUTgw%2FyLWV4zAV9EatFKS3LG%2Bwfk8xacFGTTEJ4aQWuBjejg9UYXM0nCP0JTD0UGckglr4p%2FPhKW%2Bfnbep8zBeKRQQzVrLCQkSyOVJ1RZc%2BOKnFNTlLvP3pw5VxzZ4rKBXmo6cOUpJkFM2yiTnAbMdEp%2BJ0KGZUA4P5IDDDbS07fF%2F0lY6ZrTk7lyxrRkm8Xx0dXO4uia2bcrlqKjcElyJSnuSemNCeEYdPfOHV3bLVwmGBJBNSYuQrfSGcee%2B3vOINIBnFmmSp7uiu2BbHYq46po6YLMHiIrNkl9xzbk2L7du3Q0%2FhwoLcqV7X6Ox0LKpPT8%2Fs2t8AOCw4I5oFmfCKoxDRfqKzDsEjxb5oN2JBgiilPzx%2Fc3f%2Bpli5kkDEG1z622ef%2Ffgn39%2B1oyG0HHbm2j781T89c4uJFK7bv%2F6np0%2BKZpF1M57%2FvKkxyIQzZ39HG1aGhlGGh41igTqZfjy21paDKm2S0yxA6fiJIyaTaM1SZKscWop851hjaDmWhlrHgKtzZKq2ssTmsPEGlCEjpuDdsx9w6IwuBFaR5ISogYnO0Qo1CztMxCaaLJIaiGUX2IxmYnUokWC8Zkt5Vf36FNSGlgL%2Fa%2B2JhFQ5J8tqtTznJbgQozFnXVeg1Mqs%2F5Z6kUY%2BPXvB%2FixKnFZ7aVFJdYVgVhwbbZYSRVREul0QkY71WCSJRND6bKp5e01S0%2FumvJPBaHVVaX1hHmuaiyomVDDU%2BADBGiOrfu4EjcR%2F%2F%2Fx57b%2Fme4L%2BCS0%2BqgWiCtq4saqpcceeQ9udlTZzlkQ7lyCwVq9T%2BGkOilQGjGJ84VbX8eZGGSCRBgPSoNIOBwwSzJA85LUuFTuDycmldHJR04ho7fB1%2BeHK477uquvljQd2HzzS5Cixm2yiKAtYpKkCNASTEK5oOLywrLEc0qE%2FrFPLuRMUKCCsFjcPOJme9Pz%2BxV9LKXGFwIRkdpOVqrqKjVvX37h6p1A15SJnTkkRKMyJ5ZpTdjFpE9JWs4pwLJV2%2BhcunHvXDAjzgLVCaPR%2FllqZYPNGWL5hbf3encr%2FPXdtiy3W3Wp%2BqceJ52fTtYffjpmSU%2F3PvAspMu5LjKyEQr412WVaNko3VZbWFb7oNJs5H4nA6OYMQYE5QYwcYzoGe0dvnvtqbEkdL0tEInrucl9kHZ7xDBUVmI%2B37E9oglpVc%2B36dLZg7esfUCRkTYKa6Fbf2Mq%2B%2BaivVE2n0qIkIsBphE4NjMox84JPEKwQr52%2B2HP74bMnHevXbbYdfmUuCy7mq17%2FXFwufuPN7%2F3o7eOmkHZogZiHBl7edbS46dBYavLa%2BPkT96UfDq5tgduvfHIDs4HP6GxMCaHchPmsRl9Gwqp%2FaD6QY3ur6rXwpDvs8a5YTb6pCbCw7BycNdyeujx4xd262b51qON%2BIJ0o3tQkIFMQhc%2B5rr139Vz97k06JVYmms0f%2FJsPrZg3cYtV0Ypk29amvy7ezk3Ddb0TI8NtM%2B2PNot5%2B07WE047qqIXvfSDBzGXDEXLmEcdfBpIhz%2FR29U311zq%2FHf1xiom2reos2TiHGRMT6wHsfJJdz3o%2Fc%2FZj0Eo2YvnXzny3aL6Ss%2Bst762pmlfo8HBba0drR9et9kccwFPMqVHy6WYGjt2oPn1d94wWyU5S2JlNc8aFfWEz8aQrE6xQNexlsJY1yMRVTYpjKDw875iMCVLM9ese6B%2FwCQrDQ31RcWFxuBHU0cwQUFi88Y3AAAA%2F%2F9QRBEuAAAABklEQVQDAPdCs5YISdfUAAAAAElFTkSuQmCC%22%20width%3D%2232%22%20height%3D%2232%22%20opacity%3D%220.3%22%20%2F%3E%3Cpath%20d%3D%22M3.04536%204.45259C2.7582%203.60299%203.60299%202.7582%204.45259%203.04536L14.1828%206.33403C15.1637%206.66558%2015.0872%208.08006%2014.0715%208.39045L10.2994%209.54319C9.93919%209.65327%209.65327%209.93919%209.54319%2010.2994L8.39046%2014.0715C8.08007%2015.0872%206.66558%2015.1637%206.33404%2014.1828L3.04536%204.45259Z%22%20fill%3D%22black%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%20transform%3D%22translate(-2%20-2)%20scale(2.1)%22%20%2F%3E%3C%2Fsvg%3E" data-codex-favicon-badge="true" data-codex-original-favicon-href="http://127.0.0.1:8788/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-codex-favicon-badge%3D%22codex-favicon-badge%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cimage%20href%3D%22data%3Aimage%2Fbmp%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAJIUlEQVR4nERWa2wU1xW%2B987M7szueneN3y%2BwwS%2BwwTyNMI8SHIIbmhCqEiJSJa2qSq36o0IJrVSRNO2P%2Fihqq6g%2FSNUqVKRNolKgCJGERwFjbLBxjF%2F4ba%2FX67XXa3u9r9nnzL25986ajK93Z2bvPY%2FvnPOdI06paUSAFk1INhlCAAD7p1cymbTICoRQyLzAkP3GtkDCngnJbCaEIAyoEExfEUz%2F2IURoE8EIkR3aaT%2FL1%2BiaArwk1SGy7dw%2BV6XjgiCBAIdQiwCQJcAAOIb6KInEd9ALRAQhggjBCESqEh%2BEUjP0m10sxDXcjsX%2FV8OIJ2%2BYq%2B7h2ceJlEU6whgukMA1BIqgvAFMovppm4R7hGVDbliQmUD%2FgCZLdQC%2BqNOLN4EavPChSjiTsSjyWR2xZ2e4QSTy9ykH%2FyMYRfXJBAoQiiye8IW4E6wRySwA%2FwgfQ2Alk7rdlS9Irs%2BfigE4zid7ml9UOHGd6Kge9qXZDbCVav5DQTfxoNjJYgMCpRxjnrGdUCuA2Ly9KvH0VqH2O%2BrUwtHPmolc2F9Op5q7ygJFFydD98aHFcBxtQzYsjlsHJw2aII04WBAA2BPIoC18GxokEilkh6KRqeSizp7Z46XN31p5vlKUfA3Vt9dz7PldON7H9v7%2B33LycApkoohnQJTBmTwuAiwAiIkYCIowzZDpZDwju%2FeV%2BdD5Rcn%2B3OT%2BbPJEIryGwpgetEVUo%2BmWzfGyiHEctSdUF%2FIjTqmi20W52y2YAoAxKXYyQsRwwaeWjkI7udVTUwF5pt%2FshWV3hzcqghUhErLBtyBu0v1cg12Y%2B%2BfkQmwdqibf66XH%2BDkoq4z2woqMlb03tvGCXA5pc3KSaWorwmVi%2FCCwDTsqBVAaA3hoW01vv%2Bpd3XI%2F5G%2B0XXE8dinixv8Bao3hpxw8mWrDIyev%2BJuQvl5Wzqq0jDWH9jQj%2F1%2BkGLSRoe8W99oVLgRUdlgYzVhOmjKrgOnnxmcdMvW9qyg%2BLX0Z9Xv5a3p6hH6Uwtx0uHrT1%2F%2FEdHu5u8elA%2BmTsbun%2FM5jl3fM8ap0UHgrPQHlmKGmUOMykFsEAILwgODy80nhLEUuiIn6i8Z%2FMN3%2B0tceee2vzWpDI0gXrWrORFz98IXOz1bqvXK8SWg7vGBmara4oGel30vK7rgNd2Rgf9xM%2BRMvSw%2Buf4CaS4tswrjz4onpE8s7I3f4dzc3qHJa4o8489wUtfmOqqIg5bIpnY2Vid1lLXLz9NpbCmpYxoQ%2FKcmWhiEUijQjFjhU64B4AVSF3zNmVLwc9wTfOWWmsdidi9j%2B7fWhga37rtcEDz2tqn%2FdRchGcm%2FS7XfCKejqt6miSNhOLGMkCoYOoEAUYWs6pDzz1CsnDgD6e6DyqR%2Frm97tJjUvMvGk5XyPUTgw%2FyLWV4zAV9EatFKS3LG%2Bwfk8xacFGTTEJ4aQWuBjejg9UYXM0nCP0JTD0UGckglr4p%2FPhKW%2Bfnbep8zBeKRQQzVrLCQkSyOVJ1RZc%2BOKnFNTlLvP3pw5VxzZ4rKBXmo6cOUpJkFM2yiTnAbMdEp%2BJ0KGZUA4P5IDDDbS07fF%2F0lY6ZrTk7lyxrRkm8Xx0dXO4uia2bcrlqKjcElyJSnuSemNCeEYdPfOHV3bLVwmGBJBNSYuQrfSGcee%2B3vOINIBnFmmSp7uiu2BbHYq46po6YLMHiIrNkl9xzbk2L7du3Q0%2FhwoLcqV7X6Ox0LKpPT8%2Fs2t8AOCw4I5oFmfCKoxDRfqKzDsEjxb5oN2JBgiilPzx%2Fc3f%2Bpli5kkDEG1z622ef%2Ffgn39%2B1oyG0HHbm2j781T89c4uJFK7bv%2F6np0%2BKZpF1M57%2FvKkxyIQzZ39HG1aGhlGGh41igTqZfjy21paDKm2S0yxA6fiJIyaTaM1SZKscWop851hjaDmWhlrHgKtzZKq2ssTmsPEGlCEjpuDdsx9w6IwuBFaR5ISogYnO0Qo1CztMxCaaLJIaiGUX2IxmYnUokWC8Zkt5Vf36FNSGlgL%2Fa%2B2JhFQ5J8tqtTznJbgQozFnXVeg1Mqs%2F5Z6kUY%2BPXvB%2FixKnFZ7aVFJdYVgVhwbbZYSRVREul0QkY71WCSJRND6bKp5e01S0%2FumvJPBaHVVaX1hHmuaiyomVDDU%2BADBGiOrfu4EjcR%2F%2F%2Fx57b%2Fme4L%2BCS0%2BqgWiCtq4saqpcceeQ9udlTZzlkQ7lyCwVq9T%2BGkOilQGjGJ84VbX8eZGGSCRBgPSoNIOBwwSzJA85LUuFTuDycmldHJR04ho7fB1%2BeHK477uquvljQd2HzzS5Cixm2yiKAtYpKkCNASTEK5oOLywrLEc0qE%2FrFPLuRMUKCCsFjcPOJme9Pz%2BxV9LKXGFwIRkdpOVqrqKjVvX37h6p1A15SJnTkkRKMyJ5ZpTdjFpE9JWs4pwLJV2%2BhcunHvXDAjzgLVCaPR%2FllqZYPNGWL5hbf3encr%2FPXdtiy3W3Wp%2BqceJ52fTtYffjpmSU%2F3PvAspMu5LjKyEQr412WVaNko3VZbWFb7oNJs5H4nA6OYMQYE5QYwcYzoGe0dvnvtqbEkdL0tEInrucl9kHZ7xDBUVmI%2B37E9oglpVc%2B36dLZg7esfUCRkTYKa6Fbf2Mq%2B%2BaivVE2n0qIkIsBphE4NjMox84JPEKwQr52%2B2HP74bMnHevXbbYdfmUuCy7mq17%2FXFwufuPN7%2F3o7eOmkHZogZiHBl7edbS46dBYavLa%2BPkT96UfDq5tgduvfHIDs4HP6GxMCaHchPmsRl9Gwqp%2FaD6QY3ur6rXwpDvs8a5YTb6pCbCw7BycNdyeujx4xd262b51qON%2BIJ0o3tQkIFMQhc%2B5rr139Vz97k06JVYmms0f%2FJsPrZg3cYtV0Ypk29amvy7ezk3Ddb0TI8NtM%2B2PNot5%2B07WE047qqIXvfSDBzGXDEXLmEcdfBpIhz%2FR29U311zq%2FHf1xiom2reos2TiHGRMT6wHsfJJdz3o%2Fc%2FZj0Eo2YvnXzny3aL6Ss%2Bst762pmlfo8HBba0drR9et9kccwFPMqVHy6WYGjt2oPn1d94wWyU5S2JlNc8aFfWEz8aQrE6xQNexlsJY1yMRVTYpjKDw875iMCVLM9ese6B%2FwCQrDQ31RcWFxuBHU0cwQUFi88Y3AAAA%2F%2F9QRBEuAAAABklEQVQDAPdCs5YISdfUAAAAAElFTkSuQmCC%22%20width%3D%2232%22%20height%3D%2232%22%20opacity%3D%220.3%22%20%2F%3E%3Cpath%20d%3D%22M3.04536%204.45259C2.7582%203.60299%203.60299%202.7582%204.45259%203.04536L14.1828%206.33403C15.1637%206.66558%2015.0872%208.08006%2014.0715%208.39045L10.2994%209.54319C9.93919%209.65327%209.65327%209.93919%209.54319%2010.2994L8.39046%2014.0715C8.08007%2015.0872%206.66558%2015.1637%206.33404%2014.1828L3.04536%204.45259Z%22%20fill%3D%22black%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%20transform%3D%22translate(-2%20-2)%20scale(2.1)%22%20%2F%3E%3C%2Fsvg%3E" data-codex-favicon-badge="true" data-codex-original-favicon-href="http://127.0.0.1:8788/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1:8788/apple-touch-icon.png">
+    <link rel="manifest" href="http://127.0.0.1:8788/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="http://127.0.0.1:8788/build/assets/app-BUcPTxT2.css"><link rel="modulepreload" as="script" href="http://127.0.0.1:8788/build/assets/app-DOC7vG8b.js"><link rel="modulepreload" as="script" href="http://127.0.0.1:8788/build/assets/formato-importe-rshXORao.js"><link rel="stylesheet" href="http://127.0.0.1:8788/build/assets/app-BUcPTxT2.css"><script type="module" src="http://127.0.0.1:8788/build/assets/app-DOC7vG8b.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+
+    <aside class="ds-sidebar">
+
+
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="http://127.0.0.1:8788/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+
+        <nav class="flex flex-col gap-0.5">
+
+
+
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://127.0.0.1:8788/operativo" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"></path>
+                            </svg>
+                            Inicio
+                        </a>
+
+                    <a href="http://127.0.0.1:8788/alumnos" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://127.0.0.1:8788/clases" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://127.0.0.1:8788/clases?estado=finalizada" class="ds-nav-sublink " title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">3</span>
+                        </a>
+
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://127.0.0.1:8788/cobranza" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://127.0.0.1:8788/caja" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Caja
+                        </a>
+
+                        <a href="http://127.0.0.1:8788/movimientos" class="ds-nav-link ds-nav-link--active">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                            Movimientos
+                        </a>
+
+
+                    <a href="http://127.0.0.1:8788/revision-cobranza" class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Revisión
+                    </a>
+
+
+
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://127.0.0.1:8788/grupos" class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Grupos
+                        </a>
+
+
+                                    </nav>
+
+    </aside>
+
+
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+
+    <div class="ds-main">
+
+
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Ana Demo</span>
+                </div>
+                <form method="POST" action="http://127.0.0.1:8788/logout">
+                    <input type="hidden" name="_token" autocomplete="off" value="captura-sin-token">                    <button class="ds-btn ds-btn--ghost" type="submit">
+
+
+                            Salir
+
+    </button>
+
+                </form>
+                    </div>
+
+
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Movimientos</h1>
+    </div>
+</header>
+
+
+        <main class="ds-content">
+
+
+
+
+
+
+<form method="GET" action="http://127.0.0.1:8788/movimientos">
+    <div class="filtros-card mb-4">
+        <div class="filtros-row" style="gap:8px;">
+            <div style="display:inline-flex; align-items:center; gap:6px;">
+                <label for="filtro-desde" style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted); white-space:nowrap;">Desde</label>
+                <input type="date" id="filtro-desde" name="desde" class="filtros-control" style="width:auto;" value="">
+            </div>
+
+            <div style="display:inline-flex; align-items:center; gap:6px;">
+                <label for="filtro-hasta" style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted); white-space:nowrap;">Hasta</label>
+                <input type="date" id="filtro-hasta" name="hasta" class="filtros-control" style="width:auto;" value="">
+            </div>
+
+            <select name="tipo" class="filtros-control filtros-select" style="width:auto;">
+                <option value="" selected>Ingreso / Egreso</option>
+                <option value="INGRESO">Ingreso</option>
+                <option value="EGRESO">Egreso</option>
+            </select>
+
+            <select name="tipo_caja_id" class="filtros-control filtros-select" style="width:auto;">
+                <option value="" selected>Medio</option>
+                                    <option value="5">
+                        EF
+                    </option>
+                            </select>
+
+            <select name="rubro_id" class="filtros-control filtros-select" style="width:auto;">
+                <option value="" selected>Rubro</option>
+                                    <option value="11">
+                        Cuotas
+                    </option>
+                                    <option value="12">
+                        Gastos operativos
+                    </option>
+                                    <option value="1">
+                        Inscripciones
+                    </option>
+                                    <option value="4">
+                        Punitorios
+                    </option>
+                            </select>
+
+
+            <div class="filtros-actions flex items-center justify-end gap-2 w-full sm:w-auto">
+                <a class="ds-btn ds-btn--secondary" href="http://127.0.0.1:8788/movimientos" role="button">
+
+
+                            Limpiar
+
+    </a>
+
+                <button class="ds-btn ds-btn--primary" type="submit">
+
+
+                            Filtrar
+
+    </button>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="stats-bar mb-3">
+    <div class="stats-info">
+        <strong>5</strong> movimientos
+                                &nbsp;·&nbsp; Ingresos <strong style="color:var(--color-success);">$140,000.00</strong>
+            &nbsp;·&nbsp; Egresos <strong style="color:var(--color-danger);">$0.00</strong>
+            &nbsp;·&nbsp; Neto <strong style="color:var(--color-success);">$140,000.00</strong>
+            </div>
+</div>
+
+    <div class="alumno-card" style="padding:0; overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
+            <colgroup>
+                <col style="width:85px">
+                <col style="width:32px">
+                <col style="width:50px">
+                <col>
+                <col style="width:140px">
+                <col style="width:90px">
+                <col style="width:95px">
+                            </colgroup>
+            <thead>
+                <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Fecha</th>
+                    <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">I/E</th>
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Medio</th>
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Alumno / Obs.</th>
+                    <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Caja</th>
+                                    </tr>
+            </thead>
+            <tbody>
+                                                <tr style="border-bottom:1px solid var(--color-border);">
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                        02/11/2026
+                    </td>
+                    <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                        I
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                        EF
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                            </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                        López, Sara
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
+                        $28,000.00
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <a href="http://127.0.0.1:8788/caja/5/detalle" style="color:var(--color-btn-primary); text-decoration:none;">
+                                02/11/2026
+                            </a>
+                                            </td>
+                                    </tr>
+                                                <tr style="border-bottom:1px solid var(--color-border);">
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                        02/11/2026
+                    </td>
+                    <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                        I
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                        EF
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                            </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                        García, Ana
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
+                        $28,000.00
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <a href="http://127.0.0.1:8788/caja/5/detalle" style="color:var(--color-btn-primary); text-decoration:none;">
+                                02/11/2026
+                            </a>
+                                            </td>
+                                    </tr>
+                                                <tr style="border-bottom:1px solid var(--color-border);">
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                        02/11/2026
+                    </td>
+                    <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                        I
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                        EF
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                            </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                        Pérez, Juan
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
+                        $28,000.00
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <a href="http://127.0.0.1:8788/caja/5/detalle" style="color:var(--color-btn-primary); text-decoration:none;">
+                                02/11/2026
+                            </a>
+                                            </td>
+                                    </tr>
+                                                <tr style="border-bottom:1px solid var(--color-border);">
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                        02/11/2026
+                    </td>
+                    <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                        I
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                        EF
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                            </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                        Pérez, Mario
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
+                        $28,000.00
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <a href="http://127.0.0.1:8788/caja/6/detalle" style="color:var(--color-btn-primary); text-decoration:none;">
+                                02/11/2026
+                            </a>
+                                            </td>
+                                    </tr>
+                                                <tr style="border-bottom:1px solid var(--color-border);">
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                        02/11/2026
+                    </td>
+                    <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                        I
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                        EF
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                            </td>
+                    <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                        Gómez, Lucía
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
+                        $28,000.00
+                    </td>
+                    <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                                    <a href="http://127.0.0.1:8788/caja/6/detalle" style="color:var(--color-btn-primary); text-decoration:none;">
+                                02/11/2026
+                            </a>
+                                            </td>
+                                    </tr>
+                            </tbody>
+        </table>
+    </div>
+
+
+
+        </main>
+
+
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+
+
+</body><div id="codex-agent-overlay-root" data-codex-agent-overlay-root="true"></div></html>

@@ -1,5 +1,7 @@
 # Verificación de T87 (Gemini) — Claude CyE, 27/10/2026
 
+> **Actualización 28/10/2026:** Carlos aprobó el aspecto: «T87 Visualmente OK, asumo que el funcionamiento logico esta bien». Con la lógica ya aprobada por Claude el27/10, T87 queda cerrada en el tablero. [Galería revisada](APROBAR-T87.html). El informe de abajo conserva su fecha y resultados originales.
+
 **Lógica: APROBADA.** Falta el visto bueno de Carlos del aspecto (cambio mínimo). Entrega en
 [`IMPLEMENTACION-T87.md`](IMPLEMENTACION-T87.md), commit `b079b0ca`.
 

@@ -1,0 +1,290 @@
+{
+  "protocolo": "HTTP local; mismos archivos HTML y JPEG abiertos como file en Chrome",
+  "paginas": [
+    {
+      "pagina": "DECIDIR-T89.html",
+      "url": "http://127.0.0.1:8788/__galeria/revision/DECIDIR-T89.html",
+      "titulo": "T89 · Propuesta concreta para estas pantallas",
+      "imagenes": [
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-movimientos-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-movimientos-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-caja-ajena-sin-permiso-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-caja-ajena-sin-permiso-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-cashflow-sin-enlace-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-cashflow-sin-enlace-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-cashflow-historial-existente-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-cashflow-historial-existente-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-inicio-todos-ausentes-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-inicio-todos-ausentes-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-lista-cargada-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-lista-cargada-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-detalle-sin-hora-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t89-detalle-sin-hora-375.jpg"
+        }
+      ]
+    },
+    {
+      "pagina": "APROBAR-T54.html",
+      "url": "http://127.0.0.1:8788/__galeria/revision/APROBAR-T54.html",
+      "titulo": "T54 · Buscar alumnos",
+      "imagenes": [
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-letra-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-letra-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-acento-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-acento-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-orden-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-listado-orden-375.jpg"
+        },
+        {
+          "alto": 1324,
+          "ancho": 1351,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-letra-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-letra-375.jpg"
+        },
+        {
+          "alto": 1324,
+          "ancho": 1351,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-acento-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-acento-375.jpg"
+        },
+        {
+          "alto": 1324,
+          "ancho": 1351,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-orden-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-autocompletar-orden-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-letra-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-letra-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-acento-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-acento-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-orden-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-cobrar-orden-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-letra-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-letra-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-acento-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-acento-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-orden-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t54-historial-orden-375.jpg"
+        }
+      ]
+    },
+    {
+      "pagina": "APROBAR-T87.html",
+      "url": "http://127.0.0.1:8788/__galeria/revision/APROBAR-T87.html",
+      "titulo": "T87 · Nueva liquidación",
+      "imagenes": [
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-octubre-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-octubre-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-septiembre-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-septiembre-375.jpg"
+        },
+        {
+          "alto": 1000,
+          "ancho": 1366,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-cero-1366.jpg"
+        },
+        {
+          "alto": 1270,
+          "ancho": 411,
+          "cargada": true,
+          "src": "evidencia-aprobaciones-t54-t87-t89/t87-cero-375.jpg"
+        }
+      ]
+    }
+  ]
+}
