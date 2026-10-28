@@ -52,6 +52,15 @@
                         </a>
                     @endif
 
+                    <a href="{{ route('web.ayuda.index') }}"
+                       class="ds-nav-link {{ request()->is('ayuda*') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Ayuda
+                    </a>
+
                 @else
 
                     {{-- ── Sidebar completo para ADMIN y OPERATIVO ──────────────
@@ -266,6 +275,15 @@
                             Usuarios
                         </a>
 
+                        <a href="{{ route('web.ayuda.index') }}"
+                           class="ds-nav-link {{ request()->is('ayuda*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Ayuda
+                        </a>
+
                     @else
 
                         {{-- El operativo ve un solo catálogo: los grupos, que
@@ -278,6 +296,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                             Grupos
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+                        <a href="{{ route('web.ayuda.index') }}"
+                           class="ds-nav-link {{ request()->is('ayuda*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Ayuda
                         </a>
 
                     @endif
@@ -305,10 +334,20 @@
                     </button>
                     <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ Auth::user()->name }}</span>
                 </div>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-ds.button variant="ghost" type="submit">Salir</x-ds.button>
-                </form>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    @hasSection('ayuda-slug')
+                        <a href="{{ route('web.ayuda.show', trim($__env->yieldContent('ayuda-slug'))) }}"
+                           class="ds-btn ds-btn--ghost ds-btn--icon"
+                           title="Ayuda sobre esta pantalla"
+                           aria-label="Ayuda sobre esta pantalla">
+                            <span style="font-weight:700; font-size:1.15rem; line-height:1; display:inline-block; transform:translateY(-1px);">?</span>
+                        </a>
+                    @endif
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-ds.button variant="ghost" type="submit">Salir</x-ds.button>
+                    </form>
+                </div>
             @endauth
         </div>
 

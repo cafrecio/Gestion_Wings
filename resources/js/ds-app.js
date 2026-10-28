@@ -661,3 +661,12 @@ document.addEventListener('change', function (evento) {
     if (!aviso.dataset.activo) aviso.dataset.activo = aviso.textContent;
     aviso.textContent = input.checked ? aviso.dataset.activo : 'Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.';
 });
+
+/* Botón imprimir en manual y ayuda del usuario */
+document.addEventListener('click', function (evento) {
+    var btn = evento.target && evento.target.closest && evento.target.closest('[data-accion="imprimir"]');
+    if (btn) {
+        evento.preventDefault();
+        window.print();
+    }
+});

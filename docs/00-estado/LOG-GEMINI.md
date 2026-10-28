@@ -10,6 +10,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CYE — T12 y T13: Manual y Ayuda en Wings — Entrega Etapa 1: Estructura, 2 muestras y lista completa
+
+- **Objetivo y resultado:** Cumplimiento de la **Etapa 1** de T12 y T13 conforme a lo decidido por Carlos (10/10, 13/10 y 28/10). Resultado: **ESTRUCTURA MÍNIMA IMPLEMENTADA, 2 MUESTRAS COMPLETAS, LISTA DE 54 PÁGINAS PROPUESTAS, SUITE DE PRUEBAS EN VERDE (11/11, 46 ASERCIONES), GALERÍA CON CAPTURAS REALES Y TABLERO EN `tiene=Carlos` ESPERANDO OK VISUAL Y DE CONTENIDO**.
+- **Cambios realizados:**
+  - **Ubicación del contenido:** Los textos viven en archivos Markdown bajo `resources/manual/{rol}/{slug}.md` leídos por el nuevo servicio `App\Services\ManualService`. Cero código en vistas para el contenido didáctico.
+  - **Permisos por rol:** ADMIN ve todas las secciones; OPERATIVO ve únicamente sus guías operativas; PROFESOR ve solo clases y asistencia. Acceso a una guía de otro rol forzando URL devuelve HTTP 403; slug inexistente devuelve HTTP 404; sin sesión redirige a login.
+  - **Rutas y vistas de Ayuda:** Registradas `/ayuda` (`web.ayuda.index`) y `/ayuda/{slug}` (`web.ayuda.show`) en `AyudaWebController`. Creadas las vistas `resources/views/ayuda/index.blade.php` (índice categorizado) y `show.blade.php` (render de markdown, cabecera de módulo y botones canónicos Volver e Imprimir).
+  - **Menú lateral:** Agregada entrada «Ayuda» en el grupo Sistema para Admin y Operativo, y en la navegación lateral para Profesor en `resources/views/layouts/ds-app.blade.php`.
+  - **Botón (?) contextual en topbar:** Ubicado en la barra superior junto al usuario y Salir. Habilitado en la Etapa 1 en las dos pantallas de muestra: `/caja/cobrar/{alumnoId}` (`cobrar-cuota`) y `/cashflow` (`corregir-movimiento-caja-validada`).
+  - **Impresión limpia:** Botón `Imprimir` con `data-accion="imprimir"` en `resources/js/ds-app.js` (cero JS incrustado en Blade, `CspSinCodigoIncrustadoTest` 2/2). Reglas `@media print` que ocultan menús, topbar y botones entregando un documento limpio.
+  - **Dos muestras completas:**
+    1. Operativa: `resources/manual/operativo/cobrar-cuota.md` con 4 pasos y «Qué hago si…».
+    2. Dueño: `resources/manual/admin/corregir-movimiento-caja-validada.md` (DU-27) con fundamentación contable (por qué no se toca la caja validada) y 4 pasos de ajuste directo en Cashflow.
+  - **Lista completa de 54 páginas:** Documentada en `docs/06-pruebas/PRU-04/T12-LISTA-DE-PAGINAS.md` con tareas reales de Alumnos, Caja, Cashflow (DU-20, DU-27, DU-29), Liquidaciones, Catálogos y el capítulo exclusivo de Primera Carga.
+- **Pruebas y evidencias:**
+  - Suite `tests/Feature/AyudaManualT12T13Test.php`: 11 pruebas / 46 aserciones, todas en verde en `wings_testing_gemini`.
+  - Guardianes `CspSinCodigoIncrustadoTest` (2/2) y `TableroAlDiaTest` (6/6) en verde. Contador actualizado en 1241 pruebas (+11).
+  - Capturas reales con Chrome headless a 1366 px y marco móvil 375 px en `docs/06-pruebas/PRU-04/evidencia-t12-t13/`.
+  - Galería visual `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html` e informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md`.
+- **Próximo paso:** Parada obligatoria. T12 y T13 quedan en el tablero con `tiene=Carlos` para su revisión y OK visual a las dos muestras y a la lista de páginas antes de iniciar la Etapa 2.
+
 ## 2026-10-28 — LOG GEM CYE — T62: Devolución atendida — CLA-012.c filtro de canceladas en generación de cuotas
 
 - **Objetivo y resultado:** Resolución del punto devuelto por Claude en T62 (`docs/06-pruebas/PRU-04/VERIFICACION-T62-CLAUDE.md`) correspondiente a CLA-012.c. Resultado: **CORREGIDO, 11/11 PRUEBAS PROPIAS EN VERDE, SUITE RÁPIDA EN VERDE (1079 PASADAS) Y PASADA A `a_verificar`**.

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoWebController;
+use App\Http\Controllers\AyudaWebController;
 use App\Http\Controllers\CajaWebController;
 use App\Http\Controllers\CashflowWebController;
 use App\Http\Controllers\CobranzaWebController;
@@ -307,6 +308,10 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/recibos/liquidacion/{liquidacionId}', [ReciboController::class, 'liquidacion'])->name('web.recibos.liquidacion');
     });
+
+    // Ayuda dentro de Wings y manual del usuario (T12 y T13)
+    Route::get('/ayuda', [AyudaWebController::class, 'index'])->name('web.ayuda.index');
+    Route::get('/ayuda/{slug}', [AyudaWebController::class, 'show'])->name('web.ayuda.show');
 });
 
 // La ruta inexistente conserva el contexto web para Volver al inicio del rol.

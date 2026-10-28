@@ -2,6 +2,7 @@
 
 @section('title', 'Cashflow histórico – Wings')
 @section('module-title', 'Cashflow')
+@section('ayuda-slug', 'corregir-movimiento-caja-validada')
 
 @section('content')
 

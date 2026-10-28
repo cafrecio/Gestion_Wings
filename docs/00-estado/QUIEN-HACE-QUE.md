@@ -35,6 +35,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
+| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Gemini) | Etapa 1: OK de Carlos a las muestras y a la lista |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Gemini) | Etapa 1: OK de Carlos a las muestras y a la lista |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -52,15 +54,17 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T45** Cambiar hora o comision de un deporte: solo sin liquidaciones abiertas y rige desde el mes siguiente | En curso (hizo Codex) | Programar forma de liquidacion desde el mes siguiente sin alterar liquidaciones anteriores |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (11)
+## Sin empezar (8)
 
-T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
+T22 (después), T46 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

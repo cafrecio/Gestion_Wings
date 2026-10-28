@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T12 y T13 — Manual del usuario y Ayuda en Wings: Muestras Etapa 1</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}
+main{max-width:1400px;margin:auto}h1{font-size:28px;margin-bottom:8px}h2{font-size:22px;margin-top:0}
+section{background:white;padding:24px;margin:20px 0;border:1px solid #cbd5df;border-radius:10px}
+.columns{display:flex;gap:24px;align-items:flex-start;overflow-x:auto}
+.desktop{flex:1;min-width:600px}.phone{width:375px;min-width:375px}
+img{display:block;max-width:100%;height:auto;border:1px solid #b7c5d2;border-radius:6px}
+.phone img{width:375px;max-width:none}
+a{color:#174c89;text-decoration:none}a:hover{text-decoration:underline}
+.status{border-left:5px solid #0284c7;padding:12px;background:#f0f9ff;margin:16px 0;border-radius:0 6px 6px 0}
+nav{display:flex;gap:20px;flex-wrap:wrap;margin:16px 0}
+figure{margin:0}figcaption{margin:8px 0;font-size:14px;color:#475569}
+ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
+.badge{display:inline-block;padding:2px 8px;font-size:12px;font-weight:700;border-radius:999px}
+.badge-warning{background:#fef3c7;color:#b45309}
+.badge-danger{background:#fee2e2;color:#b91c1c}
+.badge-success{background:#dcfce7;color:#15803d}
+.badge-info{background:#e0f2fe;color:#0369a1}
+</style>
+</head>
+<body>
+<main>
+<h1>T12 y T13 — Manual del usuario y Ayuda dentro de Wings</h1>
+<p><strong>Etapa 1: Estructura mínima, dos páginas de muestra y lista completa de páginas.</strong></p>
+<p>28/10/2026 · Implementación Gemini CyE · Capturas reales en Chrome headless a 1366 px y marco de 375 px.</p>
+
+<div class="status">
+<strong>Decisiones de Carlos (10/10, 13/10 y 28/10):</strong>
+<ul>
+  <li><strong>Estructura en dos etapas:</strong> Primero se presenta la estructura mínima, las dos muestras y la lista de páginas, y se frena para el OK de Carlos. Solo con su visto bueno se continúa con la Etapa 2.</li>
+  <li><strong>Ubicación del contenido:</strong> Los textos viven en archivos Markdown independientes (<code>resources/manual/{rol}/{slug}.md</code>) administrados por <code>ManualService</code>, permitiendo agregar o modificar guías sin tocar código de vistas.</li>
+  <li><strong>Menú y acceso:</strong> Entrada «Ayuda» en el grupo Sistema del menú lateral para cada rol. Control estricto de acceso (Admin ve todo; Operativo ve operativo; Profesor ve profesor; forzar URL ajena devuelve 403; sin sesión redirige a login).</li>
+  <li><strong>Signo de pregunta (?):</strong> Botón con formato canónico en la barra superior (topbar) de cada pantalla que tenga guía asociada, abriendo directamente su página del manual.</li>
+  <li><strong>Impresión:</strong> Botón <strong>Imprimir</strong> que ejecuta la impresión limpia con estilos <code>@media print</code>, ocultando menú lateral, cabeceras y botoneras para entregar un documento prolijo.</li>
+  <li><strong>Redacción:</strong> Castellano rioplatense, de vos, frases cortas, botones y campos en <strong>negrita</strong>, sin tecnicismos y con apartado «Qué hago si…».</li>
+</ul>
+</div>
+
+<nav>
+<a href="#indice-ayuda">1. Índice general de Ayuda (/ayuda)</a>
+<a href="#muestra-operativa">2. Muestra 1 Operativa: Cobrar una cuota</a>
+<a href="#muestra-duenio">3. Muestra 2 Dueño: Corregir caja validada (DU-27)</a>
+<a href="#vista-impresion">4. Vista de impresión limpia</a>
+<a href="#signo-pregunta">5. Botón [?] en pantalla</a>
+<a href="T12-LISTA-DE-PAGINAS.md">Lista completa de 54 páginas propuestas</a>
+<a href="IMPLEMENTACION-T12-T13.md">Informe técnico de implementación</a>
+</nav>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="indice-ayuda">
+<h2>1. Índice general de Ayuda (/ayuda) <span class="badge badge-info">T13 Menú e Índice</span></h2>
+<p>Accesible desde «Ayuda» en el grupo Sistema del menú lateral. Agrupa las guías por categoría funcional y filtra según los permisos del rol del usuario autenticado (el administrador visualiza las guías de todos los roles identificadas por etiqueta; la operativa y los profesores ven únicamente su área de trabajo).</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t12-t13/ayuda-indice-1366.png"><img src="evidencia-t12-t13/ayuda-indice-1366.png" alt="Índice de ayuda en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Menú con entrada «Ayuda» activa e índice categorizado con botón Ver</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/ayuda-indice-375.png"><img src="evidencia-t12-t13/ayuda-indice-375.png" alt="Índice de ayuda en celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Tarjetas apiladas legibles sin desbordes horizontales</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="muestra-operativa">
+<h2>2. Muestra 1 (Operativa): «Cobrar una cuota» <span class="badge badge-success">Muestra T12</span></h2>
+<p>Guía paso a paso de la tarea principal de mostrador: buscar al alumno, revisar lo adeudado, marcar conceptos, seleccionar medio de pago y confirmar para emitir el recibo. Incluye apartado «Qué hago si…» resolviendo pagos parciales, errores de carga y cajas sin abrir.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t12-t13/muestra1-cobrar-cuota-1366.png"><img src="evidencia-t12-t13/muestra1-cobrar-cuota-1366.png" alt="Muestra 1 Cobrar cuota en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Barra superior con Volver e Imprimir, caja de resumen y pasos numerados con capturas</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/muestra1-cobrar-cuota-375.png"><img src="evidencia-t12-t13/muestra1-cobrar-cuota-375.png" alt="Muestra 1 Cobrar cuota en marco celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Lectura fluida y botones de acción en cabecera</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="muestra-duenio">
+<h2>3. Muestra 2 (Dueño): «Corregir un movimiento mal cargado en una caja ya validada» <span class="badge badge-warning">DU-27</span></h2>
+<p>Guía para el administrador explicando el fundamento contable: por qué una caja validada nunca se reabre ni se modifica (para no romper la trazabilidad del arqueo físico de ese turno) y cómo realizar un <strong>ajuste directo en Cashflow</strong> con motivo obligatorio para corregir el saldo contable.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t12-t13/muestra2-corregir-movimiento-1366.png"><img src="evidencia-t12-t13/muestra2-corregir-movimiento-1366.png" alt="Muestra 2 Corregir movimiento en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Explicación de la regla contable DU-27, pasos de carga de ajuste directo y preguntas frecuentes</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/muestra2-corregir-movimiento-375.png"><img src="evidencia-t12-t13/muestra2-corregir-movimiento-375.png" alt="Muestra 2 Corregir movimiento en marco celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Alerta destacada y pasos numerados en pantalla móvil</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="vista-impresion">
+<h2>4. Vista de impresión limpia <span class="badge badge-info">@media print</span></h2>
+<p>Al tocar el botón <strong>Imprimir</strong> (o con Ctrl+P), la hoja se renderiza sin la barra de navegación lateral, sin el menú superior y sin los botones de interfaz, imprimiendo exclusivamente el título de la tarea, el contenido didáctico, las capturas y las resoluciones de dudas.</p>
+<div class="columns">
+<figure class="desktop" style="max-width:850px;">
+<a href="evidencia-t12-t13/ayuda-impresion.png"><img src="evidencia-t12-t13/ayuda-impresion.png" alt="Vista limpia para imprimir"></a>
+<figcaption>Documento listo para imprimir · Sin chrome del sistema, márgenes limpios y tipografía optimizada</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="signo-pregunta">
+<h2>5. Signo de pregunta [?] en la pantalla de la tarea <span class="badge badge-info">T13 Navegación contextual</span></h2>
+<p>El botón <strong>?</strong> se sitúa en la barra superior (topbar) junto al botón de Salir, accesible tanto en escritorio como en celular. Al tocarlo abre directamente la página de ayuda correspondiente a la tarea activa (en Cobrar abre <code>cobrar-cuota</code>; en Cashflow abre <code>corregir-movimiento-caja-validada</code>).</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t12-t13/signo-pregunta-cobrar-1366.png"><img src="evidencia-t12-t13/signo-pregunta-cobrar-1366.png" alt="Signo de pregunta en pantalla Cobrar (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Pantalla Cobrar con botón [?] destacado en la barra superior derecha</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/signo-pregunta-cobrar-375.png"><img src="evidencia-t12-t13/signo-pregunta-cobrar-375.png" alt="Signo de pregunta en pantalla Cobrar en celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Botón [?] visible junto al menú y usuario sin saturar la cabecera</figcaption>
+</figure>
+</div>
+
+<div class="columns" style="margin-top:20px;">
+<figure class="desktop">
+<a href="evidencia-t12-t13/signo-pregunta-cashflow-1366.png"><img src="evidencia-t12-t13/signo-pregunta-cashflow-1366.png" alt="Signo de pregunta en pantalla Cashflow (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Pantalla Cashflow con botón [?] en la barra superior derecha</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/signo-pregunta-cashflow-375.png"><img src="evidencia-t12-t13/signo-pregunta-cashflow-375.png" alt="Signo de pregunta en pantalla Cashflow en celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Pantalla Cashflow móvil con botón [?]</figcaption>
+</figure>
+</div>
+</section>
+
+</main>
+</body>
+</html>

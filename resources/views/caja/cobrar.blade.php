@@ -2,6 +2,7 @@
 
 @section('title', 'Cobrar – ' . $alumno->apellido . ', ' . $alumno->nombre)
 @section('module-title', 'Cobrar: ' . $alumno->apellido . ', ' . $alumno->nombre)
+@section('ayuda-slug', 'cobrar-cuota')
 
 @section('content')
 @php
