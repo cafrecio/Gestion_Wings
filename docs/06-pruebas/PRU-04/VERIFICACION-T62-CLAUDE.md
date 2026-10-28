@@ -30,3 +30,10 @@ Barrido de otros lugares que cuentan presentes: `ExcepcionCobranzaService`, `Ope
 - El aviso de choque ahora dice «la profesora …» para todos y arranca en minúscula. En la ficha se lee bien, porque va después de «No se puede reactivar:». En el `ClaseController` de la API sale suelto, en minúscula.
 - Sin JavaScript (formulario común), el aviso de lista tomada vuelve con `aviso_confirmacion_cancelar`, pero la vista no lo muestra. La pantalla real usa `fetch`, así que no se llega por ahí.
 - `validarSolapamientoProfesor` ahora ignora las clases canceladas también al asignar profesoras. Es coherente: una cancelada no ocupa el horario, y si se la quiere reactivar, el choque la frena.
+
+## Segunda vuelta (`afc4963c`) — aprobada en lógica
+
+- `GenerarDeudasMensualesCommand`: `->where('cancelada', false)` dentro del `whereHas('clase')`. Es exactamente lo pedido.
+- La prueba nueva reproduce el caso CLA-012.c: el único presente de octubre fue en una clase cancelada, así que no se genera cuota de noviembre y el alumno va a Revisión. Gemini informa que falla sin el cambio; acá no se repitió esa corrida, para no tocar código en la carpeta compartida.
+- T62, generación (T40), Revisión y B3 asistencia: **54/54** en `wings_testing_claude`.
+- Falta solo el OK visual de Carlos ([galería](APROBAR-T62.html)).
