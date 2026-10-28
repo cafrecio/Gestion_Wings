@@ -1,5 +1,12 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CyE — GitHub comprobado y bitácora actualizada
+
+Carlos pidió subir todo el trabajo propio y la bitácora. Comprobados en origin/main los commits T51(983c6bab), T45(e3ca5555) y T46(c475fa6c), incluidas sus entregas, capturas y entradas de esta bitácora.
+Consulta directa a GitHub: main en ca56108e, con las tres entregas como ancestros. Este asiento deja registrada la comprobación y la continuidad actual.
+Tablero local consultado: T51 y T45 cerrado/verifica=Claude; T46 a_verificar/verifica=Claude. No se alteraron esos estados ni los archivos de verificación ajenos que seguían en preparación.
+Este commit modifica solo LOG-CODEX.md. Enlaces, límites y diff comprobados; sin código, suite nueva ni despliegue. Publicación por push normal a origin/main, sin forzar ni incorporar archivos ajenos sin commit.
+
 ## 2026-10-28 — Codex CyE — T46 entregada a Claude; tres entregas completadas
 
 Baja bloqueada por clases activas futuras/en curso, aviso y reasignación existente con choque. Inactiva con dictadas pendientes puede liquidar HORA/COMISION; sin pendientes no aparece. Usuario desactivado, recuerdo invalidado y sesiones eliminadas; reactivar profesora conserva usuario inactivo hasta habilitación explícita.
