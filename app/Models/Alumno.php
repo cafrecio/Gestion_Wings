@@ -206,6 +206,11 @@ class Alumno extends Model
         return $this->hasMany(AsistenciaExceso::class);
     }
 
+    public function excepcionesCobranza(): HasMany
+    {
+        return $this->hasMany(ExcepcionCobranza::class);
+    }
+
     /**
      * T65 (DU-48, ALU-024): Un alumno es eliminable por el dueño solo si no tiene cobros,
      * asistencias ni movimientos asociados.
@@ -227,6 +232,10 @@ class Alumno extends Model
 
         if (MovimientoOperativo::where('alumno_id', $this->id)->exists()) {
             return 'Tiene movimientos de caja asociados.';
+        }
+
+        if (ExcepcionCobranza::where('alumno_id', $this->id)->exists()) {
+            return 'Tiene excepciones de cobranza registradas.';
         }
 
         $tieneCuotasConCobro = $this->deudaCuotas()

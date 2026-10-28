@@ -10,6 +10,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CAB — T65: Devolución atendida — Recargo impago, historial analítico de cuotas y excepciones de cobranza
+
+- **Objetivo y resultado:** Corrección de **T65** tras la devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md`). Se resolvieron los hallazgos H1, H2 y H3 sin modificar vistas Blade ni CSS. Resultado: **CORREGIDA Y EN `a_verificar`**.
+- **Cambios realizados:**
+  - **H1 (Recargo impago punitorio y reasignación):** En `AlumnoWebController::destroy`, se reordenó el flujo para procesar `cargos_alumno` antes de `deuda_cuotas`. Solo se reasigna la inscripción compartida (`INSCRIPCION`) al hermano con el mismo DNI; los cargos propios ligados a cuota (como `PUNITORIO`) se eliminan explícitamente junto con sus eventos en `cargo_alumno_eventos` antes de borrar la cuota, evitando el error de FK 500 y la transferencia indebida del recargo.
+  - **H2 (Historial analítico de cuotas):** En `AlumnoWebController::destroy`, las cuotas se eliminan individualmente mediante `$cuota->delete()`, ejecutando `HistorialAnaliticoReportesObserver::deleted()` para asentar la baja de la cuota en `reporte_analitico_historial`. Se ajustó `EscenarioT65.php` (`desde = '2026-10-01'`) para que corridas con `travelTo` mantengan cobertura válida independiente de la fecha real.
+  - **H3 (Excepción de cobranza sin origen):** En `app/Models/Alumno.php`, se añadió la relación `excepcionesCobranza()` y se incluyó en `motivoNoEliminable()` el chequeo de excepciones registradas para rechazar con 422 y ofrecer el pase a inactivo sin tocar la auditoría de excepciones.
+  - **Auditoría de observers:** Se verificó que `DeudaCuota` es el único modelo con observers registrados en todo el árbol de borrado de alumno y clase.
+- **Pruebas y evidencia:**
+  - `tests/Feature/VerificacionEliminarT65CodexTest.php`: 12/12 pasadas (90 assertions). Las fallas H1, H2 y H3 quedaron en verde.
+  - `tests/Feature/EliminarAlumnoYClaseT65Test.php`: 19/19 pasadas (114 assertions), sumando la prueba de punitorio con hermano del mismo DNI.
+  - `tests/Feature/EliminarT65ConcurrenteCodexTest.php`: 2/2 pasadas. Reportes de sueldos (T86): 18/18 pasadas.
+  - Suite rápida (`--exclude-group=lento`): 1054 pasadas, 6 omitidas en `wings_testing_gemini` (377 s).
+  - Guardianes `DocumentacionNoMienteTest`, `TableroAlDiaTest` y `CspSinCodigoIncrustadoTest` en verde. Vistas compilan limpias.
+  - Informe detallado en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T65-DEVOLUCION.md`.
+- **Próximo paso:** Tarea T65 en estado `a_verificar`, asignada a Codex para verificación final.
+
 ## 2026-10-27 — LOG GEM CAB — T54: Devolución atendida — Historial de caja y descarte en autocompletar
 
 - **Objetivo y resultado:** Corrección y ampliación de **T54** tras la devolución de Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T54-CLAUDE.md`). Se unificó el criterio de búsqueda insensible a acentos, mayúsculas y múltiples palabras en el Historial de caja (`CajaWebController::historial`), y se protegió el autocompletar (`alumnos-index.js`) descartando respuestas demoradas o fuera de orden. Resultado: **CORREGIDA Y EN `a_verificar`**.

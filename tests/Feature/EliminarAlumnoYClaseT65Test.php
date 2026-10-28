@@ -412,6 +412,92 @@ class EliminarAlumnoYClaseT65Test extends TestCase
         $this->assertDatabaseHas('cargos_alumno', ['id' => $cargoOriginal->id, 'alumno_id' => $alumno1->id]);
     }
 
+    /**
+     * T65 Devolución H1: Recargo impago con otro alumno del mismo DNI.
+     * El recargo no se transfiere al otro alumno y la inscripción compartida se conserva.
+     */
+    public function test_recargo_impago_con_otro_alumno_mismo_dni_no_se_transfiere_y_conserva_inscripcion(): void
+    {
+        $dni = '44111222';
+        $alumno1 = Alumno::create([
+            'nombre' => 'Mateo',
+            'apellido' => 'Doble',
+            'dni' => $dni,
+            'fecha_nacimiento' => '2008-03-10',
+            'celular' => '1133334444',
+            'deporte_id' => $this->patin->id,
+            'grupo_id' => $this->grupoPatin->id,
+            'fecha_alta' => '2026-03-01',
+            'activo' => true,
+        ]);
+        app(InscripcionService::class)->sincronizar($alumno1, $this->admin->id);
+        $cargoInscripcion = CargoAlumno::where('dni', $dni)->where('tipo', 'INSCRIPCION')->sole();
+
+        // Alumno 2 en otro deporte con mismo DNI
+        $alumno2 = Alumno::create([
+            'nombre' => 'Mateo',
+            'apellido' => 'Doble',
+            'dni' => $dni,
+            'fecha_nacimiento' => '2008-03-10',
+            'celular' => '1133334444',
+            'deporte_id' => $this->futbol->id,
+            'grupo_id' => $this->grupoFutbol->id,
+            'fecha_alta' => '2026-10-15',
+            'activo' => true,
+        ]);
+        $cuota2 = DeudaCuota::create([
+            'alumno_id' => $alumno2->id,
+            'periodo' => '2026-10',
+            'monto_original' => 15000,
+            'monto_pagado' => 0,
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]);
+
+        // Cargo de punitorio ligado a la cuota del alumno2
+        $cargoPunitorio = CargoAlumno::create([
+            'alumno_id' => $alumno2->id,
+            'deuda_cuota_id' => $cuota2->id,
+            'tipo' => 'PUNITORIO',
+            'subrubro_id' => Subrubro::first()->id,
+            'clave_origen' => 'PUNITORIO:cuota:' . $cuota2->id,
+            'dni' => $dni,
+            'monto_original' => 1500,
+            'monto_condonado' => 0,
+            'calculo' => ['porcentaje' => 10, 'base' => 15000],
+            'estado' => 'VIGENTE',
+        ]);
+        DB::table('cargo_alumno_eventos')->insert([
+            'cargo_alumno_id' => $cargoPunitorio->id,
+            'accion' => 'CREACION',
+            'motivo' => 'Mora cuota',
+            'usuario_id' => $this->admin->id,
+            'created_at' => now(),
+        ]);
+
+        $this->assertTrue($alumno2->esEliminable());
+
+        // Se elimina alumno2
+        $response = $this->actingAs($this->admin)
+            ->deleteJson(route('web.alumnos.destroy', $alumno2->id));
+
+        $response->assertOk();
+        $this->assertDatabaseMissing('alumnos', ['id' => $alumno2->id]);
+        $this->assertDatabaseMissing('deuda_cuotas', ['id' => $cuota2->id]);
+
+        // El recargo de alumno2 se eliminó por completo: NO se transfirió a alumno1
+        $this->assertDatabaseMissing('cargos_alumno', ['id' => $cargoPunitorio->id]);
+        $this->assertDatabaseMissing('cargos_alumno', ['alumno_id' => $alumno1->id, 'tipo' => 'PUNITORIO']);
+        $this->assertDatabaseMissing('cargo_alumno_eventos', ['cargo_alumno_id' => $cargoPunitorio->id]);
+
+        // La inscripción compartida y alumno1 siguen intactos
+        $this->assertDatabaseHas('alumnos', ['id' => $alumno1->id]);
+        $this->assertDatabaseHas('cargos_alumno', [
+            'id' => $cargoInscripcion->id,
+            'tipo' => 'INSCRIPCION',
+            'alumno_id' => $alumno1->id,
+        ]);
+    }
+
     // ── 11. Dueño elimina clase sin asistencias ni liquidaciones ──
     public function test_duenio_elimina_clase_sin_asistencias_ni_liquidaciones(): void
     {

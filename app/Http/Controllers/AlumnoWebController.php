@@ -658,10 +658,7 @@ class AlumnoWebController extends Controller
             // 2. Planes del alumno
             DB::table('alumno_planes')->where('alumno_id', $alumnoBloqueado->id)->delete();
 
-            // 3. Deuda cuotas impagas
-            DB::table('deuda_cuotas')->where('alumno_id', $alumnoBloqueado->id)->delete();
-
-            // 4. Cargos de inscripción
+            // 3. Cargos del alumno (tratar antes de las cuotas por la FK RESTRICT de deuda_cuota_id)
             $dniNorm = \App\Services\InscripcionService::dni($alumnoBloqueado->dni);
             $otroAlumnoMismoDni = Alumno::where('id', '!=', $alumnoBloqueado->id)
                 ->where('dni', $alumnoBloqueado->dni)
@@ -669,13 +666,14 @@ class AlumnoWebController extends Controller
 
             $cargos = DB::table('cargos_alumno')->where('alumno_id', $alumnoBloqueado->id)->get();
             foreach ($cargos as $cargo) {
-                if ($otroAlumnoMismoDni) {
-                    // Inscripción compartida con otro deporte: conservar reasignando alumno_id
+                if ($cargo->tipo === 'INSCRIPCION' && $otroAlumnoMismoDni) {
+                    // Solo se reasigna la inscripción compartida al otro alumno del mismo DNI
                     DB::table('cargos_alumno')
                         ->where('id', $cargo->id)
                         ->update(['alumno_id' => $otroAlumnoMismoDni->id]);
                 } else {
-                    // Cargo exclusivo sin cobrar: borrar eventos y cargo
+                    // Cargos propios (incluidos recargos/punitorios ligados a cuota) o inscripción exclusiva:
+                    // se eliminan sus eventos y luego el cargo
                     DB::table('cargo_alumno_eventos')->where('cargo_alumno_id', $cargo->id)->delete();
                     DB::table('cargos_alumno')->where('id', $cargo->id)->delete();
                 }
@@ -687,6 +685,12 @@ class AlumnoWebController extends Controller
                 if (!$hayMasCargos && !$hayMasAlumnos) {
                     DB::table('inscripcion_personas')->where('dni', $dniNorm)->delete();
                 }
+            }
+
+            // 4. Deuda cuotas impagas: eliminar mediante Eloquent para que HistorialAnaliticoReportesObserver
+            // registre la baja en el historial analítico y Sueldos no siga contando la cuota borrada (H2)
+            foreach ($alumnoBloqueado->deudaCuotas()->get() as $cuota) {
+                $cuota->delete();
             }
 
             // 5. Eliminar alumno

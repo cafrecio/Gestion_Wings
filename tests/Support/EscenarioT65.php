@@ -18,6 +18,11 @@ trait EscenarioT65
     protected function escenarioT65(): void
     {
         $this->withoutVite();
+        foreach (['reporte_cobertura', 'reporte_analitico_cobertura'] as $tabla) {
+            if (\Illuminate\Support\Facades\DB::getSchemaBuilder()->hasTable($tabla)) {
+                \Illuminate\Support\Facades\DB::table($tabla)->where('id', 1)->update(['desde' => '2026-10-01 00:00:00']);
+            }
+        }
         $this->duenioT65 = User::factory()->create(['rol' => 'ADMIN', 'activo' => true]);
         $this->operativaT65 = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
         $sport = Deporte::create(['nombre' => 'Deporte verificación T65', 'activo' => true, 'tipo_liquidacion' => 'HORA']);

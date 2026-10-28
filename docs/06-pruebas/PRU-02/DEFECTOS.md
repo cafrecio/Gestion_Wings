@@ -8,7 +8,7 @@ como *verificado* se comprobaron en el código o en pantalla; los marcados como 
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
-> **Avance al 27/10/2026: 69 cerrados de 70.** Quedan 1 abiertos, de los cuales **0 frenan**.
+> **Avance al 28/10/2026: 69 cerrados de 70.** Quedan 1 abiertos, de los cuales **0 frenan**.
 > El estado de cada defecto sale del tablero (`docs/00-estado/tareas.json`) y se cambia con `scripts/tablero`; no se edita a mano.
 <!-- TABLERO:FIN -->
 

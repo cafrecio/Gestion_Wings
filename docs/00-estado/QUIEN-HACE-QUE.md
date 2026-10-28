@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 27/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 28/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -50,24 +50,25 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T25** Cobrar a un alumno inactivo: preguntar si pasa a activo (Si, No, Cancelar) | En curso (hizo Claude) | 28/10 Carlos: la regla 1 paso a MF11; la 2 la resolvio B3 dinero y la 4 T88. Queda la 3: hoy el cobro reactiva solo, sin preguntar. |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Devolucion corregida: H1 recargo, H2 historial, H3 excepcion. Ver IMPLEMENTACION-T65-DEVOLUCION.md |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Devuelto (hizo Gemini, verifica Codex) | Corregir recargo impago que produce 500 y cuota borrada que sigue sumando en Sueldos; proteger excepciones sin origen. Ver VERIFICACION-T65-CODEX.md y tres regresiones rojas; no desplegar. |
+Nada en este momento.
 
-## Sin empezar (16)
+## Sin empezar (15)
 
-T12 (antes de producción), T22 (después), T25 (antes de producción), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T62 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
+T12 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T62 (antes de producción), T69 (después), T70 (antes de producción), T71 (antes de producción), T72 (después), T76 (después), T82 (antes de producción).
 
-## Mejoras futuras, no se empiezan ahora (10)
+## Mejoras futuras, no se empiezan ahora (11)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 
