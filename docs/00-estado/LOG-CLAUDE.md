@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-28 — Claude CAB — Alcance cerrado hasta producción; T25 y T65 cerradas
+
+- Carlos cerró el alcance (`PLAN-PRODUCCION.md`): Codex T70+T71, T45, T46, T51; Gemini T62, T12, T13; Claude T82. Después: test con T89/T25/T65, prueba de 3-4 días y producción. No entra nada más sin plantearlo.
+- T25: OK visual de Carlos, cerrada (`d94147b0`). Las capturas de Gemini eran armadas (panel forzado, cuotas sin tildar); el panel es el real y Carlos aprobó igual.
+- T65: en el OK visual salieron los botones del panel del alumno sin formato (`ds-btn-danger` con un guion, clase inexistente). Gemini lo corrigió (`56a220ee`) y Carlos lo aprobó; cerrada (`559239a5`). «Eliminar serie» queda con dos palabras: una sola no describe la acción (Carlos).
+- Prompt de T62 para Gemini: [PROMPT-GEMINI-T62.md](../06-pruebas/PRU-04/PROMPT-GEMINI-T62.md).
+- Pendiente de Carlos antes del prompt de T71: contradicción con T84 (interruptor sin confirmación vs. «la baja avisa cuánto debe y pide motivo»). Propuesta: instantáneo si no debe; panel con deuda y motivo si debe.
+- Señalados fuera del alcance para que decida: T10 privacidad, B12 reportes y MF6 clases particulares (marcada «ahora»).
+
 ## 2026-10-28 — Claude CyE — T89 aprobada en lógica
 
 - T89 (Codex, `6da3f3a5`): consulta de otra caja sin escritura, autor y recibo en Movimientos, Historial en Cashflow, «Todos ausentes» en Inicio y hora en Detalle. 7/7 acá. Falta OK visual de Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T89-CLAUDE.md).
