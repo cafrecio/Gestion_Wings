@@ -104,7 +104,7 @@ class LiquidacionWebController extends Controller
               ->where('clases.validada_para_liquidacion', false)
               ->doesntHave('asistencias');
 
-        $profesores = Profesor::where('activo', true)
+        $profesores = Profesor::query()
             ->with('deporte.vigenciasLiquidacion')
             ->withCount([
                 'clases as clases_count_total' => fn($q) => $queryLiquidables($q, false),
@@ -113,6 +113,18 @@ class LiquidacionWebController extends Controller
             ])
             ->orderBy('apellido')
             ->get();
+
+        $pendientesInactivos = [];
+        $profesores = $profesores->filter(function ($profesor) use (&$pendientesInactivos, $mesActual, $anioActual) {
+            if ($profesor->activo) return true;
+            $pendientes = $profesor->clasesPendientesLiquidacion()->get();
+            if ($pendientes->isEmpty()) return false;
+            $pendientesInactivos[$profesor->id] = $pendientes;
+            $profesor->clases_count_total = $pendientes->count();
+            $profesor->clases_count = $pendientes->filter(fn ($c) => $c->fecha->month === $mesActual && $c->fecha->year === $anioActual)->count();
+            $profesor->clases_sin_asistencia = 0;
+            return true;
+        });
 
         $periodosLiquidables = DB::table('clases')
             ->join('clase_profesor', 'clases.id', '=', 'clase_profesor.clase_id')
@@ -162,7 +174,7 @@ class LiquidacionWebController extends Controller
             ->groupBy('clase_profesor.profesor_id', DB::raw('YEAR(clases.fecha)'), DB::raw('MONTH(clases.fecha)'))
             ->get();
 
-        $profesoresJson = $profesores->mapWithKeys(function ($p) use ($periodosLiquidables, $periodosSinAsistencia) {
+        $profesoresJson = $profesores->mapWithKeys(function ($p) use ($periodosLiquidables, $periodosSinAsistencia, $pendientesInactivos) {
             $periodos = [];
             foreach ($periodosLiquidables->where('profesor_id', $p->id) as $row) {
                 $key = $row->anio . '-' . $row->mes;
@@ -176,6 +188,12 @@ class LiquidacionWebController extends Controller
                 $periodos[$key]['sin_asistencia'] = (int) $row->total;
             }
 
+            if (!$p->activo) {
+                $periodos = [];
+                foreach ($pendientesInactivos[$p->id]->groupBy(fn ($c) => $c->fecha->year.'-'.$c->fecha->month) as $key => $clases) {
+                    $periodos[$key] = ['liquidables' => $clases->count(), 'sin_asistencia' => 0];
+                }
+            }
             return [
                 $p->id => [
                     'nombre'           => $p->apellido . ', ' . $p->nombre,

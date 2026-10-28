@@ -154,6 +154,7 @@ class LiquidacionService
             $query->where('profesores.id', $profesor->id);
         })
             ->whereBetween('fecha', [$fechaInicio, $fechaFin])
+            ->when(!$profesor->activo, fn ($q) => $q->terminadas())
             ->where('cancelada', false)
             ->where(function ($q) {
                 $q->where('validada_para_liquidacion', true)
@@ -198,7 +199,8 @@ class LiquidacionService
         $pagos = $servicio->pagosParaPeriodo($periodo)->whereHas('alumno')->get();
         $presentes = Asistencia::where('presente', true)
             ->whereHas('clase', fn ($q) => $q->whereBetween('fecha', [$fechaInicio, $fechaFin])
-                ->where('cancelada', false)->whereHas('profesores', fn ($q) => $q->where('profesores.id', $profesor->id)))
+                ->where('cancelada', false)->when(!$profesor->activo, fn ($c) => $c->terminadas())
+                ->whereHas('profesores', fn ($q) => $q->where('profesores.id', $profesor->id)))
             ->distinct()->pluck('alumno_id')->flip();
         $total = 0;
         $excluido = 0;
@@ -417,6 +419,9 @@ class LiquidacionService
      */
     private function validarProfesorParaLiquidacion(Profesor $profesor, int $mes, int $anio): void
     {
+        if (!$profesor->activo && !$profesor->clasesPendientesLiquidacion()->whereMonth('clases.fecha', $mes)->whereYear('clases.fecha', $anio)->exists()) {
+            throw new \Exception('La profesora inactiva no tiene clases dictadas pendientes de liquidar en ese período.');
+        }
         if (!$profesor->deporte_id) {
             throw new \Exception('El profesor no tiene un deporte asignado.');
         }
@@ -628,6 +633,7 @@ class LiquidacionService
                 ->where('presente', true)
                 ->whereHas('clase', function ($query) use ($fechaInicio, $fechaFin, $profesor) {
                     $query->whereBetween('fecha', [$fechaInicio, $fechaFin])
+                        ->when(!$profesor->activo, fn ($c) => $c->terminadas())
                         ->where('cancelada', false)
                         ->whereHas('profesores', function ($q) use ($profesor) {
                             $q->where('profesores.id', $profesor->id);

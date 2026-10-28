@@ -86,6 +86,29 @@ try {
         if (periodos.octubre.tipo !== 'Por hora' || periodos.octubre.aviso || periodos.noviembre.tipo !== 'Por comisión'
             || !periodos.noviembre.aviso || Object.values(ficha).some(v => !v)) throw new Error('Falló la interacción T45');
     }
+    if (tarea === 't46') {
+        await page.goto(origen + '01-profesora-futuras.html');
+        // Las rutas reales están cubiertas por PHPUnit; aquí se comprueba solo el cliente con respuestas simuladas.
+        const cliente = await page.evaluate(async () => {
+            const esperar = ms => new Promise(resolve => setTimeout(resolve, ms));
+            const label = document.querySelector('[data-profesor-estado-url]'), card = label.closest('[data-profesor-card]');
+            const input = label.querySelector('input'), aviso = card.querySelector('[data-profesor-estado-aviso]');
+            const badge = card.querySelector('[data-profesor-badge]');
+            document.documentElement.dataset.pruebaT46 = 'sin-navegacion';
+            let pedidos = 0;
+            window.fetch = async () => { pedidos++; return { ok: false, json: async () => ({ error: 'Tiene 1 clase futura. Reasignala antes de desactivar.' }) }; };
+            input.click(); await esperar(150);
+            const rechazo = input.checked && badge.textContent.trim() === 'Activo' && !aviso.hidden && aviso.textContent.includes('Reasignala');
+            window.fetch = async () => { pedidos++; await esperar(200); return { ok: true, json: async () => ({ activo: false, mensaje: 'Profesora inactiva. Usuario desactivado y sesiones cerradas.' }) }; };
+            input.click(); input.click(); await esperar(400);
+            return { rechazo, pedidos, inactivo: !input.checked, badge: badge.textContent.trim(), aria: input.getAttribute('aria-checked'),
+                sinNavegacion: document.documentElement.dataset.pruebaT46 === 'sin-navegacion', habilitado: !input.disabled,
+                aviso: aviso.textContent };
+        });
+        fs.writeFileSync(path.join(dir, 'interaccion-cliente.json'), JSON.stringify(cliente, null, 2) + '\n');
+        if (!cliente.rechazo || cliente.pedidos !== 2 || !cliente.inactivo || cliente.badge !== 'Inactivo' || cliente.aria !== 'false'
+            || !cliente.sinNavegacion || !cliente.habilitado) throw new Error('Falló la interacción T46');
+    }
     fs.writeFileSync(path.join(dir, 'medidas-chrome.json'), JSON.stringify({ medidas, errores }, null, 2) + '\n');
     if (errores.length) throw new Error(errores.join(', '));
     await page.close();

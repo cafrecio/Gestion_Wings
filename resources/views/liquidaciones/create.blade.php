@@ -100,6 +100,7 @@
                             <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
                                 <span style="font-size:0.88rem; font-weight:700; color:var(--color-text);">
                                     {{ $profesor->apellido }}, {{ $profesor->nombre }}
+                                    @if(!$profesor->activo) <small style="font-weight:500;">· Inactiva, con clases dictadas pendientes</small> @endif
                                 </span>
                                 <span style="font-size:0.65rem; font-weight:700; padding:1px 7px; border-radius:999px;
                                              background:color-mix(in srgb, var(--color-btn-primary) 12%, transparent);

@@ -1,0 +1,17 @@
+## 2026-10-28 — Codex CAB — Galerías y OK de T54/T87; T89 por decidir
+
+45 JPEG de Chrome (44 en galerías y login), datos sintéticos en wings_testing_codex:1366 y DOM real remaquetado en marco375, sin maquetas/producto.
+T54:12 búsquedas/4 lugares. T87: misma profesora17/3/0. T89:4 faltantes y permisos por rubro; propuesta simplificada tras la observación de Carlos.
+Carlos «T54 OK» y «T87 Visualmente OK, asumo que el funcionamiento logico esta bien»: cerradas con lógica Claude27/10. T89: Carlos eligió A/A/B/B y pidió ver Movimientos; sigue implementación Codex.
+Chrome abrió3 archivos;44 imágenes verificadas en vista HTTP local acotada (herramienta bloquea file). Sin suite/migraciones/cachés, sitio/servidor/club ni push manual. T34 ajeno intacto.
+[Buscar](../06-pruebas/PRU-04/APROBAR-T54.html) · [Liquidación](../06-pruebas/PRU-04/APROBAR-T87.html) · [T89](../06-pruebas/PRU-04/DECIDIR-T89.html).
+
+## 2026-10-27 — Codex CAB — T65 devuelta a Gemini
+
+Verificación independiente13b85f68/DU-48 sobre10cbaaa0, pull al día. Sin producto corregido.
+Recargo automático impago produce500 (rollback íntegro); Sueldos conserva15000 de cuota borrada. Excepción sin origen produce500, sin recorrido actual identificado; con asistencia real rechaza422.
+14 permanentes, tres rojas. Inscripción/roles/listados/DNI protegidos; dos pruebas verdes con dos sesiones MariaDB, ocho cruces, sin escrituras durante la espera.
+Rápida1039 verdes/6 omitidas/5 rojas/8101 aserciones/228,26s, salida1. Tres T65 y dos T86; estas repiten aisladas (6 verdes/2 rojas), causa sin establecer.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md). Devuelto,tieneGemini,verificaCodex; sigue arreglo y nueva verificación, después aspecto Carlos. Contador1171.
+Solo wings_testing_codex, fuentes SHA256 intactas. Sin sitio/servidor/club, tabla, push manual ni despliegue.
+

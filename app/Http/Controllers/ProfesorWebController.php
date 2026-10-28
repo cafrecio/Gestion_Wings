@@ -14,7 +14,7 @@ class ProfesorWebController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Profesor::with('deporte');
+        $query = Profesor::with('deporte')->withCount(['clases as clases_futuras_count' => fn ($q) => $q->where('cancelada', false)->noTerminadas()]);
 
         if ($request->filled('deporte_id')) {
             $query->where('deporte_id', $request->input('deporte_id'));
@@ -115,11 +115,19 @@ class ProfesorWebController extends Controller
 
     public function toggleActivo(Request $request, int $id)
     {
-        $profesor = Profesor::findOrFail($id);
-        $profesor->update(['activo' => !$profesor->activo]);
+        $request->validate(['activo' => 'sometimes|boolean']);
+        try {
+            $profesor = app(\App\Services\ProfesorEstadoService::class)->cambiar($id, $request->user(), $request->has('activo') ? $request->boolean('activo') : null);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $mensaje = collect($e->errors())->flatten()->first();
+            if ($request->expectsJson()) return response()->json(['error' => $mensaje], 422);
+            return back()->with('error', $mensaje);
+        }
 
         if ($request->expectsJson()) {
-            return response()->json(['activo' => (bool) $profesor->activo]);
+            return response()->json(['activo' => (bool) $profesor->activo, 'mensaje' => $profesor->activo
+                ? 'Profesora activa. Su usuario conserva el estado anterior; activalo en Usuarios si corresponde.'
+                : 'Profesora inactiva. El usuario vinculado quedó desactivado y sus sesiones cerradas.']);
         }
 
         $estado = $profesor->activo ? 'activado' : 'desactivado';

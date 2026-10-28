@@ -1,0 +1,19 @@
+{
+  "app/Http/Controllers/ClaseWebController.php": "461924153ef08e5b6d77ca96261f76cbbbace9e8fa069bed87b1ea4ab5659037",
+  "app/Http/Controllers/LiquidacionWebController.php": "78f3a3cff2432ecc8387648a7294df1354afa6280fe5d62cb76acecd3e07ef44",
+  "app/Http/Controllers/ProfesorWebController.php": "72356aaed1262db3309cfc3ebdb7ee088b09784acb094be7fe682c881e55313f",
+  "app/Http/Controllers/WebController.php": "6c7d7f2160c30c9a427b9a92c4bd245ff2f87514e6566b10f1ee2e345fdcb034",
+  "app/Http/Middleware/EnsureActiveUserWeb.php": "58321aa1f53fb9daed83640c18a6839fecc2f2880679e9aba788ad5b04de3777",
+  "app/Http/Middleware/EnsureProfesorWeb.php": "99cbca0f298a5c1b82f7425fef3f3308eb093b9ea7e4e3b164698fae76861b41",
+  "app/Models/Clase.php": "e1ec787d3fb8a7e4a88be26848d3d059dc66d1d05918c8a81bfbe6dc92ad9fec",
+  "app/Models/Profesor.php": "021fa73dd26205a876a1988a63de38d2e5c20b5fa24d7bc1fdc3f56e317f4293",
+  "app/Models/User.php": "6b0dd8dea85623f1e2029b4d2f1c2df7057db33e6242d9647829ded5b12535f8",
+  "app/Services/LiquidacionService.php": "29dd3089dd6f51be0f18d0ac19533c9226856882c5f2ade4b73e2538f022081d",
+  "app/Services/ProfesorEstadoService.php": "9feb9e08ea9609ce08558126cdc14fbb9f567c55a6970b5d1f327f2ae3de4ded",
+  "resources/js/profesores-estado.js": "6e2d03e25a51d05686acf89552f45ea0e753c8e6c184f774c50f259d18eab2e3",
+  "resources/views/profesores/index.blade.php": "cf3ddb5289b60cbed8a7ff45953faf59eddebe1e63bd7188a53d6f9a43033e98",
+  "resources/views/liquidaciones/create.blade.php": "3a38b7bb6f6ea7cce1aceaa06e6a64098c5d358f205e8cb3b9825848e8479c69",
+  "tests/Feature/ProfesorInactivoT46Test.php": "0ca85ffcf4c3ee27c81b939e7ddcd84313d2e8a07d9c660bbf93d78b7a174b57",
+  "vite.config.js": "893f17572d791224e2904b8fa1edfa7e4070607ea58081c76dea0e0451cf2508",
+  "scripts/pruebas/capturar-t51-t45-t46.mjs": "d2e6abbe0cf01acf9403227c03bb3367d57e54ec18a6da704b321c5b3d06aa75"
+}

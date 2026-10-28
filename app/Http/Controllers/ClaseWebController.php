@@ -237,6 +237,7 @@ class ClaseWebController extends Controller
      */
     private function asignarProfesoresValidando(Clase $clase, array $profesoresIds): void
     {
+        $this->bloquearProfesoresActivos($profesoresIds, (int) $clase->grupo->deporte_id);
         foreach ($profesoresIds as $profesorId) {
             $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, (int) $profesorId);
             if (!$chequeo['puede_asignar']) {
@@ -259,12 +260,19 @@ class ClaseWebController extends Controller
             'profesores.array' => 'Seleccioná las profesoras de la clase.',
         ]);
         $ids = array_values(array_unique(array_map('intval', $datos['profesores'] ?? [])));
-        if ($ids && Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->where('activo', true)->count() !== count($ids)) {
+        $this->bloquearProfesoresActivos($ids, $deporteId);
+        return $ids;
+    }
+
+    private function bloquearProfesoresActivos(array $ids, int $deporteId): void
+    {
+        $actuales = Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->where('activo', true)
+            ->orderBy('id')->lockForUpdate()->get(['id']);
+        if ($actuales->count() !== count($ids)) {
             throw ValidationException::withMessages([
                 'profesores' => 'Solo se pueden asignar profesores activos del deporte de la clase.',
             ]);
         }
-        return $ids;
     }
 
     /** T66: la reasignación no altera clases canceladas ni cálculos ya cerrados. */
@@ -596,104 +604,114 @@ class ClaseWebController extends Controller
             abort(403, 'No tenés permiso para esta acción.');
         }
 
-        $clase = Clase::findOrFail($id);
-        $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
+        return DB::transaction(function () use ($request, $id) {
+            $clase = Clase::whereKey($id)->lockForUpdate()->firstOrFail();
+            $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
-        if (!$clase->cancelada) {
-            // T90 / DU-30: una clase que integra una liquidación cerrada o pagada no se cancela;
-            // la liquidación quedaría pagando una clase cancelada. La pantalla muestra este texto.
-            if ($clase->integraLiquidacionCerrada()) {
-                $mensaje = 'No se puede cancelar: la clase está en una liquidación cerrada o pagada.';
-                if ($esJson) {
-                    return response()->json(['success' => false, 'message' => $mensaje], 422);
-                }
-                return back()->with('error', $mensaje);
-            }
-            $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
-            $motivo = $request->input('motivo_cancelacion');
-
-            $cancelarSerie = $request->boolean('cancelar_serie') && $clase->serie_id;
-            $confirmado    = $request->boolean('confirmar');
-
-            // T62 / DU-30 / CLA-012.a: si la clase (o alguna de la serie) tiene lista tomada, avisar y pedir confirmación
-            if ($cancelarSerie) {
-                $clasesSerieQuery = Clase::where('serie_id', $clase->serie_id)
-                    ->where('cancelada', false)
-                    ->whereDate('fecha', '>=', today());
-
-                $conLista = (clone $clasesSerieQuery)->has('asistencias')->count();
-                if ($conLista > 0 && !$confirmado) {
-                    $textoClases = $conLista === 1
-                        ? '1 clase de la serie ya tiene la lista tomada'
-                        : "{$conLista} clases de la serie ya tienen la lista tomada";
-                    $mensajeAviso = "{$textoClases}. Las marcas quedarán guardadas pero las clases dejarán de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?";
-                    if ($esJson) {
-                        return response()->json([
-                            'success'               => false,
-                            'requiere_confirmacion' => true,
-                            'con_lista'             => $conLista,
-                            'message'               => $mensajeAviso,
-                        ], 409);
-                    }
-                    return back()->with('aviso_confirmacion_cancelar', $mensajeAviso);
-                }
-
-                $count = $clasesSerieQuery->update([
-                    'cancelada'          => true,
-                    'motivo_cancelacion' => $motivo,
-                ]);
-                $mensaje = "{$count} clase(s) de la serie canceladas.";
-            } else {
-                $tieneLista = $clase->asistencias()->exists();
-                if ($tieneLista && !$confirmado) {
-                    $mensajeAviso = 'Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?';
-                    if ($esJson) {
-                        return response()->json([
-                            'success'               => false,
-                            'requiere_confirmacion' => true,
-                            'con_lista'             => 1,
-                            'message'               => $mensajeAviso,
-                        ], 409);
-                    }
-                    return back()->with('aviso_confirmacion_cancelar', $mensajeAviso);
-                }
-
-                $clase->update([
-                    'cancelada'          => true,
-                    'motivo_cancelacion' => $motivo,
-                ]);
-                $mensaje = 'Clase cancelada.';
-            }
-        } else {
-            // Reactivar: solo admin
-            if (Auth::user()->rol !== 'ADMIN') {
-                if ($esJson) {
-                    return response()->json(['success' => false, 'message' => 'Sin permisos para reactivar.'], 403);
-                }
-                return back()->with('error', 'Sin permisos para reactivar la clase.');
-            }
-
-            // T62 / DU-31 / CLA-015.b: si alguna profesora de la clase ya tiene otra clase activa que se superpone, no reactivar y explicar con cuál choca.
-            foreach ($clase->profesores as $profesor) {
-                $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, $profesor->id);
-                if (!$chequeo['puede_asignar']) {
-                    $mensaje = 'No se puede reactivar: ' . $chequeo['razon'];
+            if (!$clase->cancelada) {
+                // T90 / DU-30: una clase que integra una liquidación cerrada o pagada no se cancela;
+                // la liquidación quedaría pagando una clase cancelada. La pantalla muestra este texto.
+                if ($clase->integraLiquidacionCerrada()) {
+                    $mensaje = 'No se puede cancelar: la clase está en una liquidación cerrada o pagada.';
                     if ($esJson) {
                         return response()->json(['success' => false, 'message' => $mensaje], 422);
                     }
                     return back()->with('error', $mensaje);
                 }
+                $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
+                $motivo = $request->input('motivo_cancelacion');
+
+                $cancelarSerie = $request->boolean('cancelar_serie') && $clase->serie_id;
+                $confirmado    = $request->boolean('confirmar');
+
+                // T62 / DU-30 / CLA-012.a: si la clase (o alguna de la serie) tiene lista tomada, avisar y pedir confirmación
+                if ($cancelarSerie) {
+                    $clasesSerieQuery = Clase::where('serie_id', $clase->serie_id)
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '>=', today());
+
+                    $conLista = (clone $clasesSerieQuery)->has('asistencias')->count();
+                    if ($conLista > 0 && !$confirmado) {
+                        $textoClases = $conLista === 1
+                            ? '1 clase de la serie ya tiene la lista tomada'
+                            : "{$conLista} clases de la serie ya tienen la lista tomada";
+                        $mensajeAviso = "{$textoClases}. Las marcas quedarán guardadas pero las clases dejarán de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?";
+                        if ($esJson) {
+                            return response()->json([
+                                'success'               => false,
+                                'requiere_confirmacion' => true,
+                                'con_lista'             => $conLista,
+                                'message'               => $mensajeAviso,
+                            ], 409);
+                        }
+                        return back()->with('aviso_confirmacion_cancelar', $mensajeAviso);
+                    }
+
+                    $count = $clasesSerieQuery->update([
+                        'cancelada'          => true,
+                        'motivo_cancelacion' => $motivo,
+                    ]);
+                    $mensaje = "{$count} clase(s) de la serie canceladas.";
+                } else {
+                    $tieneLista = $clase->asistencias()->exists();
+                    if ($tieneLista && !$confirmado) {
+                        $mensajeAviso = 'Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?';
+                        if ($esJson) {
+                            return response()->json([
+                                'success'               => false,
+                                'requiere_confirmacion' => true,
+                                'con_lista'             => 1,
+                                'message'               => $mensajeAviso,
+                            ], 409);
+                        }
+                        return back()->with('aviso_confirmacion_cancelar', $mensajeAviso);
+                    }
+
+                    $clase->update([
+                        'cancelada'          => true,
+                        'motivo_cancelacion' => $motivo,
+                    ]);
+                    $mensaje = 'Clase cancelada.';
+                }
+            } else {
+                // Reactivar: solo admin
+                if (Auth::user()->rol !== 'ADMIN') {
+                    if ($esJson) {
+                        return response()->json(['success' => false, 'message' => 'Sin permisos para reactivar.'], 403);
+                    }
+                    return back()->with('error', 'Sin permisos para reactivar la clase.');
+                }
+
+                if (Clase::whereKey($id)->noTerminadas()->exists()) {
+                    $docentes = $clase->profesores()->orderBy('profesores.id')->lockForUpdate()->get();
+                    if ($docentes->contains('activo', false)) {
+                        $mensaje = 'No se puede reactivar una clase futura con profesora inactiva. Reactivá primero a la profesora o reemplazá la clase cancelada.';
+                        if ($esJson) return response()->json(['success' => false, 'message' => $mensaje], 422);
+                        return back()->with('error', $mensaje);
+                    }
+                }
+                // T62 / DU-31 / CLA-015.b: si alguna profesora de la clase ya tiene otra clase activa que se superpone, no reactivar y explicar con cuál choca.
+                foreach ($clase->profesores as $profesor) {
+                    $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, $profesor->id);
+                    if (!$chequeo['puede_asignar']) {
+                        $mensaje = 'No se puede reactivar: ' . $chequeo['razon'];
+                        if ($esJson) {
+                            return response()->json(['success' => false, 'message' => $mensaje], 422);
+                        }
+                        return back()->with('error', $mensaje);
+                    }
+                }
+
+                // T62 / DU-31 / CLA-015.c: al reactivar, conservar que estuvo cancelada, con su motivo. No se borra motivo_cancelacion.
+                $clase->update(['cancelada' => false]);
+                $mensaje = 'Clase reactivada.';
             }
 
-            // T62 / DU-31 / CLA-015.c: al reactivar, conservar que estuvo cancelada, con su motivo. No se borra motivo_cancelacion.
-            $clase->update(['cancelada' => false]);
-            $mensaje = 'Clase reactivada.';
-        }
-
-        if ($esJson) {
-            return response()->json(['success' => true, 'message' => $mensaje, 'cancelada' => $clase->cancelada]);
-        }
-        return back()->with('success', $mensaje);
+            if ($esJson) {
+                return response()->json(['success' => true, 'message' => $mensaje, 'cancelada' => $clase->cancelada]);
+            }
+            return back()->with('success', $mensaje);
+        }, 3);
     }
 
     public function actualizarProfesores(Request $request, int $id)

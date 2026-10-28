@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/grupos.js',
                 'resources/js/profesores-form.js',
+                'resources/js/profesores-estado.js',
                 'resources/js/usuarios.js',
                 'resources/js/alumnos-inscripcion.js',
                 'resources/js/alumnos-form.js',

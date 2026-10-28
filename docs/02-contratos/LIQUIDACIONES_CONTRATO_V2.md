@@ -1,5 +1,15 @@
 # Contrato Funcional - Sistema de Liquidaciones v2
 
+## Enmienda 28/10/2026 — T46, profesora inactiva con trabajo pendiente
+
+DU-44 / PRO-004: no se desactiva una profesora mientras tenga clases activas futuras o en curso. El aviso cuenta las clases que aún no terminaron; las canceladas y las ya terminadas no bloquean. Primero se reasignan por el circuito existente, conservando el control de superposición (una cancelada no provoca choque). No se reactiva una clase futura cancelada mientras conserve una profesora inactiva.
+
+Una inactiva se ofrece en Nueva liquidación solo si tiene clases dictadas liquidables de un período sin liquidación vigente. Se conserva HORA/COMISION y el porcentaje o tarifa aplicable; no se inventan valores. Terminada significa fecha anterior a hoy o, si es hoy, hora de fin ya alcanzada. Sin presencia ni validación manual no se considera liquidable. Al generar la liquidación deja de ofrecerse para generar otra del mismo período; una abierta existente se sigue revisando en su propia ficha.
+
+Desactivar también desactiva sus usuarios vinculados, invalida el recuerdo de ingreso y elimina sus sesiones de la tabla de sesiones configurada. Cada petición protegida y cada nuevo ingreso exigen cuenta activa y profesora activa. Reactivar a la profesora **no reactiva su usuario**: ADMIN lo habilita explícitamente en Usuarios cuando corresponda. No se desactiva desde Profesores una cuenta protegida ni una vinculada con caja ABIERTA.
+
+Implementada localmente por Codex CyE; verificación de Claude y aspecto de Carlos pendientes. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md) · [Capturas](../06-pruebas/PRU-04/APROBAR-T46.html). Sin despliegue.
+
 ## Enmienda 28/10/2026 — T45, vigencia mensual de la forma de liquidar
 
 DU-42 / CAT-002: ADMIN puede programar otro tipo solo si el deporte no tiene liquidaciones ABIERTAS. El rechazo identifica número, profesora y período de cada una. Cambiar solamente el nombre no modifica la forma ni queda bloqueado por una abierta.
@@ -359,7 +369,7 @@ El monto viene del PAGO del alumno.
 ```
 1. Admin solicita generar liquidación (profesor_id, mes, año)
 2. Sistema valida:
-   - Profesor existe y está activo
+   - Profesor existe; si está inactivo, tiene clases dictadas liquidables pendientes en el período (T46)
    - Profesor tiene deporte asignado
    - No existe liquidación previa para el período
    - Profesor tiene valor_hora o porcentaje según tipo

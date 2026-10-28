@@ -71,14 +71,15 @@
                   : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
         @endphp
 
-        <div class="alumno-card alumno-card--{{ $rail }}">
+        <div class="alumno-card alumno-card--{{ $rail }}" data-profesor-card>
 
             <div class="alumno-card-header">
                 <span class="alumno-dot alumno-dot--{{ $profesor->activo ? 'active' : 'neutral' }}"
+                      data-profesor-dot
                       role="img" aria-label="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"
                       title="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"></span>
                 <h3 class="alumno-nombre">{{ $profesor->apellido }}, {{ $profesor->nombre }}</h3>
-                <span style="
+                <span data-profesor-badge style="
                     margin-left: auto;
                     font-size: 0.65rem; font-weight: 600;
                     padding: 0.15rem 0.55rem; border-radius: 999px;
@@ -159,6 +160,13 @@
 
             </div>
 
+            @if($profesor->activo && $profesor->clases_futuras_count > 0)
+            <p style="font-size:0.8rem; padding:0 1rem 0.75rem; color:var(--color-danger);">
+                Tiene {{ $profesor->clases_futuras_count }} {{ $profesor->clases_futuras_count === 1 ? 'clase futura o en curso' : 'clases futuras o en curso' }}.
+                <a href="{{ route('web.clases.index', ['profesor_id' => $profesor->id, 'estado' => 'programada']) }}" style="text-decoration:underline;">Reasignar</a> antes de desactivar.
+            </p>
+            @endif
+            <p data-profesor-estado-aviso role="status" aria-live="polite" style="font-size:0.8rem; padding:0 1rem 0.75rem; overflow-wrap:anywhere;" @if($profesor->activo) hidden @endif>Inactiva. El acceso del usuario se habilita por separado en Usuarios.</p>
             <div class="alumno-actions profesores-actions max-sm:justify-end">
                 <x-ds.button variant="primary"
                              href="{{ route('web.profesores.show', $profesor->id) }}">
@@ -174,7 +182,7 @@
                     labelOn="Activo"
                     labelOff="Inactivo"
                     :checked="(bool) $profesor->activo"
-                    data-url="{{ route('web.profesores.toggle-activo', $profesor->id) }}"
+                    data-profesor-estado-url="{{ route('web.profesores.toggle-activo', $profesor->id) }}"
                 />
             </div>
 
@@ -201,4 +209,8 @@
     @endif
 
 @endsection
+
+@push('scripts')
+@vite('resources/js/profesores-estado.js')
+@endpush
 

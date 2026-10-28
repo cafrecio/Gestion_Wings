@@ -12,6 +12,19 @@ class Clase extends Model
 {
     protected $table = 'clases';
 
+    public function scopeNoTerminadas($query)
+    {
+        return $query->where(fn ($q) => $q->where('clases.fecha', '>', today()->toDateString())
+            ->orWhere(fn ($hoy) => $hoy->where('clases.fecha', today()->toDateString())
+                ->where(fn ($hora) => $hora->where('clases.hora_fin', '>', now()->format('H:i:s'))->orWhereNull('clases.hora_fin'))));
+    }
+
+    public function scopeTerminadas($query)
+    {
+        return $query->where(fn ($q) => $q->where('clases.fecha', '<', today()->toDateString())
+            ->orWhere(fn ($hoy) => $hoy->where('clases.fecha', today()->toDateString())->where('clases.hora_fin', '<=', now()->format('H:i:s'))));
+    }
+
     protected $fillable = [
         'serie_id',
         'grupo_id',

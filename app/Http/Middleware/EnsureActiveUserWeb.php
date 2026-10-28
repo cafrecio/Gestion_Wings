@@ -11,7 +11,7 @@ class EnsureActiveUserWeb
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && !$request->user()->isActivo()) {
+        if ($request->user() && !$request->user()->puedeIngresar()) {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();

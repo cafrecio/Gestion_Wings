@@ -27,7 +27,7 @@ class WebController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
-            if (!Auth::user()->isActivo()) {
+            if (!Auth::user()->puedeIngresar()) {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();

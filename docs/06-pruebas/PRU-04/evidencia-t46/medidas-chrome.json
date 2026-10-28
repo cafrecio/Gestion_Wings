@@ -1,0 +1,29 @@
+{
+  "medidas": [
+    {
+      "pagina": "00-login",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "01-profesora-futuras",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "02-profesora-inactiva",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "03-liquidacion-inactiva",
+      "marco": 375,
+      "ancho": 375,
+      "scroll": 360
+    }
+  ],
+  "errores": []
+}

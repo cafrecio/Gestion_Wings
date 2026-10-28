@@ -18,6 +18,8 @@ Entrega A29/A30/A31; pendiente verificación de Gemini, sin despliegue.
 
 ## El error mental a evitar
 
+T46 / DU-44, 28/10/2026: solo ADMIN cambia el estado de una profesora. Las clases futuras activas deben reasignarse antes; OPERATIVO puede reasignarlas dentro de su dominio, conservando las validaciones del deporte y de horarios. La baja desactiva el usuario vinculado, invalida el recuerdo de ingreso y elimina sus sesiones. Cuenta activa con profesora inactiva tampoco ingresa ni conserva acceso protegido. Reactivar a la profesora no reactiva la cuenta: requiere habilitación explícita de ADMIN en Usuarios. Las cuentas protegidas conservan su protección. [Entrega T46](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md), pendiente de verificación independiente.
+
 > ❌ "Cada operativo ve/hace solo lo suyo."
 
 **Esto es FALSO en Wings.** No es un sistema donde cada empleado tiene su cajón privado. Es un sistema de gestión de un negocio donde el rol define el **dominio de trabajo**, no la propiedad de los registros.

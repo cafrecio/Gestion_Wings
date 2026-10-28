@@ -1,0 +1,10 @@
+{
+  "rechazo": true,
+  "pedidos": 2,
+  "inactivo": true,
+  "badge": "Inactivo",
+  "aria": "false",
+  "sinNavegacion": true,
+  "habilitado": true,
+  "aviso": "Profesora inactiva. Usuario desactivado y sesiones cerradas."
+}

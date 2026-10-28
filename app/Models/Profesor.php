@@ -64,6 +64,17 @@ class Profesor extends Model
         return $this->hasMany(Liquidacion::class);
     }
 
+    /** Lo dictado que todavía permite generar una liquidación nueva de ese período. */
+    public function clasesPendientesLiquidacion(): BelongsToMany
+    {
+        return $this->clases()->terminadas()->where('clases.cancelada', false)
+            ->where(fn ($q) => $q->where('clases.validada_para_liquidacion', true)
+                ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true)))
+            ->whereNotExists(fn ($q) => $q->selectRaw('1')->from('liquidaciones')
+                ->where('liquidaciones.profesor_id', $this->id)->where('liquidaciones.estado', '!=', Liquidacion::ESTADO_CANCELADA)
+                ->whereRaw('liquidaciones.mes = MONTH(clases.fecha) AND liquidaciones.anio = YEAR(clases.fecha)'));
+    }
+
     /**
      * Subrubro de sueldos donde se imputan los pagos de liquidación de
      * este profesor. Vínculo por FK (D3), ya no por nombre reconstruido.

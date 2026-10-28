@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CyE — T46 entregada a Claude; tres entregas completadas
+
+Baja bloqueada por clases activas futuras/en curso, aviso y reasignación existente con choque. Inactiva con dictadas pendientes puede liquidar HORA/COMISION; sin pendientes no aparece. Usuario desactivado, recuerdo invalidado y sesiones eliminadas; reactivar profesora conserva usuario inactivo hasta habilitación explícita.
+15 propias/113 y área50/343 verdes. Rápida1128/6 omitidas/8635 aserciones/373,71s; completa1264/6 omitidas/10426/1636,60s, salidas0 en wings_testing_codex.17 fuentes propias intactas;631/632 globales intactas, solo prueba AyudaManualT12T13Test ajena cambió durante la corrida, fuera del commit/certificación propia. Una sola completa; rápida ajena iniciada después.
+PHP de12 archivos, Blade y build correctos. Chrome real1366/marco375, login calibrado; rechazo/éxito/doble clic del cliente sin navegación. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T46.html).
+Dos entradas antiguas archivadas intactas; SHAc34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81, enlace en esta bitácora. Catálogo/DU-44 intactos; propuesta PRO-004 en el informe.
+T46 a_verificar, tiene/verifica=Claude. T51(983c6bab), T45(e3ca5555) y T46 entregadas por separado; Carlos revisa aspecto y Claude la lógica. Sin autocierre, servidor, base del club ni despliegue.
+
 ## 2026-10-28 — Codex CyE — T45 entregada a Claude
 
 Vigencias mensuales por deporte: abiertas bloquean e identifican; el mes actual y cerradas/pagadas conservan forma/importe. Porcentaje faltante avisa y frena liquidación; formulario conserva ambos valores y permite completar la próxima forma.
@@ -54,22 +62,7 @@ Después, ancho Recibo72→96 para evitar recorte; área final53/454/19,83s verd
 [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T89-CODEX.md) · [Así quedó Wings](../06-pruebas/PRU-04/APROBAR-T89.html): diez imágenes verificadas/abiertas en Chrome y login de calibración.
 T89 a_verificar,tieneClaude: revisar lógica/permisos; Carlos mira aspecto final. T54/T87 siguen cerradas. Solo wings_testing_codex; servidor propio detenido, T34 ajeno inicial intacto. Sin despliegue ni push manual.
 
-## 2026-10-28 — Codex CAB — Galerías y OK de T54/T87; T89 por decidir
-
-45 JPEG de Chrome (44 en galerías y login), datos sintéticos en wings_testing_codex:1366 y DOM real remaquetado en marco375, sin maquetas/producto.
-T54:12 búsquedas/4 lugares. T87: misma profesora17/3/0. T89:4 faltantes y permisos por rubro; propuesta simplificada tras la observación de Carlos.
-Carlos «T54 OK» y «T87 Visualmente OK, asumo que el funcionamiento logico esta bien»: cerradas con lógica Claude27/10. T89: Carlos eligió A/A/B/B y pidió ver Movimientos; sigue implementación Codex.
-Chrome abrió3 archivos;44 imágenes verificadas en vista HTTP local acotada (herramienta bloquea file). Sin suite/migraciones/cachés, sitio/servidor/club ni push manual. T34 ajeno intacto.
-[Buscar](../06-pruebas/PRU-04/APROBAR-T54.html) · [Liquidación](../06-pruebas/PRU-04/APROBAR-T87.html) · [T89](../06-pruebas/PRU-04/DECIDIR-T89.html).
-
-## 2026-10-27 — Codex CAB — T65 devuelta a Gemini
-
-Verificación independiente13b85f68/DU-48 sobre10cbaaa0, pull al día. Sin producto corregido.
-Recargo automático impago produce500 (rollback íntegro); Sueldos conserva15000 de cuota borrada. Excepción sin origen produce500, sin recorrido actual identificado; con asistencia real rechaza422.
-14 permanentes, tres rojas. Inscripción/roles/listados/DNI protegidos; dos pruebas verdes con dos sesiones MariaDB, ocho cruces, sin escrituras durante la espera.
-Rápida1039 verdes/6 omitidas/5 rojas/8101 aserciones/228,26s, salida1. Tres T65 y dos T86; estas repiten aisladas (6 verdes/2 rojas), causa sin establecer.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md). Devuelto,tieneGemini,verificaCodex; sigue arreglo y nueva verificación, después aspecto Carlos. Contador1171.
-Solo wings_testing_codex, fuentes SHA256 intactas. Sin sitio/servidor/club, tabla, push manual ni despliegue.
+[Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
 
 [Dos entradas antiguas intactas, archivadas al implementar T45](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T45.txt). Base original: docs/00-estado/. SHA256: 293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a.
 

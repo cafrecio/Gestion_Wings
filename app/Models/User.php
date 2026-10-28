@@ -109,6 +109,11 @@ class User extends Authenticatable
         return (bool) $this->activo;
     }
 
+    public function puedeIngresar(): bool
+    {
+        return $this->isActivo() && (!$this->profesor_id || $this->profesor()->where('activo', true)->exists());
+    }
+
     public function profesor(): BelongsTo
     {
         return $this->belongsTo(Profesor::class);

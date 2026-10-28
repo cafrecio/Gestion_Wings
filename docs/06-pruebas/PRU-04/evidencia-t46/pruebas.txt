@@ -1,0 +1,95 @@
+t46-propias-final.txt
+
+   PASS  Tests\Feature\ProfesorInactivoT46Test
+  ✓ avisa cantidad y bloquea futuras y en curso sin tocar usuario                                                8.68s
+  ✓ reasignar por operativa permite baja y preserva la clase                                                     0.13s
+  ✓ reasignacion respeta choque y no habilita baja                                                               0.13s
+  ✓ cancelada no choca y reasignar quita toda clase futura activa                                                0.12s
+  ✓ inactiva con dictadas aparece y liquida horas y desaparece sin pendientes                                    0.61s
+  ✓ inactiva sin pendientes no aparece ni genera forzando ruta                                                   0.16s
+  ✓ inactiva liquida comision por lo dictado con porcentaje conservado                                           0.15s
+  ✓ baja borra sesiones y token y corta sesion abierta y nuevo login                                             0.16s
+  ✓ reactivar profesora conserva usuario inactivo hasta activacion explicita                                     0.10s
+  ✓ activar usuario solo no permite entrar con profesora inactiva                                                0.08s
+  ✓ operativo y profesor no desactivan ni liquidan y profesor no reasigna                                        0.15s
+  ✓ inactiva no se ofrece ni se asigna en alta o reasignacion forzada                                            0.20s
+  ✓ cancelada futura no bloquea baja pero no se reactiva con inactiva                                            0.09s
+  ✓ reenvio explicito no reactiva por error y baja protegida es atomica                                          0.11s
+  ✓ pantallas reales avisan reasignacion y liquidacion inactiva                                                  0.20s
+
+  Tests:    15 passed (113 assertions)
+  Duration: 11.23s
+
+
+t46-area.txt
+  ✓ marcas de asistencia quedan guardadas y clase no cuenta en liquidacion                                       0.20s
+  ✓ reactivar falla si la profesora ya tiene otra clase activa que se superpone                                  0.26s
+  ✓ reactivar permite si la otra clase superpuesta esta cancelada                                                0.17s
+  ✓ al reactivar se conserva el motivo en la base y se muestra en la ficha                                       0.31s
+  ✓ reactivada permite guardar asistencias                                                                       0.76s
+  ✓ reactivada pasada vuelve a contar en sin asistencia                                                          0.24s
+  ✓ operativo no puede reactivar y profesor no puede cancelar ni reactivar                                       0.12s
+  ✓ cla 012 c unico presente del mes en clase cancelada va a revision y no genera cuota                          0.16s
+
+   PASS  Tests\Feature\UsuarioActivoWebTest
+  ✓ usuario desactivado no puede iniciar sesion                                                                  0.19s
+  ✓ sesion emitida se cierra si el usuario fue desactivado                                                       0.09s
+  ✓ no se puede desactivar operativa con caja abierta                                                            0.14s
+  ✓ se puede desactivar operativa sin caja abierta                                                               0.17s
+  ✓ no se puede cambiar el rol de operativa con caja abierta                                                     0.15s
+  ✓ se puede editar el nombre con caja abierta                                                                   0.20s
+
+   PASS  Tests\Feature\NuevaLiquidacionConteoMesT87Test
+  ✓ pantalla nueva liquidacion cuenta solo el mes elegido y aviso sin asistencia                                 0.65s
+  ✓ liquidacion generada coincide con el numero mostrado en pantalla                                             0.69s
+
+  Tests:    50 passed (343 assertions)
+  Duration: 23.29s
+
+
+t46-rapida.txt
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                0.59s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.41s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.11s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.07s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.23s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.29s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.27s
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                    11.11s
+
+  Tests:    6 skipped, 1128 passed (8635 assertions)
+  Duration: 373.71s
+
+
+t46-completa.txt
+  ✓ no se puede cambiar el rol de operativa con caja abierta                                                     0.06s
+  ✓ se puede editar el nombre con caja abierta                                                                   0.09s
+
+   PASS  Tests\Feature\VerificacionEliminarT65CodexTest
+  ✓ recargo automatico impago no produce 500 al eliminar alumno                                                  0.14s
+  ✓ el borrado retira la cuota del reporte actual de sueldos                                                     0.84s
+  ✓ excepcion sin origen debe rechazar con explicacion y no con 500                                              0.09s
+  ✓ excepcion real de asistencia frena antes de la fk y conserva su origen                                       0.12s
+  ✓ borrar el ancla de inscripcion compartida preserva un solo cargo y saldo                                     0.20s
+  ✓ cuota vencida sin cobros no impide el borrado                                                                0.13s
+  ✓ inscripcion pagada desde otro deporte no se borra ni duplica                                                 0.14s
+  ✓ serie es atomica para liquidacion abierta cerrada y validacion manual                                        0.29s
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                0.75s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.79s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.17s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.12s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.21s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.42s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.24s
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                    10.57s
+
+  Tests:    6 skipped, 1264 passed (10426 assertions)
+  Duration: 1636.60s

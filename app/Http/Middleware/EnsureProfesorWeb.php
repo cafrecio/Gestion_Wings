@@ -16,7 +16,7 @@ class EnsureProfesorWeb
             return redirect()->route('login');
         }
 
-        if (!$request->user()->isActivo()) {
+        if (!$request->user()->puedeIngresar()) {
             Auth::logout();
             return redirect()->route('login')->withErrors(['email' => 'Tu cuenta fue desactivada.']);
         }
