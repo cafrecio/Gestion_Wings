@@ -6,7 +6,7 @@
 
 | Tarea | Quién |
 |---|---|
-| T70 + T71 (bajas: fecha, reporte y deuda), T45, T46, T51 | Codex |
+| T70 + T71 (inactivos: fecha, reporte y deuda; pasar a Inactivo sigue instantáneo, Carlos 28/10), T45, T46, T51 | Codex |
 | T62 | Gemini |
 | T12 manual y T13 ayuda dentro de Wings | Gemini |
 | T82 ensayo de restauración | Claude |

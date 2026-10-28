@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-28 — Claude CyE — T71 resuelta: inactivo y baja son dos cosas
+
+- Carlos: «Inactivo y baja son dos cosas distintas. Solo se puede dar de baja un alumno sin movimientos.» Baja = eliminar, ya es T65. Pasar a Inactivo sigue instantáneo, sin motivo ni aviso (T84; coincide con ALU-017.h y ALU-025.a).
+- T71 queda: deuda de inactivos aparte en Cobranza y Reportes, y que el dueño la pueda dar por perdida. Tablero y PLAN-PRODUCCION corregidos.
+- Interpretado, no preguntado: en T70 las «bajas del mes» son los pases a Inactivo (los eliminados no dejan rastro). Se escribe así en el prompt de Codex.
+
 ## 2026-10-28 — Claude CAB — Alcance cerrado hasta producción; T25 y T65 cerradas
 
 - Carlos cerró el alcance (`PLAN-PRODUCCION.md`): Codex T70+T71, T45, T46, T51; Gemini T62, T12, T13; Claude T82. Después: test con T89/T25/T65, prueba de 3-4 días y producción. No entra nada más sin plantearlo.
