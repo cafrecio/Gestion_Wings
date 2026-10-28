@@ -10,6 +10,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CYE — T62: Devolución atendida — CLA-012.c filtro de canceladas en generación de cuotas
+
+- **Objetivo y resultado:** Resolución del punto devuelto por Claude en T62 (`docs/06-pruebas/PRU-04/VERIFICACION-T62-CLAUDE.md`) correspondiente a CLA-012.c. Resultado: **CORREGIDO, 11/11 PRUEBAS PROPIAS EN VERDE, SUITE RÁPIDA EN VERDE (1079 PASADAS) Y PASADA A `a_verificar`**.
+- **Cambios realizados:**
+  - En `app/Console/Commands/GenerarDeudasMensualesCommand.php` (línea 131), dentro del closure `whereHas('clase')` para `$tieneAsistenciasMesAnterior`, se agregó `->where('cancelada', false)`.
+  - Si el único presente de un alumno en el mes anterior fue en una clase cancelada, la asistencia ya no se computa como válida para la generación automática: no recibe la cuota del mes y es enviado a Revisión de Cobranza (`SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES`).
+  - Actualizado `docs/06-pruebas/PRU-04/IMPLEMENTACION-T62.md` documentando la resolución de CLA-012.c.
+- **Pruebas:**
+  - Nueva prueba `test_cla_012_c_unico_presente_del_mes_en_clase_cancelada_va_a_revision_y_no_genera_cuota` en `CancelarReactivarClaseT62Test` (11 pruebas / 56 aserciones en total). La prueba falla en rojo sin el filtro (`Failed asserting that 1 is identical to 0`) y pasa en verde con él.
+  - `GeneracionCuotasReintentoT40Test`, `RevisionCobranzaNoTocaElPasadoTest` y `RevisionCobranzaOperativoTest` (22 pasadas, 85 aserciones).
+  - Suite rápida (`--exclude-group=lento` en `wings_testing_gemini`): 1079 pasadas, 6 omitidas (8293 aserciones).
+  - Guardianes `DocumentacionNoMienteTest` (1221 pruebas) y `TableroAlDiaTest` en verde.
+- **Próximo paso:** Claude verifica CLA-012.c; OK visual de Carlos en `APROBAR-T62.html`.
+
 ## 2026-10-28 — LOG GEM CYE — T62: Cancelar y reactivar clase — Aviso por lista tomada, choque y motivo conservado
 
 - **Objetivo y resultado:** Implementación de **T62** conforme a DU-30, DU-31 y casos CLA-012 y CLA-015. Resultado: **IMPLEMENTADA, VERIFICADA CON 10 PRUEBAS Y PASADA A `a_verificar` PARA CLAUDE**.

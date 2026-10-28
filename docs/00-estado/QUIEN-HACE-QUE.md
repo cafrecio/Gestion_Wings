@@ -48,6 +48,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T62** Cancelar una clase con lista tomada avisa; no se cancela si esta en una liquidacion cerrada o pagada. Reactivar controla choques y conserva el motivo | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar CLA-012.c y OK visual de Carlos |
 | **T70** Reporte de Alumnos: cantidad de altas y de bajas del mes | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar historial, cantidades del mes y capturas T70/T71; aspecto pendiente de Carlos |
 | **T71** Deuda de alumnos inactivos: se muestra aparte y el duenio puede darla por perdida | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar deuda separada, perdida ADMIN, auditoria y reingreso; aspecto pendiente de Carlos |
 
@@ -57,9 +58,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T62** Cancelar una clase con lista tomada avisa; no se cancela si esta en una liquidacion cerrada o pagada. Reactivar controla choques y conserva el motivo | En curso (hizo Gemini, verifica Claude) | Devuelta por Claude CyE 28/10: logica aprobada (101/101 del area, 7/7 ataques), falta CLA-012.c: GenerarDeudasMensualesCommand cuenta presentes de clases canceladas. Agregar cancelada=false y prueba roja sin el cambio. Despues, OK visual de Carlos. Ver VERIFICACION-T62-CLAUDE.md |
+Nada en este momento.
 
 ## Sin empezar (12)
 

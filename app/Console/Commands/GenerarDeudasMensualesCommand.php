@@ -127,11 +127,12 @@ class GenerarDeudasMensualesCommand extends Command
                 continue;
             }
 
-            // Verificar elegibilidad estricta contra el período anterior
+            // Verificar elegibilidad estricta contra el período anterior (T62 / CLA-012.c: clases activas, no canceladas)
             $tieneAsistenciasMesAnterior = Asistencia::where('alumno_id', $alumno->id)
                 ->where('presente', true)
                 ->whereHas('clase', function ($query) use ($mesAnteriorInicio, $mesAnteriorFin) {
-                    $query->whereBetween('fecha', [$mesAnteriorInicio, $mesAnteriorFin]);
+                    $query->whereBetween('fecha', [$mesAnteriorInicio, $mesAnteriorFin])
+                        ->where('cancelada', false);
                 })
                 ->exists();
 

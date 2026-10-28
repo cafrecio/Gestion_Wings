@@ -40,13 +40,13 @@
     - **Confirmar:** `.ds-btn .ds-btn--danger` (96×32 px).
     - **Cerrar:** `.ds-btn .ds-btn--secondary` (96×32 px).
 
-### B. CLA-012.b y c — Marcas guardadas y liquidación / Hallazgo en Generación
+### B. CLA-012.b y c — Marcas guardadas y liquidación / Resolución de CLA-012.c en Generación
 - **Marcas de asistencia:** al cancelar, los registros en la tabla `asistencias` se conservan intactos para auditoría y visualización.
 - **Liquidación y comisión:** `LiquidacionService` filtra estrictamente `where('cancelada', false)` tanto en `clasesLiquidablesHora` como en `clasesLiquidablesComision`. Una clase cancelada no suma clases dictadas ni comisiones.
-- **Hallazgo reportado en generación del mes siguiente (`GenerarDeudasMensualesCommand.php`):**
-  - La instrucción de Carlos indicó: *«Es lo que hace hoy: verificarlo, no cambiarlo. Si no se cumple, informarlo antes de corregir.»*
-  - **Relevamiento:** En `app/Console/Commands/GenerarDeudasMensualesCommand.php` (líneas 131-136), la consulta `whereHas('clase', ...)` no filtra `where('cancelada', false)`. Por lo tanto, si el único presente de un alumno fue en una clase cancelada, la consulta actual lo considera presente y le genera deuda en vez de enviarlo a Revisión de cobranza.
-  - Conforme al protocolo (AGENTS.md §6b) y la orden de no alterar el comando sin autorización previa, **no se modificó `GenerarDeudasMensualesCommand.php`** y queda reportado para decisión de Carlos.
+- **Resolución de CLA-012.c en generación mensual (`GenerarDeudasMensualesCommand.php`):**
+  - Tras la devolución de Claude (`VERIFICACION-T62-CLAUDE.md`) y la confirmación de la regla de Carlos (caso CLA-012.c), se corrigió `app/Console/Commands/GenerarDeudasMensualesCommand.php` agregando `->where('cancelada', false)` en el closure de `whereHas('clase')`.
+  - Si el único presente de un alumno en el mes fue en una clase cancelada, la generación no computa esa asistencia como válida: no le genera cuota automática y lo envía a Revisión de cobranza con motivo `SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES`.
+  - Cubierto con prueba específica `test_cla_012_c_unico_presente_del_mes_en_clase_cancelada_va_a_revision_y_no_genera_cuota` (que falla en rojo sin este filtro y pasa en verde con él).
 
 ### C. CLA-015.b — Control de choques al reactivar
 - En `app/Services/ClaseService.php` (`validarSolapamientoProfesor`):
@@ -74,7 +74,7 @@
 
 ## 3. Pruebas y verificación
 
-Se creó la suite de pruebas permanentes `tests/Feature/CancelarReactivarClaseT62Test.php` con 10 métodos y 53 aserciones, todas en verde en `wings_testing_gemini`:
+Se creó la suite de pruebas permanentes `tests/Feature/CancelarReactivarClaseT62Test.php` con 11 métodos y 56 aserciones, todas en verde en `wings_testing_gemini`:
 
 1. `test_cancelar_clase_sin_asistencia_no_pide_confirmacion`: cancela directamente sin confirmación.
 2. `test_cancelar_clase_con_asistencia_avisa_y_exige_confirmacion`: avisa con 409 y confirmación requerida.
@@ -86,6 +86,7 @@ Se creó la suite de pruebas permanentes `tests/Feature/CancelarReactivarClaseT6
 8. `test_reactivada_permite_guardar_asistencias`: desbloqueo efectivo de asistencia.
 9. `test_reactivada_pasada_vuelve_a_contar_en_sin_asistencia`: reincorporación al filtro `estado=finalizada`.
 10. `test_operativo_no_puede_reactivar_y_profesor_no_puede_cancelar_ni_reactivar`: control estricto de permisos y roles.
+11. `test_cla_012_c_unico_presente_del_mes_en_clase_cancelada_va_a_revision_y_no_genera_cuota`: único presente en clase cancelada no cuenta para cuota y envía a Revisión.
 
 ### Pruebas de regresión y guardianes
 - `CancelarClaseLiquidadaT90Test`: 4 pruebas / 21 aserciones en verde.

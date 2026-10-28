@@ -3,9 +3,12 @@
 namespace Tests\Feature;
 
 use App\Models\Alumno;
+use App\Models\AlumnoPlan;
+use App\Models\AlumnoRevisionCobranza;
 use App\Models\Asistencia;
 use App\Models\Clase;
 use App\Models\Deporte;
+use App\Models\DeudaCuota;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Liquidacion;
@@ -401,5 +404,64 @@ class CancelarReactivarClaseT62Test extends TestCase
         $this->actingAs($this->profesorUser)->patchJson(route('web.clases.toggle-cancelada', $clase->id), [
             'motivo_cancelacion' => 'Falta profesor',
         ])->assertStatus(403);
+    }
+
+    /**
+     * CLA-012.c: Alumno cuyo único presente del mes anterior fue en una clase cancelada
+     * no es considerado con asistencias válidas para la generación de cuotas:
+     * va a Revisión y no se le genera la cuota automáticamente.
+     */
+    public function test_cla_012_c_unico_presente_del_mes_en_clase_cancelada_va_a_revision_y_no_genera_cuota(): void
+    {
+        Carbon::setTestNow('2026-11-01 06:00:00');
+
+        $plan = GrupoPlan::create([
+            'grupo_id' => $this->grupo->id,
+            'clases_por_semana' => 2,
+            'precio_mensual' => 25000,
+            'activo' => true,
+        ]);
+
+        $alumno = $this->crearAlumno('Martina');
+        $alumno->update(['fecha_alta' => '2026-05-01']);
+
+        AlumnoPlan::create([
+            'alumno_id' => $alumno->id,
+            'plan_id' => $plan->id,
+            'fecha_desde' => '2026-05-01',
+            'activo' => true,
+        ]);
+
+        // Clase del mes anterior (octubre 2026) con lista tomada donde el alumno estuvo presente
+        $clase = $this->crearClase('2026-10-15', '17:00', '18:00');
+        Asistencia::create([
+            'clase_id' => $clase->id,
+            'alumno_id' => $alumno->id,
+            'presente' => true,
+        ]);
+
+        // La clase es cancelada posteriormente (con motivo)
+        $clase->update([
+            'cancelada' => true,
+            'motivo_cancelacion' => 'Lluvia torrencial',
+        ]);
+
+        // Ejecutar generación mensual del período 2026-11
+        $this->artisan('cobranza:generar-deudas', ['--periodo' => '2026-11'])->assertSuccessful();
+
+        // No se le debe generar cuota para 2026-11
+        $this->assertSame(0, DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', '2026-11')->count(),
+            'Un alumno cuyo único presente fue en clase cancelada no debe recibir cuota generada.');
+
+        // Debe enviarse a Revisión de Cobranza
+        $this->assertTrue(
+            AlumnoRevisionCobranza::where('alumno_id', $alumno->id)
+                ->where('periodo_objetivo', '2026-11')
+                ->where('motivo', 'SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES')
+                ->exists(),
+            'El alumno debe ser enviado a Revisión de Cobranza por no tener asistencias válidas en clases activas.'
+        );
+
+        Carbon::setTestNow();
     }
 }
