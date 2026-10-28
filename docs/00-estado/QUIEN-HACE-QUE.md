@@ -50,7 +50,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
-| **T45** Cambiar hora o comision de un deporte: solo sin liquidaciones abiertas y rige desde el mes siguiente | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar vigencias, bloqueo por abiertas, cerradas/pagadas conservadas y porcentajes; Carlos revisar APROBAR-T45.html |
 | **T46** Desactivar a una profesora: avisar, reasignar clases futuras, poder liquidarle lo dictado y desactivar su usuario | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar futuras/reasignacion, liquidacion de inactivas y usuario/sesiones; Carlos revisar APROBAR-T46.html |
 
 ## Codex
