@@ -1,0 +1,17 @@
+## 2026-10-27 — Codex CAB — B3 devuelta: primera carga corregida
+
+[Devolución27/10](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md): ids de primera carga TERMINADA dan historia, no era pregunta pendiente. Dinero aprobado por Claude, sin tocarlo.
+7 permanentes: rojo5/2 antes; área58/292, técnica día21 1/5 y rápida1028/6 omitidas/7983 aserciones/224,98s verdes; contador1153.
+Capturas nuevas1366/375 del HTML real de Wings; sin Blade/CSS/JS. Alta posterior conserva Nuevo y margen; PENDIENTE/sin detalle no exime.
+Otros usos: mes de alta web, API apagada y protección de borrados, sin tocar. Detalle en informe.
+B3 a_verificar para Claude; aspecto pendiente de Carlos. Sin sitio/servidor/base del club, tabla, push manual ni despliegue.
+
+## 2026-10-27 — Codex CAB — B3 asistencia entregada; T88/B3 a verificar
+
+[Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md), después de dinero17f99d13: condición en lista, margen interno, Nuevo/DEUDOR con motivo; MOROSO sin justificar, EXTRA/RECUPERA fuera de B3.
+20 permanentes:15 iniciales11 rojas/4 verdes, cinco adicionales3 rojas/2 verdes; área71/344. Rápida1011/6 omitidas/7855 aserciones/190,04s y completa1130/6 omitidas/9454 aserciones/962,45s, salida0, corte1136. Seis fuentes propias congeladas.
+Navegador profesora: cuatro presentes, dos motivos, reenvío sin duplicar; dueño ve el origen y abre la clase. [Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-B3-ASISTENCIA.html), aspecto pendiente de Carlos. Sintaxis PHP/JS, Blade y build correctos.
+B3 y T88 a_verificar,hizoCodex,verificaClaude,tieneClaude; sin autocierre. Registro común atómico; readmisión conserva decisiones y avisos agrupados, no individuales.
+Preguntas conservadas: primera carga, corte de correcciones históricas y avisos de orígenes anulados/corregidos. T54 posterior fuera del corte de suite y del producto/pruebas propios; contador del checkout calificado.
+Solo wings_testing_codex; localhost detenido antes de suites. Sin sitio/servidor/base del club, tabla externa/copia, push manual ni despliegue.
+

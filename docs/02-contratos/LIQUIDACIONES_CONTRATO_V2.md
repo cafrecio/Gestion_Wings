@@ -1,5 +1,15 @@
 # Contrato Funcional - Sistema de Liquidaciones v2
 
+## Enmienda 28/10/2026 — T45, vigencia mensual de la forma de liquidar
+
+DU-42 / CAT-002: ADMIN puede programar otro tipo solo si el deporte no tiene liquidaciones ABIERTAS. El rechazo identifica número, profesora y período de cada una. Cambiar solamente el nombre no modifica la forma ni queda bloqueado por una abierta.
+
+El cambio rige desde el primer día del mes siguiente. Cada programación conserva tipo, fecha de vigencia, autor y fecha de registro. El tipo se resuelve por el período que se liquida o previsualiza; no por el día en que se pulsa Generar. Se conserva el historial de meses anteriores y el tipo/importe ya congelados en cerradas o pagadas. Modificar otra vez una programación pendiente exige el mismo control de abiertas; reenviar la misma forma no la duplica ni posterga su vigencia.
+
+Si la forma es COMISION y falta porcentaje válido, se avisa al programar y en Nueva liquidación para el mes elegido; el servidor impide generar/previsualizar hasta cargarlo. No se supone un porcentaje. El formulario de profesores permite completar la próxima forma antes de su vigencia y conserva la tarifa y el porcentaje anteriores. Los estimados de Sueldos aplican la misma vigencia; las liquidaciones existentes conservan su foto.
+
+Implementada localmente por Codex CyE; verificación independiente de Claude y aspecto de Carlos pendientes. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Capturas](../06-pruebas/PRU-04/APROBAR-T45.html). Sin despliegue.
+
 > Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
 
 ## Enmienda 20/10/2026 — T42, mes efectivo de la comisión
@@ -123,10 +133,10 @@ El **Deporte** es el eje del modelo. Define:
 | Campo | Tipo | Obligatorio | Condición |
 |-------|------|-------------|-----------|
 | deporte_id | FK | Sí | Siempre |
-| valor_hora | Decimal | Condicional | Solo si deporte.tipo_liquidacion = HORA |
-| porcentaje_comision | Decimal | Condicional | Solo si deporte.tipo_liquidacion = COMISION |
+| valor_hora | Decimal | Condicional | Para períodos por HORA; se conserva al programar COMISION |
+| porcentaje_comision | Decimal | Condicional | Para períodos por COMISION; puede cargarse antes de su vigencia |
 
-**Regla:** El profesor hereda la forma de liquidación del deporte.
+**Regla:** El profesor hereda la forma de liquidación del deporte vigente para el período. Se conservan ambos valores para liquidar períodos anteriores.
 
 ### 2.3 Clases
 
@@ -353,7 +363,7 @@ El monto viene del PAGO del alumno.
    - Profesor tiene deporte asignado
    - No existe liquidación previa para el período
    - Profesor tiene valor_hora o porcentaje según tipo
-3. Sistema calcula según tipo_liquidacion del deporte:
+3. Sistema calcula según la vigencia del deporte para el mes y año elegidos (T45):
 
    SI tipo = HORA:
      - Obtener clases del profesor en el período

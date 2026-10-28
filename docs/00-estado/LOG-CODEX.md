@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CyE — T45 entregada a Claude
+
+Vigencias mensuales por deporte: abiertas bloquean e identifican; el mes actual y cerradas/pagadas conservan forma/importe. Porcentaje faltante avisa y frena liquidación; formulario conserva ambos valores y permite completar la próxima forma.
+14 propias/106 verdes. La migración anterior con profesora previa falló por tabla T45 inexistente; lectura compatible comprobada (1/4) y primera completa interrumpida voluntariamente. Aislamiento DDL igual a T27, sin cambiar migraciones viejas.
+Definitivas: rápida1113/6 omitidas/8523 aserciones/229,88s y completa1249/6 omitidas/10314/1317,09s, salidas0 en wings_testing_codex.18 fuentes propias y629 globales intactas. Incremento propio14; base1241 de92123ff6 con T12/T13 ajenas ya incorporadas.
+PHP/Blade/build correctos; Chrome1366/marco375 de cuatro pantallas y login, cambio real de mes y conservación de valores. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T45.html).
+Dos entradas antiguas archivadas intactas, SHA293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a; índice en esta bitácora. Tabla externa intacta, propuesta CAT-002 en el informe.
+T45 a_verificar, tiene/verifica=Claude; sigue T46. Sin autocierre, servidor, base del club ni despliegue.
+
 ## 2026-10-28 — Codex CyE — T51 entregada a Claude
 
 Historia manual en Detalle: edición antes/después y eliminación con foto permanente, autor y fecha/hora, en una transacción. Automáticos protegidos en pantalla y rutas; cancelación con motivo conservada.
@@ -62,22 +71,7 @@ Rápida1039 verdes/6 omitidas/5 rojas/8101 aserciones/228,26s, salida1. Tres T65
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md). Devuelto,tieneGemini,verificaCodex; sigue arreglo y nueva verificación, después aspecto Carlos. Contador1171.
 Solo wings_testing_codex, fuentes SHA256 intactas. Sin sitio/servidor/club, tabla, push manual ni despliegue.
 
-## 2026-10-27 — Codex CAB — B3 devuelta: primera carga corregida
-
-[Devolución27/10](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md): ids de primera carga TERMINADA dan historia, no era pregunta pendiente. Dinero aprobado por Claude, sin tocarlo.
-7 permanentes: rojo5/2 antes; área58/292, técnica día21 1/5 y rápida1028/6 omitidas/7983 aserciones/224,98s verdes; contador1153.
-Capturas nuevas1366/375 del HTML real de Wings; sin Blade/CSS/JS. Alta posterior conserva Nuevo y margen; PENDIENTE/sin detalle no exime.
-Otros usos: mes de alta web, API apagada y protección de borrados, sin tocar. Detalle en informe.
-B3 a_verificar para Claude; aspecto pendiente de Carlos. Sin sitio/servidor/base del club, tabla, push manual ni despliegue.
-
-## 2026-10-27 — Codex CAB — B3 asistencia entregada; T88/B3 a verificar
-
-[Entrega asistencia](../06-pruebas/PRU-04/IMPLEMENTACION-B3-ASISTENCIA.md), después de dinero17f99d13: condición en lista, margen interno, Nuevo/DEUDOR con motivo; MOROSO sin justificar, EXTRA/RECUPERA fuera de B3.
-20 permanentes:15 iniciales11 rojas/4 verdes, cinco adicionales3 rojas/2 verdes; área71/344. Rápida1011/6 omitidas/7855 aserciones/190,04s y completa1130/6 omitidas/9454 aserciones/962,45s, salida0, corte1136. Seis fuentes propias congeladas.
-Navegador profesora: cuatro presentes, dos motivos, reenvío sin duplicar; dueño ve el origen y abre la clase. [Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-B3-ASISTENCIA.html), aspecto pendiente de Carlos. Sintaxis PHP/JS, Blade y build correctos.
-B3 y T88 a_verificar,hizoCodex,verificaClaude,tieneClaude; sin autocierre. Registro común atómico; readmisión conserva decisiones y avisos agrupados, no individuales.
-Preguntas conservadas: primera carga, corte de correcciones históricas y avisos de orígenes anulados/corregidos. T54 posterior fuera del corte de suite y del producto/pruebas propios; contador del checkout calificado.
-Solo wings_testing_codex; localhost detenido antes de suites. Sin sitio/servidor/base del club, tabla externa/copia, push manual ni despliegue.
+[Dos entradas antiguas intactas, archivadas al implementar T45](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T45.txt). Base original: docs/00-estado/. SHA256: 293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a.
 
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 

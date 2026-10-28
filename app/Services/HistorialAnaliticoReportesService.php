@@ -105,7 +105,11 @@ class HistorialAnaliticoReportesService
             return ['neto_centavos'=>$neto];
         }
         if ($modelo instanceof Profesor) {
-            $tipo = DB::connection($modelo->getConnectionName())->table('deportes')->where('id', $modelo->deporte_id)->value('tipo_liquidacion');
+            $conexion = DB::connection($modelo->getConnectionName());
+            // La migración de octubre de 2026 usa este servicio antes de crear las vigencias.
+            $tipo = $conexion->getSchemaBuilder()->hasTable('deporte_liquidacion_vigencias')
+                ? \App\Models\Deporte::on($modelo->getConnectionName())->find($modelo->deporte_id)?->tipo_liquidacion
+                : $conexion->table('deportes')->where('id', $modelo->deporte_id)->value('tipo_liquidacion');
             return ['tipo'=>$tipo, 'hora_centavos'=>$modelo->valor_hora === null ? null : $centavos($modelo->valor_hora),
                 'comision_centesimas'=>$modelo->porcentaje_comision === null ? null : $centavos($modelo->porcentaje_comision)];
         }

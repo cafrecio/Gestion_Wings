@@ -75,7 +75,8 @@
                     @forelse($profesores as $profesor)
                     @php
                         $dep             = $profesor->deporte->nombre ?? '—';
-                        $tipo            = $profesor->tipo_liquidacion === 'HORA' ? 'Por hora' : 'Por comisión';
+                        $tipoPeriodo     = $profesor->tipoLiquidacionParaPeriodo($mesActual, $anioActual);
+                        $tipo            = $tipoPeriodo === 'HORA' ? 'Por hora' : 'Por comisión';
                         $count           = (int) $profesor->clases_count;
                         $sinAsistencia   = (int) $profesor->clases_sin_asistencia;
                         $tienePendientes = ($profesor->clases_count_total ?? $count) > 0;
@@ -95,6 +96,7 @@
                                {{ !$tienePendientes ? 'disabled' : '' }}
                                style="margin-top:3px; flex-shrink:0; accent-color:var(--color-btn-primary);">
                         <div style="flex:1; min-width:0;">
+                            <p class="profesor-sin-porcentaje" @if($tipoPeriodo !== 'COMISION' || $profesor->porcentaje_comision > 0) hidden @endif style="font-size:0.8rem; color:var(--color-danger);">Falta cargar el porcentaje de comisión. No se puede liquidar hasta completarlo.</p>
                             <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
                                 <span style="font-size:0.88rem; font-weight:700; color:var(--color-text);">
                                     {{ $profesor->apellido }}, {{ $profesor->nombre }}
@@ -104,7 +106,7 @@
                                              color:var(--color-btn-primary);">
                                     {{ $dep }}
                                 </span>
-                                <span style="font-size:0.65rem; color:var(--color-text-muted); font-weight:500;">
+                                <span class="profesor-tipo" style="font-size:0.65rem; color:var(--color-text-muted); font-weight:500;">
                                     {{ $tipo }}
                                 </span>
                             </div>

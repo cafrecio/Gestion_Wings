@@ -1,0 +1,41 @@
+{
+  "medidas": [
+    {
+      "pagina": "00-login",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "01-programado",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "02-bloqueado",
+      "marco": 375,
+      "ancho": 375,
+      "scroll": 360
+    },
+    {
+      "pagina": "03-liquidacion-porcentaje",
+      "marco": 375,
+      "ancho": 375,
+      "scroll": 360
+    },
+    {
+      "pagina": "04-profesora-editar",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    },
+    {
+      "pagina": "05-profesora-nueva",
+      "marco": 375,
+      "ancho": 360,
+      "scroll": 360
+    }
+  ],
+  "errores": []
+}

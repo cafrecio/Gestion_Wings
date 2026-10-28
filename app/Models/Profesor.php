@@ -89,6 +89,11 @@ class Profesor extends Model
         return $this->deporte?->tipo_liquidacion;
     }
 
+    public function tipoLiquidacionParaPeriodo(int $mes, int $anio): ?string
+    {
+        return $this->deporte?->tipoLiquidacionParaPeriodo($mes, $anio);
+    }
+
     /**
      * Verificar si el profesor liquida por hora
      */

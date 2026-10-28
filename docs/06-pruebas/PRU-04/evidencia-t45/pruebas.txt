@@ -1,0 +1,75 @@
+t45-propias-final.txt
+
+   PASS  Tests\Feature\DeporteLiquidacionVigenciaT45Test
+  ✓ abierta bloquea y explicita numero profesora y periodo                                                      12.86s
+  ✓ programacion guarda vigencia y autor y conserva mes actual                                                   0.17s
+  ✓ mes actual liquida horas y siguiente comision sobre cobro real                                               0.38s
+  ✓ cerradas y pagadas conservan tipo importe y tarifa                                                           0.33s
+  ✓ cambiar solo nombre con abierta no programa otra forma                                                       0.11s
+  ✓ sin porcentaje avisa al cambiar y rechaza liquidacion y preview sin inventarlo                               0.17s
+  ✓ operativo y profesor no ven formulario ni programan por ruta                                                 0.15s
+  ✓ cambios sucesivos y reenvios conservan vigencias anteriores                                                  0.08s
+  ✓ programar en diciembre empieza en enero del ano siguiente                                                    0.07s
+  ✓ reporte de sueldos usa vigencia para estimado y conserva corte anterior                                      0.35s
+  ✓ porcentaje se puede completar antes de la vigencia sin borrar tarifa actual                                  0.37s
+  ✓ nombre solo con programacion pendiente no la cancela aunque haya abierta                                     0.13s
+  ✓ pantallas explican programacion bloqueo y porcentaje y exportan html real                                    0.45s
+
+  Tests:    13 passed (102 assertions)
+  Duration: 15.90s
+
+t45-esquema-final.txt
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                     7.59s
+
+  Tests:    1 passed (4 assertions)
+  Duration: 7.74s
+
+t45-rapida-final.txt
+  ✓ serie es atomica para liquidacion abierta cerrada y validacion manual                                        0.12s
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                0.14s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.17s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.05s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.05s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.09s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.14s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.09s
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                     8.02s
+
+  Tests:    6 skipped, 1113 passed (8523 assertions)
+  Duration: 229.88s
+
+t45-completa-final.txt
+  ✓ se puede desactivar operativa sin caja abierta                                                               0.09s
+  ✓ no se puede cambiar el rol de operativa con caja abierta                                                     0.08s
+  ✓ se puede editar el nombre con caja abierta                                                                   0.10s
+
+   PASS  Tests\Feature\VerificacionEliminarT65CodexTest
+  ✓ recargo automatico impago no produce 500 al eliminar alumno                                                  0.23s
+  ✓ el borrado retira la cuota del reporte actual de sueldos                                                     0.53s
+  ✓ excepcion sin origen debe rechazar con explicacion y no con 500                                              0.14s
+  ✓ excepcion real de asistencia frena antes de la fk y conserva su origen                                       0.16s
+  ✓ borrar el ancla de inscripcion compartida preserva un solo cargo y saldo                                     0.34s
+  ✓ cuota vencida sin cobros no impide el borrado                                                                0.16s
+  ✓ inscripcion pagada desde otro deporte no se borra ni duplica                                                 0.11s
+  ✓ serie es atomica para liquidacion abierta cerrada y validacion manual                                        0.19s
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                0.37s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.57s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.17s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.14s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.24s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.37s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.35s
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                     8.27s
+
+  Tests:    6 skipped, 1249 passed (10314 assertions)
+  Duration: 1317.09s

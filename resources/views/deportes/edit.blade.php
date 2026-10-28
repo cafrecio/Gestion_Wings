@@ -8,7 +8,25 @@
 @php
 $iconAttr = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"';
 $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
+$desde = today()->startOfMonth()->addMonth();
+$tipoSiguiente = $deporte->tipoLiquidacionParaPeriodo($desde->month, $desde->year);
+$sinPorcentaje = $deporte->profesores()->where(fn ($q) => $q->whereNull('porcentaje_comision')->orWhere('porcentaje_comision', '<=', 0))->orderBy('apellido')->get();
 @endphp
+
+<div class="filtros-card" style="overflow-wrap:anywhere; margin-bottom:1rem;">
+    Actualmente: {{ $deporte->tipo_liquidacion === 'HORA' ? 'Por hora' : 'Por comisión' }}.
+    Los cambios rigen desde el {{ $desde->format('d/m/Y') }} y requieren no tener liquidaciones abiertas.
+    @if($tipoSiguiente !== $deporte->tipo_liquidacion)
+    <p>Programado: {{ $tipoSiguiente === 'HORA' ? 'Por hora' : 'Por comisión' }} desde el {{ $desde->format('d/m/Y') }}.</p>
+    @endif
+</div>
+@if(old('tipo_liquidacion', $tipoSiguiente) === 'COMISION' && $sinPorcentaje->isNotEmpty())
+<div class="ds-flash ds-flash--error" style="overflow-wrap:anywhere;">
+    Para liquidar por comisión falta cargar un porcentaje válido a:
+    {{ $sinPorcentaje->map(fn ($p) => $p->nombre_completo)->join(', ') }}.
+    No podrán generar una liquidación por comisión hasta completarlo.
+</div>
+@endif
 
 <div class="filtros-card">
     <form method="POST" action="{{ route('web.deportes.update', $deporte->id) }}">
@@ -47,8 +65,8 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                         required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
-                    <option value="HORA"     {{ old('tipo_liquidacion', $deporte->tipo_liquidacion) === 'HORA'     ? 'selected' : '' }}>Por hora</option>
-                    <option value="COMISION" {{ old('tipo_liquidacion', $deporte->tipo_liquidacion) === 'COMISION' ? 'selected' : '' }}>Por comisión</option>
+                    <option value="HORA"     {{ old('tipo_liquidacion', $tipoSiguiente) === 'HORA'     ? 'selected' : '' }}>Por hora</option>
+                    <option value="COMISION" {{ old('tipo_liquidacion', $tipoSiguiente) === 'COMISION' ? 'selected' : '' }}>Por comisión</option>
                 </select>
                 @error('tipo_liquidacion')
                     <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p>

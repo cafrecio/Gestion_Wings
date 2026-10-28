@@ -22,6 +22,27 @@ class Deporte extends Model
         'activo' => 'boolean',
     ];
 
+    public function vigenciasLiquidacion(): HasMany
+    {
+        return $this->hasMany(DeporteLiquidacionVigencia::class)->orderByDesc('vigente_desde')->orderByDesc('id');
+    }
+
+    public function tipoProgramadoParaPeriodo(int $mes, int $anio): ?string
+    {
+        $fecha = sprintf('%04d-%02d-01', $anio, $mes);
+        return $this->vigenciasLiquidacion->first(fn ($v) => $v->vigente_desde->toDateString() <= $fecha)?->tipo;
+    }
+
+    public function tipoLiquidacionParaPeriodo(int $mes, int $anio): ?string
+    {
+        return $this->tipoProgramadoParaPeriodo($mes, $anio) ?? ($this->attributes['tipo_liquidacion'] ?? null);
+    }
+
+    public function getTipoLiquidacionAttribute($valor): ?string
+    {
+        return $this->exists ? $this->tipoLiquidacionParaPeriodo(today()->month, today()->year) : $valor;
+    }
+
     /**
      * Relación con Grupo
      */

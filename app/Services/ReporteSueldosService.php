@@ -29,7 +29,8 @@ class ReporteSueldosService
         $tasas = collect($tarifas['filas'] ?? [])->keyBy('origen_id');
         $liqMes = collect($liquidaciones['filas'] ?? [])->where('periodo',$mes)
             ->filter(fn ($l) => $l['datos']['estado'] !== 'CANCELADA')->groupBy(fn ($l) => $l['persona_id'].':'.$l['deporte_id']);
-        $nombresDeportes = Deporte::pluck('nombre','id');
+        $deportes = Deporte::with('vigenciasLiquidacion')->get()->keyBy('id');
+        $nombresDeportes = $deportes->pluck('nombre', 'id');
         $profesores = Profesor::whereIn('id',$clases->flatMap(fn ($c) => $c->profesores->pluck('id'))
             ->merge(collect($liquidaciones['filas'] ?? [])->where('periodo',$mes)->pluck('persona_id'))->unique())
             ->get()->keyBy('id');
@@ -121,6 +122,8 @@ class ReporteSueldosService
                         $tarifa = $pasado['filas'][0] ?? null;
                     }
                     $tasa = $tarifa && (int)$tarifa['deporte_id'] === $fila['deporte_id'] ? $tarifa['datos'] : null;
+                    $programado = $deportes->get($sport)?->tipoProgramadoParaPeriodo($inicio->month, $inicio->year);
+                    if ($tasa && $programado !== null) $tasa['tipo'] = $programado;
                     // Una liquidación del mismo docente en otro deporte no se duplica como estimado.
                     $liquidadoEnOtro = collect($liquidaciones['filas'] ?? [])->where('periodo',$mes)->where('persona_id',$pid)
                         ->contains(fn ($l) => $l['datos']['estado'] !== 'CANCELADA');

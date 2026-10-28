@@ -26,14 +26,13 @@ class LiquidacionService
      */
     public function generarLiquidacionMensual(int $profesorId, int $mes, int $anio): Liquidacion
     {
-        $profesor = Profesor::with('deporte')->findOrFail($profesorId);
-
-        $this->validarProfesorParaLiquidacion($profesor);
-        $this->validarNoExisteLiquidacion($profesorId, $mes, $anio);
-
-        $tipoLiquidacion = $profesor->tipo_liquidacion;
-
-        return DB::transaction(function () use ($profesor, $mes, $anio, $tipoLiquidacion) {
+        return DB::transaction(function () use ($profesorId, $mes, $anio) {
+            $profesor = Profesor::findOrFail($profesorId);
+            $deporte = $profesor->deporte()->lockForUpdate()->first();
+            $profesor->setRelation('deporte', $deporte);
+            $this->validarProfesorParaLiquidacion($profesor, $mes, $anio);
+            $this->validarNoExisteLiquidacion($profesorId, $mes, $anio);
+            $tipoLiquidacion = $profesor->tipoLiquidacionParaPeriodo($mes, $anio);
             $liquidacion = Liquidacion::create([
                 'profesor_id' => $profesor->id,
                 'mes' => $mes,
@@ -416,7 +415,7 @@ class LiquidacionService
      * @param Profesor $profesor
      * @throws \Exception
      */
-    private function validarProfesorParaLiquidacion(Profesor $profesor): void
+    private function validarProfesorParaLiquidacion(Profesor $profesor, int $mes, int $anio): void
     {
         if (!$profesor->deporte_id) {
             throw new \Exception('El profesor no tiene un deporte asignado.');
@@ -426,7 +425,7 @@ class LiquidacionService
             throw new \Exception('El deporte del profesor no existe.');
         }
 
-        $tipoLiquidacion = $profesor->tipo_liquidacion;
+        $tipoLiquidacion = $profesor->tipoLiquidacionParaPeriodo($mes, $anio);
 
         if ($tipoLiquidacion === Deporte::TIPO_LIQUIDACION_HORA) {
             if ($profesor->valor_hora === null || $profesor->valor_hora <= 0) {
@@ -538,9 +537,9 @@ class LiquidacionService
     {
         $profesor = Profesor::with('deporte')->findOrFail($profesorId);
 
-        $this->validarProfesorParaLiquidacion($profesor);
+        $this->validarProfesorParaLiquidacion($profesor, $mes, $anio);
 
-        $tipoLiquidacion = $profesor->tipo_liquidacion;
+        $tipoLiquidacion = $profesor->tipoLiquidacionParaPeriodo($mes, $anio);
         $detalles = [];
         $total = 0;
 

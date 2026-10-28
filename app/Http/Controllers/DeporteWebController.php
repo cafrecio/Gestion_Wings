@@ -60,9 +60,11 @@ class DeporteWebController extends Controller
             'tipo_liquidacion.in'       => 'El tipo de liquidación no es válido.',
         ]);
 
-        $deporte->update($validated);
-
-        return redirect()->route('web.deportes.index')->with('success', 'Deporte actualizado correctamente.');
+        $cambio = app(\App\Services\DeporteLiquidacionService::class)->actualizar(
+            $id, $validated['nombre'], $validated['tipo_liquidacion'], $request->user()
+        );
+        return redirect()->route($cambio ? 'web.deportes.edit' : 'web.deportes.index', $cambio ? ['id' => $id] : [])
+            ->with('success', $cambio ? 'Cambio programado desde el '.today()->startOfMonth()->addMonth()->format('d/m/Y').'.' : 'Deporte actualizado correctamente.');
     }
 
     public function toggleActivo(Request $request, int $id)

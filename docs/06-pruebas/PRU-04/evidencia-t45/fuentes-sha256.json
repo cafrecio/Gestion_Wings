@@ -1,0 +1,20 @@
+{
+  "app/Http/Controllers/DeporteWebController.php": "da5807ea225072672c04d6e73cabc127a9a3d173f66acbbe580fc3936a25c911",
+  "app/Http/Controllers/LiquidacionWebController.php": "c61f7a32d0dd4873db0a9c0746071b22d9f70297ea8880ab445310eeafae1b15",
+  "app/Models/Deporte.php": "507b30861afe5dc50d061e5c3b1992b13b5337025bdef893176e0c0069bbfd1a",
+  "app/Models/DeporteLiquidacionVigencia.php": "5c45dc11dd6b6f7a28c7c8a9ccf419b1cd727366fe917cf7d028c3fb733a2f03",
+  "app/Models/Profesor.php": "1d0f5e68ec534ccbeb8004d39a07753967c9f9112aa896ec3a7d97f827f99b28",
+  "app/Services/DeporteLiquidacionService.php": "b84df9f90668a39c18bb6f2b943ee80d5cc9c17e379a47237e371e463b5f8556",
+  "app/Services/LiquidacionService.php": "12ead46158f955af9249d431706089eddd29326a570c00d712ae30492dbc23b7",
+  "app/Services/HistorialAnaliticoReportesService.php": "80d0d612f5bbaf61db416c1eede29b27a6d69fb7794d53a378ae514549a77d9e",
+  "app/Services/ReporteSueldosService.php": "9cb723caeca2aa050b6b1938b1f8a191fa11817768de250f1c17e8a278bcd446",
+  "database/migrations/2026_10_28_000002_create_deporte_liquidacion_vigencias_table.php": "2e6a1f75f0f628917c336b2625e575c3d9e51ca28c68928f023ce3dff2cb915a",
+  "resources/views/deportes/edit.blade.php": "02a80484b08f2e8b4fd7f093a5633d4d98210fa25b719b355fa71017dcae47a2",
+  "resources/views/liquidaciones/create.blade.php": "1ae6fa4d34a19bc564501a6f5b8bbad8e73330fefd47f74b2adea11a94c65348",
+  "resources/views/profesores/_form.blade.php": "a96e0d9e9ec0d40f5269612ea8742a6088d30e7cebe33e0bbb248ffe9d053ff5",
+  "resources/js/liquidaciones-create.js": "9e21b35c6e619d55ddaae05d4d3371d6e1ad55b597fbf81a2935e57024225a97",
+  "resources/js/profesores-form.js": "511a1e8d3ccd992e7930e5d560687ed0200d23d2085df101f5ba5c45b53258b4",
+  "scripts/pruebas/capturar-t51-t45-t46.mjs": "69869a68ac6c642a23c068321a58b1d7bbf5a2ef526aaa913330a143707b0e1d",
+  "tests/Feature/DeporteLiquidacionVigenciaT45Test.php": "b10e569536965d9b0869a6727d2ad0dae2b55c18ecd80c21a9aecaa7a398c3ac",
+  "tests/Feature/VigenciaDeporteEsquemaAnteriorT45Test.php": "d983c855c0c40eef41525a4c3f704061da8f3412d0aabd5d9e14132b1d4a444b"
+}

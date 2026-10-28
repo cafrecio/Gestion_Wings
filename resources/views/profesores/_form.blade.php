@@ -133,12 +133,15 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             @foreach($deportes as $deporte)
                 <option value="{{ $deporte->id }}"
                         data-tipo="{{ $deporte->tipo_liquidacion }}"
+                        data-tipo-siguiente="{{ $deporte->tipoLiquidacionParaPeriodo(today()->startOfMonth()->addMonth()->month, today()->startOfMonth()->addMonth()->year) }}"
+                        data-vigente-desde="{{ today()->startOfMonth()->addMonth()->format('d/m/Y') }}"
                         {{ old('deporte_id', $profesor->deporte_id ?? '') == $deporte->id ? 'selected' : '' }}>
                     {{ $deporte->nombre }}
                 </option>
             @endforeach
         </select>
         @error('deporte_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        <p id="profesor-vigencia" hidden style="font-size:0.8rem; color:var(--color-text-muted); margin-top:0.5rem;"></p>
     </div>
 
     {{-- Valor por hora (se muestra si deporte liquida por HORA) --}}

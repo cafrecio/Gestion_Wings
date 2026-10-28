@@ -15,7 +15,11 @@
         if (!data) return { liquidables: 0, sin_asistencia: 0, nombre: '', total_pendientes: 0 };
         var clave = anio + '-' + parseInt(mes, 10);
         var p = (data.periodos && data.periodos[clave]) ? data.periodos[clave] : {};
+        var fecha = String(anio).padStart(4, '0') + '-' + String(mes).padStart(2, '0') + '-01';
+        var vigencia = (data.vigencias || []).find(function (v) { return v.desde <= fecha; });
         return {
+            tipo: vigencia ? vigencia.tipo : data.tipo_base,
+            sin_porcentaje: !!data.sin_porcentaje,
             nombre: data.nombre,
             liquidables: (typeof p.liquidables === 'number') ? p.liquidables : 0,
             sin_asistencia: (typeof p.sin_asistencia === 'number') ? p.sin_asistencia : 0,
@@ -51,6 +55,10 @@
             if (!radio) return;
             var profId = radio.value;
             var info = obtenerDatosPeriodo(profId, anio, mes);
+            var tipoEl = row.querySelector('.profesor-tipo');
+            if (tipoEl) tipoEl.textContent = info.tipo === 'HORA' ? 'Por hora' : 'Por comisión';
+            var porcentajeEl = row.querySelector('.profesor-sin-porcentaje');
+            if (porcentajeEl) porcentajeEl.hidden = info.tipo !== 'COMISION' || !info.sin_porcentaje;
 
             var countEl = row.querySelector('.profesor-clases-count');
             if (countEl) {

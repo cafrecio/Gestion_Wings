@@ -1,0 +1,18 @@
+{
+  "periodos": {
+    "octubre": {
+      "tipo": "Por hora",
+      "aviso": false
+    },
+    "noviembre": {
+      "tipo": "Por comisión",
+      "aviso": true
+    }
+  },
+  "ficha": {
+    "horaConservada": true,
+    "porcentajeConservado": true,
+    "horaVisible": true,
+    "porcentajeVisible": true
+  }
+}

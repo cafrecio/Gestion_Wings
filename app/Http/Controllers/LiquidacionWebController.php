@@ -105,7 +105,7 @@ class LiquidacionWebController extends Controller
               ->doesntHave('asistencias');
 
         $profesores = Profesor::where('activo', true)
-            ->with('deporte')
+            ->with('deporte.vigenciasLiquidacion')
             ->withCount([
                 'clases as clases_count_total' => fn($q) => $queryLiquidables($q, false),
                 'clases as clases_count' => fn($q) => $queryLiquidables($q, true),
@@ -183,6 +183,9 @@ class LiquidacionWebController extends Controller
                     'clases_count'     => (int) $p->clases_count,
                     'sin_asistencia'   => (int) $p->clases_sin_asistencia,
                     'periodos'         => $periodos,
+                    'tipo_base'        => $p->deporte?->getRawOriginal('tipo_liquidacion'),
+                    'vigencias'        => $p->deporte?->vigenciasLiquidacion->map(fn ($v) => ['desde' => $v->vigente_desde->toDateString(), 'tipo' => $v->tipo])->values()->all() ?? [],
+                    'sin_porcentaje'   => $p->porcentaje_comision === null || $p->porcentaje_comision <= 0,
                 ]
             ];
         })->toArray();

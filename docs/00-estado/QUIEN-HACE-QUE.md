@@ -50,13 +50,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T45** Cambiar hora o comision de un deporte: solo sin liquidaciones abiertas y rige desde el mes siguiente | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar vigencias, bloqueo por abiertas, cerradas/pagadas conservadas y porcentajes; Carlos revisar APROBAR-T45.html |
 | **T51** Editar o eliminar un movimiento manual de caja deja rastro, igual que en Cashflow | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar historia de edicion y eliminacion, permisos, arqueo y reporte; Carlos revisar APROBAR-T51.html |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T45** Cambiar hora o comision de un deporte: solo sin liquidaciones abiertas y rige desde el mes siguiente | En curso (hizo Codex) | Programar forma de liquidacion desde el mes siguiente sin alterar liquidaciones anteriores |
+Nada en este momento.
 
 ## Gemini
 

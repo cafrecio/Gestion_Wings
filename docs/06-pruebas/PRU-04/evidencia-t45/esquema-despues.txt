@@ -1,0 +1,6 @@
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                     7.59s
+
+  Tests:    1 passed (4 assertions)
+  Duration: 7.74s
