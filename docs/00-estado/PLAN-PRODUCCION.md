@@ -1,5 +1,18 @@
 # Wings — Plan de produccion
 
+## Alcance cerrado hasta producción — Carlos, 28/10/2026
+
+**No entra nada más**, salvo que un agente le presente a Carlos un motivo y él lo acepte. Lo que aparezca en el camino se anota como mejora futura, no se mete.
+
+| Tarea | Quién |
+|---|---|
+| T70 + T71 (bajas: fecha, reporte y deuda), T45, T46, T51 | Codex |
+| T62 | Gemini |
+| T12 manual y T13 ayuda dentro de Wings | Gemini |
+| T82 ensayo de restauración | Claude |
+
+Con eso terminado: despliegue en el sitio de prueba (junto con T89, T25 y T65), prueba corta de 3-4 días sobre lo cambiado y despliegue en producción.
+
 T50 CERRADA, verificación final Codex CyE 21/10 sobre 738de598: guardia efectiva/DB_URL aprobada con los 3 casos originales rechazados antes de preparar. 13/71 permanentes y 17/214 controles propios verdes; rápida 908 aprobadas/6 omitidas, 7286 aserciones, 158,31 s, salida 0. Corte 1029; H1 decidido por Carlos, H2/H3 e idioma conservados. Gemini implementó, Codex verificó. Sin cambios de producto por Codex ni despliegue. [Informe final](../06-pruebas/PRU-04/VERIFICACION-T50-FINAL-CODEX.md).
 
 > **Actualizado:** 08/09/2026
