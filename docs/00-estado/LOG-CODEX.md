@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
+
+Carlos pidió «Actualizar bitacora y subir todo a github». Revisados estado, commits, origin y tablero actuales; se publica sólo documentación propia pendiente y los commits ya entregados.
+T65 cerrada en559239a5: lógica Codex5928a686 y aspecto aprobado por Carlos, registrado por Gemini. T89 cerrada7da39b53: lógica Claude y aspecto Carlos. T25 cerradad94147b0: lógica Gemini y aspecto Carlos. Son estados leídos del tablero actual; no una nueva verificación de sus cambios visuales.
+Las entregas propias5928a686 (T65) y6da3f3a5 (T89) ya estaban en el remoto al comprobarlo. Esta vuelta agrega el registro de publicación y archiva T90 íntegra para respetar el límite de bitácora.
+Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualización documental. El HTML T34 sucio es ajeno y queda fuera; no se restaura ni se modifica. Integridad/enlaces/diff verificados; confirmación del commit remoto al entregar.
+
+
 ## 2026-10-28 — Codex CAB — T65 segunda vuelta, lógica aprobada
 
 Verificado7e9c2e7f contra informe propio y cuerpos completos; regresiones12 intactas. H1 cargos primero/sólo inscripción reasignable; H2 baja analítica y septiembre conservado; H3 cuatro tipos422, inactivo y fila intacta. Alcance ALU-024 explicado sin editar tabla.
@@ -68,17 +76,6 @@ Sueldos: total/persona/pagos netos, sin reparto por deporte; docentes intactos. 
 
 
 
-## 2026-10-27 — Codex CAB — T90 verificada y aprobada
-
-[Informe independiente](../06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md): siete puntos aprobados sobre563749b2;14 fuentes idénticas pese a la publicación ajena de T92 durante la revisión. Sin producto propio.
-Propias77/528; área160/1160 (T90 incluida4/21); técnica día23 adaptada1/7; rápida933 aprobadas/6 omitidas,7465 aserciones,204,82s; JS real2/2 con respuesta del controlador. Solo MariaDB local wings_testing_codex, conexión efectiva comprobada.
-HORA/COMISIÓN cerradas y pagadas, ADMIN/OPERATIVO, JSON/formulario/XHR y serie: rechazo sin escrituras en seis tablas. Abiertas, sin liquidación, FIN-12, reactivación y serie libre conservados.
-Único camino web activo hacia toggleCancelada; API update latente acepta cancelada pero está apagada (PUT405 y filas intactas). Grafo primero, cobertura insuficiente completada con cuerpos y rg.
-Panel muestra el texto exacto y restaura botones; sin captura ni navegación al sitio. CLA-012/CLA-015 siguen en T62. Tabla y DU-30 solo leídas; propuesta CLA-013 en informe.
-Arranque PHP restringido rechazaba lectura; solucionado fuera de esa restricción manteniendo guardias. Primer rojo propio: expectativa404 frente a405; corregido el fixture, sin culpar al producto. Salidas iniciales conservadas.
-La suite regeneró HTML histórico T34: huellas registradas y bytes de HEAD restituidos. No se incluyó ese HTML en la entrega. Bitácora antigua archivada intacta para respetar su límite.
-T90 se cierra con verifica=Codex; despliegue fuera de esta orden. Sin servidor, base del club, cambios de producto ni push. No se afirma cobertura de carreras entre cancelar y cerrar/pagar.
-
 
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
 
@@ -94,3 +91,5 @@ T90 se cierra con verifica=Codex; despliegue fuera de esta orden. Sin servidor, 
 [Día23 íntegro](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-DIA23-antes-galerias.txt). Base: docs/00-estado/. SHA256: 328a5888b652c9ad59245be38e19d7e87f1d3326480700861795a4580b70849f.
 
 [Dos entradas T92 íntegras, archivadas al implementar T89](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T92-antes-T89.txt). Base original de enlaces: docs/00-estado/. SHA256: 96aaf11c859e54e0a339f6c4941774f7ce8aecb197ffab025ceba0a46c767733.
+
+[T90 íntegra, archivada al publicar la bitácora](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T90-antes-publicacion.txt). Base original: docs/00-estado/; separador vacío final excluido. SHA256: 0d3df2dd8830174d27d8a5a92dc777685e20122f5f119506fc2c173a85a2acbd.

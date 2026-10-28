@@ -1,0 +1,10 @@
+## 2026-10-27 — Codex CAB — T90 verificada y aprobada
+
+[Informe independiente](../06-pruebas/PRU-04/VERIFICACION-T90-CODEX.md): siete puntos aprobados sobre563749b2;14 fuentes idénticas pese a la publicación ajena de T92 durante la revisión. Sin producto propio.
+Propias77/528; área160/1160 (T90 incluida4/21); técnica día23 adaptada1/7; rápida933 aprobadas/6 omitidas,7465 aserciones,204,82s; JS real2/2 con respuesta del controlador. Solo MariaDB local wings_testing_codex, conexión efectiva comprobada.
+HORA/COMISIÓN cerradas y pagadas, ADMIN/OPERATIVO, JSON/formulario/XHR y serie: rechazo sin escrituras en seis tablas. Abiertas, sin liquidación, FIN-12, reactivación y serie libre conservados.
+Único camino web activo hacia toggleCancelada; API update latente acepta cancelada pero está apagada (PUT405 y filas intactas). Grafo primero, cobertura insuficiente completada con cuerpos y rg.
+Panel muestra el texto exacto y restaura botones; sin captura ni navegación al sitio. CLA-012/CLA-015 siguen en T62. Tabla y DU-30 solo leídas; propuesta CLA-013 en informe.
+Arranque PHP restringido rechazaba lectura; solucionado fuera de esa restricción manteniendo guardias. Primer rojo propio: expectativa404 frente a405; corregido el fixture, sin culpar al producto. Salidas iniciales conservadas.
+La suite regeneró HTML histórico T34: huellas registradas y bytes de HEAD restituidos. No se incluyó ese HTML en la entrega. Bitácora antigua archivada intacta para respetar su límite.
+T90 se cierra con verifica=Codex; despliegue fuera de esta orden. Sin servidor, base del club, cambios de producto ni push. No se afirma cobertura de carreras entre cancelar y cerrar/pagar.
