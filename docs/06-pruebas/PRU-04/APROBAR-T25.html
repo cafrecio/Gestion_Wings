@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T25 — Cobrar a un alumno inactivo pregunta si pasa a activo</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}
+main{max-width:1400px;margin:auto}h1{font-size:28px;margin-bottom:8px}h2{font-size:22px;margin-top:0}
+section{background:white;padding:24px;margin:20px 0;border:1px solid #cbd5df;border-radius:10px}
+.columns{display:flex;gap:24px;align-items:flex-start;overflow-x:auto}
+.desktop{flex:1;min-width:600px}.phone{width:375px;min-width:375px}
+img{display:block;max-width:100%;height:auto;border:1px solid #b7c5d2;border-radius:6px}
+.phone img{width:375px;max-width:none}
+a{color:#174c89;text-decoration:none}a:hover{text-decoration:underline}
+.status{border-left:5px solid #0284c7;padding:12px;background:#f0f9ff;margin:16px 0;border-radius:0 6px 6px 0}
+nav{display:flex;gap:20px;flex-wrap:wrap;margin:16px 0}
+figure{margin:0}figcaption{margin:8px 0;font-size:14px;color:#475569}
+ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<main>
+<h1>T25 — Cobrar a un alumno inactivo pregunta si pasa a activo</h1>
+<p>28/10/2026 · Verificación Gemini CAB · Chrome real, aplicación local y alumna inactiva de prueba.</p>
+
+<div class="status">
+<strong>Regla de Carlos (11/10 y 28/10):</strong>
+Al cobrarle a un alumno inactivo, la pantalla pregunta <em>«¿Pasa a activo?»</em> con un panel en la misma página:
+<ul>
+  <li><strong>Sí:</strong> se reactiva y se genera la cuota del mes en curso si el cobro no la incluía (T38).</li>
+  <li><strong>No:</strong> se cobra lo elegido y el alumno sigue inactivo. No se genera la cuota del mes ni corre el descuento de reingreso.</li>
+  <li><strong>«No» solo se ofrece con deuda vieja:</strong> si el cobro incluye el mes en curso o uno futuro, pagar el mes es volver y solo aparecen <strong>Sí</strong> y <strong>Cancelar</strong>.</li>
+</ul>
+</div>
+
+<nav>
+<a href="#deuda-vieja">1. Deuda vieja (Sí, No, Cancelar)</a>
+<a href="#mes-actual">2. Cobro con el mes (Sí, Cancelar)</a>
+<a href="VERIFICACION-T25-GEMINI.md">Informe de verificación</a>
+</nav>
+
+<section id="deuda-vieja">
+<h2>1. Cobro de deuda vieja: ofrece Sí, No y Cancelar</h2>
+<p>Se cobra septiembre (período anterior). Como el alumno está inactivo y solo paga deuda vieja, el panel pregunta si vuelve a activo permitiendo responder <strong>No</strong> para saldar la deuda manteniéndose inactivo.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t25/01-deuda-vieja-1366.png"><img src="evidencia-t25/01-deuda-vieja-1366.png" alt="Deuda vieja en escritorio"></a>
+<figcaption>Escritorio · 1366 px</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t25/01-deuda-vieja-375.png"><img src="evidencia-t25/01-deuda-vieja-375.png" alt="Deuda vieja en marco celular de 375 px"></a>
+<figcaption>Celular · marco de 375 px (acciones a la derecha)</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="mes-actual">
+<h2>2. Cobro que incluye el mes en curso: solo Sí y Cancelar</h2>
+<p>Se cobra octubre (mes en curso). Al pagar el mes corriente o adelantado, pagar es volver. El botón <strong>No</strong> no se muestra; solo figuran <strong>Cancelar</strong> y <strong>Sí</strong>.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t25/02-cobro-con-el-mes-1366.png"><img src="evidencia-t25/02-cobro-con-el-mes-1366.png" alt="Cobro con mes corriente en escritorio"></a>
+<figcaption>Escritorio · 1366 px</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t25/02-cobro-con-el-mes-375.png"><img src="evidencia-t25/02-cobro-con-el-mes-375.png" alt="Cobro con mes corriente en celular de 375 px"></a>
+<figcaption>Celular · marco de 375 px (acciones a la derecha)</figcaption>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>Control de captura y diseño</h2>
+<ul>
+  <li><strong>Botones de una palabra:</strong> <code>Cancelar</code>, <code>No</code>, <code>Sí</code>.</li>
+  <li><strong>Acción principal a la derecha:</strong> <code>Sí</code> (botón primario) se ubica a la derecha en escritorio y en celular (con <code>acciones-celular-derecha</code>).</li>
+  <li><strong>Captura móvil:</strong> se utilizó marco con <code>&lt;iframe&gt;</code> de 375 px según AGENTS.md §1 para evitar el recorte de ventana mínima en Windows.</li>
+  <li><strong>Seguridad CSP:</strong> Cero scripts ni atributos de eventos incrustados en la vista Blade. Pasa <code>CspSinCodigoIncrustadoTest</code>.</li>
+</ul>
+</section>
+</main>
+</body>
+</html>

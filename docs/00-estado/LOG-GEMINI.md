@@ -10,6 +10,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CAB — T25: Verificación independiente — Cobro a alumno inactivo (Sí, No, Cancelar)
+
+- **Objetivo y resultado:** Verificación independiente de **T25** implementada por Claude (`847a35df`). Se contrastó la lógica contra la regla de Carlos (11/10 y 28/10), el contrato y el código en `wings_testing_gemini`. Resultado: **LÓGICA APROBADA; EN ESPERA DE OK VISUAL DE CARLOS**.
+- **Comportamiento verificado:**
+  - **1. Salidas individuales (Admin y Operativa):** «Sí» reactiva y genera cuota del mes como reingreso (T38) con `fecha_reingreso`. «No» cobra la deuda vieja seleccionada, mantiene al alumno inactivo y no genera cuota del mes. «Cancelar» cierra sin escribir. «No» forzado con el mes en curso o futuro es rechazado con 422 por el controlador y con excepción en el servicio. A un activo o inactivo sin plan no se le pregunta.
+  - **2. Combinación con otras confirmaciones:** Se comprobó que las respuestas persisten a través de los modales sucesivos sin doble cobro: con fecha vieja (409 fecha vieja -> 409 reactivación -> cobro con «No»), con mes adelantado (409 adelanto -> 409 reactivación sin «No» -> cobro con «Sí» reactiva), y con cobro parcial B3 (409 reactivación -> 409 B3 con motivo -> cobro con «No» y registro atómico en `excepciones_cobranza`).
+  - **3. Estado posterior y recibo:** El generador del día 1 (`cobranza:generar-deudas`) no crea cuota al inactivo. Alumnos y Cobranza lo muestran inactivo. El recibo PDF se genera correctamente (`web.recibos.cuota`).
+  - **4. Punto dudoso de Claude (`reactivarAuto`):** Se analizó exhaustivamente si un cobro con «No» puede resolver como reactivado automático una revisión pendiente de ese mes. Desde la pantalla es imposible: «No» solo se ofrece para deudas viejas ya existentes, las cuales nunca tienen revisiones pendientes (la generación solo manda a revisión si no existe deuda previa, y si fue resuelta manualmente ya no está pendiente).
+- **Diseño y Capturas:**
+  - Compilación Vite con `npm run build`. Botones de una sola palabra (`Cancelar`, `No`, `Sí`), `Sí` a la derecha en escritorio y celular (`acciones-celular-derecha`). Cero código JS incrustado en Blade (`CspSinCodigoIncrustadoTest` 2/2).
+  - Capturas reales con Chrome headless a 1366 px y marco de 375 px en `docs/06-pruebas/PRU-04/APROBAR-T25.html` (`evidencia-t25/`).
+- **Pruebas:** `CobroInactivoT25Test` (9/9), `CobroInactivoT25VerificacionGeminiTest` (7/7), `ReingresoCuotaT38Test` (18/18), `CambioPlanCobroTest` (10/10), `T88B3DineroTest` (18/18).
+- **Próximo paso:** T25 queda en `a_verificar` asignada a Carlos para aprobación visual en `APROBAR-T25.html`.
+
 ## 2026-10-28 — LOG GEM CAB — T65: Devolución atendida — Recargo impago, historial analítico de cuotas y excepciones de cobranza
 
 - **Objetivo y resultado:** Corrección de **T65** tras la devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md`). Se resolvieron los hallazgos H1, H2 y H3 sin modificar vistas Blade ni CSS. Resultado: **CORREGIDA Y EN `a_verificar`**.

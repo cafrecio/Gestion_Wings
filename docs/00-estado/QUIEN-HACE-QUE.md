@@ -36,6 +36,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
+| **T25** Cobrar a un alumno inactivo: preguntar si pasa a activo (Si, No, Cancelar) | Hecho, espera verificación (hizo Claude, verifica Gemini) | 28/10 Gemini CAB: logica verificada e independiente aprobada. Capturas 1366 y 375 preparadas en APROBAR-T25.html. Queda para OK visual de Carlos. |
 | **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Segunda verificación lógica aprobada; falta OK visual Carlos. H1/H2/H3 y cortes históricos, área49/287, concurrencia2/75 y adicionales3/53 verdes. Rápida1067/6 omitidas, sólo contador1188/1195 ajeno rojo. Sin despliegue. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -55,9 +56,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T25** Cobrar a un alumno inactivo: preguntar si pasa a activo (Si, No, Cancelar) | Hecho, espera verificación (hizo Claude, verifica Gemini) | 28/10 Claude: cobrar a un inactivo pregunta Si/No/Cancelar; No solo con deuda vieja (decision de Carlos). CobroInactivoT25Test 9/9; completa 1175 aprobadas/6 omitidas. Falta verificacion de Gemini y OK visual de Carlos. |
+Nada en este momento.
 
 ## Sin empezar (15)
 
