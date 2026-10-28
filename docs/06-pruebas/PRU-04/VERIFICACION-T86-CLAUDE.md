@@ -18,3 +18,12 @@ Seguridad de la prueba por días: 23 de 23.
 **Observación (no bloquea):** el bloque se llama «Pagos de operativas», pero toma a cualquier usuario con renglón
 de sueldo vinculado. Si en el futuro un dueño tiene el suyo, aparecería ahí. Codex dejó anotado para Carlos qué
 pasa con los cambios de rol; no hay una regla decidida.
+
+## 28/10 — Dos pruebas de T86 en rojo: defecto de la prueba, no del producto
+
+Codex las vio rojas al verificar T65 (27/10, 13:40). Reproducidas acá. `ReporteSueldosOperativasT86Test`
+fija el reloj en 27/10 12:00, pero la cobertura del historial analítico nace con la hora **real** de la
+migración. Desde el mediodía del 27 la cobertura quedó después del corte y el reporte respondía «sin
+historial» (`costo` nulo). Pasaban cuando verifiqué T86 a la mañana. Arreglo: la prueba mueve la
+cobertura al 01/10, como ya hacen `ReporteSueldosTest` y `AjusteFinalLiquidacionTest`. 8/8 en verde.
+Sitio de prueba leído el 28/10: reloj simulado 01/11, cobertura desde 09/10; Sueldos no se ve afectado.

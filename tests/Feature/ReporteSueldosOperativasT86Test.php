@@ -7,6 +7,7 @@ use App\Services\{CashflowCorreccionService, CashflowService, ReporteSueldosServ
 use Carbon\Carbon;
 use Database\Seeders\CatalogosSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -26,6 +27,8 @@ class ReporteSueldosOperativasT86Test extends TestCase
         $this->withoutVite();
         Notification::fake();
         $this->seed(CatalogosSeeder::class);
+        // La cobertura nace con la hora real de la migración; el reloj fijo de la prueba puede quedar antes.
+        DB::table('reporte_analitico_cobertura')->where('id', 1)->update(['desde' => '2026-10-01 00:00:00']);
         $this->admin = User::factory()->create(['rol' => 'ADMIN', 'activo' => true]);
         $this->operativa = $this->crearOperativa('Operativa del reporte');
         $this->medio = TipoCaja::where('activo', true)->firstOrFail();
