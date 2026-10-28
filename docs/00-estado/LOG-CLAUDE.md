@@ -11,6 +11,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-28 — Claude CyE — T82: ensayo de restauración
+
+- Clave de respaldos: Carlos no la tenía; subió a Drive «Credenciales Back-ups» y coincide por huella con la del servidor. Checklist corregido (decía «a salvo» sin comprobar).
+- Ensayo en el VPS, aparte de producción: respaldo bajado de Drive, base, código de GitHub, `.env`, storage, build; /login 200 en 52 s. Todo borrado al final. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md); script en `scripts/servidor/ensayo-restauracion.sh`.
+- No probado: volumen real (producción vacía) ni servidor desde cero.
+- Pendientes: credencial propia de rclone (la compartida se retira en 2026), clave fuera de la carpeta de respaldos, y el repositorio es público con 33 dumps viejos con `users` de demostración en el historial.
+- Prompts guardados: `PROMPT-CODEX-T70-T71.md` y `PROMPT-GEMINI-T62.md`.
+
 ## 2026-10-28 — Claude CyE — T71 resuelta: inactivo y baja son dos cosas
 
 - Carlos: «Inactivo y baja son dos cosas distintas. Solo se puede dar de baja un alumno sin movimientos.» Baja = eliminar, ya es T65. Pasar a Inactivo sigue instantáneo, sin motivo ni aviso (T84; coincide con ALU-017.h y ALU-025.a).
