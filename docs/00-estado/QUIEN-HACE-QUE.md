@@ -39,7 +39,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | Ensayo hecho por Claude CyE 28/10: produccion desde Drive en 52 s y, con datos, el sitio de prueba en 56 s (105 alumnos, 909 asistencias, plata al peso identica). Informe en docs/04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion. No probado: servidor desde cero. Pendientes: credencial propia de rclone (Carlos, 5 min en la consola de Google), pasar la clave al administrador de contrasenas y sacarla de la carpeta de respaldos, decidir si el repositorio sigue publico. |
 
 ## Claude
 
@@ -59,9 +61,9 @@ Nada.
 
 Nada en este momento.
 
-## Sin empezar (13)
+## Sin empezar (12)
 
-T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T82 (antes de producción).
+T12 (antes de producción), T13 (antes de producción), T22 (después), T45 (antes de producción), T46 (antes de producción), T51 (antes de producción), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
 ## Mejoras futuras, no se empiezan ahora (11)
 
