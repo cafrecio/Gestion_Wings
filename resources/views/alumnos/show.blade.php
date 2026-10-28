@@ -476,13 +476,11 @@
             <form method="POST" action="{{ route('web.alumnos.destroy', $alumno->id) }}" style="display:inline; margin:0;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" id="btn-confirmar-eliminar-alumno" class="ds-btn ds-btn-danger"
-                        style="height:32px; font-size:0.82rem; font-weight:600; padding:0 14px;">
+                <button type="submit" id="btn-confirmar-eliminar-alumno" class="ds-btn ds-btn--danger">
                     Eliminar
                 </button>
             </form>
-            <button type="button" id="btn-cerrar-eliminar-alumno" class="ds-btn ds-btn-secondary"
-                    style="height:32px; font-size:0.82rem; font-weight:600; padding:0 14px;">
+            <button type="button" id="btn-cerrar-eliminar-alumno" class="ds-btn ds-btn--secondary">
                 Cerrar
             </button>
         </div>

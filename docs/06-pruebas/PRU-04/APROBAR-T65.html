@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T65 · Así quedó Wings — Botones del panel de eliminación</title>
+<style>
+body{font:16px Arial,sans-serif;background:#f4f6f8;color:#111827;max-width:1400px;margin:24px auto;padding:0 20px}
+h1{font-size:26px;margin-bottom:8px}h2{font-size:21px}p{line-height:1.5}
+section{background:white;border:1px solid #d8e0ea;border-radius:12px;padding:20px;margin:24px 0}
+figure{margin:22px 0}figcaption{line-height:1.5;margin-bottom:10px;font-weight:600;color:#374151}
+img{max-width:100%;height:auto;border:1px solid #d8e0ea;border-radius:6px;display:block}
+a{color:#174c89}
+.status{border-left:5px solid #0284c7;padding:12px 16px;background:#f0f9ff;margin:16px 0;border-radius:0 6px 6px 0}
+</style>
+</head>
+<body>
+<h1>T65 · Así quedó Wings — Botones del panel de eliminación</h1>
+<p>28/10/2026 · Gemini CAB · Capturas reales de Chrome con datos sintéticos locales. Sin despliegue.</p>
+
+<div class="status">
+<strong>Defecto corregido (observación de Carlos en OK visual):</strong> En la ficha del alumno, el panel <em>«¿Confirmás la eliminación permanente de este alumno?»</em> mostraba «Eliminar» y «Cerrar» como texto suelto sin formato de botón debido a que la vista usaba clases con un solo guion (<code>ds-btn-danger</code> y <code>ds-btn-secondary</code>). Se corrigieron a las clases del sistema con doble guion (<code>ds-btn--danger</code> y <code>ds-btn--secondary</code>). Los botones toman el formato estándar del design system y tienen el mismo tamaño (96×32 px) que los del panel de eliminación de clase.
+</div>
+
+<section>
+<h2>1. Panel de confirmación de alumno abierto</h2>
+<p>Los botones «Eliminar» (peligro, fondo rojo) y «Cerrar» (secundario, fondo neutro con borde) ahora tienen formato completo de botón del sistema y miden 96×32 px.</p>
+<figure>
+<figcaption>1366 px · Escritorio: panel de confirmación abierto con botones Eliminar y Cerrar formateados.</figcaption>
+<a href="evidencia-t65/02-alumno-panel-confirmacion-1366.png"><img src="evidencia-t65/02-alumno-panel-confirmacion-1366.png" alt="Panel de confirmación alumno a 1366 px" loading="eager"></a>
+</figure>
+<figure>
+<figcaption>375 px · Celular (marco real de 375 px): acciones alineadas a la derecha con botones de formato completo.</figcaption>
+<a href="evidencia-t65/02-alumno-panel-confirmacion-375.png"><img src="evidencia-t65/02-alumno-panel-confirmacion-375.png" alt="Panel de confirmación alumno a 375 px" loading="eager"></a>
+</figure>
+</section>
+
+<section>
+<h2>2. Comparación: Panel de confirmación de clase</h2>
+<p>Ficha de clase: los botones Eliminar y Cerrar tienen exactamente el mismo tamaño (96×32 px) y estilo que los del panel de alumno.</p>
+<figure>
+<figcaption>1366 px · Escritorio: panel de confirmación en clase.</figcaption>
+<a href="evidencia-t65/05-clase-panel-confirmacion-serie-1366.png"><img src="evidencia-t65/05-clase-panel-confirmacion-serie-1366.png" alt="Panel de confirmación clase a 1366 px" loading="eager"></a>
+</figure>
+<figure>
+<figcaption>375 px · Celular: panel de confirmación en clase.</figcaption>
+<a href="evidencia-t65/05-clase-panel-confirmacion-serie-375.png"><img src="evidencia-t65/05-clase-panel-confirmacion-serie-375.png" alt="Panel de confirmación clase a 375 px" loading="eager"></a>
+</figure>
+</section>
+
+<p>Capturas tomadas con Chrome headless sobre el DOM real de la aplicación con datos sintéticos locales. En celular se utilizó marco con <code>&lt;iframe&gt;</code> de 375 px para garantizar maquetación real sin recorte.</p>
+</body>
+</html>

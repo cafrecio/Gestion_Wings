@@ -25,7 +25,7 @@ const capturas = [
     {
         html: '02-alumno-panel-confirmacion-marco-375.html',
         png: '02-alumno-panel-confirmacion-375.png',
-        tamano: '800,1200'
+        tamano: '800,1650'
     },
     {
         html: '03-alumno-con-cobro-ofrece-baja.html',
