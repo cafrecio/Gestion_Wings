@@ -2,6 +2,9 @@
 
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
+Carlos pidió después publicar también `evidencia-correccion-t34/sin-presentes.html`: se incorpora su regeneración actual en un commit documental separado, sin modificar la prueba que lo genera ni producto.
+
+
 Carlos pidió «Actualizar bitacora y subir todo a github». Revisados estado, commits, origin y tablero actuales; se publica sólo documentación propia pendiente y los commits ya entregados.
 T65 cerrada en559239a5: lógica Codex5928a686 y aspecto aprobado por Carlos, registrado por Gemini. T89 cerrada7da39b53: lógica Claude y aspecto Carlos. T25 cerradad94147b0: lógica Gemini y aspecto Carlos. Son estados leídos del tablero actual; no una nueva verificación de sus cambios visuales.
 Las entregas propias5928a686 (T65) y6da3f3a5 (T89) ya estaban en el remoto al comprobarlo. Esta vuelta agrega el registro de publicación y archiva T90 íntegra para respetar el límite de bitácora.
