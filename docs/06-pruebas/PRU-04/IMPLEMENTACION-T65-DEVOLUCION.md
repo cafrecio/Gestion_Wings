@@ -79,4 +79,12 @@ El único modelo en todo el árbol de borrado que requería disparar eventos de 
 - **Caché de vistas Blade:**
   - Compilación limpia sin errores (`php artisan view:cache && php artisan view:clear`).
 - **Verificación de archivos de diseño:**
-  - `git diff --stat -- resources/views resources/css` no contiene cambios relacionados a T65.
+  - `git diff --stat -- resources/views resources/css`: únicamente `resources/views/alumnos/show.blade.php` con las clases `ds-btn--` autorizadas por Carlos.
+
+## 4. Aprobación y Cierre
+
+- **Lógica:** Aprobada por Codex el 28/10/2026 en segunda vuelta (commit `5928a686`, informe `docs/06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md` §8).
+- **Corrección visual de botones:** Defecto reportado por Carlos (botones con `ds-btn-danger` y `ds-btn-secondary` sin formato de botón). Corregido en commit `56a220ee` a `ds-btn--danger` y `ds-btn--secondary` (96×32 px).
+- **Aspecto visual:** Aprobado por Carlos el 28/10/2026: «Ahora parte visual esta OK».
+- **Galería de evidencia:** `docs/06-pruebas/PRU-04/APROBAR-T65.html`.
+

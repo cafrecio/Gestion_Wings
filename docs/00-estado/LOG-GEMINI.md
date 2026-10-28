@@ -10,9 +10,9 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
-## 2026-10-28 — LOG GEM CAB — T65: Corrección visual — Formato de botones en panel de eliminación de alumno
+## 2026-10-28 — LOG GEM CAB — T65: Corrección visual y OK de Carlos — Formato de botones en panel de eliminación de alumno
 
-- **Objetivo y resultado:** Corrección del defecto visual detectado por Carlos en el OK visual de **T65**: en `resources/views/alumnos/show.blade.php`, los botones «Eliminar» y «Cerrar» del panel de confirmación aparecían como texto plano sin formato de botón. Resultado: **CORREGIDO; EN ESPERA DE OK VISUAL DE CARLOS**.
+- **Objetivo y resultado:** Corrección del defecto visual detectado por Carlos en el OK visual de **T65**: en `resources/views/alumnos/show.blade.php`, los botones «Eliminar» y «Cerrar» del panel de confirmación aparecían como texto plano sin formato de botón. Resultado: **CORREGIDO Y APROBADO POR CARLOS (28/10: «Ahora parte visual esta OK»)**.
 - **Causa y solución:**
   - En `resources/views/alumnos/show.blade.php` (líneas 479 y 484), las clases eran `ds-btn-danger` y `ds-btn-secondary` (con un solo guion), inexistentes en `app.css`.
   - Se corrigieron a `ds-btn--danger` y `ds-btn--secondary` (doble guion del design system).
@@ -20,12 +20,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - Barrido completo en `resources/views/**`: **cero** otros botones con `ds-btn-` de un solo guion; todos los demás usan clases canónicas con doble guion.
 - **Evidencia y capturas:**
   - Capturas reales con Chrome headless sobre DOM exportado a 1366 px y 375 px en marco en `docs/06-pruebas/PRU-04/evidencia-t65/` (`02-alumno-panel-confirmacion-1366.png` y `02-alumno-panel-confirmacion-375.png`).
-  - Galería armada en `docs/06-pruebas/PRU-04/APROBAR-T65.html`.
+  - Galería armada en `docs/06-pruebas/PRU-04/APROBAR-T65.html` con OK visual de Carlos registrado.
 - **Pruebas:**
   - `EliminarAlumnoYClaseT65Test` (19/19) y `VerificacionEliminarT65CodexTest` (12/12) pasadas en `wings_testing_gemini` (31 pasadas, 204 aserciones).
   - Suite rápida: 1068 pasadas, 6 omitidas.
   - Guardianes `DocumentacionNoMienteTest`, `CspSinCodigoIncrustadoTest` y `TableroAlDiaTest` en verde.
-- **Próximo paso:** T65 queda en `a_verificar`, tiene `Carlos` para OK visual.
+- **Próximo paso:** T65 cerrada con lógica aprobada por Codex (commit `5928a686`) y visual por Carlos (28/10). Se sube a prueba junto con T89 y T25.
 
 
 ## 2026-10-28 — LOG GEM CAB — T25: Verificación independiente — Cobro a alumno inactivo (Sí, No, Cancelar)

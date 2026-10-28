@@ -19,7 +19,8 @@ a{color:#174c89}
 <p>28/10/2026 · Gemini CAB · Capturas reales de Chrome con datos sintéticos locales. Sin despliegue.</p>
 
 <div class="status">
-<strong>Defecto corregido (observación de Carlos en OK visual):</strong> En la ficha del alumno, el panel <em>«¿Confirmás la eliminación permanente de este alumno?»</em> mostraba «Eliminar» y «Cerrar» como texto suelto sin formato de botón debido a que la vista usaba clases con un solo guion (<code>ds-btn-danger</code> y <code>ds-btn-secondary</code>). Se corrigieron a las clases del sistema con doble guion (<code>ds-btn--danger</code> y <code>ds-btn--secondary</code>). Los botones toman el formato estándar del design system y tienen el mismo tamaño (96×32 px) que los del panel de eliminación de clase.
+<strong>Parte visual aprobada por Carlos el 28/10/2026:</strong> «Ahora parte visual esta OK».<br>
+Lógica verificada y aprobada por Codex el 28/10/2026 (commit <code>5928a686</code>). Se corrigieron los botones «Eliminar» (<code>ds-btn--danger</code>) y «Cerrar» (<code>ds-btn--secondary</code>) del panel de confirmación de eliminación permanente del alumno en <code>resources/views/alumnos/show.blade.php</code>, adoptando el formato del sistema y midiendo 96×32 px, idéntico al panel de clase.
 </div>
 
 <section>
