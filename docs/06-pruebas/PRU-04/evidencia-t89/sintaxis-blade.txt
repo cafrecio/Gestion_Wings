@@ -1,0 +1,18 @@
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\app\Http\Controllers\CajaWebController.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\app\Http\Controllers\CashflowWebController.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\app\Http\Controllers\MovimientoWebController.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\app\Http\Controllers\OperativoDashboardController.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\resources\views\caja\detalle.blade.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\resources\views\cashflow\index.blade.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\resources\views\cashflow\_acciones.blade.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\resources\views\movimientos\index.blade.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\resources\views\operativo\dashboard.blade.php
+No syntax errors detected in C:\xampp\htdocs\gestion-wings\tests\Feature\PantallasPendientesT89Test.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t89/router.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t89/preparar-local.php
+
+
+   INFO  Blade templates cached successfully.
+
+
+   INFO  Compiled views cleared successfully.

@@ -99,7 +99,7 @@ class OperativoDashboardController extends Controller
 
         // Clases del día con indicador de asistencia cargada
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel'])
-            ->withCount(['asistencias as presentes_count' => fn($q) => $q->where('presente', true)])
+            ->withCount(['asistencias', 'asistencias as presentes_count' => fn($q) => $q->where('presente', true)])
             ->whereDate('fecha', $hoyAr->toDateString())
             ->where('cancelada', false)
             ->orderBy('hora_inicio')

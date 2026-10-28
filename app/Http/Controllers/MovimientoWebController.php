@@ -21,6 +21,7 @@ class MovimientoWebController extends Controller
             'tipoCaja',
             'subrubro.rubro',
             'alumno',
+            'usuario',
         ]);
 
         // El criterio de visibilidad es el RUBRO, nunca quién lo registró

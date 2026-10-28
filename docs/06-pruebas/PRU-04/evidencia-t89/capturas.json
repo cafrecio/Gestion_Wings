@@ -1,0 +1,95 @@
+{
+  "fecha": "2026-10-28",
+  "capturas": [
+    {
+      "archivo": "t89-movimientos-1366.jpg",
+      "viewport": 1366,
+      "pixeles": [
+        1366,
+        1000
+      ],
+      "sha256": "8d55b653008b583c77f4a83be678200462df8aaf43f43d2b15ecafb248eae4f7"
+    },
+    {
+      "archivo": "t89-movimientos-375.jpg",
+      "viewport": 375,
+      "pixeles": [
+        411,
+        1270
+      ],
+      "sha256": "e83ee967a0286ed4914a5f0ebe14725a30f60f8705d74f02bec59608e93e9461"
+    },
+    {
+      "archivo": "t89-consulta-ajena-1366.jpg",
+      "viewport": 1366,
+      "pixeles": [
+        1366,
+        1000
+      ],
+      "sha256": "673cfda5e45efbeb13874fb736e9483cdc48dfc70f46575e6765fdcb4eabfe6a"
+    },
+    {
+      "archivo": "t89-consulta-ajena-375.jpg",
+      "viewport": 375,
+      "pixeles": [
+        411,
+        1270
+      ],
+      "sha256": "405da424fb7a34015b1492864cb746a2c87561f1699af9f38c58342663c93f8f"
+    },
+    {
+      "archivo": "t89-cashflow-1366.jpg",
+      "viewport": 1366,
+      "pixeles": [
+        1366,
+        1000
+      ],
+      "sha256": "5b07f37c2c14b398c3572d5b3b47bd750bb8de12fffc41edc13472301949aab6"
+    },
+    {
+      "archivo": "t89-cashflow-375.jpg",
+      "viewport": 375,
+      "pixeles": [
+        411,
+        1270
+      ],
+      "sha256": "7678ab25b1c56ca6d236780585cbb601d52ecdad12f88e97da588d554a2adb23"
+    },
+    {
+      "archivo": "t89-inicio-1366.jpg",
+      "viewport": 1366,
+      "pixeles": [
+        1366,
+        1000
+      ],
+      "sha256": "3f03767da3714b52ec5b1020e49128f41c1728c55cdcf9efaa706b1810018a6e"
+    },
+    {
+      "archivo": "t89-inicio-375.jpg",
+      "viewport": 375,
+      "pixeles": [
+        411,
+        1270
+      ],
+      "sha256": "5a89279e80eb18420c1f7aaee84e64da368ea5b835ec53b32cd4b126ae8992e9"
+    },
+    {
+      "archivo": "t89-detalle-1366.jpg",
+      "viewport": 1366,
+      "pixeles": [
+        1366,
+        1000
+      ],
+      "sha256": "4c28e52406d348923f30140a21525423b20793961f79586b6a70bddac152cbd8"
+    },
+    {
+      "archivo": "t89-detalle-375.jpg",
+      "viewport": 375,
+      "pixeles": [
+        411,
+        1270
+      ],
+      "sha256": "481683a404c06dba63395de3564e55db0c9a168b7829c4366981831fe5ec15a2"
+    }
+  ]
+}

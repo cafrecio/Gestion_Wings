@@ -195,15 +195,18 @@
             @else
             <div class="lista-clases-movil" style="display:flex; flex-direction:column; gap:6px; max-height:165px; overflow-y:auto; padding-right:4px;">
                 @foreach($clasesHoy as $clase)
-                @php $conLista = $clase->presentes_count > 0; @endphp
+                @php
+                    $conLista = $clase->asistencias_count > 0;
+                    $colorLista = !$conLista ? 'var(--color-warning)' : ($clase->presentes_count > 0 ? 'var(--color-success)' : 'var(--color-text-muted)');
+                @endphp
                 <div class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;">
                     <div style="min-width:0;">
                         <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
                             {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
                             — {{ $clase->grupo->nombre_completo ?? 'Grupo' }}
                         </p>
-                        <p style="font-size:0.72rem; color:{{ $conLista ? 'var(--color-success)' : 'var(--color-warning)' }}; font-weight:600;">
-                            {{ $conLista ? $clase->presentes_count . ' presente' . ($clase->presentes_count !== 1 ? 's' : '') : 'Sin lista' }}
+                        <p style="font-size:0.72rem; color:{{ $colorLista }}; font-weight:600;">
+                            {{ !$conLista ? 'Sin lista' : ($clase->presentes_count > 0 ? $clase->presentes_count . ' presente' . ($clase->presentes_count !== 1 ? 's' : '') : 'Todos ausentes') }}
                         </p>
                     </div>
                     <a href="{{ route('web.clases.show', $clase->id) }}" class="ds-btn-row ds-btn-row--sec">Lista</a>

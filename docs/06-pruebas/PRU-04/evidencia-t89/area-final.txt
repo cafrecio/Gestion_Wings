@@ -1,0 +1,70 @@
+
+   PASS  Tests\Feature\PantallasPendientesT89Test
+  ✓ movimientos muestra autor real y no lo confunde con titular de caja                                         12.98s
+  ✓ otra caja es consulta filtrada y no expone operaciones admin                                                 0.17s
+  ✓ consultar no habilita cerrar ni editar otra caja                                                             0.25s
+  ✓ detalle separa fecha contable y hora real del registro                                                       0.16s
+  ✓ cashflow directo tiene acceso a historial y operativa sigue sin acceso                                       0.20s
+  ✓ inicio distingue sin lista todos ausentes y presentes                                                        0.23s
+  ✓ recibo de otro turno abre el pago correcto y gasto no inventa recibo                                         0.50s
+
+   PASS  Tests\Feature\CajaVerificacionMovimientosT36Test
+  ✓ tildar destildar y recargar conserva el estado guardado                                                      0.12s
+  ✓ validar con todo tildado conserva marcas y refleja una sola vez                                              0.08s
+  ✓ validar con uno sin tildar avisa y no escribe                                                                0.09s
+  ✓ validar desde resumen lleva a detalle con cantidad faltante                                                  0.04s
+  ✓ servicio directo no salta la verificacion                                                                    0.06s
+  ✓ caja sin movimientos se valida                                                                               0.06s
+  ✓ la operativa y el profesor no pueden tildar                                                                  0.06s
+  ✓ rechazar conserva marcas y corregir solo destilda el movimiento cambiado                                     0.07s
+  ✓ una actualizacion masiva tambien invalida la revision                                                        0.09s
+  ✓ cancelados visibles exigen tilde pero no se suman en cashflow                                                0.06s
+  ✓ una pantalla vieja no puede marcar contenido distinto                                                        0.07s
+  ✓ no se verifica un movimiento por otra caja                                                                   0.13s
+
+   PASS  Tests\Feature\CajaRechazoMotivoT37Test
+  ✓ rechazar sin motivo muestra el error en ambas pantallas                                                      0.06s
+  ✓ rechazar con solo espacios no cambia la caja                                                                 0.06s
+  ✓ rechazar con mas de 500 caracteres no guarda                                                                 0.09s
+  ✓ motivo valido se guarda y la operativa lo ve en el resumen                                                   0.06s
+  ✓ servicio directo rechaza vacio y espacios sin escribir                                                       0.03s
+  ✓ servicio directo rechaza mas de 500 y acepta 500                                                             0.05s
+  ✓ ambos modales exigen motivo y no inventan un minimo                                                          0.08s
+  ✓ consultar rechazada historica no rellena su motivo                                                           0.06s
+
+   PASS  Tests\Feature\DetalleCajaCanceladoYFichaAltaT78Test
+  ✓ el detalle de caja muestra el motivo de un cobro cancelado para operativa y dueno                            0.14s
+  ✓ la ficha de un alumno con alta reciente muestra vencimiento y total igual a cobranza                         0.23s
+  ✓ un alumno al dia no muestra vencimiento ni total                                                             0.11s
+
+   PASS  Tests\Feature\CashflowCorreccionesT27Test
+  ✓ editar conserva id creador y antes despues con centavos y motivo opcional                                    0.19s
+  ✓ pedido directo rechaza tres decimales cero negativos letras y fuera de capacidad                             0.21s
+  ✓ cualquier mes anterior se corrige y no admite fecha futura                                                   0.12s
+  ✓ eliminar conserva original y contraasiento mismo mes medio y clasificacion                                   0.16s
+  ✓ doble envio editar y eliminar es idempotente y no reutiliza clave con otros datos                            0.14s
+  ✓ formulario viejo no pisa edicion ni elimina valor que no se vio                                              0.12s
+  ✓ otros roles no ven ni escriben forzando rutas                                                                0.35s
+  ✓ referencias de pago caja y liquidacion no se corrigen como directos                                          0.38s
+  ✓ subrubro reservado no recibe ediciones directas                                                              0.08s
+  ✓ cashflow inicio reportes historial y saldo coinciden tras editar y eliminar                                  0.30s
+  ✓ historial muestra egreso directo como salida y total positivo                                                0.10s
+  ✓ reporte original se actualiza y contraasiento respeta clasificacion congelada                                0.20s
+  ✓ liquidacion pendiente usa editor existente y pagada permanece intacta                                        0.42s
+  ✓ cambiar medio y subrubro actualiza ambos saldos y clasificacion con historial                                0.29s
+  ✓ falla al guardar historial revierte original contraasiento y version                                         0.07s
+  ✓ servicio rechaza actor no admin o inactivo sin escribir                                                      0.09s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.05s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas
+  ✓ lo generado coincide con tareas json                                                                         0.01s
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+  Tests:    53 passed (454 assertions)
+  Duration: 19.83s

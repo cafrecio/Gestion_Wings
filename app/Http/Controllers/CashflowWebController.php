@@ -211,6 +211,7 @@ class CashflowWebController extends Controller
             if ($correccionesDisponibles && $mov->puedeCorregirse()) {
                 $acciones = [
                     ['nombre' => 'Editar', 'url' => route('web.cashflow.movimientos.editar', $mov->id)],
+                    ['nombre' => 'Historial', 'url' => route('web.cashflow.movimientos.show', $mov->id)],
                     ['nombre' => 'Eliminar', 'url' => route('web.cashflow.movimientos.eliminar', $mov->id)],
                 ];
             } else {

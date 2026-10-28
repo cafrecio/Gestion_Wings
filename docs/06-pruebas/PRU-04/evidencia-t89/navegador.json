@@ -1,0 +1,61 @@
+{
+  "consultaAjena": {
+    "texto": "OPERATIVO\n\nRocío Demo\n\nAPERTURA\n\n02/11/2026 11:00\n\nCIERRE\n\n02/11/2026 16:00\n\nESTADO\n\nCERRADA\n\n2 movimientos\nVolver\nFECHA\tHORA\tI/E\tMEDIO\tRUBRO — SUBRUBRO\tALUMNO / OBS.\tMONTO\t\n02/11/2026\t14:15\tI\tEF\tCuotas — Cuota Mensual\t\nGómez, Lucía · PAT · 11/26\n\t$28,000.00\tRecibo\n02/11/2026\t14:25\tI\tEF\tCuotas — Cuota Mensual\t\nPérez, Mario · PAT · 11/26\n\t$28,000.00\tRecibo\n\tIngresos: $56,000.00  ·  Egresos: $0.00\t$56,000.00\t",
+    "enlaces": [
+      {
+        "href": "http://127.0.0.1:8788/movimientos",
+        "texto": "Volver"
+      },
+      {
+        "href": "http://127.0.0.1:8788/recibos/cuota/2?inline=1",
+        "texto": "Recibo"
+      },
+      {
+        "href": "http://127.0.0.1:8788/recibos/cuota/4?inline=1",
+        "texto": "Recibo"
+      }
+    ]
+  },
+  "movimientos375": {
+    "marco": 375,
+    "acciones": [
+      {
+        "alto": 32,
+        "ancho": 96,
+        "derecha": 216,
+        "texto": "Caja"
+      },
+      {
+        "alto": 32,
+        "ancho": 96,
+        "derecha": 320,
+        "texto": "Recibo"
+      },
+      {
+        "alto": 32,
+        "ancho": 96,
+        "derecha": 216,
+        "texto": "Caja"
+      },
+      {
+        "alto": 32,
+        "ancho": 96,
+        "derecha": 320,
+        "texto": "Recibo"
+      }
+    ]
+  },
+  "cashflowHistorial": {
+    "texto": "Librería\nFecha\n\n02/11/2026\n\nMedio\n\nEfectivo\n\nImporte\n\n$-4,500.00\n\nMateriales para el taller - importe corregido\n\nVolver\nEditar\nHistorial de correcciones\n\nEdición · 02/11/2026 19:00 · Carlos Demo\n\nAntes\n\n$-4,000.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller\n\nDespués\n\n$-4,500.00 · 02/11/2026\n\nLibrería · Efectivo\n\nMateriales para el taller - importe corregido\n\nMotivo: Se corrigió el importe del comprobante de librería."
+  },
+  "reciboSinRecorte": [
+    {
+      "derechaBoton": 1337,
+      "derechaTabla": 1349
+    },
+    {
+      "derechaBoton": 1337,
+      "derechaTabla": 1349
+    }
+  ]
+}

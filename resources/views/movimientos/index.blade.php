@@ -79,7 +79,7 @@
 </div>
 
 @if($movimientos->isNotEmpty())
-    <div class="alumno-card" style="padding:0; overflow-x:auto;">
+    <div class="alumno-card hidden sm:block" style="padding:0; overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
             <colgroup>
                 <col style="width:85px">
@@ -89,7 +89,8 @@
                 <col style="width:140px">
                 <col style="width:90px">
                 <col style="width:95px">
-                @if($esAdmin) <col style="width:110px"> @endif
+                <col style="width:110px">
+                <col style="width:84px">
             </colgroup>
             <thead>
                 <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -100,9 +101,8 @@
                     <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Alumno / Obs.</th>
                     <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
                     <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Caja</th>
-                    @if($esAdmin)
-                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Operativo</th>
-                    @endif
+                    <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
+                    <th style="padding:8px 12px; text-align:center; font-size:0.7rem; color:var(--color-text-muted);">Recibo</th>
                 </tr>
             </thead>
             <tbody>
@@ -153,15 +153,45 @@
                             –
                         @endif
                     </td>
-                    @if($esAdmin)
                     <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                        {{ $caja?->usuarioOperativo?->name ?? '–' }}
+                        {{ $mov->usuario?->name ?? '–' }}
                     </td>
-                    @endif
+                    <td style="padding:8px 10px; text-align:right;">
+                        @if($mov->pago_id)
+                        <a class="ds-btn-row ds-btn-row--sec" href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1" target="_blank">Recibo</a>
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="sm:hidden">
+        @foreach($movimientos as $mov)
+        <div class="alumno-card">
+            <div class="alumno-card-header">
+                <span class="alumno-dot alumno-dot--neutral"></span>
+                <h3 class="alumno-nombre">{{ $mov->alumno ? $mov->alumno->apellido . ', ' . $mov->alumno->nombre : ($mov->observaciones ?? $mov->subrubro?->nombre ?? 'Movimiento') }}</h3>
+            </div>
+            <div class="alumno-info" style="grid-template-columns:repeat(2,minmax(0,1fr));">
+                <div class="info-item"><span class="info-label">Fecha:</span><span class="info-value">{{ $mov->fecha?->format('d/m/Y') ?? '–' }}</span></div>
+                <div class="info-item"><span class="info-label">Medio:</span><span class="info-value">{{ $mov->tipoCaja?->abreviatura ?? $mov->tipoCaja?->nombre ?? '–' }}</span></div>
+                <div class="info-item"><span class="info-label">Tipo:</span><span class="info-value">{{ $mov->subrubro?->rubro?->tipo === 'EGRESO' ? 'Egreso' : 'Ingreso' }}</span></div>
+                <div class="info-item"><span class="info-label">Monto:</span><span class="info-value ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($mov->monto) }}</span></div>
+                <div class="info-item"><span class="info-label">Rubro:</span><span class="info-value">{{ $mov->subrubro?->rubro?->nombre ?? '–' }} — {{ $mov->subrubro?->nombre ?? '–' }}</span></div>
+                <div class="info-item"><span class="info-label">Registró:</span><span class="info-value">{{ $mov->usuario?->name ?? '–' }}</span></div>
+            </div>
+            <div class="alumno-actions acciones-celular-derecha" style="display:grid; grid-template-columns:repeat(2,96px); justify-content:end; gap:8px;">
+                @if($mov->cajaOperativa)
+                <a class="ds-btn-row ds-btn-row--sec" style="grid-column:1;" href="{{ route('web.caja.detalle', $mov->caja_operativa_id) }}">Caja</a>
+                @endif
+                @if($mov->pago_id)
+                <a class="ds-btn-row ds-btn-row--sec" style="grid-column:2;" href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1" target="_blank">Recibo</a>
+                @endif
+            </div>
+        </div>
+        @endforeach
     </div>
 
     @if($movimientos->hasPages())

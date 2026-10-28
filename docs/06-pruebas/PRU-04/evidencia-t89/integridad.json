@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-10-28",
+  "completa": {
+    "aprobadas": 1182,
+    "omitidas": 6,
+    "aserciones": 9861,
+    "segundos": 1087.71,
+    "salida": 0
+  },
+  "rapida": {
+    "aprobadas": 1060,
+    "omitidas": 6,
+    "fallidas": 1,
+    "causa": "Contador documental 1181 frente a 1188; actualizado y guardia aislada 1/7 verde, además de completa verde"
+  },
+  "area_final": {
+    "aprobadas": 53,
+    "aserciones": 454,
+    "segundos": 19.83,
+    "salida": 0
+  },
+  "diferencia_posterior_completa": {
+    "archivo": "resources/views/caja/detalle.blade.php",
+    "cambio": "Ancho de columna Recibo 72 a 96 px; capturas renovadas y área final verde"
+  },
+  "imagenes_decodificadas": [
+    "login-calibracion-375.jpg",
+    "t89-cashflow-1366.jpg",
+    "t89-cashflow-375.jpg",
+    "t89-consulta-ajena-1366.jpg",
+    "t89-consulta-ajena-375.jpg",
+    "t89-detalle-1366.jpg",
+    "t89-detalle-375.jpg",
+    "t89-inicio-1366.jpg",
+    "t89-inicio-375.jpg",
+    "t89-movimientos-1366.jpg",
+    "t89-movimientos-375.jpg"
+  ],
+  "t34_ajeno_inicial_sha256": "29af558cd2da3a2c23a7f73c1f06aa5a387c256a9519fc4606c13ac3c7209e22",
+  "base": "wings_testing_codex",
+  "servidor_captura_detenido": true,
+  "desplegado": false
+}

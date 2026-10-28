@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CAB — T89 implementada A/A/B/B y entregada
+
+Carlos: «Movimientos A, pero mostrame como queda visualmente»; Cashflow A, Inicio B y Detalle B. Cinco Blade de cuatro pantallas autorizadas; sin CSS compartido ni JS.
+Autor real/Recibo, consulta ajena por rubro sin escritura; reloj Historial; Todos ausentes gris; Hora de registro. Siete pruebas permanentes y capturas reales1366/marco375, datos sintéticos.
+Completa1182 aprobadas/6 omitidas/9861 aserciones/1087,71s, salida0. Rápida1060/6 y una roja documental: contador actualizado1188, aislada1/7 verde y completa posterior verde.
+Después, ancho Recibo72→96 para evitar recorte; área final53/454/19,83s verde. Las otras nueve fuentes congeladas siguen iguales. PHP, Blade y build correctos.
+[Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T89-CODEX.md) · [Así quedó Wings](../06-pruebas/PRU-04/APROBAR-T89.html): diez imágenes verificadas/abiertas en Chrome y login de calibración.
+T89 a_verificar,tieneClaude: revisar lógica/permisos; Carlos mira aspecto final. T54/T87 siguen cerradas. Solo wings_testing_codex; servidor propio detenido, T34 ajeno inicial intacto. Sin despliegue ni push manual.
+
 ## 2026-10-28 — Codex CAB — Galerías y OK de T54/T87; T89 por decidir
 
 45 JPEG de Chrome (44 en galerías y login), datos sintéticos en wings_testing_codex:1366 y DOM real remaquetado en marco375, sin maquetas/producto.
@@ -49,23 +58,7 @@ Sueldos: total/persona/pagos netos, sin reparto por deporte; docentes intactos. 
 18 permanentes T86: iniciales10 (7 rojas antes); ocho nuevas de reporte (8 rojas antes). Dirigidas30/133; rápida952/6 omitidas/7558; completa 1071 aprobadas/6 omitidas/9157 aserciones/972,62s, salida0. Solo wings_testing_codex, sintaxis y vistas correctas.
 [Capturas reales1366/375](../06-pruebas/PRU-04/APROBAR-T86-SUELDOS.html), Carlos: «Las imagenes estan OK». Evidencia inicial histórica f257fd6f, diagnóstico actualizado1/8. T86 cerrado,hizo=Codex,verifica=Claude,tiene=nadie; lógica aprobada en ea07b6ae. T92 cerrada79340268. Sin push/despliegue/servidor/base del club; T85/T93 fuera.
 
-## 2026-10-27 — Codex CAB — T92 segunda vuelta aprobada
 
-[Informe, segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md): 6a06cf09 suma Revisión solo al crear fila; leído y comprobado. T85 contenida en ese commit no se revisa aquí.
-Ocho casos originales sin cambiar bytes ni esperados: 8/44 verdes; Revisión 1→1→2, cuotas 2→2→3, hora fija, corte/reintento, aviso e índice único conservados.
-Tres casos resueltos CONTINUA/INACTIVO/REACTIVADO_AUTO: 3/24; fila completa intacta, sin repetir ni contar. Son fixtures de alcance del guard, no nuevas reglas de resolución.
-Área 45/151 (incluye adicionales; T40 11/54), rápida 934 aprobadas/6 omitidas/7472 aserciones, 220,18 s, salidas 0. Solo wings_testing_codex; prueba copiada exacta para conservar la evidencia roja anterior.
-T92 cerrada, verifica=Codex, tiene=nadie. Auditor anterior distingue fuentes históricas del código corregido. HTML lateral T34 repuesto; sin servidor, base del club, push manual ni despliegue.
-Siguiente paso: implementar T86 según aprobación escrita del adjunto; Reportes Sueldos actual solo analiza profesoras, registrar ese límite y las dudas de cambios de rol.
-
-## 2026-10-27 — Codex CAB — T92 devuelta; entrega documental de T90 resuelta
-
-[Verificación T92](../06-pruebas/PRU-04/VERIFICACION-T92-CODEX.md) sobre c30bb7c2: Revisión se cuenta otra vez aunque no se crea una fila. Un alumno: 1→2; con otro nuevo en la tercera corrida: 1→2→4, con solo dos revisiones. Sin corregir producto.
-Propias finales: 6 aprobadas/2 fallidas, 44 aserciones; área 91/461 (T40 10/47 incluida); rápida 933/6 omitidas/7465 aserciones, 163,75 s, salida 0. Rojos y filas completas conservados.
-Cuotas creadas 2→2→3 y hora inicial preservada; corte antes de segunda cuota no deja constancia; reintento sin duplicar, aviso real simulado correcto y sin repetición. Índice único rechaza otro registro del mes.
-Esquema real MariaDB 10.4.32: tres columnas ON UPDATE. Otros eventos se insertan; fuentes y usos históricos revisados. Solo wings_testing_codex con guardias antes de migrar; notificaciones simuladas, sin servidor/base del club.
-T92 devuelta a Claude: corregir el contador de revisiones existentes y repetir los dos casos. Tabla externa/copia intactas; sin despliegue ni push. El HTML T34 regenerado por la suite se repuso a sus bytes originales.
-T90 sigue aprobada/cerrada: 691b1f83 incorporó su entrega con T85 ajena. Auditor/manifiesto ahora distinguen evidencia actual y seis documentos compartidos históricos de ese commit; no se reescribe el commit concurrente.
 
 ## 2026-10-27 — Codex CAB — T90 verificada y aprobada
 
@@ -91,3 +84,5 @@ T90 se cierra con verifica=Codex; despliegue fuera de esta orden. Sin servidor, 
 [Días19–22 archivada íntegra al verificar T65](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-verificacion-T65.txt). Base original de enlaces: docs/00-estado/. SHA256: d3da73340bef8e9318bc40905b19b956c4189cc1b9629e3dbdc4841596ca4765.
 
 [Día23 íntegro](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-DIA23-antes-galerias.txt). Base: docs/00-estado/. SHA256: 328a5888b652c9ad59245be38e19d7e87f1d3326480700861795a4580b70849f.
+
+[Dos entradas T92 íntegras, archivadas al implementar T89](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T92-antes-T89.txt). Base original de enlaces: docs/00-estado/. SHA256: 96aaf11c859e54e0a339f6c4941774f7ce8aecb197ffab025ceba0a46c767733.

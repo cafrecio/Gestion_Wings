@@ -113,6 +113,8 @@ Decidir si a un alumno que no vino se le genera la cuota del mes es trabajo del 
 ### Caja
 El operativo abre/opera/cierra cajas. La única restricción "de propiedad" legítima que existe es que un operativo no puede **cerrar** la caja abierta de otro operativo (integridad del arqueo, no privacidad). Ver `CajaWebController::cerrar()`. Pero **ver** el historial y los movimientos no está restringido por propiedad.
 
+T89, elección A de Carlos del 28/10/2026: desde Movimientos se puede consultar el detalle de otra caja. Para OPERATIVO, sus filas y totales incluyen únicamente subrubros OPERATIVO, igual que el listado. Esa consulta no incorpora acciones de escritura ni el resumen ajeno; los controles de cada ruta de modificación se conservan. ADMIN mantiene el detalle completo. PROFESOR sigue sin acceso.
+
 ### Clases + Asistencias — excepción deliberada a la regla de oro
 Ver `docs/02-contratos/Wings-Contrato-Clases-Asistencias-V1.md` para el detalle completo. Resumen de la única excepción real que existe hoy a "operativo = dominio completo":
 - **Crear, editar y validar-para-liquidación una clase**: exclusivo ADMIN. El operativo no puede.

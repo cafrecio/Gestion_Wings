@@ -1,0 +1,65 @@
+{
+  "url": "http://127.0.0.1:8788/__galeria/revision/APROBAR-T89.html",
+  "imagenes": [
+    {
+      "alto": 1000,
+      "ancho": 1366,
+      "archivo": "evidencia-t89/t89-movimientos-1366.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1270,
+      "ancho": 411,
+      "archivo": "evidencia-t89/t89-movimientos-375.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1000,
+      "ancho": 1366,
+      "archivo": "evidencia-t89/t89-consulta-ajena-1366.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1270,
+      "ancho": 411,
+      "archivo": "evidencia-t89/t89-consulta-ajena-375.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1000,
+      "ancho": 1366,
+      "archivo": "evidencia-t89/t89-cashflow-1366.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1270,
+      "ancho": 411,
+      "archivo": "evidencia-t89/t89-cashflow-375.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1000,
+      "ancho": 1366,
+      "archivo": "evidencia-t89/t89-inicio-1366.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1270,
+      "ancho": 411,
+      "archivo": "evidencia-t89/t89-inicio-375.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1000,
+      "ancho": 1366,
+      "archivo": "evidencia-t89/t89-detalle-1366.jpg",
+      "cargada": true
+    },
+    {
+      "alto": 1270,
+      "ancho": 411,
+      "archivo": "evidencia-t89/t89-detalle-375.jpg",
+      "cargada": true
+    }
+  ]
+}

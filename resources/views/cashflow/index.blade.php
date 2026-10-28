@@ -164,7 +164,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <col class="col-importe" style="width:125px">
             <col style="width:145px">
             <col style="width:50px">
-            <col style="width:86px">
+            <col style="width:112px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">

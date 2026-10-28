@@ -1,0 +1,42 @@
+[
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\app\\Http\\Controllers\\CajaWebController.php",
+    "Hash": "B7A0CA4EDDC3D2E7F754AB53AD0C1181D422EA5BC2AF8FDBA95DB3D288D248AE"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\app\\Http\\Controllers\\CashflowWebController.php",
+    "Hash": "FCD6C6B1103156DB27559398745D22B701737E8F42A6F73A313D6E81BA5FC282"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\app\\Http\\Controllers\\MovimientoWebController.php",
+    "Hash": "72D9870D45B79E4A3D1AEBD46C55656CA4C408BFBD09C451B20B72B1195E7D6B"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\app\\Http\\Controllers\\OperativoDashboardController.php",
+    "Hash": "DDDEF7566525F6FC775402C1596989947997D49577087A560D05688FFCCE6AF9"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\resources\\views\\caja\\detalle.blade.php",
+    "Hash": "78FC82688853A2161319E380BA2E6C10A925DF8B6AAB0FA31E2CAE3B5709400B"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\resources\\views\\cashflow\\index.blade.php",
+    "Hash": "BB0C55CE30EE6239CA38FA2516D12E4B137FF425F302BE4A452F8DBB88B0B14F"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\resources\\views\\cashflow\\_acciones.blade.php",
+    "Hash": "80CBF6E02D27E4F50DF700871FCF0ECB605471A4F3D13129286E8C9D73A3B20C"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\resources\\views\\movimientos\\index.blade.php",
+    "Hash": "08C88A7446DEECC6685CE8C5C627AEFD82A7C33A18ED6636C5AE9E5F59170DC9"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\resources\\views\\operativo\\dashboard.blade.php",
+    "Hash": "9BB3D4331E4AECF1C0A25A18A9971F2C1EB729139E04568F9207454EEBFC29F2"
+  },
+  {
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\PantallasPendientesT89Test.php",
+    "Hash": "82BA0399B10DC595E19FA83D68C17559A69041D3DBFF6B8E7CB89D5A69ADF1DF"
+  }
+]

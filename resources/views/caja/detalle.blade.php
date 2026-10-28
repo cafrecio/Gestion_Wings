@@ -15,6 +15,7 @@
 $user      = Auth::user();
 $esAdmin   = $user->isAdmin();
 $esProp    = $user->id === $caja->usuario_operativo_id;
+$soloConsultaAjena = !$esAdmin && !$esProp;
 
 $hasEditar    = in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esProp;
 $hasCheckbox  = $esAdmin && $caja->estado === 'CERRADA';
@@ -79,8 +80,10 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             </form>
             <button type="button" data-abrir-rechazar style="{{ $btnBDang }}">Rechazar</button>
         @endif
+        @if(!$soloConsultaAjena)
         <a href="{{ route('web.caja.resumen', $caja->id) }}" style="{{ $btnBSec }}">Resumen</a>
-        <a href="{{ route('web.caja.index') }}" style="{{ $btnBSec }}">Volver</a>
+        @endif
+        <a href="{{ route($soloConsultaAjena ? 'web.movimientos.index' : 'web.caja.index') }}" style="{{ $btnBSec }}">Volver</a>
     </div>
 </div>
 
@@ -92,6 +95,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
     <table class="tabla-operativa-movil" style="width:100%; min-width:800px; border-collapse:collapse; table-layout:fixed;">
         <colgroup>
             <col style="width:90px">
+            <col class="hidden sm:table-column" style="width:64px">
             <col style="width:30px">
             <col style="width:52px">
             <col>
@@ -102,12 +106,13 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             @elseif($hasCheckbox)
                 <col class="col-revision-movil" style="width:{{ $hasRecibo ? '110px' : '40px' }}">
             @elseif($hasRecibo)
-                <col class="col-recibo-movil" style="width:72px">
+                <col class="col-recibo-movil" style="width:96px">
             @endif
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Fecha</th>
+                <th class="hidden sm:table-cell" style="padding:8px 6px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; color:var(--color-text-muted);">Hora</th>
                 <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">I/E</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Medio</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
@@ -150,6 +155,10 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             <tr style="{{ $trStyle }}">
                 <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); {{ $textStyle }}">
                     {{ $mov->fecha?->format('d/m/Y') ?? '–' }}
+                    <span class="sm:hidden"> · {{ $mov->created_at?->timezone('America/Argentina/Buenos_Aires')->format('H:i') ?? '–' }}</span>
+                </td>
+                <td class="hidden sm:table-cell" style="padding:8px 6px; font-size:0.8rem; color:var(--color-text-muted); {{ $textStyle }}">
+                    {{ $mov->created_at?->timezone('America/Argentina/Buenos_Aires')->format('H:i') ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:{{ $ieColor }}; {{ $textStyle }}">
                     {{ $ieLabel }}
@@ -241,6 +250,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
         </tbody>
         <tfoot>
             <tr style="background:var(--color-surface-alt); border-top:2px solid var(--color-border);">
+                <td class="hidden sm:table-cell"></td>
                 <td colspan="5" style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
                     Ingresos: <strong style="color:var(--color-success);"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</span></strong>
                     &nbsp;·&nbsp;

@@ -413,8 +413,12 @@ class CajaWebController extends Controller
             'movimientos.pago.deudasCuota',
         ])->findOrFail($id);
 
-        if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
-            abort(403);
+        // Mismo dominio que Movimientos: el rubro, no el titular de la caja.
+        // Cada acción de escritura conserva su control de titularidad.
+        if (!$user->isAdmin()) {
+            $caja->setRelation('movimientos', $caja->movimientos->filter(
+                fn ($movimiento) => $movimiento->subrubro?->permitido_para === 'OPERATIVO'
+            )->values());
         }
 
         return view('caja.detalle', compact('caja'));

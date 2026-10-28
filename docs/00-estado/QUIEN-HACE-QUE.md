@@ -47,13 +47,13 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | Hecho, espera verificación (hizo Codex, verifica Claude) | A/A/B/B implementadas; 7 pruebas, completa 1182/6 omitidas. Revisar lógica y permisos; Carlos mira APROBAR-T89.html para el aspecto final. Local, sin despliegue. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T65** El duenio puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias | Hecho, espera verificación (hizo Gemini, verifica Codex) | Devolucion corregida: H1 recargo, H2 historial, H3 excepcion. Ver IMPLEMENTACION-T65-DEVOLUCION.md |
-| **T89** Pantallas que no muestran lo que deberian (prueba dias 19-22) | En curso (hizo Codex, verifica Claude) | Carlos 28/10 eligio Movimientos A (ver aspecto), Cashflow A, Inicio B y Detalle B. Implementar sobre Wings local; capturas reales1366/375 y verificacion independiente de permisos. Galeria DECIDIR-T89.html. |
 
 ## Gemini
 
