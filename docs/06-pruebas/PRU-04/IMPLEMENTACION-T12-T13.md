@@ -51,7 +51,20 @@ El servicio `App\Services\ManualService` se encarga de:
 
 ### Rutas registradas (dentro del middleware `auth`):
 - `GET /ayuda`: `web.ayuda.index` &rarr; `AyudaWebController@index`.
+- `GET /ayuda/img/{rol}/{archivo}`: `web.ayuda.imagen` &rarr; `AyudaWebController@imagen`.
 - `GET /ayuda/{slug}`: `web.ayuda.show` &rarr; `AyudaWebController@show`.
+
+### Servicio autenticado de imágenes del manual
+Para que las imágenes se visualicen correctamente dentro de Wings tanto en entorno local como en servidor y no se puedan acceder sin sesión:
+1. Las imágenes físicas se almacenan en `resources/manual/img/{rol}/{archivo}`, fuera del directorio público.
+2. La ruta `/ayuda/img/{rol}/{archivo}` está protegida por el middleware `auth` y valida los roles mediante `ManualService::rolesPermitidos`:
+   - Admin puede ver imágenes de cualquier rol.
+   - Operativo solo puede ver imágenes de `operativo` (intento sobre `admin` o `profesor` da HTTP 403).
+   - Profesor solo puede ver imágenes de `profesor` (intento sobre `admin` u `operativo` da HTTP 403).
+   - Usuarios sin sesión son redirigidos a `/login`.
+   - Archivos inexistentes devuelven HTTP 404.
+   - Nombres con caracteres sospechosos o intentos de *directory traversal* son rechazados con 404.
+3. En los archivos Markdown del manual, las imágenes se referencian directamente como `/ayuda/img/{rol}/{archivo}`, cargándose de forma nativa e integrada en las vistas de Wings.
 
 ### Entrada en el Menú lateral (`layouts/ds-app.blade.php`)
 - En el grupo **Sistema** para el rol ADMIN (debajo de Usuarios).
@@ -108,7 +121,7 @@ Se redactó y presentó la nómina completa en `docs/06-pruebas/PRU-04/T12-LISTA
 
 ## 5. Pruebas automatizadas de permisos y funcionamiento
 
-Se implementó la suite `tests/Feature/AyudaManualT12T13Test.php` con **11 pruebas y 46 aserciones**, todas en verde:
+Se implementó la suite `tests/Feature/AyudaManualT12T13Test.php` con **17 pruebas y 79 aserciones**, todas en verde en `wings_testing_gemini`:
 1. `test_invitado_sin_sesion_es_redirigido_a_login`: Redirección a `/login` para rutas `/ayuda` y `/ayuda/{slug}`.
 2. `test_admin_ve_todas_las_secciones_en_el_indice_de_ayuda`: Admin ve todas las guías en `/ayuda`.
 3. `test_operativo_ve_solo_sus_guias_en_el_indice`: Operativa no ve guías de admin ni de profesor.
@@ -120,6 +133,12 @@ Se implementó la suite `tests/Feature/AyudaManualT12T13Test.php` con **11 prueb
 9. `test_menu_lateral_muestra_acceso_a_ayuda_para_cada_rol`: Enlace presente en layout para los 3 roles.
 10. `test_boton_de_ayuda_aparece_en_pantallas_de_muestra_y_no_en_otras`: Botón presente en `/caja/cobrar/{id}` y `/cashflow`, y ausente en otras vistas.
 11. `test_pagina_de_ayuda_tiene_botones_volver_e_imprimir`: Presencia de botones canónicos y atributo para impresión.
+12. `test_admin_puede_ver_todas_las_imagenes_de_las_muestras`: El admin accede a cada una de las 8 imágenes de muestra recibiendo HTTP 200 y `Content-Type: image/png`.
+13. `test_operativo_puede_ver_imagenes_operativas_pero_recibe_403_en_imagenes_admin`: La operativa accede a sus capturas pero recibe HTTP 403 si intenta ver capturas de administración.
+14. `test_profesor_recibe_403_al_pedir_imagenes_de_admin_u_operativo`: Los profesores reciben HTTP 403 si intentan pedir imágenes de admin u operativo.
+15. `test_invitado_sin_sesion_al_pedir_imagen_es_redirigido_a_login`: Los usuarios sin sesión son redirigidos al ingreso.
+16. `test_imagen_inexistente_devuelve_404`: Solicitudes a imágenes que no existen devuelven HTTP 404.
+17. `test_paginas_de_ayuda_renderizan_imagenes_con_rutas_de_la_aplicacion`: Verifica que el HTML generado por el manual use rutas nativas `/ayuda/img/{rol}/...`.
 
 ---
 
@@ -127,7 +146,11 @@ Se implementó la suite `tests/Feature/AyudaManualT12T13Test.php` con **11 prueb
 
 - **Galería visual:** `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html`
 - **Carpeta de capturas:** `docs/06-pruebas/PRU-04/evidencia-t12-t13/`
+- **Ubicación interna servida en Wings:** `resources/manual/img/operativo/` y `resources/manual/img/admin/`
 - Todas las capturas fueron tomadas de la aplicación real mediante Chrome headless (`C:/Program Files/Google/Chrome/Application/chrome.exe`), con dimensiones de 1366 px para escritorio y dentro de marco iframe para móvil de 375 px (respetando la regla de Windows para pantallas móviles de AGENTS.md).
+- **Verificación de huellas MD5:**
+  - `cobrar-cuota-paso1.png` (`a6af9d40...`), `paso2.png` (`9b39ee45...`), `paso3.png` (`1849c7ea...`), `paso4.png` (`29ffd725...`) &rarr; 4 huellas distintas.
+  - `corregir-movimiento-paso1.png` (`56ecd764...`), `paso2.png` (`b5a15df3...`), `paso3.png` (`e2fda4a1...`), `paso4.png` (`e42a42fe...`) &rarr; 4 huellas distintas.
 
 ---
 

@@ -178,4 +178,29 @@ class ManualService
 
         return $resultado;
     }
+
+    /**
+     * Obtiene la ruta física segura de una imagen del manual si existe.
+     * Solo permite roles válidos y nombres de archivo sin rutas relativas.
+     */
+    public function obtenerRutaImagen(string $rol, string $archivo): ?string
+    {
+        $rolesValidos = ['admin', 'operativo', 'profesor'];
+        if (!in_array($rol, $rolesValidos, true)) {
+            return null;
+        }
+
+        $archivoSeguro = basename($archivo);
+        if ($archivoSeguro !== $archivo || !preg_match('/^[a-zA-Z0-9_\-\.]+\.(png|jpg|jpeg|svg|webp)$/i', $archivo)) {
+            return null;
+        }
+
+        $path = $this->basePath . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . $rol . DIRECTORY_SEPARATOR . $archivoSeguro;
+
+        if (!File::exists($path)) {
+            return null;
+        }
+
+        return $path;
+    }
 }

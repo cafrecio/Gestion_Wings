@@ -22,22 +22,25 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 .badge-danger{background:#fee2e2;color:#b91c1c}
 .badge-success{background:#dcfce7;color:#15803d}
 .badge-info{background:#e0f2fe;color:#0369a1}
+.grid-pasos{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:16px;margin-top:12px;}
+.paso-card{border:1px solid #cbd5df;border-radius:8px;padding:12px;background:#f8fafc;}
+.paso-card h4{margin:0 0 8px 0;font-size:15px;color:#0f172a;}
 </style>
 </head>
 <body>
 <main>
 <h1>T12 y T13 — Manual del usuario y Ayuda dentro de Wings</h1>
 <p><strong>Etapa 1: Estructura mínima, dos páginas de muestra y lista completa de páginas.</strong></p>
-<p>28/10/2026 · Implementación Gemini CyE · Capturas reales en Chrome headless a 1366 px y marco de 375 px.</p>
+<p>28/10/2026 · Implementación Gemini CyE · Devolución atendida: capturas individuales reales y servicio autenticado de imágenes en Wings.</p>
 
 <div class="status">
-<strong>Decisiones de Carlos (10/10, 13/10 y 28/10):</strong>
+<strong>Decisiones de Carlos y Devolución atendida:</strong>
 <ul>
   <li><strong>Estructura en dos etapas:</strong> Primero se presenta la estructura mínima, las dos muestras y la lista de páginas, y se frena para el OK de Carlos. Solo con su visto bueno se continúa con la Etapa 2.</li>
-  <li><strong>Ubicación del contenido:</strong> Los textos viven en archivos Markdown independientes (<code>resources/manual/{rol}/{slug}.md</code>) administrados por <code>ManualService</code>, permitiendo agregar o modificar guías sin tocar código de vistas.</li>
-  <li><strong>Menú y acceso:</strong> Entrada «Ayuda» en el grupo Sistema del menú lateral para cada rol. Control estricto de acceso (Admin ve todo; Operativo ve operativo; Profesor ve profesor; forzar URL ajena devuelve 403; sin sesión redirige a login).</li>
+  <li><strong>Capturas individuales y reales (punto 1 de la devolución):</strong> Cada paso fue realizado en el sistema con datos reales en base local. Ninguna captura está repetida ni reusada (huellas MD5 100% únicas). Se muestran: cuota tildada, medio elegido, recibo emitido; formulario de Nuevo completo y ajuste impactado en Cashflow.</li>
+  <li><strong>Servicio autenticado de imágenes en Wings (punto 2 de la devolución):</strong> Las imágenes viven fuera de <code>public/</code> en <code>resources/manual/img/{rol}/</code> y son servidas por la aplicación a través de la ruta autenticada <code>/ayuda/img/{rol}/{archivo}</code>. Se valida estrictamente el rol (Admin ve todo, Operativo ve operativo, Profesor ve profesor; intento ajeno da 403; sin sesión da 302; archivo inexistente o directory traversal da 404). En Wings todas las imágenes se visualizan perfectamente.</li>
   <li><strong>Signo de pregunta (?):</strong> Botón con formato canónico en la barra superior (topbar) de cada pantalla que tenga guía asociada, abriendo directamente su página del manual.</li>
-  <li><strong>Impresión:</strong> Botón <strong>Imprimir</strong> que ejecuta la impresión limpia con estilos <code>@media print</code>, ocultando menú lateral, cabeceras y botoneras para entregar un documento prolijo.</li>
+  <li><strong>Impresión limpia:</strong> Botón <strong>Imprimir</strong> que ejecuta la impresión limpia con estilos <code>@media print</code>, ocultando menú lateral, cabeceras y botoneras para entregar un documento prolijo.</li>
   <li><strong>Redacción:</strong> Castellano rioplatense, de vos, frases cortas, botones y campos en <strong>negrita</strong>, sin tecnicismos y con apartado «Qué hago si…».</li>
 </ul>
 </div>
@@ -46,8 +49,9 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 <a href="#indice-ayuda">1. Índice general de Ayuda (/ayuda)</a>
 <a href="#muestra-operativa">2. Muestra 1 Operativa: Cobrar una cuota</a>
 <a href="#muestra-duenio">3. Muestra 2 Dueño: Corregir caja validada (DU-27)</a>
-<a href="#vista-impresion">4. Vista de impresión limpia</a>
-<a href="#signo-pregunta">5. Botón [?] en pantalla</a>
+<a href="#pasos-individuales">4. Pasos individuales de muestra (huellas únicas)</a>
+<a href="#vista-impresion">5. Vista de impresión limpia</a>
+<a href="#signo-pregunta">6. Botón [?] en pantalla</a>
 <a href="T12-LISTA-DE-PAGINAS.md">Lista completa de 54 páginas propuestas</a>
 <a href="IMPLEMENTACION-T12-T13.md">Informe técnico de implementación</a>
 </nav>
@@ -75,7 +79,7 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 <div class="columns">
 <figure class="desktop">
 <a href="evidencia-t12-t13/muestra1-cobrar-cuota-1366.png"><img src="evidencia-t12-t13/muestra1-cobrar-cuota-1366.png" alt="Muestra 1 Cobrar cuota en escritorio (1366 px)"></a>
-<figcaption>Escritorio · 1366 px · Barra superior con Volver e Imprimir, caja de resumen y pasos numerados con capturas</figcaption>
+<figcaption>Escritorio · 1366 px · Barra superior con Volver e Imprimir, caja de resumen y pasos numerados con capturas servidas en Wings</figcaption>
 </figure>
 <figure class="phone">
 <a href="evidencia-t12-t13/muestra1-cobrar-cuota-375.png"><img src="evidencia-t12-t13/muestra1-cobrar-cuota-375.png" alt="Muestra 1 Cobrar cuota en marco celular (375 px)"></a>
@@ -101,8 +105,62 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 </section>
 
 <!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="pasos-individuales">
+<h2>4. Detalle de pasos individuales de cada muestra (Huellas MD5 100% únicas)</h2>
+<p>Evidencia concreta de que cada paso fue ejecutado de verdad en el sistema y capturado en su estado real:</p>
+
+<h3>Cobrar una cuota (Operativa)</h3>
+<div class="grid-pasos">
+  <div class="paso-card">
+    <h4>Paso 1: Buscar alumno en selector de cobro</h4>
+    <a href="evidencia-t12-t13/cobrar-cuota-paso1.png"><img src="evidencia-t12-t13/cobrar-cuota-paso1.png" alt="Paso 1"></a>
+    <figcaption>Alumna encontrada con botón <strong>Cobrar</strong></figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 2: Cuota tildada y total calculado</h4>
+    <a href="evidencia-t12-t13/cobrar-cuota-paso2.png"><img src="evidencia-t12-t13/cobrar-cuota-paso2.png" alt="Paso 2"></a>
+    <figcaption>Checkbox marcado, importe activo y total en $ 25.000</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 3: Medio de pago y observaciones</h4>
+    <a href="evidencia-t12-t13/cobrar-cuota-paso3.png"><img src="evidencia-t12-t13/cobrar-cuota-paso3.png" alt="Paso 3"></a>
+    <figcaption>Efectivo seleccionado, nota cargada y botón Cobrar listo</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 4: Recibo oficial emitido</h4>
+    <a href="evidencia-t12-t13/cobrar-cuota-paso4.png"><img src="evidencia-t12-t13/cobrar-cuota-paso4.png" alt="Paso 4"></a>
+    <figcaption>Comprobante CUOTA-1042 oficial generado por Wings</figcaption>
+  </div>
+</div>
+
+<h3 style="margin-top:24px;">Corregir movimiento en caja validada (Dueño · DU-27)</h3>
+<div class="grid-pasos">
+  <div class="paso-card">
+    <h4>Paso 1: Entrar a Cashflow</h4>
+    <a href="evidencia-t12-t13/corregir-movimiento-paso1.png"><img src="evidencia-t12-t13/corregir-movimiento-paso1.png" alt="Paso 1"></a>
+    <figcaption>Cashflow con saldo real y movimientos cargados</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 2: Botón Nuevo en Cashflow</h4>
+    <a href="evidencia-t12-t13/corregir-movimiento-paso2.png"><img src="evidencia-t12-t13/corregir-movimiento-paso2.png" alt="Paso 2"></a>
+    <figcaption>Botón <strong>Nuevo</strong> destacado en la barra superior</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 3: Formulario de ajuste COMPLETO</h4>
+    <a href="evidencia-t12-t13/corregir-movimiento-paso3.png"><img src="evidencia-t12-t13/corregir-movimiento-paso3.png" alt="Paso 3"></a>
+    <figcaption>EGRESO, $ 15.000, Ajustes y motivo de auditoría completo</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 4: Ajuste impactado en la grilla</h4>
+    <a href="evidencia-t12-t13/corregir-movimiento-paso4.png"><img src="evidencia-t12-t13/corregir-movimiento-paso4.png" alt="Paso 4"></a>
+    <figcaption>Renglón compensatorio asentado y saldos actualizados</figcaption>
+  </div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
 <section id="vista-impresion">
-<h2>4. Vista de impresión limpia <span class="badge badge-info">@media print</span></h2>
+<h2>5. Vista de impresión limpia <span class="badge badge-info">@media print</span></h2>
 <p>Al tocar el botón <strong>Imprimir</strong> (o con Ctrl+P), la hoja se renderiza sin la barra de navegación lateral, sin el menú superior y sin los botones de interfaz, imprimiendo exclusivamente el título de la tarea, el contenido didáctico, las capturas y las resoluciones de dudas.</p>
 <div class="columns">
 <figure class="desktop" style="max-width:850px;">
@@ -114,7 +172,7 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 
 <!-- ─────────────────────────────────────────────────────────────────────── -->
 <section id="signo-pregunta">
-<h2>5. Signo de pregunta [?] en la pantalla de la tarea <span class="badge badge-info">T13 Navegación contextual</span></h2>
+<h2>6. Signo de pregunta [?] en la pantalla de la tarea <span class="badge badge-info">T13 Navegación contextual</span></h2>
 <p>El botón <strong>?</strong> se sitúa en la barra superior (topbar) junto al botón de Salir, accesible tanto en escritorio como en celular. Al tocarlo abre directamente la página de ayuda correspondiente a la tarea activa (en Cobrar abre <code>cobrar-cuota</code>; en Cashflow abre <code>corregir-movimiento-caja-validada</code>).</p>
 <div class="columns">
 <figure class="desktop">

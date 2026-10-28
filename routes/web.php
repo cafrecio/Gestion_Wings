@@ -311,6 +311,10 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
 
     // Ayuda dentro de Wings y manual del usuario (T12 y T13)
     Route::get('/ayuda', [AyudaWebController::class, 'index'])->name('web.ayuda.index');
+    Route::get('/ayuda/img/{rol}/{archivo}', [AyudaWebController::class, 'imagen'])
+        ->where('rol', 'admin|operativo|profesor')
+        ->where('archivo', '[a-zA-Z0-9_\-\.]+')
+        ->name('web.ayuda.imagen');
     Route::get('/ayuda/{slug}', [AyudaWebController::class, 'show'])->name('web.ayuda.show');
 });
 

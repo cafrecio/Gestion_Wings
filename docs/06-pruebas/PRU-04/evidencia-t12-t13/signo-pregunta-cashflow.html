@@ -347,7 +347,7 @@
                             </div>
                     <div class="flex flex-wrap items-center justify-between gap-2 py-2 border-b border-wings-border">
                 <span>Efectivo</span>
-                <strong class="ds-money ds-money--total">$0.00</strong>
+                <strong class="ds-money ds-money--total">$105,000.00</strong>
                             </div>
                     <div class="flex flex-wrap items-center justify-between gap-2 py-2 border-b border-wings-border">
                 <span>Mercado Pago</span>
@@ -362,14 +362,14 @@
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
             </svg>
-            <strong style="color:var(--color-success);"><span class="ds-money ds-money--total">$0.00</span></strong>
+            <strong style="color:var(--color-success);"><span class="ds-money ds-money--total">$120,000.00</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">ingresos</span>
         </span>
         <span class="inline-flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-danger);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
             </svg>
-            <strong style="color:var(--color-danger);"><span class="ds-money ds-money--total">$0.00</span></strong>
+            <strong style="color:var(--color-danger);"><span class="ds-money ds-money--total">$15,000.00</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
         </span>
 
@@ -377,7 +377,7 @@
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
             </svg>
-            <strong style="color:var(--color-success);"><span class="ds-money ds-money--total">$0.00</span></strong>
+            <strong style="color:var(--color-success);"><span class="ds-money ds-money--total">$105,000.00</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">resultado del período</span>
         </span>
 
@@ -387,7 +387,7 @@
 
 <div class="stats-bar mb-3" id="cashflow-acciones">
     <div class="stats-info">
-        <strong>0</strong> movimientos
+        <strong>2</strong> movimientos
     </div>
     <div class="flex justify-end gap-2 acciones-celular-derecha">
         <a class="ds-btn ds-btn--secondary"
@@ -412,9 +412,194 @@
 </div>
 
 
-<div class="empty-state" style="padding:2rem 0;">
-    <p style="color:var(--color-text-muted); font-size:0.9rem;">Sin movimientos para los filtros seleccionados.</p>
+<div class="alumno-card cashflow-desktop-table" style="padding:0; overflow:hidden; overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:700px;">
+        <colgroup>
+            <col style="width:95px">
+            <col style="width:35px">
+            <col style="width:90px">
+            <col style="width:210px">
+            <col>
+            <col class="col-importe" style="width:125px">
+            <col style="width:145px">
+            <col style="width:50px">
+            <col style="width:112px">
+        </colgroup>
+        <thead>
+            <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Fecha</th>
+                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">I/E</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Tipo caja</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Detalle</th>
+                <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
+                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Val.</th>
+                <th style="padding:8px; text-align:right; font-size:0.7rem; color:var(--color-text-muted); text-transform:uppercase;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    28/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    EFT
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Ajustes y compensaciones</span> — Ajuste de caja validada
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada (DU-27)">
+                    Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada (DU-27)
+                    <small style="display:block; margin-top:3px; font-size:0.7rem;">Directo</small>
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    <span class="ds-money ds-money--row">−$15,000.00</span>
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="Carlos Freccero">
+                    Carlos Freccero
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.75rem; font-weight:700; color:var(--color-text-muted);" title="">
+                    
+                </td>
+                <td style="padding:8px; text-align:right;"><span style="display:inline-flex; gap:4px; align-items:center;">
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2/editar" title="Editar" aria-label="Editar">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m16 3 5 5-12 12-6 1 1-6Z"/><path d="m14 5 5 5"/>
+</svg>
+</a>
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2" title="Historial" aria-label="Historial">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7M12 7v5l3 2"/>
+</svg>
+</a>
+<a class="ds-btn-row ds-btn-row--dang" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2/eliminar" title="Eliminar" aria-label="Eliminar">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/>
+</svg>
+</a>
+</span>
+</td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    01/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    EFT
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="Saldo inicial de apertura del ciclo">
+                    Saldo inicial de apertura del ciclo
+                    <small style="display:block; margin-top:3px; font-size:0.7rem;">Directo</small>
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    <span class="ds-money ds-money--row">$120,000.00</span>
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="Carlos Freccero">
+                    Carlos Freccero
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.75rem; font-weight:700; color:var(--color-text-muted);" title="">
+                    
+                </td>
+                <td style="padding:8px; text-align:right;"><span style="display:inline-flex; gap:4px; align-items:center;">
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/1" title="Ver" aria-label="Ver">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+</svg>
+</a>
+</span>
+</td>
+            </tr>
+                    </tbody>
+    </table>
 </div>
+
+
+<div class="alumno-card cashflow-mobile-cards" style="padding:0; overflow:hidden;">
+            <div style="padding:12px 14px; border-bottom:1px solid var(--color-border);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:0.75rem; color:var(--color-text-muted);">28/10/2026</span>
+                <span style="font-size:0.7rem; font-weight:700; padding:1px 6px; border-radius:4px; background:var(--color-surface-alt); border:1px solid var(--color-border); color:var(--color-text);">EFT</span>
+                <span style="font-size:0.7rem; font-weight:700; color:var(--color-danger);">E</span>
+            </div>
+            <span style="font-size:1rem; font-weight:800; color:var(--color-danger);">
+                <span class="ds-money ds-money--row">−$15,000.00</span>
+            </span>
+        </div>
+        <div style="font-size:0.85rem; font-weight:600; color:var(--color-text); margin-bottom:2px;">
+                            <span style="color:var(--color-text-muted);">Ajustes y compensaciones</span> — Ajuste de caja validada
+                    </div>
+                <div style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:4px;">
+            Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada (DU-27)
+        </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.7rem; color:var(--color-text-muted);">
+            <span>Registró: Carlos Freccero</span>
+                    </div>
+        <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end; gap:8px;">
+            <small style="margin-right:auto; font-size:0.7rem; color:var(--color-text-muted);">Directo</small>
+            <span style="display:inline-flex; gap:4px; align-items:center;">
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2/editar" title="Editar" aria-label="Editar">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m16 3 5 5-12 12-6 1 1-6Z"/><path d="m14 5 5 5"/>
+</svg>
+</a>
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2" title="Historial" aria-label="Historial">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7M12 7v5l3 2"/>
+</svg>
+</a>
+<a class="ds-btn-row ds-btn-row--dang" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/2/eliminar" title="Eliminar" aria-label="Eliminar">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/>
+</svg>
+</a>
+</span>
+        </div>
+    </div>
+            <div style="padding:12px 14px; ">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:0.75rem; color:var(--color-text-muted);">01/10/2026</span>
+                <span style="font-size:0.7rem; font-weight:700; padding:1px 6px; border-radius:4px; background:var(--color-surface-alt); border:1px solid var(--color-border); color:var(--color-text);">EFT</span>
+                <span style="font-size:0.7rem; font-weight:700; color:var(--color-text);">I</span>
+            </div>
+            <span style="font-size:1rem; font-weight:800; color:var(--color-success);">
+                <span class="ds-money ds-money--row">$120,000.00</span>
+            </span>
+        </div>
+        <div style="font-size:0.85rem; font-weight:600; color:var(--color-text); margin-bottom:2px;">
+                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                    </div>
+                <div style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:4px;">
+            Saldo inicial de apertura del ciclo
+        </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.7rem; color:var(--color-text-muted);">
+            <span>Registró: Carlos Freccero</span>
+                    </div>
+        <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end; gap:8px;">
+            <small style="margin-right:auto; font-size:0.7rem; color:var(--color-text-muted);">Directo</small>
+            <span style="display:inline-flex; gap:4px; align-items:center;">
+<a class="ds-btn-row ds-btn-row--sec" style="width:28px; height:28px;" href="http://gestion-wings/cashflow/movimientos/1" title="Ver" aria-label="Ver">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+</svg>
+</a>
+</span>
+        </div>
+    </div>
+    </div>
+
+
 
 
 

@@ -232,7 +232,7 @@
                                data-recargo="0"
                                data-pagado="0"
                                data-periodo="2026-10"
-                               style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
+                               style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);" checked="checked">
                         <div style="flex:1; cursor:default;">
                             <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Octubre 2026</span>
                                                                                 </div>
@@ -354,7 +354,7 @@
                                             <option value="4" >
                             Banco Nacion ahorro
                         </option>
-                                            <option value="1" >
+                                            <option value="1" selected="selected">
                             EFT — Efectivo
                         </option>
                                             <option value="3" >
@@ -381,14 +381,14 @@
                        value=""
                        maxlength="500"
                        class="w-full px-4 py-2.5 text-sm wings-input"
-                       placeholder="Opcional">
+                       placeholder="Opcional" value="Pago cuota octubre en mostrador">
             </div>
         </div>
 
-        <div id="resumen-total" class="mt-4 pt-4" style="border-top:1px solid var(--color-border); display:none;">
+        <div id="resumen-total" class="mt-4 pt-4" style="border-top:1px solid var(--color-border); display:block;">
             <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px;">
                 <span style="font-size:0.85rem; color:var(--color-text-muted);">Total a cobrar:</span>
-                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">$0.00</span>
+                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">$ 25.000</span>
             </div>
         </div>
     </div>

@@ -44,4 +44,27 @@ class AyudaWebController extends Controller
             'user'   => $user,
         ]);
     }
+
+    /**
+     * Sirve imágenes de captura del manual con control estricto de autenticación y rol.
+     */
+    public function imagen(Request $request, string $rol, string $archivo)
+    {
+        $user = $request->user();
+        $permitidos = $this->manualService->rolesPermitidos($user);
+
+        if (!in_array($rol, $permitidos, true)) {
+            abort(403, 'No tenés permisos para ver esta imagen de la ayuda.');
+        }
+
+        $ruta = $this->manualService->obtenerRutaImagen($rol, $archivo);
+        if (!$ruta) {
+            abort(404, 'La imagen solicitada no existe.');
+        }
+
+        return response()->file($ruta, [
+            'Content-Type' => \Illuminate\Support\Facades\File::mimeType($ruta) ?: 'image/png',
+            'Cache-Control' => 'private, max-age=3600',
+        ]);
+    }
 }

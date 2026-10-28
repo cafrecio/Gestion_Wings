@@ -24,7 +24,7 @@ Esta tarea te explica cómo registrar el pago de cuotas, matrícula o punitorios
 2. Escribí el nombre, apellido o DNI del alumno en el buscador.
 3. En la fila del alumno, tocá el botón **Cobrar**.
 
-![Buscar alumno y tocar Cobrar](/docs/06-pruebas/PRU-04/evidencia-t12-t13/cobrar-cuota-paso1.png)
+![Buscar alumno y tocar Cobrar](/ayuda/img/operativo/cobrar-cuota-paso1.png)
 
 ---
 
@@ -34,7 +34,7 @@ Esta tarea te explica cómo registrar el pago de cuotas, matrícula o punitorios
 3. Marcá la casilla de cada concepto que el alumno va a pagar ahora.
 4. Si el alumno quiere pagar un importe distinto, ajustá el valor en el campo **Importe**.
 
-![Seleccionar las cuotas a cobrar](/docs/06-pruebas/PRU-04/evidencia-t12-t13/cobrar-cuota-paso2.png)
+![Seleccionar las cuotas a cobrar](/ayuda/img/operativo/cobrar-cuota-paso2.png)
 
 ---
 
@@ -42,7 +42,7 @@ Esta tarea te explica cómo registrar el pago de cuotas, matrícula o punitorios
 1. En la sección **Medio de pago**, elegí con qué te paga: **Efectivo**, **Transferencia**, **Tarjeta de débito**, **Tarjeta de crédito** u otro medio habilitado.
 2. Si paga por transferencia o tarjeta, podés anotar el número de comprobante o referencia en el campo de observaciones para que quede registrado.
 
-![Elegir medio de pago](/docs/06-pruebas/PRU-04/evidencia-t12-t13/cobrar-cuota-paso3.png)
+![Elegir medio de pago](/ayuda/img/operativo/cobrar-cuota-paso3.png)
 
 ---
 
@@ -51,7 +51,7 @@ Esta tarea te explica cómo registrar el pago de cuotas, matrícula o punitorios
 2. Tocá el botón **Cobrar** al final de la pantalla.
 3. Wings guarda el cobro, actualiza la cuenta del alumno y te muestra el recibo oficial en pantalla para que lo puedas imprimir o compartir.
 
-![Confirmar cobro y ver recibo](/docs/06-pruebas/PRU-04/evidencia-t12-t13/cobrar-cuota-paso4.png)
+![Confirmar cobro y ver recibo](/ayuda/img/operativo/cobrar-cuota-paso4.png)
 
 ---
 

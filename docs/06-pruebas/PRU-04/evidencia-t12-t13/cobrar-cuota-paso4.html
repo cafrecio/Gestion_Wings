@@ -1,504 +1,369 @@
-<!DOCTYPE html>
-<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Recibo CUOTA-1042 – Wings</title><style>body{background:#0f172a;margin:0;padding:24px 0;display:flex;justify-content:center;font-family:'DejaVu Sans',Arial,sans-serif;}.recibo-marco{background:#fff;width:560px;padding:24px;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,0.5);}</style></head><body><div class="recibo-marco"><!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="">
-    <title>Cobrar – Gómez, Martina</title>
-    <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="http://gestion-wings/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">
-    <link rel="manifest" href="http://gestion-wings/site.webmanifest">
-    <meta name="theme-color" content="#0F172A">
-    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js"></script></head>
+    <meta charset="UTF-8">
+    <title>Recibo CUOTA-1042</title>
+    <style>
+        @page {
+            size: 148mm 210mm portrait;
+            margin: 10mm 12mm 10mm 12mm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'DejaVu Sans', Arial, sans-serif;
+            font-size: 9px;
+            line-height: 1.35;
+            color: #1e293b;
+        }
+        .recibo-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 8px;
+        }
+        .recibo-header-table td {
+            vertical-align: middle;
+        }
+        .logo-frame {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 5px;
+            padding: 3px 6px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .recibo-brand-logo {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+        .recibo-brand-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0f172a;
+            letter-spacing: 1.2px;
+            line-height: 1.1;
+        }
+        .recibo-brand-subtitle {
+            font-size: 8px;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1px;
+        }
+        .recibo-badge-doc {
+            font-size: 7.5px;
+            color: #64748b;
+            margin-top: 2px;
+            font-weight: bold;
+        }
+        .recibo-badge-num {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3px 9px;
+            font-size: 11px;
+            font-weight: bold;
+            font-family: 'DejaVu Sans Mono', monospace;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .recibo-meta-label {
+            color: #64748b;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .recibo-meta-value {
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .recibo-header-divider-td {
+            border-bottom: 2px solid #0f172a;
+            height: 5px;
+            font-size: 1px;
+            line-height: 1px;
+            padding: 0;
+        }
+        .recibo-sello-anulado {
+            background-color: #fef2f2;
+            border: 2px dashed #dc2626;
+            color: #b91c1c;
+            text-align: center;
+            font-size: 10.5px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .recibo-section {
+            margin-bottom: 8px;
+        }
+        .recibo-section-title {
+            font-size: 8px;
+            font-weight: bold;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 3px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .recibo-card-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+        }
+        .recibo-card-table td {
+            padding: 4px 7px;
+            font-size: 8.5px;
+            vertical-align: top;
+        }
+        .recibo-card-label {
+            color: #64748b;
+            font-size: 7px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 1px;
+        }
+        .recibo-card-value {
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .recibo-items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2px;
+            border: 1px solid #e2e8f0;
+        }
+        .recibo-items-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-size: 7.5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 7px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .recibo-items-table td {
+            padding: 4px 7px;
+            border: 1px solid #e2e8f0;
+            font-size: 8.5px;
+        }
+        .recibo-items-table td.monto {
+            text-align: right;
+            font-weight: bold;
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: #0f172a;
+        }
+        .recibo-total-row td {
+            background-color: #f1f5f9;
+            border-top: 2px solid #cbd5e1;
+            padding: 5px 7px;
+        }
+        .recibo-total-label {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 8px;
+            letter-spacing: 0.5px;
+            color: #1e293b;
+        }
+        .recibo-total-monto {
+            text-align: right;
+            font-weight: bold;
+            font-size: 11.5px;
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: #0f172a;
+        }
+        .recibo-obs-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #64748b;
+            border-radius: 3px;
+            padding: 4px 7px;
+            font-size: 8px;
+            color: #334155;
+        }
+        .recibo-obs-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 7px;
+            margin-bottom: 1px;
+            color: #475569;
+        }
+        .recibo-footer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            padding-top: 6px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        .recibo-footer-table td {
+            vertical-align: bottom;
+        }
+        .recibo-footer-legal {
+            font-size: 7px;
+            color: #94a3b8;
+            line-height: 1.3;
+        }
+        .recibo-footer-legal strong {
+            color: #475569;
+        }
+        .recibo-firma-container {
+            width: 150px;
+            margin-left: auto;
+            text-align: center;
+        }
+        .recibo-firma-line {
+            border-top: 1px solid #475569;
+            margin-bottom: 2px;
+        }
+        .recibo-firma-label {
+            font-size: 7px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
 <body>
 
-<div class="ds-layout">
-
     
-    <aside class="ds-sidebar">
-
-        
-        <div class="ds-brand">
-            <a href="/" class="ds-brand__link">
-                <img src="file:///C:/xampp/htdocs/Gestion_Wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
-                <span class="ds-brand__name">Wings</span>
-            </a>
-        </div>
-
-        
-        <nav class="flex flex-col gap-0.5">
-            
-                
-                    
-
-                    <div class="ds-nav-group">Día a día</div>
-
-                                            <a href="http://gestion-wings/operativo"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
-                            </svg>
-                            Inicio
-                        </a>
-                    
-                    <a href="http://gestion-wings/alumnos"
-                       class="ds-nav-link ">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
-                        </svg>
-                        Alumnos
-                    </a>
-
-                    <a href="http://gestion-wings/clases"
-                       class="ds-nav-link ">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        Clases
-                    </a>
-                    
-                        <div class="ds-nav-group">Plata</div>
-
-                        <a href="http://gestion-wings/cobranza"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Cobranza
-                        </a>
-
-                                            <a href="http://gestion-wings/caja"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                            Caja
-                        </a>
-                    
-                        <a href="http://gestion-wings/movimientos"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                            </svg>
-                            Movimientos
-                        </a>
-
-                    
-                    <a href="http://gestion-wings/revision-cobranza"
-                       class="ds-nav-link ">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        Revisión
-                    </a>
-
-                    
-                        
-                        <div class="ds-nav-group">El club</div>
-
-                        <a href="http://gestion-wings/grupos"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            Grupos
-                        </a>
-
-                        <div class="ds-nav-group">Sistema</div>
-
-                        <a href="http://gestion-wings/ayuda"
-                           class="ds-nav-link ">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Ayuda
-                        </a>
-
-                    
-                                    </nav>
-
-    </aside>
-
-    
-    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
-
-    
-    <div class="ds-main">
-
-        
-        <div class="ds-topbar">
-                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
-                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Sandra Operativa</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                                            <a href="http://gestion-wings/ayuda/cobrar-cuota"
-                           class="ds-btn ds-btn--ghost ds-btn--icon"
-                           title="Ayuda sobre esta pantalla"
-                           aria-label="Ayuda sobre esta pantalla">
-                            <span style="font-weight:700; font-size:1.15rem; line-height:1; display:inline-block; transform:translateY(-1px);">?</span>
-                        </a>
-                                        <form method="POST" action="http://gestion-wings/logout">
-                        <input type="hidden" name="_token" value="" autocomplete="off">                        <button class="ds-btn ds-btn--ghost"
-            type="submit"
-            >
-
-                    
-                            Salir
-                    
-    </button>
-
-                    </form>
-                </div>
-                    </div>
-
-        
-                    <header class="ds-module-header">
-    <div class="ds-module-header__inner">
-                <h1 class="ds-module-header__title">Cobrar: Gómez, Martina</h1>
-    </div>
-</header>
-        
-        
-        <main class="ds-content">
-
-            
-            
-            
-
-
-
-<div class="filtros-card mb-4" style="border-left: 4px solid var(--color-sport-patin);">
-    
-    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
-        <div class="hidden sm:block">
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">DNI</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">44888999</p>
-        </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Deporte</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Patín Artístico</p>
-        </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Grupo</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Patín Artístico — Escuela Inicial</p>
-        </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Total pendiente</p>
-            <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">
-                
-                $25,000.00
-            </p>
-        </div>
-    </div>
-</div>
-
-
-<form method="POST" action="http://gestion-wings/caja/cobrar/1" id="cobrar-form" data-periodo-descuento="" data-periodo-actual="2026-10" data-inscripcion="0">
-<input type="hidden" name="_token" value="" autocomplete="off">
-
-
-
-    
-    <div class="filtros-card mb-4">
-        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Cuotas pendientes — seleccioná las que querés cobrar
-        </p>
-
-                    <div style="display:flex; flex-direction:column; gap:8px;">
-                                                        <div class="cuota-row" style="
-                        display:flex; align-items:center; gap:12px;
-                        padding:10px 14px;
-                        border:1px solid var(--color-border);
-                        border-radius:8px; background:var(--color-surface);
-                        transition:background 0.15s;
-                    ">
-                        <input type="checkbox"
-                               name="periodos[]"
-                               value="2026-10"
-                               class="cuota-check"
-                               data-saldo="25000"
-                               data-recargo="0"
-                               data-pagado="0"
-                               data-periodo="2026-10"
-                               style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
-                        <div style="flex:1; cursor:default;">
-                            <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">Octubre 2026</span>
-                                                                                </div>
-                        <div style="display:flex; align-items:center; gap:8px;">
-                                                        <div class="money-input-wrap money-input-wrap--cuota">
-        <input
-        type="text"
-                 name="montos_cuota[2026-10]"         value="25,000.00"
-        placeholder="0"
-        inputmode="decimal"
-        autocomplete="off"
-        data-money="true"
-        required
-        disabled
-        
-        min="0.01"
-                class="w-full py-2.5 text-sm wings-input px-4 monto-cuota" data-periodo="2026-10" data-saldo="25000"
-    >
-</div>
-                                                    </div>
-                    </div>
-                                                </div>
-                        </div>
-
-    
-        <div class="filtros-card mb-4" id="adelanto-bloque">
-        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Mes sin deuda o cobro adelantado
-        </p>
-        <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
-        <template id="adelanto-importe-template">
-            <div class="money-input-wrap money-input-wrap--cuota">
-        <input
-        type="text"
-                 name="montos_cuota[__PERIODO__]"         value=""
-        placeholder="0"
-        inputmode="decimal"
-        autocomplete="off"
-        data-money="true"
-        required
-        
-        
-        min="0.01"
-                class="w-full py-2.5 text-sm wings-input px-4 monto-cuota" data-periodo="__PERIODO__"
-    >
-</div>
-        </template>
-        <div class="acciones-celular-derecha grid grid-cols-1 sm:flex" style="align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
-            <div style="flex:1; min-width:180px;">
-                <label for="adelanto-periodo" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
-                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    Mes
-                </label>
-                <select id="adelanto-periodo" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
-                    <option value="">Seleccionar...</option>
-                                            <option value="2026-11" data-precio="25000">Noviembre 2026</option>
-                                            <option value="2026-12" data-precio="25000">Diciembre 2026</option>
-                                            <option value="2027-01" data-precio="25000">Enero 2027</option>
-                                            <option value="2027-02" data-precio="25000">Febrero 2027</option>
-                                            <option value="2027-03" data-precio="25000">Marzo 2027</option>
-                                            <option value="2027-04" data-precio="25000">Abril 2027</option>
-                                            <option value="2027-05" data-precio="25000">Mayo 2027</option>
-                                            <option value="2027-06" data-precio="25000">Junio 2027</option>
-                                            <option value="2027-07" data-precio="25000">Julio 2027</option>
-                                            <option value="2027-08" data-precio="25000">Agosto 2027</option>
-                                            <option value="2027-09" data-precio="25000">Septiembre 2027</option>
-                                            <option value="2027-10" data-precio="25000">Octubre 2027</option>
-                                    </select>
-            </div>
-            <div class="w-full sm:w-[150px]">
-                <label for="adelanto-monto" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
-                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
-                    Importe
-                </label>
-                <div class="money-input-wrap ">
-        <input
-        type="text"
-         id="adelanto-monto"                 value=""
-        placeholder="0"
-        inputmode="decimal"
-        autocomplete="off"
-        data-money="true"
-        
-        
-        
-        min="0.01"
-                class="w-full py-2.5 text-sm wings-input px-4 text-right"
-    >
-</div>
-            </div>
-            <button type="button" id="adelanto-agregar" class="ds-btn justify-self-end" disabled
-                    style="background:var(--color-btn-secondary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">Agregar</button>
-        </div>
-        <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
-            Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
-        </p>
-    </div>
-    
-    
-    <div class="filtros-card mb-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-                <label for="tipo_caja_id" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
-                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-                    Medio de pago <span class="form-required">*</span>
-                </label>
-                <select id="tipo_caja_id" name="tipo_caja_id" required
-                        class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
-                    <option value="">Seleccionar...</option>
-                                            <option value="6" >
-                            Banco
-                        </option>
-                                            <option value="5" >
-                            BGA — Banco Galicia
-                        </option>
-                                            <option value="2" >
-                            BNA — Banco Nación
-                        </option>
-                                            <option value="4" >
-                            Banco Nacion ahorro
-                        </option>
-                                            <option value="1" >
-                            EFT — Efectivo
-                        </option>
-                                            <option value="3" >
-                            MP — Mercado Pago
-                        </option>
-                                    </select>
+    <table class="recibo-header-table">
+        <tr>
+            <td style="width: 58%;">
+                <table style="border-collapse: collapse;">
+                    <tr>
+                        <td style="padding-right: 8px; vertical-align: middle;">
+                            <div class="logo-frame">
+                                <img src="C:\xampp\htdocs\Gestion_Wings\public\img/logo-wings.png" class="recibo-brand-logo" alt="Wings">
                             </div>
-            <div>
-                <label for="fecha_pago" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
-                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    Fecha del pago
-                </label>
-                <input type="date" id="fecha_pago" name="fecha_pago"
-                       value="2026-10-28"
-                       max="2026-10-28"
-                       class="w-full px-4 py-2.5 text-sm wings-input">
-            </div>
-            <div>
-                <label for="observaciones" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
-                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
-                    Observaciones
-                </label>
-                <input type="text" id="observaciones" name="observaciones"
-                       value=""
-                       maxlength="500"
-                       class="w-full px-4 py-2.5 text-sm wings-input"
-                       placeholder="Opcional">
-            </div>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <div class="recibo-brand-title">WINGS CLUB</div>
+                            <div class="recibo-brand-subtitle">Academia Deportiva</div>
+                            <div class="recibo-badge-doc">Comprobante de Cobro de Cuota</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 42%; vertical-align: middle;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; padding-bottom: 3px;">
+                            <span class="recibo-badge-num">CUOTA-1042</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; font-size: 8px; line-height: 12px;">
+                            <span class="recibo-meta-label">Emisión:</span>
+                            <span class="recibo-meta-value">28/10/2026 17:00</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; font-size: 8px; line-height: 12px;">
+                            <span class="recibo-meta-label">Fecha Pago:</span>
+                            <span class="recibo-meta-value">28/10/2026</span>
+                        </td>
+                    </tr>
+                                    </table>
+            </td>
+        </tr>
+        <tr><td colspan="2" class="recibo-header-divider-td">&nbsp;</td></tr>
+    </table>
+
+    <div class="recibo-section">
+        <div class="recibo-section-title">Datos del Alumno</div>
+        <table class="recibo-card-table">
+            <tr>
+                <td style="width: 45%;">
+                    <span class="recibo-card-label">Alumno / Alumna</span>
+                    <span class="recibo-card-value">Martina Gómez</span>
+                </td>
+                <td style="width: 25%;">
+                    <span class="recibo-card-label">Documento (DNI)</span>
+                    <span class="recibo-card-value">44.888.999</span>
+                </td>
+                <td style="width: 30%;">
+                    <span class="recibo-card-label">Deporte / Disciplina</span>
+                    <span class="recibo-card-value">Patín Artístico</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="recibo-section">
+        <div class="recibo-section-title">Detalle de Períodos Cobrados</div>
+        <table class="recibo-items-table">
+            <thead>
+                <tr>
+                    <th>Concepto / Período</th>
+                    <th style="width: 30%; text-align: right;">Importe</th>
+                </tr>
+            </thead>
+            <tbody>
+                                    <tr>
+                        <td>Cuota Octubre 2026</td>
+                        <td class="monto">$25,000.00</td>
+                    </tr>
+                                <tr class="recibo-total-row">
+                    <td class="recibo-total-label">
+                        Total Cobrado
+                    </td>
+                    <td class="recibo-total-monto">$25,000.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="recibo-section">
+        <div class="recibo-section-title">Información de Cobro</div>
+        <table class="recibo-card-table">
+            <tr>
+                <td style="width: 50%;">
+                    <span class="recibo-card-label">Medio de Cobro</span>
+                    <span class="recibo-card-value">Efectivo</span>
+                </td>
+                <td style="width: 50%;">
+                    <span class="recibo-card-label">Registrado por</span>
+                    <span class="recibo-card-value">Operativo</span>
+                </td>
+                            </tr>
+        </table>
+    </div>
+
+        <div class="recibo-section">
+        <div class="recibo-obs-box">
+            <div class="recibo-obs-title">Observaciones</div>
+            <div>Pago cuota octubre en mostrador</div>
         </div>
-
-        <div id="resumen-total" class="mt-4 pt-4" style="border-top:1px solid var(--color-border); display:none;">
-            <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px;">
-                <span style="font-size:0.85rem; color:var(--color-text-muted);">Total a cobrar:</span>
-                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">$0.00</span>
-            </div>
-        </div>
     </div>
-
     
-    
-    <div class="filtros-actions" style="justify-content:flex-end;">
-        <a class="ds-btn ds-btn--secondary"
-       href="http://gestion-wings/caja/cobrar"
-       role="button">
-
-                    
-                            Cancelar
-                    
-    </a>
-
-        <button type="submit" id="btn-cobrar" disabled
-                class="ds-btn"
-                style="background:var(--color-btn-primary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">
-            Cobrar
-        </button>
-    </div>
-
-</form>
-
-<p id="error-cobro" class="filtros-card text-sm" style="color:var(--color-danger);" role="alert" hidden></p>
-<section id="modal-deuda-anterior" class="alumno-card mt-4" style="display:none;" aria-labelledby="titulo-confirmacion-cobro">
-    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 id="titulo-confirmacion-cobro" class="alumno-nombre">Confirmar cobro</h3></div>
-    <form id="form-confirmar-deuda-anterior">
-    <div class="alumno-info" style="display:block;">
-        <p id="mensaje-deuda-anterior" role="status" style="font-size:0.85rem; margin-bottom:1rem;"></p>
-            <div id="motivo-confirmacion-cobro">
-            <label for="motivo-excepcion-cobro" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Motivo <span class="form-required">*</span></label>
-            <textarea id="motivo-excepcion-cobro" name="motivo" required maxlength="500" rows="3"
-                      placeholder="Motivo del cobro..."
-                      class="w-full px-4 py-2.5 text-sm wings-input"
-                      style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
-            </div>
-    </div>
-            <div class="alumno-actions acciones-celular-derecha">
-                <button class="ds-btn ds-btn--secondary" id="cerrar-deuda-anterior"
-            type="button"
-            >
-
-                    
-                            Volver
-                    
-    </button>
-
-                <button class="ds-btn ds-btn--primary"
-            type="submit"
-            >
-
-                    
-                            Cobrar
-                    
-    </button>
-
-            </div>
-    </form>
-</section>
-
-<section id="modal-reactivar" class="alumno-card mt-4" style="display:none;" aria-labelledby="titulo-reactivar">
-    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 id="titulo-reactivar" class="alumno-nombre">Alumno inactivo</h3></div>
-    <div class="alumno-info" style="display:block;">
-        <p id="mensaje-reactivar" role="status" style="font-size:0.85rem; margin-bottom:1rem;"></p>
-    </div>
-    <div class="alumno-actions acciones-celular-derecha">
-        <button class="ds-btn ds-btn--secondary" id="reactivar-cancelar"
-            type="button"
-            >
-
-                    
-                            Cancelar
-                    
-    </button>
-
-        <button class="ds-btn ds-btn--secondary" id="reactivar-no"
-            type="button"
-            >
-
-                    
-                            No
-                    
-    </button>
-
-        <button class="ds-btn ds-btn--primary" id="reactivar-si"
-            type="button"
-            >
-
-                    
-                            Sí
-                    
-    </button>
-
-    </div>
-</section>
-
-
-        </main>
-
-        
-        <footer class="ds-footer">
-            <div class="ds-footer__inner">Wings</div>
-        </footer>
-
-    </div>
-
-</div>
-
-<link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/cobrar-CM-15Gln.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/formato-importe-rshXORao.js" /><script type="module" src="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/cobrar-CM-15Gln.js"></script>
+    <table class="recibo-footer-table" style="margin-top: 18px;">
+        <tr>
+            <td style="width: 60%;" class="recibo-footer-legal">
+                <strong>Club Wings</strong> — Comprobante emitido por el sistema de gestión.<br>
+                <em>Documento no válido como factura comercial.</em>
+            </td>
+            <td style="width: 40%;">
+                <div class="recibo-firma-container">
+                    <div class="recibo-firma-line"></div>
+                    <div class="recibo-firma-label">Firma / Sello Receptor</div>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
+</div></body></html>

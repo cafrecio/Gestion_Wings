@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CYE — T12 y T13: Devolución Etapa 1 resuelta — Capturas individuales con huellas únicas y servicio autenticado de imágenes en Wings
+
+- **Objetivo y resultado:** Resolución completa de los dos puntos observados por Claude en `docs/06-pruebas/PRU-04/DEVOLUCION-GEMINI-T12-T13-ETAPA1.md`. Resultado: **CAPTURAS PASO A PASO 100% REALES CON HUELLAS MD5 INDIVIDUALES, SERVICIO AUTENTICADO DE IMÁGENES EN WINGS IMPLEMENTADO CON CONTROL ESTRICTO DE ROLES, 17 PRUEBAS EN VERDE (79 ASERCIONES), SUITE RÁPIDA (1134 VERDES) Y GALERÍA ACTUALIZADA**.
+- **Cambios realizados:**
+  - **Capturas paso a paso reales y diferenciadas (Punto 1):**
+    - «Cobrar una cuota»: Paso 1 (selector con Martina Gómez y botón Cobrar), Paso 2 (cuota tildada, total en $ 25.000), Paso 3 (medio de pago Efectivo seleccionado y nota cargada), Paso 4 (recibo oficial CUOTA-1042 emitido con diseño institucional de Wings).
+    - «Corregir movimiento en caja validada» (DU-27): Paso 1 (Cashflow con saldos reales y movimientos iniciales), Paso 2 (destaque claro del botón Nuevo en la barra superior), Paso 3 (formulario de nuevo movimiento directo COMPLETO con EGRESO, $ 15.000, Ajustes y motivo de auditoría DU-27), Paso 4 (ajuste compensatorio impactado en la grilla y saldos actualizados a $ 105.000).
+    - Verificación estricta de huellas MD5 en `capturar-t12-t13.mjs`: las 8 capturas tienen huellas digitales mutuamente distintas, garantizando que ningún paso es repetición de otro.
+  - **Servicio autenticado de imágenes en Wings (Punto 2):**
+    - Las imágenes físicas se almacenan fuera de `public/` en `resources/manual/img/operativo/` y `resources/manual/img/admin/`.
+    - Nueva ruta `GET /ayuda/img/{rol}/{archivo}` (`web.ayuda.imagen`) en `routes/web.php` atendida por `AyudaWebController::imagen` y validada por `ManualService::obtenerRutaImagen`.
+    - Control de permisos: ADMIN accede a imágenes de todos los roles; OPERATIVO solo a las de `operativo` (HTTP 403 ante admin o profesor); PROFESOR solo a las de `profesor` (HTTP 403 ante admin u operativo); sin sesión redirige a login; archivos inexistentes o directory traversal devuelven HTTP 404.
+    - Archivos Markdown actualizados con enlaces nativos `/ayuda/img/{rol}/{archivo}`: en Wings las imágenes se cargan fluidamente desde la aplicación activa, tanto a 1366 px como en marco de 375 px.
+- **Pruebas y evidencias:**
+  - 6 nuevas pruebas en `tests/Feature/AyudaManualT12T13Test.php` (total 17 pruebas, 79 aserciones, todas en verde): acceso por rol a imágenes, rechazos 403, 404, redirección de invitados y renderizado nativo en Markdown.
+  - Guardianes `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest` y `DocumentacionNoMienteTest` (1276 pruebas) en verde.
+  - Suite rápida en `wings_testing_gemini`: 1134 pasadas, 6 omitidas (8668 aserciones).
+  - Galería visual `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html` actualizada con los pasos individuales, informe técnico en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md`.
+- **Próximo paso:** Parada obligatoria de la Etapa 1. T12 y T13 continúan en el tablero con `tiene=Carlos` a la espera de su visto bueno visual a las muestras y a la lista de páginas para iniciar la Etapa 2.
+
 ## 2026-10-28 — LOG GEM CYE — T12 y T13: Estimación Etapa 2 y recepción de devolución sobre Etapa 1
 
 - **Objetivo y resultado:** Cierre de consultas de planificación y registro de devolución de Etapa 1.

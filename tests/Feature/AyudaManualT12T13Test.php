@@ -180,4 +180,78 @@ class AyudaManualT12T13Test extends TestCase
         $response->assertSee('Imprimir');
         $response->assertSee('data-accion="imprimir"', false);
     }
+
+    public function test_admin_puede_ver_todas_las_imagenes_de_las_muestras(): void
+    {
+        $pasosOperativo = [
+            'cobrar-cuota-paso1.png',
+            'cobrar-cuota-paso2.png',
+            'cobrar-cuota-paso3.png',
+            'cobrar-cuota-paso4.png',
+        ];
+
+        foreach ($pasosOperativo as $img) {
+            $resp = $this->actingAs($this->admin)->get(route('web.ayuda.imagen', ['rol' => 'operativo', 'archivo' => $img]));
+            $resp->assertOk();
+            $this->assertStringStartsWith('image/', $resp->headers->get('Content-Type'));
+        }
+
+        $pasosAdmin = [
+            'corregir-movimiento-paso1.png',
+            'corregir-movimiento-paso2.png',
+            'corregir-movimiento-paso3.png',
+            'corregir-movimiento-paso4.png',
+        ];
+
+        foreach ($pasosAdmin as $img) {
+            $resp = $this->actingAs($this->admin)->get(route('web.ayuda.imagen', ['rol' => 'admin', 'archivo' => $img]));
+            $resp->assertOk();
+            $this->assertStringStartsWith('image/', $resp->headers->get('Content-Type'));
+        }
+    }
+
+    public function test_operativo_puede_ver_imagenes_operativas_pero_recibe_403_en_imagenes_admin(): void
+    {
+        $respOk = $this->actingAs($this->operativo)->get(route('web.ayuda.imagen', ['rol' => 'operativo', 'archivo' => 'cobrar-cuota-paso1.png']));
+        $respOk->assertOk();
+
+        $respForbidden = $this->actingAs($this->operativo)->get(route('web.ayuda.imagen', ['rol' => 'admin', 'archivo' => 'corregir-movimiento-paso1.png']));
+        $respForbidden->assertForbidden();
+    }
+
+    public function test_profesor_recibe_403_al_pedir_imagenes_de_admin_u_operativo(): void
+    {
+        $this->actingAs($this->profesor)->get(route('web.ayuda.imagen', ['rol' => 'operativo', 'archivo' => 'cobrar-cuota-paso1.png']))->assertForbidden();
+        $this->actingAs($this->profesor)->get(route('web.ayuda.imagen', ['rol' => 'admin', 'archivo' => 'corregir-movimiento-paso1.png']))->assertForbidden();
+    }
+
+    public function test_invitado_sin_sesion_al_pedir_imagen_es_redirigido_a_login(): void
+    {
+        $this->get(route('web.ayuda.imagen', ['rol' => 'operativo', 'archivo' => 'cobrar-cuota-paso1.png']))
+            ->assertRedirect(route('login'));
+    }
+
+    public function test_imagen_inexistente_devuelve_404(): void
+    {
+        $this->actingAs($this->admin)
+            ->get(route('web.ayuda.imagen', ['rol' => 'operativo', 'archivo' => 'no-existe-12345.png']))
+            ->assertNotFound();
+    }
+
+    public function test_paginas_de_ayuda_renderizan_imagenes_con_rutas_de_la_aplicacion(): void
+    {
+        $respCobrar = $this->actingAs($this->operativo)->get(route('web.ayuda.show', 'cobrar-cuota'));
+        $respCobrar->assertOk();
+        $respCobrar->assertSee('/ayuda/img/operativo/cobrar-cuota-paso1.png');
+        $respCobrar->assertSee('/ayuda/img/operativo/cobrar-cuota-paso2.png');
+        $respCobrar->assertSee('/ayuda/img/operativo/cobrar-cuota-paso3.png');
+        $respCobrar->assertSee('/ayuda/img/operativo/cobrar-cuota-paso4.png');
+
+        $respAjuste = $this->actingAs($this->admin)->get(route('web.ayuda.show', 'corregir-movimiento-caja-validada'));
+        $respAjuste->assertOk();
+        $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso1.png');
+        $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso2.png');
+        $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso3.png');
+        $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso4.png');
+    }
 }

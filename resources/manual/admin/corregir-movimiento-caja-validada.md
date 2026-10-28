@@ -23,7 +23,7 @@ Esta tarea te explica cómo solucionar una diferencia cuando se descubre que en 
 1. Desde el menú lateral del administrador, entrá a **Cashflow**.
 2. Revisá el saldo del medio de pago afectado (por ejemplo, **Efectivo** o **Banco**) y el período en el que ocurrió el error.
 
-![Entrar a Cashflow](/docs/06-pruebas/PRU-04/evidencia-t12-t13/corregir-movimiento-paso1.png)
+![Entrar a Cashflow](/ayuda/img/admin/corregir-movimiento-paso1.png)
 
 ---
 
@@ -31,7 +31,7 @@ Esta tarea te explica cómo solucionar una diferencia cuando se descubre que en 
 1. En la barra superior de acciones de Cashflow, tocá el botón **Nuevo**.
 2. Se va a abrir la pantalla para registrar un movimiento directo de administración.
 
-![Tocar el botón Nuevo en Cashflow](/docs/06-pruebas/PRU-04/evidencia-t12-t13/corregir-movimiento-paso2.png)
+![Tocar el botón Nuevo en Cashflow](/ayuda/img/admin/corregir-movimiento-paso2.png)
 
 ---
 
@@ -46,7 +46,7 @@ Completá los campos según el sentido del error:
 5. **Rubro y Subrubro:** Seleccioná el rubro y subrubro de ajuste correspondiente.
 6. **Motivo:** Escribí con claridad la razón del ajuste (por ejemplo: *«Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada»*).
 
-![Completar formulario de ajuste directo](/docs/06-pruebas/PRU-04/evidencia-t12-t13/corregir-movimiento-paso3.png)
+![Completar formulario de ajuste directo](/ayuda/img/admin/corregir-movimiento-paso3.png)
 
 ---
 
@@ -55,7 +55,7 @@ Completá los campos según el sentido del error:
 2. Wings registra el movimiento en el libro Cashflow y actualiza los saldos generales del club.
 3. El historial conserva tanto la operación original de la caja como el ajuste que hiciste vos, con su explicación auditada.
 
-![Guardar y ver el movimiento reflejado en Cashflow](/docs/06-pruebas/PRU-04/evidencia-t12-t13/corregir-movimiento-paso4.png)
+![Guardar y ver el movimiento reflejado en Cashflow](/ayuda/img/admin/corregir-movimiento-paso4.png)
 
 ---
 
