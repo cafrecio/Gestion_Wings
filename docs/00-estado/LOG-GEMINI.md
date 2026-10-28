@@ -22,7 +22,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - `GeneracionCuotasReintentoT40Test`, `RevisionCobranzaNoTocaElPasadoTest` y `RevisionCobranzaOperativoTest` (22 pasadas, 85 aserciones).
   - Suite rápida (`--exclude-group=lento` en `wings_testing_gemini`): 1079 pasadas, 6 omitidas (8293 aserciones).
   - Guardianes `DocumentacionNoMienteTest` (1221 pruebas) y `TableroAlDiaTest` en verde.
-- **Próximo paso:** Claude verifica CLA-012.c; OK visual de Carlos en `APROBAR-T62.html`.
+- **Próximo paso:** T62 CERRADA. Lógica aprobada por Claude (commit `c3d791d1`, 54/54) y aspecto visual aprobado por Carlos el 28/10 («Esta OK»).
 
 ## 2026-10-28 — LOG GEM CYE — T62: Cancelar y reactivar clase — Aviso por lista tomada, choque y motivo conservado
 
