@@ -1,0 +1,64 @@
+{
+    "antes": {
+        "sueldos": {
+            "2026-09": 1500000,
+            "2026-10": 1500000
+        },
+        "web.reportes.index": 3500000,
+        "admin.dashboard": 3500000
+    },
+    "despues": {
+        "sueldos": {
+            "2026-09": 1500000,
+            "2026-10": 0
+        },
+        "web.reportes.index": 0,
+        "admin.dashboard": 0
+    },
+    "filas": [
+        {
+            "id": 1,
+            "tipo": "CUOTA",
+            "origen_id": 1,
+            "persona_id": 1,
+            "deporte_id": 1,
+            "periodo": "2026-10",
+            "datos": "{\"neto_centavos\":1500000}",
+            "vigente": 1,
+            "observado_en": "2026-10-27 18:00:00.000000"
+        },
+        {
+            "id": 2,
+            "tipo": "CUOTA",
+            "origen_id": 2,
+            "persona_id": 1,
+            "deporte_id": 1,
+            "periodo": "2026-09",
+            "datos": "{\"neto_centavos\":1500000}",
+            "vigente": 1,
+            "observado_en": "2026-09-15 12:00:00.000000"
+        },
+        {
+            "id": 3,
+            "tipo": "CUOTA",
+            "origen_id": 2,
+            "persona_id": 1,
+            "deporte_id": 1,
+            "periodo": "2026-09",
+            "datos": "{\"neto_centavos\":1500000}",
+            "vigente": 0,
+            "observado_en": "2026-10-27 18:00:00.000000"
+        },
+        {
+            "id": 4,
+            "tipo": "CUOTA",
+            "origen_id": 1,
+            "persona_id": 1,
+            "deporte_id": 1,
+            "periodo": "2026-10",
+            "datos": "{\"neto_centavos\":1500000}",
+            "vigente": 0,
+            "observado_en": "2026-10-27 18:00:00.000000"
+        }
+    ]
+}

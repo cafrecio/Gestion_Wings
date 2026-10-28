@@ -1,0 +1,24 @@
+
+   FAIL  Tests\Feature\VerificacionEliminarT65CodexTest
+  ⨯ el borrado retira la cuota del reporte actual de sueldos                                                    14.05s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionEliminarT65CodexTest > el borrado retira la cuota del reporte actual de sueldos
+  Una cuota eliminada sigue inflando el importe de cuotas sin asistencia en Sueldos.
+Failed asserting that 1500000 is identical to 0.
+
+  at tests\Feature\VerificacionEliminarT65CodexTest.php:56
+     52▕         $cuotaId = $this->alumnoT65->deudaCuotas()->sole()->id;
+     53▕         $this->deleteJson(route('web.alumnos.destroy', $this->alumnoT65))->assertOk();
+     54▕         $this->assertDatabaseMissing('deuda_cuotas', ['id' => $cuotaId]);
+     55▕         $despues = $this->get($url)->assertOk();
+  ➜  56▕         $this->assertSame(0, $despues->viewData('reporte')['sin_asistencia'],
+     57▕             'Una cuota eliminada sigue inflando el importe de cuotas sin asistencia en Sueldos.');
+     58▕         $this->assertSame([], app(HistorialAnaliticoReportesService::class)->obtener('CUOTA', CarbonImmutable::now(), $cuotaId)['filas']);
+     59▕     }
+     60▕
+
+  1   tests\Feature\VerificacionEliminarT65CodexTest.php:56
+
+
+  Tests:    1 failed (6 assertions)
+  Duration: 14.54s

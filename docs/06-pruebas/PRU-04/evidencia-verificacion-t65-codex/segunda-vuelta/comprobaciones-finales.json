@@ -1,0 +1,48 @@
+{
+  "head_inicial": "5c7b8a924dbd0c69a7d8f8158c4568ddc89d7599",
+  "head_antes_commit": "7da39b530a716f73d07d3922065eda3c994efffa",
+  "producto_y_pruebas_iniciales_identicos": true,
+  "regresion_propia_sin_cambios": true,
+  "tablero_unica_tarea_modificada": [
+    "T65"
+  ],
+  "base": "wings_testing_codex",
+  "t34_respaldo_inicial_sha256": "29af558cd2da3a2c23a7f73c1f06aa5a387c256a9519fc4606c13ac3c7209e22",
+  "t34_posterior_otra_suite_no_sobrescrito_sha256": "33cfcf8bda06b79e64f8dbb2cb422c984e6b768246c5905bf1b885bfe9ce56ad",
+  "evidencia": {
+    "area": {
+      "tests": "49",
+      "assertions": "287",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "24.472398"
+    },
+    "concurrencia": {
+      "tests": "2",
+      "assertions": "75",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "31.885323"
+    },
+    "adicionales": {
+      "tests": "3",
+      "assertions": "53",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "15.178624"
+    },
+    "rapida": {
+      "tests": "1074",
+      "assertions": "8232",
+      "failures": "1",
+      "errors": "0",
+      "skipped": "6",
+      "time": "225.634409"
+    },
+    "clases_anteriores_app": 43,
+    "clases_anteriores_controller": 1
+  }
+}

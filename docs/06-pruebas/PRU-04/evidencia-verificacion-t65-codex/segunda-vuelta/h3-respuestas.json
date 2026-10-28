@@ -1,0 +1,18 @@
+{
+    "ASISTENCIA_NUEVO": {
+        "success": false,
+        "message": "No se puede eliminar el alumno: Tiene excepciones de cobranza registradas. Puede darlo de baja cambiando su estado a inactivo."
+    },
+    "ASISTENCIA_DEUDOR": {
+        "success": false,
+        "message": "No se puede eliminar el alumno: Tiene excepciones de cobranza registradas. Puede darlo de baja cambiando su estado a inactivo."
+    },
+    "COBRO_PARCIAL": {
+        "success": false,
+        "message": "No se puede eliminar el alumno: Tiene excepciones de cobranza registradas. Puede darlo de baja cambiando su estado a inactivo."
+    },
+    "COBRO_DEUDA_ANTERIOR": {
+        "success": false,
+        "message": "No se puede eliminar el alumno: Tiene excepciones de cobranza registradas. Puede darlo de baja cambiando su estado a inactivo."
+    }
+}

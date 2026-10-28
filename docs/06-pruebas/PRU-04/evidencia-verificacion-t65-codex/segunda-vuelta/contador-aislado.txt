@@ -1,0 +1,31 @@
+
+   FAIL  Tests\Feature\DocumentacionNoMienteTest
+  ⨯ los documentos declaran la cantidad real de pruebas                                                          0.03s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\DocumentacionNoMienteTest > los documentos declaran la cantidad real de pruebas
+  docs/00-estado/ESTADO-ACTUAL.md MIENTE.
+  Declara: 1188 pruebas
+  Reales:  1195 pruebas
+
+Actualizar el documento en el mismo commit que agrego o quito la prueba.
+Un documento desactualizado hace que la proxima orden de trabajo se escriba
+sobre informacion falsa. Ya paso.
+
+Failed asserting that 1188 is identical to 1195.
+
+  at tests\Feature\DocumentacionNoMienteTest.php:64
+     60▕             }
+     61▕
+     62▕             $declarado = (int) $coincidencia[1];
+     63▕
+  ➜  64▕             $this->assertSame(
+     65▕                 $real,
+     66▕                 $declarado,
+     67▕                 "\n".
+     68▕                 "{$ruta} MIENTE.\n".
+
+  1   tests\Feature\DocumentacionNoMienteTest.php:64
+
+
+  Tests:    1 failed (3 assertions)
+  Duration: 0.16s

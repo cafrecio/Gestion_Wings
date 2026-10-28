@@ -1,0 +1,8 @@
+
+   PASS  Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest
+  ✓ baja conserva historia de septiembre y retira octubre                                                       14.78s
+  ✓ excepciones de todos los tipos rechazan y no se borran                                                       0.23s
+  ✓ cargos no inscripcion se borran y cobrados o condonados bloquean                                             0.17s
+
+  Tests:    3 passed (53 assertions)
+  Duration: 15.31s

@@ -1,0 +1,2 @@
+Field	Type	Null	Key	Default	Extra
+tipo	enum('INSCRIPCION','PUNITORIO')	NO		NULL

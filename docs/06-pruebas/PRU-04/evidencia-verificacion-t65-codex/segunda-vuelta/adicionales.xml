@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php" tests="3" assertions="53" errors="0" failures="0" skipped="0" time="15.178624">
+    <testcase name="test_baja_conserva_historia_de_septiembre_y_retira_octubre" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php" line="23" class="Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest" classname="Tests.VerificacionSegundaT65.SegundaVueltaT65CodexTest" assertions="21" time="14.780105"/>
+    <testcase name="test_excepciones_de_todos_los_tipos_rechazan_y_no_se_borran" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php" line="58" class="Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest" classname="Tests.VerificacionSegundaT65.SegundaVueltaT65CodexTest" assertions="21" time="0.229285"/>
+    <testcase name="test_cargos_no_inscripcion_se_borran_y_cobrados_o_condonados_bloquean" file="C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php" line="77" class="Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest" classname="Tests.VerificacionSegundaT65.SegundaVueltaT65CodexTest" assertions="11" time="0.169235"/>
+  </testsuite>
+</testsuites>

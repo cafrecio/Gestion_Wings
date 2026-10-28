@@ -1,0 +1,65 @@
+
+   FAIL  Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest
+  ✓ baja conserva historia de septiembre y retira octubre                                                       14.37s
+  ⨯ excepciones de todos los tipos rechazan y no se borran                                                       0.36s
+  ⨯ cargos no inscripcion se borran y cobrados o condonados bloquean                                             0.08s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest > excepciones de todos los tipos rechazan y no se…
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
+-    'alumno_id' => 3,
+-    'autor_id' => 3,
++    'id' => 1,
+     'tipo' => 'ASISTENCIA_NUEVO',
+     'motivo' => 'Defensa sin origen segunda T65',
++    'autor_id' => 3,
++    'alumno_id' => 3,
+     'registro_tipo' => 'ASISTENCIA',
+     'registro_id' => 999990,
+     'ocurrida_at' => '2026-10-27 18:00:00',
+     'contexto' => '[]',
++    'created_at' => '2026-10-27 18:00:00',
+     'updated_at' => '2026-10-27 18:00:00',
+-    'created_at' => '2026-10-27 18:00:00',
+-    'id' => 1,
+ ]
+
+  at docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php:70
+     66▕             $fila = $e->getAttributes();
+     67▕             $r = $this->actingAs($this->duenioT65)->deleteJson(route('web.alumnos.destroy', $a))->assertStatus(422);
+     68▕             $this->assertStringContainsString('excepciones de cobranza', $r->json('message'));
+     69▕             $this->assertStringContainsString('inactivo', $r->json('message'));
+  ➜  70▕             $this->assertSame($fila, $e->fresh()->getAttributes());
+     71▕             $this->assertDatabaseHas('alumnos', ['id' => $a->id]);
+     72▕             $respuestas[$tipo] = $r->json();
+     73▕         }
+     74▕         file_put_contents(__DIR__.'/h3-respuestas.json', json_encode($respuestas, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+
+  1   docs\06-pruebas\PRU-04\evidencia-verificacion-t65-codex\segunda-vuelta\SegundaVueltaT65CodexTest.php:70
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\VerificacionSegundaT65\SegundaVueltaT65CodexTest > cargos no inscripcion se borran…   QueryException
+  SQLSTATE[01000]: Warning: 1265 Data truncated for column 'tipo' at row 1 (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `cargos_alumno` (`alumno_id`, `dni`, `deuda_cuota_id`, `tipo`, `clave_origen`, `subrubro_id`, `monto_original`, `monto_condonado`, `estado`, `calculo`, `updated_at`, `created_at`) values (4, 33991001, 5, OTRO_PRUEBA, segunda-OTRO_PRUEBA, 1, 1500, 0, VIGENTE, [], 2026-10-27 18:00:00, 2026-10-27 18:00:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[01000]: Warning: 1265 Data truncated for column 'tipo' at row 1")
+
+
+  Tests:    2 failed, 1 passed (27 assertions)
+  Duration: 15.22s

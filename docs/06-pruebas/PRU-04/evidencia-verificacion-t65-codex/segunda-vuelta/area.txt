@@ -1,0 +1,60 @@
+
+   PASS  Tests\Feature\VerificacionEliminarT65CodexTest
+  ✓ recargo automatico impago no produce 500 al eliminar alumno                                                 13.09s
+  ✓ el borrado retira la cuota del reporte actual de sueldos                                                     0.51s
+  ✓ excepcion sin origen debe rechazar con explicacion y no con 500                                              0.12s
+  ✓ excepcion real de asistencia frena antes de la fk y conserva su origen                                       0.24s
+  ✓ borrar el ancla de inscripcion compartida preserva un solo cargo y saldo                                     0.48s
+  ✓ cuota vencida sin cobros no impide el borrado                                                                0.08s
+  ✓ inscripcion pagada desde otro deporte no se borra ni duplica                                                 0.08s
+  ✓ serie es atomica para liquidacion abierta cerrada y validacion manual                                        0.13s
+  ✓ listados filtros cobranza reportes inicio y dni tras eliminar                                                2.29s
+  ✓ paneles inline y roles sin botones no autorizados                                                            0.83s
+  ✓ movimiento con nombre libre sin vinculo no se borra con el alumno                                            0.19s
+  ✓ cla 021 d no admite cambiar el grupo inyectado en la edicion                                                 0.07s
+
+   PASS  Tests\Feature\EliminarAlumnoYClaseT65Test
+  ✓ operativo y profesor reciben 403 al intentar eliminar alumno                                                 0.11s
+  ✓ operativo y profesor reciben 403 al intentar eliminar clase                                                  0.06s
+  ✓ duenio elimina alumno sin cobros ni asistencias limpia deuda e inscripcion y libera dni                      0.10s
+  ✓ alumno con pago no se elimina explica por que y ofrece darlo de baja                                         0.06s
+  ✓ alumno con pago anulado tampoco se elimina                                                                   0.05s
+  ✓ alumno con asistencia presente o ausente no se elimina                                                       0.08s
+  ✓ alumno con movimiento de caja no se elimina                                                                  0.08s
+  ✓ alumno con cuota con pago o condonada no se elimina                                                          0.18s
+  ✓ alumno con inscripcion cobrada no se elimina                                                                 0.08s
+  ✓ alumno en segundo deporte con inscripcion compartida se elimina sin tocar la inscripcion del otro deporte    0.06s
+  ✓ recargo impago con otro alumno mismo dni no se transfiere y conserva inscripcion                             0.07s
+  ✓ duenio elimina clase sin asistencias ni liquidaciones                                                        0.06s
+  ✓ clase con asistencia no se elimina debe cancelarse                                                           0.09s
+  ✓ clase en liquidacion abierta o cerrada no se elimina                                                         0.05s
+  ✓ clase validada para liquidacion no se elimina                                                                0.04s
+  ✓ serie se elimina completa si todas estan limpias                                                             0.04s
+  ✓ serie rechaza eliminacion si alguna clase tiene asistencia o liquidacion e indica cual                       0.04s
+  ✓ concurrencia cobro entrante durante intento de eliminacion rechaza el borrado                                0.05s
+  ✓ pantalla ficha alumno y clase muestran boton eliminar solo para admin y cuando es eliminable                 0.25s
+
+   PASS  Tests\Feature\ReporteSueldosTest
+  ✓ reparte cuota real por asistencias sin dividir la comision                                                   0.17s
+  ✓ pago parcial es cobro y sin pago cuenta cada asistencia                                                      0.18s
+  ✓ falta historia o cuota no se convierte en cero                                                               0.10s
+  ✓ canceladas y futuras no reparten cuota                                                                       0.14s
+  ✓ mes cerrado conserva tarifa y cobro antes de la anulacion                                                    0.20s
+  ✓ liquidacion ajustada prevalece sin duplicar abierta y cerrada                                                0.11s
+  ✓ ruta filtros roles y consulta sin escrituras                                                                 0.35s
+  ✓ cambiar deporte del profesor no mueve su actividad anterior                                                  0.24s
+  ✓ clase con dos profesores no duplica asistencia global                                                        0.12s
+  ✓ hora usa duracion real y no inventa clases previas al historial                                              0.13s
+
+   PASS  Tests\Feature\ReporteSueldosOperativasT86Test
+  ✓ la ruta de sueldos muestra el pago y la operativa                                                            0.28s
+  ✓ selecciona el mes y no incluye fechas futuras                                                                0.18s
+  ✓ agrupa varios pagos y excluye sueldos docentes y gastos ajenos                                               0.18s
+  ✓ anular el pago resta el contraasiento sin contarlo dos veces                                                 1.36s
+  ✓ el pago historico no desaparece al cambiar rol o desactivar                                                  0.24s
+  ✓ el filtro de deporte no reparte el gasto del club                                                            0.23s
+  ✓ sin pagos muestra cero y el estado vacio                                                                     0.30s
+  ✓ identifica la operativa por fk y escapa su nombre                                                            0.29s
+
+  Tests:    49 passed (287 assertions)
+  Duration: 25.04s

@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-28 — Codex CAB — T65 segunda vuelta, lógica aprobada
+
+Verificado7e9c2e7f contra informe propio y cuerpos completos; regresiones12 intactas. H1 cargos primero/sólo inscripción reasignable; H2 baja analítica y septiembre conservado; H3 cuatro tipos422, inactivo y fila intacta. Alcance ALU-024 explicado sin editar tabla.
+Área49/287, concurrencia2/75 aparte y complementarias3/53 verdes. Código13b85f68 rojo en prueba Gemini; controlador anterior con escenario actual también rojo en Sueldos. Producto idéntico a las huellas iniciales.
+Rápida1067 aprobadas/6 omitidas/1 roja/8232 aserciones/227,83s: contador1188/1195 por siete métodos T25 ajenos sin commit; repite aislado. Cobros verdes, sin corregirlos ni incorporar pruebas ajenas.
+[Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md#8-segunda-vuelta--codex-cab-28102026). T65 a_verificar,hizoGemini,verificaCodex,tieneCarlos; falta OK visual.
+Sólo wings_testing_codex, sin producto/sitio/servidor/club/despliegue/push manual. T34 repuesto con huella inicial y control del destino; luego cambió durante otra suite activa y se dejó ese cambio ajeno fuera del commit. Se preserva T25/T89 concurrente.
+
 ## 2026-10-28 — Codex CAB — T89 implementada A/A/B/B y entregada
 
 Carlos: «Movimientos A, pero mostrame como queda visualmente»; Cashflow A, Inicio B y Detalle B. Cinco Blade de cuatro pantallas autorizadas; sin CSS compartido ni JS.

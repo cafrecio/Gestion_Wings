@@ -1,0 +1,11 @@
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas
+  ✓ lo generado coincide con tareas json
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+  Tests:    6 passed (27 assertions)
+  Duration: 0.15s
