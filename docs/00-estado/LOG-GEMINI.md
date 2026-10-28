@@ -12,23 +12,46 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 ## 2026-10-28 — LOG GEM CYE — T12 y T13: Devolución Etapa 1 resuelta — Capturas individuales con huellas únicas y servicio autenticado de imágenes en Wings
 
-- **Objetivo y resultado:** Resolución completa de los dos puntos observados por Claude en `docs/06-pruebas/PRU-04/DEVOLUCION-GEMINI-T12-T13-ETAPA1.md`. Resultado: **CAPTURAS PASO A PASO 100% REALES CON HUELLAS MD5 INDIVIDUALES, SERVICIO AUTENTICADO DE IMÁGENES EN WINGS IMPLEMENTADO CON CONTROL ESTRICTO DE ROLES, 17 PRUEBAS EN VERDE (79 ASERCIONES), SUITE RÁPIDA (1134 VERDES) Y GALERÍA ACTUALIZADA**.
-- **Cambios realizados:**
-  - **Capturas paso a paso reales y diferenciadas (Punto 1):**
-    - «Cobrar una cuota»: Paso 1 (selector con Martina Gómez y botón Cobrar), Paso 2 (cuota tildada, total en $ 25.000), Paso 3 (medio de pago Efectivo seleccionado y nota cargada), Paso 4 (recibo oficial CUOTA-1042 emitido con diseño institucional de Wings).
-    - «Corregir movimiento en caja validada» (DU-27): Paso 1 (Cashflow con saldos reales y movimientos iniciales), Paso 2 (destaque claro del botón Nuevo en la barra superior), Paso 3 (formulario de nuevo movimiento directo COMPLETO con EGRESO, $ 15.000, Ajustes y motivo de auditoría DU-27), Paso 4 (ajuste compensatorio impactado en la grilla y saldos actualizados a $ 105.000).
-    - Verificación estricta de huellas MD5 en `capturar-t12-t13.mjs`: las 8 capturas tienen huellas digitales mutuamente distintas, garantizando que ningún paso es repetición de otro.
-  - **Servicio autenticado de imágenes en Wings (Punto 2):**
-    - Las imágenes físicas se almacenan fuera de `public/` en `resources/manual/img/operativo/` y `resources/manual/img/admin/`.
-    - Nueva ruta `GET /ayuda/img/{rol}/{archivo}` (`web.ayuda.imagen`) en `routes/web.php` atendida por `AyudaWebController::imagen` y validada por `ManualService::obtenerRutaImagen`.
-    - Control de permisos: ADMIN accede a imágenes de todos los roles; OPERATIVO solo a las de `operativo` (HTTP 403 ante admin o profesor); PROFESOR solo a las de `profesor` (HTTP 403 ante admin u operativo); sin sesión redirige a login; archivos inexistentes o directory traversal devuelven HTTP 404.
-    - Archivos Markdown actualizados con enlaces nativos `/ayuda/img/{rol}/{archivo}`: en Wings las imágenes se cargan fluidamente desde la aplicación activa, tanto a 1366 px como en marco de 375 px.
-- **Pruebas y evidencias:**
-  - 6 nuevas pruebas en `tests/Feature/AyudaManualT12T13Test.php` (total 17 pruebas, 79 aserciones, todas en verde): acceso por rol a imágenes, rechazos 403, 404, redirección de invitados y renderizado nativo en Markdown.
-  - Guardianes `CspSinCodigoIncrustadoTest`, `TableroAlDiaTest` y `DocumentacionNoMienteTest` (1276 pruebas) en verde.
-  - Suite rápida en `wings_testing_gemini`: 1134 pasadas, 6 omitidas (8668 aserciones).
-  - Galería visual `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html` actualizada con los pasos individuales, informe técnico en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md`.
-- **Próximo paso:** Parada obligatoria de la Etapa 1. T12 y T13 continúan en el tablero con `tiene=Carlos` a la espera de su visto bueno visual a las muestras y a la lista de páginas para iniciar la Etapa 2.
+- **Prompt recibido (Devolución Claude / Carlos):**
+  > «T12 y T13, etapa 1 — vuelve (Claude, sobre 92123ff6; detalle en docs/06-pruebas/PRU-04/DEVOLUCION-GEMINI-T12-T13-ETAPA1.md)
+  > La estructura está bien encaminada (menú, índice por rol, ?, imprimir, contenido en archivos). Vuelve por dos cosas antes de que Carlos lo mire en Wings:
+  > 1. Capturas repetidas: los pasos no se hicieron. La regla de Carlos prohíbe reusar la captura de otra pantalla y exige hacer cada paso antes de escribirlo.
+  > - «Cobrar una cuota»: los pasos 2, 3 y 4 son el mismo archivo (misma huella md5). Muestran la pantalla recién abierta: ninguna cuota tildada, sin medio de pago y sin recibo. El paso 4 dice «Confirmar cobro y ver recibo» y no hay recibo.
+  > - «Corregir un movimiento…»: los pasos 1, 2 y 4 son el mismo archivo. El paso 4 dice «ver el movimiento reflejado en Cashflow» y la captura muestra Cashflow en $0, sin ningún movimiento.
+  > Hacé cada paso de verdad en tu base local y sacá la captura de ese momento: cuota tildada, medio elegido, recibo emitido; el formulario de Nuevo completo; el ajuste ya guardado en la lista. Si un paso no se puede hacer, marcalo pendiente.
+  > 2. Dentro de Wings las imágenes no se ven. Las páginas apuntan a /docs/06-pruebas/PRU-04/evidencia-t12-t13/... Esa carpeta no la sirve la aplicación: en Wings (local o en el servidor) las imágenes salen rotas. La galería estática las muestra, pero Carlos quiere ver la ayuda funcionando en Wings. Las capturas del manual tienen que vivir donde la aplicación las sirva y solo con sesión iniciada (por ejemplo, servidas por una ruta de la ayuda que controle el rol, igual que las páginas). Lo resolvés vos; decilo en la entrega. Agregá una prueba que pida cada imagen de las dos muestras desde la aplicación y espere 200, y 403 para un rol que no corresponde.
+  > Además: comprobá en Wings, no en la galería, que las dos páginas se vean completas con sus imágenes, a 1366 y a 375 px.
+  > Cierre. Sigue siendo etapa 1: no avances con las otras páginas. Actualizá IMPLEMENTACION-T12-T13.md y la galería, firmá en LOG-GEMINI.md, commit agregando por nombre, sin despliegue. T12 y T13 con tiene=Carlos y paso «Etapa 1: OK de Carlos a las muestras y a la lista».»
+
+- **Informe de resolución:**
+  - **1. Capturas individuales y reales (paso a paso diferenciado):**
+    - **Muestra 1 («Cobrar una cuota»):**
+      - Paso 1: Buscador con «Martina Gómez» seleccionada y botón `Cobrar` disponible (`cobrar-cuota-paso1.png`).
+      - Paso 2: Grilla de cuotas con la cuota de Octubre tildada y total en `$ 25.000` (`cobrar-cuota-paso2.png`).
+      - Paso 3: Selector de medio de pago con **Efectivo** seleccionado y nota ingresada (`cobrar-cuota-paso3.png`).
+      - Paso 4: Emisión del **recibo oficial CUOTA-1042** con membrete institucional de Wings (`cobrar-cuota-paso4.png`).
+    - **Muestra 2 («Corregir movimiento en caja validada» - DU-27):**
+      - Paso 1: Grilla de Cashflow inicial con saldos y movimientos previos (`corregir-movimiento-paso1.png`).
+      - Paso 2: Destaque visual del botón `Nuevo` en la barra de herramientas superior (`corregir-movimiento-paso2.png`).
+      - Paso 3: Formulario de nuevo movimiento **completo** (Tipo: *Egreso*, Monto: *$ 15.000*, Rubro: *Ajustes*, Motivo contable: *DU-27*) (`corregir-movimiento-paso3.png`).
+      - Paso 4: Grilla de Cashflow con el movimiento compensatorio registrado y saldo recalculado a `$ 105.000` (`corregir-movimiento-paso4.png`).
+    - **Huellas digitales (MD5):** Las 8 capturas poseen huellas mutuamente distintas comprobadas por script automatizado (cero duplicados auditados en la galería).
+  - **2. Servicio autenticado de imágenes en Wings:**
+    - Creada la ruta `GET /ayuda/img/{rol}/{archivo}` (`web.ayuda.imagen`) controlada por `AyudaWebController::imagen` y `ManualService::obtenerRutaImagen`.
+    - Imágenes protegidas fuera de `public/` en `resources/manual/img/{rol}/`.
+    - Permisos estrictos: **ADMIN** accede a todas las imágenes; **OPERATIVO** solo a `operativo` (HTTP 403 ante admin o profesor); **PROFESOR** solo a `profesor` (HTTP 403 ante admin u operativo); sin sesión redirige a `login`; nombres inválidos o traversal dan HTTP 404.
+    - Carga fluida dentro de Wings tanto a 1366 px como en marco de 375 px.
+  - **3. Pruebas y guardianes:**
+    - `AyudaManualT12T13Test`: 17 pruebas pasando (79 aserciones).
+    - Guardianes `CspSinCodigoIncrustadoTest` (2/2), `TableroAlDiaTest` (6/6) y `DocumentacionNoMienteTest` (1/1) en verde.
+    - Suite rápida en `wings_testing_gemini`: 1134 pasadas, 6 omitidas.
+    - Cero archivos modificados en `resources/views/` ni `resources/css/`.
+  - **4. Entregables y estado:**
+    - Galería visual: `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html`.
+    - Informe técnico: `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md`.
+    - Lista propuesta: `docs/06-pruebas/PRU-04/T12-LISTA-DE-PAGINAS.md`.
+    - Tablero: T12 y T13 en `en_curso`, con `tiene=Carlos` y paso `Etapa 1: OK de Carlos a las muestras y a la lista`.
+- **Próximo paso:** Parada obligatoria de la Etapa 1. Carlos revisará las muestras y la lista desde su casa (CAB) para dar el visto bueno e iniciar la Etapa 2.
 
 ## 2026-10-28 — LOG GEM CYE — T12 y T13: Estimación Etapa 2 y recepción de devolución sobre Etapa 1
 
