@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CYE — T12 y T13: Estimación Etapa 2 y recepción de devolución sobre Etapa 1
+
+- **Objetivo y resultado:** Cierre de consultas de planificación y registro de devolución de Etapa 1.
+- **Acciones y estimación:**
+  - Se presentó a Carlos la estimación para la Etapa 2 completa (52 páginas restantes, buscador y botón `?` en ~35 pantallas): entre 2,5 h y 3 h de trabajo continuo, o 4 tandas temáticas de 45 minutos (Caja/Alumnos, Clases/Asistencias, Finanzas/Dueño, Configuración/Buscador).
+  - Recibida devolución de Claude (`docs/06-pruebas/PRU-04/DEVOLUCION-GEMINI-T12-T13-ETAPA1.md`, commit `d7762751`):
+    1. Rehacer las capturas paso a paso para que cada estado sea individual y real (cuota tildada, medio seleccionado, recibo emitido; formulario de nuevo completo, ajuste impactado en la grilla de Cashflow).
+    2. Servir las imágenes del manual mediante una ruta autenticada con control de roles en Wings, de modo que se visualicen correctamente en la aplicación activa y no queden como rutas rotas fuera de `public`.
+- **Próximo paso:** Resolver las dos observaciones de la devolución en la Etapa 1 ni bien Carlos lo disponga.
+
 ## 2026-10-28 — LOG GEM CYE — T12 y T13: Manual y Ayuda en Wings — Entrega Etapa 1: Estructura, 2 muestras y lista completa
 
 - **Objetivo y resultado:** Cumplimiento de la **Etapa 1** de T12 y T13 conforme a lo decidido por Carlos (10/10, 13/10 y 28/10). Resultado: **ESTRUCTURA MÍNIMA IMPLEMENTADA, 2 MUESTRAS COMPLETAS, LISTA DE 54 PÁGINAS PROPUESTAS, SUITE DE PRUEBAS EN VERDE (11/11, 46 ASERCIONES), GALERÍA CON CAPTURAS REALES Y TABLERO EN `tiene=Carlos` ESPERANDO OK VISUAL Y DE CONTENIDO**.
