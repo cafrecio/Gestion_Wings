@@ -62,7 +62,19 @@ Si tu caja sigue abierta (o fue rechazada), entrá a **Caja**, tocá **Detalle**
 
 Si la caja ya fue cerrada pero el dueño todavía no la validó (está en estado *Cerrada*), la operativa no puede cancelar cobros: tenés que pedirle al dueño que rechace la caja para que vuelva a estar en estado *Rechazada* y puedas cancelarlo.
 
-Si la caja ya fue validada por el dueño, la caja validada no se puede modificar ni cancelar. Avisale al dueño para que registre un *ajuste directo en Cashflow* con el motivo correspondiente (DU-27).
+Si la caja ya fue validada por el dueño, la caja validada no se puede modificar ni cancelar. Avisale al dueño para que registre un *ajuste directo en Cashflow* con el motivo correspondiente.
+
+### ¿Qué hago si el cobro deja meses anteriores impagos?
+Si cobrás cuotas salteadas dejando deuda más antigua sin cancelar, Wings abre el panel de confirmación con el detalle de los meses adeudados y pregunta: «¿Cobrás igual solo los meses elegidos?», solicitando «Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.». Para continuar, completá el campo obligatorio **Motivo** indicando la justificación de la excepción y tocá **Cobrar** dentro del panel. Sin motivo no cobra.
+
+### ¿Qué hago si la pantalla advierte que estoy cobrando por adelantado?
+Si seleccionás un mes futuro que todavía no empezó, Wings abre el panel de confirmación advirtiendo: «Estás cobrando por adelantado» ese período e indicando: «El importe queda fijo aunque después cambie la cuota.». Verificá el aviso y confirmá tocando **Cobrar**. El cobro se registra con el valor de la cuota actual, pero tené en cuenta que cobrar un mes por adelantado no habilita al alumno a tomar clases antes del primer día de ese mes.
+
+### ¿Qué hago si la pantalla advierte que la fecha corresponde a un mes cerrado?
+Si modificás el campo **Fecha del pago** seleccionando un día de un mes anterior cerrado, Wings muestra el aviso: «Esta fecha de pago corresponde a un mes anterior ya cerrado. El cobro quedará registrado con esa fecha real, pero entrará en la caja de hoy y modificará el reporte de ese mes.». Tocá **Cobrar** en el panel para confirmar la operación con fecha histórica en los reportes pero asentando el dinero en tu caja abierta actual.
+
+### ¿Qué hago si el alumno al que le cobro está inactivo?
+Wings no permite cobrar directamente a un inactivo sin definir su situación: abre el panel **Alumno inactivo** preguntando: «¿Pasa a activo?». Consultá la guía detallada [Pasar a un alumno a inactivo](pasar-alumno-inactivo.md) para ver las opciones disponibles: **Sí** para reactivarlo con cuota de reingreso, **No** para cobrar solo deuda vieja manteniéndolo inactivo, o **Cancelar** para volver (si el cobro incluye el mes en curso o uno futuro, pagar el mes es volver y no se ofrece la opción «No»).
 
 ### ¿Qué hago si la pantalla dice «Debés abrir la caja y confirmar el efectivo antes de operar.»?
 No podés cobrar sin caja abierta porque cada peso que ingresa tiene que quedar asignado a un responsable y a un turno de mostrador. Andá a **Caja** en el menú, ingresá el importe con el que arrancás en **Efectivo recibido**, marcá la casilla de confirmación y tocá **Abrir**.

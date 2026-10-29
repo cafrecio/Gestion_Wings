@@ -17,3 +17,15 @@
 | **Paso 2: Efectivo y confirmación obligatoria** | Ingresar **Efectivo recibido**, marcar casilla obligatoria **Confirmo que conté y recibí este efectivo.** y tocar **Abrir**. | `resources/views/caja/apertura.blade.php:60, 85`<br>`app/Services/CajaService.php:80` | `'confirmacion' => 'required\|accepted'` | Si no se marca la casilla de confirmación, Wings bloquea la apertura con el error de validación correspondiente. |
 | **Diferencia mayor al 50%** | Si difiere más del 50% del cierre previo, exige tildar **Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.**. | `resources/views/caja/apertura.blade.php:65-75`<br>`app/Services/CajaService.php:83` | `if ($diferenciaGrande && !$request->boolean('confirmar_diferencia_grande'))` | La pantalla despliega la alerta en amarillo y el botón **Abrir** se deshabilita hasta tildar la confirmación expresa de la diferencia. |
 | **Qué hago si: rectificar apertura** | Si se cometió error de tipeo en el efectivo recibido y la caja sigue abierta, se usa la opción **Rectificar**. | `CajaWebController.php:102, 113`<br>`CajaService.php:161` | `if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA)` | La rectificación es válida exclusivamente mientras la caja está `ABIERTA`. Con caja rechazada, cerrada o validada no se puede rectificar la apertura. |
+
+---
+
+## 2. Rechazos y avisos de la acción
+
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+|---|---|---|---|
+| `Hay un turno abierto de :usuario. Debe cerrarse antes de abrir el siguiente.` | `resources/views/caja/apertura.blade.php:18` | Sí | Explica que no se puede abrir turno si otro usuario tiene su caja abierta. |
+| `Hay un turno abierto. Cerralo antes de abrir otro.` | `app/Services/CajaService.php:95` | Sí | Mensaje de rechazo del backend si se intenta forzar la apertura con turno activo. |
+| `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | Sí | Explica que se debe cerrar la caja del día anterior antes de abrir la de hoy. |
+| `Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.` | `resources/views/caja/apertura.blade.php:72` | Sí | Confirmación obligatoria cuando el saldo inicial difiere marcadamente del cierre previo. |
+| `Caja abierta con el efectivo declarado.` | `app/Http/Controllers/CajaWebController.php:80` | Sí | Mensaje de éxito al completar la apertura del turno. |

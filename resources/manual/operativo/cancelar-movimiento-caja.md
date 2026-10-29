@@ -51,4 +51,4 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 Si la caja está en estado *Cerrada*, la botonera de cancelación se deshabilita para evitar adulteraciones posteriores al arqueo. Hablá con el dueño y pedile que rechace la caja: al pasar a estado *Rechazada*, el botón **Cancelar** vuelve a estar habilitado para que corrijas la operación.
 
 ### ¿Qué hago si la caja ya fue validada por el dueño?
-Una caja validada representa un balance contable cerrado y auditado que nunca se reabre ni se altera. Avisale al dueño para que realice un ajuste compensatorio directo en Cashflow (DU-27).
+Una caja validada representa un balance contable cerrado y auditado que nunca se reabre ni se altera. Avisale al dueño para que realice un ajuste compensatorio directo en Cashflow.

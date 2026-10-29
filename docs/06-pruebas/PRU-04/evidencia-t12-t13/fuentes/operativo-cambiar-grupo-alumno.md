@@ -16,3 +16,13 @@
 | **Paso 2: Elegir grupo y frecuencia** | Seleccionar nuevo **Grupo** y elegir el plan en **Frecuencia semanal**. | `resources/views/alumnos/_form.blade.php:118, 153`<br>`app/Http/Controllers/AlumnoWebController.php:505` | `$cambiaGrupo = $request->filled('grupo_id') && (int) $request->input('grupo_id') !== (int) $alumno->grupo_id;`<br>`if (!$tienePlanValido \|\| $cambiaGrupo) { $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', ...)]; }` | Si se cambia de grupo pero se omite seleccionar la frecuencia semanal, Wings rechaza con el mensaje exacto: `Debe seleccionar la frecuencia semanal del nuevo grupo.`. |
 | **Paso 3: Guardar cambio** | Botón **Guardar** registra la reasignación de grupo y recalcula la cuota según la regla vigente. | `resources/views/alumnos/edit.blade.php:31`<br>`app/Services/CambioPlanService.php:49` | `public function cambiar(Alumno $alumno, GrupoPlan $nuevo): AlumnoPlan` | Guarda la asignación, genera el registro histórico en `alumno_planes` y actualiza la ficha del alumno. |
 | **Regla: diferimiento a mes siguiente** | Bajas de plan o subidas con cuota del mes ya saldada (`PAGADA`) rigen a partir del mes siguiente. Subidas con cuota impaga ajustan este mes. | `app/Services/CambioPlanService.php:21-29` | `public function seDifiere(Alumno $alumno, GrupoPlan $nuevo): bool {`<br>`if ($actual && $nuevo->clases_por_semana < $actual->clases_por_semana) return true;`<br>`$deuda = DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', now()->format('Y-m'))->first();`<br>`return $deuda && ($deuda->estado === DeudaCuota::ESTADO_CONDONADA \|\| $deuda->saldo_pendiente <= 0); }` | Comprobado en servicio contable: ante reducción de días semanales o cuota saldada, el nuevo precio se programa para `today()->addMonthNoOverflow()`. Si es aumento y adeuda saldo, la cuota actual se ajusta por la diferencia. |
+
+---
+
+## 2. Rechazos y avisos de la acción
+
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+|---|---|---|---|
+| `Debe seleccionar la frecuencia semanal del nuevo grupo.` | `app/Http/Controllers/AlumnoWebController.php:511` | Sí | Explica que al cambiar de grupo es obligatorio seleccionar el plan arancelario. |
+| `El grupo no pertenece al deporte del alumno.` | `app/Http/Controllers/AlumnoWebController.php:508` | Sí | Explica que el grupo debe corresponder a la disciplina del alumno. |
+| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | Sí | Mensaje de éxito al guardar el cambio de grupo y plan. |

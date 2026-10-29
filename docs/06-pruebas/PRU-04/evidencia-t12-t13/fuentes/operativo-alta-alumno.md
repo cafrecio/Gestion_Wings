@@ -18,3 +18,16 @@
 | **Paso 3: Frecuencia semanal y cuota** | Asignar deporte, grupo y frecuencia semanal. Indicar si genera cuota actual (**Sí.** o **No.**). | `resources/views/alumnos/_form.blade.php:153-180`<br>`app/Http/Controllers/AlumnoWebController.php:372` | `'plan_id' => ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', ...)]` | Si no se selecciona frecuencia semanal, Wings bloquea el envío con: `Debe seleccionar la frecuencia semanal.`. |
 | **Qué hago si: DNI duplicado** | El DNI es único por persona y deporte en el club. | `app/Http/Controllers/AlumnoWebController.php:371` | `Rule::unique('alumnos', 'dni')->where('deporte_id', ...)` | Al intentar dar de alta un alumno con DNI ya existente en esa disciplina, Wings rechaza con: `El campo dni ya ha sido registrado.`. |
 | **Qué hago si: botón Cancelar** | Botón **Cancelar** descarta los datos y vuelve al listado de alumnos. | `resources/views/alumnos/create.blade.php:15` | `<x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Cancelar</x-ds.button>` | Al presionar **Cancelar**, regresa a `/alumnos` sin crear ningún registro en la base de datos. |
+
+---
+
+## 2. Rechazos y avisos de la acción
+
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+|---|---|---|---|
+| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:611` | Sí | Explica que para menores de 18 años el nombre del tutor es obligatorio. |
+| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:612` | Sí | Explica que para menores de 18 años el teléfono del tutor es obligatorio. |
+| `La fecha de ingreso no puede ser posterior al :fecha_limite.` | `app/Support/FechaIngresoRegla.php:42` | Sí | Explica el tope máximo para fijar la fecha de inicio del alumno. |
+| `Debe seleccionar la frecuencia semanal.` | `app/Http/Controllers/AlumnoWebController.php:372` | Sí | Explica que la frecuencia semanal define el plan y el arancel a cobrar. |
+| `El campo dni ya ha sido registrado.` | `app/Http/Controllers/AlumnoWebController.php:371` | Sí | Explica en «Qué hago si» que el DNI no puede repetirse en el mismo deporte. |
+| `Alumno creado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:420` | Sí | Mensaje de éxito al completar el alta del alumno. |

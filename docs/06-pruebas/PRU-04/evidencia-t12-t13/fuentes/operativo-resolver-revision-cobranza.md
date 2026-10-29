@@ -17,3 +17,15 @@
 | **Paso 3: Nota y Confirmar** | En **Nota (contacto y motivo)** escribir detalle y tocar botón **Confirmar**. | `resources/views/revision-cobranza/index.blade.php:166, 170`<br>`app/Http/Controllers/RevisionCobranzaWebController.php:41-50` | `'resolucion' => 'required\|in:CONTINUA,INACTIVO'`<br>`'nota_resolucion' => 'required\|string\|min:5\|max:500'` | Si se intenta confirmar sin nota o con menos de 5 caracteres, Wings rechaza con el mensaje exacto: `La nota es obligatoria.` o `La nota debe tener al menos 5 caracteres.`. Con datos válidos, archiva la revisión y emite: `Alumno confirmado como activo. Se generó la deuda del período.` o `Alumno marcado como inactivo.`. |
 | **Qué hago si: resolución duplicada** | Una revisión ya resuelta no puede volver a resolverse. | `app/Services/RevisionCobranzaService.php:31` | `if ($revision->estado_revision !== AlumnoRevisionCobranza::ESTADO_PENDIENTE) { throw new \Exception('Esta revisión ya fue resuelta.'); }` | Si se intenta enviar una resolución sobre un caso ya resuelto, Wings rechaza la transacción con la excepción: `Esta revisión ya fue resuelta.`. |
 | **Qué hago si: cobro directo** | Si se cobra al alumno antes de resolver, el cobro puede resolver automáticamente la situación si incluye el mes actual. | `app/Models/AlumnoRevisionCobranza.php:40`<br>`app/Http/Controllers/AlumnoWebController.php:440` | `AlumnoRevisionCobranza::reactivarAuto($alumno->id, now()->format('Y-m'))` | Marca la revisión automáticamente como resuelta en el historial sin requerir acción manual adicional. |
+
+---
+
+## 2. Rechazos y avisos de la acción
+
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+|---|---|---|---|
+| `Esta revisión ya fue resuelta.` | `app/Services/RevisionCobranzaService.php:31` | Sí | Explica que si otro usuario ya resolvió la revisión no se puede volver a enviar. |
+| `La nota es obligatoria.` | `app/Http/Controllers/RevisionCobranzaWebController.php:48` | Sí | Explica que se debe escribir el detalle del contacto y motivo antes de confirmar. |
+| `La nota debe tener al menos 5 caracteres.` | `app/Http/Controllers/RevisionCobranzaWebController.php:49` | Sí | Requisito de longitud mínima para la justificación. |
+| `Alumno confirmado como activo. Se generó la deuda del período.` | `app/Http/Controllers/RevisionCobranzaWebController.php:57` | Sí | Mensaje de éxito al resolver con opción Activo (CONTINUA). |
+| `Alumno marcado como inactivo.` | `app/Http/Controllers/RevisionCobranzaWebController.php:61` | Sí | Mensaje de éxito al resolver con opción Inactivo. |

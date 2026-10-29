@@ -295,10 +295,53 @@ Se implementó el test automatizado `tests/Feature/VerificarCaminosProhibidosMan
 
 ---
 
-## 12. Próximo paso
+## 13. Etapa A — Segunda vuelta (Avisos de la acción y control de rechazos)
+
+A partir del control de Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-SEGUNDA-CLAUDE.md`) y las observaciones de Carlos, se ejecutó una segunda vuelta sobre la Etapa A con foco en los avisos cotidianos de la operativa y los rechazos de las acciones.
+
+### 1. Páginas corregidas
+
+1. **`tomar-lista-mostrador.md`:**
+   - Se reincorporó el caso de exceso de plan semanal: si el alumno excede los días semanales de su plan, se despliega el aviso «Excede el plan — indicar motivo» con selector para «Clase adicional (EXTRA)» o «Recupera clase perdida (RECUPERA)». Si no se elige, queda EXTRA por defecto y no traba el guardado (`clases/show.blade.php:497-514`, `clases-show.js:27-42`, `ClaseWebController.php:471-473`).
+   - Se mantuvieron intactos los dos mensajes literales de B3 para deudor («Tiene deuda vencida. Indicá el motivo para dejarlo entrar.») y para alumno nuevo con 2 presentes («Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.»).
+2. **`registrar-gasto-caja.md`:**
+   - Se eliminó el código interno `[DU-20]` del título, encabezado y nota de la página (frontmatter declara `du: CAJ-002b`).
+   - Se incorporó en «Qué hago si» el rechazo exacto ante un egreso que supera los billetes del cajón: «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» (`CajaService.php:614-615`).
+   - Se retiró la referencia interna `(DU-27)`.
+3. **`cobrar-pago-parcial.md`:**
+   - En el Paso 3 se incorporó la explicación del panel de confirmación de cobro parcial: «Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.». Sin motivo no cobra (`ExcepcionCobranzaService.php:93, 100`).
+   - Se aclaró la distinción entre el campo obligatorio **Motivo** del panel (justificación para el dueño) y el campo opcional **Observaciones** del formulario (nota para el recibo).
+   - Se retiró la referencia interna `(DU-27)`.
+4. **`cobrar-cuota.md`:**
+   - Se agregaron en «Qué hago si» los cuatro avisos cotidianos que pueden aparecer durante el cobro con su texto literal:
+     - Meses anteriores impagos: «¿Cobrás igual solo los meses elegidos?», solicitando «Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.».
+     - Cobro por adelantado: «Estás cobrando por adelantado» ese período e indicando «El importe queda fijo aunque después cambie la cuota.».
+     - Fecha de mes ya cerrado: «Esta fecha de pago corresponde a un mes anterior ya cerrado. El cobro quedará registrado con esa fecha real, pero entrará en la caja de hoy y modificará el reporte de ese mes.».
+     - Alumno inactivo: panel «¿Pasa a activo?», remitiendo a `pasar-alumno-inactivo.md`.
+   - Se retiró la referencia interna `(DU-27)`.
+5. **Limpieza de códigos internos:**
+   - Se retiró `(DU-27)` de `cancelar-movimiento-caja.md`, `rectificar-caja.md` y `registrar-ingreso-caja.md`.
+
+### 2. Control nuevo: Rechazos y avisos de la acción
+
+Se implementó en las 20 fichas de fuentes (`docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-*.md`) la nueva sección:
+`## 2. Rechazos y avisos de la acción`
+con una tabla que releva cada `throw`, `withMessages`, `abort`, `with('error')` y mensaje de modal/panel de confirmación del controlador y servicio de la acción, verificando que esté documentado en la página o justificando por qué no corresponde (ej. excepciones técnicas de integridad o privilegios exclusivos de admin).
+
+Asimismo, se corrigieron las columnas «Condición en el código (`if`)» para reflejar exclusivamente `if`s y reglas de validación de código PHP/Blade real.
+
+### 3. Re-revisión independiente
+
+El subagente revisor independiente ejecutó una nueva auditoría bajo `REVISOR-MANUAL.md` (con la regla 8 de rechazos y avisos incorporada):
+- Informe en: `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-29-etapa-a-segunda-vuelta-revision.md`.
+- Resultado: **0 Graves, 0 Medias, 0 Menores abiertas** en las 20 páginas.
+
+---
+
+## 14. Próximo paso
 
 **Parada obligatoria de control:**
 T12 y T13 quedan en el tablero con `estado=a_verificar`, `tiene=Claude`, `verifica=Claude`, con el paso:
-*«Etapa A corregida: control de Claude y OK de Carlos»*.
+*«Etapa A, segunda vuelta: control de Claude y OK de Carlos»*.
 
 **REGLA DURA:** No se inicia la Etapa B (páginas 21 a 36 del Dueño) hasta contar con la verificación favorable de Claude y la aprobación explícita de Carlos.

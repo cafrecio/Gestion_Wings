@@ -44,7 +44,7 @@ Esta tarea te explica cómo rectificar el saldo inicial declarado en una caja cu
 Con la caja rechazada no se puede rectificar la apertura: el botón **Rectificar** no aparece y Wings no permite la acción. En el resumen de caja ves el recuadro rojo con el **Motivo de rechazo** que escribió el dueño. Si faltó asentar o cancelar algún movimiento, podés hacerlo con **Nuevo**, **Cobrar** o desde el **Detalle** de la caja. Luego tocá el botón **Cerrar** para confirmar el nuevo arqueo y enviar el turno a una nueva revisión del dueño (el efectivo que ya se contó y entregó no se modifica; las correcciones se reflejan a través de los movimientos).
 
 ### ¿Qué pasa si el dueño ya validó la caja?
-Si la caja ya tiene estado *Validada*, no se puede rectificar: los arqueos y cierres aprobados son definitivos e inalterables. En caso de requerir una corrección monetaria posterior, el dueño debe ingresar un ajuste directo en Cashflow (DU-27).
+Si la caja ya tiene estado *Validada*, no se puede rectificar: los arqueos y cierres aprobados son definitivos e inalterables. En caso de requerir una corrección monetaria posterior, el dueño debe ingresar un ajuste directo en Cashflow.
 
 ### ¿Puedo volver atrás si no quiero rectificar?
 Sí. Antes de guardar, hacé clic en el botón **Volver** al pie del formulario para regresar al resumen de la caja sin modificar el efectivo inicial declarado.

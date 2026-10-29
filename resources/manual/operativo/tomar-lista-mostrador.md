@@ -31,8 +31,9 @@ Esta tarea te explica cómo tomar lista de los alumnos presentes en una clase de
 ### Paso 2. Marcar los presentes y guardar
 1. En la lista vas a ver a cada deportista con su apellido, nombre, condición de cuota (Al día, En plazo, Moroso o Deudor) y la relación de asistencias semanales respecto a su plan (por ejemplo: "1/2").
 2. Al lado de cada alumno que asistió, marcá la casilla de verificación **Presente** (los que dejes sin tildar quedan registrados como ausentes).
-3. Si el alumno está Deudor o si es un alumno nuevo sin ningún pago de cuota y ya tiene 2 presentes registrados, Wings despliega el campo obligatorio **Motivo** con el mensaje correspondiente: «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» o «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.». Completá la justificación para admitirlo en la clase.
-4. Al pie del listado, tocá el botón **Guardar**. Wings registra las asistencias en la base de datos y muestra el aviso de confirmación «Asistencias guardadas.».
+3. Si el alumno ya asistió esa semana la cantidad de veces prevista en su plan (por ejemplo, si tiene 2/2 y marcás el presente), se despliega el aviso «Excede el plan — indicar motivo» con un selector que ofrece dos opciones: «Clase adicional (EXTRA)» y «Recupera clase perdida (RECUPERA)». Si no elegís ninguna opción, el sistema asigna por defecto EXTRA y no traba el guardado de la lista.
+4. Si el alumno está Deudor o si es un alumno nuevo sin ningún pago de cuota y ya tiene 2 presentes registrados, Wings despliega el campo obligatorio **Motivo** con el mensaje correspondiente: «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» o «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.». Completá la justificación para admitirlo en la clase (este motivo de deuda es independiente del motivo de exceso del plan).
+5. Al pie del listado, tocá el botón **Guardar**. Wings registra las asistencias en la base de datos y muestra el aviso de confirmación «Asistencias guardadas.».
 
 ![Marcar casilla Presente y guardar](/ayuda/img/operativo/tomar-lista-mostrador-paso2.png)
 

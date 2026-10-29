@@ -32,6 +32,11 @@ Partí de la idea de que la página tiene errores. Una página que suena bien no
    rectificar una caja Rechazada que Wings rechaza. Al revisor se le pasó.
 7. **Lo que falta:** un caso común de esa tarea que la página no cubre y que deja al lector sin salida
    (por ejemplo, la caja cerrada pero todavía sin validar).
+8. **Rechazos y avisos de la acción:** buscá en el controlador y en el servicio de la acción cada `throw`,
+   `withMessages`, `abort`, `->with('error'` y cada `'message'` de panel de confirmación o modal que la
+   operativa pueda encontrar. Comprobá que la página lo cuente con el texto literal de Wings (o que la ficha
+   de fuentes justifique en su tabla de rechazos y avisos por qué no corresponde). Si la acción tiene un aviso
+   o rechazo que la operativa ve a diario y el manual lo omite, es un hallazgo **medio**.
 
 ## Informe
 

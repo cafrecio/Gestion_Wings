@@ -54,4 +54,4 @@ Esta tarea te explica cómo asentar en el turno de caja un cobro o ingreso direc
 Este formulario no desvincula ni cancela deudas de alumnos: solo suma dinero a la caja. Si tu caja sigue abierta (o rechazada), entrá a **Detalle** de la caja y tocá **Eliminar** en la fila de este ingreso. Luego cobrá la cuota por el camino correcto a través de **Cobrar** para que impacte en la cuenta corriente del alumno.
 
 ### ¿Qué hago si me equivoqué de rubro o de importe?
-Si la caja sigue abierta (o rechazada), entrá a **Detalle** de la caja: en los ingresos manuales contás con los botones **Editar** (para corregir monto, rubro o concepto) y **Eliminar** (para borrar el movimiento confirmando la acción). Si la caja ya fue validada por el dueño, avisale para asentar la compensación correspondiente en Cashflow (DU-27).
+Si la caja sigue abierta (o rechazada), entrá a **Detalle** de la caja: en los ingresos manuales contás con los botones **Editar** (para corregir monto, rubro o concepto) y **Eliminar** (para borrar el movimiento confirmando la acción). Si la caja ya fue validada por el dueño, avisale para asentar la compensación correspondiente en Cashflow.

@@ -40,9 +40,10 @@ Esta tarea te explica cómo registrar un pago cuando un alumno entrega un import
 ### Paso 3. Seleccionar medio de pago y confirmar
 1. En el selector **Medio de pago**, elegí la opción correspondiente entre los medios habilitados (por ejemplo, **Efectivo**).
 2. La **Fecha del pago** viene fijada con la fecha de hoy.
-3. Si necesitás, escribí una aclaración en **Observaciones** (por ejemplo: "Entrega a cuenta cuota octubre").
+3. En el formulario podés agregar una nota opcional en **Observaciones** para el recibo (por ejemplo: "Entrega a cuenta cuota octubre").
 4. Verificá que en **Total a cobrar:** figure el importe parcial ingresado y tocá el botón **Cobrar**.
-5. Wings guarda el cobro, actualiza la cuenta corriente y muestra el botón **Recibo** para emitir el comprobante oficial por la entrega realizada.
+5. Al detectar que el importe ingresado es menor que el valor de la cuota, Wings abre el panel de confirmación con la advertencia: «Es un cobro parcial: queda parte de la cuota pendiente.» y te solicita: «Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.». Completá el campo obligatorio **Motivo** (que es la justificación de la excepción para el dueño, distinta del campo opcional Observaciones del recibo) y tocá **Cobrar** dentro del panel. Sin motivo no cobra.
+6. Wings guarda el cobro, actualiza la cuenta corriente y muestra el botón **Recibo** para emitir el comprobante oficial por la entrega realizada.
 
 ![Confirmar pago parcial y ver recibo](/ayuda/img/operativo/cobrar-pago-parcial-paso3.png)
 
@@ -57,4 +58,4 @@ En Wings no existe el estado "parcial". La cuota continúa en estado *Pendiente*
 Cuando el alumno regrese, volvés a entrar a **Cobrar**: la cuota va a figurar con el saldo pendiente restante como importe sugerido. Marcás la cuota, elegís el medio de pago y tocás **Cobrar**. Al cancelarse el saldo total, la cuota pasa automáticamente al estado *Pagada*.
 
 ### ¿Qué hago si me equivoqué de importe al ingresar el pago parcial?
-Si tu caja sigue abierta (o está rechazada), entrá a **Caja**, tocá **Detalle** de tu turno y en la fila del cobro tocá el botón **Cancelar**, ingresando el motivo obligatorio. Wings revierte la entrega y restaura el saldo pendiente previo. Si la caja ya fue cerrada pero el dueño todavía no la validó (está en estado *Cerrada*), la operativa no puede cancelar cobros: pedile al dueño que la rechace para que vuelva a estar en estado *Rechazada* y puedas anularlo. Si la caja ya fue validada por el dueño, avisale para asentar un ajuste en Cashflow (DU-27).
+Si tu caja sigue abierta (o está rechazada), entrá a **Caja**, tocá **Detalle** de tu turno y en la fila del cobro tocá el botón **Cancelar**, ingresando el motivo obligatorio. Wings revierte la entrega y restaura el saldo pendiente previo. Si la caja ya fue cerrada pero el dueño todavía no la validó (está en estado *Cerrada*), la operativa no puede cancelar cobros: pedile al dueño que la rechace para que vuelva a estar en estado *Rechazada* y puedas anularlo. Si la caja ya fue validada por el dueño, avisale para asentar un ajuste en Cashflow.

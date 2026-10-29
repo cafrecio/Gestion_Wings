@@ -10,6 +10,29 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A segunda vuelta (avisos cotidianos, reincorporación de exceso de plan, control exhaustivo de rechazos en las 20 fichas y revisión independiente en 0)
+
+- **Objetivo:** Subsanar los hallazgos de la segunda devolución de Claude (`VERIFICACION-T12-T13-ETAPA-A-SEGUNDA-CLAUDE.md`) y Carlos: reincorporar el exceso de plan en toma de lista (EXTRA/RECUPERA), documentar el rechazo por falta de efectivo disponible en gastos de caja, detallar el panel modal y motivo en cobro parcial, incorporar los «Qué hago si» para avisos y confirmaciones de cobro (deuda vieja salteada, cobro adelantado, mes cerrado e inactivos), retirar códigos internos (`[DU-20]`, `DU-27`), implementar la tabla «Rechazos y avisos de la acción» en las 20 fichas de fuentes y verificar contra `REVISOR-MANUAL.md` actualizado.
+- **Acciones y resultados concretos:**
+  1. **Páginas del manual ajustadas:**
+     - `tomar-lista-mostrador.md`: En paso 2 (línea 34) reincorporado el panel «Excede el plan — indicar motivo» con selector «Clase adicional (EXTRA)» o «Recupera clase perdida (RECUPERA)», confirmando que por defecto asigna EXTRA y no traba el guardado (`clases/show.blade.php:503-514`, `clases-show.js:27-42`, `ClaseWebController.php:471-473`). Mantiene los dos mensajes literales de B3 para deudor y nuevo con 2 presentes (`ExcepcionCobranzaService.php:47-48`).
+     - `registrar-gasto-caja.md`: Retirado «[DU-20]» de título, encabezado y nota de regla. Agregado en «Qué hago si» el rechazo exacto ante gasto mayor al efectivo del cajón: «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» (`CajaService.php:615`).
+     - `cobrar-pago-parcial.md`: En paso 3 incorporada la advertencia «Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.» (`ExcepcionCobranzaService.php:93, 100`), distinguiendo el motivo obligatorio del campo opcional Observaciones.
+     - `cobrar-cuota.md`: Agregados «Qué hago si» para deuda anterior («¿Cobrás igual solo los meses elegidos?», solicitando «Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.»), cobro adelantado («Estás cobrando por adelantado» ese período e indicando «El importe queda fijo aunque después cambie la cuota.»), fecha de mes cerrado («Esta fecha de pago corresponde a un mes anterior ya cerrado...») y alumno inactivo (panel «¿Pasa a activo?», remitiendo a `pasar-alumno-inactivo.md`).
+     - Limpieza de códigos internos: retirado «(DU-27)» de `cobrar-cuota.md`, `cobrar-pago-parcial.md`, `cancelar-movimiento-caja.md`, `rectificar-caja.md`, `registrar-gasto-caja.md` y `registrar-ingreso-caja.md`.
+  2. **Control nuevo en las 20 fichas de fuentes:**
+     - Agregada en las 20 fichas (`docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-*.md`) la sección «2. Rechazos y avisos de la acción» relevando cada `throw`, `withMessages`, `abort`, `with('error')` y mensaje de confirmación del controlador y servicio de la acción.
+     - Corregidas las condiciones de código para consignar únicamente `if`s y reglas de validación de código PHP real.
+  3. **Verificaciones automáticas y re-revisión independiente:**
+     - `php scripts/manual/verificar-manual.php` &rarr; **22 páginas revisadas, 0 problemas**.
+     - `tests/Feature/VerificarCaminosProhibidosManualTest.php` &rarr; **18 passed (45 assertions)**.
+     - `REVISOR-MANUAL.md` actualizado incorporando la regla 8 de rechazos y avisos de la acción.
+     - Revisor independiente ejecutó auditoría completa: informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-29-etapa-a-segunda-vuelta-revision.md`. **Resultado: 0 Graves, 0 Medias y 0 Menores abiertas** en las 20 páginas.
+     - Guardianes `DocumentacionNoMienteTest` y `TableroAlDiaTest` en verde.
+     - `php artisan view:cache; php artisan view:clear` compilan limpias. `git diff --stat -- resources/views resources/css` vacío.
+- **Tablero:** T12 y T13 actualizadas con `tablero.php` a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Etapa A, segunda vuelta: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control de Claude y la aprobación de Carlos antes de iniciar la Etapa B.
+
 ## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A corregida y auditada contra el código de Wings (54 condiciones `if` verificadas, 20 fichas de fuentes con caminos prohibidos ejecutados, 18 pruebas automáticas y revisión independiente en 0)
 
 - **Objetivo:** Subsanar los hallazgos de Claude (`VERIFICACION-T12-T13-ETAPA-A-CLAUDE.md`) en la Etapa A del manual (páginas 2 a 20), auditar exhaustivamente cada condición de estado, rol y fecha de las 20 páginas contra los `if` reales de controladores y servicios, ejecutar los caminos prohibidos en el sistema documentando el resultado real en las fichas, crear suite automatizada de caminos prohibidos y someter la entrega a re-revisión independiente.
