@@ -158,7 +158,7 @@
         {
           "donde": "Rechazo",
           "l": "a",
-          "texto": "Se rechaza, y el rechazo explica cómo salvarlo: cargar primero un ingreso de aporte que cubra el pago y después el gasto.",
+          "texto": "Se rechaza y explica que primero se registre un aporte que cubra el pago.",
           "tipo": "directo"
         },
         {
@@ -172,17 +172,29 @@
           "l": "c",
           "texto": "Cargado el aporte, el gasto se acepta.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Edición",
+          "l": "d",
+          "texto": "Editar un gasto que deje el cajón negativo también se rechaza; el movimiento queda como estaba.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otro medio",
+          "l": "e",
+          "texto": "Un gasto por transferencia no se compara con el cajón.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 11/10 (CJ-29). Hoy no hay ningún control: lo acepta y el esperado queda negativo. La versión completa es la mejora futura MF2. Comprobado por Claude el 13/10 en la base descartable: con el cajón en $0 acepta un gasto en efectivo de $25.000.",
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 (CJ-29). Programado en T88 (Codex; verificado por Claude, aspecto aprobado por Carlos 27/10). La versión completa sigue siendo la mejora futura MF2. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Cajón con $10.000 de efectivo esperado.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "T25",
+      "tarea": "T88",
       "tipo": "mal_uso",
       "titulo": "Gasto en efectivo mayor que la plata del cajón"
     },
@@ -278,7 +290,7 @@
         {
           "donde": "Rastro",
           "l": "d",
-          "texto": "No queda registro del valor anterior.",
+          "texto": "El detalle de la caja conserva antes y después, con autor, fecha y hora.",
           "tipo": "indirecto"
         },
         {
@@ -286,10 +298,16 @@
           "l": "e",
           "texto": "Los cobros de cuota e inscripción no ofrecen Editar.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Visibilidad",
+          "l": "f",
+          "texto": "La operativa también ve esa historia en el detalle de su caja.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "CajaWebController::updateMovimiento (código leído).",
+      "fuente": "CajaWebController::updateMovimiento (código leído). T51 (Codex; verificada por Claude, OK de Carlos 28/10): CajaCorreccionService guarda antes y después. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Caja abierta con un gasto de $5.000 cargado por $50.000 por error.",
@@ -330,8 +348,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-07, 13/10). Falta programar: T51. Antes: CajaWebController::destroyMovimiento (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-07, 13/10). Programado en T51 (Codex; verificado por Claude, OK de Carlos 28/10): CajaCorreccionService. Carlos pidió mirar la historia con movimientos reales al subir a prueba. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Caja abierta con un movimiento manual cargado por error.",
@@ -460,6 +478,12 @@
           "l": "d",
           "texto": "Puede abrir el recibo de cualquiera de los cobros.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Registró",
+          "l": "e",
+          "texto": "Cada renglón dice quién registró el movimiento, aunque la caja sea de otra persona, y su Recibo abre el pago de esa fila (T89).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
@@ -722,25 +746,25 @@
         {
           "donde": "Ajena",
           "l": "b",
-          "texto": "La pantalla no debería ofrecerle un enlace que no puede abrir.",
+          "texto": "Abre la caja de la compañera solo para consultar, con los movimientos y totales de sus rubros; Volver regresa a Movimientos.",
           "tipo": "directo"
         },
         {
           "donde": "Hoy",
           "l": "c",
-          "texto": "El enlace aparece en todos los renglones y el de la compañera termina en «No podés entrar a esta sección».",
+          "texto": "Desde esa consulta no puede editar, cancelar ni cerrar; forzándolo se rechaza.",
           "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "movimientos/index (vista leída el 13/10); Contrato de estados §10.",
+      "fuente": "movimientos/index (vista leída el 13/10); Contrato de estados §10. T89 (Codex; verificada por Claude, OK de Carlos 28/10). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Movimientos de caja",
       "pantalla": "movimientos",
       "requiere": "Movimientos de la caja propia y de la caja de una compañera.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T89",
       "tipo": "mal_uso",
       "titulo": "El enlace a la caja desde Movimientos"
     }

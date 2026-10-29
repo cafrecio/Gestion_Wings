@@ -401,10 +401,22 @@
           "l": "f",
           "texto": "Sigue en el listado con el saldo de agosto.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes salteado",
+          "l": "g",
+          "texto": "También avisa cuando se saltea un mes entre dos elegidos; dice cuántos meses, cuáles y cuánto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "h",
+          "texto": "El motivo queda registrado con autor y fecha; el dueño lo ve en su Inicio y en el resumen diario.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "Verificación de Claude 05/10; PagoCuotaService y CajaWebController::pagar (código leído).",
+      "fuente": "Verificación de Claude 05/10; PagoCuotaService y CajaWebController::pagar (código leído). T88 (Codex, verificada por Claude 27/10): el aviso cuenta los meses residuales e incluye el mes salteado entre dos elegidos; la excepción queda registrada. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno que debe agosto y octubre.",
@@ -483,25 +495,31 @@
         {
           "donde": "Motivo",
           "l": "a",
-          "texto": "El sistema pide el motivo del pago parcial antes de cobrar; sin motivo no cobra.",
+          "texto": "Si una cuota queda parcial, pide el motivo en un panel de la pantalla; sin motivo no cobra.",
           "tipo": "directo"
         },
         {
           "donde": "Registro",
           "l": "b",
-          "texto": "El motivo queda guardado y se ve en el pago.",
+          "texto": "El motivo queda registrado con autor y fecha, vinculado al pago; el dueño lo ve en su Inicio y en el resumen diario.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Forzado",
+          "l": "c",
+          "texto": "Enviado a mano sin motivo, se rechaza y no queda pago, movimiento ni imputación.",
+          "tipo": "directo"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 11/10 (CJ-16). Hoy el sistema no lo pide.",
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 (CJ-16). Programado en T88 (Codex; verificado por Claude, aspecto aprobado por Carlos 27/10). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno con una cuota de $48.000.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "T25",
+      "tarea": "T88",
       "tipo": "mal_uso",
       "titulo": "El pago parcial tiene que pedir motivo"
     },
@@ -554,14 +572,14 @@
         }
       ],
       "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 11/10 (CJ-15); resources/js/cobrar.js (leído el 13/10). Hoy lo rechaza con «el monto supera el saldo pendiente».",
+      "fuente": "Decisión de Carlos 11/10 (CJ-15); resources/js/cobrar.js (leído el 13/10). Hoy lo rechaza con «el monto supera el saldo pendiente». Separado de T25 por Carlos el 28/10: queda como mejora futura MF11.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno que debe una cuota de $48.000. Otro que debe dos meses. Otro sin deuda.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "T25",
+      "tarea": "MF11",
       "tipo": "mal_uso",
       "titulo": "Cobrar de más"
     },
@@ -778,32 +796,32 @@
       "titulo": "Cobrar dos veces lo mismo"
     },
     {
-      "accion": "Lo busca en Cobrar. Entra por su ficha y cobra una cuota.",
+      "accion": "Entra por la ficha del alumno y toca Cobrar. Prueba Sí, No y Cancelar; también cobrando el mes en curso.",
       "codigo": "COB-015",
       "duda": "",
       "esperado": [
         {
           "donde": "Buscador",
           "l": "a",
-          "texto": "Tiene que poder encontrarlo para cobrarle.",
+          "texto": "El buscador de Cobrar no lo trae: se le cobra desde su ficha.",
           "tipo": "directo"
         },
         {
           "donde": "Pregunta",
           "l": "b",
-          "texto": "Antes de cobrar pregunta: «El alumno <nombre> estaba inactivo, ¿quiere cambiarlo a activo después de este pago?» con Sí, No y Cancelar.",
+          "texto": "Antes de cobrar pregunta en un panel de la pantalla si pasa a activo, con Sí, No y Cancelar.",
           "tipo": "directo"
         },
         {
           "donde": "Sí",
           "l": "c",
-          "texto": "Cobra y lo deja activo: vuelve a Cobranza con su deuda restante y a las listas de asistencia.",
+          "texto": "Cobra y lo deja activo: vuelve a Cobranza con su deuda restante y a las listas de asistencia; se le genera la cuota del mes si el cobro no la incluía.",
           "tipo": "directo"
         },
         {
           "donde": "No",
           "l": "d",
-          "texto": "Cobra y sigue inactivo.",
+          "texto": "Cobra la deuda vieja y sigue inactivo; no se genera la cuota del mes.",
           "tipo": "directo"
         },
         {
@@ -813,14 +831,26 @@
           "tipo": "directo"
         },
         {
-          "donde": "Hoy",
+          "donde": "Mes en curso",
           "l": "f",
-          "texto": "El buscador no lo trae; desde la ficha se le puede cobrar y el sistema lo reactiva sin preguntar ni avisar.",
+          "texto": "Si el cobro incluye el mes en curso o uno futuro, solo ofrece Sí y Cancelar: pagar el mes es volver. Forzando No, se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin plan",
+          "l": "g",
+          "texto": "Si no tiene plan para el mes, no pregunta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "h",
+          "texto": "Si sigue inactivo, la generación del día 1 no le crea cuota.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 11/10 (CJ-20); PagoCuotaService (código leído).",
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos (CJ-20, 11/10; 28/10). Programado en T25 (Claude; verificado por Gemini, OK visual de Carlos 28/10). Comprobado en el código el 28/10: el buscador de Cobrar sigue listando solo activos (CajaWebController::cobrarCuotaSelect). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno inactivo que quedó debiendo dos meses.",
@@ -1659,19 +1689,19 @@
         {
           "donde": "Adelantado y fecha vieja",
           "l": "a",
-          "texto": "Preguntan con una ventana del navegador. Cancelar no cobra nada y deja la pantalla como estaba.",
+          "texto": "Preguntan en un panel dentro de la página. Cancelar no cobra nada y deja la pantalla como estaba.",
           "tipo": "directo"
         },
         {
           "donde": "Deuda anterior",
           "l": "b",
-          "texto": "Pregunta con una ventana propia del sistema que pide el motivo.",
+          "texto": "Pregunta en el mismo panel y pide el motivo.",
           "tipo": "directo"
         },
         {
           "donde": "Errores",
           "l": "c",
-          "texto": "Se muestran en una ventana del navegador con el texto en castellano.",
+          "texto": "Se muestran dentro de la página, en castellano.",
           "tipo": "directo"
         },
         {
@@ -1683,18 +1713,18 @@
         {
           "donde": "Aplicación instalada",
           "l": "e",
-          "texto": "Las ventanas del navegador también aparecen en la aplicación instalada en el teléfono.",
+          "texto": "En la aplicación instalada en el teléfono el panel se ve igual.",
           "tipo": "indirecto"
         },
         {
           "donde": "Bloqueo",
           "l": "f",
-          "texto": "Si el navegador tiene bloqueadas las ventanas repetidas, el cobro adelantado no se puede confirmar y no hay explicación.",
+          "texto": "Ya no depende de las ventanas del navegador: bloquearlas no impide confirmar.",
           "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "resources/js/cobrar.js (leído el 13/10): usa confirmaciones y alertas del navegador.",
+      "fuente": "resources/js/cobrar.js (leído el 13/10). T88 (Codex, 27/10) retiró las confirmaciones y alertas del navegador de Cobrar: todo se pregunta en un panel de la página. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Pantalla de cobro en computadora, en teléfono y en la aplicación instalada.",
@@ -1774,59 +1804,59 @@
       "titulo": "Cómo se comporta la pantalla de cobro"
     },
     {
+      "accion": "El dueño ve la diferencia al mirar Mercado Pago. Anula el cobro desde la ficha con el motivo, y lo vuelve a cobrar por el importe real con la fecha de pago real. La operativa intenta anularlo primero.",
       "codigo": "COB-035",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Operativa",
+          "l": "a",
+          "texto": "No puede anular un cobro de una caja ya validada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Anulación",
+          "l": "b",
+          "texto": "El dueño lo anula con motivo; las cuotas vuelven a deber y el recibo sale anulado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro nuevo",
+          "l": "c",
+          "texto": "El cobro con el importe real queda con la fecha de pago real, sin abrir caja, y el recibo nuevo detalla lo que de verdad pagó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "La caja validada de ese turno no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "e",
+          "texto": "El alumno queda como si el error no hubiera pasado: debe lo que de verdad le falta y con el estado que corresponde.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes y Cashflow",
+          "l": "f",
+          "texto": "El ingreso del día del cobro y el saldo del medio quedan con el importe real; el asiento en contra lleva la fecha del cobro original.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Prueba por días, día 8 (8.3): se cobraron $144.000 en vez de $100.000. Agregado por Claude el 25/10/2026 a pedido de Carlos.",
       "modulo": "Cobrar",
       "pantalla": "Ficha del alumno, Cobrar, Cashflow",
+      "requiere": "Un cobro por Mercado Pago cargado de más (se registraron $144.000 y entraron $100.000), en una caja ya validada.",
       "roles": [
         "ADMIN",
         "OPERATIVO"
       ],
+      "tarea": "",
       "tipo": "error",
-      "titulo": "Corregir días después un cobro cargado con el importe equivocado",
-      "requiere": "Un cobro por Mercado Pago cargado de más (se registraron $144.000 y entraron $100.000), en una caja ya validada.",
-      "accion": "El dueño ve la diferencia al mirar Mercado Pago. Anula el cobro desde la ficha con el motivo, y lo vuelve a cobrar por el importe real con la fecha de pago real. La operativa intenta anularlo primero.",
-      "esperado": [
-        {
-          "l": "a",
-          "tipo": "directo",
-          "donde": "Operativa",
-          "texto": "No puede anular un cobro de una caja ya validada."
-        },
-        {
-          "l": "b",
-          "tipo": "directo",
-          "donde": "Anulación",
-          "texto": "El dueño lo anula con motivo; las cuotas vuelven a deber y el recibo sale anulado."
-        },
-        {
-          "l": "c",
-          "tipo": "directo",
-          "donde": "Cobro nuevo",
-          "texto": "El cobro con el importe real queda con la fecha de pago real, sin abrir caja, y el recibo nuevo detalla lo que de verdad pagó."
-        },
-        {
-          "l": "d",
-          "tipo": "indirecto",
-          "donde": "Caja",
-          "texto": "La caja validada de ese turno no cambia."
-        },
-        {
-          "l": "e",
-          "tipo": "indirecto",
-          "donde": "Cobranza",
-          "texto": "El alumno queda como si el error no hubiera pasado: debe lo que de verdad le falta y con el estado que corresponde."
-        },
-        {
-          "l": "f",
-          "tipo": "indirecto",
-          "donde": "Reportes y Cashflow",
-          "texto": "El ingreso del día del cobro y el saldo del medio quedan con el importe real; el asiento en contra lleva la fecha del cobro original."
-        }
-      ],
-      "fuente": "Prueba por días, día 8 (8.3): se cobraron $144.000 en vez de $100.000. Agregado por Claude el 25/10/2026 a pedido de Carlos.",
-      "estado": "vigente",
-      "duda": "",
-      "tarea": ""
+      "titulo": "Corregir días después un cobro cargado con el importe equivocado"
     }
   ],
   "modulo": "Cobrar",

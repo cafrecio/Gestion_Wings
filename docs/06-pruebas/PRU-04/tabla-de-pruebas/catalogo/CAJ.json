@@ -1355,6 +1355,18 @@
           "l": "d",
           "texto": "Ofrece Validar y Rechazar.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Hora",
+          "l": "e",
+          "texto": "Cada movimiento muestra la hora en que se registró, junto a la fecha (T89).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Correcciones",
+          "l": "f",
+          "texto": "Debajo de los movimientos figura la historia de correcciones de los movimientos manuales (T51).",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
@@ -1377,7 +1389,7 @@
         {
           "donde": "Rechazo",
           "l": "a",
-          "texto": "Acceso restringido en las cuatro. Ver la caja ajena no está permitido.",
+          "texto": "El detalle de la caja ajena se abre solo para consultar, con los movimientos y totales de los rubros de la operativa. El resumen, la corrección y el cierre siguen con acceso restringido.",
           "tipo": "directo"
         },
         {
@@ -1385,10 +1397,22 @@
           "l": "b",
           "texto": "Los cobros de esa caja sí los ve en Movimientos e Historial: ver movimientos ajenos es legítimo.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Escritura",
+          "l": "c",
+          "texto": "No ofrece editar, cancelar, verificar ni cerrar; forzándolo se rechaza y nada cambia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Volver",
+          "l": "d",
+          "texto": "Volver regresa a Movimientos.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "Contrato de estados §10 y §13; CajaWebController (código leído).",
+      "fuente": "Contrato de estados §10 y §13; CajaWebController (código leído). T89 (Codex; verificada por Claude, OK de Carlos 28/10): desde Movimientos la operativa consulta la caja ajena, filtrada a sus rubros y sin escribir. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Caja",
       "pantalla": "caja-detalle",
       "requiere": "Caja cerrada ayer por otra operativa.",
@@ -1397,7 +1421,7 @@
       ],
       "tarea": "",
       "tipo": "seguridad",
-      "titulo": "Abrir la caja de otra operativa"
+      "titulo": "Abrir o tocar la caja de otra operativa"
     },
     {
       "accion": "Abre el listado una operativa y después el dueño, que filtra por mes, por operativa y por pendientes.",

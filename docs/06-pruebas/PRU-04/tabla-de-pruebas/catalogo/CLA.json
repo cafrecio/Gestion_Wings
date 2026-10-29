@@ -522,7 +522,7 @@
         {
           "donde": "Aviso",
           "l": "a",
-          "texto": "Antes de cancelar avisa que la clase ya tiene la lista tomada y pide confirmar.",
+          "texto": "Antes de cancelar avisa, en la pantalla, que la clase ya tiene la lista tomada y pide confirmar. En una serie dice cuántas clases tienen lista.",
           "tipo": "directo"
         },
         {
@@ -534,12 +534,12 @@
         {
           "donde": "Mes siguiente",
           "l": "c",
-          "texto": "Un alumno cuyo único presente del mes fue en esa clase puede terminar en Revisión.",
+          "texto": "Un alumno cuyo único presente del mes fue en esa clase no recibe la cuota automática del mes siguiente: va a Revisión.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-30, 13/10): avisar y pedir confirmación. Falta programar: T62. Antes: ClaseWebController::toggleCancelada no mira asistencias (código leído). Comprobado por Claude el 13/10 en la base descartable: la cancela sin aviso y el presente queda guardado.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-30, 13/10). Programado en T62 (Gemini; verificado por Claude, OK de Carlos 28/10). La línea c la corrigió la segunda vuelta de T62. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Clase de ayer con ocho presentes.",
@@ -567,17 +567,23 @@
           "l": "b",
           "texto": "Lo pagado y las clases dictadas siguen coincidiendo.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Forzado",
+          "l": "c",
+          "texto": "Tampoco la operativa ni forzando la acción.",
+          "tipo": "directo"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-30, 13/10): impedirlo. Falta programar: T62. Antes: ClaseWebController::toggleCancelada no mira liquidaciones (código leído); Contrato de liquidaciones (una cerrada no se modifica).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-30, 13/10). Programado en T90 (Claude; verificado por Codex, en el sitio de prueba desde el 27/10) y conservado por T62. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una clase incluida en una liquidación cerrada y otra en una liquidación pagada.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "T62",
+      "tarea": "T90",
       "tipo": "mal_uso",
       "titulo": "Cancelar una clase que ya está en una liquidación"
     },
@@ -637,7 +643,7 @@
         {
           "donde": "Choque",
           "l": "b",
-          "texto": "Si la profesora ya tiene otra clase a esa hora, no la reactiva y lo explica.",
+          "texto": "Si alguna de sus profesoras ya tiene otra clase activa a esa hora, no la reactiva y dice con qué clase choca.",
           "tipo": "directo"
         },
         {
@@ -651,10 +657,16 @@
           "l": "d",
           "texto": "Vuelve a contar en el encabezado y, si ya pasó, en «Sin asistencia».",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Profesora inactiva",
+          "l": "e",
+          "texto": "Con una profesora inactiva asignada, no la reactiva (T46).",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-31, 13/10). Falta programar: T62. Antes: ClaseWebController::toggleCancelada (código leído); D03-4 (no se probó Activar).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-31, 13/10). Programado en T62 (Gemini; verificado por Claude, OK de Carlos 28/10). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Clase futura cancelada por error. Mientras estuvo cancelada, a su profesora se le cargó otra clase en ese horario.",
@@ -884,7 +896,7 @@
         {
           "donde": "Con asistencia",
           "l": "b",
-          "texto": "Una clase con asistencia no se elimina: se cancela con motivo.",
+          "texto": "Una clase con asistencia, validada a mano o incluida en una liquidación no se elimina: se cancela con motivo.",
           "tipo": "directo"
         },
         {
@@ -898,10 +910,16 @@
           "l": "d",
           "texto": "El grupo de una clase ya creada no se cambia al editarla: hay que cancelarla y crear otra.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "e",
+          "texto": "La operativa y la profesora no ven Eliminar; forzándolo reciben acceso restringido.",
+          "tipo": "directo"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-48, 13/10). Falta programar: T65. Antes: routes/web.php: no hay eliminación de clases; clases/edit (vista leída el 13/10).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-48, 13/10). Programado en T65 (Gemini; verificado por Codex, OK visual de Carlos 28/10): Clase::motivoNoEliminable y ClaseWebController::destroy. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una serie de 16 clases creada con el grupo equivocado, sin asistencias.",

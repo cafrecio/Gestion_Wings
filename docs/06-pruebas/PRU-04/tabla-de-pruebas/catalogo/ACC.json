@@ -660,7 +660,7 @@
         {
           "donde": "Caja ajena",
           "l": "b",
-          "texto": "El detalle, el resumen y el cierre de la caja de otra operativa se rechazan con acceso restringido: los movimientos ajenos se ven (Historial y Movimientos), la caja ajena no.",
+          "texto": "El detalle de la caja de otra operativa se abre solo para consultar (T89); el resumen y el cierre se rechazan con acceso restringido.",
           "tipo": "directo"
         },
         {

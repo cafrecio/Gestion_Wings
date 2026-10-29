@@ -94,6 +94,12 @@
           "l": "f",
           "texto": "No afecta deuda ni cobranza.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Selector",
+          "l": "g",
+          "texto": "Sin rubro elegido el selector de subrubro no ofrece nada; al elegir el rubro, solo los suyos (T93).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
@@ -322,6 +328,12 @@
           "l": "g",
           "texto": "Una segunda corrección conserva también el rastro de la primera.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Acceso",
+          "l": "h",
+          "texto": "Desde el listado, el ícono Historial junto a Editar abre esa historia (T89).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
@@ -657,13 +669,13 @@
         {
           "donde": "Guardado",
           "l": "a",
-          "texto": "Queda como gasto en Sueldos.",
+          "texto": "En Nuevo movimiento, rubro Sueldos, se ofrece el sueldo de cada operativa; queda como gasto del negocio, sin repartirse por deporte.",
           "tipo": "directo"
         },
         {
           "donde": "Reportes",
           "l": "b",
-          "texto": "Figura como gasto del negocio; el Reporte de Sueldos lo incluye entre lo pagado.",
+          "texto": "El Reporte de Sueldos muestra ese pago por persona.",
           "tipo": "indirecto"
         },
         {
@@ -677,17 +689,29 @@
           "l": "d",
           "texto": "No pasa por la caja operativa.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Profesoras",
+          "l": "e",
+          "texto": "Los sueldos de las profesoras no se ofrecen: se pagan por liquidación; forzándolos se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "f",
+          "texto": "La operativa y la profesora no pueden pagar sueldos por Cashflow.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "T16; SubrubroSueldoService; ReporteSueldosService (lectura parcial).",
+      "fuente": "T86 (Codex; verificada por Claude, aspecto de Sueldos aprobado por Carlos 27/10, en el sitio de prueba): el sueldo de las operativas deja de estar reservado; el de las profesoras sigue reservado. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cashflow",
       "pantalla": "cashflow-movimiento",
       "requiere": "Operativa con su subrubro de sueldo creado al darla de alta.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T86",
       "tipo": "normal",
       "titulo": "Pagar el sueldo de una operativa"
     },

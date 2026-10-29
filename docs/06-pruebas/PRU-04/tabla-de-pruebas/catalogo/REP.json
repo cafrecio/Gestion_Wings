@@ -46,6 +46,12 @@
           "l": "g",
           "texto": "Son los mismos números que Reportes para el mes en curso.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Excepciones",
+          "l": "h",
+          "texto": "Muestra el historial de excepciones de cobro y de asistencia: tipo, alumno, motivo, autor y fecha (T88, B3).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
@@ -298,10 +304,22 @@
           "l": "e",
           "texto": "La persona con dos deportes cuenta en cada uno.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas y bajas",
+          "l": "f",
+          "texto": "Altas del mes por fecha de ingreso y registros que pasaron a Inactivo en el mes; cada registro cuenta una vez aunque alterne su estado (T70).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivos",
+          "l": "g",
+          "texto": "La deuda de los inactivos figura aparte (T71).",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "ReporteAlumnosService (código leído); RP-02.",
+      "fuente": "ReporteAlumnosService (código leído); RP-02. T70/T71 (Codex; verificadas por Claude, OK de Carlos 28/10); texto f propuesto por Codex. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Reportes e Inicio",
       "pantalla": "reportes-alumnos",
       "requiere": "Mes con altas, bajas, cambios de grupo y asistencias.",
@@ -352,6 +370,12 @@
           "l": "f",
           "texto": "Un presente de un alumno sin cuota del mes se avisa y deja el ingreso de ese profesor sin calcular.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativas",
+          "l": "g",
+          "texto": "Muestra también lo pagado a cada operativa, por persona, sin repartir por deporte (T86).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
@@ -712,7 +736,7 @@
         {
           "donde": "Clases",
           "l": "g",
-          "texto": "Cada clase de hoy muestra «Sin lista» o la cantidad de presentes, con acceso a la lista.",
+          "texto": "Cada clase de hoy muestra «Sin lista», «Todos ausentes» si la lista se tomó sin presentes, o la cantidad de presentes, con acceso a la lista (T89).",
           "tipo": "directo"
         },
         {

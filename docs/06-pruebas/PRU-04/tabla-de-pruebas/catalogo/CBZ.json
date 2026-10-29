@@ -568,10 +568,16 @@
           "l": "c",
           "texto": "No se duplican los alumnos en Revisión.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Constancia",
+          "l": "d",
+          "texto": "La constancia de la primera corrida (hora y cuotas creadas) no se pisa (T92).",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "GenerarDeudasMensualesCommand (solo crea si no existe) (código leído).",
+      "fuente": "GenerarDeudasMensualesCommand (solo crea si no existe) (código leído). T92 (verificada por Codex 27/10, en el sitio de prueba). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Noviembre ya generado.",
@@ -990,6 +996,116 @@
       "tarea": "T74",
       "tipo": "normal",
       "titulo": "Vencidos y en plazo en el Inicio de la operativa"
+    },
+    {
+      "accion": "Abre Cobranza y Reportes y busca la deuda de los alumnos inactivos.",
+      "codigo": "CBZ-023",
+      "duda": "DU-11",
+      "esperado": [
+        {
+          "donde": "Apartado",
+          "l": "a",
+          "texto": "Aparece un apartado «Deuda de alumnos inactivos» con cada alumno y su saldo, en Cobranza y en Reportes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por cobrar",
+          "l": "b",
+          "texto": "Esa deuda no suma al total adeudado ni al «por cobrar» de Inicio y Reportes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción",
+          "l": "c",
+          "texto": "Si la misma persona tiene otro registro activo, su inscripción se cuenta en el circuito activo y no en el apartado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Otro mes",
+          "l": "d",
+          "texto": "En el reporte de otro mes, el apartado se rotula como saldo actual, con su fecha.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "e",
+          "texto": "La operativa lo ve en Cobranza, sin el botón para darla por perdida.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Carlos 28/10: la deuda de los inactivos se ve aparte. Programado en T71 (Codex; verificado por Claude, OK visual de Carlos 28/10): DeudaInactivosService. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Dos alumnos inactivos con deuda (uno de ellos con la inscripción pendiente y otro registro activo de la misma persona en otro deporte) y alumnos activos con deuda.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T71",
+      "tipo": "normal",
+      "titulo": "Deuda de los alumnos inactivos"
+    },
+    {
+      "accion": "El dueño da por perdida la deuda de un alumno inactivo desde el apartado de inactivos. La operativa intenta lo mismo forzando la acción. Después el alumno vuelve.",
+      "codigo": "CBZ-024",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pérdida",
+          "l": "a",
+          "texto": "El saldo mostrado queda perdido: sale del apartado y el total baja sin recargar la pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "b",
+          "texto": "La ficha muestra el total perdido, quién y cuándo, aparte de pagos y condonaciones.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plata",
+          "l": "c",
+          "texto": "No crea pago, recibo, ingreso ni egreso, ni cambia el precio original de las cuotas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Doble envío",
+          "l": "d",
+          "texto": "Un segundo envío o una pantalla vieja no genera otra pérdida.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "e",
+          "texto": "Forzándolo, recibe acceso restringido y nada cambia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Al volver",
+          "l": "f",
+          "texto": "Si el alumno vuelve, lo perdido sigue perdido; lo que no se perdió vuelve a Cobranza.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Eliminar",
+          "l": "g",
+          "texto": "Un alumno con deuda perdida ya no se puede eliminar (T65).",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Carlos 28/10. Programado en T71 (Codex; verificado por Claude, OK visual de Carlos 28/10): monto_perdido, separado de la condonación. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Alumno inactivo que debe dos meses y la inscripción.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "T71",
+      "tipo": "normal",
+      "titulo": "El dueño da por perdida la deuda de un inactivo"
     }
   ],
   "modulo": "Cobranza",

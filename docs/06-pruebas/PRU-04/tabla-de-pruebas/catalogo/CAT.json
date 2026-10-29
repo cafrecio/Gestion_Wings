@@ -50,13 +50,13 @@
         {
           "donde": "Con liquidaciones abiertas",
           "l": "a",
-          "texto": "No deja cambiar la forma de liquidar; lo explica.",
+          "texto": "Con liquidaciones abiertas del deporte no deja cambiar la forma de liquidar; dice cuáles (número, profesora y período).",
           "tipo": "directo"
         },
         {
           "donde": "Sin abiertas",
           "l": "b",
-          "texto": "Lo deja cambiar, y el cambio rige desde el mes siguiente.",
+          "texto": "Sin abiertas lo deja programar, y el cambio rige desde el primer día del mes siguiente.",
           "tipo": "directo"
         },
         {
@@ -70,10 +70,28 @@
           "l": "d",
           "texto": "Las liquidaciones nuevas salen con la forma nueva; si es comisión, los profesores necesitan su porcentaje cargado.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Porcentaje faltante",
+          "l": "e",
+          "texto": "Si pasa a comisión y una profesora no tiene porcentaje, avisa con su nombre al programar, y Nueva liquidación no la deja generar hasta cargarlo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Nombre",
+          "l": "f",
+          "texto": "Cambiar solo el nombre del deporte sigue permitido, aunque haya liquidaciones abiertas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Nueva liquidación",
+          "l": "g",
+          "texto": "Nueva liquidación usa la forma del mes elegido: octubre por hora, noviembre por comisión.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-42, 13/10). Falta programar: T45. Antes: DeporteWebController::update no controla liquidaciones (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-42, 13/10). Programado en T45 (Codex; verificado por Claude, OK visual de Carlos 28/10): deporte_liquidacion_vigencias. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Catálogos",
       "pantalla": "cat-deportes",
       "requiere": "Deporte por hora con una liquidación pagada y otra abierta.",

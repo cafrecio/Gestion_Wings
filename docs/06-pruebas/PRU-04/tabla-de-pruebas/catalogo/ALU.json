@@ -858,7 +858,7 @@
         {
           "donde": "Cobranza",
           "l": "b",
-          "texto": "Deja de figurar; activos −1; el total adeudado baja por toda su deuda.",
+          "texto": "Sale del listado activo; activos −1; el total adeudado activo baja por su deuda. Aparece aparte en «Deuda de alumnos inactivos», sin sumarse al por cobrar (T71).",
           "tipo": "indirecto"
         },
         {
@@ -894,12 +894,18 @@
         {
           "donde": "Aviso",
           "l": "h",
-          "texto": "El sistema no pide motivo ni avisa que tiene deuda.",
+          "texto": "El sistema no pide motivo ni avisa que tiene deuda: pasar a Inactivo sigue siendo instantáneo (Carlos, 28/10).",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Fecha",
+          "l": "i",
+          "texto": "Queda guardada la fecha en que pasó a Inactivo (T70).",
           "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "AlumnoWebController::toggleActivo y CobranzaEstadoService (código leído); decisión de Carlos 10/10 (la deuda cuenta alumnos activos).",
+      "fuente": "AlumnoWebController::toggleActivo y CobranzaEstadoService (código leído); decisión de Carlos 10/10 (la deuda cuenta alumnos activos). T70/T71 (Codex, verificadas por Claude 28/10): fecha de inactividad y deuda de inactivos aparte; textos b e i propuestos por Codex en IMPLEMENTACION-T70-T71.md. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Alumno deudor de dos meses, con clases futuras en su grupo.",
@@ -1031,10 +1037,34 @@
           "l": "d",
           "texto": "Una búsqueda sin coincidencias lo dice, no muestra error.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Acentos",
+          "l": "e",
+          "texto": "Busca sin importar acentos ni mayúsculas: «gomez» encuentra a Gómez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Varias palabras",
+          "l": "f",
+          "texto": "Varias palabras en cualquier orden: «perez juan» encuentra a Juan Pérez; cada palabra puede estar en nombre, apellido o DNI.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Autocompletar",
+          "l": "g",
+          "texto": "El autocompletar ofrece opciones desde la primera letra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobrar",
+          "l": "h",
+          "texto": "El buscador de Cobrar encuentra con el mismo criterio.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "AlumnoWebController::index (código leído).",
+      "fuente": "AlumnoWebController::index (código leído). T54 (Gemini, verificada por Claude, OK de Carlos 28/10): Alumno::scopeBuscar, usado en Alumnos, autocompletar y Cobrar. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-listado",
       "requiere": "Más de 12 alumnos, activos e inactivos, en varios deportes y grupos, dos con el mismo apellido.",
@@ -1177,7 +1207,7 @@
         {
           "donde": "Con movimiento",
           "l": "b",
-          "texto": "Si tiene algún cobro o asistencia no se elimina: lo explica y ofrece darlo de baja.",
+          "texto": "Si tiene cobros, asistencias, movimientos de caja, cuotas cobradas o condonadas, excepciones de cobranza o deuda dada por perdida, no se elimina: lo explica y ofrece pasarlo a Inactivo.",
           "tipo": "directo"
         },
         {
@@ -1197,10 +1227,16 @@
           "l": "e",
           "texto": "La operativa no ve la opción de eliminar.",
           "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "f",
+          "texto": "La operativa que lo fuerza recibe acceso restringido y nada cambia.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-48, 13/10): eliminar si no tiene cobros ni asistencias. Falta programar: T65. Antes: routes/web.php: no hay eliminación de alumnos; Contrato ABM Admin §9.b permite borrado real solo si está vacío.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-48, 13/10). Programado en T65 (Gemini; verificado por Codex, OK visual de Carlos 28/10): Alumno::motivoNoEliminable y AlumnoWebController::destroy. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Un alumno recién dado de alta por error (persona equivocada o duplicada en otro deporte por error), sin cobros ni asistencias.",
@@ -1226,7 +1262,7 @@
         {
           "donde": "Reactivar",
           "l": "b",
-          "texto": "En la ficha, Reactivar pide confirmación con el nombre del alumno.",
+          "texto": "En la ficha, el mismo interruptor lo reactiva al instante, sin confirmación, y avisa la cuota de reingreso generada (T84).",
           "tipo": "directo"
         },
         {
@@ -1246,10 +1282,22 @@
           "l": "e",
           "texto": "Si el cambio no llega al servidor, el interruptor vuelve a su posición.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Dos toques",
+          "l": "f",
+          "texto": "Dos toques seguidos: mientras espera la respuesta el interruptor no toma el segundo; no queda una cuota de reingreso de más (T85).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rastro",
+          "l": "g",
+          "texto": "Queda la fecha en que pasó a Inactivo, y la deuda pasa al apartado de inactivos (T70/T71).",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "alumnos/index, alumnos/show y resources/js/ds-app.js (leídos el 13/10).",
+      "fuente": "alumnos/index, alumnos/show y resources/js/ds-app.js (leídos el 13/10). T84 y T85 (Gemini, verificadas por Claude, en el sitio de prueba desde el 27/10); T70/T71. Texto b propuesto por Codex. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-listado",
       "requiere": "Listado de alumnos con un alumno deudor.",

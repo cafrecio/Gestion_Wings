@@ -541,32 +541,68 @@
       "titulo": "Dos personas guardan la misma lista"
     },
     {
-      "accion": "La profesora abre la lista.",
+      "accion": "La profesora abre la lista y marca presentes a un deudor, a un moroso, a un alumno nuevo que todavía no pagó ninguna cuota (en su tercera clase) y a uno que vino en la primera carga.",
       "codigo": "ASI-013",
       "duda": "",
       "esperado": [
         {
-          "donde": "Aviso",
+          "donde": "Lista",
           "l": "a",
-          "texto": "La lista indica quién no puede entrar por deuda; el alumno nuevo tiene dos clases de margen.",
+          "texto": "Cada alumno muestra su condición junto al nombre, sin importes.",
           "tipo": "directo"
         },
         {
-          "donde": "Profesora",
+          "donde": "Deudor",
           "l": "b",
-          "texto": "La profesora no ve importes, solo si puede o no entrar.",
+          "texto": "Para marcarlo presente pide un motivo; sin motivo no guarda.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Moroso",
+          "l": "c",
+          "texto": "Entra sin justificar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alumno nuevo",
+          "l": "d",
+          "texto": "Sin primer pago de cuota tiene dos clases presentes de margen; desde la tercera se admite solo con motivo. Pagar la inscripción sola no cuenta como primer pago.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Primera carga",
+          "l": "e",
+          "texto": "Quien vino en la primera carga no cuenta como nuevo, aunque nunca haya pagado en Wings.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "f",
+          "texto": "Cada motivo queda con autor y fecha; el dueño lo ve en su Inicio y en el resumen diario.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Forzado",
+          "l": "g",
+          "texto": "Una lista enviada a mano sin el motivo no guarda nada, ni las otras marcas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Profesora",
+          "l": "h",
+          "texto": "La profesora no ve importes de deuda.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Contrato de estados §5 a §8 (acceso a clase, justificaciones, margen del alumno nuevo). No está programado: hoy la lista no dice nada de la deuda.",
+      "estado": "vigente",
+      "fuente": "Contrato de estados §4 a §8. Programado en B3 (Codex; verificado por Claude 27/10, aspecto y regla del alumno nuevo confirmados por Carlos): la lista muestra la condición y pide motivo; excepciones_cobranza. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
-      "requiere": "Alumno deudor de dos meses en la lista de hoy; alumno nuevo en su segunda clase sin haber pagado.",
+      "requiere": "Un alumno Deudor, uno Moroso, uno nuevo sin primer pago de cuota con dos presentes ya cargados, y uno de la primera carga que nunca pagó en Wings.",
       "roles": [
         "PROFESOR"
       ],
-      "tarea": "",
+      "tarea": "B3",
       "tipo": "mal_uso",
       "titulo": "El deudor que viene a clase"
     },

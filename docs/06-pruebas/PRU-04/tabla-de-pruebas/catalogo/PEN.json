@@ -99,8 +99,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Contrato de estados §5 a §8. No está programado.",
+      "estado": "vigente",
+      "fuente": "Contrato de estados §5 a §8. Programado en B3 (ver ASI-013 para la prueba). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Reglas definidas y todavía no programadas",
       "pantalla": "clases-ficha",
       "requiere": "Alumno con deuda que no debería entrar a clase.",
@@ -108,7 +108,7 @@
         "PROFESOR",
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "B3",
       "tipo": "normal",
       "titulo": "Justificar una excepción de acceso a clase"
     }

@@ -266,7 +266,7 @@
         {
           "donde": "Inactiva",
           "l": "a",
-          "texto": "No aparece para elegir; forzando se rechaza.",
+          "texto": "Una profesora inactiva aparece solo si le quedan clases dictadas sin liquidar de ese mes, y se liquida con la tarifa del período (T46). Sin pendientes no aparece; forzando se rechaza.",
           "tipo": "directo"
         },
         {
@@ -289,7 +289,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "LiquidacionService (código leído).",
+      "fuente": "LiquidacionService (código leído). T46 (Codex; verificada por Claude, OK de Carlos 28/10). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",
       "requiere": "Una profesora inactiva, una sin valor hora cargado y un profesor por comisión sin porcentaje.",
@@ -849,7 +849,7 @@
         {
           "donde": "Contador",
           "l": "e",
-          "texto": "El número de clases liquidables no cambia al elegir otro mes: cuenta todas las pendientes, no las del período.",
+          "texto": "El número de clases liquidables y el aviso de clases sin asistencia cuentan solo el mes elegido, y cambian al elegir otro mes (T87).",
           "tipo": "indirecto"
         },
         {
@@ -860,14 +860,14 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "liquidaciones/create (vista leída el 13/10) y LiquidacionWebController::create.",
+      "fuente": "liquidaciones/create (vista leída el 13/10) y LiquidacionWebController::create. T87 (Gemini; verificada por Claude, OK visual de Carlos 28/10). Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",
       "requiere": "Profesores con y sin clases dictadas; uno con clases sin asistencia; hoy es el último día del mes.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T87",
       "tipo": "normal",
       "titulo": "La pantalla de Nueva liquidación"
     },

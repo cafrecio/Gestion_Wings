@@ -7,8 +7,21 @@ La tabla viva es un artifact privado de Carlos y Claude
 (https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46). El acceso depende de la sesión autenticada del navegador; esta
 carpeta permite consultar un código como `CBZ-005` o `DU-54` desde el repositorio.
 
-**Copia tomada el 16/10/2026 por Claude CyE.** Desde el 16/10 ningún caso está «a definir»: los que Carlos decidió y falta programar figuran «no implementado», con su tarea; los que aceptó como están, «vigente». Si la tabla cambia, esta copia queda vieja
-hasta que Claude la vuelva a bajar. La que manda es la tabla viva.
+**Desde el 28/10/2026 el catálogo manda acá (decisión de Carlos).** La tabla viva ya no guarda los casos
+en su base: lee los archivos de `catalogo/` que Claude publica en el artifact con `publish_files`
+(`as: catalogo/<MÓDULO>.json`), sin copiar a mano. Para cambiar un caso: editar el JSON de esta carpeta,
+commitear y volver a publicar los módulos tocados. Si la página no encuentra los archivos, cae a la base
+vieja (colección `catalogo`, congelada en la versión del 25/10). Registro, días y dudas siguen en la base
+de la tabla viva. Un módulo nuevo requiere agregar su prefijo a la lista `MODULOS` de la página.
+Codex y Gemini siguen sin cambiar nada de esta carpeta: proponen el cambio en su informe y lo pasa Claude.
+
+**Actualización 28/10/2026 (Claude CAB), despliegue `b271e8dd`:** 334 casos (+CBZ-023 deuda de inactivos y
+CBZ-024 deuda dada por perdida); 14 módulos con casos actualizados por T25, T45, T46, T51, T54, T62, T65,
+T70/T71, T84 a T93 y B3, incluidos los cuatro textos propuestos por Codex (ALU-017.b, ALU-025.b, REP-006,
+PRO-004.c). Cada caso tocado lo dice en su `fuente` («Actualizado por Claude CAB el 28/10/2026…»).
+
+**Copia tomada el 16/10/2026 por Claude CyE.** (Histórico: hasta el 28/10 la que mandaba era la tabla viva.) Desde el 16/10 ningún caso está «a definir»: los que Carlos decidió y falta programar figuran «no implementado», con su tarea; los que aceptó como están, «vigente». Si la tabla cambia, esta copia queda vieja
+hasta que Claude la vuelva a bajar. La que mandaba era la tabla viva (hasta el 28/10; ver arriba).
 
 **Sincronizada el 17/10/2026 por Claude CAB** en ALU, CAJ, COB y PEN (las dos copias
 quedaron iguales):

@@ -337,6 +337,9 @@ conversación de Claude** a través de Carlos.
 - Si una tarea obliga a cambiar un caso o una duda, lo **proponen en su informe** (código del caso, línea,
   texto actual y texto propuesto). Claude lo pasa a la tabla en línea y a la copia.
 - Las respuestas de Carlos a las dudas (DU-xx) no las cambia ningún agente.
+- **Desde el 28/10/2026 la tabla en línea lee el catálogo de esa carpeta del repo** (Claude la publica en
+  el artifact; decisión de Carlos). Por eso la copia ya no es un espejo inofensivo: un cambio de Codex o
+  Gemini en `tabla-de-pruebas/` llegaría a la tabla de Carlos. Sigue siendo solo lectura para ellos.
 
 Pasó el 20/10: en T42 y T43 Codex le pidió a Carlos autorización para mandar cambios de COB-012 y
 LIQ-002 a la conversación de Claude de la tabla. Carlos: «Por eso la hicimos externa; cuando Codex me

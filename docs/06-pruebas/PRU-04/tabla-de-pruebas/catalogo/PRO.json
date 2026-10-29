@@ -134,7 +134,7 @@
         {
           "donde": "Aviso",
           "l": "a",
-          "texto": "Al desactivarla avisa cuántas clases futuras tiene y pide reasignarlas.",
+          "texto": "Mientras tenga clases futuras o en curso no la deja desactivar: dice cuántas y lleva a Clases para reasignarlas.",
           "tipo": "directo"
         },
         {
@@ -146,7 +146,7 @@
         {
           "donde": "Usuario",
           "l": "c",
-          "texto": "Su usuario queda desactivado: no puede volver a entrar.",
+          "texto": "Su usuario queda desactivado y su sesión se corta. Reactivar a la profesora no reactiva el usuario: el dueño lo habilita aparte en Usuarios.",
           "tipo": "directo"
         },
         {
@@ -154,10 +154,16 @@
           "l": "d",
           "texto": "Deja de ofrecerse para clases nuevas.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Canceladas",
+          "l": "e",
+          "texto": "Las clases canceladas o ya terminadas no impiden desactivarla.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-44, 13/10). Falta programar: T46. Antes: ProfesorWebController::toggleActivo no controla nada; LiquidacionService exige profesor activo (código leído); SI-08.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-44, 13/10). Programado en T46 (Codex; verificado por Claude CAB, OK visual de Carlos 28/10): ProfesorEstadoService; la liquidación de inactivas con pendientes en LiquidacionWebController. Textos a y c propuestos por Codex. Actualizado por Claude CAB el 28/10/2026 al desplegar en el sitio de prueba (b271e8dd); falta probarlo en el sitio.",
       "modulo": "Profesores",
       "pantalla": "cat-profesores",
       "requiere": "Profesora con clases programadas, clases dictadas sin liquidar y un usuario para ingresar.",
