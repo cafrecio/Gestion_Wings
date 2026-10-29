@@ -1,0 +1,8 @@
+35
+  [32;1m✓[39;22m[90m [39m[90mmigracion analitica con profesores previos no depende de la tabla futura[39m[90m                                   [39m [90m12.74s[39m  
+
+  [90mTests:[39m    [32;1m276 passed[39;22m[90m (1851 assertions)[39m
+  [90mDuration:[39m [39m78.86s[39m
+
+
+[exited with code 0]

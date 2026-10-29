@@ -2,7 +2,7 @@
 
 ## T46 — Profesora inactiva sin clases futuras ni acceso, Codex CyE 28/10/2026
 
-Implementada localmente; `a_verificar` por Claude y aspecto pendiente de Carlos.
+**CERRADA 28/10:** lógica verificada por Claude CAB (276/276 del área y 4/4 ataques propios, [informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md)); OK visual de Carlos. Sin desplegar.
 Bloquea la baja con clases activas futuras/en curso y pide reasignar por el circuito existente.
 Una inactiva con clases dictadas pendientes aparece en Nueva liquidación; sin pendientes, no.
 La baja desactiva usuario, invalida recuerdo y elimina sesiones. Reactivar profesora conserva

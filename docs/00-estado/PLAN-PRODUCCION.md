@@ -11,14 +11,14 @@
 | T12 manual y T13 ayuda dentro de Wings | Gemini |
 | T82 ensayo de restauración | Claude |
 
-T46 implementada por Codex CyE el 28/10, a_verificar por Claude; aspecto pendiente de Carlos. Baja con reasignación previa, liquidación de lo dictado y cierre de usuario/sesiones. Completa1264/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md). T51/T45/T46 entregadas; sin despliegue.
+**T46 CERRADA 28/10:** lógica verificada por Claude CAB ([informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. Baja con reasignación previa, liquidación de lo dictado y cierre de usuario/sesiones. Completa1264/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md). T51/T45/T46 entregadas; sin despliegue.
 
-T45 implementada por Codex CyE el 28/10, a_verificar por Claude; aspecto pendiente de Carlos. Vigencia mensual, abiertas bloqueadas y porcentaje sin inventar. Completa1249/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md). T46 entregada después; sin despliegue.
+**T45 CERRADA 28/10:** lógica verificada por Claude CyE ([informe](../06-pruebas/PRU-04/VERIFICACION-T45-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. Vigencia mensual, abiertas bloqueadas y porcentaje sin inventar. Completa1249/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md). T46 entregada después; sin despliegue.
 
-T51 implementada por Codex CyE el 28/10, a_verificar por Claude; aspecto pendiente de Carlos. [Entrega y resultados](../06-pruebas/PRU-04/IMPLEMENTACION-T51.md). Sin despliegue.
+**T51 CERRADA 28/10:** lógica verificada por Claude CyE ([informe](../06-pruebas/PRU-04/VERIFICACION-T51-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. [Entrega y resultados](../06-pruebas/PRU-04/IMPLEMENTACION-T51.md). Sin despliegue.
 
-T70/T71 implementadas localmente por Codex CyE el 28/10 y `a_verificar` por Claude;
-aspecto pendiente de Carlos. Completa: 1214 aprobadas, 6 omitidas, salida 0 en
+**T70/T71 CERRADAS 28/10** (verificó Claude CyE, OK visual de Carlos). Implementadas por Codex CyE;
+historial previo: Completa: 1214 aprobadas, 6 omitidas, salida 0 en
 `wings_testing_codex`. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T70-T71.md) ·
 [Capturas reales 1366/375](../06-pruebas/PRU-04/APROBAR-T70-T71.html). Sin despliegue.
 

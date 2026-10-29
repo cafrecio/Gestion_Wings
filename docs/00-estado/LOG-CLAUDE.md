@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-28 — Claude CAB — T46 cerrada; Wings local listo para T12/T13
+
+- T46 (Codex, `c475fa6c`): aprobada en lógica, 276/276 del área y 4/4 ataques propios (clase compartida, clase de hoy terminada, dos meses, validar a mano después de la baja). Las 175 rutas con sesión pasan por `ensure.active.web`. Cerrada con el OK visual que Carlos dio en CyE. [Informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md).
+- Corregidos PLAN-PRODUCCION, RESUMEN-ARRANQUE y ESTADO-ACTUAL: seguían con T45, T46, T51 y T70/T71 «a verificar».
+- Wings local (base `wings_test`) migrado y compilado: la Ayuda ya se ve en `http://gestion-wings/ayuda`, para el OK de Carlos a la etapa 1 de T12/T13.
+- Siguen del traspaso: OK de Carlos a T12/T13; los textos propuestos para la tabla de pruebas (ahora cuatro: ALU-017.b, ALU-025.b, REP-006 y PRO-004.c); pendientes de T82.
+
 ## 2026-10-28 — Claude CyE — T51 y T45 cerradas; traspaso a CAB
 
 - T51 (Codex, `983c6bab`): aprobada, 106 del área y 3/3 ataques. Cerrada con OK visual. Al subir a prueba, Carlos mira la Historia de correcciones con movimientos reales (los textos de la base de Codex no sirven para juzgar). [Informe](../06-pruebas/PRU-04/VERIFICACION-T51-CLAUDE.md).
