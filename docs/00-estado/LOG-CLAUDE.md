@@ -14,6 +14,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 ## 2026-10-29 — Claude CAB — T12/T13: corrección de la etapa 1 controlada
 
 - Gemini (`120ae713`): los siete puntos corregidos, comprobados contra el código; verificador en 0; página de la profesora correcta. Dos detalles menores para la primera tanda (Cobranza no abre el buscador; la fecha del turno pide confirmar fecha vieja). El revisor independiente de Gemini dio 0 hallazgos y se le pasaron esos dos. [Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA1-CLAUDE.md). Falta el OK de Carlos para la etapa 2.
+- Carlos lo aprobó y pidió dividir lo que falta en tres etapas con freno en cada una. Prompt: [PROMPT-GEMINI-T12-T13-ETAPAS.md](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPAS.md). La lista de 54 tenía funciones que Wings no tiene (exportar a Excel, color de deporte, cupos, adelantos, sedes): el paso 0 la revisa contra el código.
 
 ## 2026-10-28 — Claude CAB — Catálogo al día con lo desplegado; el repo manda
 
