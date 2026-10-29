@@ -1,0 +1,3 @@
+Browser tab: 1320327214, Title: "Octubre 2026 — Ocampo – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/6".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Octubre 2026 — Ocampo – Wings, URL: test.gestionar-te.com.ar/liquidaciones/6

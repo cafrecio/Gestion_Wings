@@ -1,0 +1,918 @@
+{
+  "fechaReal": "2026-10-29",
+  "sitio": "https://test.gestionar-te.com.ar",
+  "alcance": "Días 24 a 28; tanda 2 no ejecutada",
+  "reportes": [
+    {
+      "dia": 24,
+      "filas": 10,
+      "cumple": 7,
+      "noCumple": 1,
+      "noProbado": 2
+    },
+    {
+      "dia": 25,
+      "filas": 10,
+      "cumple": 10,
+      "noCumple": 0,
+      "noProbado": 0
+    },
+    {
+      "dia": 26,
+      "filas": 9,
+      "cumple": 8,
+      "noCumple": 1,
+      "noProbado": 0
+    },
+    {
+      "dia": 27,
+      "filas": 13,
+      "cumple": 8,
+      "noCumple": 0,
+      "noProbado": 5
+    },
+    {
+      "dia": 28,
+      "filas": 8,
+      "cumple": 6,
+      "noCumple": 2,
+      "noProbado": 0
+    }
+  ],
+  "enlacesLocalesComprobados": 142,
+  "evidencias": 318,
+  "capturasDecodificadas": 145,
+  "imagenes": [
+    {
+      "archivo": "00-inicio.jpg",
+      "ancho": 1134,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24-cierre-reportes-medios.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.1-bloqueo-patin.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-inicio-total.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-liquidacion-5-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-liquidacion-6-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-liquidacion-7-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-liquidacion-8-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-liquidacion-9-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.2-reportes-total.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.3-cashflow-egreso-unico.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.3-fecha-futura-rechazada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.3-lucia-octubre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.4-cashflow-sin-duplicado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.4-septiembre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.5-aviso-dos-bloques.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.5-ocho-clases-creadas.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.6-ivan-ficha.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.6-ivan-previo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.7-cobrar-lucas.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.7-gomez.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.7-ortega-valentin.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.7-una-letra.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "24.7-valentin.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25-cierre-reportes-medios.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.1-veronica-octubre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.1-veronica-septiembre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.2-mariela-octubre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.3-hernan-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.3-inicio-sin-pendientes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.3-mariela-septiembre-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.3-martin-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.3-ocho-pagadas.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-futbol-sin-sueldos-operativas.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-pablo-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-patin-gastos-del-club.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-rocio-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-sandra-antes.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-sandra-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.4-sueldos-opciones.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.5-centenera-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.5-san-carlos-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.5-sin-rubro.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.6-motivo-exigido.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.6-parcial-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.6-parcial-sin-motivo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.6-saldo-23000.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.7-gasto-rechazado.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.8-arreglo-mp-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.8-edicion-300000-rechazada.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.8-insumos-conserva-4000.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-detalle-cuotas-inscripcion.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-detalle-dos-renglones.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-graciela-pagada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-graciela-previo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-graciela-total.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-marcelo-espera-cuota.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-marcelo-pagado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-marcelo-previo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "25.9-marcelo-total.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26-cierre-inicio-sin-asistencia.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26-cierre-reportes-medios.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.1-transferencia.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.2-julieta-no-aparece.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.3-aviso-deuda-anterior.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.3-julieta-cobro.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.3-julieta-inactiva-sin-noviembre.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.3-panel-reactivar.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.4-cancelar-sin-cobro.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.4-deuda-anterior.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.4-panel-sin-no.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.4-santino-activo-deudor.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.4-santino-cobro.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.5-cambio-programado.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.6-aviso-solo-vanina-veronica.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.6-diciembre-comision.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.6-lucia-guardada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.6-mariela-guardada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.6-noviembre-hora.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.7-dueno-rechazo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.7-liquidacion-pagada-incluye-28-oct.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.7-rocio-rechazo.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.8-caja-antes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.8-caja-despues.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.8-historia-correcciones.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "26.9-excepciones-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27-cierre-reportes-medios.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.0-inicio-antes-rutina.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.1-alta-sin-otra-inscripcion.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.1-lucas-futbol-antes.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.2-sandra-sin-eliminar.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.3-dni-solo-futbol.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.3-lucas-futbol-conservado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.3-lucas-patin-eliminado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.3-panel-eliminar-alta-descartable.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.4-victoria-sin-boton-eliminar.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.5-filtro-sin-serie-14-horas.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.5-sandra-sin-eliminar-serie.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.5-serie-creada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.5-serie-eliminada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.6-cancelada-con-marcas.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.6-clase-lista-antes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.6-panel-lista-tomada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.6-resultado-cancelada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.7-caja-rocio-solo-consulta.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.7-movimientos-autores.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.7-volver-movimientos.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.8-aviso-adelanto.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.8-cobro-registrado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.8-detalle-dos-cuotas-48000.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.8-deuda-baja-solo-noviembre.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.8-ficha-dos-meses-pagados.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.9-amistoso-creado.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.9-avanzadas-cancelada.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "27.9-clases-preparadas-tanda2.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28-cierre-inicio-sin-asistencia.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28-cierre-reportes-medios.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.1-noviembre-contadores.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.1-octubre-cero.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.1-octubre-contadores-confirmados.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.2-candela-ficha.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.2-candela-inactiva-doble-toque.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.2-cobranza-sin-candela.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.3-morena-activa-persistida.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.3-morena-inactiva-ficha-antes.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.3-morena-inactiva-listado.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.3-morena-reactivada-sin-cuota-extra.jpg",
+      "ancho": 1920,
+      "alto": 911,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.4-cobranza-inactivos-dueno.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.4-reportes-inactivos-dueno.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.5-rocio-inactivos-sin-perder.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.6-reportes-alumnos-noviembre.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    },
+    {
+      "archivo": "28.7-rocio-caja-abierta.jpg",
+      "ancho": 1905,
+      "alto": 904,
+      "formato": "Jpeg"
+    }
+  ],
+  "limitacion": "Decodificación e integridad no certifican reglas de negocio. Resultados y límites en cada informe. Consola24.8 conserva TXT, sin captura de terminal."
+}

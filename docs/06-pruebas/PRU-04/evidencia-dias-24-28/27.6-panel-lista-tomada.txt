@@ -1,0 +1,158 @@
+Browser tab: 1320327214, Title: "Martes 3 de noviembre de 2026 — Patín — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/219".
+1 AXWebArea Martes 3 de noviembre de 2026 — Patín — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/219
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Clase — Patín — Avanzadas, Value: 1
+		31 text Clase — Patín — Avanzadas
+	32 container
+		33 heading Martes 3 De Noviembre De 2026, Value: 2
+			34 text Martes 3 De Noviembre De 2026
+		35 text 17:00 – 18:00 Patín Patín — Avanzadas
+		36 text Gaitán, Lucía
+		37 button Editar, ID: btn-modificar-profesores
+		38 text Activa
+		39 button Cancelar, ID: btn-abrir-cancelar
+		40 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		145 container panel-cancelar
+			146 text Indicá el motivo de cancelación
+			147 text Aviso: esta clase ya tiene asistencia registrada (presentes o ausentes).
+			148 text field (settable) Value: Corte de luz: la clase no se dictó, ID: input-motivo-cancelacion
+			149 button Cancelar esta, ID: btn-confirmar-cancelar
+			150 button Cancelar serie, ID: btn-cancelar-serie
+			151 button Cerrar, ID: btn-cerrar-cancelar
+			152 container subpanel-confirmar-lista
+				153 text Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?
+				154 button Confirmar, ID: btn-aceptar-confirmar-cancelar
+				155 button Cerrar, ID: btn-rechazar-confirmar-cancelar
+		41 text 12
+		42 text  alumnos en el grupo  ·  
+		43 text 11
+		44 text  presentes
+		45 container card-308
+			46 text Alvarez, Camila
+			47 text Al día
+			48 text 2/1 (Excede) · DNI …037
+			49 container
+				50 text Presente
+				51 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-308
+			52 container exceso-308
+				53 text EXCEDE EL PLAN — INDICAR MOTIVO
+				54 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-308, Secondary Actions: Expand
+					55 menu
+						56 (selected) Clase adicional (EXTRA)
+						57 Recupera clase perdida (RECUPERA)
+		58 container card-254
+			59 text Benitez, Camila
+			60 text En plazo
+			61 text 2/2 (Completo) · DNI …700
+			62 container
+				63 text Presente
+				64 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-254
+		65 container card-309
+			66 text Benitez, Milagros
+			67 text Al día
+			68 text 2/2 (Completo) · DNI …038
+			69 container
+				70 text Presente
+				71 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-309
+		72 container card-305
+			73 text Castro, Catalina
+			74 text Al día
+			75 text 2/2 (Completo) · DNI …034
+			76 container
+				77 text Presente
+				78 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-305
+		79 container card-258
+			80 text Castro, Melina
+			81 text En plazo
+			82 text 2/2 (Completo) · DNI …803
+			83 container
+				84 text Presente
+				85 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-258
+		86 container card-246
+			87 text Fernandez, Emma
+			88 text Al día
+			89 text 2/2 (Completo) · DNI …301
+			90 container
+				91 text Presente
+				92 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-246
+		93 container card-306
+			94 text Gimenez, Delfina
+			95 text En plazo
+			96 text 1/1 (Completo) · DNI …035
+			97 container
+				98 text Presente
+				99 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-306
+		100 container card-303
+			101 text Herrera, Martina
+			102 text Al día
+			103 text 2/2 (Completo) · DNI …032
+			104 container
+				105 text Presente
+				106 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-303
+		107 container card-259
+			108 text Morales, Carla
+			109 text En plazo
+			110 text 2/1 (Excede) · DNI …804
+			111 container
+				112 text Presente
+				113 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-259
+			114 container exceso-259
+				115 text EXCEDE EL PLAN — INDICAR MOTIVO
+				116 pop up button (collapsed, settable) Value: Clase adicional (EXTRA), ID: motivo-259, Secondary Actions: Expand
+					117 menu
+						118 (selected) Clase adicional (EXTRA)
+						119 Recupera clase perdida (RECUPERA)
+		120 container card-307
+			121 text Pereyra, Zoe
+			122 text En plazo
+			123 text 2/2 (Completo) · DNI …036
+			124 container
+				125 text Presente
+				126 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-307
+		127 container card-266
+			128 text Ramirez, Lucia
+			129 text Al día
+			130 text 2/2 (Completo) · DNI …905
+			131 container
+				132 text Presente
+				133 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-266
+		134 container card-304
+			135 text Suarez, Valentina
+			136 text En plazo
+			137 text 1/1 (Completo) · DNI …033
+			138 container
+				139 text Presente
+				140 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-304
+		141 text Estás corrigiendo una lista ya tomada — indicá el motivo
+		142 text field (settable) input-motivo-asistencias
+		143 button Guardar, ID: btn-guardar-asistencias
+	144 text Wings
+
+The focused UI element is 1 AXWebArea Martes 3 de noviembre de 2026 — Patín — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/219

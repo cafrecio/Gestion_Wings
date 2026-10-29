@@ -1,0 +1,61 @@
+Browser tab: 1320327214, Title: "Gomez, Lucas – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/242".
+1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 button Salir
+	20 heading Gomez, Lucas, Value: 1
+		21 text Gomez, Lucas
+	22 container
+		23 heading Inscripción al club, Value: 3
+			24 text Inscripción al club
+		25 text Por única vez por persona. Saldo pendiente: $0.00
+		26 text Activo
+		27 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe0c5b6bd
+		28 button Cobrar
+		29 button Editar
+		30 image
+		31 text DNI 54100102
+		32 image
+		33 text NACIMIENTO 10/08/2017
+		34 image
+		35 text CELULAR 1145123499
+		36 image
+		37 text EMAIL marcelo.gomez@testmail.com
+		38 image
+		39 text DEPORTE Fútbol
+		40 image
+		41 text GRUPO Fútbol — Avanzadas
+		42 image
+		43 text PLAN 1x sem. — $38,000.00/mes
+		44 image
+		45 text ALTA 15/03/2025
+		46 image
+		47 text ESTADO DE COBRANZA Al día
+		48 image
+		49 text TUTOR NOMBRE Marcelo Gomez TELÉFONO 1145123401
+		50 image
+		51 text HISTORIAL DE PAGOS 03/11/2026 · Nov 2026 $38,000.00
+		52 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/220?inline=1
+		53 text 10/10/2026 · Oct 2026 $33,000.00
+		54 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/4?inline=1
+		55 image
+		56 text ASISTENCIAS — NOV 2026 2 clases 03/11 05/11
+		57 button Volver
+	58 text Wings
+
+The focused UI element is 1 AXWebArea Gomez, Lucas – Wings, URL: test.gestionar-te.com.ar/alumnos/242

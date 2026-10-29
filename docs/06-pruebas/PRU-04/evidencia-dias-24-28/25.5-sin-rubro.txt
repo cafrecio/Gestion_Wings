@@ -1,0 +1,109 @@
+Browser tab: 1320327214, Title: "Nuevo movimiento – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/movimiento".
+1 AXWebArea Nuevo movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimiento
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Nuevo movimiento, Value: 1
+		31 text Nuevo movimiento
+	32 container mov-form
+		33 container tipo-card
+			34 text Tipo de movimiento *
+			35 text INGRESO
+			36 text EGRESO
+			37 container
+				38 text Fecha *
+			39 date field (settable) Fecha *, Value: 2026-11-03, ID: fecha
+				40 container
+					41 stepper
+					42 stepper
+					43 stepper
+				44 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			45 container
+				46 text Medio de pago *
+			47 pop up button (collapsed, settable) Medio de pago *, Value: Seleccionar..., ID: tipo_caja_id, Secondary Actions: Expand
+				48 menu
+					49 (selected) Seleccionar...
+					50 BGA — Banco Galicia
+					51 BNA — Banco Nación
+					52 Banco Nacion ahorro
+					53 EFE — Efectivo
+					54 MP — Mercado Pago
+			55 container
+				56 text Rubro *
+			57 pop up button (collapsed, settable) Rubro *, Value: Seleccionar..., ID: rubro_id, Secondary Actions: Expand
+				58 menu
+					59 (selected) Seleccionar...
+					60 Alquileres
+					61 Gastos de torneos
+					62 Gastos Operativos
+					63 Indumentaria
+					64 Intereses
+					65 Mantenimiento y arreglos
+					66 Otras clases
+					67 Retiros
+					68 Servicios
+					69 Sueldos
+					70 Torneos
+			71 container
+				72 text Subrubro *
+			73 pop up button (collapsed, settable) Subrubro *, Value: Seleccionar rubro primero..., ID: subrubro_id, Secondary Actions: Expand
+				74 menu
+					75 (selected) Seleccionar rubro primero...
+					76 Centenera
+					77 Eventos
+					78 San Carlos
+					79 Pago al organizador
+					80 Botiquín
+					81 Insumos Varios
+					82 Librería
+					83 Limpieza
+					84 Indumentaria institucional
+					85 Patines
+					86 VG Indumentaria
+					87 Intereses Banco
+					88 Intereses Mercado Pago
+					89 Reparaciones menores
+					90 Clase particular
+					91 Retiro de dueños
+					92 Internet
+					93 Luz
+					94 Op-Pablo Ledesma
+					95 Op-Rocío Paz
+					96 Op-Sandra Vidal
+					97 Inscripciones
+			98 container
+				99 text Monto *
+			100 text field (settable) Monto *, ID: monto
+			101 container
+				102 text Observaciones *
+			103 text field (settable) Observaciones *, ID: observaciones
+		104 button Cancelar
+		105 button Registrar
+	106 text Wings
+
+The focused UI element is 1 AXWebArea Nuevo movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimiento

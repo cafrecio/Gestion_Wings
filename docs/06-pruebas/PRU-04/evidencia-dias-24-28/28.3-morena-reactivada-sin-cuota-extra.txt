@@ -1,0 +1,58 @@
+Browser tab: 1320327214, Title: "Rossi, Morena – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/281".
+1 AXWebArea Rossi, Morena – Wings, URL: test.gestionar-te.com.ar/alumnos/281
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 button Salir
+	20 heading Rossi, Morena, Value: 1
+		21 text Rossi, Morena
+	22 container
+		56 text Activo
+		24 switch (disabled, settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae300bb39095
+		25 button Cobrar
+		26 button Editar
+		27 image
+		28 text DNI 55400010
+		29 image
+		30 text NACIMIENTO 03/12/2018
+		31 image
+		32 text CELULAR 1145120010
+		33 image
+		34 text EMAIL morena.rossi@testmail.com
+		35 image
+		36 text DEPORTE Patín
+		37 image
+		38 text GRUPO Patín — Principiantes
+		39 image
+		40 text PLAN 2x sem. — $44,000.00/mes
+		41 image
+		42 text ALTA 15/03/2024
+		43 image
+		44 text ESTADO DE COBRANZA En plazo 4 días de gracia Total adeudado:  $44,000.00 Nov 2026 $44,000.00
+		45 image
+		46 text TUTOR NOMBRE Tutor Rossi TELÉFONO 1145120010
+		47 image
+		48 text HISTORIAL DE PAGOS 23/10/2026 · Oct 2026 $40,000.00
+		49 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/56?inline=1
+		50 text 20/10/2026 · Sep 2026 $40,000.00
+		51 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/33?inline=1
+		52 image
+		53 text ASISTENCIAS — NOV 2026 1 clase 02/11
+		54 button Volver
+	55 text Wings
+
+The focused UI element is 1 AXWebArea Rossi, Morena – Wings, URL: test.gestionar-te.com.ar/alumnos/281

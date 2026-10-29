@@ -1,0 +1,149 @@
+Browser tab: 1320327214, Title: "Ingresos y egresos – Wings", URL: "https://test.gestionar-te.com.ar/reportes?mes=2026-11&deporte_id=1".
+1 AXWebArea Ingresos y egresos – Wings, URL: test.gestionar-te.com.ar/reportes?mes=2026-11&deporte_id=1
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Ingresos y egresos, Value: 1
+		31 text Ingresos y egresos
+	32 container
+		33 text Reportes
+		34 link Description: Volver, Value: test.gestionar-te.com.ar/admin/dashboard
+		35 container Reportes
+			36 text Ingresos y egresos
+			37 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11&deporte_id=1
+			38 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11&deporte_id=1
+		39 pop up button (collapsed, settable) Description: Mes, Value: Noviembre 2026, Secondary Actions: Expand
+			40 menu
+				41 (selected) Noviembre 2026
+				42 Octubre 2026
+				43 Septiembre 2026
+		44 pop up button (collapsed, settable) Description: Deporte, Value: Patín, Secondary Actions: Expand
+			45 menu
+				46 Todo el negocio
+				47 Fútbol
+				48 (selected) Patín
+		49 button Filtrar
+		50 heading Octubre vs septiembre, Value: 2
+			51 text Octubre vs septiembre
+		52 text Meses cerrados · 2026 Ingresos
+		53 text $2,055,800.00
+		54 image Tendencia mensual de ingresos
+		55 text ↑ 6.752,7%
+		56 text Egresos
+		57 text $0.00
+		58 image Tendencia mensual de egresos
+		59 text Sin cambio
+		60 text Resultado
+		61 text $2,055,800.00
+		62 image Tendencia mensual de resultado
+		63 text ↑ $2,025,800.00
+		64 text Egresos / ingresos
+		65 text 0,0%
+		66 image Porcentaje de ingresos equivalente a egresos
+		67 text Del ingreso del mes
+		68 heading Evolución mensual, Value: 3
+			69 text Evolución mensual
+		70 text Ingresos Egresos Meses cerrados
+		71 image Evolución de ingresos y egresos de los meses cerrados disponibles
+		72 button (collapsed) Detalle, Secondary Actions: Expand
+			73 text Detalle
+		74 heading Cambio en el resultado, Value: 3
+			75 text Cambio en el resultado
+		76 text Octubre vs septiembre
+		77 image Aporte de cada rubro al cambio del resultado
+		78 content list
+			79 container
+				80 text Cuota Mensual (10/2026): + $1,709,800.00
+			81 container
+				82 text Cuota Mensual (09/2026): + $188,000.00
+			83 container
+				84 text Cuota Mensual (08/2026): + $58,000.00
+			85 container
+				86 text Inscripción al club: + $45,000.00
+			87 container
+				88 text Otros: + $25,000.00
+		89 text Variación total
+		90 container
+			91 text + $2,025,800.00
+		92 heading Noviembre en curso, Value: 2
+			93 text Noviembre en curso
+		94 text Hasta 03/11 Ingresos $554,000.00 Egresos $699,000.00 Resultado $-145,000.00
+		95 container ingresos
+			96 heading Origen de ingresos, Value: 3
+				97 text Origen de ingresos
+			98 container
+				99 image Distribución de ingresos por rubro
+				100 text $554.000
+				101 text Ingresos
+			102 text Cuota Mensual (11/2026)
+			103 text $544,000.00
+			104 text 98,2% Inscripción al club
+			105 text $10,000.00
+			106 text 1,8%
+			107 button (collapsed) Detalle, Secondary Actions: Expand
+				108 text Detalle
+		109 container egresos
+			110 heading Destino de gastos, Value: 3
+				111 text Destino de gastos
+			112 image Importes netos por rubro
+			113 button (collapsed) Detalle, Secondary Actions: Expand
+				114 text Detalle
+		115 heading Situación al 03/11, Value: 2
+			116 text Situación al 03/11
+		117 text Saldos acumulados Disponible · todo el negocio $3,054,120.75 Por cobrar $2,094,000.00 Por pagar $0.00
+		118 button (collapsed) Detalle de cajas y aportes, Secondary Actions: Expand
+			119 text Detalle de cajas y aportes
+		120 button (collapsed) Por cobrar · $2,094,000.00, Secondary Actions: Expand
+			121 text Por cobrar · 
+			122 text $2,094,000.00
+		123 button (collapsed) Por pagar · $0.00, Secondary Actions: Expand
+			124 text Por pagar · 
+			125 text $0.00
+		126 button (expanded) Gastos del club · $1,287,500.00, Secondary Actions: Collapse
+			127 text Gastos del club · 
+			128 text $1,287,500.00
+		146 text Gastos generales separados: no descontados del deporte. Disponible y cajas corresponden a todo el negocio.
+		129 heading Deuda de alumnos inactivos, Value: 2
+			130 text Deuda de alumnos inactivos
+		131 text Actual al 03/11/2026. Separada del por cobrar y de los totales de Inicio.
+		132 container
+			133 text 1  alumnos
+		134 text $143,000.00
+		135 container
+			136 heading Alvarez, Julieta, Value: 3
+				137 text Alvarez, Julieta
+			138 text Inactivo desde Sin fecha registrada Deuda $143,000.00
+			139 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/262
+			140 button Perder, Help: Dar por perdida esta deuda
+		141 text Cobros y pagos · confirmado + por validar
+		142 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11&deporte_id=1
+		143 text  · 
+		144 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11&deporte_id=1
+	145 text Wings
+
+The focused UI element is 126 button (expanded) Gastos del club · $1,287,500.00, Secondary Actions: Collapse

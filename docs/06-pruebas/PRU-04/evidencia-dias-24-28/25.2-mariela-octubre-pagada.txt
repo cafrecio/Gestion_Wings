@@ -1,0 +1,118 @@
+Browser tab: 1320327214, Title: "Octubre 2026 — Ocampo – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/6".
+1 AXWebArea Octubre 2026 — Ocampo – Wings, URL: test.gestionar-te.com.ar/liquidaciones/6
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Liquidación — Ocampo, Mariela, Value: 1
+		31 text Liquidación — Ocampo, Mariela
+	32 container
+		33 text Liquidación pagada. Movimiento registrado en cashflow.
+		34 heading Ocampo, Mariela, Value: 2
+			35 text Ocampo, Mariela
+		36 text Octubre 2026 Patín Tipo Por hora Monto final $270,000.00 Estado Pagada Fecha de pago 03/11/2026  — Banco Nación
+		37 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/liquidacion/6?inline=1
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		39 text CLASES LIQUIDADAS 15 VALOR POR HORA $18,000.00 TOTAL $270,000.00
+		40 container
+			41 heading Jueves 1 de octubre, Value: 3
+				42 text Jueves 1 de octubre
+			43 text Con asistencia
+		44 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		45 container
+			46 heading Sábado 3 de octubre, Value: 3
+				47 text Sábado 3 de octubre
+			48 text Con asistencia
+		49 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		50 container
+			51 heading Martes 6 de octubre, Value: 3
+				52 text Martes 6 de octubre
+			53 text Con asistencia
+		54 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		55 container
+			56 heading Jueves 8 de octubre, Value: 3
+				57 text Jueves 8 de octubre
+			58 text Con asistencia
+		59 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		60 container
+			61 heading Sábado 10 de octubre, Value: 3
+				62 text Sábado 10 de octubre
+			63 text Con asistencia
+		64 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		65 container
+			66 heading Martes 13 de octubre, Value: 3
+				67 text Martes 13 de octubre
+			68 text Con asistencia
+		69 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		70 container
+			71 heading Jueves 15 de octubre, Value: 3
+				72 text Jueves 15 de octubre
+			73 text Con asistencia
+		74 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		75 container
+			76 heading Sábado 17 de octubre, Value: 3
+				77 text Sábado 17 de octubre
+			78 text Con asistencia
+		79 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		80 container
+			81 heading Martes 20 de octubre, Value: 3
+				82 text Martes 20 de octubre
+			83 text Con asistencia
+		84 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		85 container
+			86 heading Jueves 22 de octubre, Value: 3
+				87 text Jueves 22 de octubre
+			88 text Con asistencia
+		89 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		90 container
+			91 heading Sábado 24 de octubre, Value: 3
+				92 text Sábado 24 de octubre
+			93 text Con asistencia
+		94 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		95 container
+			96 heading Martes 27 de octubre, Value: 3
+				97 text Martes 27 de octubre
+			98 text Con asistencia
+		99 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		100 container
+			101 heading Jueves 29 de octubre, Value: 3
+				102 text Jueves 29 de octubre
+			103 text Con asistencia
+		104 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		105 container
+			106 heading Sábado 31 de octubre, Value: 3
+				107 text Sábado 31 de octubre
+			108 text Con asistencia
+		109 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00
+		110 container
+			111 heading Sábado 31 de octubre, Value: 3
+				112 text Sábado 31 de octubre
+			113 text Con asistencia
+		114 text Grupo: Patín — Federadas Duración: 1 h Subtotal: $18,000.00 CÁLCULO DE LOS DETALLES $270,000.00
+	115 text Wings
+
+The focused UI element is 1 AXWebArea Octubre 2026 — Ocampo – Wings, URL: test.gestionar-te.com.ar/liquidaciones/6

@@ -1,0 +1,61 @@
+Browser tab: 1320327214, Title: "Romero, Santino – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/263".
+1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 button Salir
+	20 heading Romero, Santino, Value: 1
+		21 text Romero, Santino
+	22 container
+		23 text Activo
+		24 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d0e9d87b7
+		25 button Cobrar
+		26 button Editar
+		27 image
+		28 text DNI 53300902
+		29 image
+		30 text NACIMIENTO 09/01/2016
+		31 image
+		32 text CELULAR 1145123415
+		33 image
+		34 text EMAIL diego.romero@testmail.com
+		35 image
+		36 text DEPORTE Fútbol
+		37 image
+		38 text GRUPO Fútbol — Principiantes
+		39 image
+		40 text PLAN 1x sem. — $28,000.00/mes
+		41 image
+		42 text ALTA 01/08/2024
+		43 image
+		44 text ESTADO DE COBRANZA Deudor Total adeudado:  $28,000.00 Oct 2026 $28,000.00
+		45 container cuotas-condonadas
+			46 text Cuotas condonadas
+			47 text 2025-10 · Condonada 2025-11 · Condonada 2025-12 · Condonada
+		48 image
+		49 text TUTOR NOMBRE Diego Romero TELÉFONO 1145123415
+		50 image
+		51 text HISTORIAL DE PAGOS 04/11/2026 · Nov 2026 $28,000.00
+		52 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/245?inline=1
+		53 text 26/10/2026 · Ago 2026, Sep 2026 $56,000.00
+		54 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/64?inline=1
+		55 image
+		56 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		57 button Volver
+	58 text Wings
+
+The focused UI element is 1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263

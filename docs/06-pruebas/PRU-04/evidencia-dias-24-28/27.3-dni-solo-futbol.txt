@@ -1,0 +1,88 @@
+Browser tab: 1320327214, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Alumnos, Value: 1
+		31 text Alumnos
+	32 container
+		33 container
+			34 image
+			35 combo box (collapsed, settable) Value: 54100102, ID: search-input, Secondary Actions: Expand
+		36 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			37 menu
+				38 (selected) Deporte
+				39 Fútbol
+				40 Patín
+		41 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+			42 menu
+				43 (selected) Grupo
+				44 Fútbol — Avanzadas
+				45 Fútbol — Principiantes
+				46 Patín — Adultos
+				47 Patín — Avanzadas
+				48 Patín — Federadas
+				49 Patín — Intermedias
+				50 Patín — Principiantes
+		51 button Limpiar
+		52 text Mostrando 
+		53 text 1
+		54 text  a 
+		55 text 1
+		56 text  de 
+		57 text 1
+		58 text  alumnos
+		59 button Nuevo
+		60 container
+			61 heading Gomez, Lucas, Value: 3
+				62 text Gomez, Lucas
+		63 image
+		64 text Deporte: Fútbol
+		65 image
+		66 text Grupo: Fútbol — Avanzadas
+		67 image
+		68 text Plan: 1 clase/semana
+		69 image
+		70 text DNI: 54100102
+		71 image
+		72 text Teléfono: 1145123499
+		73 image
+		74 text Edad: 9 años
+		75 image
+		76 text Tutor: Marcelo Gomez
+		77 image
+		78 text Tel. tutor: 1145123401
+		79 button Cobrar
+		80 button Ver
+		81 button Editar
+		82 container
+			83 text Activo
+			84 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe6d79720
+	85 text Wings
+
+The focused UI element is 1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=54100102&deporte_id=&grupo_id=

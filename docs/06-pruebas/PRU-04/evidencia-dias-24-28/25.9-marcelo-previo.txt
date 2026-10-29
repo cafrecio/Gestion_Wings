@@ -1,0 +1,97 @@
+Browser tab: 1320327214, Title: "Nuevo Alumno – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/create".
+1 AXWebArea Nuevo Alumno – Wings, URL: test.gestionar-te.com.ar/alumnos/create
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 button Salir
+	20 heading Nuevo Alumno, Value: 1
+		21 text Nuevo Alumno
+	22 container
+		95 text Corresponde inscripción por única vez: $5,000.00
+		24 image
+		25 text Nombre *
+		26 text field (settable) Nombre *, Value: Marcelo, ID: nombre
+		27 image
+		28 text Apellido *
+		29 text field (settable) Apellido *, Value: Ibañez, ID: apellido
+		30 image
+		31 text DNI *
+		32 text field (settable) DNI *, Value: 25111222, ID: dni
+		33 image
+		34 text Fecha de nacimiento *
+		35 date field (settable) Fecha de nacimiento *, Value: 1981-07-19, ID: fecha_nacimiento
+			36 container
+				37 stepper
+				38 stepper
+				39 stepper
+			40 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		41 image
+		42 text Fecha de alta *
+		43 date field (settable) Fecha de alta *, Value: 2026-11-03, ID: fecha_alta
+			44 container
+				45 stepper
+				46 stepper
+				47 stepper
+			48 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		49 image
+		50 text Celular
+		51 text *
+		52 text field (settable) Celular *, Value: 1155500026, ID: celular
+		53 checkbox (settable, integer) Description: Mismo que el teléfono del tutor, Value: 0, ID: celular-mismo-tutor
+		54 image
+		55 text Email
+		56 text field (settable) Email
+		57 image
+		58 text Deporte *
+		59 pop up button (collapsed, settable) Deporte *, Value: Patín, ID: deporte_id, Secondary Actions: Expand
+			60 menu
+				61 Seleccionar...
+				62 Fútbol
+				63 (selected) Patín
+		64 image
+		65 text Grupo *
+		66 pop up button (collapsed, settable) Grupo *, Value: Patín — Adultos, ID: grupo_id, Secondary Actions: Expand
+			67 menu
+				68 Seleccionar...
+				69 Fútbol — Avanzadas
+				70 Fútbol — Principiantes
+				71 (selected) Patín — Adultos
+				72 Patín — Avanzadas
+				73 Patín — Federadas
+				74 Patín — Intermedias
+				75 Patín — Principiantes
+		86 container plan-section
+			87 container
+				88 image
+				89 text Frecuencia semanal * (define el precio mensual)
+			90 pop up button (collapsed, settable) Frecuencia semanal * (define el precio mensual), Value: 2 veces/semana — $42,000.00, ID: plan_id, Secondary Actions: Expand
+				91 menu
+					92 Seleccionar frecuencia...
+					93 1 vez/semana — $32,000.00
+					94 (selected) 2 veces/semana — $42,000.00
+		76 text Datos del tutor —  obligatorio para menores de edad
+		77 image
+		78 text Nombre del tutor
+		79 text field (settable) Nombre del tutor, ID: nombre_tutor
+		80 image
+		81 text Teléfono del tutor
+		82 text field (settable) Teléfono del tutor, ID: telefono_tutor
+		83 button Cancelar
+		84 button Guardar
+	85 text Wings
+
+The focused UI element is 52 text field (settable) Celular *, Value: 1155500026, ID: celular

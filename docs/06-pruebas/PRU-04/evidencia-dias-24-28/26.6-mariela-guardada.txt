@@ -1,0 +1,194 @@
+Browser tab: 1320327214, Title: "Profesores – Wings", URL: "https://test.gestionar-te.com.ar/profesores".
+1 AXWebArea Profesores – Wings, URL: test.gestionar-te.com.ar/profesores
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Profesores, Value: 1
+		31 text Profesores
+	32 container
+		33 text Profesor actualizado correctamente.
+		34 container
+			35 image
+			36 text field (settable)
+		37 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			38 menu
+				39 (selected) Deporte
+				40 Fútbol
+				41 Patín
+		42 button Limpiar
+		43 text Mostrando 
+		44 text 1
+		45 text  a 
+		46 text 6
+		47 text  de 
+		48 text 6
+		49 text  profesores
+		50 button Nuevo
+		51 container
+			52 image Activo
+			53 heading Acosta, Martín, Value: 3
+				54 text Acosta, Martín
+			55 text Activo
+		56 image
+		57 text Deporte: Fútbol
+		58 image
+		59 text Liquidación: Por comisión
+		60 image
+		61 text Comisión: 30.00%
+		62 image
+		63 text Teléfono: 1155500017
+		64 image
+		65 text Email: martin.acosta@example.com
+		66 container
+			67 text Tiene 3 clases futuras o en curso. 
+			68 link Description: Reasignar, Value: test.gestionar-te.com.ar/clases?profesor_id=6&estado=programada
+			69 text  antes de desactivar.
+		70 button Ver
+		71 button Editar
+		72 container
+			73 text Activo
+			74 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbcd8d
+		75 container
+			76 image Activo
+			77 heading Directora, Vanina, Value: 3
+				78 text Directora, Vanina
+			79 text Activo
+		80 image
+		81 text Deporte: Patín
+		82 image
+		83 text Liquidación: Por hora
+		84 image
+		85 text Valor/hora: $0.00
+		86 image
+		87 text Teléfono: 11-5555-0000
+		88 image
+		89 text Email: vanina.profesora@wings.test
+		90 button Ver
+		91 button Editar
+		92 container
+			93 text Activo
+			94 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbd6ac
+		95 container
+			96 image Activo
+			97 heading Gaitán, Lucía, Value: 3
+				98 text Gaitán, Lucía
+			99 text Activo
+		100 image
+		101 text Deporte: Patín
+		102 image
+		103 text Liquidación: Por hora
+		104 image
+		105 text Valor/hora: $12,000.00
+		106 image
+		107 text Teléfono: 1160411896
+		108 image
+		109 text Email: lucia.gaitan@wings.test
+		110 container
+			111 text Tiene 15 clases futuras o en curso. 
+			112 link Description: Reasignar, Value: test.gestionar-te.com.ar/clases?profesor_id=1&estado=programada
+			113 text  antes de desactivar.
+		114 button Ver
+		115 button Editar
+		116 container
+			117 text Activo
+			118 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbdcb7
+		119 container
+			120 image Activo
+			121 heading Ocampo, Mariela, Value: 3
+				122 text Ocampo, Mariela
+			123 text Activo
+		124 image
+		125 text Deporte: Patín
+		126 image
+		127 text Liquidación: Por hora
+		128 image
+		129 text Valor/hora: $18,000.00
+		130 image
+		131 text Teléfono: 1128418137
+		132 image
+		133 text Email: mariela.ocampo@wings.test
+		134 container
+			135 text Tiene 18 clases futuras o en curso. 
+			136 link Description: Reasignar, Value: test.gestionar-te.com.ar/clases?profesor_id=3&estado=programada
+			137 text  antes de desactivar.
+		138 button Ver
+		139 button Editar
+		140 container
+			141 text Activo
+			142 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbe28d
+		143 container
+			144 image Activo
+			145 heading Quintana, Hernán, Value: 3
+				146 text Quintana, Hernán
+			147 text Activo
+		148 image
+		149 text Deporte: Fútbol
+		150 image
+		151 text Liquidación: Por comisión
+		152 image
+		153 text Comisión: 40.00%
+		154 image
+		155 text Teléfono: 1190949815
+		156 image
+		157 text Email: hernan.quintana@wings.test
+		158 container
+			159 text Tiene 19 clases futuras o en curso. 
+			160 link Description: Reasignar, Value: test.gestionar-te.com.ar/clases?profesor_id=4&estado=programada
+			161 text  antes de desactivar.
+		162 button Ver
+		163 button Editar
+		164 container
+			165 text Activo
+			166 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbe957
+		167 container
+			168 image Activo
+			169 heading Salinas, Verónica, Value: 3
+				170 text Salinas, Verónica
+			171 text Activo
+		172 image
+		173 text Deporte: Patín
+		174 image
+		175 text Liquidación: Por hora
+		176 image
+		177 text Valor/hora: $15,000.00
+		178 image
+		179 text Teléfono: 1196207167
+		180 image
+		181 text Email: veronica.salinas@wings.test
+		182 container
+			183 text Tiene 8 clases futuras o en curso. 
+			184 link Description: Reasignar, Value: test.gestionar-te.com.ar/clases?profesor_id=2&estado=programada
+			185 text  antes de desactivar.
+		186 button Ver
+		187 button Editar
+		188 container
+			189 text Activo
+			190 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2d13fbeedf
+	191 text Wings
+
+The focused UI element is 1 AXWebArea Profesores – Wings, URL: test.gestionar-te.com.ar/profesores

@@ -1,0 +1,5 @@
+ 1. Mariela Ocampo lista de la #260: 2 alumnos, 2 presentes — Asistencias guardadas.
+ 2. Pablo Ledesma cierra la caja #47: esperado $235.000,00, contado $235.000,00 — Caja cerrada.
+ 3. Admin Prueba valida la caja #47 (16 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $3.155.000,00 · {"AL_DIA":22,"EN_PLAZO":84,"MOROSO":0,"DEUDOR":0}
+SIMULADO: no se guardó nada.

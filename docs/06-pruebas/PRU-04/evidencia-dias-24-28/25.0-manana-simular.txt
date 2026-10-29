@@ -1,0 +1,15 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Benitez, Paulina $43.000,00 por Efectivo — Pago registrado para Benitez, Paulina.
+ 3. Pablo Ledesma cobra a Ferrari, Josefina $33.000,00 por Efectivo — Pago registrado para Ferrari, Josefina.
+ 4. Pablo Ledesma cobra a Alvarez, Camila $35.000,00 por Mercado Pago — Pago registrado para Alvarez, Camila.
+ 5. Pablo Ledesma cobra a Diaz, Martina $50.000,00 por Mercado Pago — Pago registrado para Diaz, Martina.
+ 6. Pablo Ledesma cobra a Gomez, Lucas $38.000,00 por Efectivo — Pago registrado para Gomez, Lucas.
+ 7. Pablo Ledesma cobra a Ferrari, Nicolas $48.000,00 por Mercado Pago — Pago registrado para Ferrari, Nicolas.
+ 8. Pablo Ledesma cobra a Gutierrez, Tomas $28.000,00 por Efectivo — Pago registrado para Gutierrez, Tomas.
+ 9. Pablo Ledesma cobra a Ramirez, Lucia $45.000,00 por Mercado Pago — Pago registrado para Ramirez, Lucia.
+10. Pablo Ledesma cobra a Iglesias, Clara $30.000,00 por Efectivo — Pago registrado para Iglesias, Clara.
+11. Lucía Gaitán lista de la #219: 12 alumnos, 11 presentes — Asistencias guardadas.
+12. Mariela Ocampo lista de la #227: 8 alumnos, 8 presentes — Asistencias guardadas.
+13. Martín Acosta lista de la #248: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $3.175.000,00 · {"AL_DIA":20,"EN_PLAZO":84,"MOROSO":0,"DEUDOR":0}
+SIMULADO: no se guardó nada.

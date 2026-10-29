@@ -1,0 +1,755 @@
+Browser tab: 1320327214, Title: "Cashflow histórico – Wings", URL: "https://test.gestionar-te.com.ar/cashflow".
+1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+		30 button Salir
+	31 heading Cashflow, Value: 1
+		32 text Cashflow
+	33 container
+		34 text Movimiento directo registrado en cashflow.
+		35 container filtros-form
+			36 text PERÍODO
+			37 pop up button (collapsed, settable) PERÍODO, Value: Año, ID: periodo, Secondary Actions: Expand
+				38 menu
+					39 Día
+					40 Semana
+					41 Mes
+					42 (selected) Año
+			43 text AÑO
+			44 pop up button (collapsed, settable) AÑO, Value: 2026, ID: anio, Secondary Actions: Expand
+				45 menu
+					46 (selected) 2026
+			47 text TIPO DE CAJA
+			48 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				49 menu
+					50 (selected) Todos
+					51 Banco Galicia
+					52 Banco Nación
+					53 Banco Nacion ahorro
+					54 Efectivo
+					55 Mercado Pago
+			56 text TIPO
+			57 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				58 menu
+					59 (selected) Todos
+					60 Ingresos
+					61 Egresos
+		62 container cashflow-periodo
+			63 text Período:
+			64 text Año 2026 completo
+		65 container Saldos por medio
+			66 heading Saldos por medio, Value: 2
+				67 text Saldos por medio
+			68 text Al 03/11/2026 · No dependen del período del listado.
+			69 text Banco Galicia
+			70 text $201,050.00
+			71 text Banco Nación
+			72 text $-142,000.00
+			73 text Banco Nacion ahorro
+			74 text $0.00
+			75 text Efectivo
+			76 text $974,200.00
+			77 text Confirmado: $802,200.00 · En cajas sin validar: $172,000.00
+			78 text Mercado Pago
+			79 text $1,980,870.75
+			80 text Confirmado: $1,802,870.75 · En cajas sin validar: $178,000.00
+		81 container cashflow-totales-periodo
+			82 image
+			83 text $4,679,350.75
+			84 text INGRESOS
+			85 image
+			86 text $3,585,230.00
+			87 text EGRESOS
+			88 image
+			89 text $1,094,120.75
+			90 text RESULTADO DEL PERÍODO
+		91 container cashflow-acciones
+			92 container
+				93 text 161  movimientos
+			94 button Transferir
+			95 button Nuevo
+		96 table
+			97 row
+				98 cell
+					99 text FECHA
+				100 cell
+					101 text I/E
+				102 cell
+					103 text TIPO CAJA
+				104 cell
+					105 text RUBRO — SUBRUBRO
+				106 cell
+					107 text DETALLE
+				108 cell
+					109 text MONTO
+				110 cell
+					111 text REGISTRÓ
+				112 cell
+					113 text VAL.
+				114 cell
+					115 text ACCIONES
+			116 row
+				117 cell
+					118 text 03/11/2026
+				119 cell
+					120 text E
+				121 cell
+					122 text BGA
+				123 cell
+					124 text Sueldos  — Patín-Verónica Salinas
+				125 cell Pago liquidación #4 - Verónica (10/2026)
+					126 text Pago liquidación #4 - Verónica (10/2026)
+					127 text Liquidación pagada
+				128 cell
+					129 text −$105,000.00
+				130 cell
+					131 text Admin Prueba
+				132 cell
+					133 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/4
+			134 row
+				135 cell
+					136 text 03/11/2026
+				137 cell
+					138 text E
+				139 cell
+					140 text BGA
+				141 cell
+					142 text Sueldos  — Patín-Verónica Salinas
+				143 cell Pago liquidación #5 - Verónica (9/2026)
+					144 text Pago liquidación #5 - Verónica (9/2026)
+					145 text Liquidación pagada
+				146 cell
+					147 text −$30,000.00
+				148 cell
+					149 text Admin Prueba
+				150 cell
+					151 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/5
+			152 row
+				153 cell
+					154 text 03/11/2026
+				155 cell
+					156 text E
+				157 cell
+					158 text BNA
+				159 cell
+					160 text Sueldos  — Patín-Mariela Ocampo
+				161 cell Pago liquidación #6 - Mariela (10/2026)
+					162 text Pago liquidación #6 - Mariela (10/2026)
+					163 text Liquidación pagada
+				164 cell
+					165 text −$270,000.00
+				166 cell
+					167 text Admin Prueba
+				168 cell
+					169 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/6
+			170 row
+				171 cell
+					172 text 03/11/2026
+				173 cell
+					174 text E
+				175 cell
+					176 text MP
+				177 cell
+					178 text Sueldos  — Patín-Mariela Ocampo
+				179 cell Pago liquidación #7 - Mariela (9/2026)
+					180 text Pago liquidación #7 - Mariela (9/2026)
+					181 text Liquidación pagada
+				182 cell
+					183 text −$54,000.00
+				184 cell
+					185 text Admin Prueba
+				186 cell
+					187 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/7
+			188 row
+				189 cell
+					190 text 03/11/2026
+				191 cell
+					192 text E
+				193 cell
+					194 text MP
+				195 cell
+					196 text Sueldos  — Fútbol-Hernán Quintana
+				197 cell Pago liquidación #8 - Hernán (10/2026)
+					198 text Pago liquidación #8 - Hernán (10/2026)
+					199 text Liquidación pagada
+				200 cell
+					201 text −$484,680.00
+				202 cell
+					203 text Admin Prueba
+				204 cell
+					205 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/8
+			206 row
+				207 cell
+					208 text 03/11/2026
+				209 cell
+					210 text E
+				211 cell
+					212 text EFE
+				213 cell
+					214 text Sueldos  — Fútbol-Martín Acosta
+				215 cell Pago liquidación #9 - Martín (10/2026)
+					216 text Pago liquidación #9 - Martín (10/2026)
+					217 text Liquidación pagada
+				218 cell
+					219 text −$186,600.00
+				220 cell
+					221 text Admin Prueba
+				222 cell
+					223 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/9
+			224 row
+				225 cell
+					226 text 03/11/2026
+				227 cell
+					228 text E
+				229 cell
+					230 text EFE
+				231 cell
+					232 text Sueldos  — Op-Sandra Vidal
+				233 cell Sueldo de octubre
+					234 text Sueldo de octubre
+					235 text Directo
+				236 cell
+					237 text −$320,000.00
+				238 cell
+					239 text Admin Prueba
+				240 cell
+					241 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/editar
+					242 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/169
+					243 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/eliminar
+			244 row
+				245 cell
+					246 text 03/11/2026
+				247 cell
+					248 text E
+				249 cell
+					250 text EFE
+				251 cell
+					252 text Sueldos  — Op-Pablo Ledesma
+				253 cell Sueldo de octubre
+					254 text Sueldo de octubre
+					255 text Directo
+				256 cell
+					257 text −$320,000.00
+				258 cell
+					259 text Admin Prueba
+				260 cell
+					261 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/editar
+					262 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/170
+					263 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/eliminar
+			264 row
+				265 cell
+					266 text 03/11/2026
+				267 cell
+					268 text E
+				269 cell
+					270 text MP
+				271 cell
+					272 text Sueldos  — Op-Rocío Paz
+				273 cell Sueldo de octubre
+					274 text Sueldo de octubre
+					275 text Directo
+				276 cell
+					277 text −$280,000.00
+				278 cell
+					279 text Admin Prueba
+				280 cell
+					281 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/171/editar
+					282 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/171
+					283 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/171/eliminar
+			284 row
+				285 cell
+					286 text 03/11/2026
+				287 cell
+					288 text E
+				289 cell
+					290 text MP
+				291 cell
+					292 text Alquileres  — San Carlos
+				293 cell Alquiler de cancha, octubre
+					294 text Alquiler de cancha, octubre
+					295 text Directo
+				296 cell
+					297 text −$180,000.00
+				298 cell
+					299 text Admin Prueba
+				300 cell
+					301 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/172/editar
+					302 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/172
+					303 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/172/eliminar
+			304 row
+				305 cell
+					306 text 03/11/2026
+				307 cell
+					308 text E
+				309 cell
+					310 text EFE
+				311 cell
+					312 text Alquileres  — Centenera
+				313 cell Alquiler de cancha, octubre
+					314 text Alquiler de cancha, octubre
+					315 text Directo
+				316 cell
+					317 text −$120,000.00
+				318 cell
+					319 text Admin Prueba
+				320 cell
+					321 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/173/editar
+					322 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/173
+					323 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/173/eliminar
+			324 row
+				325 cell
+					326 text 02/11/2026
+				327 cell
+					328 text E
+				329 cell
+					330 text BGA
+				331 cell
+					332 text Sueldos  — Patín-Lucía Gaitán
+				333 cell Pago liquidación #2 - Lucía (10/2026)
+					334 text Pago liquidación #2 - Lucía (10/2026)
+					335 text Liquidación pagada
+				336 cell
+					337 text −$204,000.00
+				338 cell
+					339 text Admin Prueba
+				340 cell
+					341 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/2
+			342 row
+				343 cell
+					344 text 02/11/2026
+				345 cell
+					346 text E
+				347 cell
+					348 text BGA
+				349 cell
+					350 text Sueldos  — Patín-Lucía Gaitán
+				351 cell Pago liquidación #3 - Lucía (9/2026)
+					352 text Pago liquidación #3 - Lucía (9/2026)
+					353 text Liquidación pagada
+				354 cell
+					355 text −$36,000.00
+				356 cell
+					357 text Admin Prueba
+				358 cell
+					359 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/3
+			360 row
+				361 cell
+					362 text 02/11/2026
+				363 cell
+					364 text I
+				365 cell
+					366 text EFE
+				367 cell
+					368 text Cuotas  — Cuota Mensual
+				369 cell Acosta, Victoria
+					370 text Acosta, Victoria
+					371 text Caja validada
+				372 cell
+					373 text $30,000.00
+				374 cell
+					375 text Sandra Vidal
+				376 cell Admin Prueba
+					377 text AP
+				378 cell
+					379 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			380 row
+				381 cell
+					382 text 02/11/2026
+				383 cell
+					384 text I
+				385 cell
+					386 text EFE
+				387 cell
+					388 text Cuotas  — Cuota Mensual
+				389 cell Herrera, Alma
+					390 text Herrera, Alma
+					391 text Caja validada
+				392 cell
+					393 text $44,000.00
+				394 cell
+					395 text Sandra Vidal
+				396 cell Admin Prueba
+					397 text AP
+				398 cell
+					399 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			400 row
+				401 cell
+					402 text 02/11/2026
+				403 cell
+					404 text I
+				405 cell
+					406 text MP
+				407 cell
+					408 text Cuotas  — Cuota Mensual
+				409 cell Medina, Emilia
+					410 text Medina, Emilia
+					411 text Caja validada
+				412 cell
+					413 text $44,000.00
+				414 cell
+					415 text Sandra Vidal
+				416 cell Admin Prueba
+					417 text AP
+				418 cell
+					419 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			420 row
+				421 cell
+					422 text 02/11/2026
+				423 cell
+					424 text I
+				425 cell
+					426 text EFE
+				427 cell
+					428 text Cuotas  — Cuota Mensual
+				429 cell Cabrera, Constanza
+					430 text Cabrera, Constanza
+					431 text Caja validada
+				432 cell
+					433 text $33,000.00
+				434 cell
+					435 text Sandra Vidal
+				436 cell Admin Prueba
+					437 text AP
+				438 cell
+					439 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			440 row
+				441 cell
+					442 text 02/11/2026
+				443 cell
+					444 text I
+				445 cell
+					446 text MP
+				447 cell
+					448 text Cuotas  — Cuota Mensual
+				449 cell Martinez, Delfina
+					450 text Martinez, Delfina
+					451 text Caja validada
+				452 cell
+					453 text $33,000.00
+				454 cell
+					455 text Sandra Vidal
+				456 cell Admin Prueba
+					457 text AP
+				458 cell
+					459 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			460 row
+				461 cell
+					462 text 02/11/2026
+				463 cell
+					464 text I
+				465 cell
+					466 text EFE
+				467 cell
+					468 text Cuotas  — Cuota Mensual
+				469 cell Castro, Bruno
+					470 text Castro, Bruno
+					471 text Caja validada
+				472 cell
+					473 text $28,000.00
+				474 cell
+					475 text Sandra Vidal
+				476 cell Admin Prueba
+					477 text AP
+				478 cell
+					479 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			480 row
+				481 cell
+					482 text 02/11/2026
+				483 cell
+					484 text I
+				485 cell
+					486 text MP
+				487 cell
+					488 text Cuotas  — Cuota Mensual
+				489 cell Diaz, Thiago
+					490 text Diaz, Thiago
+					491 text Caja validada
+				492 cell
+					493 text $38,000.00
+				494 cell
+					495 text Sandra Vidal
+				496 cell Admin Prueba
+					497 text AP
+				498 cell
+					499 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			500 row
+				501 cell
+					502 text 02/11/2026
+				503 cell
+					504 text I
+				505 cell
+					506 text MP
+				507 cell
+					508 text Cuotas  — Cuota Mensual
+				509 cell Fernandez, Benjamin
+					510 text Fernandez, Benjamin
+					511 text Caja validada
+				512 cell
+					513 text $48,000.00
+				514 cell
+					515 text Sandra Vidal
+				516 cell Admin Prueba
+					517 text AP
+				518 cell
+					519 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			520 row
+				521 cell
+					522 text 02/11/2026
+				523 cell
+					524 text E
+				525 cell
+					526 text EFE
+				527 cell
+					528 text Gastos Operativos  — Limpieza
+				529 cell Artículos de limpieza
+					530 text Artículos de limpieza
+					531 text Caja validada
+				532 cell
+					533 text −$3,500.00
+				534 cell
+					535 text Sandra Vidal
+				536 cell Admin Prueba
+					537 text AP
+				538 cell
+					539 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			540 row
+				541 cell
+					542 text 31/10/2026
+				543 cell
+					544 text E
+				545 cell
+					546 text BGA
+				547 cell
+					548 text Servicios  — Luz
+				549 cell Luz de octubre, día 22 de prueba
+					550 text Luz de octubre, día 22 de prueba
+					551 text Directo
+				552 cell
+					553 text −$61,500.00
+				554 cell
+					555 text Admin Prueba
+				556 cell
+					557 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/135/editar
+					558 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/135
+					559 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/135/eliminar
+			560 row
+				561 cell
+					562 text 31/10/2026
+				563 cell
+					564 text I
+				565 cell
+					566 text MP
+				567 cell
+					568 text Cuotas  — Cuota Mensual
+				569 cell Perez, Mia
+					570 text Perez, Mia
+					571 text Caja validada
+				572 cell
+					573 text $40,000.00
+				574 cell
+					575 text Pablo Ledesma
+				576 cell Admin Prueba
+					577 text AP
+				578 cell
+					579 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			580 row
+				581 cell
+					582 text 31/10/2026
+				583 cell
+					584 text I
+				585 cell
+					586 text EFE
+				587 cell
+					588 text Cuotas  — Cuota Mensual
+				589 cell Navarro, Malena
+					590 text Navarro, Malena
+					591 text Caja validada
+				592 cell
+					593 text $43,000.00
+				594 cell
+					595 text Pablo Ledesma
+				596 cell Admin Prueba
+					597 text AP
+				598 cell
+					599 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			600 row
+				601 cell
+					602 text 31/10/2026
+				603 cell
+					604 text I
+				605 cell
+					606 text EFE
+				607 cell
+					608 text Cuotas  — Cuota Mensual
+				609 cell Diaz, Martina
+					610 text Diaz, Martina
+					611 text Caja validada
+				612 cell
+					613 text $50,000.00
+				614 cell
+					615 text Pablo Ledesma
+				616 cell Admin Prueba
+					617 text AP
+				618 cell
+					619 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			620 row
+				621 cell
+					622 text 31/10/2026
+				623 cell
+					624 text I
+				625 cell
+					626 text MP
+				627 cell
+					628 text Cuotas  — Cuota Mensual
+				629 cell Medina, Lautaro
+					630 text Medina, Lautaro
+					631 text Caja validada
+				632 cell
+					633 text $28,000.00
+				634 cell
+					635 text Pablo Ledesma
+				636 cell Admin Prueba
+					637 text AP
+				638 cell
+					639 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			640 row
+				641 cell
+					642 text 31/10/2026
+				643 cell
+					644 text I
+				645 cell
+					646 text EFE
+				647 cell
+					648 text Cuotas  — Cuota Mensual
+				649 cell Ortiz, Tobias
+					650 text Ortiz, Tobias
+					651 text Caja validada
+				652 cell
+					653 text $48,000.00
+				654 cell
+					655 text Pablo Ledesma
+				656 cell Admin Prueba
+					657 text AP
+				658 cell
+					659 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			660 row
+				661 cell
+					662 text 31/10/2026
+				663 cell
+					664 text I
+				665 cell
+					666 text EFE
+				667 cell
+					668 text Torneos  — Inscripciones
+				669 cell Torneo de primavera: 2 inscripciones
+					670 text Torneo de primavera: 2 inscripciones
+					671 text Caja validada
+				672 cell
+					673 text $16,000.00
+				674 cell
+					675 text Pablo Ledesma
+				676 cell Admin Prueba
+					677 text AP
+				678 cell
+					679 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+			680 row
+				681 cell
+					682 text 31/10/2026
+				683 cell
+					684 text I
+				685 cell
+					686 text MP
+				687 cell
+					688 text Cuotas  — Cuota Mensual
+				689 cell Sanchez, Berenice
+					690 text Sanchez, Berenice
+					691 text Caja validada
+				692 cell
+					693 text $66,000.00
+				694 cell
+					695 text Pablo Ledesma
+				696 cell Admin Prueba
+					697 text AP
+				698 cell
+					699 link Description: Ver, Value: test.gestionar-te.com.ar/caja/42/detalle
+		700 container Paginación
+			701 container
+				702 text Mostrando  1  a  30  de  161  resultados
+			703 container
+				704 container &laquo; Anterior
+				705 text 1
+				706 link Description: Ir a la página 2, Value: test.gestionar-te.com.ar/cashflow?page=2
+				707 link Description: Ir a la página 3, Value: test.gestionar-te.com.ar/cashflow?page=3
+				708 link Description: Ir a la página 4, Value: test.gestionar-te.com.ar/cashflow?page=4
+				709 link Description: Ir a la página 5, Value: test.gestionar-te.com.ar/cashflow?page=5
+				710 link Description: Ir a la página 6, Value: test.gestionar-te.com.ar/cashflow?page=6
+				711 link Description: Siguiente &raquo;, Value: test.gestionar-te.com.ar/cashflow?page=2
+		712 container cashflow-cajas-editables
+			713 heading Mostrador · sin validar, Value: 3
+				714 text Mostrador · sin validar
+			715 text Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.
+			716 text Pago cuota alumno #302 - Períodos: 2026-11
+			717 text Caja abierta · Pablo Ledesma
+			718 text $43,000.00
+			719 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			720 text Pago cuota alumno #290 - Períodos: 2026-11
+			721 text Caja abierta · Pablo Ledesma
+			722 text $33,000.00
+			723 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			724 text Pago cuota alumno #308 - Períodos: 2026-11
+			725 text Caja abierta · Pablo Ledesma
+			726 text $35,000.00
+			727 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			728 text Pago cuota alumno #313 - Períodos: 2026-11
+			729 text Caja abierta · Pablo Ledesma
+			730 text $50,000.00
+			731 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			732 text Pago cuota alumno #242 - Períodos: 2026-11
+			733 text Caja abierta · Pablo Ledesma
+			734 text $38,000.00
+			735 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			736 text Pago cuota alumno #260 - Períodos: 2026-11
+			737 text Caja abierta · Pablo Ledesma
+			738 text $48,000.00
+			739 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			740 text Pago cuota alumno #323 - Períodos: 2026-11
+			741 text Caja abierta · Pablo Ledesma
+			742 text $28,000.00
+			743 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			744 text Pago cuota alumno #266 - Períodos: 2026-11
+			745 text Caja abierta · Pablo Ledesma
+			746 text $45,000.00
+			747 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			748 text Pago cuota alumno #280 - Períodos: 2026-11
+			749 text Caja abierta · Pablo Ledesma
+			750 text $30,000.00
+			751 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+	752 text Wings
+
+The focused UI element is 1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow

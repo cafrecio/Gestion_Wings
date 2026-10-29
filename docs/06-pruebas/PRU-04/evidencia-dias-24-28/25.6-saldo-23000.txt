@@ -1,0 +1,44 @@
+Browser tab: 1320327214, Title: "Cobrar cuota – Wings", URL: "https://test.gestionar-te.com.ar/caja/cobrar?search=berenice".
+1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=berenice
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 button Salir
+	20 heading Cobrar cuota, Value: 1
+		21 text Cobrar cuota
+	22 container
+		23 container
+			24 image
+			25 text field (settable) berenice
+		26 button Buscar
+		27 button Limpiar
+		28 text 84
+		29 text  alumnos con deuda pendiente
+		30 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		31 heading Rossi, Berenice, Value: 3
+			32 text Rossi, Berenice
+		33 text Saldo: $50,000.00 Cuotas: 1 pendiente Grupo: Patín — Federadas
+		34 button Ver
+		35 button Cobrar
+		36 heading Sanchez, Berenice, Value: 3
+			37 text Sanchez, Berenice
+		38 text Saldo: $23,000.00 Cuotas: 1 pendiente Grupo: Patín — Intermedias
+		39 button Ver
+		40 button Cobrar
+	41 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=berenice

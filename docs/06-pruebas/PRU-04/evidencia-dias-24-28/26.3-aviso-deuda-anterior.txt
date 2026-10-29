@@ -1,0 +1,121 @@
+Browser tab: 1320327214, Title: "Cobrar – Alvarez, Julieta", URL: "https://test.gestionar-te.com.ar/caja/cobrar/262".
+1 AXWebArea Cobrar – Alvarez, Julieta, URL: test.gestionar-te.com.ar/caja/cobrar/262
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cobrar-cuota
+		20 button Salir
+	21 heading Cobrar: Alvarez, Julieta, Value: 1
+		22 text Cobrar: Alvarez, Julieta
+	23 container
+		24 text DNI 52300901 DEPORTE Patín GRUPO Patín — Intermedias TOTAL PENDIENTE $143,000.00
+		25 container cobrar-form
+			26 text PLAN — FRECUENCIA SEMANAL
+			27 container plan-options
+				28 container
+					29 radio button (settable, integer) Description: 1 vez/semana $33,000.00/mes, Value: 1
+					30 text 1 vez/semana $33,000.00/mes
+				31 container
+					32 radio button (settable, integer) Description: 2 veces/semana $43,000.00/mes, Value: 0
+					33 text 2 veces/semana $43,000.00/mes
+			34 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			35 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			36 checkbox (settable, integer) 0
+			37 text Noviembre 2025
+			38 text field (disabled) 22,000.00
+			39 checkbox (settable, integer) 0
+			40 text Diciembre 2025
+			41 text field (disabled) 22,000.00
+			42 checkbox (settable, integer) 1
+			43 text Agosto 2026
+			44 text field (settable) 33000.00
+			45 checkbox (settable, integer) 1
+			46 text Septiembre 2026
+			47 text field (settable) 33000.00
+			48 checkbox (settable, integer) 0
+			49 text Octubre 2026
+			50 text field (disabled) 33,000.00
+			51 container adelanto-bloque
+				52 text MES SIN DEUDA O COBRO ADELANTADO
+				53 container
+					54 image
+					55 text Mes
+				56 pop up button (collapsed, settable) Mes, Value: Seleccionar..., ID: adelanto-periodo, Secondary Actions: Expand
+					57 menu
+						58 (selected) Seleccionar...
+						59 Noviembre 2026
+						60 Diciembre 2026
+						61 Enero 2027
+						62 Febrero 2027
+						63 Marzo 2027
+						64 Abril 2027
+						65 Mayo 2027
+						66 Junio 2027
+						67 Julio 2027
+						68 Agosto 2027
+						69 Septiembre 2027
+						70 Octubre 2027
+						71 Noviembre 2027
+				72 container
+					73 image
+					74 text Importe
+				75 text field (settable) Importe, ID: adelanto-monto
+				76 button (disabled) Agregar, ID: adelanto-agregar
+				77 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			78 container
+				79 image
+				80 text Medio de pago *
+			81 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				82 menu
+					83 Seleccionar...
+					84 BGA — Banco Galicia
+					85 BNA — Banco Nación
+					86 Banco Nacion ahorro
+					87 (selected) EFE — Efectivo
+					88 MP — Mercado Pago
+			89 container
+				90 image
+				91 text Fecha del pago
+			92 date field (settable) Fecha del pago, Value: 2026-11-04, ID: fecha_pago
+				93 container
+					94 stepper
+					95 stepper
+					96 stepper
+				97 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			98 container
+				99 image
+				100 text Observaciones
+			101 text field (settable) Observaciones, ID: observaciones
+			105 container resumen-total
+				106 text Total a cobrar:
+				107 text $66,000.00
+			102 button Cancelar
+			103 button (disabled) Cobrar, ID: btn-cobrar
+		108 container Confirmar cobro, ID: modal-deuda-anterior
+			109 heading Confirmar cobro, Value: 3, ID: titulo-confirmacion-cobro
+				110 text Confirmar cobro
+			111 container form-confirmar-deuda-anterior
+				112 text Quedan 2 meses anteriores impagos por $44,000.00 (noviembre 2025, diciembre 2025). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.
+				113 container motivo-confirmacion-cobro
+					114 container
+						115 text Motivo *
+					116 text entry area (settable) Motivo *, ID: motivo-excepcion-cobro
+				117 button Volver, ID: cerrar-deuda-anterior
+				118 button Cobrar
+	104 text Wings
+
+The focused UI element is 116 text entry area (settable) Motivo *, ID: motivo-excepcion-cobro

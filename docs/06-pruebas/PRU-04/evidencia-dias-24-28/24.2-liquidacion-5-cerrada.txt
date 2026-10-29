@@ -1,0 +1,4 @@
+Browser tab: 1320327214, Title: "Septiembre 2026 — Salinas – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/5".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 33
+The focused UI element is 1 AXWebArea Septiembre 2026 — Salinas – Wings, URL: test.gestionar-te.com.ar/liquidaciones/5

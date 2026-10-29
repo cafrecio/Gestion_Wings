@@ -1,0 +1,106 @@
+Browser tab: 1320327214, Title: "Cobrar – Romero, Santino", URL: "https://test.gestionar-te.com.ar/caja/cobrar/263".
+1 AXWebArea Cobrar – Romero, Santino, URL: test.gestionar-te.com.ar/caja/cobrar/263
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cobrar-cuota
+		20 button Salir
+	21 heading Cobrar: Romero, Santino, Value: 1
+		22 text Cobrar: Romero, Santino
+	23 container
+		24 text DNI 53300902 DEPORTE Fútbol GRUPO Fútbol — Principiantes TOTAL PENDIENTE $28,000.00
+		25 container cobrar-form
+			26 text PLAN — FRECUENCIA SEMANAL
+			27 container plan-options
+				28 container
+					29 radio button (settable, integer) Description: 1 vez/semana $28,000.00/mes, Value: 1
+					30 text 1 vez/semana $28,000.00/mes
+				31 container
+					32 radio button (settable, integer) Description: 2 veces/semana $35,000.00/mes, Value: 0
+					33 text 2 veces/semana $35,000.00/mes
+			34 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			35 text REINGRESO — DESCUENTO AUTOMÁTICO
+			36 container
+				37 text Se aplica  100%  del valor de la cuota (Primera quincena (1-15), días 1–15). El monto se ajusta automáticamente al confirmar.
+			38 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			39 checkbox (settable, integer) 0
+			40 text Octubre 2026
+			41 text field (disabled) 28,000.00
+			42 container adelanto-bloque
+				43 text MES SIN DEUDA O COBRO ADELANTADO
+				96 container adelantos-lista
+					97 checkbox (settable, integer) 1
+					98 container
+						99 text Noviembre 2026 Mes actual
+					100 text field (settable) 28000.00
+				44 container
+					45 image
+					46 text Mes
+				47 pop up button (collapsed, settable) Mes, Value: Seleccionar..., ID: adelanto-periodo, Secondary Actions: Expand
+					48 menu
+						49 (selected) Seleccionar...
+						50 (disabled) Noviembre 2026
+						51 Diciembre 2026
+						52 Enero 2027
+						53 Febrero 2027
+						54 Marzo 2027
+						55 Abril 2027
+						56 Mayo 2027
+						57 Junio 2027
+						58 Julio 2027
+						59 Agosto 2027
+						60 Septiembre 2027
+						61 Octubre 2027
+						62 Noviembre 2027
+				63 container
+					64 image
+					65 text Importe
+				66 text field (settable) Importe, ID: adelanto-monto
+				67 button (disabled) Agregar, ID: adelanto-agregar
+				68 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			69 container
+				70 image
+				71 text Medio de pago *
+			72 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				73 menu
+					74 Seleccionar...
+					75 BGA — Banco Galicia
+					76 BNA — Banco Nación
+					77 Banco Nacion ahorro
+					78 (selected) EFE — Efectivo
+					79 MP — Mercado Pago
+			80 container
+				81 image
+				82 text Fecha del pago
+			83 date field (settable) Fecha del pago, Value: 2026-11-04, ID: fecha_pago
+				84 container
+					85 stepper
+					86 stepper
+					87 stepper
+				88 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			89 container
+				90 image
+				91 text Observaciones
+			92 text field (settable) Observaciones, ID: observaciones
+			101 container resumen-total
+				102 text Total a cobrar:
+				103 text $28,000.00
+			93 button Cancelar
+			94 button Cobrar, ID: btn-cobrar
+	95 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar – Romero, Santino, URL: test.gestionar-te.com.ar/caja/cobrar/263

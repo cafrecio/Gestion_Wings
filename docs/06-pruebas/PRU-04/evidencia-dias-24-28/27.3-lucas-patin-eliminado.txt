@@ -1,0 +1,379 @@
+Browser tab: 1320327214, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Alumnos, Value: 1
+		31 text Alumnos
+	32 container
+		33 text Alumno eliminado correctamente.
+		34 container
+			35 image
+			36 combo box (collapsed, settable) ID: search-input, Secondary Actions: Expand
+		37 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			38 menu
+				39 (selected) Deporte
+				40 Fútbol
+				41 Patín
+		42 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+			43 menu
+				44 (selected) Grupo
+				45 Fútbol — Avanzadas
+				46 Fútbol — Principiantes
+				47 Patín — Adultos
+				48 Patín — Avanzadas
+				49 Patín — Federadas
+				50 Patín — Intermedias
+				51 Patín — Principiantes
+		52 button Limpiar
+		53 text Mostrando 
+		54 text 1
+		55 text  a 
+		56 text 12
+		57 text  de 
+		58 text 108
+		59 text  alumnos
+		60 button Nuevo
+		61 container
+			62 heading Acosta, Agustin, Value: 3
+				63 text Acosta, Agustin
+		64 image
+		65 text Deporte: Fútbol
+		66 image
+		67 text Grupo: Fútbol — Principiantes
+		68 image
+		69 text Plan: 2 clases/semana
+		70 image
+		71 text DNI: 54400005
+		72 image
+		73 text Teléfono: 1145120005
+		74 image
+		75 text Edad: 8 años 🎂
+		76 image
+		77 text Tutor: Tutor Acosta
+		78 image
+		79 text Tel. tutor: 1145120005
+		80 button Cobrar
+		81 button Ver
+		82 button Editar
+		83 container
+			84 text Activo
+			85 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e0483
+		86 container
+			87 heading Acosta, Victoria, Value: 3
+				88 text Acosta, Victoria
+		89 image
+		90 text Deporte: Patín
+		91 image
+		92 text Grupo: Patín — Principiantes
+		93 image
+		94 text Plan: 1 clase/semana
+		95 image
+		96 text DNI: 55400001
+		97 image
+		98 text Teléfono: 1145120001
+		99 image
+		100 text Edad: 7 años
+		101 image
+		102 text Tutor: Tutor Acosta
+		103 image
+		104 text Tel. tutor: 1145120001
+		105 button Cobrar
+		106 button Ver
+		107 button Editar
+		108 container
+			109 text Activo
+			110 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e08d9
+		111 container
+			112 heading Alvarez, Camila, Value: 3
+				113 text Alvarez, Camila
+		114 image
+		115 text Deporte: Patín
+		116 image
+		117 text Grupo: Patín — Avanzadas
+		118 image
+		119 text Plan: 1 clase/semana
+		120 image
+		121 text DNI: 55400037
+		122 image
+		123 text Teléfono: 1145120037
+		124 image
+		125 text Edad: 14 años
+		126 image
+		127 text Tutor: Tutor Alvarez
+		128 image
+		129 text Tel. tutor: 1145120037
+		130 button Cobrar
+		131 button Ver
+		132 button Editar
+		133 container
+			134 text Activo
+			135 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e0c46
+		136 container
+			137 heading Alvarez, Julieta, Value: 3
+				138 text Alvarez, Julieta
+		139 image
+		140 text Deporte: Patín
+		141 image
+		142 text Grupo: Patín — Intermedias
+		143 image
+		144 text Plan: 1 clase/semana
+		145 image
+		146 text DNI: 52300901
+		147 image
+		148 text Teléfono: 1145123414
+		149 image
+		150 text Edad: 11 años
+		151 image
+		152 text Tutor: Marta Alvarez
+		153 image
+		154 text Tel. tutor: 1145123414
+		155 button Cobrar
+		156 button Ver
+		157 button Editar
+		158 container
+			159 text Inactivo
+			160 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6ae2fe65e102e
+		161 container
+			162 heading Benitez, Camila, Value: 3
+				163 text Benitez, Camila
+		164 image
+		165 text Deporte: Patín
+		166 image
+		167 text Grupo: Patín — Avanzadas
+		168 image
+		169 text Plan: 2 clases/semana
+		170 image
+		171 text DNI: 51200700
+		172 image
+		173 text Teléfono: 1145123407
+		174 image
+		175 text Edad: 14 años
+		176 image
+		177 text Tutor: Esteban Benitez
+		178 image
+		179 text Tel. tutor: 1145123407
+		180 button Cobrar
+		181 button Ver
+		182 button Editar
+		183 container
+			184 text Activo
+			185 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e13e4
+		186 container
+			187 heading Benitez, Camila, Value: 3
+				188 text Benitez, Camila
+		189 image
+		190 text Deporte: Fútbol
+		191 image
+		192 text Grupo: Fútbol — Principiantes
+		193 image
+		194 text Plan: 1 clase/semana
+		195 image
+		196 text DNI: 51200700
+		197 image
+		198 text Teléfono: 1145123407
+		199 image
+		200 text Edad: 14 años
+		201 image
+		202 text Tutor: Esteban Benitez
+		203 image
+		204 text Tel. tutor: 1145123407
+		205 button Cobrar
+		206 button Ver
+		207 button Editar
+		208 container
+			209 text Activo
+			210 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e1773
+		211 container
+			212 heading Benitez, Milagros, Value: 3
+				213 text Benitez, Milagros
+		214 image
+		215 text Deporte: Patín
+		216 image
+		217 text Grupo: Patín — Avanzadas
+		218 image
+		219 text Plan: 2 clases/semana
+		220 image
+		221 text DNI: 55400038
+		222 image
+		223 text Teléfono: 1145120038
+		224 image
+		225 text Edad: 15 años
+		226 image
+		227 text Tutor: Tutor Benitez
+		228 image
+		229 text Tel. tutor: 1145120038
+		230 button Cobrar
+		231 button Ver
+		232 button Editar
+		233 container
+			234 text Activo
+			235 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e1b20
+		236 container
+			237 heading Benítez, Mora, Value: 3
+				238 text Benítez, Mora
+		239 image
+		240 text Deporte: Patín
+		241 image
+		242 text Grupo: Patín — Principiantes
+		243 image
+		244 text Plan: 2 clases/semana
+		245 image
+		246 text DNI: 48123456
+		247 image
+		248 text Teléfono: 1145678901
+		249 image
+		250 text Edad: 12 años
+		251 image
+		252 text Tutor: Laura Benítez
+		253 image
+		254 text Tel. tutor: 1145678901
+		255 button Cobrar
+		256 button Ver
+		257 button Editar
+		258 container
+			259 text Activo
+			260 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e1eea
+		261 container
+			262 heading Benítez, Mora, Value: 3
+				263 text Benítez, Mora
+		264 image
+		265 text Deporte: Fútbol
+		266 image
+		267 text Grupo: Fútbol — Principiantes
+		268 image
+		269 text Plan: 1 clase/semana
+		270 image
+		271 text DNI: 48123456
+		272 image
+		273 text Teléfono: 1145678901
+		274 image
+		275 text Edad: 12 años
+		276 image
+		277 text Tutor: Laura Benítez
+		278 image
+		279 text Tel. tutor: 1145678901
+		280 button Cobrar
+		281 button Ver
+		282 button Editar
+		283 container
+			284 text Activo
+			285 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e2238
+		286 container
+			287 heading Benitez, Paulina, Value: 3
+				288 text Benitez, Paulina
+		289 image
+		290 text Deporte: Patín
+		291 image
+		292 text Grupo: Patín — Intermedias
+		293 image
+		294 text Plan: 2 clases/semana
+		295 image
+		296 text DNI: 55400031
+		297 image
+		298 text Teléfono: 1145120031
+		299 image
+		300 text Edad: 10 años
+		301 image
+		302 text Tutor: Tutor Benitez
+		303 image
+		304 text Tel. tutor: 1145120031
+		305 button Cobrar
+		306 button Ver
+		307 button Editar
+		308 container
+			309 text Activo
+			310 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e259a
+		311 container
+			312 heading Cabrera, Constanza, Value: 3
+				313 text Cabrera, Constanza
+		314 image
+		315 text Deporte: Patín
+		316 image
+		317 text Grupo: Patín — Intermedias
+		318 image
+		319 text Plan: 1 clase/semana
+		320 image
+		321 text DNI: 55400021
+		322 image
+		323 text Teléfono: 1145120021
+		324 image
+		325 text Edad: 12 años 🎂
+		326 image
+		327 text Tutor: Tutor Cabrera
+		328 image
+		329 text Tel. tutor: 1145120021
+		330 button Cobrar
+		331 button Ver
+		332 button Editar
+		333 container
+			334 text Activo
+			335 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e28e9
+		336 container
+			337 heading Cabrera, Renata, Value: 3
+				338 text Cabrera, Renata
+		339 image
+		340 text Deporte: Patín
+		341 image
+		342 text Grupo: Patín — Intermedias
+		343 image
+		344 text Plan: 2 clases/semana
+		345 image
+		346 text DNI: 55100913
+		347 image
+		348 text Teléfono: 1145129903
+		349 image
+		350 text Edad: 8 años 🎂
+		351 image
+		352 text Tutor: Jorge Cabrera
+		353 image
+		354 text Tel. tutor: 1145129903
+		355 button Cobrar
+		356 button Ver
+		357 button Editar
+		358 container
+			359 text Activo
+			360 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe65e2dc3
+		361 container Paginación
+			362 container
+				363 text Mostrando  1  a  12  de  108  resultados
+			364 container
+				365 container &laquo; Anterior
+				366 text 1
+				367 link Description: Ir a la página 2, Value: test.gestionar-te.com.ar/alumnos?page=2
+				368 link Description: Ir a la página 3, Value: test.gestionar-te.com.ar/alumnos?page=3
+				369 link Description: Ir a la página 4, Value: test.gestionar-te.com.ar/alumnos?page=4
+				370 link Description: Ir a la página 5, Value: test.gestionar-te.com.ar/alumnos?page=5
+				371 link Description: Ir a la página 6, Value: test.gestionar-te.com.ar/alumnos?page=6
+				372 link Description: Ir a la página 7, Value: test.gestionar-te.com.ar/alumnos?page=7
+				373 link Description: Ir a la página 8, Value: test.gestionar-te.com.ar/alumnos?page=8
+				374 link Description: Ir a la página 9, Value: test.gestionar-te.com.ar/alumnos?page=9
+				375 link Description: Siguiente &raquo;, Value: test.gestionar-te.com.ar/alumnos?page=2
+	376 text Wings
+
+The focused UI element is 1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos

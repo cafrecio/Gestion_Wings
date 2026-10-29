@@ -1,0 +1,8 @@
+=== Generación de deudas para período: 2026-11 ===
+Verificando asistencias del mes anterior: 2026-10
+
+=== Resumen ===
+Total alumnos activos: 104
+Deudas creadas: 0
+Enviados a revisión: 0
+Ya existían (skipped): 104

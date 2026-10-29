@@ -1,0 +1,3 @@
+Browser tab: 1320327214, Title: "Inicio – Wings", URL: "https://test.gestionar-te.com.ar/admin/dashboard".
+There has been no change in the accessibility tree.
+The focused UI element is 1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/admin/dashboard

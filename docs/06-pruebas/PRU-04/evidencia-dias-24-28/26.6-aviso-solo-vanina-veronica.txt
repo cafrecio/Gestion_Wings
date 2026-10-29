@@ -1,0 +1,51 @@
+Browser tab: 1320327214, Title: "Editar – Patín", URL: "https://test.gestionar-te.com.ar/deportes/1/edit".
+1 AXWebArea Editar – Patín, URL: test.gestionar-te.com.ar/deportes/1/edit
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Editar: Patín, Value: 1
+		31 text Editar: Patín
+	32 container
+		33 text Actualmente: Por hora. Los cambios rigen desde el 01/12/2026 y requieren no tener liquidaciones abiertas. Programado: Por comisión desde el 01/12/2026. Para liquidar por comisión falta cargar un porcentaje válido a: Vanina Directora, Verónica Salinas. No podrán generar una liquidación por comisión hasta completarlo.
+		34 container
+			35 image
+			36 text Nombre *
+		37 text field (settable) Nombre *, Value: Patín, ID: nombre
+		38 container
+			39 image
+			40 text Tipo de Liquidación *
+		41 pop up button (collapsed, settable) Tipo de Liquidación *, Value: Por comisión, ID: tipo_liquidacion, Secondary Actions: Expand
+			42 menu
+				43 Seleccionar...
+				44 Por hora
+				45 (selected) Por comisión
+		46 button Cancelar
+		47 button Guardar
+	48 text Wings
+
+The focused UI element is 37 text field (settable) Nombre *, Value: Patín, ID: nombre

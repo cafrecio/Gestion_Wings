@@ -1,0 +1,175 @@
+Browser tab: 1320327214, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=&profesor_id=&estado=&fecha=2026-11-14&orden=".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=&profesor_id=&estado=&fecha=2026-11-14&orden=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Clases, Value: 1
+		31 text Clases
+	32 container
+		33 text CLASES DE HOY — JUEVES 5 DE NOVIEMBRE · 
+		34 text 4
+		35 text  CLASE(S)
+		36 container clases-hoy-container
+			37 container clase-hoy-220
+				38 heading 17:00 – 18:00 Programada, Value: 3
+					39 text 17:00 – 18:00  Programada
+				40 image
+				41 text Grupo: Patín — Avanzadas
+				42 image
+				43 text Profesores: Gaitán
+				44 image
+				45 text Asistencia: Cargada
+				46 button Ver
+				47 button Editar
+			48 container clase-hoy-228
+				49 heading 18:00 – 19:00 Programada, Value: 3
+					50 text 18:00 – 19:00  Programada
+				51 image
+				52 text Grupo: Patín — Federadas
+				53 image
+				54 text Profesores: Ocampo
+				55 image
+				56 text Asistencia: Cargada
+				57 button Ver
+				58 button Editar
+			59 container clase-hoy-252
+				60 heading 19:00 – 20:00 Programada, Value: 3
+					61 text 19:00 – 20:00  Programada
+				62 image
+				63 text Grupo: Fútbol — Avanzadas
+				64 image
+				65 text Profesores: Quintana
+				66 image
+				67 text Asistencia: Cargada
+				68 button Ver
+				69 button Editar
+			70 container clase-hoy-261
+				71 heading 20:30 – 21:30 Programada, Value: 3
+					72 text 20:30 – 21:30  Programada
+				73 image
+				74 text Grupo: Patín — Adultos
+				75 image
+				76 text Profesores: Ocampo
+				77 image
+				78 text Asistencia: Pendiente
+				79 button Ver
+				80 button Editar
+		81 container filter-form
+			82 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				83 menu
+					84 (selected) Deporte
+					85 Fútbol
+					86 Patín
+			87 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+				88 menu
+					89 (selected) Grupo
+					90 Fútbol — Avanzadas
+					91 Fútbol — Principiantes
+					92 Patín — Adultos
+					93 Patín — Avanzadas
+					94 Patín — Federadas
+					95 Patín — Intermedias
+					96 Patín — Principiantes
+			97 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				98 menu
+					99 (selected) Profesor
+					100 Acosta, Martín
+					101 Directora, Vanina
+					102 Gaitán, Lucía
+					103 Ocampo, Mariela
+					104 Quintana, Hernán
+					105 Salinas, Verónica
+			106 pop up button (collapsed, settable) Value: Estado, ID: filter-estado, Secondary Actions: Expand
+				107 menu
+					108 (selected) Estado
+					109 Programada
+					110 Sin asistencia
+					111 Sin presentes
+					112 Cerrada
+					113 Cancelada
+			114 date field (settable) 2026-11-14
+				115 container
+					116 stepper
+					117 stepper
+					118 stepper
+				119 pop up button Mostrar selector de fecha
+			120 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				121 menu
+					122 (selected) Orden
+					123 Más recientes
+					124 Más antiguas
+					125 Grupo A–Z
+			126 button Limpiar
+			127 button Filtrar
+		128 text Mostrando 
+		129 text 1
+		130 text  a 
+		131 text 3
+		132 text  de 
+		133 text 3
+		134 text  clase(s)
+		135 button Nuevo
+		136 container clases-listado
+			137 container
+				138 heading Sáb 14/11/2026 — 10:00 a 11:00 Programada, Value: 3
+					139 text Sáb 14/11/2026 — 10:00 a 11:00  Programada
+				140 image
+				141 text Grupo: Patín — Federadas
+				142 image
+				143 text Profesores: Ocampo
+				144 image
+				145 text Asistencia: Pendiente
+				146 button Ver
+				147 button Editar
+			148 container
+				149 heading Sáb 14/11/2026 — 11:00 a 12:00 Programada, Value: 3
+					150 text Sáb 14/11/2026 — 11:00 a 12:00  Programada
+				151 image
+				152 text Grupo: Fútbol — Principiantes
+				153 image
+				154 text Profesores: Quintana
+				155 image
+				156 text Asistencia: Pendiente
+				157 button Ver
+				158 button Editar
+			159 container
+				160 heading Sáb 14/11/2026 — 11:00 a 12:00 Cancelada, Value: 3
+					161 text Sáb 14/11/2026 — 11:00 a 12:00  Cancelada
+				162 text Motivo:
+				163 text  Torneo: el grupo viaja
+				164 image
+				165 text Grupo: Fútbol — Avanzadas
+				166 image
+				167 text Profesores: Quintana
+				168 image
+				169 text Asistencia: Pendiente
+				170 button Ver
+				171 button Editar
+	172 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=&profesor_id=&estado=&fecha=2026-11-14&orden=

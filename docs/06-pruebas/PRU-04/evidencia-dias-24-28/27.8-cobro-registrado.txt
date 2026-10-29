@@ -1,0 +1,83 @@
+Browser tab: 1320327214, Title: "Caja – Wings", URL: "https://test.gestionar-te.com.ar/caja".
+0 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		12 text EL CLUB
+		13 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		14 text SISTEMA
+		15 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	16 container
+		17 text Sandra Vidal
+		18 button Salir
+	19 heading Caja, Value: 1
+		20 text Caja
+	21 container
+		22 text Pago registrado para Vega, Joaquin.
+		23 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/262?inline=1
+		24 text 10
+		25 text  cajas
+		26 button Historial
+		27 heading Jueves 5 de noviembre, Value: 3
+			28 text Jueves 5 de noviembre
+		29 text Estado ABIERTA Movimientos 9 Ingresos $441,000.00 Egresos $0.00 Neto $441,000.00
+		30 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+		31 link Description: Agregar, Value: test.gestionar-te.com.ar/caja/51/editar
+		32 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/51/resumen
+		33 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/51/detalle
+		34 heading Lunes 2 de noviembre, Value: 3
+			35 text Lunes 2 de noviembre
+		36 text Estado VALIDADA Movimientos 9 Ingresos $298,000.00 Egresos $3,500.00 Neto $294,500.00
+		37 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/45/resumen
+		38 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/45/detalle
+		39 heading Miércoles 28 de octubre, Value: 3
+			40 text Miércoles 28 de octubre
+		41 text Estado VALIDADA Movimientos 13 Ingresos $410,000.00 Egresos $3,500.00 Neto $406,500.00
+		42 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/36/resumen
+		43 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/36/detalle
+		44 heading Jueves 22 de octubre, Value: 3
+			45 text Jueves 22 de octubre
+		46 text Estado VALIDADA Movimientos 11 Ingresos $155,000.00 Egresos $3,800.00 Neto $151,200.00
+		47 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/12/resumen
+		48 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/12/detalle
+		49 heading Miércoles 21 de octubre, Value: 3
+			50 text Miércoles 21 de octubre
+		51 text Estado VALIDADA Movimientos 6 Ingresos $171,000.00 Egresos $3,300.00 Neto $167,700.00
+		52 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/10/resumen
+		53 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/10/detalle
+		54 heading Viernes 16 de octubre, Value: 3
+			55 text Viernes 16 de octubre
+		56 text Estado VALIDADA Movimientos 8 Ingresos $173,000.00 Egresos $6,800.00 Neto $166,200.00
+		57 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/6/resumen
+		58 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/6/detalle
+		59 heading Jueves 15 de octubre, Value: 3
+			60 text Jueves 15 de octubre
+		61 text Estado VALIDADA Movimientos 2 Ingresos $75,000.00 Egresos $0.00 Neto $75,000.00
+		62 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/4/resumen
+		63 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/4/detalle
+		64 heading Miércoles 14 de octubre, Value: 3
+			65 text Miércoles 14 de octubre
+		66 text Estado VALIDADA Movimientos 4 Ingresos $131,000.00 Egresos $0.00 Neto $131,000.00
+		67 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/3/resumen
+		68 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/3/detalle
+		69 heading Martes 13 de octubre, Value: 3
+			70 text Martes 13 de octubre
+		71 text Estado VALIDADA Movimientos 7 Ingresos $201,000.00 Egresos $8,500.00 Neto $192,500.00
+		72 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/2/resumen
+		73 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/2/detalle
+		74 heading Sábado 10 de octubre, Value: 3
+			75 text Sábado 10 de octubre
+		76 text Estado VALIDADA Movimientos 5 Ingresos $164,000.00 Egresos $0.00 Neto $164,000.00
+		77 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/1/resumen
+		78 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/1/detalle
+	79 text Wings
+
+The focused UI element is 0 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja

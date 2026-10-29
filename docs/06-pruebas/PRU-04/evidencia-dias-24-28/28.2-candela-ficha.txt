@@ -1,0 +1,55 @@
+Browser tab: 1320327214, Title: "Vega, Candela – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/294".
+1 AXWebArea Vega, Candela – Wings, URL: test.gestionar-te.com.ar/alumnos/294
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 button Salir
+	20 heading Vega, Candela, Value: 1
+		21 text Vega, Candela
+	22 container
+		23 text Inactivo
+		24 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6ae300a9cb2f3
+		25 button Cobrar
+		26 button Editar
+		27 image
+		28 text DNI 55400023
+		29 image
+		30 text NACIMIENTO 30/01/2016
+		31 image
+		32 text CELULAR 1145120023
+		33 image
+		34 text EMAIL candela.vega@testmail.com
+		35 image
+		36 text DEPORTE Patín
+		37 image
+		38 text GRUPO Patín — Intermedias
+		39 image
+		40 text PLAN 1x sem. — $33,000.00/mes
+		41 image
+		42 text ALTA 15/04/2024
+		43 image
+		44 text ESTADO DE COBRANZA En plazo 4 días de gracia Total adeudado:  $33,000.00 Nov 2026 $33,000.00
+		45 image
+		46 text TUTOR NOMBRE Tutor Vega TELÉFONO 1145120023
+		47 image
+		48 text HISTORIAL DE PAGOS Sin pagos registrados.
+		49 image
+		50 text ASISTENCIAS — NOV 2026 1 clase 02/11
+		51 button Volver
+	52 text Wings
+
+The focused UI element is 1 AXWebArea Vega, Candela – Wings, URL: test.gestionar-te.com.ar/alumnos/294

@@ -1,0 +1,669 @@
+Browser tab: 1320327214, Title: "Movimientos – Wings", URL: "https://test.gestionar-te.com.ar/movimientos".
+1 AXWebArea Movimientos – Wings, URL: test.gestionar-te.com.ar/movimientos
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 button Salir
+	20 heading Movimientos, Value: 1
+		21 text Movimientos
+	22 container
+		23 text DESDE
+		24 date field (settable) DESDE, ID: filtro-desde
+			25 container
+				26 stepper
+				27 stepper
+				28 stepper
+			29 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		30 text HASTA
+		31 date field (settable) HASTA, ID: filtro-hasta
+			32 container
+				33 stepper
+				34 stepper
+				35 stepper
+			36 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		37 pop up button (collapsed, settable) Value: Ingreso / Egreso, Secondary Actions: Expand
+			38 menu
+				39 (selected) Ingreso / Egreso
+				40 Ingreso
+				41 Egreso
+		42 pop up button (collapsed, settable) Value: Medio, Secondary Actions: Expand
+			43 menu
+				44 (selected) Medio
+				45 BGA
+				46 BNA
+				47 Banco Nacion ahorro
+				48 EFE
+				49 MP
+		50 pop up button (collapsed, settable) Value: Rubro, Secondary Actions: Expand
+			51 menu
+				52 (selected) Rubro
+				53 Cuotas
+				54 Gastos Operativos
+				55 Indumentaria
+				56 Inscripciones
+				57 Mantenimiento y arreglos
+				58 Otras clases
+				59 Punitorios
+				60 Torneos
+		61 button Limpiar
+		62 button Filtrar
+		63 text 172
+		64 text  movimientos  ·  Ingresos 
+		65 text $5,318,900.00
+		66 text   ·  Egresos 
+		67 text $140,500.00
+		68 text   ·  Neto 
+		69 text $5,178,400.00
+		70 table
+			71 row
+				72 cell
+					73 text FECHA
+				74 cell
+					75 text I/E
+				76 cell
+					77 text MEDIO
+				78 cell
+					79 text RUBRO — SUBRUBRO
+				80 cell
+					81 text ALUMNO / OBS.
+				82 cell
+					83 text MONTO
+				84 cell
+					85 text CAJA
+				86 cell
+					87 text REGISTRÓ
+				88 cell
+					89 text Recibo
+			90 row
+				91 cell
+					92 text 05/11/2026
+				93 cell
+					94 text I
+				95 cell
+					96 text EFE
+				97 cell
+					98 text Cuotas  — Cuota Mensual
+				99 cell
+					100 text Morales, Agustina
+				101 cell
+					102 text $30,000.00
+				103 cell
+					104 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				105 cell
+					106 text Sandra Vidal
+				107 cell
+					108 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/254?inline=1
+			109 row
+				110 cell
+					111 text 05/11/2026
+				112 cell
+					113 text I
+				114 cell
+					115 text MP
+				116 cell
+					117 text Cuotas  — Cuota Mensual
+				118 cell
+					119 text Ortiz, Micaela
+				120 cell
+					121 text $44,000.00
+				122 cell
+					123 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				124 cell
+					125 text Sandra Vidal
+				126 cell
+					127 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/255?inline=1
+			128 row
+				129 cell
+					130 text 05/11/2026
+				131 cell
+					132 text I
+				133 cell
+					134 text EFE
+				135 cell
+					136 text Cuotas  — Cuota Mensual
+				137 cell
+					138 text Pereyra, Bianca
+				139 cell
+					140 text $44,000.00
+				141 cell
+					142 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				143 cell
+					144 text Sandra Vidal
+				145 cell
+					146 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/256?inline=1
+			147 row
+				148 cell
+					149 text 05/11/2026
+				150 cell
+					151 text I
+				152 cell
+					153 text MP
+				154 cell
+					155 text Cuotas  — Cuota Mensual
+				156 cell
+					157 text Ledesma, Paula
+				158 cell
+					159 text $43,000.00
+				160 cell
+					161 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				162 cell
+					163 text Sandra Vidal
+				164 cell
+					165 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/257?inline=1
+			166 row
+				167 cell
+					168 text 05/11/2026
+				169 cell
+					170 text I
+				171 cell
+					172 text EFE
+				173 cell
+					174 text Cuotas  — Cuota Mensual
+				175 cell
+					176 text Ruiz, Sol
+				177 cell
+					178 text $43,000.00
+				179 cell
+					180 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				181 cell
+					182 text Sandra Vidal
+				183 cell
+					184 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/258?inline=1
+			185 row
+				186 cell
+					187 text 05/11/2026
+				188 cell
+					189 text I
+				190 cell
+					191 text MP
+				192 cell
+					193 text Cuotas  — Cuota Mensual
+				194 cell
+					195 text Fernandez, Emma
+				196 cell
+					197 text $45,000.00
+				198 cell
+					199 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				200 cell
+					201 text Sandra Vidal
+				202 cell
+					203 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/259?inline=1
+			204 row
+				205 cell
+					206 text 05/11/2026
+				207 cell
+					208 text I
+				209 cell
+					210 text EFE
+				211 cell
+					212 text Cuotas  — Cuota Mensual
+				213 cell
+					214 text Navarro, Julian
+				215 cell
+					216 text $48,000.00
+				217 cell
+					218 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				219 cell
+					220 text Sandra Vidal
+				221 cell
+					222 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/260?inline=1
+			223 row
+				224 cell
+					225 text 05/11/2026
+				226 cell
+					227 text I
+				228 cell
+					229 text MP
+				230 cell
+					231 text Cuotas  — Cuota Mensual
+				232 cell
+					233 text Ortiz, Tobias
+				234 cell
+					235 text $48,000.00
+				236 cell
+					237 link Description: 05/11/2026, Value: test.gestionar-te.com.ar/caja/51/detalle
+				238 cell
+					239 text Sandra Vidal
+				240 cell
+					241 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/261?inline=1
+			242 row
+				243 cell
+					244 text 04/11/2026
+				245 cell
+					246 text I
+				247 cell
+					248 text EFE
+				249 cell
+					250 text Cuotas  — Cuota Mensual
+				251 cell
+					252 text Romero, Santino
+				253 cell
+					254 text $28,000.00
+				255 cell
+					256 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				257 cell
+					258 text Rocío Paz
+				259 cell
+					260 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/245?inline=1
+			261 row
+				262 cell
+					263 text 04/11/2026
+				264 cell
+					265 text I
+				266 cell
+					267 text EFE
+				268 cell
+					269 text Cuotas  — Cuota Mensual
+				270 cell
+					271 text Alvarez, Julieta
+				272 cell
+					273 text $66,000.00
+				274 cell
+					275 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				276 cell
+					277 text Rocío Paz
+				278 cell
+					279 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/244?inline=1
+			280 row
+				281 cell
+					282 text 04/11/2026
+				283 cell
+					284 text E
+				285 cell
+					286 text EFE
+				287 cell
+					288 text Gastos Operativos  — Limpieza
+				289 cell
+					290 text Lavandina y trapos
+				291 cell
+					292 text $3,500.00
+				293 cell
+					294 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				295 cell
+					296 text Rocío Paz
+			297 row
+				298 cell
+					299 text 04/11/2026
+				300 cell
+					301 text I
+				302 cell
+					303 text EFE
+				304 cell
+					305 text Cuotas  — Cuota Mensual
+				306 cell
+					307 text Herrera, Martina
+				308 cell
+					309 text $45,000.00
+				310 cell
+					311 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				312 cell
+					313 text Rocío Paz
+				314 cell
+					315 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/236?inline=1
+			316 row
+				317 cell
+					318 text 04/11/2026
+				319 cell
+					320 text I
+				321 cell
+					322 text MP
+				323 cell
+					324 text Cuotas  — Cuota Mensual
+				325 cell
+					326 text Garcia, Melina
+				327 cell
+					328 text $43,000.00
+				329 cell
+					330 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				331 cell
+					332 text Rocío Paz
+				333 cell
+					334 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/237?inline=1
+			335 row
+				336 cell
+					337 text 04/11/2026
+				338 cell
+					339 text I
+				340 cell
+					341 text EFE
+				342 cell
+					343 text Cuotas  — Cuota Mensual
+				344 cell
+					345 text Benitez, Milagros
+				346 cell
+					347 text $45,000.00
+				348 cell
+					349 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				350 cell
+					351 text Rocío Paz
+				352 cell
+					353 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/238?inline=1
+			354 row
+				355 cell
+					356 text 04/11/2026
+				357 cell
+					358 text I
+				359 cell
+					360 text MP
+				361 cell
+					362 text Cuotas  — Cuota Mensual
+				363 cell
+					364 text Castro, Catalina
+				365 cell
+					366 text $45,000.00
+				367 cell
+					368 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				369 cell
+					370 text Rocío Paz
+				371 cell
+					372 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/239?inline=1
+			373 row
+				374 cell
+					375 text 04/11/2026
+				376 cell
+					377 text I
+				378 cell
+					379 text EFE
+				380 cell
+					381 text Cuotas  — Cuota Mensual
+				382 cell
+					383 text Ramirez, Felipe
+				384 cell
+					385 text $35,000.00
+				386 cell
+					387 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				388 cell
+					389 text Rocío Paz
+				390 cell
+					391 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/240?inline=1
+			392 row
+				393 cell
+					394 text 04/11/2026
+				395 cell
+					396 text I
+				397 cell
+					398 text MP
+				399 cell
+					400 text Cuotas  — Cuota Mensual
+				401 cell
+					402 text Pereyra, Manuel
+				403 cell
+					404 text $35,000.00
+				405 cell
+					406 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				407 cell
+					408 text Rocío Paz
+				409 cell
+					410 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/241?inline=1
+			411 row
+				412 cell
+					413 text 04/11/2026
+				414 cell
+					415 text I
+				416 cell
+					417 text EFE
+				418 cell
+					419 text Cuotas  — Cuota Mensual
+				420 cell
+					421 text Rossi, Leon
+				422 cell
+					423 text $38,000.00
+				424 cell
+					425 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				426 cell
+					427 text Rocío Paz
+				428 cell
+					429 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/242?inline=1
+			430 row
+				431 cell
+					432 text 04/11/2026
+				433 cell
+					434 text I
+				435 cell
+					436 text MP
+				437 cell
+					438 text Cuotas  — Cuota Mensual
+				439 cell
+					440 text Silva, Simon
+				441 cell
+					442 text $48,000.00
+				443 cell
+					444 link Description: 04/11/2026, Value: test.gestionar-te.com.ar/caja/49/detalle
+				445 cell
+					446 text Rocío Paz
+				447 cell
+					448 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/243?inline=1
+			449 row
+				450 cell
+					451 text 03/11/2026
+				452 cell
+					453 text I
+				454 cell
+					455 text MP
+				456 cell
+					457 text Cuotas  — Cuota Mensual
+				458 cell
+					459 text Ibañez, Marcelo
+				460 cell
+					461 text $42,000.00
+				462 cell
+					463 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				464 cell
+					465 text Pablo Ledesma
+				466 cell
+					467 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/227?inline=1
+			468 row
+				469 cell
+					470 text 03/11/2026
+				471 cell
+					472 text I
+				473 cell
+					474 text MP
+				475 cell
+					476 text Inscripciones  — Inscripción al club
+				477 cell
+					478 text Ibañez, Marcelo
+				479 cell
+					480 text $5,000.00
+				481 cell
+					482 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				483 cell
+					484 text Pablo Ledesma
+				485 cell
+					486 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/227?inline=1
+			487 row
+				488 cell
+					489 text 03/11/2026
+				490 cell
+					491 text I
+				492 cell
+					493 text EFE
+				494 cell
+					495 text Cuotas  — Cuota Mensual
+				496 cell
+					497 text Funes, Graciela
+				498 cell
+					499 text $32,000.00
+				500 cell
+					501 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				502 cell
+					503 text Pablo Ledesma
+				504 cell
+					505 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/226?inline=1
+			506 row
+				507 cell
+					508 text 03/11/2026
+				509 cell
+					510 text I
+				511 cell
+					512 text EFE
+				513 cell
+					514 text Inscripciones  — Inscripción al club
+				515 cell
+					516 text Funes, Graciela
+				517 cell
+					518 text $5,000.00
+				519 cell
+					520 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				521 cell
+					522 text Pablo Ledesma
+				523 cell
+					524 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/226?inline=1
+			525 row
+				526 cell
+					527 text 03/11/2026
+				528 cell
+					529 text E
+				530 cell
+					531 text MP
+				532 cell
+					533 text Mantenimiento y arreglos  — Reparaciones menores
+				534 cell
+					535 text –
+				536 cell
+					537 text $60,000.00
+				538 cell
+					539 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				540 cell
+					541 text Pablo Ledesma
+			542 row
+				543 cell
+					544 text 03/11/2026
+				545 cell
+					546 text E
+				547 cell
+					548 text EFE
+				549 cell
+					550 text Gastos Operativos  — Insumos Varios
+				551 cell
+					552 text Cinta y pilas
+				553 cell
+					554 text $4,000.00
+				555 cell
+					556 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				557 cell
+					558 text Pablo Ledesma
+			559 row
+				560 cell
+					561 text 03/11/2026
+				562 cell
+					563 text I
+				564 cell
+					565 text EFE
+				566 cell
+					567 text Cuotas  — Cuota Mensual
+				568 cell
+					569 text Sanchez, Berenice
+				570 cell
+					571 text $20,000.00
+				572 cell
+					573 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				574 cell
+					575 text Pablo Ledesma
+				576 cell
+					577 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/225?inline=1
+			578 row
+				579 cell
+					580 text 03/11/2026
+				581 cell
+					582 text I
+				583 cell
+					584 text EFE
+				585 cell
+					586 text Cuotas  — Cuota Mensual
+				587 cell
+					588 text Benitez, Paulina
+				589 cell
+					590 text $43,000.00
+				591 cell
+					592 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				593 cell
+					594 text Pablo Ledesma
+				595 cell
+					596 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/216?inline=1
+			597 row
+				598 cell
+					599 text 03/11/2026
+				600 cell
+					601 text I
+				602 cell
+					603 text EFE
+				604 cell
+					605 text Cuotas  — Cuota Mensual
+				606 cell
+					607 text Ferrari, Josefina
+				608 cell
+					609 text $33,000.00
+				610 cell
+					611 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				612 cell
+					613 text Pablo Ledesma
+				614 cell
+					615 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/217?inline=1
+			616 row
+				617 cell
+					618 text 03/11/2026
+				619 cell
+					620 text I
+				621 cell
+					622 text MP
+				623 cell
+					624 text Cuotas  — Cuota Mensual
+				625 cell
+					626 text Alvarez, Camila
+				627 cell
+					628 text $35,000.00
+				629 cell
+					630 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				631 cell
+					632 text Pablo Ledesma
+				633 cell
+					634 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/218?inline=1
+			635 row
+				636 cell
+					637 text 03/11/2026
+				638 cell
+					639 text I
+				640 cell
+					641 text MP
+				642 cell
+					643 text Cuotas  — Cuota Mensual
+				644 cell
+					645 text Diaz, Martina
+				646 cell
+					647 text $50,000.00
+				648 cell
+					649 link Description: 03/11/2026, Value: test.gestionar-te.com.ar/caja/47/detalle
+				650 cell
+					651 text Pablo Ledesma
+				652 cell
+					653 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/219?inline=1
+		654 container Paginación
+			655 container
+				656 text Mostrando  1  a  30  de  172  resultados
+			657 container
+				658 container &laquo; Anterior
+				659 text 1
+				660 link Description: Ir a la página 2, Value: test.gestionar-te.com.ar/movimientos?page=2
+				661 link Description: Ir a la página 3, Value: test.gestionar-te.com.ar/movimientos?page=3
+				662 link Description: Ir a la página 4, Value: test.gestionar-te.com.ar/movimientos?page=4
+				663 link Description: Ir a la página 5, Value: test.gestionar-te.com.ar/movimientos?page=5
+				664 link Description: Ir a la página 6, Value: test.gestionar-te.com.ar/movimientos?page=6
+				665 link Description: Siguiente &raquo;, Value: test.gestionar-te.com.ar/movimientos?page=2
+	666 text Wings
+
+The focused UI element is 1 AXWebArea Movimientos – Wings, URL: test.gestionar-te.com.ar/movimientos

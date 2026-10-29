@@ -1,0 +1,81 @@
+Browser tab: 1320327214, Title: "Nuevo movimiento – Wings", URL: "https://test.gestionar-te.com.ar/caja/movimiento".
+1 AXWebArea Nuevo movimiento – Wings, URL: test.gestionar-te.com.ar/caja/movimiento
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 button Salir
+	20 heading Nuevo movimiento, Value: 1
+		21 text Nuevo movimiento
+	22 container
+		23 text El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.
+		24 container mov-form
+			25 container tipo-card
+				26 image
+				27 text Tipo de movimiento *
+				28 text INGRESO
+				29 text EGRESO
+				30 container
+					31 image
+					32 text Medio de pago *
+				33 pop up button (collapsed, settable) Medio de pago *, Value: Seleccionar..., ID: tipo_caja_id, Secondary Actions: Expand
+					34 menu
+						35 (selected) Seleccionar...
+						36 BGA — Banco Galicia
+						37 BNA — Banco Nación
+						38 Banco Nacion ahorro
+						39 EFE — Efectivo
+						40 MP — Mercado Pago
+				41 container
+					42 image
+					43 text Rubro *
+				44 pop up button (collapsed, settable) Rubro *, Value: Seleccionar..., ID: rubro_id, Secondary Actions: Expand
+					45 menu
+						46 (selected) Seleccionar...
+						47 Gastos Operativos
+						48 Indumentaria
+						49 Mantenimiento y arreglos
+						50 Otras clases
+						51 Torneos
+				52 container
+					53 image
+					54 text Subrubro *
+				55 pop up button (collapsed, settable) Subrubro *, Value: Seleccionar rubro primero..., ID: subrubro_id, Secondary Actions: Expand
+					56 menu
+						57 (selected) Seleccionar rubro primero...
+						58 Botiquín
+						59 Insumos Varios
+						60 Librería
+						61 Limpieza
+						62 Indumentaria institucional
+						63 Patines
+						64 VG Indumentaria
+						65 Reparaciones menores
+						66 Clase particular
+						67 Inscripciones
+				68 container
+					69 image
+					70 text Monto *
+				71 text field (settable) Monto *, ID: monto
+				72 container
+					73 image
+					74 text Observaciones (opcional)
+				75 text field (settable) Observaciones (opcional), ID: observaciones
+			76 button Cancelar
+			77 button Registrar
+	78 text Wings
+
+The focused UI element is 1 AXWebArea Nuevo movimiento – Wings, URL: test.gestionar-te.com.ar/caja/movimiento

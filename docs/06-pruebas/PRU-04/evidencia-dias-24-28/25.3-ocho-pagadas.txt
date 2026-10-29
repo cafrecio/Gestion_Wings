@@ -1,0 +1,151 @@
+Browser tab: 1320327214, Title: "Liquidaciones – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones".
+1 AXWebArea Liquidaciones – Wings, URL: test.gestionar-te.com.ar/liquidaciones
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Liquidaciones, Value: 1
+		31 text Liquidaciones
+	32 container
+		33 text 8
+		34 text  liquidaciones
+		35 link Description: Nuevo, Value: test.gestionar-te.com.ar/liquidaciones/crear
+		36 text Profesor
+		37 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			38 menu
+				39 (selected) Todos
+				40 Acosta, Martín
+				41 Directora, Vanina
+				42 Gaitán, Lucía
+				43 Ocampo, Mariela
+				44 Quintana, Hernán
+				45 Salinas, Verónica
+		46 text Mes
+		47 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			48 menu
+				49 (selected) Todos
+				50 Enero
+				51 Febrero
+				52 Marzo
+				53 Abril
+				54 Mayo
+				55 Junio
+				56 Julio
+				57 Agosto
+				58 Septiembre
+				59 Octubre
+				60 Noviembre
+				61 Diciembre
+		62 text Año
+		63 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			64 menu
+				65 (selected) Todos
+				66 2026
+		67 text Estado
+		68 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+			69 menu
+				70 (selected) Todos
+				71 Abierta
+				72 Cerrada
+				73 Cancelada
+				74 Pagada
+		75 button Filtrar
+		76 container
+			77 heading Acosta, Martín — Octubre 2026, Value: 3
+				78 text Acosta, Martín — Octubre 2026
+			79 text Por comisión
+		80 image
+		81 text Total: $186,600.00
+		82 image
+		83 text Estado: Pagada
+		84 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/9
+		85 container
+			86 heading Quintana, Hernán — Octubre 2026, Value: 3
+				87 text Quintana, Hernán — Octubre 2026
+			88 text Por comisión
+		89 image
+		90 text Total: $484,680.00
+		91 image
+		92 text Estado: Pagada
+		93 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/8
+		94 container
+			95 heading Ocampo, Mariela — Octubre 2026, Value: 3
+				96 text Ocampo, Mariela — Octubre 2026
+			97 text Por hora
+		98 image
+		99 text Total: $270,000.00
+		100 image
+		101 text Estado: Pagada
+		102 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/6
+		103 container
+			104 heading Salinas, Verónica — Octubre 2026, Value: 3
+				105 text Salinas, Verónica — Octubre 2026
+			106 text Por hora
+		107 image
+		108 text Total: $105,000.00
+		109 image
+		110 text Estado: Pagada
+		111 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/4
+		112 container
+			113 heading Gaitán, Lucía — Octubre 2026, Value: 3
+				114 text Gaitán, Lucía — Octubre 2026
+			115 text Por hora
+		116 image
+		117 text Total: $204,000.00
+		118 image
+		119 text Estado: Pagada
+		120 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/2
+		121 container
+			122 heading Ocampo, Mariela — Septiembre 2026, Value: 3
+				123 text Ocampo, Mariela — Septiembre 2026
+			124 text Por hora
+		125 image
+		126 text Total: $54,000.00
+		127 image
+		128 text Estado: Pagada
+		129 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/7
+		130 container
+			131 heading Salinas, Verónica — Septiembre 2026, Value: 3
+				132 text Salinas, Verónica — Septiembre 2026
+			133 text Por hora
+		134 image
+		135 text Total: $30,000.00
+		136 image
+		137 text Estado: Pagada
+		138 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/5
+		139 container
+			140 heading Gaitán, Lucía — Septiembre 2026, Value: 3
+				141 text Gaitán, Lucía — Septiembre 2026
+			142 text Por hora
+		143 image
+		144 text Total: $36,000.00
+		145 image
+		146 text Estado: Pagada
+		147 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/3
+	148 text Wings
+
+The focused UI element is 1 AXWebArea Liquidaciones – Wings, URL: test.gestionar-te.com.ar/liquidaciones

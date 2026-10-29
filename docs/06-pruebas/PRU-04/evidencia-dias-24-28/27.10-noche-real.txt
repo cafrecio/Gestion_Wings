@@ -1,0 +1,5 @@
+ 1. Mariela Ocampo lista de la #261: 2 alumnos, 2 presentes — Asistencias guardadas.
+ 2. Sandra Vidal cierra la caja #51: esperado $175.000,00, contado $175.000,00 — Caja cerrada.
+ 3. Admin Prueba valida la caja #51 (9 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $2.456.000,00 · {"AL_DIA":39,"EN_PLAZO":67,"MOROSO":0,"DEUDOR":1}
+GUARDADO.

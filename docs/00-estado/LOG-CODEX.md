@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-29 — Codex CAB — PRU-04 días 24 a 28, recorrido entregado a Claude
+
+Ejecutados los 42 pasos de tanda 1 en Chrome sobre test/wingstest ficticia, relojes y rutinas reales una vez. Cinco cierres financieros coinciden; Sin asistencia 0. Caja #53 de Rocío abierta a propósito, neto $297.500 por validar. Tanda 2 no ejecutada.
+[Día24](../06-pruebas/PRU-04/DIA-24.md) · [25](../06-pruebas/PRU-04/DIA-25.md) · [26](../06-pruebas/PRU-04/DIA-26.md) · [27](../06-pruebas/PRU-04/DIA-27.md) · [28](../06-pruebas/PRU-04/DIA-28.md) · [Índice y pendientes](../06-pruebas/PRU-04/evidencia-dias-24-28/LEEME.md).
+Conservadas cuatro diferencias: gracia/aviso de alta24.6, cifras intermedias del guion26.8, contadores de octubre28.1 y fecha ausente en ficha inactiva28.2. Siete filas no probadas: recibos, constancia interna, resumen al teléfono, reutilización DNI y rechazos sin botón Eliminar. No se repararon datos ni producto.
+145 capturas originales y salidas TXT; 142 enlaces de informes comprobados e imágenes decodificadas, manifiesto SHA. Consola24.8 tiene TXT, sin captura. Solo consola para reloj/rutinas/24.8; ninguna consulta directa a base. Sin suite documental, vistas/CSS, catálogo, tablero ni cambios propios de aplicación.
+LOG propio sin aportes ajenos al editar; dos entradas antiguas conservadas intactas en archivo para mantener su límite. Trabajo concurrente ajeno preservado, fuera del commit; SHA desplegado no certificado.
+Sigue Claude: revisar informes, diferencias y controles no probados antes de autorizar días29–33. Sin autocierre de T14 ni casos del catálogo, sin despliegue ni push solicitado.
+
+
 ## 2026-10-28 — Codex CyE — GitHub comprobado y bitácora actualizada
 
 Carlos pidió subir todo el trabajo propio y la bitácora. Comprobados en origin/main los commits T51(983c6bab), T45(e3ca5555) y T46(c475fa6c), incluidas sus entregas, capturas y entradas de esta bitácora.
@@ -52,23 +62,6 @@ Las entregas propias5928a686 (T65) y6da3f3a5 (T89) ya estaban en el remoto al co
 Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualización documental. El HTML T34 sucio es ajeno y queda fuera; no se restaura ni se modifica. Integridad/enlaces/diff verificados; confirmación del commit remoto al entregar.
 
 
-## 2026-10-28 — Codex CAB — T65 segunda vuelta, lógica aprobada
-
-Verificado7e9c2e7f contra informe propio y cuerpos completos; regresiones12 intactas. H1 cargos primero/sólo inscripción reasignable; H2 baja analítica y septiembre conservado; H3 cuatro tipos422, inactivo y fila intacta. Alcance ALU-024 explicado sin editar tabla.
-Área49/287, concurrencia2/75 aparte y complementarias3/53 verdes. Código13b85f68 rojo en prueba Gemini; controlador anterior con escenario actual también rojo en Sueldos. Producto idéntico a las huellas iniciales.
-Rápida1067 aprobadas/6 omitidas/1 roja/8232 aserciones/227,83s: contador1188/1195 por siete métodos T25 ajenos sin commit; repite aislado. Cobros verdes, sin corregirlos ni incorporar pruebas ajenas.
-[Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T65-CODEX.md#8-segunda-vuelta--codex-cab-28102026). T65 a_verificar,hizoGemini,verificaCodex,tieneCarlos; falta OK visual.
-Sólo wings_testing_codex, sin producto/sitio/servidor/club/despliegue/push manual. T34 repuesto con huella inicial y control del destino; luego cambió durante otra suite activa y se dejó ese cambio ajeno fuera del commit. Se preserva T25/T89 concurrente.
-
-## 2026-10-28 — Codex CAB — T89 implementada A/A/B/B y entregada
-
-Carlos: «Movimientos A, pero mostrame como queda visualmente»; Cashflow A, Inicio B y Detalle B. Cinco Blade de cuatro pantallas autorizadas; sin CSS compartido ni JS.
-Autor real/Recibo, consulta ajena por rubro sin escritura; reloj Historial; Todos ausentes gris; Hora de registro. Siete pruebas permanentes y capturas reales1366/marco375, datos sintéticos.
-Completa1182 aprobadas/6 omitidas/9861 aserciones/1087,71s, salida0. Rápida1060/6 y una roja documental: contador actualizado1188, aislada1/7 verde y completa posterior verde.
-Después, ancho Recibo72→96 para evitar recorte; área final53/454/19,83s verde. Las otras nueve fuentes congeladas siguen iguales. PHP, Blade y build correctos.
-[Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T89-CODEX.md) · [Así quedó Wings](../06-pruebas/PRU-04/APROBAR-T89.html): diez imágenes verificadas/abiertas en Chrome y login de calibración.
-T89 a_verificar,tieneClaude: revisar lógica/permisos; Carlos mira aspecto final. T54/T87 siguen cerradas. Solo wings_testing_codex; servidor propio detenido, T34 ajeno inicial intacto. Sin despliegue ni push manual.
-
 [Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
 
 [Dos entradas antiguas intactas, archivadas al implementar T45](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T45.txt). Base original: docs/00-estado/. SHA256: 293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a.
@@ -91,3 +84,5 @@ T89 a_verificar,tieneClaude: revisar lógica/permisos; Carlos mira aspecto final
 [T90 íntegra, archivada al publicar la bitácora](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T90-antes-publicacion.txt). Base original: docs/00-estado/; separador vacío final excluido. SHA256: 0d3df2dd8830174d27d8a5a92dc777685e20122f5f119506fc2c173a85a2acbd.
 
 [Dos entradas íntegras T88/B3 y T86, archivadas al implementar T70/T71](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T70-T71.txt). Base original: docs/00-estado/. SHA256: 922e3e4ae896f356fd08ea56fd9d50ae5f886df57fc4826fad1b1a628bf58ba3.
+
+[Dos entradas T65/T89 conservadas intactas al entregar días24–28](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS24-28.txt). Base original: docs/00-estado/. SHA256: 0f300f81f9febe5788f4e5f174751aac7ad2d606b9a8a9b63492ea3991c23058.

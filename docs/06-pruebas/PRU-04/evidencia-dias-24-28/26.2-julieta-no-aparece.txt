@@ -1,0 +1,38 @@
+Browser tab: 1320327214, Title: "Cobrar cuota – Wings", URL: "https://test.gestionar-te.com.ar/caja/cobrar?search=julieta+alvarez".
+1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=julieta+alvarez
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 button Salir
+	20 heading Cobrar cuota, Value: 1
+		21 text Cobrar cuota
+	22 container
+		23 container
+			24 image
+			25 text field (settable) julieta alvarez
+		26 button Buscar
+		27 button Limpiar
+		28 text 76
+		29 text  alumnos con deuda pendiente
+		30 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		31 image
+		32 heading Sin resultados, Value: 3
+			33 text Sin resultados
+		34 text Ningún alumno activo coincide con "julieta alvarez"
+	35 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar cuota – Wings, URL: test.gestionar-te.com.ar/caja/cobrar?search=julieta+alvarez

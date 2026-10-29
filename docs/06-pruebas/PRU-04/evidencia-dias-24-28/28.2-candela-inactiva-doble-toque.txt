@@ -1,0 +1,79 @@
+Browser tab: 1320327214, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos?search=candela+vega&deporte_id=&grupo_id=".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=candela+vega&deporte_id=&grupo_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 button Salir
+	20 heading Alumnos, Value: 1
+		21 text Alumnos
+	22 container
+		77 text Alumno desactivado correctamente.
+		23 container
+			24 image
+			25 combo box (collapsed, settable) Value: candela vega, ID: search-input, Secondary Actions: Expand
+		26 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			27 menu
+				28 (selected) Deporte
+				29 Fútbol
+				30 Patín
+		31 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+			32 menu
+				33 (selected) Grupo
+				34 Fútbol — Avanzadas
+				35 Fútbol — Principiantes
+				36 Patín — Adultos
+				37 Patín — Avanzadas
+				38 Patín — Federadas
+				39 Patín — Intermedias
+				40 Patín — Principiantes
+		41 button Limpiar
+		42 text Mostrando 
+		43 text 1
+		44 text  a 
+		45 text 1
+		46 text  de 
+		47 text 1
+		48 text  alumnos
+		49 button Nuevo
+		50 container
+			51 heading Vega, Candela, Value: 3
+				52 text Vega, Candela
+		53 image
+		54 text Deporte: Patín
+		55 image
+		56 text Grupo: Patín — Intermedias
+		57 image
+		58 text Plan: 1 clase/semana
+		59 image
+		60 text DNI: 55400023
+		61 image
+		62 text Teléfono: 1145120023
+		63 image
+		64 text Edad: 10 años
+		65 image
+		66 text Tutor: Tutor Vega
+		67 image
+		68 text Tel. tutor: 1145120023
+		69 button Cobrar
+		70 button Ver
+		71 button Editar
+		72 container
+			76 text Inactivo
+			74 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6ae30098b9cc1
+	75 text Wings
+
+The focused UI element is 1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?search=candela+vega&deporte_id=&grupo_id=

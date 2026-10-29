@@ -1,0 +1,4 @@
+ 1. Rocío Paz cierra la caja #49: esperado $263.500,00, contado $263.500,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #49 (11 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $2.849.000,00 · {"AL_DIA":30,"EN_PLAZO":76,"MOROSO":0,"DEUDOR":1}
+SIMULADO: no se guardó nada.

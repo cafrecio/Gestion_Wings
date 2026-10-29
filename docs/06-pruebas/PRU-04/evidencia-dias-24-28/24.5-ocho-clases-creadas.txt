@@ -1,0 +1,359 @@
+Browser tab: 1320327214, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Clases, Value: 1
+		31 text Clases
+	32 container
+		357 text CLASES DE HOY — LUNES 2 DE NOVIEMBRE · 
+		34 text 3
+		35 text  CLASE(S)
+		36 container clases-hoy-container
+			37 container clase-hoy-201
+				38 heading 16:00 – 17:00 Programada, Value: 3
+					39 text 16:00 – 17:00  Programada
+				40 image
+				41 text Grupo: Patín — Principiantes
+				42 image
+				43 text Profesores: Gaitán
+				44 image
+				45 text Asistencia: Cargada
+				46 button Ver
+				47 button Editar
+			48 container clase-hoy-239
+				49 heading 16:00 – 17:00 Programada, Value: 3
+					50 text 16:00 – 17:00  Programada
+				51 image
+				52 text Grupo: Fútbol — Principiantes
+				53 image
+				54 text Profesores: Quintana
+				55 image
+				56 text Asistencia: Cargada
+				57 button Ver
+				58 button Editar
+			59 container clase-hoy-210
+				60 heading 17:00 – 18:00 Programada, Value: 3
+					61 text 17:00 – 18:00  Programada
+				62 image
+				63 text Grupo: Patín — Intermedias
+				64 image
+				65 text Profesores: Salinas
+				66 image
+				67 text Asistencia: Cargada
+				68 button Ver
+				69 button Editar
+		70 container filter-form
+			71 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				72 menu
+					73 (selected) Deporte
+					74 Fútbol
+					75 Patín
+			76 pop up button (collapsed, settable) Value: Grupo, ID: filter-grupo, Secondary Actions: Expand
+				77 menu
+					78 (selected) Grupo
+					79 Fútbol — Avanzadas
+					80 Fútbol — Principiantes
+					81 Patín — Adultos
+					82 Patín — Avanzadas
+					83 Patín — Federadas
+					84 Patín — Intermedias
+					85 Patín — Principiantes
+			86 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				87 menu
+					88 (selected) Profesor
+					89 Acosta, Martín
+					90 Directora, Vanina
+					91 Gaitán, Lucía
+					92 Ocampo, Mariela
+					93 Quintana, Hernán
+					94 Salinas, Verónica
+			95 pop up button (collapsed, settable) Value: Estado, ID: filter-estado, Secondary Actions: Expand
+				96 menu
+					97 (selected) Estado
+					98 Programada
+					99 Sin asistencia
+					100 Sin presentes
+					101 Cerrada
+					102 Cancelada
+			103 date field (settable)
+				104 container
+					105 stepper
+					106 stepper
+					107 stepper
+				108 pop up button Mostrar selector de fecha
+			109 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				110 menu
+					111 (selected) Orden
+					112 Más recientes
+					113 Más antiguas
+					114 Grupo A–Z
+			115 button Limpiar
+			116 button Filtrar
+		117 text Mostrando 
+		118 text 1
+		119 text  a 
+		120 text 20
+		121 text  de 
+		122 text 64
+		123 text  clase(s)
+		124 button Nuevo
+		125 container clases-listado
+			126 container
+				127 heading Mar 03/11/2026 — 17:00 a 18:00 Programada, Value: 3
+					128 text Mar 03/11/2026 — 17:00 a 18:00  Programada
+				129 image
+				130 text Grupo: Patín — Avanzadas
+				131 image
+				132 text Profesores: Gaitán
+				133 image
+				134 text Asistencia: Pendiente
+				135 button Ver
+				136 button Editar
+			137 container
+				138 heading Mar 03/11/2026 — 18:00 a 19:00 Programada, Value: 3
+					139 text Mar 03/11/2026 — 18:00 a 19:00  Programada
+				140 image
+				141 text Grupo: Patín — Federadas
+				142 image
+				143 text Profesores: Ocampo
+				144 image
+				145 text Asistencia: Pendiente
+				146 button Ver
+				147 button Editar
+			148 container
+				149 heading Mar 03/11/2026 — 19:00 a 20:00 Programada, Value: 3
+					150 text Mar 03/11/2026 — 19:00 a 20:00  Programada
+				151 image
+				152 text Grupo: Fútbol — Avanzadas
+				153 image
+				154 text Profesores: Quintana · Acosta
+				155 image
+				156 text Asistencia: Pendiente
+				157 button Ver
+				158 button Editar
+			159 container
+				160 heading Mar 03/11/2026 — 20:30 a 21:30 Programada, Value: 3
+					161 text Mar 03/11/2026 — 20:30 a 21:30  Programada
+				162 image
+				163 text Grupo: Patín — Adultos
+				164 image
+				165 text Profesores: Ocampo
+				166 image
+				167 text Asistencia: Pendiente
+				168 button Ver
+				169 button Editar
+			170 container
+				171 heading Mié 04/11/2026 — 16:00 a 17:00 Programada, Value: 3
+					172 text Mié 04/11/2026 — 16:00 a 17:00  Programada
+				173 image
+				174 text Grupo: Patín — Principiantes
+				175 image
+				176 text Profesores: Gaitán
+				177 image
+				178 text Asistencia: Pendiente
+				179 button Ver
+				180 button Editar
+			181 container
+				182 heading Mié 04/11/2026 — 18:00 a 19:00 Programada, Value: 3
+					183 text Mié 04/11/2026 — 18:00 a 19:00  Programada
+				184 image
+				185 text Grupo: Fútbol — Principiantes
+				186 image
+				187 text Profesores: Quintana
+				188 image
+				189 text Asistencia: Pendiente
+				190 button Ver
+				191 button Editar
+			192 container
+				193 heading Jue 05/11/2026 — 17:00 a 18:00 Programada, Value: 3
+					194 text Jue 05/11/2026 — 17:00 a 18:00  Programada
+				195 image
+				196 text Grupo: Patín — Avanzadas
+				197 image
+				198 text Profesores: Gaitán
+				199 image
+				200 text Asistencia: Pendiente
+				201 button Ver
+				202 button Editar
+			203 container
+				204 heading Jue 05/11/2026 — 18:00 a 19:00 Programada, Value: 3
+					205 text Jue 05/11/2026 — 18:00 a 19:00  Programada
+				206 image
+				207 text Grupo: Patín — Federadas
+				208 image
+				209 text Profesores: Ocampo
+				210 image
+				211 text Asistencia: Pendiente
+				212 button Ver
+				213 button Editar
+			214 container
+				215 heading Jue 05/11/2026 — 19:00 a 20:00 Programada, Value: 3
+					216 text Jue 05/11/2026 — 19:00 a 20:00  Programada
+				217 image
+				218 text Grupo: Fútbol — Avanzadas
+				219 image
+				220 text Profesores: Quintana
+				221 image
+				222 text Asistencia: Pendiente
+				223 button Ver
+				224 button Editar
+			225 container
+				226 heading Jue 05/11/2026 — 20:30 a 21:30 Programada, Value: 3
+					227 text Jue 05/11/2026 — 20:30 a 21:30  Programada
+				228 image
+				229 text Grupo: Patín — Adultos
+				230 image
+				231 text Profesores: Ocampo
+				232 image
+				233 text Asistencia: Pendiente
+				234 button Ver
+				235 button Editar
+			236 container
+				237 heading Vie 06/11/2026 — 16:00 a 17:00 Programada, Value: 3
+					238 text Vie 06/11/2026 — 16:00 a 17:00  Programada
+				239 image
+				240 text Grupo: Patín — Intermedias
+				241 image
+				242 text Profesores: Salinas
+				243 image
+				244 text Asistencia: Pendiente
+				245 button Ver
+				246 button Editar
+			247 container
+				248 heading Sáb 07/11/2026 — 10:00 a 11:00 Programada, Value: 3
+					249 text Sáb 07/11/2026 — 10:00 a 11:00  Programada
+				250 image
+				251 text Grupo: Patín — Federadas
+				252 image
+				253 text Profesores: Ocampo
+				254 image
+				255 text Asistencia: Pendiente
+				256 button Ver
+				257 button Editar
+			258 container
+				259 heading Sáb 07/11/2026 — 11:00 a 12:00 Programada, Value: 3
+					260 text Sáb 07/11/2026 — 11:00 a 12:00  Programada
+				261 image
+				262 text Grupo: Fútbol — Avanzadas
+				263 image
+				264 text Profesores: Quintana
+				265 image
+				266 text Asistencia: Pendiente
+				267 button Ver
+				268 button Editar
+			269 container
+				270 heading Lun 09/11/2026 — 16:00 a 17:00 Programada, Value: 3
+					271 text Lun 09/11/2026 — 16:00 a 17:00  Programada
+				272 image
+				273 text Grupo: Patín — Principiantes
+				274 image
+				275 text Profesores: Gaitán
+				276 image
+				277 text Asistencia: Pendiente
+				278 button Ver
+				279 button Editar
+			280 container
+				281 heading Lun 09/11/2026 — 16:00 a 17:00 Programada, Value: 3
+					282 text Lun 09/11/2026 — 16:00 a 17:00  Programada
+				283 image
+				284 text Grupo: Fútbol — Principiantes
+				285 image
+				286 text Profesores: Quintana
+				287 image
+				288 text Asistencia: Pendiente
+				289 button Ver
+				290 button Editar
+			291 container
+				292 heading Lun 09/11/2026 — 17:00 a 18:00 Programada, Value: 3
+					293 text Lun 09/11/2026 — 17:00 a 18:00  Programada
+				294 image
+				295 text Grupo: Patín — Intermedias
+				296 image
+				297 text Profesores: Salinas
+				298 image
+				299 text Asistencia: Pendiente
+				300 button Ver
+				301 button Editar
+			302 container
+				303 heading Mar 10/11/2026 — 17:00 a 18:00 Programada, Value: 3
+					304 text Mar 10/11/2026 — 17:00 a 18:00  Programada
+				305 image
+				306 text Grupo: Patín — Avanzadas
+				307 image
+				308 text Profesores: Gaitán
+				309 image
+				310 text Asistencia: Pendiente
+				311 button Ver
+				312 button Editar
+			313 container
+				314 heading Mar 10/11/2026 — 18:00 a 19:00 Programada, Value: 3
+					315 text Mar 10/11/2026 — 18:00 a 19:00  Programada
+				316 image
+				317 text Grupo: Patín — Federadas
+				318 image
+				319 text Profesores: Ocampo
+				320 image
+				321 text Asistencia: Pendiente
+				322 button Ver
+				323 button Editar
+			324 container
+				325 heading Mar 10/11/2026 — 19:00 a 20:00 Programada, Value: 3
+					326 text Mar 10/11/2026 — 19:00 a 20:00  Programada
+				327 image
+				328 text Grupo: Fútbol — Avanzadas
+				329 image
+				330 text Profesores: Quintana · Acosta
+				331 image
+				332 text Asistencia: Pendiente
+				333 button Ver
+				334 button Editar
+			335 container
+				336 heading Mar 10/11/2026 — 20:30 a 21:30 Programada, Value: 3
+					337 text Mar 10/11/2026 — 20:30 a 21:30  Programada
+				338 image
+				339 text Grupo: Patín — Adultos
+				340 image
+				341 text Profesores: Ocampo
+				342 image
+				343 text Asistencia: Pendiente
+				344 button Ver
+				345 button Editar
+		346 container Paginación
+			347 container
+				348 text Mostrando  1  a  20  de  64  resultados
+			349 container
+				350 container &laquo; Anterior
+				351 text 1
+				352 link Description: Ir a la página 2, Value: test.gestionar-te.com.ar/clases?page=2
+				353 link Description: Ir a la página 3, Value: test.gestionar-te.com.ar/clases?page=3
+				354 link Description: Ir a la página 4, Value: test.gestionar-te.com.ar/clases?page=4
+				355 link Description: Siguiente &raquo;, Value: test.gestionar-te.com.ar/clases?page=2
+	356 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases

@@ -1,0 +1,129 @@
+Browser tab: 1320327214, Title: "Nueva Clase – Wings", URL: "https://test.gestionar-te.com.ar/clases/create".
+1 AXWebArea Nueva Clase – Wings, URL: test.gestionar-te.com.ar/clases/create
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Nueva Clase, Value: 1
+		31 text Nueva Clase
+	32 container
+		33 text El alquiler se cuenta por bloques del reloj.
+		34 text Martes: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00.
+		35 text Jueves: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00.
+		36 text Revisá los horarios. Confirmar guarda las clases con estos horarios.
+		37 link Description: Revisar, Value: test.gestionar-te.com.ar/clases/create#horario-2-inicio
+		38 radio button (settable, integer) Description: Clase única, Value: 0
+		39 radio button (settable, integer) Description: Clases recurrentes, Value: 1
+		40 container seccion-recurrente
+			41 container
+				42 image
+				43 text Fecha desde *
+			44 date field (settable) Fecha desde *, Value: 2026-11-03, ID: fecha_desde
+				45 container
+					46 stepper
+					47 stepper
+					48 stepper
+				49 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			50 container
+				51 image
+				52 text Fecha hasta *
+			53 date field (settable) Fecha hasta *, Value: 2026-11-30, ID: fecha_hasta
+				54 container
+					55 stepper
+					56 stepper
+					57 stepper
+				58 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			59 container
+				60 image
+				61 text Días de la semana *
+			62 checkbox (settable, integer) Description: Lun, Value: 0
+			63 checkbox (settable, integer) Description: Mar, Value: 1
+			64 checkbox (settable, integer) Description: Mié, Value: 0
+			65 checkbox (settable, integer) Description: Jue, Value: 1
+			66 checkbox (settable, integer) Description: Vie, Value: 0
+			67 checkbox (settable, integer) Description: Sáb, Value: 0
+			68 checkbox (settable, integer) Description: Dom, Value: 0
+			69 text Elegí los días y cargá el horario de cada uno. Grupo, profesores y fechas se cargan una sola vez.
+			70 text Martes
+			71 container
+				72 text Hora inicio *
+			73 time field (settable) Hora inicio *, Value: 20:30, ID: horario-2-inicio
+				74 container
+					75 stepper
+					76 stepper
+				77 pop up button Mostrar selector de hora Mostrar selector de hora
+			78 container
+				79 text Hora fin *
+			80 time field (settable) Hora fin *, Value: 21:30, ID: horario-2-fin
+				81 container
+					82 stepper
+					83 stepper
+				84 pop up button Mostrar selector de hora Mostrar selector de hora
+			85 text Jueves
+			86 container
+				87 text Hora inicio *
+			88 time field (settable) Hora inicio *, Value: 20:30, ID: horario-4-inicio
+				89 container
+					90 stepper
+					91 stepper
+				92 pop up button Mostrar selector de hora Mostrar selector de hora
+			93 container
+				94 text Hora fin *
+			95 time field (settable) Hora fin *, Value: 21:30, ID: horario-4-fin
+				96 container
+					97 stepper
+					98 stepper
+				99 pop up button Mostrar selector de hora Mostrar selector de hora
+		100 image
+		101 text Grupo *
+		102 pop up button (collapsed, settable) Grupo *, Value: Patín — Adultos, ID: grupo_id, Secondary Actions: Expand
+			103 menu
+				104 Seleccionar grupo...
+				105 Fútbol — Avanzadas
+				106 Fútbol — Principiantes
+				107 (selected) Patín — Adultos
+				108 Patín — Avanzadas
+				109 Patín — Federadas
+				110 Patín — Intermedias
+				111 Patín — Principiantes
+		112 text Deporte: Patín
+		113 image
+		114 text Profesores * Seleccioná al menos una profesora activa del deporte.
+		115 checkbox (settable, integer) Description: Directora, Vanina Patín, Value: 0
+		116 text Directora, Vanina Patín
+		117 checkbox (settable, integer) Description: Gaitán, Lucía Patín, Value: 0
+		118 text Gaitán, Lucía Patín
+		119 checkbox (settable, integer) Description: Ocampo, Mariela Patín, Value: 1
+		120 text Ocampo, Mariela Patín
+		121 checkbox (settable, integer) Description: Salinas, Verónica Patín, Value: 0
+		122 text Salinas, Verónica Patín
+		123 text Solo se muestran profesores activos de Patín.
+		124 button Volver
+		125 button Confirmar
+	126 text Wings
+
+The focused UI element is 1 AXWebArea Nueva Clase – Wings, URL: test.gestionar-te.com.ar/clases/create

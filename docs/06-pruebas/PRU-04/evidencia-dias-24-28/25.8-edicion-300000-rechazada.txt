@@ -1,0 +1,83 @@
+Browser tab: 1320327214, Title: "Editar movimiento – Wings", URL: "https://test.gestionar-te.com.ar/caja/47/movimientos/278/editar".
+1 AXWebArea Editar movimiento – Wings, URL: test.gestionar-te.com.ar/caja/47/movimientos/278/editar
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 button Salir
+	20 heading Editar movimiento, Value: 1
+		21 text Editar movimiento
+	22 container
+		23 text El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.
+		24 container mov-form
+			25 container tipo-card
+				26 text Tipo de movimiento *
+				27 text INGRESO
+				28 text EGRESO
+				29 container
+					30 text Fecha *
+				31 date field (settable) Fecha *, Value: 2026-11-03, ID: fecha
+					32 container
+						33 stepper
+						34 stepper
+						35 stepper
+					36 pop up button Mostrar selector de fecha Mostrar selector de fecha
+				37 container
+					38 text Medio de pago *
+				39 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+					40 menu
+						41 Seleccionar...
+						42 BGA — Banco Galicia
+						43 BNA — Banco Nación
+						44 Banco Nacion ahorro
+						45 (selected) EFE — Efectivo
+						46 MP — Mercado Pago
+				47 container
+					48 text Rubro *
+				49 pop up button (collapsed, settable) Rubro *, Value: Gastos Operativos, ID: rubro_id, Secondary Actions: Expand
+					50 menu
+						51 Seleccionar...
+						52 (selected) Gastos Operativos
+						53 Indumentaria
+						54 Mantenimiento y arreglos
+						55 Otras clases
+						56 Torneos
+				57 container
+					58 text Subrubro *
+				59 pop up button (collapsed, settable) Subrubro *, Value: Insumos Varios, ID: subrubro_id, Secondary Actions: Expand
+					60 menu
+						61 Seleccionar...
+						62 Botiquín
+						63 (selected) Insumos Varios
+						64 Librería
+						65 Limpieza
+						66 Indumentaria institucional
+						67 Patines
+						68 VG Indumentaria
+						69 Reparaciones menores
+						70 Clase particular
+						71 Inscripciones
+				72 container
+					73 text Monto *
+				74 text field (settable) Monto *, Value: 300,000.00, ID: monto
+				75 container
+					76 text Observaciones *
+				77 text field (settable) Observaciones *, Value: Cinta y pilas, ID: observaciones
+			78 button Cancelar
+			79 button Guardar
+	80 text Wings
+
+The focused UI element is 1 AXWebArea Editar movimiento – Wings, URL: test.gestionar-te.com.ar/caja/47/movimientos/278/editar

@@ -1,0 +1,53 @@
+Browser tab: 1320327214, Title: "Septiembre 2026 — Salinas – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/5".
+1 AXWebArea Septiembre 2026 — Salinas – Wings, URL: test.gestionar-te.com.ar/liquidaciones/5
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Liquidación — Salinas, Verónica, Value: 1
+		31 text Liquidación — Salinas, Verónica
+	32 container
+		33 text Liquidación pagada. Movimiento registrado en cashflow.
+		34 heading Salinas, Verónica, Value: 2
+			35 text Salinas, Verónica
+		36 text Septiembre 2026 Patín Tipo Por hora Monto final $30,000.00 Estado Pagada Fecha de pago 03/11/2026  — Banco Galicia
+		37 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/liquidacion/5?inline=1
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		39 text CLASES LIQUIDADAS 2 VALOR POR HORA $15,000.00 TOTAL $30,000.00
+		40 container
+			41 heading Viernes 25 de septiembre, Value: 3
+				42 text Viernes 25 de septiembre
+			43 text Validada
+		44 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00
+		45 container
+			46 heading Lunes 28 de septiembre, Value: 3
+				47 text Lunes 28 de septiembre
+			48 text Validada
+		49 text Grupo: Patín — Intermedias Duración: 1 h Subtotal: $15,000.00 CÁLCULO DE LOS DETALLES $30,000.00
+	50 text Wings
+
+The focused UI element is 1 AXWebArea Septiembre 2026 — Salinas – Wings, URL: test.gestionar-te.com.ar/liquidaciones/5

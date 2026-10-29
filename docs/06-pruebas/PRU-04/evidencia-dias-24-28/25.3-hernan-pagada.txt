@@ -1,0 +1,179 @@
+Browser tab: 1320327214, Title: "Octubre 2026 — Quintana – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/8".
+1 AXWebArea Octubre 2026 — Quintana – Wings, URL: test.gestionar-te.com.ar/liquidaciones/8
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Liquidación — Quintana, Hernán, Value: 1
+		31 text Liquidación — Quintana, Hernán
+	32 container
+		33 text Liquidación pagada. Movimiento registrado en cashflow.
+		34 heading Quintana, Hernán, Value: 2
+			35 text Quintana, Hernán
+		36 text Octubre 2026 Fútbol Tipo Por comisión Monto final $484,680.00 Estado Pagada Fecha de pago 03/11/2026  — Mercado Pago
+		37 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/liquidacion/8?inline=1
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/liquidaciones
+		39 text Cuotas atrasadas Revisión completa. El recibo incluye las cuotas atrasadas validadas. No incluidas: 
+		40 text $0.00
+		41 text . Base confirmada: 
+		42 text $484,680.00
+		43 text . Cálculo original $484,680.00 Ajuste del admin $0.00 Monto final $484,680.00 ALUMNOS CON PAGOS REGISTRADOS 28 % COMISIÓN 40.0% CÁLCULO ORIGINAL $484,680.00
+		44 heading Navarro, Julian, Value: 3
+			45 text Navarro, Julian
+		46 text Cuota: 10/2026 Origen: Del mes Cobrado: 10/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00
+		47 heading Rodriguez, Mateo, Value: 3
+			48 text Rodriguez, Mateo
+		49 text Cuota: 09/2026 Origen: Atrasada Cobrado: 10/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		50 container
+			51 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		52 heading Gomez, Lucas, Value: 3
+			53 text Gomez, Lucas
+		54 text Cuota: 10/2026 Origen: Del mes Cobrado: 10/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $28,000.00 Comisión: $11,200.00
+		55 heading Ramos, Dante, Value: 3
+			56 text Ramos, Dante
+		57 text Cuota: 09/2026 Origen: Atrasada Cobrado: 13/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $20,000.00 Comisión: $8,000.00
+		58 container
+			59 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		60 heading Ramos, Dante, Value: 3
+			61 text Ramos, Dante
+		62 text Cuota: 10/2026 Origen: Del mes Cobrado: 13/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $10,000.00 Comisión: $4,000.00
+		63 heading Rodriguez, Mateo, Value: 3
+			64 text Rodriguez, Mateo
+		65 text Cuota: 10/2026 Origen: Del mes Cobrado: 13/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		66 heading Ramos, Santiago, Value: 3
+			67 text Ramos, Santiago
+		68 text Cuota: 10/2026 Origen: Del mes Cobrado: 14/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		69 heading Sosa, Felipe, Value: 3
+			70 text Sosa, Felipe
+		71 text Cuota: 07/2026 Origen: Atrasada Cobrado: 15/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		72 container
+			73 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		74 heading Ferrari, Bautista, Value: 3
+			75 text Ferrari, Bautista
+		76 text Cuota: 10/2026 Origen: Del mes Cobrado: 16/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $15,000.00 Comisión: $6,000.00
+		77 heading Molina, Franco, Value: 3
+			78 text Molina, Franco
+		79 text Cuota: 10/2026 Origen: Del mes Cobrado: 16/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		80 heading Ramirez, Felipe, Value: 3
+			81 text Ramirez, Felipe
+		82 text Cuota: 10/2026 Origen: Del mes Cobrado: 20/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $35,000.00 Comisión: $14,000.00
+		83 heading Suarez, Ignacio, Value: 3
+			84 text Suarez, Ignacio
+		85 text Cuota: 09/2026 Origen: Atrasada Cobrado: 21/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $35,000.00 Comisión: $14,000.00
+		86 container
+			87 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		88 heading Suarez, Ignacio, Value: 3
+			89 text Suarez, Ignacio
+		90 text Cuota: 10/2026 Origen: Del mes Cobrado: 21/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $35,000.00 Comisión: $14,000.00
+		91 heading Vega, Joaquin, Value: 3
+			92 text Vega, Joaquin
+		93 text Cuota: 08/2026 Origen: Atrasada Cobrado: 17/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00
+		94 container
+			95 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		96 heading Vega, Joaquin, Value: 3
+			97 text Vega, Joaquin
+		98 text Cuota: 09/2026 Origen: Atrasada Cobrado: 17/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00
+		99 container
+			100 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		101 heading Vega, Joaquin, Value: 3
+			102 text Vega, Joaquin
+		103 text Cuota: 10/2026 Origen: Del mes Cobrado: 17/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $4,000.00 Comisión: $1,600.00
+		104 heading Quiroga, Tomás, Value: 3
+			105 text Quiroga, Tomás
+		106 text Cuota: 10/2026 Origen: Del mes Cobrado: 19/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $19,600.00 Comisión: $7,840.00
+		107 heading Pereyra, Liam, Value: 3
+			108 text Pereyra, Liam
+		109 text Cuota: 10/2026 Origen: Del mes Cobrado: 22/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $12,000.00 Comisión: $4,800.00
+		110 heading Ramos, Dante, Value: 3
+			111 text Ramos, Dante
+		112 text Cuota: 10/2026 Origen: Del mes Cobrado: 23/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		113 heading Castro, Mateo, Value: 3
+			114 text Castro, Mateo
+		115 text Cuota: 10/2026 Origen: Del mes Cobrado: 23/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		116 heading Ortega, Valentín, Value: 3
+			117 text Ortega, Valentín
+		118 text Cuota: 10/2026 Origen: Del mes Cobrado: 23/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $24,500.00 Comisión: $9,800.00
+		119 heading Benítez, Mora, Value: 3
+			120 text Benítez, Mora
+		121 text Cuota: 10/2026 Origen: Del mes Cobrado: 23/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $19,600.00 Comisión: $7,840.00
+		122 heading Romero, Santino, Value: 3
+			123 text Romero, Santino
+		124 text Cuota: 08/2026 Origen: Atrasada Cobrado: 26/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		125 container
+			126 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		127 heading Romero, Santino, Value: 3
+			128 text Romero, Santino
+		129 text Cuota: 09/2026 Origen: Atrasada Cobrado: 26/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		130 container
+			131 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		132 heading Castro, Bruno, Value: 3
+			133 text Castro, Bruno
+		134 text Cuota: 10/2026 Origen: Del mes Cobrado: 28/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		135 heading Diaz, Thiago, Value: 3
+			136 text Diaz, Thiago
+		137 text Cuota: 10/2026 Origen: Del mes Cobrado: 28/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		138 heading Torres, Benicio, Value: 3
+			139 text Torres, Benicio
+		140 text Cuota: 10/2026 Origen: Del mes Cobrado: 28/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		141 heading Rossi, Leon, Value: 3
+			142 text Rossi, Leon
+		143 text Cuota: 10/2026 Origen: Del mes Cobrado: 28/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		144 heading Vega, Joaquin, Value: 3
+			145 text Vega, Joaquin
+		146 text Cuota: 10/2026 Origen: Del mes Cobrado: 28/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $44,000.00 Comisión: $17,600.00
+		147 heading Flores, Santino, Value: 3
+			148 text Flores, Santino
+		149 text Cuota: 10/2026 Origen: Del mes Cobrado: 29/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		150 heading Fernandez, Benjamin, Value: 3
+			151 text Fernandez, Benjamin
+		152 text Cuota: 10/2026 Origen: Del mes Cobrado: 29/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00
+		153 heading Herrera, Facundo, Value: 3
+			154 text Herrera, Facundo
+		155 text Cuota: 10/2026 Origen: Del mes Cobrado: 29/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		156 heading Gutierrez, Tomas, Value: 3
+			157 text Gutierrez, Tomas
+		158 text Cuota: 10/2026 Origen: Del mes Cobrado: 30/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		159 heading Ferrari, Nicolas, Value: 3
+			160 text Ferrari, Nicolas
+		161 text Cuota: 10/2026 Origen: Del mes Cobrado: 30/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00
+		162 heading Sosa, Felipe, Value: 3
+			163 text Sosa, Felipe
+		164 text Cuota: 08/2026 Origen: Atrasada Cobrado: 30/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		165 container
+			166 text Decisión:  Validada · Admin Prueba · 01/11/2026 06:09
+		167 heading Sosa, Felipe, Value: 3
+			168 text Sosa, Felipe
+		169 text Cuota: 10/2026 Origen: Del mes Cobrado: 30/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $38,000.00 Comisión: $15,200.00
+		170 heading Medina, Lautaro, Value: 3
+			171 text Medina, Lautaro
+		172 text Cuota: 10/2026 Origen: Del mes Cobrado: 31/10/2026 Grupo: Fútbol — Principiantes Monto pagado: $28,000.00 Comisión: $11,200.00
+		173 heading Ortiz, Tobias, Value: 3
+			174 text Ortiz, Tobias
+		175 text Cuota: 10/2026 Origen: Del mes Cobrado: 31/10/2026 Grupo: Fútbol — Avanzadas Monto pagado: $48,000.00 Comisión: $19,200.00 TOTAL CONFIRMADO $484,680.00
+	176 text Wings
+
+The focused UI element is 1 AXWebArea Octubre 2026 — Quintana – Wings, URL: test.gestionar-te.com.ar/liquidaciones/8

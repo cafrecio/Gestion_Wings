@@ -1,0 +1,62 @@
+Browser tab: 1320327214, Title: "Vega, Joaquin – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/334".
+1 AXWebArea Vega, Joaquin – Wings, URL: test.gestionar-te.com.ar/alumnos/334
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 button Salir
+	20 heading Vega, Joaquin, Value: 1
+		21 text Vega, Joaquin
+	22 container
+		23 text Activo
+		24 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2ffa1ee614
+		25 button Cobrar
+		26 button Editar
+		27 image
+		28 text DNI 51200914
+		29 image
+		30 text NACIMIENTO 14/06/2014
+		31 image
+		32 text CELULAR 1145129904
+		33 image
+		34 text EMAIL andrea.vega@testmail.com
+		35 image
+		36 text DEPORTE Fútbol
+		37 image
+		38 text GRUPO Fútbol — Avanzadas
+		39 image
+		40 text PLAN 2x sem. — $48,000.00/mes
+		41 image
+		42 text ALTA 05/03/2024
+		43 image
+		44 text ESTADO DE COBRANZA Al día
+		45 image
+		46 text TUTOR NOMBRE Andrea Vega TELÉFONO 1145129904
+		47 image
+		48 text HISTORIAL DE PAGOS 05/11/2026 · Nov 2026, Dic 2026 $96,000.00
+		49 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/262?inline=1
+		50 text 28/10/2026 · Oct 2026 $44,000.00
+		51 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/133?inline=1
+		52 text 17/10/2026 · Ago 2026, Sep 2026, Oct 2026 · Anulado $144,000.00
+		53 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/25?inline=1
+		54 text 17/10/2026 · Ago 2026, Sep 2026, Oct 2026 $100,000.00
+		55 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/39?inline=1
+		56 image
+		57 text ASISTENCIAS — NOV 2026 2 clases 03/11 05/11
+		58 button Volver
+	59 text Wings
+
+The focused UI element is 1 AXWebArea Vega, Joaquin – Wings, URL: test.gestionar-te.com.ar/alumnos/334

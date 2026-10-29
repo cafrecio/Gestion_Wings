@@ -1,0 +1,93 @@
+Browser tab: 1320327214, Title: "Acosta, Victoria – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/272".
+1 AXWebArea Acosta, Victoria – Wings, URL: test.gestionar-te.com.ar/alumnos/272
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Acosta, Victoria, Value: 1
+		31 text Acosta, Victoria
+	32 container
+		33 text Activo
+		34 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae2fe757774c
+		35 button Cobrar
+		36 button Editar
+		37 image
+		38 text DNI 55400001
+		39 image
+		40 text NACIMIENTO 12/03/2019
+		41 image
+		42 text CELULAR 1145120001
+		43 image
+		44 text EMAIL victoria.acosta@testmail.com
+		45 image
+		46 text DEPORTE Patín
+		47 image
+		48 text GRUPO Patín — Principiantes
+		49 image
+		50 text PLAN 1x sem. — $30,000.00/mes
+		51 image
+		52 text ALTA 15/03/2025
+		53 image
+		54 text ESTADO DE COBRANZA Al día
+		55 container cuotas-pasadas
+			56 text Meses sin cuota generada
+			57 container
+				58 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2025 · $30,000.00, Secondary Actions: Expand
+					59 menu
+						60 (selected) Marzo 2025 · $30,000.00
+						61 Abril 2025 · $30,000.00
+						62 Mayo 2025 · $30,000.00
+						63 Junio 2025 · $30,000.00
+						64 Julio 2025 · $30,000.00
+						65 Agosto 2025 · $30,000.00
+						66 Septiembre 2025 · $30,000.00
+						67 Octubre 2025 · $30,000.00
+						68 Noviembre 2025 · $30,000.00
+						69 Diciembre 2025 · $30,000.00
+						70 Enero 2026 · $30,000.00
+						71 Febrero 2026 · $30,000.00
+						72 Marzo 2026 · $30,000.00
+						73 Abril 2026 · $30,000.00
+						74 Mayo 2026 · $30,000.00
+						75 Junio 2026 · $30,000.00
+						76 Julio 2026 · $30,000.00
+						77 Agosto 2026 · $30,000.00
+						78 Septiembre 2026 · $30,000.00
+				79 button Crear
+		80 image
+		81 text TUTOR NOMBRE Tutor Acosta TELÉFONO 1145120001
+		82 image
+		83 text HISTORIAL DE PAGOS 02/11/2026 · Nov 2026 $30,000.00
+		84 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/199?inline=1
+		85 text 28/10/2026 · Oct 2026 $30,000.00
+		86 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/123?inline=1
+		87 image
+		88 text ASISTENCIAS — NOV 2026 2 clases 02/11 04/11
+		89 button Volver
+	90 text Wings
+
+The focused UI element is 1 AXWebArea Acosta, Victoria – Wings, URL: test.gestionar-te.com.ar/alumnos/272
