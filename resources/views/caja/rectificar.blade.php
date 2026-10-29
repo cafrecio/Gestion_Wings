@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Rectificar apertura – Wings')
 @section('module-title', 'Rectificar apertura')
+@section('ayuda-slug', 'rectificar-caja')
 @php($title = 'Rectificar apertura')
 
 @section('content')

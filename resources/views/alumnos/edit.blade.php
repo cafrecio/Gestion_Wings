@@ -2,6 +2,7 @@
 
 @section('title', 'Editar – ' . $alumno->apellido . ', ' . $alumno->nombre)
 @section('module-title', 'Editar: ' . $alumno->apellido . ', ' . $alumno->nombre)
+@section('ayuda-slug', 'modificar-alumno')
 
 @section('content')
 @include('alumnos._errores')

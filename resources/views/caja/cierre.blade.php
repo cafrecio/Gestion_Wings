@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Cierre de caja – Wings')
 @section('module-title', 'Cierre de caja')
+@section('ayuda-slug', 'cerrar-caja')
 @php($title = 'Cierre de caja')
 
 @section('content')

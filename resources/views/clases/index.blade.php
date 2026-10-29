@@ -2,6 +2,9 @@
 
 @section('title', 'Clases – Wings')
 @section('module-title', 'Clases')
+@if(!Auth::user()?->isProfesor())
+@section('ayuda-slug', 'consultar-clases-operativo')
+@endif
 
 @section('content')
 

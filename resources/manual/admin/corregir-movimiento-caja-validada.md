@@ -40,7 +40,7 @@ Completá los campos según el sentido del error:
 1. **Tipo de movimiento:**
    - Si en la caja se cargó dinero de más (un cobro duplicado o mayor al real), tocá el botón **EGRESO** compensatorio.
    - Si se cobró de menos o se anotó un gasto de más, tocá el botón **INGRESO** compensatorio.
-2. **Fecha:** Elegí la fecha en la que realizás el ajuste (o la fecha del turno si estás cerrando el período).
+2. **Fecha:** Elegí la fecha en la que realizás el ajuste (o la fecha del turno si estás cerrando el período; si elegís una fecha de un mes anterior, Wings te va a mostrar la advertencia `Atención: fecha de un mes anterior` y el botón cambiará a **Confirmar** para que apruebes el registro).
 3. **Medio de pago:** Seleccioná el medio de pago que tuvo la diferencia (**Efectivo**, **Banco**, etc.).
 4. **Rubro:** Seleccioná el rubro de ajuste correspondiente.
 5. **Subrubro:** Seleccioná el subrubro correspondiente.
@@ -52,7 +52,7 @@ Completá los campos según el sentido del error:
 ---
 
 ### Paso 4. Guardar y verificar
-1. Tocá el botón **Registrar**.
+1. Tocá el botón **Registrar** (o **Confirmar** si la fecha correspondía a un mes anterior).
 2. Wings registra el movimiento en el libro **Cashflow** y actualiza los saldos generales del club.
 3. El historial conserva tanto la operación original de la caja como el ajuste que hiciste vos, con su explicación auditada.
 

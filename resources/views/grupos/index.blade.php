@@ -2,6 +2,7 @@
 
 @section('title', 'Grupos – Wings')
 @section('module-title', 'Grupos')
+@section('ayuda-slug', 'consultar-grupos-planes')
 
 @section('content')
 

@@ -2,6 +2,7 @@
 
 @section('title', 'Movimientos – Wings')
 @section('module-title', 'Movimientos')
+@section('ayuda-slug', 'consultar-movimientos')
 
 @section('content')
 

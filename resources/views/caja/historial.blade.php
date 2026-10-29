@@ -2,6 +2,7 @@
 
 @section('title', 'Historial – Wings')
 @section('module-title', 'Historial')
+@section('ayuda-slug', 'consultar-historial-cajas')
 
 @section('content')
 

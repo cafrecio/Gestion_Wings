@@ -166,10 +166,46 @@ class AyudaManualT12T13Test extends TestCase
         $respCobrar->assertOk();
         $respCobrar->assertSee(route('web.ayuda.show', 'cobrar-cuota'));
 
-        // En alumnos/index no debe aparecer el botón de ayuda en la topbar en la Etapa 1
+        // En las pantallas de Etapa A debe aparecer el botón de ayuda contextual
         $respAlumnos = $this->actingAs($this->admin)->get(route('web.alumnos.index'));
         $respAlumnos->assertOk();
-        $respAlumnos->assertDontSee('title="Ayuda sobre esta pantalla"');
+        $respAlumnos->assertSee(route('web.ayuda.show', 'buscar-alumnos'));
+
+        $respCobranza = $this->actingAs($this->operativo)->get(route('web.cobranza.index'));
+        $respCobranza->assertOk();
+        $respCobranza->assertSee(route('web.ayuda.show', 'consultar-cobranza'));
+
+        $respMov = $this->actingAs($this->operativo)->get(route('web.movimientos.index'));
+        $respMov->assertOk();
+        $respMov->assertSee(route('web.ayuda.show', 'consultar-movimientos'));
+
+        // En pantallas sin guía en Etapa A (ej. dashboard de admin) no debe aparecer el botón
+        $respDash = $this->actingAs($this->admin)->get(route('admin.dashboard'));
+        $respDash->assertOk();
+        $respDash->assertDontSee('title="Ayuda sobre esta pantalla"');
+    }
+
+    public function test_buscador_de_ayuda_filtra_por_termino(): void
+    {
+        // Búsqueda con coincidencias
+        $resp = $this->actingAs($this->admin)->get(route('web.ayuda.index', ['q' => 'cobrar']));
+        $resp->assertOk();
+        $resp->assertSee('Cobrar una cuota');
+        $resp->assertSee('guías encontradas para «cobrar»');
+
+        // Búsqueda sin coincidencias
+        $respVacia = $this->actingAs($this->admin)->get(route('web.ayuda.index', ['q' => 'palabra_inexistente_xyz']));
+        $respVacia->assertOk();
+        $respVacia->assertSee('guías encontradas para «palabra_inexistente_xyz»');
+        $respVacia->assertSee('No se encontraron guías');
+    }
+
+    public function test_buscador_de_ayuda_no_expone_guias_de_otros_roles(): void
+    {
+        // El operativo busca "cashflow" o "validada": no debe ver la guía de admin
+        $resp = $this->actingAs($this->operativo)->get(route('web.ayuda.index', ['q' => 'cashflow']));
+        $resp->assertOk();
+        $resp->assertDontSee('Corregir un movimiento mal cargado en una caja ya validada');
     }
 
     public function test_pagina_de_ayuda_tiene_botones_volver_e_imprimir(): void

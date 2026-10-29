@@ -2,6 +2,7 @@
 
 @section('title', 'Revisión de cobranza – Wings')
 @section('module-title', 'Revisión')
+@section('ayuda-slug', 'resolver-revision-cobranza')
 
 @section('content')
 

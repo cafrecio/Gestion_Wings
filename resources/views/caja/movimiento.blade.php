@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo movimiento – Wings')
 @section('module-title', 'Nuevo movimiento')
+@section('ayuda-slug', 'registrar-ingreso-caja')
 
 @section('content')
 

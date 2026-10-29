@@ -2,6 +2,7 @@
 
 @section('title', $alumno->apellido . ', ' . $alumno->nombre . ' – Wings')
 @section('module-title', $alumno->apellido . ', ' . $alumno->nombre)
+@section('ayuda-slug', 'pasar-alumno-inactivo')
 
 @section('content')
 @php

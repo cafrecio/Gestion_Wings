@@ -41,11 +41,13 @@ class ManualService
 
     /**
      * Lista todas las páginas accesibles para el usuario, agrupadas por categoría y rol.
+     * Opcionalmente filtra por término de búsqueda (título, resumen, categoría, contenido o palabras clave).
      */
-    public function listarPorRol(User $user): array
+    public function listarPorRol(User $user, ?string $busqueda = null): array
     {
         $roles = $this->rolesPermitidos($user);
         $paginas = [];
+        $terminoNorm = $busqueda ? Str::ascii(mb_strtolower(trim($busqueda))) : null;
 
         foreach ($roles as $rol) {
             $dir = $this->basePath . DIRECTORY_SEPARATOR . $rol;
@@ -60,9 +62,30 @@ class ManualService
                 }
 
                 $datos = $this->leerArchivo($archivo->getPathname(), $rol);
-                if ($datos) {
-                    $paginas[] = $datos;
+                if (!$datos) {
+                    continue;
                 }
+
+                if ($terminoNorm) {
+                    $cuerpo = File::get($archivo->getPathname());
+                    $textoCompleto = $datos['titulo'] . ' ' . $datos['resumen'] . ' ' . $datos['categoria'] . ' ' . $datos['slug'] . ' ' . $cuerpo;
+                    $textoNorm = Str::ascii(mb_strtolower($textoCompleto));
+
+                    $palabras = array_filter(explode(' ', $terminoNorm));
+                    $coincide = true;
+                    foreach ($palabras as $p) {
+                        if (!str_contains($textoNorm, $p)) {
+                            $coincide = false;
+                            break;
+                        }
+                    }
+
+                    if (!$coincide) {
+                        continue;
+                    }
+                }
+
+                $paginas[] = $datos;
             }
         }
 
@@ -85,6 +108,7 @@ class ManualService
             'total'     => count($paginas),
             'paginas'   => $paginas,
             'agrupadas' => $agrupadas,
+            'busqueda'  => $busqueda,
         ];
     }
 

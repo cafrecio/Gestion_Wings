@@ -20,6 +20,7 @@
 
 @section('title', $fechaTexto . ' — ' . $clase->grupo->nombre . ' – Wings')
 @section('module-title', 'Clase — ' . $clase->grupo->nombre)
+@section('ayuda-slug', Auth::user()?->isProfesor() ? 'tomar-asistencia' : 'tomar-lista-mostrador')
 
 @section('content')
 

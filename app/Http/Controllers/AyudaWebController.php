@@ -13,16 +13,19 @@ class AyudaWebController extends Controller
 
     /**
      * Índice general de la ayuda según el rol del usuario conectado.
+     * Permite filtrar por término de búsqueda (GET /ayuda?q=...).
      */
     public function index(Request $request)
     {
         $user = $request->user();
-        $indice = $this->manualService->listarPorRol($user);
+        $busqueda = trim((string) $request->input('q', ''));
+        $indice = $this->manualService->listarPorRol($user, $busqueda ?: null);
 
         return view('ayuda.index', [
             'agrupadas' => $indice['agrupadas'],
             'total'     => $indice['total'],
             'paginas'   => $indice['paginas'],
+            'busqueda'  => $busqueda,
             'user'      => $user,
         ]);
     }

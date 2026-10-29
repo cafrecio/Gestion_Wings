@@ -2,6 +2,7 @@
 
 @section('title', 'Alumnos – Wings')
 @section('module-title', 'Alumnos')
+@section('ayuda-slug', 'buscar-alumnos')
 
 @section('content')
 

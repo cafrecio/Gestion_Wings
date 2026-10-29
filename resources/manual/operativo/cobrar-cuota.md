@@ -20,7 +20,7 @@ Esta tarea te explica cómo registrar el cobro de cuotas, matrícula de inscripc
 ## Pasos para cobrar
 
 ### Paso 1. Buscar al alumno
-1. Desde el menú lateral, entrá a **Caja** y tocá el botón **Cobrar** (o entrá por **Cobranza**). Se abre la pantalla **Cobrar cuota**.
+1. Desde el menú lateral, entrá a **Caja** y tocá el botón **Cobrar**. Se abre la pantalla **Cobrar cuota** (si estás en **Cobranza**, podés tocar directamente **Cobrar** en la tarjeta del alumno).
 2. Escribí el nombre, apellido o DNI en el buscador y tocá **Buscar** (o elegí al alumno en el listado).
 3. En la tarjeta del alumno, tocá el botón **Cobrar**.
 

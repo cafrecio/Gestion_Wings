@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot;:&quot;$&quot;}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="">
+    <title>Cobranza – Wings</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/apple-touch-icon.png">
+    <link rel="manifest" href="http://localhost/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+    
+    <aside class="ds-sidebar">
+
+        
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="file:///C:/xampp/htdocs/gestion-wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+        
+        <nav class="flex flex-col gap-0.5">
+            
+                
+                    
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://localhost/operativo"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Inicio
+                        </a>
+                    
+                    <a href="http://localhost/alumnos"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://localhost/clases"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://localhost/clases?estado=finalizada"
+                           class="ds-nav-sublink "
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">1</span>
+                        </a>
+                    
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://localhost/cobranza"
+                           class="ds-nav-link ds-nav-link--active">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://localhost/caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+                    
+                        <a href="http://localhost/movimientos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                    
+                    <a href="http://localhost/revision-cobranza"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+                    
+                        
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://localhost/grupos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Grupos
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+                        <a href="http://localhost/ayuda"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Ayuda
+                        </a>
+
+                    
+                                    </nav>
+
+    </aside>
+
+    
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+    
+    <div class="ds-main">
+
+        
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Sandra Operativa</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                                            <a href="http://localhost/ayuda/consultar-cobranza"
+                           class="ds-btn ds-btn--ghost ds-btn--icon"
+                           title="Ayuda sobre esta pantalla"
+                           aria-label="Ayuda sobre esta pantalla">
+                            <span style="font-weight:700; font-size:1.15rem; line-height:1; display:inline-block; transform:translateY(-1px);">?</span>
+                        </a>
+                                        <form method="POST" action="http://localhost/logout">
+                        <input type="hidden" name="_token" value="" autocomplete="off">                        <button class="ds-btn ds-btn--ghost"
+            type="submit"
+            >
+
+                    
+                            Salir
+                    
+    </button>
+
+                    </form>
+                </div>
+                    </div>
+
+        
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Cobranza</h1>
+    </div>
+</header>
+        
+        
+        <main class="ds-content">
+
+            
+            
+            
+
+
+<div class="money-kpis money-kpis--cobranza" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap:12px; margin-bottom:1rem;">
+    <div class="filtros-card" style="text-align:center; padding:1rem 0.5rem; border-top:3px solid var(--color-danger);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--color-danger); margin-bottom:4px;">Total adeudado</p>
+        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;"><span class="ds-money ds-money--total">$25,000.00</span></p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-text-muted);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Total activos</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-text);">4</p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-success);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-success); margin-bottom:4px;">Al día</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-success);">3</p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-info);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-info); margin-bottom:4px;">En plazo</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-info);">0</p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-warning);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-warning); margin-bottom:4px;">Morosos</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-warning);">1</p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-danger);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-danger); margin-bottom:4px;">Deudores</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-danger);">0</p>
+    </div>
+</div>
+
+
+<form method="GET" action="http://localhost/cobranza">
+    <div class="filtros-card mb-3">
+        <div class="filtros-row">
+            <select name="estado" class="filtros-control filtros-select">
+                <option value="DEUDORES" selected>Con deuda (Deudores y morosos)</option>
+                <option value="TODOS"    >Todos los estados</option>
+                <option value="AL_DIA"   >Al día</option>
+                <option value="EN_PLAZO" >En plazo</option>
+                <option value="MOROSO"   >Moroso</option>
+                <option value="DEUDOR"   >Deudor</option>
+            </select>
+
+            <select name="deporte_id" class="filtros-control filtros-select">
+                <option value="">Deporte</option>
+                                    <option value="2" >Fútbol Infantil</option>
+                                    <option value="1" >Patín Artístico</option>
+                            </select>
+
+            <select name="grupo_id" class="filtros-control filtros-select">
+                <option value="">Grupo</option>
+                                    <option value="3" >Fútbol Infantil — Inicial</option>
+                                    <option value="1" >Patín Artístico — Escuela Inicial</option>
+                                    <option value="2" >Patín Artístico — Inicial</option>
+                            </select>
+
+            <div class="filtros-actions">
+                <button class="ds-btn ds-btn--primary"
+            type="submit"
+            >
+
+                    
+                            Filtrar
+                    
+    </button>
+
+                            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="stats-bar mb-2">
+    <div class="stats-info">
+                    Mostrando <strong>1</strong> alumno con deuda de <strong>4</strong> alumnos activos (ordenado de deuda más antigua a más reciente)
+            </div>
+</div>
+
+<div class="alumno-card" style="padding:0; overflow-x:auto;">
+    <table class="tabla-acciones-movil" style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:860px;">
+        <colgroup>
+            <col style="width:180px;">
+            <col style="width:110px;">
+            <col style="width:140px;">
+            <col style="width:150px;">
+            <col class="col-importe" style="width:130px;">
+            <col style="width:100px;">
+            <col style="width:150px;">
+        </colgroup>
+        <thead>
+            <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Alumno</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deporte</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Grupo</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deuda desde</th>
+                <th style="padding:10px 14px; text-align:right; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deuda</th>
+                <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Estado</th>
+                <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                
+                <td style="padding:10px 14px; font-size:0.85rem; font-weight:600; color:var(--color-text);">
+                    Gómez, Martina
+                                            <div style="font-size:0.72rem; font-weight:400; color:var(--color-text-muted); margin-top:2px;">
+                            3415998877
+                        </div>
+                                                        </td>
+
+                
+                <td style="padding:10px 14px; font-size:0.8rem;">
+                                                                <div>
+                            <span style="font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px;
+                                         background:color-mix(in srgb, var(--color-sport-otro) 15%, transparent);
+                                         color:var(--color-sport-otro);">
+                                Patín Artístico
+                            </span>
+                        </div>
+                                    </td>
+
+                
+                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text);">
+                    Escuela Inicial
+                </td>
+
+                
+                <td style="padding:10px 14px;">
+                                                                    <div>
+                            <span style="font-size:0.8rem; font-weight:600; color:var(--color-danger);">Oct. 2026</span>
+                            <span style="font-size:0.72rem; color:var(--color-text-muted);">(1 cuota)</span>
+                        </div>
+                                                            </td>
+
+                
+                <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap; color:var(--color-danger);">
+                    <span class="ds-money ds-money--row">$25,000.00</span>
+                </td>
+
+                
+                <td style="padding:10px 14px; text-align:center;">
+                    <span style="font-size:0.7rem; font-weight:700; padding:3px 10px; border-radius:999px;
+                                 background:color-mix(in srgb, var(--color-warning) 15%, transparent);
+                                 color:var(--color-warning);">Moroso</span>
+                </td>
+
+                
+                <td style="padding:10px 14px; text-align:center;">
+                    <div style="display:inline-flex; gap:6px; justify-content:center;">
+                        <a href="http://localhost/caja/cobrar/1"
+                           class="ds-btn-row"
+                           style="width:64px; height:26px; font-size:0.72rem; background:var(--color-btn-primary); color:var(--color-surface); border:1px solid var(--color-btn-primary); text-decoration:none;">Cobrar</a>
+                        <a href="http://localhost/alumnos/1"
+                           class="ds-btn-row ds-btn-row--sec"
+                           style="width:64px; height:26px; font-size:0.72rem; text-decoration:none;">Ver</a>
+                    </div>
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+</div>
+
+<section data-deuda-inactivos style="margin-top:24px;">
+    <h2 class="text-lg font-semibold mb-2">Deuda de alumnos inactivos</h2>
+    <p class="text-sm mb-3" style="color:var(--color-text-muted);">Actual al 29/10/2026. Separada del por cobrar y de los totales de Inicio.</p>
+    <div class="stats-bar mb-3">
+        <div class="stats-info"><strong data-inactivos-cantidad>0</strong> alumnos</div>
+        <span class="ds-money ds-money--total" data-inactivos-total>$0.00</span>
+    </div>
+    <div data-inactivos-lista>
+        </div>
+    <p data-inactivos-vacio  class="text-sm" style="color:var(--color-text-muted);">Sin deuda de alumnos inactivos.</p>
+    <p data-inactivos-aviso role="status" class="text-sm" style="color:var(--color-text-muted);"></p>
+</section>
+
+        </main>
+
+        
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+<link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/deuda-inactivos-DydQbEaC.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js" /><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/deuda-inactivos-DydQbEaC.js"></script>
+</body>
+</html>

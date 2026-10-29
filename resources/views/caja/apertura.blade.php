@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Apertura de caja – Wings')
 @section('module-title', 'Apertura de caja')
+@section('ayuda-slug', 'abrir-caja')
 @php($title = 'Apertura de caja')
 
 @section('content')

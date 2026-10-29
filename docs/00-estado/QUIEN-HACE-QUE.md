@@ -47,6 +47,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A: control de Claude y OK de Carlos |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: guion de noviembre armado y simulado entero en una copia de wingstest: tanda 1 dias 24-28 (GUION-DIAS-24-28.md, prompt PROMPT-CODEX-DIAS-24-28.md) y tanda 2 dias 29-33 (se corre despues de revisar la 1). Cubre los 20 casos a repetir y los nuevos; deja preparada la Revision del 1/12 (Pilar Ramos, Alma Navarro, Facundo Rios, Valentina Suarez). Pendiente de Carlos para la tanda 2: prender o no el recargo por mora. |
 
 ## Codex
@@ -55,10 +57,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Gemini, verifica Claude) | Carlos 29/10: correccion de la etapa 1 aprobada; el resto en tres etapas (A operativa, B duenio 21-36, C duenio 37-49 y profesora) con freno, control de Claude y OK de Carlos despues de cada una. Prompt: PROMPT-GEMINI-T12-T13-ETAPAS.md |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Gemini, verifica Claude) | Carlos 29/10: correccion de la etapa 1 aprobada; el resto en tres etapas (A operativa, B duenio 21-36, C duenio 37-49 y profesora) con freno, control de Claude y OK de Carlos despues de cada una. Prompt: PROMPT-GEMINI-T12-T13-ETAPAS.md |
+Nada en este momento.
 
 ## Sin empezar (7)
 

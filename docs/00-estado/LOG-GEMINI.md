@@ -10,6 +10,28 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A completada (19 páginas operativas, buscador en /ayuda, botón [?] en 16 pantallas, 53 capturas y revisión independiente en 0)
+
+- **Objetivo:** Ejecutar la Etapa A del manual y ayuda en Wings: depuración de páginas contra el código real, redacción de las 19 páginas operativas (págs. 2 a 20), elaboración de 19 fichas de fuentes, desarrollo del buscador de ayuda en `/ayuda`, colocación del botón contextual `[?]` en las pantallas de la etapa, generación de capturas con huellas MD5 100% únicas, verificación automática y revisión independiente estricta bajo `REVISOR-MANUAL.md`.
+- **Acciones y resultados concretos:**
+  1. **Paso 0 - Depuración contra el código:** Auditoría de `T12-LISTA-DE-PAGINAS.md` y registro en `IMPLEMENTACION-T12-T13.md` retirando funciones inexistentes (baja vs inactivo, cupos/edades en grupos, adelantos en liquidaciones, exportación a Excel/CSV, colores en deportes y sedes en clases). Ajustadas las muestras con observaciones de Claude (botón Cobrar directo desde Cobranza y confirmación de fecha vieja en Cashflow).
+  2. **T13 Buscador de Ayuda:** Implementado en `ManualService` (`buscarGuias`), `AyudaWebController` y `resources/views/ayuda/index.blade.php`. Filtra por título, categoría, resumen y texto; restringe resultados al rol del usuario autenticado (operativo solo ve sus guías, admin ve todas).
+  3. **T13 Botón contextual `[?]`:** Incorporado mediante `@section('ayuda-slug', ...)` en las 16 vistas de la Etapa A (`alumnos/index`, `create`, `edit`, `show`; `caja/apertura`, `cierre`, `detalle`, `historial`, `movimiento`, `rectificar`; `cobranza/index`; `movimientos/index`; `clases/index`, `show`; `revision-cobranza/index`; `grupos/index`). En pantallas sin guía o sin permisos el botón no se muestra.
+  4. **19 Páginas operativas y fichas de fuentes:** Redactadas en `resources/manual/operativo/` (págs. 2 a 20) y contrastadas en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-<slug>.md`. Cada paso y cada «Qué hago si…» fue ejecutado en entorno local sobre datos sintéticos con sesión auténtica de **Sandra Operativa**.
+  5. **Capturas de pantalla reales (53 pasos + 20 de T13):** Tomadas con Chrome headless (`capturar-etapa-a.mjs`) a 1366 px y dentro de marco iframe a 375 px. Verificación de unicidad MD5 global estricta: 0 duplicados en todo el manual. Servidas vía ruta autenticada `/ayuda/img/{rol}/{archivo}`. Galería completa en `docs/06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-A.html`.
+  6. **Revisión independiente (`REVISOR-MANUAL.md`):** Ejecutada por subagente revisor independiente. Informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-29-etapa-a.md`. Subsanados de inmediato los 5 hallazgos reportados (1 Grave en toma de lista por omisión del botón Guardar, 3 Medias en nombres de botones y selectores, 1 Menor en autocompletado) y los 3 casos borde sugeridos (clase cancelada, caja de día anterior y notas de fuentes). **Estado final de cierre: 0 hallazgos graves, 0 medios, 0 menores abiertos**.
+  7. **Controles y Suite:**
+     - `php scripts/manual/verificar-manual.php` &rarr; **22 páginas revisadas, 0 problemas**.
+     - `php -l` sin errores sintácticos en ningún archivo.
+     - `php artisan view:cache; php artisan view:clear` &rarr; Vistas Blade compilan limpias.
+     - `tests/Feature/AyudaManualT12T13Test`: 19 pasadas (93 aserciones).
+     - `tests/Feature/CspSinCodigoIncrustadoTest`: 2 pasadas en verde (0 bloques, 0 manejadores).
+     - `tests/Feature/DocumentacionNoMienteTest`: 1 pasada en verde (1282 pruebas declaradas en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`).
+     - Suite rápida en `wings_testing_gemini`: 1140 pasadas, 6 omitidas, 0 fallidas (283 s).
+     - Diff visual acotado a las vistas autorizadas para la ayuda (`git diff --stat -- resources/views resources/css`).
+- **Tablero:** T12 y T13 actualizadas a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Etapa A: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control independiente de Claude y la aprobación de Carlos antes de iniciar la Etapa B.
+
 ## 2026-10-28 — LOG GEM CAB — T12 y T13: Corrección de Etapa 1 y método obligatorio aplicado (3 muestras, fichas de fuentes y revisión independiente)
 
 - **Objetivo:** Aplicar el método obligatorio y riguroso para las páginas del manual: ejecutar cada paso en local antes de redactar, eliminar textos improvisados o supuestos, incorporar la muestra 3 del profesor, confeccionar las fichas de fuentes con trazabilidad a código real, documentar el hueco de reversión de cobros en caja validada y someter la entrega a revisión independiente bajo `REVISOR-MANUAL.md`.

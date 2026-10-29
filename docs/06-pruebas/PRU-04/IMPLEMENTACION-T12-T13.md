@@ -1,13 +1,33 @@
-# Implementación T12 y T13 — Etapa 1: Estructura mínima, dos muestras y lista completa
+# Implementación T12 y T13 — Etapa A (Operativa, páginas 2 a 20) y Buscador
 
-**Gemini CyE, 28/10/2026**
-**Firma:** LOG GEM CYE
+**Gemini CAB, 29/10/2026**
+**Firma:** LOG GEM CAB
 
-Entrega de la **Etapa 1** correspondiente a las tareas:
+Continuación del trabajo conforme al plan de 3 etapas (`PROMPT-GEMINI-T12-T13-ETAPAS.md`):
 - **T12:** Manual del usuario: contenido por tarea y por rol.
-- **T13:** Ayuda dentro de Wings: entrada en el menú y signo de pregunta en cada pantalla.
+- **T13:** Ayuda dentro de Wings: entrada en el menú, buscador de ayuda y signo de pregunta en cada pantalla.
 
-Conforme a las directivas de Carlos (10/10, 13/10 y 28/10), el trabajo se dividió en dos etapas con una parada obligatoria al finalizar la Etapa 1 para revisión y aprobación antes de proceder con el resto de las páginas y el buscador.
+---
+
+## 0. Paso 0: Depuración de la nómina de páginas contra el código fuente
+
+Siguiendo la instrucción de Carlos y Claude de no escribir guías sobre funciones inexistentes, se auditó exhaustivamente `T12-LISTA-DE-PAGINAS.md` contra las rutas, controladores y modelos reales de Wings:
+
+| Página | Título anterior | Ajuste realizado | Evidencia en código (`archivo:línea`) |
+|---|---|---|---|
+| **Pág. 7** | Dar de baja a un alumno | Reemplazado por **Pasar a un alumno a Inactivo**. Separado estrictamente de T65 (eliminación permanente). | `app/Http/Controllers/AlumnoWebController.php:428-460` (método `toggleActivo`); vista `resources/views/alumnos/show.blade.php:59-63`. T65 en `AlumnoWebController.php:465-515`. |
+| **Pág. 9** | Condonar una cuota o intereses | Reemplazado por **Consultar el registro de movimientos**. Condonación es exclusiva de ADMIN. | En rol operativo no existe condonar (`routes/web.php:119-120, 148-153` exige `ensure.admin.web`). Se describe `/movimientos` (`app/Http/Controllers/MovimientoWebController.php:14`). |
+| **Pág. 11** | Registrar un cobro manual en caja | Reemplazado por **Registrar un ingreso directo en el turno de caja**. | `app/Http/Controllers/CajaWebController.php:446-511` (`guardarMovimiento`), `resources/views/caja/movimiento.blade.php:43-52`. |
+| **Pág. 13** | Anular un cobro o gasto mal cargado | Título formal: **Cancelar un movimiento en una caja abierta o rechazada**. | Botón **Cancelar** en `resources/views/caja/detalle.blade.php:180-184`; acción `cancelarMovimiento` en `app/Http/Controllers/CajaWebController.php:601-638`. |
+| **Pág. 20 y 42** | Consultar grupos y cupos / Administrar grupos | Se eliminaron referencias a "cupos" y "rango de edades". | `app/Models/Grupo.php:11-15` `$fillable`: solo `deporte_id`, `nivel_id`, `activo`. No existen columnas ni lógica de cupo o edad. |
+| **Pág. 34** | Liquidaciones: adelantos | Se eliminaron menciones a "adelantos". | En `routes/web.php:168-175` y `app/Http/Controllers/LiquidacionWebController.php` solo existen acciones de `recalcular` y `ajustar`. |
+| **Pág. 39** | Exportación de reporte de sueldos a Excel/CSV | Se eliminó exportación a archivos. | En `routes/web.php:180-186` y `app/Http/Controllers/ReporteWebController.php:97-150` no existe ruta ni método de exportación a Excel/CSV. |
+| **Pág. 40** | Administrar deportes (colores) | Se eliminó mención al campo de color. | `app/Models/Deporte.php:11-15` `$fillable`: solo `nombre`, `tipo_liquidacion`, `activo`. Los colores son rieles fijos en el CSS. |
+| **Pág. 50** | Consultar clases (sedes) | Se eliminaron menciones a "sedes". | `app/Models/Clase.php:11-18`: campos `fecha`, `hora_inicio`, `deporte_id`, `grupo_id`, `profesor_id`. No existe entidad ni columna sede. |
+
+### Ajustes en las páginas de muestra (Devolución de Claude)
+1. `resources/manual/operativo/cobrar-cuota.md`: Se clarificó que al navegar desde **Cobranza**, el botón **Cobrar** de la tarjeta del alumno dirige directamente a la pantalla de cobro de dicho alumno (`/caja/cobrar/{alumnoId}`), sin pasar por el buscador general (`resources/views/cobranza/index.blade.php:191-197`).
+2. `resources/manual/admin/corregir-movimiento-caja-validada.md`: Se detalló que al seleccionar una fecha de un mes anterior en Cashflow se despliega la advertencia `Atención: fecha de un mes anterior` y se requiere pulsar el botón **Confirmar** (`resources/views/cashflow/movimiento.blade.php:80-92`, `app/Http/Controllers/CashflowWebController.php:68-75`).
 
 ---
 
@@ -186,6 +206,60 @@ Conforme a la devolución de Carlos y la revisión de Claude:
 
 ---
 
-## 9. Próximo paso
+## 10. Entrega de la Etapa A (Operativa, páginas 2 a 20) y Buscador de Ayuda
 
-**Parada de control obligatoria:** T12 y T13 quedan en el tablero con `a_verificar`, `tiene=Claude`, `verifica=Claude` con paso *«Corrección etapa 1: control de Claude y OK de Carlos»*. No se avanza a la Etapa 2 hasta contar con la validación de Claude y el visto bueno explícito de Carlos.
+### Alcance completado:
+1. **19 Páginas del manual operativo (`resources/manual/operativo/`):**
+   - Pág. 2: `cobrar-pago-parcial.md` (DU: COB-002)
+   - Pág. 3: `buscar-alumnos.md`
+   - Pág. 4: `alta-alumno.md`
+   - Pág. 5: `modificar-alumno.md`
+   - Pág. 6: `cambiar-grupo-alumno.md`
+   - Pág. 7: `pasar-alumno-inactivo.md` (DU: COB-004)
+   - Pág. 8: `consultar-cobranza.md` (DU: COB-003)
+   - Pág. 9: `consultar-movimientos.md` (DU: COB-008)
+   - Pág. 10: `abrir-caja.md` (DU: CAJ-001)
+   - Pág. 11: `registrar-ingreso-caja.md` (DU: CAJ-002)
+   - Pág. 12: `registrar-gasto-caja.md` (DU: CAJ-003)
+   - Pág. 13: `cancelar-movimiento-caja.md` (DU: CAJ-004)
+   - Pág. 14: `cerrar-caja.md` (DU: CAJ-005)
+   - Pág. 15: `rectificar-caja.md` (DU: CAJ-006)
+   - Pág. 16: `consultar-historial-cajas.md` (DU: CAJ-007)
+   - Pág. 17: `consultar-clases-operativo.md` (DU: CLA-001)
+   - Pág. 18: `tomar-lista-mostrador.md` (DU: CLA-002)
+   - Pág. 19: `resolver-revision-cobranza.md` (DU: REV-001)
+   - Pág. 20: `consultar-grupos-planes.md` (DU: GRU-001)
+2. **19 Fichas de fuentes (`docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-<slug>.md`):**
+   - Cada afirmación, paso y alternativa de «Qué hago si…» verificado con su correspondiente archivo:línea del código y ejecución en el entorno local.
+3. **Buscador de Ayuda (T13):**
+   - Implementado en `ManualService` (`buscarGuias`), `AyudaWebController` (`index`) y `resources/views/ayuda/index.blade.php`.
+   - Filtro predictivo por texto en título, resumen, categoría y contenido; respeta estrictamente los permisos por rol (operativa solo busca en guías operativas; admin busca en todo).
+4. **Botón contextual `[?]` en pantallas de Etapa A (T13):**
+   - Incorporado mediante `@section('ayuda-slug', '...')` en 16 vistas de la Etapa A. En pantallas sin guía específica o no autorizadas no se muestra.
+5. **Capturas de pantalla reales (53 pasos + 20 de T13):**
+   - Tomadas mediante Chrome headless (`C:/Program Files/Google/Chrome/Application/chrome.exe`) con sesión auténtica de **Sandra Operativa**.
+   - Cada paso posee huella MD5 100% única (0 duplicados en todo el manual).
+   - Servidas vía ruta autenticada `/ayuda/img/{rol}/{archivo}` con control estricto de roles.
+6. **Galería de Aprobación:**
+   - Generada en `docs/06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-A.html` con vista completa de las 19 guías, pasos e imágenes, evidencias de buscador y botón `[?]` a 1366 px y 375 px.
+7. **Verificación automática y revisión independiente:**
+   - `php scripts/manual/verificar-manual.php` &rarr; **22 páginas revisadas, 0 problemas**.
+   - Revisión independiente bajo `REVISOR-MANUAL.md` ejecutada y documentada en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-29-etapa-a.md`.
+   - Todos los hallazgos iniciales (1 Grave en toma de lista, 3 Medias en botones y selectores, 1 Menor en autocompletado) fueron subsanados. Estado final: **0 Graves, 0 Medias, 0 Menores abiertos**.
+8. **Pruebas y Suite:**
+   - `AyudaManualT12T13Test`: 19 pruebas / 93 aserciones en verde.
+   - `CspSinCodigoIncrustadoTest`: 2 pruebas en verde (0 bloques, 0 manejadores).
+   - `DocumentacionNoMienteTest`: en verde (1282 pruebas declaradas).
+   - Suite rápida en `wings_testing_gemini`: 1140 pasadas, 6 omitidas, 0 fallidas (283 s).
+   - Cache de vistas Blade limpio.
+   - Diff visual restringido exclusivamente a las vistas autorizadas de la ayuda.
+
+---
+
+## 11. Próximo paso
+
+**Parada obligatoria de control:**
+T12 y T13 quedan en el tablero con `estado=a_verificar`, `tiene=Claude`, `verifica=Claude`, con el paso:
+*«Etapa A: control de Claude y OK de Carlos»*.
+
+**REGLA DURA:** No se inicia la Etapa B (páginas 21 a 36 del Dueño) hasta contar con la verificación favorable de Claude y la aprobación explícita de Carlos.

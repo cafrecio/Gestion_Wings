@@ -11,9 +11,53 @@
         </p>
     </div>
 
+    {{-- Buscador de ayuda --}}
+    <form method="GET" action="{{ route('web.ayuda.index') }}" class="mb-4">
+        <div class="filtros-card">
+            <div class="filtros-row">
+                <div class="search-input-group">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/>
+                    </svg>
+                    <input type="text"
+                           name="q"
+                           value="{{ $busqueda ?? '' }}"
+                           placeholder="Buscar por tarea, tema o palabra clave..."
+                           class="filtros-control"
+                           autocomplete="off">
+                </div>
+                <div class="filtros-actions">
+                    <button type="submit" class="ds-btn ds-btn--primary">Buscar</button>
+                    @if(!empty($busqueda))
+                        <x-ds.button variant="secondary" href="{{ route('web.ayuda.index') }}">Limpiar</x-ds.button>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </form>
+
+    @if(!empty($busqueda))
+        <div class="stats-bar mb-3">
+            <div class="stats-info">
+                @if($total > 0)
+                    Mostrando <strong>{{ $total }}</strong> {{ $total === 1 ? 'guía encontrada' : 'guías encontradas' }} para «{{ $busqueda }}»
+                @else
+                    <strong>0</strong> guías encontradas para «{{ $busqueda }}»
+                @endif
+            </div>
+        </div>
+    @endif
+
     @if(empty($agrupadas))
         <div class="empty-state" style="padding: 2.5rem 0; text-align: center;">
-            <p style="color: var(--color-text-muted); font-size: 0.95rem;">No hay guías disponibles para tu rol actualmente.</p>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+                @if(!empty($busqueda))
+                    No se encontraron guías que coincidan con «{{ $busqueda }}». Probá con otra palabra o limpiá la búsqueda.
+                @else
+                    No hay guías disponibles para tu rol actualmente.
+                @endif
+            </p>
         </div>
     @else
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">

@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Alumno – Wings')
 @section('module-title', 'Nuevo Alumno')
+@section('ayuda-slug', 'alta-alumno')
 
 @section('content')
 @include('alumnos._errores')
