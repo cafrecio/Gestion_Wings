@@ -4,18 +4,16 @@
 - **Rol:** Operativo
 - **Pantalla:** `/caja/apertura`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Regla de control** | Contar efectivo real antes de abrir; el fondo de cambio recibido no es ingreso del club. | `resources/views/caja/apertura.blade.php:30`<br>`app/Services/CajaService.php` | Comprobado: texto explicativo visible en la cabecera del formulario de apertura. |
-| **Paso 1: Ingresar a Caja** | En menú lateral hacer clic en **Caja**. Muestra **Apertura de caja**, **Medio** (Efectivo) y **Último cierre**. | `resources/views/layouts/ds-app.blade.php:101`<br>`resources/views/caja/apertura.blade.php:3, 32, 33` | Comprobado: acceso sin turno abierto redirige a la vista de apertura. |
-| **Paso 2: Efectivo y confirmar** | Ingresar **Efectivo recibido**, **Motivo si recibiste otro importe** opcional, casilla **Confirmo que conté y recibí este efectivo.** y botón **Abrir**. | `resources/views/caja/apertura.blade.php:54, 61, 82, 86`<br>`app/Http/Controllers/CajaWebController.php:120-150` | Comprobado: formulario procesa apertura, crea caja con estado `ABIERTA` y redirige al panel. |
-| **Qué hago si: turno previo** | Si hay turno previo abierto, Wings indica «Debe cerrarse antes de abrir el siguiente.»; debe cerrarse antes de continuar. | `resources/views/caja/apertura.blade.php:15`<br>`app/Services/CajaService.php:260` | Comprobado: bloqueo operativo estricto si hay caja abierta pendiente. |
-| **Qué hago si: diferencia grande** | Si difiere > 50% del cierre previo, muestra advertencia y exige tildar **Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.**. | `resources/views/caja/apertura.blade.php:66-77` | Comprobado: validación condicional se activa ante discrepancias significativas de monto. |
-| **Qué hago si: corregir apertura** | Si se cometió error de tipeo en apertura, se utiliza la pantalla de rectificación de apertura (`/caja/{id}/rectificar`). | `resources/views/caja/rectificar.blade.php`<br>`app/Http/Controllers/CajaWebController.php:360` | Comprobado: botón **Rectificar** permite ajustar el saldo inicial con motivo. |
-| **Qué hago si: caja día anterior** | Si quedó caja abierta de día previo, bloquea con «Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.» y exige cerrarla con botón **Cerrar**. | `app/Services/CajaService.php:271`<br>`resources/views/caja/cierre.blade.php` | Comprobado: excepción bloquea operaciones hasta completar el arqueo de la caja vieja. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Turno abierto previo** | Wings solo permite un turno abierto por vez. Si existe un turno abierto anterior, muestra: «Debe cerrarse antes de abrir el siguiente.». | `resources/views/caja/apertura.blade.php:15-22`<br>`app/Services/CajaService.php:95` | `if ($turnoAbierto)`<br>`if (CajaOperativa::where('estado', 'ABIERTA')->lockForUpdate()->exists())` | En pantalla muestra: `Hay un turno abierto de <usuario>. Debe cerrarse antes de abrir el siguiente.`, ocultando el formulario de apertura. Si se fuerza el envío POST, rechaza con: `Hay un turno abierto. Cerralo antes de abrir otro.`. |
+| **Paso 1: Pantalla Apertura** | En menú lateral hacer clic en **Caja**. Muestra **Medio** (Efectivo) y **Último cierre**. | `resources/views/caja/apertura.blade.php:32-34`<br>`app/Services/CajaService.php:65` | `public function propuestaApertura(): array` | Sugiere como saldo inicial el cambio retenido declarado en el último cierre del cajón. |
+| **Paso 2: Efectivo y confirmación obligatoria** | Ingresar **Efectivo recibido**, marcar casilla obligatoria **Confirmo que conté y recibí este efectivo.** y tocar **Abrir**. | `resources/views/caja/apertura.blade.php:60, 85`<br>`app/Services/CajaService.php:80` | `'confirmacion' => 'required\|accepted'` | Si no se marca la casilla de confirmación, Wings bloquea la apertura con el error de validación correspondiente. |
+| **Diferencia mayor al 50%** | Si difiere más del 50% del cierre previo, exige tildar **Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.**. | `resources/views/caja/apertura.blade.php:65-75`<br>`app/Services/CajaService.php:83` | `if ($diferenciaGrande && !$request->boolean('confirmar_diferencia_grande'))` | La pantalla despliega la alerta en amarillo y el botón **Abrir** se deshabilita hasta tildar la confirmación expresa de la diferencia. |
+| **Qué hago si: rectificar apertura** | Si se cometió error de tipeo en el efectivo recibido y la caja sigue abierta, se usa la opción **Rectificar**. | `CajaWebController.php:102, 113`<br>`CajaService.php:161` | `if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA)` | La rectificación es válida exclusivamente mientras la caja está `ABIERTA`. Con caja rechazada, cerrada o validada no se puede rectificar la apertura. |

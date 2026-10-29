@@ -4,16 +4,16 @@
 - **Rol:** Operativo
 - **Pantalla:** `/movimientos`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Paso 1: Módulo Movimientos** | En menú lateral hacer clic en **Movimientos**. Muestra filtros de fecha y listado cronológico de operaciones. | `resources/views/layouts/ds-app.blade.php:110`<br>`resources/views/movimientos/index.blade.php:12` | Comprobado: acceso a `/movimientos` lista últimos cobros y egresos registrados. |
-| **Paso 2: Filtrar** | Campos **Desde**, **Hasta**, selector **Tipo** (**Ingreso** / **Egreso**), **Medio**. Botones **Filtrar** y **Limpiar**. | `resources/views/movimientos/index.blade.php:15, 23, 31, 33, 53, 56`<br>`app/Http/Controllers/MovimientoWebController.php:20-45` | Comprobado: formulario GET filtra por rango temporal y atributos contables. |
-| **Paso 3: Auditar** | Columnas: fecha y hora, tipo con badge, concepto o alumno, medio e importe. | `resources/views/movimientos/index.blade.php:90-130` | Comprobado: tabla detalla montos, recibos y conceptos con formato monetario canónico. |
-| **Qué hago si: modificar** | Es un log inmutable de auditoría. Cancelaciones se efectúan en la caja abierta/rechazada correspondiente. | `app/Http/Controllers/MovimientoWebController.php`<br>`app/Http/Controllers/CajaWebController.php:601` | Comprobado: la pantalla no tiene acciones de edición directa sobre los registros. |
-| **Qué hago si: no veo bancos** | Filtro en **Medio** acota a esa cuenta; botón **Limpiar** muestra todas las operaciones. | `resources/views/movimientos/index.blade.php:56` | Comprobado: botón **Limpiar** remueve filtros de medio. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Control de acceso y rol** | Disponible para Operativo y Admin. | `routes/web.php:74`<br>`docs/02-contratos/PERMISOS-ROLES.md` | `Route::get('/movimientos', [MovimientoWebController::class, 'index'])->name('web.movimientos.index');` | Si un usuario con rol `PROFESOR` intenta ingresar a `/movimientos`, recibe error `HTTP 403 Forbidden`. |
+| **Paso 1: Libro cronológico** | Muestra el registro ordenado cronológicamente de operaciones monetarias. | `resources/views/movimientos/index.blade.php:20, 60`<br>`app/Http/Controllers/MovimientoWebController.php:25` | `MovimientoOperativo::with(['subrubro', 'tipoCaja'])->orderByDesc('fecha')->orderByDesc('id')` | Exhibe la lista paginada de cobros, ingresos y egresos con su fecha, hora, tipo e importe. |
+| **Paso 2: Filtros** | Filtros por rango de fechas (**Desde** / **Hasta**), **Tipo** (**Ingreso** / **Egreso**) y **Medio**. Botones **Filtrar** y **Limpiar**. | `resources/views/movimientos/index.blade.php:25-45`<br>`app/Http/Controllers/MovimientoWebController.php:30-45` | `if ($request->filled('tipo')) { $query->where('tipo', ...); }`<br>`if ($request->filled('tipo_caja_id')) { ... }` | Al aplicar filtros sin resultados coincidentes, la grilla se vacía informando 0 movimientos. Al presionar **Limpiar**, restablece el filtro. |
+| **Paso 3: Datos de auditoría** | Tabla indica fecha/hora, Ingreso/Egreso, concepto/alumno, medio de pago e importe. | `resources/views/movimientos/index.blade.php:75-95` | `<td>{{ $m->fecha->format('d/m/Y') }}</td>` | Muestra los valores exactos registrados en la auditoría contable. |
+| **Inmutabilidad del registro** | El listado de movimientos es un log inmutable de auditoría: no posee botones de edición o cancelación directa. | `resources/views/movimientos/index.blade.php:70-110` | Vista no define formularios de edición ni eliminación directa. | Las correcciones de cobros o gastos se gestionan exclusivamente en el turno de caja abierto o rechazado correspondiente (`/caja/{id}/detalle`). |

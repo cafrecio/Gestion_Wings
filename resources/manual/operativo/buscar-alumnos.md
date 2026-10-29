@@ -54,4 +54,4 @@ Verificá que no te haya quedado un filtro previo aplicado en **Deporte** o **Gr
 En la tarjeta de cada alumno tenés los botones de acción directa:
 - Tocá el nombre del alumno o el botón **Ver** para ingresar a su legajo y ver deudas, pagos y asistencias.
 - Tocá el botón **Editar** si necesitás actualizar teléfonos o datos de contacto.
-- En el módulo **Cobranza**, cada tarjeta cuenta además con el botón directo **Cobrar**.
+- Tocá el botón **Cobrar** para ir directamente a la pantalla de cobro del alumno (disponible tanto en Alumnos como en Cobranza).

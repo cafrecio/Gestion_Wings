@@ -24,9 +24,9 @@ Las operativas acceden a las guías de atención, cobranzas, manejo de caja diar
 10. **Abrir el turno de caja**: Carga del saldo en Efectivo recibido y confirmación obligatoria al comenzar la jornada.
 11. **Registrar un ingreso directo en caja**: Carga de entradas de dinero al turno (venta de indumentaria, cantina, eventos) en Movimiento de caja.
 12. **Registrar un gasto menor o salida del cajón [DU-20]**: Cómo registrar salidas de efectivo para compras menores o cuando el dueño retira dinero del mostrador (asentado siempre por la operativa).
-13. **Cancelar un movimiento de caja**: Cancelación con motivo obligatorio de un cobro o gasto erróneo en Detalle de caja abierta o rechazada.
+13. **Cancelar un cobro de cuota en caja**: Cancelación con motivo obligatorio de un cobro de cuota en Detalle de caja abierta o rechazada.
 14. **Cerrar el turno de caja y hacer el arqueo**: Conteo de Efectivo contado, cambio retenido y pase al estado Cerrada.
-15. **Rectificar un cierre de caja observado**: Cómo corregir movimientos o arqueo cuando el dueño rechaza el cierre con una observación.
+15. **Rectificar la apertura de caja**: Cómo corregir el saldo inicial en Efectivo recibido si la caja está abierta y se cometió un error al abrir el turno.
 16. **Consultar el detalle e historial de cajas**: Revisión del arqueo de la caja activa y consulta de turnos cerrados anteriores en Historial.
 
 ### Día a día: Clases, Asistencia y Catálogo

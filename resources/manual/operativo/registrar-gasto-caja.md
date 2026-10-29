@@ -21,7 +21,7 @@ Esta tarea te explica cómo asentar cualquier salida física de billetes del caj
 
 ### Paso 1. Ingresar a Nuevo movimiento
 1. En el menú lateral, hacé clic en **Caja**.
-2. En la botonera del turno abierto, tocá el botón **Movimiento**.
+2. En la botonera del turno abierto, tocá el botón **Nuevo**.
 3. Se abre la pantalla **Nuevo movimiento**.
 
 ![Pantalla de Nuevo movimiento](/ayuda/img/operativo/registrar-gasto-caja-paso1.png)
@@ -54,4 +54,4 @@ Esta tarea te explica cómo asentar cualquier salida física de billetes del caj
 Guardá todos los comprobantes físicos dentro del cajón de la caja. Cuando cierres tu turno al final del día, los comprobantes respaldarán los egresos cargados y permitirán al dueño auditar las compras al validar el turno.
 
 ### ¿Qué hago si me equivoqué y cargué un egreso de más?
-Si tu turno de caja sigue abierto (o en estado rechazada), entrá a **Detalle** de la caja, buscá el egreso en la lista y tocá el botón **Cancelar** ingresando el motivo de anulación. El dinero se restituye de inmediato al saldo de tu caja. Si la caja ya fue validada, avisale al dueño para realizar el ajuste en Cashflow (DU-27).
+Si tu turno de caja sigue abierto (o en estado rechazada), entrá a **Detalle** de la caja: en la fila del egreso tocá el botón **Eliminar** (o **Editar** si solo necesitás corregir el monto o concepto) y confirmá el aviso. El importe se restituye de inmediato al saldo de tu caja. Si la caja ya fue validada, avisale al dueño para realizar el ajuste en Cashflow (DU-27).

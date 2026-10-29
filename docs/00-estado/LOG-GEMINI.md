@@ -10,6 +10,36 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A corregida y auditada contra el código de Wings (54 condiciones `if` verificadas, 20 fichas de fuentes con caminos prohibidos ejecutados, 18 pruebas automáticas y revisión independiente en 0)
+
+- **Objetivo:** Subsanar los hallazgos de Claude (`VERIFICACION-T12-T13-ETAPA-A-CLAUDE.md`) en la Etapa A del manual (páginas 2 a 20), auditar exhaustivamente cada condición de estado, rol y fecha de las 20 páginas contra los `if` reales de controladores y servicios, ejecutar los caminos prohibidos en el sistema documentando el resultado real en las fichas, crear suite automatizada de caminos prohibidos y someter la entrega a re-revisión independiente.
+- **Acciones y resultados concretos:**
+  1. **Corrección de hallazgos señalados por Claude:**
+     - `rectificar-caja.md` (Grave): Rectificación limitada exclusivamente a caja `ABIERTA` (`CajaWebController.php:102, 113`, `CajaService.php:161`). Eliminadas referencias a cajas rechazadas o alertas de observación. Explicado el flujo real ante caja `RECHAZADA`: ver motivo del dueño (`caja/resumen.blade.php:47`), corregir/cancelar cobros o agregar movimientos faltantes, y pulsar **Cerrar** (`resumen.blade.php:65`) sin alterar el efectivo contado de la entrega original (`CajaService.php:375-378`).
+     - `tomar-lista-mostrador.md` (Media): Motivo obligatorio acotado a alumno `DEUDOR` o nuevo sin cuotas pagas y con 2+ asistencias (`ExcepcionCobranzaService.php:40-48`). Removida frase «excede los días de su plan» y colocados los dos mensajes literales de Wings. Agregado caso de clases que integran liquidación cerrada (`$clase->integraLiquidacionCerrada()`).
+     - `pasar-alumno-inactivo.md` (Menor): Agregado el caso donde el cobro incluye el mes actual o futuro (no se ofrece «No», solo Sí y Cancelar, `CajaWebController.php:938-952`). Eliminadas referencias a «dar de baja temporal o definitiva» y códigos de tareas internas.
+     - Ajustes generales adicionales: en `abrir-caja.md`, `registrar-ingreso-caja.md`, `registrar-gasto-caja.md`, `cancelar-movimiento-caja.md`, `buscar-alumnos.md`, `cobrar-pago-parcial.md` y `T12-LISTA-DE-PAGINAS.md`.
+  2. **Auditoría de 54 condiciones `if` y ejecución de caminos prohibidos:**
+     - Se auditaron las 20 páginas y se actualizaron las 20 fichas en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-*.md` con dos nuevas columnas: `Condición en el código (if)` y `Qué pasó al ejecutar el camino prohibido en el sistema`.
+     - Cada camino prohibido fue ejecutado en el sistema real, registrando el mensaje literal devuelto o el botón deshabilitado/oculto.
+     - Trazabilidad y detalle completo documentados en la Sección 11 de `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md`.
+  3. **Suite automatizada de verificación de caminos prohibidos:**
+     - Creada `tests/Feature/VerificarCaminosProhibidosManualTest.php` con 18 pruebas y 45 aserciones que ejecutan y validan en código los caminos prohibidos de los 20 temas operativos contra MariaDB en `wings_testing_gemini`: **18 pasadas (45 aserciones) en 28.44 s**.
+  4. **Re-revisión independiente (`REVISOR-MANUAL.md`):**
+     - Subagente revisor independiente ejecutó auditoría completa de las 20 páginas y fichas de fuentes contra la regla 6 ampliada.
+     - Informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-29-etapa-a-re-revision.md`.
+     - Subsanados los 4 hallazgos Medios y 2 Menores iniciales (precisión en mensajes de error y etiquetas UI). **Estado final: 0 Graves, 0 Medias, 0 Menores abiertas**.
+  5. **Controles y Verificaciones:**
+     - `php scripts/manual/verificar-manual.php` &rarr; **22 páginas revisadas, 0 problemas**.
+     - `php -l tests/Feature/VerificarCaminosProhibidosManualTest.php` &rarr; Sin errores sintácticos.
+     - `tests/Feature/DocumentacionNoMienteTest` &rarr; Verde (1300 pruebas declaradas en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`).
+     - `tests/Feature/TableroAlDiaTest` &rarr; 6 pasadas en verde.
+     - `php artisan view:cache; php artisan view:clear` &rarr; Vistas compilan limpias.
+     - `git diff --stat -- resources/views resources/css` &rarr; Vacío.
+     - Suite rápida en `wings_testing_gemini`: **1158 pasadas, 6 omitidas, 0 fallidas (282.54 s)**.
+- **Tablero:** T12 y T13 actualizadas con `tablero.php` a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Etapa A corregida: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control independiente de Claude y la aprobación de Carlos antes de iniciar la Etapa B.
+
 ## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A completada (19 páginas operativas, buscador en /ayuda, botón [?] en 16 pantallas, 53 capturas y revisión independiente en 0)
 
 - **Objetivo:** Ejecutar la Etapa A del manual y ayuda en Wings: depuración de páginas contra el código real, redacción de las 19 páginas operativas (págs. 2 a 20), elaboración de 19 fichas de fuentes, desarrollo del buscador de ayuda en `/ayuda`, colocación del botón contextual `[?]` en las pantallas de la etapa, generación de capturas con huellas MD5 100% únicas, verificación automática y revisión independiente estricta bajo `REVISOR-MANUAL.md`.

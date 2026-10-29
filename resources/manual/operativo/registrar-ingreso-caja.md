@@ -21,7 +21,7 @@ Esta tarea te explica cómo asentar en el turno de caja un cobro o ingreso direc
 
 ### Paso 1. Abrir el formulario de nuevo movimiento
 1. En el menú lateral, hacé clic en **Caja**.
-2. En la botonera de acciones del turno abierto, tocá el botón **Movimiento** (o **Nuevo movimiento**).
+2. En la botonera de acciones del turno abierto, tocá el botón **Nuevo**.
 3. Se abre el formulario **Nuevo movimiento**.
 
 ![Botón Movimiento en Caja](/ayuda/img/operativo/registrar-ingreso-caja-paso1.png)
@@ -51,7 +51,7 @@ Esta tarea te explica cómo asentar en el turno de caja un cobro o ingreso direc
 ## Qué hago si…
 
 ### ¿Qué hago si cobré una cuota por acá por error?
-Este formulario no desvincula ni cancela deudas de alumnos: solo suma dinero a la caja. Si tu caja sigue abierta (o rechazada), entrá a **Detalle** de la caja, tocá **Cancelar** sobre este ingreso e ingresá el motivo. Luego cobrá la cuota por el camino correcto a través de **Cobrar**.
+Este formulario no desvincula ni cancela deudas de alumnos: solo suma dinero a la caja. Si tu caja sigue abierta (o rechazada), entrá a **Detalle** de la caja y tocá **Eliminar** en la fila de este ingreso. Luego cobrá la cuota por el camino correcto a través de **Cobrar** para que impacte en la cuenta corriente del alumno.
 
 ### ¿Qué hago si me equivoqué de rubro o de importe?
-Si la caja sigue abierta, cancelá el movimiento desde el **Detalle** de la caja con motivo obligatorio y volvé a cargarlo con los datos correctos. Si la caja ya fue validada por el dueño, avisale para asentar la compensación correspondiente en Cashflow (DU-27).
+Si la caja sigue abierta (o rechazada), entrá a **Detalle** de la caja: en los ingresos manuales contás con los botones **Editar** (para corregir monto, rubro o concepto) y **Eliminar** (para borrar el movimiento confirmando la acción). Si la caja ya fue validada por el dueño, avisale para asentar la compensación correspondiente en Cashflow (DU-27).

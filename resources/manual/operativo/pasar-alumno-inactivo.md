@@ -10,10 +10,10 @@ du: ALU-005
 
 # Pasar a un alumno a Inactivo
 
-Esta tarea te explica cómo dar de baja temporal o definitiva de las clases a un deportista que deja la actividad, pasando su ficha a condición de **Inactivo**, y cómo reactivarlo si regresa.
+Esta tarea te explica cómo cambiar la condición a **Inactivo** de un deportista que deja la actividad (o pausó sus entrenamientos), y cómo reactivarlo si regresa.
 
 > [!NOTE]
-> *Inactivo vs Eliminación:* Pasar a un alumno a **Inactivo** es la acción normal cuando alguien deja de entrenar: conserva todo su historial de pagos, recibos y asistencias pasadas. No confundir con la eliminación permanente de alumnos cargados por error (T65), que solo la realiza el dueño cuando no existen cobros registrados.
+> *Inactivo vs Eliminación:* Pasar a un alumno a **Inactivo** es la acción normal cuando alguien deja de entrenar: conserva todo su historial de pagos, recibos y asistencias pasadas. La eliminación definitiva de un alumno cargado por error es una acción exclusiva del dueño, disponible solo si el alumno nunca tuvo cobros ni movimientos de dinero.
 
 ---
 
@@ -49,8 +49,10 @@ Esta tarea te explica cómo dar de baja temporal o definitiva de las clases a un
 ### ¿Qué pasa con las cuotas que el alumno debía al momento de pasar a Inactivo?
 Las deudas anteriores no se borran: quedan registradas en su cuenta corriente y en el panel de Cobranza. Si el alumno viene más adelante a saldar lo que quedó debiendo, podés cobrarle normalmente a través del botón **Cobrar**.
 
-### ¿Qué hago si cobro deuda vieja a un alumno inactivo?
-Al cobrarle a un alumno inactivo, si el cobro incluye únicamente deuda de meses viejos, Wings te pregunta: *«¿Pasa a activo?»* con las opciones **Sí**, **No** y **Cancelar**. Si solo vino a pagar lo atrasado pero no va a retomar las clases, elegí **No**: Wings cobra el dinero, emite el recibo y el alumno permanece inactivo sin generarle la cuota del mes actual. Si va a retomar la actividad, elegí **Sí**.
+### ¿Qué hago si cobro a un alumno inactivo?
+Al cobrarle a un alumno inactivo, Wings analiza qué períodos se están cobrando:
+- Si el cobro incluye únicamente deuda vieja (meses anteriores): Wings pregunta «¿Pasa a activo?» con las opciones **Sí**, **No** y **Cancelar**. Si solo vino a pagar lo atrasado pero no va a retomar las clases, elegí **No**: Wings cobra la deuda, emite el recibo y el alumno permanece inactivo sin generarle la cuota del mes actual. Si retoma la actividad, elegí **Sí**.
+- Si el cobro incluye el mes en curso o uno futuro: Pagar el mes actual significa retomar la actividad. En este caso no aparece la opción «No»: solo aparecen **Sí** y **Cancelar** con el mensaje: «El cobro incluye el mes en curso, así que para cobrarlo tiene que volver.». Si se intenta forzar un cobro sin reactivación, Wings lo rechaza indicando: «El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.».
 
 ### ¿Qué hago si cargué un alumno por error y quiero borrarlo completamente?
-Si el alumno fue cargado por equivocación y nunca tuvo ningún cobro ni movimiento de dinero, avisale al dueño: la función de eliminación permanente (T65) es una acción administrativa que borra el legajo de la base de datos sin dejar rastro.
+Si el alumno fue cargado por equivocación y nunca tuvo ningún cobro ni movimiento de dinero, avisale al dueño: la función de eliminación permanente de alumnos es una acción del dueño que borra el legajo de la base de datos.

@@ -4,16 +4,16 @@
 - **Rol:** Operativo
 - **Pantalla:** `/alumnos`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Paso 1: Ingresar** | En menú lateral hacer clic en **Alumnos**. Muestra filtros, barra de estadísticas y tarjetas con riel de color por deporte. | `resources/views/layouts/ds-app.blade.php:88`<br>`resources/views/alumnos/index.blade.php:10, 71, 98` | Comprobado: listado carga con tarjetas, rails de color y contadores generales de alumnos. |
-| **Paso 2: Buscador predictivo** | En **Buscar por nombre, apellido o DNI...**, autocompletado desde 1 carácter o Enter para filtrar. | `resources/views/alumnos/index.blade.php:19-30`<br>`resources/js/alumnos-index.js:101`<br>`app/Http/Controllers/AlumnoWebController.php:124` | Comprobado: tipear DNI o letras despliega sugerencias inmediatas y filtra por query `search`. |
-| **Paso 3: Filtros por deporte** | Menú desplegable **Deporte** y **Grupo**. Botón **Limpiar** para reiniciar la lista. | `resources/views/alumnos/index.blade.php:41, 52, 64`<br>`app/Http/Controllers/AlumnoWebController.php:44-55` | Comprobado: selectores acotan nómina; botón **Limpiar** remueve parámetros y restaura listado completo. |
-| **Qué hago si: no aparece** | Verificar filtros activos, usar botón **Limpiar** o buscar por dígitos de DNI sin puntos ni espacios. | `app/Http/Controllers/AlumnoWebController.php:38`<br>`app/Models/Alumno.php:30-45` | Comprobado: normalización de DNI busca coincidentes exactos o parciales numéricos. |
-| **Qué hago si: ficha o cobrar** | Clic en el nombre o botón **Ver** para legajo; botón **Editar** para modificar; botón **Cobrar** en módulo Cobranza. | `resources/views/alumnos/index.blade.php:178, 224`<br>`resources/views/cobranza/index.blade.php:191` | Comprobado: botones canónicos vinculan a `/alumnos/{id}`, `/alumnos/{id}/edit` y `/caja/cobrar/{id}`. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Control de acceso y rol** | La pantalla de alumnos está disponible para el personal operativo y admin. | `routes/web.php:161-163`<br>`docs/02-contratos/PERMISOS-ROLES.md` | `Route::middleware(['auth'])->group(...)`<br>Matriz de permisos: Operativo y Admin tienen acceso a `/alumnos`. | Si un usuario con rol `PROFESOR` intenta ingresar a `/alumnos`, Wings responde inmediatamente con error `HTTP 403 Forbidden`. Los anónimos son redirigidos a `/login`. |
+| **Paso 1: Entrar a Alumnos** | En menú lateral hacer clic en **Alumnos**. Muestra filtros, barra de estadísticas y tarjetas individuales. | `resources/views/alumnos/index.blade.php:24, 75`<br>`app/Http/Controllers/AlumnoWebController.php:95` | `if ($request->filled('deporte_id'))`<br>`if ($request->filled('grupo_id'))` | Carga inicial lista la nómina de alumnos activos con paginación y tarjetas individuales con riel de color por deporte. |
+| **Paso 2: Buscador predictivo** | Escribir nombre, apellido o DNI. A partir de 1 carácter despliega sugerencias automáticas. | `resources/js/alumnos-index.js:101`<br>`app/Http/Controllers/AlumnoWebController.php:115` | `if (q.length >= 1)`<br>`if ($request->filled('q')) { $query->buscar($request->input('q')); }` | Con 0 caracteres el menú desplegable no se abre. Al tipear 1 carácter, despliega la lista con las coincidencias encontradas. |
+| **Paso 3: Filtros por deporte y grupo** | Seleccionar **Deporte**, **Grupo**. Botón **Limpiar** restablece los filtros. | `resources/views/alumnos/index.blade.php:27, 43`<br>`app/Http/Controllers/AlumnoWebController.php:100` | `if ($request->filled('deporte_id')) { $query->where('deporte_id', ...); }` | Al aplicar un deporte sin coincidencias, muestra el estado vacío: `0 alumnos encontrados`. Al tocar **Limpiar**, regresa al listado general completo. |
+| **Qué hago si: acciones en tarjeta** | Tarjeta cuenta con botones **Ver** (ficha completa), **Editar** y botón directo **Cobrar**. | `resources/views/alumnos/index.blade.php:204-215` | `@if(Auth::user()->isOperativo() \|\| Auth::user()->isAdmin())` | Operativa tiene disponibles los botones **Ver**, **Editar** y **Cobrar** directamente en la tarjeta de Alumnos. |

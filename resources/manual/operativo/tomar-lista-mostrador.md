@@ -31,7 +31,7 @@ Esta tarea te explica cómo tomar lista de los alumnos presentes en una clase de
 ### Paso 2. Marcar los presentes y guardar
 1. En la lista vas a ver a cada deportista con su apellido, nombre, condición de cuota (Al día, En plazo, Moroso o Deudor) y la relación de asistencias semanales respecto a su plan (por ejemplo: "1/2").
 2. Al lado de cada alumno que asistió, marcá la casilla de verificación **Presente** (los que dejes sin tildar quedan registrados como ausentes).
-3. Si el alumno adeuda cuotas vencidas o excede los días de su plan, completá el campo obligatorio **Motivo** para justificar su ingreso.
+3. Si el alumno está Deudor o si es un alumno nuevo sin ningún pago de cuota y ya tiene 2 presentes registrados, Wings despliega el campo obligatorio **Motivo** con el mensaje correspondiente: «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» o «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.». Completá la justificación para admitirlo en la clase.
 4. Al pie del listado, tocá el botón **Guardar**. Wings registra las asistencias en la base de datos y muestra el aviso de confirmación «Asistencias guardadas.».
 
 ![Marcar casilla Presente y guardar](/ayuda/img/operativo/tomar-lista-mostrador-paso2.png)
@@ -47,6 +47,9 @@ Volvé a entrar a la clase, corregí las casillas de **Presente** y tocá **Guar
 
 ### ¿Qué pasa si una alumna que vino no figura en la lista del grupo?
 Verificá en **Alumnos** si la alumna está registrada en ese grupo. Si pertenece a otro grupo o disciplina y vino a recuperar una clase, avisale al profesor o cargá la asistencia en su clase de origen según las pautas deportivas del club.
+
+### ¿Qué hago si la clase ya integra una liquidación cerrada?
+Si la clase ya fue liquidada y el dueño cerró el período de sueldos docente, Wings no permite modificar asistencias y muestra: «No se pueden modificar asistencias: la clase integra una liquidación cerrada.». En ese caso consultá con el dueño para resolver la liquidación correspondiente.
 
 ### ¿Qué hago si la clase figura cancelada?
 Si la clase fue suspendida o cancelada por el club o el docente, Wings muestra la alerta «Esta clase está cancelada. No se pueden registrar asistencias.» y el botón **Guardar** permanece deshabilitado. No se pueden cargar asistencias sobre una actividad cancelada.

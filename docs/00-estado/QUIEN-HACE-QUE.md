@@ -47,6 +47,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 (dias 24-28) recorrida por Codex y revisada por Claude: plata al peso, interno 27/27, seguridad 26/26, velocidad < 277 ms; defecto nuevo MF12; 4 erratas del guion. 160/334 casos. Tanda 2 (dias 29-33) lista con 32.2 corregido; antes Carlos decide el recargo por mora y confirma si llego el resumen del 5/11. |
 
 ## Codex
@@ -55,10 +57,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Devuelto (hizo Gemini, verifica Claude) | Etapa A devuelta por Claude 29/10 (rectificar-caja permite caja Rechazada y Wings no; la ficha no lo comprobo). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION.md |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Devuelto (hizo Gemini, verifica Claude) | Etapa A devuelta por Claude 29/10 (rectificar-caja permite caja Rechazada y Wings no; la ficha no lo comprobo). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION.md |
+Nada en este momento.
 
 ## Sin empezar (7)
 

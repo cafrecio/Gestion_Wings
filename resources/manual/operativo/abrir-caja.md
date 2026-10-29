@@ -47,7 +47,7 @@ Wings solo permite un turno de mostrador abierto por vez. Si el turno anterior (
 Si el importe que ingresaste difiere en más de un 50% de lo dejado en el cierre anterior, Wings muestra el recuadro de advertencia **Diferencia importante con el cierre anterior**. Verificá el conteo físico de los billetes y, si confirmás que el valor es el correcto, marcá la casilla **Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.** para poder tocar el botón **Abrir**.
 
 ### ¿Puedo corregir el importe de apertura si me equivoqué de número al tipear?
-Si cometiste un error de tipeo en el efectivo recibido y tu caja sigue abierta (o si el dueño la observa), podés usar la opción de rectificación de apertura para asentar el valor real antes del arqueo final.
+Si cometiste un error de tipeo en el efectivo recibido y tu caja sigue abierta, podés usar la opción de rectificación de apertura para asentar el valor real antes del arqueo final.
 
 ### ¿Qué hago si tengo una caja abierta de un día anterior?
 Wings no permite operar ni abrir una caja nueva si tenés un turno pendiente de un día previo y te avisa: «Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.». Andá a **Caja**, entrá a ese turno y tocá el botón **Cerrar** para realizar el arqueo correspondiente antes de iniciar tu turno de hoy.

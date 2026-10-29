@@ -4,16 +4,17 @@
 - **Rol:** Operativo
 - **Pantalla:** `/alumnos/{alumnoId}/edit`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Paso 1: Abrir edición** | Desde **Alumnos**, tocar botón **Editar** en tarjeta o ficha del alumno. Abre pantalla de edición. | `resources/views/alumnos/index.blade.php:224`<br>`resources/views/alumnos/show.blade.php:69`<br>`resources/views/alumnos/edit.blade.php:4` | Comprobado: acceso a `/alumnos/{id}/edit` muestra datos actuales del alumno. |
-| **Paso 2: Actualizar campos** | Actualizar **Celular**, **Email**, **Nombre del tutor**, **Teléfono del tutor** o **Motivo si corrige la fecha de ingreso**. | `resources/views/alumnos/_form.blade.php:80, 95, 143, 179, 188` | Comprobado: campos editables; si se cambia fecha de alta el motivo es obligatorio. |
-| **Paso 3: Guardar** | Tocar botón **Guardar**. Redirige a la ficha con aviso de confirmación. | `resources/views/alumnos/edit.blade.php:30`<br>`app/Http/Controllers/AlumnoWebController.php:320-335` | Comprobado: guardado exitoso actualiza el modelo y muestra mensaje de éxito. |
-| **Qué hago si: Deporte fijo** | El campo Deporte aparece bloqueado porque DNI:Deporte es 1:1; para nuevo deporte se crea alta. | `resources/views/alumnos/_form.blade.php:107-110`<br>`app/Models/Alumno.php` | Comprobado: `deporte_id` no editable en edición; solo se reasigna grupo. |
-| **Qué hago si: cancelar** | Botón **Cancelar** descarta cambios y regresa a la vista previa. | `resources/views/alumnos/edit.blade.php:29` | Comprobado: botón **Cancelar** retorna sin persistir modificaciones. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Control de acceso** | Accesible tocando el botón **Editar** en el listado o en la ficha. | `resources/views/alumnos/index.blade.php:148`<br>`routes/web.php:168` | `Route::get('/alumnos/{id}/edit', ...)` | Accesible para Operativo y Admin. Un usuario con rol Profesor intentando acceder a `/alumnos/{id}/edit` recibe `HTTP 403 Forbidden`. |
+| **Paso 1: Pantalla de edición** | Muestra datos actuales del alumno, teléfonos, email, grupo y fecha de alta. | `resources/views/alumnos/edit.blade.php:23`<br>`resources/views/alumnos/_form.blade.php:67` | `@isset($alumno)` | Carga el formulario con los datos preexistentes del alumno vinculados a su legajo. |
+| **Paso 2: Corregir fecha de alta** | Si se modifica la **Fecha de alta**, es obligatorio completar **Motivo si corrige la fecha de ingreso**. | `app/Http/Controllers/AlumnoWebController.php:525-531`<br>`resources/views/alumnos/_form.blade.php:143` | `if ($fechaAnterior !== Carbon::parse($validated['fecha_alta'])->format('Y-m-d')) { ... $request->validate(['motivo_fecha_alta' => 'required\|string\|min:5\|max:500']); }` | Al alterar la fecha de alta dejando el motivo vacío o con menos de 5 caracteres, Wings rechaza con error: `El campo motivo fecha alta es obligatorio.` o de longitud mínima. |
+| **Paso 2: Límite de fecha de alta** | La fecha de alta corregida no puede ser posterior al fin del mes siguiente. | `app/Support/FechaIngresoRegla.php:23-42`<br>`app/Http/Controllers/AlumnoWebController.php:526` | `if (!FechaIngresoRegla::esValida($validated['fecha_alta'])) { throw ValidationException::withMessages(['fecha_alta' => FechaIngresoRegla::mensajeError()]); }` | Al ingresar una fecha posterior al último día del mes siguiente, Wings rechaza con el mensaje exacto: `La fecha de ingreso no puede ser posterior al <fecha_limite>.`. |
+| **Paso 3: Guardar cambios** | Botón **Guardar** actualiza el legajo y regresa a la ficha personal. | `resources/views/alumnos/edit.blade.php:31`<br>`app/Http/Controllers/AlumnoWebController.php:547` | `return redirect()->route('web.alumnos.show', $alumno->id)->with('success', 'Alumno actualizado.');` | Guarda modificaciones válidas y devuelve al detalle del alumno con el cartel de éxito. |
+| **Qué hago si: botón Cancelar** | Botón **Cancelar** descarta cambios y regresa al listado. | `resources/views/alumnos/edit.blade.php:30` | `<x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Cancelar</x-ds.button>` | Al presionar **Cancelar**, vuelve a `/alumnos` sin persistir ninguna modificación. |

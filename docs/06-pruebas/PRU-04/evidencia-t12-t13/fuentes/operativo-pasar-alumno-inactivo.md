@@ -4,18 +4,16 @@
 - **Rol:** Operativo
 - **Pantalla:** `/alumnos/{alumnoId}`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Inactivo vs Eliminación** | Pasar a Inactivo conserva historial de pagos y deudas; no confundir con eliminación de cargados por error (T65). | `app/Http/Controllers/AlumnoWebController.php:428-460, 465-515` | Comprobado: toggle conmuta booleano `activo`; eliminación T65 es destructiva y restringida. |
-| **Paso 1: Ficha del alumno** | En **Alumnos**, tocar **Ver** o nombre. En barra superior derecha está interruptor **Activo** / **Inactivo**. | `resources/views/alumnos/show.blade.php:60-65`<br>`resources/views/components/ds/toggle.blade.php` | Comprobado: toggle visible en ficha con estados Activo e Inactivo. |
-| **Paso 2: Cambiar a Inactivo** | Clic en interruptor pasa a **Inactivo**. Wings emite aviso de confirmación. Generador del día 1° ya no crea cuotas ni figura en listas. | `app/Http/Controllers/AlumnoWebController.php:435, 453`<br>`app/Services/PagoCuotaService.php:120` | Comprobado: llamada AJAX conmuta a `activo = 0`; generador excluye inactivos. |
-| **Paso 3: Reactivar alumno** | Clic en interruptor pasa a **Activo** y genera automáticamente cuota de reingreso del mes en curso. | `app/Http/Controllers/AlumnoWebController.php:437-441`<br>`app/Services/PagoCuotaService.php:480` | Comprobado: conmutación a activo crea cuota con porcentaje de reingreso y cierra revisión. |
-| **Qué hago si: deuda previa** | Deudas viejas no se borran; quedan en cuenta corriente y se pueden cobrar normalmente con botón **Cobrar**. | `resources/views/alumnos/show.blade.php:67`<br>`app/Models/DeudaCuota.php` | Comprobado: alumno inactivo mantiene saldos pendientes en ficha y listados. |
-| **Qué hago si: cobro a inactivo** | Al cobrar a inactivo con deuda vieja, Wings pregunta «¿Pasa a activo?» con opciones **Sí**, **No** y **Cancelar**. | `resources/views/caja/cobrar.blade.php:325-335`<br>`resources/js/cobrar.js:115-142` | Comprobado (T25): respuesta **No** cobra sin reactivar ni crear cuota del mes. |
-| **Qué hago si: borrar por error** | Alumnos cargados por error sin cobros se eliminan mediante la función T65 del dueño. | `app/Http/Controllers/AlumnoWebController.php:465-515`<br>`resources/views/alumnos/show.blade.php:470` | Comprobado: eliminación atómica permanente exige no tener pagos registrados. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Distinción: Inactivo vs Eliminación** | Inactivo conserva historial contable y deudas. La eliminación definitiva es acción exclusiva del dueño si nunca hubo cobros. | `app/Http/Controllers/AlumnoWebController.php:435`<br>`resources/views/alumnos/show.blade.php:504` | `@if(Auth::user()->isAdmin() && $puedeEliminar)` donde `$puedeEliminar = $alumno->esEliminable();` | El botón de eliminación permanente no aparece para el rol Operativo en la ficha. |
+| **Paso 1 y 2: Interruptor Activo/Inactivo** | En la ficha del alumno, interruptor cambia entre Activo e Inactivo de inmediato. | `resources/views/alumnos/show.blade.php:38`<br>`app/Http/Controllers/AlumnoWebController.php:435` | `$alumno->update(['activo' => !$alumno->activo]);` | Al pasar a Inactivo, Wings actualiza la base y muestra el aviso de confirmación. En el 1° de mes no le genera cuota y no aparece en listas de asistencia. |
+| **Paso 3: Reactivar al alumno** | Cambiar interruptor a **Activo** reactiva y genera automáticamente cuota de reingreso según el día. | `app/Http/Controllers/AlumnoWebController.php:438`<br>`app/Services/PagoCuotaService.php:380` | `if ($alumno->activo) { $cuota = app(PagoCuotaService::class)->crearCuotaReingreso($alumno); ... }` | Al reactivar, emite confirmación con el importe y porcentaje aplicado: `Alumno activado correctamente. Se generó la cuota de...`. |
+| **Qué hago si: cobro de deuda vieja a inactivo** | Si el cobro incluye únicamente meses anteriores, Wings pregunta «¿Pasa a activo?» con opciones **Sí**, **No** y **Cancelar**. Con **No** cobra y sigue inactivo. | `app/Http/Controllers/CajaWebController.php:945-954` | `if (!$request->has('reactivar')) { ... 'requiere_reactivacion' => true, 'permite_no' => !$pagaElMes ... }` | Responde HTTP 409 con modal interactivo: al presionar **No**, cobra la deuda vieja, emite recibo y el alumno permanece inactivo sin generar cuota del mes. |
+| **Qué hago si: cobro que incluye mes actual** | Si el cobro incluye el mes en curso o futuro, no aparece la opción «No»: solo **Sí** y **Cancelar**. | `app/Http/Controllers/CajaWebController.php:939-943` | `$pagaElMes = $periodosSolicitados->contains(fn ($periodo) => $periodo >= $periodoActual);`<br>`if ($request->has('reactivar') && !$request->boolean('reactivar') && $pagaElMes)` | Si se intenta forzar un cobro con `reactivar = false` incluyendo el mes actual, Wings responde HTTP 422: `{"success":false,"message":"El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo."}`. |

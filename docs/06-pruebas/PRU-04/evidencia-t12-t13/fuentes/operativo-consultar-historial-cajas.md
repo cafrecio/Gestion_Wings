@@ -4,17 +4,17 @@
 - **Rol:** Operativo
 - **Pantalla:** `/caja/historial`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Auditoría histórica** | Permite revisar cobros o egresos asentados en turnos anteriores para verificar comprobantes o resolver dudas. | `resources/views/caja/historial.blade.php`<br>`app/Http/Controllers/CajaWebController.php:700` | Comprobado: listado histórico carga movimientos cerrados y consolidados. |
-| **Paso 1: Entrar a Historial** | En **Caja**, tocar botón **Historial**. Muestra pantalla con filtros y listado consolidado. | `resources/views/caja/index.blade.php:82`<br>`resources/views/caja/historial.blade.php:3` | Comprobado: acceso a `/caja/historial` carga log general de transacciones. |
-| **Paso 2: Filtrar** | **Alumno, subrubro u observación...**, selectores **Subrubro**, **Ingreso / Egreso**, rango **Desde** y **Hasta**. Botones **Filtrar** y **Limpiar**. | `resources/views/caja/historial.blade.php:35, 43, 52, 61, 68, 75, 76`<br>`app/Http/Controllers/CajaWebController.php:710-740` | Comprobado: filtrado exacto por fechas y criterios contables; botón **Limpiar** resetea campos. |
-| **Paso 3: Analizar resultados** | Muestra total movimientos, total **Ingresos** (verde), **Egresos** (rojo) y tabla con Fecha, Detalle, Medio, Registró y Monto. Botón **Volver**. | `resources/views/caja/historial.blade.php:88, 89, 91, 117-121`<br>`app/Support/FormatoImporte.php` | Comprobado: métricas de totales y tabla con importes formateados en pesos. |
-| **Qué hago si: cancelado** | Movimiento marcado con «· Cancelado» indica que fue anulado en su turno abierto; no suma al balance. | `resources/views/caja/historial.blade.php:140`<br>`app/Http/Controllers/CajaWebController.php:725` | Comprobado: transacciones canceladas se exhiben con badge distintivo y no acumulan en el total. |
-| **Qué hago si: anular viejo** | Es de solo consulta; cancelaciones se realizan en el turno abierto o rechazado (`/caja/{id}/detalle`). | `app/Http/Controllers/CajaWebController.php` | Comprobado: la pantalla no contiene acciones destructivas sobre turnos cerrados. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Control de acceso y rol** | Disponible para el personal operativo y admin. | `routes/web.php:67`<br>`docs/02-contratos/PERMISOS-ROLES.md` | `Route::get('/caja/historial', [CajaWebController::class, 'historial'])->name('web.caja.historial');` | Si un usuario con rol `PROFESOR` intenta acceder a `/caja/historial`, Wings devuelve inmediatamente `HTTP 403 Forbidden`. |
+| **Paso 1: Entrar al Historial** | En **Caja**, tocar botón **Historial**. Despliega listado de movimientos de turnos pasados. | `resources/views/caja/index.blade.php:38`<br>`resources/views/caja/historial.blade.php:2` | `@if(Auth::user()->isOperativo() \|\| Auth::user()->isAdmin())` | Carga la vista con los filtros y la grilla de movimientos consolidados. |
+| **Paso 2: Filtrar** | Filtrar por texto (alumno, subrubro u observación), tipo (**Ingresos** o **Egresos**) y rango de fechas. | `resources/views/caja/historial.blade.php:20-40`<br>`app/Http/Controllers/CajaWebController.php:200` | `if ($request->filled('tipo')) { ... }`<br>`if ($request->filled('desde')) { ... }` | Al aplicar filtros sin operaciones, muestra 0 movimientos. Botón **Limpiar** reinicia los criterios. |
+| **Paso 3: Analizar resultados** | Muestra totales de ingresos (verde) y egresos (rojo), fecha, medio, usuario y monto final. Botón **Volver**. | `resources/views/caja/historial.blade.php:50-80` | `<div>Ingresos: {{ ... }}</div><div>Egresos: {{ ... }}</div>` | Despliega los totales acumulados de las operaciones filtradas. |
+| **Qué hago si: movimientos cancelados** | Movimientos marcados con «· Cancelado» fueron anulados en su turno con motivo y no suman a los balances. | `resources/views/caja/historial.blade.php:75`<br>`app/Models/MovimientoOperativo.php:25` | `if ($m->cancelado)` | Los registros cancelados aparecen con estilo atenuado y badge rojo, excluyéndose de la sumatoria de ingresos activos. |
+| **Qué hago si: anulación desde historial** | El historial es exclusivamente de consulta y auditoría: no permite anular ni editar operaciones pasadas. | `resources/views/caja/historial.blade.php:65-95` | La vista no cuenta con botones de cancelación ni edición. | Solo la pantalla de detalle del turno correspondiente (`/caja/{id}/detalle`) admite cancelaciones si la caja está abierta o rechazada. |

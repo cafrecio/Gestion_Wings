@@ -1,19 +1,19 @@
 ---
-titulo: Cancelar un movimiento en una caja abierta o rechazada
+titulo: Cancelar un cobro de cuota en una caja abierta o rechazada
 rol: operativo
 categoria: Caja y cobranza
 orden: 130
-resumen: Cómo anular un cobro o gasto mal registrado en la caja diaria con motivo obligatorio antes de que sea validada.
+resumen: Cómo anular un cobro de cuota mal registrado en la caja diaria con motivo obligatorio antes de que sea validada.
 pantalla: /caja/{cajaId}/detalle
 du: CAJ-003
 ---
 
-# Cancelar un movimiento en una caja abierta o rechazada
+# Cancelar un cobro de cuota en una caja abierta o rechazada
 
-Esta tarea te explica cómo cancelar o anular un cobro o gasto asentado por error en tu turno de caja diario antes de que el turno sea cerrado y validado definitivamente.
+Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por error en tu turno de caja diario antes de que el turno sea cerrado y validado definitivamente. (Para ingresos y egresos manuales sin alumno, se utilizan las acciones de edición y eliminación directa).
 
 > [!NOTE]
-> *Requisito de estado:* Solo se pueden cancelar movimientos mientras la caja está en estado **Abierta** o **Rechazada**. Si la caja está cerrada esperando validación o ya fue validada por el dueño, no se puede cancelar directamente desde este panel.
+> *Requisito de estado:* Solo se pueden cancelar cobros mientras la caja está en estado **Abierta** o **Rechazada**. Si la caja está cerrada esperando validación o ya fue validada por el dueño, no se puede cancelar directamente desde este panel.
 
 ---
 
@@ -28,7 +28,7 @@ Esta tarea te explica cómo cancelar o anular un cobro o gasto asentado por erro
 ---
 
 ### Paso 2. Localizar la operación y tocar Cancelar
-1. En la tabla de movimientos, localizá la fila del cobro, ingreso o gasto que necesitás anular.
+1. En la tabla de movimientos, localizá la fila del cobro de cuota que necesitás anular (los ingresos y gastos manuales se corrigen o borran con los botones **Editar** y **Eliminar**).
 2. Al final de la fila, hacé clic en el botón rojo **Cancelar**.
 3. Se despliega el panel **Cancelar cobro de cuota** con la indicación «La deuda del alumno volverá a estado pendiente.».
 

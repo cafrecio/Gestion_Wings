@@ -256,10 +256,49 @@ Conforme a la devolución de Carlos y la revisión de Claude:
 
 ---
 
-## 11. Próximo paso
+## 11. Auditoría y corrección integral de la Etapa A (Control de Claude CAB, 29/10/2026)
+
+Tras la revisión de Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-CLAUDE.md`), la etapa A retornó para auditar exhaustivamente las 20 páginas y sus fichas de fuentes contra las condiciones lógicas reales (`if`) y verificar cada camino prohibido en Wings local.
+
+### Condiciones revisadas y correcciones aplicadas
+
+Se auditaron **54 condiciones de estado, rol y fecha** a lo largo de las 20 páginas y 20 fichas de la Etapa A. Las que cambiaron y se subsanaron son:
+
+1. **`rectificar-caja.md` (Grave - Subsanado):**
+   - *Condición real:* `if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA)` en `CajaWebController.php:102, 113` y `CajaService.php:161`.
+   - *Corrección:* Se eliminaron afirmaciones de que se podía rectificar una caja rechazada y de que existía una "alerta de observación". Se aclaró que la pantalla rectifica el efectivo recibido en la apertura (`efectivo_inicial`), no el cierre.
+   - *Qué hago si:* Se explicó el camino real ante una caja rechazada: el botón **Rectificar** no aparece; la operativa ve el recuadro rojo con el **Motivo de rechazo** (`resources/views/caja/resumen.blade.php:47`), puede registrar o cancelar operaciones pendientes y luego pulsa **Cerrar** (`resumen.blade.php:65`) para ingresar el nuevo conteo de efectivo y rendición.
+2. **`tomar-lista-mostrador.md` (Media - Subsanado):**
+   - *Condición real:* `ExcepcionCobranzaService.php:40-48`:
+     `$tipo = $nuevo ? ((int) $previas->get($alumno->id, 0) >= 2 ? 'ASISTENCIA_NUEVO' : null) : ($estado === CobranzaEstadoService::ESTADO_DEUDOR ? 'ASISTENCIA_DEUDOR' : null);`
+   - *Corrección:* Se eliminó la regla inexistente de "excede los días de su plan". Se transcribieron los dos mensajes literales de Wings: «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» y «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.».
+3. **`pasar-alumno-inactivo.md` (Menor - Subsanado):**
+   - *Condición real:* `CajaWebController.php:938-952`:
+     `$pagaElMes = $periodosSolicitados->contains(fn ($periodo) => $periodo >= $periodoActual);`
+     `'permite_no' => !$pagaElMes`
+   - *Corrección:* Se incorporó la regla de que si el cobro a un inactivo incluye el mes en curso o futuro, no se ofrece la opción «No»: pagar el mes implica volver a activo. Se eliminó la frase «dar de baja temporal o definitiva» (inactivo no es baja) y se quitó la jerga interna «T65».
+4. **`abrir-caja.md` (Subsanado):**
+   - Se corrigió la nota de «Qué hago si» eliminando la mención a que el dueño "observe" la caja para rectificar: la rectificación de apertura rige únicamente con la caja abierta.
+5. **`registrar-ingreso-caja.md` y `registrar-gasto-caja.md` (Subsanado):**
+   - *Condición real:* `MovimientoOperativo::esManualEditable()` (`app/Models/MovimientoOperativo.php:75`), `CajaCorreccionService.php:19-24` y `CajaWebController.php:608`.
+   - *Corrección:* Los movimientos manuales de mostrador (sin alumno) cuentan con botones **Editar** y **Eliminar** (`resources/views/caja/detalle.blade.php:207-215`). No usan la acción «Cancelar» (que es exclusiva para cobros de cuota con alumno y aborta con 403 en movimientos manuales).
+6. **`cancelar-movimiento-caja.md` (Subsanado):**
+   - Se especificó que el botón rojo **Cancelar** aplica exclusivamente a cobros de cuotas de alumnos (restituyendo la deuda a pendiente). Los ingresos y egresos manuales se corrigen o borran con **Editar** y **Eliminar**.
+7. **`T12-LISTA-DE-PAGINAS.md` (Subsanado):**
+   - Se actualizó el ítem 15: **Rectificar la apertura de caja**.
+8. **Informe de entrega (Subsanado):**
+   - Se corrigió la descripción del buscador de ayuda en `/ayuda`: filtra por coincidencia léxica de palabras en título, resumen y etiquetas, sin ranking probabilístico ni snippet contextual.
+
+### Suite de verificación de caminos prohibidos
+
+Se implementó el test automatizado `tests/Feature/VerificarCaminosProhibidosManualTest.php` con **18 pruebas y 45 aserciones** ejecutadas sobre `wings_testing_gemini`, validando el rechazo exacto de cada camino prohibido en controladores, servicios y vistas de Wings (todos en **PASS**, 13.80 s).
+
+---
+
+## 12. Próximo paso
 
 **Parada obligatoria de control:**
 T12 y T13 quedan en el tablero con `estado=a_verificar`, `tiene=Claude`, `verifica=Claude`, con el paso:
-*«Etapa A: control de Claude y OK de Carlos»*.
+*«Etapa A corregida: control de Claude y OK de Carlos»*.
 
 **REGLA DURA:** No se inicia la Etapa B (páginas 21 a 36 del Dueño) hasta contar con la verificación favorable de Claude y la aprobación explícita de Carlos.

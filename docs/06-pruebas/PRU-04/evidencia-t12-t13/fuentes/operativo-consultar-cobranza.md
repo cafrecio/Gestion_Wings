@@ -4,16 +4,16 @@
 - **Rol:** Operativo
 - **Pantalla:** `/cobranza`
 - **Fecha de verificación:** 29/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y correspondencia con el código
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
-|---|---|---|---|
-| **Paso 1: Módulo Cobranza** | En menú lateral hacer clic en **Cobranza**. Muestra resumen general con total adeudado y estados: Al día, En plazo, Morosos, Deudores. | `resources/views/layouts/ds-app.blade.php:97`<br>`resources/views/cobranza/index.blade.php:9-15` | Comprobado: panel superior despliega contadores por condición y monto total adeudado. |
-| **Paso 2: Filtrar** | Selectores **Deporte**, **Grupo** y de estado: **Con deuda (Deudores y morosos)**, **Moroso**, **Deudor**, **Al día**. Botón **Limpiar**. | `resources/views/cobranza/index.blade.php:50-76`<br>`app/Http/Controllers/CobranzaWebController.php:30-55` | Comprobado: filtrado dinámico responde a los parámetros; botón **Limpiar** resetea los filtros. |
-| **Paso 3: Cobro directo** | Botón **Cobrar** en cada tarjeta abre directamente la pantalla de cobro del alumno con sus deudas precargadas. | `resources/views/cobranza/index.blade.php:224-226` | Comprobado: botón **Cobrar** en la tarjeta redirige a `/caja/cobrar/{alumnoId}`. |
-| **Qué hago si: moroso vs deudor** | Moroso: cuota vencida del mes en curso. Deudor: dos o más cuotas consecutivas adeudadas. | `app/Services/CobranzaService.php:80-110`<br>`app/Models/DeudaCuota.php` | Comprobado: clasificación calculada por cantidad de períodos impagos y fecha de vencimiento. |
-| **Qué hago si: inactivos** | El panel lista deportistas activos; deudas de inactivos se consultan en su ficha o pantalla general de cobro. | `app/Http/Controllers/CobranzaWebController.php:35` | Comprobado: query por defecto filtra `activo = 1`. |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Control de acceso y rol** | El módulo de cobranza está disponible para Operativo y Admin. | `routes/web.php:73`<br>`docs/02-contratos/PERMISOS-ROLES.md` | `Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');` | Si un usuario con rol `PROFESOR` intenta acceder a `/cobranza`, Wings responde con `HTTP 403 Forbidden`. |
+| **Paso 1: Métricas de cobranza** | Muestra métricas: **Al día**, **En plazo**, **Morosos** y **Deudores**. | `resources/views/cobranza/index.blade.php:15-30`<br>`app/Services/CobranzaEstadoService.php:80` | `$estado === self::ESTADO_AL_DIA`<br>`$estado === self::ESTADO_EN_PLAZO`<br>`$estado === self::ESTADO_MOROSO`<br>`$estado === self::ESTADO_DEUDOR` | Muestra contadores consolidados de alumnos en cada condición y el saldo global pendiente. |
+| **Paso 2: Filtros** | Filtros por **Deporte**, **Grupo** y selector de condición. Botón **Limpiar**. | `resources/views/cobranza/index.blade.php:35-50`<br>`app/Http/Controllers/CobranzaWebController.php:30` | `if ($request->filled('estado')) { ... }` | Al filtrar por Morosos o Deudores, actualiza la lista exhibiendo únicamente las tarjetas que cumplen el criterio seleccionado. |
+| **Paso 3: Botón directo Cobrar** | Cada tarjeta tiene botón **Cobrar** para ir directo al cobro del alumno. | `resources/views/cobranza/index.blade.php:226` | `<x-ds.button variant="secondary" href="{{ route('web.caja.cobrar-cuota', $alumno->id) }}">Cobrar</x-ds.button>` | Al presionar **Cobrar**, abre la pantalla `/caja/cobrar/{alumnoId}` con sus deudas precargadas para cobrar en recepción. |
+| **Definición de estados** | Moroso: cuota del mes vencida. Deudor: dos o más meses consecutivos atrasados impagos. | `app/Services/CobranzaEstadoService.php:15-40` | `if (count($mesesAtrasados) >= 2) return self::ESTADO_DEUDOR;`<br>`if ($hoy->gt($vencimiento)) return self::ESTADO_MOROSO;` | Verificado en cálculo de estados: alumnos con cuota del mes pasada la fecha de vencimiento clasifican como `MOROSO`; si acumulan períodos anteriores impagos clasifican como `DEUDOR`. |
