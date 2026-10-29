@@ -1,5 +1,13 @@
 # Wings — Estado actual
 
+## T12/T13 — Etapa A corregida (`d3973e2a`) devuelta otra vez — Claude CAB, 29/10/2026
+
+Lo devuelto quedó bien. Vuelven tres páginas que no cuentan avisos diarios (gasto mayor que el cajón, motivo
+del parcial, avisos de Cobrar), el exceso del plan en la lista (lo sacó Gemini por un error de mi devolución) y
+«[DU-20]» en un título. [Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-SEGUNDA-CLAUDE.md) ·
+[prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION-2.md). La Ayuda del sitio de prueba
+tiene esta versión (subió con el despliegue de `69cb8ba5`).
+
 ## T14 — Tanda 1 (días 24 a 28, 2 al 6/11) revisada — Claude CAB, 29/10/2026
 
 Codex la corrió entera (`52c9f368`). Plata al peso los cinco días; controles internos 27/27, seguridad

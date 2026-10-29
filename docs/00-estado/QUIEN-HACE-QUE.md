@@ -47,8 +47,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 revisada (MF12 nuevo, 4 erratas del guion). Carlos: mora si (10% desde el dia 32), motivo de no eliminar si (hecho por Claude), resumen del 5/11 llego una vez (MF13 por la clase con todos ausentes). Tanda 2 vuelta a simular sobre la base de Codex: PROMPT-CODEX-DIAS-29-33.md |
 
 ## Codex
@@ -57,7 +55,10 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Devuelto (hizo Gemini, verifica Claude) | Etapa A, segunda vuelta (Claude 29/10): lo devuelto esta bien; faltan el exceso del plan en la lista (error de la devolucion de Claude), el gasto mayor que el cajon, el motivo del parcial, los avisos de Cobrar y sacar DU-xx. Control nuevo: rechazos y avisos de cada accion. PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION-2.md |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Devuelto (hizo Gemini, verifica Claude) | Etapa A, segunda vuelta (Claude 29/10): lo devuelto esta bien; faltan el exceso del plan en la lista (error de la devolucion de Claude), el gasto mayor que el cajon, el motivo del parcial, los avisos de Cobrar y sacar DU-xx. Control nuevo: rechazos y avisos de cada accion. PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION-2.md |
 
 ## Sin empezar (7)
 
