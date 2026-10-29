@@ -49,6 +49,12 @@ $pantallas = [
     ['ADMIN', 'Liquidación por comisión', ($l = DB::table('liquidaciones')->where('tipo', 'COMISION')->orderByDesc('total_calculado')->value('id')) ? $r('web.liquidaciones.show', $l) : null],
     ['ADMIN', 'Reportes · Finanzas del mes anterior', $r('web.reportes.index', ['mes' => now()->subMonthNoOverflow()->format('Y-m')])],
     ['ADMIN', 'Reportes · Sueldos del mes anterior', $r('web.reportes.sueldos', ['mes' => now()->subMonthNoOverflow()->format('Y-m')])],
+    // Días 24 a 28: Nueva liquidación con otro mes, ficha de un inactivo, Cashflow con los sueldos y la caja abierta.
+    ['ADMIN', 'Nueva liquidación · mes anterior', $r('web.liquidaciones.create', ['mes' => now()->subMonthNoOverflow()->month, 'anio' => now()->subMonthNoOverflow()->year])],
+    ['ADMIN', 'Ficha de un inactivo', ($i = Alumno::where('activo', 0)->orderByDesc('id')->value('id')) ? $r('web.alumnos.show', $i) : null],
+    ['ADMIN', 'Nuevo movimiento de Cashflow', $r('web.cashflow.movimiento')],
+    ['OPERATIVO', 'Caja abierta', ($ab = CajaOperativa::where('estado', 'ABIERTA')->value('id')) ? $r('web.caja.detalle', $ab) : null],
+    ['OPERATIVO', 'Movimientos', $r('web.movimientos.index')],
     ['OPERATIVO', 'Inicio de la operativa', $r('web.operativo.dashboard')],
     ['OPERATIVO', 'Cobranza', $r('web.cobranza.index')],
     ['OPERATIVO', 'Buscador de Cobrar', $r('web.caja.cobrar-cuota')],

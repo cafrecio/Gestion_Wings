@@ -14,6 +14,42 @@ Dos tandas: [días 24 a 28](GUION-DIAS-24-28.md) y [días 29 a 33](GUION-DIAS-29
 una copia de `wingstest`; los esperados son lo que dio Wings en esa corrida. Preparan la Revisión del 1/12
 (Pilar Ramos, Alma Navarro, Facundo Ríos y Valentina Suárez) y el alta tardía queda para la tanda 3.
 
+## Revisión de Claude de los días 24 a 28 (2 al 6/11, tanda 1) — 29/10/2026
+
+Revisado contra el [guion](GUION-DIAS-24-28.md), los informes de Codex ([24](DIA-24.md) a [28](DIA-28.md),
+commit `52c9f368`), el código y la base del sitio con el reloj en el 6/11.
+
+**La plata coincide al peso, los cinco días.** Deuda $2.119.000 (106 activos: 47 Al día, 58 En plazo, 1
+Deudor), disponible $4.217.120,75 con $297.500 de la caja abierta de Rocío. Las ocho liquidaciones están
+pagadas ($1.370.280) y cada una tiene un solo egreso en Cashflow, por su importe y con su fecha; el doble
+clic no duplicó. Controles internos 27/27 sobre la base.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 28.1 Nueva liquidación con octubre: Hernán 19, Martín 1 | **Defecto de Wings, nuevo.** Las liquidaciones por comisión guardan alumnos, no clases; el contador de «Nueva liquidación» (`LiquidacionWebController::create`) busca clases ya liquidadas y no encuentra ninguna, así que un mes cerrado y pagado de Fútbol sigue figurando pendiente. El resto de Wings sí lo reconoce (`Clase::integraLiquidacionCerrada`, `Profesor::clasesPendientesLiquidacion`), y generar octubre otra vez se rechaza («Ya existe una liquidación…»): no hay plata en juego, solo un número que engaña. Retratado en la prueba técnica | **MF12**, mejora futura (no bloquea producción) |
+| 27.4 y 27.6 sin botón Eliminar | **Error de mi guion.** Si no se puede eliminar, Wings no muestra el botón (T65). Forzando el envío, el rechazo es el exacto del catálogo, y la operativa y la profesora reciben 403 (prueba técnica). Pero **el dueño no ve por qué**: el controlador calcula el motivo y ninguna pantalla lo muestra | Para que decida Carlos: mostrar el motivo en lugar del botón. Tanda 2 corregida (32.2) |
+| 24.6 Iván: 8 días y sin aviso de cuota al 100% | **Error de mi guion.** El plazo del alta es el más largo entre 7 días y la gracia del mes (vence el 11/11: 8 días). El aviso de cuota solo existe para un ingreso en un mes ya cerrado | Nada |
+| 26.8 cajón $261.200 → $263.500 | **Error de mi guion:** no conté los $28.000 de Santino. El cierre del mismo guion ya decía $263.500 | Nada |
+| 28.2 la ficha de Candela no dice desde cuándo | **Error de mi guion.** T70 guarda la fecha (ALU-017 i) y la muestra en «Deuda de alumnos inactivos» de Cobranza y Reportes; Codex la vio ahí: 06/11/2026 | Nada |
+| 24.4 y 27.7 recibos que no se pudieron abrir | **Revisados por Claude** en los PDF del servidor: LIQ-2 de Lucía (octubre, 17 clases de $12.000, $204.000, Banco Galicia, 2/11, anexo con las 17 fechas) y CUOTA-254 de Agustina Morales (noviembre $30.000, efectivo, 5/11). Correctos | Nada |
+| 24.8 constancia de la generación | **Cumple.** La segunda corrida conservó la hora de fin y los números; solo tocó `updated_at` (T92). El «0 creadas» viene del día 23, antes de la reparación | Nada |
+| 27.0 resumen diario | Corrió **una vez**, el 5/11 a las 08:00:26, sin error en el registro. Por los datos de esa hora tenía que decir «2 excepciones — Cobro con meses anteriores impagos» (Julieta y Santino; Berenice queda fuera de las 24 h) | **Carlos:** ¿llegó una sola vez por Telegram y mail? |
+| 27.3 DNI liberado | Cumple en la base: el alta eliminada no dejó planes, cargos, cuotas ni excepciones, y el DNI quedó una sola vez (Fútbol) | Nada |
+| 25.7 el formulario del gasto vuelve vacío | Observación de Codex, causa no investigada | Anotada |
+| 28 dos ingresos de Rocío rechazados con la clave correcta | No reproducido; sin rastro en el registro. No se afirma causa | Mirar en la tanda 2 |
+
+**Casos acreditados por primera vez (19):** CAT-002, LIQ-009, LIQ-010, LIQ-011, LIQ-020, REC-005, CLA-003,
+CLA-004, CLA-012, CLA-013, CLA-021, ALU-001, ALU-024, MOV-004, MOV-018, CAJ-034, COB-015, PRO-003 y CBZ-023.
+**Repetidos con lo subido el 28/10 (16 de 20):** ALU-017, ALU-020, ALU-025, CAJ-033, CBZ-012, COB-007,
+COB-009, COB-033, CSH-002, CSH-015, LIQ-019 (falla, MF12), MOV-007, MOV-008, MOV-011, REP-001 y REP-006.
+Quedan para la tanda 2: ASI-013, CSH-007, REP-007 y REP-016. CFG-005 espera la respuesta de Carlos.
+
+**Prueba técnica de los días 24 a 28:** funcionamiento interno 27/27, seguridad 26/26 (tres pruebas nuevas,
+una retrata MF12) y velocidad por debajo de 277 ms ([informe](prueba-tecnica/INFORME.md)).
+
+**Tanda 2:** el estado del sitio es exactamente el simulado, así que el guion de los días 29 a 33 sigue
+valiendo tal cual, con el 32.2 corregido. Falta la decisión del recargo por mora.
+
 ## Revisión de Claude del día 23 (1/11, generación de noviembre y liquidaciones) — 27/10/2026
 
 Revisado contra el [guion](GUION-DIA-23.md), el [informe de Codex](DIA-23.md) (commits `e4fc0270` a `e8d31257`),

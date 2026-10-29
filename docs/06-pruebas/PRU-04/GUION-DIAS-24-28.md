@@ -6,6 +6,14 @@ con su fecha y en este orden, enviando lo mismo que envía la pantalla. Los impo
 abajo son los que dio Wings en esa corrida, y dos días (24 y 25) se cuadraron además a mano. La tanda 2
 (días 29 a 33) está en [GUION-DIAS-29-33.md](GUION-DIAS-29-33.md) y se corre después de revisar esta.
 
+> **Erratas, halladas al revisar lo que hizo Codex (Claude CAB, 29/10).** Cuatro esperados de este guion
+> estaban mal; Wings hizo lo correcto. **24.6:** Iván queda En plazo con **8** días, no 7 (el plazo del alta
+> es el más largo entre 7 días y la gracia del mes, el 11/11), y no hay aviso de cuota al 100% para un alta
+> del mes en curso (solo para un ingreso en un mes ya cerrado). **26.8:** el cajón pasa de **$261.200 a
+> $263.500** (yo no conté los $28.000 de Santino). **27.4 y 27.6:** cuando algo no se puede eliminar, Wings
+> no muestra el botón Eliminar; el rechazo se comprobó forzando el envío. **28.2:** la fecha de baja se ve en
+> «Deuda de alumnos inactivos», no en la ficha. Revisión completa en [ESTADO-PRUEBA.md](ESTADO-PRUEBA.md).
+
 **Autorización de Carlos (25/10 y 28/10/2026):** todas las operaciones de plata de este guion en
 test.gestionar-te.com.ar (base `wingstest`, datos ficticios): cobros, cobros parciales y de alumnos
 inactivos, reactivaciones, bajas y eliminaciones, cierre y pago de liquidaciones, sueldos, canchas,

@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T14 — Tanda 1 (días 24 a 28, 2 al 6/11) revisada — Claude CAB, 29/10/2026
+
+Codex la corrió entera (`52c9f368`). Plata al peso los cinco días; controles internos 27/27, seguridad
+26/26, velocidad < 277 ms. Un defecto nuevo de Wings, **MF12**: «Nueva liquidación» sigue contando como
+pendientes las clases de un mes ya liquidado por comisión (no hay plata en juego: generarlo otra vez se
+rechaza). Cuatro esperados del guion estaban mal (erratas en el guion); el 32.2 de la tanda 2 se corrigió
+por lo mismo. 160 de 334 casos probados. Sitio en el 6/11 con la caja de Rocío abierta a propósito.
+[Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [técnica](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
+Antes de la tanda 2: Carlos decide el recargo por mora y confirma si llegó el resumen del 5/11.
+
 ## Prueba sin confirmaciones nativas en el sitio de prueba — Claude CAB, 28/10/2026
 
 Pedido de Carlos para la prueba por días: las confirmaciones del navegador traban al Chrome automático de Codex.

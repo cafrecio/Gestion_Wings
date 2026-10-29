@@ -481,4 +481,103 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->actingAs($this->pablo)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '35000', 'cambio_retenido' => '10000']);
         $this->assertSame('RECHAZADA', $this->cajaSandra->fresh()->estado);
     }
+
+    /**
+     * Días 27.4 y 27.6: en pantalla el botón Eliminar no aparece si no se puede, así que Codex no pudo
+     * provocar el rechazo. Acá se fuerza el envío: el dueño con lo que tiene historia, la operativa y la
+     * profesora con lo que sí sería eliminable.
+     */
+    public function test_dias_27_eliminar_alumno_clase_y_serie_forzando(): void
+    {
+        // Alumno con cobro: el dueño forzando recibe el rechazo y el alumno sigue.
+        $this->actingAs($this->duenio)->deleteJson(route('web.alumnos.destroy', $this->alumno->id))->assertStatus(422)
+            ->assertJsonPath('message', 'No se puede eliminar el alumno: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.');
+        $this->assertNotNull($this->alumno->fresh());
+
+        // Alumno recién cargado, sin nada: la operativa y la profesora no lo eliminan; el dueño sí.
+        $nuevo = Alumno::create(['nombre' => 'Iván', 'apellido' => 'Paredes', 'dni' => '53444777', 'fecha_nacimiento' => '2017-01-01', 'celular' => '1',
+            'deporte_id' => $this->alumno->deporte_id, 'grupo_id' => $this->alumno->grupo_id, 'fecha_alta' => '2026-10-15', 'activo' => true]);
+        $this->actingAs($this->sandra)->deleteJson(route('web.alumnos.destroy', $nuevo->id))->assertForbidden();
+        $this->actingAs($this->lucia)->deleteJson(route('web.alumnos.destroy', $nuevo->id))->assertForbidden();
+        $this->assertNotNull($nuevo->fresh());
+        $this->actingAs($this->duenio)->deleteJson(route('web.alumnos.destroy', $nuevo->id))->assertOk();
+        $this->assertNull($nuevo->fresh());
+
+        // Clase con lista tomada: el dueño forzando recibe el rechazo y la clase sigue con su marca.
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        $this->actingAs($this->duenio)->deleteJson(route('web.clases.destroy', $this->claseMariela->id))->assertStatus(422)
+            ->assertJsonPath('message', 'No se puede eliminar la clase: Tiene asistencias registradas: debe cancelarse con motivo.');
+        $this->assertNotNull($this->claseMariela->fresh());
+        $this->assertSame(1, DB::table('asistencias')->where('clase_id', $this->claseMariela->id)->count());
+
+        // Serie de tres sábados sin lista: ni la operativa ni la profesora la eliminan forzando.
+        $serie = (string) Str::uuid();
+        $profesoraId = $this->claseMariela->profesores()->value('profesores.id');
+        $clases = collect(['2026-10-17', '2026-10-24', '2026-10-31'])->map(function ($fecha) use ($serie, $profesoraId) {
+            $c = Clase::create(['serie_id' => $serie, 'grupo_id' => $this->claseMariela->grupo_id, 'fecha' => $fecha, 'hora_inicio' => '14:00', 'hora_fin' => '15:00',
+                'cancelada' => false, 'validada_para_liquidacion' => false]);
+            $c->profesores()->attach($profesoraId);
+            return $c;
+        });
+        foreach ([$this->sandra, $this->mariela] as $quien) {
+            $this->actingAs($quien)->deleteJson(route('web.clases.destroy', $clases[0]->id), ['eliminar_serie' => 1])->assertForbidden();
+        }
+        $this->assertSame(3, Clase::where('serie_id', $serie)->count());
+
+        // Si una clase de la serie ya tiene lista, el dueño tampoco la elimina entera: no se borra ninguna.
+        $this->travelTo(Carbon::parse('2026-10-17 16:00'));
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $clases[0]->id),
+            ['items' => [['alumno_id' => $this->alumno->id, 'presente' => 1]]])->assertOk();
+        $this->actingAs($this->duenio)->deleteJson(route('web.clases.destroy', $clases[1]->id), ['eliminar_serie' => 1])->assertStatus(422);
+        $this->assertSame(3, Clase::where('serie_id', $serie)->count());
+    }
+
+    /** Días 26 y 28: cobrarle a un inactivo y perder su deuda, forzando por fuera de los paneles. */
+    public function test_dias_26_28_inactivos_forzando(): void
+    {
+        $this->actingAs($this->duenio)->patchJson(route('web.alumnos.toggle-activo', $this->alumno->id))->assertOk();
+        $this->assertFalse((bool) $this->alumno->fresh()->activo);
+        $pagos = Pago::count();
+        $cobro = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15'];
+
+        // Sin decir si vuelve: pregunta, no cobra.
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), $cobro)->assertStatus(409)
+            ->assertJsonPath('requiere_reactivacion', true)->assertJsonPath('permite_no', false);
+        // Forzando «No» con el mes en curso (el panel no lo ofrece): rechazado.
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), $cobro + ['reactivar' => 0])->assertStatus(422);
+        $this->assertSame($pagos, Pago::count());
+        $this->assertFalse((bool) $this->alumno->fresh()->activo);
+
+        // La operativa no da por perdida la deuda de un inactivo, ni forzando.
+        $this->actingAs($this->sandra)->postJson(route('web.inactivos.perder', $this->alumno->id), ['centavos' => 3000000])->assertForbidden();
+        $this->assertSame(0, DB::table('deudas_perdidas')->count());
+    }
+
+    /**
+     * Hallazgo día 28.1: Fútbol se liquida por comisión y esa liquidación guarda alumnos, no clases.
+     * «Nueva liquidación» busca clases ya liquidadas y no las encuentra: octubre, cerrado y pagado,
+     * sigue mostrando sus clases como liquidables. Generarla otra vez sí se rechaza.
+     */
+    public function test_hallazgo_dia_28_nueva_liquidacion_cuenta_un_mes_ya_liquidado_por_comision(): void
+    {
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $hernan = Profesor::create(['deporte_id' => $futbol->id, 'nombre' => 'Hernán', 'apellido' => 'Quintana', 'dni' => '30000003', 'fecha_nacimiento' => '1985-01-01',
+            'direccion' => 'x', 'localidad' => 'x', 'porcentaje_comision' => 40, 'activo' => true]);
+        $grupo = Grupo::create(['deporte_id' => $futbol->id, 'nivel_id' => Nivel::firstOrCreate(['nombre' => 'Avanzadas'])->id, 'activo' => true]);
+        $clase = Clase::create(['grupo_id' => $grupo->id, 'fecha' => '2026-10-06', 'hora_inicio' => '18:00', 'hora_fin' => '19:00', 'cancelada' => false, 'validada_para_liquidacion' => true]);
+        $clase->profesores()->attach($hernan->id);
+        DB::table('liquidaciones')->insert(['profesor_id' => $hernan->id, 'mes' => 10, 'anio' => 2026, 'tipo' => 'COMISION', 'total_calculado' => 0,
+            'estado' => 'CERRADA', 'estado_pago' => 'PAGADA', 'created_at' => now(), 'updated_at' => now()]);
+
+        $this->assertTrue($clase->integraLiquidacionCerrada(), 'La clase sí se reconoce liquidada en el resto de Wings');
+        $vista = $this->actingAs($this->duenio)->get(route('web.liquidaciones.create', ['mes' => 10, 'anio' => 2026]))->assertOk();
+        $fila = $vista->viewData('profesoresJson')[$hernan->id];
+        $this->assertSame(1, $fila['clases_count'], 'Corregido: octubre ya no figura pendiente. Dar vuelta esta prueba (debe ser 0)');
+        $this->assertSame(1, $fila['periodos']['2026-10']['liquidables'] ?? 0);
+
+        $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $hernan->id, 'mes' => 10, 'anio' => 2026])
+            ->assertSessionHas('error', 'Ya existe una liquidación para el profesor en 10/2026.');
+        $this->assertSame(1, DB::table('liquidaciones')->where('profesor_id', $hernan->id)->count());
+    }
 }

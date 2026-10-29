@@ -1,3 +1,18 @@
+# Prueba técnica de los días 24 a 28 (2 al 6/11) — 29/10/2026 · Claude CAB
+
+Sobre la base del sitio de prueba con el reloj en el 6/11, como `wingstest` y en solo lectura; seguridad en
+`wings_testing_claude`.
+
+| Área | Resultado |
+|---|---|
+| Funcionamiento interno | **27 de 27 bien** (`controles-internos-resultado-dias-24-28.json`). Seis controles nuevos: cada liquidación pagada tiene un único egreso en Cashflow, por su importe y con su fecha (8, $1.370.280); la constancia de noviembre sigue igual después de la segunda corrida; cada excepción de B3 tiene motivo, autor y su cobro (3); el diciembre adelantado existe solo pagado; ningún activo conserva fecha de baja (Julieta no la tiene: se dio de baja antes de T70); un DNI no se repite por deporte. Huérfanos ampliado a planes, cargos, excepciones, Revisión y profesoras de clase: lo eliminado (Lucas en Patín, la serie de sábados) no dejó nada. **ASI-2 se corrigió:** desde T62 una clase cancelada con la lista tomada conserva sus marcas (12, la de Avanzadas del 3/11); ahora el control mira que no haya marcas cargadas después de cancelar |
+| Seguridad | **26 de 26.** Nuevas: el dueño forzando no elimina un alumno con cobros, una clase con lista ni una serie con una clase con lista (los rechazos son los textos del catálogo), y la operativa y la profesora reciben 403 al eliminar o eliminar serie; cobrarle a un inactivo sin decir si vuelve pregunta, y forzar «No» con el mes en curso se rechaza; la operativa no da por perdida la deuda de un inactivo. **Hallazgo MF12:** con un mes ya liquidado por comisión, «Nueva liquidación» sigue contando sus clases; generar ese mes otra vez sí se rechaza |
+| Velocidad con los datos de hoy | 31 pantallas, todas por debajo de 277 ms (`performance-sitio-dias-24-28.json`); nuevas: Nueva liquidación con el mes anterior 13 ms, ficha de un inactivo 76 ms (132 consultas), caja abierta 16 ms. La más lenta sigue siendo Reportes de Sueldos del mes anterior, 183 consultas |
+
+Revisado aparte: los recibos LIQ-2 y CUOTA-254 (los PDF del servidor) son correctos; el resumen diario del
+5/11 corrió una vez a las 08:00:26 sin error. La consola de MySQL muestra la hora de la constancia en UTC
+(09:02:31); Wings la guarda bien (06:02:31).
+
 # Prueba técnica del día 23 (1/11) — 27/10/2026 · Claude CyE
 
 Sobre la base del sitio de prueba con el reloj en el 1/11, como `wingstest` y en solo lectura; seguridad en

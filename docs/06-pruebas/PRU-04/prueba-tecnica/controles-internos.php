@@ -172,9 +172,13 @@ try {
     // ── Asistencia ───────────────────────────────────────────────────────
     $f = DB::table('asistencias')->select('clase_id', 'alumno_id', DB::raw('count(*) n'))->groupBy('clase_id', 'alumno_id')->having('n', '>', 1)->get()->map(fn ($r) => "clase $r->clase_id alumno $r->alumno_id: $r->n marcas");
     control($resultados, 'ASI-1', 'A lo sumo una marca por alumno y clase', $f);
-    $f = DB::table('asistencias as a')->join('clases as c', 'c.id', '=', 'a.clase_id')->where(fn ($q) => $q->where('c.cancelada', 1)->orWhere('c.fecha', '>', now()->toDateString()))
-        ->select('a.id', 'c.id as clase', 'c.fecha', 'c.cancelada')->get()->map(fn ($r) => "marca $r->id en clase $r->clase ".($r->cancelada ? 'cancelada' : "futura $r->fecha"));
-    control($resultados, 'ASI-2', 'No hay marcas en clases canceladas ni en clases que todavía no ocurrieron', $f);
+    // Desde T62 (29/10) cancelar una clase con la lista tomada conserva las marcas: lo que no puede haber
+    // es una marca cargada después de cancelarla (la última modificación de la clase es la cancelación).
+    $f = DB::table('asistencias as a')->join('clases as c', 'c.id', '=', 'a.clase_id')
+        ->where(fn ($q) => $q->where(fn ($q2) => $q2->where('c.cancelada', 1)->whereColumn('a.created_at', '>', 'c.updated_at'))->orWhere('c.fecha', '>', now()->toDateString()))
+        ->select('a.id', 'c.id as clase', 'c.fecha', 'c.cancelada')->get()->map(fn ($r) => "marca $r->id en clase $r->clase ".($r->cancelada ? 'cargada después de cancelarla' : "futura $r->fecha"));
+    $conservadas = DB::table('asistencias as a')->join('clases as c', 'c.id', '=', 'a.clase_id')->where('c.cancelada', 1)->count();
+    control($resultados, 'ASI-2', 'No hay marcas en clases que todavía no ocurrieron ni cargadas en una clase ya cancelada', $f, "$conservadas marcas conservadas en clases canceladas con la lista tomada (T62)");
     $f = [];
     foreach (DB::table('asistencias as a')->join('clases as c', 'c.id', '=', 'a.clase_id')->join('alumnos as al', 'al.id', '=', 'a.alumno_id')
         ->select('a.id', 'a.alumno_id', 'c.id as clase', 'c.fecha', 'c.grupo_id', 'al.grupo_id as grupo_hoy', 'al.grupo_desde', 'al.fecha_alta')->get() as $r) {
@@ -240,11 +244,57 @@ try {
         control($resultados, 'REP-2', 'El reporte de octubre sigue igual que el 31/10', $f, 'ingresos '.($oct['ingresos']/100).', egresos '.($oct['egresos']/100).', deuda '.(($oct['deuda']['total'] ?? 0)/100));
     }
 
+    // ── Días 24 a 28 (2 al 6/11) ─────────────────────────────────────────
+    // Cada liquidación pagada tiene un solo egreso en Cashflow, por su importe y con su fecha de pago (LIQ-009, LIQ-011).
+    $f = [];
+    foreach (DB::table('liquidaciones')->where('estado_pago', 'PAGADA')->get() as $l) {
+        $movs = DB::table('cashflow_movimientos')->where('referencia_tipo', 'LIQUIDACION')->where('referencia_id', $l->id)->whereNull('anulado_at')->get();
+        $importe = $c($l->monto_final ?? $l->total_calculado);
+        if ($movs->count() !== 1) $f[] = "liquidación $l->id: {$movs->count()} egresos";
+        elseif (-$c($movs[0]->monto) !== $importe) $f[] = "liquidación $l->id: egreso ".$movs[0]->monto.' por un importe de '.($importe / 100);
+        elseif ($movs[0]->fecha !== $l->pagada_fecha) $f[] = "liquidación $l->id: egreso del {$movs[0]->fecha}, pagada el $l->pagada_fecha";
+    }
+    control($resultados, 'LIQ-5', 'Cada liquidación pagada tiene un único egreso en Cashflow por su importe y con su fecha de pago', $f,
+        DB::table('liquidaciones')->where('estado_pago', 'PAGADA')->count().' pagadas');
+
+    // Una segunda corrida de la generación no toca la constancia del mes (CBZ-012 d, día 24.8).
+    $gen = DB::table('generaciones_cuotas')->where('periodo', '2026-11')->first();
+    $f = [];
+    if (!$gen) $f[] = 'no hay constancia de noviembre';
+    elseif ((string) $gen->terminada_at !== '2026-11-01 06:02:31' || (int) $gen->ya_existian !== 103 || (int) $gen->creadas !== 0) $f[] = "constancia cambiada: fin $gen->terminada_at, creadas $gen->creadas, ya existían $gen->ya_existian";
+    control($resultados, 'CBZ-2', 'La constancia de noviembre sigue como quedó el 1/11 después de la segunda corrida del 2/11', $f,
+        $gen ? "fin $gen->terminada_at; creadas $gen->creadas (el 0 viene del día 23, antes de la reparación); ya existían $gen->ya_existian" : '');
+
+    // Cada excepción de B3 tiene motivo, autor y el cobro que la originó, del mismo alumno (COB-009, COB-033).
+    $f = [];
+    foreach (DB::table('excepciones_cobranza')->get() as $e) {
+        if (trim((string) $e->motivo) === '' || !$e->autor_id) $f[] = "excepción $e->id sin motivo o sin autor";
+        if ($e->registro_tipo === 'PAGO' && DB::table('pagos')->where('id', $e->registro_id)->value('alumno_id') !== $e->alumno_id) $f[] = "excepción $e->id: el cobro $e->registro_id no es de ese alumno";
+    }
+    control($resultados, 'COB-4', 'Cada excepción tiene motivo, autor y su cobro, del mismo alumno', $f, DB::table('excepciones_cobranza')->count().' excepciones');
+
+    // Un mes adelantado solo existe pagado y no suma a la deuda (COB-012, día 27.8).
+    $f = DB::table('deuda_cuotas')->where('periodo', '>', now()->format('Y-m'))->where('estado', '!=', 'PAGADA')->pluck('id')->map(fn ($id) => "cuota futura $id sin pagar");
+    control($resultados, 'COB-5', 'Las cuotas de meses que no empezaron existen solo pagadas por adelantado', $f,
+        DB::table('deuda_cuotas')->where('periodo', '>', now()->format('Y-m'))->count().' adelantadas');
+
+    // La fecha de inactividad acompaña al estado (T70): el activo no la tiene; el que se dio de baja desde T70 sí.
+    $f = DB::table('alumnos')->where('activo', 1)->whereNotNull('inactivo_desde')->pluck('id')->map(fn ($id) => "alumno $id activo con fecha de baja");
+    $sinFecha = DB::table('alumnos')->where('activo', 0)->whereNull('inactivo_desde')->pluck('apellido');
+    control($resultados, 'ALU-2', 'Ningún activo conserva fecha de baja; los inactivos sin fecha son anteriores a T70', $f, 'inactivos sin fecha: '.$sinFecha->implode(', '));
+
+    // Un DNI no se repite dentro del mismo deporte (ALU-005, ALU-024 d).
+    $f = DB::table('alumnos')->select('dni', 'deporte_id', DB::raw('count(*) n'))->groupBy('dni', 'deporte_id')->having('n', '>', 1)->get()->map(fn ($r) => "DNI $r->dni repetido en el deporte $r->deporte_id");
+    control($resultados, 'ALU-3', 'Un DNI aparece a lo sumo una vez por deporte', $f);
+
     // ── Huérfanos ────────────────────────────────────────────────────────
     $f = [];
     foreach ([['pagos', 'alumno_id', 'alumnos'], ['deuda_cuotas', 'alumno_id', 'alumnos'], ['movimientos_operativos', 'caja_operativa_id', 'cajas_operativas'],
               ['asistencias', 'clase_id', 'clases'], ['asistencias', 'alumno_id', 'alumnos'], ['pago_deuda_cuota', 'deuda_cuota_id', 'deuda_cuotas'],
-              ['pago_deuda_cuota', 'pago_id', 'pagos'], ['cashflow_movimientos', 'movimiento_operativo_id', 'movimientos_operativos']] as [$t, $col, $ref]) {
+              ['pago_deuda_cuota', 'pago_id', 'pagos'], ['cashflow_movimientos', 'movimiento_operativo_id', 'movimientos_operativos'],
+              // Días 24 a 28: lo que deja un alumno o una serie eliminados (ALU-024, CLA-021).
+              ['alumno_planes', 'alumno_id', 'alumnos'], ['cargos_alumno', 'alumno_id', 'alumnos'], ['excepciones_cobranza', 'alumno_id', 'alumnos'],
+              ['alumnos_revision_cobranza', 'alumno_id', 'alumnos'], ['clase_profesor', 'clase_id', 'clases']] as [$t, $col, $ref]) {
         $n = DB::table("$t as x")->leftJoin("$ref as y", 'y.id', '=', "x.$col")->whereNotNull("x.$col")->whereNull('y.id')->count();
         if ($n) $f[] = "$t.$col: $n sin $ref";
     }

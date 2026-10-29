@@ -47,7 +47,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: guion de noviembre armado y simulado entero en una copia de wingstest: tanda 1 dias 24-28 (GUION-DIAS-24-28.md, prompt PROMPT-CODEX-DIAS-24-28.md) y tanda 2 dias 29-33 (se corre despues de revisar la 1). Cubre los 20 casos a repetir y los nuevos; deja preparada la Revision del 1/12 (Pilar Ramos, Alma Navarro, Facundo Rios, Valentina Suarez). Pendiente de Carlos para la tanda 2: prender o no el recargo por mora. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 (dias 24-28) recorrida por Codex y revisada por Claude: plata al peso, interno 27/27, seguridad 26/26, velocidad < 277 ms; defecto nuevo MF12; 4 erratas del guion. 160/334 casos. Tanda 2 (dias 29-33) lista con 32.2 corregido; antes Carlos decide el recargo por mora y confirma si llego el resumen del 5/11. |
 
 ## Codex
 
@@ -64,9 +64,9 @@ Nada en este momento.
 
 T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
-## Mejoras futuras, no se empiezan ahora (11)
+## Mejoras futuras, no se empiezan ahora (12)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF12, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 

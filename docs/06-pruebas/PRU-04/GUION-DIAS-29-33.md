@@ -98,7 +98,7 @@ Lucía.
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
 | 32.1 | Dueño | Cobranza → Deuda de alumnos inactivos: **da por perdida** la de **Julieta ($77.000)**. Después mira su ficha. | El renglón sale y el total del apartado baja a $33.000 sin recargar. La ficha muestra **$77.000 perdidos**, quién y cuándo, aparte de pagos y condonaciones. No crea pago, recibo, ingreso ni egreso (CBZ-024 a, b, c). |
-| 32.2 | Dueño | Intenta **eliminar a Julieta**. | «No se puede eliminar el alumno: Tiene deuda dada por perdida registrada. Puede darlo de baja…» (CBZ-024 g, ALU-024 b). |
+| 32.2 | Dueño | Abre la ficha de **Julieta** y busca cómo eliminarla. | **No hay botón Eliminar**: Wings no lo muestra cuando el alumno tiene historia (cobros, deuda perdida). No forzar nada: el rechazo «No se puede eliminar el alumno: Tiene deuda dada por perdida registrada. Puede darlo de baja…» lo comprueba Claude en la prueba técnica (CBZ-024 g, ALU-024 b). Corregido por Claude el 29/10, después de la tanda 1 (27.4). |
 | 32.3 | Dueño | Se suspende el torneo: **reactiva** Fútbol Avanzadas del **sábado 14/11, 11–12**. Ve el choque, **elimina el amistoso** de Principiantes de esa hora y vuelve a reactivar. | Primero: «No se puede reactivar: la profesora Hernán Quintana ya tiene asignada la clase 'Fútbol — Principiantes' que se solapa en fecha 2026-11-14 entre 11:00 y 12:00.» Sin el amistoso, «Clase reactivada.»; el motivo «Torneo: el grupo viaja» queda guardado (CLA-015 a, b, c; CLA-021 a). |
 | 32.4 | Pablo | La mamá de **Iván** paga **solo la inscripción**, $5.000 en efectivo, sin marcar la cuota. | Cobra la inscripción; la cuota de noviembre sigue pendiente (COB-031). Iván sigue siendo «nuevo» para la lista: una inscripción no es el primer pago (ASI-013 d). |
 
