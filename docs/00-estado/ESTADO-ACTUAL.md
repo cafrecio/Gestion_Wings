@@ -26,17 +26,22 @@ El formulario permite cargar la forma próxima conservando tarifa/porcentaje ant
 Rápida definitiva1113/6 omitidas/8523 aserciones/229,88s; completa1249/6 omitidas/10314/1317,09s, salidas0 en wings_testing_codex.
 18 fuentes propias y629 globales intactas. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Chrome1366/375](../06-pruebas/PRU-04/APROBAR-T45.html). Sin despliegue.
 
-## T12 y T13 — Manual del usuario y Ayuda en Wings: Etapa 1, Gemini CyE 28/10/2026
+## T12 y T13 — Manual del usuario y Ayuda en Wings: Corrección Etapa 1, Gemini CAB 28/10/2026
 
-Estructura mínima, dos muestras completas y lista de 54 páginas propuestas; `en_curso`, tiene=Carlos para revisión y visto bueno antes de iniciar la Etapa 2.
+Corrección de Etapa 1 completada bajo el método obligatorio con 3 muestras reales (Operativa, Dueño y Profesor), fichas de fuentes y revisión independiente sin hallazgos abiertos; `a_verificar`, tiene=Claude, verifica=Claude, paso «Corrección etapa 1: control de Claude y OK de Carlos».
 El contenido vive en archivos Markdown bajo `resources/manual/{rol}/{slug}.md`, leídos por `ManualService`.
 Entrada «Ayuda» en Sistema para Admin y Operativo, y en navegación para Profesor.
-Botón «?» en la barra superior (topbar) implementado en las dos muestras: `/caja/cobrar/{alumnoId}` (`cobrar-cuota`) y `/cashflow` (`corregir-movimiento-caja-validada`).
+Botón «?» en la barra superior (topbar) implementado en las pantallas de muestra: `/caja/cobrar/{alumnoId}` (`cobrar-cuota`) y `/cashflow` (`corregir-movimiento-caja-validada`).
 Botón «Imprimir» funcional con `@media print` que oculta menús, cabeceras y botoneras para una hoja impresa limpia.
-Muestra 1 (Operativa): «Cobrar una cuota» con 4 pasos y «Qué hago si…».
-Muestra 2 (Dueño): «Corregir un movimiento mal cargado en una caja ya validada» (DU-27) con explicación de la regla contable y 4 pasos.
+Muestra 1 (Operativa): «Cobrar una cuota» con 4 pasos reales y «Qué hago si…» (ajustado a controles reales, sin supuestos).
+Muestra 2 (Dueño): «Corregir un movimiento mal cargado en una caja ya validada» (DU-27) con explicación de la regla contable, 4 pasos y hueco de reversión de deuda documentado.
+Muestra 3 (Profesor): «Tomar asistencia en una clase» con 3 pasos y casos de borde (clase cancelada, sin ocurrir, corrección con motivo).
 Lista de 54 páginas propuestas cubriendo DU-20, DU-27, DU-29 y el capítulo de Primera Carga en `T12-LISTA-DE-PAGINAS.md`.
+Fichas de fuentes por página en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/` con correspondencia exacta archivo:línea.
+11 capturas reales tomadas en base local con huellas MD5 100% únicas servidas por la ruta autenticada `/ayuda/img/{rol}/{archivo}`.
 17 pruebas propias / 79 aserciones verdes en `AyudaManualT12T13Test` (permisos por rol, 403 ante URL forzada, servicio autenticado de imágenes del manual con control estricto de roles, 404, login, botón ? y botones volver/imprimir).
+Revisión independiente ejecutada bajo `REVISOR-MANUAL.md` con 0 graves y 0 medios abiertos (`evidencia-t12-t13/revisiones/2026-10-28-etapa1.md`).
+`scripts/manual/verificar-manual.php` en 0 problemas. Rápida 1134 aprobadas / 6 omitidas.
 [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html). Sin despliegue.
 
 ## T51 — Correcciones manuales con historia, Codex CyE 28/10/2026
