@@ -25,14 +25,16 @@ $publicBuild = 'file:///' . str_replace('\\', '/', public_path('build')) . '/';
 $publicImg = 'file:///' . str_replace('\\', '/', public_path('img')) . '/';
 $manualImgOperativo = 'file:///' . str_replace('\\', '/', resource_path('manual/img/operativo')) . '/';
 $manualImgAdmin = 'file:///' . str_replace('\\', '/', resource_path('manual/img/admin')) . '/';
+$manualImgProfesor = 'file:///' . str_replace('\\', '/', resource_path('manual/img/profesor')) . '/';
 
-$sanitizar = function (string $html) use ($publicBuild, $publicImg, $manualImgOperativo, $manualImgAdmin): string {
+$sanitizar = function (string $html) use ($publicBuild, $publicImg, $manualImgOperativo, $manualImgAdmin, $manualImgProfesor): string {
     $html = preg_replace('#https?://[^/]+/build/#', $publicBuild, $html);
     $html = preg_replace('#https?://[^/]+/img/#', $publicImg, $html);
     $html = str_replace(['src="/build/', 'href="/build/'], ['src="' . $publicBuild, 'href="' . $publicBuild], $html);
     $html = str_replace(['src="/img/', 'href="/img/'], ['src="' . $publicImg, 'href="' . $publicImg], $html);
     $html = str_replace('/ayuda/img/operativo/', $manualImgOperativo, $html);
     $html = str_replace('/ayuda/img/admin/', $manualImgAdmin, $html);
+    $html = str_replace('/ayuda/img/profesor/', $manualImgProfesor, $html);
     return $html;
 };
 
@@ -75,5 +77,13 @@ $htmlMuestra2 = $ayudaController->show($reqAjuste, 'corregir-movimiento-caja-val
 $htmlMuestra2 = $sanitizar($htmlMuestra2);
 file_put_contents($dirEvidencia . '/muestra2-corregir-movimiento.html', $htmlMuestra2);
 file_put_contents($dirEvidencia . '/muestra2-corregir-movimiento-marco-375.html', $armarMarco375('muestra2-corregir-movimiento.html'));
+
+// 4. Muestra 3: Tomar asistencia en una clase
+$reqAsistencia = Request::create('/ayuda/tomar-asistencia', 'GET');
+$reqAsistencia->setUserResolver(fn() => $admin);
+$htmlMuestra3 = $ayudaController->show($reqAsistencia, 'tomar-asistencia')->render();
+$htmlMuestra3 = $sanitizar($htmlMuestra3);
+file_put_contents($dirEvidencia . '/muestra3-tomar-asistencia.html', $htmlMuestra3);
+file_put_contents($dirEvidencia . '/muestra3-tomar-asistencia-marco-375.html', $armarMarco375('muestra3-tomar-asistencia.html'));
 
 echo "Archivos HTML de muestras y páginas de ayuda generados con éxito.\n";

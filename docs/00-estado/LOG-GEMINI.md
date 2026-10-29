@@ -10,6 +10,42 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-28 — LOG GEM CAB — T12 y T13: Corrección de Etapa 1 y método obligatorio aplicado (3 muestras, fichas de fuentes y revisión independiente)
+
+- **Objetivo:** Aplicar el método obligatorio y riguroso para las páginas del manual: ejecutar cada paso en local antes de redactar, eliminar textos improvisados o supuestos, incorporar la muestra 3 del profesor, confeccionar las fichas de fuentes con trazabilidad a código real, documentar el hueco de reversión de cobros en caja validada y someter la entrega a revisión independiente bajo `REVISOR-MANUAL.md`.
+- **Acciones y resultados concretos:**
+  1. **Reescritura fiel de las 2 muestras iniciales:**
+     - `resources/manual/operativo/cobrar-cuota.md`: Corregido mensaje exacto de apertura «Debés abrir la caja y confirmar el efectivo antes de operar.» (`CajaService:278`), campos **Efectivo recibido** y **Abrir** con confirmación obligatoria, cancelación con motivo en caja abierta/rechazada, aclaración de caja cerrada pendiente de validación, eliminación del inexistente estado «parcial» (cuota sigue en *Pendiente* con saldo restante) y explicación de edición directa de cuota vs tarjeta **Importe que entrega...** para matrícula/mora.
+     - `resources/manual/admin/corregir-movimiento-caja-validada.md`: Nombres exactos de campos (**Tipo de movimiento** con botones **EGRESO** / **INGRESO**, **Fecha**, **Medio de pago**, **Rubro**, **Subrubro**, **Monto**, **Observaciones**, **Registrar**). En transferencias, selectores **Cuenta de salida** y **Cuenta de destino** con botón **Transferir**.
+  2. **Incorporación de la Muestra 3 (Profesor):**
+     - `resources/manual/profesor/tomar-asistencia.md`: Cubre navegación lateral **Clases**, listado **Tus clases de hoy**, botón **Ver**, casilla **Presente** (no existe casilla "Ausente": dejar sin tildar registra inasistencia), botón **Guardar** y aviso «Asistencias guardadas.».
+     - Casos en «Qué hago si…»: Alumno no en lista (sin permisos para crear alumnos), clase cancelada («La clase está cancelada. No se pueden registrar asistencias.»), corrección de lista tomada con motivo («Indicá el motivo de la corrección.»), liquidación cerrada («No se pueden modificar asistencias: la clase integra una liquidación cerrada.»), toma de lista antes del día de la clase («La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.») y excepciones de alumnos morosos («Indicá el motivo para admitir al alumno.»).
+  3. **Generación de capturas de pantalla reales (11 capturas con huellas MD5 100% únicas):**
+     - Generadas mediante headless Chrome en entorno local con datos sintéticos y usuario del rol correspondiente (barra de navegación lo acredita).
+     - Guardadas en `resources/manual/img/` (`operativo/`, `admin/`, `profesor/`) y servidas por la aplicación a través de la ruta protegida `/ayuda/img/{rol}/{archivo}`.
+     - Galería `docs/06-pruebas/PRU-04/APROBAR-T12-T13-MUESTRAS.html` actualizada con las 3 muestras en escritorio (1366 px) y marco celular (375 px), vista de impresión y detalle de pasos.
+  4. **Fichas de fuentes elaboradas:**
+     - Creadas en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/`: `operativo-cobrar-cuota.md`, `admin-corregir-movimiento-caja-validada.md` y `profesor-tomar-asistencia.md`.
+     - Cada afirmación y cada «Qué hago si…» cuenta con su archivo:línea exacto y el resultado de la ejecución en local.
+  5. **Verificación sintáctica y de consistencia:**
+     - `php scripts/manual/verificar-manual.php` ejecutado: **3 páginas revisadas, 0 problemas**.
+  6. **Revisión independiente (`REVISOR-MANUAL.md`):**
+     - Ejecutada por subagente revisor independiente. Informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-28-etapa1.md`.
+     - Observaciones iniciales (1 Media sobre cobro parcial y 4 Menores) subsanadas inmediatamente en manual y fichas de fuentes.
+     - **Estado de cierre: 0 hallazgos graves, 0 hallazgos medios, 0 hallazgos menores abiertos**.
+  7. **Documentación del hueco para Carlos:**
+     - En `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md` (sección 7) se detalla la imposibilidad actual de Wings de devolverle la deuda a un alumno tras validar la caja (`PagoCuotaService:380, 1266` y `CajaWebController:601`), para que Carlos defina el tratamiento funcional a futuro.
+  8. **Guardianes y Suite:**
+     - `tests/Feature/AyudaManualT12T13Test`: 17 pasadas (79 aserciones).
+     - `CspSinCodigoIncrustadoTest`: 2 pasadas.
+     - `TableroAlDiaTest`: 6 pasadas.
+     - `DocumentacionNoMienteTest`: 1 pasada.
+     - `git diff --stat -- resources/views resources/css`: vacío.
+     - Cache de vistas compilado sin fallas.
+     - Suite rápida en `wings_testing_gemini`: 1134 pasadas, 6 omitidas (270 s).
+- **Tablero:** T12 y T13 actualizadas a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Corrección etapa 1: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control independiente de Claude y el visto bueno de Carlos antes de iniciar la Etapa 2.
+
 ## 2026-10-28 — LOG GEM CYE — T12 y T13: Devolución Etapa 1 resuelta — Capturas individuales con huellas únicas y servicio autenticado de imágenes en Wings
 
 - **Prompt recibido (Devolución Claude / Carlos):**

@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">
     <link rel="manifest" href="http://gestion-wings/site.webmanifest">
     <meta name="theme-color" content="#0F172A">
-    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js"></script></head>
+    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js"></script></head>
 <body>
 
 <div class="ds-layout">
@@ -22,7 +22,7 @@
         
         <div class="ds-brand">
             <a href="/" class="ds-brand__link">
-                <img src="file:///C:/xampp/htdocs/Gestion_Wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <img src="file:///C:/xampp/htdocs/gestion-wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
                 <span class="ds-brand__name">Wings</span>
             </a>
         </div>
@@ -303,7 +303,7 @@
 <p>Esta tarea te explica cómo solucionar una diferencia cuando se descubre que en un turno anterior se cargó un cobro o gasto con un monto equivocado, o con el medio de pago incorrecto, y esa caja ya fue validada por el dueño.</p>
 <blockquote>
 <p>[!IMPORTANT]
-<strong>Por qué la caja validada no se toca:</strong> Una caja validada representa el dinero físico real que la operativa contó y entregó al cerrar su turno. Si editáramos o borráramos movimientos de una caja ya validada, romperíamos la trazabilidad histórica de lo que efectivamente rindió ese turno y no habría forma de auditar qué pasó. En Wings, lo validado queda cerrado para siempre (DU-27) y cualquier corrección posterior se asienta como un <strong>ajuste directo en Cashflow</strong>, con motivo claro.</p>
+<em>Por qué la caja validada no se toca:</em> Una caja validada representa el dinero físico real que la operativa contó y entregó al cerrar su turno. Si editáramos o borráramos movimientos de una caja ya validada, romperíamos la trazabilidad histórica de lo que efectivamente rindió ese turno y no habría forma de auditar qué pasó. En Wings, lo validado queda cerrado para siempre (DU-27) y cualquier corrección posterior se asienta como un <em>ajuste directo en Cashflow</em>, con motivo claro.</p>
 </blockquote>
 <hr />
 <h2>Pasos para hacer el ajuste en Cashflow</h2>
@@ -312,56 +312,54 @@
 <li>Desde el menú lateral del administrador, entrá a <strong>Cashflow</strong>.</li>
 <li>Revisá el saldo del medio de pago afectado (por ejemplo, <strong>Efectivo</strong> o <strong>Banco</strong>) y el período en el que ocurrió el error.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/admin/corregir-movimiento-paso1.png" alt="Entrar a Cashflow" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/admin/corregir-movimiento-paso1.png" alt="Entrar a Cashflow" /></p>
 <hr />
 <h3>Paso 2. Abrir el formulario de nuevo movimiento</h3>
 <ol>
 <li>En la barra superior de acciones de Cashflow, tocá el botón <strong>Nuevo</strong>.</li>
-<li>Se va a abrir la pantalla para registrar un movimiento directo de administración.</li>
+<li>Se va a abrir la pantalla <strong>Nuevo movimiento</strong> para registrar una operación directa de administración.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/admin/corregir-movimiento-paso2.png" alt="Tocar el botón Nuevo en Cashflow" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/admin/corregir-movimiento-paso2.png" alt="Tocar el botón Nuevo en Cashflow" /></p>
 <hr />
 <h3>Paso 3. Cargar el ajuste compensatorio</h3>
 <p>Completá los campos según el sentido del error:</p>
 <ol>
 <li><strong>Tipo de movimiento:</strong>
 <ul>
-<li>Si en la caja se cargó plata de más (un cobro duplicado o mayor al real), cargá un <strong>Egreso</strong> compensatorio.</li>
-<li>Si se cobró de menos o se anotó un gasto de más, cargá un <strong>Ingreso</strong> compensatorio.</li>
+<li>Si en la caja se cargó dinero de más (un cobro duplicado o mayor al real), tocá el botón <strong>EGRESO</strong> compensatorio.</li>
+<li>Si se cobró de menos o se anotó un gasto de más, tocá el botón <strong>INGRESO</strong> compensatorio.</li>
 </ul>
 </li>
-<li><strong>Tipo de caja:</strong> Seleccioná el medio de pago que tuvo la diferencia (<strong>Efectivo</strong>, <strong>Banco</strong>, etc.).</li>
-<li><strong>Importe:</strong> Escribí la diferencia exacta que necesitás corregir.</li>
 <li><strong>Fecha:</strong> Elegí la fecha en la que realizás el ajuste (o la fecha del turno si estás cerrando el período).</li>
-<li><strong>Rubro y Subrubro:</strong> Seleccioná el rubro y subrubro de ajuste correspondiente.</li>
-<li><strong>Motivo:</strong> Escribí con claridad la razón del ajuste (por ejemplo: <em>«Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada»</em>).</li>
+<li><strong>Medio de pago:</strong> Seleccioná el medio de pago que tuvo la diferencia (<strong>Efectivo</strong>, <strong>Banco</strong>, etc.).</li>
+<li><strong>Rubro:</strong> Seleccioná el rubro de ajuste correspondiente.</li>
+<li><strong>Subrubro:</strong> Seleccioná el subrubro correspondiente.</li>
+<li><strong>Monto:</strong> Escribí la diferencia exacta que necesitás corregir.</li>
+<li><strong>Observaciones:</strong> Escribí con claridad la razón del ajuste (por ejemplo: &quot;Ajuste compensatorio por cobro duplicado a Alumno Pérez en turno mañana del 15/10/2026, caja ya validada&quot;).</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/admin/corregir-movimiento-paso3.png" alt="Completar formulario de ajuste directo" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/admin/corregir-movimiento-paso3.png" alt="Completar formulario de ajuste directo" /></p>
 <hr />
 <h3>Paso 4. Guardar y verificar</h3>
 <ol>
-<li>Tocá el botón <strong>Guardar</strong>.</li>
-<li>Wings registra el movimiento en el libro Cashflow y actualiza los saldos generales del club.</li>
+<li>Tocá el botón <strong>Registrar</strong>.</li>
+<li>Wings registra el movimiento en el libro <strong>Cashflow</strong> y actualiza los saldos generales del club.</li>
 <li>El historial conserva tanto la operación original de la caja como el ajuste que hiciste vos, con su explicación auditada.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/admin/corregir-movimiento-paso4.png" alt="Guardar y ver el movimiento reflejado en Cashflow" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/admin/corregir-movimiento-paso4.png" alt="Guardar y ver el movimiento reflejado en Cashflow" /></p>
 <hr />
 <h2>Qué hago si…</h2>
-<h3>¿Qué hago si la caja todavía NO está validada?</h3>
-<p>Si la caja del turno fue cerrada por la operativa pero vos todavía no la validaste (está en estado «Cerrada»), no hace falta hacer un ajuste en Cashflow:</p>
+<h3>¿Qué hago si la caja todavía no está validada?</h3>
+<p>Si la caja del turno fue cerrada por la operativa pero vos todavía no la validaste (está en estado <em>Cerrada</em>), no hace falta hacer un ajuste en Cashflow:</p>
 <ol>
 <li>Andá a <strong>Caja</strong>, abrí el detalle de esa caja y tocá <strong>Rechazar</strong>.</li>
 <li>Escribí la observación para que la operativa sepa qué corregir.</li>
-<li>La operativa va a poder rectificar o anular el movimiento erróneo y volver a cerrar la caja para que la valides limpia.</li>
+<li>La operativa va a poder entrar a su caja rechazada, tocar <strong>Cancelar</strong> sobre el cobro erróneo y volver a cerrarla para que la valides limpia.</li>
 </ol>
 <h3>¿Qué hago si el error afectó la deuda de un alumno?</h3>
-<p>Si el cobro canceló indebidamente la cuota de un alumno y la caja ya está validada:</p>
-<ol>
-<li>Hacé el ajuste en <strong>Cashflow</strong> para equilibrar el saldo de dinero.</li>
-<li>Luego andá a la ficha del alumno en <strong>Alumnos</strong> o <strong>Cobranza</strong> y reactivá la cuota pendiente para que vuelva a figurar como adeudada.</li>
-</ol>
+<p><em>Importante:</em> Hoy Wings no tiene forma de devolverle la deuda a ese alumno. Una cuota cobrada por caja no se anula desde la ficha del alumno y una caja ya validada no permite cancelar movimientos. El botón para reactivar cuotas solo acepta cuotas condonadas, nunca cuotas pagadas.
+Por lo tanto, el ajuste en <strong>Cashflow</strong> compensa el saldo financiero del club, pero la ficha del alumno conservará la cuota como saldada. La deuda no se puede reabrir en el sistema.</p>
 <h3>¿Qué hago si lo que tengo que hacer es pasar efectivo al banco?</h3>
-<p>Eso no es un error de caja, es una transferencia entre cuentas del club (DU-29). En <strong>Cashflow</strong>, tocá el botón <strong>Transferir</strong> y elegí salida <strong>Efectivo</strong> y destino <strong>Banco</strong>. Wings genera las dos patas vinculadas sin alterar el resultado del club.</p>
+<p>Eso no es un error de caja, es una transferencia entre cuentas del club (DU-29). En <strong>Cashflow</strong>, tocá el botón <strong>Transferir</strong> y elegí las cuentas de salida y destino. Wings genera las dos patas vinculadas sin alterar el resultado del club.</p>
 
         </div>
     </article>

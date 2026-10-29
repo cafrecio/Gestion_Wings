@@ -154,6 +154,38 @@ Se implementó la suite `tests/Feature/AyudaManualT12T13Test.php` con **17 prueb
 
 ---
 
-## 7. Próximo paso
+## 7. Huecos detectados en Wings para decisión de Carlos
 
-**Parada de control obligatoria:** T12 y T13 quedan en el tablero con `tiene=Carlos` a la espera de su visto bueno sobre las dos muestras y la lista de 54 páginas. Una vez aprobado por Carlos, se procederá con la Etapa 2 (redacción de las páginas restantes, incorporación del botón `?` en todas las pantallas y armado del buscador).
+Durante la verificación minuciosa del manual contra el código real y las pruebas en el sistema, se comprobó una limitación funcional concreta en Wings:
+
+### Reversión de cobros por caja validada y deuda del alumno
+- **Situación:** En un turno de caja de una operativa se cobra una cuota por error a un alumno (por ejemplo, cobro duplicado o asignado a otro alumno). El turno finaliza y el dueño valida la caja.
+- **Lo que pasa en el dinero:** Siguiendo la regla contable DU-27, el dueño realiza un ajuste compensatorio directo en **Cashflow** (un EGRESO compensatorio por la diferencia), lo que equilibra los saldos monetarios del club sin tocar la caja cerrada.
+- **Lo que pasa en la cuenta del alumno (el hueco):** Hoy Wings no tiene ninguna vía para devolverle la deuda al alumno:
+  1. Desde la ficha del alumno, intentar anular el cobro es rechazado por `PagoCuotaService::anularCobro` (`PagoCuotaService.php:1266`): *«Este cobro se hizo por caja: se anula desde el detalle de esa caja»*.
+  2. Desde la caja, intentar cancelarlo es rechazado por `CajaWebController::cancelarMovimiento` (`CajaWebController.php:601`), ya que solo admite estados `ABIERTA` o `RECHAZADA`.
+  3. Intentar reactivar la cuota desde la cuenta corriente es rechazado por `PagoCuotaService::reactivarCuota` (`PagoCuotaService.php:380`), que exige estrictamente: *«Solo se pueden reactivar cuotas CONDONADAS»*.
+- **Consecuencia actual:** El dinero queda compensado por Cashflow, pero en el sistema la cuota del alumno permanece indebidamente como saldada (pagada), sin posibilidad de reabrir la deuda.
+- **Tratamiento en el manual:** Se explicó con total transparencia la regla en `resources/manual/admin/corregir-movimiento-caja-validada.md` (apartado «¿Qué hago si el error afectó la deuda de un alumno?»), indicando que hoy Wings no permite reabrir la deuda del alumno tras validar la caja. Queda este reporte para que Carlos defina si a futuro se diseña un mecanismo administrativo especial de desvinculación o reapertura de deuda.
+
+---
+
+## 8. Corrección de la Etapa 1 y método obligatorio aplicado
+
+Conforme a la devolución de Carlos y la revisión de Claude:
+1. **Método de ejecución previa:** Cada paso y cada alternativa de «Qué hago si…» fue ejecutado en el sistema sobre entorno local (`wings_manual_gemini` / `wings_testing_gemini`) con usuarios de cada rol y datos sintéticos.
+2. **Textos literales sin improvisaciones:** Las negritas corresponden con exactitud a botones, campos, títulos y opciones de pantalla. Los mensajes entre comillas latinas «» corresponden a cadenas literales emitidas por controladores o servicios de Wings.
+3. **Fichas de fuentes:** Se elaboraron las 3 fichas de correspondencia en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/`:
+   - `operativo-cobrar-cuota.md`
+   - `admin-corregir-movimiento-caja-validada.md`
+   - `profesor-tomar-asistencia.md`
+   con trazabilidad completa de afirmación, `archivo:linea` y resultado de ejecución.
+4. **Muestra 3 incorporada:** Se sumó `resources/manual/profesor/tomar-asistencia.md` con 3 pasos reales y sus capturas con huellas MD5 100% únicas.
+5. **Verificación automática:** `php scripts/manual/verificar-manual.php` ejecutado con éxito: **3 páginas revisadas, 0 problemas**.
+6. **Revisión independiente:** Informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-28-etapa1.md` con 0 hallazgos graves y 0 medios abiertos.
+
+---
+
+## 9. Próximo paso
+
+**Parada de control obligatoria:** T12 y T13 quedan en el tablero con `a_verificar`, `tiene=Claude`, `verifica=Claude` con paso *«Corrección etapa 1: control de Claude y OK de Carlos»*. No se avanza a la Etapa 2 hasta contar con la validación de Claude y el visto bueno explícito de Carlos.

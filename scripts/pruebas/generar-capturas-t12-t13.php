@@ -10,11 +10,13 @@ $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
 use App\Models\CashflowMovimiento;
+use App\Models\Clase;
 use App\Models\Deporte;
 use App\Models\DeudaCuota;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Nivel;
+use App\Models\Profesor;
 use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
@@ -36,8 +38,10 @@ if (!is_dir($dirEvidencia)) {
 
 $dirImgOperativo = resource_path('manual/img/operativo');
 $dirImgAdmin = resource_path('manual/img/admin');
+$dirImgProfesor = resource_path('manual/img/profesor');
 File::ensureDirectoryExists($dirImgOperativo);
 File::ensureDirectoryExists($dirImgAdmin);
+File::ensureDirectoryExists($dirImgProfesor);
 
 // Asegurar usuarios de prueba
 $admin = User::firstOrNew(['email' => 'admin@wings.test']);
@@ -116,14 +120,16 @@ $publicBuild = 'file:///' . str_replace('\\', '/', public_path('build')) . '/';
 $publicImg = 'file:///' . str_replace('\\', '/', public_path('img')) . '/';
 $manualImgOperativo = 'file:///' . str_replace('\\', '/', resource_path('manual/img/operativo')) . '/';
 $manualImgAdmin = 'file:///' . str_replace('\\', '/', resource_path('manual/img/admin')) . '/';
+$manualImgProfesor = 'file:///' . str_replace('\\', '/', resource_path('manual/img/profesor')) . '/';
 
-$sanitizar = function (string $html) use ($publicBuild, $publicImg, $manualImgOperativo, $manualImgAdmin): string {
+$sanitizar = function (string $html) use ($publicBuild, $publicImg, $manualImgOperativo, $manualImgAdmin, $manualImgProfesor): string {
     $html = preg_replace('#https?://[^/]+/build/#', $publicBuild, $html);
     $html = preg_replace('#https?://[^/]+/img/#', $publicImg, $html);
     $html = str_replace(['src="/build/', 'href="/build/'], ['src="' . $publicBuild, 'href="' . $publicBuild], $html);
     $html = str_replace(['src="/img/', 'href="/img/'], ['src="' . $publicImg, 'href="' . $publicImg], $html);
     $html = str_replace('/ayuda/img/operativo/', $manualImgOperativo, $html);
     $html = str_replace('/ayuda/img/admin/', $manualImgAdmin, $html);
+    $html = str_replace('/ayuda/img/profesor/', $manualImgProfesor, $html);
     return $html;
 };
 
@@ -256,7 +262,10 @@ CashflowMovimiento::firstOrCreate(
     ]
 );
 
-// Paso 1: Cashflow con saldo y movimientos cargados
+// Limpiar ajuste previo para que el Paso 1 muestre el estado ANTES del ajuste
+CashflowMovimiento::where('observaciones', 'like', '%Ajuste compensatorio por cobro duplicado%')->delete();
+
+// Paso 1: Cashflow con saldo y movimientos cargados (antes del ajuste)
 $reqCf = Request::create('/cashflow', 'GET');
 $reqCf->setUserResolver(fn() => $admin);
 $htmlCashflowPaso1 = $sanitizar($cashflowController->index($reqCf)->render());
@@ -313,5 +322,99 @@ $ajusteGuardado = CashflowMovimiento::firstOrCreate(
 );
 $htmlCashflowPaso4 = $sanitizar($cashflowController->index($reqCf)->render());
 file_put_contents($dirEvidencia . '/corregir-movimiento-paso4.html', $htmlCashflowPaso4);
+
+// ──────────────────────────────────────────────────────────────────────────
+// C. Pasos REALES de «Tomar asistencia en una clase» (Profesor)
+// ──────────────────────────────────────────────────────────────────────────
+$profesor = Profesor::firstOrCreate(
+    ['dni' => '28999888'],
+    [
+        'nombre'              => 'Valeria',
+        'apellido'            => 'Ríos',
+        'fecha_nacimiento'    => '1990-05-10',
+        'direccion'           => 'San Martín 1234',
+        'localidad'           => 'Rosario',
+        'telefono'            => '3415112233',
+        'email'               => 'profesor@wings.test',
+        'deporte_id'          => $deporte->id,
+        'valor_hora'          => 4500,
+        'porcentaje_comision' => 0,
+        'activo'              => true,
+    ]
+);
+
+$userProfesor = User::firstOrNew(['email' => 'profesor@wings.test']);
+$userProfesor->name = 'Valeria Ríos';
+$userProfesor->rol = User::ROL_PROFESOR;
+$userProfesor->profesor_id = $profesor->id;
+$userProfesor->activo = true;
+$userProfesor->password = bcrypt('password');
+$userProfesor->save();
+
+$alumno2 = Alumno::firstOrCreate(
+    ['dni' => '45111222'],
+    [
+        'nombre'           => 'Camila',
+        'apellido'         => 'Fernández',
+        'fecha_nacimiento' => '2015-03-22',
+        'celular'          => '3415223344',
+        'deporte_id'       => $deporte->id,
+        'grupo_id'         => $grupo->id,
+        'fecha_alta'       => '2026-08-01',
+        'activo'           => true,
+    ]
+);
+AlumnoPlan::firstOrCreate(
+    ['alumno_id' => $alumno2->id, 'plan_id' => $plan->id],
+    ['fecha_desde' => '2026-08-01', 'activo' => true]
+);
+
+$claseHoy = Clase::firstOrCreate(
+    [
+        'grupo_id'    => $grupo->id,
+        'fecha'       => '2026-10-28',
+        'hora_inicio' => '17:00:00',
+        'hora_fin'    => '18:00:00',
+    ],
+    [
+        'cancelada'                 => false,
+        'validada_para_liquidacion' => false,
+    ]
+);
+$claseHoy->profesores()->syncWithoutDetaching([$profesor->id]);
+
+$claseWebController = app(\App\Http\Controllers\ClaseWebController::class);
+
+// Paso 1: Listado de clases del profesor (Tus clases de hoy)
+Auth::setUser($userProfesor);
+$reqClases = Request::create('/clases', 'GET');
+$reqClases->setUserResolver(fn() => $userProfesor);
+$htmlClasesIndex = $sanitizar($claseWebController->index($reqClases)->render());
+file_put_contents($dirEvidencia . '/tomar-asistencia-paso1.html', $htmlClasesIndex);
+
+// Paso 2: Ficha de clase con casilla Presente tildada
+$reqClaseShow = Request::create('/clases/' . $claseHoy->id, 'GET');
+$reqClaseShow->setUserResolver(fn() => $userProfesor);
+$htmlClaseShow = $sanitizar($claseWebController->show($claseHoy->id)->render());
+
+$htmlClaseShowPaso2 = preg_replace(
+    '/(id="presente-' . $alumno->id . '"[^>]*)/',
+    '$1 checked',
+    $htmlClaseShow
+);
+file_put_contents($dirEvidencia . '/tomar-asistencia-paso2.html', $htmlClaseShowPaso2);
+
+// Paso 3: Ficha de clase mostrando el cartel/toast «✓ Asistencias guardadas.»
+$htmlClaseShowPaso3 = str_replace(
+    'id="toast-asistencias"',
+    'id="toast-asistencias" style="display:block; position:fixed; top:16px; left:50%; transform:translateX(-50%); z-index:200; padding:14px 28px; border-radius:var(--radius-card); font-size:1rem; font-weight:700; text-align:center; max-width:90vw; box-shadow:0 8px 24px rgba(0,0,0,0.25); background:var(--color-success); color:#fff;"',
+    $htmlClaseShowPaso2
+);
+$htmlClaseShowPaso3 = preg_replace(
+    '/(<div id="toast-asistencias"[^>]*>)(<\/div>)/',
+    '$1✓ Asistencias guardadas.$2',
+    $htmlClaseShowPaso3
+);
+file_put_contents($dirEvidencia . '/tomar-asistencia-paso3.html', $htmlClaseShowPaso3);
 
 echo "Archivos HTML de pasos de muestra generados con éxito.\n";

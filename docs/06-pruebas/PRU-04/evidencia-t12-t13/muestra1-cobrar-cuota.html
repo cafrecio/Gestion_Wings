@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">
     <link rel="manifest" href="http://gestion-wings/site.webmanifest">
     <meta name="theme-color" content="#0F172A">
-    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/Gestion_Wings/public/build/assets/app-A0AR-hKd.js"></script></head>
+    <link rel="preload" as="style" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js" /><link rel="modulepreload" as="script" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-DCqd7U5N.css" /><script type="module" src="file:///C:/xampp/htdocs/gestion-wings/public/build/assets/app-A0AR-hKd.js"></script></head>
 <body>
 
 <div class="ds-layout">
@@ -22,7 +22,7 @@
         
         <div class="ds-brand">
             <a href="/" class="ds-brand__link">
-                <img src="file:///C:/xampp/htdocs/Gestion_Wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <img src="file:///C:/xampp/htdocs/gestion-wings/public/img/logo-wings.png" alt="" class="ds-brand__logo">
                 <span class="ds-brand__name">Wings</span>
             </a>
         </div>
@@ -300,58 +300,56 @@
         
         <div class="ayuda-markdown-cuerpo" style="line-height: 1.6; color: var(--color-text);">
             <h1>Cobrar una cuota</h1>
-<p>Esta tarea te explica cómo registrar el pago de cuotas, matrícula o punitorios de un alumno que se acerca al mostrador.</p>
+<p>Esta tarea te explica cómo registrar el cobro de cuotas, matrícula de inscripción o recargos por mora de un alumno en el mostrador.</p>
 <blockquote>
 <p>[!NOTE]
-<strong>Antes de empezar:</strong> Para poder cobrar necesitás tener tu turno de caja abierto del día. Si todavía no abriste la caja, Wings te va a pedir que ingreses el saldo inicial en <strong>Caja</strong>.</p>
+<em>Antes de empezar:</em> Para poder cobrar necesitás tener tu turno de caja abierto del día. Si todavía no abriste la caja, Wings no te va a dejar operar y te va a mostrar «Debés abrir la caja y confirmar el efectivo antes de operar.». En ese caso, entrá a <strong>Caja</strong>, ingresá el importe en <strong>Efectivo recibido</strong> y tocá <strong>Abrir</strong>.</p>
 </blockquote>
 <hr />
 <h2>Pasos para cobrar</h2>
 <h3>Paso 1. Buscar al alumno</h3>
 <ol>
-<li>Entrá a <strong>Cobranza</strong> o a <strong>Alumnos</strong> desde el menú lateral.</li>
-<li>Escribí el nombre, apellido o DNI del alumno en el buscador.</li>
+<li>Desde el menú lateral, entrá a <strong>Caja</strong> y tocá el botón <strong>Cobrar</strong> (o entrá por <strong>Cobranza</strong>). Se abre la pantalla <strong>Cobrar cuota</strong>.</li>
+<li>Escribí el nombre, apellido o DNI en el buscador y tocá <strong>Buscar</strong> (o elegí al alumno en el listado).</li>
 <li>En la fila del alumno, tocá el botón <strong>Cobrar</strong>.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/operativo/cobrar-cuota-paso1.png" alt="Buscar alumno y tocar Cobrar" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/operativo/cobrar-cuota-paso1.png" alt="Buscar alumno y tocar Cobrar" /></p>
 <hr />
 <h3>Paso 2. Elegir qué vas a cobrar</h3>
 <ol>
 <li>En la parte superior de la pantalla vas a ver los datos del alumno y el <strong>Total pendiente</strong>.</li>
-<li>Más abajo tenés el detalle de los conceptos adeudados: cuotas del mes, meses anteriores, matrícula de inscripción (si debe) o punitorios.</li>
-<li>Marcá la casilla de cada concepto que el alumno va a pagar ahora.</li>
-<li>Si el alumno quiere pagar un importe distinto, ajustá el valor en el campo <strong>Importe</strong>.</li>
+<li>Marcá la casilla del período o concepto que el alumno va a pagar (por ejemplo, cuotas del mes, meses anteriores, matrícula de inscripción o recargos por mora).</li>
+<li>Si el alumno entrega un importe parcial, escribí el monto en <strong>Importe que entrega (dejar vacío para cobrar el total)</strong>.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/operativo/cobrar-cuota-paso2.png" alt="Seleccionar las cuotas a cobrar" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/operativo/cobrar-cuota-paso2.png" alt="Seleccionar las cuotas a cobrar" /></p>
 <hr />
 <h3>Paso 3. Indicar cómo paga</h3>
 <ol>
-<li>En la sección <strong>Medio de pago</strong>, elegí con qué te paga: <strong>Efectivo</strong>, <strong>Transferencia</strong>, <strong>Tarjeta de débito</strong>, <strong>Tarjeta de crédito</strong> u otro medio habilitado.</li>
-<li>Si paga por transferencia o tarjeta, podés anotar el número de comprobante o referencia en el campo de observaciones para que quede registrado.</li>
+<li>En el campo <strong>Medio de pago</strong>, seleccioná el medio con el que abona entre <em>los medios habilitados</em> (por ejemplo, <strong>Efectivo</strong>).</li>
+<li>La <strong>Fecha del pago</strong> viene por defecto con el día de hoy.</li>
+<li>En el campo <strong>Observaciones</strong>, podés escribir una aclaración opcional sobre el cobro (por ejemplo: &quot;Pago cuota octubre en mostrador&quot;).</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/operativo/cobrar-cuota-paso3.png" alt="Elegir medio de pago" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/operativo/cobrar-cuota-paso3.png" alt="Elegir medio de pago" /></p>
 <hr />
 <h3>Paso 4. Confirmar el cobro</h3>
 <ol>
-<li>Revisá que el total coincida con el dinero recibido.</li>
+<li>Revisá el importe en <strong>Total a cobrar:</strong>.</li>
 <li>Tocá el botón <strong>Cobrar</strong> al final de la pantalla.</li>
-<li>Wings guarda el cobro, actualiza la cuenta del alumno y te muestra el recibo oficial en pantalla para que lo puedas imprimir o compartir.</li>
+<li>Wings guarda el cobro, actualiza la cuenta del alumno y muestra el aviso de confirmación con el botón <strong>Recibo</strong> para abrir el comprobante oficial.</li>
 </ol>
-<p><img src="file:///C:/xampp/htdocs/Gestion_Wings/resources/manual/img/operativo/cobrar-cuota-paso4.png" alt="Confirmar cobro y ver recibo" /></p>
+<p><img src="file:///C:/xampp/htdocs/gestion-wings/resources/manual/img/operativo/cobrar-cuota-paso4.png" alt="Confirmar cobro y ver recibo" /></p>
 <hr />
 <h2>Qué hago si…</h2>
-<h3>¿Qué hago si me equivoqué de medio de pago o cobré de más?</h3>
-<p>Si tu turno de caja sigue abierto, andá a <strong>Caja</strong>, buscá el movimiento en la lista de cobros y tocalo para anularlo. Wings te va a pedir un motivo obligatorio para que quede registro del error. Una vez anulado, podés volver a cobrar correctamente.</p>
-<blockquote>
-<p>[!WARNING]
-Si la caja ya fue cerrada y el dueño ya la validó, la caja validada no se puede modificar ni reabrir. En ese caso, avisale al dueño: él va a registrar un ajuste compensatorio directo en Cashflow con el motivo correspondiente (DU-27).</p>
-</blockquote>
-<h3>¿Qué hago si el alumno dice que ya pagó por transferencia pero a mí no me figura?</h3>
+<h3>¿Qué hago si me equivoqué al registrar un cobro?</h3>
+<p>Si tu caja sigue abierta (o fue rechazada), entrá a <strong>Caja</strong>, tocá <strong>Detalle</strong> de tu caja y en la fila del cobro tocá el botón <strong>Cancelar</strong>. Wings te va a pedir un motivo obligatorio para anularlo. Al confirmar, Wings cancela el cobro y revierte la deuda del alumno.</p>
+<p>Si la caja ya fue cerrada pero el dueño todavía no la validó (está en estado <em>Cerrada</em>), la operativa no puede cancelar cobros: tenés que pedirle al dueño que rechace la caja para que vuelva a estar en estado <em>Rechazada</em> y puedas cancelarlo.</p>
+<p>Si la caja ya fue validada por el dueño, la caja validada no se puede modificar ni cancelar. Avisale al dueño para que registre un <em>ajuste directo en Cashflow</em> con el motivo correspondiente (DU-27).</p>
+<h3>¿Qué hago si la pantalla dice «Debés abrir la caja y confirmar el efectivo antes de operar.»?</h3>
+<p>No podés cobrar sin caja abierta porque cada peso que ingresa tiene que quedar asignado a un responsable y a un turno de mostrador. Andá a <strong>Caja</strong> en el menú, ingresá el importe con el que arrancás en <strong>Efectivo recibido</strong>, marcá la casilla de confirmación y tocá <strong>Abrir</strong>.</p>
+<h3>¿Qué hago si el alumno paga una parte de la cuota?</h3>
+<p>Escribí el importe que entrega en el campo <strong>Importe que entrega (dejar vacío para cobrar el total)</strong>. En Wings no existe el estado parcial: la cuota continúa con estado <em>Pendiente</em> y muestra el saldo restante que queda por pagar.</p>
+<h3>¿Qué hago si el alumno dice que ya pagó por transferencia pero no figura?</h3>
 <p>No le vuelvas a cobrar una cuota que ya pagó. Pedile el comprobante de la transferencia bancaria y consultá con el dueño para verificar si el dinero ingresó a la cuenta del club. Una vez confirmado el ingreso, se registra el cobro indicando la fecha real de la transferencia.</p>
-<h3>¿Qué hago si la pantalla dice «No tenés una caja abierta»?</h3>
-<p>No podés cobrar sin caja abierta porque cada peso que ingresa tiene que quedar asignado a un responsable y a un turno de mostrador. Andá a <strong>Caja</strong> en el menú, poné el dinero con el que arrancás el turno en <strong>Saldo inicial</strong> y tocá <strong>Abrir caja</strong>.</p>
-<h3>¿Qué hago si el alumno quiere pagar una parte de la cuota?</h3>
-<p>Podés ingresar un pago parcial escribiendo el monto que entrega en el campo <strong>Importe</strong>. La cuota va a quedar con estado parcial y el saldo restante seguirá figurando como pendiente en <strong>Cobranza</strong>.</p>
 
         </div>
     </article>

@@ -49,9 +49,10 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 <a href="#indice-ayuda">1. Índice general de Ayuda (/ayuda)</a>
 <a href="#muestra-operativa">2. Muestra 1 Operativa: Cobrar una cuota</a>
 <a href="#muestra-duenio">3. Muestra 2 Dueño: Corregir caja validada (DU-27)</a>
-<a href="#pasos-individuales">4. Pasos individuales de muestra (huellas únicas)</a>
-<a href="#vista-impresion">5. Vista de impresión limpia</a>
-<a href="#signo-pregunta">6. Botón [?] en pantalla</a>
+<a href="#muestra-profesor">4. Muestra 3 Profesor: Tomar asistencia</a>
+<a href="#pasos-individuales">5. Pasos individuales de muestra (huellas únicas)</a>
+<a href="#vista-impresion">6. Vista de impresión limpia</a>
+<a href="#signo-pregunta">7. Botón [?] en pantalla</a>
 <a href="T12-LISTA-DE-PAGINAS.md">Lista completa de 54 páginas propuestas</a>
 <a href="IMPLEMENTACION-T12-T13.md">Informe técnico de implementación</a>
 </nav>
@@ -105,8 +106,24 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 </section>
 
 <!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="muestra-profesor">
+<h2>4. Muestra 3 (Profesor): «Tomar asistencia en una clase» <span class="badge badge-success">Muestra Profesor</span></h2>
+<p>Guía para el profesor explicando cómo consultar sus clases del día, entrar a la ficha de la clase, tildar los presentes y guardar la lista con confirmación oficial. Cubre qué hacer si un alumno no está en la lista, cómo corregir una lista ya tomada (motivo obligatorio), clases que aún no ocurrieron y alumnos con cuotas vencidas.</p>
+<div class="columns">
+<figure class="desktop">
+<a href="evidencia-t12-t13/muestra3-tomar-asistencia-1366.png"><img src="evidencia-t12-t13/muestra3-tomar-asistencia-1366.png" alt="Muestra 3 Tomar asistencia en escritorio (1366 px)"></a>
+<figcaption>Escritorio · 1366 px · Vista del manual para el profesor con pasos y advertencias oficiales de Wings</figcaption>
+</figure>
+<figure class="phone">
+<a href="evidencia-t12-t13/muestra3-tomar-asistencia-375.png"><img src="evidencia-t12-t13/muestra3-tomar-asistencia-375.png" alt="Muestra 3 Tomar asistencia en marco celular (375 px)"></a>
+<figcaption>Celular · marco de 375 px · Lectura limpia y pasos adaptados a pantalla pequeña</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
 <section id="pasos-individuales">
-<h2>4. Detalle de pasos individuales de cada muestra (Huellas MD5 100% únicas)</h2>
+<h2>5. Detalle de pasos individuales de cada muestra (Huellas MD5 100% únicas)</h2>
 <p>Evidencia concreta de que cada paso fue ejecutado de verdad en el sistema y capturado en su estado real:</p>
 
 <h3>Cobrar una cuota (Operativa)</h3>
@@ -138,7 +155,7 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
   <div class="paso-card">
     <h4>Paso 1: Entrar a Cashflow</h4>
     <a href="evidencia-t12-t13/corregir-movimiento-paso1.png"><img src="evidencia-t12-t13/corregir-movimiento-paso1.png" alt="Paso 1"></a>
-    <figcaption>Cashflow con saldo real y movimientos cargados</figcaption>
+    <figcaption>Cashflow con saldo real y movimientos cargados (antes del ajuste)</figcaption>
   </div>
   <div class="paso-card">
     <h4>Paso 2: Botón Nuevo en Cashflow</h4>
@@ -153,14 +170,33 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
   <div class="paso-card">
     <h4>Paso 4: Ajuste impactado en la grilla</h4>
     <a href="evidencia-t12-t13/corregir-movimiento-paso4.png"><img src="evidencia-t12-t13/corregir-movimiento-paso4.png" alt="Paso 4"></a>
-    <figcaption>Renglón compensatorio asentado y saldos actualizados</figcaption>
+    <figcaption>Renglón compensatorio asentado y saldos actualizados ($105.000)</figcaption>
+  </div>
+</div>
+
+<h3 style="margin-top:24px;">Tomar asistencia en una clase (Profesor)</h3>
+<div class="grid-pasos">
+  <div class="paso-card">
+    <h4>Paso 1: Listado de clases del profesor</h4>
+    <a href="evidencia-t12-t13/tomar-asistencia-paso1.png"><img src="evidencia-t12-t13/tomar-asistencia-paso1.png" alt="Paso 1"></a>
+    <figcaption>Pantalla <strong>Clases</strong> con «Tus clases de hoy» y botón <strong>Ver</strong></figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 2: Ficha de clase y casilla Presente</h4>
+    <a href="evidencia-t12-t13/tomar-asistencia-paso2.png"><img src="evidencia-t12-t13/tomar-asistencia-paso2.png" alt="Paso 2"></a>
+    <figcaption>Casilla <strong>Presente</strong> tildada en el alumno correspondiente</figcaption>
+  </div>
+  <div class="paso-card">
+    <h4>Paso 3: Guardar con confirmación</h4>
+    <a href="evidencia-t12-t13/tomar-asistencia-paso3.png"><img src="evidencia-t12-t13/tomar-asistencia-paso3.png" alt="Paso 3"></a>
+    <figcaption>Botón <strong>Guardar</strong> y cartel verde «✓ Asistencias guardadas.»</figcaption>
   </div>
 </div>
 </section>
 
 <!-- ─────────────────────────────────────────────────────────────────────── -->
 <section id="vista-impresion">
-<h2>5. Vista de impresión limpia <span class="badge badge-info">@media print</span></h2>
+<h2>6. Vista de impresión limpia <span class="badge badge-info">@media print</span></h2>
 <p>Al tocar el botón <strong>Imprimir</strong> (o con Ctrl+P), la hoja se renderiza sin la barra de navegación lateral, sin el menú superior y sin los botones de interfaz, imprimiendo exclusivamente el título de la tarea, el contenido didáctico, las capturas y las resoluciones de dudas.</p>
 <div class="columns">
 <figure class="desktop" style="max-width:850px;">
@@ -172,7 +208,7 @@ ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
 
 <!-- ─────────────────────────────────────────────────────────────────────── -->
 <section id="signo-pregunta">
-<h2>6. Signo de pregunta [?] en la pantalla de la tarea <span class="badge badge-info">T13 Navegación contextual</span></h2>
+<h2>7. Signo de pregunta [?] en la pantalla de la tarea <span class="badge badge-info">T13 Navegación contextual</span></h2>
 <p>El botón <strong>?</strong> se sitúa en la barra superior (topbar) junto al botón de Salir, accesible tanto en escritorio como en celular. Al tocarlo abre directamente la página de ayuda correspondiente a la tarea activa (en Cobrar abre <code>cobrar-cuota</code>; en Cashflow abre <code>corregir-movimiento-caja-validada</code>).</p>
 <div class="columns">
 <figure class="desktop">
