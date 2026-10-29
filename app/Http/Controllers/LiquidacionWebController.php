@@ -81,8 +81,21 @@ class LiquidacionWebController extends Controller
         $mesActual       = (int) ($request->input('mes') ?? old('mes') ?? now()->month);
         $esUltimoDiaMes  = now()->isLastOfMonth();
 
+        // MF12 (29/10): una liquidación por comisión no guarda detalles por clase sino por
+        // alumno, así que el filtro por liquidacion_detalles no la ve y el contador seguía
+        // mostrando como pendiente un mes ya liquidado. Para comisión, el mes cerrado del
+        // profesor excluye sus clases (mismo criterio que Clase::integraLiquidacionCerrada).
+        $sinComisionCerrada = fn($q) => $q->whereNotExists(function ($sub) {
+            $sub->select(DB::raw(1))
+                ->from('liquidaciones')
+                ->whereColumn('liquidaciones.profesor_id', 'clase_profesor.profesor_id')
+                ->where('liquidaciones.tipo', Liquidacion::TIPO_COMISION)
+                ->where('liquidaciones.estado', Liquidacion::ESTADO_CERRADA)
+                ->whereRaw('liquidaciones.mes = MONTH(clases.fecha) AND liquidaciones.anio = YEAR(clases.fecha)');
+        });
+
         $queryLiquidables = fn($q, $filtrarFecha = false) =>
-            $q->where('clases.cancelada', false)
+            $sinComisionCerrada($q->where('clases.cancelada', false))
               ->when($filtrarFecha, fn($qf) => $qf->whereMonth('clases.fecha', $mesActual)->whereYear('clases.fecha', $anioActual))
               ->where(function ($q2) {
                   $q2->where('clases.validada_para_liquidacion', true)
@@ -126,9 +139,9 @@ class LiquidacionWebController extends Controller
             return true;
         });
 
-        $periodosLiquidables = DB::table('clases')
+        $periodosLiquidables = $sinComisionCerrada(DB::table('clases')
             ->join('clase_profesor', 'clases.id', '=', 'clase_profesor.clase_id')
-            ->where('clases.cancelada', false)
+            ->where('clases.cancelada', false))
             ->where(function ($q2) {
                 $q2->where('clases.validada_para_liquidacion', true)
                    ->orWhereExists(function ($sub) {

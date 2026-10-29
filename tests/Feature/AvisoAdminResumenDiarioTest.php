@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Alumno;
 use App\Models\AlumnoRevisionCobranza;
+use App\Models\Asistencia;
 use App\Models\CajaOperativa;
 use App\Models\Clase;
 use App\Models\Configuracion;
@@ -418,6 +419,27 @@ class AvisoAdminResumenDiarioTest extends TestCase
         $clase->update(['validada_para_liquidacion' => true]);
         Http::fake();
         $this->assertFalse(app(AvisoAdminService::class)->resumenDiario());
+    }
+
+    /**
+     * MF13 (prueba por días, día 27): una clase con la lista tomada y todos ausentes
+     * no es «sin lista tomada». El menú no la contaba y el resumen sí, todos los días.
+     */
+    public function test_el_resumen_no_cuenta_como_sin_lista_una_clase_con_todos_ausentes(): void
+    {
+        Http::fake();
+        $alumno = $this->crearAlumno();
+        $clase = Clase::create([
+            'grupo_id'    => $alumno->grupo_id,
+            'fecha'       => now()->subDay()->toDateString(),
+            'hora_inicio' => '17:00',
+            'hora_fin'    => '18:00',
+            'cancelada'   => false,
+        ]);
+        Asistencia::create(['clase_id' => $clase->id, 'alumno_id' => $alumno->id, 'presente' => false]);
+
+        $this->assertFalse(app(AvisoAdminService::class)->resumenDiario(), 'La lista está tomada: no hay nada que avisar');
+        Http::assertNothingSent();
     }
 
     public function test_el_comando_queda_programado_a_las_08_00(): void

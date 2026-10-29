@@ -203,4 +203,49 @@ class NuevaLiquidacionConteoMesT87Test extends TestCase
         $this->assertSame(3, $liqSep->detalles()->count());
         $this->assertEquals(36000.0, (float) $liqSep->total_calculado);
     }
+
+    /**
+     * MF12 (prueba por días, día 27): una liquidación por comisión guarda detalles por
+     * alumno, no por clase, y el contador seguía mostrando el mes ya liquidado como
+     * pendiente. El mes cerrado por comisión no cuenta; uno cancelado sí vuelve a contar.
+     */
+    public function test_mes_ya_liquidado_por_comision_no_cuenta_como_pendiente(): void
+    {
+        $deporte = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $grupo = Grupo::create(['deporte_id' => $deporte->id, 'nivel_id' => Nivel::firstOrCreate(['nombre' => 'Principiantes'])->id, 'activo' => true]);
+        $hernan = Profesor::create([
+            'deporte_id' => $deporte->id, 'nombre' => 'Hernán', 'apellido' => 'Ocampo', 'dni' => '30555666',
+            'fecha_nacimiento' => '1988-02-02', 'direccion' => 'Calle 789', 'localidad' => 'Quilmes',
+            'porcentaje_comision' => 40, 'tipo_liquidacion' => 'COMISION', 'activo' => true,
+        ]);
+        foreach (['2026-10-05', '2026-10-12', '2026-09-07'] as $fecha) {
+            $c = Clase::create(['grupo_id' => $grupo->id, 'fecha' => $fecha, 'hora_inicio' => '18:00', 'hora_fin' => '19:00',
+                'cancelada' => false, 'validada_para_liquidacion' => true]);
+            $c->profesores()->attach($hernan->id);
+        }
+        $liquidacion = Liquidacion::create(['profesor_id' => $hernan->id, 'mes' => 10, 'anio' => 2026, 'tipo' => Liquidacion::TIPO_COMISION,
+            'porcentaje_comision_aplicado' => 40, 'total_calculado' => 0, 'estado' => Liquidacion::ESTADO_CERRADA,
+            'estado_pago' => Liquidacion::ESTADO_PAGO_PENDIENTE]);
+        $this->assertSame(0, $liquidacion->detalles()->where('tipo_referencia', 'clase')->count(), 'La comisión no guarda detalles por clase');
+
+        $res = $this->actingAs($this->admin)->get(route('web.liquidaciones.create', ['mes' => 10, 'anio' => 2026]));
+        $res->assertOk();
+        $fila = collect($res->viewData('profesores'))->firstWhere('id', $hernan->id);
+        $this->assertSame(0, (int) $fila->clases_count, 'Octubre ya está liquidado por comisión: no hay clases pendientes');
+        $this->assertSame(1, (int) $fila->clases_count_total, 'Solo queda pendiente la clase de septiembre');
+        $periodos = $res->viewData('profesoresJson')[$hernan->id]['periodos'];
+        $this->assertArrayNotHasKey('2026-10', $periodos);
+        $this->assertSame(1, $periodos['2026-9']['liquidables']);
+
+        // Lucía (por hora) no se ve afectada por la liquidación de Hernán.
+        $lucia = collect($res->viewData('profesores'))->firstWhere('id', $this->lucia->id);
+        $this->assertSame(17, (int) $lucia->clases_count);
+
+        // Si se cancela la liquidación, octubre vuelve a estar pendiente.
+        $liquidacion->update(['estado' => Liquidacion::ESTADO_CANCELADA]);
+        $res = $this->actingAs($this->admin)->get(route('web.liquidaciones.create', ['mes' => 10, 'anio' => 2026]));
+        $fila = collect($res->viewData('profesores'))->firstWhere('id', $hernan->id);
+        $this->assertSame(2, (int) $fila->clases_count);
+        $this->assertSame(3, (int) $fila->clases_count_total);
+    }
 }

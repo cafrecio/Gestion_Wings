@@ -132,11 +132,13 @@ class AvisoAdminService
         // sin asistencia no se liquidan, y hasta hoy esto solo se veía como un
         // número en el menú de quien entraba. Misma consulta que ese contador
         // (AppServiceProvider), para que los dos digan siempre lo mismo.
+        // MF13 (29/10): una clase con la lista tomada y todos ausentes no es «sin
+        // lista»; el resumen la contaba y el menú no.
         $clasesSinAsistencia = Clase::query()
             ->where('cancelada', false)
             ->whereDate('fecha', '<', today())
             ->where('validada_para_liquidacion', false)
-            ->whereDoesntHave('asistencias', fn ($q) => $q->where('presente', true))
+            ->doesntHave('asistencias')
             ->with(['grupo.deporte', 'grupo.nivel'])
             ->orderBy('fecha', 'asc')
             ->get();
