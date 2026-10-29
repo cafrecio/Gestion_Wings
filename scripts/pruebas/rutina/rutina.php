@@ -19,6 +19,7 @@ $app = require $raiz.'/bootstrap/app.php';
 $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
 use App\Http\Controllers\{CajaWebController, ClaseWebController};
+use App\Models\{Grupo, Profesor};
 use App\Models\{Alumno, CajaOperativa, Clase, Subrubro, TipoCaja, User};
 use App\Services\CajaService;
 use Illuminate\Http\Request;
@@ -131,11 +132,32 @@ try {
                     return $c->first();
                 })();
                 $ausentes = array_map(fn ($x) => $alumno($x)->id, $paso['ausentes'] ?? []);
+                // B3 (27/10): el deudor y el nuevo sin primer pago entran solo con motivo. El plan lo
+                // trae por alumno; si falta, Wings rechaza la lista entera y no se guarda nada del día.
+                $motivos = [];
+                foreach ($paso['motivos'] ?? [] as $quien => $motivo) $motivos[$alumno($quien)->id] = $motivo;
                 $items = Alumno::enGrupoElDia($clase->grupo_id, $clase->fecha)->where('activo', true)->pluck('id')
-                    ->map(fn ($id) => ['alumno_id' => $id, 'presente' => !in_array($id, $ausentes, true) ? 1 : 0, 'motivo_exceso' => 'EXTRA'])->all();
+                    ->map(fn ($id) => ['alumno_id' => $id, 'presente' => !in_array($id, $ausentes, true) ? 1 : 0, 'motivo_exceso' => 'EXTRA']
+                        + (isset($motivos[$id]) ? ['motivo_excepcion' => $motivos[$id]] : []))->all();
                 $msg = $enviar($como, "/clases/{$clase->id}/asistencias", ['items' => $items], fn ($r) => $claseCtrl->storeAsistencias($r, $clase->id), true);
                 $presentes = count(array_filter($items, fn ($i) => $i['presente']));
                 $texto = "lista de la #{$clase->id}: ".count($items)." alumnos, {$presentes} presentes";
+                break;
+            case 'crear_serie':
+                // El calendario del mes, como lo carga el dueño en Clases → Nueva (serie con horario por día).
+                // Grupo «Deporte — Nivel»; dias {"1": ["16:00", "17:00"]}, con 0 = domingo.
+                [$dep, $niv] = array_map('trim', explode('—', $paso['grupo'], 2));
+                $g = Grupo::whereHas('deporte', fn ($d) => $d->where('nombre', $dep))->whereHas('nivel', fn ($n) => $n->where('nombre', $niv))->firstOrFail();
+                $profes = array_map(function ($nom) {
+                    [$ape, $n] = array_map('trim', explode(',', $nom, 2));
+                    return Profesor::where('apellido', $ape)->where('nombre', $n)->where('activo', true)->firstOrFail()->id;
+                }, $paso['profesores']);
+                $horarios = [];
+                foreach ($paso['dias'] as $dia => [$ini, $fin]) $horarios[(int) $dia] = ['hora_inicio' => $ini, 'hora_fin' => $fin];
+                $msg = $enviar($como, '/clases', ['grupo_id' => $g->id, 'profesores' => $profes, 'tipo_creacion' => 'recurrente',
+                    'fecha_desde' => $paso['desde'], 'fecha_hasta' => $paso['hasta'], 'dias_semana' => array_keys($horarios),
+                    'horarios' => $horarios], fn ($r) => $claseCtrl->store($r));
+                $texto = "serie de {$paso['grupo']} del {$paso['desde']} al {$paso['hasta']}";
                 break;
             case 'cerrar_caja':
                 $c = CajaOperativa::where('estado', 'ABIERTA')->where('usuario_operativo_id', $usuario($paso['de'] ?? $paso['como'])->id)->firstOrFail();

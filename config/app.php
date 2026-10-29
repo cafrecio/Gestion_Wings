@@ -93,6 +93,10 @@ return [
     // Momento real en que se fijó esa fecha; desde ahí el reloj simulado avanza solo.
     'fecha_simulada_desde' => env('FECHA_SIMULADA_DESDE'),
 
+    // Prueba por días: acepta solas las confirmaciones nativas del navegador (Carlos, 28/10/2026).
+    // Solo el sitio de prueba la escribe; en producción se ignora (App\Support\PruebaSinConfirmaciones).
+    'prueba_sin_confirmaciones' => env('PRUEBA_SIN_CONFIRMACIONES', false),
+
     // Wings se usa solo en castellano. Va fijo y no por APP_LOCALE: cada .env traia
     // "en" de fabrica y las listas mostraban "Showing 1 to 20 of 76 results" (A38).
     // Los textos estan en lang/es y lang/es.json; lo que falte cae al ingles de abajo.
