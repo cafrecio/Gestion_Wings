@@ -1,0 +1,51 @@
+Browser tab: 1320327214, Title: "Cierre de caja – Wings", URL: "https://test.gestionar-te.com.ar/caja/53/cerrar".
+1 AXWebArea Cierre de caja – Wings, URL: test.gestionar-te.com.ar/caja/53/cerrar
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cerrar-caja
+		30 button Salir
+	31 heading Cierre de caja, Value: 1
+		32 text Cierre de caja
+	33 container
+		34 text Caja #53 · Rocío Paz. Contá solo el efectivo del mostrador, no las transferencias ni lo que cobró ADMIN aparte. Efectivo inicial $10,000.00 Efectivo esperado $155,500.00
+		35 container
+			36 image
+			37 text Efectivo contado *
+		38 text field (settable) Efectivo contado *, Value: 155,000.00, ID: efectivo_contado
+		39 container
+			40 image
+			41 text Cambio que queda *
+		42 text field (settable) Cambio que queda *, Value: 10000, ID: cambio_retenido
+		43 container
+			44 text Diferencia Faltante $500.00 Retiro / entrega $145,000.00
+		45 text Podés cerrar con faltante o sobrante: ADMIN revisará la diferencia. El retiro no se registra como gasto.
+		46 button Volver
+		47 button Cerrar
+	48 text Wings
+
+The focused UI element is 42 text field (settable) Cambio que queda *, Value: 10000, ID: cambio_retenido

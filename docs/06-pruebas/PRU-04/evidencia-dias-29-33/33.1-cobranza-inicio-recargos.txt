@@ -1,0 +1,693 @@
+Browser tab: 1320327214, Title: "Cobranza – Wings", URL: "https://test.gestionar-te.com.ar/cobranza".
+1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/consultar-cobranza
+		30 button Salir
+	31 heading Cobranza, Value: 1
+		32 text Cobranza
+	33 container
+		34 text TOTAL ADEUDADO $1,278,500.00 TOTAL ACTIVOS 106 AL DÍA 73 EN PLAZO 0 MOROSOS 32 DEUDORES 1
+		35 pop up button (collapsed, settable) Value: Con deuda (Deudores y morosos), Secondary Actions: Expand
+			36 menu
+				37 (selected) Con deuda (Deudores y morosos)
+				38 Todos los estados
+				39 Al día
+				40 En plazo
+				41 Moroso
+				42 Deudor
+		43 pop up button (collapsed, settable) Value: Deporte, Secondary Actions: Expand
+			44 menu
+				45 (selected) Deporte
+				46 Fútbol
+				47 Patín
+		48 pop up button (collapsed, settable) Value: Grupo, Secondary Actions: Expand
+			49 menu
+				50 (selected) Grupo
+				51 Fútbol — Avanzadas
+				52 Fútbol — Principiantes
+				53 Patín — Adultos
+				54 Patín — Avanzadas
+				55 Patín — Federadas
+				56 Patín — Intermedias
+				57 Patín — Principiantes
+		58 button Filtrar
+		59 text Mostrando 
+		60 text 33
+		61 text  alumnos con deuda de 
+		62 text 106
+		63 text  alumnos activos (ordenado de deuda más antigua a más reciente)
+		64 table
+			65 row
+				66 cell
+					67 text ALUMNO
+				68 cell
+					69 text DEPORTE
+				70 cell
+					71 text GRUPO
+				72 cell
+					73 text DEUDA DESDE
+				74 cell
+					75 text DEUDA
+				76 cell
+					77 text ESTADO
+				78 cell
+					79 text ACCIONES
+			80 row
+				81 cell
+					82 text Romero, Santino
+					83 text 1145123415
+				84 cell
+					85 text Fútbol
+				86 cell
+					87 text Principiantes
+				88 cell
+					89 container
+						90 text Oct. 2026 (1 cuota)
+				91 cell
+					92 text $28,000.00
+				93 cell
+					94 text Deudor
+				95 cell
+					96 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/263
+					97 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/263
+			98 row
+				99 cell
+					100 text Benitez, Camila
+					101 text 1145123407
+					102 text también debe $30,800.00 en Fútbol
+				103 cell
+					104 text Patín
+				105 cell
+					106 text Avanzadas
+				107 cell
+					108 container
+						109 text Nov. 2026 (1 cuota)
+				110 cell
+					111 text $49,500.00
+				112 cell
+					113 text Moroso
+				114 cell
+					115 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/254
+					116 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/254
+			117 row
+				118 cell
+					119 text Benitez, Camila
+					120 text 1145123407
+					121 text también debe $49,500.00 en Patín
+				122 cell
+					123 text Fútbol
+				124 cell
+					125 text Principiantes
+				126 cell
+					127 container
+						128 text Nov. 2026 (1 cuota)
+				129 cell
+					130 text $30,800.00
+				131 cell
+					132 text Moroso
+				133 cell
+					134 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/255
+					135 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/255
+			136 row
+				137 cell
+					138 text Benítez, Mora
+					139 text 1145678901
+					140 text también debe $30,800.00 en Fútbol
+				141 cell
+					142 text Patín
+				143 cell
+					144 text Principiantes
+				145 cell
+					146 container
+						147 text Nov. 2026 (1 cuota)
+				148 cell
+					149 text $48,400.00
+				150 cell
+					151 text Moroso
+				152 cell
+					153 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/341
+					154 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/341
+			155 row
+				156 cell
+					157 text Benítez, Mora
+					158 text 1145678901
+					159 text también debe $48,400.00 en Patín
+				160 cell
+					161 text Fútbol
+				162 cell
+					163 text Principiantes
+				164 cell
+					165 container
+						166 text Nov. 2026 (1 cuota)
+				167 cell
+					168 text $30,800.00
+				169 cell
+					170 text Moroso
+				171 cell
+					172 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/345
+					173 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/345
+			174 row
+				175 cell
+					176 text Castro, Mateo
+					177 text 1145129907
+				178 cell
+					179 text Fútbol
+				180 cell
+					181 text Principiantes
+				182 cell
+					183 container
+						184 text Nov. 2026 (1 cuota)
+				185 cell
+					186 text $30,800.00
+				187 cell
+					188 text Moroso
+				189 cell
+					190 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/338
+					191 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/338
+			192 row
+				193 cell
+					194 text Flores, Santino
+					195 text 1145120004
+				196 cell
+					197 text Fútbol
+				198 cell
+					199 text Principiantes
+				200 cell
+					201 container
+						202 text Nov. 2026 (1 cuota)
+				203 cell
+					204 text $30,800.00
+				205 cell
+					206 text Moroso
+				207 cell
+					208 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/317
+					209 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/317
+			210 row
+				211 cell
+					212 text Flores, Zoe
+					213 text 1145123416
+				214 cell
+					215 text Patín
+				216 cell
+					217 text Principiantes
+				218 cell
+					219 container
+						220 text Nov. 2026 (1 cuota)
+				221 cell
+					222 text $33,000.00
+				223 cell
+					224 text Moroso
+				225 cell
+					226 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/264
+					227 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/264
+			228 row
+				229 cell
+					230 text Gimenez, Delfina
+					231 text 1145120035
+				232 cell
+					233 text Patín
+				234 cell
+					235 text Avanzadas
+				236 cell
+					237 container
+						238 text Nov. 2026 (1 cuota)
+				239 cell
+					240 text $38,500.00
+				241 cell
+					242 text Moroso
+				243 cell
+					244 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/306
+					245 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/306
+			246 row
+				247 cell
+					248 text Herrera, Facundo
+					249 text 1145120007
+				250 cell
+					251 text Fútbol
+				252 cell
+					253 text Principiantes
+				254 cell
+					255 container
+						256 text Nov. 2026 (1 cuota)
+				257 cell
+					258 text $30,800.00
+				259 cell
+					260 text Moroso
+				261 cell
+					262 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/320
+					263 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/320
+			264 row
+				265 cell
+					266 text Iglesias, Helena
+					267 text 1145120040
+				268 cell
+					269 text Patín
+				270 cell
+					271 text Federadas
+				272 cell
+					273 container
+						274 text Nov. 2026 (1 cuota)
+				275 cell
+					276 text $55,000.00
+				277 cell
+					278 text Moroso
+				279 cell
+					280 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/311
+					281 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/311
+			282 row
+				283 cell
+					284 text Morales, Carla
+					285 text 1145123411
+				286 cell
+					287 text Patín
+				288 cell
+					289 text Avanzadas
+				290 cell
+					291 container
+						292 text Nov. 2026 (1 cuota)
+				293 cell
+					294 text $38,500.00
+				295 cell
+					296 text Moroso
+				297 cell
+					298 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/259
+					299 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/259
+			300 row
+				301 cell
+					302 text Navarro, Alma
+					303 text 1145129905
+				304 cell
+					305 text Patín
+				306 cell
+					307 text Intermedias
+				308 cell
+					309 container
+						310 text Nov. 2026 (1 cuota)
+				311 cell
+					312 text $36,300.00
+				313 cell
+					314 text Moroso
+				315 cell
+					316 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/335
+					317 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/335
+			318 row
+				319 cell
+					320 text Nuñez, Guadalupe
+					321 text 1145123423
+				322 cell
+					323 text Patín
+				324 cell
+					325 text Federadas
+				326 cell
+					327 container
+						328 text Nov. 2026 (1 cuota)
+				329 cell
+					330 text $55,000.00
+				331 cell
+					332 text Moroso
+				333 cell
+					334 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/271
+					335 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/271
+			336 row
+				337 cell
+					338 text Ortega, Valentín
+					339 text 1155513434
+				340 cell
+					341 text Fútbol
+				342 cell
+					343 text Principiantes
+				344 cell
+					345 container
+						346 text Nov. 2026 (1 cuota)
+				347 cell
+					348 text $38,500.00
+				349 cell
+					350 text Moroso
+				351 cell
+					352 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/344
+					353 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/344
+			354 row
+				355 cell
+					356 text Paredes, Iván
+					357 text 1156781234
+				358 cell
+					359 text Fútbol
+				360 cell
+					361 text Principiantes
+				362 cell
+					363 container
+						364 text Nov. 2026 (1 cuota)
+				365 cell
+					366 text $38,500.00
+				367 cell
+					368 text Moroso
+				369 cell
+					370 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/346
+					371 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/346
+			372 row
+				373 cell
+					374 text Pereyra, Liam
+					375 text 1145123421
+				376 cell
+					377 text Fútbol
+				378 cell
+					379 text Principiantes
+				380 cell
+					381 container
+						382 text Nov. 2026 (1 cuota)
+				383 cell
+					384 text $38,500.00
+				385 cell
+					386 text Moroso
+				387 cell
+					388 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/269
+					389 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/269
+			390 row
+				391 cell
+					392 text Quiroga, Lara
+					393 text 11-5550-1212
+				394 cell
+					395 text Patín
+				396 cell
+					397 text Principiantes
+				398 cell
+					399 container
+						400 text Nov. 2026 (1 cuota)
+				401 cell
+					402 text $48,400.00
+				403 cell
+					404 text Moroso
+				405 cell
+					406 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/342
+					407 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/342
+			408 row
+				409 cell
+					410 text Ramos, Lucia
+					411 text 1145120039
+				412 cell
+					413 text Patín
+				414 cell
+					415 text Federadas
+				416 cell
+					417 container
+						418 text Nov. 2026 (1 cuota)
+				419 cell
+					420 text $55,000.00
+				421 cell
+					422 text Moroso
+				423 cell
+					424 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/310
+					425 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/310
+			426 row
+				427 cell
+					428 text Ramos, Pilar
+					429 text 1145120008
+				430 cell
+					431 text Patín
+				432 cell
+					433 text Principiantes
+				434 cell
+					435 container
+						436 text Nov. 2026 (1 cuota)
+				437 cell
+					438 text $33,000.00
+				439 cell
+					440 text Moroso
+				441 cell
+					442 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/279
+					443 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/279
+			444 row
+				445 cell
+					446 text Ramos, Santiago
+					447 text 1145120012
+				448 cell
+					449 text Fútbol
+				450 cell
+					451 text Principiantes
+				452 cell
+					453 container
+						454 text Nov. 2026 (1 cuota)
+				455 cell
+					456 text $30,800.00
+				457 cell
+					458 text Moroso
+				459 cell
+					460 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/325
+					461 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/325
+			462 row
+				463 cell
+					464 text Rios, Facundo
+					465 text 1145129902
+				466 cell
+					467 text Fútbol
+				468 cell
+					469 text Principiantes
+				470 cell
+					471 container
+						472 text Nov. 2026 (1 cuota)
+				473 cell
+					474 text $30,800.00
+				475 cell
+					476 text Moroso
+				477 cell
+					478 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/332
+					479 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/332
+			480 row
+				481 cell
+					482 text Rodriguez, Joaquin
+					483 text 1145123402
+				484 cell
+					485 text Fútbol
+				486 cell
+					487 text Principiantes
+				488 cell
+					489 container
+						490 text Nov. 2026 (1 cuota)
+				491 cell
+					492 text $38,500.00
+				493 cell
+					494 text Moroso
+				495 cell
+					496 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/244
+					497 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/244
+			498 row
+				499 cell
+					500 text Rossi, Berenice
+					501 text 1145123409
+				502 cell
+					503 text Patín
+				504 cell
+					505 text Federadas
+				506 cell
+					507 container
+						508 text Nov. 2026 (1 cuota)
+				509 cell
+					510 text $55,000.00
+				511 cell
+					512 text Moroso
+				513 cell
+					514 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/257
+					515 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/257
+			516 row
+				517 cell
+					518 text Rossi, Morena
+					519 text 1145120010
+				520 cell
+					521 text Patín
+				522 cell
+					523 text Principiantes
+				524 cell
+					525 container
+						526 text Nov. 2026 (1 cuota)
+				527 cell
+					528 text $48,400.00
+				529 cell
+					530 text Moroso
+				531 cell
+					532 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/281
+					533 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/281
+			534 row
+				535 cell
+					536 text Ruiz, Thiago
+					537 text 1145120002
+				538 cell
+					539 text Fútbol
+				540 cell
+					541 text Principiantes
+				542 cell
+					543 container
+						544 text Nov. 2026 (1 cuota)
+				545 cell
+					546 text $30,800.00
+				547 cell
+					548 text Moroso
+				549 cell
+					550 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/315
+					551 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/315
+			552 row
+				553 cell
+					554 text Sanchez, Berenice
+					555 text 1145120024
+				556 cell
+					557 text Patín
+				558 cell
+					559 text Intermedias
+				560 cell
+					561 container
+						562 text Nov. 2026 (1 cuota)
+				563 cell
+					564 text $27,300.00
+				565 cell
+					566 text Moroso
+				567 cell
+					568 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/295
+					569 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/295
+			570 row
+				571 cell
+					572 text Silva, Abril
+					573 text 1145120011
+				574 cell
+					575 text Patín
+				576 cell
+					577 text Principiantes
+				578 cell
+					579 container
+						580 text Nov. 2026 (1 cuota)
+				581 cell
+					582 text $33,000.00
+				583 cell
+					584 text Moroso
+				585 cell
+					586 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/282
+					587 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/282
+			588 row
+				589 cell
+					590 text Silva, Paulina
+					591 text 1145129908
+				592 cell
+					593 text Patín
+				594 cell
+					595 text Principiantes
+				596 cell
+					597 container
+						598 text Nov. 2026 (1 cuota)
+				599 cell
+					600 text $33,000.00
+				601 cell
+					602 text Moroso
+				603 cell
+					604 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/340
+					605 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/340
+			606 row
+				607 cell
+					608 text Suarez, Ignacio
+					609 text 1145120008
+				610 cell
+					611 text Fútbol
+				612 cell
+					613 text Principiantes
+				614 cell
+					615 container
+						616 text Nov. 2026 (1 cuota)
+				617 cell
+					618 text $38,500.00
+				619 cell
+					620 text Moroso
+				621 cell
+					622 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/321
+					623 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/321
+			624 row
+				625 cell
+					626 text Suarez, Valentina
+					627 text 1145120033
+				628 cell
+					629 text Patín
+				630 cell
+					631 text Avanzadas
+				632 cell
+					633 container
+						634 text Nov. 2026 (1 cuota)
+				635 cell
+					636 text $38,500.00
+				637 cell
+					638 text Moroso
+				639 cell
+					640 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/304
+					641 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/304
+			642 row
+				643 cell
+					644 text Torres, Benicio
+					645 text 1145120001
+				646 cell
+					647 text Fútbol
+				648 cell
+					649 text Principiantes
+				650 cell
+					651 container
+						652 text Nov. 2026 (1 cuota)
+				653 cell
+					654 text $30,800.00
+				655 cell
+					656 text Moroso
+				657 cell
+					658 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/314
+					659 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/314
+			660 row
+				661 cell
+					662 text Vega, Florencia
+					663 text 1145123408
+				664 cell
+					665 text Patín
+				666 cell
+					667 text Federadas
+				668 cell
+					669 container
+						670 text Nov. 2026 (1 cuota)
+				671 cell
+					672 text $55,000.00
+				673 cell
+					674 text Moroso
+				675 cell
+					676 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/256
+					677 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/256
+		678 heading Deuda de alumnos inactivos, Value: 2
+			679 text Deuda de alumnos inactivos
+		680 text Actual al 11/11/2026. Separada del por cobrar y de los totales de Inicio.
+		681 container
+			682 text 1  alumnos
+		683 text $33,000.00
+		684 container
+			685 heading Vega, Candela, Value: 3
+				686 text Vega, Candela
+			687 text Inactivo desde 06/11/2026 Deuda $33,000.00
+			688 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/294
+			689 button Perder, Help: Dar por perdida esta deuda
+	690 text Wings
+
+The focused UI element is 1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza

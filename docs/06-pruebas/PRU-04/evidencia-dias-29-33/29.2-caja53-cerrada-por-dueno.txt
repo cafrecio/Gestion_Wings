@@ -1,0 +1,105 @@
+Browser tab: 1320327214, Title: "Resumen – Caja del 06/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/53/resumen".
+1 AXWebArea Resumen – Caja del 06/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/53/resumen
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Resumen de caja, Value: 1
+		31 text Resumen de caja
+	32 container
+		33 text OPERATIVO Rocío Paz APERTURA 06/11/2026 09:00 CIERRE 07/11/2026 09:01 ESTADO CERRADA
+		34 text 9
+		35 text  movimientos
+		36 button Rechazar
+		37 button Validar
+		38 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/53/detalle
+		39 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		40 heading Efectivo del mostrador, Value: 3
+			41 text Efectivo del mostrador
+		42 text Inicial
+		43 text $10,000.00
+		44 text Esperado
+		45 text $155,500.00
+		46 text Contado
+		47 text $155,000.00
+		48 text Diferencia
+		49 text $-500.00
+		50 text Cambio que queda
+		51 text $10,000.00
+		52 text Retiro / entrega
+		53 text $145,000.00
+		54 text Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+		55 text POR MEDIO DE PAGO
+		56 table
+			57 row
+				58 cell
+					59 text ABR.
+				60 cell
+					61 text MEDIO
+				62 cell
+					63 text TOTAL
+			64 row
+				65 cell
+					66 text EFE
+				67 cell
+					68 text Efectivo
+				69 cell
+					70 text $145,500.00
+			71 row
+				72 cell
+					73 text MP
+				74 cell
+					75 text Mercado Pago
+				76 cell
+					77 text $152,000.00
+		78 text POR RUBRO
+		79 table
+			80 row
+				81 cell
+					82 text RUBRO
+				83 cell
+					84 text TIPO
+				85 cell
+					86 text TOTAL
+			87 row
+				88 cell
+					89 text Cuotas
+				90 cell
+					91 text INGRESO
+				92 cell
+					93 text $304,000.00
+			94 row
+				95 cell
+					96 text Gastos Operativos
+				97 cell
+					98 text EGRESO
+				99 cell
+					100 text $6,500.00
+		101 text INGRESOS $304,000.00 EGRESOS $6,500.00 NETO $297,500.00
+	102 text Wings
+
+The focused UI element is 1 AXWebArea Resumen – Caja del 06/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/53/resumen

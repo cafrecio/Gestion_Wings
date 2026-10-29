@@ -1,0 +1,41 @@
+Browser tab: 1320327214, Title: "Cierre de caja – Wings", URL: "https://test.gestionar-te.com.ar/caja/55/cerrar".
+1 AXWebArea Cierre de caja – Wings, URL: test.gestionar-te.com.ar/caja/55/cerrar
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cerrar-caja
+		20 button Salir
+	21 heading Cierre de caja, Value: 1
+		22 text Cierre de caja
+	23 container
+		24 text Caja #55 · Sandra Vidal. Contá solo el efectivo del mostrador, no las transferencias ni lo que cobró ADMIN aparte. Corrección de un cierre rechazado: se conserva lo que se contó y entregó. Solo se recalculan el esperado y la diferencia con los movimientos corregidos. Efectivo inicial $10,000.00 Efectivo esperado $122,500.00
+		25 container
+			26 image
+			27 text Efectivo contado *
+		28 text $122,500.00
+		29 container
+			30 image
+			31 text Cambio que queda *
+		32 text $10,000.00
+		33 container
+			34 text Diferencia Sin diferencia $0.00 Retiro / entrega $112,500.00
+		35 text Podés cerrar con faltante o sobrante: ADMIN revisará la diferencia. El retiro no se registra como gasto.
+		36 button Volver
+		37 button Cerrar
+	38 text Wings
+
+The focused UI element is 1 AXWebArea Cierre de caja – Wings, URL: test.gestionar-te.com.ar/caja/55/cerrar

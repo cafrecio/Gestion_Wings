@@ -1,0 +1,10 @@
+ 1. Pablo Ledesma cobra a Gimenez, Tomas $48.000,00 por Efectivo — Pago registrado para Gimenez, Tomas.
+ 2. Pablo Ledesma cobra a Molina, Franco $38.000,00 por Mercado Pago — Pago registrado para Molina, Franco.
+ 3. Pablo Ledesma cobra a Morales, Lorenzo $38.000,00 por Efectivo — Pago registrado para Morales, Lorenzo.
+ 4. Pablo Ledesma cobra a Rodriguez, Mateo $38.000,00 por Mercado Pago — Pago registrado para Rodriguez, Mateo.
+ 5. Pablo Ledesma cobra a Ramos, Dante $48.000,00 por Efectivo — Pago registrado para Ramos, Dante.
+ 6. Pablo Ledesma cobra a Ferrari, Bautista $35.000,00 por Mercado Pago — Pago registrado para Ferrari, Bautista.
+ 7. Mariela Ocampo lista de la #229: 8 alumnos, 0 presentes — Asistencias guardadas.
+ 8. Hernán Quintana lista de la #253: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $1.874.000,00 · {"AL_DIA":53,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":1}
+SIMULADO: no se guardó nada.

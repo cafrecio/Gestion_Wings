@@ -1,0 +1,102 @@
+Browser tab: 1320327214, Title: "Cashflow histórico – Wings", URL: "https://test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-11-08&anio=2026&tipo_caja_id=&tipo=".
+1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-11-08&anio=2026&tipo_caja_id=&tipo=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+		30 button Salir
+	31 heading Cashflow, Value: 1
+		32 text Cashflow
+	33 container
+		34 container filtros-form
+			35 text PERÍODO
+			36 pop up button (collapsed, settable) PERÍODO, Value: Día, ID: periodo, Secondary Actions: Expand
+				37 menu
+					38 (selected) Día
+					39 Semana
+					40 Mes
+					41 Año
+			42 text FECHA
+			43 date field (settable) FECHA, Value: 2026-11-08, ID: fecha
+				44 container
+					45 stepper
+					46 stepper
+					47 stepper
+				48 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			49 text TIPO DE CAJA
+			50 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				51 menu
+					52 (selected) Todos
+					53 Banco Galicia
+					54 Banco Nación
+					55 Banco Nacion ahorro
+					56 Efectivo
+					57 Mercado Pago
+			58 text TIPO
+			59 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				60 menu
+					61 (selected) Todos
+					62 Ingresos
+					63 Egresos
+		64 container cashflow-periodo
+			65 text Período:
+			66 text 8 de noviembre de 2026
+		67 container Saldos por medio
+			68 heading Saldos por medio, Value: 2
+				69 text Saldos por medio
+			70 text Al 08/11/2026 · No dependen del período del listado.
+			71 text Banco Galicia
+			72 text $201,050.00
+			73 text Banco Nación
+			74 text $58,000.00
+			75 text Banco Nacion ahorro
+			76 text $0.00
+			77 text Efectivo
+			78 text $1,720,200.00
+			79 text Confirmado: $1,440,700.00 · En cajas sin validar: $279,500.00
+			80 text Mercado Pago
+			81 text $2,477,870.75
+			82 text Confirmado: $2,214,870.75 · En cajas sin validar: $263,000.00
+		83 container cashflow-totales-periodo
+			84 image
+			85 text $0.00
+			86 text INGRESOS
+			87 image
+			88 text $0.00
+			89 text EGRESOS
+			90 image
+			91 text $0.00
+			92 text RESULTADO DEL PERÍODO
+		93 container cashflow-acciones
+			94 container
+				95 text 0  movimientos
+			96 button Transferir
+			97 button Nuevo
+		98 text Sin movimientos para los filtros seleccionados.
+	99 text Wings
+
+The focused UI element is 1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-11-08&anio=2026&tipo_caja_id=&tipo=

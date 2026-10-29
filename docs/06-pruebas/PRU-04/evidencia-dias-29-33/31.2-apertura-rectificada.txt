@@ -1,0 +1,57 @@
+Browser tab: 1320327214, Title: "Resumen – Caja del 09/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/55/resumen".
+1 AXWebArea Resumen – Caja del 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/resumen
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 button Salir
+	20 heading Resumen de caja, Value: 1
+		21 text Resumen de caja
+	22 container
+		55 text OPERATIVO Sandra Vidal APERTURA 09/11/2026 09:00 CIERRE – ESTADO ABIERTA
+		24 text 0
+		25 text  movimientos
+		26 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+		27 link Description: Nuevo, Value: test.gestionar-te.com.ar/caja/55/editar
+		28 button Cerrar
+		29 button Rectificar
+		30 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/55/detalle
+		31 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		32 heading Efectivo del mostrador, Value: 3
+			33 text Efectivo del mostrador
+		34 text Inicial
+		35 text $10,000.00
+		36 text Esperado
+		37 text $10,000.00
+		38 text Contado
+		39 text Sin declarar
+		40 text Diferencia
+		41 text Sin declarar
+		42 text Cambio que queda
+		43 text Sin declarar
+		44 text Retiro / entrega
+		45 text Sin declarar
+		46 text APERTURA RECTIFICADA
+		47 container
+			48 text Rectificado el 09/11/2026 09:00 por Sandra Vidal (inicial anterior:  $100,000.00 ). Motivo: Escribí un cero de más: recibí $10.000
+		49 text Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+		50 image
+		51 heading Sin movimientos, Value: 3
+			52 text Sin movimientos
+		53 text Esta caja no tiene movimientos registrados.
+	54 text Wings
+
+The focused UI element is 1 AXWebArea Resumen – Caja del 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/resumen

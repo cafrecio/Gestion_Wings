@@ -1,0 +1,4 @@
+ 1. Sandra Vidal cierra la caja #59: esperado $196.800,00, contado $196.800,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #59 (20 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $850.200,00 · {"AL_DIA":83,"EN_PLAZO":0,"MOROSO":22,"DEUDOR":1}
+GUARDADO.

@@ -1,0 +1,177 @@
+Browser tab: 1320327214, Title: "Ingresos y egresos – Wings", URL: "https://test.gestionar-te.com.ar/reportes".
+1 AXWebArea Ingresos y egresos – Wings, URL: test.gestionar-te.com.ar/reportes
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Ingresos y egresos, Value: 1
+		31 text Ingresos y egresos
+	32 container
+		33 text Reportes
+		34 link Description: Volver, Value: test.gestionar-te.com.ar/admin/dashboard
+		35 container Reportes
+			36 text Ingresos y egresos
+			37 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+			38 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+		39 pop up button (collapsed, settable) Description: Mes, Value: Noviembre 2026, Secondary Actions: Expand
+			40 menu
+				41 (selected) Noviembre 2026
+				42 Octubre 2026
+				43 Septiembre 2026
+		44 pop up button (collapsed, settable) Description: Deporte, Value: Todo el negocio, Secondary Actions: Expand
+			45 menu
+				46 (selected) Todo el negocio
+				47 Fútbol
+				48 Patín
+		49 button Filtrar
+		50 heading Octubre vs septiembre, Value: 2
+			51 text Octubre vs septiembre
+		52 text Meses cerrados · 2026 Ingresos
+		53 text $3,417,850.75
+		54 image Tendencia mensual de ingresos
+		55 text ↑ 11.292,8%
+		56 text Egresos
+		57 text $331,950.00
+		58 image Tendencia mensual de egresos
+		59 text ↑ $331,950.00
+		60 text Resultado
+		61 text $3,085,900.75
+		62 image Tendencia mensual de resultado
+		63 text ↑ $3,055,900.75
+		64 text Egresos / ingresos
+		65 text 9,7%
+		66 image Porcentaje de ingresos equivalente a egresos
+		67 text Del ingreso del mes
+		68 heading Evolución mensual, Value: 3
+			69 text Evolución mensual
+		70 text Ingresos Egresos Meses cerrados
+		71 image Evolución de ingresos y egresos de los meses cerrados disponibles
+		72 button (collapsed) Detalle, Secondary Actions: Expand
+			73 text Detalle
+		74 heading Cambio en el resultado, Value: 3
+			75 text Cambio en el resultado
+		76 text Octubre vs septiembre
+		77 image Aporte de cada rubro al cambio del resultado
+		78 content list
+			79 container
+				80 text Cuota Mensual (10/2026): + $2,600,500.00
+			81 container
+				82 text Cuota Mensual (09/2026): + $357,000.00
+			83 container
+				84 text Cuota Mensual (08/2026): + $172,000.00
+			85 container
+				86 text Luz: − $123,500.00
+			87 container
+				88 text Otros: + $49,900.75
+		89 text Variación total
+		90 container
+			91 text + $3,055,900.75
+		92 heading Noviembre en curso, Value: 2
+			93 text Noviembre en curso
+		94 text Hasta 11/11 Ingresos $3,359,300.00 Egresos $2,678,280.00 Resultado $681,020.00
+		95 container ingresos
+			96 heading Origen de ingresos, Value: 3
+				97 text Origen de ingresos
+			98 container
+				99 image Distribución de ingresos por rubro
+				100 text $3.359.300
+				101 text Ingresos
+			102 text Cuota Mensual (11/2026)
+			103 text $3,238,000.00
+			104 text 96,4% Punitorio Cuota
+			105 text $40,300.00
+			106 text 1,2% Cuota Mensual (08/2026)
+			107 text $33,000.00
+			108 text 1,0% Cuota Mensual (09/2026)
+			109 text $33,000.00
+			110 text 1,0% Inscripción al club
+			111 text $15,000.00
+			112 text 0,4%
+			164 container
+				165 button (expanded) Detalle, Secondary Actions: Collapse
+					166 text Detalle
+				167 text Confirmado $2,936,000.00 Por validar $423,300.00
+				168 button (collapsed) Cuota Mensual (11/2026) · $3,238,000.00, Secondary Actions: Expand
+					169 text Cuota Mensual (11/2026) · 
+					170 text $3,238,000.00
+				171 button (collapsed) Punitorio Cuota · $40,300.00, Secondary Actions: Expand
+					172 text Punitorio Cuota · 
+					173 text $40,300.00
+				174 button (collapsed) Cuota Mensual (08/2026) · $33,000.00, Secondary Actions: Expand
+					175 text Cuota Mensual (08/2026) · 
+					176 text $33,000.00
+				177 button (collapsed) Cuota Mensual (09/2026) · $33,000.00, Secondary Actions: Expand
+					178 text Cuota Mensual (09/2026) · 
+					179 text $33,000.00
+				180 button (collapsed) Inscripción al club · $15,000.00, Secondary Actions: Expand
+					181 text Inscripción al club · 
+					182 text $15,000.00
+		115 container egresos
+			116 heading Destino de gastos, Value: 3
+				117 text Destino de gastos
+			118 image Importes netos por rubro
+			119 button (collapsed) Detalle, Secondary Actions: Expand
+				120 text Detalle
+		121 heading Situación al 11/11, Value: 2
+			122 text Situación al 11/11
+		123 text Saldos acumulados Disponible $5,585,920.75 Por cobrar $850,200.00 Por pagar $0.00
+		124 button (collapsed) Detalle de cajas y aportes, Secondary Actions: Expand
+			125 text Detalle de cajas y aportes
+		149 container deuda
+			150 button (expanded) Por cobrar · $850,200.00, Secondary Actions: Collapse
+				151 text Por cobrar · 
+				152 text $850,200.00
+			159 container
+				160 button (expanded) Del mes · $822,200.00, Secondary Actions: Collapse
+					161 text Del mes · 
+					162 text $822,200.00
+				163 text Benitez, Camila Noviembre 2026 $45,000.00 Rossi, Morena Noviembre 2026 $44,000.00 Torres, Benicio Noviembre 2026 $28,000.00 Rios, Facundo Noviembre 2026 $28,000.00 Flores, Santino Noviembre 2026 $28,000.00 Navarro, Alma Noviembre 2026 $33,000.00 Rodriguez, Joaquin Noviembre 2026 $35,000.00 Nuñez, Guadalupe Noviembre 2026 $50,000.00 Ramos, Pilar Noviembre 2026 $30,000.00 Suarez, Valentina Noviembre 2026 $35,000.00 Suarez, Ignacio Noviembre 2026 $35,000.00 Castro, Mateo Noviembre 2026 $28,000.00 Paredes, Iván Noviembre 2026 $35,000.00 Benitez, Camila Noviembre 2026 $28,000.00 Ruiz, Thiago Noviembre 2026 $28,000.00 Benítez, Mora Noviembre 2026 $44,000.00 Pereyra, Liam Noviembre 2026 $35,000.00 Ortega, Valentín Noviembre 2026 $35,000.00 Ramos, Santiago Noviembre 2026 $28,000.00 Quiroga, Lara Noviembre 2026 $44,000.00 Herrera, Facundo Noviembre 2026 $28,000.00 Benítez, Mora Noviembre 2026 $28,000.00 Rodriguez, Joaquin Recargo por mora — Noviembre 2026 $3,500.00 Benitez, Camila Recargo por mora — Noviembre 2026 $4,500.00 Benitez, Camila Recargo por mora — Noviembre 2026 $2,800.00 Pereyra, Liam Recargo por mora — Noviembre 2026 $3,500.00 Ramos, Pilar Recargo por mora — Noviembre 2026 $3,000.00 Rossi, Morena Recargo por mora — Noviembre 2026 $4,400.00 Suarez, Valentina Recargo por mora — Noviembre 2026 $3,500.00 Torres, Benicio Recargo por mora — Noviembre 2026 $2,800.00 Ruiz, Thiago Recargo por mora — Noviembre 2026 $2,800.00 Flores, Santino Recargo por mora — Noviembre 2026 $2,800.00 Herrera, Facundo Recargo por mora — Noviembre 2026 $2,800.00 Suarez, Ignacio Recargo por mora — Noviembre 2026 $3,500.00 Ramos, Santiago Recargo por mora — Noviembre 2026 $2,800.00 Rios, Facundo Recargo por mora — Noviembre 2026 $2,800.00 Navarro, Alma Recargo por mora — Noviembre 2026 $3,300.00 Castro, Mateo Recargo por mora — Noviembre 2026 $2,800.00 Benítez, Mora Recargo por mora — Noviembre 2026 $4,400.00 Quiroga, Lara Recargo por mora — Noviembre 2026 $4,400.00 Ortega, Valentín Recargo por mora — Noviembre 2026 $3,500.00 Benítez, Mora Recargo por mora — Noviembre 2026 $2,800.00 Paredes, Iván Recargo por mora — Noviembre 2026 $3,500.00
+			156 button (collapsed) Meses anteriores · $28,000.00, Secondary Actions: Expand
+				157 text Meses anteriores · 
+				158 text $28,000.00
+		129 button (collapsed) Por pagar · $0.00, Secondary Actions: Expand
+			130 text Por pagar · 
+			131 text $0.00
+		132 heading Deuda de alumnos inactivos, Value: 2
+			133 text Deuda de alumnos inactivos
+		134 text Actual al 11/11/2026. Separada del por cobrar y de los totales de Inicio.
+		135 container
+			136 text 1  alumnos
+		137 text $33,000.00
+		138 container
+			139 heading Vega, Candela, Value: 3
+				140 text Vega, Candela
+			141 text Inactivo desde 06/11/2026 Deuda $33,000.00
+			142 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/294
+			143 button Perder, Help: Dar por perdida esta deuda
+		144 text Cobros y pagos · confirmado + por validar
+		145 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+		146 text  · 
+		147 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+	148 text Wings
+
+The focused UI element is 165 button (expanded) Detalle, Secondary Actions: Collapse

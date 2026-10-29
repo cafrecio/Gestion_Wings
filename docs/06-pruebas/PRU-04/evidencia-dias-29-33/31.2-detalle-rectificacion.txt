@@ -1,0 +1,33 @@
+Browser tab: 1320327214, Title: "Detalle caja 09/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/55/detalle".
+1 AXWebArea Detalle caja 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/detalle
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cancelar-movimiento-caja
+		20 button Salir
+	21 heading Detalle de caja, Value: 1
+		22 text Detalle de caja
+	23 container
+		24 text OPERATIVO Sandra Vidal APERTURA 09/11/2026 09:00 CIERRE – ESTADO ABIERTA
+		25 text 0
+		26 text  movimientos
+		27 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/55/resumen
+		28 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		29 text Esta caja no tiene movimientos.
+	30 text Wings
+
+The focused UI element is 1 AXWebArea Detalle caja 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/detalle

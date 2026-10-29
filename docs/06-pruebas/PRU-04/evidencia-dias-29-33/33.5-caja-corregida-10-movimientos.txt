@@ -1,0 +1,246 @@
+Browser tab: 1320327214, Title: "Detalle caja 09/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/55/detalle".
+1 AXWebArea Detalle caja 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/detalle
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cancelar-movimiento-caja
+		30 button Salir
+	31 heading Detalle de caja, Value: 1
+		32 text Detalle de caja
+	33 container
+		34 text OPERATIVO Sandra Vidal APERTURA 09/11/2026 09:00 CIERRE 09/11/2026 12:20 ESTADO CERRADA
+		35 text 0 de 10 verificados
+		36 button Validar, ID: btn-validar
+		37 button Rechazar
+		38 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/55/resumen
+		39 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		40 container Movimientos de la caja
+			41 table
+				42 row
+					43 cell
+						44 text FECHA
+					45 cell
+						46 text HORA
+					47 cell
+						48 text I/E
+					49 cell
+						50 text MEDIO
+					51 cell
+						52 text RUBRO — SUBRUBRO
+					53 cell
+						54 text ALUMNO / OBS.
+					55 cell
+						56 text MONTO
+				57 row
+					58 cell
+						59 text 09/11/2026
+					60 cell
+						61 text 12:19
+					62 cell
+						63 text I
+					64 cell
+						65 text EFE
+					66 cell
+						67 text Cuotas  — Cuota Mensual
+					68 cell
+						69 text Flores, Renata · PAT · 11/26
+					70 cell
+						71 text $30,000.00
+					72 cell
+						73 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/299?inline=1
+						74 checkbox (settable, integer) Description: Verificar movimiento 362, Value: 0
+				75 row
+					76 cell
+						77 text 09/11/2026
+					78 cell
+						79 text 12:19
+					80 cell
+						81 text I
+					82 cell
+						83 text MP
+					84 cell
+						85 text Cuotas  — Cuota Mensual
+					86 cell
+						87 text Molina, Milagros · PAT · 11/26
+					88 cell
+						89 text $30,000.00
+					90 cell
+						91 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/300?inline=1
+						92 checkbox (settable, integer) Description: Verificar movimiento 363, Value: 0
+				93 row
+					94 cell
+						95 text 09/11/2026
+					96 cell
+						97 text 12:19
+					98 cell
+						99 text I
+					100 cell
+						101 text EFE
+					102 cell
+						103 text Cuotas  — Cuota Mensual
+					104 cell
+						105 text Rios, Lola · PAT · 11/26
+					106 cell
+						107 text $30,000.00
+					108 cell
+						109 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/301?inline=1
+						110 checkbox (settable, integer) Description: Verificar movimiento 364, Value: 0
+				111 row
+					112 cell
+						113 text 09/11/2026
+					114 cell
+						115 text 12:19
+					116 cell
+						117 text I
+					118 cell
+						119 text MP
+					120 cell
+						121 text Cuotas  — Cuota Mensual
+					122 cell
+						123 text Romero, Catalina · PAT · 11/26
+					124 cell
+						125 text $30,000.00
+					126 cell
+						127 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/302?inline=1
+						128 checkbox (settable, integer) Description: Verificar movimiento 365, Value: 0
+				129 row
+					130 cell
+						131 text 09/11/2026
+					132 cell
+						133 text 12:19
+					134 cell
+						135 text I
+					136 cell
+						137 text EFE
+					138 cell
+						139 text Cuotas  — Cuota Mensual
+					140 cell
+						141 text Suarez, Juana · PAT · 11/26
+					142 cell
+						143 text $30,000.00
+					144 cell
+						145 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/303?inline=1
+						146 checkbox (settable, integer) Description: Verificar movimiento 366, Value: 0
+				147 row
+					148 cell
+						149 text 09/11/2026
+					150 cell
+						151 text 12:19
+					152 cell
+						153 text I
+					154 cell
+						155 text MP
+					156 cell
+						157 text Cuotas  — Cuota Mensual
+					158 cell
+						159 text Torres, Luciana · PAT · 11/26
+					160 cell
+						161 text $30,000.00
+					162 cell
+						163 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/304?inline=1
+						164 checkbox (settable, integer) Description: Verificar movimiento 367, Value: 0
+				165 row
+					166 cell
+						167 text 09/11/2026
+					168 cell
+						169 text 12:19
+					170 cell
+						171 text I
+					172 cell
+						173 text EFE
+					174 cell
+						175 text Cuotas  — Cuota Mensual
+					176 cell
+						177 text Martinez, Bautista · Fú · 11/26
+					178 cell
+						179 text $28,000.00
+					180 cell
+						181 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/305?inline=1
+						182 checkbox (settable, integer) Description: Verificar movimiento 368, Value: 0
+				183 row
+					184 cell
+						185 text 09/11/2026
+					186 cell
+						187 text 12:19
+					188 cell
+						189 text I
+					190 cell
+						191 text MP
+					192 cell
+						193 text Cuotas  — Cuota Mensual
+					194 cell
+						195 text Medina, Lautaro · Fú · 11/26
+					196 cell
+						197 text $28,000.00
+					198 cell
+						199 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/306?inline=1
+						200 checkbox (settable, integer) Description: Verificar movimiento 369, Value: 0
+				201 row
+					202 cell
+						203 text 09/11/2026
+					204 cell
+						205 text 12:19
+					206 cell
+						207 text E
+					208 cell
+						209 text EFE
+					210 cell
+						211 text Gastos Operativos  — Limpieza
+					212 cell
+						213 text Artículos de limpieza
+					214 cell
+						215 text $3,500.00
+					216 cell
+						217 checkbox (settable, integer) Description: Verificar movimiento 370, Value: 0
+				218 row
+					219 cell
+						220 text 09/11/2026
+					221 cell
+						222 text 09:02
+					223 cell
+						224 text E
+					225 cell
+						226 text EFE
+					227 cell
+						228 text Gastos Operativos  — Librería
+					229 cell
+						230 text Resma del lunes
+					231 cell
+						232 text $2,000.00
+					233 cell
+						234 checkbox (settable, integer) Description: Verificar movimiento 396, Value: 0
+				235 row
+					236 cell
+						237 text Ingresos: 
+						238 text $236,000.00
+						239 text   ·  Egresos: 
+						240 text $5,500.00
+					241 cell
+						242 text $230,500.00
+	243 text Wings
+
+The focused UI element is 1 AXWebArea Detalle caja 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/detalle

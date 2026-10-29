@@ -1,0 +1,52 @@
+Browser tab: 1320327214, Title: "Inicio – Wings", URL: "https://test.gestionar-te.com.ar/operativo".
+1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/operativo
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 button Salir
+	20 heading Inicio, Value: 1
+		21 text Inicio
+	22 container
+		23 heading Mostrador Operativo, Value: 1
+			24 text Mostrador Operativo
+		25 text Sábado 7 de noviembre de 2026 · Turno de Pablo Ledesma
+		26 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		27 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		28 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		29 container tarjeta-cajon
+			30 text MOSTRADOR ACTIVO
+			31 text Caja abierta
+			32 text Abierta por vos a las 09:02
+			33 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar
+			34 link Description: Registrar, Value: test.gestionar-te.com.ar/caja/movimiento
+			35 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/54/resumen
+		36 text Clases de hoy — 
+		37 text 2
+		38 text 10:00 — Patín — Federadas
+		39 text Todos ausentes
+		40 link Description: Lista, Value: test.gestionar-te.com.ar/clases/229
+		41 text 11:00 — Fútbol — Avanzadas
+		42 text 14 presentes
+		43 link Description: Lista, Value: test.gestionar-te.com.ar/clases/253
+		44 text Atención a alumnos
+		45 link Description: VENCIDOS 1 Ir a cobranza →, Value: test.gestionar-te.com.ar/cobranza
+		46 link Description: EN PLAZO 52 Ir a cobranza →, Value: test.gestionar-te.com.ar/cobranza?estado=EN_PLAZO
+		47 link Description: POSIBLES INACTIVOS 0 Ir a revisión →, Value: test.gestionar-te.com.ar/revision-cobranza
+		48 text Recaudación de hoy COBRADO HOY $245,000.00 COBROS REGISTRADOS 6 CAJAS DEL TURNO 1
+	49 text Wings
+
+The focused UI element is 1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/operativo

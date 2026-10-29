@@ -1,0 +1,109 @@
+Browser tab: 1320327214, Title: "Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/grupos/6".
+1 AXWebArea Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/grupos/6
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Fútbol — Avanzadas, Value: 1
+		31 text Fútbol — Avanzadas
+	32 container
+		33 text Activo
+		34 button Editar
+		35 image
+		36 text DEPORTE Fútbol
+		37 image
+		38 text NIVEL Avanzadas
+		39 image
+		40 text ALUMNOS 15 activos / 15 total
+		41 image
+		42 text CREACIÓN 22/09/2026
+		43 image
+		44 text ALUMNOS EN ESTE GRUPO
+		45 content list
+			46 link Description: Diaz, Thiago, Value: test.gestionar-te.com.ar/alumnos/251
+			47 link Description: Fernandez, Benjamin, Value: test.gestionar-te.com.ar/alumnos/247
+			48 link Description: Ferrari, Nicolas, Value: test.gestionar-te.com.ar/alumnos/260
+			49 link Description: Gimenez, Tomas, Value: test.gestionar-te.com.ar/alumnos/339
+			50 link Description: Gomez, Lucas, Value: test.gestionar-te.com.ar/alumnos/242
+			51 link Description: Molina, Franco, Value: test.gestionar-te.com.ar/alumnos/328
+			52 link Description: Morales, Lorenzo, Value: test.gestionar-te.com.ar/alumnos/330
+			53 link Description: Navarro, Julian, Value: test.gestionar-te.com.ar/alumnos/261
+			54 link Description: Ortiz, Tobias, Value: test.gestionar-te.com.ar/alumnos/329
+			55 link Description: Ramos, Dante, Value: test.gestionar-te.com.ar/alumnos/270
+			56 link Description: Rodriguez, Mateo, Value: test.gestionar-te.com.ar/alumnos/245
+			57 link Description: Rossi, Leon, Value: test.gestionar-te.com.ar/alumnos/326
+			58 link Description: Silva, Simon, Value: test.gestionar-te.com.ar/alumnos/327
+			59 link Description: Sosa, Felipe, Value: test.gestionar-te.com.ar/alumnos/265
+			60 link Description: Vega, Joaquin, Value: test.gestionar-te.com.ar/alumnos/334
+		61 image
+		62 text PRECIOS POR FRECUENCIA
+		63 table
+			64 row
+				65 cell
+					66 text FRECUENCIA
+				67 cell
+					68 text PRECIO MENSUAL
+			69 row
+				70 cell
+					71 text 1x / semana
+				72 cell
+					73 text $38,000.00
+				74 cell
+					75 button Eliminar
+			76 row
+				77 cell
+					78 text 2x / semana
+				79 cell
+					80 text $48,000.00
+				81 cell
+					82 button Eliminar
+		83 image
+		84 text CRONOGRAMA SEMANAL
+		85 content list
+			86 container
+				87 text Mar. 10/11 19:00 a 20:00
+				88 link Description: Ver, Value: test.gestionar-te.com.ar/clases/249
+			89 container
+				90 text Jue. 12/11 19:00 a 20:00
+				91 link Description: Ver, Value: test.gestionar-te.com.ar/clases/254
+			92 container
+				93 text Mar. 17/11 19:00 a 20:00
+				94 link Description: Ver, Value: test.gestionar-te.com.ar/clases/250
+			95 container
+				96 text Jue. 19/11 19:00 a 20:00
+				97 link Description: Ver, Value: test.gestionar-te.com.ar/clases/256
+			98 container
+				99 text Sáb. 21/11 11:00 a 12:00
+				100 link Description: Ver, Value: test.gestionar-te.com.ar/clases/257
+			101 container
+				102 text Mar. 24/11 19:00 a 20:00
+				103 link Description: Ver, Value: test.gestionar-te.com.ar/clases/251
+		104 link Description: Ver todas las clases del grupo, Value: test.gestionar-te.com.ar/clases?grupo_id=6
+		105 button Volver
+	106 text Wings
+
+The focused UI element is 1 AXWebArea Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/grupos/6

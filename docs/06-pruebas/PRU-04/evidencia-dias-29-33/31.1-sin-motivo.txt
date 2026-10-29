@@ -1,0 +1,49 @@
+Browser tab: 1320327214, Title: "Apertura de caja – Wings", URL: "https://test.gestionar-te.com.ar/caja/apertura".
+1 AXWebArea Apertura de caja – Wings, URL: test.gestionar-te.com.ar/caja/apertura
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/abrir-caja
+		20 button Salir
+	21 heading Apertura de caja, Value: 1
+		22 text Apertura de caja
+	23 container
+		24 text No se abrió la caja
+		25 text Indicá por qué recibiste un importe distinto del último cierre.
+		26 text El efectivo recibido difiere en más de un 50% del cierre anterior ($10,000.00). Revisá si tipeaste un importe incorrecto. Si el monto es correcto, confirmá la diferencia para abrir.
+		27 text Contá el efectivo recibido en el cajón. No es un ingreso del club. Medio Efectivo Último cierre Caja #54 · $10,000.00
+		28 container
+			29 image
+			30 text Efectivo recibido *
+		31 text field (settable) Efectivo recibido *, Value: 100,000.00, ID: efectivo_inicial
+		32 container
+			33 image
+			34 text Motivo si recibiste otro importe
+		35 text field (settable) Motivo si recibiste otro importe, ID: motivo_apertura
+		36 text Diferencia importante con el cierre anterior
+		37 text El importe declarado difiere en más de un 50% de lo dejado en el último cierre ($10,000.00). Si confirmás que el importe ingresado es correcto, tildá la casilla para continuar:
+		38 container
+			39 checkbox (settable, integer) Description: Confirmo que el efectivo recibido difiere más del 50% del cierre anterior., Value: 0
+			40 text Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.
+		41 container
+			42 checkbox (settable, integer) Description: Confirmo que conté y recibí este efectivo., Value: 1
+			43 text Confirmo que conté y recibí este efectivo.
+		44 button Volver
+		45 button Abrir
+	46 text Wings
+
+The focused UI element is 1 AXWebArea Apertura de caja – Wings, URL: test.gestionar-te.com.ar/caja/apertura

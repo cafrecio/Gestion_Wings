@@ -1,0 +1,59 @@
+Browser tab: 1320327214, Title: "Acosta, Victoria – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/272".
+1 AXWebArea Acosta, Victoria – Wings, URL: test.gestionar-te.com.ar/alumnos/272
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Acosta, Victoria, Value: 1
+		22 text Acosta, Victoria
+	23 container
+		24 text Activo
+		25 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae347785f9d0
+		26 button Cobrar
+		27 button Editar
+		28 image
+		29 text DNI 55400001
+		30 image
+		31 text NACIMIENTO 12/03/2019
+		32 image
+		33 text CELULAR 1145120001
+		34 image
+		35 text EMAIL victoria.acosta@testmail.com
+		36 image
+		37 text DEPORTE Patín
+		38 image
+		39 text GRUPO Patín — Principiantes
+		40 image
+		41 text PLAN 1x sem. — $30,000.00/mes
+		42 image
+		43 text ALTA 15/03/2025
+		44 image
+		45 text ESTADO DE COBRANZA Al día
+		46 image
+		47 text TUTOR NOMBRE Tutor Acosta TELÉFONO 1145120001
+		48 image
+		49 text HISTORIAL DE PAGOS 02/11/2026 · Nov 2026 $30,000.00
+		50 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/199?inline=1
+		51 text 28/10/2026 · Oct 2026 $30,000.00
+		52 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/123?inline=1
+		53 image
+		54 text ASISTENCIAS — NOV 2026 3 clases 02/11 04/11 09/11
+		55 button Volver
+	56 text Wings
+
+The focused UI element is 1 AXWebArea Acosta, Victoria – Wings, URL: test.gestionar-te.com.ar/alumnos/272

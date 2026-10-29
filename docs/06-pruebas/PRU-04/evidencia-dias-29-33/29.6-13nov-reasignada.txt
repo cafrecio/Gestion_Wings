@@ -1,0 +1,171 @@
+Browser tab: 1320327214, Title: "Viernes 13 de noviembre de 2026 — Patín — Intermedias – Wings", URL: "https://test.gestionar-te.com.ar/clases/213".
+0 AXWebArea Viernes 13 de noviembre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/213
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		12 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		13 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		14 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		15 text EL CLUB
+		16 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		17 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		18 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		19 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		20 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		21 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		22 text SISTEMA
+		23 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		24 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		25 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	26 container
+		27 text Admin Prueba
+		28 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		29 button Salir
+	30 heading Clase — Patín — Intermedias, Value: 1
+		31 text Clase — Patín — Intermedias
+	32 container
+		34 heading Viernes 13 De Noviembre De 2026, Value: 2
+			35 text Viernes 13 De Noviembre De 2026
+		36 text 16:00 – 17:00 Patín Patín — Intermedias
+		37 text Gaitán, Lucía
+		38 button Editar, ID: btn-modificar-profesores
+		39 text Activa
+		40 button Cancelar, ID: btn-abrir-cancelar
+		41 button Validar
+		42 link Description: Editar, Value: test.gestionar-te.com.ar/clases/213/edit
+		43 button Eliminar, ID: btn-abrir-eliminar-clase
+		44 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		46 text 17
+		47 text  alumnos en el grupo  ·  
+		48 text 0
+		49 text  presentes
+		50 container card-302
+			51 text Benitez, Paulina
+			52 text Al día
+			53 text 0/2 · DNI …031
+			54 container
+				55 text Presente
+				56 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-302
+		57 container card-292
+			58 text Cabrera, Constanza
+			59 text Al día
+			60 text 0/1 · DNI …021
+			61 container
+				62 text Presente
+				63 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-292
+		64 container card-333
+			65 text Cabrera, Renata
+			66 text Al día
+			67 text 0/2 · DNI …913
+			68 container
+				69 text Presente
+				70 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-333
+		71 container card-290
+			72 text Ferrari, Josefina
+			73 text Al día
+			74 text 0/1 · DNI …019
+			75 container
+				76 text Presente
+				77 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-290
+		78 container card-301
+			79 text Flores, Juana
+			80 text Al día
+			81 text 0/1 · DNI …030
+			82 container
+				83 text Presente
+				84 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-301
+		85 container card-300
+			86 text Garcia, Melina
+			87 text Al día
+			88 text 0/2 · DNI …029
+			89 container
+				90 text Presente
+				91 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-300
+		92 container card-267
+			93 text Gimenez, Helena
+			94 text Al día
+			95 text 0/2 · DNI …906
+			96 container
+				97 text Presente
+				98 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-267
+		99 container card-293
+			100 text Ledesma, Paula
+			101 text Al día
+			102 text 0/2 · DNI …022
+			103 container
+				104 text Presente
+				105 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-293
+		106 container card-252
+			107 text Martinez, Delfina
+			108 text Al día
+			109 text 0/1 · DNI …601
+			110 container
+				111 text Presente
+				112 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-252
+		113 container card-335
+			114 text Navarro, Alma
+			115 text En plazo
+			116 text 0/1 · DNI …915
+			117 container
+				118 text Presente
+				119 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-335
+		120 container card-291
+			121 text Navarro, Malena
+			122 text Al día
+			123 text 0/2 · DNI …020
+			124 container
+				125 text Presente
+				126 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-291
+		127 container card-299
+			128 text Perez, Carla
+			129 text Al día
+			130 text 0/1 · DNI …028
+			131 container
+				132 text Presente
+				133 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-299
+		134 container card-243
+			135 text Rodriguez, Mia
+			136 text Al día
+			137 text 0/2 · DNI …201
+			138 container
+				139 text Presente
+				140 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-243
+		141 container card-296
+			142 text Romero, Florencia
+			143 text Al día
+			144 text 0/1 · DNI …025
+			145 container
+				146 text Presente
+				147 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-296
+		148 container card-298
+			149 text Ruiz, Sol
+			150 text Al día
+			151 text 0/2 · DNI …027
+			152 container
+				153 text Presente
+				154 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-298
+		155 container card-295
+			156 text Sanchez, Berenice
+			157 text En plazo
+			158 text 0/2 · DNI …024
+			159 container
+				160 text Presente
+				161 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-295
+		162 container card-297
+			163 text Sosa, Rocio
+			164 text Al día
+			165 text 0/1 · DNI …026
+			166 container
+				167 text Presente
+				168 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-297
+	169 text Wings
+
+The focused UI element is 0 AXWebArea Viernes 13 de noviembre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/213

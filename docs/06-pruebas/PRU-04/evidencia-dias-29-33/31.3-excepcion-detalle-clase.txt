@@ -1,0 +1,224 @@
+Browser tab: 1320327214, Title: "Lunes 9 de noviembre de 2026 — Fútbol — Principiantes – Wings", URL: "https://test.gestionar-te.com.ar/clases/241".
+1 AXWebArea Lunes 9 de noviembre de 2026 — Fútbol — Principiantes – Wings, URL: test.gestionar-te.com.ar/clases/241
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		30 button Salir
+	31 heading Clase — Fútbol — Principiantes, Value: 1
+		32 text Clase — Fútbol — Principiantes
+	33 container
+		34 heading Lunes 9 De Noviembre De 2026, Value: 2
+			35 text Lunes 9 De Noviembre De 2026
+		36 text 16:00 – 17:00 Fútbol Fútbol — Principiantes
+		37 text Quintana, Hernán
+		38 button Editar, ID: btn-modificar-profesores
+		39 text Activa
+		40 button Cancelar, ID: btn-abrir-cancelar
+		41 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		42 text No se puede eliminar: Tiene asistencias registradas: debe cancelarse con motivo.
+		43 text 24
+		44 text  alumnos en el grupo  ·  
+		222 text 22
+		46 text  presentes
+		47 container card-318
+			48 text Acosta, Agustin
+			49 text Al día
+			50 text 1/2 · DNI …005
+			51 container
+				52 text Presente
+				53 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-318
+		54 container card-255
+			55 text Benitez, Camila
+			56 text En plazo
+			57 text 1/1 (Completo) · DNI …700
+			58 container
+				59 text Presente
+				60 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-255
+		61 container card-345
+			62 text Benítez, Mora
+			63 text En plazo
+			64 text 1/1 (Completo) · DNI …456
+			65 container
+				66 text Presente
+				67 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-345
+		68 container card-322
+			69 text Castro, Bruno
+			70 text Al día
+			71 text 1/1 (Completo) · DNI …009
+			72 container
+				73 text Presente
+				74 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-322
+		75 container card-338
+			76 text Castro, Mateo
+			77 text En plazo
+			78 text 0/1 · DNI …918
+			79 container
+				80 text Presente
+				81 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-338
+		82 container card-336
+			83 text Ferrari, Bautista
+			84 text Al día
+			85 text 1/2 · DNI …916
+			86 container
+				87 text Presente
+				88 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-336
+		89 container card-317
+			90 text Flores, Santino
+			91 text En plazo
+			92 text 1/1 (Completo) · DNI …004
+			93 container
+				94 text Presente
+				95 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-317
+		96 container card-323
+			97 text Gutierrez, Tomas
+			98 text Al día
+			99 text 1/1 (Completo) · DNI …010
+			100 container
+				101 text Presente
+				102 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-323
+		103 container card-320
+			104 text Herrera, Facundo
+			105 text En plazo
+			106 text 1/1 (Completo) · DNI …007
+			107 container
+				108 text Presente
+				109 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-320
+		110 container card-253
+			111 text Martinez, Bautista
+			112 text Al día
+			113 text 1/1 (Completo) · DNI …602
+			114 container
+				115 text Presente
+				116 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-253
+		117 container card-319
+			118 text Medina, Lautaro
+			119 text Al día
+			120 text 1/1 (Completo) · DNI …006
+			121 container
+				122 text Presente
+				123 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-319
+		124 container card-344
+			125 text Ortega, Valentín
+			126 text En plazo
+			127 text 1/2 · DNI …987
+			128 container
+				129 text Presente
+				130 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-344
+		131 container card-346
+			132 text Paredes, Iván
+			133 text Nuevo · En plazo
+			134 text 1/2 · DNI …777
+			135 container
+				136 text Presente
+				137 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-346
+		138 container card-269
+			139 text Pereyra, Liam
+			140 text En plazo
+			141 text 1/2 · DNI …908
+			142 container
+				143 text Presente
+				144 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-269
+		145 container card-324
+			146 text Pereyra, Manuel
+			147 text Al día
+			148 text 1/2 · DNI …011
+			149 container
+				150 text Presente
+				151 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-324
+		152 container card-343
+			153 text Quiroga, Tomás
+			154 text En plazo
+			155 text 1/1 (Completo) · DNI …222
+			156 container
+				157 text Presente
+				158 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-343
+		159 container card-316
+			160 text Ramirez, Felipe
+			161 text Al día
+			162 text 1/2 · DNI …003
+			163 container
+				164 text Presente
+				165 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-316
+		166 container card-325
+			167 text Ramos, Santiago
+			168 text En plazo
+			169 text 1/1 (Completo) · DNI …012
+			170 container
+				171 text Presente
+				172 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-325
+		173 container card-332
+			174 text Rios, Facundo
+			175 text En plazo
+			176 text 0/1 · DNI …912
+			177 container
+				178 text Presente
+				179 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-332
+		180 container card-244
+			181 text Rodriguez, Joaquin
+			182 text En plazo
+			183 text 1/2 · DNI …202
+			184 container
+				185 text Presente
+				186 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-244
+		187 container card-263
+			188 text Romero, Santino
+			189 text Deudor
+			190 text 1/1 (Completo) · DNI …902
+			191 container
+				192 text Presente
+				193 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-263
+			194 container excepcion-asistencia-263
+				195 text Motivo registrado. El dueño lo verá en Inicio y en el resumen diario.
+				196 container
+					197 text Motivo  *
+				198 text entry area Motivo *, Value: Vuelve a entrenar; octubre lo paga a fin de mes, lo autorizó el dueño, ID: motivo-excepcion-263
+		199 container card-315
+			200 text Ruiz, Thiago
+			201 text En plazo
+			202 text 1/1 (Completo) · DNI …002
+			203 container
+				204 text Presente
+				205 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-315
+		206 container card-321
+			207 text Suarez, Ignacio
+			208 text En plazo
+			209 text 1/2 · DNI …008
+			210 container
+				211 text Presente
+				212 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-321
+		213 container card-314
+			214 text Torres, Benicio
+			215 text En plazo
+			216 text 1/1 (Completo) · DNI …001
+			217 container
+				218 text Presente
+				219 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-314
+		220 button Guardar, ID: btn-guardar-asistencias
+	221 text Wings
+
+The focused UI element is 1 AXWebArea Lunes 9 de noviembre de 2026 — Fútbol — Principiantes – Wings, URL: test.gestionar-te.com.ar/clases/241

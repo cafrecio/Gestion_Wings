@@ -1,0 +1,25 @@
+WINGS CLUB
+ACADEMIA DEPORTIVA
+Comprobante de Cobro de Cuota
+CUOTA-350
+EMISIÓN:  11/11/2026 09:06
+FECHA PAGO:  11/11/2026 
+DATOS DEL ALUMNO
+ALUMNO / ALUMNA
+Florencia Vega
+DOCUMENTO (DNI)
+44100801
+DEPORTE / DISCIPLINA
+Patín
+DETALLE DE PERÍODOS COBRADOS
+CONCEPTO / PERÍODO IMPORTE
+Noviembre 2026 $50,000.00
+Recargo por mora — Noviembre 2026 $5,000.00
+TOTAL COBRADO $55,000.00
+INFORMACIÓN DE COBRO
+MEDIO DE COBRO
+Mercado Pago
+REGISTRADO POR
+Operativo
+Club Wings — Comprobante emitido por el sistema de gestión.
+Documento no válido como factura comercial. FIRMA / SELLO RECEPTOR

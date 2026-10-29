@@ -1,0 +1,135 @@
+Browser tab: 1320327214, Title: "Nuñez, Guadalupe – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/271".
+1 AXWebArea Nuñez, Guadalupe – Wings, URL: test.gestionar-te.com.ar/alumnos/271
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Nuñez, Guadalupe, Value: 1
+		32 text Nuñez, Guadalupe
+	33 container
+		34 text Recargo condonado. Activo
+		35 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae35bbf798ef
+		36 button Cobrar
+		37 button Editar
+		38 image
+		39 text DNI 47300910
+		40 image
+		41 text NACIMIENTO 29/01/2010
+		42 image
+		43 text CELULAR 1145123423
+		44 image
+		45 text EMAIL monica.nunez@testmail.com
+		46 image
+		47 text DEPORTE Patín
+		48 image
+		49 text GRUPO Patín — Federadas
+		50 image
+		51 text PLAN 2x sem. — $50,000.00/mes
+		52 image
+		53 text ALTA 10/03/2022
+		54 image
+		55 text ESTADO DE COBRANZA Moroso Total adeudado:  $50,000.00 Nov 2026 $50,000.00
+		56 button Condonar
+		57 container recargos-mora
+			58 text Recargos por mora
+			59 text Recargo por mora — Noviembre 2026
+			60 text Pendiente: $0.00 · Condonado: $5,000.00
+			61 button Reactivar
+		62 container cuotas-pasadas
+			63 text Meses sin cuota generada
+			64 container
+				65 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2022 · $50,000.00, Secondary Actions: Expand
+					66 menu
+						67 (selected) Marzo 2022 · $50,000.00
+						68 Abril 2022 · $50,000.00
+						69 Mayo 2022 · $50,000.00
+						70 Junio 2022 · $50,000.00
+						71 Julio 2022 · $50,000.00
+						72 Agosto 2022 · $50,000.00
+						73 Septiembre 2022 · $50,000.00
+						74 Octubre 2022 · $50,000.00
+						75 Noviembre 2022 · $50,000.00
+						76 Diciembre 2022 · $50,000.00
+						77 Enero 2023 · $50,000.00
+						78 Febrero 2023 · $50,000.00
+						79 Marzo 2023 · $50,000.00
+						80 Abril 2023 · $50,000.00
+						81 Mayo 2023 · $50,000.00
+						82 Junio 2023 · $50,000.00
+						83 Julio 2023 · $50,000.00
+						84 Agosto 2023 · $50,000.00
+						85 Septiembre 2023 · $50,000.00
+						86 Octubre 2023 · $50,000.00
+						87 Noviembre 2023 · $50,000.00
+						88 Diciembre 2023 · $50,000.00
+						89 Enero 2024 · $50,000.00
+						90 Febrero 2024 · $50,000.00
+						91 Marzo 2024 · $50,000.00
+						92 Abril 2024 · $50,000.00
+						93 Mayo 2024 · $50,000.00
+						94 Junio 2024 · $50,000.00
+						95 Julio 2024 · $50,000.00
+						96 Agosto 2024 · $50,000.00
+						97 Septiembre 2024 · $50,000.00
+						98 Octubre 2024 · $50,000.00
+						99 Noviembre 2024 · $50,000.00
+						100 Diciembre 2024 · $50,000.00
+						101 Enero 2025 · $50,000.00
+						102 Febrero 2025 · $50,000.00
+						103 Marzo 2025 · $50,000.00
+						104 Abril 2025 · $50,000.00
+						105 Mayo 2025 · $50,000.00
+						106 Junio 2025 · $50,000.00
+						107 Julio 2025 · $50,000.00
+						108 Agosto 2025 · $50,000.00
+						109 Septiembre 2025 · $50,000.00
+						110 Octubre 2025 · $50,000.00
+						111 Noviembre 2025 · $50,000.00
+						112 Diciembre 2025 · $50,000.00
+						113 Enero 2026 · $50,000.00
+						114 Febrero 2026 · $50,000.00
+						115 Marzo 2026 · $50,000.00
+						116 Abril 2026 · $50,000.00
+						117 Mayo 2026 · $50,000.00
+						118 Junio 2026 · $50,000.00
+						119 Julio 2026 · $50,000.00
+						120 Agosto 2026 · $50,000.00
+						121 Septiembre 2026 · $50,000.00
+				122 button Crear
+		123 image
+		124 text TUTOR NOMBRE Monica Nuñez TELÉFONO 1145123423
+		125 image
+		126 text HISTORIAL DE PAGOS 22/10/2026 · Oct 2026 $22,000.00
+		127 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/47?inline=1
+		128 image
+		129 text ASISTENCIAS — NOV 2026 3 clases 03/11 05/11 10/11
+		130 button Volver
+		131 text No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.
+	132 text Wings
+
+The focused UI element is 1 AXWebArea Nuñez, Guadalupe – Wings, URL: test.gestionar-te.com.ar/alumnos/271

@@ -1,0 +1,593 @@
+Browser tab: 1320327214, Title: "Cashflow histórico – Wings", URL: "https://test.gestionar-te.com.ar/cashflow?periodo=anio&fecha=2026-11-08&anio=2026&tipo_caja_id=1&tipo=EGRESO".
+1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=anio&fecha=2026-11-08&anio=2026&tipo_caja_id=1&tipo=EGRESO
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+		30 button Salir
+	31 heading Cashflow, Value: 1
+		32 text Cashflow
+	33 container
+		34 container filtros-form
+			35 text PERÍODO
+			36 pop up button (collapsed, settable) PERÍODO, Value: Año, ID: periodo, Secondary Actions: Expand
+				37 menu
+					38 Día
+					39 Semana
+					40 Mes
+					41 (selected) Año
+			42 text AÑO
+			43 pop up button (collapsed, settable) AÑO, Value: 2026, ID: anio, Secondary Actions: Expand
+				44 menu
+					45 (selected) 2026
+			46 text TIPO DE CAJA
+			47 pop up button (collapsed, settable) Value: Efectivo, Secondary Actions: Expand
+				48 menu
+					49 Todos
+					50 Banco Galicia
+					51 Banco Nación
+					52 Banco Nacion ahorro
+					53 (selected) Efectivo
+					54 Mercado Pago
+			55 text TIPO
+			56 pop up button (collapsed, settable) Value: Egresos, Secondary Actions: Expand
+				57 menu
+					58 Todos
+					59 Ingresos
+					60 (selected) Egresos
+			61 button Limpiar
+		62 container cashflow-periodo
+			63 text Período:
+			64 text Año 2026 completo
+		65 container Saldos por medio
+			66 heading Saldos por medio, Value: 2
+				67 text Saldos por medio
+			68 text Al 08/11/2026 · No dependen del período del listado.
+			69 text Banco Galicia
+			70 text $201,050.00
+			71 text Banco Nación
+			72 text $58,000.00
+			73 text Banco Nacion ahorro
+			74 text $0.00
+			75 text Efectivo
+			76 text $1,720,200.00
+			77 text Confirmado: $1,440,700.00 · En cajas sin validar: $279,500.00
+			78 text Mercado Pago
+			79 text $2,477,870.75
+			80 text Confirmado: $2,214,870.75 · En cajas sin validar: $263,000.00
+		81 container cashflow-totales-periodo
+			82 image
+			83 text $2,882,300.00
+			84 text INGRESOS
+			85 image
+			86 text $1,691,600.00
+			87 text EGRESOS
+			88 image
+			89 text $1,190,700.00
+			90 text RESULTADO DEL PERÍODO
+		91 container cashflow-acciones
+			92 container
+				93 text 24  movimientos
+			94 button Transferir
+			95 button Nuevo
+		96 table
+			97 row
+				98 cell
+					99 text FECHA
+				100 cell
+					101 text I/E
+				102 cell
+					103 text TIPO CAJA
+				104 cell
+					105 text RUBRO — SUBRUBRO
+				106 cell
+					107 text DETALLE
+				108 cell
+					109 text MONTO
+				110 cell
+					111 text REGISTRÓ
+				112 cell
+					113 text VAL.
+				114 cell
+					115 text ACCIONES
+			116 row
+				117 cell
+					118 text 04/11/2026
+				119 cell
+					120 text E
+				121 cell
+					122 text EFE
+				123 cell
+					124 text Gastos Operativos  — Limpieza
+				125 cell Lavandina y trapos
+					126 text Lavandina y trapos
+					127 text Caja validada
+				128 cell
+					129 text −$3,500.00
+				130 cell
+					131 text Rocío Paz
+				132 cell Admin Prueba
+					133 text AP
+				134 cell
+					135 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			136 row
+				137 cell
+					138 text 03/11/2026
+				139 cell
+					140 text E
+				141 cell
+					142 text EFE
+				143 cell
+					144 text Sueldos  — Op-Sandra Vidal
+				145 cell Sueldo de octubre
+					146 text Sueldo de octubre
+					147 text Directo
+				148 cell
+					149 text −$320,000.00
+				150 cell
+					151 text Admin Prueba
+				152 cell
+					153 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/editar
+					154 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/169
+					155 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/eliminar
+			156 row
+				157 cell
+					158 text 03/11/2026
+				159 cell
+					160 text E
+				161 cell
+					162 text EFE
+				163 cell
+					164 text Sueldos  — Op-Pablo Ledesma
+				165 cell Sueldo de octubre
+					166 text Sueldo de octubre
+					167 text Directo
+				168 cell
+					169 text −$320,000.00
+				170 cell
+					171 text Admin Prueba
+				172 cell
+					173 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/editar
+					174 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/170
+					175 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/eliminar
+			176 row
+				177 cell
+					178 text 03/11/2026
+				179 cell
+					180 text E
+				181 cell
+					182 text EFE
+				183 cell
+					184 text Sueldos  — Fútbol-Martín Acosta
+				185 cell Pago liquidación #9 - Martín (10/2026)
+					186 text Pago liquidación #9 - Martín (10/2026)
+					187 text Liquidación pagada
+				188 cell
+					189 text −$186,600.00
+				190 cell
+					191 text Admin Prueba
+				192 cell
+					193 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/9
+			194 row
+				195 cell
+					196 text 03/11/2026
+				197 cell
+					198 text E
+				199 cell
+					200 text EFE
+				201 cell
+					202 text Gastos Operativos  — Insumos Varios
+				203 cell Cinta y pilas
+					204 text Cinta y pilas
+					205 text Caja validada
+				206 cell
+					207 text −$4,000.00
+				208 cell
+					209 text Pablo Ledesma
+				210 cell Admin Prueba
+					211 text AP
+				212 cell
+					213 link Description: Ver, Value: test.gestionar-te.com.ar/caja/47/detalle
+			214 row
+				215 cell
+					216 text 03/11/2026
+				217 cell
+					218 text E
+				219 cell
+					220 text EFE
+				221 cell
+					222 text Alquileres  — Centenera
+				223 cell Alquiler de cancha, octubre
+					224 text Alquiler de cancha, octubre
+					225 text Directo
+				226 cell
+					227 text −$125,000.00
+				228 cell
+					229 text Admin Prueba
+				230 cell
+					231 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/173/editar
+					232 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/173
+					233 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/173/eliminar
+			234 row
+				235 cell
+					236 text 02/11/2026
+				237 cell
+					238 text E
+				239 cell
+					240 text EFE
+				241 cell
+					242 text Gastos Operativos  — Limpieza
+				243 cell Artículos de limpieza
+					244 text Artículos de limpieza
+					245 text Caja validada
+				246 cell
+					247 text −$3,500.00
+				248 cell
+					249 text Sandra Vidal
+				250 cell Admin Prueba
+					251 text AP
+				252 cell
+					253 link Description: Ver, Value: test.gestionar-te.com.ar/caja/45/detalle
+			254 row
+				255 cell
+					256 text 30/10/2026
+				257 cell
+					258 text E
+				259 cell
+					260 text EFE
+				261 cell
+					262 text Mantenimiento y arreglos  — Reparaciones menores
+				263 cell Arreglo de la puerta del vestuario
+					264 text Arreglo de la puerta del vestuario
+					265 text Caja validada
+				266 cell
+					267 text −$12,000.00
+				268 cell
+					269 text Pablo Ledesma
+				270 cell Admin Prueba
+					271 text AP
+				272 cell
+					273 link Description: Ver, Value: test.gestionar-te.com.ar/caja/40/detalle
+			274 row
+				275 cell
+					276 text 30/10/2026
+				277 cell
+					278 text E
+				279 cell
+					280 text EFE
+				281 cell
+					282 text Transferencias internas — salidas  — Salida a otro medio
+				283 cell Traspaso de efectivo a Galicia, día 21 de prueba
+					284 text Traspaso de efectivo a Galicia, día 21 de prueba
+					285 text Traspaso
+				286 cell
+					287 text −$500,000.00
+				288 cell
+					289 text Admin Prueba
+				290 cell
+					291 link Description: Ver, Value: test.gestionar-te.com.ar/cashflow/movimientos/121
+			292 row
+				293 cell
+					294 text 29/10/2026
+				295 cell
+					296 text E
+				297 cell
+					298 text EFE
+				299 cell
+					300 text Gastos Operativos  — Limpieza
+				301 cell Limpieza del jueves
+					302 text Limpieza del jueves
+					303 text Caja validada
+				304 cell
+					305 text −$3,800.00
+				306 cell
+					307 text Rocío Paz
+				308 cell Admin Prueba
+					309 text AP
+				310 cell
+					311 link Description: Ver, Value: test.gestionar-te.com.ar/caja/38/detalle
+			312 row
+				313 cell
+					314 text 28/10/2026
+				315 cell
+					316 text E
+				317 cell
+					318 text EFE
+				319 cell
+					320 text Gastos Operativos  — Limpieza
+				321 cell Limpieza del miércoles
+					322 text Limpieza del miércoles
+					323 text Caja validada
+				324 cell
+					325 text −$3,500.00
+				326 cell
+					327 text Sandra Vidal
+				328 cell Admin Prueba
+					329 text AP
+				330 cell
+					331 link Description: Ver, Value: test.gestionar-te.com.ar/caja/36/detalle
+			332 row
+				333 cell
+					334 text 26/10/2026
+				335 cell
+					336 text E
+				337 cell
+					338 text EFE
+				339 cell
+					340 text Gastos Operativos  — Limpieza
+				341 cell Limpieza del lunes
+					342 text Limpieza del lunes
+					343 text Caja validada
+				344 cell
+					345 text −$3,800.00
+				346 cell
+					347 text Rocío Paz
+				348 cell Admin Prueba
+					349 text AP
+				350 cell
+					351 link Description: Ver, Value: test.gestionar-te.com.ar/caja/16/detalle
+			352 row
+				353 cell
+					354 text 26/10/2026
+				355 cell
+					356 text E
+				357 cell
+					358 text EFE
+				359 cell
+					360 text Gastos Operativos  — Botiquín
+				361 cell Gasas y alcohol
+					362 text Gasas y alcohol
+					363 text Caja validada
+				364 cell
+					365 text −$6,500.00
+				366 cell
+					367 text Rocío Paz
+				368 cell Admin Prueba
+					369 text AP
+				370 cell
+					371 link Description: Ver, Value: test.gestionar-te.com.ar/caja/16/detalle
+			372 row
+				373 cell
+					374 text 23/10/2026
+				375 cell
+					376 text E
+				377 cell
+					378 text EFE
+				379 cell
+					380 text Gastos Operativos  — Librería
+				381 cell Resma de papel
+					382 text Resma de papel
+					383 text Caja validada
+				384 cell
+					385 text −$1,500.00
+				386 cell
+					387 text Pablo Ledesma
+				388 cell Admin Prueba
+					389 text AP
+				390 cell
+					391 link Description: Ver, Value: test.gestionar-te.com.ar/caja/13/detalle
+			392 row
+				393 cell
+					394 text 22/10/2026
+				395 cell
+					396 text E
+				397 cell
+					398 text EFE
+				399 cell
+					400 text Gastos Operativos  — Limpieza
+				401 cell Desodorante de ambientes y bolsas
+					402 text Desodorante de ambientes y bolsas
+					403 text Caja validada
+				404 cell
+					405 text −$3,800.00
+				406 cell
+					407 text Sandra Vidal
+				408 cell Admin Prueba
+					409 text AP
+				410 cell
+					411 link Description: Ver, Value: test.gestionar-te.com.ar/caja/12/detalle
+			412 row
+				413 cell
+					414 text 21/10/2026
+				415 cell
+					416 text E
+				417 cell
+					418 text EFE
+				419 cell
+					420 text Gastos Operativos  — Insumos Varios
+				421 cell Bidón de agua
+					422 text Bidón de agua
+					423 text Caja validada
+				424 cell
+					425 text −$3,300.00
+				426 cell
+					427 text Sandra Vidal
+				428 cell Admin Prueba
+					429 text AP
+				430 cell
+					431 link Description: Ver, Value: test.gestionar-te.com.ar/caja/10/detalle
+			432 row
+				433 cell
+					434 text 20/10/2026
+				435 cell
+					436 text E
+				437 cell
+					438 text EFE
+				439 cell
+					440 text Gastos Operativos  — Limpieza
+				441 cell Lavandina y trapos
+					442 text Lavandina y trapos
+					443 text Caja validada
+				444 cell
+					445 text −$4,200.00
+				446 cell
+					447 text Pablo Ledesma
+				448 cell Admin Prueba
+					449 text AP
+				450 cell
+					451 link Description: Ver, Value: test.gestionar-te.com.ar/caja/9/detalle
+			452 row
+				453 cell
+					454 text 20/10/2026
+				455 cell
+					456 text E
+				457 cell
+					458 text EFE
+				459 cell
+					460 text Retiros  — Retiro de dueños
+				461 cell Retiro de dueños
+					462 text Retiro de dueños
+					463 text Retiro
+				464 cell
+					465 text −$50,000.00
+				466 cell
+					467 text Admin Prueba
+				468 cell
+					469 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/52/editar
+					470 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/52
+					471 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/52/eliminar
+			472 row
+				473 cell
+					474 text 19/10/2026
+				475 cell
+					476 text E
+				477 cell
+					478 text EFE
+				479 cell
+					480 text Gastos Operativos  — Librería
+				481 cell Planillas de asistencia en papel
+					482 text Planillas de asistencia en papel
+					483 text Caja validada
+				484 cell
+					485 text −$2,700.00
+				486 cell
+					487 text Rocío Paz
+				488 cell Admin Prueba
+					489 text AP
+				490 cell
+					491 link Description: Ver, Value: test.gestionar-te.com.ar/caja/8/detalle
+			492 row
+				493 cell
+					494 text 17/10/2026
+				495 cell
+					496 text E
+				497 cell
+					498 text EFE
+				499 cell
+					500 text Mantenimiento y arreglos  — Reparaciones menores
+				501 cell Ruedas del carro de conos
+					502 text Ruedas del carro de conos
+					503 text Caja validada
+				504 cell
+					505 text −$5,900.00
+				506 cell
+					507 text Pablo Ledesma
+				508 cell Admin Prueba
+					509 text AP
+				510 cell
+					511 link Description: Ver, Value: test.gestionar-te.com.ar/caja/7/detalle
+			512 row
+				513 cell
+					514 text 16/10/2026
+				515 cell
+					516 text E
+				517 cell
+					518 text EFE
+				519 cell
+					520 text Gastos Operativos  — Insumos Varios
+				521 cell Botiquín: gasas y cinta
+					522 text Botiquín: gasas y cinta
+					523 text Caja validada
+				524 cell
+					525 text −$6,800.00
+				526 cell
+					527 text Sandra Vidal
+				528 cell Admin Prueba
+					529 text AP
+				530 cell
+					531 link Description: Ver, Value: test.gestionar-te.com.ar/caja/6/detalle
+			532 row
+				533 cell
+					534 text 15/10/2026
+				535 cell
+					536 text E
+				537 cell
+					538 text EFE
+				539 cell
+					540 text Gastos Operativos  — Librería
+				541 cell Fotocopias de planillas
+					542 text Fotocopias de planillas
+					543 text Caja validada
+				544 cell
+					545 text −$3,200.00
+				546 cell
+					547 text Pablo Ledesma
+				548 cell Admin Prueba
+					549 text AP
+				550 cell
+					551 link Description: Ver, Value: test.gestionar-te.com.ar/caja/5/detalle
+			552 row
+				553 cell
+					554 text 14/10/2026
+				555 cell
+					556 text E
+				557 cell
+					558 text EFE
+				559 cell
+					560 text Transferencias internas — salidas  — Salida a otro medio
+				561 cell
+					562 text –
+					563 text Traspaso
+				564 cell
+					565 text −$109,500.00
+				566 cell
+					567 text Admin Prueba
+				568 cell
+					569 link Description: Ver, Value: test.gestionar-te.com.ar/cashflow/movimientos/17
+			570 row
+				571 cell
+					572 text 13/10/2026
+				573 cell
+					574 text E
+				575 cell
+					576 text EFE
+				577 cell
+					578 text Gastos Operativos  — Limpieza
+				579 cell Artículos para pista
+					580 text Artículos para pista
+					581 text Caja validada
+				582 cell
+					583 text −$8,500.00
+				584 cell
+					585 text Sandra Vidal
+				586 cell Admin Prueba
+					587 text AP
+				588 cell
+					589 link Description: Ver, Value: test.gestionar-te.com.ar/caja/2/detalle
+	590 text Wings
+
+The focused UI element is 1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=anio&fecha=2026-11-08&anio=2026&tipo_caja_id=1&tipo=EGRESO

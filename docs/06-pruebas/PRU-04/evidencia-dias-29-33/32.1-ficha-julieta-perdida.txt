@@ -1,0 +1,106 @@
+Browser tab: 1320327214, Title: "Alvarez, Julieta – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/262".
+1 AXWebArea Alvarez, Julieta – Wings, URL: test.gestionar-te.com.ar/alumnos/262
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Alvarez, Julieta, Value: 1
+		32 text Alvarez, Julieta
+	33 container
+		34 heading Deuda dada por perdida, Value: 3
+			35 text Deuda dada por perdida
+		36 text No es condonación ni pago. No vuelve a cobrarse al reactivar.
+		37 container
+			38 text $77,000.00  · 10/11/2026 09:00 · Admin Prueba
+		39 text Inactivo
+		40 switch (settable, boolean) Description: Inactivo, Value: 0, ID: ds-toggle-6ae34755e7cc0
+		41 button Cobrar
+		42 button Editar
+		43 image
+		44 text DNI 52300901
+		45 image
+		46 text NACIMIENTO 14/06/2015
+		47 image
+		48 text CELULAR 1145123414
+		49 image
+		50 text EMAIL marta.alvarez@testmail.com
+		51 image
+		52 text DEPORTE Patín
+		53 image
+		54 text GRUPO Patín — Intermedias
+		55 image
+		56 text PLAN 1x sem. — $33,000.00/mes
+		57 image
+		58 text ALTA 10/03/2024
+		59 image
+		60 text ESTADO DE COBRANZA Al día
+		61 container cuotas-pasadas
+			62 text Meses sin cuota generada
+			63 container
+				64 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2024 · $33,000.00, Secondary Actions: Expand
+					65 menu
+						66 (selected) Marzo 2024 · $33,000.00
+						67 Abril 2024 · $33,000.00
+						68 Mayo 2024 · $33,000.00
+						69 Junio 2024 · $33,000.00
+						70 Julio 2024 · $33,000.00
+						71 Agosto 2024 · $33,000.00
+						72 Septiembre 2024 · $33,000.00
+						73 Octubre 2024 · $33,000.00
+						74 Noviembre 2024 · $33,000.00
+						75 Diciembre 2024 · $33,000.00
+						76 Enero 2025 · $33,000.00
+						77 Febrero 2025 · $33,000.00
+						78 Marzo 2025 · $33,000.00
+						79 Abril 2025 · $33,000.00
+						80 Mayo 2025 · $33,000.00
+						81 Junio 2025 · $33,000.00
+						82 Julio 2025 · $33,000.00
+						83 Agosto 2025 · $33,000.00
+						84 Septiembre 2025 · $33,000.00
+						85 Octubre 2025 · $33,000.00
+						86 Enero 2026 · $33,000.00
+						87 Febrero 2026 · $33,000.00
+						88 Marzo 2026 · $33,000.00
+						89 Abril 2026 · $33,000.00
+						90 Mayo 2026 · $33,000.00
+						91 Junio 2026 · $33,000.00
+						92 Julio 2026 · $33,000.00
+				93 button Crear
+		94 image
+		95 text TUTOR NOMBRE Marta Alvarez TELÉFONO 1145123414
+		96 image
+		97 text HISTORIAL DE PAGOS 04/11/2026 · Ago 2026, Sep 2026 $66,000.00
+		98 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/244?inline=1
+		99 image
+		100 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		101 button Volver
+		102 text No se puede eliminar: Tiene deuda dada por perdida registrada.
+	103 text Wings
+
+The focused UI element is 1 AXWebArea Alvarez, Julieta – Wings, URL: test.gestionar-te.com.ar/alumnos/262

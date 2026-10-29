@@ -1,0 +1,725 @@
+Browser tab: 1320327214, Title: "Cashflow histórico – Wings", URL: "https://test.gestionar-te.com.ar/cashflow?periodo=mes&fecha=2026-11-08&tipo_caja_id=&tipo=".
+1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=mes&fecha=2026-11-08&tipo_caja_id=&tipo=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+		30 button Salir
+	31 heading Cashflow, Value: 1
+		32 text Cashflow
+	33 container
+		34 container filtros-form
+			35 text PERÍODO
+			36 pop up button (collapsed, settable) PERÍODO, Value: Mes, ID: periodo, Secondary Actions: Expand
+				37 menu
+					38 Día
+					39 Semana
+					40 (selected) Mes
+					41 Año
+			42 text AÑO
+			43 pop up button (collapsed, settable) AÑO, Value: 2026, ID: anio, Secondary Actions: Expand
+				44 menu
+					45 (selected) 2026
+			46 text MES
+			47 pop up button (collapsed, settable) MES, Value: Noviembre, ID: mes, Secondary Actions: Expand
+				48 menu
+					49 Enero
+					50 Febrero
+					51 Marzo
+					52 Abril
+					53 Mayo
+					54 Junio
+					55 Julio
+					56 Agosto
+					57 Septiembre
+					58 Octubre
+					59 (selected) Noviembre
+					60 Diciembre
+			61 text TIPO DE CAJA
+			62 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				63 menu
+					64 (selected) Todos
+					65 Banco Galicia
+					66 Banco Nación
+					67 Banco Nacion ahorro
+					68 Efectivo
+					69 Mercado Pago
+			70 text TIPO
+			71 pop up button (collapsed, settable) Value: Todos, Secondary Actions: Expand
+				72 menu
+					73 (selected) Todos
+					74 Ingresos
+					75 Egresos
+		76 container cashflow-periodo
+			77 text Período:
+			78 text Noviembre 2026
+		79 container Saldos por medio
+			80 heading Saldos por medio, Value: 2
+				81 text Saldos por medio
+			82 text Al 08/11/2026 · No dependen del período del listado.
+			83 text Banco Galicia
+			84 text $201,050.00
+			85 text Banco Nación
+			86 text $58,000.00
+			87 text Banco Nacion ahorro
+			88 text $0.00
+			89 text Efectivo
+			90 text $1,720,200.00
+			91 text Confirmado: $1,440,700.00 · En cajas sin validar: $279,500.00
+			92 text Mercado Pago
+			93 text $2,477,870.75
+			94 text Confirmado: $2,214,870.75 · En cajas sin validar: $263,000.00
+		95 container cashflow-totales-periodo
+			96 image
+			97 text $1,821,000.00
+			98 text INGRESOS
+			99 image
+			100 text $2,866,280.00
+			101 text EGRESOS
+			102 image
+			103 text $-1,045,280.00
+			104 text RESULTADO DEL PERÍODO
+		105 container cashflow-acciones
+			106 container
+				107 text 60  movimientos
+			108 button Transferir
+			109 button Nuevo
+		110 table
+			111 row
+				112 cell
+					113 text FECHA
+				114 cell
+					115 text I/E
+				116 cell
+					117 text TIPO CAJA
+				118 cell
+					119 text RUBRO — SUBRUBRO
+				120 cell
+					121 text DETALLE
+				122 cell
+					123 text MONTO
+				124 cell
+					125 text REGISTRÓ
+				126 cell
+					127 text VAL.
+				128 cell
+					129 text ACCIONES
+			130 row
+				131 cell
+					132 text 05/11/2026
+				133 cell
+					134 text I
+				135 cell
+					136 text EFE
+				137 cell
+					138 text Cuotas  — Cuota Mensual
+				139 cell Morales, Agustina
+					140 text Morales, Agustina
+					141 text Caja validada
+				142 cell
+					143 text $30,000.00
+				144 cell
+					145 text Sandra Vidal
+				146 cell Admin Prueba
+					147 text AP
+				148 cell
+					149 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			150 row
+				151 cell
+					152 text 05/11/2026
+				153 cell
+					154 text I
+				155 cell
+					156 text MP
+				157 cell
+					158 text Cuotas  — Cuota Mensual
+				159 cell Ortiz, Micaela
+					160 text Ortiz, Micaela
+					161 text Caja validada
+				162 cell
+					163 text $44,000.00
+				164 cell
+					165 text Sandra Vidal
+				166 cell Admin Prueba
+					167 text AP
+				168 cell
+					169 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			170 row
+				171 cell
+					172 text 05/11/2026
+				173 cell
+					174 text I
+				175 cell
+					176 text EFE
+				177 cell
+					178 text Cuotas  — Cuota Mensual
+				179 cell Pereyra, Bianca
+					180 text Pereyra, Bianca
+					181 text Caja validada
+				182 cell
+					183 text $44,000.00
+				184 cell
+					185 text Sandra Vidal
+				186 cell Admin Prueba
+					187 text AP
+				188 cell
+					189 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			190 row
+				191 cell
+					192 text 05/11/2026
+				193 cell
+					194 text I
+				195 cell
+					196 text MP
+				197 cell
+					198 text Cuotas  — Cuota Mensual
+				199 cell Ledesma, Paula
+					200 text Ledesma, Paula
+					201 text Caja validada
+				202 cell
+					203 text $43,000.00
+				204 cell
+					205 text Sandra Vidal
+				206 cell Admin Prueba
+					207 text AP
+				208 cell
+					209 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			210 row
+				211 cell
+					212 text 05/11/2026
+				213 cell
+					214 text I
+				215 cell
+					216 text EFE
+				217 cell
+					218 text Cuotas  — Cuota Mensual
+				219 cell Ruiz, Sol
+					220 text Ruiz, Sol
+					221 text Caja validada
+				222 cell
+					223 text $43,000.00
+				224 cell
+					225 text Sandra Vidal
+				226 cell Admin Prueba
+					227 text AP
+				228 cell
+					229 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			230 row
+				231 cell
+					232 text 05/11/2026
+				233 cell
+					234 text I
+				235 cell
+					236 text MP
+				237 cell
+					238 text Cuotas  — Cuota Mensual
+				239 cell Fernandez, Emma
+					240 text Fernandez, Emma
+					241 text Caja validada
+				242 cell
+					243 text $45,000.00
+				244 cell
+					245 text Sandra Vidal
+				246 cell Admin Prueba
+					247 text AP
+				248 cell
+					249 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			250 row
+				251 cell
+					252 text 05/11/2026
+				253 cell
+					254 text I
+				255 cell
+					256 text EFE
+				257 cell
+					258 text Cuotas  — Cuota Mensual
+				259 cell Navarro, Julian
+					260 text Navarro, Julian
+					261 text Caja validada
+				262 cell
+					263 text $48,000.00
+				264 cell
+					265 text Sandra Vidal
+				266 cell Admin Prueba
+					267 text AP
+				268 cell
+					269 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			270 row
+				271 cell
+					272 text 05/11/2026
+				273 cell
+					274 text I
+				275 cell
+					276 text MP
+				277 cell
+					278 text Cuotas  — Cuota Mensual
+				279 cell Ortiz, Tobias
+					280 text Ortiz, Tobias
+					281 text Caja validada
+				282 cell
+					283 text $48,000.00
+				284 cell
+					285 text Sandra Vidal
+				286 cell Admin Prueba
+					287 text AP
+				288 cell
+					289 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			290 row
+				291 cell
+					292 text 05/11/2026
+				293 cell
+					294 text I
+				295 cell
+					296 text MP
+				297 cell
+					298 text Cuotas  — Cuota Mensual
+				299 cell Vega, Joaquin
+					300 text Vega, Joaquin
+					301 text Caja validada
+				302 cell
+					303 text $96,000.00
+				304 cell
+					305 text Sandra Vidal
+				306 cell Admin Prueba
+					307 text AP
+				308 cell
+					309 link Description: Ver, Value: test.gestionar-te.com.ar/caja/51/detalle
+			310 row
+				311 cell
+					312 text 04/11/2026
+				313 cell
+					314 text E
+				315 cell
+					316 text MP
+				317 cell
+					318 text Transferencias internas — salidas  — Salida a otro medio
+				319 cell Cubrir el pago de Mariela
+					320 text Cubrir el pago de Mariela
+					321 text Traspaso
+				322 cell
+					323 text −$200,000.00
+				324 cell
+					325 text Admin Prueba
+				326 cell
+					327 link Description: Ver, Value: test.gestionar-te.com.ar/cashflow/movimientos/206
+			328 row
+				329 cell
+					330 text 04/11/2026
+				331 cell
+					332 text I
+				333 cell
+					334 text BNA
+				335 cell
+					336 text Transferencias internas — entradas  — Entrada desde otro medio
+				337 cell Cubrir el pago de Mariela
+					338 text Cubrir el pago de Mariela
+					339 text Traspaso
+				340 cell
+					341 text $200,000.00
+				342 cell
+					343 text Admin Prueba
+				344 cell
+					345 link Description: Ver, Value: test.gestionar-te.com.ar/cashflow/movimientos/207
+			346 row
+				347 cell
+					348 text 04/11/2026
+				349 cell
+					350 text I
+				351 cell
+					352 text EFE
+				353 cell
+					354 text Cuotas  — Cuota Mensual
+				355 cell Herrera, Martina
+					356 text Herrera, Martina
+					357 text Caja validada
+				358 cell
+					359 text $45,000.00
+				360 cell
+					361 text Rocío Paz
+				362 cell Admin Prueba
+					363 text AP
+				364 cell
+					365 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			366 row
+				367 cell
+					368 text 04/11/2026
+				369 cell
+					370 text I
+				371 cell
+					372 text MP
+				373 cell
+					374 text Cuotas  — Cuota Mensual
+				375 cell Garcia, Melina
+					376 text Garcia, Melina
+					377 text Caja validada
+				378 cell
+					379 text $43,000.00
+				380 cell
+					381 text Rocío Paz
+				382 cell Admin Prueba
+					383 text AP
+				384 cell
+					385 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			386 row
+				387 cell
+					388 text 04/11/2026
+				389 cell
+					390 text I
+				391 cell
+					392 text EFE
+				393 cell
+					394 text Cuotas  — Cuota Mensual
+				395 cell Benitez, Milagros
+					396 text Benitez, Milagros
+					397 text Caja validada
+				398 cell
+					399 text $45,000.00
+				400 cell
+					401 text Rocío Paz
+				402 cell Admin Prueba
+					403 text AP
+				404 cell
+					405 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			406 row
+				407 cell
+					408 text 04/11/2026
+				409 cell
+					410 text I
+				411 cell
+					412 text MP
+				413 cell
+					414 text Cuotas  — Cuota Mensual
+				415 cell Castro, Catalina
+					416 text Castro, Catalina
+					417 text Caja validada
+				418 cell
+					419 text $45,000.00
+				420 cell
+					421 text Rocío Paz
+				422 cell Admin Prueba
+					423 text AP
+				424 cell
+					425 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			426 row
+				427 cell
+					428 text 04/11/2026
+				429 cell
+					430 text I
+				431 cell
+					432 text EFE
+				433 cell
+					434 text Cuotas  — Cuota Mensual
+				435 cell Ramirez, Felipe
+					436 text Ramirez, Felipe
+					437 text Caja validada
+				438 cell
+					439 text $35,000.00
+				440 cell
+					441 text Rocío Paz
+				442 cell Admin Prueba
+					443 text AP
+				444 cell
+					445 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			446 row
+				447 cell
+					448 text 04/11/2026
+				449 cell
+					450 text I
+				451 cell
+					452 text MP
+				453 cell
+					454 text Cuotas  — Cuota Mensual
+				455 cell Pereyra, Manuel
+					456 text Pereyra, Manuel
+					457 text Caja validada
+				458 cell
+					459 text $35,000.00
+				460 cell
+					461 text Rocío Paz
+				462 cell Admin Prueba
+					463 text AP
+				464 cell
+					465 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			466 row
+				467 cell
+					468 text 04/11/2026
+				469 cell
+					470 text I
+				471 cell
+					472 text EFE
+				473 cell
+					474 text Cuotas  — Cuota Mensual
+				475 cell Rossi, Leon
+					476 text Rossi, Leon
+					477 text Caja validada
+				478 cell
+					479 text $38,000.00
+				480 cell
+					481 text Rocío Paz
+				482 cell Admin Prueba
+					483 text AP
+				484 cell
+					485 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			486 row
+				487 cell
+					488 text 04/11/2026
+				489 cell
+					490 text I
+				491 cell
+					492 text MP
+				493 cell
+					494 text Cuotas  — Cuota Mensual
+				495 cell Silva, Simon
+					496 text Silva, Simon
+					497 text Caja validada
+				498 cell
+					499 text $48,000.00
+				500 cell
+					501 text Rocío Paz
+				502 cell Admin Prueba
+					503 text AP
+				504 cell
+					505 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			506 row
+				507 cell
+					508 text 04/11/2026
+				509 cell
+					510 text E
+				511 cell
+					512 text EFE
+				513 cell
+					514 text Gastos Operativos  — Limpieza
+				515 cell Lavandina y trapos
+					516 text Lavandina y trapos
+					517 text Caja validada
+				518 cell
+					519 text −$3,500.00
+				520 cell
+					521 text Rocío Paz
+				522 cell Admin Prueba
+					523 text AP
+				524 cell
+					525 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			526 row
+				527 cell
+					528 text 04/11/2026
+				529 cell
+					530 text I
+				531 cell
+					532 text EFE
+				533 cell
+					534 text Cuotas  — Cuota Mensual
+				535 cell Alvarez, Julieta
+					536 text Alvarez, Julieta
+					537 text Caja validada
+				538 cell
+					539 text $66,000.00
+				540 cell
+					541 text Rocío Paz
+				542 cell Admin Prueba
+					543 text AP
+				544 cell
+					545 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			546 row
+				547 cell
+					548 text 04/11/2026
+				549 cell
+					550 text I
+				551 cell
+					552 text EFE
+				553 cell
+					554 text Cuotas  — Cuota Mensual
+				555 cell Romero, Santino
+					556 text Romero, Santino
+					557 text Caja validada
+				558 cell
+					559 text $28,000.00
+				560 cell
+					561 text Rocío Paz
+				562 cell Admin Prueba
+					563 text AP
+				564 cell
+					565 link Description: Ver, Value: test.gestionar-te.com.ar/caja/49/detalle
+			566 row
+				567 cell
+					568 text 03/11/2026
+				569 cell
+					570 text E
+				571 cell
+					572 text BGA
+				573 cell
+					574 text Sueldos  — Patín-Verónica Salinas
+				575 cell Pago liquidación #4 - Verónica (10/2026)
+					576 text Pago liquidación #4 - Verónica (10/2026)
+					577 text Liquidación pagada
+				578 cell
+					579 text −$105,000.00
+				580 cell
+					581 text Admin Prueba
+				582 cell
+					583 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/4
+			584 row
+				585 cell
+					586 text 03/11/2026
+				587 cell
+					588 text E
+				589 cell
+					590 text BGA
+				591 cell
+					592 text Sueldos  — Patín-Verónica Salinas
+				593 cell Pago liquidación #5 - Verónica (9/2026)
+					594 text Pago liquidación #5 - Verónica (9/2026)
+					595 text Liquidación pagada
+				596 cell
+					597 text −$30,000.00
+				598 cell
+					599 text Admin Prueba
+				600 cell
+					601 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/5
+			602 row
+				603 cell
+					604 text 03/11/2026
+				605 cell
+					606 text E
+				607 cell
+					608 text BNA
+				609 cell
+					610 text Sueldos  — Patín-Mariela Ocampo
+				611 cell Pago liquidación #6 - Mariela (10/2026)
+					612 text Pago liquidación #6 - Mariela (10/2026)
+					613 text Liquidación pagada
+				614 cell
+					615 text −$270,000.00
+				616 cell
+					617 text Admin Prueba
+				618 cell
+					619 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/6
+			620 row
+				621 cell
+					622 text 03/11/2026
+				623 cell
+					624 text E
+				625 cell
+					626 text MP
+				627 cell
+					628 text Sueldos  — Patín-Mariela Ocampo
+				629 cell Pago liquidación #7 - Mariela (9/2026)
+					630 text Pago liquidación #7 - Mariela (9/2026)
+					631 text Liquidación pagada
+				632 cell
+					633 text −$54,000.00
+				634 cell
+					635 text Admin Prueba
+				636 cell
+					637 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/7
+			638 row
+				639 cell
+					640 text 03/11/2026
+				641 cell
+					642 text E
+				643 cell
+					644 text MP
+				645 cell
+					646 text Sueldos  — Fútbol-Hernán Quintana
+				647 cell Pago liquidación #8 - Hernán (10/2026)
+					648 text Pago liquidación #8 - Hernán (10/2026)
+					649 text Liquidación pagada
+				650 cell
+					651 text −$484,680.00
+				652 cell
+					653 text Admin Prueba
+				654 cell
+					655 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/8
+			656 row
+				657 cell
+					658 text 03/11/2026
+				659 cell
+					660 text E
+				661 cell
+					662 text EFE
+				663 cell
+					664 text Sueldos  — Fútbol-Martín Acosta
+				665 cell Pago liquidación #9 - Martín (10/2026)
+					666 text Pago liquidación #9 - Martín (10/2026)
+					667 text Liquidación pagada
+				668 cell
+					669 text −$186,600.00
+				670 cell
+					671 text Admin Prueba
+				672 cell
+					673 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/9
+			674 row
+				675 cell
+					676 text 03/11/2026
+				677 cell
+					678 text E
+				679 cell
+					680 text EFE
+				681 cell
+					682 text Sueldos  — Op-Sandra Vidal
+				683 cell Sueldo de octubre
+					684 text Sueldo de octubre
+					685 text Directo
+				686 cell
+					687 text −$320,000.00
+				688 cell
+					689 text Admin Prueba
+				690 cell
+					691 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/editar
+					692 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/169
+					693 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/169/eliminar
+			694 row
+				695 cell
+					696 text 03/11/2026
+				697 cell
+					698 text E
+				699 cell
+					700 text EFE
+				701 cell
+					702 text Sueldos  — Op-Pablo Ledesma
+				703 cell Sueldo de octubre
+					704 text Sueldo de octubre
+					705 text Directo
+				706 cell
+					707 text −$320,000.00
+				708 cell
+					709 text Admin Prueba
+				710 cell
+					711 link Description: Editar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/editar
+					712 link Description: Historial, Value: test.gestionar-te.com.ar/cashflow/movimientos/170
+					713 link Description: Eliminar, Value: test.gestionar-te.com.ar/cashflow/movimientos/170/eliminar
+		714 container Paginación
+			715 container
+				716 text Mostrando  1  a  30  de  60  resultados
+			717 container
+				718 container &laquo; Anterior
+				719 text 1
+				720 link Description: Ir a la página 2, Value: test.gestionar-te.com.ar/cashflow?periodo=mes&fecha=2026-11-08&page=2
+				721 link Description: Siguiente &raquo;, Value: test.gestionar-te.com.ar/cashflow?periodo=mes&fecha=2026-11-08&page=2
+	722 text Wings
+
+The focused UI element is 1 AXWebArea Cashflow histórico – Wings, URL: test.gestionar-te.com.ar/cashflow?periodo=mes&fecha=2026-11-08&tipo_caja_id=&tipo=

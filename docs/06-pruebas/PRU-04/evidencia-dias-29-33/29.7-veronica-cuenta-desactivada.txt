@@ -1,0 +1,21 @@
+Browser tab: 1320327214, Title: "Ingresar – Wings", URL: "https://test.gestionar-te.com.ar/login".
+1 AXWebArea Ingresar – Wings, URL: test.gestionar-te.com.ar/login
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+	4 container
+		5 image Wings
+		6 heading Iniciar sesión, Value: 1
+			7 text Iniciar sesión
+		8 text Tu cuenta fue desactivada.
+		9 text Email
+		10 text field (settable) Email, Value: <redacted>
+		11 text Contraseña
+		12 container
+			13 text field (settable) Contraseña
+			14 button Description: Mostrar contraseña, ID: toggle-password
+				15 image icon-eye
+		16 checkbox (settable, integer) Description: Recordarme, Value: 0, ID: remember
+		17 button Ingresar
+	18 text Wings
+
+The focused UI element is 10 text field (settable) Email, Value: <redacted>

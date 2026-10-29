@@ -1,0 +1,185 @@
+Browser tab: 1320327214, Title: "Reporte de sueldos – Wings", URL: "https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11".
+1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Reporte de sueldos, Value: 1
+		31 text Reporte de sueldos
+	32 container
+		33 text Reportes
+		34 link Description: Volver, Value: test.gestionar-te.com.ar/reportes?mes=2026-11
+		35 link Description: Ingresos y egresos, Value: test.gestionar-te.com.ar/reportes?mes=2026-11
+		36 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+		37 text Sueldos
+		38 pop up button (collapsed, settable) Description: Mes, Value: Noviembre 2026, Secondary Actions: Expand
+			39 menu
+				40 (selected) Noviembre 2026
+				41 Octubre 2026
+				42 Septiembre 2026
+		43 pop up button (collapsed, settable) Description: Deporte, Value: Todos los deportes, Secondary Actions: Expand
+			44 menu
+				45 (selected) Todos los deportes
+				46 Fútbol
+				47 Patín
+		48 button Filtrar
+		49 heading Noviembre 2026, Value: 2
+			50 text Noviembre 2026
+		51 text Costo del mes · hasta 08/11 Costo de profesores
+		52 text $660,000.00
+		53 text Aunque se pague después
+		54 text Cuotas atribuidas
+		55 text $3,869,000.00
+		56 text Importe real del mismo mes
+		57 text Sueldos / cuotas
+		58 text 17,1%
+		59 text Parte de las cuotas destinada a profesores
+		60 text Costo por asistencia
+		61 text $3,316.58
+		62 text 199 asistencias del mes
+		63 heading Pagos de operativas, Value: 2
+			64 text Pagos de operativas
+		65 text Registrados en Cashflow durante el mes
+		66 container pagos-operativas
+			67 heading Total pagado, Value: 3
+				68 text Total pagado
+			69 text $920,000.00
+			70 text Gasto del club, sin reparto por deporte. Los indicadores de profesores corresponden a sus clases.
+			71 text Pablo Ledesma
+			72 text 1 pago
+			73 text $320,000.00
+			74 text Rocío Paz
+			75 text 1 pago
+			76 text $280,000.00
+			77 text Sandra Vidal
+			78 text 1 pago
+			79 text $320,000.00
+		80 heading Evolución: cuotas y sueldos, Value: 3
+			81 text Evolución: cuotas y sueldos
+		82 text Cuotas atribuidas Costo de profesores
+		83 image Evolución de cuotas atribuidas y costo de profesores
+		84 button (collapsed) Detalle, Secondary Actions: Expand
+			85 text Detalle
+		86 heading Por deporte, Value: 3
+			87 text Por deporte
+		88 image Cuotas y sueldos por deporte
+		89 button (collapsed) Detalle, Secondary Actions: Expand
+			90 text Detalle
+		91 heading Por profesor, Value: 2
+			92 text Por profesor
+		93 text Cada asistencia cuenta
+		94 heading Quintana, Hernán, Value: 3
+			95 text Quintana, Hernán
+		96 text $338,400.00
+		97 text Costo · Fútbol
+		98 text $1,172,000.00
+		99 text Cuotas atribuidas
+		100 text 28,9%
+		101 text Sueldos / cuotas
+		102 text $4,028.57
+		103 text Por asistencia
+		104 text 21
+		105 text Alumnos con pagos registrados
+		106 text 29
+		107 text Asistencias sin pago de cuota
+		108 text 84
+		109 text Asistencias totales
+		110 text Comisión sobre cuotas cobradas
+		111 heading Acosta, Martín, Value: 3
+			112 text Acosta, Martín
+		113 text $183,600.00
+		114 text Costo · Fútbol
+		115 text $157,000.00
+		116 text Cuotas atribuidas
+		117 text 116,9%
+		118 text Sueldos / cuotas
+		119 text $13,114.29
+		120 text Por asistencia
+		121 text 14
+		122 text Alumnos con pagos registrados
+		123 text 0
+		124 text Asistencias sin pago de cuota
+		125 text 14
+		126 text Asistencias totales
+		127 text Comisión sobre cuotas cobradas
+		128 heading Ocampo, Mariela, Value: 3
+			129 text Ocampo, Mariela
+		130 text $72,000.00
+		131 text Costo · Patín
+		132 text $474,000.00
+		133 text Cuotas atribuidas
+		134 text 15,2%
+		135 text Sueldos / cuotas
+		136 text $3,789.47
+		137 text Por asistencia
+		138 text 3
+		139 text Alumnos con pagos registrados
+		140 text 13
+		141 text Asistencias sin pago de cuota
+		142 text 19
+		143 text Asistencias totales
+		144 text Estimado por clases del mes
+		145 heading Gaitán, Lucía, Value: 3
+			146 text Gaitán, Lucía
+		147 text $36,000.00
+		148 text Costo · Patín
+		149 text $1,415,000.00
+		150 text Cuotas atribuidas
+		151 text 2,5%
+		152 text Sueldos / cuotas
+		153 text $571.43
+		154 text Por asistencia
+		155 text 14
+		156 text Alumnos con pagos registrados
+		157 text 41
+		158 text Asistencias sin pago de cuota
+		159 text 63
+		160 text Asistencias totales
+		161 text Estimado por clases del mes
+		162 heading Salinas, Verónica, Value: 3
+			163 text Salinas, Verónica
+		164 text $30,000.00
+		165 text Costo · Patín
+		166 text $651,000.00
+		167 text Cuotas atribuidas
+		168 text 4,6%
+		169 text Sueldos / cuotas
+		170 text $909.09
+		171 text Por asistencia
+		172 text 16
+		173 text Alumnos con pagos registrados
+		174 text 1
+		175 text Asistencias sin pago de cuota
+		176 text 33
+		177 text Asistencias totales
+		178 text Estimado por clases del mes
+		179 button (collapsed) Cómo se calcula, Secondary Actions: Expand
+			180 text Cómo se calcula
+		181 text Comparación económica · no determina ganancias del club Datos faltantes no se dibujan como cero
+	182 text Wings
+
+The focused UI element is 1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11

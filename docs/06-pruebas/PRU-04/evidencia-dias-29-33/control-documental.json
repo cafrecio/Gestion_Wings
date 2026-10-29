@@ -1,0 +1,1022 @@
+{
+  "imagenesComprobadas": 139,
+  "imagenes": [
+    {
+      "archivo": "00-caja53-punto-partida.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "00-cobranza-punto-partida.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29-cierre-cobranza.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29-cierre-inicio.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29-cierre-reportes-medios.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29-cierre-reportes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.1-apertura-bloqueada.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "29.2-caja53-cerrada-por-dueno.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.2-previo-cierre-faltante.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "29.3-apertura-propone-10000.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "29.3-caja-pablo-abierta.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.4-inicio-todos-ausentes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.5-resultado-bloqueo.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.5-veronica-baja-bloqueada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-09nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-13nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-16nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-20nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-23nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-27nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-30nov-reasignada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-siete-clases-antes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-veronica-baja-confirmada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-veronica-desactivada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.6-veronica-sin-clases-futuras.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.7-veronica-cuenta-desactivada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "29.8-veronica-inactiva-liquidacion.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.1-cashflow-pendientes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.1-reportes-confirmado-pendiente.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.2-centenera-corregida-historial.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.2-icono-historial-abierto.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.3-filtro-efectivo-egresos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-filtro-efectivo.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-limpiar.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-periodo-anio.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-periodo-dia.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-periodo-mes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.3-periodo-semana.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.4-sueldos-noviembre-operativas.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.4-sueldos-octubre.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-alumnos-grupo-pagina1.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-avanzadas-listado-pagina1.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-avanzadas-listado-pagina2.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-avanzadas-pagina1-confirmada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-cuota-benjamin.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-dante.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-julian.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-nicolas.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-simon.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-tobias.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuota-tomas.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-cuotas-joaquin-noviembre-diciembre.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.5-plan-antes-48000.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.5-plan-guardado-52000.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.6-ambas-cajas-validadas.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.6-pablo-6-verificados.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.6-pablo-revision-6-movimientos.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "30.6-reportes-cierre-confirmados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.6-rocio-9-verificados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.6-rocio-revision-9-movimientos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.6-rocio-validada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.fin-cobranza.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.fin-estados-alumnos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "30.fin-inicio-sin-asistencia.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.1-abierta-100000-resultado.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "31.1-abierta-100000.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.1-sin-confirmar-diferencia.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "31.1-sin-motivo.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "31.2-apertura-rectificada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.2-detalle-rectificacion.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "31.3-excepcion-detalle-clase.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.3-inicio-excepcion-santino.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.4-caja-cerrada-faltante2000.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.5-caja-rechazada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.5-rechazo-sin-motivo.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.fin-cobranza.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.fin-inicio.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "31.fin-reportes-medios.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.1-ficha-julieta-perdida.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.1-inactivos-antes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.1-inactivos-despues-sin-recargar.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.1-sin-movimiento-financiero.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.2-julieta-sandra.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.2-victoria-dueno.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "32.2-victoria-sandra.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "32.3-amistoso-eliminado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.3-amistoso-identificado-sin-asistencias.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.3-clase-reactivada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.3-reactivar-choque.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.4-inscripcion-sola-preparada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.4-ivan-cuota-pendiente.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.4-pago-inscripcion-resultado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.5-cero-conservado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.5-deuda-sin-recargo-hoy.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.5-diez-guardado-sin-recarga.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.5-porcentaje150-rechazado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.5-porcentaje150-validacion-final.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "32.fin-cajas.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.fin-cobranza.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.fin-inicio.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "32.fin-reportes-medios.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-berenice-recargo4300-cuota-entera.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-candela-sin-recargo.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-cobranza-inicio-recargos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-liam-recargo3500.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-sandra-vencidos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.1-santino-sin-recargo.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.2-resma-fecha-futura-aviso-visible.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "33.2-resma-fecha-futura.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "33.2-resma-registrada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.2-resma-sin-observacion.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "33.3-cierre-corregido-diferencia0.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.3-contado-fijo-sin-campo-editable.jpg",
+      "formato": "JPEG",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "33.3-resumen-cerrada-contado-original.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-dos-motivos-preparados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-guardar-sin-motivos-bloqueado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-lista-antes-sin-importes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-lista-guardada-22.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-lista-persistida-22.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.4-recarga-confirma-cero-guardado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.5-caja-10-verificados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.5-caja-corregida-10-movimientos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.5-caja-lunes-validada.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.5-seis-excepciones.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.6-alumnos-cuatro-sin-presentes.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.7-florencia-pago-registrado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.7-florencia-preparado-total55000.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.7-recibo-florencia-pagina1.png",
+      "formato": "PNG",
+      "ancho": 1058,
+      "alto": 1500
+    },
+    {
+      "archivo": "33.8-motivo-corto-rechazado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.8-recargo-condonado.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.8-sandra-sin-condonar.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.9-deuda-mensual-21-recargos.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.9-punitorios-diez-cobros-desglosados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.9-reportes-ingresos-punitorio40300.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.9-reportes-recargos-deuda-separados.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.fin-cajas-validadas.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.fin-cobranza.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.fin-inicio.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "33.fin-reportes-medios.jpg",
+      "formato": "JPEG",
+      "ancho": 1905,
+      "alto": 848
+    }
+  ],
+  "pasosGuion": 33,
+  "filas": 34,
+  "resultados": {
+    "cumple": 31,
+    "no cumple": 1,
+    "no probado": 2
+  },
+  "enlacesVerificados": 128,
+  "faltantes": [],
+  "coberturaCaptura": true,
+  "filasDetalle": [
+    {
+      "paso": "29.1",
+      "caso": "CAJ-015 e; CAJ-009",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.2",
+      "caso": "CAJ-016 a; CAJ-019: cierre por dueño",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.2",
+      "caso": "Autor del cierre persistido",
+      "resultado": "no probado"
+    },
+    {
+      "paso": "29.3",
+      "caso": "CAJ-016 b; CAJ-005",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.4",
+      "caso": "REP-016 g",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.5",
+      "caso": "PRO-004 a",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.6",
+      "caso": "PRO-004 c; CLA-009",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.7",
+      "caso": "ACC-004",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "29.8",
+      "caso": "LIQ-006 a",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.1",
+      "caso": "Pendientes vs confirmado",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.2",
+      "caso": "Corregir Centenera e historial",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.3",
+      "caso": "Períodos y filtros",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.4",
+      "caso": "Sueldos operativas",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.5",
+      "caso": "Aumento Fútbol Avanzadas 2x",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "30.6",
+      "caso": "Validar cajas y preservar ingresos",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "31.1",
+      "caso": "Apertura errónea $100.000",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "31.2",
+      "caso": "Rectificación a $10.000",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "31.3",
+      "caso": "Excepción Santino",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "31.4",
+      "caso": "Cierre con faltante",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "31.5",
+      "caso": "Rechazo de caja",
+      "resultado": "no cumple"
+    },
+    {
+      "paso": "32.1",
+      "caso": "Julieta: perder $77.000",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "32.2",
+      "caso": "Motivos de no eliminación y permisos",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "32.3",
+      "caso": "Reactivación con choque",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "32.4",
+      "caso": "Iván paga solo inscripción",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "32.5",
+      "caso": "Recargo 150 inválido y 10 válido",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.1",
+      "caso": "Vencimiento y recargo automático",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.2",
+      "caso": "Resma en caja rechazada",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.3",
+      "caso": "Otro contado y nuevo cierre",
+      "resultado": "no probado"
+    },
+    {
+      "paso": "33.4",
+      "caso": "Lista humana Hernán, 22/24",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.5",
+      "caso": "Validación y seis excepciones",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.6",
+      "caso": "Matrícula y sin presentes del mes",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.7",
+      "caso": "Florencia cuota + mora y recibo",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.8",
+      "caso": "Perdonar solo recargo Guadalupe",
+      "resultado": "cumple"
+    },
+    {
+      "paso": "33.9",
+      "caso": "Reportes de recargos",
+      "resultado": "cumple"
+    }
+  ],
+  "sinSuiteAplicacion": true
+}

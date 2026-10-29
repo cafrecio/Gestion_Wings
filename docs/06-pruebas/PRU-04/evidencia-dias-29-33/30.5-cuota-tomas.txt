@@ -1,0 +1,116 @@
+Browser tab: 1320327214, Title: "Gimenez, Tomas – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/339".
+1 AXWebArea Gimenez, Tomas – Wings, URL: test.gestionar-te.com.ar/alumnos/339
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Gimenez, Tomas, Value: 1
+		32 text Gimenez, Tomas
+	33 container
+		34 text Activo
+		35 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae31706385e7
+		36 button Cobrar
+		37 button Editar
+		38 image
+		39 text DNI 45100919
+		40 image
+		41 text NACIMIENTO 15/02/2006
+		42 image
+		43 text CELULAR 1145129909
+		44 image
+		45 text EMAIL tomas.g@testmail.com
+		46 image
+		47 text DEPORTE Fútbol
+		48 image
+		49 text GRUPO Fútbol — Avanzadas
+		50 image
+		51 text PLAN 2x sem. — $48,000.00/mes
+		52 image
+		53 text ALTA 10/03/2023
+		54 image
+		55 text ESTADO DE COBRANZA Al día
+		56 container cuotas-pasadas
+			57 text Meses sin cuota generada
+			58 container
+				59 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2023 · $48,000.00, Secondary Actions: Expand
+					60 menu
+						61 (selected) Marzo 2023 · $48,000.00
+						62 Abril 2023 · $48,000.00
+						63 Mayo 2023 · $48,000.00
+						64 Junio 2023 · $48,000.00
+						65 Julio 2023 · $48,000.00
+						66 Agosto 2023 · $48,000.00
+						67 Septiembre 2023 · $48,000.00
+						68 Octubre 2023 · $48,000.00
+						69 Noviembre 2023 · $48,000.00
+						70 Diciembre 2023 · $48,000.00
+						71 Enero 2024 · $48,000.00
+						72 Febrero 2024 · $48,000.00
+						73 Marzo 2024 · $48,000.00
+						74 Abril 2024 · $48,000.00
+						75 Mayo 2024 · $48,000.00
+						76 Junio 2024 · $48,000.00
+						77 Julio 2024 · $48,000.00
+						78 Agosto 2024 · $48,000.00
+						79 Septiembre 2024 · $48,000.00
+						80 Octubre 2024 · $48,000.00
+						81 Noviembre 2024 · $48,000.00
+						82 Diciembre 2024 · $48,000.00
+						83 Enero 2025 · $48,000.00
+						84 Febrero 2025 · $48,000.00
+						85 Marzo 2025 · $48,000.00
+						86 Abril 2025 · $48,000.00
+						87 Mayo 2025 · $48,000.00
+						88 Junio 2025 · $48,000.00
+						89 Julio 2025 · $48,000.00
+						90 Agosto 2025 · $48,000.00
+						91 Septiembre 2025 · $48,000.00
+						92 Octubre 2025 · $48,000.00
+						93 Noviembre 2025 · $48,000.00
+						94 Diciembre 2025 · $48,000.00
+						95 Enero 2026 · $48,000.00
+						96 Febrero 2026 · $48,000.00
+						97 Marzo 2026 · $48,000.00
+						98 Abril 2026 · $48,000.00
+						99 Mayo 2026 · $48,000.00
+						100 Junio 2026 · $48,000.00
+						101 Julio 2026 · $48,000.00
+						102 Agosto 2026 · $48,000.00
+						103 Septiembre 2026 · $48,000.00
+						104 Octubre 2026 · $48,000.00
+				105 button Crear
+		106 image
+		107 text HISTORIAL DE PAGOS 07/11/2026 · Nov 2026 $48,000.00
+		108 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/285?inline=1
+		109 image
+		110 text ASISTENCIAS — NOV 2026 3 clases 03/11 05/11 07/11
+		111 button Volver
+		112 text No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.
+	113 text Wings
+
+The focused UI element is 1 AXWebArea Gimenez, Tomas – Wings, URL: test.gestionar-te.com.ar/alumnos/339

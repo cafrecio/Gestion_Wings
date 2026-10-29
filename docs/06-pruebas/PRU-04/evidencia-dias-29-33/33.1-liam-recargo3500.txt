@@ -1,0 +1,84 @@
+Browser tab: 1320327214, Title: "Pereyra, Liam – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/269".
+1 AXWebArea Pereyra, Liam – Wings, URL: test.gestionar-te.com.ar/alumnos/269
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Pereyra, Liam, Value: 1
+		32 text Pereyra, Liam
+	33 container
+		34 heading Inscripción al club, Value: 3
+			35 text Inscripción al club
+		36 text Por única vez por persona. Saldo pendiente: $0.00
+		37 text Activo
+		38 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae349570d687
+		39 button Cobrar
+		40 button Editar
+		41 image
+		42 text DNI 56300908
+		43 image
+		44 text NACIMIENTO 14/10/2019
+		45 image
+		46 text CELULAR 1145123421
+		47 image
+		48 text EMAIL ana.pereyra@testmail.com
+		49 image
+		50 text DEPORTE Fútbol
+		51 image
+		52 text GRUPO Fútbol — Principiantes
+		53 image
+		54 text PLAN 2x sem. — $35,000.00/mes
+		55 image
+		56 text ALTA 01/09/2026
+		57 image
+		58 text ESTADO DE COBRANZA Moroso Total adeudado:  $38,500.00 Nov 2026 $35,000.00
+		59 button Condonar
+		60 container recargos-mora
+			61 text Recargos por mora
+			62 text Recargo por mora — Noviembre 2026
+			63 text Pendiente: $3,500.00
+			64 button Condonar
+		65 container cuotas-pasadas
+			66 text Meses sin cuota generada
+			67 container
+				68 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Septiembre 2026 · $35,000.00, Secondary Actions: Expand
+					69 menu
+						70 (selected) Septiembre 2026 · $35,000.00
+				71 button Crear
+		72 image
+		73 text TUTOR NOMBRE Ana Pereyra TELÉFONO 1145123421
+		74 image
+		75 text HISTORIAL DE PAGOS 22/10/2026 · Oct 2026 $17,000.00
+		76 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/51?inline=1
+		77 image
+		78 text ASISTENCIAS — NOV 2026 3 clases 02/11 04/11 09/11
+		79 button Volver
+		80 text No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.
+	81 text Wings
+
+The focused UI element is 1 AXWebArea Pereyra, Liam – Wings, URL: test.gestionar-te.com.ar/alumnos/269

@@ -1,0 +1,139 @@
+Browser tab: 1320327214, Title: "Configuración – Wings", URL: "https://test.gestionar-te.com.ar/configuraciones".
+1 AXWebArea Configuración – Wings, URL: test.gestionar-te.com.ar/configuraciones
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Configuración, Value: 1
+		31 text Configuración
+	32 container
+		131 container configuracion-error-resumen
+			132 text No se guardó.
+			133 link Description: Revisar, Value: test.gestionar-te.com.ar/configuraciones#cfg-mora_porcentaje
+			134 content list configuracion-error-lista
+				135 link Value: test.gestionar-te.com.ar/configuraciones#cfg-mora_porcentaje, Description: Recargo por mora: porcentaje: Ingresá un porcentaje de 0 a 100, con coma o punto y hasta dos decimales.
+		33 container La plata
+			34 heading La plata, Value: 2, ID: configuracion-plata
+				35 text La plata
+			36 container
+				37 heading Inscripción al club, Value: 3
+					38 text Inscripción al club
+				39 text Se cobra una sola vez por persona. Cambiar este importe afecta las inscripciones nuevas; las deudas ya creadas conservan su precio.
+				40 text Importe de la inscripción ($)
+				41 text field (settable) Importe de la inscripción ($), Value: 5,000.00, ID: cfg-inscripcion_importe
+				42 text Ingresá un importe mayor que cero, con hasta dos decimales.
+				43 button Guardar
+		44 container La cobranza
+			45 heading La cobranza, Value: 2, ID: configuracion-cobranza
+				46 text La cobranza
+			47 container
+				48 heading Días de gracia para pagar, Value: 3
+					49 text Días de gracia para pagar
+				50 text Hasta este día del mes, el que no pagó todavía no es moroso.
+				51 text Último día de gracia del mes
+				52 stepper (settable, integer) Último día de gracia del mes, Value: 10, ID: cfg-dias_gracia_cobranza
+				53 text Elegí un día del 1 al 28. Con 10, una cuota de este mes pasa a morosa el día 11. Si debe meses anteriores, sigue siendo deudor.
+				54 button Guardar
+			55 container
+				56 heading Recargo por mora: día, Value: 3
+					57 text Recargo por mora: día
+				58 text Pasado este día, se aplica el porcentaje a la cuota impaga del mes en curso. Se respeta el plazo de los alumnos nuevos.
+				59 text Último día sin recargo
+				60 stepper (settable, integer) Último día sin recargo, Value: 10, ID: cfg-mora_dia_desde
+				61 text Elegí un día del 1 al 28. Con 10, el recargo puede aplicarse desde el día 11.
+				62 button Guardar
+			63 container
+				64 heading Recargo por mora: porcentaje, Value: 3
+					65 text Recargo por mora: porcentaje
+				66 text Se calcula una sola vez sobre el importe original de cada cuota. No cambia recargos anteriores ni se aplica a meses cerrados o alumnos inactivos.
+				67 text Porcentaje de recargo (%)
+				68 text field (settable) Porcentaje de recargo (%), Value: 150, ID: cfg-mora_porcentaje
+				69 text De 0 a 100, con coma o punto y hasta dos decimales. Con 0 no se aplican recargos nuevos.
+				136 link Description: Ingresá un porcentaje de 0 a 100, con coma o punto y hasta dos decimales., Value: test.gestionar-te.com.ar/configuraciones#cfg-mora_porcentaje
+				70 button Guardar
+			71 container
+				72 heading Generación de cuotas mensuales, Value: 3
+					73 text Generación de cuotas mensuales
+				74 text El sistema genera las cuotas automáticamente el día 1 de cada mes, a las 06:00. Día: 1 · Fijo Horario: 06:00 · Hora Argentina No se cambia desde esta pantalla.
+			75 container
+				76 heading Importe de la primera cuota, Value: 3
+					77 text Importe de la primera cuota
+				78 text Al dar de alta un alumno, su fecha real de ingreso determina qué porcentaje del plan se cobra ese primer mes. No modifica cuotas ya creadas.
+			79 container reglas-count
+				80 text 3
+				81 text  reglas configuradas
+			82 button Nuevo, ID: btn-agregar-regla
+			83 container reglas-list
+				84 container regla-card-1
+					85 heading Primera quincena (1-15), Value: 3, ID: regla-nombre-1
+						86 text Primera quincena (1-15)
+					87 text Días:
+					88 text 1 al 15
+					89 text Porcentaje:
+					90 text 100%
+					91 button Editar
+					92 button Eliminar
+				93 container regla-card-2
+					94 heading Segunda quincena (16-23), Value: 3, ID: regla-nombre-2
+						95 text Segunda quincena (16-23)
+					96 text Días:
+					97 text 16 al 23
+					98 text Porcentaje:
+					99 text 70%
+					100 button Editar
+					101 button Eliminar
+				102 container regla-card-3
+					103 heading Fin de mes (24-31), Value: 3, ID: regla-nombre-3
+						104 text Fin de mes (24-31)
+					105 text Días:
+					106 text 24 al 31
+					107 text Porcentaje:
+					108 text 40%
+					109 button Editar
+					110 button Eliminar
+		111 container Los avisos
+			112 heading Los avisos, Value: 2, ID: configuracion-avisos
+				113 text Los avisos
+			114 container
+				115 heading Correo para los avisos del club, Value: 3
+					116 text Correo para los avisos del club
+				117 text Acá llegan los pendientes y las situaciones que necesitan atención. Si queda vacío, se usan los correos de los administradores.
+				118 text Correo electrónico
+				119 text field (settable) Correo electrónico, Value: <redacted>
+				120 text Ingresá una dirección completa o dejá el campo vacío.
+				121 button Guardar
+			122 container
+				123 heading Telegram para los avisos del club, Value: 3
+					124 text Telegram para los avisos del club
+				125 text También permite recibir los avisos por Telegram. Dejarlo vacío conserva el chat de respaldo del club, si está configurado.
+				126 text Número del chat de Telegram
+				127 text field (settable) Número del chat de Telegram, Value: <redacted>
+				128 text Primero escribile al bot del club. Usá el número del chat que haya sido verificado; no ingreses tu teléfono.
+				129 button Guardar
+	130 text Wings
+
+The focused UI element is 131 container configuracion-error-resumen

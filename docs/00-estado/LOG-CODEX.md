@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-29 — Codex CAB — PRU-04 días 29 a 33, tanda 2 entregada a revisión
+
+Ejecutados los 33 pasos por Chrome en test/wingstest ficticia, tras revisión de Claude de la tanda 1; los cinco cierres financieros coinciden. [Informes e índice](../06-pruebas/PRU-04/evidencia-dias-29-33/LEEME.md).
+Final 11/11 simulado: deuda $850.200, ingresos $3.359.300, egresos $2.678.280, disponible $5.585.920,75; 83 Al día, 22 Morosos y 1 Deudor. Sin asistencia 0 y cajas por validar 0. Recargo 10% activo: $115.500 = $40.300 cobrados + $5.000 condonados + $70.200 pendientes.
+Baja/reasignación de Verónica, pérdida de Julieta, aumento de Fútbol Avanzadas y corrección/rechazo/cierre hechos por UI. 138 capturas originales, 139 imágenes comprobadas, recibo CUOTA-350 de dos renglones, 128 enlaces y manifiesto SHA256. [Día 33](../06-pruebas/PRU-04/DIA-33.md).
+Diferencias conservadas: avisos nativos, filtro de tipo y etiqueta de inscripción; 33.3 tiene contado/cambio fijos, sin probar otro contado. Autor interno 29.2 y registros internos 32.1/33.8 pendientes de Claude; sin reparaciones.
+Relojes/rutinas guardados una vez; día 30 sin noche por validación UI. Día 33 esperó 179 segundos entre 06:13 y después de 06:15 antes de poner 09:00; recargo automático comprobado. Bloqueos de aprobación 29/31 resueltos sin duplicar operaciones; pausa del 31 conservada con hora 12:19.
+Sin producto, vistas/CSS, catálogo/tablero, consultas directas a base, suite documental ni despliegue propios. Cambios ajenos concurrentes excluidos; SHA desplegado no certificado. Huellas de LOG/resumen intactas antes de editar; dos entradas antiguas archivadas íntegras para mantener límites.
+Sigue revisión independiente de Claude de informes, diferencias y controles internos. No repetir días 29–33, generar diciembre ni pagar otras liquidaciones. Sin autocierre de T14/casos; commit documental propio, sin push solicitado.
+
 ## 2026-10-29 — Codex CAB — PRU-04 días 24 a 28, recorrido entregado a Claude
 
 Ejecutados los 42 pasos de tanda 1 en Chrome sobre test/wingstest ficticia, relojes y rutinas reales una vez. Cinco cierres financieros coinciden; Sin asistencia 0. Caja #53 de Rocío abierta a propósito, neto $297.500 por validar. Tanda 2 no ejecutada.
@@ -33,23 +43,6 @@ Definitivas: rápida1113/6 omitidas/8523 aserciones/229,88s y completa1249/6 omi
 PHP/Blade/build correctos; Chrome1366/marco375 de cuatro pantallas y login, cambio real de mes y conservación de valores. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T45.html).
 Dos entradas antiguas archivadas intactas, SHA293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a; índice en esta bitácora. Tabla externa intacta, propuesta CAT-002 en el informe.
 T45 a_verificar, tiene/verifica=Claude; sigue T46. Sin autocierre, servidor, base del club ni despliegue.
-
-## 2026-10-28 — Codex CyE — T51 entregada a Claude
-
-Historia manual en Detalle: edición antes/después y eliminación con foto permanente, autor y fecha/hora, en una transacción. Automáticos protegidos en pantalla y rutas; cancelación con motivo conservada.
-9 propias/77 verdes. Rápida1088/6 omitidas/8371 aserciones/318,47s, salida0. Completa1217/6 omitidas/7 HTTP503 en Inicio/10091 aserciones/1588,63s, salida1; los dos archivos repetidos solos17/152 verdes, 31,55s. Causa no comprobada; no se declara completa verde.
-Nueve fuentes propias intactas. PHP/Blade correctos. Chrome real1366/marco375, login calibrado; sin desborde ni erroresJS. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T51.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T51.html).
-Se frenó el commit al mezclarse T12/T13 en el tablero; índice propio generado desde HEAD con el script, trabajo ajeno conservado. T12/T13 posteriores fuera del corte. Solo archivos propios; tabla externa intacta.
-T51 a_verificar, tiene/verifica=Claude. Sigue T45 y después T46. Sin autocierre, base del club ni despliegue.
-
-## 2026-10-28 — Codex CyE — T70/T71 implementadas y entregadas a Claude
-
-Fecha actual e historial de Inactivo; altas y pases distintos del mes. Interruptor T84/T85 y cuota T38 conservados. Deuda separada en Cobranza/Reportes, pérdida ADMIN con campo propio y auditoría; al volver no se repone lo perdido.
-15 pruebas propias. Área y repetición 37/222 verdes, incluidas 10 T62 ajenas, sin corregirlas ni incorporarlas. Rápida: 1072 verdes/6 omitidas/6 fallas: cinco T62 y contador concurrente; las seis luego verdes aisladas. Completa: 1214 aprobadas/6 omitidas/10081 aserciones/1671,44s, salida 0 en wings_testing_codex, después de esperar PID 35584/22056. 23 fuentes propias intactas.
-12 capturas reales Chrome 1366/marco375 revisadas; ancho/botones medidos y cliente sin navegación ante rechazo/reintento/doble clic. [Galería](../06-pruebas/PRU-04/APROBAR-T70-T71.html) · [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T70-T71.md).
-T62 ajena quedó en 5b0869cd; contador 1220 incluye 15 propias y 10 T62, sin atribuirlas a Codex. Se frenó el commit mientras los documentos estaban mezclados. Sin sitio de prueba, servidor, base del club, despliegue ni push manual.
-T70/T71 a_verificar, tiene=Claude, verifica=Claude; sigue revisión independiente y aspecto de Carlos. Commit solo de archivos propios, sin autocierre.
-Después, las 15 propias pasaron contra el generador corregido por T62; solo falló el contador mientras Gemini agregaba otra prueba (1221). Índice propio separado de esos cambios ajenos; completa conserva su corte.
 
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
@@ -86,3 +79,5 @@ Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualizació
 [Dos entradas íntegras T88/B3 y T86, archivadas al implementar T70/T71](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T70-T71.txt). Base original: docs/00-estado/. SHA256: 922e3e4ae896f356fd08ea56fd9d50ae5f886df57fc4826fad1b1a628bf58ba3.
 
 [Dos entradas T65/T89 conservadas intactas al entregar días24–28](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS24-28.txt). Base original: docs/00-estado/. SHA256: 0f300f81f9febe5788f4e5f174751aac7ad2d606b9a8a9b63492ea3991c23058.
+
+[Dos entradas T51/T70–T71 conservadas íntegras al entregar días29–33](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS29-33.txt). Base original: docs/00-estado/. SHA256: b45291484c7ca448837203d16109b16b871834b7b615506aedd91d742c436a0c.

@@ -1,0 +1,157 @@
+Browser tab: 1320327214, Title: "Grupos – Wings", URL: "https://test.gestionar-te.com.ar/grupos".
+1 AXWebArea Grupos – Wings, URL: test.gestionar-te.com.ar/grupos
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/consultar-grupos-planes
+		30 button Salir
+	31 heading Grupos, Value: 1
+		32 text Grupos
+	33 container
+		34 text Grupo actualizado correctamente.
+		35 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			36 menu
+				37 (selected) Deporte
+				38 Fútbol
+				39 Patín
+		40 button Limpiar
+		41 text Mostrando 
+		42 text 1
+		43 text  a 
+		44 text 7
+		45 text  de 
+		46 text 7
+		47 text  grupos
+		48 button Nuevo
+		49 container
+			50 image Activo
+			51 heading Fútbol — Avanzadas, Value: 3
+				52 text Fútbol — Avanzadas
+		53 image
+		54 text Deporte: Fútbol
+		55 image
+		56 text Alumnos activos: 15
+		57 image
+		58 text Planes: 1x/sem — $38,000.00 · 2x/sem — $52,000.00
+		59 container
+			60 text Activo
+			61 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9c8cc
+		62 button Editar
+		63 button Ver
+		64 container
+			65 image Activo
+			66 heading Fútbol — Principiantes, Value: 3
+				67 text Fútbol — Principiantes
+		68 image
+		69 text Deporte: Fútbol
+		70 image
+		71 text Alumnos activos: 24
+		72 image
+		73 text Planes: 1x/sem — $28,000.00 · 2x/sem — $35,000.00
+		74 container
+			75 text Activo
+			76 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9cec7
+		77 button Editar
+		78 button Ver
+		79 container
+			80 image Activo
+			81 heading Patín — Adultos, Value: 3
+				82 text Patín — Adultos
+		83 image
+		84 text Deporte: Patín
+		85 image
+		86 text Alumnos activos: 2
+		87 image
+		88 text Planes: 1x/sem — $32,000.00 · 2x/sem — $42,000.00
+		89 container
+			90 text Activo
+			91 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9d2bb
+		92 button Editar
+		93 button Ver
+		94 container
+			95 image Activo
+			96 heading Patín — Avanzadas, Value: 3
+				97 text Patín — Avanzadas
+		98 image
+		99 text Deporte: Patín
+		100 image
+		101 text Alumnos activos: 12
+		102 image
+		103 text Planes: 1x/sem — $35,000.00 · 2x/sem — $45,000.00
+		104 container
+			105 text Activo
+			106 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9d72d
+		107 button Editar
+		108 button Ver
+		109 container
+			110 image Activo
+			111 heading Patín — Federadas, Value: 3
+				112 text Patín — Federadas
+		113 image
+		114 text Deporte: Patín
+		115 image
+		116 text Alumnos activos: 8
+		117 image
+		118 text Planes: 1x/sem — $40,000.00 · 2x/sem — $50,000.00
+		119 container
+			120 text Activo
+			121 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9db76
+		122 button Editar
+		123 button Ver
+		124 container
+			125 image Activo
+			126 heading Patín — Intermedias, Value: 3
+				127 text Patín — Intermedias
+		128 image
+		129 text Deporte: Patín
+		130 image
+		131 text Alumnos activos: 17
+		132 image
+		133 text Planes: 1x/sem — $33,000.00 · 2x/sem — $43,000.00
+		134 container
+			135 text Activo
+			136 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9e078
+		137 button Editar
+		138 button Ver
+		139 container
+			140 image Activo
+			141 heading Patín — Principiantes, Value: 3
+				142 text Patín — Principiantes
+		143 image
+		144 text Deporte: Patín
+		145 image
+		146 text Alumnos activos: 28
+		147 image
+		148 text Planes: 1x/sem — $30,000.00 · 2x/sem — $44,000.00
+		149 container
+			150 text Activo
+			151 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae3161c9e641
+		152 button Editar
+		153 button Ver
+	154 text Wings
+
+The focused UI element is 1 AXWebArea Grupos – Wings, URL: test.gestionar-te.com.ar/grupos

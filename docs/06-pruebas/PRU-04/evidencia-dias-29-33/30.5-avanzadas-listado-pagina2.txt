@@ -1,0 +1,147 @@
+Browser tab: 1320327214, Title: "Alumnos – Wings", URL: "https://test.gestionar-te.com.ar/alumnos?grupo_id=6&page=2".
+1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?grupo_id=6&page=2
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/buscar-alumnos
+		30 button Salir
+	31 heading Alumnos, Value: 1
+		32 text Alumnos
+	33 container
+		34 container
+			35 image
+			36 combo box (collapsed, settable) ID: search-input, Secondary Actions: Expand
+		37 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+			38 menu
+				39 (selected) Deporte
+				40 Fútbol
+				41 Patín
+		42 pop up button (collapsed, settable) Value: Fútbol — Avanzadas, ID: filter-grupo, Secondary Actions: Expand
+			43 menu
+				44 Grupo
+				45 (selected) Fútbol — Avanzadas
+				46 Fútbol — Principiantes
+				47 Patín — Adultos
+				48 Patín — Avanzadas
+				49 Patín — Federadas
+				50 Patín — Intermedias
+				51 Patín — Principiantes
+		52 button Limpiar
+		53 text Mostrando 
+		54 text 13
+		55 text  a 
+		56 text 15
+		57 text  de 
+		58 text 15
+		59 text  alumnos
+		60 button Nuevo
+		61 container
+			62 heading Silva, Simon, Value: 3
+				63 text Silva, Simon
+		64 image
+		65 text Deporte: Fútbol
+		66 image
+		67 text Grupo: Fútbol — Avanzadas
+		68 image
+		69 text Plan: 2 clases/semana
+		70 image
+		71 text DNI: 54400014
+		72 image
+		73 text Teléfono: 1145120014
+		74 image
+		75 text Edad: 13 años
+		76 image
+		77 text Tutor: Tutor Silva
+		78 image
+		79 text Tel. tutor: 1145120014
+		80 button Cobrar
+		81 button Ver
+		82 button Editar
+		83 container
+			84 text Activo
+			85 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae316ec17988
+		86 container
+			87 heading Sosa, Felipe, Value: 3
+				88 text Sosa, Felipe
+		89 image
+		90 text Deporte: Fútbol
+		91 image
+		92 text Grupo: Fútbol — Avanzadas
+		93 image
+		94 text Plan: 1 clase/semana
+		95 image
+		96 text DNI: 50300904
+		97 image
+		98 text Teléfono: 1145123417
+		99 image
+		100 text Edad: 13 años
+		101 image
+		102 text Tutor: Jorge Sosa
+		103 image
+		104 text Tel. tutor: 1145123417
+		105 button Cobrar
+		106 button Ver
+		107 button Editar
+		108 container
+			109 text Activo
+			110 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae316ec17df1
+		111 container
+			112 heading Vega, Joaquin, Value: 3
+				113 text Vega, Joaquin
+		114 image
+		115 text Deporte: Fútbol
+		116 image
+		117 text Grupo: Fútbol — Avanzadas
+		118 image
+		119 text Plan: 2 clases/semana
+		120 image
+		121 text DNI: 51200914
+		122 image
+		123 text Teléfono: 1145129904
+		124 image
+		125 text Edad: 12 años
+		126 image
+		127 text Tutor: Andrea Vega
+		128 image
+		129 text Tel. tutor: 1145129904
+		130 button Cobrar
+		131 button Ver
+		132 button Editar
+		133 container
+			134 text Activo
+			135 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae316ec18210
+		136 container Paginación
+			137 container
+				138 text Mostrando  13  a  15  de  15  resultados
+			139 container
+				140 link Description: &laquo; Anterior, Value: test.gestionar-te.com.ar/alumnos?grupo_id=6&page=1
+				141 link Description: Ir a la página 1, Value: test.gestionar-te.com.ar/alumnos?grupo_id=6&page=1
+				142 text 2
+				143 container Siguiente &raquo;
+	144 text Wings
+
+The focused UI element is 1 AXWebArea Alumnos – Wings, URL: test.gestionar-te.com.ar/alumnos?grupo_id=6&page=2

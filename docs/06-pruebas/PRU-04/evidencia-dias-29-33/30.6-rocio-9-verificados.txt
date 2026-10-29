@@ -1,0 +1,93 @@
+Browser tab: 1320327214, Title: "Caja – Wings", URL: "https://test.gestionar-te.com.ar/caja".
+0 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		12 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		13 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		14 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		15 text EL CLUB
+		16 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		17 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		18 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		19 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		20 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		21 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		22 text SISTEMA
+		23 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		24 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		25 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	26 container
+		27 text Admin Prueba
+		28 button Salir
+	29 heading Caja, Value: 1
+		30 text Caja
+	31 container
+		32 text Caja validada y reflejada en cashflow.
+		33 pop up button (collapsed, settable) Value: Operativo, Secondary Actions: Expand
+			34 menu
+				35 (selected) Operativo
+				36 Pablo Ledesma
+				37 Rocío Paz
+				38 Sandra Vidal
+		39 date field (settable) 2026-11
+			40 container
+				41 stepper
+				42 stepper
+			43 pop up button Mostrar selector de mes
+		44 button Filtrar
+		45 button Limpiar
+		46 text Tu cobro entra directo al cashflow, sin abrir caja
+		47 button Cobrar
+		48 text Cajón del mostrador: abrile la caja a un operativo
+		49 button Abrir
+		50 text 6
+		51 text  cajas
+		52 button Historial
+		53 heading Sábado 7 de noviembre, Value: 3
+			54 text Sábado 7 de noviembre
+		55 text Pablo Ledesma
+		56 text Estado CERRADA Movimientos 6 Ingresos $245,000.00 Egresos $0.00 Neto $245,000.00
+		57 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/54/resumen
+		58 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/54/detalle
+		59 heading Viernes 6 de noviembre, Value: 3
+			60 text Viernes 6 de noviembre
+		61 text Rocío Paz
+		62 text Estado VALIDADA Movimientos 9 Ingresos $304,000.00 Egresos $6,500.00 Neto $297,500.00
+		63 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/53/resumen
+		64 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/53/detalle
+		65 heading Jueves 5 de noviembre, Value: 3
+			66 text Jueves 5 de noviembre
+		67 text Sandra Vidal
+		68 text Estado VALIDADA Movimientos 9 Ingresos $441,000.00 Egresos $0.00 Neto $441,000.00
+		69 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/51/resumen
+		70 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/51/detalle
+		71 heading Miércoles 4 de noviembre, Value: 3
+			72 text Miércoles 4 de noviembre
+		73 text Rocío Paz
+		74 text Estado VALIDADA Movimientos 11 Ingresos $428,000.00 Egresos $3,500.00 Neto $424,500.00
+		75 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/49/resumen
+		76 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/49/detalle
+		77 heading Martes 3 de noviembre, Value: 3
+			78 text Martes 3 de noviembre
+		79 text Pablo Ledesma
+		80 text Estado VALIDADA Movimientos 16 Ingresos $454,000.00 Egresos $64,000.00 Neto $390,000.00
+		81 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/47/resumen
+		82 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/47/detalle
+		83 heading Lunes 2 de noviembre, Value: 3
+			84 text Lunes 2 de noviembre
+		85 text Sandra Vidal
+		86 text Estado VALIDADA Movimientos 9 Ingresos $298,000.00 Egresos $3,500.00 Neto $294,500.00
+		87 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/45/resumen
+		88 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/45/detalle
+	89 text Wings
+
+The focused UI element is 0 AXWebArea Caja – Wings, URL: test.gestionar-te.com.ar/caja

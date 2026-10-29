@@ -1,0 +1,106 @@
+Browser tab: 1320327214, Title: "Romero, Santino – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/263".
+1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Romero, Santino, Value: 1
+		32 text Romero, Santino
+	33 container
+		34 text Activo
+		35 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae349960e2ea
+		36 button Cobrar
+		37 button Editar
+		38 image
+		39 text DNI 53300902
+		40 image
+		41 text NACIMIENTO 09/01/2016
+		42 image
+		43 text CELULAR 1145123415
+		44 image
+		45 text EMAIL diego.romero@testmail.com
+		46 image
+		47 text DEPORTE Fútbol
+		48 image
+		49 text GRUPO Fútbol — Principiantes
+		50 image
+		51 text PLAN 1x sem. — $28,000.00/mes
+		52 image
+		53 text ALTA 01/08/2024
+		54 image
+		55 text ESTADO DE COBRANZA Deudor Total adeudado:  $28,000.00 Oct 2026 $28,000.00
+		56 button Condonar
+		57 container cuotas-condonadas
+			58 text Cuotas condonadas
+			59 text 2025-10 · Condonada
+			60 button Reactivar
+			61 text 2025-11 · Condonada
+			62 button Reactivar
+			63 text 2025-12 · Condonada
+			64 button Reactivar
+		65 container cuotas-pasadas
+			66 text Meses sin cuota generada
+			67 container
+				68 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Agosto 2024 · $28,000.00, Secondary Actions: Expand
+					69 menu
+						70 (selected) Agosto 2024 · $28,000.00
+						71 Septiembre 2024 · $28,000.00
+						72 Octubre 2024 · $28,000.00
+						73 Noviembre 2024 · $28,000.00
+						74 Diciembre 2024 · $28,000.00
+						75 Enero 2025 · $28,000.00
+						76 Febrero 2025 · $28,000.00
+						77 Marzo 2025 · $28,000.00
+						78 Abril 2025 · $28,000.00
+						79 Mayo 2025 · $28,000.00
+						80 Junio 2025 · $28,000.00
+						81 Julio 2025 · $28,000.00
+						82 Agosto 2025 · $28,000.00
+						83 Septiembre 2025 · $28,000.00
+						84 Enero 2026 · $28,000.00
+						85 Febrero 2026 · $28,000.00
+						86 Marzo 2026 · $28,000.00
+						87 Abril 2026 · $28,000.00
+						88 Mayo 2026 · $28,000.00
+						89 Junio 2026 · $28,000.00
+						90 Julio 2026 · $28,000.00
+				91 button Crear
+		92 image
+		93 text TUTOR NOMBRE Diego Romero TELÉFONO 1145123415
+		94 image
+		95 text HISTORIAL DE PAGOS 04/11/2026 · Nov 2026 $28,000.00
+		96 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/245?inline=1
+		97 text 26/10/2026 · Ago 2026, Sep 2026 $56,000.00
+		98 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/64?inline=1
+		99 image
+		100 text ASISTENCIAS — NOV 2026 1 clase 09/11
+		101 button Volver
+		102 text No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.
+	103 text Wings
+
+The focused UI element is 1 AXWebArea Romero, Santino – Wings, URL: test.gestionar-te.com.ar/alumnos/263

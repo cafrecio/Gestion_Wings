@@ -1,0 +1,96 @@
+Browser tab: 1320327214, Title: "Resumen – Caja del 09/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/55/resumen".
+1 AXWebArea Resumen – Caja del 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/resumen
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 button Salir
+	20 heading Resumen de caja, Value: 1
+		21 text Resumen de caja
+	22 container
+		23 text OPERATIVO Sandra Vidal APERTURA 09/11/2026 09:00 CIERRE 09/11/2026 12:20 ESTADO CERRADA MOTIVO DE RECHAZO Faltan $2.000 en el cajón: ¿es la resma del lunes? Cargala
+		24 text 10
+		25 text  movimientos
+		26 link Description: Detalle, Value: test.gestionar-te.com.ar/caja/55/detalle
+		27 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		28 heading Efectivo del mostrador, Value: 3
+			29 text Efectivo del mostrador
+		30 text Inicial
+		31 text $10,000.00
+		32 text Esperado
+		33 text $122,500.00
+		34 text Contado
+		35 text $122,500.00
+		36 text Diferencia
+		37 text $0.00
+		38 text Cambio que queda
+		39 text $10,000.00
+		40 text Retiro / entrega
+		41 text $112,500.00
+		42 text APERTURA RECTIFICADA
+		43 container
+			44 text Rectificado el 09/11/2026 09:00 por Sandra Vidal (inicial anterior:  $100,000.00 ). Motivo: Escribí un cero de más: recibí $10.000
+		45 text Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+		46 text POR MEDIO DE PAGO
+		47 table
+			48 row
+				49 cell
+					50 text ABR.
+				51 cell
+					52 text MEDIO
+				53 cell
+					54 text TOTAL
+			55 row
+				56 cell
+					57 text EFE
+				58 cell
+					59 text Efectivo
+				60 cell
+					61 text $112,500.00
+			62 row
+				63 cell
+					64 text MP
+				65 cell
+					66 text Mercado Pago
+				67 cell
+					68 text $118,000.00
+		69 text POR RUBRO
+		70 table
+			71 row
+				72 cell
+					73 text RUBRO
+				74 cell
+					75 text TIPO
+				76 cell
+					77 text TOTAL
+			78 row
+				79 cell
+					80 text Cuotas
+				81 cell
+					82 text INGRESO
+				83 cell
+					84 text $236,000.00
+			85 row
+				86 cell
+					87 text Gastos Operativos
+				88 cell
+					89 text EGRESO
+				90 cell
+					91 text $5,500.00
+		92 text INGRESOS $236,000.00 EGRESOS $5,500.00 NETO $230,500.00
+	93 text Wings
+
+The focused UI element is 1 AXWebArea Resumen – Caja del 09/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/55/resumen

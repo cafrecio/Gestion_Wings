@@ -1,0 +1,63 @@
+Browser tab: 1320327214, Title: "Movimiento – Cashflow – Wings", URL: "https://test.gestionar-te.com.ar/cashflow/movimientos/173".
+1 AXWebArea Movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimientos/173
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Movimiento, Value: 1
+		31 text Movimiento
+	32 container
+		34 heading Centenera, Value: 3
+			35 text Centenera
+		36 text Fecha
+		37 text 03/11/2026
+		38 text Medio
+		39 text Efectivo
+		40 text Importe
+		41 text $-125,000.00
+		42 text Alquiler de cancha, octubre
+		43 button Volver
+		44 button Editar
+		45 container cashflow-historial-correcciones
+			46 heading Historial de correcciones, Value: 3
+				47 text Historial de correcciones
+			48 container
+				49 text Edición  · 08/11/2026 11:00 · Admin Prueba
+			50 text Antes
+			51 container
+				52 text $-120,000.00  · 03/11/2026
+			53 text Centenera · Efectivo
+			54 text Alquiler de cancha, octubre
+			55 text Después
+			56 container
+				57 text $-125,000.00  · 03/11/2026
+			58 text Centenera · Efectivo
+			59 text Alquiler de cancha, octubre
+			60 text Motivo: La factura de octubre era de $125.000
+	61 text Wings
+
+The focused UI element is 1 AXWebArea Movimiento – Cashflow – Wings, URL: test.gestionar-te.com.ar/cashflow/movimientos/173

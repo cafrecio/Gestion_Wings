@@ -1,0 +1,2 @@
+Aviso nativo de Chrome visible en captura: «El valor debe ser igual o anterior a 11/11/2026.»
+Sin observación: «Completa este campo». No se sortearon las validaciones nativas para obtener textos del servidor.

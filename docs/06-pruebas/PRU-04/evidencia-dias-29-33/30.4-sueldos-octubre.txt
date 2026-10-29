@@ -1,0 +1,177 @@
+Browser tab: 1320327214, Title: "Reporte de sueldos – Wings", URL: "https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10&deporte_id=".
+1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10&deporte_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Reporte de sueldos, Value: 1
+		31 text Reporte de sueldos
+	32 container
+		33 text Reportes
+		34 link Description: Volver, Value: test.gestionar-te.com.ar/reportes?mes=2026-10
+		35 link Description: Ingresos y egresos, Value: test.gestionar-te.com.ar/reportes?mes=2026-10
+		36 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-10
+		37 text Sueldos
+		38 pop up button (collapsed, settable) Description: Mes, Value: Octubre 2026, Secondary Actions: Expand
+			39 menu
+				40 Noviembre 2026
+				41 (selected) Octubre 2026
+				42 Septiembre 2026
+		43 pop up button (collapsed, settable) Description: Deporte, Value: Todos los deportes, Secondary Actions: Expand
+			44 menu
+				45 (selected) Todos los deportes
+				46 Fútbol
+				47 Patín
+		48 button Filtrar
+		49 heading Octubre 2026, Value: 2
+			50 text Octubre 2026
+		51 text Costo del mes · hasta 31/10 Costo de profesores
+		52 text Sin historial
+		53 text Aunque se pague después
+		54 text Cuotas atribuidas
+		55 text Sin historial
+		56 text Importe real del mismo mes
+		57 text Sueldos / cuotas
+		58 text Sin datos
+		59 text Parte de las cuotas destinada a profesores
+		60 text Costo por asistencia
+		61 text Sin datos
+		62 text 688 asistencias del mes
+		63 heading Pagos de operativas, Value: 2
+			64 text Pagos de operativas
+		65 text Registrados en Cashflow durante el mes
+		66 container pagos-operativas
+			67 heading Total pagado, Value: 3
+				68 text Total pagado
+			69 text $0.00
+			70 text Gasto del club, sin reparto por deporte. Los indicadores de profesores corresponden a sus clases.
+			71 text Sin pagos de operativas en este mes
+		72 heading Evolución: cuotas y sueldos, Value: 3
+			73 text Evolución: cuotas y sueldos
+		74 text Cuotas atribuidas Costo de profesores
+		75 image Evolución de cuotas atribuidas y costo de profesores
+		76 button (collapsed) Detalle, Secondary Actions: Expand
+			77 text Detalle
+		78 heading Por deporte, Value: 3
+			79 text Por deporte
+		80 image Cuotas y sueldos por deporte
+		81 button (collapsed) Detalle, Secondary Actions: Expand
+			82 text Detalle
+		83 heading Por profesor, Value: 2
+			84 text Por profesor
+		85 text Cada asistencia cuenta
+		86 heading Quintana, Hernán, Value: 3
+			87 text Quintana, Hernán
+		88 text $484,680.00
+		89 text Costo · Fútbol
+		90 text Sin historial
+		91 text Cuotas atribuidas
+		92 text Sin datos
+		93 text Sueldos / cuotas
+		94 text $2,107.30
+		95 text Por asistencia
+		96 text 28
+		97 text Alumnos con pagos registrados
+		98 text 64
+		99 text Asistencias sin pago de cuota
+		100 text 230
+		101 text Asistencias totales
+		102 text Comisión sobre cuotas cobradas
+		103 heading Acosta, Martín, Value: 3
+			104 text Acosta, Martín
+		105 text $186,600.00
+		106 text Costo · Fútbol
+		107 text Sin historial
+		108 text Cuotas atribuidas
+		109 text Sin datos
+		110 text Sueldos / cuotas
+		111 text $13,328.57
+		112 text Por asistencia
+		113 text 11
+		114 text Alumnos con pagos registrados
+		115 text 3
+		116 text Asistencias sin pago de cuota
+		117 text 14
+		118 text Asistencias totales
+		119 text Comisión sobre cuotas cobradas
+		120 heading Gaitán, Lucía, Value: 3
+			121 text Gaitán, Lucía
+		122 text Sin historial
+		123 text Costo · Patín
+		124 text Sin historial
+		125 text Cuotas atribuidas
+		126 text Sin datos
+		127 text Sueldos / cuotas
+		128 text Sin datos
+		129 text Por asistencia
+		130 text 28
+		131 text Alumnos con pagos registrados
+		132 text 66
+		133 text Asistencias sin pago de cuota
+		134 text 251
+		135 text Asistencias totales
+		136 text Sin historial
+		137 heading Salinas, Verónica, Value: 3
+			138 text Salinas, Verónica
+		139 text Sin historial
+		140 text Costo · Patín
+		141 text Sin historial
+		142 text Cuotas atribuidas
+		143 text Sin datos
+		144 text Sueldos / cuotas
+		145 text Sin datos
+		146 text Por asistencia
+		147 text 13
+		148 text Alumnos con pagos registrados
+		149 text 26
+		150 text Asistencias sin pago de cuota
+		151 text 96
+		152 text Asistencias totales
+		153 text Sin historial
+		154 heading Ocampo, Mariela, Value: 3
+			155 text Ocampo, Mariela
+		156 text Sin historial
+		157 text Costo · Patín
+		158 text Sin historial
+		159 text Cuotas atribuidas
+		160 text Sin datos
+		161 text Sueldos / cuotas
+		162 text Sin datos
+		163 text Por asistencia
+		164 text 5
+		165 text Alumnos con pagos registrados
+		166 text 37
+		167 text Asistencias sin pago de cuota
+		168 text 97
+		169 text Asistencias totales
+		170 text Sin historial
+		171 button (collapsed) Cómo se calcula, Secondary Actions: Expand
+			172 text Cómo se calcula
+		173 text Comparación económica · no determina ganancias del club Datos faltantes no se dibujan como cero
+	174 text Wings
+
+The focused UI element is 1 AXWebArea Reporte de sueldos – Wings, URL: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-10&deporte_id=
