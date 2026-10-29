@@ -47,7 +47,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 23 revisado (interno 21/21, seguridad 22/22). Falta probar Revision: nadie podia ir porque los 103 vinieron en octubre (error de planificacion de Claude). El guion de noviembre deja 3 alumnos sin venir todo el mes y un alta tardia, para la generacion del 1/12 (detalle en ESTADO-PRUEBA, dia 23). Cinco liquidaciones abiertas por orden de Carlos. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 28/10: sitio de prueba desplegado en b271e8dd con T87, T88, B3, T54, T65, T25, T89, T62, T70/T71, T51, T45 y T46 (Ayuda T12/T13 a medias). Sigue la prueba corta de 3-4 dias sobre lo cambiado; el guion se conversa con Carlos antes de escribirlo. Falta probar Revision: el guion de noviembre deja alumnos sin venir para la generacion del 1/12. Cinco liquidaciones abiertas por orden de Carlos. |
 
 ## Codex
 
@@ -57,8 +57,8 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Gemini) | Carlos 28/10: formato y lista OK; contenido devuelto (textos inventados y un paso imposible). Prompt: docs/06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-CORRECCION.md. Metodo: ficha de fuentes, verificador en 0 y revisor independiente por tanda. |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Gemini) | Carlos 28/10: formato y lista OK; contenido devuelto (textos inventados y un paso imposible). Prompt: docs/06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-CORRECCION.md. Metodo: ficha de fuentes, verificador en 0 y revisor independiente por tanda. |
+| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Gemini) | Corrigiendo Etapa 1 segun devolucion de Carlos y Claude |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Gemini) | Corrigiendo Etapa 1 segun devolucion de Carlos y Claude |
 
 ## Sin empezar (7)
 

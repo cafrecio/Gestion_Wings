@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## Sitio de prueba desplegado en `b271e8dd` — Claude CAB, 28/10/2026
+
+Pedido de Carlos. Incluye T87, T88, B3, T54, T65, T25, T89, T62, T70/T71, T51, T45 y T46 (sus «sin desplegar» de abajo quedan históricos) y la Ayuda de T12/T13 a medias, que Carlos autorizó. Respaldo `/root/respaldos/wingstest-antes-despliegue-2026-10-28.sql.gz`; 5 migraciones DONE; /login 200, CSP en bloqueo, reloj simulado intacto (01/11), sin errores nuevos. Producción no se tocó. Sigue la prueba corta de 3-4 días; el guion se conversa antes con Carlos.
+
 ## T46 — Profesora inactiva sin clases futuras ni acceso, Codex CyE 28/10/2026
 
 **CERRADA 28/10:** lógica verificada por Claude CAB (276/276 del área y 4/4 ataques propios, [informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md)); OK visual de Carlos. Sin desplegar.
@@ -1103,7 +1107,7 @@ fue inspeccionado.
 
 | Que | Estado |
 |---|---|
-| Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10 |
+| Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `b271e8dd` desde el 28/10 (antes `f8d71d5c`, 27/10) |
 | Diferencia con `main` al corte | El servidor incorporo documentos y scripts hasta `81f27ef`; los commits posteriores requieren sincronizacion |
 | Plataforma | AlmaLinux 9.8, PHP 8.2.35, Laravel 12.68.0 (comprobado por SSH el 22/10/2026) |
 | HTTPS | Activo |
