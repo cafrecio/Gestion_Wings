@@ -24,7 +24,13 @@ Partí de la idea de que la página tiene errores. Una página que suena bien no
    en el controlador. Contrato de referencia: `docs/02-contratos/PERMISOS-ROLES.md`.
 5. **Capturas:** cada captura corresponde a la pantalla y al momento del paso que ilustra, con el usuario
    del rol de la página (el menú lateral lo delata). No vale una captura de otra pantalla parecida.
-6. **Lo que falta:** un caso común de esa tarea que la página no cubre y que deja al lector sin salida
+6. **Cada condición de estado, rol o fecha** que diga la página («si la caja está Abierta o Rechazada»,
+   «solo el dueño», «si la clase ya pasó»): buscá vos el `if` que la decide, sin partir de la línea que
+   cita la ficha, y comparalo palabra por palabra. Cada estado que la página nombra tiene que estar en ese
+   `if`, y cada estado del `if` tiene que estar en la página. Agregado el 29/10/2026: en la etapa A la ficha
+   de `rectificar-caja` citaba una línea que no era la regla y decía «comprobado», y la página permitía
+   rectificar una caja Rechazada que Wings rechaza. Al revisor se le pasó.
+7. **Lo que falta:** un caso común de esa tarea que la página no cubre y que deja al lector sin salida
    (por ejemplo, la caja cerrada pero todavía sin validar).
 
 ## Informe

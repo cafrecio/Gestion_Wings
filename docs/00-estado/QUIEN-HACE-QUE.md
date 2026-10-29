@@ -47,8 +47,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A: control de Claude y OK de Carlos |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: guion de noviembre armado y simulado entero en una copia de wingstest: tanda 1 dias 24-28 (GUION-DIAS-24-28.md, prompt PROMPT-CODEX-DIAS-24-28.md) y tanda 2 dias 29-33 (se corre despues de revisar la 1). Cubre los 20 casos a repetir y los nuevos; deja preparada la Revision del 1/12 (Pilar Ramos, Alma Navarro, Facundo Rios, Valentina Suarez). Pendiente de Carlos para la tanda 2: prender o no el recargo por mora. |
 
 ## Codex
@@ -57,7 +55,10 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Devuelto (hizo Gemini, verifica Claude) | Etapa A devuelta por Claude 29/10 (rectificar-caja permite caja Rechazada y Wings no; la ficha no lo comprobo). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION.md |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Devuelto (hizo Gemini, verifica Claude) | Etapa A devuelta por Claude 29/10 (rectificar-caja permite caja Rechazada y Wings no; la ficha no lo comprobo). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-A-DEVOLUCION.md |
 
 ## Sin empezar (7)
 
