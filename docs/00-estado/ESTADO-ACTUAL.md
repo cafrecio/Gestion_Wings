@@ -1,6 +1,11 @@
 # Wings — Estado actual
 
-## T12/T13 — Etapa A, segunda vuelta (`a28a84a0`): controlada, espera el OK de Carlos — Claude CAB, 29/10/2026
+## T12/T13 — Etapa A aprobada por Carlos; sigue la B — Claude CAB, 29/10/2026
+
+Carlos pidió el prompt para que Gemini siga (29/10): la A queda aprobada. Los dos arreglos menores van como
+paso 0 de la B. [Prompt de la etapa B](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPA-B.md).
+
+### Etapa A, segunda vuelta (`a28a84a0`): control
 
 Lo devuelto quedó bien y con los textos de Wings. Quedan dos cosas menores: la tabla nueva de rechazos marca «Sí»
 donde la página no lo dice (el tope de adelanto figura como 6 meses; el código dice 12) y una frase sin fuente en
