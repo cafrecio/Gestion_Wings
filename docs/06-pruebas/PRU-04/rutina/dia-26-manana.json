@@ -1,0 +1,118 @@
+{
+ "dia": "2026-11-04",
+ "descripcion": "Día 26, miércoles 4/11: Rocío abre, ocho cobros de noviembre, una limpieza de $3.800 (era $3.500: se corrige en el 26.7) y una resma de $2.000 (no correspondía: se elimina en el 26.7); listas del miércoles. Iván Paredes viene por primera vez.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Herrera, Martina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Garcia, Melina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Benitez, Milagros",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Castro, Catalina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Ramirez, Felipe",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Pereyra, Manuel",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Rossi, Leon",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Silva, Simon",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3800",
+   "obs": "Lavandina y trapos"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "2000",
+   "obs": "Resma"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar",
+    "Rossi, Morena"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Principiantes",
+   "hora": "18:00",
+   "ausentes": [
+    "Rios, Facundo",
+    "Medina, Lautaro"
+   ]
+  }
+ ]
+}

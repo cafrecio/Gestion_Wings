@@ -1,0 +1,10 @@
+{
+ "dia": "2026-11-07",
+ "descripcion": "Día 29, noche: Pablo cierra con lo esperado. El dueño NO valida hoy: valida el domingo (día 30), después de mirar Reportes con las dos cajas pendientes.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cerrar_caja"
+  }
+ ]
+}

@@ -1,0 +1,260 @@
+{
+ "dia": "2026-11-02",
+ "descripcion": "Día 24, lunes 2/11: el dueño carga el calendario de noviembre (igual al de octubre); Sandra abre, ocho cobros de noviembre, limpieza y las tres listas del lunes. Pilar Ramos, Alma Navarro y Facundo Ríos faltan: no vienen en todo noviembre (Revisión del 1/12).",
+ "pasos": [
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Patín — Principiantes",
+   "profesores": [
+    "Gaitán, Lucía"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "1": [
+     "16:00",
+     "17:00"
+    ],
+    "3": [
+     "16:00",
+     "17:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Patín — Intermedias",
+   "profesores": [
+    "Salinas, Verónica"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "1": [
+     "17:00",
+     "18:00"
+    ],
+    "5": [
+     "16:00",
+     "17:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Patín — Avanzadas",
+   "profesores": [
+    "Gaitán, Lucía"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "2": [
+     "17:00",
+     "18:00"
+    ],
+    "4": [
+     "17:00",
+     "18:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Patín — Federadas",
+   "profesores": [
+    "Ocampo, Mariela"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "2": [
+     "18:00",
+     "19:00"
+    ],
+    "4": [
+     "18:00",
+     "19:00"
+    ],
+    "6": [
+     "10:00",
+     "11:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Fútbol — Principiantes",
+   "profesores": [
+    "Quintana, Hernán"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "1": [
+     "16:00",
+     "17:00"
+    ],
+    "3": [
+     "18:00",
+     "19:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Fútbol — Avanzadas",
+   "profesores": [
+    "Quintana, Hernán",
+    "Acosta, Martín"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "2": [
+     "19:00",
+     "20:00"
+    ]
+   }
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "crear_serie",
+   "grupo": "Fútbol — Avanzadas",
+   "profesores": [
+    "Quintana, Hernán"
+   ],
+   "desde": "2026-11-02",
+   "hasta": "2026-11-30",
+   "dias": {
+    "4": [
+     "19:00",
+     "20:00"
+    ],
+    "6": [
+     "11:00",
+     "12:00"
+    ]
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Acosta, Victoria",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Herrera, Alma",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Medina, Emilia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Cabrera, Constanza",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Martinez, Delfina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Castro, Bruno",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Diaz, Thiago",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Fernandez, Benjamin",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3500",
+   "obs": "Artículos de limpieza"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar",
+    "Silva, Abril"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Rios, Facundo",
+    "Torres, Benicio"
+   ]
+  },
+  {
+   "como": "Verónica Salinas",
+   "accion": "lista",
+   "grupo": "Patín — Intermedias",
+   "hora": "17:00",
+   "ausentes": [
+    "Navarro, Alma"
+   ]
+  }
+ ]
+}

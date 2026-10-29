@@ -8,6 +8,12 @@ La clase extra del 17/10 no se pudo crear: el navegador exige fecha desde 24/10 
 
 El resto de este documento conserva el **corte de Claude después del Día 4**. Su recuento de 35 casos y el dashboard del 23/10 aún no incorporan las dos jornadas nuevas; no se inventa aquí una nueva cobertura por caso.
 
+## Guion de noviembre, días 24 a 33 — Claude CAB, 29/10/2026
+
+Dos tandas: [días 24 a 28](GUION-DIAS-24-28.md) y [días 29 a 33](GUION-DIAS-29-33.md). Simuladas enteras sobre
+una copia de `wingstest`; los esperados son lo que dio Wings en esa corrida. Preparan la Revisión del 1/12
+(Pilar Ramos, Alma Navarro, Facundo Ríos y Valentina Suárez) y el alta tardía queda para la tanda 3.
+
 ## Revisión de Claude del día 23 (1/11, generación de noviembre y liquidaciones) — 27/10/2026
 
 Revisado contra el [guion](GUION-DIA-23.md), el [informe de Codex](DIA-23.md) (commits `e4fc0270` a `e8d31257`),

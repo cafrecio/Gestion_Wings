@@ -1,0 +1,143 @@
+{
+ "dia": "2026-11-10",
+ "descripcion": "Día 32, martes 10/11, último día del plazo: Pablo abre, doce cobros de noviembre y las listas de la tarde.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Castro, Martina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gomez, Sofia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Olivia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Paulina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Lopez, Martina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Lopez, Valentina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Perez, Mia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Castro, Melina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Pereyra, Zoe",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Diaz, Catalina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Rossi, Olivia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Quiroga, Tomás",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": []
+  },
+  {
+   "como": "Martín Acosta",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": [
+    "Ortiz, Tobias"
+   ]
+  }
+ ]
+}

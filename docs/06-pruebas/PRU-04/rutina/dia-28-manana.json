@@ -1,0 +1,100 @@
+{
+ "dia": "2026-11-06",
+ "descripcion": "Día 28, viernes 6/11: Rocío abre, ocho cobros de noviembre, insumos, y la lista de Intermedias: es la última clase de Verónica. Esta noche Rocío no cierra la caja (se olvida): no hay rutina de la noche.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Flores, Juana",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Perez, Carla",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Romero, Florencia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Sosa, Rocio",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Gimenez, Helena",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Rodriguez, Mia",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Navarro, Malena",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Cabrera, Renata",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "6500",
+   "obs": "Conos y silbatos"
+  },
+  {
+   "como": "Verónica Salinas",
+   "accion": "lista",
+   "grupo": "Patín — Intermedias",
+   "hora": "16:00",
+   "ausentes": [
+    "Navarro, Alma",
+    "Vega, Candela"
+   ]
+  }
+ ]
+}

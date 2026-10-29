@@ -1,0 +1,12 @@
+{
+ "dia": "2026-11-09",
+ "descripcion": "Día 31, noche: Sandra cierra contando $122.500 (el esperado es $124.500: pagó una resma de $2.000 con el cajón y no la anotó). Deja $10.000. El dueño NO valida: la rechaza por pantalla (31.5).",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "cerrar_caja",
+   "contado": "122500",
+   "cambio": "10000"
+  }
+ ]
+}

@@ -16,6 +16,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Gemini (`120ae713`): los siete puntos corregidos, comprobados contra el código; verificador en 0; página de la profesora correcta. Dos detalles menores para la primera tanda (Cobranza no abre el buscador; la fecha del turno pide confirmar fecha vieja). El revisor independiente de Gemini dio 0 hallazgos y se le pasaron esos dos. [Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA1-CLAUDE.md). Falta el OK de Carlos para la etapa 2.
 - Carlos lo aprobó y pidió dividir lo que falta en tres etapas con freno en cada una. Prompt: [PROMPT-GEMINI-T12-T13-ETAPAS.md](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPAS.md). La lista de 54 tenía funciones que Wings no tiene (exportar a Excel, color de deporte, cupos, adelantos, sedes): el paso 0 la revisa contra el código.
 
+## 2026-10-29 — Claude CAB — Guion de noviembre (días 24 a 33), simulado entero
+
+- Carlos: 7 días en dos tandas, simulando todos; script para lo rutinario salvo lo que cambió; pensar a futuro. Quedaron 10 días (2 al 11/11) para cruzar el vencimiento: [tanda 1](../06-pruebas/PRU-04/GUION-DIAS-24-28.md), [tanda 2](../06-pruebas/PRU-04/GUION-DIAS-29-33.md), [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-24-28.md).
+- Método nuevo: copia de wingstest en una base descartable local; cada día (rutina y pantalla, con lo mismo que envía la pantalla) corrido en orden con su fecha. Días 24 y 25 cuadrados además a mano. Errores míos hallados así y corregidos antes de entregar: serie de Martín en días que no da, DNI de Iván repetido con Lara Quiroga, relato de la caja rechazada.
+- No había ninguna clase desde el 1/11: la rutina del 24 carga el calendario. `rutina.php` suma `crear_serie` y `motivos` (B3). Confirmaciones nativas: interruptor `PRUEBA_SIN_CONFIRMACIONES` desplegado en el sitio (`899a8079`), completa 1274/6 omitidas.
+- Hallazgos para mostrar: avisos en inglés al corregir una caja rechazada y al editar un movimiento sin fecha; «Quedan 1 meses»; un pago de liquidación nunca se rechaza por saldo con los medios actuales.
+- Pendiente de Carlos para la tanda 2: prender o no el recargo por mora.
+
 ## 2026-10-28 — Claude CAB — Catálogo al día con lo desplegado; el repo manda
 
 - Carlos: los casos no reflejaban lo subido. Catálogo de 332 a 334 (CBZ-023 deuda de inactivos, CBZ-024 deuda perdida) y 37 casos con líneas nuevas o corregidas por T25, T45, T46, T51, T54, T62, T65, T70/T71, T84 a T93 y B3 (incluye los textos de Codex ALU-017.b, ALU-025.b, REP-006, PRO-004.c). 20 ya probados cambiaron: se repiten.

@@ -1,0 +1,107 @@
+{
+ "dia": "2026-11-05",
+ "descripcion": "Día 27, jueves 5/11: Sandra abre, ocho cobros de noviembre y las listas de la tarde. Valentina Suárez falta (su único presente del mes es el martes 3, que hoy se cancela).",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Morales, Agustina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Micaela",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Pereyra, Bianca",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Ledesma, Paula",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Ruiz, Sol",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Fernandez, Emma",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Navarro, Julian",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Tobias",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Iglesias, Helena"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": []
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "dia": "2026-11-05",
+ "descripcion": "Día 27, noche: lista de Adultos, Sandra cierra con lo esperado y el dueño valida.",
+ "pasos": [
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Adultos",
+   "hora": "20:30",
+   "ausentes": []
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cerrar_caja"
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Sandra Vidal"
+  }
+ ]
+}

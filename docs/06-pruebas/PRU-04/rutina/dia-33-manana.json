@@ -1,0 +1,17 @@
+{
+ "dia": "2026-11-11",
+ "descripcion": "Día 33, miércoles 11/11, primer día vencido. Se corre DESPUÉS de 33.1 (Sandra corrigió la caja rechazada del lunes). Sandra abre; nueve cobros de noviembre de alumnos que ya figuran Morosos, entre ellos los $23.000 que le faltaban a Berenice Sánchez; la lista de Principiantes con morosas presentes, que entran sin motivo. La lista de Fútbol Principiantes de las 18 NO va acá: la toma Hernán por pantalla (33.4).",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Flores, Zoe", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Silva, Abril", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Silva, Paulina", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Gimenez, Delfina", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Morales, Carla", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Iglesias, Helena", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Ramos, Lucia", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Rossi, Berenice", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Sanchez, Berenice", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Ramos, Pilar", "Quiroga, Lara"]}
+ ]
+}

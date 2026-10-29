@@ -1,0 +1,117 @@
+{
+ "dia": "2026-11-09",
+ "descripcion": "Día 31, lunes 9/11. Se corre DESPUÉS de 31.1 (Sandra abrió y rectificó por pantalla): ocho cobros, limpieza y las listas del lunes. Santino Romero es Deudor (debe octubre): su presente lleva motivo (B3). Iván Paredes tiene su segunda clase: todavía no pide motivo. Intermedias ya la da Lucía.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Flores, Renata",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Molina, Milagros",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Rios, Lola",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Romero, Catalina",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Suarez, Juana",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Torres, Luciana",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Martinez, Bautista",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Medina, Lautaro",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3500",
+   "obs": "Artículos de limpieza"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Rios, Facundo",
+    "Castro, Mateo"
+   ],
+   "motivos": {
+    "Romero, Santino": "Vuelve a entrenar; octubre lo paga a fin de mes, lo autorizó el dueño"
+   }
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Intermedias",
+   "hora": "17:00",
+   "ausentes": [
+    "Navarro, Alma"
+   ]
+  }
+ ]
+}

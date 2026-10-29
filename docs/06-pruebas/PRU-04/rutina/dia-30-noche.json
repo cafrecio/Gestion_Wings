@@ -1,0 +1,8 @@
+{
+ "dia": "2026-11-08",
+ "descripcion": "Día 30, domingo: después de mirar Reportes (30.1), el dueño valida las dos cajas del fin de semana: la de Rocío del viernes (la cerró él, con $500 de faltante) y la de Pablo del sábado.",
+ "pasos": [
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Rocío Paz"},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Pablo Ledesma"}
+ ]
+}

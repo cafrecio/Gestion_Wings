@@ -1,0 +1,85 @@
+{
+ "dia": "2026-11-07",
+ "descripcion": "Día 29, sábado 7/11. Se corre DESPUÉS de 29.1 a 29.3 (Pablo ya abrió por pantalla): seis cobros de noviembre; Federadas 10–11 sin ninguna alumna (lluvia: la lista se toma con todas ausentes) y Fútbol Avanzadas 11–12.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gimenez, Tomas",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Molina, Franco",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Morales, Lorenzo",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Rodriguez, Mateo",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ramos, Dante",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Efectivo"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ferrari, Bautista",
+   "periodos": [
+    "2026-11"
+   ],
+   "medio": "Mercado Pago"
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "10:00",
+   "ausentes": [
+    "Diaz, Martina",
+    "Diaz, Catalina",
+    "Iglesias, Helena",
+    "Nuñez, Guadalupe",
+    "Ramos, Lucia",
+    "Rossi, Berenice",
+    "Rossi, Olivia",
+    "Vega, Florencia"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "11:00",
+   "ausentes": [
+    "Silva, Simon"
+   ]
+  }
+ ]
+}

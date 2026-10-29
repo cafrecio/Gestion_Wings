@@ -47,7 +47,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 28/10: sitio de prueba desplegado en b271e8dd con T87, T88, B3, T54, T65, T25, T89, T62, T70/T71, T51, T45 y T46 (Ayuda T12/T13 a medias). Sigue la prueba corta de 3-4 dias sobre lo cambiado; el guion se conversa con Carlos antes de escribirlo. Falta probar Revision: el guion de noviembre deja alumnos sin venir para la generacion del 1/12. Cinco liquidaciones abiertas por orden de Carlos. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: guion de noviembre armado y simulado entero en una copia de wingstest: tanda 1 dias 24-28 (GUION-DIAS-24-28.md, prompt PROMPT-CODEX-DIAS-24-28.md) y tanda 2 dias 29-33 (se corre despues de revisar la 1). Cubre los 20 casos a repetir y los nuevos; deja preparada la Revision del 1/12 (Pilar Ramos, Alma Navarro, Facundo Rios, Valentina Suarez). Pendiente de Carlos para la tanda 2: prender o no el recargo por mora. |
 
 ## Codex
 

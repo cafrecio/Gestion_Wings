@@ -1,0 +1,15 @@
+{
+ "dia": "2026-11-04",
+ "descripcion": "Día 26, noche: Rocío cierra con lo esperado y el dueño valida.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "cerrar_caja"
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Rocío Paz"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "dia": "2026-11-03",
+ "descripcion": "Día 25, noche: lista de Adultos de Mariela (20:30), Pablo cierra con lo esperado y el dueño valida.",
+ "pasos": [
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Adultos",
+   "hora": "20:30",
+   "ausentes": []
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cerrar_caja"
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Pablo Ledesma"
+  }
+ ]
+}
