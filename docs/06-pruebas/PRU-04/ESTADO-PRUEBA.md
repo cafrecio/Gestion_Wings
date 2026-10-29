@@ -50,6 +50,22 @@ una retrata MF12) y velocidad por debajo de 277 ms ([informe](prueba-tecnica/INF
 **Tanda 2:** el estado del sitio es exactamente el simulado, así que el guion de los días 29 a 33 sigue
 valiendo tal cual, con el 32.2 corregido. Falta la decisión del recargo por mora.
 
+**Respuestas de Carlos (29/10, 06:06):**
+- **Recargo por mora: sí.** El dueño lo pone en 10% el día 32 por pantalla; el 11/11 a las 06:15 se aplican 32
+  recargos por $115.500. Tanda 2 vuelta a simular **sobre la base que dejó Codex** (no sobre mi copia): días 29
+  a 32 iguales; el 33 cambia (cierre: deuda $850.200, ingresos $3.359.300, disponible $5.585.920,75). Pasos
+  nuevos 32.5, 33.7, 33.8 y 33.9; el 33 arranca a las 06:13. [Prompt](PROMPT-CODEX-DIAS-29-33.md).
+- **Resumen del 5/11: llegó una vez** (Telegram, 05:04 hora argentina), con «Excepciones justificadas (últimas
+  24 horas): 2 — Cobro con meses anteriores impagos: 2». CFG-005 cumple. **Pero trae un error:** «Clases sin
+  lista tomada: 1 — la más vieja: Fútbol — Principiantes del 28/10/2026 — hasta que se carguen no se puede
+  pagar al profesor». Esa clase (#60) tiene la lista tomada con los 23 ausentes y Hernán ya cobró octubre. El
+  resumen (`AvisoAdminService::resumenDiario`) cuenta como «sin lista» la clase sin **presentes**; el menú y el
+  Inicio, la clase sin **marcas**. El comentario del código dice que tienen que coincidir. Consecuencia: el
+  resumen lo va a repetir todos los días y nunca va a quedar en silencio. **MF13**, sin plata en juego.
+- **Motivo de «no se puede eliminar»: sí.** Hecho por Claude el 29/10 (fichas de alumno y de clase, solo el
+  dueño); se mira en 32.2.
+- **Nueva liquidación (MF12):** pidió una propuesta (en el chat).
+
 ## Revisión de Claude del día 23 (1/11, generación de noviembre y liquidaciones) — 27/10/2026
 
 Revisado contra el [guion](GUION-DIA-23.md), el [informe de Codex](DIA-23.md) (commits `e4fc0270` a `e8d31257`),

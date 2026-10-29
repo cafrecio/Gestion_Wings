@@ -10,9 +10,10 @@ de este guion en test.gestionar-te.com.ar (base `wingstest`, datos ficticios), i
 ajena por el dueño, el rechazo de una caja, la pérdida de una deuda, la baja de una profesora y la
 reasignación de sus clases. No hace falta volver a preguntar.
 
-**Decisión pendiente de Carlos (no la toma Codex):** prender o no el **recargo por mora**. Hoy está en 0%.
-Esta tanda está simulada **con el recargo apagado**. Si Carlos lo prende, Claude agrega el paso al día 32 y
-rehace la simulación del 33 (los cobros de morosos llevan recargo) antes de pasárselo a Codex.
+**Recargo por mora: Carlos lo prende (29/10).** El dueño pone **10%** por pantalla el día 32 (32.5) y el
+11/11 a las 06:15 Wings lo aplica solo a las cuotas de noviembre impagas. La tanda se volvió a simular el 29/10
+**sobre la base que dejó Codex al terminar la tanda 1** (no sobre la copia de Claude), con el recargo prendido
+y con el motivo de «no se puede eliminar» que pidió Carlos (32.2). Los días 29 a 32 dieron lo mismo que antes.
 
 ## Punto de partida (cierre del día 28, viernes 6/11)
 
@@ -98,9 +99,10 @@ Lucía.
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
 | 32.1 | Dueño | Cobranza → Deuda de alumnos inactivos: **da por perdida** la de **Julieta ($77.000)**. Después mira su ficha. | El renglón sale y el total del apartado baja a $33.000 sin recargar. La ficha muestra **$77.000 perdidos**, quién y cuándo, aparte de pagos y condonaciones. No crea pago, recibo, ingreso ni egreso (CBZ-024 a, b, c). |
-| 32.2 | Dueño | Abre la ficha de **Julieta** y busca cómo eliminarla. | **No hay botón Eliminar**: Wings no lo muestra cuando el alumno tiene historia (cobros, deuda perdida). No forzar nada: el rechazo «No se puede eliminar el alumno: Tiene deuda dada por perdida registrada. Puede darlo de baja…» lo comprueba Claude en la prueba técnica (CBZ-024 g, ALU-024 b). Corregido por Claude el 29/10, después de la tanda 1 (27.4). |
+| 32.2 | Dueño | Abre la ficha de **Julieta** y busca cómo eliminarla. | **No hay botón Eliminar**; en su lugar, abajo a la derecha: «No se puede eliminar: Tiene deuda dada por perdida registrada.» (sin ofrecer la baja: ya está inactiva). En la ficha de **Victoria Acosta**: «No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.» Sandra, en esas mismas fichas, no ve ni el botón ni el texto (CBZ-024 g, ALU-024 b, e). No forzar nada. Cambiado por pedido de Carlos el 29/10, después de la tanda 1 (27.4). |
 | 32.3 | Dueño | Se suspende el torneo: **reactiva** Fútbol Avanzadas del **sábado 14/11, 11–12**. Ve el choque, **elimina el amistoso** de Principiantes de esa hora y vuelve a reactivar. | Primero: «No se puede reactivar: la profesora Hernán Quintana ya tiene asignada la clase 'Fútbol — Principiantes' que se solapa en fecha 2026-11-14 entre 11:00 y 12:00.» Sin el amistoso, «Clase reactivada.»; el motivo «Torneo: el grupo viaja» queda guardado (CLA-015 a, b, c; CLA-021 a). |
 | 32.4 | Pablo | La mamá de **Iván** paga **solo la inscripción**, $5.000 en efectivo, sin marcar la cuota. | Cobra la inscripción; la cuota de noviembre sigue pendiente (COB-031). Iván sigue siendo «nuevo» para la lista: una inscripción no es el primer pago (ASI-013 d). |
+| 32.5 | Dueño | Configuración → **Recargo por mora: porcentaje**. Primero escribe **150** y guarda; después **10** y guarda. El día queda en 10. | Con 150: «Ingresá un porcentaje de 0 a 100, con coma o punto y hasta dos decimales.» y conserva 0. Con 10: guardado sin recargar la página. **Hoy no cambia nada**: el recargo corre desde el día 11 (CFG-006 b, CFG-002, PEN-001). Cobranza sigue en $1.163.000 al cerrar el día. |
 
 **Noche** (`dia-32-noche.json`): Adultos 20:30; Pablo cierra con el esperado, **$258.000**, y el dueño valida.
 
@@ -108,25 +110,30 @@ Lucía.
 
 ## Día 33: miércoles 11/11, primer día vencido
 
-Reloj **09:00**. **Antes de la rutina:**
+**Reloj a las 06:13, no a las 09:00**, y esperar a que pasen las **06:15**: a esa hora corre solo el
+**recargo por mora**. Después, reloj a las **09:00** y se sigue. (Si se fija directo a las 09:00, el recargo de
+hoy no corre.) **Antes de la rutina:**
 
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
-| 33.1 | Dueño o Sandra | Cobranza al empezar el día. | Los 32 que estaban En plazo pasan solos a **Moroso**; En plazo 0; el total no cambia ($1.163.000) (CBZ-002). El Inicio de Sandra muestra los vencidos (CBZ-022). |
+| 33.1 | Dueño o Sandra | Cobranza al empezar el día. Abre la ficha de **Liam Pereyra**. | Los 32 que estaban En plazo pasan solos a **Moroso**; En plazo 0 (CBZ-002). **El total sube $115.500 por los recargos: $1.278.500.** Cada moroso tiene un recargo del 10% de su cuota (Liam: $35.000 → $3.500), en renglón aparte; Santino no (debe octubre, un mes cerrado), Candela tampoco (inactiva). Berenice lleva $4.300: el 10% se calcula sobre la cuota entera aunque ya pagó una parte (PEN-001 a). El Inicio de Sandra muestra los vencidos (CBZ-022). |
 | 33.2 | Sandra | Corrige su **caja rechazada del lunes**: agrega la resma (Librería, $2.000, efectivo, fecha 09/11). Prueba antes **sin observación** y con fecha **12/11**. | Sin observación y con fecha futura no guarda. **Esperado según el catálogo:** avisos en castellano. **En la simulación el servidor respondió en inglés** («The observaciones field is required.», «The fecha field must be a date before or equal to today.»): anotar lo que muestre la pantalla. Con todo bien, se guarda (MOV-010 a, b, d; SIS-006). |
 | 33.3 | Sandra | Vuelve a cerrar esa caja: primero con contado **$124.500**, después con el mismo de antes, **$122.500**. | Con otro contado: «La corrección no puede cambiar el efectivo que ya se contó y entregó.» Con el mismo: esperado $122.500, **diferencia $0**; vuelve a Cerrada, pendiente de validar (CAJ-031, CAJ-030). |
 
-**Rutina** (`dia-33-manana.json`, después de 33.3): Sandra abre; nueve cobros de noviembre de alumnos que ya son Morosos, incluidos los **$23.000** que le faltaban a Berenice; lista de Principiantes con morosas presentes (entran sin motivo).
+**Rutina** (`dia-33-manana.json`, después de 33.3): Sandra abre; nueve cobros de noviembre de alumnos que ya son Morosos, **cada uno con su recargo** (Zoe $33.000, Delfina $38.500, Helena $55.000…), incluidos los **$23.000** que le faltaban a Berenice **más su recargo, $27.300**; lista de Principiantes con morosas presentes (entran sin motivo). Cobranza queda en **$910.200**.
 
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
 | 33.4 | Hernán | Toma **por pantalla** la lista de **Fútbol Principiantes, 18–19**: todos presentes menos Facundo Ríos y Santiago Ramos. Primero guarda sin escribir motivos; después con los motivos de **Santino** («Octubre lo paga el viernes; lo habló la mamá con Sandra») e **Iván** («Pagó la inscripción; la cuota la trae el viernes»). | La lista muestra la condición de cada uno sin importes. Sin motivos no guarda nada («Tiene deuda vencida. Indicá el motivo para dejarlo entrar.»). Piden motivo **solo Santino** (Deudor) e **Iván** (nuevo, tercer presente); los **13 morosos** entran sin motivo. Con los dos motivos: 22 presentes de 24 (ASI-013 a, b, c, d, h). |
 | 33.5 | Dueño | Valida la caja corregida del lunes. Mira su Inicio. | Validada. Excepciones: dos de asistencia de deudor (Santino, 9 y 11/11), una de alumno nuevo (Iván), dos de deuda anterior y un parcial (REP-001 h). |
 | 33.6 | Dueño | Reportes → Alumnos, noviembre. | Activos **106**; altas **3**; pases a Inactivo **2**; activos sin ningún presente en el mes: **Alma Navarro, Pilar Ramos, Facundo Ríos y Valentina Suárez** (REP-006). |
+| 33.7 | Sandra | Por pantalla, cobra noviembre a **Florencia Vega** (Federadas) por Mercado Pago. Después abre el recibo. | Cobrar muestra noviembre **$50.000** y, aparte, «Recargo por mora — Noviembre 2026» **$5.000**; total **$55.000**. «Pago registrado para Vega, Florencia.» El recibo lista los dos renglones (PEN-001 a, COB-034). |
+| 33.8 | Dueño | En la ficha de **Guadalupe Núñez** perdona su recargo ($5.000): primero con el motivo «Avisó»; después con «Avisó el lunes que pagaba el miércoles; se le respeta». | Con «Avisó»: «El motivo debe tener al menos 10 caracteres.» y no cambia nada. Con el motivo largo: «Recargo condonado.»; en «Recargos por mora» de la ficha: «Condonado: $5.000» (anotar si muestra quién y por qué); Guadalupe sigue debiendo la cuota de $50.000, sin recargo. Sandra no ve Condonar en esa ficha. |
+| 33.9 | Dueño | Reportes → Finanzas, noviembre. Mira la deuda y los ingresos. | En la deuda, cada recargo pendiente es un renglón aparte, «Recargo por mora — Noviembre 2026». Lo cobrado de recargos hoy suma **$40.300** (diez cobros); anotar cómo lo muestra Reportes en los ingresos, separado de las cuotas o no (PEN-001 c). |
 
-**Noche** (`dia-33-noche.json`): Sandra cierra con el esperado, **$178.000**, y el dueño valida.
+**Noche** (`dia-33-noche.json`): Sandra cierra con el esperado, **$196.800**, y el dueño valida. (Sin recargos habría sido $178.000: la diferencia, $18.800, son los recargos cobrados en efectivo.)
 
-**Cierre del día 33:** deuda **$830.000**; 106 activos: 82 Al día, **23 Morosos**, 1 Deudor. Ingresos **$3.269.000**; egresos **$2.678.280**; resultado **$590.720**; disponible **$5.495.620,75**.
+**Cierre del día 33:** deuda **$850.200**; 106 activos: 83 Al día, **22 Morosos**, 1 Deudor. Ingresos **$3.359.300**; egresos **$2.678.280**; resultado **$681.020**; disponible **$5.585.920,75**. Recargos: 32 aplicados por $115.500; cobrados $40.300; perdonado $5.000.
 
 ## Preparado para lo que viene
 
@@ -139,6 +146,9 @@ Patín por comisión, B3), más:
 - **Fútbol Avanzadas 2 por semana a $52.000**: la generación del 1/12 sale a $52.000 (salvo Joaquín, que ya
   pagó $48.000).
 - **Santino sigue debiendo octubre** e **Iván noviembre**: el 1/12 los dos pasan a Deudor si no pagan.
+- **Recargo prendido (10%)**: 21 recargos de noviembre siguen impagos y el de Guadalupe está perdonado. En
+  diciembre se prueba que un mes cerrado no recibe recargo nuevo y que cobrar noviembre en diciembre lleva su
+  recargo (PEN-001), y el dueño puede reactivar el recargo perdonado.
 - **Candela inactiva con $33.000**: queda para probar «al volver, lo perdido sigue perdido» si se pierde y
   vuelve, o el cobro con No (T25) si paga sin volver.
 - Falta para el 1/12: **un alta entre el 17 y el 30/11 que no venga** (con y sin pago: CBZ-017). Va en la

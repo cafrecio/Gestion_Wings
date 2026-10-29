@@ -49,7 +49,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A corregida: control de Claude y OK de Carlos |
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 (dias 24-28) recorrida por Codex y revisada por Claude: plata al peso, interno 27/27, seguridad 26/26, velocidad < 277 ms; defecto nuevo MF12; 4 erratas del guion. 160/334 casos. Tanda 2 (dias 29-33) lista con 32.2 corregido; antes Carlos decide el recargo por mora y confirma si llego el resumen del 5/11. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 revisada (MF12 nuevo, 4 erratas del guion). Carlos: mora si (10% desde el dia 32), motivo de no eliminar si (hecho por Claude), resumen del 5/11 llego una vez (MF13 por la clase con todos ausentes). Tanda 2 vuelta a simular sobre la base de Codex: PROMPT-CODEX-DIAS-29-33.md |
 
 ## Codex
 
@@ -63,9 +63,9 @@ Nada en este momento.
 
 T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
-## Mejoras futuras, no se empiezan ahora (12)
+## Mejoras futuras, no se empiezan ahora (13)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF12, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF12, MF13, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 

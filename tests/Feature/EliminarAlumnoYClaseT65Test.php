@@ -688,6 +688,16 @@ class EliminarAlumnoYClaseT65Test extends TestCase
         $resAlumnoConPago = $this->actingAs($this->admin)->get(route('web.alumnos.show', $alumnoLimpio->id));
         $resAlumnoConPago->assertOk();
         $resAlumnoConPago->assertDontSee('id="btn-abrir-eliminar-alumno"', false);
+        // En su lugar ve por qué (Carlos, 29/10: el botón desaparecía sin explicación).
+        $resAlumnoConPago->assertSee('No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.');
+        $this->actingAs($this->operativo)->get(route('web.alumnos.show', $alumnoLimpio->id))->assertDontSee('id="motivo-no-eliminable"', false);
+        $resAlumnoAdmin->assertDontSee('id="motivo-no-eliminable"', false);
+        $resClaseAdmin->assertDontSee('id="motivo-no-eliminable"', false);
+        // Inactivo: el motivo, sin ofrecer la baja que ya tiene.
+        $alumnoLimpio->update(['activo' => false]);
+        $this->actingAs($this->admin)->get(route('web.alumnos.show', $alumnoLimpio->id))->assertOk()
+            ->assertSee('No se puede eliminar: Tiene pagos registrados.')->assertDontSee('Puede darlo de baja cambiando su estado a inactivo.');
+        $alumnoLimpio->update(['activo' => true]);
 
         // Si la clase tiene asistencia, Admin ya NO ve el botón Eliminar
         Asistencia::create([
@@ -698,5 +708,7 @@ class EliminarAlumnoYClaseT65Test extends TestCase
         $resClaseConAsistencia = $this->actingAs($this->admin)->get(route('web.clases.show', $claseLimpia->id));
         $resClaseConAsistencia->assertOk();
         $resClaseConAsistencia->assertDontSee('id="btn-abrir-eliminar-clase"', false);
+        $resClaseConAsistencia->assertSee('No se puede eliminar: Tiene asistencias registradas: debe cancelarse con motivo.');
+        $this->actingAs($this->operativo)->get(route('web.clases.show', $claseLimpia->id))->assertDontSee('id="motivo-no-eliminable"', false);
     }
 }

@@ -6,9 +6,20 @@ Codex la corrió entera (`52c9f368`). Plata al peso los cinco días; controles i
 26/26, velocidad < 277 ms. Un defecto nuevo de Wings, **MF12**: «Nueva liquidación» sigue contando como
 pendientes las clases de un mes ya liquidado por comisión (no hay plata en juego: generarlo otra vez se
 rechaza). Cuatro esperados del guion estaban mal (erratas en el guion); el 32.2 de la tanda 2 se corrigió
-por lo mismo. 160 de 334 casos probados. Sitio en el 6/11 con la caja de Rocío abierta a propósito.
+por lo mismo. 161 de 334 casos probados (con el resumen confirmado por Carlos). Sitio en el 6/11 con la caja de Rocío abierta a propósito.
 [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [técnica](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
-Antes de la tanda 2: Carlos decide el recargo por mora y confirma si llegó el resumen del 5/11.
+Carlos (29/10): **recargo por mora sí** (10% desde el día 32; tanda 2 vuelta a simular sobre la base que dejó
+Codex); el resumen del 5/11 llegó una vez, pero cuenta como «sin lista» una clase con todos ausentes (**MF13**);
+**el dueño ve por qué no se puede eliminar** un alumno o una clase (hecho por Claude, abajo). Tanda 2 lista:
+[prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-29-33.md).
+
+## Motivo de «no se puede eliminar» en las fichas — Claude CAB, 29/10/2026
+
+Pedido de Carlos. Donde el dueño veía desaparecer el botón Eliminar (T65), ahora ve el motivo que ya calculaba
+Wings: «No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.» (sin
+la segunda frase si ya está inactivo). Fichas de alumno y de clase; la operativa y la profesora no lo ven. Solo
+vista; la regla no cambió. Cubierto en `EliminarAlumnoYClaseT65Test` (sin pruebas nuevas). No verificado por
+otro agente: lo recorre Codex en 32.2 de la tanda 2.
 
 ## Prueba sin confirmaciones nativas en el sitio de prueba — Claude CAB, 28/10/2026
 
