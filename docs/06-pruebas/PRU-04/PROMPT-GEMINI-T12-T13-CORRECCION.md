@@ -66,8 +66,11 @@ En `resources/manual/admin/corregir-movimiento-caja-validada.md`:
 ## 3. Cómo seguir
 
 1. **Primero las dos muestras y la página de asistencia** (`profesor/tomar-asistencia.md`) con el método
-   completo: corrección, fichas, verificador en 0 y revisor sin graves ni medios.
-2. **Después, la etapa 2** del prompt original (el resto de las páginas, el **?** en cada pantalla y el
+   completo: corrección, fichas, verificador en 0 y revisor sin graves ni medios. **Después, frenar.**
+   T12 y T13 `a_verificar, tiene=Claude, verifica=Claude`, paso «Corrección etapa 1: control de Claude y
+   OK de Carlos». Firma en `LOG-GEMINI.md`, commit y no seguir: Claude controla y Carlos aprueba. Sin
+   ese OK, no se avanza.
+2. **Con el OK de Carlos, la etapa 2** del prompt original (el resto de las páginas, el **?** en cada pantalla y el
    buscador), en tandas de hasta 10 páginas. Cada tanda cierra con el verificador en 0 y el informe del
    revisor. Firmar en `LOG-GEMINI.md` al cerrar cada tanda.
 3. Los huecos de Wings que aparezcan (como el punto 7) no se arreglan ni se rodean: se listan en
