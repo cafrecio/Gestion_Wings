@@ -35,6 +35,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
+| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Gemini, verifica Claude) | Correccion etapa 1 controlada por Claude 29/10 (VERIFICACION-T12-T13-ETAPA1-CLAUDE.md): bien, dos detalles menores para la primera tanda. Falta el OK de Carlos para la etapa 2. |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Gemini, verifica Claude) | Correccion etapa 1 controlada por Claude 29/10 (VERIFICACION-T12-T13-ETAPA1-CLAUDE.md): bien, dos detalles menores para la primera tanda. Falta el OK de Carlos para la etapa 2. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -47,8 +49,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Corrección etapa 1: control de Claude y OK de Carlos |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Corrección etapa 1: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 28/10: sitio de prueba desplegado en b271e8dd con T87, T88, B3, T54, T65, T25, T89, T62, T70/T71, T51, T45 y T46 (Ayuda T12/T13 a medias). Sigue la prueba corta de 3-4 dias sobre lo cambiado; el guion se conversa con Carlos antes de escribirlo. Falta probar Revision: el guion de noviembre deja alumnos sin venir para la generacion del 1/12. Cinco liquidaciones abiertas por orden de Carlos. |
 
 ## Codex
