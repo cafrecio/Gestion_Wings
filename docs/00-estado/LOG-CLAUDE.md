@@ -11,6 +11,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-29 — Claude CAB — T12/T13 etapa A, segunda vuelta de Gemini controlada
+
+- Gemini (`a28a84a0`): las cinco correcciones bien, con los textos del código; verificador en 0 (corrido por mí). [Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-TERCERA-CLAUDE.md).
+- Menor: la tabla de rechazos marca «Sí» donde la página no lo dice (tope de adelanto «6 meses», el código dice 12; fecha de ingreso; nota de 5 caracteres) y una frase sin fuente en Cobrar.
+- Recomiendo OK de la etapa A con esos dos arreglos al empezar la B. T12/T13 siguen `a_verificar` hasta que decida Carlos. Gemini contestó por Carlos lo de MF12/MF13: sigue pendiente.
+
 ## 2026-10-29 — Claude CAB — T12/T13 etapa A, segunda vuelta: devuelta por tres páginas
 
 - Gemini (`d3973e2a`): los tres puntos devueltos, bien; verificador en 0 y sus 18 pruebas en verde (corridas por mí). [Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-SEGUNDA-CLAUDE.md).

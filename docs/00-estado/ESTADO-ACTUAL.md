@@ -1,5 +1,12 @@
 # Wings — Estado actual
 
+## T12/T13 — Etapa A, segunda vuelta (`a28a84a0`): controlada, espera el OK de Carlos — Claude CAB, 29/10/2026
+
+Lo devuelto quedó bien y con los textos de Wings. Quedan dos cosas menores: la tabla nueva de rechazos marca «Sí»
+donde la página no lo dice (el tope de adelanto figura como 6 meses; el código dice 12) y una frase sin fuente en
+Cobrar. Recomendación: OK a la etapa A y que se corrijan al empezar la B.
+[Control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-A-TERCERA-CLAUDE.md).
+
 ## T12/T13 — Etapa A corregida (`d3973e2a`) devuelta otra vez — Claude CAB, 29/10/2026
 
 Lo devuelto quedó bien. Vuelven tres páginas que no cuentan avisos diarios (gasto mayor que el cajón, motivo
