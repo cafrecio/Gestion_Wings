@@ -10,6 +10,41 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-30 — LOG GEM CAB — T12 y T13: Etapa B segunda vuelta (ajuste de liquidación a comisión abierta o cerrada, los 4 rechazos de primera-carga-deshacer, eliminación total de backticks, 16 fichas con if completo y caminos prohibidos probados, revisión independiente en 0)
+
+- **Objetivo:** Subsanar los hallazgos de la devolución de Claude (`VERIFICACION-T12-T13-ETAPA-B-CLAUDE.md`) y Carlos sobre la Etapa B: reescribir `recalcular-ajustar-liquidacion.md` leyendo el código completo de liquidaciones a comisión, documentar los 4 rechazos de `primera-carga-deshacer.md`, eliminar todas las comillas de código (backticks) del manual, quitar menciones comerciales a "Banco Galicia", retirar MF12 de huecos y completar las 16 fichas de fuentes con la columna «Condición en el código (if)» y «Qué pasó al ejecutar el camino prohibido en el sistema».
+- **Acciones y resultados concretos:**
+  1. **Ajuste de liquidación (`recalcular-ajustar-liquidacion.md`):**
+     - Reescrita la página y su ficha conforme a `Liquidacion.php:180-225`, `Liquidacion.php:110-126` y `liquidaciones/show.blade.php:236-262`.
+     - Se distingue con claridad que el recálculo aplica a liquidaciones abiertas (horas o clases), mientras que el ajuste manual de monto final aplica exclusivamente a liquidaciones a comisión, pudiendo ejecutarse tanto en estado **Abierta** como en estado **Cerrada** mientras no esté pagada (gracias a la excepción `$esAjusteFinal` en el modelo).
+     - Se detalla el panel desplegable **Editar monto final**, los campos **Monto ajustado** y **Motivo del ajuste** (5 a 255 caracteres) y el botón **Guardar**. Se explica la cancelación para liquidaciones por hora cerradas y se elimina cualquier referencia a anticipos o adelantos.
+  2. **Reversión de carga masiva (`primera-carga-deshacer.md`):**
+     - Se documentaron exhaustivamente los 4 motivos de rechazo y sus mensajes literales (`PrimeraCargaExcelService.php:326-343`): no hay carga previa, cobro ya registrado («No se puede deshacer: ya hay un cobro registrado. Los alumnos y deudas se conservan.»), actividad posterior de alumnos (toma de lista, revisiones, excesos, movimientos) y nuevas deudas, cargos o planes agregados con posterioridad.
+  3. **Eliminación total de comillas de código (backticks):**
+     - Se retiraron todos los backticks (\`) de las páginas de administración, operativas y profesores, pasando a comillas latinas («») los mensajes de Wings, comillas dobles ("") los ejemplos cargados por el usuario y cursiva los formatos.
+     - `php scripts/manual/verificar-manual.php` &rarr; **37 páginas revisadas, 0 problemas**.
+  4. **Denominación institucional de cuentas:**
+     - Reemplazado "Banco Galicia" por "la cuenta bancaria" o "la cuenta" en `consultar-cashflow.md`, `cerrar-pagar-liquidacion.md`, `registrar-movimiento-cashflow.md` y `transferir-entre-cuentas.md`.
+  5. **Limpieza de huecos en documentación:**
+     - Retirado MF12 del listado de huecos en `IMPLEMENTACION-T12-T13.md` (resuelto previamente por Claude).
+  6. **16 Fichas de fuentes con if completo y pruebas de caminos prohibidos:**
+     - Se actualizaron las 16 fichas de fuentes (`docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/admin-*.md`):
+     - Tabla 1: incorporadas las columnas «Condición en el código (if)» con regla general y excepciones, y «Qué pasó al ejecutar el camino prohibido en el sistema», probando el comportamiento en Wings local.
+     - Tabla 2: aplicada la regla del «Sí», citando las secciones exactas de la página para cada fila afirmativa.
+  7. **Auditoría independiente (`REVISOR-MANUAL.md`):**
+     - Informe emitido en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-30-etapa-b-segunda-vuelta.md`.
+     - Subsanados de inmediato los hallazgos preliminares detectados (reemplazo de Banco Galicia en `consultar-cashflow.md`, citas literales y secciones en `admin-cerrar-pagar-liquidacion.md`, completitud de excepción en `admin-recalcular-ajustar-liquidacion.md`).
+     - Balance final del revisor post-subsanación: **0 Graves, 0 Medias, 0 Menores**.
+  8. **Pruebas y verificaciones técnicas:**
+     - `php scripts/manual/verificar-manual.php` &rarr; **37 páginas revisadas, 0 problemas**.
+     - `tests/Feature/AyudaManualT12T13Test.php` en `wings_testing_gemini` &rarr; **20 passed (111 assertions)**.
+     - `tests/Feature/DocumentacionNoMienteTest.php` y `TableroAlDiaTest.php` &rarr; **7 passed**.
+     - Suite rápida (`php artisan test --exclude-group=lento`) &rarr; **1163 passed, 6 skipped (329s)**.
+     - `php artisan view:cache; php artisan view:clear` &rarr; Compilación limpia sin errores.
+     - `git diff --stat -- resources/views resources/css` &rarr; Vacío (0 modificaciones en diseño).
+- **Tablero:** T12 y T13 actualizados a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Etapa B corregida: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control de Claude y la aprobación de Carlos antes de iniciar la Etapa C.
+
 ## 2026-10-30 — LOG GEM CAB — T12 y T13: Etapa B (Manual del Dueño, páginas 21 a 36, botón `?` en 8 pantallas de administración, 31 capturas con hashes únicos, 15 fichas de fuentes con la regla del «Sí», galería visual y revisión independiente en 0)
 
 - **Objetivo:** Ejecutar y entregar la Etapa B de T12 y T13 (páginas 21 a 36 para el rol Administrador / Dueño) aplicando estrictamente el método de `PROMPT-GEMINI-T12-T13-ETAPAS.md`, incorporar el botón `?` de ayuda contextual en las 8 vistas de administración autorizadas, generar capturas reales con navegador Chrome sin ventana y hashes únicos, confeccionar las 15 fichas de fuentes con la regla del «Sí», generar la galería visual `APROBAR-T12-T13-ETAPA-B.html`, someter la etapa a auditoría independiente y subsanar todos los hallazgos hasta alcanzar 0 abiertas.

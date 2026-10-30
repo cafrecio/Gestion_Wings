@@ -36,7 +36,7 @@ Esta tarea te explica cómo controlar el dinero rendido al final de un turno ope
 ### Paso 2. Opción A: Rechazar con motivo si hay diferencias
 1. Si el dinero contado no coincide o hay cobros mal imputados, tocá el botón **Rechazar**.
 2. Se abrirá el panel **Motivo del rechazo**.
-3. En el campo **Describí el motivo...**, escribí con claridad qué debe revisar la operativa (por ejemplo: `Falta registrar el cobro de cuota de Alumno Gómez en efectivo`).
+3. En el campo **Describí el motivo...**, escribí con claridad qué debe revisar la operativa (por ejemplo: "Falta registrar el cobro de cuota de Alumno Gómez en efectivo").
 4. Tocá **Rechazar**. La caja volverá al estado *Rechazada* para que la operativa entre a su turno, corrija o cancele los movimientos observados y vuelva a cerrarla.
 
 ![Panel para indicar el motivo del rechazo](/ayuda/img/admin/validar-rechazar-caja-paso2.png)

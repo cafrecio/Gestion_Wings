@@ -188,11 +188,6 @@ Durante la verificación minuciosa del manual contra el código real y las prueb
 - **Consecuencia actual:** El dinero queda compensado por Cashflow, pero en el sistema la cuota del alumno permanece indebidamente como saldada (pagada), sin posibilidad de reabrir la deuda.
 - **Tratamiento en el manual:** Se explicó con total transparencia la regla en `resources/manual/admin/corregir-movimiento-caja-validada.md` (apartado «¿Qué hago si el error afectó la deuda de un alumno?»), indicando que hoy Wings no permite reabrir la deuda del alumno tras validar la caja. Queda este reporte para que Carlos defina si a futuro se diseña un mecanismo administrativo especial de desvinculación o reapertura de deuda.
 
-### MF12: Preview no confiable en liquidaciones de profesores por comisión ante cuotas atrasadas
-- **Situación:** En `/liquidaciones/crear`, el selector de períodos muestra un contador previo de clases o cuotas liquidables. Para profesores que liquidan bajo la modalidad por comisión, si existen cuotas atrasadas pendientes de decisión o pagos atrasados diferidos (T42/T43), el importe mostrado en la pantalla de creación no es definitivo ni anticipa con exactitud el total liquidado.
-- **Comportamiento en Wings:** La aplicación requiere generar formalmente la liquidación para auditar renglón por renglón qué cuotas resultan aprobadas, excluidas o postergadas. Asimismo, si el administrador intenta generar nuevamente una liquidación para el mismo docente y mes, Wings bloquea la operación de forma atómica arrojando la excepción literal: `«Ya existe una liquidación para el profesor en MM/AAAA.»` (`LiquidacionService.php:466`).
-- **Tratamiento en el manual:** En `resources/manual/admin/generar-liquidacion-profesor.md` se aclara que para profesores a comisión el importe final y sus comisiones se auditan en el desglose de la liquidación abierta, y se documentó el rechazo por duplicado literal en la sección «Qué hago si…». Queda documentado para análisis de Carlos en la evolución del módulo de liquidaciones.
-
 ---
 
 ## 8. Corrección de la Etapa 1 y método obligatorio aplicado

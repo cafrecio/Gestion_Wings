@@ -31,10 +31,10 @@ Esta tarea te explica cómo confirmar la carga inicial de datos una vez que la p
 ---
 
 ### Paso 2. Confirmar la operación definitiva
-1. Al tocar Cargar, se desplegará el cuadro de confirmación con la advertencia: `Se cargará todo en una sola operación. Confirmá el resumen de arriba. No entra dinero a caja.`
+1. Al tocar Cargar, se desplegará el cuadro de confirmación con la advertencia: **Se cargará todo en una sola operación.** «Confirmá el resumen de arriba. No entra dinero a caja.»
 2. Tocá el botón **Confirmar**.
 3. Wings creará las fichas de todos los alumnos, los asignará a sus deportes y registrará sus cuotas adeudadas en **Cobranza**.
-4. Al finalizar, la pantalla indicará: `Carga terminada. Los alumnos están en Alumnos y las deudas en Cobranza. Quien no debía arranca al día.`
+4. Al finalizar, la pantalla indicará: **Carga terminada.** «Los alumnos están en Alumnos y las deudas en Cobranza. Quien no debía arranca al día.»
 
 ![Confirmar la importación definitiva](/ayuda/img/admin/primera-carga-confirmar-paso2.png)
 

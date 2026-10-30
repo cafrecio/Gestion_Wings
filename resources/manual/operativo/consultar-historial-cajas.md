@@ -53,4 +53,4 @@ Esta tarea te explica cómo consultar los movimientos de turnos de caja anterior
 Indica que el cobro o gasto fue anulado por la persona responsable de la caja durante su turno abierto con su debido motivo. Los movimientos cancelados no suman dinero al balance ni figuran en los totales de ingresos.
 
 ### ¿Puedo anular un cobro viejo desde esta pantalla?
-No. El historial es exclusivamente de consulta y auditoría. Las cancelaciones de movimientos solo pueden realizarse en el turno de caja abierto o rechazado correspondiente (`/caja/{id}/detalle`).
+No. El historial es exclusivamente de consulta y auditoría. Las cancelaciones de movimientos solo pueden realizarse desde el detalle del turno de caja abierto o rechazado correspondiente.

@@ -52,7 +52,7 @@ Esta tarea te explica cómo reasignar a un alumno a otra categoría o nivel dent
 Las asistencias registradas con anterioridad no se pierden ni se modifican: permanecen firmes en las clases pasadas del grupo previo para liquidación del profesor y auditoría. A partir de la fecha de cambio, el alumno aparecerá en la nómina de asistencia de su nuevo grupo.
 
 ### ¿Qué pasa si el alumno ya había pagado la cuota de este mes y ahora agrega más días?
-Si la cuota de este mes ya estaba totalmente saldada (`PAGADA`), Wings no genera una deuda retroactiva forzada: el nuevo arancel mayor comenzará a aplicarse automáticamente en la cuota del 1° del mes siguiente. Si el club acuerda cobrarle la diferencia en el momento, el importe diferencial puede asentarse en la caja diaria.
+Si la cuota de este mes ya estaba totalmente saldada (*Pagada*), Wings no genera una deuda retroactiva forzada: el nuevo arancel mayor comenzará a aplicarse automáticamente en la cuota del 1° del mes siguiente. Si el club acuerda cobrarle la diferencia en el momento, el importe diferencial puede asentarse en la caja diaria.
 
 ### ¿Qué pasa si el alumno pasa a venir menos días en la semana?
 Al reducir la frecuencia semanal (baja de arancel), la cuota ya generada de este mes no se reduce. La cuota más económica entrará en vigencia a partir del período siguiente.

@@ -51,7 +51,7 @@ Si la clase fue cancelada, el botón **Guardar** estará deshabilitado. Si inten
 ### ¿Qué hago si me equivoqué al marcar a un alumno?
 Podés volver a entrar a la clase y modificar las marcas:
 - Si la clase es de hoy, cambiá las casillas que hagan falta y tocá **Guardar**.
-- Si la clase ya pasó y ya tenía lista tomada, Wings te va a mostrar el aviso `Estás corrigiendo una lista ya tomada — indicá el motivo`. Escribí el motivo en el campo y tocá **Guardar**. Si lo dejás vacío, Wings no guarda y te avisa «Indicá el motivo de la corrección.».
+- Si la clase ya pasó y ya tenía lista tomada, Wings te va a mostrar el aviso «Estás corrigiendo una lista ya tomada — indicá el motivo». Escribí el motivo en el campo y tocá **Guardar**. Si lo dejás vacío, Wings no guarda y te avisa «Indicá el motivo de la corrección.».
 - Si la clase ya integra una liquidación cerrada, Wings no permite modificar asistencias y te avisa «No se pueden modificar asistencias: la clase integra una liquidación cerrada.». En ese caso, consultá con el dueño.
 
 ### ¿Qué hago si quiero tomar lista antes del día de la clase?

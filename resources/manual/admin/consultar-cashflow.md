@@ -22,8 +22,8 @@ Esta tarea te explica cómo consultar el libro de caja central de Wings (**Cashf
 1. En el menú del administrador, ingresá a **Cashflow**.
 2. En la parte superior de la pantalla, observá las tarjetas de saldos disponibles:
    - **Efectivo:** Dinero físico acumulado de turnos validados y aportes directos.
-   - **Banco Galicia:** Saldo bancario disponible para transferencias o pagos de sueldos.
-   - Billeteras virtuales y otros medios: Fondos ingresados por transferencias o cobros digitales.
+   - *Cuentas bancarias:* Saldo bancario disponible para transferencias o pagos de sueldos.
+   - *Billeteras virtuales y otros medios:* Fondos ingresados por transferencias o cobros digitales.
 3. El indicador general te muestra el total disponible consolidado de todo el club.
 
 ![Tarjetas de saldo por cuenta en Cashflow](/ayuda/img/admin/consultar-cashflow-paso1.png)

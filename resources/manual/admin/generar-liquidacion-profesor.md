@@ -29,7 +29,7 @@ Esta tarea te explica cómo generar la liquidación mensual de un profesor en Wi
 
 ### Paso 2. Seleccionar docente y período
 1. **Profesor:** Elegí al docente en la lista desplegable. Wings te indicará su modalidad deportiva (Por hora o Por comisión).
-2. **Mes** y **Año:** Seleccioná el período a liquidar (por ejemplo, `Octubre` de `2026`).
+2. **Mes** y **Año:** Seleccioná el período a liquidar (por ejemplo, "Octubre" de "2026").
 3. Clases del día (opcional): Si estás generando la liquidación en el último día del mes y hubo clases hoy, podés tildar la opción para incluirlas.
 4. Tocá el botón **Generar**.
 5. Wings creará la liquidación en estado **Abierta** y te llevará directamente a la pantalla de desglose para auditar cada renglón.
@@ -41,7 +41,7 @@ Esta tarea te explica cómo generar la liquidación mensual de un profesor en Wi
 ## Qué hago si…
 
 ### ¿Qué hago si Wings dice que ya existe una liquidación para ese mes?
-Si aparece el mensaje: `Ya existe una liquidación para el profesor en MM/AAAA.`, Wings no permite crear dos liquidaciones activas para el mismo profesor en el mismo período. Volvé al listado de **Liquidaciones**, abrí la liquidación existente de ese mes y, si necesitás actualizarla por nuevas asistencias cargadas, tocá **Recalcular**.
+Si aparece el mensaje «Ya existe una liquidación para el profesor en» indicando el mes y año seleccionado, Wings no permite crear dos liquidaciones activas para el mismo profesor en el mismo período. Volvé al listado de **Liquidaciones**, abrí la liquidación existente de ese mes y, si necesitás actualizarla por nuevas asistencias cargadas, tocá **Recalcular**.
 
 ### ¿Cómo se calculan las comisiones de profesores?
 Para profesores cuya disciplina liquida por comisión, Wings computa el porcentaje pactado sobre las cuotas de los alumnos de su grupo cobradas en ese período. El importe definitivo se audita en el desglose de la liquidación generada.

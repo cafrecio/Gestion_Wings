@@ -31,11 +31,11 @@ Esta tarea te explica cómo registrar ingresos y egresos que no corresponden al 
 ---
 
 ### Paso 2. Completar los datos y guardar
-1. **Fecha:** Por defecto figura la fecha de hoy. (Si seleccionás una fecha correspondiente a un mes anterior, Wings mostrará la advertencia `Atención: fecha de un mes anterior` y el botón cambiará a **Confirmar** para que ratifiques el registro).
-2. **Medio de pago:** Elegí la cuenta desde la cual sale o a la que entra el dinero (**Efectivo**, **Banco Galicia**, etc.).
+1. **Fecha:** Por defecto figura la fecha de hoy. (Si seleccionás una fecha correspondiente a un mes anterior, Wings mostrará la advertencia «Atención: fecha de un mes anterior» y el botón cambiará a **Confirmar** para que ratifiques el registro).
+2. **Medio de pago:** Elegí la cuenta desde la cual sale o a la que entra el dinero (**Efectivo**, la cuenta bancaria, etc.).
 3. **Rubro** y **Subrubro:** Seleccioná el rubro contable y su subrubro específico.
 4. **Monto:** Escribí el importe exacto en pesos.
-5. **Observaciones:** Describí brevemente el motivo de la operación (por ejemplo: `Compra de pelotas y conos de entrenamiento para patín`).
+5. **Observaciones:** Describí brevemente el motivo de la operación (por ejemplo: "Compra de pelotas y conos de entrenamiento para patín").
 6. Tocá el botón **Registrar** (o **Confirmar** si la fecha era anterior).
 7. Wings guardará el movimiento y actualizará de inmediato el saldo disponible de la cuenta seleccionada.
 
@@ -49,4 +49,4 @@ Esta tarea te explica cómo registrar ingresos y egresos que no corresponden al 
 Desde el listado de **Cashflow**, podés ubicar el movimiento y tocar sobre él para editar su imputación o corregir el monto mientras no corresponda a una caja cerrada o liquidación pagada.
 
 ### ¿Qué hago si la fecha que elijo es de un mes anterior?
-Si aparece el mensaje `Atención: fecha de un mes anterior` y el botón dice `Confirmar`, Wings te advierte que ese movimiento va a modificar el resultado y los saldos históricos de meses pasados. Si es correcto (por ejemplo, una factura que llegó con retraso), tocá **Confirmar** para guardar.
+Si aparece el mensaje «Atención: fecha de un mes anterior» y el botón dice **Confirmar**, Wings te advierte que ese movimiento va a modificar el resultado y los saldos históricos de meses pasados. Si es correcto (por ejemplo, una factura que llegó con retraso), tocá **Confirmar** para guardar.

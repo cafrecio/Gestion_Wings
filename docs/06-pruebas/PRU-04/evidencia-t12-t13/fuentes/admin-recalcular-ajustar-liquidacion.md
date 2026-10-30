@@ -1,26 +1,31 @@
-# Ficha de fuentes: Recalcular o ajustar una liquidación abierta
+# Ficha de fuentes: Recalcular o ajustar una liquidación
 
 - **Página del manual:** `resources/manual/admin/recalcular-ajustar-liquidacion.md`
 - **Rol:** Admin (Dueño)
 - **Pantalla analizada:** `/liquidaciones/{id}`
-- **Controlador / Servicio:** `app/Http/Controllers/LiquidacionWebController.php:recalcular`, `app/Http/Controllers/LiquidacionWebController.php:ajusteFinal`, `app/Services/LiquidacionService.php`
-- **Vista Blade:** `resources/views/liquidaciones/show.blade.php`
+- **Fecha de verificación:** 30/10/2026
+- **Entorno de verificación:** Wings local sobre base `wings_testing_gemini`
 
 ---
 
-## 1. Verificación paso a paso y casos de salida
+## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
 
-| Paso | Acción en Wings | Resultado en código / pantalla | Captura tomada |
-|---|---|---|---|
-| 1 | Tocar botón `Recalcular` en `/liquidaciones/{id}` abierta | `LiquidacionService::recalcular` actualiza clases y horas manteniendo tarifa | `recalcular-ajustar-liquidacion-paso1.png` |
-| 2 | Cargar importe en campo `monto_final` y guardar | Actualiza `monto_final` y muestra diferencia calculada automáticamente | `recalcular-ajustar-liquidacion-paso2.png` |
+| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
+|---|---|---|---|---|
+| **Opción 1: Recalcular por asistencias (Abierta)** | El recálculo de clases y horas aplica a cualquier liquidación en estado Abierta. Actualiza horas o total sin alterar la tarifa congelada. | `app/Services/LiquidacionService.php:308-311`<br>`resources/views/liquidaciones/partials/acciones.blade.php:35-46` | `if ($liquidacion->estado !== Liquidacion::ESTADO_ABIERTA \|\| $liquidacion->estaPagada()) throw new \Exception('No se puede recalcular una liquidación cerrada, cancelada o pagada.');` | En liquidaciones cerradas o pagadas, el botón **Recalcular** no se renderiza. Al intentar invocar la ruta POST de recálculo sobre una liquidación cerrada, el servicio aborta con la excepción: `No se puede recalcular una liquidación cerrada, cancelada o pagada.`. |
+| **Opción 2: Ajuste de monto final (Solo comisión)** | El ajuste manual de monto final aplica exclusivamente a liquidaciones a comisión. Permite editar el total a pagar tanto en estado Abierta como Cerrada, mientras no esté pagada. | `app/Models/Liquidacion.php:110-125, 196-200`<br>`resources/views/liquidaciones/show.blade.php:240-262` | `// Regla general de inmutabilidad:`<br>`if ($original['estado'] === self::ESTADO_CERRADA) {`<br>`  $esAjusteFinal = $liq->ajusteFinalEnCurso && $original['estado_pago'] === self::ESTADO_PAGO_PENDIENTE && empty(array_diff($camposModificados, ['monto_final']));`<br>`  if (!$soloModificaPago && !$esCancelacion && !$esAjusteFinal) throw new \Exception('No se puede modificar una liquidación cerrada (solo se permite registrar el pago o cancelar si no está pagada).');`<br>`}`<br>`// Condición específica del método ajustarMontoFinal:`<br>`if ($liq->tipo !== self::TIPO_COMISION \|\| $liq->estado_pago !== self::ESTADO_PAGO_PENDIENTE \|\| !in_array($liq->estado, [self::ESTADO_ABIERTA, self::ESTADO_CERRADA], true)) throw new \Exception('Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.');` | En un profesor por hora, el panel **Editar monto final** no existe en el HTML. Si se fuerza una petición POST a `/liquidaciones/{id}/ajustar` sobre una liquidación por hora o ya pagada, el sistema arroja la excepción: `Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.`. En una liquidación a comisión cerrada sin pagar, la edición sí se guarda correctamente gracias a la excepción `$esAjusteFinal` en el modelo. |
+| **Paso 2: Formulario Editar monto final** | Se abre con el desplegable **Editar monto final**. Exige **Monto ajustado** y **Motivo del ajuste** (5 a 255 caracteres). Al tocar **Guardar**, actualiza el **Monto final**. | `resources/views/liquidaciones/show.blade.php:241-259`<br>`app/Models/Liquidacion.php:187-190` | `if (!\App\Rules\ImportePesos::esCanonico($monto) \|\| strlen(explode('.', $monto, 2)[0]) > 10 \|\| mb_strlen($motivo) < 5 \|\| mb_strlen($motivo) > 255) throw new \InvalidArgumentException('Ingresá un importe válido y un motivo de 5 a 255 caracteres.');` | Al enviar el formulario con un motivo de menos de 5 caracteres o vacío, el formulario no avanza por la validación `minlength="5"` de HTML5 y en backend lanza: `Ingresá un importe válido y un motivo de 5 a 255 caracteres.`. Con datos válidos, registra auditoría en `liquidacion_ajustes` y actualiza `monto_final`. |
+| **Qué hago si: liquidación cerrada** | A comisión se puede ajustar aun cerrada mientras no esté pagada. Por hora no admite ajuste manual; si no está pagada se debe cancelar con motivo en Cancelar liquidación y regenerar. | `resources/views/liquidaciones/show.blade.php:489-515`<br>`app/Http/Controllers/LiquidacionWebController.php:374-394` | `if ($esCerrada && !$esPagada && !$esCancelada)`<br>`if ($liquidacion->estaPagada()) throw new \Exception('No se puede cancelar una liquidación pagada.');` | En liquidaciones por hora cerradas, el panel inferior permite **Cancelar liquidación** indicando motivo (mínimo 5 caracteres). Al tocar **Cancelar**, la liquidación pasa a cancelada liberando las clases para corregir asistencias y volver a generarla. |
+| **Qué hago si: recalcular con ajuste previo** | Si se toca **Recalcular** en una liquidación a comisión abierta, refresca clases del sistema y recalcula la diferencia respetando el monto final manual. | `app/Services/LiquidacionService.php:324`<br>`app/Models/Liquidacion.php:218` | `$liq->monto_final = $monto;` | Al recalcular una liquidación a comisión con ajuste existente, el valor `monto_final` se conserva inalterado y Wings recomputa automáticamente el campo «Ajuste del admin» como `monto_a_pagar - total_confirmado`. |
 
 ---
 
 ## 2. Rechazos y avisos de la acción
 
-| Situación | Qué hace Wings | Texto exacto o código HTTP | ¿Está en la página? | Sección de la página donde está | Motivo si es No |
-|---|---|---|---|---|---|
-| Ayuda en campo de monto ajustado | Informa cálculo automático de diferencia | `Total a pagar, desde $ 0. La diferencia se calcula automáticamente.` | Sí | Opción 2. Ajustar el monto final a pagar | — |
-| Modificar liquidación que ya está cerrada | `Liquidacion::boot` bloquea la edición | `No se puede modificar una liquidación cerrada` | Sí | Qué hago si: ¿Qué hago si la liquidación ya fue cerrada y necesito cambiar el monto? | — |
-| Monto final negativo | Validación de formulario | `El campo monto final debe ser al menos 0.` | No | — | Validación estándar de formulario |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
+|---|---|---|---|
+| `Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.` | `app/Models/Liquidacion.php:199` | No | Explicado conceptualmente en la nota inicial y en la opción 2, distinguiendo liquidaciones a comisión de liquidaciones por hora. |
+| `No se puede modificar una liquidación cerrada (solo se permite registrar el pago o cancelar si no está pagada).` | `app/Models/Liquidacion.php:124` | No | Regla general de inmutabilidad del modelo; en la página se detalla la excepción permitida para el ajuste a comisión y el camino de cancelación para horas. |
+| `No se puede recalcular una liquidación cerrada, cancelada o pagada.` | `app/Services/LiquidacionService.php:310` | No | Restricción del botón Recalcular; la página explica que solo aplica en estado Abierta. |
+| `Ingresá un importe válido y un motivo de 5 a 255 caracteres.` | `app/Models/Liquidacion.php:189` | No | Validación del método de ajuste cubierta en el paso 2 con el rango requerido de 5 a 255 caracteres. |
+| `La liquidación ya tiene un egreso registrado. No se puede ajustar.` | `app/Models/Liquidacion.php:203` | No | Excepción si ya se asentó el pago en Cashflow. |

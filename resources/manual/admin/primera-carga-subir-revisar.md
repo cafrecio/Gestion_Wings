@@ -28,10 +28,10 @@ Esta tarea te explica cómo subir la planilla Excel a Wings para que el sistema 
 ---
 
 ### Paso 2. Analizar los resultados de la revisión
-1. Si el archivo tiene errores, Wings te mostrará el mensaje en rojo: `errores. No se cargó nada.` y listará cada celda observada (fila, columna y mensaje de corrección).
+1. Si el archivo tiene errores, Wings te mostrará el mensaje en rojo indicando los errores encontrados y la advertencia «No se cargó nada.» y listará cada celda observada (fila, columna y mensaje de corrección).
 2. Tocá el botón **Descargar** para bajar el Excel marcado: Wings agrega al final de la hoja Alumnos la columna Errores (AM) explicando exactamente qué celda debe arreglarse.
-3. Abrí el archivo descargado, corregí las celdas observadas, guardalo nuevamente como `.xlsx` y volvé a subirlo en el paso 1.
-4. Cuando el archivo esté impecable, la sección mostrará: `Listo. Archivo revisado sin errores.` y se habilitará el paso 4.
+3. Abrí el archivo descargado, corregí las celdas observadas, guardalo nuevamente en formato .xlsx y volvé a subirlo en el paso 1.
+4. Cuando el archivo esté impecable, la sección mostrará: «Listo. Archivo revisado sin errores.» y se habilitará el paso 4.
 
 ![Informe de errores y botón para descargar el Excel marcado](/ayuda/img/admin/primera-carga-subir-revisar-paso2.png)
 
@@ -40,7 +40,7 @@ Esta tarea te explica cómo subir la planilla Excel a Wings para que el sistema 
 ## Qué hago si…
 
 ### ¿Qué hago si Wings rechaza el archivo al subirlo?
-Si aparece la alerta `No se cargó el archivo.`, verificá que el archivo tenga formato `.xlsx` (Excel moderno) y que no hayas cambiado los nombres de las hojas originales (`Alumnos`, `Catálogos`, `Guía`).
+Si aparece la alerta «No se cargó el archivo.», verificá que el archivo tenga formato .xlsx (Excel moderno) y que no hayas cambiado los nombres de las hojas originales (*Alumnos*, *Catálogos*, *Guía*).
 
 ### ¿Tengo que borrar la columna Errores antes de volver a subir el Excel?
-No hace falta borrar la columna `Errores`. Al volver a subir el archivo, Wings la sobrescribe y vuelve a validar todas las filas.
+No hace falta borrar la columna **Errores**. Al volver a subir el archivo, Wings la sobrescribe y vuelve a validar todas las filas.

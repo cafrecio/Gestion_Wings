@@ -52,7 +52,7 @@ Esta tarea te explica cómo revisar el libro cronológico de movimientos de caja
 ## Qué hago si…
 
 ### ¿Puedo modificar un movimiento directamente desde esta tabla?
-No. El registro de movimientos es un log inmutable de auditoría. Si un cobro o gasto fue ingresado de forma errónea durante tu turno de caja abierto, se anula mediante la acción de cancelación en el detalle de la caja (`/caja/{id}/detalle`).
+No. El registro de movimientos es un log inmutable de auditoría. Si un cobro o gasto fue ingresado de forma errónea durante tu turno de caja abierto, se anula mediante la acción de cancelación en el detalle de la caja.
 
 ### ¿Por qué no veo movimientos de cuentas bancarias si cobré en efectivo?
 Si seleccionás un filtro en **Medio**, la tabla muestra únicamente los registros de esa cuenta o tipo de caja. Tocá el botón **Limpiar** para visualizar todos los medios consolidados.

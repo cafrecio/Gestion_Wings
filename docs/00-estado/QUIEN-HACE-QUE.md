@@ -47,6 +47,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa B corregida: control de Claude y OK de Carlos |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa B corregida: control de Claude y OK de Carlos |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 2 (dias 29 a 33) revisada: plata al peso, recargo corrio solo (32/$115.500), sin defectos nuevos con plata; dos observaciones menores para Carlos (SIS-006 avisos del servidor en ingles; etiqueta de inscripcion sola). Tecnica 36/36, 31/31, <304 ms. Sigue: subir MF12/MF13 para que Codex verifique; tanda 3 (alta tardia y Revision del 1/12) |
 
 ## Codex
@@ -55,10 +57,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Devuelto (hizo Gemini, verifica Claude) | Etapa B devuelta por Claude 30/10 (ajuste de liquidacion: solo a comision, abierta o cerrada sin pagar; la ficha no leyo la excepcion). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-B-DEVOLUCION.md |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Devuelto (hizo Gemini, verifica Claude) | Etapa B devuelta por Claude 30/10 (ajuste de liquidacion: solo a comision, abierta o cerrada sin pagar; la ficha no leyo la excepcion). Prompt: PROMPT-GEMINI-T12-T13-ETAPA-B-DEVOLUCION.md |
+Nada en este momento.
 
 ## Sin empezar (7)
 

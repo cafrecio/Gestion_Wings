@@ -23,9 +23,9 @@ Esta tarea te explica cómo auditar en detalle una liquidación generada en Wing
 2. En la cabecera principal, revisá:
    - **Profesor** y deporte asignado.
    - **Período** liquidado (mes y año).
-   - Tipo de liquidación: `Por hora` o `Por comisión`.
+   - Tipo de liquidación: *Por hora* o *Por comisión*.
    - **Monto final** calculado hasta el momento.
-   - **Estado:** Figura como `Abierta` mientras esté en revisión.
+   - **Estado:** Figura como *Abierta* mientras esté en revisión.
 
 ![Cabecera y resumen de la liquidación](/ayuda/img/admin/revisar-desglose-liquidacion-paso1.png)
 
