@@ -153,3 +153,14 @@ Patín por comisión, B3), más:
   vuelve, o el cobro con No (T25) si paga sin volver.
 - Falta para el 1/12: **un alta entre el 17 y el 30/11 que no venga** (con y sin pago: CBZ-017). Va en la
   tanda 3.
+
+## Erratas (revisión del 30/10, después de la corrida de Codex)
+
+- **29.1:** la pantalla dice «Hay un turno abierto de Rocío Paz. Debe cerrarse antes de abrir el siguiente.»
+  (`caja/apertura.blade.php:18`). El texto que cité es el del envío forzado (`CajaService.php:96`).
+- **31.5:** sin motivo, frena el navegador («Completa este campo»); «El motivo del rechazo es obligatorio.» es
+  lo que dice el servidor si se saltea el formulario.
+- **33.3:** por pantalla no se puede poner otro contado: queda fijo. El rechazo de CAJ-031 solo se ve forzando.
+- **33.8:** la ficha no muestra quién ni por qué perdonó; queda en el registro interno del cargo.
+- **30.5:** el precio nuevo rige desde el día del cambio (8/11) para altas nuevas y desde el 1/12 para los
+  existentes; la pantalla lo informa.

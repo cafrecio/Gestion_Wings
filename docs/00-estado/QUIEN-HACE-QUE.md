@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 29/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 30/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -49,7 +49,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A, segunda vuelta: control de Claude y OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Gemini, verifica Claude) | Etapa A, segunda vuelta: control de Claude y OK de Carlos |
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 29/10: tanda 1 revisada (MF12 nuevo, 4 erratas del guion). Carlos: mora si (10% desde el dia 32), motivo de no eliminar si (hecho por Claude), resumen del 5/11 llego una vez (MF13 por la clase con todos ausentes). Tanda 2 vuelta a simular sobre la base de Codex: PROMPT-CODEX-DIAS-29-33.md |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 2 (dias 29 a 33) revisada: plata al peso, recargo corrio solo (32/$115.500), sin defectos nuevos con plata; dos observaciones menores para Carlos (SIS-006 avisos del servidor en ingles; etiqueta de inscripcion sola). Tecnica 36/36, 31/31, <304 ms. Sigue: subir MF12/MF13 para que Codex verifique; tanda 3 (alta tardia y Revision del 1/12) |
 
 ## Codex
 

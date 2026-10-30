@@ -54,6 +54,13 @@ $pantallas = [
     ['ADMIN', 'Ficha de un inactivo', ($i = Alumno::where('activo', 0)->orderByDesc('id')->value('id')) ? $r('web.alumnos.show', $i) : null],
     ['ADMIN', 'Nuevo movimiento de Cashflow', $r('web.cashflow.movimiento')],
     ['OPERATIVO', 'Caja abierta', ($ab = CajaOperativa::where('estado', 'ABIERTA')->value('id')) ? $r('web.caja.detalle', $ab) : null],
+    // Días 29 a 33: Configuración (recargo por mora), la ficha de un moroso con recargo, el cobro con recargo,
+    // el historial de una corrección de Cashflow y la caja rechazada que se corrige.
+    ['ADMIN', 'Configuración', $r('web.configuraciones.index')],
+    ['ADMIN', 'Ficha de un moroso con recargo', ($m = DB::table('cargos_alumno')->where('tipo', 'PUNITORIO')->where('estado', 'VIGENTE')->orderBy('id')->value('alumno_id')) ? $r('web.alumnos.show', $m) : null],
+    ['OPERATIVO', 'Cobrar a un moroso con recargo', $m ? $r('web.caja.cobrar', $m) : null],
+    ['ADMIN', 'Historial de una corrección de Cashflow', ($cc = DB::table('cashflow_correcciones')->orderBy('id')->value('movimiento_id')) ? $r('web.cashflow.movimientos.show', $cc) : null],
+    ['ADMIN', 'Caja rechazada o corregida', ($rz = CajaOperativa::whereNotNull('motivo_rechazo')->orderByDesc('id')->value('id')) ? $r('web.caja.detalle', $rz) : null],
     ['OPERATIVO', 'Movimientos', $r('web.movimientos.index')],
     ['OPERATIVO', 'Inicio de la operativa', $r('web.operativo.dashboard')],
     ['OPERATIVO', 'Cobranza', $r('web.cobranza.index')],

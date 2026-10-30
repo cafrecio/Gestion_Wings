@@ -573,11 +573,187 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->assertTrue($clase->integraLiquidacionCerrada(), 'La clase sí se reconoce liquidada en el resto de Wings');
         $vista = $this->actingAs($this->duenio)->get(route('web.liquidaciones.create', ['mes' => 10, 'anio' => 2026]))->assertOk();
         $fila = $vista->viewData('profesoresJson')[$hernan->id];
-        $this->assertSame(1, $fila['clases_count'], 'Corregido: octubre ya no figura pendiente. Dar vuelta esta prueba (debe ser 0)');
-        $this->assertSame(1, $fila['periodos']['2026-10']['liquidables'] ?? 0);
+        // MF12 reparada el 29/10: octubre ya no figura pendiente (antes esta prueba retrataba el 1).
+        $this->assertSame(0, $fila['clases_count'], 'MF12: un mes ya liquidado por comisión no cuenta como pendiente');
+        $this->assertArrayNotHasKey('2026-10', $fila['periodos']);
 
         $this->actingAs($this->duenio)->post(route('web.liquidaciones.store'), ['profesor_id' => $hernan->id, 'mes' => 10, 'anio' => 2026])
             ->assertSessionHas('error', 'Ya existe una liquidación para el profesor en 10/2026.');
         $this->assertSame(1, DB::table('liquidaciones')->where('profesor_id', $hernan->id)->count());
+    }
+
+    // ── Días 29 a 33 ────────────────────────────────────────────────────────
+
+    /**
+     * Días 29.2, 31.1 y 31.2: el dueño cierra la caja ajena y queda registrado (Codex no lo pudo ver por pantalla);
+     * una operativa no rectifica la caja de otra; abrir con más del 50% de diferencia exige motivo y confirmación
+     * también por envío directo.
+     */
+    public function test_dias_29_y_31_cierre_del_duenio_rectificacion_ajena_y_apertura_con_diferencia_forzando(): void
+    {
+        $this->actingAs($this->duenio)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '30000', 'cambio_retenido' => '10000'])
+            ->assertSessionHasNoErrors();
+        $caja = $this->cajaSandra->fresh();
+        $this->assertSame('CERRADA', $caja->estado);
+        $this->assertTrue((bool) $caja->cerrada_por_admin, 'El cierre por el dueño no quedó marcado');
+        $this->assertSame($this->duenio->id, $caja->usuario_admin_cierre_id, 'No quedó registrado qué dueño cerró');
+
+        // Pablo tiene su caja abierta: Sandra intenta rectificarla.
+        $cajaPablo = CajaOperativa::where('usuario_operativo_id', $this->pablo->id)->firstOrFail();
+        $this->actingAs($this->sandra)->post(route('web.caja.rectificar.guardar', $cajaPablo->id), ['efectivo_inicial' => '10000', 'motivo_rectificacion' => 'Escribí un cero de más'])
+            ->assertForbidden();
+        $this->assertSame('0.00', $cajaPablo->fresh()->efectivo_inicial);
+        // Pablo sí, y queda con autor, importe anterior y motivo.
+        $this->actingAs($this->pablo)->post(route('web.caja.rectificar.guardar', $cajaPablo->id), ['efectivo_inicial' => '10000', 'motivo_rectificacion' => 'Escribí un cero de más'])
+            ->assertSessionHasNoErrors();
+        $cajaPablo->refresh();
+        $this->assertSame(['10000.00', '0.00', $this->pablo->id], [$cajaPablo->efectivo_inicial, $cajaPablo->efectivo_inicial_anterior, $cajaPablo->usuario_rectificacion_id]);
+        $this->assertNotNull($cajaPablo->rectificado_at);
+
+        // Pablo cierra dejando 10.000: es el último cierre que hereda la próxima apertura. (Sin el medio de efectivo
+        // configurado, abrir rechazaría por otro motivo.)
+        $this->actingAs($this->pablo)->post(route('web.caja.cerrar', $cajaPablo->id), ['efectivo_contado' => '10000', 'cambio_retenido' => '10000'])->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.caja.configuracion.store'), ['tipo_caja_id' => $this->efectivo->id])->assertSessionHasNoErrors();
+        // Sandra abre de nuevo: hereda 10.000 y escribe 100.000.
+        $cajas = CajaOperativa::count();
+        // Sin decir qué cierre vio, el servidor rechaza («Cambió el último cierre…»): la apertura va atada al cierre propuesto.
+        $this->actingAs($this->sandra)->post(route('web.caja.abrir'), ['efectivo_inicial' => '10000', 'confirmacion' => '1'])
+            ->assertSessionHasErrors(['efectivo_inicial' => 'Cambió el último cierre. Volvé a abrir la pantalla y confirmá el efectivo.']);
+        $base = ['efectivo_inicial' => '100000', 'confirmacion' => '1', 'caja_origen_id' => $cajaPablo->id];
+        $this->actingAs($this->sandra)->post(route('web.caja.abrir'), $base)
+            ->assertSessionHasErrors(['motivo_apertura' => 'Indicá por qué recibiste un importe distinto del último cierre.']);
+        $this->actingAs($this->sandra)->post(route('web.caja.abrir'), $base + ['motivo_apertura' => 'Conté de nuevo el cajón'])
+            ->assertSessionHasErrors();
+        $this->assertSame($cajas, CajaOperativa::count(), 'Se abrió una caja sin confirmar la diferencia');
+        $this->actingAs($this->sandra)->post(route('web.caja.abrir'), $base + ['motivo_apertura' => 'Conté de nuevo el cajón', 'confirmar_diferencia_grande' => '1'])
+            ->assertSessionHasNoErrors();
+        $nueva = CajaOperativa::orderByDesc('id')->first();
+        $this->assertSame([$cajas + 1, '100000.00', '10000.00', 'Conté de nuevo el cajón'], [CajaOperativa::count(), $nueva->efectivo_inicial, $nueva->efectivo_heredado, $nueva->motivo_apertura]);
+    }
+
+    /**
+     * Días 31.5, 33.2 y 33.3: el rechazo sin motivo lo frena el servidor con el texto del catálogo (Codex solo
+     * vio el aviso del navegador); la operativa no rechaza; en la caja rechazada, el movimiento sin observación o
+     * con fecha futura se rechaza en el servidor, y la caja de otra no se corrige.
+     */
+    public function test_dias_31_y_33_rechazo_y_correccion_de_la_caja_rechazada_forzando(): void
+    {
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '28000', 'cambio_retenido' => '10000'])->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.cajas.rechazar', $this->cajaSandra->id), [])
+            ->assertSessionHasErrors(['motivo' => 'El motivo del rechazo es obligatorio.']);
+        $this->actingAs($this->pablo)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'Faltan $2.000'])->assertForbidden();
+        $this->assertSame('CERRADA', $this->cajaSandra->fresh()->estado);
+        $this->actingAs($this->duenio)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'Faltan $2.000 en el cajón: ¿es la resma del lunes? Cargala'])->assertSessionHasNoErrors();
+        $this->assertSame('RECHAZADA', $this->cajaSandra->fresh()->estado);
+
+        $libreria = Subrubro::where('nombre', 'Librería')->value('id') ?? Subrubro::whereHas('rubro', fn ($q) => $q->where('tipo', 'EGRESO'))->value('id');
+        $resma = ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => $libreria, 'monto' => '2000', 'fecha' => '2026-10-15'];
+        $movs = MovimientoOperativo::count();
+        $errores = fn ($r, $campo) => $r->baseResponse->getSession()->get('errors')->first($campo);
+        $sin = $this->actingAs($this->sandra)->post(route('web.caja.editar.store', $this->cajaSandra->id), $resma);
+        $sin->assertSessionHasErrors(['observaciones']);
+        $textos = ['sin observación: '.$errores($sin, 'observaciones')];
+        // «today» de la regla de validación es el día real de la máquina, no el reloj simulado de la prueba (en
+        // producción son el mismo día); por eso acá la fecha futura va bien lejos.
+        $futura = $this->actingAs($this->sandra)->post(route('web.caja.editar.store', $this->cajaSandra->id), array_replace($resma, ['observaciones' => 'Resma del lunes', 'fecha' => '2027-01-01']));
+        $futura->assertSessionHasErrors(['fecha']);
+        $textos[] = 'fecha futura: '.$errores($futura, 'fecha');
+        $this->assertSame($movs, MovimientoOperativo::count());
+        // SIS-006: lo que dice el servidor cuando se saltea el navegador queda registrado (hoy sale en inglés).
+        file_put_contents(__DIR__.'/caja-rechazada-avisos-dia-33.txt', implode("\n", $textos)."\n");
+        // Pablo no corrige la caja rechazada de Sandra.
+        $this->actingAs($this->pablo)->post(route('web.caja.editar.store', $this->cajaSandra->id), $resma + ['observaciones' => 'Resma del lunes'])->assertForbidden();
+        // Sandra sí, y el esperado se recalcula sin tocar lo contado.
+        $this->actingAs($this->sandra)->post(route('web.caja.editar.store', $this->cajaSandra->id), $resma + ['observaciones' => 'Resma del lunes'])->assertSessionHasNoErrors();
+        $this->assertSame($movs + 1, MovimientoOperativo::count());
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '28000', 'cambio_retenido' => '10000'])->assertSessionHasNoErrors();
+        $caja = $this->cajaSandra->fresh();
+        $this->assertSame(['CERRADA', '28000.00', '28000.00', '0.00'], [$caja->estado, $caja->efectivo_esperado, $caja->efectivo_contado, $caja->diferencia_efectivo]);
+    }
+
+    /**
+     * Día 32.1: dar por perdida la deuda, forzando: no de un activo, no con otro importe que el que muestra la
+     * lista, no dos veces; y no deja pago ni movimiento de plata.
+     */
+    public function test_dia_32_deuda_perdida_forzando(): void
+    {
+        $this->actingAs($this->duenio)->postJson(route('web.inactivos.perder', $this->alumno->id), ['centavos' => 3000000])
+            ->assertStatus(422)->assertJsonPath('errors.deuda.0', 'El alumno volvió a activo. Actualizá la lista.');
+        $this->actingAs($this->duenio)->patchJson(route('web.alumnos.toggle-activo', $this->alumno->id))->assertOk();
+        $antes = $this->foto();
+        $this->actingAs($this->duenio)->postJson(route('web.inactivos.perder', $this->alumno->id), ['centavos' => 2500000])
+            ->assertStatus(422)->assertJsonPath('errors.deuda.0', 'La deuda cambió. Actualizá la lista antes de darla por perdida.');
+        $this->assertSame(0, DB::table('deudas_perdidas')->count());
+
+        $this->actingAs($this->duenio)->postJson(route('web.inactivos.perder', $this->alumno->id), ['centavos' => 3000000])
+            ->assertOk()->assertJsonPath('mensaje', 'Deuda dada por perdida.')->assertJsonPath('centavos', 3000000);
+        $perdida = DB::table('deudas_perdidas')->sole();
+        $this->assertSame([$this->alumno->id, $this->duenio->id, '30000.00'], [$perdida->alumno_id, $perdida->usuario_id, $perdida->importe]);
+        $this->assertSame('30000.00', DeudaCuota::where('periodo', '2026-10')->value('monto_perdido'));
+        // Nada de plata se movió: mismos pagos, movimientos de caja y Cashflow que antes.
+        $despues = $this->foto();
+        foreach (['pagos', 'movimientos_operativos', 'cashflow_movimientos', 'cajas_operativas'] as $t) $this->assertSame($antes[$t], $despues[$t], "Perder la deuda tocó $t");
+        // Dos veces, no.
+        $this->actingAs($this->duenio)->postJson(route('web.inactivos.perder', $this->alumno->id), ['centavos' => 3000000])->assertStatus(422);
+        $this->assertSame(1, DB::table('deudas_perdidas')->count());
+    }
+
+    /**
+     * Día 32.3: reactivar una clase con choque de profesora se rechaza también forzando, y explica con cuál; la
+     * profesora y la operativa no reactivan; al reactivar sin choque, el motivo de la cancelación se conserva.
+     */
+    public function test_dia_32_reactivar_clase_con_choque_forzando(): void
+    {
+        $mariela = Profesor::where('nombre', 'Mariela')->firstOrFail();
+        $cancelada = Clase::create(['grupo_id' => $this->claseMariela->grupo_id, 'fecha' => '2026-10-15', 'hora_inicio' => '17:30', 'hora_fin' => '18:30',
+            'cancelada' => true, 'motivo_cancelacion' => 'Torneo: el grupo viaja', 'validada_para_liquidacion' => false]);
+        $cancelada->profesores()->attach($mariela->id);
+
+        $r = $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $cancelada->id));
+        $r->assertStatus(422);
+        $this->assertStringStartsWith('No se puede reactivar: ', $r->json('message'));
+        $this->assertStringContainsString('se solapa', $r->json('message'));
+        $this->assertTrue((bool) $cancelada->fresh()->cancelada);
+
+        $this->actingAs($this->lucia)->patchJson(route('web.clases.toggle-cancelada', $cancelada->id))->assertForbidden();
+        $this->actingAs($this->sandra)->patchJson(route('web.clases.toggle-cancelada', $cancelada->id))->assertForbidden();
+        $this->assertTrue((bool) $cancelada->fresh()->cancelada);
+
+        // Sin el choque (se cancela la otra), reactiva y conserva el motivo.
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $this->claseMariela->id), ['motivo_cancelacion' => 'Amistoso suspendido'])->assertOk();
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $cancelada->id))->assertOk()->assertJsonPath('message', 'Clase reactivada.');
+        $cancelada->refresh();
+        $this->assertFalse((bool) $cancelada->cancelada);
+        $this->assertSame('Torneo: el grupo viaja', $cancelada->motivo_cancelacion);
+    }
+
+    /**
+     * Día 30.2: corregir un movimiento directo de Cashflow exige la versión que se vio en pantalla, queda en el
+     * historial con antes, después, motivo y dueño, y la operativa no lo toca ni forzando.
+     */
+    public function test_dia_30_correccion_de_cashflow_forzando(): void
+    {
+        $luz = Subrubro::where('nombre', 'Luz')->value('id');
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'monto' => '120000', 'fecha' => '2026-10-15', 'observaciones' => 'Centenera'])
+            ->assertSessionHasNoErrors();
+        $mov = \App\Models\CashflowMovimiento::orderByDesc('id')->firstOrFail();
+        $datos = ['clave' => (string) Str::uuid(), 'version' => 0, 'subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'monto' => '125000', 'fecha' => '2026-10-15',
+            'observaciones' => 'Centenera', 'motivo' => 'La factura de octubre era de $125.000'];
+
+        $this->actingAs($this->sandra)->put(route('web.cashflow.movimientos.update', $mov->id), $datos)->assertForbidden();
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), ['version' => 7] + $datos)
+            ->assertSessionHasErrors(['version' => 'El movimiento cambió mientras editabas. Recargá la pantalla antes de guardar.']);
+        $this->assertSame('-120000.00', $mov->fresh()->monto);
+
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $datos)->assertSessionHasNoErrors();
+        $mov->refresh();
+        $this->assertSame(['-125000.00', 1], [$mov->monto, (int) $mov->version_correccion]);
+        $this->assertNull($mov->anulado_at);
+        $corr = DB::table('cashflow_correcciones')->where('movimiento_id', $mov->id)->sole();
+        $this->assertSame(['EDITAR', $this->duenio->id, 'La factura de octubre era de $125.000'], [$corr->accion, $corr->admin_id, $corr->motivo]);
+        $this->assertSame(['-120000.00', '-125000.00'], [json_decode($corr->antes, true)['monto'], json_decode($corr->despues, true)['monto']]);
+        // La misma clave otra vez no duplica la corrección.
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $datos);
+        $this->assertSame(1, DB::table('cashflow_correcciones')->where('movimiento_id', $mov->id)->count());
     }
 }

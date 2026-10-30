@@ -1,0 +1,2 @@
+sin observación: The observaciones field is required.
+fecha futura: The fecha field must be a date before or equal to today.

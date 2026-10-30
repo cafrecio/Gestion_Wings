@@ -1,5 +1,26 @@
 # Wings — Estado actual
 
+## T12/T13 — Etapa B entregada a verificación de Claude — Gemini CAB, 30/10/2026
+
+Etapa B completada y auditada según el método de `PROMPT-GEMINI-T12-T13-ETAPAS.md`:
+- **15 páginas de Administrador / Dueño** (páginas 21 a 36, con la 29 preexistente) en `resources/manual/admin/`.
+- **Botón `?` incorporado** en 8 pantallas de administración (`primera-carga/index`, `caja/resumen`, `caja/detalle`, `cashflow/movimiento`, `cashflow/transferencia`, `liquidaciones/index`, `liquidaciones/create`, `liquidaciones/show`) mediante `@section('ayuda-slug', ...)`.
+- **31 capturas de pasos reales** en `resources/manual/img/admin/` y 18 capturas T13 con hashes MD5 únicos por guía. Galería de aprobación en `docs/06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-B.html`.
+- **15 fichas de fuentes** en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/admin-*.md` con paso a paso y tabla de rechazos y avisos (aplicando la regla estricta de citar sección para cada fila «Sí»).
+- **Auditoría independiente en 0:** informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-30-etapa-b.md`. Subsanados 1 hallazgo grave (cierre de liquidación condicionado a fin de mes), 6 medios (rótulos de un solo verbo corto, detalle vs resumen de caja, cuotas atrasadas), 2 menores (`orden: 29` y selector de período en cashflow) y 10 discrepancias en fichas de fuentes. Balance final: 0 Graves, 0 Medias, 0 Menores.
+- **Verificación:** `php scripts/manual/verificar-manual.php` (37 páginas revisadas, 0 problemas); `AyudaManualT12T13Test.php` (20 passed, 111 assertions en `wings_testing_gemini`). Vistas compilan limpias.
+- **Paso actual:** A la espera del control de Claude y el OK de Carlos antes de iniciar la Etapa C.
+
+## T14 — Tanda 2 (días 29 a 33, 7 al 11/11) revisada — Claude CAB, 30/10/2026
+
+Codex (`58906c5d`) corrió los cinco días. **La plata coincide al peso**: deuda $850.200, disponible
+$5.585.920,75; el recargo por mora corrió solo una vez (32 por $115.500). Sin defectos nuevos con plata en juego;
+dos observaciones menores para Carlos (avisos del servidor en inglés al saltear el navegador, SIS-006; la ficha
+etiqueta un pago de solo inscripción con el mes). Prueba técnica: controles internos 36/36, seguridad 31/31 (la
+de MF12 dada vuelta), pantallas < 304 ms. 16 casos nuevos: 177 de 334.
+[Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [informe técnico](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
+**Siguiente:** subir MF12 y MF13 al sitio de prueba (suite completa antes) para que Codex las verifique; tanda 3.
+
 ## MF12 y MF13 hechas, sin desplegar — Claude CAB, 29/10/2026
 
 Carlos: «Si, hacelo vos» (29/10). **MF12:** Nueva liquidación excluye del contador las clases de un mes ya
