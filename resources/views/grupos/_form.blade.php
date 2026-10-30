@@ -112,9 +112,9 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
         Sin precios cargados aún. Usá "Nuevo" para agregar.
     </p>
 
-    @php $hayErroresPlanes = collect($errors->keys())->contains(fn($k) => str_starts_with($k, 'planes.')); @endphp
-    @if($hayErroresPlanes)
-        <p class="text-xs mt-2" style="color: var(--color-danger);">Revisá los precios por frecuencia: frecuencia y precio son obligatorios.</p>
+    @php $campoPlanConError = collect($errors->keys())->first(fn($k) => str_starts_with($k, 'planes.')); @endphp
+    @if($campoPlanConError)
+        <p class="text-xs mt-2" style="color: var(--color-danger);">{{ $errors->first($campoPlanConError) }}</p>
     @endif
 
     {{-- Template para filas nuevas (JS) — usar <template> para que sus inputs NO se envíen con el form --}}

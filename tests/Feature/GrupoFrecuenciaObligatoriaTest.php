@@ -54,6 +54,10 @@ class GrupoFrecuenciaObligatoriaTest extends TestCase
         ])->assertRedirect(route('web.grupos.create'))
             ->assertSessionHas('error', 'Hay dos filas con la misma frecuencia. Dejá una sola.');
         $this->assertSame($antes, $this->estado());
+        // El formulario lo dice debajo de las filas, no un texto fijo (lo vio Carlos en pantalla).
+        $this->get(route('web.grupos.create'))->assertOk()
+            ->assertSee('Hay dos filas con la misma frecuencia. Dejá una sola.')
+            ->assertDontSee('frecuencia y precio son obligatorios');
     }
 
     public function test_los_avisos_nombran_los_campos_en_castellano(): void
