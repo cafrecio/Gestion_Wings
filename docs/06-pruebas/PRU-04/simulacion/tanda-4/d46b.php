@@ -33,5 +33,7 @@ $cc = app(CashflowCorreccionWebController::class);
 paso('46.4a', "corrige Internet (#{$net->id}) a $23.500", enviar($admin, 'PUT', "/cashflow/movimientos/{$net->id}", $datos, fn ($r) => $cc->update($r, $net->id)), 200);
 paso('46.4b', 'doble clic: el mismo envío otra vez', enviar($admin, 'PUT', "/cashflow/movimientos/{$net->id}", $datos, fn ($r) => $cc->update($r, $net->id)), 200);
 paso('46.4c', 'la otra pestaña, con la pantalla vieja, guarda $24.000', enviar($admin, 'PUT', "/cashflow/movimientos/{$net->id}", array_replace($datos, ['clave' => (string) Str::uuid(), 'monto' => '24000', 'motivo' => 'Otra corrección']), fn ($r) => $cc->update($r, $net->id)), 422);
+$vv = (int) $net->fresh()->version_correccion;
+paso('46.4d', 'corrige con fecha de mañana', enviar($admin, 'PUT', "/cashflow/movimientos/{$net->id}", array_replace($datos, ['clave' => (string) Str::uuid(), 'version' => $vv, 'fecha' => '2026-11-25', 'motivo' => 'Fecha de mañana']), fn ($r) => $cc->update($r, $net->id)), 422);
 echo '   Internet: '.plata($net->fresh()->monto).' · correcciones: '.DB::table('cashflow_correcciones')->where('movimiento_id', $net->id)->count()."\n";
 estado('fin 46b');

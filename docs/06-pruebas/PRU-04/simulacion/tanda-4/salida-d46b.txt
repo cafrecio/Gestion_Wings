@@ -1,7 +1,7 @@
 == inicio 46b (después de la rutina) 2026-11-24 11:00:00
-   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
-   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.685.050,00
-   Caja #77 u3 ABIERTA esperado $0,00
+   Cobranza: $227.510,00 activos 114 {"AL_DIA":107,"EN_PLAZO":1,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.675.650,00
+   Caja #78 u3 ABIERTA esperado $0,00
    Milagros en Avanzadas 17: presente=1 · excepción: 0 · contador semanal en la lista: {"estado":"AL_DIA","nuevo":false,"requiere_motivo":false,"tipo":null,"motivo_guardado":null,"message":"Tiene deuda vencida. Indicá el motivo para dejarlo entrar."}
 [46.2a] Intermedias del 20/11 (#215) a Mariela, sin motivo → 422 Esta clase ya tenía profesor asignado: indicá el motivo del cambio. OK
 [46.2b] con motivo → 200 Profesores actualizados. OK
@@ -9,11 +9,12 @@
 [46.2c] Pablo intenta lo mismo con la clase del 19/11 → 403 Esta clase ya pasó: solo un administrador puede cambiar sus profesores. OK
    Emma: MOROSO $30.410,00 · recargo {"monto_original":"2310.00","created_at":"2026-11-24 06:15:00"}
    Cobranza Morosos: Villalba, Emma 11-4567-8901
-[46.4a] corrige Internet (#427) a $23.500 → 302 Movimiento actualizado. El historial se conserva. OK
+[46.4a] corrige Internet (#440) a $23.500 → 302 Movimiento actualizado. El historial se conserva. OK
 [46.4b] doble clic: el mismo envío otra vez → 302 Movimiento actualizado. El historial se conserva. OK
 [46.4c] la otra pestaña, con la pantalla vieja, guarda $24.000 → 422 El movimiento cambió mientras editabas. Recargá la pantalla antes de guardar. OK
+[46.4d] corrige con fecha de mañana → 422 El campo fecha debe ser una fecha anterior o igual a hoy. OK
    Internet: $-23.500,00 · correcciones: 1
 == fin 46b 2026-11-24 11:00:00
-   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
-   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.683.550,00
-   Caja #77 u3 ABIERTA esperado $0,00
+   Cobranza: $227.510,00 activos 114 {"AL_DIA":107,"EN_PLAZO":1,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.674.150,00
+   Caja #78 u3 ABIERTA esperado $0,00

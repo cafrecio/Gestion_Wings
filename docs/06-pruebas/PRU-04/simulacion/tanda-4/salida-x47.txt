@@ -1,0 +1,19 @@
+[47.6a] alta de Tobías Vera, ingreso 25/11 → 302 Alumno creado correctamente. OK
+[47.6b] paga todo en efectivo → 302 Pago registrado para Vera, Tobías. OK
+   cobro $19.200,00 · movimientos 2 · esperado $30.100,00 → $49.300,00
+[47.6c] cancela con motivo → 302 Cobro cancelado y deuda revertida. OK
+   Tobías: pago ANULADO · movimientos activos 0 · EN_PLAZO $19.200,00 · esperado $30.100,00 · inscripción VIGENTE
+[47.7] Facundo Ríos: noviembre con recargo y diciembre, MP → 302 Pago registrado para Rios, Facundo. OK
+   Facundo: $58.800,00 · 2026-11:PAGADA 2026-12:PAGADA
+   COB-030: 15 de 15 · 1.1s · esperado $324.100,00
+[47.9] baja de Lautaro Medina → 200 Alumno desactivado correctamente. OK
+[47.10] serie de Infantiles otra vez (doble clic) → 400 la profesora Gonzalo Ibarra ya tiene asignada la clase 'Fútbol — Infantiles' que se solapa en fecha 2026-12-05 entre 10:00 y 11:00. OK
+   clases de Infantiles: 4
+[47.11] usuario de Gonzalo otra vez (atrás y reenvía) → 422 Ya existe un usuario con ese email. OK
+   usuarios Gonzalo: 1 · subrubros 1
+   Gonzalo entra: 200 · menú: Clases · Ayuda
+   listado de alumnos: 200 · Inactivo visible: sí
+== fin x47 2026-11-25 12:00:00
+   Cobranza: $215.910,00 activos 114 {"AL_DIA":107,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.453.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.568.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.674.150,00
+   Caja #79 u8 ABIERTA esperado $0,00

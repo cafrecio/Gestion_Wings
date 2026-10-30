@@ -9,7 +9,13 @@ estado('inicio 43');
 Illuminate\Support\Facades\Auth::guard('web')->setUser($pablo);
 $p = app(App\Services\CajaService::class)->propuestaApertura();
 echo '   propuesta de apertura para Pablo: '.json_encode($p, JSON_UNESCAPED_UNICODE)."\n";
-paso('43.1', 'Pablo abre con lo propuesto', enviar($pablo, 'POST', '/caja/apertura', ['efectivo_inicial' => (string) $p['efectivo_heredado'], 'confirmacion' => '1', 'caja_origen_id' => $p['caja_origen_id']], fn ($r) => $caja->abrir($r)), 200);
+$ap = ['efectivo_inicial' => (string) $p['efectivo_heredado'], 'confirmacion' => '1', 'caja_origen_id' => $p['caja_origen_id']];
+paso('43.1a', 'dueño: a su nombre, sin elegir operativa', enviar($admin, 'POST', '/caja/apertura', $ap, fn ($r) => $caja->abrir($r)), 422);
+paso('43.1b', 'dueño: a nombre de Pablo', enviar($admin, 'POST', '/caja/apertura', $ap + ['operativo_id' => $pablo->id], fn ($r) => $caja->abrir($r)), 200);
+$kp = App\Models\CajaOperativa::where('estado', 'ABIERTA')->first(); echo '   caja #'.$kp->id.' de '.$kp->usuarioOperativo?->name."\n";
+$gon = Profesor::where('apellido', 'Ibarra')->first(); $fedc = Clase::whereDate('fecha', '2026-11-21')->whereTime('hora_inicio', '10:00:00')->first();
+paso('43.1c', 'dueño: Gonzalo (Fútbol) en una clase de Patín', enviar($admin, 'PATCH', "/clases/{$fedc->id}/profesores", ['profesores' => [$gon->id]], fn ($r) => app(ClaseWebController::class)->actualizarProfesores($r, $fedc->id), true), 422);
+foreach ([U('Lucía Gaitán'), $pablo] as $u) { [$st,,$h] = http($u, '/clases'); echo '   '.$u->name.' clave en el menú: '.(stripos(menu($h), 'clave') !== false ? 'sí' : 'no')."\n"; }
 $fed = Clase::whereDate('fecha', '2026-11-21')->whereTime('hora_inicio', '10:00:00')->firstOrFail();
 $mar = Profesor::where('nombre', 'Mariela')->firstOrFail(); $luc = Profesor::where('nombre', 'Lucía')->firstOrFail();
 paso('43.2', "dueño suma a Lucía a Federadas (#{$fed->id})", enviar($admin, 'PATCH', "/clases/{$fed->id}/profesores", ['profesores' => [$mar->id, $luc->id]], fn ($r) => app(ClaseWebController::class)->actualizarProfesores($r, $fed->id), true), 200);

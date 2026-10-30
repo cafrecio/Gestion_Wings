@@ -1,10 +1,100 @@
 {
  "dia": "2026-11-20",
- "descripcion": "Día 42, viernes 20/11: Rocío abre; Fútbol Principiantes paga la inscripción al torneo de diciembre; fotocopias del reglamento del torneo; la lista de Intermedias la toma Mariela, que cubre a Lucía (Lucía está con médico). Alma Navarro y Emma Villalba no vienen.",
+ "descripcion": "Día 42, viernes 20/11: Rocío abre; las familias de Fútbol Principiantes pagan el torneo una por una, patines y gastos. La lista de Intermedias la toma Mariela, que cubre a Lucía.",
  "pasos": [
-  {"como": "Rocío Paz", "accion": "abrir_caja"},
-  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "12000", "obs": "Inscripción al torneo de diciembre: Fútbol Principiantes"},
-  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Librería", "medio": "Efectivo", "monto": "2800", "obs": "Fotocopias del reglamento del torneo"},
-  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "16:00", "ausentes": ["Navarro, Alma", "Villalba, Emma"]}
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Principiantes: familia Acosta"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Principiantes: familia Castro"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Principiantes: familia Herrera"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Principiantes: familia Martinez"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club, talle 10"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Patines",
+   "medio": "Mercado Pago",
+   "monto": "85000",
+   "obs": "Patines usados, talle 36"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "2800",
+   "obs": "Fotocopias del reglamento"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2100",
+   "obs": "Bolsas de residuos"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Reparaciones menores",
+   "medio": "Efectivo",
+   "monto": "6000",
+   "obs": "Bisagra del depósito"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "1500",
+   "obs": "Cinta para conos"
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Intermedias",
+   "hora": "16:00",
+   "ausentes": [
+    "Navarro, Alma",
+    "Villalba, Emma"
+   ]
+  }
  ]
 }

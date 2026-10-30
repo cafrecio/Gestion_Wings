@@ -1,0 +1,34 @@
+   antes: {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0} deuda $205.200,00
+[44.5a] gracia a 25 → 200 {"ok":true,"valor":"25"} OK
+   con 25: {"AL_DIA":105,"EN_PLAZO":6,"MOROSO":0,"DEUDOR":0} deuda $205.200,00
+[44.5b] gracia a 40 → 422 Elegí un día del 1 al 28.
+[44.5c] gracia a 10 → 200 {"ok":true,"valor":"10"} OK
+   con 10: {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0} deuda $205.200,00
+   octubre antes: egresos $331.950,00
+[44.6a] fecha de mañana → 422 El campo fecha debe ser una fecha anterior o igual a hoy. OK
+[44.6b] fecha del 28/10 sin confirmar → 302 
+   movimientos: 0
+[44.6c] confirma → 302 Movimiento directo registrado en cashflow. OK
+   octubre después: egresos $341.350,00 · movimientos 1
+   Sandra Vidal /cashflow → 403 Sin permiso – Wings
+   Sandra Vidal /reportes → 403 Sin permiso – Wings
+   Sandra Vidal /reportes/alumnos → 403 Sin permiso – Wings
+   Sandra Vidal /deportes → 403 Sin permiso – Wings
+   Sandra Vidal /niveles → 403 Sin permiso – Wings
+   Sandra Vidal /rubros → 403 Sin permiso – Wings
+   Sandra Vidal /tipos-caja → 403 Sin permiso – Wings
+   Sandra Vidal /configuraciones → 403 Sin permiso – Wings
+   Sandra Vidal /usuarios → 403 Sin permiso – Wings
+   Sandra Vidal /dashboard/admin → 404 Página no disponible – Wings
+   Sandra Vidal /grupos → 200 Grupos – Wings
+   Lucía Gaitán /cashflow → 403 Sin permiso – Wings
+   Lucía Gaitán /reportes → 403 Sin permiso – Wings
+   Lucía Gaitán /reportes/alumnos → 403 Sin permiso – Wings
+   Lucía Gaitán /deportes → 403 Sin permiso – Wings
+   Lucía Gaitán /niveles → 403 Sin permiso – Wings
+   Lucía Gaitán /rubros → 403 Sin permiso – Wings
+   Lucía Gaitán /tipos-caja → 403 Sin permiso – Wings
+   Lucía Gaitán /configuraciones → 403 Sin permiso – Wings
+   Lucía Gaitán /usuarios → 403 Sin permiso – Wings
+   Lucía Gaitán /dashboard/admin → 404 Página no disponible – Wings
+   Lucía Gaitán /grupos → 403 Sin permiso – Wings

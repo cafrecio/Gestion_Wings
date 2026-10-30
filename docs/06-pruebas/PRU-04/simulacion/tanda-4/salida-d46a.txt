@@ -1,6 +1,6 @@
 == inicio 46 2026-11-24 09:30:00
-   Cobranza: $207.510,00 activos 110 {"AL_DIA":104,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
-   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.685.050,00
+   Cobranza: $207.510,00 activos 112 {"AL_DIA":106,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.675.650,00
 [46.0] Pablo abre con lo propuesto ($10.000,00) → 302 Caja abierta con el efectivo declarado. OK
    aviso del alta: {"mes_cerrado":false,"periodo":"2026-11","mes_ingreso":"noviembre de 2026","mes_cuota":"noviembre de 2026","porcentaje":40,"importe":14000}
 [46.1a] alta Milagros Ferreyra → 302 Alumno creado correctamente. OK
@@ -8,6 +8,6 @@
 [46.1b] Milagros paga inscripción y noviembre por MP → 302 Pago registrado para Ferreyra, Milagros. OK
    cobro $22.000,00
 == fin 46a 2026-11-24 09:30:00
-   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
-   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.685.050,00
-   Caja #77 u3 ABIERTA esperado $0,00
+   Cobranza: $207.510,00 activos 113 {"AL_DIA":107,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.675.650,00
+   Caja #78 u3 ABIERTA esperado $0,00

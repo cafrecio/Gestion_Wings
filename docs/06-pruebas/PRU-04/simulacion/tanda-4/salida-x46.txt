@@ -1,0 +1,11 @@
+[46.6] otra pestaña: vuelve a cobrar a Milagros → 400 El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción. OK
+   pagos de Milagros: 1
+[46.7] Hernán carga la lista del lunes → 200 Asistencias guardadas. OK
+   lista #245: 25 alumnos · sin lista ahora: 0
+   Thiago: DNI 54400002 tutor Tutor Ruiz · nace 2019-09-05
+[46.8] Thiago también en Patín, ingreso 24/11 → 302 Alumno creado correctamente. OK
+   ficha de Patín #357: 2026-11:PENDIENTE $12.000,00 · inscripción $8.000,00
+== fin x46 2026-11-24 10:30:00
+   Cobranza: $227.510,00 activos 114 {"AL_DIA":107,"EN_PLAZO":1,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.675.650,00
+   Caja #78 u3 ABIERTA esperado $0,00

@@ -1,0 +1,24 @@
+constancia: creadas 84 · a revisión 7 · ya existían 23 · sin plan 0 · activos 114
+   Ramos, Pilar (Principiantes): REVISION
+   Navarro, Alma (Intermedias): REVISION
+   Suarez, Valentina (Avanzadas): REVISION
+   Villalba, Emma (Intermedias): REVISION
+   Luna, Joaquina (Adultos): REVISION
+   Vera, Tobías (Principiantes): REVISION
+   Ruiz, Thiago (Principiantes): REVISION
+   Godoy, Valentino (Principiantes): CUOTA PENDIENTE $44.000,00 pagado $0,00
+   Cabrera, Bruno (Adultos): CUOTA PENDIENTE $32.000,00 pagado $0,00
+   Ruiz, Thiago (Principiantes): REVISION
+   Acuña, Renzo (Infantiles): CUOTA PENDIENTE $25.000,00 pagado $0,00
+   Iglesias, Clara (Principiantes): CUOTA PENDIENTE $300.000,00 pagado $30.000,00
+   Rios, Facundo (Principiantes): CUOTA PAGADA $28.000,00 pagado $28.000,00
+   Medina, Emilia (Principiantes): CUOTA PAGADA $44.000,00 pagado $44.000,00
+   Pereyra, Liam (Principiantes): CUOTA PENDIENTE $35.000,00 pagado $0,00
+   Ferreyra, Milagros (Avanzadas): CUOTA PENDIENTE $35.000,00 pagado $0,00
+   Quiroga, Lara (Intermedias): CUOTA PENDIENTE $43.000,00 pagado $0,00
+   Sosa, Bautista (Principiantes): CUOTA PENDIENTE $35.000,00 pagado $0,00
+   Ruiz, Thiago ficha #315 activo 1 grupo 5: CUOTA PENDIENTE $28.000,00 pagado $0,00
+   Ruiz, Thiago ficha #357 activo 1 grupo 1: REVISION
+   Medina, Lautaro ficha #319 activo  grupo 5: SIN CUOTA
+Cobranza 1/12: deuda $3.652.910,00 · {"AL_DIA":22,"EN_PLAZO":86,"MOROSO":0,"DEUDOR":6}
+Revisión pendientes: 7

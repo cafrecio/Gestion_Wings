@@ -1,20 +1,20 @@
 == inicio 45 (después de la rutina) 2026-11-23 11:00:00
-   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
-   Caja #76 u2 ABIERTA esperado $0,00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.357.700,00 · Banco Nación $58.000,00 · Mercado Pago $3.516.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.631.650,00
+   Caja #77 u2 ABIERTA esperado $0,00
    aviso del alta: {"mes_cerrado":false,"periodo":"2026-11","mes_ingreso":"noviembre de 2026","mes_cuota":"noviembre de 2026","porcentaje":70,"importe":30800}
 [45.1a] alta Valentino Godoy → 302 Alumno creado correctamente. OK
    Valentino: 2026-11:PENDIENTE $30.800,00 (70.00%) · inscripción $8.000,00
 [45.1b] Valentino paga inscripción y noviembre en efectivo → 302 Pago registrado para Godoy, Valentino. OK
-   cobro $38.800,00 · recibo #394 · caja de Sandra esperado $62.600,00
+   cobro $38.800,00 · recibo #397 · caja de Sandra esperado $67.700,00
 [45.2] dueño cobra diciembre de Morena, $44.000,00 por MP → 302 Pago registrado para Rossi, Morena. OK
-   cobro #395 · Cashflow: Cuota Mensual $44.000,00 Mercado Pago registró Admin Prueba · caja de Sandra $62.600,00 → $62.600,00
+   cobro #398 · Cashflow: Cuota Mensual $44.000,00 Mercado Pago registró Admin Prueba · caja de Sandra $67.700,00 → $67.700,00
 [45.3a] anula con motivo corto → 422 El motivo de la anulación debe tener al menos 10 caracteres. OK
 [45.3b] anula con motivo → 302 Cobro anulado y deuda restituida. OK
    anulado: ANULADO · diciembre de Morena: PENDIENTE $44.000,00 pagado $0,00 · Cashflow del cobro: $44.000,00 23/11 y $-44.000,00 23/11
    Morena en Cobranza: AL_DIA $0,00
 [45.3c] vuelve a cobrar diciembre por Galicia → 302 Pago registrado para Rossi, Morena. OK
-   cobro #396 · diciembre: PAGADA $44.000,00
+   cobro #399 · diciembre: PAGADA $44.000,00
    ficha de Morena para Sandra (200): Anular no aparece · anulado se ve
    ficha de Morena para el dueño (200): Anular aparece
    Sandra abre el recibo del dueño: 200
@@ -24,6 +24,6 @@
    Renzo ingreso: 01/12/2026
    Cashflow (200): columna Val. sí · Morena sí
 == fin 45 (antes de la noche) 2026-11-23 11:00:00
-   Cobranza: $205.200,00 activos 110 {"AL_DIA":104,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.685.050,00
-   Caja #76 u2 ABIERTA esperado $0,00
+   Cobranza: $205.200,00 activos 112 {"AL_DIA":106,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.357.700,00 · Banco Nación $58.000,00 · Mercado Pago $3.516.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.675.650,00
+   Caja #77 u2 ABIERTA esperado $0,00

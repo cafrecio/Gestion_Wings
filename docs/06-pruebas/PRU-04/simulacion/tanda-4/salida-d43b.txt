@@ -1,21 +1,21 @@
 == inicio 43b 2026-11-21 13:30:00
-   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
-   Caja #75 u3 ABIERTA esperado $0,00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.357.700,00 · Banco Nación $58.000,00 · Mercado Pago $3.516.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   Caja #76 u3 ABIERTA esperado $0,00
    Federadas: 7 presentes de 8
    Clases de Lucía el 21/11: 200 · aparece Federadas: sí · aparece Fútbol: sí
    Clases de Mariela el 21/11: 200 · aparece Federadas: sí
-[43.5] Pablo abre /caja/74/detalle → 200 Detalle caja 20/11/2026 – Wings OK
-[43.5] Pablo abre /caja/74/resumen → 403 Sin permiso – Wings OK
-[43.5] Pablo abre /caja/74/cerrar → 403 Sin permiso – Wings OK
+[43.5] Pablo abre /caja/75/detalle → 200 Detalle caja 20/11/2026 – Wings OK
+[43.5] Pablo abre /caja/75/resumen → 403 Sin permiso – Wings OK
+[43.5] Pablo abre /caja/75/cerrar → 403 Sin permiso – Wings OK
 [43.5] Pablo escribe la edición de un movimiento de Rocío → 403 Sin permiso – Wings OK
    menú de Lucía Gaitán (/clases → 200): Clases · Ayuda
    menú de Pablo Ledesma (/caja → 200): Inicio · Alumnos · Clases · Cobranza · Caja · Movimientos · Revisión · Grupos · Ayuda
    menú de Admin Prueba (/caja → 200): Inicio · Alumnos · Clases · Cobranza · Caja · Movimientos · Cashflow · Liquidaciones · Reportes · Revisión · Deportes · Niveles · Grupos · Profesores · Rubros · Tipos de Caja · Configuración · Usuarios · Ayuda
    movimientos de Pablo hoy: 0 · esperado $15.000,00
 [43.7] Pablo cierra: contó $15.000 y los deja de cambio → 302 Caja cerrada. OK
-   caja #75: CERRADA diferencia $0,00 entrega $0,00
+   caja #76: CERRADA diferencia $0,00 entrega $0,00
 == fin 43 2026-11-21 13:30:00
-   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
-   Caja #75 u3 CERRADA esperado $15.000,00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.357.700,00 · Banco Nación $58.000,00 · Mercado Pago $3.516.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   Caja #76 u3 CERRADA esperado $15.000,00

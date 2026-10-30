@@ -1,14 +1,22 @@
 == inicio 42 (después de la rutina de la mañana) 2026-11-20 11:00:00
-   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.269.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
-   Caja #74 u8 ABIERTA esperado $0,00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.316.100,00 · Banco Nación $58.000,00 · Mercado Pago $3.431.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
+   Caja #75 u8 ABIERTA esperado $0,00
    Clara: plan 1x · diciembre a $30.000,00 · cuotas 2026-10:PAGADA 2026-11:PAGADA
 [42.1a] forzando 44.505 (tres decimales) → 422 Ingresá un importe válido, con hasta dos decimales. OK
 [42.1b] forzando cero → 422 El campo montos_cuota.2026-12 debe ser al menos 0.01. OK
 [42.1c] forzando letras → 422 El campo montos_cuota.2026-12 debe ser un número. Ingresá un importe válido, con hasta dos decimales. OK
    pagos de Clara en la tanda: 0
-[42.1d] diciembre bien, $30.000,00 en efectivo → 302 Pago registrado para Iglesias, Clara. OK
-   Clara: 2026-10:PAGADA $30.000,00 2026-11:PAGADA $30.000,00 2026-12:PAGADA $30.000,00
+[42.1d] un cero de más: $300.000 en efectivo → 302 Pago registrado para Iglesias, Clara.
+   pago #395 $300.000,00 · movimientos 1 · esperado $327.600,00
+[42.1e] cancela sin motivo → 422 El campo motivo es obligatorio. OK
+[42.1f] cancela con motivo → 302 Cobro cancelado y deuda revertida. OK
+   tras cancelar: diciembre PENDIENTE original $300.000,00 pagado $0,00 · pago ANULADO · esperado $27.600,00 · deuda $205.200,00
+   Cobrar ofrece: Diciembre 2026 Adelantado
+[42.1g] diciembre bien, $30.000,00 en efectivo → 409 Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario. OK
+[42.1h] indica el motivo que le pide → 302 Pago registrado para Iglesias, Clara. OK
+   DEFECTO: diciembre de Clara PENDIENTE original $300.000,00 pagado $30.000,00 saldo $270.000,00
+   Clara: 2026-10:PAGADA $30.000,00 2026-11:PAGADA $30.000,00 2026-12:PENDIENTE $300.000,00
 [42.2a] resma $6.500 → 302 Movimiento registrado. OK
    movimientos nuevos: 1
 [42.3a] corrige la resma a $6.000 → 302 Movimiento actualizado. OK
@@ -22,14 +30,14 @@
 [42.5a] Internet $22.000 por Galicia → 302 Movimiento directo registrado en cashflow. OK
 [42.5b] Internet otra vez (desde la otra pestaña) → 302 Movimiento directo registrado en cashflow. OK
    Internet cargado: 2 veces · Galicia $1.619.050,00
-[42.5c] elimina el segundo (#428) con motivo → 302 Movimiento anulado. El original y el asiento en contra se conservan. OK
-   anulado: sí · contra #429 $22.000,00 20/11 · Galicia $1.641.050,00
-   Reportes nov: egresos $2.774.080,00
-   esperado de Rocío: $43.200,00
-[42.6a] cierra dejando más de lo contado → 422 El campo cambio que queda debe ser menor o igual que 43200.00. OK
+[42.5c] elimina el segundo (#441) con motivo → 302 Movimiento anulado. El original y el asiento en contra se conservan. OK
+   anulado: sí · contra #442 $22.000,00 20/11 · Galicia $1.641.050,00
+   Reportes nov: egresos $2.788.980,00
+   esperado de Rocío: $51.600,00
+[42.6a] cierra dejando más de lo contado → 422 El campo cambio que queda debe ser menor o igual que 51600.00. OK
 [42.6b] cierra dejando $15.000 → 302 Caja cerrada. OK
-   caja #74: CERRADA recibió $10.000,00 contado $43.200,00 cambio $15.000,00 entrega $28.200,00
+   caja #75: CERRADA recibió $10.000,00 contado $51.600,00 cambio $15.000,00 entrega $36.600,00
 == fin 42 (antes de la noche) 2026-11-20 11:00:00
-   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.269.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
-   Caja #74 u8 CERRADA esperado $43.200,00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.316.100,00 · Banco Nación $58.000,00 · Mercado Pago $3.431.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   Caja #75 u8 CERRADA esperado $51.600,00

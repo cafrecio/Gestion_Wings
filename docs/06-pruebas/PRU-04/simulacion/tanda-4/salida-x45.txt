@@ -1,0 +1,11 @@
+[45.7a] dueño valida la caja abierta → 400 Contá el efectivo y cerrá la caja antes de validarla. OK
+   caja: ABIERTA
+   Sandra fuerza Validar: 302 redirige a http://localhost/login
+   dueño en Nuevo movimiento: 302 redirige a http://localhost/cashflow/movimiento
+[45.8] dueño: Insumos $3.000 en el turno de Sandra → 302 Movimiento registrado. OK
+   esperado $67.700,00 → $64.700,00 · movimiento: {"usuario_id":2,"usuario_admin_id":null,"created_by":null,"observaciones":"Bombitas de luz: las pagó la caja"}
+   Alma presente en #216: 1 · presentes de noviembre en clases vigentes: 1
+[45.9a] dueño cancela sin confirmar → 409 Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?
+[45.9b] confirma → 200 Clase cancelada. OK
+   cancelada: 1 · marcas conservadas 19 · presentes de noviembre de Alma en clases vigentes: 0
+   sin lista: 1 #245

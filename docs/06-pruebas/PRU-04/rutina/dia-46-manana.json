@@ -1,11 +1,131 @@
 {
  "dia": "2026-11-24",
- "descripcion": "Día 46, martes 24/11, 10:00 (después del alta de Milagros, 46.1): precintos y cinta para los conos; las cuatro listas del martes. Milagros va a su primera clase de Avanzadas; a Fútbol Avanzadas la toma Martín. Valentina Suárez sigue sin venir.",
+ "descripcion": "Día 46, martes 24/11, 10:00 (después de 46.1): las familias de Federadas pagan el torneo; remera y gastos; las cuatro listas del martes. Joaquina Luna y Bruno Cabrera no vienen a Adultos.",
  "pasos": [
-  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Insumos Varios", "medio": "Efectivo", "monto": "3800", "obs": "Cinta y precintos para los conos"},
-  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina"]},
-  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Ramos, Lucia"]},
-  {"como": "Martín Acosta", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Silva, Simon"]},
-  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Adultos", "hora": "20:30"}
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Federadas: familia Diaz"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Federadas: familia Iglesias"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Federadas: familia Ramos"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Federadas: familia Rossi"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Federadas: familia Vega"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Mercado Pago",
+   "monto": "18000",
+   "obs": "Remera del club, talle 16"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "3800",
+   "obs": "Cinta y precintos para los conos"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2000",
+   "obs": "Lavandina"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1100",
+   "obs": "Resaltadores"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Reparaciones menores",
+   "medio": "Efectivo",
+   "monto": "5000",
+   "obs": "Enchufe de la cantina"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1500",
+   "obs": "Alcohol"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Ramos, Lucia"
+   ]
+  },
+  {
+   "como": "Martín Acosta",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": [
+    "Silva, Simon"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Adultos",
+   "hora": "20:30",
+   "ausentes": [
+    "Luna, Joaquina",
+    "Cabrera, Bruno"
+   ]
+  }
  ]
 }

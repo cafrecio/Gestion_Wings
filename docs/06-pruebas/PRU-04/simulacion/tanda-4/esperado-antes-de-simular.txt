@@ -1,0 +1,13 @@
+Cuentas hechas a mano con las reglas, ANTES de correr nada (30/10/2026). Si Wings da otra cosa, se explica.
+día | Efectivo | Mercado Pago | Galicia | Disponible | Deuda | Activos
+41 | 1316100 | 3431470.75 | 1663050 | 6468620.75 | 205200 | 111
+42 | 1357700 | 3516470.75 | 1641050 | 6573220.75 | 205200 | 111
+43 | 1357700 | 3516470.75 | 1641050 | 6573220.75 | 205200 | 111
+44 | 1357700 | 3516470.75 | 1631650 | 6563820.75 | 205200 | 111
+45 | 1407400 | 3528470.75 | 1675650 | 6669520.75 | 205200 | 112
+46 | 1453000 | 3568470.75 | 1674150 | 6753620.75 | 219510 | 114
+47 | 1772100 | 3835270.75 | 1776150 | 7441520.75 | 207910 | 114 (107 Al día, 2 En plazo, 5 Morosos)
+1/12 | Revisión 7: Pilar, Alma (su único presente fue en clase cancelada), Valentina, Emma Villalba, Joaquina Luna (ingreso 15/11, un día afuera), Tobías Vera (pago anulado), Thiago Ruiz ficha de Patín
+1/12 | Cuota sin presentes: Valentino Godoy (pagó), Bruno Cabrera (ingreso 16/11, el límite)
+1/12 | Ya tenían diciembre, 23: Renzo, Joaquín Vega, Emma Fernández, Dante, Clara, Morena, Facundo Ríos, Emilia Medina y los 15 de COB-030
+1/12 | Sin cuota por baja: Lautaro Medina, Candela. Creadas: 114 - 23 - 7 = 84

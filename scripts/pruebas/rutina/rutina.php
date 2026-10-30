@@ -131,7 +131,12 @@ try {
                     if ($c->count() !== 1) throw new RuntimeException("Clase {$paso['grupo']} {$paso['hora']}: hay {$c->count()} hoy.");
                     return $c->first();
                 })();
-                $ausentes = array_map(fn ($x) => $alumno($x)->id, $paso['ausentes'] ?? []);
+                // Quien tiene una ficha por deporte se busca entre los alumnos del grupo de esta clase.
+                $ausentes = array_map(function ($x) use ($alumno, $clase) {
+                    [$ap, $no] = array_map('trim', explode(',', $x, 2));
+                    $delGrupo = Alumno::enGrupoElDia($clase->grupo_id, $clase->fecha)->where('activo', true)->where('apellido', $ap)->where('nombre', $no)->pluck('id');
+                    return $delGrupo->count() === 1 ? $delGrupo->first() : $alumno($x)->id;
+                }, $paso['ausentes'] ?? []);
                 // B3 (27/10): el deudor y el nuevo sin primer pago entran solo con motivo. El plan lo
                 // trae por alumno; si falta, Wings rechaza la lista entera y no se guarda nada del día.
                 $motivos = [];

@@ -21,7 +21,19 @@ paso('42.1a', 'forzando 44.505 (tres decimales)', enviar($rocio, 'POST', "/caja/
 paso('42.1b', 'forzando cero', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => '0']], fn ($r) => $caja->pagar($r, $cl->id), true), 422);
 paso('42.1c', 'forzando letras', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => 'cuarenta']], fn ($r) => $caja->pagar($r, $cl->id), true), 422);
 echo '   pagos de Clara en la tanda: '.Pago::where('alumno_id', $cl->id)->where('fecha_pago', '>=', '2026-11-19')->count()."\n";
-paso('42.1d', 'diciembre bien, '.plata($precio).' en efectivo', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => (string) $precio]], fn ($r) => $caja->pagar($r, $cl->id), true), 200);
+paso('42.1d', 'un cero de más: $300.000 en efectivo', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => '300000']], fn ($r) => $caja->pagar($r, $cl->id), true));
+$pm = Pago::where('alumno_id', $cl->id)->latest('id')->first(); $mm = MovimientoOperativo::where('pago_id', $pm->id)->first();
+echo '   pago #'.$pm->id.' '.plata($pm->monto_final).' · movimientos '.MovimientoOperativo::where('pago_id', $pm->id)->count().' · esperado '.plata(app(App\Services\CajaService::class)->arqueoCaja($k->id)['efectivo_esperado'])."\n";
+paso('42.1e', 'cancela sin motivo', enviar($rocio, 'POST', "/caja/{$k->id}/movimientos/{$mm->id}/cancelar", [], fn ($r) => $caja->cancelarMovimiento($r, $k->id, $mm->id)), 422);
+paso('42.1f', 'cancela con motivo', enviar($rocio, 'POST', "/caja/{$k->id}/movimientos/{$mm->id}/cancelar", ['motivo' => 'Un cero de más: eran $30.000'], fn ($r) => $caja->cancelarMovimiento($r, $k->id, $mm->id)), 200);
+$dc = DeudaCuota::where('alumno_id', $cl->id)->where('periodo', '2026-12')->first();
+echo '   tras cancelar: diciembre '.($dc ? "$dc->estado original ".plata($dc->monto_original).' pagado '.plata($dc->monto_pagado) : 'no existe').' · pago '.$pm->fresh()->estado.' · esperado '.plata(app(App\Services\CajaService::class)->arqueoCaja($k->id)['efectivo_esperado']).' · deuda '.plata(app(App\Services\CobranzaEstadoService::class)->resumenDashboard()['total_adeudado'])."\n";
+[$st,,$h] = http($rocio, "/caja/cobrar/{$cl->id}");
+if (preg_match_all('/Diciembre.{0,120}/su', strip_tags($h), $mm2)) echo '   Cobrar ofrece: '.mb_substr(trim(preg_replace('/\s+/', ' ', $mm2[0][0])), 0, 150)."\n";
+paso('42.1g', 'diciembre bien, '.plata($precio).' en efectivo', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => (string) $precio]], fn ($r) => $caja->pagar($r, $cl->id), true), 409);
+paso('42.1h', 'indica el motivo que le pide', enviar($rocio, 'POST', "/caja/cobrar/{$cl->id}", $d + ['montos_cuota' => ['2026-12' => (string) $precio], 'motivo' => 'Corrijo el importe: eran $30.000'], fn ($r) => $caja->pagar($r, $cl->id), true), 200);
+$dc = $dc->fresh(); echo '   DEFECTO: diciembre de Clara '.$dc->estado.' original '.plata($dc->monto_original).' pagado '.plata($dc->monto_pagado).' saldo '.plata($dc->monto_original - $dc->monto_pagado)."
+";
 echo '   Clara: '.DeudaCuota::where('alumno_id', $cl->id)->orderBy('periodo')->get()->map(fn ($x) => "$x->periodo:$x->estado ".plata($x->monto_original))->implode(' ')."\n";
 
 // 42.2 resma: dos Guardar seguidos (la pantalla manda una sola vez; el segundo envío se reproduce igual)

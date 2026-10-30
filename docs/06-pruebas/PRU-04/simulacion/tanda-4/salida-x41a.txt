@@ -1,0 +1,7 @@
+   propuesta: {"tipo_caja_id":1,"caja_origen_id":72,"efectivo_heredado":"7000.00"}
+[41.0a] vacío → 422 El campo efectivo recibido es obligatorio. OK
+[41.0b] letras → 422 Ingresá un importe válido, con hasta dos decimales. OK
+[41.0c] negativo → 422 Ingresá un importe válido, con hasta dos decimales. OK
+[41.0d] tres decimales → 422 Ingresá un importe válido, con hasta dos decimales. OK
+[41.0e] sin tildar que contó → 422 El campo confirmación es obligatorio. OK
+   cajas abiertas: 0

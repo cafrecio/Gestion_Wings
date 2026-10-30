@@ -49,7 +49,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 3 revisada (cierres al peso, base igual a la simulacion, tecnica 44/44, 37/37, <281 ms). Tanda 4 (dias 41 a 47) simulada entera en CAB; falta escribir guion y prompt, subir las rutinas al sitio y --simular (simulacion/tanda-4/LEEME.md). Despues tanda 5 hasta el 2/12. Carlos: cuando Codex termine, produccion |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: guion de la tanda 4 (dias 41 a 47) escrito y simulado de nuevo: 58 casos, perfiles, errores humanos, volumen, y ensayo del 1/12 84/7/23. Falta prompt, subir rutinas al sitio y --simular ahi. |
 
 ## Codex
 
@@ -59,9 +59,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (13)
+## Sin empezar (15)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T98, T99, T96, T97.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T98, T99, T100, T101, T96, T97.
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

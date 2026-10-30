@@ -12,12 +12,13 @@ rut() { (cd "$R" && DB_DATABASE=wings_testing_guion FECHA_SIMULADA="$1" php scri
 recargos() { (cd "$R" && DB_DATABASE=wings_testing_guion FECHA_SIMULADA="$1" php artisan cobranza:aplicar-punitorios); }
 D=$1; restaurar "$F/d$((D-1)).sql.gz"
 case $D in
- 41) rut "2026-11-19 09:00:00" dia-41-manana.json; php_d "2026-11-19 11:00:00" d41.php; rut "2026-11-19 21:00:00" dia-41-noche.json ;;
- 42) rut "2026-11-20 09:00:00" dia-42-manana.json; php_d "2026-11-20 11:00:00" d42.php; rut "2026-11-20 21:00:00" dia-42-noche.json ;;
+ 41) php_d "2026-11-19 08:50:00" x41a.php; rut "2026-11-19 09:00:00" dia-41-manana.json; php_d "2026-11-19 11:00:00" d41.php; php_d "2026-11-19 12:00:00" x41.php; (cd "$R" && DB_DATABASE=wings_testing_guion FECHA_SIMULADA="2026-11-19 18:00:00" php scripts/pruebas/rutina/rutina.php "$H/federadas-41.json" > "$H/salida-federadas-41.txt" 2>&1); rut "2026-11-19 21:00:00" dia-41-noche.json ;;
+ 42) rut "2026-11-20 09:00:00" dia-42-manana.json; php_d "2026-11-20 10:30:00" x42.php; php_d "2026-11-20 11:00:00" d42.php; rut "2026-11-20 21:00:00" dia-42-noche.json ;;
  43) php_d "2026-11-21 09:30:00" d43a.php; rut "2026-11-21 10:30:00" dia-43-manana.json; php_d "2026-11-21 13:30:00" d43b.php ;;
- 44) php_d "2026-11-22 20:00:00" d44.php ;;
- 45) rut "2026-11-23 09:00:00" dia-45-manana.json; php_d "2026-11-23 11:00:00" d45.php; rut "2026-11-23 21:00:00" dia-45-noche.json ;;
- 46) recargos "2026-11-24 06:15:00"; php_d "2026-11-24 09:30:00" d46a.php; rut "2026-11-24 10:00:00" dia-46-manana.json; php_d "2026-11-24 11:00:00" d46b.php; php_d "2026-11-24 21:00:00" d46c.php; rut "2026-11-24 21:10:00" dia-46-noche.json ;;
- 47) rut "2026-11-25 09:00:00" dia-47-manana.json; php_d "2026-11-25 11:00:00" d47.php; rut "2026-11-25 21:00:00" dia-47-noche.json ;;
+ 44) php_d "2026-11-22 20:00:00" d44.php; php_d "2026-11-22 20:30:00" x44.php ;;
+ 45) rut "2026-11-23 09:00:00" dia-45-manana.json; php_d "2026-11-23 11:00:00" d45.php; php_d "2026-11-23 18:30:00" x45.php; rut "2026-11-23 21:00:00" dia-45-noche.json ;;
+ 46) recargos "2026-11-24 06:15:00"; php_d "2026-11-24 09:30:00" d46a.php; rut "2026-11-24 10:00:00" dia-46-manana.json; php_d "2026-11-24 10:30:00" x46.php; php_d "2026-11-24 11:00:00" d46b.php; php_d "2026-11-24 21:00:00" d46c.php; rut "2026-11-24 21:10:00" dia-46-noche.json ;;
+ 47) rut "2026-11-25 09:00:00" dia-47-manana.json; php_d "2026-11-25 11:00:00" d47.php; php_d "2026-11-25 12:00:00" x47.php; rut "2026-11-25 21:00:00" dia-47-noche.json ;;
 esac
+FIN="2026-11-$((D-22)) 22:00:00"; (cd "$R" && DB_DATABASE=wings_testing_guion FECHA_SIMULADA="$FIN" php "$H/cierre.php") | tee -a "$H/cierres-41-47.txt"
 $MD -uroot --single-transaction wings_testing_guion | gzip > "$F/d$D.sql.gz" && echo "  foto fotos/d$D.sql.gz"

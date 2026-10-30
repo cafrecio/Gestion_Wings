@@ -1,8 +1,11 @@
-   esperado de Pablo: $6.200,00
-[46.5a] cierra → 302 Caja cerrada. OK
+   esperado de Pablo: $11.600,00
+[46.5p] otra pestaña: diciembre de Emilia $44.000 en efectivo → 302 Pago registrado para Medina, Emilia. OK
+   esperado con el cobro: $55.600,00
+[46.5q] cierra con el contado de la pantalla vieja → 302 Caja cerrada.
+   caja: CERRADA esperado $55.600,00 contado $11.600,00 diferencia $-44.000,00
 [46.5b] el segundo clic → 400 La caja no está en estado editable. OK
-   caja #77: CERRADA cambio $5.000,00 entrega $1.200,00
+   caja #78: CERRADA cambio $5.000,00 entrega $6.600,00
 == fin 46 2026-11-24 21:00:00
-   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
-   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.683.550,00
-   Caja #77 u3 CERRADA esperado $6.200,00
+   Cobranza: $227.510,00 activos 114 {"AL_DIA":107,"EN_PLAZO":1,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.407.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.528.470,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.674.150,00
+   Caja #78 u3 CERRADA esperado $55.600,00

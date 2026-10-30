@@ -1,12 +1,117 @@
 {
  "dia": "2026-11-19",
- "descripcion": "Día 41, jueves 19/11: Sandra abre con el cambio que dejó Rocío; Patín Avanzadas paga la inscripción al torneo de diciembre; artículos de limpieza; las tres listas del jueves (Adultos está cancelada: Mariela avisó). Valentina Suárez sigue sin venir.",
+ "descripcion": "Día 41, jueves 19/11: Sandra abre; las familias de Patín Avanzadas pagan el torneo una por una, remeras y gastos chicos. Listas de Avanzadas y Fútbol Avanzadas (Adultos está cancelada; Federadas la toma Mariela por pantalla).",
  "pasos": [
-  {"como": "Sandra Vidal", "accion": "abrir_caja"},
-  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "15000", "obs": "Inscripción al torneo de diciembre: Patín Avanzadas"},
-  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": "4500", "obs": "Lavandina y trapos"},
-  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina", "Castro, Catalina"]},
-  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Iglesias, Helena"]},
-  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Gomez, Lucas"]}
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Avanzadas: familia Alvarez"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Avanzadas: familia Castro"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Avanzadas: familia Gimenez"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Avanzadas: familia Herrera"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Mercado Pago",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Avanzadas: familia Morales"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club, talle 12"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Mercado Pago",
+   "monto": "18000",
+   "obs": "Remera del club, talle 14"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "4500",
+   "obs": "Lavandina y trapos"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1200",
+   "obs": "Biromes"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "2300",
+   "obs": "Pilas del silbato y cinta"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1800",
+   "obs": "Curitas"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina",
+    "Castro, Catalina"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": [
+    "Gomez, Lucas"
+   ]
+  }
  ]
 }

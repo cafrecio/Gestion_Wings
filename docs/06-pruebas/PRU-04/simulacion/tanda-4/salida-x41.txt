@@ -1,0 +1,17 @@
+   aviso 2026-11-15: {"mes_cerrado":false,"periodo":"2026-11","mes_ingreso":"noviembre de 2026","mes_cuota":"noviembre de 2026","porcentaje":100,"importe":32000}
+[41.7 Joaquina] alta ingreso 2026-11-15 → 302 Alumno creado correctamente. OK
+   Joaquina: 2026-11:PENDIENTE $32.000,00 · inscripción $5.000,00
+[41.9 Joaquina] paga todo por Efectivo → 302 Pago registrado para Luna, Joaquina. OK
+   cobro $37.000,00
+   aviso 2026-11-16: {"mes_cerrado":false,"periodo":"2026-11","mes_ingreso":"noviembre de 2026","mes_cuota":"noviembre de 2026","porcentaje":70,"importe":22400}
+[41.7 Bruno] alta ingreso 2026-11-16 → 302 Alumno creado correctamente. OK
+[41.8a] doble Guardar: el mismo formulario → 302 El alumno ya fue creado.
+[41.8b] atrás, cambia el apellido y reenvía → 422 Este formulario ya fue guardado con otros datos. Abra un alta nueva. OK
+   alumnos Cabrera Bruno: 1
+   Bruno: 2026-11:PENDIENTE $22.400,00 · inscripción $5.000,00
+[41.9 Bruno] paga todo por Mercado Pago → 302 Pago registrado para Cabrera, Bruno. OK
+   cobro $27.400,00
+== fin x41 2026-11-19 12:00:00
+   Cobranza: $205.200,00 activos 111 {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
+   Caja #74 u2 ABIERTA esperado $0,00

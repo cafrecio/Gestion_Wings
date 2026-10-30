@@ -1,7 +1,7 @@
 == inicio 41 (después de la rutina de la mañana) 2026-11-19 11:00:00
    Cobranza: $205.200,00 activos 108 {"AL_DIA":102,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
    Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
-   Caja #73 u2 ABIERTA esperado $0,00
+   Caja #74 u2 ABIERTA esperado $0,00
 [41.1a] nivel «Infantil» → 302 Nivel creado correctamente. OK
 [41.1b] lo corrige a «Infantiles» → 302 Nivel actualizado correctamente. OK
 [41.1c] otro «infantiles » (repetido) → 422 Ya existe un nivel con un nombre similar. OK
@@ -29,7 +29,7 @@
 == después del alta de Renzo 2026-11-19 11:00:00
    Cobranza: $210.200,00 activos 109 {"AL_DIA":102,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
    Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
-   Caja #73 u2 ABIERTA esperado $0,00
+   Caja #74 u2 ABIERTA esperado $0,00
 [41.5] Renzo paga la inscripción → 302 Pago registrado para Acuña, Renzo. OK
    Renzo después: AL_DIA $0,00
 [41.6a] Sandra abre el recibo #391 (lo cobró Rocío) → 200  OK
@@ -40,4 +40,4 @@
 == fin 41 (antes de la noche) 2026-11-19 11:00:00
    Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
    Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
-   Caja #73 u2 ABIERTA esperado $0,00
+   Caja #74 u2 ABIERTA esperado $0,00
