@@ -19,12 +19,12 @@ nombra «Inscripción» o «Recargo por mora», no con el mes del pago. Dos prue
 prueba junto con MF12 y MF13 después de la suite completa; Codex verifica las cuatro por pantalla.
 **Subido el 30/10 (`82ae1b58`)**, suite completa 1299 aprobadas, 6 omitidas, 0 fallidas; comprobado en el sitio en solo lectura.
 
-## T12/T13 — Etapa C hecha por Claude; falta el control de Gemini — Claude CAB, 30/10/2026
+## T12/T13 — Etapa C controlada por Gemini (0 hallazgos); falta el OK de Carlos — Gemini CAB, 30/10/2026
 
-Gemini se quedó sin crédito y Carlos pidió que la etapa C la haga Claude. Están las 22 páginas que faltaban (59 en total) y
+Gemini se quedó sin crédito y Carlos pidió que la etapa C la haga Claude; el control final lo hizo Gemini ([VERIFICACION-T12-T13-ETAPA-C-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-C-GEMINI.md)). Están las 22 páginas que faltaban (59 en total) y
 el **?** en todas las pantallas. Prueba nueva `AyudaBotonPorRolTest` (1308). Revisor independiente en cinco vueltas: lo
-grave y lo medio de las páginas, corregido; lo último de las fichas, corregido sin sexta vuelta. Nueve huecos de Wings anotados para Carlos en `IMPLEMENTACION-T12-T13.md` §15. Galería:
-[APROBAR-T12-T13-ETAPA-C.html](../06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-C.html). Falta el control de Gemini (con otro modelo) y el OK de Carlos.
+grave y lo medio de las páginas, corregido; lo último de las fichas, corregido sin sexta vuelta. Nueve huecos de Wings anotados para Carlos en `IMPLEMENTACION-T12-T13.md` §15 (hueco #6 ejecutado por Gemini en `wings_testing_gemini`, confirmando HTTP 500 por FK `restrict`). Galería:
+[APROBAR-T12-T13-ETAPA-C.html](../06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-C.html). Control de Gemini en 0 hallazgos; falta el OK de Carlos.
 
 ## T12/T13 — Etapa B aprobada por Carlos; sigue la C — Claude CAB, 30/10/2026
 

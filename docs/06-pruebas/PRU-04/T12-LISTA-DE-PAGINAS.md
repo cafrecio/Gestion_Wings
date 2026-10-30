@@ -106,7 +106,7 @@ Los profesores tienen una vista simplificada en su celular o tablet, centrada en
 | **Muestras iniciales** | Páginas 1 (Cobrar), 29 (Ajuste Cashflow DU-27) y 51 (Tomar asistencia) | Estructura base de Ayuda, ruta de imágenes, botón ? y botón Imprimir | **APROBADO POR CLAUDE Y CARLOS** |
 | **Etapa A** | **Operativa: Páginas 2 a 20** (19 páginas) | **Buscador en /ayuda** y botón **?** en las pantallas de esas páginas | **Aprobada por Carlos (29/10)** |
 | **Etapa B** | Dueño: Páginas 21 a 36 (15 páginas, excluyendo la 29) | Botón **?** en las pantallas de esas páginas | **Aprobada por Carlos (30/10)** |
-| **Etapa C** | Dueño: Páginas 37 a 49 y Profesora: Páginas 50, 52, 53 y 54, más 55 a 59 | Botón **?** en todas las pantallas restantes de Wings | Hecha por Claude (30/10; Gemini sin crédito); falta control de Codex y OK de Carlos |
+| **Etapa C** | Dueño: Páginas 37 a 49 y Profesora: Páginas 50, 52, 53 y 54, más 55 a 59 | Botón **?** en todas las pantallas restantes de Wings | Hecha por Claude (30/10); controlada por Gemini (0 hallazgos); falta OK de Carlos |
 
 ## Páginas agregadas en la etapa C (Claude, 30/10/2026)
 
