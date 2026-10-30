@@ -13,6 +13,10 @@
  *     otra cosa se usa *cursiva*, nunca negrita.
  *  3. Cada imagen citada existe, y ninguna imagen del manual repite a otra.
  *  4. La pantalla del encabezado (pantalla:) es una ruta real de Wings.
+ *  5. Sin `comillas de código`: el manual lo lee la gente del club. Un mensaje
+ *     de Wings va entre «» (y así lo controla el punto 1); un ejemplo que escribe
+ *     el usuario, entre comillas comunes. Agregado el 30/10/2026: en la etapa B
+ *     los mensajes iban entre comillas de código y no los controlaba nadie.
  *
  * Uso:  php scripts/manual/verificar-manual.php   (sale con 1 si hay errores)
  */
@@ -71,6 +75,11 @@ foreach ($paginas as $pagina) {
                 if ($buscado === '' || str_contains($corpusPlano, $buscado)) continue;
                 $problemas[] = "línea $n: $tipo «{$buscado}» no aparece en el código de Wings";
             }
+        }
+
+        preg_match_all('/`([^`]+)`/u', $linea, $codigos);
+        foreach ($codigos[1] as $texto) {
+            $problemas[] = "línea $n: «{$texto}» va entre comillas de código; un mensaje de Wings va entre «», un ejemplo entre comillas comunes";
         }
 
         preg_match_all('#\]\((/ayuda/img/[^)]+)\)#', $linea, $imgs);
