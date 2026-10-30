@@ -1,5 +1,12 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-30 — Codex CAB — Publicación de la tanda 3 y bitácora
+
+Carlos pidió actualizar mi bitácora y subir todo a GitHub. Fetch de origin comprobado: main local y remoto en18a8bc8d, divergencia0/0; contiene940c53b5, entrega de los días34–40.
+Publicación de la entrega ya comprobada por la referencia remota actualizada; este asiento registra el pedido y la preparación de su propio commit de bitácora.
+Se conservan los siete informes, evidencias y diferencias; sigue la revisión independiente de Claude. [Entrega](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md).
+Único cambio local ajeno: evidencia-correccion-t34/sin-presentes.html, preservado sin incorporarlo. Sin cambios propios de producto, catálogo/tablero ni operaciones en el sitio.
+Enlaces, integridad y diff documentales comprobados; entrada antigua archivada íntegra por límite. Publicación por push normal a origin/main y comprobación del SHA remoto al entregar.
 
 ## 2026-10-30 — Codex CAB — Tanda 3, días 34 a 40 entregados a revisión
 
@@ -42,16 +49,6 @@ Sigue Claude: revisar informes, diferencias y controles no probados antes de aut
 
 
 
-## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
-
-Carlos pidió después publicar también `evidencia-correccion-t34/sin-presentes.html`: se incorpora su regeneración actual en un commit documental separado, sin modificar la prueba que lo genera ni producto.
-
-
-Carlos pidió «Actualizar bitacora y subir todo a github». Revisados estado, commits, origin y tablero actuales; se publica sólo documentación propia pendiente y los commits ya entregados.
-T65 cerrada en559239a5: lógica Codex5928a686 y aspecto aprobado por Carlos, registrado por Gemini. T89 cerrada7da39b53: lógica Claude y aspecto Carlos. T25 cerradad94147b0: lógica Gemini y aspecto Carlos. Son estados leídos del tablero actual; no una nueva verificación de sus cambios visuales.
-Las entregas propias5928a686 (T65) y6da3f3a5 (T89) ya estaban en el remoto al comprobarlo. Esta vuelta agrega el registro de publicación y archiva T90 íntegra para respetar el límite de bitácora.
-Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualización documental. El HTML T34 sucio es ajeno y queda fuera; no se restaura ni se modifica. Integridad/enlaces/diff verificados; confirmación del commit remoto al entregar.
-
 
 [Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
 
@@ -87,3 +84,5 @@ Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualizació
 [Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-detencion-DIA34-antes-reanudar.txt). Base original: docs/00-estado/. SHA256: e2cda1be2a6f67d605d5075f4f0b4760599c1019f98af0f5eff506c918eb83e4.
 
 [Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-ENTREGA34-40.txt). Base original: docs/00-estado/. SHA256: 4c9d6c1003376fb5f92ebcb3188ff8c581b4d8533d375f502f6b59ecdc3bd09c.
+
+[Entrada de publicación del28/10 archivada íntegra al publicar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-PUSH34-40.txt). Base original: docs/00-estado/. SHA256: 40588dda410c547001a8ff1db9e7296c95c4c287400f88386e1ce179c138f9d2.
