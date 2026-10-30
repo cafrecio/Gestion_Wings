@@ -22,7 +22,7 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `HTTP 403 Forbidden` | `routes/web.php:73`<br>`app/Http/Middleware/CheckRole.php:25` | Sí | Explica que el rol Profesor tiene el acceso bloqueado a Cobranza. |
-| `0 alumnos encontrados` | `resources/views/cobranza/index.blade.php:80` | Sí | Mensaje cuando no hay registros para el filtro seleccionado. |
+| `HTTP 403 Forbidden` | `routes/web.php:73`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para rol Profesor; la operativa tiene acceso pleno a Cobranza. |
+| `0 alumnos encontrados` | `resources/views/cobranza/index.blade.php:80` | No | Estado vacío visual en pantalla cuando el filtro de condición no devuelve alumnos. |

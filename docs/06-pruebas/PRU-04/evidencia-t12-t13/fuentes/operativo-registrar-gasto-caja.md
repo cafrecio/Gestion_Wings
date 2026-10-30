@@ -22,10 +22,10 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» | `app/Services/CajaService.php:615` | Sí | Explica en «Qué hago si» que no se puede registrar ni editar un egreso superior al efectivo disponible en el cajón. |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | Sí | Explica que si la caja está Cerrada o Validada no se puede editar ni eliminar el gasto. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | Sí | Explica que los gastos manuales se corrigen con Editar o Eliminar, no con Cancelar. |
+| «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» | `app/Services/CajaService.php:615` | Sí | Qué hago si: ¿Qué hago si el gasto supera el efectivo que hay en el cajón? |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Excepción interna; la página explica que se usa Editar y Eliminar sin citar el error de abort. |
 | `El subrubro ':nombre' es reservado del sistema y no puede usarse manualmente.` | `app/Services/CajaService.php:627` | No | Excepción técnica del sistema; el selector de la pantalla ya filtra solo subrubros no reservados habilitados para mostrador. |
-| `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | Sí | Explica que debe ingresarse el importe exacto en pesos que sale del cajón. |
+| `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | No | Validación estándar del formulario; en Paso 2 se indica ingresar el importe numérico en pesos. |

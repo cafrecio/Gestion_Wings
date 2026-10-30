@@ -10,6 +10,39 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 
+## 2026-10-30 — LOG GEM CAB — T12 y T13: Etapa B (Manual del Dueño, páginas 21 a 36, botón `?` en 8 pantallas de administración, 31 capturas con hashes únicos, 15 fichas de fuentes con la regla del «Sí», galería visual y revisión independiente en 0)
+
+- **Objetivo:** Ejecutar y entregar la Etapa B de T12 y T13 (páginas 21 a 36 para el rol Administrador / Dueño) aplicando estrictamente el método de `PROMPT-GEMINI-T12-T13-ETAPAS.md`, incorporar el botón `?` de ayuda contextual en las 8 vistas de administración autorizadas, generar capturas reales con navegador Chrome sin ventana y hashes únicos, confeccionar las 15 fichas de fuentes con la regla del «Sí», generar la galería visual `APROBAR-T12-T13-ETAPA-B.html`, someter la etapa a auditoría independiente y subsanar todos los hallazgos hasta alcanzar 0 abiertas.
+- **Acciones y resultados concretos:**
+  1. **Paso 0 (Ajustes de Etapa A y hueco MF12):**
+     - Subsanadas discrepancias de Etapa A en `cobrar-cuota.md` (tope de 12 meses según `MESES_ADELANTABLES`, retirando regla inventada de clases previas), `alta-alumno.md` (fecha no posterior al fin del mes) y `resolver-revision-cobranza.md` (nota mínima de 5 caracteres).
+     - Actualizadas las 20 fichas de fuentes operativas aplicando la regla de citar sección para cada fila «Sí».
+     - Documentado en `IMPLEMENTACION-T12-T13.md` el hueco contable conocido MF12 («Huecos para Carlos») respecto al rechazo de liquidación duplicada sin alterar el código de Wings.
+  2. **Botón `?` de ayuda contextual en pantallas de administración (T13):**
+     - Incorporada la directiva `@section('ayuda-slug', ...)` en las 8 vistas Blade autorizadas: `primera-carga/index`, `caja/resumen`, `caja/detalle` (con discriminación por rol admin/operativo), `cashflow/movimiento`, `cashflow/transferencia`, `liquidaciones/index`, `liquidaciones/create` y `liquidaciones/show`.
+     - Verificado que `git diff --stat -- resources/views` muestra exclusivamente la incorporación del slug de ayuda, sin tocar CSS ni alterar maquetación.
+  3. **Capturas reales y galería visual:**
+     - Desarrollados `scripts/pruebas/generar-capturas-etapa-b.php` (con base de datos aislada `wings_manual_gemini`) y `scripts/pruebas/capturar-etapa-b.mjs` (Puppeteer/Chrome sin ventana).
+     - Obtenidas 31 capturas de pasos en `resources/manual/img/admin/` y 18 capturas T13 (escritorio 1366 px y marco 375 px) con 100% de hashes MD5 únicos por guía.
+     - Generada la galería visual de revisión en `docs/06-pruebas/PRU-04/APROBAR-T12-T13-ETAPA-B.html`.
+  4. **15 páginas de manual y 15 fichas de fuentes:**
+     - Redactadas 15 nuevas páginas Markdown en `resources/manual/admin/` respetando literales exactos, negritas coincidentes con el código y un solo verbo corto en botones.
+     - Confeccionadas 15 fichas de fuentes en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/admin-*.md` con paso a paso y tabla de rechazos y avisos.
+  5. **Auditoría independiente y subsanación integral:**
+     - Subagente revisor independiente ejecutó auditoría bajo `REVISOR-MANUAL.md` (informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-30-etapa-b.md`).
+     - Subsanados todos los hallazgos:
+       - *Grave (1):* `cerrar-pagar-liquidacion.md` documenta la regla que impide cerrar liquidaciones antes de que concluya el mes (`puedeCerrarse()`), el aviso `Se puede cerrar desde el DD/MM/AAAA` que reemplaza al botón en la vista, y la excepción literal backend.
+       - *Medias (6):* Corregidos rótulos de botones a un solo verbo corto: **Transferir** (o Confirmar) en transferencias, **Nuevo** en listado de liquidaciones y **Generar** en creación, **Agregar** (o Nuevo) en dinero del dueño; corregida la auditoría de caja en `detalle.blade.php` (tarjeta de turno, columnas de movimientos y totales de ingresos/egresos al pie, sin mezclar con resumen); corregidas etiquetas de arqueo en resumen (`Efectivo del mostrador`); e incorporada la excepción backend `Primero validá o rechazá cada cuota atrasada.`.
+       - *Menores (2):* Actualizado `orden: 29` en frontmatter de `corregir-movimiento-caja-validada.md` y selector de período en cashflow.
+       - *Fichas de fuentes (10):* Corregidas las 10 citas y excepciones literales con el código fuente (`La primera carga ya está terminada.`, `Primero revisá el Excel en esta sesión.`, `No hay una carga para deshacer.`, `El motivo del rechazo es obligatorio.`, `Contá y cerrá la caja antes de rechazarla.`, `Caja validada y reflejada en cashflow.`, `Sin movimientos para los filtros seleccionados.`, etc.).
+     - Balance final del revisor: **0 Graves, 0 Medias, 0 Menores pendientes**.
+  6. **Verificaciones automáticas y pruebas:**
+     - `php scripts/manual/verificar-manual.php` &rarr; **37 páginas revisadas, 0 problemas**.
+     - `tests/Feature/AyudaManualT12T13Test.php` en `wings_testing_gemini` &rarr; **20 passed (111 assertions)**.
+     - `php artisan view:cache; php artisan view:clear` &rarr; Compilación limpia sin errores.
+- **Tablero:** T12 y T13 pasan a `a_verificar`, `tiene=Claude`, `verifica=Claude`, paso *«Etapa B: control de Claude y OK de Carlos»*.
+- **Próximo paso:** Parada obligatoria. Esperar el control de Claude y la aprobación de Carlos antes de iniciar la Etapa C.
+
 ## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A segunda vuelta (avisos cotidianos, reincorporación de exceso de plan, control exhaustivo de rechazos en las 20 fichas y revisión independiente en 0)
 
 - **Objetivo:** Subsanar los hallazgos de la segunda devolución de Claude (`VERIFICACION-T12-T13-ETAPA-A-SEGUNDA-CLAUDE.md`) y Carlos: reincorporar el exceso de plan en toma de lista (EXTRA/RECUPERA), documentar el rechazo por falta de efectivo disponible en gastos de caja, detallar el panel modal y motivo en cobro parcial, incorporar los «Qué hago si» para avisos y confirmaciones de cobro (deuda vieja salteada, cobro adelantado, mes cerrado e inactivos), retirar códigos internos (`[DU-20]`, `DU-27`), implementar la tabla «Rechazos y avisos de la acción» en las 20 fichas de fuentes y verificar contra `REVISOR-MANUAL.md` actualizado.

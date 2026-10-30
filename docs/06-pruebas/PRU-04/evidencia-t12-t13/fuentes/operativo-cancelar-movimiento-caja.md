@@ -23,9 +23,9 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | Sí | Explica que con la caja cerrada o validada no se puede cancelar el cobro. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | Sí | Explica que la cancelación aplica exclusivamente a cobros de cuotas con alumno asociado. |
-| `El campo motivo es obligatorio.` | `app/Http/Controllers/CajaWebController.php:625` | Sí | Explica que se debe escribir el motivo obligatorio de la anulación. |
-| `Cobro cancelado y deuda revertida.` | `app/Http/Controllers/CajaWebController.php:630` | Sí | Mensaje de éxito al cancelar la operación. |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | En > [!NOTE] Requisito de estado y en «Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?» se explica la regla conceptual sin citar el error técnico de URL. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | El Paso 2 explica que Cancelar aplica a cobros de cuota (ingresos y gastos usan Editar y Eliminar) sin citar el mensaje de abort. |
+| `El campo motivo es obligatorio.` | `app/Http/Controllers/CajaWebController.php:625` | No | El Paso 3 indica que el motivo es obligatorio sin citar la validación técnica. |
+| `Cobro cancelado y deuda revertida.` | `app/Http/Controllers/CajaWebController.php:630` | No | Mensaje flash del backend; el Paso 3 explica que tacha el movimiento y restituye la deuda a pendiente. |

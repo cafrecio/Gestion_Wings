@@ -2,6 +2,7 @@
 
 @section('title', 'Transferir – Cashflow – Wings')
 @section('module-title', 'Transferir')
+@section('ayuda-slug', 'transferir-entre-cuentas')
 
 @section('content')
 <form method="POST" action="{{ route('web.cashflow.transferencia.store') }}">

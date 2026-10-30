@@ -2,6 +2,7 @@
 
 @section('title', 'Liquidaciones – Wings')
 @section('module-title', 'Liquidaciones')
+@section('ayuda-slug', 'generar-liquidacion-profesor')
 
 @section('content')
 

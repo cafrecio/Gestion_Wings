@@ -2,7 +2,7 @@
 
 @section('title', 'Detalle caja ' . $caja->apertura_at->format('d/m/Y') . ' – Wings')
 @section('module-title', 'Detalle de caja')
-@section('ayuda-slug', 'cancelar-movimiento-caja')
+@section('ayuda-slug', Auth::user()?->isAdmin() ? 'auditar-detalle-caja' : 'cancelar-movimiento-caja')
 
 @section('content')
 

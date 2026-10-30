@@ -22,10 +22,10 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Hay un turno abierto de :usuario. Debe cerrarse antes de abrir el siguiente.` | `resources/views/caja/apertura.blade.php:18` | Sí | Explica que no se puede abrir turno si otro usuario tiene su caja abierta. |
-| `Hay un turno abierto. Cerralo antes de abrir otro.` | `app/Services/CajaService.php:95` | Sí | Mensaje de rechazo del backend si se intenta forzar la apertura con turno activo. |
-| `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | Sí | Explica que se debe cerrar la caja del día anterior antes de abrir la de hoy. |
-| `Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.` | `resources/views/caja/apertura.blade.php:72` | Sí | Confirmación obligatoria cuando el saldo inicial difiere marcadamente del cierre previo. |
-| `Caja abierta con el efectivo declarado.` | `app/Http/Controllers/CajaWebController.php:80` | Sí | Mensaje de éxito al completar la apertura del turno. |
+| `Hay un turno abierto de :usuario. Debe cerrarse antes de abrir el siguiente.` | `resources/views/caja/apertura.blade.php:18` | Sí | Qué hago si: ¿Qué hago si la pantalla dice «Debe cerrarse antes de abrir el siguiente.»? |
+| `Hay un turno abierto. Cerralo antes de abrir otro.` | `app/Services/CajaService.php:95` | No | Rechazo interno del backend si se fuerza el POST por fuera del formulario; en pantalla se previene con el aviso visual. |
+| `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | Sí | Qué hago si: ¿Qué hago si tengo una caja abierta de un día anterior? |
+| `Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.` | `resources/views/caja/apertura.blade.php:72` | Sí | Qué hago si: ¿Qué hago si la diferencia con el cierre anterior es muy grande? |
+| `Caja abierta con el efectivo declarado.` | `app/Http/Controllers/CajaWebController.php:80` | No | Mensaje flash del backend tras redirección; en Paso 2 punto 5 se describe el estado Abierta y el paso al panel principal. |

@@ -23,8 +23,8 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Solo se puede rectificar una caja en estado ABIERTA.` | `app/Http/Controllers/CajaWebController.php:102, 113`<br>`app/Services/CajaService.php:161` | Sí | Explica que si la caja está Cerrada, Rechazada o Validada no se puede rectificar la apertura. |
-| `El campo motivo rectificación es obligatorio.` | `app/Services/CajaService.php:154` | Sí | Explica que se debe ingresar el motivo obligatorio de la corrección. |
-| `Apertura rectificada correctamente.` | `app/Http/Controllers/CajaWebController.php:118` | Sí | Mensaje de éxito al guardar la rectificación del turno. |
+| `Solo se puede rectificar una caja en estado ABIERTA.` | `app/Http/Controllers/CajaWebController.php:102, 113`<br>`app/Services/CajaService.php:161` | No | En > [!NOTE] Requisito de rectificación se explica que solo se rectifica con caja Abierta sin citar el mensaje de error de URL. |
+| `El campo motivo rectificación es obligatorio.` | `app/Services/CajaService.php:154` | No | Paso 2 indica que se debe escribir el motivo sin citar el texto de validación técnica. |
+| `Apertura rectificada correctamente.` | `app/Http/Controllers/CajaWebController.php:118` | Sí | Paso 2: punto 4 |

@@ -22,10 +22,10 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `La caja no está en estado editable.` | `app/Services/CajaService.php:366` | Sí | Explica que si la caja está cerrada con arqueo o validada no admite nuevo cierre. |
-| `La caja ya está validada.` | `app/Http/Controllers/CajaWebController.php:88` | Sí | Mensaje de error al intentar cerrar una caja ya validada por el dueño. |
-| `La corrección no puede cambiar el efectivo que ya se contó y entregó.` | `app/Services/CajaService.php:376` | Sí | Explica que ante caja rechazada el arqueo de billetes entregados permanece inalterado. |
-| `The cambio retenido field must be less than or equal to :efectivo_contado.` | `app/Services/CajaService.php:359` | Sí | Explica que el cambio retenido en el cajón no puede superar el efectivo contado. |
-| `Caja cerrada.` | `app/Http/Controllers/CajaWebController.php:190` | Sí | Mensaje de éxito al completar el cierre del turno. |
+| `La caja no está en estado editable.` | `app/Services/CajaService.php:366` | No | Excepción interna del servicio contable si la caja no está en estado editable. |
+| `La caja ya está validada.` | `app/Http/Controllers/CajaWebController.php:88` | No | Redirección con error si se intenta acceder por URL directa a una caja ya validada por el dueño. |
+| `La corrección no puede cambiar el efectivo que ya se contó y entregó.` | `app/Services/CajaService.php:376` | No | Regla contable interna al corregir caja rechazada; en pantalla se refleja al no alterar el retiro entregado. |
+| `The cambio retenido field must be less than or equal to :efectivo_contado.` | `app/Services/CajaService.php:359` | No | Validación estándar del formulario; en Paso 2 se explica conceptualmente que el retiro es contado menos retenido. |
+| `Caja cerrada.` | `app/Http/Controllers/CajaWebController.php:190` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que la caja pasa a estado Cerrada. |

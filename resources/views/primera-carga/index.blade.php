@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Primera carga – Wings')
 @section('module-title', 'Primera carga')
+@section('ayuda-slug', 'primera-carga-descargar-plantilla')
 @php
     $title = 'Primera carga';
 @endphp

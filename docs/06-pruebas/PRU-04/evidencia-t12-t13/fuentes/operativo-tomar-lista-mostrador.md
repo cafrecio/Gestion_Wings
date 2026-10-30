@@ -25,14 +25,14 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.` | `app/Http/Controllers/ClaseWebController.php:367` | Sí | Explica en el requisito inicial que en clases futuras las casillas están deshabilitadas. |
-| `La clase está cancelada. No se pueden registrar asistencias.` | `app/Http/Controllers/ClaseWebController.php:360` | Sí | Explica en «Qué hago si» que no se pueden registrar asistencias si la clase fue cancelada. |
-| `No se pueden modificar asistencias: la clase integra una liquidación cerrada.` | `app/Http/Controllers/ClaseWebController.php:376` | Sí | Explica en «Qué hago si» que una clase con liquidación docente cerrada no admite modificaciones. |
-| `Esta clase ya tenía lista tomada: indicá el motivo de la corrección.` | `app/Http/Controllers/ClaseWebController.php:396` | Sí | Explica que corregir una clase pasada con lista tomada exige justificación obligatoria. |
-| `Tiene deuda vencida. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:44` | Sí | Explica que si el alumno está deudor se debe ingresar el motivo obligatorio. |
-| `Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:46` | Sí | Explica que para un alumno nuevo con 2 presentes y cuota impaga se exige justificación. |
-| `Excede el plan — indicar motivo` | `resources/views/clases/show.blade.php:505` | Sí | Explica el panel con opciones EXTRA o RECUPERA si el alumno supera las clases de su plan. |
-| `El alumno indicado no pertenece al grupo de la clase.` | `app/Http/Controllers/ClaseWebController.php:428` | Sí | Explica en «Qué hago si» qué hacer si un alumno que vino no figura en la nómina del grupo. |
-| `Asistencias guardadas.` | `resources/js/clases-show.js:145` | Sí | Aviso de éxito al guardar las asistencias en la base de datos. |
+| `Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.` | `app/Http/Controllers/ClaseWebController.php:367` | Sí | > [!NOTE] Requisito |
+| `Esta clase está cancelada. No se pueden registrar asistencias.` | `app/Http/Controllers/ClaseWebController.php:360` | Sí | Qué hago si: ¿Qué hago si la clase figura cancelada? |
+| `No se pueden modificar asistencias: la clase integra una liquidación cerrada.` | `app/Http/Controllers/ClaseWebController.php:376` | Sí | Qué hago si: ¿Qué hago si la clase ya integra una liquidación cerrada? |
+| `Esta clase ya tenía lista tomada: indicá el motivo de la corrección.` | `app/Http/Controllers/ClaseWebController.php:396` | No | En «Qué hago si me equivoqué al marcar a un alumno?» explica que se solicita motivo obligatorio de corrección sin citar el texto de validación. |
+| `Tiene deuda vencida. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:44` | Sí | Paso 2: punto 4 |
+| `Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:46` | Sí | Paso 2: punto 4 |
+| `Excede el plan — indicar motivo` | `resources/views/clases/show.blade.php:505` | Sí | Paso 2: punto 3 |
+| `El alumno indicado no pertenece al grupo de la clase.` | `app/Http/Controllers/ClaseWebController.php:428` | No | En «Qué hago si: ¿Qué pasa si una alumna que vino no figura en la lista del grupo?» explica el procedimiento sin citar la excepción técnica. |
+| `Asistencias guardadas.` | `resources/js/clases-show.js:145` | Sí | Paso 2: punto 5 |

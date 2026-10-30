@@ -33,10 +33,15 @@ Partí de la idea de que la página tiene errores. Una página que suena bien no
 7. **Lo que falta:** un caso común de esa tarea que la página no cubre y que deja al lector sin salida
    (por ejemplo, la caja cerrada pero todavía sin validar).
 8. **Rechazos y avisos de la acción:** buscá en el controlador y en el servicio de la acción cada `throw`,
-   `withMessages`, `abort`, `->with('error'` y cada `'message'` de panel de confirmación o modal que la
-   operativa pueda encontrar. Comprobá que la página lo cuente con el texto literal de Wings (o que la ficha
+   `withMessages`, `abort`, `->with('error'` y cada `'message'` de panel de confirmación o modal que el
+   usuario pueda encontrar. Comprobá que la página lo cuente con el texto literal de Wings (o que la ficha
    de fuentes justifique en su tabla de rechazos y avisos por qué no corresponde). Si la acción tiene un aviso
-   o rechazo que la operativa ve a diario y el manual lo omite, es un hallazgo **medio**.
+   o rechazo que el usuario ve a diario y el manual lo omite, es un hallazgo **medio**.
+   **Regla del «Sí» en la tabla de rechazos (29/10/2026):** En la tabla «Rechazos y avisos de la acción» de la
+   ficha de fuentes, cada fila con «Sí» debe nombrar obligatoriamente la sección exacta de la página donde está
+   documentado (por ejemplo, «Qué hago si: …» o «Paso X: punto Y»). Si la página no lo dice de manera comprobable,
+   no puede marcarse «Sí»: debe marcarse «No» justificando el motivo en la columna correspondiente. Una fila
+   marcada «Sí» sin sección comprobable en la página es un hallazgo **medio**.
 
 ## Informe
 

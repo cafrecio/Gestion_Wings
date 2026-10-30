@@ -21,8 +21,8 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Debe seleccionar la frecuencia semanal del nuevo grupo.` | `app/Http/Controllers/AlumnoWebController.php:511` | Sí | Explica que al cambiar de grupo es obligatorio seleccionar el plan arancelario. |
-| `El grupo no pertenece al deporte del alumno.` | `app/Http/Controllers/AlumnoWebController.php:508` | Sí | Explica que el grupo debe corresponder a la disciplina del alumno. |
-| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | Sí | Mensaje de éxito al guardar el cambio de grupo y plan. |
+| `Debe seleccionar la frecuencia semanal del nuevo grupo.` | `app/Http/Controllers/AlumnoWebController.php:511` | No | El Paso 2 indica que se debe elegir el nuevo plan en Frecuencia semanal sin citar el texto de validación del backend. |
+| `El grupo no pertenece al deporte del alumno.` | `app/Http/Controllers/AlumnoWebController.php:508` | No | El desplegable en pantalla solo muestra los grupos del deporte del alumno; validación técnica interna. |
+| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te muestra la ficha actualizada. |

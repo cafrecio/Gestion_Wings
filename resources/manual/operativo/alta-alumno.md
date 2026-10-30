@@ -57,5 +57,8 @@ En Wings cada persona tiene un único DNI. Si el alumno ya practicó alguna disc
 ### ¿Qué hago si el alumno empieza a mitad de mes?
 Al completar la **Fecha de alta**, Wings evalúa automáticamente la regla de ingreso. En **Cuota al dar de alta** podés elegir **Sí.** para generar la cuota proporcional o completa del mes, o **No.** para que empiece a tributar recién a partir del 1° del mes siguiente. La matrícula de inscripción es independiente y se registra según las políticas vigentes del club.
 
+### ¿Qué hago si la fecha de ingreso es a futuro?
+Wings permite fijar la fecha de ingreso en el día de hoy, en una fecha pasada o como máximo hasta el último día del mes siguiente. Si cargás una fecha posterior a ese límite, el formulario rechaza el guardado informando: «La fecha de ingreso no puede ser posterior al» último día del mes siguiente. Corregí la fecha para que quede dentro del límite admitido antes de presionar Guardar.
+
 ### ¿Puedo cancelar la carga si me arrepiento?
 Sí. Antes de presionar Guardar, podés tocar el botón **Cancelar** al pie del formulario para volver al listado de alumnos sin guardar ninguna información.

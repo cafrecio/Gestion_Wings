@@ -28,17 +28,17 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | Sí | Explica en el requisito inicial que sin caja abierta no se puede operar. |
-| `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | Sí | Explica que no se puede operar si quedó un turno previo abierto. |
-| `Esta fecha de pago corresponde a un mes anterior ya cerrado. El cobro quedará registrado con esa fecha real, pero entrará en la caja de hoy y modificará el reporte de ese mes.` | `app/Http/Controllers/CajaWebController.php:900` | Sí | Explica en «Qué hago si» la confirmación requerida ante fecha de pago en mes anterior cerrado. |
-| `Estás cobrando por adelantado :meses, que todavía no empezó. El importe queda fijo aunque después cambie la cuota.` | `app/Http/Controllers/CajaWebController.php:928` | Sí | Explica en «Qué hago si» la confirmación requerida ante cobro de meses futuros no iniciados. |
-| `Se puede cobrar por adelantado hasta 6 meses.` | `app/Http/Controllers/CajaWebController.php:914` | Sí | Explica el tope legal de meses futuros que permite cobrar el sistema. |
-| `Indicá el importe del mes que se cobra por adelantado.` | `app/Http/Controllers/CajaWebController.php:920` | Sí | Explica que para un mes adelantado sin cuota generada debe consignarse el monto a cobrar. |
-| `:apellido, :nombre está inactivo. ¿Pasa a activo?` | `app/Http/Controllers/CajaWebController.php:951` | Sí | Explica en «Qué hago si» la pregunta del panel y remite a la guía de reactivación. |
-| `El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.` | `app/Http/Controllers/CajaWebController.php:942` | Sí | Explica que no se ofrece la opción «No» si se cobra el mes en curso o futuro. |
-| `¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.` | `app/Services/ExcepcionCobranzaService.php:96-100` | Sí | Explica el panel que solicita motivo obligatorio ante deuda anterior no saldada. |
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | Sí | Explica que con caja cerrada o validada no se puede cancelar directamente el cobro. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | Sí | Explica que la anulación directa de cobros aplica exclusivamente a cobros de cuota. |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | Sí | Explica que las cajas validadas no admiten modificaciones contables directas. |
+| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | Sí | Qué hago si: ¿Qué hago si la pantalla dice «Debés abrir la caja y confirmar el efectivo antes de operar.»? |
+| `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | Sí | Qué hago si: ¿Qué hago si la pantalla dice «Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.»? |
+| `Esta fecha de pago corresponde a un mes anterior ya cerrado. El cobro quedará registrado con esa fecha real, pero entrará en la caja de hoy y modificará el reporte de ese mes.` | `app/Http/Controllers/CajaWebController.php:900` | Sí | Qué hago si: ¿Qué hago si la pantalla advierte que la fecha corresponde a un mes cerrado? |
+| `Estás cobrando por adelantado :meses, que todavía no empezó. El importe queda fijo aunque después cambie la cuota.` | `app/Http/Controllers/CajaWebController.php:928` | Sí | Qué hago si: ¿Qué hago si la pantalla advierte que estoy cobrando por adelantado? |
+| `Se puede cobrar por adelantado hasta 12 meses.` | `app/Http/Controllers/CajaWebController.php:34, 914` | Sí | Qué hago si: ¿Qué hago si la pantalla advierte que estoy cobrando por adelantado? |
+| `Indicá el importe del mes que se cobra por adelantado.` | `app/Http/Controllers/CajaWebController.php:920` | Sí | Qué hago si: ¿Qué hago si la pantalla advierte que estoy cobrando por adelantado? |
+| `:apellido, :nombre está inactivo. ¿Pasa a activo?` | `app/Http/Controllers/CajaWebController.php:951` | Sí | Qué hago si: ¿Qué hago si el alumno al que le cobro está inactivo? |
+| `El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.` | `app/Http/Controllers/CajaWebController.php:942` | No | En «Qué hago si el alumno al que le cobro está inactivo?» se explica que pagar el mes en curso es volver y no se ofrece la opción No, sin citar el mensaje de error de API. |
+| `¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.` | `app/Services/ExcepcionCobranzaService.php:96-100` | Sí | Qué hago si: ¿Qué hago si el cobro deja meses anteriores impagos? |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | En «Qué hago si me equivoqué al registrar un cobro?» se explica la regla conceptual sin citar el error técnico de URL. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Validación interna de URL que restringe la cancelación exclusivamente a cuotas con alumno. |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción interna del servicio contable si la caja ya fue validada. |

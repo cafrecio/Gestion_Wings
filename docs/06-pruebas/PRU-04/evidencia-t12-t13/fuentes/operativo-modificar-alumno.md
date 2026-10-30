@@ -23,10 +23,10 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `El campo motivo fecha alta es obligatorio.` | `app/Http/Controllers/AlumnoWebController.php:530` | Sí | Explica que si se altera la fecha de alta original se exige justificar el motivo. |
-| `La fecha de ingreso no puede ser posterior al :fecha_limite.` | `app/Support/FechaIngresoRegla.php:42` | Sí | Explica que la fecha de ingreso no puede exceder el fin del mes siguiente. |
-| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:611` | Sí | Explica que para menores de edad se debe conservar el tutor responsable. |
-| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:612` | Sí | Explica que para menores de edad se debe conservar el contacto del tutor. |
-| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | Sí | Mensaje de éxito al guardar los cambios del legajo. |
+| `El campo motivo fecha alta es obligatorio.` | `app/Http/Controllers/AlumnoWebController.php:530` | No | El Paso 2 indica que el motivo es obligatorio si se corrige la fecha de alta, sin citar el texto de validación técnica. |
+| `La fecha de ingreso no puede ser posterior al :fecha_limite.` | `app/Support/FechaIngresoRegla.php:42` | No | Regla de validación de fecha máxima explicada en alta-alumno.md; en edición rige la misma restricción sin citar el mensaje en esta página. |
+| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:611` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
+| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:612` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
+| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te redirige mostrando el aviso de confirmación. |

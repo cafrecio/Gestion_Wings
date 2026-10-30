@@ -39,7 +39,7 @@ Esta tarea te explica cómo gestionar el módulo de **Revisión de cobranza** al
 ---
 
 ### Paso 3. Cargar la nota y confirmar
-1. En el campo obligatorio **Nota (contacto y motivo)**, escribí un resumen del contacto realizado (por ejemplo: "Se habló con la madre, confirma que retoma el lunes tras viaje familiar" o "Avisan que no continúa por horarios escolares").
+1. En el campo obligatorio **Nota (contacto y motivo)**, escribí un resumen del contacto realizado (por ejemplo: "Se habló con la madre, confirma que retoma el lunes tras viaje familiar" o "Avisan que no continúa por horarios escolares"). La nota debe contener al menos 5 caracteres.
 2. Hacé clic en el botón **Confirmar**.
 3. Wings guarda la resolución, actualiza la cuenta corriente según lo resuelto y archiva el caso en la pestaña de resueltos con tu firma y fecha.
 
@@ -48,6 +48,9 @@ Esta tarea te explica cómo gestionar el módulo de **Revisión de cobranza** al
 ---
 
 ## Qué hago si…
+
+### ¿Qué hago si el sistema rechaza la nota al confirmar?
+La nota del contacto es obligatoria y debe tener al menos 5 caracteres (y no superar los 500). Si dejás el campo vacío o ingresás menos de 5 letras, Wings muestra el error: «La nota debe tener al menos 5 caracteres.» o «La nota es obligatoria.». Escribí una breve explicación del llamado o mensaje antes de tocar Confirmar.
 
 ### ¿Qué pasa si el alumno viene a pagar al mostrador antes de que resuelva la revisión?
 Si el alumno viene a pagar una cuota atrasada y decidís cobrarle, el cobro puede resolver automáticamente la situación si se le cobra el mes actual. En ese caso, la revisión quedará marcada en el historial como *Reactivado automáticamente*.

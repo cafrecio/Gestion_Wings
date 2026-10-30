@@ -25,6 +25,7 @@
 
 @section('title', $periodo . ' — ' . $liquidacion->profesor->apellido . ' – Wings')
 @section('module-title', 'Liquidación — ' . $liquidacion->profesor->apellido . ', ' . $liquidacion->profesor->nombre)
+@section('ayuda-slug', 'revisar-desglose-liquidacion')
 
 @section('content')
 

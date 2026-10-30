@@ -22,8 +22,8 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `HTTP 403 Forbidden` | `routes/web.php:161`<br>`app/Http/Middleware/CheckRole.php:25` | Sí | Explica que el rol Profesor no tiene acceso a Alumnos. |
-| `0 alumnos encontrados` | `resources/views/alumnos/index.blade.php:80` | Sí | Mensaje de estado vacío cuando ningún alumno coincide con la búsqueda o filtros aplicados. |
+| `HTTP 403 Forbidden` | `routes/web.php:161`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para rol Profesor; la operativa tiene acceso pleno a Alumnos. |
+| `0 alumnos encontrados` | `resources/views/alumnos/index.blade.php:80` | No | Estado vacío visual en grilla cuando ningún alumno coincide; la página explica el uso del botón Limpiar en Qué hago si. |
 | `El alumno no existe.` / `HTTP 404 Not Found` | `app/Http/Controllers/AlumnoWebController.php:150` | No | Excepción solo provocada por manipulación manual de URL con id inexistente. |

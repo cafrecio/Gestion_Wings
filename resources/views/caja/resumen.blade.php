@@ -2,6 +2,7 @@
 
 @section('title', 'Resumen – Caja del ' . $caja->apertura_at->format('d/m/Y') . ' – Wings')
 @section('module-title', 'Resumen de caja')
+@section('ayuda-slug', Auth::user()?->isAdmin() ? 'validar-rechazar-caja' : 'cerrar-caja')
 
 @section('content')
 

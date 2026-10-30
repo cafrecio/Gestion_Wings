@@ -290,4 +290,57 @@ class AyudaManualT12T13Test extends TestCase
         $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso3.png');
         $respAjuste->assertSee('/ayuda/img/admin/corregir-movimiento-paso4.png');
     }
+
+    public function test_pantallas_de_dueno_etapa_b_muestran_boton_de_ayuda_con_su_slug(): void
+    {
+        $tipoEfectivo = \App\Models\TipoCaja::firstOrCreate(['nombre' => 'Efectivo Mostrador'], ['activo' => true]);
+        \DB::table('caja_mostrador')->where('id', 1)->update(['tipo_caja_id' => $tipoEfectivo->id]);
+
+        $caja = \Tests\Support\CajaDeclarada::crear($this->operativo->id, $tipoEfectivo->id);
+
+        // Primera carga
+        $resp = $this->actingAs($this->admin)->get(route('web.primera-carga.index'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'primera-carga-descargar-plantilla'));
+
+        // Cashflow index (conserva la muestra corregir-movimiento-caja-validada)
+        $resp = $this->actingAs($this->admin)->get(route('web.cashflow.index'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'corregir-movimiento-caja-validada'));
+
+        // Cashflow movimiento
+        $resp = $this->actingAs($this->admin)->get(route('web.cashflow.movimiento'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'registrar-movimiento-cashflow'));
+
+        // Cashflow transferencia
+        $resp = $this->actingAs($this->admin)->get(route('web.cashflow.transferencia'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'transferir-entre-cuentas'));
+
+        // Liquidaciones index
+        $resp = $this->actingAs($this->admin)->get(route('web.liquidaciones.index'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'generar-liquidacion-profesor'));
+
+        // Liquidaciones crear
+        $resp = $this->actingAs($this->admin)->get(route('web.liquidaciones.create'));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'generar-liquidacion-profesor'));
+
+        // Caja resumen como admin
+        $resp = $this->actingAs($this->admin)->get(route('web.caja.resumen', $caja->id));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'validar-rechazar-caja'));
+
+        // Caja detalle como admin -> auditar-detalle-caja
+        $resp = $this->actingAs($this->admin)->get(route('web.caja.detalle', $caja->id));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'auditar-detalle-caja'));
+
+        // Caja detalle como operativo -> cancelar-movimiento-caja
+        $resp = $this->actingAs($this->operativo)->get(route('web.caja.detalle', $caja->id));
+        $resp->assertOk();
+        $resp->assertSee(route('web.ayuda.show', 'cancelar-movimiento-caja'));
+    }
 }

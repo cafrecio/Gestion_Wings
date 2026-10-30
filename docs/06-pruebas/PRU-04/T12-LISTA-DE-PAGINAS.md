@@ -55,8 +55,8 @@ El dueño tiene acceso a **todas las páginas de la operativa** y a los módulos
 27. **Consultar el libro Cashflow y saldos por medio**: Interpretación del disponible por tipo de caja y resultado del período.
 28. **Registrar un movimiento directo de administración**: Carga de ingresos extraordinarios, equipamiento o gastos generales en Cashflow.
 29. **Corregir un movimiento mal cargado en una caja ya validada [DU-27]**: Fundamento contable y carga de ajuste directo compensatorio en Cashflow. *(Muestra implementada)*
-30. **Transferir entre medios propios [DU-29]**: Transferencias internas (ej. pasar efectivo a banco) con Cuenta de salida y Cuenta de destino sin alterar resultado contable.
-31. **Regla de uso de dinero del dueño [DU-20]**: Pautas claras sobre por qué los retiros personales no se toman del cajón sin registro.
+30. **Transferir entre medios propios**: Transferencias internas (ej. pasar efectivo a banco) con Cuenta de salida y Cuenta de destino sin alterar resultado contable.
+31. **Retiros y aportes personales del dueño**: Asentamiento en caja como gasto o ingreso bajo las clasificaciones contables de retiro y aporte de los dueños.
 
 ### Plata: Liquidaciones de Profesores (Etapa B)
 32. **Generar la liquidación mensual de profesores**: Cálculo automático de honorarios por horas y comisiones por alumno del período.

@@ -2,6 +2,7 @@
 
 @section('title', isset($movimiento) ? 'Editar movimiento – Cashflow – Wings' : 'Nuevo movimiento – Cashflow – Wings')
 @section('module-title', isset($movimiento) ? 'Editar movimiento' : 'Nuevo movimiento')
+@section('ayuda-slug', 'registrar-movimiento-cashflow')
 
 @section('content')
 

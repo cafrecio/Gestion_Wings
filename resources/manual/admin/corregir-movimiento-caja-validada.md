@@ -2,10 +2,9 @@
 titulo: Corregir un movimiento mal cargado en una caja ya validada
 rol: admin
 categoria: Cashflow y finanzas
-orden: 20
+orden: 29
 resumen: Cómo compensar un error de cobro o gasto de un turno ya cerrado y validado sin romper la trazabilidad histórica.
 pantalla: /cashflow
-du: DU-27
 ---
 
 # Corregir un movimiento mal cargado en una caja ya validada
@@ -13,7 +12,7 @@ du: DU-27
 Esta tarea te explica cómo solucionar una diferencia cuando se descubre que en un turno anterior se cargó un cobro o gasto con un monto equivocado, o con el medio de pago incorrecto, y esa caja ya fue validada por el dueño.
 
 > [!IMPORTANT]
-> *Por qué la caja validada no se toca:* Una caja validada representa el dinero físico real que la operativa contó y entregó al cerrar su turno. Si editáramos o borráramos movimientos de una caja ya validada, romperíamos la trazabilidad histórica de lo que efectivamente rindió ese turno y no habría forma de auditar qué pasó. En Wings, lo validado queda cerrado para siempre (DU-27) y cualquier corrección posterior se asienta como un *ajuste directo en Cashflow*, con motivo claro.
+> *Por qué la caja validada no se toca:* Una caja validada representa el dinero físico real que la operativa contó y entregó al cerrar su turno. Si editáramos o borráramos movimientos de una caja ya validada, romperíamos la trazabilidad histórica de lo que efectivamente rindió ese turno y no habría forma de auditar qué pasó. En Wings, lo validado queda cerrado para siempre y cualquier corrección posterior se asienta como un *ajuste directo en Cashflow*, con motivo claro.
 
 ---
 
@@ -73,4 +72,4 @@ Si la caja del turno fue cerrada por la operativa pero vos todavía no la valida
 Por lo tanto, el ajuste en **Cashflow** compensa el saldo financiero del club, pero la ficha del alumno conservará la cuota como saldada. La deuda no se puede reabrir en el sistema.
 
 ### ¿Qué hago si lo que tengo que hacer es pasar efectivo al banco?
-Eso no es un error de caja, es una transferencia entre cuentas del club (DU-29). En **Cashflow**, tocá el botón **Transferir** y elegí la **Cuenta de salida** y la **Cuenta de destino**. Wings genera las dos patas vinculadas sin alterar el resultado del club.
+Eso no es un error de caja, es una transferencia entre cuentas del club. En **Cashflow**, tocá el botón **Transferir** y elegí la **Cuenta de salida** y la **Cuenta de destino**. Wings genera las dos patas vinculadas sin alterar el resultado del club.

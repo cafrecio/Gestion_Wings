@@ -23,7 +23,7 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `HTTP 403 Forbidden` | `routes/web.php:67`<br>`app/Http/Middleware/CheckRole.php:25` | Sí | Explica que el rol Profesor tiene el acceso bloqueado al historial de cajas. |
-| `0 movimientos encontrados` | `resources/views/caja/historial.blade.php:85` | Sí | Mensaje cuando no se registran movimientos para los filtros aplicados. |
+| `HTTP 403 Forbidden` | `routes/web.php:67`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para rol Profesor; la operativa tiene acceso pleno al historial. |
+| `0 movimientos encontrados` | `resources/views/caja/historial.blade.php:85` | No | Estado vacío visual en pantalla cuando los filtros no devuelven movimientos. |

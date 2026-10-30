@@ -22,7 +22,7 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `No hay clases programadas para hoy.` | `resources/views/clases/index.blade.php:85` | Sí | Mensaje cuando no hay clases agendadas en la fecha actual. |
-| `0 clases encontradas` | `resources/views/clases/index.blade.php:190` | Sí | Mensaje de estado vacío cuando los filtros no devuelven actividades. |
+| `No hay clases programadas para hoy.` | `resources/views/clases/index.blade.php:85` | No | Estado vacío visual en pantalla cuando no hay clases en el día; la página describe en Paso 1 la ventana de hoy. |
+| `0 clases encontradas` | `resources/views/clases/index.blade.php:190` | No | Estado vacío visual en pantalla al aplicar filtros que no devuelven registros. |

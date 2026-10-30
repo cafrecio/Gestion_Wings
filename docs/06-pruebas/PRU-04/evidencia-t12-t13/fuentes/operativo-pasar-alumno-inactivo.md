@@ -22,9 +22,9 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `:apellido, :nombre está inactivo. ¿Pasa a activo?` | `app/Http/Controllers/CajaWebController.php:951` | Sí | Explica la pregunta interactiva del panel de reactivación en Cobrar. |
-| `El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.` | `app/Http/Controllers/CajaWebController.php:942` | Sí | Explica que no se ofrece «No» si se cobra el mes en curso o futuro. |
-| `Alumno activado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:440` | Sí | Mensaje de éxito al cambiar el interruptor a Activo en la ficha. |
-| `Alumno desactivado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:445` | Sí | Mensaje de éxito al cambiar el interruptor a Inactivo. |
+| `:apellido, :nombre está inactivo. ¿Pasa a activo?` | `app/Http/Controllers/CajaWebController.php:951` | Sí | Qué hago si: ¿Qué hago si cobro a un alumno inactivo? |
+| `El cobro incluye el mes en curso o uno futuro: para cobrarlo, el alumno tiene que volver a activo.` | `app/Http/Controllers/CajaWebController.php:942` | Sí | Qué hago si: ¿Qué hago si cobro a un alumno inactivo? |
+| `Alumno activado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:440` | No | Mensaje flash del backend tras activar; en Paso 3 se explica que reactiva la ficha y emite el aviso. |
+| `Alumno desactivado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:445` | No | Mensaje flash del backend tras desactivar; en Paso 2 se explica que emite el aviso de confirmación. |

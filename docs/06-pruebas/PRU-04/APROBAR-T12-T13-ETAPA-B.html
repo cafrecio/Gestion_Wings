@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T12 y T13 — Manual del usuario y Ayuda en Wings: Etapa B (Dueño, páginas 21 a 36)</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}
+main{max-width:1400px;margin:auto}
+h1{font-size:28px;margin-bottom:6px;color:#0f172a}
+h2{font-size:22px;margin-top:0;color:#0f172a}
+h3{font-size:17px;margin:12px 0 6px 0;color:#1e293b}
+section{background:white;padding:24px;margin:20px 0;border:1px solid #cbd5df;border-radius:10px}
+.columns{display:flex;gap:24px;align-items:flex-start;overflow-x:auto}
+.desktop{flex:1;min-width:600px}
+.phone{width:375px;min-width:375px}
+img{display:block;max-width:100%;height:auto;border:1px solid #b7c5d2;border-radius:6px;background:#f8fafc}
+.phone img{width:375px;max-width:none}
+a{color:#174c89;text-decoration:none}a:hover{text-decoration:underline}
+.status{border-left:5px solid #0284c7;padding:14px 18px;background:#f0f9ff;margin:16px 0;border-radius:0 8px 8px 0}
+.alerta-freno{border-left:5px solid #d97706;padding:14px 18px;background:#fffbeb;margin:16px 0;border-radius:0 8px 8px 0}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0;padding:12px;background:#fff;border:1px solid #cbd5df;border-radius:8px;}
+figure{margin:0}figcaption{margin:8px 0;font-size:13px;color:#475569}
+ul{margin:8px 0 16px 20px;padding:0}li{margin-bottom:6px}
+.badge{display:inline-block;padding:3px 9px;font-size:12px;font-weight:700;border-radius:999px}
+.badge-warning{background:#fef3c7;color:#b45309}
+.badge-danger{background:#fee2e2;color:#b91c1c}
+.badge-success{background:#dcfce7;color:#15803d}
+.badge-info{background:#e0f2fe;color:#0369a1}
+.badge-neutral{background:#f1f5f9;color:#475569}
+.grid-pasos{display:grid;grid-template-columns:repeat(auto-fit, minmax(360px, 1fr));gap:18px;margin-top:14px;}
+.paso-card{border:1px solid #cbd5df;border-radius:8px;padding:14px;background:#f8fafc;}
+.paso-card h4{margin:0 0 8px 0;font-size:15px;color:#0f172a}
+.paso-card img{margin-top:10px;}
+</style>
+</head>
+<body>
+<main>
+
+<h1>T12 y T13 — Manual del usuario y Ayuda en Wings: Etapa B (Dueño, páginas 21 a 36)</h1>
+<p style="color:#64748b;margin-top:0;">Galería de aprobación visual para Carlos · Fecha: 30 de octubre de 2026 · Agente: Gemini</p>
+
+<div class="status">
+<strong>Estado de la Etapa B:</strong> 16 páginas implementadas con método estricto (ejecución previa en el sistema, textos literales comprobados contra el código, regla de «Sí» en fichas de fuentes, 0 hallazgos en <code>verificar-manual.php</code> y 20 pruebas automáticas en verde).
+</div>
+
+<nav>
+<strong>Índice rápido:</strong>
+<a href="#t13-botones">Botones [?] de ayuda (T13)</a> ·
+<a href="#bloque-primera-carga">Primera Carga (21-24)</a> ·
+<a href="#bloque-cajas">Validación de Cajas (25-26)</a> ·
+<a href="#bloque-cashflow">Cashflow y Finanzas (27-31)</a> ·
+<a href="#bloque-liquidaciones">Liquidaciones (32-36)</a>
+</nav>
+
+<!-- ─────────────────────────────────────────────────────────────────── -->
+<!-- T13: BOTONES DE AYUDA [?] EN PANTALLAS DEL DUEÑO                    -->
+<!-- ─────────────────────────────────────────────────────────────────── -->
+<section id="t13-botones">
+<h2>T13 — Botón de ayuda [?] en pantallas del Dueño (Escritorio 1366 px y Celular 375 px)</h2>
+<p>Al igual que en la etapa A, cada pantalla principal del dueño cuenta en su cabecera superior con el botón <strong>?</strong>, enlazado directamente a su guía correspondiente del manual.</p>
+
+
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Primera carga masiva — <span class="badge badge-info">Botón ? → /ayuda/primera-carga-descargar-plantilla</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-primera-carga-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-primera-carga-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Resumen de caja (Cerrada) — <span class="badge badge-info">Botón ? → /ayuda/validar-rechazar-caja</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-caja-resumen-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-caja-resumen-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Detalle y arqueo de caja (Admin) — <span class="badge badge-info">Botón ? → /ayuda/auditar-detalle-caja</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-caja-detalle-admin-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-caja-detalle-admin-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Libro Cashflow general — <span class="badge badge-info">Botón ? → /ayuda/corregir-movimiento-caja-validada</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Nuevo movimiento directo en Cashflow — <span class="badge badge-info">Botón ? → /ayuda/registrar-movimiento-cashflow</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-movimiento-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-movimiento-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Transferir entre cuentas propias — <span class="badge badge-info">Botón ? → /ayuda/transferir-entre-cuentas</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-transferencia-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-cashflow-transferencia-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Listado de liquidaciones — <span class="badge badge-info">Botón ? → /ayuda/generar-liquidacion-profesor</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Generar nueva liquidación — <span class="badge badge-info">Botón ? → /ayuda/generar-liquidacion-profesor</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-crear-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-crear-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px; border-bottom:1px solid #e2e8f0; padding-bottom:20px;">
+        <h3>Desglose analítico de liquidación — <span class="badge badge-info">Botón ? → /ayuda/revisar-desglose-liquidacion</span></h3>
+        <div class="columns">
+            <div class="desktop">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-show-1366.png" alt="Escritorio 1366" loading="lazy">
+                    <figcaption>Escritorio (1366 px) — Botón [?] visible en el extremo superior derecho junto a Cerrar sesión</figcaption>
+                </figure>
+            </div>
+            <div class="phone">
+                <figure>
+                    <img src="evidencia-t12-t13/signo-pregunta-liquidaciones-show-375.png" alt="Celular 375" loading="lazy">
+                    <figcaption>Celular (marco 375 px) — Botón [?] accesible en barra superior móvil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div></section><section id="bloque-primera-carga"><h2>Capítulo Especial: Primera Carga masiva (Páginas 21 a 24)</h2>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 21 · Descargar la plantilla de primera carga</h3>
+                <div>
+                    <span class="badge badge-info">Primera carga</span>
+                    <span class="badge badge-neutral">Ruta: /sistema/primera-carga</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo preparar los catálogos del club y descargar el Excel modelo para la carga inicial de alumnos y deudas.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Preparar los catálogos deportivos</h4>
+                    <img src="evidencia-t12-t13/primera-carga-descargar-plantilla-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Descargar y conocer la plantilla</h4>
+                    <img src="evidencia-t12-t13/primera-carga-descargar-plantilla-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/primera-carga-descargar-plantilla.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-primera-carga-descargar-plantilla.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 22 · Subir y revisar el archivo de primera carga</h3>
+                <div>
+                    <span class="badge badge-info">Primera carga</span>
+                    <span class="badge badge-neutral">Ruta: /sistema/primera-carga</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo cargar el archivo Excel en Wings y analizar el informe de revisión antes de importar los alumnos.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Seleccionar el archivo completado</h4>
+                    <img src="evidencia-t12-t13/primera-carga-subir-revisar-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Analizar los resultados de la revisión</h4>
+                    <img src="evidencia-t12-t13/primera-carga-subir-revisar-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/primera-carga-subir-revisar.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-primera-carga-subir-revisar.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 23 · Confirmar la importación masiva de primera carga</h3>
+                <div>
+                    <span class="badge badge-info">Primera carga</span>
+                    <span class="badge badge-neutral">Ruta: /sistema/primera-carga</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo verificar el resumen final e importar los alumnos y sus deudas a la base de datos de Wings.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Revisar el resumen consolidado</h4>
+                    <img src="evidencia-t12-t13/primera-carga-confirmar-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Confirmar la operación definitiva</h4>
+                    <img src="evidencia-t12-t13/primera-carga-confirmar-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/primera-carga-confirmar.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-primera-carga-confirmar.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 24 · Deshacer la primera carga</h3>
+                <div>
+                    <span class="badge badge-info">Primera carga</span>
+                    <span class="badge badge-neutral">Ruta: /sistema/primera-carga</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo revertir de forma limpia la importación inicial ante errores masivos, antes de que se registren cobros.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Localizar la opción en Primera carga</h4>
+                    <img src="evidencia-t12-t13/primera-carga-deshacer-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Confirmar la reversión</h4>
+                    <img src="evidencia-t12-t13/primera-carga-deshacer-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/primera-carga-deshacer.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-primera-carga-deshacer.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article></section><section id="bloque-cajas"><h2>Plata: Validación de Cajas y Arqueos (Páginas 25 y 26)</h2>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 25 · Validar o rechazar el cierre de caja de un turno</h3>
+                <div>
+                    <span class="badge badge-info">Cajas y turnos</span>
+                    <span class="badge badge-neutral">Ruta: /caja/{id}/resumen</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo auditar el arqueo final rendido por la operativa, aprobar el pase a Cashflow o rechazar con motivo.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Abrir el resumen de la caja cerrada</h4>
+                    <img src="evidencia-t12-t13/validar-rechazar-caja-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Opción A: Rechazar con motivo si hay diferencias</h4>
+                    <img src="evidencia-t12-t13/validar-rechazar-caja-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 3: Opción B: Validar el turno si todo coincide</h4>
+                    <img src="evidencia-t12-t13/validar-rechazar-caja-paso3.png" alt="Paso 3" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/validar-rechazar-caja.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-validar-rechazar-caja.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 26 · Auditar el detalle y arqueo de una caja</h3>
+                <div>
+                    <span class="badge badge-info">Cajas y turnos</span>
+                    <span class="badge badge-neutral">Ruta: /caja/{id}/detalle</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo inspeccionar cada cobro y gasto de un turno operativo y verificar los comprobantes emitidos.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Inspeccionar el estado y totales del turno</h4>
+                    <img src="evidencia-t12-t13/auditar-detalle-caja-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Auditar los movimientos individuales</h4>
+                    <img src="evidencia-t12-t13/auditar-detalle-caja-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/auditar-detalle-caja.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-auditar-detalle-caja.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article></section><section id="bloque-cashflow"><h2>Plata: Cashflow y Finanzas del Club (Páginas 27 a 31)</h2>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 27 · Consultar el libro Cashflow y saldos por medio</h3>
+                <div>
+                    <span class="badge badge-info">Cashflow y finanzas</span>
+                    <span class="badge badge-neutral">Ruta: /cashflow</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo interpretar el disponible por cuenta o tipo de caja y auditar el resultado financiero del período.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Revisar los saldos disponibles por cuenta</h4>
+                    <img src="evidencia-t12-t13/consultar-cashflow-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Filtrar por período y analizar el resultado</h4>
+                    <img src="evidencia-t12-t13/consultar-cashflow-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/consultar-cashflow.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-consultar-cashflow.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 28 · Registrar un movimiento directo de administración</h3>
+                <div>
+                    <span class="badge badge-info">Cashflow y finanzas</span>
+                    <span class="badge badge-neutral">Ruta: /cashflow/movimiento</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo cargar gastos generales, compras de equipamiento o ingresos extraordinarios en el libro Cashflow.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Abrir el formulario de nuevo movimiento</h4>
+                    <img src="evidencia-t12-t13/registrar-movimiento-cashflow-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Completar los datos y guardar</h4>
+                    <img src="evidencia-t12-t13/registrar-movimiento-cashflow-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/registrar-movimiento-cashflow.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-registrar-movimiento-cashflow.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 29 · Corregir un movimiento mal cargado en una caja ya validada</h3>
+                <div>
+                    <span class="badge badge-info">Cashflow y finanzas</span>
+                    <span class="badge badge-neutral">Ruta: /cashflow</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo compensar un error de cobro o gasto de un turno ya cerrado y validado sin romper la trazabilidad histórica.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Entrar a Cashflow</h4>
+                    <img src="evidencia-t12-t13/corregir-movimiento-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Abrir el formulario de nuevo movimiento</h4>
+                    <img src="evidencia-t12-t13/corregir-movimiento-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 3: Cargar el ajuste compensatorio</h4>
+                    <img src="evidencia-t12-t13/corregir-movimiento-paso3.png" alt="Paso 3" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 4: Guardar y verificar</h4>
+                    <img src="evidencia-t12-t13/corregir-movimiento-paso4.png" alt="Paso 4" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/corregir-movimiento-caja-validada.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-corregir-movimiento-caja-validada.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 30 · Transferir entre medios propios</h3>
+                <div>
+                    <span class="badge badge-info">Cashflow y finanzas</span>
+                    <span class="badge badge-neutral">Ruta: /cashflow/transferencia</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo mover fondos entre cuentas del club (ej. pasar efectivo a banco) sin alterar el resultado contable.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Abrir la pantalla de transferencia</h4>
+                    <img src="evidencia-t12-t13/transferir-entre-cuentas-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Indicar salida, destino e importe</h4>
+                    <img src="evidencia-t12-t13/transferir-entre-cuentas-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/transferir-entre-cuentas.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-transferir-entre-cuentas.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 31 · Retiros y aportes personales del dueño</h3>
+                <div>
+                    <span class="badge badge-info">Cashflow y finanzas</span>
+                    <span class="badge badge-neutral">Ruta: /cashflow/movimiento</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo asentar retiros de ganancias o aportes de capital del dueño en Cashflow o en el cajón de la operativa.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Movimiento directo desde cuentas o administración (en Cashflow)</h4>
+                    <img src="evidencia-t12-t13/dinero-del-dueno-retiros-aportes-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Retiro o aporte de efectivo físico en el cajón de la operativa (en Caja)</h4>
+                    <img src="evidencia-t12-t13/dinero-del-dueno-retiros-aportes-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/dinero-del-dueno-retiros-aportes.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-dinero-del-dueno-retiros-aportes.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article></section><section id="bloque-liquidaciones"><h2>Plata: Liquidaciones de Profesores (Páginas 32 a 36)</h2>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 32 · Generar la liquidación mensual de profesores</h3>
+                <div>
+                    <span class="badge badge-info">Liquidaciones</span>
+                    <span class="badge badge-neutral">Ruta: /liquidaciones/crear</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo calcular automáticamente los honorarios por horas o comisiones de un docente para un período cerrado.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Entrar al módulo de liquidaciones</h4>
+                    <img src="evidencia-t12-t13/generar-liquidacion-profesor-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Seleccionar docente y período</h4>
+                    <img src="evidencia-t12-t13/generar-liquidacion-profesor-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/generar-liquidacion-profesor.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-generar-liquidacion-profesor.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 33 · Revisar el desglose de una liquidación</h3>
+                <div>
+                    <span class="badge badge-info">Liquidaciones</span>
+                    <span class="badge badge-neutral">Ruta: /liquidaciones/{id}</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo auditar las clases computadas, tarifas congeladas y comisiones calculadas de un docente.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Revisar la cabecera e importes generales</h4>
+                    <img src="evidencia-t12-t13/revisar-desglose-liquidacion-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Auditar el detalle de clases o comisiones</h4>
+                    <img src="evidencia-t12-t13/revisar-desglose-liquidacion-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/revisar-desglose-liquidacion.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-revisar-desglose-liquidacion.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 34 · Recalcular o ajustar una liquidación abierta</h3>
+                <div>
+                    <span class="badge badge-info">Liquidaciones</span>
+                    <span class="badge badge-neutral">Ruta: /liquidaciones/{id}</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo actualizar los totales ante cambios de asistencia o fijar un monto final acordado con el docente.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Recalcular por cambios en asistencias o clases</h4>
+                    <img src="evidencia-t12-t13/recalcular-ajustar-liquidacion-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Ajustar el monto final a pagar</h4>
+                    <img src="evidencia-t12-t13/recalcular-ajustar-liquidacion-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/recalcular-ajustar-liquidacion.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-recalcular-ajustar-liquidacion.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 35 · Cerrar y pagar una liquidación</h3>
+                <div>
+                    <span class="badge badge-info">Liquidaciones</span>
+                    <span class="badge badge-neutral">Ruta: /liquidaciones/{id}</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo finalizar la auditoría, congelar los importes y registrar la salida de dinero en Cashflow.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Cerrar la liquidación auditada</h4>
+                    <img src="evidencia-t12-t13/cerrar-pagar-liquidacion-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Registrar el pago en Cashflow</h4>
+                    <img src="evidencia-t12-t13/cerrar-pagar-liquidacion-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/cerrar-pagar-liquidacion.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-cerrar-pagar-liquidacion.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article>
+        <article style="margin:24px 0; border:1px solid #cbd5df; border-radius:8px; padding:18px; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+                <h3 style="margin:0; font-size:18px; color:#0f172a;">Página 36 · Descargar el recibo oficial de liquidación</h3>
+                <div>
+                    <span class="badge badge-info">Liquidaciones</span>
+                    <span class="badge badge-neutral">Ruta: /recibos/liquidacion/{id}</span>
+                </div>
+            </div>
+            <p style="color:#475569; font-size:14px; margin:8px 0 14px 0;">Cómo obtener e imprimir el comprobante oficial en formato A5 con anexo de clases y comisiones.</p>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <h4>Paso 1: Abrir la liquidación pagada</h4>
+                    <img src="evidencia-t12-t13/descargar-recibo-liquidacion-paso1.png" alt="Paso 1" loading="lazy">
+                </div>
+                <div class="paso-card">
+                    <h4>Paso 2: Visualizar y descargar el comprobante en PDF</h4>
+                    <img src="evidencia-t12-t13/descargar-recibo-liquidacion-paso2.png" alt="Paso 2" loading="lazy">
+                </div>
+            </div>
+            <div style="margin-top:12px; font-size:13px;">
+                <a href="../../resources/manual/admin/descargar-recibo-liquidacion.md" target="_blank">📄 Ver archivo Markdown</a> ·
+                <a href="evidencia-t12-t13/fuentes/admin-descargar-recibo-liquidacion.md" target="_blank">📋 Ver Ficha de Fuentes</a>
+            </div>
+        </article></section>
+<div class="alerta-freno" style="margin-top:32px;">
+    <strong>Freno obligatorio de la Etapa B:</strong> La etapa B está terminada con 0 problemas y capturas reales. Queda lista para el control de Claude y el visto bueno de Carlos antes de iniciar la Etapa C.
+</div>
+
+</main>
+</body>
+</html>

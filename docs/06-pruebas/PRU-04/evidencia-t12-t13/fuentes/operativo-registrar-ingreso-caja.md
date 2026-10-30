@@ -22,10 +22,10 @@
 
 ## 2. Rechazos y avisos de la acción
 
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Comentario / Motivo |
+| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | Sí | Explica en el requisito inicial que sin caja abierta no se puede ingresar dinero. |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | Sí | Explica que si la caja está Cerrada o Validada no se puede editar ni eliminar el movimiento. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | Sí | Explica que los ingresos manuales se corrigen con Editar o Eliminar, no con Cancelar. |
-| `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | Sí | Explica que debe ingresarse el importe en pesos a registrar. |
-| `Movimiento registrado.` | `app/Http/Controllers/CajaWebController.php:502` | Sí | Mensaje de éxito al asentar el ingreso. |
+| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | No | Requisito previo general de caja; la página explica que el turno debe estar en estado Abierta sin citar el error técnico. |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Excepción interna; la página explica que se usa Editar y Eliminar para ingresos manuales. |
+| `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | No | Validación estándar del formulario; en Paso 3 se indica ingresar el importe en pesos. |
+| `Movimiento registrado.` | `app/Http/Controllers/CajaWebController.php:502` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que Wings asienta el movimiento sumándolo al saldo. |
