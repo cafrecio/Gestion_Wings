@@ -1,0 +1,29 @@
+== inicio 47 (después de la rutina) 2026-11-25 11:00:00
+   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.346.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.405.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.683.550,00
+   Caja #78 u8 ABIERTA esperado $0,00
+   clases de diciembre: 64 · el 1/12: Patín Avanzadas 2026-, Patín Federadas 2026-, Fútbol Avanzadas 2026- · el 8/12 (feriado): 3 · el 25/12 (feriado): 1
+   Emma: MOROSO $30.410,00
+   ficha de Emma para Rocío: Total adeudado: $30,410.00 Nov 2026
+   Morosos: Navarro, Alma $36.300,00 · Pereyra, Liam $38.500,00 · Ramos, Pilar $33.000,00 · Rios, Facundo $30.800,00 · Suarez, Valentina $38.500,00 · Villalba, Emma $30.410,00
+[47.3a] Fútbol Infantiles sábados 11:00 con Gonzalo y Hernán → 400 la profesora Hernán Quintana ya tiene asignada la clase 'Fútbol — Avanzadas' que se solapa en fecha 2026-12-05 entre 11:00 y 12:00. OK
+   clases de Fútbol Infantiles: 0
+[47.3b] sábados 10:00 solo con Gonzalo → 302 4 clase(s) creada(s). OK
+   clases de Fútbol Infantiles: 05/12, 12/12, 19/12, 26/12
+[47.3c] Patín Adultos de diciembre: aviso de cancha → 409 Martes: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00. | Jueves: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00. OK
+[47.3d] confirma → 302 10 clase(s) creada(s). OK
+   Adultos en diciembre: 10
+   recibo #394 diez veces: 200 · pagos y movimientos [208,292] → [208,292]
+[47.5a] mail de Hernán → 422 Ya existe un usuario con ese email. OK
+[47.5b] mail sin arroba → 422 El email no tiene un formato válido. OK
+[47.5c] clave de 8 → 422 El campo clave debe tener al menos 12 caracteres. OK
+[47.5d] claves distintas → 422 Las contraseñas no coinciden. OK
+[47.5e] Profesor sin elegir profesor → 422 Debe seleccionar el profesor vinculado. OK
+[47.5f] sin nombre → 422 El nombre es obligatorio. OK
+   usuarios: 9 · subrubros de sueldo de Gonzalo: 1
+[47.5g] bien → 302 Usuario creado correctamente. OK
+   usuario de Gonzalo: {"name":"Gonzalo Ibarra","rol":"PROFESOR","profesor_id":7,"activo":true}
+== fin 47 (antes de la noche) 2026-11-25 11:00:00
+   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.346.400,00 · Banco Nación $58.000,00 · Mercado Pago $3.405.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.683.550,00
+   Caja #78 u8 ABIERTA esperado $0,00

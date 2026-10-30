@@ -1,0 +1,43 @@
+== inicio 41 (después de la rutina de la mañana) 2026-11-19 11:00:00
+   Cobranza: $205.200,00 activos 108 {"AL_DIA":102,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
+   Caja #73 u2 ABIERTA esperado $0,00
+[41.1a] nivel «Infantil» → 302 Nivel creado correctamente. OK
+[41.1b] lo corrige a «Infantiles» → 302 Nivel actualizado correctamente. OK
+[41.1c] otro «infantiles » (repetido) → 422 Ya existe un nivel con un nombre similar. OK
+   niveles: Principiantes, Intermedias, Avanzadas, Federadas, Adultos, Infantiles
+[41.2a] Patín Principiantes otra vez → 400 Ya existe un grupo con ese deporte y nivel. OK
+[41.2b] Fútbol Infantiles sin planes → 400 El grupo debe tener al menos una frecuencia para poder cargar alumnos. OK
+[41.2c] plan a $0 → 400 El precio debe ser mayor a cero. OK
+[41.2d] 8 por semana → 400 El campo planes.0.clases_por_semana no puede ser mayor que 7. OK
+[41.2e] dos planes de 1 por semana → 500 Illuminate\Database\UniqueConstraintViolationException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-1-1' for key 'unique_grupo_clases_activo' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_guion, SQL: insert into `grupo_planes` (`grupo_id`, `cla OK
+   grupos de Fútbol Infantiles: 0
+[41.2f] Fútbol Infantiles bien: 1 por semana $25.000 y 2 por semana $38.000 → 302 Grupo creado correctamente. OK
+   grupo #9 planes: 1x $25.000,00, 2x $38.000,00
+[41.3a] DNI de Lucía → 422 Ya existe un profesor con ese DNI. OK
+[41.3b] comisión 101 → 422 El porcentaje de comisión no puede superar 100. OK
+[41.3c] mail sin arroba → 422 El email debe ser una dirección válida. OK
+[41.3d] sin nombre → 422 El nombre es obligatorio. OK
+   profesores: 6 · subrubros de sueldo: 0
+[41.3e] Gonzalo Ibarra bien, comisión 35% → 302 Profesor creado correctamente. OK
+   subrubro de sueldo: Fútbol-Gonzalo Ibarra
+   aviso con 4/1/2027: "La fecha de ingreso no puede ser posterior al 31\/12\/2026."
+[41.4a] Renzo con ingreso el 4/1/2027 → 422 La fecha de ingreso no puede ser posterior al 31/12/2026. OK
+   aviso con 1/12: {"mes_cerrado":false,"periodo":"2026-12","mes_ingreso":"diciembre de 2026","mes_cuota":"diciembre de 2026","porcentaje":100,"importe":25000}
+[41.4b] Renzo con ingreso el 1/12 → 302 Alumno creado correctamente. OK
+   Renzo: activo 1 · cuotas: 2026-12:PENDIENTE $25.000,00 · inscripción $5.000,00 · Cobranza: EN_PLAZO $5.000,00
+== después del alta de Renzo 2026-11-19 11:00:00
+   Cobranza: $210.200,00 activos 109 {"AL_DIA":102,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
+   Caja #73 u2 ABIERTA esperado $0,00
+[41.5] Renzo paga la inscripción → 302 Pago registrado para Acuña, Renzo. OK
+   Renzo después: AL_DIA $0,00
+[41.6a] Sandra abre el recibo #391 (lo cobró Rocío) → 200  OK
+[41.6b] Sandra cambia el número: 99999 → 404 No existe un pago con ID 99999 OK
+[41.6c] Lucía (profesora) abre ese recibo → 403 No tenés permiso para ver recibos de cobranza. OK
+[41.6d] Sandra abre el detalle de la caja #72 de Rocío → 200  OK
+[41.6e] Sandra abre el resumen de la caja #72 de Rocío → 403 HTTP 403 OK
+== fin 41 (antes de la noche) 2026-11-19 11:00:00
+   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.253.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.663.050,00
+   Caja #73 u2 ABIERTA esperado $0,00

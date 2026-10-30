@@ -157,6 +157,12 @@ try {
                 $msg = $enviar($como, '/clases', ['grupo_id' => $g->id, 'profesores' => $profes, 'tipo_creacion' => 'recurrente',
                     'fecha_desde' => $paso['desde'], 'fecha_hasta' => $paso['hasta'], 'dias_semana' => array_keys($horarios),
                     'horarios' => $horarios], fn ($r) => $claseCtrl->store($r));
+                // Un aviso que pide confirmar (por ejemplo, la cancha que ocupa dos bloques) vuelve sin error y
+                // sin crear nada: el 30/10 eso pasó por bueno. Esa serie va por pantalla, donde se confirma.
+                if (!str_contains($msg, 'creada')) {
+                    $aviso = $app['session']->driver()->get('aviso_cancha');
+                    throw new RuntimeException("La serie de {$paso['grupo']} no se creó".($aviso ? ': pide confirmar el aviso de cancha. Cargarla por pantalla.' : ": {$msg}"));
+                }
                 $texto = "serie de {$paso['grupo']} del {$paso['desde']} al {$paso['hasta']}";
                 break;
             case 'cerrar_caja':

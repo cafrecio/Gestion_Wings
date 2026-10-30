@@ -1,0 +1,8 @@
+   esperado de Pablo: $6.200,00
+[46.5a] cierra → 302 Caja cerrada. OK
+[46.5b] el segundo clic → 400 La caja no está en estado editable. OK
+   caja #77: CERRADA cambio $5.000,00 entrega $1.200,00
+== fin 46 2026-11-24 21:00:00
+   Cobranza: $207.510,00 activos 111 {"AL_DIA":105,"EN_PLAZO":0,"MOROSO":6,"DEUDOR":0}
+   Saldos: Efectivo $1.350.200,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.683.550,00
+   Caja #77 u3 CERRADA esperado $6.200,00

@@ -1,0 +1,7 @@
+{
+ "dia": "2026-11-24",
+ "descripcion": "Día 46, noche: Pablo ya cerró por pantalla (46.5, con doble clic); el dueño valida.",
+ "pasos": [
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Pablo Ledesma"}
+ ]
+}

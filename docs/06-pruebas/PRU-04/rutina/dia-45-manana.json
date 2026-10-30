@@ -1,0 +1,12 @@
+{
+ "dia": "2026-11-23",
+ "descripcion": "Día 45, lunes 23/11: Sandra abre con los $15.000 que quedaron del sábado; Intermedias paga la inscripción al torneo; botiquín; las tres listas del lunes. Pilar Ramos, Facundo Ríos, Alma Navarro y Emma Villalba siguen sin venir; Liam viene.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "14000", "obs": "Inscripción al torneo de diciembre: Patín Intermedias"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Botiquín", "medio": "Efectivo", "monto": "5200", "obs": "Vendas y hielo en gel"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Ramos, Pilar", "Lopez, Martina"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Principiantes", "hora": "16:00", "ausentes": ["Rios, Facundo"]},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "17:00", "ausentes": ["Navarro, Alma", "Villalba, Emma"]}
+ ]
+}

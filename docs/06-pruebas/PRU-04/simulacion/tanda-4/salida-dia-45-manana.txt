@@ -1,0 +1,8 @@
+ 1. Sandra Vidal abre caja con $15.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal Inscripciones $14000 por Efectivo — Movimiento registrado.
+ 3. Sandra Vidal Botiquín $5200 por Efectivo — Movimiento registrado.
+ 4. Lucía Gaitán lista de la #207: 27 alumnos, 25 presentes — Asistencias guardadas.
+ 5. Hernán Quintana lista de la #245: 25 alumnos, 24 presentes — Asistencias guardadas.
+ 6. Lucía Gaitán lista de la #216: 19 alumnos, 17 presentes — Asistencias guardadas.
+Cobranza: $205.200,00 · {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+GUARDADO.

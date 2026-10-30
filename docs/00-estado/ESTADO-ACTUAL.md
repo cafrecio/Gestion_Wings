@@ -1,5 +1,13 @@
 # Wings — Estado actual
 
+## T14 — Tanda 4 (días 41 a 47, 19 al 25/11) simulada; falta el guion — Claude CAB, 30/10/2026
+
+Los siete días corrieron enteros sobre la base del sitio al 18/11, sin pasos no esperados. Al 25/11: deuda
+$207.510 (105 Al día, 6 Morosos: Emma Villalba entra el 24/11 con su recargo de $2.310), disponible
+$6.505.420,75, calendario de diciembre cargado. Hallazgo nuevo: alta de grupo con frecuencia repetida da error del
+servidor (T99). Pendiente en CyE: guion, prompt, rutinas al sitio y `--simular`.
+[Estado y cómo retomar](../06-pruebas/PRU-04/simulacion/tanda-4/LEEME.md).
+
 ## T14 — Tanda 3 (días 34 a 40) hecha por Codex y revisada — Claude CAB, 30/10/2026
 
 Los siete cierres coinciden con el guion al peso (al 18/11: deuda $205.200, disponible $6.358.020,75) y la base

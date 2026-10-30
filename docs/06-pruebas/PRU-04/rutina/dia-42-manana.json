@@ -1,0 +1,10 @@
+{
+ "dia": "2026-11-20",
+ "descripcion": "Día 42, viernes 20/11: Rocío abre; Fútbol Principiantes paga la inscripción al torneo de diciembre; fotocopias del reglamento del torneo; la lista de Intermedias la toma Mariela, que cubre a Lucía (Lucía está con médico). Alma Navarro y Emma Villalba no vienen.",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "abrir_caja"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "12000", "obs": "Inscripción al torneo de diciembre: Fútbol Principiantes"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Librería", "medio": "Efectivo", "monto": "2800", "obs": "Fotocopias del reglamento del torneo"},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "16:00", "ausentes": ["Navarro, Alma", "Villalba, Emma"]}
+ ]
+}

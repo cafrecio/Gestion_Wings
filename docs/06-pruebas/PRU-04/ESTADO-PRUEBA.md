@@ -52,8 +52,8 @@ ver el mes siguiente y que no cambie con las reglas). CBZ-017 recién se ve el 1
 sin aviso al dueño (lo decidido el 10/10 en T18). Leído en el código, no ejecutado: el único límite es un
 centavo.
 
-**Lo que sigue:** tanda 4 (días 41 a 47, 19 al 25/11): el plazo de Emma Villalba vence el 24/11 y el 25 le
-corresponde el recargo.
+**Lo que sigue:** tanda 4 (días 41 a 47, 19 al 25/11): Emma Villalba ya está Morosa el 24/11 y a las 06:15 de
+ese día le corresponde el recargo. Simulada entera el 30/10; falta el guion ([estado](simulacion/tanda-4/LEEME.md)).
 
 ## Revisión de Claude de los días 29 a 33 (7 al 11/11, tanda 2) — 30/10/2026
 

@@ -1,0 +1,12 @@
+== inicio 43 2026-11-21 09:30:00
+   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   propuesta de apertura para Pablo: {"tipo_caja_id":1,"caja_origen_id":74,"efectivo_heredado":"15000.00"}
+[43.1] Pablo abre con lo propuesto → 302 Caja abierta con el efectivo declarado. OK
+[43.2] dueño suma a Lucía a Federadas (#235) → 200 Profesores actualizados. OK
+   profesoras: Lucía y Mariela
+[43.3] Pablo cancela Fútbol Avanzadas (#257) por lluvia → 200 Clase cancelada. OK
+== fin 43a 2026-11-21 09:30:00
+   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   Caja #75 u3 ABIERTA esperado $0,00

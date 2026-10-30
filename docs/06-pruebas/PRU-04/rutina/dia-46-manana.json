@@ -1,0 +1,11 @@
+{
+ "dia": "2026-11-24",
+ "descripcion": "Día 46, martes 24/11, 10:00 (después del alta de Milagros, 46.1): precintos y cinta para los conos; las cuatro listas del martes. Milagros va a su primera clase de Avanzadas; a Fútbol Avanzadas la toma Martín. Valentina Suárez sigue sin venir.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Insumos Varios", "medio": "Efectivo", "monto": "3800", "obs": "Cinta y precintos para los conos"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Ramos, Lucia"]},
+  {"como": "Martín Acosta", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Silva, Simon"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Adultos", "hora": "20:30"}
+ ]
+}

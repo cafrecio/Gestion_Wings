@@ -1,0 +1,7 @@
+{
+ "dia": "2026-11-20",
+ "descripcion": "Día 42, noche: Rocío ya cerró por pantalla dejando $15.000 de cambio (42.6); el dueño valida.",
+ "pasos": [
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Rocío Paz"}
+ ]
+}

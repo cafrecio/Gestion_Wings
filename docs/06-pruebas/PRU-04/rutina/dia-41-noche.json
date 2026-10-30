@@ -1,0 +1,8 @@
+{
+ "dia": "2026-11-19",
+ "descripcion": "Día 41, noche: Sandra cierra con lo esperado y deja $10.000 de cambio; el dueño valida.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "cerrar_caja"},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Sandra Vidal"}
+ ]
+}

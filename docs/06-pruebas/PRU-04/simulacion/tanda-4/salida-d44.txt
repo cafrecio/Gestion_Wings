@@ -1,0 +1,19 @@
+== inicio 44 2026-11-22 20:00:00
+   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00
+   Historial 16 al 21/11: ingresos $217.800,00 · egresos $28.300,00 · renglones 17 (cancelados 0)
+   Cashflow 16 al 21/11 (sin traspasos ni anulados): ingresos $217.800,00 · egresos $50.300,00
+   en Cashflow y no en Historial: Salida a otro medio $-1.500.000,00 · Entrada desde otro medio $1.500.000,00 · Internet $-22.000,00 · Internet $-22.000,00 (anulado) · Internet $22.000,00 (contra)
+   cajas abiertas del 16 al 21/11 sin validar: 75
+   Historial sin fechas: 200 · renglones totales 283 · el más viejo 2026-09-30
+[44.2] valida la caja #75 de Pablo → 302 Caja validada y reflejada en cashflow. OK
+   movimientos nuevos en Cashflow: 0 · Reportes ingresos $4.126.900,00 → $4.126.900,00 · disponible $6.384.720,75
+[44.3] inscripción a $8.000 → 200 {"ok":true,"valor":"8000"} OK
+   inscripción de Emma (pendiente): $5.000,00 · total adeudado $205.200,00 → $205.200,00
+   ficha de Gonzalo (200): ds-main"> Admin Prueba ? Salir Ibarra, Gonzalo Activo Editar Deporte Fútbol Tipo de liquidación Por comisión Porcentaje de comisión 35.00% Teléfono 11-4444-5555 Email gonzalo.ibarra@example.com CBU o alias – Clases asignadas Sin clases asignadas próximas. Historial de liquidaciones Sin liquidaciones registradas. Volver Wings 
+   ficha de Mariela (200): ds-main"> Admin Prueba ? Salir Ocampo, Mariela Activo Editar Deporte Patín Tipo de liquidación Por hora Valor por hora $18,000.00 Teléfono 1128418137 Email mariela.ocampo@wings.test CBU o alias – Clases asignadas Patín — Federadas Mar. 24/11 · 18:00 a 19:00 Ver Patín — Adultos Mar. 24/11 · 20:30 a 21:30 Ver Patín — Federadas Jue. 26/11 · 18:00 a 19:00 Ver Patín — Adultos Jue. 26/11 · 20:30 a 21:30 Ver Patín — Federadas Sáb. 28/11 · 10:00 a 11:00 Ver Historial de liquidaciones 10/2026 $270,000.00 PAGADA Ver 09/2026 $54,000.00 PAGADA Ver Volver Wings 
+   Sandra abre esa ficha: 403 Sin permiso – Wings
+   Lucía abre su propia ficha: 403 Sin permiso – Wings
+== fin 44 2026-11-22 20:00:00
+   Cobranza: $205.200,00 activos 109 {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.302.600,00 · Banco Nación $58.000,00 · Mercado Pago $3.383.070,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.641.050,00

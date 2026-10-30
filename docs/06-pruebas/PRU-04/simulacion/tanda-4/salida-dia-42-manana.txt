@@ -1,0 +1,6 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz Inscripciones $12000 por Efectivo — Movimiento registrado.
+ 3. Rocío Paz Librería $2800 por Efectivo — Movimiento registrado.
+ 4. Mariela Ocampo lista de la #215: 19 alumnos, 17 presentes — Asistencias guardadas.
+Cobranza: $205.200,00 · {"AL_DIA":103,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+GUARDADO.

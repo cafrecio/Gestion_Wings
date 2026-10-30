@@ -1,0 +1,18 @@
+{
+ "dia": "2026-11-25",
+ "descripcion": "Día 47, miércoles 25/11: Rocío abre con los $5.000 que dejó Pablo; Patín Principiantes paga la inscripción al torneo; detergente y bolsas; las dos listas del miércoles (Pilar Ramos y Valentino Godoy no vienen: Valentino empieza en diciembre; Facundo Ríos tampoco; Liam y Bautista sí). El dueño carga el calendario de diciembre, igual a la grilla de noviembre. Patín Adultos (pide confirmar el aviso de cancha) y Fútbol Infantiles los arma por pantalla (47.3).",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "abrir_caja"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "16000", "obs": "Inscripción al torneo de diciembre: Patín Principiantes"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": "3600", "obs": "Detergente y bolsas"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Ramos, Pilar", "Godoy, Valentino"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Principiantes", "hora": "18:00", "ausentes": ["Rios, Facundo"]},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Patín — Principiantes", "profesores": ["Gaitán, Lucía"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"1": ["16:00", "17:00"], "3": ["16:00", "17:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Patín — Intermedias", "profesores": ["Gaitán, Lucía"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"1": ["17:00", "18:00"], "5": ["16:00", "17:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Patín — Avanzadas", "profesores": ["Gaitán, Lucía"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"2": ["17:00", "18:00"], "4": ["17:00", "18:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Patín — Federadas", "profesores": ["Ocampo, Mariela"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"2": ["18:00", "19:00"], "4": ["18:00", "19:00"], "6": ["10:00", "11:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Fútbol — Principiantes", "profesores": ["Quintana, Hernán"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"1": ["16:00", "17:00"], "3": ["18:00", "19:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Fútbol — Avanzadas", "profesores": ["Quintana, Hernán", "Acosta, Martín"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"2": ["19:00", "20:00"]}},
+  {"como": "Admin Prueba", "accion": "crear_serie", "grupo": "Fútbol — Avanzadas", "profesores": ["Quintana, Hernán"], "desde": "2026-12-01", "hasta": "2026-12-31", "dias": {"4": ["19:00", "20:00"], "6": ["11:00", "12:00"]}}
+ ]
+}

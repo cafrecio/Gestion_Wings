@@ -165,8 +165,8 @@ $1.253.900; Mercado Pago $3.383.070,75; Galicia $1.663.050.
 
 ## Preparado para lo que viene
 
-- **Emma Villalba** (alta del 17/11, sin pago y sin presentes): su plazo vence el 24/11; el 25/11 a las 06:15
-  le corresponde el recargo ($2.310) y el 1/12 va a Revisión (CBZ-017, PEN-001).
+- **Emma Villalba** (alta del 17/11, sin pago y sin presentes): el 24/11 ya está Morosa y a las 06:15 de ese día
+  le corresponde el recargo ($2.310; corregido el 30/10 con la simulación de la tanda 4) y el 1/12 va a Revisión (CBZ-017, PEN-001).
 - **Liam, Alma, Pilar, Facundo y Valentina** siguen debiendo noviembre con su recargo: el 1/12 pasan a Deudor;
   los cuatro sin presentes van a Revisión (CBZ-003, CBZ-013).
 - **Candela** inactiva con $33.000 de noviembre: en diciembre su mamá paga sin que vuelva («No», T25).

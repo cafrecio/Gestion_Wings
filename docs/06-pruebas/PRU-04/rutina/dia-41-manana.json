@@ -1,0 +1,12 @@
+{
+ "dia": "2026-11-19",
+ "descripcion": "Día 41, jueves 19/11: Sandra abre con el cambio que dejó Rocío; Patín Avanzadas paga la inscripción al torneo de diciembre; artículos de limpieza; las tres listas del jueves (Adultos está cancelada: Mariela avisó). Valentina Suárez sigue sin venir.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "15000", "obs": "Inscripción al torneo de diciembre: Patín Avanzadas"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": "4500", "obs": "Lavandina y trapos"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina", "Castro, Catalina"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Iglesias, Helena"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Gomez, Lucas"]}
+ ]
+}
