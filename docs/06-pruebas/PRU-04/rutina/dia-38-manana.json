@@ -1,0 +1,12 @@
+{
+ "dia": "2026-11-16",
+ "descripcion": "Día 38, lunes 16/11. Se corre DESPUÉS de 38.1 (Lara ya está en Intermedias). Sandra abre; la mamá de Iván trae la cuota con su recargo; el cerrajero cobra en efectivo; las tres listas del lunes: Santino ya está al día e Iván pagó, así que ninguno pide motivo; Facundo Ríos, Pilar Ramos y Alma Navarro siguen sin venir.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Paredes, Iván", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "movimiento", "subrubro": "Reparaciones menores", "medio": "Efectivo", "monto": "12000", "obs": "Cerrajero: cambio de la cerradura del vestuario"},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Principiantes", "hora": "16:00", "ausentes": ["Rios, Facundo", "Medina, Lautaro"]},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Ramos, Pilar", "Flores, Renata"]},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "17:00", "ausentes": ["Navarro, Alma"]}
+ ]
+}

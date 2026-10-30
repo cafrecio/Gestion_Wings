@@ -1,0 +1,8 @@
+{
+ "dia": "2026-11-18",
+ "descripcion": "Día 40, noche: Rocío cierra con lo esperado; como no cobró nada, deja los $7.000 que quedaron como cambio. El dueño valida.",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "cerrar_caja", "cambio": 7000},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Rocío Paz"}
+ ]
+}

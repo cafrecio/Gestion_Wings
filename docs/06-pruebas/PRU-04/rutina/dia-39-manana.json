@@ -1,0 +1,12 @@
+{
+ "dia": "2026-11-17",
+ "descripcion": "Día 39, martes 17/11: Pablo abre; nadie viene a pagar la cuota a la mañana, pero Federadas paga la inscripción al torneo de diciembre; las cuatro listas del martes (Valentina Suárez sigue sin venir; a Fútbol Avanzadas lo dan Martín y Hernán). Las altas de Bautista Sosa y Emma Villalba son por pantalla (39.1 a 39.3).",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "abrir_caja"},
+  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Efectivo", "monto": "18000", "obs": "Inscripción al torneo de diciembre: Patín Federadas"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Diaz, Martina"]},
+  {"como": "Martín Acosta", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Rossi, Leon"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Adultos", "hora": "20:30", "ausentes": ["Funes, Graciela"]}
+ ]
+}

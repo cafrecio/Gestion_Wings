@@ -1,0 +1,7 @@
+{
+ "dia": "2026-11-14",
+ "descripcion": "Día 36, 13:30: Pablo cierra con lo esperado. El dueño no valida hoy: lo hace el domingo desde su casa.",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "cerrar_caja"}
+ ]
+}

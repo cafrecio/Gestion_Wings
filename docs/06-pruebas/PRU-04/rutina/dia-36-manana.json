@@ -1,0 +1,13 @@
+{
+ "dia": "2026-11-14",
+ "descripcion": "Día 36, sábado 14/11: Pablo abre; dos morosos pagan con recargo; Joaquín Rodríguez trae el resto (el saldo de la cuota y el recargo); hojas para la impresora; Federadas a las 10 y Fútbol Avanzadas a las 11 (la clase reactivada del torneo suspendido).",
+ "pasos": [
+  {"como": "Pablo Ledesma", "accion": "abrir_caja"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Ramos, Santiago", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Ruiz, Thiago", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Pablo Ledesma", "accion": "cobrar", "alumno": "Rodriguez, Joaquin", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Pablo Ledesma", "accion": "movimiento", "subrubro": "Librería", "medio": "Efectivo", "monto": "3500", "obs": "Hojas para la impresora"},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "10:00", "ausentes": ["Diaz, Catalina"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "11:00", "ausentes": ["Gomez, Lucas"]}
+ ]
+}

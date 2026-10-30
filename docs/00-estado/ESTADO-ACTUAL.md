@@ -1,5 +1,16 @@
 # Wings — Estado actual
 
+## T14 — Guion de la tanda 3 (días 34 a 40, 12 al 18/11) listo — Claude CAB, 30/10/2026
+
+Carlos corrigió el primer borrador (salteaba días): la prueba sigue **día por día, sin saltear ninguno**, con su
+relleno de vida real, en tres tandas más (34-40, 41-47, 48-54). Los siete días se simularon enteros sobre la copia
+tomada después de la verificación de Codex; esperados y cierres salen de esa corrida. Lo nuevo: vencidos que pagan
+con recargo, cuota sin recargo y recargo solo, parcial y su resto, dos fichas de una misma persona, pago de un mes
+cerrado sin recargo, recargo perdonado, cambio de grupo (rige desde el 1/12 porque noviembre está pagada), dos
+altas tardías al 70% (una paga, otra no: CBZ-017 para el 1/12), adelantos de diciembre a $45.000 y al precio nuevo
+de $52.000, transferencia al banco y una clase cancelada. [Guion](../06-pruebas/PRU-04/GUION-DIAS-34-40.md) ·
+[prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-34-40.md) · rutinas `rutina/dia-34-*.json` a `dia-40-*.json`.
+
 ## Tanda 2: las dos observaciones menores, arregladas — Claude CAB, 30/10/2026
 
 Carlos: «Arreglá los dos errores encontrados y probemos todo junto». **SIS-006:** `lang/es/validation.php` traduce

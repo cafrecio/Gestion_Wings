@@ -1,0 +1,7 @@
+{
+ "dia": "2026-11-15",
+ "descripcion": "Día 37, domingo 15/11, 20:00: sin actividad en el club. El dueño, desde su casa, valida la caja del sábado de Pablo.",
+ "pasos": [
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Pablo Ledesma"}
+ ]
+}

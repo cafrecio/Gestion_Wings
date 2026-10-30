@@ -1,0 +1,13 @@
+{
+ "dia": "2026-11-13",
+ "descripcion": "Día 35, viernes 13/11: Rocío abre; Santino paga octubre (mes cerrado, sin recargo), Guadalupe paga noviembre sin recargo (perdonado), dos morosos más, la limpieza; la lista de Intermedias (Alma Navarro sigue sin venir). Mora Benítez (dos deportes) se cobra por pantalla (35.1).",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "abrir_caja"},
+  {"como": "Rocío Paz", "accion": "cobrar", "alumno": "Romero, Santino", "periodos": ["2026-10"], "medio": "Efectivo"},
+  {"como": "Rocío Paz", "accion": "cobrar", "alumno": "Nuñez, Guadalupe", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Rocío Paz", "accion": "cobrar", "alumno": "Ortega, Valentín", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Rocío Paz", "accion": "cobrar", "alumno": "Quiroga, Lara", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Limpieza", "medio": "Efectivo", "monto": "4000", "obs": "Lavandina y trapos"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Intermedias", "hora": "16:00", "ausentes": ["Navarro, Alma", "Sosa, Rocio"]}
+ ]
+}

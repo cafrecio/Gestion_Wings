@@ -1,0 +1,16 @@
+{
+ "dia": "2026-11-12",
+ "descripcion": "Día 34, jueves 12/11: Sandra abre; cinco morosos pagan noviembre con su recargo; las listas del jueves (Valentina Suárez sigue sin venir). Camila Benítez (dos deportes), Benicio Torres y Joaquín Rodríguez se cobran por pantalla (34.1 a 34.3).",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "abrir_caja"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Castro, Mateo", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Flores, Santino", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Herrera, Facundo", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Rossi, Morena", "periodos": ["2026-11"], "medio": "Efectivo"},
+  {"como": "Sandra Vidal", "accion": "cobrar", "alumno": "Suarez, Ignacio", "periodos": ["2026-11"], "medio": "Mercado Pago"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Avanzadas", "hora": "17:00", "ausentes": ["Suarez, Valentina", "Castro, Catalina"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Federadas", "hora": "18:00", "ausentes": ["Rossi, Olivia"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Avanzadas", "hora": "19:00", "ausentes": ["Sosa, Felipe"]},
+  {"como": "Mariela Ocampo", "accion": "lista", "grupo": "Patín — Adultos", "hora": "20:30", "ausentes": []}
+ ]
+}

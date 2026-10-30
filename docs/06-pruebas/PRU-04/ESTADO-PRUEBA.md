@@ -14,6 +14,11 @@ Dos tandas: [días 24 a 28](GUION-DIAS-24-28.md) y [días 29 a 33](GUION-DIAS-29
 una copia de `wingstest`; los esperados son lo que dio Wings en esa corrida. Preparan la Revisión del 1/12
 (Pilar Ramos, Alma Navarro, Facundo Ríos y Valentina Suárez) y el alta tardía queda para la tanda 3.
 
+**30/10 — tanda 3 ([días 34 a 40](GUION-DIAS-34-40.md), 12 al 18/11):** después de la corrección de Carlos, la
+prueba sigue **día por día, sin saltear ninguno**, con su rutina de vida real, en tres tandas más (34-40, 41-47 y
+48-54, hasta la resolución de la Revisión el 2/12). Los siete días están simulados enteros sobre la copia posterior
+a la verificación de Codex. [Prompt para Codex](PROMPT-CODEX-DIAS-34-40.md).
+
 ## Revisión de Claude de los días 29 a 33 (7 al 11/11, tanda 2) — 30/10/2026
 
 Revisado contra el [guion](GUION-DIAS-29-33.md), los informes de Codex ([29](DIA-29.md) a [33](DIA-33.md),

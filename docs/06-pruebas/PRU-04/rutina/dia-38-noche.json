@@ -1,0 +1,8 @@
+{
+ "dia": "2026-11-16",
+ "descripcion": "Día 38, noche: Sandra cierra con lo esperado y el dueño valida.",
+ "pasos": [
+  {"como": "Sandra Vidal", "accion": "cerrar_caja"},
+  {"como": "Admin Prueba", "accion": "validar_caja", "de": "Sandra Vidal"}
+ ]
+}

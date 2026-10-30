@@ -1,0 +1,11 @@
+{
+ "dia": "2026-11-18",
+ "descripcion": "Día 40, miércoles 18/11: Rocío abre; unas pilas del cajón; la inscripción al torneo de diciembre por MP; las dos listas del miércoles (Bautista Sosa, nuevo con la cuota pagada, entra sin motivo; Pilar Ramos y Facundo Ríos siguen sin venir).",
+ "pasos": [
+  {"como": "Rocío Paz", "accion": "abrir_caja"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Insumos Varios", "medio": "Efectivo", "monto": "3000", "obs": "Pilas para el control del portón"},
+  {"como": "Rocío Paz", "accion": "movimiento", "subrubro": "Inscripciones", "medio": "Mercado Pago", "monto": "15000", "obs": "Inscripción al torneo de diciembre: Fútbol Avanzadas"},
+  {"como": "Lucía Gaitán", "accion": "lista", "grupo": "Patín — Principiantes", "hora": "16:00", "ausentes": ["Ramos, Pilar", "Lopez, Martina"]},
+  {"como": "Hernán Quintana", "accion": "lista", "grupo": "Fútbol — Principiantes", "hora": "18:00", "ausentes": ["Rios, Facundo"]}
+ ]
+}
