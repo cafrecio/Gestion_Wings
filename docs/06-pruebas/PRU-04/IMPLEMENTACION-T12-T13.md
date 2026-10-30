@@ -348,7 +348,7 @@ T12 y T13 quedan en el tablero con `estado=a_verificar`, `tiene=Claude`, `verifi
 
 ## 15. Etapa C — hecha por Claude CAB (30/10/2026)
 
-Gemini se quedó sin crédito; Carlos pidió que la etapa C la haga Claude. El control final lo hace Codex (Claude no puede controlarse a sí mismo).
+Gemini se quedó sin crédito; Carlos pidió que la etapa C la haga Claude. El control final lo hace Gemini con otro modelo (Carlos, 30/10; Claude no puede controlarse a sí mismo).
 
 ### Qué se hizo
 - **22 páginas nuevas** (17 del dueño, 1 de la operativa, 4 de la profesora): las 37 a 49, 50, 52, 53 y 54 de la lista, más 5 pantallas que la lista no cubría (55 a 59). Ver `T12-LISTA-DE-PAGINAS.md`.
@@ -377,5 +377,5 @@ Gemini se quedó sin crédito; Carlos pidió que la etapa C la haga Claude. El c
 
 ### Revisión independiente
 - Primera vuelta: `revisiones/2026-10-30-etapa-c.md`: 3 graves, 15 medios, 9 menores. Todos corregidos en las páginas (o anotados como hueco), con capturas regeneradas y la tabla «Rechazos y avisos» en las fichas.
-- Vueltas 2 a 5 (`revisiones/2026-10-30-etapa-c-*-vuelta.md`): desde la tercera, 0 graves; los medios abiertos eran de las fichas (filas que juntaban varias afirmaciones, citas a la primera aparición de un texto repetido). Lo que marcó la quinta se corrigió sin sexta vuelta: el generador acepta varias citas por fila y falla si una cita es ambigua. El control final es de Codex.
+- Vueltas 2 a 5 (`revisiones/2026-10-30-etapa-c-*-vuelta.md`): desde la tercera, 0 graves; los medios abiertos eran de las fichas (filas que juntaban varias afirmaciones, citas a la primera aparición de un texto repetido). Lo que marcó la quinta se corrigió sin sexta vuelta: el generador acepta varias citas por fila y falla si una cita es ambigua. El control final es de Gemini con otro modelo.
 - Corrección del revisor a Claude: la regla de nombres repetidos sí ignora acentos y espacios de más (`NombreUnico::normalizar`); Claude la había corregido mal.

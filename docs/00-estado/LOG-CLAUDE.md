@@ -18,7 +18,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Capturas reales con `etapa-c/CapturasEtapaCTest.php` (HTML que devuelve Wings, sin texto agregado) y 24 caminos prohibidos ejecutados (`caminos-prohibidos.json`). Fichas generadas por script con la línea literal.
 - Revisor independiente (subagente) en cinco vueltas: 3 graves, 15 medios y 9 menores en la primera; desde la tercera, 0 graves y lo abierto era de las fichas. Lo que marcó la quinta (citas de fichas) quedó corregido sin una sexta vuelta: el generador ahora falla si una cita es ambigua. Lo controla Codex. Huecos para Carlos: 9 (tarifa del profesor «obligatoria» que no lo es, sin acceso para reconfigurar el mostrador, sacar una frecuencia que tuvo alumnos da error, transferencias sin corrección, entre otros).
 - **Errores míos:** escribí que en Clases la profesora recibía 403 (leí una línea con grep, no el `@if`); corregí mal la regla de nombres repetidos (sí ignora acentos); en mi control de la etapa A dije que la regla del plan no existía, cuando sí existe el aviso de exceso (no obligatorio). También: la captura del paso 2 de deshacer la primera carga (etapa B) tenía un cartel inventado por el script de Gemini; se sacó.
-- Control final: Codex (Claude no se controla a sí mismo). Sin desplegar.
+- Control final: Gemini con otro modelo (Carlos 30/10; Claude no se controla a sí mismo). Prompt: PROMPT-GEMINI-T12-T13-CONTROL-ETAPA-C.md. Sin desplegar.
 
 ## 2026-10-30 — Claude CAB — Tanda 3 (días 34 a 40) simulada y guion escrito
 

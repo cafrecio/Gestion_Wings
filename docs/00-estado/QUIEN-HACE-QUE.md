@@ -51,14 +51,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Codex) | Etapa C hecha por Claude 30/10 (Gemini sin credito): 22 paginas, ? en todas las pantallas, revisor independiente en 5 vueltas (paginas sin graves ni medios). Control de Codex: PROMPT-CODEX-T12-T13-ETAPA-C.md; despues OK de Carlos |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Codex) | Etapa C hecha por Claude 30/10 (Gemini sin credito): 22 paginas, ? en todas las pantallas, revisor independiente en 5 vueltas (paginas sin graves ni medios). Control de Codex: PROMPT-CODEX-T12-T13-ETAPA-C.md; despues OK de Carlos |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C hecha por Claude 30/10. Control: Gemini con otro modelo (Carlos 30/10), PROMPT-GEMINI-T12-T13-CONTROL-ETAPA-C.md; despues OK de Carlos |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C hecha por Claude 30/10. Control: Gemini con otro modelo (Carlos 30/10), PROMPT-GEMINI-T12-T13-CONTROL-ETAPA-C.md; despues OK de Carlos |
 
 ## Sin empezar (7)
 
