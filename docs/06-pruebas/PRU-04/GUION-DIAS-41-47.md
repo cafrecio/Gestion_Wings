@@ -60,7 +60,7 @@ $3.652.910, en la que **$270.000 son el defecto de Clara** (42.1). Queda sin pre
 
 ## Punto de partida
 
-- **El sitio está en `937d99cc`:** tiene la etapa C de la Ayuda y T98, y **no tiene las reparaciones de T94 a T101**. Hasta
+- **El sitio tiene el código de `937d99cc`:** tiene la etapa C de la Ayuda y T98, y **no tiene las reparaciones de T94 a T101**. Hasta
   terminar la tanda no se despliega nada: cambiaría lo que este guion espera.
 - Reloj en el **18/11 a las 09:00**; **no volver atrás**. El día 41 se fija a las 09:00 del 19/11.
 - Deuda **$205.200**; 108 activos: 102 Al día, 1 En plazo (Emma Villalba), 5 Morosos (Alma, Liam, Pilar, Facundo y
