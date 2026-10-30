@@ -118,7 +118,7 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 
     @php $campoPlanConError = collect($errors->keys())->first(fn($k) => str_starts_with($k, 'planes.')); @endphp
     @if($campoPlanConError)
-        <p class="text-xs mt-2" style="color: var(--color-danger);">{{ $errors->first($campoPlanConError) }}</p>
+        <p id="planes-error" class="text-xs mt-2" style="color: var(--color-danger);">{{ $errors->first($campoPlanConError) }}</p>
     @endif
 
     {{-- Template para filas nuevas (JS) — usar <template> para que sus inputs NO se envíen con el form --}}

@@ -61,12 +61,22 @@
             }
         }
 
+        // El aviso del servidor no queda en pantalla una vez que la persona corrigió las filas.
+        function ocultarErrorPlanes() {
+            const errorPlanes = document.getElementById('planes-error');
+            if (errorPlanes) errorPlanes.style.display = 'none';
+        }
+
+        container.addEventListener('input', ocultarErrorPlanes);
+        container.addEventListener('change', ocultarErrorPlanes);
+
         function setupRemoveButtons() {
             container.querySelectorAll('.btn-remove-plan').forEach(function (btn) {
                 btn.onclick = null;
                 btn.onclick = function () {
                     btn.closest('.plan-row').remove();
                     updateEmptyMsg();
+                    ocultarErrorPlanes();
                 };
             });
         }
