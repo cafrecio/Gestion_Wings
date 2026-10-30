@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
+
+T98, T99 y T103 cerradas; T95 hecha, espera la prueba de Carlos por pantalla. Sigue: T96, T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí. Falta la revisión de Claude de la tanda 4.
+
 ## T14 — Tanda 4 (días 41 a 47, 19 al 25/11) lista para Codex — Claude CyE, 30/10/2026
 
 Simulación rehecha desde la base del sitio al 18/11 con lo que pidió Carlos: 58 casos nuevos, todos los perfiles por

@@ -18,7 +18,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Base local de CyE** (`gestion_wings`): estaba atrasada y el Inicio daba error; apliqué las migraciones pendientes en mantenimiento, con respaldo previo en el scratchpad de la sesión. No se tocó el servidor.
 - **Errores míos:** en T99 probé el aviso en la sesión y no en pantalla; Carlos vio otro texto. Un commit subió con una prueba en rojo porque el comando no se frenaba ante el fallo (`9111aca3`, corregido en `610a089e`). En T95 dije que por hora la liquidación salía en $0 sin aviso; es falso.
 - **Suite:** tras T95, rápida 1173 aprobadas, 6 omitidas, 1 fallida (`ImportesPesosT24Test`, regla vieja del cero). Corregida; repetidas solo las afectadas (12 en verde), no la suite entera.
-- **Sigue, en este orden de Carlos:** T96 (la hago yo, prueba Gemita); prompt de T94 para Gemita, controlo yo; explicar «sin descubierto» leyendo los contratos para ver si está definido; prompt de T97 para Codex, controlo yo; T102 (inactivar nivel) la hago yo al final.
+- **Sigue, en este orden de Carlos:** T96 (la hago yo, prueba Gemita); prompt de T94 para Gemita, controlo yo; T104 «sin descubierto» (leer los contratos y explicarle si el problema es real); prompt de T97 para Codex, controlo yo; T102 (inactivar nivel) la hago yo al final. Un tema por mensaje: termina uno y recién ahí el siguiente; nada de texto de más.
+- **También pendiente, sin pedido (mi función en TEST):** Codex entregó la tanda 4 (días 41 a 47): falta mi revisión, la prueba técnica y la planilla. No la empecé. T95 sigue esperando la prueba de Carlos.
 
 ## 2026-10-30 — Claude CyE — T95: tarifa del profesor obligatoria de verdad
 
