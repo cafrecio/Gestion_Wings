@@ -63,9 +63,9 @@ Nada en este momento.
 
 T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
-## Mejoras futuras, no se empiezan ahora (13)
+## Mejoras futuras, no se empiezan ahora (11)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF12, MF13, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 
