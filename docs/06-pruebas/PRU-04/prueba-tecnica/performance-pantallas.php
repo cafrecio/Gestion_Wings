@@ -61,6 +61,16 @@ $pantallas = [
     ['OPERATIVO', 'Cobrar a un moroso con recargo', $m ? $r('web.caja.cobrar', $m) : null],
     ['ADMIN', 'Historial de una corrección de Cashflow', ($cc = DB::table('cashflow_correcciones')->orderBy('id')->value('movimiento_id')) ? $r('web.cashflow.movimientos.show', $cc) : null],
     ['ADMIN', 'Caja rechazada o corregida', ($rz = CajaOperativa::whereNotNull('motivo_rechazo')->orderByDesc('id')->value('id')) ? $r('web.caja.detalle', $rz) : null],
+    // Días 34 a 40: Cobranza filtrada por morosos, la ficha de quien tiene dos fichas, el alta y la edición con
+    // cambio de grupo, Cobrar con un adelanto, Transferir, y la ficha de la clase cancelada.
+    ['ADMIN', 'Cobranza · morosos', $r('web.cobranza.index', ['estado' => 'MOROSO'])],
+    ['OPERATIVO', 'Ficha de quien tiene dos fichas', ($dos = DB::table('alumnos')->select('nombre', 'apellido')->groupBy('nombre', 'apellido')->havingRaw('COUNT(*) > 1')->first())
+        ? $r('web.alumnos.show', Alumno::where('nombre', $dos->nombre)->where('apellido', $dos->apellido)->orderBy('id')->value('id')) : null],
+    ['OPERATIVO', 'Alta de alumno', $r('web.alumnos.create')],
+    ['ADMIN', 'Editar alumno (cambio de grupo)', ($cg = DB::table('alumno_planes')->where('fecha_desde', '>', now()->toDateString())->where('activo', 1)->value('alumno_id')) ? $r('web.alumnos.edit', $cg) : null],
+    ['OPERATIVO', 'Cobrar a quien adelantó un mes', ($ad = DB::table('deuda_cuotas')->where('periodo', '>', $mes)->orderByDesc('id')->value('alumno_id')) ? $r('web.caja.cobrar', $ad) : null],
+    ['ADMIN', 'Transferir entre cuentas', $r('web.cashflow.transferencia')],
+    ['ADMIN', 'Ficha de una clase cancelada', ($cc2 = Clase::where('cancelada', 1)->orderByDesc('fecha')->value('id')) ? $r('web.clases.show', $cc2) : null],
     ['OPERATIVO', 'Movimientos', $r('web.movimientos.index')],
     ['OPERATIVO', 'Inicio de la operativa', $r('web.operativo.dashboard')],
     ['OPERATIVO', 'Cobranza', $r('web.cobranza.index')],
@@ -78,6 +88,14 @@ DB::listen(function ($q) use (&$consultas, &$msSql) { $consultas++; $msSql += $q
 $res = [];
 DB::beginTransaction();
 try {
+    // Si la operativa no tiene un turno abierto, Cobrar manda a abrir caja y no se mide nada. Se abre uno dentro
+    // de esta transacción, que se revierte al final: no queda en la base.
+    if ($oper && !CajaOperativa::where('usuario_operativo_id', $oper->id)->where('estado', 'ABIERTA')->exists()) {
+        DB::table('cajas_operativas')->insert(['usuario_operativo_id' => $oper->id, 'estado' => 'ABIERTA', 'apertura_at' => now(),
+            'tipo_caja_efectivo_id' => app(App\Services\CajaService::class)->tipoCajaMostradorId(), 'efectivo_heredado' => 0, 'efectivo_inicial' => 0,
+            'efectivo_esperado' => 0, 'usuario_apertura_id' => $oper->id, 'created_at' => now(), 'updated_at' => now()]);
+        $pantallas[] = ['OPERATIVO', 'Caja abierta (turno de medición)', $r('web.caja.detalle', DB::table('cajas_operativas')->max('id'))];
+    }
     foreach ($pantallas as [$rol, $nombre, $url]) {
         if (!$url || !$usuarios[$rol]) { $res[] = compact('rol', 'nombre') + ['url' => $url, 'error' => 'ruta o usuario inexistente']; continue; }
         $corridas = [];

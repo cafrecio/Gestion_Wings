@@ -174,3 +174,14 @@ $1.253.900; Mercado Pago $3.383.070,75; Galicia $1.663.050.
   ($52.000, el precio nuevo) ya tienen diciembre pagado: la generación del 1/12 no les crea otra cuota.
 - La clase de **Adultos del 19/11** quedó cancelada y la de **Federadas del 7/11** sin presentes: las dos
   cuentan para la liquidación de noviembre de Mariela (tanda 5).
+
+## Erratas (revisión del 30/10, después de la corrida de Codex)
+
+- **39.1:** el alta no avisa el 70% antes de guardar. Ese aviso no existe: el alta solo pregunta por la cuota
+  cuando el mes de ingreso ya está cerrado (`resources/js/alumnos-inscripcion.js:76-79`). El importe sí es el 70%
+  ($24.500) y se ve en la ficha y en Cobrar después de guardar.
+- **40.2:** Bautista figura «Al día», no «Nuevo». Un alumno deja de ser nuevo con su primer pago de cuota
+  (`ExcepcionCobranzaService.php:39`), y Bautista pagó el 17/11. El guion se contradecía en la misma fila.
+- **39.3:** si se toca Guardar mientras Wings todavía consulta la cuota del alta, frena con «Esperá a verificar la
+  cuota del alta.» (`alumnos-inscripcion.js:56`). Es una protección: el segundo Guardar crea sin cambiar nada.
+- **36:** los $45.800 por validar son el efectivo de la caja de Pablo; en total, con Mercado Pago, son $121.600.

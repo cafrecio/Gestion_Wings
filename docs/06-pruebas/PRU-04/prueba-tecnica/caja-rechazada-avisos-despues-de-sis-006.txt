@@ -1,0 +1,2 @@
+sin observación: El campo observación es obligatorio.
+fecha futura: El campo fecha debe ser una fecha anterior o igual a hoy.

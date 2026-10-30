@@ -49,7 +49,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 2 revisada y sus dos observaciones arregladas; MF12, MF13 y los arreglos subidos a prueba y verificados por Codex. Guion de la tanda 3 (dias 34 a 40, 12 al 18/11) simulado entero y listo para Codex: GUION-DIAS-34-40.md. Siguen tandas 4 y 5 hasta el 2/12. Carlos: cuando Codex termine, produccion |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 3 (dias 34 a 40) revisada: siete cierres al peso y la base del sitio igual a la simulacion fila por fila (11 tablas, 0 diferencias); prueba tecnica 44/44, 37/37, <281 ms; tres diferencias eran errores del guion. Sigue la tanda 4 (41 a 47, 19 al 25/11) y la 5 hasta el 2/12. Carlos: cuando Codex termine, produccion |
 
 ## Codex
 

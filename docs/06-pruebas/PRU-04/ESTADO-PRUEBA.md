@@ -19,6 +19,42 @@ prueba sigue **día por día, sin saltear ninguno**, con su rutina de vida real,
 48-54, hasta la resolución de la Revisión el 2/12). Los siete días están simulados enteros sobre la copia posterior
 a la verificación de Codex. [Prompt para Codex](PROMPT-CODEX-DIAS-34-40.md).
 
+## Revisión de Claude de los días 34 a 40 (12 al 18/11, tanda 3) — 30/10/2026
+
+Revisado contra el [guion](GUION-DIAS-34-40.md), los informes de Codex ([34](DIA-34.md) a [40](DIA-40.md),
+commit `940c53b5`, [índice](evidencia-dias-34-40/LEEME.md)), el código y la base del sitio con el reloj en el 18/11.
+
+**La plata coincide al peso, los siete días, y fila por fila.** Los siete cierres son los del guion: al 18/11
+deuda $205.200 (108 activos: 102 Al día, 1 En plazo, 5 Morosos), ingresos $4.094.900, egresos $2.738.780,
+disponible $6.358.020,75; Efectivo $1.253.900, Mercado Pago $3.383.070,75, Galicia $1.663.050. Además, la base del
+sitio se comparó con la copia donde Claude simuló los siete días antes de entregarlos: **0 diferencias** en cuotas,
+recargos, cobros, alumnos, planes, precios, cajas, movimientos, Cashflow, clases con presentes y excepciones.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 39.1 el alta no avisa el 70% | **Error de mi guion:** ese aviso no existe; el alta solo pregunta por la cuota cuando el mes ya cerró. El importe es el 70% ($24.500) y se ve después de guardar. Ningún contrato pide el aviso. COB-025 cumple en lo que cobra | Errata en el guion |
+| 40.2 Bautista «Al día» y no «Nuevo» | **Error de mi guion:** deja de ser nuevo con su primer pago de cuota, y pagó el 17/11. Wings está bien (ASI-013) | Errata en el guion |
+| 39.3 «Esperá a verificar la cuota del alta.» | Protección del alta: si se toca Guardar mientras consulta la cuota, frena; el segundo Guardar crea sin cambiar nada. Molesta poco | Anotado |
+| 36 «$45.800 por validar» | **Impreciso en mi guion:** es el efectivo; con Mercado Pago son $121.600 | Errata en el guion |
+| 37.2 validación por pantalla, no por rutina | Codex validó una sola vez, por pantalla, como permitía el guion; los 8 renglones tildados | Nada |
+| 38.1b fechas de vigencia de Lara | **Verificado en la base:** el plan de Principiantes cierra el 30/11 y el de Intermedias rige desde el 1/12; desde el 16/11 Lara figura solo en las listas de Intermedias (ALU-5) | Nada |
+| 40.1b «Clase cancelada.» no capturado | **Verificado en la base:** cancelada con el motivo de Mariela y sin lista (CSH-5) | Nada |
+| 40.2b guardar la lista sin motivo | **Verificado en la base:** la presencia de Bautista no tiene excepción (ALU-4); forzando, la regla del alumno nuevo ya está probada (ASI-013) | Nada |
+
+**Casos acreditados por primera vez (1):** COB-025, el descuento del mes de ingreso, en lo que cobra (falta
+ver el mes siguiente y que no cambie con las reglas). CBZ-017 recién se ve el 1/12. Total: 178 de 334.
+
+**Prueba técnica de los días 34 a 40:** plata contra la simulación sin diferencias, funcionamiento interno 44/44
+(ocho controles nuevos), seguridad 37/37 (seis pruebas nuevas, sin hallazgos) y velocidad por debajo de 281 ms
+([informe](prueba-tecnica/INFORME.md)).
+
+**Para que Carlos decida:** un mes adelantado se cobra al importe que escriba quien cobra y queda pagado entero,
+sin aviso al dueño (lo decidido el 10/10 en T18). Leído en el código, no ejecutado: el único límite es un
+centavo.
+
+**Lo que sigue:** tanda 4 (días 41 a 47, 19 al 25/11): el plazo de Emma Villalba vence el 24/11 y el 25 le
+corresponde el recargo.
+
 ## Revisión de Claude de los días 29 a 33 (7 al 11/11, tanda 2) — 30/10/2026
 
 Revisado contra el [guion](GUION-DIAS-29-33.md), los informes de Codex ([29](DIA-29.md) a [33](DIA-33.md),

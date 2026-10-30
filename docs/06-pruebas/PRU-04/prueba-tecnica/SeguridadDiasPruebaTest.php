@@ -659,8 +659,9 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $futura->assertSessionHasErrors(['fecha']);
         $textos[] = 'fecha futura: '.$errores($futura, 'fecha');
         $this->assertSame($movs, MovimientoOperativo::count());
-        // SIS-006: lo que dice el servidor cuando se saltea el navegador queda registrado (hoy sale en inglés).
-        file_put_contents(__DIR__.'/caja-rechazada-avisos-dia-33.txt', implode("\n", $textos)."\n");
+        // SIS-006: lo que dice el servidor cuando se saltea el navegador queda registrado (en castellano desde el 30/10).
+        // El archivo del día 33 conserva los avisos en inglés del hallazgo SIS-006; desde el arreglo del 30/10 se escribe aparte.
+        file_put_contents(__DIR__.'/caja-rechazada-avisos-despues-de-sis-006.txt', implode("\n", $textos)."\n");
         // Pablo no corrige la caja rechazada de Sandra.
         $this->actingAs($this->pablo)->post(route('web.caja.editar.store', $this->cajaSandra->id), $resma + ['observaciones' => 'Resma del lunes'])->assertForbidden();
         // Sandra sí, y el esperado se recalcula sin tocar lo contado.
@@ -755,5 +756,206 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         // La misma clave otra vez no duplica la corrección.
         $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $datos);
         $this->assertSame(1, DB::table('cashflow_correcciones')->where('movimiento_id', $mov->id)->count());
+    }
+
+    /** El cobro vuelve a Caja con «Pago registrado…»; uno rechazado vuelve sin ese aviso (con error, o con un pedido de confirmación). */
+    private function cobroHecho($respuesta): bool
+    {
+        return $respuesta->getStatusCode() === 302 && str_starts_with((string) session('success'), 'Pago registrado');
+    }
+
+    /** Lo que imputó un cobro, en pesos: [cuota, recargo]. */
+    private function imputado(Pago $pago): array
+    {
+        return [(float) DB::table('pago_deuda_cuota')->where('pago_id', $pago->id)->sum('monto_aplicado'),
+            (float) DB::table('pago_cargo_alumno as pc')->join('cargos_alumno as cg', 'cg.id', '=', 'pc.cargo_alumno_id')
+                ->where('pc.pago_id', $pago->id)->where('cg.tipo', 'PUNITORIO')->sum('pc.monto_aplicado')];
+    }
+
+    /**
+     * Días 34.2 y 38.2: la cuota sola deja el recargo pendiente y el recargo se cobra después, solo. Forzando: no se
+     * cobra el recargo salteando la cuota, no se entrega más que lo que se debe, y la operativa no perdona el recargo.
+     */
+    public function test_dias_34_y_38_cuota_y_recargo_por_separado_forzando(): void
+    {
+        \App\Models\Configuracion::set('mora_porcentaje', '10');
+        $this->assertSame(1, app(\App\Services\PunitorioService::class)->aplicar());
+        $cuota = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->firstOrFail();
+        $recargo = \App\Models\CargoAlumno::where('deuda_cuota_id', $cuota->id)->where('tipo', 'PUNITORIO')->sole();
+        $this->assertSame('3000.00', $recargo->monto_original);
+        $cobrar = fn (User $u, array $extra) => $this->actingAs($u)->postJson(route('web.caja.pagar', $this->alumno->id),
+            array_replace(['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'], $extra));
+
+        // Forzando: 1.000 a la cuota y el resto al recargo, para pagar el recargo antes que la cuota.
+        $antes = $this->foto();
+        $this->assertFalse($this->cobroHecho($cobrar($this->sandra, ['montos_cuota' => ['2026-10' => 1000], 'monto_entregado' => 4000, 'motivo' => 'Prueba de seguridad del recargo'])), 'Cobró el recargo salteando la cuota');
+        // Forzando: entregar más que cuota y recargo juntos.
+        $this->assertFalse($this->cobroHecho($cobrar($this->sandra, ['monto_entregado' => 40000])), 'Aceptó más que lo que se debe');
+        // La operativa no perdona el recargo, ni por envío directo.
+        $this->assertTrue($this->prohibido($this->actingAs($this->sandra)->post(route('web.punitorios.condonar', $recargo->id), ['motivo' => 'Motivo largo de prueba de seguridad'])));
+        $this->assertSame($antes, $this->foto(), 'Un intento forzado del recargo cambió datos');
+        $this->assertSame('0.00', $recargo->fresh()->monto_condonado);
+
+        // 34.2: la cuota sola, sin ningún panel; el recargo queda entero.
+        $this->assertTrue($this->cobroHecho($cobrar($this->sandra, ['montos_cuota' => ['2026-10' => 30000], 'monto_entregado' => 30000])), 'No cobró la cuota sola');
+        $primero = Pago::latest('id')->firstOrFail();
+        $this->assertSame([30000.0, 0.0], $this->imputado($primero));
+        $this->assertSame([DeudaCuota::ESTADO_PAGADA, 3000.0], [$cuota->fresh()->estado, (float) $recargo->fresh()->saldo_pendiente]);
+        // 38.2: el recargo solo; no se acepta un peso más que el recargo.
+        $pagos = Pago::count();
+        $this->assertFalse($this->cobroHecho($cobrar($this->sandra, ['monto_entregado' => 3001])), 'Aceptó un peso más que el recargo');
+        $this->assertSame($pagos, Pago::count());
+        $this->assertTrue($this->cobroHecho($cobrar($this->sandra, ['monto_entregado' => 3000])), 'No cobró el recargo solo');
+        $segundo = Pago::latest('id')->firstOrFail();
+        $this->assertSame([0.0, 3000.0], $this->imputado($segundo));
+        $this->assertSame(0.0, (float) $recargo->fresh()->saldo_pendiente);
+        // Pagado todo, otro cobro del mismo mes no mueve plata.
+        $pagos = Pago::count();
+        $this->assertFalse($this->cobroHecho($cobrar($this->sandra, ['monto_entregado' => 1])), 'Cobró un mes ya pagado con su recargo');
+        $this->assertSame($pagos, Pago::count());
+    }
+
+    /**
+     * Días 36.3 y 40.3: un mes que no empezó se cobra solo confirmando, con su importe y hasta doce meses; la
+     * profesora no cobra; el adelanto queda pagado entero y no se cobra dos veces.
+     */
+    public function test_dias_36_y_40_adelanto_de_un_mes_forzando(): void
+    {
+        // Octubre pagada primero: con un mes anterior impago, el adelanto pediría además un motivo.
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15']);
+        $this->assertSame(DeudaCuota::ESTADO_PAGADA, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->value('estado'));
+        $antes = $this->foto();
+        $adelanto = fn (User $u, array $extra) => $this->actingAs($u)->postJson(route('web.caja.pagar', $this->alumno->id),
+            array_replace(['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'montos_cuota' => ['2026-11' => 30000], 'fecha_pago' => '2026-10-15'], $extra));
+
+        $adelanto($this->sandra, [])->assertStatus(409)->assertJsonPath('requiere_confirmacion_adelantado', true);
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id),
+            ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'fecha_pago' => '2026-10-15', 'confirmar_pago_adelantado' => true])
+            ->assertStatus(422)->assertJsonPath('message', 'Indicá el importe del mes que se cobra por adelantado.');
+        $adelanto($this->sandra, ['periodos' => ['2027-11'], 'montos_cuota' => ['2027-11' => 30000], 'confirmar_pago_adelantado' => true])
+            ->assertStatus(422)->assertJsonPath('message', 'Se puede cobrar por adelantado hasta 12 meses.');
+        $this->assertTrue($this->prohibido($adelanto($this->lucia, ['confirmar_pago_adelantado' => true])), 'La profesora cobró un adelanto');
+        $this->assertSame($antes, $this->foto(), 'Un adelanto rechazado cambió datos');
+
+        $this->assertTrue($this->cobroHecho($adelanto($this->sandra, ['confirmar_pago_adelantado' => true])), 'No cobró el adelanto confirmado');
+        $nov = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->sole();
+        $this->assertSame([DeudaCuota::ESTADO_PAGADA, '30000.00', '30000.00'], [$nov->estado, $nov->monto_original, $nov->monto_pagado]);
+        $pagos = Pago::count();
+        $this->assertFalse($this->cobroHecho($adelanto($this->sandra, ['confirmar_pago_adelantado' => true])), 'Cobró dos veces el mismo adelanto');
+        $this->assertSame($pagos, Pago::count());
+        $this->assertSame(1, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->count());
+    }
+
+    /**
+     * Día 38.1: el cambio de grupo exige una frecuencia del grupo nuevo y un grupo del mismo deporte, también
+     * forzando; la profesora no lo hace; el mes ya pagado no se reescribe.
+     */
+    public function test_dia_38_cambio_de_grupo_forzando(): void
+    {
+        $patin = $this->alumno->deporte_id;
+        $planViejo = AlumnoPlan::where('alumno_id', $this->alumno->id)->value('plan_id');
+        $intermedias = Grupo::create(['deporte_id' => $patin, 'nivel_id' => Nivel::firstOrCreate(['nombre' => 'Intermedias'])->id, 'activo' => true]);
+        $planNuevo = GrupoPlan::create(['grupo_id' => $intermedias->id, 'clases_por_semana' => 2, 'precio_mensual' => 28000, 'activo' => true]);
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'HORA', 'activo' => true]);
+        $grupoFutbol = Grupo::create(['deporte_id' => $futbol->id, 'nivel_id' => Nivel::firstOrCreate(['nombre' => 'Principiantes'])->id, 'activo' => true]);
+        $planFutbol = GrupoPlan::create(['grupo_id' => $grupoFutbol->id, 'clases_por_semana' => 2, 'precio_mensual' => 28000, 'activo' => true]);
+        // Octubre pagada, como noviembre de Lara.
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'])));
+        $datos = fn (array $extra) => array_replace(['nombre' => 'Zoe', 'apellido' => 'Flores', 'dni' => '50000001', 'fecha_nacimiento' => '2012-01-01',
+            'fecha_alta' => '2026-09-01', 'celular' => '1111111111', 'nombre_tutor' => 'Ana Flores', 'telefono_tutor' => '1122223333',
+            'deporte_id' => $patin, 'grupo_id' => $intermedias->id, 'plan_id' => $planNuevo->id], $extra);
+        $antes = $this->foto();
+        $planes = DB::table('alumno_planes')->orderBy('id')->get()->toJson();
+
+        $this->actingAs($this->sandra)->put(route('web.alumnos.update', $this->alumno->id), $datos(['plan_id' => null]))
+            ->assertSessionHasErrors(['plan_id' => 'Debe seleccionar la frecuencia semanal del nuevo grupo.']);
+        $this->actingAs($this->sandra)->put(route('web.alumnos.update', $this->alumno->id), $datos(['plan_id' => $planViejo]))
+            ->assertSessionHasErrors(['plan_id' => 'La frecuencia seleccionada no corresponde al grupo.']);
+        $this->actingAs($this->sandra)->put(route('web.alumnos.update', $this->alumno->id), $datos(['grupo_id' => $grupoFutbol->id, 'plan_id' => $planFutbol->id]))
+            ->assertSessionHasErrors('grupo_id');
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->put(route('web.alumnos.update', $this->alumno->id), $datos([]))), 'La profesora cambió de grupo a un alumno');
+        $this->assertSame([$antes, $planes], [$this->foto(), DB::table('alumno_planes')->orderBy('id')->get()->toJson()], 'Un cambio de grupo rechazado tocó datos');
+        $this->assertSame($this->claseMariela->grupo_id, $this->alumno->fresh()->grupo_id);
+
+        $this->actingAs($this->sandra)->put(route('web.alumnos.update', $this->alumno->id), $datos([]))->assertSessionHasNoErrors();
+        $this->assertSame($intermedias->id, $this->alumno->fresh()->grupo_id);
+        $oct = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->sole();
+        $this->assertSame([DeudaCuota::ESTADO_PAGADA, '30000.00', '30000.00'], [$oct->estado, $oct->monto_original, $oct->monto_pagado]);
+        $nueva = AlumnoPlan::where('alumno_id', $this->alumno->id)->where('plan_id', $planNuevo->id)->sole();
+        $this->assertSame('2026-11-01', $nueva->fecha_desde->format('Y-m-d'), 'El plan nuevo tiene que regir desde el mes siguiente al pagado');
+    }
+
+    /**
+     * Día 39.4: una transferencia exige dos cuentas distintas y activas, un importe positivo y una fecha que ya
+     * llegó; la misma clave no la duplica ni la cambia.
+     */
+    public function test_dia_39_transferencia_forzando(): void
+    {
+        $inactiva = TipoCaja::create(['nombre' => 'Banco Cerrado', 'abreviatura' => 'BCE', 'activo' => false, 'saldo_inicial' => 0]);
+        $datos = ['clave' => (string) Str::uuid(), 'salida_id' => $this->efectivo->id, 'destino_id' => $this->galicia->id, 'monto' => '1500000', 'fecha' => '2026-10-15', 'observaciones' => 'Depósito en el Galicia'];
+        $antes = $this->foto();
+        foreach ([['destino_id' => $this->efectivo->id], ['monto' => '0'], ['monto' => '-1500000'], ['fecha' => '2026-10-16'], ['destino_id' => $inactiva->id], ['clave' => 'no-es-una-clave']] as $cambio) {
+            $r = $this->actingAs($this->duenio)->post(route('web.cashflow.transferencia.store'), array_replace($datos, $cambio));
+            $this->assertTrue($this->prohibido($r), 'Aceptó una transferencia con '.json_encode($cambio));
+        }
+        $this->assertSame($antes, $this->foto(), 'Una transferencia rechazada dejó rastro');
+
+        $this->actingAs($this->duenio)->post(route('web.cashflow.transferencia.store'), $datos)->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.cashflow.transferencia.store'), $datos)->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.cashflow.transferencia.store'), ['monto' => '1'] + $datos)->assertSessionHasErrors('clave');
+        $this->assertSame(1, DB::table('cashflow_transferencias')->count());
+        $filas = DB::table('cashflow_movimientos')->where('referencia_tipo', 'TRANSFERENCIA')->get();
+        $this->assertSame(2, $filas->count());
+        $this->assertSame(0.0, round($filas->sum(fn ($f) => (float) $f->monto), 2));
+        $this->assertEqualsCanonicalizing([$this->efectivo->id, $this->galicia->id], $filas->pluck('tipo_caja_id')->map(fn ($v) => (int) $v)->all());
+    }
+
+    /**
+     * Día 40.1: cancelar una clase pide motivo, también forzando; la profesora no cancela; una clase con lista pide
+     * confirmación antes de cancelarse.
+     */
+    public function test_dia_40_cancelar_clase_forzando(): void
+    {
+        $sinLista = Clase::create(['grupo_id' => $this->claseMariela->grupo_id, 'fecha' => '2026-10-19', 'hora_inicio' => '20:30', 'hora_fin' => '21:30', 'cancelada' => false, 'validada_para_liquidacion' => false]);
+        $this->actingAs($this->lucia)->patchJson(route('web.clases.toggle-cancelada', $sinLista->id), ['motivo_cancelacion' => 'Mariela avisó que no puede: turno médico'])->assertForbidden();
+        $this->actingAs($this->mariela)->patchJson(route('web.clases.toggle-cancelada', $sinLista->id), ['motivo_cancelacion' => 'Mariela avisó que no puede: turno médico'])->assertForbidden();
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $sinLista->id), [])->assertStatus(422);
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $sinLista->id), ['motivo_cancelacion' => str_repeat('x', 256)])->assertStatus(422);
+        $this->assertFalse((bool) $sinLista->fresh()->cancelada);
+
+        // Con lista tomada, pide confirmar.
+        \App\Models\Asistencia::create(['clase_id' => $this->claseMariela->id, 'alumno_id' => $this->alumno->id, 'presente' => true]);
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $this->claseMariela->id), ['motivo_cancelacion' => 'Lluvia'])
+            ->assertStatus(409)->assertJsonPath('requiere_confirmacion', true);
+        $this->assertFalse((bool) $this->claseMariela->fresh()->cancelada);
+
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $sinLista->id), ['motivo_cancelacion' => 'Mariela avisó que no puede: turno médico'])->assertOk();
+        $sinLista->refresh();
+        $this->assertSame([true, 'Mariela avisó que no puede: turno médico'], [(bool) $sinLista->cancelada, $sinLista->motivo_cancelacion]);
+    }
+
+    /**
+     * Días 39.1 a 39.3: el alta de la segunda quincena lleva la cuota al 70% que calcula Wings, no la que llega en el
+     * envío; la fecha de ingreso no puede ser futura; la profesora no da altas.
+     */
+    public function test_dia_39_alta_tardia_forzando(): void
+    {
+        Carbon::setTestNow('2026-10-20 10:00:00');
+        $plan = GrupoPlan::where('grupo_id', $this->claseMariela->grupo_id)->firstOrFail();
+        $datos = ['nombre' => 'Bautista', 'apellido' => 'Sosa', 'dni' => '54111222', 'fecha_nacimiento' => '2016-09-03', 'fecha_alta' => '2026-10-20',
+            'celular' => '', 'nombre_tutor' => 'Carolina Sosa', 'telefono_tutor' => '1167890123',
+            'deporte_id' => $this->alumno->deporte_id, 'grupo_id' => $plan->grupo_id, 'plan_id' => $plan->id];
+        $antes = Alumno::count();
+
+        $this->actingAs($this->sandra)->post(route('web.alumnos.store'), ['cuota_periodo_visto' => '2026-10', 'cuota_importe_visto' => '1000'] + $datos)
+            ->assertSessionHasErrors(['generar_cuota_actual' => 'Cambió el mes o el importe de la cuota. Revisá el aviso antes de guardar.']);
+        // La fecha de ingreso admite hasta fin del mes siguiente (FechaIngresoRegla); más allá, no.
+        $this->actingAs($this->sandra)->post(route('web.alumnos.store'), array_replace($datos, ['fecha_alta' => '2026-12-01']))->assertSessionHasErrors('fecha_alta');
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->post(route('web.alumnos.store'), $datos)), 'La profesora dio un alta');
+        $this->assertSame($antes, Alumno::count());
+
+        $this->actingAs($this->sandra)->post(route('web.alumnos.store'), ['cuota_periodo_visto' => '2026-10', 'cuota_importe_visto' => '21000'] + $datos)->assertSessionHasNoErrors();
+        $nuevo = Alumno::where('dni', '54111222')->sole();
+        $this->assertSame('21000.00', DeudaCuota::where('alumno_id', $nuevo->id)->where('periodo', '2026-10')->value('monto_original'), 'La cuota de la segunda quincena es el 70% de 30.000');
     }
 }

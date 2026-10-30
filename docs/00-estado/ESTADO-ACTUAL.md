@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T14 — Tanda 3 (días 34 a 40) hecha por Codex y revisada — Claude CAB, 30/10/2026
+
+Los siete cierres coinciden con el guion al peso (al 18/11: deuda $205.200, disponible $6.358.020,75) y la base
+del sitio es igual, fila por fila, a la copia donde se simularon los siete días (11 tablas, 0 diferencias). Las
+tres diferencias que anotó Codex eran errores del guion (el alta no anuncia el 70%; Bautista ya pagó y no es
+«Nuevo»; el esperado de lo pendiente era solo el efectivo). Prueba técnica: controles internos 44/44, seguridad
+37/37 (seis pruebas nuevas, sin hallazgos), pantallas por debajo de 281 ms. Para Carlos: un adelanto se cobra al
+importe que escriba quien cobra, sin aviso al dueño (T18). 178 de 334 casos.
+[Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [prueba técnica](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
+
 ## T14 — Guion de la tanda 3 (días 34 a 40, 12 al 18/11) listo — Claude CAB, 30/10/2026
 
 Carlos corrigió el primer borrador (salteaba días): la prueba sigue **día por día, sin saltear ninguno**, con su

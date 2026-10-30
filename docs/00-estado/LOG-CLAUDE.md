@@ -11,6 +11,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-30 — Claude CAB — Tanda 3 revisada y prueba técnica de los días 34 a 40
+
+- Codex entregó los días 34 a 40 (commit `940c53b5`). Cierres iguales al guion. Nuevo en la revisión: bajé la base del sitio y la comparé con la copia simulada por claves naturales (`prueba-tecnica/comparar-con-simulacion.php`): 0 diferencias en 11 tablas.
+- Las dos «no cumple» (39.1 y 40.2) eran errores de mi guion, comprobados en el código; erratas en el guion.
+- Controles internos: ocho nuevos y tres puestos al día (describían el día 33). Uno mío estaba mal (Joaquín Rodríguez en vez de Joaquín Vega). Probados contra una copia con cinco datos rotos: se pusieron en rojo.
+- Seguridad: seis pruebas nuevas. Aprendido: el cobro responde 302 con «Pago registrado…» y el rechazo 302 con error; las pruebas miran el aviso y la plata, no el código.
+- Velocidad: por primera vez se mide Cobrar, abriendo un turno dentro de la transacción que se revierte.
+
 ## 2026-10-30 — Claude CAB — T12/T13 etapa C hecha por Claude (Gemini sin crédito)
 
 - Carlos: «Gemini se quedó sin crédito… hacé vos la tarea». 22 páginas nuevas (17 dueño, 1 operativa, 4 profesora); el **?** en 39 vistas más: solo quedan sin ? login, errores, layouts y Ayuda. Detalle en `IMPLEMENTACION-T12-T13.md` §15.
