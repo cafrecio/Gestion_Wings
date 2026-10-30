@@ -1,0 +1,33 @@
+{
+  "jornada34": "detenida_por_fallo_rutina",
+  "simulacionSalida": 1,
+  "mananaRealEjecutada": false,
+  "pasos34NoProbados": [
+    "34.1",
+    "34.2",
+    "34.3",
+    "34.4"
+  ],
+  "dias35a40NoIniciados": true,
+  "relojUnaVez": "2026-11-12 09:00",
+  "imagenesComprobadas": [
+    {
+      "archivo": "00-cajas-sin-abierta.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "00-cobranza-punto-partida.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "00-inicio-punto-partida.jpg",
+      "ancho": 1905,
+      "alto": 904
+    }
+  ],
+  "enlacesComprobados": 15,
+  "cifrasSoloPuntoPartida": true,
+  "objetivoCompletoPendiente": true
+}

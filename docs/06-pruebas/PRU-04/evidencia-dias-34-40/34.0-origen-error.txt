@@ -1,0 +1,1 @@
+El error salió por stderr del SSH y se vio en la respuesta de exec_command, con exit_code1. Tee-Object solo capturaba stdout, por eso no creó un archivo de salida. Se transcribió exactamente el texto observado en34.0-manana-simular.txt sin volver a ejecutar la rutina para capturarlo. No se presenta como conservación de bytes originales de stderr.

@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-30 — Codex CAB — Tanda 3 detenida al simular el día 34
+
+[Informe Día 34](../06-pruebas/PRU-04/DIA-34.md): guion 34–40 leído entero; punto de partida verificado por Chrome, deuda $850.200, 106 activos, 83 Al día/22 Morosos/1 Deudor, ninguna caja abierta.
+Avanzado una vez el mismo 12/11 a las 09:00, sin volver atrás ni repetir días 24–33/verificación. Primera simulación dia-34-manana.json: salida 1, «Plan inválido: docs/06-pruebas/PRU-04/rutina/dia-34-manana.json».
+Aplicada la orden de frenar el día si falla la rutina: sin ejecución real, cobros UI, noche ni días 35–40. Tanda 3 incompleta; no se presentan cifras iniciales como cierre ni se acredita ningún paso 34.1–34.4.
+El archivo local existe y parsea JSON, pero la causa remota no fue inspeccionada. Consola remota solo reloj/rutina; sin consultas a base, reparación, código, vistas, catálogo o tablero propios.
+Tres capturas iniciales con TXT, reloj y error transcrito de stderr sin repetir la rutina. [Evidencia y huellas](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md). Espacios y bytes de capturas preservados; enlaces e integridad documental comprobados.
+LOG/resumen sin aportes ajenos al editar; entrada T46 archivada íntegra por límite. Trabajo concurrente de otros agentes excluido; sin despliegue ni push propios.
+Sigue resolver el plan de rutina en el entorno autorizado y retomar desde la simulación del día 34, sin repetir reloj ni operaciones. El objetivo de días 34–40 permanece activo, pendiente de ejecución completa.
+
 ## 2026-10-30 — Codex CAB — MF12/MF13 y observaciones verificadas en el sitio de prueba
 
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-MF12-MF13-CODEX.md): octubre sin clases pendientes por comisión, noviembre conservado y Verónica inactiva con 2; Iván dice Inscripción $5.000 y Florencia conserva Nov 2026 $55.000.
@@ -36,14 +46,6 @@ Carlos pidió subir todo el trabajo propio y la bitácora. Comprobados en origin
 Consulta directa a GitHub: main en ca56108e, con las tres entregas como ancestros. Este asiento deja registrada la comprobación y la continuidad actual.
 Tablero local consultado: T51 y T45 cerrado/verifica=Claude; T46 a_verificar/verifica=Claude. No se alteraron esos estados ni los archivos de verificación ajenos que seguían en preparación.
 Este commit modifica solo LOG-CODEX.md. Enlaces, límites y diff comprobados; sin código, suite nueva ni despliegue. Publicación por push normal a origin/main, sin forzar ni incorporar archivos ajenos sin commit.
-
-## 2026-10-28 — Codex CyE — T46 entregada a Claude; tres entregas completadas
-
-Baja bloqueada por clases activas futuras/en curso, aviso y reasignación existente con choque. Inactiva con dictadas pendientes puede liquidar HORA/COMISION; sin pendientes no aparece. Usuario desactivado, recuerdo invalidado y sesiones eliminadas; reactivar profesora conserva usuario inactivo hasta habilitación explícita.
-15 propias/113 y área50/343 verdes. Rápida1128/6 omitidas/8635 aserciones/373,71s; completa1264/6 omitidas/10426/1636,60s, salidas0 en wings_testing_codex.17 fuentes propias intactas;631/632 globales intactas, solo prueba AyudaManualT12T13Test ajena cambió durante la corrida, fuera del commit/certificación propia. Una sola completa; rápida ajena iniciada después.
-PHP de12 archivos, Blade y build correctos. Chrome real1366/marco375, login calibrado; rechazo/éxito/doble clic del cliente sin navegación. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T46.html).
-Dos entradas antiguas archivadas intactas; SHAc34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81, enlace en esta bitácora. Catálogo/DU-44 intactos; propuesta PRO-004 en el informe.
-T46 a_verificar, tiene/verifica=Claude. T51(983c6bab), T45(e3ca5555) y T46 entregadas por separado; Carlos revisa aspecto y Claude la lógica. Sin autocierre, servidor, base del club ni despliegue.
 
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
@@ -84,3 +86,5 @@ Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualizació
 [Dos entradas T51/T70–T71 conservadas íntegras al entregar días29–33](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS29-33.txt). Base original: docs/00-estado/. SHA256: b45291484c7ca448837203d16109b16b871834b7b615506aedd91d742c436a0c.
 
 [Entrada T45 conservada íntegra al verificar MF12/MF13](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-VERIF-MF12-MF13.txt). Base original: docs/00-estado/. SHA256: 50994edcd56eaad7da4b002a0a8fe9e373c7b045ba8f49509c42097a0003d196.
+
+[Entrada T46 íntegra al registrar la detención del día34](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-DETENCION-DIA34.txt). Base original: docs/00-estado/. SHA256: 5e4f7912ec5ea3b7dd3e6e52432ecfafad2d33f42eb35c678c13156a681c5e90.
