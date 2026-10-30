@@ -78,6 +78,12 @@ este archivo una orden vieja ni ejecutar una tarea sin releer aquel documento.
 
 ## 3. Gate antes de declarar produccion
 
+**Decisión de Carlos, 30/10/2026:** «Con lo que tenemos, el usuario se va a encontrar con un programa sólido.
+Cuando Codex termine la prueba, subimos a producción.» El plan concreto, el script y lo que queda a mano están en
+[DESPLIEGUE-PRODUCCION.md](../04-tecnico/DESPLIEGUE-PRODUCCION.md). Los 4 usuarios de producción son reales. La
+lista de abajo queda como estaba: lo que la prueba por días ya cubrió (suite verde, recorrido de los tres roles,
+generación mensual ensayada, restauración ensayada) se marca el día del despliegue, contra el servidor.
+
 - [ ] COB-01 a COB-05 cerrados y verificados.
 - [ ] FIN de prioridad alta cerrados. FIN-04 definido por Carlos el 22/09; consulta financiera V3 aplicada localmente 09/10. Clasificación de antecedentes y otras pantallas de Reportes pendientes.
 - [ ] SEG de prioridad alta cerrados.

@@ -5,6 +5,7 @@ Clases particulares: [contrato V1](02-contratos/Wings-Contrato-Clases-Particular
 Este directorio concentra la documentacion viva del proyecto Wings.
 
 Seguridad del VPS: [informes y pendientes por fecha](04-tecnico/seguridad-vps/README.md).
+Subir a producción: [plan y script del 30/10/2026](04-tecnico/DESPLIEGUE-PRODUCCION.md).
 
 Prueba integral T14: [tabla de control](06-pruebas/PRU-04/control-integral/CONTROL-INTEGRAL.html)
 · [uso y alcance](06-pruebas/PRU-04/control-integral/LEEME.md).
