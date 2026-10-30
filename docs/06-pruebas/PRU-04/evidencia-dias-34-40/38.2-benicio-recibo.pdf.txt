@@ -1,0 +1,24 @@
+WINGS CLUB
+ACADEMIA DEPORTIVA
+Comprobante de Cobro de Cuota
+CUOTA-389
+EMISIÓN:  16/11/2026 09:01
+FECHA PAGO:  16/11/2026 
+DATOS DEL ALUMNO
+ALUMNO / ALUMNA
+Benicio Torres
+DOCUMENTO (DNI)
+54400001
+DEPORTE / DISCIPLINA
+Fútbol
+DETALLE DE PERÍODOS COBRADOS
+CONCEPTO / PERÍODO IMPORTE
+Recargo por mora — Noviembre 2026 $2,800.00
+TOTAL COBRADO $2,800.00
+INFORMACIÓN DE COBRO
+MEDIO DE COBRO
+Efectivo
+REGISTRADO POR
+Operativo
+Club Wings — Comprobante emitido por el sistema de gestión.
+Documento no válido como factura comercial. FIRMA / SELLO RECEPTOR

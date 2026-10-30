@@ -1,0 +1,166 @@
+Browser tab: 1320327732, Title: "Lunes 16 de noviembre de 2026 — Patín — Intermedias – Wings", URL: "https://test.gestionar-te.com.ar/clases/214".
+1 AXWebArea Lunes 16 de noviembre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/214
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		20 button Salir
+	21 heading Clase — Patín — Intermedias, Value: 1
+		22 text Clase — Patín — Intermedias
+	23 container
+		24 heading Lunes 16 De Noviembre De 2026, Value: 2
+			25 text Lunes 16 De Noviembre De 2026
+		26 text 17:00 – 18:00 Patín Patín — Intermedias
+		27 text Gaitán, Lucía
+		28 button Editar, ID: btn-modificar-profesores
+		29 text Activa
+		30 button Cancelar, ID: btn-abrir-cancelar
+		31 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		32 text 18
+		33 text  alumnos en el grupo  ·  
+		34 text 17
+		35 text  presentes
+		36 container card-302
+			37 text Benitez, Paulina
+			38 text Al día
+			39 text 1/2 · DNI …031
+			40 container
+				41 text Presente
+				42 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-302
+		43 container card-292
+			44 text Cabrera, Constanza
+			45 text Al día
+			46 text 1/1 (Completo) · DNI …021
+			47 container
+				48 text Presente
+				49 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-292
+		50 container card-333
+			51 text Cabrera, Renata
+			52 text Al día
+			53 text 1/2 · DNI …913
+			54 container
+				55 text Presente
+				56 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-333
+		57 container card-290
+			58 text Ferrari, Josefina
+			59 text Al día
+			60 text 1/1 (Completo) · DNI …019
+			61 container
+				62 text Presente
+				63 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-290
+		64 container card-301
+			65 text Flores, Juana
+			66 text Al día
+			67 text 1/1 (Completo) · DNI …030
+			68 container
+				69 text Presente
+				70 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-301
+		71 container card-300
+			72 text Garcia, Melina
+			73 text Al día
+			74 text 1/2 · DNI …029
+			75 container
+				76 text Presente
+				77 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-300
+		78 container card-267
+			79 text Gimenez, Helena
+			80 text Al día
+			81 text 1/2 · DNI …906
+			82 container
+				83 text Presente
+				84 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-267
+		85 container card-293
+			86 text Ledesma, Paula
+			87 text Al día
+			88 text 1/2 · DNI …022
+			89 container
+				90 text Presente
+				91 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-293
+		92 container card-252
+			93 text Martinez, Delfina
+			94 text Al día
+			95 text 1/1 (Completo) · DNI …601
+			96 container
+				97 text Presente
+				98 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-252
+		99 container card-335
+			100 text Navarro, Alma
+			101 text Moroso
+			102 text 0/1 · DNI …915
+			103 container
+				104 text Presente
+				105 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-335
+		106 container card-291
+			107 text Navarro, Malena
+			108 text Al día
+			109 text 1/2 · DNI …020
+			110 container
+				111 text Presente
+				112 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-291
+		113 container card-299
+			114 text Perez, Carla
+			115 text Al día
+			116 text 1/1 (Completo) · DNI …028
+			117 container
+				118 text Presente
+				119 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-299
+		120 container card-342
+			121 text Quiroga, Lara
+			122 text Al día
+			123 text 1/2 · DNI …111
+			124 container
+				125 text Presente
+				126 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-342
+		127 container card-243
+			128 text Rodriguez, Mia
+			129 text Al día
+			130 text 1/2 · DNI …201
+			131 container
+				132 text Presente
+				133 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-243
+		134 container card-296
+			135 text Romero, Florencia
+			136 text Al día
+			137 text 1/1 (Completo) · DNI …025
+			138 container
+				139 text Presente
+				140 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-296
+		141 container card-298
+			142 text Ruiz, Sol
+			143 text Al día
+			144 text 1/2 · DNI …027
+			145 container
+				146 text Presente
+				147 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-298
+		148 container card-295
+			149 text Sanchez, Berenice
+			150 text Al día
+			151 text 1/2 · DNI …024
+			152 container
+				153 text Presente
+				154 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-295
+		155 container card-297
+			156 text Sosa, Rocio
+			157 text Al día
+			158 text 1/1 (Completo) · DNI …026
+			159 container
+				160 text Presente
+				161 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-297
+		162 button Guardar, ID: btn-guardar-asistencias
+	163 text Wings
+
+The focused UI element is 1 AXWebArea Lunes 16 de noviembre de 2026 — Patín — Intermedias – Wings, URL: test.gestionar-te.com.ar/clases/214

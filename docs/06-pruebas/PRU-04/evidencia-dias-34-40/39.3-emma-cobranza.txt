@@ -1,0 +1,174 @@
+Browser tab: 1320327732, Title: "Cobranza – Wings", URL: "https://test.gestionar-te.com.ar/cobranza".
+1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/consultar-cobranza
+		20 button Salir
+	21 heading Cobranza, Value: 1
+		22 text Cobranza
+	23 container
+		24 text TOTAL ADEUDADO $205,200.00 TOTAL ACTIVOS 108 AL DÍA 102 EN PLAZO 1 MOROSOS 5 DEUDORES 0
+		25 pop up button (collapsed, settable) Value: Con deuda (Deudores y morosos), Secondary Actions: Expand
+			26 menu
+				27 (selected) Con deuda (Deudores y morosos)
+				28 Todos los estados
+				29 Al día
+				30 En plazo
+				31 Moroso
+				32 Deudor
+		33 pop up button (collapsed, settable) Value: Deporte, Secondary Actions: Expand
+			34 menu
+				35 (selected) Deporte
+				36 Fútbol
+				37 Patín
+		38 pop up button (collapsed, settable) Value: Grupo, Secondary Actions: Expand
+			39 menu
+				40 (selected) Grupo
+				41 Fútbol — Avanzadas
+				42 Fútbol — Principiantes
+				43 Patín — Adultos
+				44 Patín — Avanzadas
+				45 Patín — Federadas
+				46 Patín — Intermedias
+				47 Patín — Principiantes
+		48 button Filtrar
+		49 text Mostrando 
+		50 text 5
+		51 text  alumnos con deuda de 
+		52 text 108
+		53 text  alumnos activos (ordenado de deuda más antigua a más reciente)
+		54 table
+			55 row
+				56 cell
+					57 text ALUMNO
+				58 cell
+					59 text DEPORTE
+				60 cell
+					61 text GRUPO
+				62 cell
+					63 text DEUDA DESDE
+				64 cell
+					65 text DEUDA
+				66 cell
+					67 text ESTADO
+				68 cell
+					69 text ACCIONES
+			70 row
+				71 cell
+					72 text Navarro, Alma
+					73 text 1145129905
+				74 cell
+					75 text Patín
+				76 cell
+					77 text Intermedias
+				78 cell
+					79 container
+						80 text Nov. 2026 (1 cuota)
+				81 cell
+					82 text $36,300.00
+				83 cell
+					84 text Moroso
+				85 cell
+					86 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/335
+					87 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/335
+			88 row
+				89 cell
+					90 text Pereyra, Liam
+					91 text 1145123421
+				92 cell
+					93 text Fútbol
+				94 cell
+					95 text Principiantes
+				96 cell
+					97 container
+						98 text Nov. 2026 (1 cuota)
+				99 cell
+					100 text $38,500.00
+				101 cell
+					102 text Moroso
+				103 cell
+					104 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/269
+					105 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/269
+			106 row
+				107 cell
+					108 text Ramos, Pilar
+					109 text 1145120008
+				110 cell
+					111 text Patín
+				112 cell
+					113 text Principiantes
+				114 cell
+					115 container
+						116 text Nov. 2026 (1 cuota)
+				117 cell
+					118 text $33,000.00
+				119 cell
+					120 text Moroso
+				121 cell
+					122 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/279
+					123 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/279
+			124 row
+				125 cell
+					126 text Rios, Facundo
+					127 text 1145129902
+				128 cell
+					129 text Fútbol
+				130 cell
+					131 text Principiantes
+				132 cell
+					133 container
+						134 text Nov. 2026 (1 cuota)
+				135 cell
+					136 text $30,800.00
+				137 cell
+					138 text Moroso
+				139 cell
+					140 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/332
+					141 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/332
+			142 row
+				143 cell
+					144 text Suarez, Valentina
+					145 text 1145120033
+				146 cell
+					147 text Patín
+				148 cell
+					149 text Avanzadas
+				150 cell
+					151 container
+						152 text Nov. 2026 (1 cuota)
+				153 cell
+					154 text $38,500.00
+				155 cell
+					156 text Moroso
+				157 cell
+					158 link Description: Cobrar, Value: test.gestionar-te.com.ar/caja/cobrar/304
+					159 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/304
+		160 heading Deuda de alumnos inactivos, Value: 2
+			161 text Deuda de alumnos inactivos
+		162 text Actual al 17/11/2026. Separada del por cobrar y de los totales de Inicio.
+		163 container
+			164 text 1  alumnos
+		165 text $33,000.00
+		166 container
+			167 heading Vega, Candela, Value: 3
+				168 text Vega, Candela
+			169 text Inactivo desde 06/11/2026 Deuda $33,000.00
+			170 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/294
+	171 text Wings
+
+The focused UI element is 1 AXWebArea Cobranza – Wings, URL: test.gestionar-te.com.ar/cobranza

@@ -1,0 +1,65 @@
+Browser tab: 1320327732, Title: "Fernandez, Emma – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/246".
+1 AXWebArea Fernandez, Emma – Wings, URL: test.gestionar-te.com.ar/alumnos/246
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Fernandez, Emma, Value: 1
+		22 text Fernandez, Emma
+	23 container
+		24 text Activo
+		25 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae43c3278673
+		26 button Cobrar
+		27 button Editar
+		28 image
+		29 text DNI 48100301
+		30 image
+		31 text NACIMIENTO 18/09/2011
+		32 image
+		33 text CELULAR 1145123403
+		34 image
+		35 text EMAIL carlos.f@testmail.com
+		36 image
+		37 text DEPORTE Patín
+		38 image
+		39 text GRUPO Patín — Avanzadas
+		40 image
+		41 text PLAN 2x sem. — $45,000.00/mes
+		42 image
+		43 text ALTA 01/03/2023
+		44 image
+		45 text ESTADO DE COBRANZA Al día
+		46 image
+		47 text TUTOR NOMBRE Carlos Fernandez TELÉFONO 1145123403
+		48 image
+		49 text HISTORIAL DE PAGOS 14/11/2026 · Dic 2026 $45,000.00
+		50 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/386?inline=1
+		51 text 05/11/2026 · Nov 2026 $45,000.00
+		52 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/259?inline=1
+		53 text 15/10/2026 · Oct 2026 $45,000.00
+		54 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/14?inline=1
+		55 text 13/10/2026 · Sep 2026 $45,000.00
+		56 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/6?inline=1
+		57 text 10/10/2026 · Ago 2026 $45,000.00
+		58 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/3?inline=1
+		59 image
+		60 text ASISTENCIAS — NOV 2026 4 clases 03/11 05/11 10/11 12/11
+		61 button Volver
+	62 text Wings
+
+The focused UI element is 1 AXWebArea Fernandez, Emma – Wings, URL: test.gestionar-te.com.ar/alumnos/246

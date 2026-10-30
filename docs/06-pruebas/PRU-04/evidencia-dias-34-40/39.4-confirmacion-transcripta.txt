@@ -1,0 +1,10 @@
+Transcripción de observación del navegador, no captura de bytes de pantalla.
+Origen: getAXState inmediatamente después de Transferir, día simulado 17/11, 30/10/2026 real.
+
+34 text Transferencia #4 registrada: salida y entrada guardadas.
+70 text $1,663,050.00
+76 text $1,256,900.00
+128 text −$1,500,000.00
+146 text $1,500,000.00
+
+La captura 39.4-transferencia-guardada se tomó después de esta observación y conserva los saldos/renglones; el aviso breve ya había desaparecido. No se repitió la transferencia.

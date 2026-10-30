@@ -1,0 +1,102 @@
+Browser tab: 1320327732, Title: "Cobrar – Quiroga, Lara", URL: "https://test.gestionar-te.com.ar/caja/cobrar/342".
+1 AXWebArea Cobrar – Quiroga, Lara, URL: test.gestionar-te.com.ar/caja/cobrar/342
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cobrar-cuota
+		30 button Salir
+	31 heading Cobrar: Quiroga, Lara, Value: 1
+		32 text Cobrar: Quiroga, Lara
+	33 container
+		34 text DNI 52888111 DEPORTE Patín GRUPO Patín — Intermedias TOTAL PENDIENTE $0.00
+		35 container cobrar-form
+			36 text PLAN — FRECUENCIA SEMANAL
+			37 container plan-options
+				38 container
+					39 radio button (settable, integer) Description: 1 vez/semana $33,000.00/mes, Value: 0
+					40 text 1 vez/semana $33,000.00/mes
+				41 container
+					42 radio button (settable, integer) Description: 2 veces/semana $43,000.00/mes, Value: 1
+					43 text 2 veces/semana $43,000.00/mes
+			44 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			45 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			46 text Sin cuotas pendientes.
+			47 container adelanto-bloque
+				48 text MES SIN DEUDA O COBRO ADELANTADO
+				49 container
+					50 image
+					51 text Mes
+				52 pop up button (collapsed, settable) Mes, Value: Diciembre 2026, ID: adelanto-periodo, Secondary Actions: Expand
+					53 menu
+						54 Seleccionar...
+						55 (selected) Diciembre 2026
+						56 Enero 2027
+						57 Febrero 2027
+						58 Marzo 2027
+						59 Abril 2027
+						60 Mayo 2027
+						61 Junio 2027
+						62 Julio 2027
+						63 Agosto 2027
+						64 Septiembre 2027
+						65 Octubre 2027
+						66 Noviembre 2027
+				67 container
+					68 image
+					69 text Importe
+				70 text field (settable) Importe, Value: 43,000.00, ID: adelanto-monto
+				71 button Agregar, ID: adelanto-agregar
+				72 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			73 container
+				74 image
+				75 text Medio de pago *
+			76 pop up button (collapsed, settable) Medio de pago *, Value: Seleccionar..., ID: tipo_caja_id, Secondary Actions: Expand
+				77 menu
+					78 (selected) Seleccionar...
+					79 BGA — Banco Galicia
+					80 BNA — Banco Nación
+					81 Banco Nacion ahorro
+					82 EFE — Efectivo
+					83 MP — Mercado Pago
+			84 container
+				85 image
+				86 text Fecha del pago
+			87 date field (settable) Fecha del pago, Value: 2026-11-16, ID: fecha_pago
+				88 container
+					89 stepper
+					90 stepper
+					91 stepper
+				92 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			93 container
+				94 image
+				95 text Observaciones
+			96 text field (settable) Observaciones, ID: observaciones
+			97 button Cancelar
+			98 button (disabled) Cobrar, ID: btn-cobrar
+	99 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar – Quiroga, Lara, URL: test.gestionar-te.com.ar/caja/cobrar/342

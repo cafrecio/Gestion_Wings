@@ -1,14 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-30 — Codex CAB — Tanda 3 detenida al simular el día 34
 
-[Informe Día 34](../06-pruebas/PRU-04/DIA-34.md): guion 34–40 leído entero; punto de partida verificado por Chrome, deuda $850.200, 106 activos, 83 Al día/22 Morosos/1 Deudor, ninguna caja abierta.
-Avanzado una vez el mismo 12/11 a las 09:00, sin volver atrás ni repetir días 24–33/verificación. Primera simulación dia-34-manana.json: salida 1, «Plan inválido: docs/06-pruebas/PRU-04/rutina/dia-34-manana.json».
-Aplicada la orden de frenar el día si falla la rutina: sin ejecución real, cobros UI, noche ni días 35–40. Tanda 3 incompleta; no se presentan cifras iniciales como cierre ni se acredita ningún paso 34.1–34.4.
-El archivo local existe y parsea JSON, pero la causa remota no fue inspeccionada. Consola remota solo reloj/rutina; sin consultas a base, reparación, código, vistas, catálogo o tablero propios.
-Tres capturas iniciales con TXT, reloj y error transcrito de stderr sin repetir la rutina. [Evidencia y huellas](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md). Espacios y bytes de capturas preservados; enlaces e integridad documental comprobados.
-LOG/resumen sin aportes ajenos al editar; entrada T46 archivada íntegra por límite. Trabajo concurrente de otros agentes excluido; sin despliegue ni push propios.
-Sigue resolver el plan de rutina en el entorno autorizado y retomar desde la simulación del día 34, sin repetir reloj ni operaciones. El objetivo de días 34–40 permanece activo, pendiente de ejecución completa.
+## 2026-10-30 — Codex CAB — Tanda 3, días 34 a 40 entregados a revisión
+
+Reanudada por orden de Carlos tras informar carga de rutinas; simulación del día34 correcta, sin repetir reloj del 12/11 ni operaciones anteriores. [Siete informes y evidencia](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md).
+25 pasos principales: 23 cumple y 2 no cumple (39.1 sin aviso previo de segunda quincena; 40.2 Bautista dice Al día, no Nuevo). Tres subcomprobaciones no probadas y espera del alta de Emma registradas, sin reparar.
+Siete cierres coinciden al peso con guion y entre Inicio/Cobranza/Reportes. Final18/11: deuda $205.200, ingresos $4.094.900, egresos $2.738.780, resultado $1.356.120, disponible $6.358.020,75; 108 activos, 102 Al día/1 En plazo/5 Morosos; Sin asistencia0, cajas pendientes0.
+Sábado sin validar; domingo ocho movimientos por UI una sola vez. Cambio de Lara antes de rutina; adelantos diciembre Emma45.000/Dante52.000; Emma Villalba queda sin pago; transferencia#4 y Adultos19 cancelada con motivo comprobados.
+Capturas Chrome con TXT, salidas de reloj/rutinas, tres recibos PDF renderizados, cierres cruzados, enlaces/huellas revisados. Consola solo reloj/rutinas; sin consultas directas a base, producto, vistas, catálogo/tablero, suite documental, despliegue ni push propios.
+LOG/resumen sin aportes ajenos al editar; dos entradas antiguas archivadas intactas por límite. Cambios concurrentes ajenos preservados y excluidos del commit propio.
+Sigue Claude: revisión independiente de informes, diferencias e internos antes de la tanda4. No repetir días34–40 ni generar diciembre; no autocierre de T14.
 
 ## 2026-10-30 — Codex CAB — MF12/MF13 y observaciones verificadas en el sitio de prueba
 
@@ -40,12 +41,6 @@ LOG propio sin aportes ajenos al editar; dos entradas antiguas conservadas intac
 Sigue Claude: revisar informes, diferencias y controles no probados antes de autorizar días29–33. Sin autocierre de T14 ni casos del catálogo, sin despliegue ni push solicitado.
 
 
-## 2026-10-28 — Codex CyE — GitHub comprobado y bitácora actualizada
-
-Carlos pidió subir todo el trabajo propio y la bitácora. Comprobados en origin/main los commits T51(983c6bab), T45(e3ca5555) y T46(c475fa6c), incluidas sus entregas, capturas y entradas de esta bitácora.
-Consulta directa a GitHub: main en ca56108e, con las tres entregas como ancestros. Este asiento deja registrada la comprobación y la continuidad actual.
-Tablero local consultado: T51 y T45 cerrado/verifica=Claude; T46 a_verificar/verifica=Claude. No se alteraron esos estados ni los archivos de verificación ajenos que seguían en preparación.
-Este commit modifica solo LOG-CODEX.md. Enlaces, límites y diff comprobados; sin código, suite nueva ni despliegue. Publicación por push normal a origin/main, sin forzar ni incorporar archivos ajenos sin commit.
 
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
@@ -88,3 +83,7 @@ Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualizació
 [Entrada T45 conservada íntegra al verificar MF12/MF13](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-VERIF-MF12-MF13.txt). Base original: docs/00-estado/. SHA256: 50994edcd56eaad7da4b002a0a8fe9e373c7b045ba8f49509c42097a0003d196.
 
 [Entrada T46 íntegra al registrar la detención del día34](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-DETENCION-DIA34.txt). Base original: docs/00-estado/. SHA256: 5e4f7912ec5ea3b7dd3e6e52432ecfafad2d33f42eb35c678c13156a681c5e90.
+
+[Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-detencion-DIA34-antes-reanudar.txt). Base original: docs/00-estado/. SHA256: e2cda1be2a6f67d605d5075f4f0b4760599c1019f98af0f5eff506c918eb83e4.
+
+[Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-ENTREGA34-40.txt). Base original: docs/00-estado/. SHA256: 4c9d6c1003376fb5f92ebcb3188ff8c581b4d8533d375f502f6b59ecdc3bd09c.

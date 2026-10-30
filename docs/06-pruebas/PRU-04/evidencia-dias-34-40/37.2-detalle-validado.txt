@@ -1,0 +1,201 @@
+Browser tab: 1320327732, Title: "Detalle caja 14/11/2026 – Wings", URL: "https://test.gestionar-te.com.ar/caja/66/detalle".
+1 AXWebArea Detalle caja 14/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/66/detalle
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/auditar-detalle-caja
+		30 button Salir
+	31 heading Detalle de caja, Value: 1
+		32 text Detalle de caja
+	33 container
+		34 text OPERATIVO Pablo Ledesma APERTURA 14/11/2026 09:00 CIERRE 14/11/2026 13:30 ESTADO VALIDADA
+		35 text 8
+		36 text  movimientos
+		37 link Description: Resumen, Value: test.gestionar-te.com.ar/caja/66/resumen
+		38 link Description: Volver, Value: test.gestionar-te.com.ar/caja
+		39 container Movimientos de la caja
+			40 table
+				41 row
+					42 cell
+						43 text FECHA
+					44 cell
+						45 text HORA
+					46 cell
+						47 text I/E
+					48 cell
+						49 text MEDIO
+					50 cell
+						51 text RUBRO — SUBRUBRO
+					52 cell
+						53 text ALUMNO / OBS.
+					54 cell
+						55 text MONTO
+				56 row
+					57 cell
+						58 text 14/11/2026
+					59 cell
+						60 text 09:00
+					61 cell
+						62 text I
+					63 cell
+						64 text EFE
+					65 cell
+						66 text Cuotas  — Cuota Mensual
+					67 cell
+						68 text Ramos, Santiago · Fú · 11/26
+					69 cell
+						70 text $28,000.00
+					71 cell
+						72 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/383?inline=1
+				73 row
+					74 cell
+						75 text 14/11/2026
+					76 cell
+						77 text 09:00
+					78 cell
+						79 text I
+					80 cell
+						81 text EFE
+					82 cell
+						83 text Punitorios  — Punitorio Cuota
+					84 cell
+						85 text Ramos, Santiago · Fú · 11/26
+					86 cell
+						87 text $2,800.00
+					88 cell
+						89 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/383?inline=1
+				90 row
+					91 cell
+						92 text 14/11/2026
+					93 cell
+						94 text 09:00
+					95 cell
+						96 text I
+					97 cell
+						98 text MP
+					99 cell
+						100 text Cuotas  — Cuota Mensual
+					101 cell
+						102 text Ruiz, Thiago · Fú · 11/26
+					103 cell
+						104 text $28,000.00
+					105 cell
+						106 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/384?inline=1
+				107 row
+					108 cell
+						109 text 14/11/2026
+					110 cell
+						111 text 09:00
+					112 cell
+						113 text I
+					114 cell
+						115 text MP
+					116 cell
+						117 text Punitorios  — Punitorio Cuota
+					118 cell
+						119 text Ruiz, Thiago · Fú · 11/26
+					120 cell
+						121 text $2,800.00
+					122 cell
+						123 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/384?inline=1
+				124 row
+					125 cell
+						126 text 14/11/2026
+					127 cell
+						128 text 09:00
+					129 cell
+						130 text I
+					131 cell
+						132 text EFE
+					133 cell
+						134 text Cuotas  — Cuota Mensual
+					135 cell
+						136 text Rodriguez, Joaquin · Fú · 11/26
+					137 cell
+						138 text $15,000.00
+					139 cell
+						140 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/385?inline=1
+				141 row
+					142 cell
+						143 text 14/11/2026
+					144 cell
+						145 text 09:00
+					146 cell
+						147 text I
+					148 cell
+						149 text EFE
+					150 cell
+						151 text Punitorios  — Punitorio Cuota
+					152 cell
+						153 text Rodriguez, Joaquin · Fú · 11/26
+					154 cell
+						155 text $3,500.00
+					156 cell
+						157 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/385?inline=1
+				158 row
+					159 cell
+						160 text 14/11/2026
+					161 cell
+						162 text 09:00
+					163 cell
+						164 text E
+					165 cell
+						166 text EFE
+					167 cell
+						168 text Gastos Operativos  — Librería
+					169 cell
+						170 text Hojas para la impresora
+					171 cell
+						172 text $3,500.00
+				173 row
+					174 cell
+						175 text 14/11/2026
+					176 cell
+						177 text 09:01
+					178 cell
+						179 text I
+					180 cell
+						181 text MP
+					182 cell
+						183 text Cuotas  — Cuota Mensual
+					184 cell
+						185 text Fernandez, Emma · PAT · 12/26
+					186 cell
+						187 text $45,000.00
+					188 cell
+						189 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/386?inline=1
+				190 row
+					191 cell
+						192 text Ingresos: 
+						193 text $125,100.00
+						194 text   ·  Egresos: 
+						195 text $3,500.00
+					196 cell
+						197 text $121,600.00
+	198 text Wings
+
+The focused UI element is 1 AXWebArea Detalle caja 14/11/2026 – Wings, URL: test.gestionar-te.com.ar/caja/66/detalle

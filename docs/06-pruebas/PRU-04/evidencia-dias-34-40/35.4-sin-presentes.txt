@@ -1,0 +1,178 @@
+Browser tab: 1320327732, Title: "Reporte de alumnos – Wings", URL: "https://test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11".
+1 AXWebArea Reporte de alumnos – Wings, URL: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 button Salir
+	30 heading Reporte de alumnos, Value: 1
+		31 text Reporte de alumnos
+	32 container
+		33 text Reportes
+		34 link Description: Volver, Value: test.gestionar-te.com.ar/reportes?mes=2026-11
+		35 link Description: Ingresos y egresos, Value: test.gestionar-te.com.ar/reportes?mes=2026-11
+		36 text Alumnos
+		37 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+		38 pop up button (collapsed, settable) Description: Mes, Value: Noviembre 2026, Secondary Actions: Expand
+			39 menu
+				40 (selected) Noviembre 2026
+				41 Octubre 2026
+				42 Septiembre 2026
+				43 Agosto 2026
+				44 Julio 2026
+				45 Junio 2026
+				46 Mayo 2026
+				47 Abril 2026
+				48 Marzo 2026
+				49 Febrero 2026
+				50 Enero 2026
+				51 Diciembre 2025
+				52 Noviembre 2025
+				53 Octubre 2025
+				54 Septiembre 2025
+				55 Agosto 2025
+				56 Julio 2025
+				57 Junio 2025
+				58 Mayo 2025
+				59 Abril 2025
+				60 Marzo 2025
+				61 Febrero 2025
+				62 Enero 2025
+				63 Diciembre 2024
+				64 Noviembre 2024
+				65 Octubre 2024
+				66 Septiembre 2024
+				67 Agosto 2024
+				68 Julio 2024
+				69 Junio 2024
+				70 Mayo 2024
+				71 Abril 2024
+				72 Marzo 2024
+				73 Febrero 2024
+				74 Enero 2024
+				75 Diciembre 2023
+				76 Noviembre 2023
+				77 Octubre 2023
+				78 Septiembre 2023
+				79 Agosto 2023
+				80 Julio 2023
+				81 Junio 2023
+				82 Mayo 2023
+				83 Abril 2023
+				84 Marzo 2023
+				85 Febrero 2023
+				86 Enero 2023
+				87 Diciembre 2022
+				88 Noviembre 2022
+				89 Octubre 2022
+				90 Septiembre 2022
+				91 Agosto 2022
+				92 Julio 2022
+				93 Junio 2022
+				94 Mayo 2022
+				95 Abril 2022
+				96 Marzo 2022
+				97 Febrero 2022
+		98 pop up button (collapsed, settable) Description: Deporte, Value: Todos los deportes, Secondary Actions: Expand
+			99 menu
+				100 (selected) Todos los deportes
+				101 Fútbol
+				102 Patín
+		103 button Filtrar
+		104 heading Noviembre 2026, Value: 2
+			105 text Noviembre 2026
+		106 text Asistencia hasta 13/11 Activos hoy
+		107 text 106
+		108 text 2 inactivos
+		109 text Matrícula actual · 13/11 Asistencias del mes
+		110 text 395
+		111 text 103 alumnos distintos
+		112 text Cada presente cuenta una vez Presencia registrada
+		113 text 91,0%
+		114 text 39 ausencias registradas
+		115 text Sobre presentes + ausentes cargados Clases sin registros
+		116 text 0
+		117 text De 29 clases no canceladas
+		118 text No cuentan como ausencias Altas del mes
+		119 text 3
+		120 text Ingresos por fecha de alta; no incluye reactivaciones Pases a Inactivo del mes
+		121 text 2
+		122 text Cada alumno cuenta una vez, aunque vuelva a activo
+		123 heading Evolución de asistencia, Value: 3
+			124 text Evolución de asistencia
+		125 text Presentes Ausentes Meses cerrados
+		126 image Evolución de presentes y ausentes registrados
+		127 button (collapsed) Detalle, Secondary Actions: Expand
+			128 text Detalle
+		129 heading Activos por deporte, Value: 3
+			130 text Activos por deporte
+		131 text Hoy · 13/11
+		132 container
+			133 image Distribución actual de alumnos activos por deporte
+			134 text 106
+			135 text Activos
+		136 text 39
+		137 text Fútbol
+		138 text 67
+		139 text Patín
+		140 heading Deporte y nivel, Value: 2
+			141 text Deporte y nivel
+		142 text Matrícula hoy · Asistencia del mes
+		143 heading Activos por nivel, Value: 3
+			144 text Activos por nivel
+		145 image Activos actuales por deporte y nivel
+		146 button (collapsed) Detalle, Secondary Actions: Expand
+			147 text Detalle
+		148 heading Asistencia por nivel, Value: 3
+			149 text Asistencia por nivel
+		150 text Presentes Ausentes
+		151 image Asistencias y ausencias registradas por deporte y nivel
+		152 button (collapsed) Detalle, Secondary Actions: Expand
+			153 text Detalle
+		154 heading Seguimiento, Value: 2
+			155 text Seguimiento
+		156 text Sin cambios automáticos de estado
+		157 button (expanded) Activos hoy sin presentes en noviembre · 4, Secondary Actions: Collapse
+			158 text Activos hoy sin presentes en noviembre · 4
+		163 text No determina que hayan dejado de venir. Revisar clases y registros antes de decidir.
+		164 text Navarro, Alma
+		165 text Patín · Intermedias
+		166 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/335
+		167 text Ramos, Pilar
+		168 text Patín · Principiantes
+		169 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/279
+		170 text Rios, Facundo
+		171 text Fútbol · Principiantes
+		172 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/332
+		173 text Suarez, Valentina
+		174 text Patín · Avanzadas
+		175 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/304
+		159 text 0 revisiones pendientes
+		160 link Description: Ver, Value: test.gestionar-te.com.ar/revision-cobranza
+		161 text Matrícula actual · asistencia del mes elegido Clases canceladas y futuras excluidas
+	162 text Wings
+
+The focused UI element is 157 button (expanded) Activos hoy sin presentes en noviembre · 4, Secondary Actions: Collapse

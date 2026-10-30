@@ -1,16 +1,24 @@
 {
-  "jornada34": "detenida_por_fallo_rutina",
-  "simulacionSalida": 1,
-  "mananaRealEjecutada": false,
-  "pasos34NoProbados": [
-    "34.1",
-    "34.2",
-    "34.3",
-    "34.4"
+  "estado": "entregado_para_revision_independiente",
+  "fecha_real": "2026-10-30",
+  "dias_recorridos": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
   ],
-  "dias35a40NoIniciados": true,
-  "relojUnaVez": "2026-11-12 09:00",
-  "imagenesComprobadas": [
+  "resultados": {
+    "cumple": 23,
+    "no cumple": 2,
+    "no probado": 3
+  },
+  "cierres_coinciden_guion": true,
+  "cruce_inicio_cobranza_reportes": true,
+  "controles_visibles": 29,
+  "imagenes_comprobadas": [
     {
       "archivo": "00-cajas-sin-abierta.jpg",
       "ancho": 1905,
@@ -25,9 +33,582 @@
       "archivo": "00-inicio-punto-partida.jpg",
       "ancho": 1905,
       "alto": 904
+    },
+    {
+      "archivo": "34.0-inicio-tras-rutina.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-futbol-aldia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-futbol-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-futbol-cobrar.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-futbol-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-patin-aldia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-patin-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-patin-cobrar.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.1-camila-patin-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.2-benicio-importe.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.2-benicio-pago-sin-panel.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.2-benicio-recargo-pendiente.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "34.3-joaquin-saldo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.3-parcial-con-motivo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.3-parcial-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.3-parcial-sin-motivo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.4-inicio-parcial.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.4-morosos.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.4-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "34.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-futbol-aldia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-futbol-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-futbol-formulario.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-futbol-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-patin-aldia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-patin-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-patin-formulario.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.1-mora-patin-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.2-cobranza-sin-deudores.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.2-guadalupe-ficha.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "35.2-guadalupe-recibo.png",
+      "ancho": 1058,
+      "alto": 1500
+    },
+    {
+      "archivo": "35.2-santino-aldia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.3-luz-formulario.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "35.3-luz-registrada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.4-alumnos-indicadores.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.4-sin-presentes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "35.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.1-joaquin-aldia.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "36.2-clase-reactivada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.2-inicio-presentes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.3-emma-adelanto-formulario.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.3-emma-aviso.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.3-emma-diciembre-pagado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "36.3-emma-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "36.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.1-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.1-morosos.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.2-caja-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.2-caja-validada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.2-detalle-validado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "37.2-ocho-sin-verificar.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "37.2-ocho-verificados.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "37.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "37.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-diciembre-previsto.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-frecuencia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-grupo-actualizado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-sin-frecuencia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.1-lara-vigencias.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.2-benicio-aldia.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "38.2-benicio-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.2-benicio-recibo.png",
+      "ancho": 1058,
+      "alto": 1500
+    },
+    {
+      "archivo": "38.2-benicio-solo-recargo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.3-intermedias-lara-presente.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.4-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.4-morosos.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "38.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.1-bautista-alta-previa.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.1-bautista-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.1-bautista-deuda.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.1-bautista-previo-sin-aviso.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.2-bautista-aldia.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "39.2-bautista-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.2-bautista-recibo.png",
+      "ancho": 1058,
+      "alto": 1500
+    },
+    {
+      "archivo": "39.2-bautista-total.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.3-emma-alta-previa.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.3-emma-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.3-emma-creada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.3-emma-enplazo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.3-emma-espera-cuota.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.4-antes-transferencia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.4-despues-transferencia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.4-transferencia-formulario.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "39.4-transferencia-guardada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "39.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.1-adultos-antes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "40.1-adultos-cancelada.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "40.1-adultos-listado-cancelada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.1-adultos-motivo.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "40.2-bautista-presente.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.3-dante-aviso.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.3-dante-diciembre.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "40.3-dante-formulario.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.3-dante-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.3-dante-precio-sugerido.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.4-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.5-caja-validada-cambio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.6-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.6-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "40.6-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
     }
   ],
-  "enlacesComprobados": 15,
-  "cifrasSoloPuntoPartida": true,
-  "objetivoCompletoPendiente": true
+  "recibos_una_pagina": [
+    "35.2-guadalupe-recibo.pdf",
+    "38.2-benicio-recibo.pdf",
+    "39.2-bautista-recibo.pdf"
+  ],
+  "enlaces_comprobados": 437,
+  "archivo_log_original_comprobado_con_HEAD": true,
+  "por_validar_sabado": {
+    "EFE": 45800,
+    "MP": 75800,
+    "total": 121600
+  },
+  "validacion_domingo": "UI unica; sin rutina",
+  "sin_consulta_directa_base": true,
+  "producto_modificado": false,
+  "catalogo_tablero_modificados": false
 }

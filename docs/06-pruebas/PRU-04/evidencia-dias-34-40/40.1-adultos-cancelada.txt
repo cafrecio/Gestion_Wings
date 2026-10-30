@@ -1,0 +1,66 @@
+Browser tab: 1320327732, Title: "Jueves 19 de noviembre de 2026 — Patín — Adultos – Wings", URL: "https://test.gestionar-te.com.ar/clases/265".
+0 AXWebArea Jueves 19 de noviembre de 2026 — Patín — Adultos – Wings, URL: test.gestionar-te.com.ar/clases/265
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		12 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		13 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		14 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		15 text EL CLUB
+		16 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		17 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		18 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		19 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		20 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		21 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		22 text SISTEMA
+		23 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		24 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		25 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	26 container
+		27 text Admin Prueba
+		28 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		29 button Salir
+	30 heading Clase — Patín — Adultos, Value: 1
+		31 text Clase — Patín — Adultos
+	32 container
+		33 heading Jueves 19 De Noviembre De 2026, Value: 2
+			34 text Jueves 19 De Noviembre De 2026
+		35 text 20:30 – 21:30 Patín Patín — Adultos
+		36 text Ocampo, Mariela
+		37 button Editar, ID: btn-modificar-profesores
+		38 text Cancelada
+		39 button Validar
+		40 link Description: Editar, Value: test.gestionar-te.com.ar/clases/265/edit
+		41 button Eliminar, ID: btn-abrir-eliminar-clase
+		42 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		43 text Esta clase está cancelada. No se pueden registrar asistencias.
+		44 text 2
+		45 text  alumnos en el grupo  ·  
+		46 text 0
+		47 text  presentes
+		48 container card-347
+			49 text Funes, Graciela
+			50 text Al día
+			51 text 0/1 · DNI …555
+			52 container
+				53 text Presente
+				54 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-347
+		55 container card-348
+			56 text Ibañez, Marcelo
+			57 text Al día
+			58 text 1/2 · DNI …222
+			59 container
+				60 text Presente
+				61 checkbox (disabled, settable, integer) Description: Presente, Value: 0, ID: presente-348
+	62 text Wings
+
+The focused UI element is 0 AXWebArea Jueves 19 de noviembre de 2026 — Patín — Adultos – Wings, URL: test.gestionar-te.com.ar/clases/265

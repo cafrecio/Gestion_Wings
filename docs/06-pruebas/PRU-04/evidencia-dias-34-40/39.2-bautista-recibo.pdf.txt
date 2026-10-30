@@ -1,0 +1,25 @@
+WINGS CLUB
+ACADEMIA DEPORTIVA
+Comprobante de Cobro de Cuota
+CUOTA-390
+EMISIÓN:  17/11/2026 09:01
+FECHA PAGO:  17/11/2026 
+DATOS DEL ALUMNO
+ALUMNO / ALUMNA
+Bautista Sosa
+DOCUMENTO (DNI)
+54111222
+DEPORTE / DISCIPLINA
+Fútbol
+DETALLE DE PERÍODOS COBRADOS
+CONCEPTO / PERÍODO IMPORTE
+Noviembre 2026 $24,500.00
+Inscripción al club — por única vez $5,000.00
+TOTAL COBRADO $29,500.00
+INFORMACIÓN DE COBRO
+MEDIO DE COBRO
+Efectivo
+REGISTRADO POR
+Operativo
+Club Wings — Comprobante emitido por el sistema de gestión.
+Documento no válido como factura comercial. FIRMA / SELLO RECEPTOR

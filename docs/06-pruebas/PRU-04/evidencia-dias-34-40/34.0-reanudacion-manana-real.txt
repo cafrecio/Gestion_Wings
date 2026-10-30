@@ -1,0 +1,12 @@
+ 1. Sandra Vidal abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal cobra a Castro, Mateo $30.800,00 por Mercado Pago — Pago registrado para Castro, Mateo.
+ 3. Sandra Vidal cobra a Flores, Santino $30.800,00 por Efectivo — Pago registrado para Flores, Santino.
+ 4. Sandra Vidal cobra a Herrera, Facundo $30.800,00 por Mercado Pago — Pago registrado para Herrera, Facundo.
+ 5. Sandra Vidal cobra a Rossi, Morena $48.400,00 por Efectivo — Pago registrado para Rossi, Morena.
+ 6. Sandra Vidal cobra a Suarez, Ignacio $38.500,00 por Mercado Pago — Pago registrado para Suarez, Ignacio.
+ 7. Lucía Gaitán lista de la #222: 12 alumnos, 10 presentes — Asistencias guardadas.
+ 8. Mariela Ocampo lista de la #231: 8 alumnos, 7 presentes — Asistencias guardadas.
+ 9. Hernán Quintana lista de la #254: 15 alumnos, 14 presentes — Asistencias guardadas.
+10. Mariela Ocampo lista de la #263: 2 alumnos, 2 presentes — Asistencias guardadas.
+Cobranza: $670.900,00 · {"AL_DIA":88,"EN_PLAZO":0,"MOROSO":17,"DEUDOR":1}
+GUARDADO.

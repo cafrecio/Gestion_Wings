@@ -1,0 +1,123 @@
+Browser tab: 1320327732, Title: "Editar – Quiroga, Lara", URL: "https://test.gestionar-te.com.ar/alumnos/342/edit".
+0 AXWebArea Editar – Quiroga, Lara, URL: test.gestionar-te.com.ar/alumnos/342/edit
+	1 container
+		2 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		3 text DÍA A DÍA
+		4 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		5 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		6 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		7 text PLATA
+		8 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		9 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		10 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		11 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		12 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		13 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		14 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		15 text EL CLUB
+		16 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		17 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		18 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		19 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		20 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		21 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		22 text SISTEMA
+		23 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		24 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		25 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	26 container
+		27 text Admin Prueba
+		28 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/modificar-alumno
+		29 button Salir
+	30 heading Editar: Quiroga, Lara, Value: 1
+		31 text Editar: Quiroga, Lara
+	32 container
+		33 container alumno-error-resumen
+			121 text Datos modificados.
+			122 text Se comprobarán al guardar. Lo que cargaste se conserva.
+			36 content list
+				123 link Description: Frecuencia semanal (define el precio mensual): dato modificado; se comprueba al guardar., Value: test.gestionar-te.com.ar/alumnos/342/edit#plan_id
+		38 text Esta persona ya tiene una inscripción registrada. Saldo: $0.00
+		39 container
+			40 image
+			41 text Nombre *
+		42 text field (settable) Nombre *, Value: Lara, ID: nombre
+		43 container
+			44 image
+			45 text Apellido *
+		46 text field (settable) Apellido *, Value: Quiroga, ID: apellido
+		47 container
+			48 image
+			49 text DNI *
+		50 text field (settable) DNI *, Value: 52888111, ID: dni
+		51 container
+			52 image
+			53 text Fecha de nacimiento *
+		54 date field (settable) Fecha de nacimiento *, Value: 2017-03-12, ID: fecha_nacimiento
+			55 container
+				56 stepper
+				57 stepper
+				58 stepper
+			59 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		60 container
+			61 image
+			62 text Fecha de alta *
+		63 date field (settable) Fecha de alta *, Value: 2026-10-19, ID: fecha_alta
+			64 container
+				65 stepper
+				66 stepper
+				67 stepper
+			68 pop up button Mostrar selector de fecha Mostrar selector de fecha
+		69 container
+			70 image
+			71 text Celular
+		72 text field (settable) Celular, Value: 11-5550-1212, ID: celular
+		73 checkbox (settable, integer) Description: Mismo que el teléfono del tutor, Value: 0, ID: celular-mismo-tutor
+		74 container
+			75 image
+			76 text Email
+		77 text field (settable) Email
+		78 container
+			79 image
+			80 text Deporte
+		81 text Patín
+		82 container
+			83 image
+			84 text Grupo *
+		85 pop up button (collapsed, settable) Grupo *, Value: Patín — Intermedias, ID: grupo_id, Secondary Actions: Expand
+			86 menu
+				87 Seleccionar...
+				88 Patín — Adultos
+				89 Patín — Avanzadas
+				90 Patín — Federadas
+				91 (selected) Patín — Intermedias
+				92 Patín — Principiantes
+		93 container
+			94 image
+			95 text Motivo si corrige la fecha de ingreso
+		96 text field (settable) Motivo si corrige la fecha de ingreso, ID: motivo_fecha_alta
+		97 container plan-section
+			98 text Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.
+			99 container
+				100 image
+				101 text Frecuencia semanal (define el precio mensual)
+			102 pop up button (collapsed, settable) Frecuencia semanal (define el precio mensual), Value: 2 veces/semana — $43,000.00, ID: plan_id, Secondary Actions: Expand
+				103 menu
+					104 Seleccionar frecuencia...
+					105 1 vez/semana — $33,000.00
+					106 (selected) 2 veces/semana — $43,000.00
+		108 container
+			109 text Datos del tutor —  obligatorio para menores de edad
+		110 container
+			111 image
+			112 text Nombre del tutor
+		113 text field (settable) Nombre del tutor, Value: Mariana Quiroga, ID: nombre_tutor
+		114 container
+			115 image
+			116 text Teléfono del tutor
+		117 text field (settable) Teléfono del tutor, Value: 11-5550-1212, ID: telefono_tutor
+		118 button Cancelar
+		119 button Guardar
+	120 text Wings
+
+The focused UI element is 33 container alumno-error-resumen

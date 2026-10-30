@@ -1,0 +1,130 @@
+Browser tab: 1320327732, Title: "Clases – Wings", URL: "https://test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=7&profesor_id=&estado=cancelada&fecha=&orden=".
+1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=7&profesor_id=&estado=cancelada&fecha=&orden=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/consultar-clases-operativo
+		30 button Salir
+	31 heading Clases, Value: 1
+		32 text Clases
+	33 container
+		34 text CLASES DE HOY — MIÉRCOLES 18 DE NOVIEMBRE · 
+		35 text 2
+		36 text  CLASE(S)
+		37 container clases-hoy-container
+			38 container clase-hoy-206
+				39 heading 16:00 – 17:00 Programada, Value: 3
+					40 text 16:00 – 17:00  Programada
+				41 image
+				42 text Grupo: Patín — Principiantes
+				43 image
+				44 text Profesores: Gaitán
+				45 image
+				46 text Asistencia: Cargada
+				47 button Ver
+				48 button Editar
+			49 container clase-hoy-244
+				50 heading 18:00 – 19:00 Programada, Value: 3
+					51 text 18:00 – 19:00  Programada
+				52 image
+				53 text Grupo: Fútbol — Principiantes
+				54 image
+				55 text Profesores: Quintana
+				56 image
+				57 text Asistencia: Cargada
+				58 button Ver
+				59 button Editar
+		60 container filter-form
+			61 pop up button (collapsed, settable) Value: Deporte, ID: filter-deporte, Secondary Actions: Expand
+				62 menu
+					63 (selected) Deporte
+					64 Fútbol
+					65 Patín
+			66 pop up button (collapsed, settable) Value: Patín — Adultos, ID: filter-grupo, Secondary Actions: Expand
+				67 menu
+					68 Grupo
+					69 Fútbol — Avanzadas
+					70 Fútbol — Principiantes
+					71 (selected) Patín — Adultos
+					72 Patín — Avanzadas
+					73 Patín — Federadas
+					74 Patín — Intermedias
+					75 Patín — Principiantes
+			76 pop up button (collapsed, settable) Value: Profesor, Secondary Actions: Expand
+				77 menu
+					78 (selected) Profesor
+					79 Acosta, Martín
+					80 Directora, Vanina
+					81 Gaitán, Lucía
+					82 Ocampo, Mariela
+					83 Quintana, Hernán
+			84 pop up button (collapsed, settable) Value: Cancelada, ID: filter-estado, Secondary Actions: Expand
+				85 menu
+					86 Estado
+					87 Programada
+					88 Sin asistencia
+					89 Sin presentes
+					90 Cerrada
+					91 (selected) Cancelada
+			92 date field (settable)
+				93 container
+					94 stepper
+					95 stepper
+					96 stepper
+				97 pop up button Mostrar selector de fecha
+			98 pop up button (collapsed, settable) Value: Orden, ID: filter-orden, Secondary Actions: Expand
+				99 menu
+					100 (selected) Orden
+					101 Más recientes
+					102 Más antiguas
+					103 Grupo A–Z
+			104 button Limpiar
+			105 button Filtrar
+		106 text Mostrando 
+		107 text 1
+		108 text  a 
+		109 text 1
+		110 text  de 
+		111 text 1
+		112 text  clase(s)
+		113 button Nuevo
+		114 container
+			115 heading Jue 19/11/2026 — 20:30 a 21:30 Cancelada, Value: 3
+				116 text Jue 19/11/2026 — 20:30 a 21:30  Cancelada
+			117 text Motivo:
+			118 text  Mariela avisó que no puede: turno médico
+			119 image
+			120 text Grupo: Patín — Adultos
+			121 image
+			122 text Profesores: Ocampo
+			123 image
+			124 text Asistencia: Pendiente
+			125 button Ver
+			126 button Editar
+	127 text Wings
+
+The focused UI element is 1 AXWebArea Clases – Wings, URL: test.gestionar-te.com.ar/clases?deporte_id=&grupo_id=7&profesor_id=&estado=cancelada&fecha=&orden=

@@ -1,0 +1,3 @@
+ 1. Pablo Ledesma cierra la caja #66: esperado $55.800,00, contado $55.800,00 — Caja cerrada.
+Cobranza: $218.400,00 · {"AL_DIA":99,"EN_PLAZO":0,"MOROSO":7,"DEUDOR":0}
+GUARDADO.

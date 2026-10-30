@@ -1,0 +1,65 @@
+Browser tab: 1320327732, Title: "Ramos, Dante – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/270".
+1 AXWebArea Ramos, Dante – Wings, URL: test.gestionar-te.com.ar/alumnos/270
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Ramos, Dante, Value: 1
+		22 text Ramos, Dante
+	23 container
+		24 text Activo
+		25 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae4555e747a3
+		26 button Cobrar
+		27 button Editar
+		28 image
+		29 text DNI 48300909
+		30 image
+		31 text NACIMIENTO 02/06/2011
+		32 image
+		33 text CELULAR 1145123422
+		34 image
+		35 text EMAIL sergio.ramos@testmail.com
+		36 image
+		37 text DEPORTE Fútbol
+		38 image
+		39 text GRUPO Fútbol — Avanzadas
+		40 image
+		41 text PLAN 2x sem. — $48,000.00/mes
+		42 image
+		43 text ALTA 12/03/2023
+		44 image
+		45 text ESTADO DE COBRANZA Al día
+		46 image
+		47 text TUTOR NOMBRE Sergio Ramos TELÉFONO 1145123422
+		48 image
+		49 text HISTORIAL DE PAGOS 18/11/2026 · Dic 2026 $52,000.00
+		50 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/391?inline=1
+		51 text 07/11/2026 · Nov 2026 $48,000.00
+		52 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/289?inline=1
+		53 text 23/10/2026 · Oct 2026 $38,000.00
+		54 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/54?inline=1
+		55 text 16/10/2026 · Oct 2026 · Anulado $38,000.00
+		56 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/21?inline=1
+		57 text 13/10/2026 · Sep 2026, Oct 2026 $30,000.00
+		58 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/7?inline=1
+		59 image
+		60 text ASISTENCIAS — NOV 2026 7 clases 03/11 05/11 07/11 10/11 12/11 14/11 17/11
+		61 button Volver
+	62 text Wings
+
+The focused UI element is 1 AXWebArea Ramos, Dante – Wings, URL: test.gestionar-te.com.ar/alumnos/270

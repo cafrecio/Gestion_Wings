@@ -1,0 +1,92 @@
+Browser tab: 1320327732, Title: "Cobrar – Ramos, Dante", URL: "https://test.gestionar-te.com.ar/caja/cobrar/270".
+1 AXWebArea Cobrar – Ramos, Dante, URL: test.gestionar-te.com.ar/caja/cobrar/270
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cobrar-cuota
+		20 button Salir
+	21 heading Cobrar: Ramos, Dante, Value: 1
+		22 text Cobrar: Ramos, Dante
+	23 container
+		24 text DNI 48300909 DEPORTE Fútbol GRUPO Fútbol — Avanzadas TOTAL PENDIENTE $0.00
+		25 container cobrar-form
+			26 text PLAN — FRECUENCIA SEMANAL
+			27 container plan-options
+				28 container
+					29 radio button (settable, integer) Description: 1 vez/semana $38,000.00/mes, Value: 0
+					30 text 1 vez/semana $38,000.00/mes
+				31 container
+					32 radio button (settable, integer) Description: 2 veces/semana $48,000.00/mes, Value: 1
+					33 text 2 veces/semana $48,000.00/mes
+			34 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			35 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			36 text Sin cuotas pendientes.
+			37 container adelanto-bloque
+				38 text MES SIN DEUDA O COBRO ADELANTADO
+				39 container
+					40 image
+					41 text Mes
+				42 pop up button (collapsed, settable) Mes, Value: Diciembre 2026, ID: adelanto-periodo, Secondary Actions: Expand
+					43 menu
+						44 Seleccionar...
+						45 (selected) Diciembre 2026
+						46 Enero 2027
+						47 Febrero 2027
+						48 Marzo 2027
+						49 Abril 2027
+						50 Mayo 2027
+						51 Junio 2027
+						52 Julio 2027
+						53 Agosto 2027
+						54 Septiembre 2027
+						55 Octubre 2027
+						56 Noviembre 2027
+				57 container
+					58 image
+					59 text Importe
+				60 text field (settable) Importe, Value: 52,000.00, ID: adelanto-monto
+				61 button Agregar, ID: adelanto-agregar
+				62 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			63 container
+				64 image
+				65 text Medio de pago *
+			66 pop up button (collapsed, settable) Medio de pago *, Value: Seleccionar..., ID: tipo_caja_id, Secondary Actions: Expand
+				67 menu
+					68 (selected) Seleccionar...
+					69 BGA — Banco Galicia
+					70 BNA — Banco Nación
+					71 Banco Nacion ahorro
+					72 EFE — Efectivo
+					73 MP — Mercado Pago
+			74 container
+				75 image
+				76 text Fecha del pago
+			77 date field (settable) Fecha del pago, Value: 2026-11-18, ID: fecha_pago
+				78 container
+					79 stepper
+					80 stepper
+					81 stepper
+				82 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			83 container
+				84 image
+				85 text Observaciones
+			86 text field (settable) Observaciones, ID: observaciones
+			87 button Cancelar
+			88 button (disabled) Cobrar, ID: btn-cobrar
+	89 text Wings
+
+The focused UI element is 1 AXWebArea Cobrar – Ramos, Dante, URL: test.gestionar-te.com.ar/caja/cobrar/270

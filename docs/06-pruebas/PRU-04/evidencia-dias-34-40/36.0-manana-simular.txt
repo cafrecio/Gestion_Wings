@@ -1,0 +1,9 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Ramos, Santiago $30.800,00 por Efectivo — Pago registrado para Ramos, Santiago.
+ 3. Pablo Ledesma cobra a Ruiz, Thiago $30.800,00 por Mercado Pago — Pago registrado para Ruiz, Thiago.
+ 4. Pablo Ledesma cobra a Rodriguez, Joaquin $18.500,00 por Efectivo — Pago registrado para Rodriguez, Joaquin.
+ 5. Pablo Ledesma Librería $3500 por Efectivo — Movimiento registrado.
+ 6. Mariela Ocampo lista de la #232: 8 alumnos, 7 presentes — Asistencias guardadas.
+ 7. Hernán Quintana lista de la #255: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $218.400,00 · {"AL_DIA":99,"EN_PLAZO":0,"MOROSO":7,"DEUDOR":0}
+SIMULADO: no se guardó nada.

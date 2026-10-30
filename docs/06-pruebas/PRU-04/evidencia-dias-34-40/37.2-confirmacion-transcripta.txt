@@ -1,0 +1,7 @@
+Transcripción de una observación de navegador, no captura de bytes de pantalla.
+Origen: salida de getAXState inmediatamente posterior al clic final Validar, 30/10/2026, día simulado 15/11.
+
+33 text Caja validada y reflejada en cashflow.
+57 text Estado VALIDADA Movimientos 8 Ingresos $125,100.00 Egresos $3,500.00 Neto $121,600.00
+
+La captura/TXT 37.2-caja-validada se guardó después; el aviso breve ya no estaba y el estado VALIDADA persistía. No se repitió la validación para obtener el aviso.

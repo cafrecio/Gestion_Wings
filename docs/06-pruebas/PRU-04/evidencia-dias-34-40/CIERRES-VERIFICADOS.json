@@ -1,0 +1,156 @@
+[
+  {
+    "dia": 34,
+    "deuda": "$542,600.00",
+    "activos": "106",
+    "al_dia": "90",
+    "en_plazo": "0",
+    "morosos": "15",
+    "deudores": "1",
+    "ingresos": "$3,666,900.00",
+    "egresos": "$2,678,280.00",
+    "resultado": "$988,620.00",
+    "disponible": "$5,893,520.75",
+    "medios": {
+      "BGA": "$201,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$2,475,000.00",
+      "MP": "$3,159,470.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 35,
+    "deuda": "$298,500.00",
+    "activos": "106",
+    "al_dia": "96",
+    "en_plazo": "0",
+    "morosos": "10",
+    "deudores": "0",
+    "ingresos": "$3,911,000.00",
+    "egresos": "$2,720,280.00",
+    "resultado": "$1,190,720.00",
+    "disponible": "$6,095,620.75",
+    "medios": {
+      "BGA": "$163,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$2,634,300.00",
+      "MP": "$3,240,270.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 36,
+    "deuda": "$218,400.00",
+    "activos": "106",
+    "al_dia": "99",
+    "en_plazo": "0",
+    "morosos": "7",
+    "deudores": "0",
+    "ingresos": "$3,991,100.00",
+    "egresos": "$2,723,780.00",
+    "resultado": "$1,267,320.00",
+    "disponible": "$6,217,220.75",
+    "medios": {
+      "BGA": "$163,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$2,680,100.00",
+      "MP": "$3,316,070.75"
+    },
+    "cajas_pendientes": 1,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 37,
+    "deuda": "$218,400.00",
+    "activos": "106",
+    "al_dia": "99",
+    "en_plazo": "0",
+    "morosos": "7",
+    "deudores": "0",
+    "ingresos": "$3,991,100.00",
+    "egresos": "$2,723,780.00",
+    "resultado": "$1,267,320.00",
+    "disponible": "$6,217,220.75",
+    "medios": {
+      "BGA": "$163,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$2,680,100.00",
+      "MP": "$3,316,070.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 38,
+    "deuda": "$177,100.00",
+    "activos": "106",
+    "al_dia": "101",
+    "en_plazo": "0",
+    "morosos": "5",
+    "deudores": "0",
+    "ingresos": "$4,032,400.00",
+    "egresos": "$2,735,780.00",
+    "resultado": "$1,296,620.00",
+    "disponible": "$6,246,520.75",
+    "medios": {
+      "BGA": "$163,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$2,709,400.00",
+      "MP": "$3,316,070.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 39,
+    "deuda": "$205,200.00",
+    "activos": "108",
+    "al_dia": "102",
+    "en_plazo": "1",
+    "morosos": "5",
+    "deudores": "0",
+    "ingresos": "$4,079,900.00",
+    "egresos": "$2,735,780.00",
+    "resultado": "$1,344,120.00",
+    "disponible": "$6,294,020.75",
+    "medios": {
+      "BGA": "$1,663,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$1,256,900.00",
+      "MP": "$3,316,070.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  },
+  {
+    "dia": 40,
+    "deuda": "$205,200.00",
+    "activos": "108",
+    "al_dia": "102",
+    "en_plazo": "1",
+    "morosos": "5",
+    "deudores": "0",
+    "ingresos": "$4,094,900.00",
+    "egresos": "$2,738,780.00",
+    "resultado": "$1,356,120.00",
+    "disponible": "$6,358,020.75",
+    "medios": {
+      "BGA": "$1,663,050.00",
+      "BNA": "$58,000.00",
+      "Banco Nacion ahorro": "$0.00",
+      "EFE": "$1,253,900.00",
+      "MP": "$3,383,070.75"
+    },
+    "cajas_pendientes": 0,
+    "sin_asistencia": 0
+  }
+]

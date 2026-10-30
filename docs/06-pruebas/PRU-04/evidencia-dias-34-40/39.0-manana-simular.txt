@@ -1,0 +1,8 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma Inscripciones $18000 por Efectivo — Movimiento registrado.
+ 3. Lucía Gaitán lista de la #223: 12 alumnos, 11 presentes — Asistencias guardadas.
+ 4. Mariela Ocampo lista de la #233: 8 alumnos, 7 presentes — Asistencias guardadas.
+ 5. Martín Acosta lista de la #250: 15 alumnos, 14 presentes — Asistencias guardadas.
+ 6. Mariela Ocampo lista de la #264: 2 alumnos, 1 presentes — Asistencias guardadas.
+Cobranza: $177.100,00 · {"AL_DIA":101,"EN_PLAZO":0,"MOROSO":5,"DEUDOR":0}
+SIMULADO: no se guardó nada.

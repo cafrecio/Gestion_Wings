@@ -1,0 +1,64 @@
+Browser tab: 1320327732, Title: "Benítez, Mora – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/341".
+1 AXWebArea Benítez, Mora – Wings, URL: test.gestionar-te.com.ar/alumnos/341
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Rocío Paz
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Benítez, Mora, Value: 1
+		22 text Benítez, Mora
+	23 container
+		24 heading Inscripción al club, Value: 3
+			25 text Inscripción al club
+		26 text Por única vez por persona. Saldo pendiente: $0.00
+		27 text Activo
+		28 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae43b17e9787
+		29 button Cobrar
+		30 button Editar
+		31 image
+		32 text DNI 48123456
+		33 image
+		34 text NACIMIENTO 15/05/2014
+		35 image
+		36 text CELULAR 1145678901
+		37 image
+		38 text EMAIL –
+		39 image
+		40 text DEPORTE Patín
+		41 image
+		42 text GRUPO Patín — Principiantes
+		43 image
+		44 text PLAN 2x sem. — $44,000.00/mes
+		45 image
+		46 text ALTA 13/10/2026
+		47 image
+		48 text ESTADO DE COBRANZA Moroso Total adeudado:  $48,400.00 Nov 2026 $44,000.00
+		49 container recargos-mora
+			50 text Recargos por mora
+			51 text Recargo por mora — Noviembre 2026
+			52 text Pendiente: $4,400.00
+		53 image
+		54 text TUTOR NOMBRE Laura Benítez TELÉFONO 1145678901
+		55 image
+		56 text HISTORIAL DE PAGOS 14/10/2026 · Oct 2026 $45,000.00
+		57 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/10?inline=1
+		58 image
+		59 text ASISTENCIAS — NOV 2026 4 clases 02/11 04/11 09/11 11/11
+		60 button Volver
+	61 text Wings
+
+The focused UI element is 1 AXWebArea Benítez, Mora – Wings, URL: test.gestionar-te.com.ar/alumnos/341

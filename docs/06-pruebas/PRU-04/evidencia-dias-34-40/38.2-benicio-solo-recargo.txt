@@ -1,0 +1,108 @@
+Browser tab: 1320327732, Title: "Cobrar – Torres, Benicio", URL: "https://test.gestionar-te.com.ar/caja/cobrar/314".
+1 AXWebArea Cobrar – Torres, Benicio, URL: test.gestionar-te.com.ar/caja/cobrar/314
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/cobrar-cuota
+		20 button Salir
+	21 heading Cobrar: Torres, Benicio, Value: 1
+		22 text Cobrar: Torres, Benicio
+	23 container
+		24 text DNI 54400001 DEPORTE Fútbol GRUPO Fútbol — Principiantes TOTAL PENDIENTE $2,800.00
+		25 container cobrar-form
+			26 text PLAN — FRECUENCIA SEMANAL
+			27 container plan-options
+				28 container
+					29 radio button (settable, integer) Description: 1 vez/semana $28,000.00/mes, Value: 1
+					30 text 1 vez/semana $28,000.00/mes
+				31 container
+					32 radio button (settable, integer) Description: 2 veces/semana $35,000.00/mes, Value: 0
+					33 text 2 veces/semana $35,000.00/mes
+			34 text Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+			35 text CUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR
+			36 checkbox (settable, integer) 1
+			37 container
+				38 text Noviembre 2026 Orig: $28,000.00 · Pagado: $28,000.00
+			39 text Cuota pagada Recargo por mora — Noviembre 2026
+			40 text $2,800.00
+			41 container adelanto-bloque
+				42 text MES SIN DEUDA O COBRO ADELANTADO
+				43 container
+					44 image
+					45 text Mes
+				46 pop up button (collapsed, settable) Mes, Value: Seleccionar..., ID: adelanto-periodo, Secondary Actions: Expand
+					47 menu
+						48 (selected) Seleccionar...
+						49 Diciembre 2026
+						50 Enero 2027
+						51 Febrero 2027
+						52 Marzo 2027
+						53 Abril 2027
+						54 Mayo 2027
+						55 Junio 2027
+						56 Julio 2027
+						57 Agosto 2027
+						58 Septiembre 2027
+						59 Octubre 2027
+						60 Noviembre 2027
+				61 container
+					62 image
+					63 text Importe
+				64 text field (settable) Importe, ID: adelanto-monto
+				65 button (disabled) Agregar, ID: adelanto-agregar
+				66 text Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes.
+			67 container
+				68 image
+				69 text Medio de pago *
+			70 pop up button (collapsed, settable) Medio de pago *, Value: EFE — Efectivo, ID: tipo_caja_id, Secondary Actions: Expand
+				71 menu
+					72 Seleccionar...
+					73 BGA — Banco Galicia
+					74 BNA — Banco Nación
+					75 Banco Nacion ahorro
+					76 (selected) EFE — Efectivo
+					77 MP — Mercado Pago
+			78 container
+				79 image
+				80 text Fecha del pago
+			81 date field (settable) Fecha del pago, Value: 2026-11-16, ID: fecha_pago
+				82 container
+					83 stepper
+					84 stepper
+					85 stepper
+				86 pop up button Mostrar selector de fecha Mostrar selector de fecha
+			87 container
+				88 image
+				89 text Observaciones
+			90 text field (settable) Observaciones, ID: observaciones
+			101 container resumen-total
+				102 text Total a cobrar:
+				103 text $2,800.00
+			91 container
+				92 heading Importe del cobro, Value: 3
+					93 text Importe del cobro
+				94 text Por cada mes, primero se cubre la cuota y después su recargo, del mes más viejo al más nuevo.
+				95 image
+				96 text Importe que entrega (dejar vacío para cobrar el total)
+				97 text field (settable) Importe que entrega (dejar vacío para cobrar el total), ID: monto-entregado
+				104 container inscripcion-distribucion
+					105 text Inscripción $0.00 Cuotas $0.00 Recargos $2,800.00
+			98 button Cancelar
+			99 button Cobrar, ID: btn-cobrar
+	100 text Wings
+
+The focused UI element is 36 checkbox (settable, integer) 1

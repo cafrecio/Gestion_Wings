@@ -1,0 +1,9 @@
+## 2026-10-30 — Codex CAB — Tanda 3 detenida al simular el día 34
+
+[Informe Día 34](../06-pruebas/PRU-04/DIA-34.md): guion 34–40 leído entero; punto de partida verificado por Chrome, deuda $850.200, 106 activos, 83 Al día/22 Morosos/1 Deudor, ninguna caja abierta.
+Avanzado una vez el mismo 12/11 a las 09:00, sin volver atrás ni repetir días 24–33/verificación. Primera simulación dia-34-manana.json: salida 1, «Plan inválido: docs/06-pruebas/PRU-04/rutina/dia-34-manana.json».
+Aplicada la orden de frenar el día si falla la rutina: sin ejecución real, cobros UI, noche ni días 35–40. Tanda 3 incompleta; no se presentan cifras iniciales como cierre ni se acredita ningún paso 34.1–34.4.
+El archivo local existe y parsea JSON, pero la causa remota no fue inspeccionada. Consola remota solo reloj/rutina; sin consultas a base, reparación, código, vistas, catálogo o tablero propios.
+Tres capturas iniciales con TXT, reloj y error transcrito de stderr sin repetir la rutina. [Evidencia y huellas](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md). Espacios y bytes de capturas preservados; enlaces e integridad documental comprobados.
+LOG/resumen sin aportes ajenos al editar; entrada T46 archivada íntegra por límite. Trabajo concurrente de otros agentes excluido; sin despliegue ni push propios.
+Sigue resolver el plan de rutina en el entorno autorizado y retomar desde la simulación del día 34, sin repetir reloj ni operaciones. El objetivo de días 34–40 permanece activo, pendiente de ejecución completa.

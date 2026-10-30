@@ -1,0 +1,146 @@
+Browser tab: 1320327732, Title: "Sábado 14 de noviembre de 2026 — Fútbol — Avanzadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/255".
+1 AXWebArea Sábado 14 de noviembre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/255
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		20 button Salir
+	21 heading Clase — Fútbol — Avanzadas, Value: 1
+		22 text Clase — Fútbol — Avanzadas
+	23 container
+		24 heading Sábado 14 De Noviembre De 2026, Value: 2
+			25 text Sábado 14 De Noviembre De 2026
+		26 text 11:00 – 12:00 Fútbol Fútbol — Avanzadas
+		27 text Quintana, Hernán
+		28 button Editar, ID: btn-modificar-profesores
+		29 text Activa
+		30 text (Estuvo cancelada: Torneo: el grupo viaja)
+		31 button Cancelar, ID: btn-abrir-cancelar
+		32 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		33 text 15
+		34 text  alumnos en el grupo  ·  
+		35 text 14
+		36 text  presentes
+		37 container card-251
+			38 text Diaz, Thiago
+			39 text Al día
+			40 text 3/1 (Excede) · DNI …502
+			41 container
+				42 text Presente
+				43 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-251
+		44 container card-247
+			45 text Fernandez, Benjamin
+			46 text Al día
+			47 text 3/2 (Excede) · DNI …302
+			48 container
+				49 text Presente
+				50 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-247
+		51 container card-260
+			52 text Ferrari, Nicolas
+			53 text Al día
+			54 text 3/2 (Excede) · DNI …805
+			55 container
+				56 text Presente
+				57 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-260
+		58 container card-339
+			59 text Gimenez, Tomas
+			60 text Al día
+			61 text 3/2 (Excede) · DNI …919
+			62 container
+				63 text Presente
+				64 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-339
+		65 container card-242
+			66 text Gomez, Lucas
+			67 text Al día
+			68 text 2/1 (Excede) · DNI …102
+			69 container
+				70 text Presente
+				71 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-242
+		72 container card-328
+			73 text Molina, Franco
+			74 text Al día
+			75 text 3/1 (Excede) · DNI …015
+			76 container
+				77 text Presente
+				78 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-328
+		79 container card-330
+			80 text Morales, Lorenzo
+			81 text Al día
+			82 text 3/1 (Excede) · DNI …017
+			83 container
+				84 text Presente
+				85 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-330
+		86 container card-261
+			87 text Navarro, Julian
+			88 text Al día
+			89 text 3/2 (Excede) · DNI …806
+			90 container
+				91 text Presente
+				92 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-261
+		93 container card-329
+			94 text Ortiz, Tobias
+			95 text Al día
+			96 text 2/2 (Completo) · DNI …016
+			97 container
+				98 text Presente
+				99 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-329
+		100 container card-270
+			101 text Ramos, Dante
+			102 text Al día
+			103 text 3/2 (Excede) · DNI …909
+			104 container
+				105 text Presente
+				106 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-270
+		107 container card-245
+			108 text Rodriguez, Mateo
+			109 text Al día
+			110 text 3/1 (Excede) · DNI …203
+			111 container
+				112 text Presente
+				113 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-245
+		114 container card-326
+			115 text Rossi, Leon
+			116 text Al día
+			117 text 3/1 (Excede) · DNI …013
+			118 container
+				119 text Presente
+				120 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-326
+		121 container card-327
+			122 text Silva, Simon
+			123 text Al día
+			124 text 3/2 (Excede) · DNI …014
+			125 container
+				126 text Presente
+				127 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-327
+		128 container card-265
+			129 text Sosa, Felipe
+			130 text Al día
+			131 text 2/1 (Excede) · DNI …904
+			132 container
+				133 text Presente
+				134 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-265
+		135 container card-334
+			136 text Vega, Joaquin
+			137 text Al día
+			138 text 3/2 (Excede) · DNI …914
+			139 container
+				140 text Presente
+				141 checkbox (settable, integer) Description: Presente, Value: 1, ID: presente-334
+		142 button Guardar, ID: btn-guardar-asistencias
+	143 text Wings
+
+The focused UI element is 1 AXWebArea Sábado 14 de noviembre de 2026 — Fútbol — Avanzadas – Wings, URL: test.gestionar-te.com.ar/clases/255

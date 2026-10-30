@@ -1,0 +1,7 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz Insumos Varios $3000 por Efectivo — Movimiento registrado.
+ 3. Rocío Paz Inscripciones $15000 por Mercado Pago — Movimiento registrado.
+ 4. Lucía Gaitán lista de la #206: 27 alumnos, 25 presentes — Asistencias guardadas.
+ 5. Hernán Quintana lista de la #244: 25 alumnos, 24 presentes — Asistencias guardadas.
+Cobranza: $205.200,00 · {"AL_DIA":102,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+SIMULADO: no se guardó nada.

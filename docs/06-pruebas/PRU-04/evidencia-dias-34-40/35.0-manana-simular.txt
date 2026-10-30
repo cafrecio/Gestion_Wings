@@ -1,0 +1,9 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz cobra a Romero, Santino $28.000,00 por Efectivo — Pago registrado para Romero, Santino.
+ 3. Rocío Paz cobra a Nuñez, Guadalupe $50.000,00 por Mercado Pago — Pago registrado para Nuñez, Guadalupe.
+ 4. Rocío Paz cobra a Ortega, Valentín $38.500,00 por Efectivo — Pago registrado para Ortega, Valentín.
+ 5. Rocío Paz cobra a Quiroga, Lara $48.400,00 por Efectivo — Pago registrado para Quiroga, Lara.
+ 6. Rocío Paz Limpieza $4000 por Efectivo — Movimiento registrado.
+ 7. Lucía Gaitán lista de la #213: 17 alumnos, 15 presentes — Asistencias guardadas.
+Cobranza: $377.700,00 · {"AL_DIA":94,"EN_PLAZO":0,"MOROSO":12,"DEUDOR":0}
+SIMULADO: no se guardó nada.

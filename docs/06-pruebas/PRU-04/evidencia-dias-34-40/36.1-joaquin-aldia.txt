@@ -1,0 +1,63 @@
+Browser tab: 1320327732, Title: "Rodriguez, Joaquin – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/244".
+1 AXWebArea Rodriguez, Joaquin – Wings, URL: test.gestionar-te.com.ar/alumnos/244
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Pablo Ledesma
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Rodriguez, Joaquin, Value: 1
+		22 text Rodriguez, Joaquin
+	23 container
+		24 text Activo
+		25 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae43bef79799
+		26 button Cobrar
+		27 button Editar
+		28 image
+		29 text DNI 55100202
+		30 image
+		31 text NACIMIENTO 14/11/2018
+		32 image
+		33 text CELULAR 1145123402
+		34 image
+		35 text EMAIL laura.rodriguez@testmail.com
+		36 image
+		37 text DEPORTE Fútbol
+		38 image
+		39 text GRUPO Fútbol — Principiantes
+		40 image
+		41 text PLAN 2x sem. — $35,000.00/mes
+		42 image
+		43 text ALTA 10/04/2024
+		44 image
+		45 text ESTADO DE COBRANZA Al día
+		46 container recargos-mora
+			47 text Recargos por mora
+			48 text Recargo por mora — Noviembre 2026
+			49 text Pendiente: $0.00
+		50 image
+		51 text TUTOR NOMBRE Laura Rodriguez TELÉFONO 1145123402
+		52 image
+		53 text HISTORIAL DE PAGOS 14/11/2026 · Nov 2026 $18,500.00
+		54 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/385?inline=1
+		55 text 12/11/2026 · Nov 2026 $20,000.00
+		56 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/369?inline=1
+		57 image
+		58 text ASISTENCIAS — NOV 2026 4 clases 02/11 04/11 09/11 11/11
+		59 button Volver
+	60 text Wings
+
+The focused UI element is 1 AXWebArea Rodriguez, Joaquin – Wings, URL: test.gestionar-te.com.ar/alumnos/244
