@@ -37,6 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
+| **T99** Alta de grupo con dos planes de la misma frecuencia da error del servidor; avisos con nombres internos de campos | Hecho, espera verificación (hizo Claude, verifica Carlos) | Carlos lo prueba por pantalla: Grupos -> Nuevo, dos filas con la misma frecuencia -> Guardar. Tiene que decir «Hay dos filas con la misma frecuencia. Dejá una sola.» Sin desplegar: Cora trabaja en el sitio. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -59,9 +60,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (15)
+## Sin empezar (14)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T99, T100, T101, T96, T97, T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T100, T101, T96, T97, T102.
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

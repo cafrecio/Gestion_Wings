@@ -41,6 +41,36 @@ class GrupoFrecuenciaObligatoriaTest extends TestCase
         }
     }
 
+    public function test_alta_con_frecuencia_repetida_avisa_y_no_crea_nada(): void
+    {
+        $nivel = Nivel::create(['nombre' => 'Avanzadas']);
+        $antes = $this->estado();
+        $this->from(route('web.grupos.create'))->post(route('web.grupos.store'), [
+            'deporte_id' => $this->grupo->deporte_id, 'nivel_id' => $nivel->id,
+            'planes' => [
+                ['clases_por_semana' => 2, 'precio_mensual' => 30000],
+                ['clases_por_semana' => 2, 'precio_mensual' => 40000],
+            ],
+        ])->assertRedirect(route('web.grupos.create'))
+            ->assertSessionHas('error', 'Hay dos filas con la misma frecuencia. Dejá una sola.');
+        $this->assertSame($antes, $this->estado());
+    }
+
+    public function test_los_avisos_nombran_los_campos_en_castellano(): void
+    {
+        $nivel = Nivel::create(['nombre' => 'Avanzadas']);
+        $this->from(route('web.grupos.create'))->post(route('web.grupos.store'), [
+            'deporte_id' => $this->grupo->deporte_id, 'nivel_id' => $nivel->id,
+            'planes' => [['clases_por_semana' => 9, 'precio_mensual' => 30000]],
+        ])->assertSessionHas('error', 'El campo frecuencia no puede ser mayor que 7.');
+
+        $avisos = \Illuminate\Support\Facades\Validator::make(
+            ['montos_cuota' => ['2026-12' => 0], 'motivo_fecha_alta' => ''],
+            ['montos_cuota.*' => 'numeric|min:0.01', 'motivo_fecha_alta' => 'required'],
+        )->errors()->all();
+        $this->assertEqualsCanonicalizing(['El campo importe debe ser al menos 0.01.', 'El campo motivo de la fecha de ingreso es obligatorio.'], $avisos);
+    }
+
     public function test_editar_quitando_todas_las_frecuencias_no_escribe_nada(): void
     {
         $antes = $this->estado();

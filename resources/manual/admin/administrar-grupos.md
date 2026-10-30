@@ -47,6 +47,9 @@ En la tarjeta del grupo, el interruptor **Activo** / **Inactivo** lo saca de uso
 ### ¿Qué hago si dice «Ya existe un grupo con ese deporte y nivel.»?
 Ese grupo ya existe, quizás inactivo. Buscalo en **Grupos** y activalo, o editá sus frecuencias.
 
+### ¿Qué hago si dice «Hay dos filas con la misma frecuencia. Dejá una sola.»?
+Al crear el grupo, elegiste dos veces la misma frecuencia. Sacá una de las dos filas y tocá de nuevo **Guardar**.
+
 ### ¿Qué hago si quiero sacar una frecuencia?
 Solo se puede sacar una frecuencia que nunca tuvo alumnos. Si borrás la fila de una frecuencia con alumnos activos y guardás, Wings no la elimina y no muestra ningún aviso. Y si la frecuencia tuvo alumnos alguna vez (aunque ya los hayas pasado a otra), Wings guarda esa historia y al guardar el grupo muestra una página de error. En esos casos, dejá la frecuencia en el grupo.
 
