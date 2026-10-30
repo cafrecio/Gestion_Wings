@@ -48,8 +48,8 @@ class GrupoFrecuenciaObligatoriaTest extends TestCase
         $this->from(route('web.grupos.create'))->post(route('web.grupos.store'), [
             'deporte_id' => $this->grupo->deporte_id, 'nivel_id' => $nivel->id,
             'planes' => [
-                ['clases_por_semana' => 2, 'precio_mensual' => 30000],
-                ['clases_por_semana' => 2, 'precio_mensual' => 40000],
+                ['id' => '', 'clases_por_semana' => 2, 'precio_mensual' => 30000],
+                ['id' => '', 'clases_por_semana' => 2, 'precio_mensual' => 40000],
             ],
         ])->assertRedirect(route('web.grupos.create'))
             ->assertSessionHas('error', 'Hay dos filas con la misma frecuencia. Dejá una sola.');
