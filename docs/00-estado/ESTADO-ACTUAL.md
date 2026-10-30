@@ -8,6 +8,14 @@ nombra «Inscripción» o «Recargo por mora», no con el mes del pago. Dos prue
 prueba junto con MF12 y MF13 después de la suite completa; Codex verifica las cuatro por pantalla.
 **Subido el 30/10 (`82ae1b58`)**, suite completa 1299 aprobadas, 6 omitidas, 0 fallidas; comprobado en el sitio en solo lectura.
 
+## T12/T13 — Etapa B aprobada por Carlos; sigue la C — Claude CAB, 30/10/2026
+
+La B volvió una vez (el ajuste de la liquidación) y quedó bien en la segunda vuelta
+([control](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-B-SEGUNDA-CLAUDE.md)). Carlos dio el OK. La C es la
+última ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPA-C.md)): páginas 37 a 49 y de la profesora,
+cuatro pantallas que la lista no cubría (crear clases, mostrador, los dos Inicios) y el **?** en todas. Defecto
+de la A que entra en el paso 0: en Clases, el **?** le da «No tenés permisos…» a la profesora.
+
 ## T12/T13 — Etapa B entregada a verificación de Claude — Gemini CAB, 30/10/2026
 
 Etapa B completada y auditada según el método de `PROMPT-GEMINI-T12-T13-ETAPAS.md`:
@@ -17,7 +25,7 @@ Etapa B completada y auditada según el método de `PROMPT-GEMINI-T12-T13-ETAPAS
 - **15 fichas de fuentes** en `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/admin-*.md` con paso a paso y tabla de rechazos y avisos (aplicando la regla estricta de citar sección para cada fila «Sí»).
 - **Auditoría independiente en 0:** informe en `docs/06-pruebas/PRU-04/evidencia-t12-t13/revisiones/2026-10-30-etapa-b.md`. Subsanados 1 hallazgo grave (cierre de liquidación condicionado a fin de mes), 6 medios (rótulos de un solo verbo corto, detalle vs resumen de caja, cuotas atrasadas), 2 menores (`orden: 29` y selector de período en cashflow) y 10 discrepancias en fichas de fuentes. Balance final: 0 Graves, 0 Medias, 0 Menores.
 - **Verificación:** `php scripts/manual/verificar-manual.php` (37 páginas revisadas, 0 problemas); `AyudaManualT12T13Test.php` (20 passed, 111 assertions en `wings_testing_gemini`). Vistas compilan limpias.
-- **Paso actual:** A la espera del control de Claude y el OK de Carlos antes de iniciar la Etapa C.
+- **Paso de entonces:** a la espera del control de Claude y el OK de Carlos (dado el 30/10, ver arriba).
 
 ## T14 — Tanda 2 (días 29 a 33, 7 al 11/11) revisada — Claude CAB, 30/10/2026
 
