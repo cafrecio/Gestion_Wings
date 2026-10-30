@@ -11,6 +11,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-30 — Claude CAB — T12/T13 etapa B corregida: recomiendo OK
+
+- Control de `15784fce` en [VERIFICACION-T12-T13-ETAPA-B-SEGUNDA-CLAUDE.md](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-B-SEGUNDA-CLAUDE.md). Ajuste de liquidación y deshacer la primera carga, bien contra el código; verificador en 0 con la regla nueva; 16 fichas con la condición.
+- Menor para la C: la ficha de validar copia el `@if` a medias (falta `efectivo_contado`). T12/T13 siguen `a_verificar` hasta el OK de Carlos.
+
 ## 2026-10-30 — Claude CAB — Producción: se sube cuando Codex termine la verificación (decisión de Carlos)
 
 - Carlos (02:16): «Con lo que tenemos, el usuario se va a encontrar con un programa sólido. Cuando Codex termine la prueba, subimos a producción.» Los 4 usuarios de producción son reales: no se tocan.
