@@ -349,6 +349,13 @@
                     $periodos = $periodosCrudos
                         ->map(fn($p) => ($meses[(int) explode('-', $p)[1]] ?? explode('-', $p)[1]) . ' ' . explode('-', $p)[0])
                         ->join(', ');
+                    // Un cobro que no tocó ninguna cuota (solo inscripción o solo recargo) se nombra por lo
+                    // que cobró, no por el mes del pago (prueba por días, 32.4: Iván decía «Nov 2026»).
+                    if (!$periodos && $pago->relationLoaded('cargos') && $pago->cargos->isNotEmpty()) {
+                        $periodos = $pago->cargos->map(fn($cargo) => match ($cargo->tipo) {
+                            'INSCRIPCION' => 'Inscripción', 'PUNITORIO' => 'Recargo por mora', default => ucfirst(strtolower($cargo->tipo)),
+                        })->unique()->join(', ');
+                    }
                     if (!$periodos && $pago->mes && $pago->anio) {
                         $periodos = ($meses[$pago->mes] ?? $pago->mes) . ' ' . $pago->anio;
                     }

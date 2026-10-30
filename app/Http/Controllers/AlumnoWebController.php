@@ -176,7 +176,7 @@ class AlumnoWebController extends Controller
         $estadoCobranza['fecha_vencimiento'] = $fechaVencimiento;
 
         $ultimosPagos = $alumno->pagos()
-            ->with('deudasCuota')
+            ->with(['deudasCuota', 'cargos'])
             ->orderByDesc('fecha_pago')
             ->limit(12)
             ->get();

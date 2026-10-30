@@ -417,6 +417,23 @@ class CobranzaInscripcionEstadoTest extends TestCase
     // Helpers
     // ─────────────────────────────────────────────────────────────────────────
 
+    /**
+     * Prueba por días, 32.4 (Iván): un cobro que no tocó ninguna cuota se nombra por lo que cobró
+     * («Inscripción») en el historial de la ficha, no con el mes del pago.
+     */
+    public function test_la_ficha_nombra_inscripcion_un_cobro_que_no_toco_ninguna_cuota(): void
+    {
+        $alumno = $this->crearAlumno('Ortiz', 'Iván', '2026-11-03');
+        $cargo = $this->crearCargoInscripcion($alumno, 5000);
+        $pago = \App\Models\Pago::create(['alumno_id' => $alumno->id, 'mes' => 3, 'anio' => 2025, 'monto_base' => 5000, 'porcentaje_aplicado' => 100,
+            'monto_final' => 5000, 'fecha_pago' => '2026-11-10', 'estado' => \App\Models\Pago::ESTADO_COMPLETADO]);
+        $pago->cargos()->attach($cargo->id, ['monto_aplicado' => 5000]);
+
+        $html = $this->actingAs($this->operativo)->get(route('web.alumnos.show', $alumno->id))->assertOk()->getContent();
+        $this->assertStringContainsString('· Inscripción', $html);
+        $this->assertStringNotContainsString('Mar 2025', $html);
+    }
+
     private function crearAlumno(string $apellido, string $nombre, string $fechaAlta): Alumno
     {
         return $this->crearAlumnoConDni(

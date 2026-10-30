@@ -37,6 +37,31 @@ class AvisosCastellanoT47Test extends TestCase
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
     }
 
+    /**
+     * SIS-006 (prueba por días, 33.2): salteando el navegador, las reglas genéricas de Laravel contestaban en
+     * inglés («The fecha field must be a date before or equal to today.»). Desde el 30/10 hay lang/es/validation.php
+     * con los nombres de campo que ve la persona.
+     */
+    public function test_las_reglas_genericas_de_validacion_avisan_en_castellano(): void
+    {
+        $this->actingAs($this->operativo)->post(route('web.caja.movimiento.store'), [])
+            ->assertSessionHasErrors(['tipo_caja_id' => 'El campo medio de pago es obligatorio.', 'monto' => 'El campo importe es obligatorio.']);
+
+        // La resma en la caja rechazada (33.2): sin observación y con fecha futura.
+        $efectivo = TipoCaja::where('nombre', 'Efectivo')->firstOrFail();
+        $caja = \Tests\Support\CajaDeclarada::crear($this->operativo->id, $efectivo->id);
+        $this->actingAs($this->operativo)->post(route('web.caja.cerrar', $caja->id), ['efectivo_contado' => '0', 'cambio_retenido' => '0'])->assertSessionHasNoErrors();
+        $this->actingAs($this->admin)->post(route('web.cajas.rechazar', $caja->id), ['motivo' => 'Falta la resma'])->assertSessionHasNoErrors();
+        $subrubro = \App\Models\Subrubro::whereHas('rubro', fn ($q) => $q->where('tipo', 'EGRESO'))->value('id');
+        $this->actingAs($this->operativo)->post(route('web.caja.editar.store', $caja->id),
+            ['tipo_caja_id' => $efectivo->id, 'subrubro_id' => $subrubro, 'monto' => '2000', 'fecha' => '2999-01-01'])
+            ->assertSessionHasErrors([
+                'observaciones' => 'El campo observación es obligatorio.',
+                'fecha' => 'El campo fecha debe ser una fecha anterior o igual a hoy.',
+            ]);
+        $this->assertSame(0, \App\Models\MovimientoOperativo::where('caja_operativa_id', $caja->id)->count());
+    }
+
     public function test_abrir_a_mano_la_direccion_de_una_accion_muestra_la_pagina_en_castellano(): void
     {
         $direcciones = ['/cajas/1/validar', '/pagos/1/anular', '/deudas/1/condonar', '/deudas/1/reactivar',
