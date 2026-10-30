@@ -49,7 +49,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: guion de la tanda 4 (dias 41 a 47) escrito y simulado de nuevo: 58 casos, perfiles, errores humanos, volumen, y ensayo del 1/12 84/7/23. Falta prompt, subir rutinas al sitio y --simular ahi. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 4 (dias 41 a 47) lista para Codex: guion, prompt, sitio en 937d99cc y rutina del dia 41 probada ahi. No desplegar hasta que Codex termine. T94 a T101 se prueban en la tanda 5. |
 
 ## Codex
 

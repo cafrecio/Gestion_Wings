@@ -30,15 +30,15 @@ Calculado con las reglas antes de simular y confirmado corriendo la generación 
 | No vino en todo el mes | Pilar Ramos, Valentina Suárez | Revisión |
 | Su único presente fue en una clase después cancelada (CLA-012 c) | **Alma Navarro** (45.9) | Revisión |
 | Alta reciente que no pagó | Emma Villalba | Revisión |
-| Alta reciente cuyo pago se anuló (el pago anulado no cuenta) | **Tobías Vera** (47.6) | Revisión |
+| Alta reciente cuyo pago se anuló (el pago anulado no cuenta) | **Tobías Vera** (47.7) | Revisión |
 | Alta un día antes del límite de 15 días, pagada | **Joaquina Luna**, ingreso 15/11 (41.7) | Revisión |
 | Alta justo en el límite, pagada | **Bruno Cabrera**, ingreso 16/11 (41.7) | Cuota $32.000 |
 | Alta reciente, pagada, sin venir (CBZ-017 a) | Valentino Godoy (45.1) | Cuota $44.000 |
-| Segundo deporte sin venir: cada ficha se decide sola | **Thiago Ruiz** (46.8) | Patín a Revisión; Fútbol, cuota $28.000 |
-| No vino, pero ya pagó diciembre (no hay nada que generar) | **Facundo Ríos** (47.7) | No va a Revisión; diciembre pagado |
+| Segundo deporte sin venir: cada ficha se decide sola | **Thiago Ruiz** (46.4) | Patín a Revisión; Fútbol, cuota $28.000 |
+| No vino, pero ya pagó diciembre (no hay nada que generar) | **Facundo Ríos** (47.8) | No va a Revisión; diciembre pagado |
 | Ingreso el 1/12 | Renzo Acuña | No crea otra: sigue la de $25.000, pendiente |
-| Adelantados | Joaquín Vega, Emma Fernández, Dante Ramos, Clara Iglesias, Morena Rossi, Emilia Medina y los 15 de 47.8 | No crea otra |
-| Baja antes del 1/12 | **Lautaro Medina** (47.9), Candela | Sin cuota |
+| Adelantados | Joaquín Vega, Emma Fernández, Dante Ramos, Clara Iglesias, Morena Rossi, Emilia Medina y los 15 de 47.9 | No crea otra |
+| Baja antes del 1/12 | **Lautaro Medina** (47.10), Candela | Sin cuota |
 | Vino y no pagó | Liam Pereyra | Cuota $35.000 y pasa a Deudor |
 | Cambió de grupo | Lara Quiroga | Cuota $43.000, el precio de Intermedias |
 
@@ -60,6 +60,8 @@ $3.652.910, en la que **$270.000 son el defecto de Clara** (42.1). Queda sin pre
 
 ## Punto de partida
 
+- **El sitio está en `937d99cc`:** tiene la etapa C de la Ayuda y T98, y **no tiene las reparaciones de T94 a T101**. Hasta
+  terminar la tanda no se despliega nada: cambiaría lo que este guion espera.
 - Reloj en el **18/11 a las 09:00**; **no volver atrás**. El día 41 se fija a las 09:00 del 19/11.
 - Deuda **$205.200**; 108 activos: 102 Al día, 1 En plazo (Emma Villalba), 5 Morosos (Alma, Liam, Pilar, Facundo y
   Valentina). Disponible **$6.358.020,75**: Efectivo $1.253.900, Mercado Pago $3.383.070,75, Galicia $1.663.050,
@@ -90,7 +92,7 @@ botiquín $1.800; listas de Avanzadas 17 (faltan Valentina y Catalina Castro) y 
 |---|---|---|---|
 | 41.1 | Dueño | Niveles → Nuevo: «Infantil». Lo corrige a «Infantiles». Otro «infantiles ». | «Nivel creado correctamente.»; «Nivel actualizado correctamente.»; el tercero: «Ya existe un nivel con un nombre similar.» (CAT-004). |
 | 41.2 | Dueño | Grupos → Nuevo, mal: Patín Principiantes otra vez; Fútbol Infantiles sin planes; plan a $0; **dos filas de 1 por semana**. Después bien: 1 por semana $25.000 y 2 por semana $38.000. | «Ya existe un grupo con ese deporte y nivel.»; «El grupo debe tener al menos una frecuencia para poder cargar alumnos.»; «El precio debe ser mayor a cero.». **Dos filas iguales: página de error (T99)**, sin guardar nada. Bien: «Grupo creado correctamente.» (GRU-002). |
-| 41.3 | Dueño | Profesores → Nuevo, mal: DNI de Lucía; comisión 101; mail sin arroba; sin nombre. Después **Gonzalo Ibarra**, Fútbol, DNI 33444555, nacido el 15/6/1990, comisión 35%. | «Ya existe un profesor con ese DNI.»; «El porcentaje de comisión no puede superar 100.»; «El email debe ser una dirección válida.»; «El nombre es obligatorio.». Bien: «Profesor creado correctamente.» y su renglón de sueldo (PRO-002). |
+| 41.3 | Dueño | Profesores → Nuevo, mal: DNI de Lucía; comisión 101; mail sin arroba; sin nombre. Después **Gonzalo Ibarra**, Fútbol, DNI 33444555, nacido el 15/6/1990, Av. Rivadavia 4500, CABA, 11-4444-5555, gonzalo.ibarra@example.com, comisión 35%. | «Ya existe un profesor con ese DNI.»; «El porcentaje de comisión no puede superar 100.»; «El email debe ser una dirección válida.»; «El nombre es obligatorio.». Bien: «Profesor creado correctamente.» y su renglón de sueldo (PRO-002). |
 | 41.4 | Sandra | Alta de **Renzo Acuña**: nacido el 14/3/2019, DNI 56123456, tutora Marcela Acuña (11-5566-7788), Fútbol Infantiles, 1 por semana. Ingreso **4/1/2027**; después **1/12**. | El primero: «La fecha de ingreso no puede ser posterior al 31/12/2026.». El segundo: «Alumno creado correctamente.»; diciembre pendiente $25.000 e inscripción $5.000; En plazo por $5.000 (ALU-007). |
 | 41.5 | Sandra | La mamá paga solo la inscripción, $5.000 en efectivo. | Al día, $0. Diciembre no cuenta como deuda hasta diciembre. |
 | 41.6 | Sandra y Lucía | Sandra abre el último recibo de Dante Ramos (lo cobró Rocío) y el detalle de la última caja de Rocío; escribe el recibo 99999 y el **resumen** de esa caja. Lucía escribe la dirección del recibo. | Sandra ve recibo y detalle; 99999 no existe; resumen: Sin permiso. Lucía: «No tenés permiso para ver recibos de cobranza.» (REC-004, ACC-016). |
@@ -128,7 +130,7 @@ Galicia $1.641.050.
 
 ## Día 43: sábado 21/11, llueve y Pablo llega tarde
 
-Reloj **09:30**. Hoy no se cobra nada: es a propósito (CAJ-037).
+Reloj **09:30**. Hoy no se cobra nada: es a propósito (CAJ-037). **Sin rutina de mañana:** la única lista va por pantalla (43.4).
 
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
@@ -226,7 +228,7 @@ el calendario de diciembre: **64 clases**.
 | 47.2 | Dueño | **Fútbol Infantiles**, sábados de diciembre a las 11, con Gonzalo y Hernán. Después a las 10, solo Gonzalo. **Doble clic** en Guardar. | «la profesora Hernán Quintana ya tiene asignada la clase 'Fútbol — Avanzadas' que se solapa…» (dice «la profesora» de un profesor: anotarlo) y no crea ninguna. A las 10: «4 clase(s) creada(s).»: 5, 12, 19 y 26/12. El segundo envío se rechaza por el choque; siguen 4 (CLA-006, CLA-019). |
 | 47.3 | Dueño | **Patín Adultos** de diciembre, martes y jueves 20:30, Mariela. | Aviso: dura 1 hora y ocupa 2 bloques de alquiler. Confirma: **10 clases**. |
 | 47.4 | Rocío | Abre diez veces el recibo de Valentino. | Siempre el mismo; no se crea nada (REC-006). |
-| 47.5 | Dueño | Usuario de Gonzalo, mal: mail de Hernán; sin arroba; clave de 8; claves distintas; Profesor sin elegir; sin nombre. Después bien. Atrás y reenvía. | «Ya existe un usuario con ese email.»; «El email no tiene un formato válido.»; «El campo clave debe tener al menos 12 caracteres.»; «Las contraseñas no coinciden.»; «Debe seleccionar el profesor vinculado.»; «El nombre es obligatorio.». Bien: «Usuario creado correctamente.». Reenvío: otra vez el mail repetido; un solo usuario y un solo renglón de sueldo (USU-002, USU-011). |
+| 47.5 | Dueño | Usuario de Gonzalo, mal: mail de Hernán; sin arroba; clave de 8; claves distintas; Profesor sin elegir; sin nombre. Después bien: Gonzalo Ibarra, gonzalo.ibarra@example.com, clave `Infantiles-2026!`, Profesor, Gonzalo. Atrás y reenvía. | «Ya existe un usuario con ese email.»; «El email no tiene un formato válido.»; «El campo clave debe tener al menos 12 caracteres.»; «Las contraseñas no coinciden.»; «Debe seleccionar el profesor vinculado.»; «El nombre es obligatorio.». Bien: «Usuario creado correctamente.». Reenvío: otra vez el mail repetido; un solo usuario y un solo renglón de sueldo (USU-002, USU-011). |
 | 47.6 | Gonzalo | Entra por primera vez. | Menú: Clases y Ayuda. Ve sus clases de diciembre. |
 | 47.7 | Rocío | Alta de **Tobías Vera**: nacido el 30/8/2015, DNI 53777888, tutora Andrea Vera (11-6677-8899), Fútbol Principiantes, 1 por semana, ingreso 25/11. Paga **$19.200** en efectivo ($11.200 al 40% + $8.000). La mamá se arrepiente: Rocío cancela con «La mamá se arrepintió: no hay cupo en su horario». | Se cancelan los dos renglones juntos. El esperado vuelve a **$30.100**. Tobías **En plazo, $19.200**. El recibo sale anulado con el desglose (COB-020). |
 | 47.8 | Rocío | **Facundo Ríos** trae noviembre con el recargo y diciembre, **$58.800** por MP, sin haber venido. | Al día; noviembre y diciembre pagados. No va a Revisión. |
@@ -255,7 +257,20 @@ MP $3.835.270,75; Galicia $1.776.150; Nación $58.000.
 
 ## Lo que queda para la tanda 5
 
-- **Clara debe $270.000 que no debe** (T100): si no se repara antes, el dueño lo perdona desde la ficha y se ve qué deja.
+- **Clara debe $270.000 que no debe:** la reparación de T100 no arregla sola lo ya cargado. El guion de la tanda 5 dice qué se
+  hace con su saldo.
+- **Probar en la tanda 5 lo que se está reparando (Carlos, 30/10).** Los esperados salen de lo que se decida en cada tarea:
+
+| Tarea | Qué se prueba por pantalla | Casos |
+|---|---|---|
+| T94 | Sacar de un grupo una frecuencia nunca usada, una usada antes y una con alumnos hoy; sin error del servidor ni falso «Grupo actualizado» | GRU-004 |
+| T95 | Guardar un profesor sin tarifa; que avise en el momento y no recién al liquidar | PRO-002 |
+| T96 | El dueño llega a configurar el mostrador desde Caja, con y sin cajas abiertas | CAJ-003 |
+| T97 | Anular una transferencia entre cuentas: se revierte en las dos y queda el motivo | CSH-018 |
+| T98 | Ya en el sitio: el aviso al no poder eliminar un alumno dice «Puede pasarlo a Inactivo.» | ALU-024 |
+| T99 | Repetir 41.2: dos filas de la misma frecuencia sin página de error; avisos sin nombres internos | GRU-002 |
+| T100 | Repetir 42.1 con otro alumno: adelanto con un cero de más, cancelarlo y cobrar bien; sin saldo fantasma | COB-019 |
+| T101 | Repetir 45.8: el gasto del dueño en un turno figura a su nombre | CAJ-041 |
 - Generación del 1/12 contra la tabla de arriba; Revisión con tres resoluciones (CBZ-014, 015, 016); las fichas de
   Thiago, una con cuota y otra en Revisión.
 - Liquidación de noviembre: Intermedias del 20/11 de Mariela; Federadas del 21/11 con dos profesoras; **Intermedias

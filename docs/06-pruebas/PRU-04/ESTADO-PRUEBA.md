@@ -53,7 +53,7 @@ sin aviso al dueño (lo decidido el 10/10 en T18). Leído en el código, no ejec
 centavo.
 
 **Lo que sigue:** tanda 4 (días 41 a 47, 19 al 25/11): Emma Villalba ya está Morosa el 24/11 y a las 06:15 de
-ese día le corresponde el recargo. Simulada y con [guion](GUION-DIAS-41-47.md) el 30/10; falta entregarla a Codex ([estado](simulacion/tanda-4/LEEME.md)).
+ese día le corresponde el recargo. Simulada y con [guion](GUION-DIAS-41-47.md) el 30/10; lista para Codex ([prompt](PROMPT-CODEX-DIAS-41-47.md)). T94 a T101 se prueban en la tanda 5.
 
 ## Revisión de Claude de los días 29 a 33 (7 al 11/11, tanda 2) — 30/10/2026
 

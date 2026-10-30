@@ -1,13 +1,14 @@
 # Wings — Estado actual
 
-## T14 — Tanda 4 (días 41 a 47, 19 al 25/11) con guion; falta entregarla — Claude CyE, 30/10/2026
+## T14 — Tanda 4 (días 41 a 47, 19 al 25/11) lista para Codex — Claude CyE, 30/10/2026
 
 Simulación rehecha desde la base del sitio al 18/11 con lo que pidió Carlos: 58 casos nuevos, todos los perfiles por
 pantalla, errores humanos, 87 movimientos de caja y una persona por cada camino del generador. Plata calculada a mano
 antes de simular: coincide al peso en todos los medios, los siete días. Ensayo del 1/12: 84 cuotas, 7 a Revisión, 23 ya
 existían, lo calculado. Al 25/11: deuda $215.910 (107 Al día, 2 En plazo, 5 Morosos), disponible $7.441.520,75. **Dos
-defectos nuevos: T100 y T101.** Falta: prompt, rutinas al sitio y `--simular` ahí.
-[Guion](../06-pruebas/PRU-04/GUION-DIAS-41-47.md) · [Simulación](../06-pruebas/PRU-04/simulacion/tanda-4/LEEME.md).
+defectos nuevos: T100 y T101.** Sitio de prueba actualizado (Ayuda etapa C y T98) y rutina del día 41 probada ahí. **No
+desplegar hasta que Codex termine;** T94 a T101 se prueban en la tanda 5 (Carlos, 30/10).
+[Prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-41-47.md) · [Guion](../06-pruebas/PRU-04/GUION-DIAS-41-47.md) · [Simulación](../06-pruebas/PRU-04/simulacion/tanda-4/LEEME.md).
 
 ## T14 — Tanda 3 (días 34 a 40) hecha por Codex y revisada — Claude CAB, 30/10/2026
 

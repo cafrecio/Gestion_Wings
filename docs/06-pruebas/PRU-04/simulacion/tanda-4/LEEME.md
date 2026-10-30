@@ -3,13 +3,12 @@
 **El guion es [GUION-DIAS-41-47.md](../../GUION-DIAS-41-47.md)**: ahí está el plan, los esperados y lo que tiene que dar el 1/12.
 La primera simulación (Claude CAB) se rehízo porque no preparaba todas las salidas del generador y sumaba poco volumen.
 
-**Falta para entregarla a Codex:** el prompt, subir las rutinas y `rutina.php` al sitio de prueba y correr ahí
-`dia-41-manana.json --simular`. **Ojo:** el sitio está en `d488b3f5` y `git merge --ff-only origin/main` también le lleva
-97 archivos de `resources/` y `public/` que hoy no tiene.
+**Lista para Codex:** [prompt](../../PROMPT-CODEX-DIAS-41-47.md). Sitio de prueba actualizado el 30/10 y `dia-41-manana.json
+--simular` corrido ahí, sin diferencias. **No desplegar nada más hasta que Codex termine:** T94 a T101 cambiarían lo que el guion espera.
 
 ## Cómo retomar en otra máquina
 
-1. Bajar la base del sitio al 18/11 (el reloj sigue ahí hasta que Codex corra la tanda 4):
+1. Bajar la base del sitio al 18/11 (solo sirve mientras el reloj siga ahí; Codex la va cambiando al correr la tanda 4):
    `ssh vps "mysqldump --single-transaction wingstest | gzip" > fotos/d40.sql.gz`
 2. `bash correr.sh 41`, después 42 … 47. Cada día arranca de la foto del anterior y deja la suya en `fotos/`
    (no se sube). Las salidas quedan en `salida-*.txt`; las de esta corrida ya están subidas.

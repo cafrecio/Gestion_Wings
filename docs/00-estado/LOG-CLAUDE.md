@@ -20,7 +20,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - Carlos rechazó hacer el guion sin pensar el conjunto. La primera simulación no preparaba todas las salidas del generador y sumaba 3 movimientos por turno. Rehecha: 58 casos nuevos, todos los perfiles por pantalla, errores humanos cada día, 87 movimientos de caja y una persona por cada camino del generador.
 - Plata calculada a mano antes de correr: coincide al peso los siete días; deuda con una diferencia explicada ($8.000 de 46.4). Ensayo del 1/12: 84/7/23, lo calculado.
 - Defectos nuevos: T100 (adelanto con un cero de más) y T101 (gasto del dueño a nombre de la operativa, leído en el código). `rutina.php`: los ausentes con dos fichas se buscan en el grupo de la clase.
-- Falta: prompt, rutinas al sitio (el `--ff-only` lleva 97 archivos de `resources/` y `public/`) y `--simular` ahí.
+- Sitio de prueba de `d488b3f5` a `937d99cc` (Ayuda etapa C y T98): respaldo `wingstest-antes-despliegue-2026-10-30-tanda4.sql.gz`, merge --ff-only, build, 0 migraciones, cachés; /login 200, reloj intacto (18/11). Sin `artisan down`: falló por usar `php` 7.4 y el merge siguió; pasos de artisan rehechos con php82. `dia-41-manana.json --simular` bien, nada guardado. [Prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-41-47.md).
+- Corregido al escribir el prompt: el día 43 repetía la lista de Federadas (rutina y pantalla) y había números de paso mal citados. Carlos: T94 a T101 se prueban en la tanda 5; agregados al guion. No desplegar hasta que Codex termine.
 
 ## 2026-10-30 — Claude CAB — Tanda 4 simulada (días 41 a 47); se sigue en CyE
 
