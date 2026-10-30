@@ -1,0 +1,101 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Gonzalo Ibarra
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/consultar-mis-clases
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clases" [level=1]
+- main:
+  - text: Tus clases de hoy — miércoles 25 de noviembre ·
+  - strong: "0"
+  - text: clase(s)
+  - generic: No tenés clases programadas para hoy.
+  - generic "Otras clases de hoy (2)"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - combobox:
+    - option "Profesor"
+    - option "Acosta, Martín"
+    - option "Directora, Vanina"
+    - option "Gaitán, Lucía"
+    - option "Ibarra, Gonzalo" [selected]
+    - option "Ocampo, Mariela"
+    - option "Quintana, Hernán"
+  - combobox:
+    - option "Estado" [selected]
+    - option "Programada"
+    - option "Sin asistencia"
+    - option "Cerrada"
+    - option "Cancelada"
+  - textbox
+  - combobox:
+    - option "Orden" [selected]
+    - option "Más recientes"
+    - option "Más antiguas"
+    - option "Grupo A–Z"
+  - button "Limpiar"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "4"
+  - text: de
+  - strong: "4"
+  - text: clase(s)
+  - heading "Sáb 05/12/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Infantiles
+  - generic: "Profesores:"
+  - generic: Ibarra
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 12/12/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Infantiles
+  - generic: "Profesores:"
+  - generic: Ibarra
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 19/12/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Infantiles
+  - generic: "Profesores:"
+  - generic: Ibarra
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 26/12/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Infantiles
+  - generic: "Profesores:"
+  - generic: Ibarra
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+- contentinfo:
+  - generic: Wings

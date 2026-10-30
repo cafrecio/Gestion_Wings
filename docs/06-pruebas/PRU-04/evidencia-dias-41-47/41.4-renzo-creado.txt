@@ -1,0 +1,380 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/buscar-alumnos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Alumnos" [level=1]
+- main:
+  - generic: Alumno creado correctamente.
+  - combobox "Buscar por nombre, apellido o DNI..."
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - button "Limpiar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "12"
+  - text: de
+  - strong: "111"
+  - text: alumnos
+  - button "Nuevo"
+  - generic "Al día"
+  - heading "Acosta, Agustin" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "54400005"
+  - generic: "Teléfono:"
+  - generic: "1145120005"
+  - generic: "Edad:"
+  - generic: 8 años 🎂
+  - generic: "Tutor:"
+  - generic: Tutor Acosta
+  - generic: "Tel. tutor:"
+  - generic: "1145120005"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Acosta, Victoria" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "55400001"
+  - generic: "Teléfono:"
+  - generic: "1145120001"
+  - generic: "Edad:"
+  - generic: 7 años
+  - generic: "Tutor:"
+  - generic: Tutor Acosta
+  - generic: "Tel. tutor:"
+  - generic: "1145120001"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "En plazo"
+  - heading "Acuña, Renzo" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Infantiles
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "56123456"
+  - generic: "Teléfono:"
+  - generic: 11-5566-7788
+  - generic: "Edad:"
+  - generic: 7 años
+  - generic: "Tutor:"
+  - generic: Marcela Acuña
+  - generic: "Tel. tutor:"
+  - generic: 11-5566-7788
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Alvarez, Camila" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "55400037"
+  - generic: "Teléfono:"
+  - generic: "1145120037"
+  - generic: "Edad:"
+  - generic: 14 años
+  - generic: "Tutor:"
+  - generic: Tutor Alvarez
+  - generic: "Tel. tutor:"
+  - generic: "1145120037"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Inactivo"
+  - heading "Alvarez, Julieta" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "52300901"
+  - generic: "Teléfono:"
+  - generic: "1145123414"
+  - generic: "Edad:"
+  - generic: 11 años
+  - generic: "Tutor:"
+  - generic: Marta Alvarez
+  - generic: "Tel. tutor:"
+  - generic: "1145123414"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Inactivo
+  - switch "Inactivo"
+  - generic "Al día"
+  - heading "Benitez, Camila" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "51200700"
+  - generic: "Teléfono:"
+  - generic: "1145123407"
+  - generic: "Edad:"
+  - generic: 14 años
+  - generic: "Tutor:"
+  - generic: Esteban Benitez
+  - generic: "Tel. tutor:"
+  - generic: "1145123407"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Benitez, Camila" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "51200700"
+  - generic: "Teléfono:"
+  - generic: "1145123407"
+  - generic: "Edad:"
+  - generic: 14 años
+  - generic: "Tutor:"
+  - generic: Esteban Benitez
+  - generic: "Tel. tutor:"
+  - generic: "1145123407"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Benitez, Milagros" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "55400038"
+  - generic: "Teléfono:"
+  - generic: "1145120038"
+  - generic: "Edad:"
+  - generic: 15 años
+  - generic: "Tutor:"
+  - generic: Tutor Benitez
+  - generic: "Tel. tutor:"
+  - generic: "1145120038"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Benítez, Mora" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "48123456"
+  - generic: "Teléfono:"
+  - generic: "1145678901"
+  - generic: "Edad:"
+  - generic: 12 años
+  - generic: "Tutor:"
+  - generic: Laura Benítez
+  - generic: "Tel. tutor:"
+  - generic: "1145678901"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Benítez, Mora" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "48123456"
+  - generic: "Teléfono:"
+  - generic: "1145678901"
+  - generic: "Edad:"
+  - generic: 12 años
+  - generic: "Tutor:"
+  - generic: Laura Benítez
+  - generic: "Tel. tutor:"
+  - generic: "1145678901"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Benitez, Paulina" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Plan:"
+  - generic: 2 clases/semana
+  - generic: "DNI:"
+  - generic: "55400031"
+  - generic: "Teléfono:"
+  - generic: "1145120031"
+  - generic: "Edad:"
+  - generic: 10 años
+  - generic: "Tutor:"
+  - generic: Tutor Benitez
+  - generic: "Tel. tutor:"
+  - generic: "1145120031"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - generic "Al día"
+  - heading "Cabrera, Constanza" [level=3]
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "55400021"
+  - generic: "Teléfono:"
+  - generic: "1145120021"
+  - generic: "Edad:"
+  - generic: 12 años 🎂
+  - generic: "Tutor:"
+  - generic: Tutor Cabrera
+  - generic: "Tel. tutor:"
+  - generic: "1145120021"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 12 de 111 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=2
+      - text: "2"
+    - link "Ir a la página 3":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=3
+      - text: "3"
+    - link "Ir a la página 4":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=4
+      - text: "4"
+    - link "Ir a la página 5":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=5
+      - text: "5"
+    - link "Ir a la página 6":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=6
+      - text: "6"
+    - link "Ir a la página 7":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=7
+      - text: "7"
+    - link "Ir a la página 8":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=8
+      - text: "8"
+    - link "Ir a la página 9":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=9
+      - text: "9"
+    - link "Ir a la página 10":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=10
+      - text: "10"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/alumnos?page=2
+- contentinfo:
+  - generic: Wings

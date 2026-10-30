@@ -1,0 +1,14 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 3. Rocío Paz Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 4. Rocío Paz Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 5. Rocío Paz Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 6. Rocío Paz Indumentaria institucional $18000 por Efectivo — Movimiento registrado.
+ 7. Rocío Paz Patines $85000 por Mercado Pago — Movimiento registrado.
+ 8. Rocío Paz Librería $2800 por Efectivo — Movimiento registrado.
+ 9. Rocío Paz Limpieza $2100 por Efectivo — Movimiento registrado.
+10. Rocío Paz Reparaciones menores $6000 por Efectivo — Movimiento registrado.
+11. Rocío Paz Insumos Varios $1500 por Efectivo — Movimiento registrado.
+12. Mariela Ocampo lista de la #215: 19 alumnos, 17 presentes — Asistencias guardadas.
+Cobranza: $205.200,00 · {"AL_DIA":105,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+SIMULADO: no se guardó nada.

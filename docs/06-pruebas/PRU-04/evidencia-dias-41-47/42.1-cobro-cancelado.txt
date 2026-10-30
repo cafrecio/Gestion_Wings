@@ -1,0 +1,225 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - generic: Cobro cancelado y deuda revertida.
+  - paragraph: Operativo
+  - paragraph: Rocío Paz
+  - paragraph: Apertura
+  - paragraph: 20/11/2026 09:00
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "11"
+  - text: movimientos
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/79/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - 'row "20/11/2026 09:00 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Principiantes: familia Acosta $3,000.00 Editar Eliminar"':
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de diciembre, Fútbol Principiantes: familia Acosta"':
+            - generic: "Torneo de diciembre, Fútbol Principiantes: familia Acosta"
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/579/editar
+            - button "Eliminar"
+        - 'row "20/11/2026 09:00 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Principiantes: familia Castro $3,000.00 Editar Eliminar"':
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de diciembre, Fútbol Principiantes: familia Castro"':
+            - generic: "Torneo de diciembre, Fútbol Principiantes: familia Castro"
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/580/editar
+            - button "Eliminar"
+        - 'row "20/11/2026 09:00 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Principiantes: familia Herrera $3,000.00 Editar Eliminar"':
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de diciembre, Fútbol Principiantes: familia Herrera"':
+            - generic: "Torneo de diciembre, Fútbol Principiantes: familia Herrera"
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/581/editar
+            - button "Eliminar"
+        - 'row "20/11/2026 09:00 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Principiantes: familia Martinez $3,000.00 Editar Eliminar"':
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Torneos — Inscripciones"
+          - 'cell "Torneo de diciembre, Fútbol Principiantes: familia Martinez"':
+            - generic: "Torneo de diciembre, Fútbol Principiantes: familia Martinez"
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/582/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 10 $18,000.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Indumentaria — Indumentaria institucional"
+          - cell "Remera del club, talle 10":
+            - generic: Remera del club, talle 10
+          - cell "$18,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/583/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 I MP Indumentaria — Patines Patines usados, talle 36 $85,000.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "MP"
+          - cell "Indumentaria — Patines"
+          - cell "Patines usados, talle 36":
+            - generic: Patines usados, talle 36
+          - cell "$85,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/584/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 E EFE Gastos Operativos — Librería Fotocopias del reglamento $2,800.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Librería"
+          - cell "Fotocopias del reglamento":
+            - generic: Fotocopias del reglamento
+          - cell "$2,800.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/585/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 E EFE Gastos Operativos — Limpieza Bolsas de residuos $2,100.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Limpieza"
+          - cell "Bolsas de residuos":
+            - generic: Bolsas de residuos
+          - cell "$2,100.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/586/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 E EFE Mantenimiento y arreglos — Reparaciones menores Bisagra del depósito $6,000.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Mantenimiento y arreglos — Reparaciones menores"
+          - cell "Bisagra del depósito":
+            - generic: Bisagra del depósito
+          - cell "$6,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/587/editar
+            - button "Eliminar"
+        - row "20/11/2026 09:00 E EFE Gastos Operativos — Insumos Varios Cinta para conos $1,500.00 Editar Eliminar":
+          - cell "20/11/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Insumos Varios"
+          - cell "Cinta para conos":
+            - generic: Cinta para conos
+          - cell "$1,500.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/588/editar
+            - button "Eliminar"
+        - 'row "20/11/2026 09:02 I EFE Cuotas — Cuota Mensual Iglesias, Clara · PAT Cancelado: Un cero de más: eran $30.000 $300,000.00 Cancelado"':
+          - cell "20/11/2026"
+          - cell "09:02"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - 'cell "Iglesias, Clara · PAT Cancelado: Un cero de más: eran $30.000"':
+            - generic: Iglesias, Clara · PAT
+            - generic: "Cancelado: Un cero de más: eran $30.000"
+          - cell "$300,000.00"
+          - cell "Cancelado"
+      - rowgroup:
+        - 'row "Ingresos: $115,000.00 · Egresos: $12,400.00 $102,600.00"':
+          - cell
+          - 'cell "Ingresos: $115,000.00 · Egresos: $12,400.00"':
+            - text: "Ingresos:"
+            - strong: $115,000.00
+            - text: "· Egresos:"
+            - strong: $12,400.00
+          - cell "$102,600.00"
+          - cell
+- contentinfo:
+  - generic: Wings

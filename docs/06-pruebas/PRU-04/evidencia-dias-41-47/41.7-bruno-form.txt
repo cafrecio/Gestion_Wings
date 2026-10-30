@@ -1,0 +1,109 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/alta-alumno
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nuevo Alumno" [level=1]
+- main:
+  - paragraph: "Corresponde inscripción por única vez: $5,000.00"
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *":
+    - /placeholder: Nombre
+    - text: Bruno
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *":
+    - /placeholder: Apellido
+    - text: Cabrera
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+    - text: "27333444"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *": 1988-09-09
+  - text: Fecha de alta
+  - generic: "*"
+  - textbox "Fecha de alta *": 2026-11-16
+  - text: Celular
+  - generic: "*"
+  - textbox "Celular *" [active]:
+    - /placeholder: 11-1234-5678
+    - text: 11-4455-6677
+  - checkbox "Mismo que el teléfono del tutor"
+  - text: Mismo que el teléfono del tutor
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+  - text: Deporte
+  - generic: "*"
+  - combobox "Deporte *":
+    - option "Seleccionar..."
+    - option "Fútbol"
+    - option "Patín" [selected]
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar..."
+    - option "Patín — Adultos" [selected]
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - text: Frecuencia semanal
+  - generic: "*"
+  - generic: (define el precio mensual)
+  - combobox "Frecuencia semanal * (define el precio mensual)":
+    - option "Seleccionar frecuencia..."
+    - option "1 vez/semana — $32,000.00" [selected]
+    - option "2 veces/semana — $42,000.00"
+  - paragraph: Datos del tutor — obligatorio para menores de edad
+  - text: Nombre del tutor
+  - textbox "Nombre del tutor":
+    - /placeholder: Nombre y Apellido
+  - text: Teléfono del tutor
+  - textbox "Teléfono del tutor":
+    - /placeholder: 11-1234-5678
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

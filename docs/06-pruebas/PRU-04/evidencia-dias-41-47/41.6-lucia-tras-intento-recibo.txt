@@ -1,0 +1,245 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Lucía Gaitán
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/consultar-mis-clases
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clases" [level=1]
+- main:
+  - text: Tus clases de hoy — jueves 19 de noviembre ·
+  - strong: "1"
+  - text: clase(s)
+  - heading "17:00 – 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Cargada
+  - button "Ver"
+  - generic "Otras clases de hoy (3)"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - combobox:
+    - option "Profesor" [selected]
+    - option "Acosta, Martín"
+    - option "Directora, Vanina"
+    - option "Gaitán, Lucía"
+    - option "Ibarra, Gonzalo"
+    - option "Ocampo, Mariela"
+    - option "Quintana, Hernán"
+  - combobox:
+    - option "Estado" [selected]
+    - option "Programada"
+    - option "Sin asistencia"
+    - option "Cerrada"
+    - option "Cancelada"
+  - textbox
+  - combobox:
+    - option "Orden" [selected]
+    - option "Más recientes"
+    - option "Más antiguas"
+    - option "Grupo A–Z"
+  - button "Limpiar"
+  - button "Filtrar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "20"
+  - text: de
+  - strong: "22"
+  - text: clase(s)
+  - heading "Vie 20/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 21/11/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 21/11/2026 — 11:00 a 12:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 23/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 23/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 23/11/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 24/11/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 24/11/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 24/11/2026 — 19:00 a 20:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana · Acosta
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mar 24/11/2026 — 20:30 a 21:30 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Adultos
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mié 25/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Mié 25/11/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 26/11/2026 — 17:00 a 18:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 26/11/2026 — 18:00 a 19:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 26/11/2026 — 19:00 a 20:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Jue 26/11/2026 — 20:30 a 21:30 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Adultos
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Vie 27/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 28/11/2026 — 10:00 a 11:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Profesores:"
+  - generic: Ocampo
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Sáb 28/11/2026 — 11:00 a 12:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Profesores:"
+  - generic: Quintana
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - heading "Lun 30/11/2026 — 16:00 a 17:00 Programada" [level=3]
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Profesores:"
+  - generic: Gaitán
+  - generic: "Asistencia:"
+  - generic: Pendiente
+  - button "Ver"
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 20 de 22 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/clases?page=2
+      - text: "2"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/clases?page=2
+- contentinfo:
+  - generic: Wings

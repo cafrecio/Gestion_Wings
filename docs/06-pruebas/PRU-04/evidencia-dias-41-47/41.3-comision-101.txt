@@ -1,0 +1,127 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/administrar-profesores
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nuevo Profesor" [level=1]
+- main:
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *":
+    - /placeholder: Nombre
+    - text: Gonzalo
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *":
+    - /placeholder: Apellido
+    - text: Ibarra
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+    - text: "33444555"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *": 1990-06-15
+  - text: Dirección
+  - generic: "*"
+  - textbox "Dirección *":
+    - /placeholder: Calle 123
+    - text: Av. Rivadavia 4500
+  - text: Localidad
+  - generic: "*"
+  - textbox "Localidad *":
+    - /placeholder: Buenos Aires
+    - text: CABA
+  - text: Teléfono
+  - generic: "*"
+  - textbox "Teléfono *":
+    - /placeholder: 11-1234-5678
+    - text: 11-4444-5555
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+    - text: <redacted>
+  - text: CBU o alias
+  - textbox "CBU o alias":
+    - /placeholder: mi.alias.mp
+  - text: Deporte
+  - generic: "*"
+  - combobox "Deporte *":
+    - option "Seleccionar..."
+    - option "Fútbol" [selected]
+    - option "Patín"
+  - text: Porcentaje de comisión (%)
+  - generic: "*"
+  - spinbutton "Porcentaje de comisión (%) *" [active]: "101"
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

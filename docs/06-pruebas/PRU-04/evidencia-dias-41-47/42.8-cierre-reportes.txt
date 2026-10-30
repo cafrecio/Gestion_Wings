@@ -1,0 +1,204 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/reportes-ingresos-egresos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Ingresos y egresos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/admin/dashboard
+  - navigation "Reportes":
+    - strong: Ingresos y egresos
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+    - link "Sueldos":
+      - /url: https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+  - combobox "Mes":
+    - option "Noviembre 2026" [selected]
+    - option "Octubre 2026"
+    - option "Septiembre 2026"
+  - combobox "Deporte":
+    - option "Todo el negocio" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - button "Filtrar"
+  - heading "Octubre vs septiembre" [level=2]
+  - generic: Meses cerrados · 2026
+  - generic: Ingresos
+  - generic: $3,417,850.75
+  - img "Tendencia mensual de ingresos"
+  - generic: ↑ 11.292,8%
+  - generic: Egresos
+  - generic: $331,950.00
+  - img "Tendencia mensual de egresos"
+  - generic: ↑ $331,950.00
+  - generic: Resultado
+  - generic: $3,085,900.75
+  - img "Tendencia mensual de resultado"
+  - generic: ↑ $3,055,900.75
+  - generic: Egresos / ingresos
+  - generic: 9,7%
+  - img "Porcentaje de ingresos equivalente a egresos"
+  - generic: Del ingreso del mes
+  - heading "Evolución mensual" [level=3]
+  - generic: Ingresos
+  - generic: Egresos
+  - generic: Meses cerrados
+  - img "Evolución de ingresos y egresos de los meses cerrados disponibles"
+  - generic "Detalle"
+  - heading "Cambio en el resultado" [level=3]
+  - paragraph: Octubre vs septiembre
+  - img "Aporte de cada rubro al cambio del resultado"
+  - list:
+    - listitem: "Cuota Mensual (10/2026): +$2,600,500.00"
+    - listitem: "Cuota Mensual (09/2026): +$357,000.00"
+    - listitem: "Cuota Mensual (08/2026): +$172,000.00"
+    - listitem: "Luz: −$123,500.00"
+    - listitem: "Otros: +$49,900.75"
+  - generic: Variación total
+  - strong: +$3,055,900.75
+  - heading "Noviembre en curso" [level=2]
+  - generic: Hasta 20/11
+  - generic: Ingresos
+  - strong:
+    - generic: $4,191,300.00
+  - generic: Egresos
+  - strong:
+    - generic: $2,788,980.00
+  - generic: Resultado
+  - strong:
+    - generic: $1,402,320.00
+  - heading "Origen de ingresos" [level=3]
+  - img "Distribución de ingresos por rubro"
+  - strong: $4.191.300
+  - generic: Ingresos
+  - generic: Cuota Mensual (11/2026)
+  - strong: $3,907,900.00
+  - generic: 93,2%
+  - generic: Punitorio Cuota
+  - strong: $94,400.00
+  - generic: 2,3%
+  - generic: Inscripciones
+  - strong: $60,000.00
+  - generic: 1,4%
+  - generic: Inscripción al club
+  - strong: $35,000.00
+  - generic: 0,8%
+  - generic: Cuota Mensual (08/2026)
+  - strong: $33,000.00
+  - generic: 0,8%
+  - generic: Cuota Mensual (09/2026)
+  - strong: $33,000.00
+  - generic: 0,8%
+  - generic: Cuota Mensual (10/2026)
+  - strong: $28,000.00
+  - generic: 0,7%
+  - generic "Detalle"
+  - heading "Destino de gastos" [level=3]
+  - img "Importes netos por rubro"
+  - generic "Detalle"
+  - heading "Situación al 20/11" [level=2]
+  - generic: Saldos acumulados
+  - generic: Disponible
+  - strong:
+    - generic: $6,573,220.75
+  - generic: Por cobrar
+  - strong:
+    - generic: $205,200.00
+  - generic: Por pagar
+  - strong:
+    - generic: $0.00
+  - generic "Detalle de cajas y aportes"
+  - generic "Por cobrar · $205,200.00"
+  - generic "Por pagar · $0.00"
+  - heading "Deuda de alumnos inactivos" [level=2]
+  - paragraph: Actual al 20/11/2026. Separada del por cobrar y de los totales de Inicio.
+  - strong: "1"
+  - text: alumnos
+  - generic: $33,000.00
+  - article:
+    - heading "Vega, Candela" [level=3]
+    - text: Inactivo desde
+    - paragraph: 06/11/2026
+    - text: Deuda
+    - paragraph: $33,000.00
+    - link "Ver":
+      - /url: https://test.gestionar-te.com.ar/alumnos/294
+    - button "Perder"
+  - status
+  - generic: Cobros y pagos · confirmado + por validar
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+  - text: ·
+  - link "Sueldos":
+    - /url: https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+- contentinfo:
+  - generic: Wings

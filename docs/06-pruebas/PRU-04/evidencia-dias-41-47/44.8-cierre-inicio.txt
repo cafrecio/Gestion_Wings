@@ -1,0 +1,110 @@
+Browser tab: 1293181219, Title: "Inicio – Wings", URL: "https://test.gestionar-te.com.ar/admin/dashboard".
+1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/admin/dashboard
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/inicio-dueno
+		30 button Salir
+	31 heading Inicio, Value: 1
+		32 text Inicio
+	33 container
+		34 text Noviembre 2026
+		35 text  · Todo el negocio
+		36 link Description: Ver, Value: test.gestionar-te.com.ar/reportes?mes=2026-11
+		37 text Mes en curso · hasta el 22 de noviembre
+		38 link Description: Ingresos del mes $4,191,300.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-11#ingresos
+		39 link Description: Egresos del mes $2,788,980.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-11#egresos
+		40 link Description: Alumnos por cobrar $205,200.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-11#deuda
+		41 link Description: Profesores por pagar $0.00, Value: test.gestionar-te.com.ar/reportes?mes=2026-11#profesores
+		42 text Resultado de noviembre $1,402,320.00
+		43 heading Disponible, Value: 3
+			44 text Disponible
+		45 text $6,563,820.75
+		46 text BGA
+		47 text $1,631,650.00
+		48 text BNA
+		49 text $58,000.00
+		50 text Banco Nacion ahorro
+		51 text $0.00
+		52 text EFE
+		53 text $1,357,700.00
+		54 text MP
+		55 text $3,516,470.75
+		56 text Incluye arrastre · $0.00 por validar
+		57 heading Para revisar, Value: 3
+			58 text Para revisar
+		59 link Description: Cajas por validar 0 →, Value: test.gestionar-te.com.ar/caja?pendientes=1
+		60 link Description: Liquidaciones pendientes 0 →, Value: test.gestionar-te.com.ar/liquidaciones?pendientes=1
+		61 link Description: Clases sin asistencia 0 →, Value: test.gestionar-te.com.ar/clases?estado=finalizada
+		62 link Description: Revisión de alumnos 0 →, Value: test.gestionar-te.com.ar/revision-cobranza?estado=PENDIENTE
+		63 container Excepciones justificadas, ID: excepciones
+			64 heading Excepciones justificadas, Value: 2, ID: titulo-excepciones
+				65 text Excepciones justificadas
+			66 text Decisiones registradas por el equipo. Se incluyen juntas en el resumen diario, sin avisos individuales.
+			67 container
+				68 heading Iglesias, Clara, Value: 3
+					69 text Iglesias, Clara
+				70 text Cobro parcial Corrijo el importe: eran $30.000 Rocío Paz · 20/11/2026 09:03 · Pago #396
+				71 button Ver
+			72 container
+				73 heading Rodriguez, Joaquin, Value: 3
+					74 text Rodriguez, Joaquin
+				75 text Cobro parcial La mamá trae el resto el sábado Sandra Vidal · 12/11/2026 09:22 · Pago #369
+				76 button Ver
+			77 container
+				78 heading Romero, Santino, Value: 3
+					79 text Romero, Santino
+				80 text Asistencia de alumno deudor Octubre lo paga el viernes; lo habló la mamá con Sandra Hernán Quintana · 11/11/2026 09:04 · Asistencia #2016
+				81 button Ver
+			82 container
+				83 heading Paredes, Iván, Value: 3
+					84 text Paredes, Iván
+				85 text Alumno nuevo sin primer pago Pagó la inscripción; la cuota la trae el viernes Hernán Quintana · 11/11/2026 09:04 · Asistencia #2008
+				86 button Ver
+			87 container
+				88 heading Romero, Santino, Value: 3
+					89 text Romero, Santino
+				90 text Asistencia de alumno deudor Vuelve a entrenar; octubre lo paga a fin de mes, lo autorizó el dueño Hernán Quintana · 09/11/2026 12:19 · Asistencia #1828
+				91 button Ver
+			92 container
+				93 heading Romero, Santino, Value: 3
+					94 text Romero, Santino
+				95 text Cobro con meses anteriores impagos Octubre lo paga a fin de mes Rocío Paz · 04/11/2026 09:05 · Pago #245
+				96 button Ver
+			97 container
+				98 heading Alvarez, Julieta, Value: 3
+					99 text Alvarez, Julieta
+				100 text Cobro con meses anteriores impagos Paga lo de este año; lo de 2025 lo habla con el dueño Rocío Paz · 04/11/2026 09:02 · Pago #244
+				101 button Ver
+			102 container
+				103 heading Sanchez, Berenice, Value: 3
+					104 text Sanchez, Berenice
+				105 text Cobro parcial Paga el resto el viernes Pablo Ledesma · 03/11/2026 09:05 · Pago #225
+				106 button Ver
+	107 text Wings
+
+The focused UI element is 1 AXWebArea Inicio – Wings, URL: test.gestionar-te.com.ar/admin/dashboard

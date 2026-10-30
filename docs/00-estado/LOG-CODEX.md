@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-30 — Codex CyE — PRU-04 días 41 a 47 entregados a revisión
+
+Recorrido en test ficticio tras pull de main, sin repetir días 34–40. [Siete informes y evidencia](../06-pruebas/PRU-04/evidencia-dias-41-47/LEEME.md). Relojes y rutinas en orden; 43 sin mañana, 44 sin rutina, 46 con recargo automático observado tras espera real y antes de las 09:00.
+Siete cierres monetarios al peso: final 25/11, deuda $215.910, ingresos $4.327.900, egresos $2.833.880, disponible $7.441.520,75; 114 activos (107/2/5/0), Sin asistencia 0, cajas 0. Queda cambio $10.000; no avanzar ni generar cuotas de diciembre.
+Conservados T99, Clara $270.000, T101 y cierre viejo −$44.000. Diferencias 44.1 (Historial) y 45.10 (contador) anotadas. Quince adelantos con quince PDF, calendario, Gonzalo y baja de Lautaro por pantalla.
+264 JPEG originales, 18 PDF y 3 renderizados; integridad, enlaces y cifras revisados. Límites: 375 no aplicó, diez aperturas de recibo no acreditadas, conflicto entre dos ediciones no probado y avisos puntuales sin captura. Sin heredar éxito del guion.
+Sin consultas directas a base, reparaciones, código, vistas/CSS, catálogo/tablero, despliegue ni suite documental. Archivo propio sin cambios ajenos al editar; entrada antigua preservada íntegra por límite.
+Entrega para Claude: revisión independiente de diferencias, controles internos y prueba técnica. No autocierre de T14. Commit documental propio; sin push solicitado.
+
 ## 2026-10-30 — Codex CAB — Publicación de la tanda 3 y bitácora
 
 Carlos pidió actualizar mi bitácora y subir todo a GitHub. Fetch de origin comprobado: main local y remoto en18a8bc8d, divergencia0/0; contiene940c53b5, entrega de los días34–40.
@@ -38,18 +47,6 @@ Relojes/rutinas guardados una vez; día 30 sin noche por validación UI. Día 33
 Sin producto, vistas/CSS, catálogo/tablero, consultas directas a base, suite documental ni despliegue propios. Cambios ajenos concurrentes excluidos; SHA desplegado no certificado. Huellas de LOG/resumen intactas antes de editar; dos entradas antiguas archivadas íntegras para mantener límites.
 Sigue revisión independiente de Claude de informes, diferencias y controles internos. No repetir días 29–33, generar diciembre ni pagar otras liquidaciones. Sin autocierre de T14/casos; commit documental propio, sin push solicitado.
 
-## 2026-10-29 — Codex CAB — PRU-04 días 24 a 28, recorrido entregado a Claude
-
-Ejecutados los 42 pasos de tanda 1 en Chrome sobre test/wingstest ficticia, relojes y rutinas reales una vez. Cinco cierres financieros coinciden; Sin asistencia 0. Caja #53 de Rocío abierta a propósito, neto $297.500 por validar. Tanda 2 no ejecutada.
-[Día24](../06-pruebas/PRU-04/DIA-24.md) · [25](../06-pruebas/PRU-04/DIA-25.md) · [26](../06-pruebas/PRU-04/DIA-26.md) · [27](../06-pruebas/PRU-04/DIA-27.md) · [28](../06-pruebas/PRU-04/DIA-28.md) · [Índice y pendientes](../06-pruebas/PRU-04/evidencia-dias-24-28/LEEME.md).
-Conservadas cuatro diferencias: gracia/aviso de alta24.6, cifras intermedias del guion26.8, contadores de octubre28.1 y fecha ausente en ficha inactiva28.2. Siete filas no probadas: recibos, constancia interna, resumen al teléfono, reutilización DNI y rechazos sin botón Eliminar. No se repararon datos ni producto.
-145 capturas originales y salidas TXT; 142 enlaces de informes comprobados e imágenes decodificadas, manifiesto SHA. Consola24.8 tiene TXT, sin captura. Solo consola para reloj/rutinas/24.8; ninguna consulta directa a base. Sin suite documental, vistas/CSS, catálogo, tablero ni cambios propios de aplicación.
-LOG propio sin aportes ajenos al editar; dos entradas antiguas conservadas intactas en archivo para mantener su límite. Trabajo concurrente ajeno preservado, fuera del commit; SHA desplegado no certificado.
-Sigue Claude: revisar informes, diferencias y controles no probados antes de autorizar días29–33. Sin autocierre de T14 ni casos del catálogo, sin despliegue ni push solicitado.
-
-
-
-
 [Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
 
 [Dos entradas antiguas intactas, archivadas al implementar T45](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T45.txt). Base original: docs/00-estado/. SHA256: 293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a.
@@ -86,3 +83,5 @@ Sigue Claude: revisar informes, diferencias y controles no probados antes de aut
 [Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-ENTREGA34-40.txt). Base original: docs/00-estado/. SHA256: 4c9d6c1003376fb5f92ebcb3188ff8c581b4d8533d375f502f6b59ecdc3bd09c.
 
 [Entrada de publicación del28/10 archivada íntegra al publicar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-PUSH34-40.txt). Base original: docs/00-estado/. SHA256: 40588dda410c547001a8ff1db9e7296c95c4c287400f88386e1ce179c138f9d2.
+
+[Días24–28 íntegros, archivados al entregar días41–47](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-ENTREGA41-47.txt). Base original: docs/00-estado/. SHA256: f9a99a385b0184454f806dabf6f732664b84065d7b7cd5105a0124374107415b.

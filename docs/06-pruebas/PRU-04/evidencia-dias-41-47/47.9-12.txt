@@ -1,0 +1,176 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/abrir-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - generic: Pago registrado para Acosta, Agustin.
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/415?inline=1
+  - strong: "8"
+  - text: cajas
+  - button "Historial"
+  - heading "Miércoles 25 de noviembre" [level=3]
+  - generic: Estado
+  - generic: ABIERTA
+  - generic: Movimientos
+  - generic: "24"
+  - generic: Ingresos
+  - generic: $542,800.00
+  - generic: Egresos
+  - generic: $8,900.00
+  - generic: Neto
+  - generic: $533,900.00
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Agregar":
+    - /url: https://test.gestionar-te.com.ar/caja/85/editar
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/85/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/85/detalle
+  - heading "Viernes 20 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "12"
+  - generic: Ingresos
+  - generic: $145,000.00
+  - generic: Egresos
+  - generic: $18,400.00
+  - generic: Neto
+  - generic: $126,600.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/79/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - heading "Miércoles 18 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $67,000.00
+  - generic: Egresos
+  - generic: $3,000.00
+  - generic: Neto
+  - generic: $64,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/72/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/72/detalle
+  - heading "Viernes 13 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "11"
+  - generic: Ingresos
+  - generic: $244,100.00
+  - generic: Egresos
+  - generic: $4,000.00
+  - generic: Neto
+  - generic: $240,100.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/64/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+  - heading "Viernes 6 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "9"
+  - generic: Ingresos
+  - generic: $304,000.00
+  - generic: Egresos
+  - generic: $6,500.00
+  - generic: Neto
+  - generic: $297,500.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/53/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/53/detalle
+  - heading "Miércoles 4 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "11"
+  - generic: Ingresos
+  - generic: $428,000.00
+  - generic: Egresos
+  - generic: $3,500.00
+  - generic: Neto
+  - generic: $424,500.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/49/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/49/detalle
+  - heading "Jueves 29 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "12"
+  - generic: Ingresos
+  - generic: $413,000.00
+  - generic: Egresos
+  - generic: $3,800.00
+  - generic: Neto
+  - generic: $409,200.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/38/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/38/detalle
+  - heading "Lunes 26 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $56,000.00
+  - generic: Egresos
+  - generic: $10,300.00
+  - generic: Neto
+  - generic: $45,700.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/16/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/16/detalle
+- contentinfo:
+  - generic: Wings

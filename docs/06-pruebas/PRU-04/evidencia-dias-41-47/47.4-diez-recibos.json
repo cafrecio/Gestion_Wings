@@ -1,0 +1,44 @@
+[
+  {
+    "apertura": 1,
+    "archivo": "47.4-valentino-recibo397.pdf",
+    "sha256": "8e796d167719718ef89c025b6ce833a6a56eea5028c275543a50189cf4c7c727",
+    "nota": "Descarga inicial anterior a interrupción."
+  },
+  {
+    "apertura": 2,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 3,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 4,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 5,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 6,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 7,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 8,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 9,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  },
+  {
+    "apertura": 10,
+    "error": "Error: Error: Timed out after 5000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"downloadM"
+  }
+]

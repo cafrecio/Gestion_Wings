@@ -1,0 +1,95 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Acuña, Renzo" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $5,000.00"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "56123456"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 14/03/2019
+  - paragraph:
+    - text: Celular
+  - paragraph: 11-5566-7788
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Infantiles
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $25,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 01/12/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: En plazo
+  - generic: 21 días de gracia
+  - generic: Vence 11/12/2026
+  - generic: "Total adeudado: $5,000.00"
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Marcela Acuña
+  - paragraph: Teléfono
+  - paragraph: 11-5566-7788
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Nov 2026
+  - paragraph: Sin asistencias en Nov 2026.
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

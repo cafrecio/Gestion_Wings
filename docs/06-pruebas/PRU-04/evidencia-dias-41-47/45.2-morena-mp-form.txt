@@ -1,0 +1,136 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cobrar-cuota
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Cobrar: Rossi, Morena" [level=1]'
+- main:
+  - paragraph: DNI
+  - paragraph: "55400010"
+  - paragraph: Deporte
+  - paragraph: Patín
+  - paragraph: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph: Total pendiente
+  - paragraph: $0.00
+  - paragraph: Plan — frecuencia semanal
+  - radio "1 vez/semana $30,000.00/mes"
+  - generic: 1 vez/semana
+  - generic: $30,000.00/mes
+  - radio "2 veces/semana $44,000.00/mes" [checked]
+  - generic: 2 veces/semana
+  - generic: $44,000.00/mes
+  - paragraph: Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
+  - paragraph: Cuotas pendientes — seleccioná las que querés cobrar
+  - paragraph: Sin cuotas pendientes.
+  - paragraph: Mes sin deuda o cobro adelantado
+  - checkbox [checked]
+  - generic: Diciembre 2026Adelantado
+  - textbox "0": 44,000.00
+  - text: Mes
+  - combobox "Mes":
+    - option "Seleccionar..." [selected]
+    - option "Diciembre 2026" [disabled]
+    - option "Enero 2027"
+    - option "Febrero 2027"
+    - option "Marzo 2027"
+    - option "Abril 2027"
+    - option "Mayo 2027"
+    - option "Junio 2027"
+    - option "Julio 2027"
+    - option "Agosto 2027"
+    - option "Septiembre 2027"
+    - option "Octubre 2027"
+    - option "Noviembre 2027"
+  - text: Importe
+  - textbox "Importe":
+    - /placeholder: "0"
+  - button "Agregar" [disabled]
+  - paragraph: "Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes."
+  - text: Medio de pago
+  - generic: "*"
+  - combobox "Medio de pago *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "EFE — Efectivo"
+    - option "MP — Mercado Pago" [selected]
+  - text: Fecha del pago
+  - textbox "Fecha del pago": 2026-11-23
+  - text: Observaciones
+  - textbox "Observaciones":
+    - /placeholder: Opcional
+  - generic: "Total a cobrar:"
+  - generic: $44,000.00
+  - button "Cancelar"
+  - button "Cobrar"
+- contentinfo:
+  - generic: Wings

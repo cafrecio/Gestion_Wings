@@ -1,0 +1,109 @@
+Browser tab: 1293181205, Title: "Sábado 21 de noviembre de 2026 — Patín — Federadas – Wings", URL: "https://test.gestionar-te.com.ar/clases/235".
+1 AXWebArea Sábado 21 de noviembre de 2026 — Patín — Federadas – Wings, URL: test.gestionar-te.com.ar/clases/235
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+		30 button Salir
+	31 heading Clase — Patín — Federadas, Value: 1
+		32 text Clase — Patín — Federadas
+	33 container
+		35 heading Sábado 21 De Noviembre De 2026, Value: 2
+			36 text Sábado 21 De Noviembre De 2026
+		37 text 10:00 – 11:00 Patín Patín — Federadas
+		38 text Gaitán, Lucía · Ocampo, Mariela
+		39 button Editar, ID: btn-modificar-profesores
+		40 text Activa
+		41 button Cancelar, ID: btn-abrir-cancelar
+		42 button Validar
+		43 link Description: Editar, Value: test.gestionar-te.com.ar/clases/235/edit
+		44 button Eliminar, ID: btn-abrir-eliminar-clase
+		45 link Description: Volver, Value: test.gestionar-te.com.ar/clases
+		46 text 8
+		47 text  alumnos en el grupo  ·  
+		48 text 0
+		49 text  presentes
+		50 container card-250
+			51 text Diaz, Catalina
+			52 text Al día
+			53 text 2/2 (Completo) · DNI …501
+			54 container
+				55 text Presente
+				56 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-250
+		57 container card-313
+			58 text Diaz, Martina
+			59 text Al día
+			60 text 1/2 · DNI …042
+			61 container
+				62 text Presente
+				63 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-313
+		64 container card-311
+			65 text Iglesias, Helena
+			66 text Al día
+			67 text 1/2 · DNI …040
+			68 container
+				69 text Presente
+				70 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-311
+		71 container card-271
+			72 text Nuñez, Guadalupe
+			73 text Al día
+			74 text 2/2 (Completo) · DNI …910
+			75 container
+				76 text Presente
+				77 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-271
+		78 container card-310
+			79 text Ramos, Lucia
+			80 text Al día
+			81 text 2/2 (Completo) · DNI …039
+			82 container
+				83 text Presente
+				84 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-310
+		85 container card-257
+			86 text Rossi, Berenice
+			87 text Al día
+			88 text 2/2 (Completo) · DNI …802
+			89 container
+				90 text Presente
+				91 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-257
+		92 container card-312
+			93 text Rossi, Olivia
+			94 text Al día
+			95 text 2/2 (Completo) · DNI …041
+			96 container
+				97 text Presente
+				98 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-312
+		99 container card-256
+			100 text Vega, Florencia
+			101 text Al día
+			102 text 2/2 (Completo) · DNI …801
+			103 container
+				104 text Presente
+				105 checkbox (settable, integer) Description: Presente, Value: 0, ID: presente-256
+		106 button Guardar, ID: btn-guardar-asistencias
+	107 text Wings
+
+The focused UI element is 1 AXWebArea Sábado 21 de noviembre de 2026 — Patín — Federadas – Wings, URL: test.gestionar-te.com.ar/clases/235

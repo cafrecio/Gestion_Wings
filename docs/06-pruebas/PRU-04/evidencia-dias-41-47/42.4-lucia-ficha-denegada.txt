@@ -1,0 +1,22 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Sin permiso" [level=1]
+- main:
+  - article "No podés entrar a esta sección":
+    - heading "No podés entrar a esta sección" [level=2]
+    - paragraph: No tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.
+    - button "Volver"
+- contentinfo:
+  - generic: Wings

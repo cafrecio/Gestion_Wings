@@ -1,0 +1,20 @@
+# Día 42 — viernes20/11/2026
+
+Codex CyE,30/10/2026. Sitio de prueba, datos ficticios; entrega para Claude. Sin reparaciones. Rutinas mañana/noche simuladas antes de reales, una vez. [Mañana](evidencia-dias-41-47/42.0-manana-real.txt) · [Noche](evidencia-dias-41-47/42.7-noche-real.txt).
+
+|#|Caso|Resultado|Pantalla y evidencia|
+|---|---|---|---|
+|42.0|Liam diciembre debiendo noviembre|cumple|Primero aviso de adelanto; después «Quedan 1 meses anteriores impagos por $38,500.00 (noviembre 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.». Volver sin motivo ni cobro. [Captura](evidencia-dias-41-47/42.0-liam-deuda-anterior.jpg), [texto](evidencia-dias-41-47/42.0-liam-deuda-anterior.txt).|
+|42.1|Clara: error/cancelación/cobro parcial|no cumple|44.505 recortado44.50;0 «El importe debe ser mayor que cero.»;letras «Ingresá un importe válido, con hasta dos decimales.». $300.000 aceptados con aviso de adelanto habitual, sin advertir exceso. Cancelar sin motivo: «Completa este campo»; con motivo «Cobro cancelado y deuda revertida.». Esperado327.600→27.600. Diciembre quedó300.000. Cobro30.000 exige motivo «Es un cobro parcial: queda parte de la cuota pendiente. Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.». Guardado motivo pedido. T100 reproducido: «Diciembre 2026 Adelantado Orig: $300,000.00 · Pagado: $30,000.00», saldo270.000; Total pendiente actual0. No se arregló. [Saldo](evidencia-dias-41-47/42.1-clara-saldo-270000.jpg), [texto](evidencia-dias-41-47/42.1-clara-saldo-270000.txt), [cancelación](evidencia-dias-41-47/42.1-cobro-cancelado.txt).|
+|42.2|Resma doble clic|cumple|Registrar (nombre real del botón, no Guardar) doble clic: un gasto6.500, «Movimiento registrado.». [Resultado](evidencia-dias-41-47/42.2-resma-doble.jpg), [texto](evidencia-dias-41-47/42.2-resma-doble.txt).|
+|42.3|Resma corregida; validada sin edición|cumple|6.000 «Movimiento actualizado.». Detalle72 validada muestra Pilas3.000 sin Editar/Eliminar. [Corrección](evidencia-dias-41-47/42.3-resma-corregida.txt), [validada](evidencia-dias-41-47/42.3-caja-validada-sin-editar.jpg).|
+|42.3b|Escribir dirección y guardar gasto validado|no probado|La fila no expone dirección ni ID de movimiento. No se inventó el identificador ni se forzó envío fuera de pantalla.|
+|42.4|Lucía lista ajena y Lara|cumple|Clase20/11Intermedias#215 visible con lista. Ficha de Lara «Sin permiso», «No tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.». [Lista](evidencia-dias-41-47/42.4-lucia-lista-mariela.jpg), [rechazo](evidencia-dias-41-47/42.4-lucia-ficha-denegada.txt).|
+|42.5|Internet duplicado y anulado|cumple|Dos pestañas guardaron22.000BGA cada una sin freno. Segundo#457 eliminado: «Anulado · el original y el asiento en contra se conservan.», historial «Anulación»,«Original conservado · asiento en contra registrado»,«Motivo: Cargado dos veces». BGA1.641.050. Interrupción522 al abrir eliminar, recarga recuperó formulario, sin repetir carga. [Duplicados](evidencia-dias-41-47/42.5-internet-duplicado.jpg), [historia](evidencia-dias-41-47/42.5-internet-anulado-historial.txt), [522](evidencia-dias-41-47/42.5-cloudflare-522.jpg).|
+|42.6|Cierre/cambio|cumple|Esperado51.600. Contado51.600/cambio60.000: «El cambio no puede superar lo contado». Cambio15.000 aceptado: «Caja cerrada.». [Rechazo](evidencia-dias-41-47/42.6-cambio-excesivo.jpg), [cierre](evidencia-dias-41-47/42.6-caja-cerrada.txt).|
+
+Cierre de pantalla: deuda205.200;111activos:105/1/5/0. Ingresos4.191.300;egresos2.788.980;resultado1.402.320;disponible6.573.220,75. EFE1.357.700;MP3.516.470,75;BGA1.641.050;BNA58.000;Banco Nacion ahorro0. Sin asistencia0;cajas por validar0. Coincide al peso.
+
+[Inicio](evidencia-dias-41-47/42.8-cierre-inicio.txt) · [Cobranza](evidencia-dias-41-47/42.8-cierre-cobranza.jpg) · [Reportes](evidencia-dias-41-47/42.8-cierre-reportes.txt).
+
+Ingreso Rocío: primer intento con correo inexistente de dominio wings.test fue rechazado; se consultó evidencia previa y se usó el correo documentado. Sin cambio de clave.

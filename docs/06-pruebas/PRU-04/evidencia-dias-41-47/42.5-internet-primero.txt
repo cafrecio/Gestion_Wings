@@ -1,0 +1,690 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día"
+    - option "Semana"
+    - option "Mes"
+    - option "Año" [selected]
+  - generic: Año
+  - combobox "Año":
+    - option "2026" [selected]
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: Año 2026 completo
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 20/11/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $1,641,050.00
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Efectivo
+    - strong: $1,357,700.00
+    - paragraph: "Confirmado: $1,316,100.00 · En cajas sin validar: $41,600.00"
+    - generic: Mercado Pago
+    - strong: $3,516,470.75
+    - paragraph: "Confirmado: $3,431,470.75 · En cajas sin validar: $85,000.00"
+  - strong: $10,338,650.75
+  - generic: ingresos
+  - strong: $5,462,030.00
+  - generic: egresos
+  - strong: $4,876,620.75
+  - generic: resultado del período
+  - strong: "322"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "20/11/2026 E BGA Servicios — Internet Telecentro, noviembre Directo −$22,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "BGA"
+        - cell "Servicios — Internet"
+        - cell "Telecentro, noviembre Directo":
+          - text: Telecentro, noviembre
+          - generic: Directo
+        - cell "−$22,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/456/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/456
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/456/eliminar
+      - 'row "19/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Avanzadas: familia Alvarez Caja validada $3,000.00 Sandra Vidal AP Ver"':
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de diciembre, Patín Avanzadas: familia Alvarez Caja validada"':
+          - text: "Torneo de diciembre, Patín Avanzadas: familia Alvarez"
+          - generic: Caja validada
+        - cell "$3,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - 'row "19/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Avanzadas: familia Castro Caja validada $3,000.00 Sandra Vidal AP Ver"':
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de diciembre, Patín Avanzadas: familia Castro Caja validada"':
+          - text: "Torneo de diciembre, Patín Avanzadas: familia Castro"
+          - generic: Caja validada
+        - cell "$3,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - 'row "19/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Avanzadas: familia Gimenez Caja validada $3,000.00 Sandra Vidal AP Ver"':
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de diciembre, Patín Avanzadas: familia Gimenez Caja validada"':
+          - text: "Torneo de diciembre, Patín Avanzadas: familia Gimenez"
+          - generic: Caja validada
+        - cell "$3,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - 'row "19/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Avanzadas: familia Herrera Caja validada $3,000.00 Sandra Vidal AP Ver"':
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de diciembre, Patín Avanzadas: familia Herrera Caja validada"':
+          - text: "Torneo de diciembre, Patín Avanzadas: familia Herrera"
+          - generic: Caja validada
+        - cell "$3,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - 'row "19/11/2026 I MP Torneos — Inscripciones Torneo de diciembre, Patín Avanzadas: familia Morales Caja validada $3,000.00 Sandra Vidal AP Ver"':
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de diciembre, Patín Avanzadas: familia Morales Caja validada"':
+          - text: "Torneo de diciembre, Patín Avanzadas: familia Morales"
+          - generic: Caja validada
+        - cell "$3,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 12 Caja validada $18,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Remera del club, talle 12 Caja validada":
+          - text: Remera del club, talle 12
+          - generic: Caja validada
+        - cell "$18,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I MP Indumentaria — Indumentaria institucional Remera del club, talle 14 Caja validada $18,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Remera del club, talle 14 Caja validada":
+          - text: Remera del club, talle 14
+          - generic: Caja validada
+        - cell "$18,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 E EFE Gastos Operativos — Limpieza Lavandina y trapos Caja validada −$4,500.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Lavandina y trapos Caja validada":
+          - text: Lavandina y trapos
+          - generic: Caja validada
+        - cell "−$4,500.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 E EFE Gastos Operativos — Librería Biromes Caja validada −$1,200.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Librería"
+        - cell "Biromes Caja validada":
+          - text: Biromes
+          - generic: Caja validada
+        - cell "−$1,200.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 E EFE Gastos Operativos — Insumos Varios Pilas del silbato y cinta Caja validada −$2,300.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Insumos Varios"
+        - cell "Pilas del silbato y cinta Caja validada":
+          - text: Pilas del silbato y cinta
+          - generic: Caja validada
+        - cell "−$2,300.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 E EFE Gastos Operativos — Botiquín Curitas Caja validada −$1,800.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Botiquín"
+        - cell "Curitas Caja validada":
+          - text: Curitas
+          - generic: Caja validada
+        - cell "−$1,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I EFE Inscripciones — Inscripción al club Acuña, Renzo Caja validada $5,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Acuña, Renzo Caja validada":
+          - text: Acuña, Renzo
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I EFE Cuotas — Cuota Mensual Luna, Joaquina Caja validada $32,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Luna, Joaquina Caja validada":
+          - text: Luna, Joaquina
+          - generic: Caja validada
+        - cell "$32,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I EFE Inscripciones — Inscripción al club Luna, Joaquina Caja validada $5,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Luna, Joaquina Caja validada":
+          - text: Luna, Joaquina
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I MP Cuotas — Cuota Mensual Cabrera, Bruno Caja validada $22,400.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Cabrera, Bruno Caja validada":
+          - text: Cabrera, Bruno
+          - generic: Caja validada
+        - cell "$22,400.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "19/11/2026 I MP Inscripciones — Inscripción al club Cabrera, Bruno Caja validada $5,000.00 Sandra Vidal AP Ver":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Cabrera, Bruno Caja validada":
+          - text: Cabrera, Bruno
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+      - row "18/11/2026 E EFE Gastos Operativos — Insumos Varios Pilas para el control del portón Caja validada −$3,000.00 Rocío Paz AP Ver":
+        - cell "18/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Insumos Varios"
+        - cell "Pilas para el control del portón Caja validada":
+          - text: Pilas para el control del portón
+          - generic: Caja validada
+        - cell "−$3,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/72/detalle
+      - 'row "18/11/2026 I MP Torneos — Inscripciones Inscripción al torneo de diciembre: Fútbol Avanzadas Caja validada $15,000.00 Rocío Paz AP Ver"':
+        - cell "18/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Inscripción al torneo de diciembre: Fútbol Avanzadas Caja validada"':
+          - text: "Inscripción al torneo de diciembre: Fútbol Avanzadas"
+          - generic: Caja validada
+        - cell "$15,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/72/detalle
+      - row "18/11/2026 I MP Cuotas — Cuota Mensual Ramos, Dante Caja validada $52,000.00 Rocío Paz AP Ver":
+        - cell "18/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Ramos, Dante Caja validada":
+          - text: Ramos, Dante
+          - generic: Caja validada
+        - cell "$52,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/72/detalle
+      - row "17/11/2026 E EFE Transferencias internas — salidas — Salida a otro medio Depósito en el Galicia Traspaso −$1,500,000.00 Admin Prueba Ver":
+        - cell "17/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Transferencias internas — salidas — Salida a otro medio"
+        - cell "Depósito en el Galicia Traspaso":
+          - text: Depósito en el Galicia
+          - generic: Traspaso
+        - cell "−$1,500,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/410
+      - row "17/11/2026 I BGA Transferencias internas — entradas — Entrada desde otro medio Depósito en el Galicia Traspaso $1,500,000.00 Admin Prueba Ver":
+        - cell "17/11/2026"
+        - cell "I"
+        - cell "BGA"
+        - cell "Transferencias internas — entradas — Entrada desde otro medio"
+        - cell "Depósito en el Galicia Traspaso":
+          - text: Depósito en el Galicia
+          - generic: Traspaso
+        - cell "$1,500,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/411
+      - 'row "17/11/2026 I EFE Torneos — Inscripciones Inscripción al torneo de diciembre: Patín Federadas Caja validada $18,000.00 Pablo Ledesma AP Ver"':
+        - cell "17/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Inscripción al torneo de diciembre: Patín Federadas Caja validada"':
+          - text: "Inscripción al torneo de diciembre: Patín Federadas"
+          - generic: Caja validada
+        - cell "$18,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/70/detalle
+      - row "17/11/2026 I EFE Cuotas — Cuota Mensual Sosa, Bautista Caja validada $24,500.00 Pablo Ledesma AP Ver":
+        - cell "17/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Sosa, Bautista Caja validada":
+          - text: Sosa, Bautista
+          - generic: Caja validada
+        - cell "$24,500.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/70/detalle
+      - row "17/11/2026 I EFE Inscripciones — Inscripción al club Sosa, Bautista Caja validada $5,000.00 Pablo Ledesma AP Ver":
+        - cell "17/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Sosa, Bautista Caja validada":
+          - text: Sosa, Bautista
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/70/detalle
+      - row "16/11/2026 I EFE Cuotas — Cuota Mensual Paredes, Iván Caja validada $35,000.00 Sandra Vidal AP Ver":
+        - cell "16/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Paredes, Iván Caja validada":
+          - text: Paredes, Iván
+          - generic: Caja validada
+        - cell "$35,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/68/detalle
+      - row "16/11/2026 I EFE Punitorios — Punitorio Cuota Paredes, Iván Caja validada $3,500.00 Sandra Vidal AP Ver":
+        - cell "16/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Paredes, Iván Caja validada":
+          - text: Paredes, Iván
+          - generic: Caja validada
+        - cell "$3,500.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/68/detalle
+      - 'row "16/11/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Cerrajero: cambio de la cerradura del vestuario Caja validada −$12,000.00 Sandra Vidal AP Ver"':
+        - cell "16/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Mantenimiento y arreglos — Reparaciones menores"
+        - 'cell "Cerrajero: cambio de la cerradura del vestuario Caja validada"':
+          - text: "Cerrajero: cambio de la cerradura del vestuario"
+          - generic: Caja validada
+        - cell "−$12,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/68/detalle
+      - row "16/11/2026 I EFE Punitorios — Punitorio Cuota Torres, Benicio Caja validada $2,800.00 Sandra Vidal AP Ver":
+        - cell "16/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Torres, Benicio Caja validada":
+          - text: Torres, Benicio
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/68/detalle
+      - row "14/11/2026 I EFE Cuotas — Cuota Mensual Ramos, Santiago Caja validada $28,000.00 Pablo Ledesma AP Ver":
+        - cell "14/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Ramos, Santiago Caja validada":
+          - text: Ramos, Santiago
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/66/detalle
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 30 de 322 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=2
+      - text: "2"
+    - link "Ir a la página 3":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=3
+      - text: "3"
+    - link "Ir a la página 4":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=4
+      - text: "4"
+    - link "Ir a la página 5":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=5
+      - text: "5"
+    - link "Ir a la página 6":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=6
+      - text: "6"
+    - link "Ir a la página 7":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=7
+      - text: "7"
+    - link "Ir a la página 8":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=8
+      - text: "8"
+    - link "Ir a la página 9":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=9
+      - text: "9"
+    - link "Ir a la página 10":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=10
+      - text: "10"
+    - link "Ir a la página 11":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=11
+      - text: "11"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=2
+  - heading "Mostrador · sin validar" [level=3]
+  - paragraph: Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.
+  - paragraph: "Torneo de diciembre, Fútbol Principiantes: familia Acosta"
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/579/editar
+  - paragraph: "Torneo de diciembre, Fútbol Principiantes: familia Castro"
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/580/editar
+  - paragraph: "Torneo de diciembre, Fútbol Principiantes: familia Herrera"
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/581/editar
+  - paragraph: "Torneo de diciembre, Fútbol Principiantes: familia Martinez"
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/582/editar
+  - paragraph: Remera del club, talle 10
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $18,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/583/editar
+  - paragraph: Patines usados, talle 36
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $85,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/584/editar
+  - paragraph: Fotocopias del reglamento
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $2,800.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/585/editar
+  - paragraph: Bolsas de residuos
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $2,100.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/586/editar
+  - paragraph: Bisagra del depósito
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $6,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/587/editar
+  - paragraph: Cinta para conos
+  - text: Caja abierta · Rocío Paz
+  - paragraph:
+    - strong: $1,500.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/79/movimientos/588/editar
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 10 de 12 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?cajas_page=2
+      - text: "2"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?cajas_page=2
+- contentinfo:
+  - generic: Wings

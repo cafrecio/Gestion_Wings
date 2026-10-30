@@ -1,0 +1,118 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Rossi, Morena" [level=1]
+- main:
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "55400010"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 03/12/2018
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145120010"
+  - paragraph:
+    - text: Email
+  - paragraph: morena.rossi@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $44,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 15/03/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph: Recargos por mora
+  - paragraph: Recargo por mora — Noviembre 2026
+  - paragraph: "Pendiente: $0.00"
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Tutor Rossi
+  - paragraph: Teléfono
+  - paragraph: "1145120010"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 23/11/2026 · Dic 2026 · Anulado
+  - generic: $44,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/398?inline=1
+  - generic: 23/11/2026 · Dic 2026
+  - generic: $44,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/399?inline=1
+  - generic: 12/11/2026 · Nov 2026
+  - generic: $48,400.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/364?inline=1
+  - generic: 23/10/2026 · Oct 2026
+  - generic: $40,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/56?inline=1
+  - generic: 20/10/2026 · Sep 2026
+  - generic: $40,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/33?inline=1
+  - paragraph:
+    - text: Asistencias — Nov 2026
+  - paragraph: 6 clases
+  - generic: 02/11
+  - generic: 09/11
+  - generic: 11/11
+  - generic: 16/11
+  - generic: 18/11
+  - generic: 23/11
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

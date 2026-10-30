@@ -1,0 +1,236 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Intermedias" [level=1]
+- main:
+  - heading "Viernes 20 de noviembre de 2026" [level=2]
+  - generic: 16:00 – 17:00
+  - generic: Patín
+  - generic: Patín — Intermedias
+  - generic: Ocampo, Mariela
+  - button "Editar"
+  - generic: Activa
+  - button "Cancelar"
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - paragraph: "No se puede eliminar: Tiene asistencias registradas: debe cancelarse con motivo."
+  - strong: "19"
+  - text: alumnos en el grupo ·
+  - strong: "17"
+  - text: presentes
+  - generic: Benitez, Paulina
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …031
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Cabrera, Constanza
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …021
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Cabrera, Renata
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …913
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ferrari, Josefina
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …019
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Flores, Juana
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …030
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Garcia, Melina
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …029
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gimenez, Helena
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …906
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ledesma, Paula
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …022
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Martinez, Delfina
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …601
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Navarro, Alma
+  - paragraph: Moroso
+  - generic: 0/1
+  - generic: · DNI …915
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Navarro, Malena
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …020
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Perez, Carla
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …028
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Quiroga, Lara
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …111
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rodriguez, Mia
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …201
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Romero, Florencia
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …025
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Ruiz, Sol
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …027
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Sanchez, Berenice
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …024
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Sosa, Rocio
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …026
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - generic: Villalba, Emma
+  - paragraph: Nuevo · Moroso
+  - generic: 0/1
+  - generic: · DNI …444
+  - generic: Presente
+  - checkbox "Presente"
+  - paragraph: Estás corrigiendo una lista ya tomada — indicá el motivo
+  - 'textbox "Ej: Se nos pasó cargar a un alumno, se marcó por error..."'
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

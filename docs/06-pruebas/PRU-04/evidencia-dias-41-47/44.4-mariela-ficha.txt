@@ -1,0 +1,79 @@
+Browser tab: 1293181219, Title: "Ocampo, Mariela – Wings", URL: "https://test.gestionar-te.com.ar/profesores/3".
+1 AXWebArea Ocampo, Mariela – Wings, URL: test.gestionar-te.com.ar/profesores/3
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/administrar-profesores
+		30 button Salir
+	31 heading Ocampo, Mariela, Value: 1
+		32 text Ocampo, Mariela
+	33 container
+		34 text Activo
+		35 button Editar
+		36 image
+		37 text DEPORTE Patín
+		38 image
+		39 text TIPO DE LIQUIDACIÓN Por hora
+		40 image
+		41 text VALOR POR HORA $18,000.00
+		42 image
+		43 text TELÉFONO 1128418137
+		44 image
+		45 text EMAIL mariela.ocampo@wings.test
+		46 image
+		47 text CBU O ALIAS –
+		48 image
+		49 text CLASES ASIGNADAS
+		50 content list
+			51 container
+				52 text Patín — Federadas Mar. 24/11 · 18:00 a 19:00
+				53 link Description: Ver, Value: test.gestionar-te.com.ar/clases/236
+			54 container
+				55 text Patín — Adultos Mar. 24/11 · 20:30 a 21:30
+				56 link Description: Ver, Value: test.gestionar-te.com.ar/clases/266
+			57 container
+				58 text Patín — Federadas Jue. 26/11 · 18:00 a 19:00
+				59 link Description: Ver, Value: test.gestionar-te.com.ar/clases/237
+			60 container
+				61 text Patín — Adultos Jue. 26/11 · 20:30 a 21:30
+				62 link Description: Ver, Value: test.gestionar-te.com.ar/clases/267
+			63 container
+				64 text Patín — Federadas Sáb. 28/11 · 10:00 a 11:00
+				65 link Description: Ver, Value: test.gestionar-te.com.ar/clases/238
+		66 image
+		67 text HISTORIAL DE LIQUIDACIONES
+		68 content list
+			69 container
+				70 text 10/2026 $270,000.00 PAGADA
+				71 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/6
+			72 container
+				73 text 09/2026 $54,000.00 PAGADA
+				74 link Description: Ver, Value: test.gestionar-te.com.ar/liquidaciones/7
+		75 button Volver
+	76 text Wings
+
+The focused UI element is 1 AXWebArea Ocampo, Mariela – Wings, URL: test.gestionar-te.com.ar/profesores/3

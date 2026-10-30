@@ -1,0 +1,59 @@
+Browser tab: 1293181226, Title: "Godoy, Valentino – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/355".
+1 AXWebArea Godoy, Valentino – Wings, URL: test.gestionar-te.com.ar/alumnos/355
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/operativo
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		13 text EL CLUB
+		14 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		15 text SISTEMA
+		16 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	17 container
+		18 text Sandra Vidal
+		19 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		20 button Salir
+	21 heading Godoy, Valentino, Value: 1
+		22 text Godoy, Valentino
+	23 container
+		24 heading Inscripción al club, Value: 3
+			25 text Inscripción al club
+		26 text Por única vez por persona. Saldo pendiente: $8,000.00
+		27 text Activo
+		28 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae4b605a89e3
+		29 button Cobrar
+		30 button Editar
+		31 image
+		32 text DNI 55444555
+		33 image
+		34 text NACIMIENTO 02/07/2017
+		35 image
+		36 text CELULAR 11-3344-5566
+		37 image
+		38 text EMAIL –
+		39 image
+		40 text DEPORTE Patín
+		41 image
+		42 text GRUPO Patín — Principiantes
+		43 image
+		44 text PLAN 2x sem. — $44,000.00/mes
+		45 image
+		46 text ALTA 23/11/2026
+		47 image
+		48 text ESTADO DE COBRANZA En plazo 6 días de gracia Vence 30/11/2026 Total adeudado:  $38,800.00 Nov 2026 $30,800.00
+		49 image
+		50 text TUTOR NOMBRE Lorena Godoy TELÉFONO 11-3344-5566
+		51 image
+		52 text HISTORIAL DE PAGOS Sin pagos registrados.
+		53 image
+		54 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		55 button Volver
+	56 text Wings
+
+The focused UI element is 1 AXWebArea Godoy, Valentino – Wings, URL: test.gestionar-te.com.ar/alumnos/355

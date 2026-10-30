@@ -1,0 +1,1 @@
+- generic: "{\"error\":\"Pago no encontrado\",\"message\":\"No existe un pago con ID 99999\"}"

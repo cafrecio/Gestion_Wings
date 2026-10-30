@@ -1,0 +1,544 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/consultar-movimientos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Movimientos" [level=1]
+- main:
+  - generic: Desde
+  - textbox "Desde"
+  - generic: Hasta
+  - textbox "Hasta"
+  - combobox:
+    - option "Ingreso / Egreso" [selected]
+    - option "Ingreso"
+    - option "Egreso"
+  - combobox:
+    - option "Medio" [selected]
+    - option "BGA"
+    - option "BNA"
+    - option "Banco Nacion ahorro"
+    - option "EFE"
+    - option "MP"
+  - combobox:
+    - option "Rubro" [selected]
+    - option "Alquileres"
+    - option "Cuotas"
+    - option "Gastos de torneos"
+    - option "Gastos Operativos"
+    - option "Indumentaria"
+    - option "Inscripciones"
+    - option "Intereses"
+    - option "Mantenimiento y arreglos"
+    - option "Otras clases"
+    - option "Punitorios"
+    - option "Retiros"
+    - option "Servicios"
+    - option "Sueldos"
+    - option "Torneos"
+    - option "Transferencias internas — entradas"
+    - option "Transferencias internas — salidas"
+  - combobox:
+    - option "Operativo" [selected]
+    - option "Pablo Ledesma"
+    - option "Rocío Paz"
+    - option "Sandra Vidal"
+  - button "Limpiar"
+  - button "Filtrar"
+  - strong: "320"
+  - text: movimientos · Ingresos
+  - strong: $8,279,000.00
+  - text: · Egresos
+  - strong: $224,300.00
+  - text: · Neto
+  - strong: $8,054,700.00
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Medio Rubro — Subrubro Alumno / Obs. Monto Caja Registró Recibo":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Medio"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Alumno / Obs."
+        - columnheader "Monto"
+        - columnheader "Caja"
+        - columnheader "Registró"
+        - columnheader "Recibo"
+    - rowgroup:
+      - 'row "23/11/2026 E EFE Gastos Operativos — Insumos Varios Bombitas de luz: las pagó la caja $3,000.00 23/11/2026 Sandra Vidal"':
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Insumos Varios"
+        - 'cell "Bombitas de luz: las pagó la caja"'
+        - cell "$3,000.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Cuotas — Cuota Mensual Godoy, Valentino $30,800.00 23/11/2026 Sandra Vidal Recibo":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Godoy, Valentino"
+        - cell "$30,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/397?inline=1
+      - row "23/11/2026 I EFE Inscripciones — Inscripción al club Godoy, Valentino $8,000.00 23/11/2026 Sandra Vidal Recibo":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Godoy, Valentino"
+        - cell "$8,000.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/397?inline=1
+      - row "23/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Intermed… $2,800.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Patín Intermed…"
+        - cell "$2,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Intermed… $2,800.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Patín Intermed…"
+        - cell "$2,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Intermed… $2,800.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Patín Intermed…"
+        - cell "$2,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Intermed… $2,800.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Patín Intermed…"
+        - cell "$2,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Patín Intermed… $2,800.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Patín Intermed…"
+        - cell "$2,800.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 8 $18,000.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Remera del club, talle 8"
+        - cell "$18,000.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 I MP Indumentaria — VG Indumentaria Medias de competencia $12,000.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Indumentaria — VG Indumentaria"
+        - cell "Medias de competencia"
+        - cell "$12,000.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 E EFE Gastos Operativos — Botiquín Vendas y hielo en gel $5,200.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Botiquín"
+        - cell "Vendas y hielo en gel"
+        - cell "$5,200.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 E EFE Gastos Operativos — Limpieza Detergente $1,900.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Detergente"
+        - cell "$1,900.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 E EFE Gastos Operativos — Librería Carpeta $900.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Librería"
+        - cell "Carpeta"
+        - cell "$900.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Canilla del baño $7,500.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Mantenimiento y arreglos — Reparaciones menores"
+        - cell "Canilla del baño"
+        - cell "$7,500.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "23/11/2026 E EFE Gastos Operativos — Insumos Varios Tiza y cinta $2,600.00 23/11/2026 Sandra Vidal":
+        - cell "23/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Insumos Varios"
+        - cell "Tiza y cinta"
+        - cell "$2,600.00"
+        - cell "23/11/2026":
+          - link "23/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/82/detalle
+        - cell "Sandra Vidal"
+        - cell
+      - row "20/11/2026 E EFE Gastos Operativos — Librería Resma $6,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Librería"
+        - cell "Resma"
+        - cell "$6,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I EFE Cuotas — Cuota Mensual Iglesias, Clara $30,000.00 20/11/2026 Rocío Paz Recibo":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Iglesias, Clara"
+        - cell "$30,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/396?inline=1
+      - row "20/11/2026 I EFE Cuotas — Cuota Mensual Iglesias, Clara $300,000.00 20/11/2026 Rocío Paz Recibo":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Iglesias, Clara"
+        - cell "$300,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/395?inline=1
+      - row "20/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Princip… $3,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Fútbol Princip…"
+        - cell "$3,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Princip… $3,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Fútbol Princip…"
+        - cell "$3,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Princip… $3,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Fútbol Princip…"
+        - cell "$3,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I EFE Torneos — Inscripciones Torneo de diciembre, Fútbol Princip… $3,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - cell "Torneo de diciembre, Fútbol Princip…"
+        - cell "$3,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 10 $18,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Remera del club, talle 10"
+        - cell "$18,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 I MP Indumentaria — Patines Patines usados, talle 36 $85,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Indumentaria — Patines"
+        - cell "Patines usados, talle 36"
+        - cell "$85,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 E EFE Gastos Operativos — Librería Fotocopias del reglamento $2,800.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Librería"
+        - cell "Fotocopias del reglamento"
+        - cell "$2,800.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 E EFE Gastos Operativos — Limpieza Bolsas de residuos $2,100.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Bolsas de residuos"
+        - cell "$2,100.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 E EFE Mantenimiento y arreglos — Reparaciones menores Bisagra del depósito $6,000.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Mantenimiento y arreglos — Reparaciones menores"
+        - cell "Bisagra del depósito"
+        - cell "$6,000.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "20/11/2026 E EFE Gastos Operativos — Insumos Varios Cinta para conos $1,500.00 20/11/2026 Rocío Paz":
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Insumos Varios"
+        - cell "Cinta para conos"
+        - cell "$1,500.00"
+        - cell "20/11/2026":
+          - link "20/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/79/detalle
+        - cell "Rocío Paz"
+        - cell
+      - row "19/11/2026 I MP Cuotas — Cuota Mensual Cabrera, Bruno $22,400.00 19/11/2026 Sandra Vidal Recibo":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Cabrera, Bruno"
+        - cell "$22,400.00"
+        - cell "19/11/2026":
+          - link "19/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+        - cell "Sandra Vidal"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/394?inline=1
+      - row "19/11/2026 I MP Inscripciones — Inscripción al club Cabrera, Bruno $5,000.00 19/11/2026 Sandra Vidal Recibo":
+        - cell "19/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Cabrera, Bruno"
+        - cell "$5,000.00"
+        - cell "19/11/2026":
+          - link "19/11/2026":
+            - /url: https://test.gestionar-te.com.ar/caja/77/detalle
+        - cell "Sandra Vidal"
+        - cell "Recibo":
+          - link "Recibo":
+            - /url: https://test.gestionar-te.com.ar/recibos/cuota/394?inline=1
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 30 de 320 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=2
+      - text: "2"
+    - link "Ir a la página 3":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=3
+      - text: "3"
+    - link "Ir a la página 4":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=4
+      - text: "4"
+    - link "Ir a la página 5":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=5
+      - text: "5"
+    - link "Ir a la página 6":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=6
+      - text: "6"
+    - link "Ir a la página 7":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=7
+      - text: "7"
+    - link "Ir a la página 8":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=8
+      - text: "8"
+    - link "Ir a la página 9":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=9
+      - text: "9"
+    - link "Ir a la página 10":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=10
+      - text: "10"
+    - link "Ir a la página 11":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=11
+      - text: "11"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/movimientos?page=2
+- contentinfo:
+  - generic: Wings

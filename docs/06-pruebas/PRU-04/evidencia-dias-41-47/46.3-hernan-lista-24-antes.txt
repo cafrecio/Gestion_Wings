@@ -1,0 +1,188 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Hernán Quintana
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-asistencia
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Fútbol — Principiantes" [level=1]
+- main:
+  - heading "Lunes 23 de noviembre de 2026" [level=2]
+  - generic: 16:00 – 17:00
+  - generic: Fútbol
+  - generic: Fútbol — Principiantes
+  - generic: Quintana, Hernán
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "25"
+  - text: alumnos en el grupo ·
+  - strong: "24"
+  - text: presentes
+  - generic: Acosta, Agustin
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …005
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Benitez, Camila
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …700
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Benítez, Mora
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …456
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Bruno
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …009
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Mateo
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …918
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ferrari, Bautista
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …916
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Santino
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …004
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gutierrez, Tomas
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …010
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Herrera, Facundo
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …007
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Martinez, Bautista
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …602
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Medina, Lautaro
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …006
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ortega, Valentín
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …987
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Paredes, Iván
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …777
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Pereyra, Liam
+  - paragraph: Moroso
+  - generic: 0/2
+  - generic: · DNI …908
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Pereyra, Manuel
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …011
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Quiroga, Tomás
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …222
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramirez, Felipe
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …003
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramos, Santiago
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …012
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rios, Facundo
+  - paragraph: Moroso
+  - generic: 0/1
+  - generic: · DNI …912
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rodriguez, Joaquin
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …202
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Romero, Santino
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …902
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ruiz, Thiago
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …002
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Sosa, Bautista
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …222
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Suarez, Ignacio
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …008
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Torres, Benicio
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …001
+  - generic: Presente
+  - checkbox "Presente" [checked] [active]
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

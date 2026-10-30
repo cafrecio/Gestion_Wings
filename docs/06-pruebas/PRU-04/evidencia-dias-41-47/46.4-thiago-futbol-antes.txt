@@ -1,0 +1,103 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Ruiz, Thiago" [level=1]
+- main:
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "54400002"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 05/09/2019
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145120002"
+  - paragraph:
+    - text: Email
+  - paragraph: thiago.ruiz@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 15/04/2025
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph: Recargos por mora
+  - paragraph: Recargo por mora — Noviembre 2026
+  - paragraph: "Pendiente: $0.00"
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Tutor Ruiz
+  - paragraph: Teléfono
+  - paragraph: "1145120002"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 14/11/2026 · Nov 2026
+  - generic: $30,800.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/384?inline=1
+  - paragraph:
+    - text: Asistencias — Nov 2026
+  - paragraph: 7 clases
+  - generic: 02/11
+  - generic: 04/11
+  - generic: 09/11
+  - generic: 11/11
+  - generic: 16/11
+  - generic: 18/11
+  - generic: 23/11
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

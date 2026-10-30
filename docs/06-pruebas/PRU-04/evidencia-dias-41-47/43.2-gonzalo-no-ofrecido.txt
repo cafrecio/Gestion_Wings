@@ -1,0 +1,3 @@
+Browser tab: 1293181205, Title: "Editar Clase – Wings", URL: "https://test.gestionar-te.com.ar/clases/235/edit".
+There has been no change in the accessibility tree.
+The focused UI element is 61 checkbox (settable, integer) Description: Gaitán, Lucía Patín, Value: 1

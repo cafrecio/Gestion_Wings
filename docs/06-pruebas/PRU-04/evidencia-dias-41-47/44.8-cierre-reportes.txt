@@ -1,0 +1,156 @@
+Browser tab: 1293181219, Title: "Ingresos y egresos – Wings", URL: "https://test.gestionar-te.com.ar/reportes?mes=2026-11&deporte_id=".
+1 AXWebArea Ingresos y egresos – Wings, URL: test.gestionar-te.com.ar/reportes?mes=2026-11&deporte_id=
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/reportes-ingresos-egresos
+		30 button Salir
+	31 heading Ingresos y egresos, Value: 1
+		32 text Ingresos y egresos
+	33 container
+		34 text Reportes
+		35 link Description: Volver, Value: test.gestionar-te.com.ar/admin/dashboard
+		36 container Reportes
+			37 text Ingresos y egresos
+			38 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+			39 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+		40 pop up button (collapsed, settable) Description: Mes, Value: Noviembre 2026, Secondary Actions: Expand
+			41 menu
+				42 (selected) Noviembre 2026
+				43 Octubre 2026
+				44 Septiembre 2026
+		45 pop up button (collapsed, settable) Description: Deporte, Value: Todo el negocio, Secondary Actions: Expand
+			46 menu
+				47 (selected) Todo el negocio
+				48 Fútbol
+				49 Patín
+		50 button Filtrar
+		51 heading Octubre vs septiembre, Value: 2
+			52 text Octubre vs septiembre
+		53 text Meses cerrados · 2026 Ingresos
+		54 text $3,417,850.75
+		55 image Tendencia mensual de ingresos
+		56 text ↑ 11.292,8%
+		57 text Egresos
+		58 text $341,350.00
+		59 image Tendencia mensual de egresos
+		60 text ↑ $341,350.00
+		61 text Resultado
+		62 text $3,076,500.75
+		63 image Tendencia mensual de resultado
+		64 text ↑ $3,046,500.75
+		65 text Egresos / ingresos
+		66 text 10,0%
+		67 image Porcentaje de ingresos equivalente a egresos
+		68 text Del ingreso del mes
+		69 heading Evolución mensual, Value: 3
+			70 text Evolución mensual
+		71 text Ingresos Egresos Meses cerrados
+		72 image Evolución de ingresos y egresos de los meses cerrados disponibles
+		73 button (collapsed) Detalle, Secondary Actions: Expand
+			74 text Detalle
+		75 heading Cambio en el resultado, Value: 3
+			76 text Cambio en el resultado
+		77 text Octubre vs septiembre
+		78 image Aporte de cada rubro al cambio del resultado
+		79 content list
+			80 container
+				81 text Cuota Mensual (10/2026): + $2,600,500.00
+			82 container
+				83 text Cuota Mensual (09/2026): + $357,000.00
+			84 container
+				85 text Cuota Mensual (08/2026): + $172,000.00
+			86 container
+				87 text Luz: − $132,900.00
+			88 container
+				89 text Otros: + $49,900.75
+		90 text Variación total
+		91 container
+			92 text + $3,046,500.75
+		93 heading Noviembre en curso, Value: 2
+			94 text Noviembre en curso
+		95 text Hasta 22/11 Ingresos $4,191,300.00 Egresos $2,788,980.00 Resultado $1,402,320.00
+		96 container ingresos
+			97 heading Origen de ingresos, Value: 3
+				98 text Origen de ingresos
+			99 container
+				100 image Distribución de ingresos por rubro
+				101 text $4.191.300
+				102 text Ingresos
+			103 text Cuota Mensual (11/2026)
+			104 text $3,907,900.00
+			105 text 93,2% Punitorio Cuota
+			106 text $94,400.00
+			107 text 2,3% Inscripciones
+			108 text $60,000.00
+			109 text 1,4% Inscripción al club
+			110 text $35,000.00
+			111 text 0,8% Cuota Mensual (08/2026)
+			112 text $33,000.00
+			113 text 0,8% Cuota Mensual (09/2026)
+			114 text $33,000.00
+			115 text 0,8% Cuota Mensual (10/2026)
+			116 text $28,000.00
+			117 text 0,7%
+			118 button (collapsed) Detalle, Secondary Actions: Expand
+				119 text Detalle
+		120 container egresos
+			121 heading Destino de gastos, Value: 3
+				122 text Destino de gastos
+			123 image Importes netos por rubro
+			124 button (collapsed) Detalle, Secondary Actions: Expand
+				125 text Detalle
+		126 heading Situación al 22/11, Value: 2
+			127 text Situación al 22/11
+		128 text Saldos acumulados Disponible $6,563,820.75 Por cobrar $205,200.00 Por pagar $0.00
+		129 button (collapsed) Detalle de cajas y aportes, Secondary Actions: Expand
+			130 text Detalle de cajas y aportes
+		131 button (collapsed) Por cobrar · $205,200.00, Secondary Actions: Expand
+			132 text Por cobrar · 
+			133 text $205,200.00
+		134 button (collapsed) Por pagar · $0.00, Secondary Actions: Expand
+			135 text Por pagar · 
+			136 text $0.00
+		137 heading Deuda de alumnos inactivos, Value: 2
+			138 text Deuda de alumnos inactivos
+		139 text Actual al 22/11/2026. Separada del por cobrar y de los totales de Inicio.
+		140 container
+			141 text 1  alumnos
+		142 text $33,000.00
+		143 container
+			144 heading Vega, Candela, Value: 3
+				145 text Vega, Candela
+			146 text Inactivo desde 06/11/2026 Deuda $33,000.00
+			147 link Description: Ver, Value: test.gestionar-te.com.ar/alumnos/294
+			148 button Perder, Help: Dar por perdida esta deuda
+		149 text Cobros y pagos · confirmado + por validar
+		150 link Description: Alumnos, Value: test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+		151 text  · 
+		152 link Description: Sueldos, Value: test.gestionar-te.com.ar/reportes/sueldos?mes=2026-11
+	153 text Wings
+
+The focused UI element is 1 AXWebArea Ingresos y egresos – Wings, URL: test.gestionar-te.com.ar/reportes?mes=2026-11&deporte_id=

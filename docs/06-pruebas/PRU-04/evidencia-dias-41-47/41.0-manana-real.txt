@@ -1,0 +1,16 @@
+ 1. Sandra Vidal abre caja con $7.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 3. Sandra Vidal Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 4. Sandra Vidal Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 5. Sandra Vidal Inscripciones $3000 por Efectivo — Movimiento registrado.
+ 6. Sandra Vidal Inscripciones $3000 por Mercado Pago — Movimiento registrado.
+ 7. Sandra Vidal Indumentaria institucional $18000 por Efectivo — Movimiento registrado.
+ 8. Sandra Vidal Indumentaria institucional $18000 por Mercado Pago — Movimiento registrado.
+ 9. Sandra Vidal Limpieza $4500 por Efectivo — Movimiento registrado.
+10. Sandra Vidal Librería $1200 por Efectivo — Movimiento registrado.
+11. Sandra Vidal Insumos Varios $2300 por Efectivo — Movimiento registrado.
+12. Sandra Vidal Botiquín $1800 por Efectivo — Movimiento registrado.
+13. Lucía Gaitán lista de la #224: 12 alumnos, 10 presentes — Asistencias guardadas.
+14. Hernán Quintana lista de la #256: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $205.200,00 · {"AL_DIA":102,"EN_PLAZO":1,"MOROSO":5,"DEUDOR":0}
+GUARDADO.

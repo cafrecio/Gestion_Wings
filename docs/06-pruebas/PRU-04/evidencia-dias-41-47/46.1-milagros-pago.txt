@@ -1,0 +1,210 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/abrir-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Caja" [level=1]
+- main:
+  - generic: Pago registrado para Ferreyra, Milagros.
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/400?inline=1
+  - strong: "10"
+  - text: cajas
+  - button "Historial"
+  - heading "Martes 24 de noviembre" [level=3]
+  - generic: Estado
+  - generic: ABIERTA
+  - generic: Movimientos
+  - generic: "2"
+  - generic: Ingresos
+  - generic: $22,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $22,000.00
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Agregar":
+    - /url: https://test.gestionar-te.com.ar/caja/83/editar
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/83/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/83/detalle
+  - heading "Sábado 21 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "0"
+  - generic: Ingresos
+  - generic: $0.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $0.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/80/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/80/detalle
+  - heading "Martes 17 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "3"
+  - generic: Ingresos
+  - generic: $47,500.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $47,500.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/70/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/70/detalle
+  - heading "Sábado 14 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "8"
+  - generic: Ingresos
+  - generic: $125,100.00
+  - generic: Egresos
+  - generic: $3,500.00
+  - generic: Neto
+  - generic: $121,600.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/66/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/66/detalle
+  - heading "Martes 10 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "13"
+  - generic: Ingresos
+  - generic: $475,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $475,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/57/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/57/detalle
+  - heading "Sábado 7 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "6"
+  - generic: Ingresos
+  - generic: $245,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $245,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/54/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/54/detalle
+  - heading "Martes 3 de noviembre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "16"
+  - generic: Ingresos
+  - generic: $454,000.00
+  - generic: Egresos
+  - generic: $64,000.00
+  - generic: Neto
+  - generic: $390,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/47/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/47/detalle
+  - heading "Sábado 31 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "7"
+  - generic: Ingresos
+  - generic: $291,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $291,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/42/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/42/detalle
+  - heading "Viernes 30 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "12"
+  - generic: Ingresos
+  - generic: $443,000.00
+  - generic: Egresos
+  - generic: $12,000.00
+  - generic: Neto
+  - generic: $431,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/40/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/40/detalle
+  - heading "Martes 27 de octubre" [level=3]
+  - generic: Estado
+  - generic: VALIDADA
+  - generic: Movimientos
+  - generic: "2"
+  - generic: Ingresos
+  - generic: $101,000.00
+  - generic: Egresos
+  - generic: $0.00
+  - generic: Neto
+  - generic: $101,000.00
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/17/resumen
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/17/detalle
+- contentinfo:
+  - generic: Wings

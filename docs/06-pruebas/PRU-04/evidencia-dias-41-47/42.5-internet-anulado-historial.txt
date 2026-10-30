@@ -1,0 +1,104 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-cashflow
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Movimiento" [level=1]
+- main:
+  - heading "Internet" [level=3]
+  - text: Fecha
+  - paragraph: 20/11/2026
+  - text: Medio
+  - paragraph: Banco Galicia
+  - text: Importe
+  - paragraph: $-22,000.00
+  - paragraph: Telecentro, noviembre
+  - paragraph: Anulado · el original y el asiento en contra se conservan.
+  - button "Volver"
+  - heading "Historial de correcciones" [level=3]
+  - paragraph:
+    - strong: Anulación
+    - text: · 20/11/2026 09:07 · Admin Prueba
+  - paragraph: Antes
+  - paragraph:
+    - strong: $-22,000.00
+    - text: · 20/11/2026
+  - paragraph: Internet · Banco Galicia
+  - paragraph: Telecentro, noviembre
+  - paragraph: Después
+  - paragraph:
+    - strong: $-22,000.00
+    - text: · 20/11/2026
+  - paragraph: Internet · Banco Galicia
+  - paragraph: Telecentro, noviembre
+  - paragraph: Original conservado · asiento en contra registrado
+  - paragraph: "Motivo: Cargado dos veces"
+- contentinfo:
+  - generic: Wings

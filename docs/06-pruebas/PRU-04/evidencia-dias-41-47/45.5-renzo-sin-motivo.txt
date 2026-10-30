@@ -1,0 +1,113 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/modificar-alumno
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Editar: Acuña, Renzo" [level=1]'
+- main:
+  - alert [active]:
+    - strong: No se guardó.
+    - generic: Revisá estos datos; lo que cargaste se conserva.
+    - list:
+      - link "El campo motivo fecha alta es obligatorio.":
+        - /url: "#motivo_fecha_alta"
+  - paragraph: "No se puede modificar el ingreso: la inscripción tiene pagos registrados."
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *":
+    - /placeholder: Nombre
+    - text: Renzo
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *":
+    - /placeholder: Apellido
+    - text: Acuña
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+    - text: "56123456"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *": 2019-03-14
+  - text: Fecha de alta
+  - generic: "*"
+  - textbox "Fecha de alta *": 2026-12-05
+  - text: Celular
+  - textbox "Celular":
+    - /placeholder: 11-1234-5678
+    - text: 11-5566-7788
+  - checkbox "Mismo que el teléfono del tutor"
+  - text: Mismo que el teléfono del tutor
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+  - text: Deporte
+  - paragraph: Fútbol
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar..."
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles" [selected]
+    - option "Fútbol — Principiantes"
+  - text: Motivo si corrige la fecha de ingreso
+  - textbox "Motivo si corrige la fecha de ingreso"
+  - paragraph: El campo motivo fecha alta es obligatorio.
+  - paragraph: Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.
+  - text: Frecuencia semanal
+  - generic: (define el precio mensual)
+  - combobox "Frecuencia semanal (define el precio mensual)":
+    - option "Seleccionar frecuencia..."
+    - option "1 vez/semana — $25,000.00" [selected]
+    - option "2 veces/semana — $38,000.00"
+  - paragraph: Datos del tutor — obligatorio para menores de edad
+  - text: Nombre del tutor
+  - textbox "Nombre del tutor":
+    - /placeholder: Nombre y Apellido
+    - text: Marcela Acuña
+  - text: Teléfono del tutor
+  - textbox "Teléfono del tutor":
+    - /placeholder: 11-1234-5678
+    - text: 11-5566-7788
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

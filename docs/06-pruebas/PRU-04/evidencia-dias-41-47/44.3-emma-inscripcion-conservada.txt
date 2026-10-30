@@ -1,0 +1,72 @@
+Browser tab: 1293181219, Title: "Villalba, Emma – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/351".
+1 AXWebArea Villalba, Emma – Wings, URL: test.gestionar-te.com.ar/alumnos/351
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Villalba, Emma, Value: 1
+		32 text Villalba, Emma
+	33 container
+		34 heading Inscripción al club, Value: 3
+			35 text Inscripción al club
+		36 text Por única vez por persona. Saldo pendiente: $5,000.00
+		37 button Condonar
+		38 text Activo
+		39 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae4b4f8a3325
+		40 button Cobrar
+		41 button Editar
+		42 image
+		43 text DNI 54333444
+		44 image
+		45 text NACIMIENTO 21/01/2015
+		46 image
+		47 text CELULAR 11-4567-8901
+		48 image
+		49 text EMAIL –
+		50 image
+		51 text DEPORTE Patín
+		52 image
+		53 text GRUPO Patín — Intermedias
+		54 image
+		55 text PLAN 1x sem. — $33,000.00/mes
+		56 image
+		57 text ALTA 17/11/2026
+		58 image
+		59 text ESTADO DE COBRANZA En plazo 1 día de gracia Vence 24/11/2026 Total adeudado:  $28,100.00 Nov 2026 $23,100.00
+		60 button Condonar
+		61 image
+		62 text TUTOR NOMBRE Natalia Villalba TELÉFONO 11-4567-8901
+		63 image
+		64 text HISTORIAL DE PAGOS Sin pagos registrados.
+		65 image
+		66 text ASISTENCIAS — NOV 2026 Sin asistencias en Nov 2026.
+		67 button Volver
+		68 text No se puede eliminar: Tiene asistencias registradas. Puede pasarlo a Inactivo.
+	69 text Wings
+
+The focused UI element is 1 AXWebArea Villalba, Emma – Wings, URL: test.gestionar-te.com.ar/alumnos/351

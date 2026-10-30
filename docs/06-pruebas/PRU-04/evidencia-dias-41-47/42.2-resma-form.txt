@@ -1,0 +1,89 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/registrar-gasto-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nuevo movimiento" [level=1]
+- main:
+  - paragraph:
+    - text: Tipo de movimiento
+    - generic: "*"
+  - generic: INGRESO
+  - generic: EGRESO
+  - text: Fecha
+  - generic: "*"
+  - textbox "Fecha *": 2026-11-20
+  - text: Medio de pago
+  - generic: "*"
+  - combobox "Medio de pago *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "EFE — Efectivo" [selected]
+    - option "MP — Mercado Pago"
+  - text: Rubro
+  - generic: "*"
+  - combobox "Rubro *":
+    - option "Seleccionar..."
+    - option "Gastos Operativos" [selected]
+    - option "Mantenimiento y arreglos"
+  - text: Subrubro
+  - generic: "*"
+  - combobox "Subrubro *":
+    - option "Seleccionar..."
+    - option "Botiquín"
+    - option "Insumos Varios"
+    - option "Librería" [selected]
+    - option "Limpieza"
+  - text: Monto
+  - generic: "*"
+  - textbox "Monto *":
+    - /placeholder: "0"
+    - text: 6,500.00
+  - text: Observaciones
+  - generic: "*"
+  - textbox "Observaciones *" [active]:
+    - /placeholder: Descripción del movimiento
+    - text: Resma
+  - button "Cancelar"
+  - button "Registrar"
+- contentinfo:
+  - generic: Wings

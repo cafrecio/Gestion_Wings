@@ -1,0 +1,152 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/programar-clases
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nueva Clase" [level=1]
+- main:
+  - alert:
+    - strong: El alquiler se cuenta por bloques del reloj.
+    - paragraph: "Martes: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00."
+    - paragraph: "Jueves: 20:30–21:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 20:00–21:00, 21:00–22:00."
+    - paragraph: Revisá los horarios. Confirmar guarda las clases con estos horarios.
+    - link "Revisar":
+      - /url: "#horario-2-inicio"
+  - radio "Clase única"
+  - text: Clase única
+  - radio "Clases recurrentes" [checked]
+  - text: Clases recurrentes
+  - text: Fecha desde
+  - generic: "*"
+  - textbox "Fecha desde *": 2026-12-01
+  - text: Fecha hasta
+  - generic: "*"
+  - textbox "Fecha hasta *": 2026-12-31
+  - text: Días de la semana
+  - generic: "*"
+  - checkbox "Lun"
+  - text: Lun
+  - checkbox "Mar" [checked]
+  - text: Mar
+  - checkbox "Mié"
+  - text: Mié
+  - checkbox "Jue" [checked]
+  - text: Jue
+  - checkbox "Vie"
+  - text: Vie
+  - checkbox "Sáb"
+  - text: Sáb
+  - checkbox "Dom"
+  - text: Dom
+  - paragraph: Elegí los días y cargá el horario de cada uno. Grupo, profesores y fechas se cargan una sola vez.
+  - paragraph: Martes
+  - text: Hora inicio
+  - generic: "*"
+  - textbox "Hora inicio *": 20:30
+  - text: Hora fin
+  - generic: "*"
+  - textbox "Hora fin *": 21:30
+  - paragraph: Jueves
+  - text: Hora inicio
+  - generic: "*"
+  - textbox "Hora inicio *": 20:30
+  - text: Hora fin
+  - generic: "*"
+  - textbox "Hora fin *": 21:30
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar grupo..."
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos" [selected]
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - paragraph: "Deporte: Patín"
+  - text: Profesores
+  - generic: "*"
+  - paragraph: Seleccioná al menos una profesora activa del deporte.
+  - checkbox "Directora, Vanina Patín"
+  - text: Directora, Vanina
+  - generic: Patín
+  - checkbox "Gaitán, Lucía Patín"
+  - text: Gaitán, Lucía
+  - generic: Patín
+  - checkbox "Ocampo, Mariela Patín" [checked]
+  - text: Ocampo, Mariela
+  - generic: Patín
+  - paragraph: Solo se muestran profesores activos de Patín.
+  - button "Volver"
+  - button "Confirmar"
+- contentinfo:
+  - generic: Wings

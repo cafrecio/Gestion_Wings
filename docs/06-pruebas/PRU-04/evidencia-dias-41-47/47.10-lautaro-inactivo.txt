@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/buscar-alumnos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Alumnos" [level=1]
+- main:
+  - generic: Alumno desactivado correctamente.
+  - combobox "Buscar por nombre, apellido o DNI...": Lautaro Medina
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - button "Limpiar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "1"
+  - text: de
+  - strong: "1"
+  - text: alumnos
+  - button "Nuevo"
+  - generic "Al día"
+  - heading "Medina, Lautaro" [level=3]
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Plan:"
+  - generic: 1 clase/semana
+  - generic: "DNI:"
+  - generic: "54400006"
+  - generic: "Teléfono:"
+  - generic: "1145120006"
+  - generic: "Edad:"
+  - generic: 8 años
+  - generic: "Tutor:"
+  - generic: Tutor Medina
+  - generic: "Tel. tutor:"
+  - generic: "1145120006"
+  - button "Cobrar"
+  - button "Ver"
+  - button "Editar"
+  - generic: Inactivo
+  - switch "Inactivo"
+- contentinfo:
+  - generic: Wings

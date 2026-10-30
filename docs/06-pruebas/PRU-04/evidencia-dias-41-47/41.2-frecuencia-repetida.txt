@@ -1,0 +1,13 @@
+- complementary:
+  - link "Wings":
+    - /url: https://test.gestionar-te.com.ar/login
+    - generic: Wings
+- banner:
+  - heading "Algo falló" [level=1]
+- main:
+  - article "Algo falló de nuestro lado":
+    - heading "Algo falló de nuestro lado" [level=2]
+    - paragraph: El problema ya quedó registrado. Probá de nuevo en un momento.
+    - button "Volver"
+- contentinfo:
+  - generic: Wings

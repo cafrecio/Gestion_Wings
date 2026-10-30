@@ -1,0 +1,19 @@
+Browser tab: 1293181219, Title: "Sin permiso – Wings", URL: "https://test.gestionar-te.com.ar/tipos-caja".
+1 AXWebArea Sin permiso – Wings, URL: test.gestionar-te.com.ar/tipos-caja
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		5 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	6 container
+		7 text Lucía Gaitán
+		8 button Salir
+	9 heading Sin permiso, Value: 1
+		10 text Sin permiso
+	11 container No podés entrar a esta sección
+		12 heading No podés entrar a esta sección, Value: 2, ID: sin-permiso
+			13 text No podés entrar a esta sección
+		14 text No tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.
+		15 button Volver
+	16 text Wings
+
+The focused UI element is 1 AXWebArea Sin permiso – Wings, URL: test.gestionar-te.com.ar/tipos-caja

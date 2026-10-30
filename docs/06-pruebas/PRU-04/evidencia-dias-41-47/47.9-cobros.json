@@ -1,0 +1,169 @@
+[
+  {
+    "paso": "47.9-01",
+    "persona": "Lola Rios",
+    "identidad": "Rios, Lola\n55400015 · Patín — Principiantes",
+    "propuesto": "30,000.00",
+    "importe": 30000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/404?inline=1",
+    "guardado": true,
+    "pdf": "47.9-01-recibo.pdf"
+  },
+  {
+    "paso": "47.9-02",
+    "persona": "Abril Silva",
+    "identidad": "Silva, Abril\n55400011 · Patín — Principiantes",
+    "propuesto": "30,000.00",
+    "importe": 30000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/405?inline=1",
+    "guardado": true,
+    "pdf": "47.9-02-recibo.pdf"
+  },
+  {
+    "paso": "47.9-03",
+    "persona": "Zoe Flores",
+    "identidad": "Flores, Zoe\n56300903 · Patín — Principiantes",
+    "propuesto": "30,000.00",
+    "importe": 30000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/406?inline=1",
+    "guardado": true,
+    "pdf": "47.9-03-recibo.pdf"
+  },
+  {
+    "paso": "47.9-04",
+    "persona": "Sofia Gomez",
+    "identidad": "Gomez, Sofia\n56100101 · Patín — Principiantes",
+    "propuesto": "30,000.00",
+    "importe": 30000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/407?inline=1",
+    "guardado": true,
+    "pdf": "47.9-04-recibo.pdf"
+  },
+  {
+    "paso": "47.9-05",
+    "persona": "Bianca Pereyra",
+    "propuesto": "44,000.00",
+    "importe": 44000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/408?inline=1",
+    "guardado": true,
+    "nota": "Confirmación visible tras demora de lectura; no se repitió pago.",
+    "pdf": "47.9-05-recibo.pdf"
+  },
+  {
+    "paso": "47.9-06",
+    "persona": "Mia Perez",
+    "identidad": "Perez, Mia\n55400017 · Patín — Principiantes",
+    "propuesto": "44,000.00",
+    "importe": 44000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/409?inline=1",
+    "guardado": true,
+    "pdf": "47.9-06-recibo.pdf"
+  },
+  {
+    "paso": "47.9-07",
+    "persona": "Paula Ledesma",
+    "identidad": "Ledesma, Paula\n55400022 · Patín — Intermedias",
+    "propuesto": "43,000.00",
+    "importe": 43000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/410?inline=1",
+    "guardado": true,
+    "pdf": "47.9-07-recibo.pdf"
+  },
+  {
+    "paso": "47.9-08",
+    "persona": "Sol Ruiz",
+    "identidad": "Ruiz, Sol\n55400027 · Patín — Intermedias",
+    "propuesto": "43,000.00",
+    "importe": 43000,
+    "medio": "EFE — Efectivo",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/411?inline=1",
+    "guardado": true,
+    "errorRecibo": "Error: Error: Timed out after 10000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]",
+    "pdf": "47.9-08-recibo.pdf"
+  },
+  {
+    "paso": "47.9-09",
+    "persona": "Berenice Sanchez",
+    "identidad": "Sanchez, Berenice\n55400024 · Patín — Intermedias",
+    "propuesto": "43,000.00",
+    "importe": 43000,
+    "medio": "MP — Mercado Pago",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/412?inline=1",
+    "guardado": true,
+    "pdf": "47.9-09-recibo.pdf"
+  },
+  {
+    "paso": "47.9-10",
+    "persona": "Paulina Benitez",
+    "identidad": "Benitez, Paulina\n55400031 · Patín — Intermedias",
+    "propuesto": "43,000.00",
+    "importe": 43000,
+    "medio": "MP — Mercado Pago",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/413?inline=1",
+    "guardado": true,
+    "pdf": "47.9-10-recibo.pdf"
+  },
+  {
+    "paso": "47.9-11",
+    "persona": "Bautista Ferrari",
+    "identidad": "Ferrari, Bautista\n54200916 · Fútbol — Principiantes",
+    "propuesto": "35,000.00",
+    "importe": 35000,
+    "medio": "MP — Mercado Pago",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/414?inline=1",
+    "guardado": true,
+    "pdf": "47.9-11-recibo.pdf"
+  },
+  {
+    "paso": "47.9-12",
+    "persona": "Agustin Acosta",
+    "identidad": "Acosta, Agustin\n54400005 · Fútbol — Principiantes",
+    "propuesto": "35,000.00",
+    "importe": 35000,
+    "medio": "MP — Mercado Pago",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/415?inline=1",
+    "guardado": true,
+    "errorRecibo": "Error: Error: Timed out after 10000ms waiting for download.\nlocator.downloadMedia failed for selector internal:role=link[name=\"Recibo\"s]\nLocator diagnostics: {\"kind\":\"action_failed\",\"action\":\"download",
+    "pdf": "47.9-12-recibo.pdf"
+  },
+  {
+    "paso": "47.9-13",
+    "persona": "Julian Navarro",
+    "identidad": "Navarro, Julian\n46200806 · Fútbol — Avanzadas",
+    "propuesto": "52,000.00",
+    "importe": 52000,
+    "medio": "MP — Mercado Pago",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/416?inline=1",
+    "guardado": true,
+    "pdf": "47.9-13-recibo.pdf"
+  },
+  {
+    "paso": "47.9-14",
+    "persona": "Tomas Gimenez",
+    "identidad": "Gimenez, Tomas\n45100919 · Fútbol — Avanzadas",
+    "propuesto": "52,000.00",
+    "importe": 52000,
+    "medio": "BGA — Banco Galicia",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/417?inline=1",
+    "guardado": true,
+    "pdf": "47.9-14-recibo.pdf"
+  },
+  {
+    "paso": "47.9-15",
+    "persona": "Helena Iglesias",
+    "identidad": "Iglesias, Helena\n55400040 · Patín — Federadas",
+    "propuesto": "50,000.00",
+    "importe": 50000,
+    "medio": "BGA — Banco Galicia",
+    "recibo": "https://test.gestionar-te.com.ar/recibos/cuota/418?inline=1",
+    "guardado": true,
+    "pdf": "47.9-15-recibo.pdf"
+  }
+]

@@ -1,0 +1,139 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/programar-clases
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nueva Clase" [level=1]
+- main:
+  - generic: la profesora Hernán Quintana ya tiene asignada la clase 'Fútbol — Avanzadas' que se solapa en fecha 2026-12-05 entre 11:00 y 12:00.
+  - radio "Clase única"
+  - text: Clase única
+  - radio "Clases recurrentes" [checked]
+  - text: Clases recurrentes
+  - text: Fecha desde
+  - generic: "*"
+  - textbox "Fecha desde *": 2026-12-01
+  - text: Fecha hasta
+  - generic: "*"
+  - textbox "Fecha hasta *": 2026-12-31
+  - text: Días de la semana
+  - generic: "*"
+  - checkbox "Lun"
+  - text: Lun
+  - checkbox "Mar"
+  - text: Mar
+  - checkbox "Mié"
+  - text: Mié
+  - checkbox "Jue"
+  - text: Jue
+  - checkbox "Vie"
+  - text: Vie
+  - checkbox "Sáb" [checked]
+  - text: Sáb
+  - checkbox "Dom"
+  - text: Dom
+  - paragraph: Elegí los días y cargá el horario de cada uno. Grupo, profesores y fechas se cargan una sola vez.
+  - paragraph: Sábado
+  - text: Hora inicio
+  - generic: "*"
+  - textbox "Hora inicio *": 11:00
+  - text: Hora fin
+  - generic: "*"
+  - textbox "Hora fin *": 12:00
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar grupo..."
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles" [selected]
+    - option "Fútbol — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - paragraph: "Deporte: Fútbol"
+  - text: Profesores
+  - generic: "*"
+  - paragraph: Seleccioná al menos una profesora activa del deporte.
+  - checkbox "Acosta, Martín Fútbol"
+  - text: Acosta, Martín
+  - generic: Fútbol
+  - checkbox "Ibarra, Gonzalo Fútbol" [checked]
+  - text: Ibarra, Gonzalo
+  - generic: Fútbol
+  - checkbox "Quintana, Hernán Fútbol" [checked]
+  - text: Quintana, Hernán
+  - generic: Fútbol
+  - paragraph: Solo se muestran profesores activos de Fútbol.
+  - button "Volver"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

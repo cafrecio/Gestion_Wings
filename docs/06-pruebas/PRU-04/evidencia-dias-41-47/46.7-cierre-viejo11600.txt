@@ -1,0 +1,68 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cerrar-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cierre de caja" [level=1]
+- main:
+  - paragraph: "Caja #83 · Pablo Ledesma. Contá solo el efectivo del mostrador, no las transferencias ni lo que cobró ADMIN aparte."
+  - text: Efectivo inicial
+  - paragraph: $10,000.00
+  - text: Efectivo esperado
+  - paragraph: $11,600.00
+  - text: Efectivo contado
+  - generic: "*"
+  - generic: $
+  - textbox "Efectivo contado *":
+    - /placeholder: "0"
+  - text: Cambio que queda
+  - generic: "*"
+  - generic: $
+  - textbox "Cambio que queda *":
+    - /placeholder: "0"
+  - text: Diferencia
+  - paragraph: Ingresá el efectivo contado
+  - text: Retiro / entrega
+  - paragraph: Contado menos cambio que queda
+  - paragraph: "Podés cerrar con faltante o sobrante: ADMIN revisará la diferencia. El retiro no se registra como gasto."
+  - button "Volver"
+  - button "Cerrar"
+- contentinfo:
+  - generic: Wings

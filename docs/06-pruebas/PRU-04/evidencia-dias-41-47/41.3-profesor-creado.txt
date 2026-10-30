@@ -1,0 +1,230 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/administrar-profesores
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Profesores" [level=1]
+- main:
+  - textbox "Buscar por nombre o apellido..."
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Fútbol"
+    - option "Patín"
+  - button "Limpiar"
+  - text: Mostrando
+  - strong: "1"
+  - text: a
+  - strong: "7"
+  - text: de
+  - strong: "7"
+  - text: profesores
+  - button "Nuevo"
+  - img "Activo"
+  - heading "Acosta, Martín" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Liquidación:"
+  - generic: Por comisión
+  - generic: "Comisión:"
+  - generic: 30.00%
+  - generic: "Teléfono:"
+  - generic: "1155500017"
+  - generic: "Email:"
+  - generic: martin.acosta@example.com
+  - paragraph:
+    - text: Tiene 1 clase futura o en curso.
+    - link "Reasignar":
+      - /url: https://test.gestionar-te.com.ar/clases?profesor_id=6&estado=programada
+    - text: antes de desactivar.
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Activo"
+  - heading "Directora, Vanina" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Liquidación:"
+  - generic: Por hora
+  - generic: "Valor/hora:"
+  - generic: $0.00
+  - generic: "Teléfono:"
+  - generic: 11-5555-0000
+  - generic: "Email:"
+  - generic: vanina.profesora@wings.test
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Activo"
+  - heading "Gaitán, Lucía" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Liquidación:"
+  - generic: Por hora
+  - generic: "Valor/hora:"
+  - generic: $12,000.00
+  - generic: "Teléfono:"
+  - generic: "1160411896"
+  - generic: "Email:"
+  - generic: lucia.gaitan@wings.test
+  - paragraph:
+    - text: Tiene 10 clases futuras o en curso.
+    - link "Reasignar":
+      - /url: https://test.gestionar-te.com.ar/clases?profesor_id=1&estado=programada
+    - text: antes de desactivar.
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Activo"
+  - heading "Ibarra, Gonzalo" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Liquidación:"
+  - generic: Por comisión
+  - generic: "Comisión:"
+  - generic: 35.00%
+  - generic: "Teléfono:"
+  - generic: 11-4444-5555
+  - generic: "Email:"
+  - generic: gonzalo.ibarra@example.com
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Activo"
+  - heading "Ocampo, Mariela" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Liquidación:"
+  - generic: Por hora
+  - generic: "Valor/hora:"
+  - generic: $18,000.00
+  - generic: "Teléfono:"
+  - generic: "1128418137"
+  - generic: "Email:"
+  - generic: mariela.ocampo@wings.test
+  - paragraph:
+    - text: Tiene 7 clases futuras o en curso.
+    - link "Reasignar":
+      - /url: https://test.gestionar-te.com.ar/clases?profesor_id=3&estado=programada
+    - text: antes de desactivar.
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Activo"
+  - heading "Quintana, Hernán" [level=3]
+  - generic: Activo
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Liquidación:"
+  - generic: Por comisión
+  - generic: "Comisión:"
+  - generic: 40.00%
+  - generic: "Teléfono:"
+  - generic: "1190949815"
+  - generic: "Email:"
+  - generic: hernan.quintana@wings.test
+  - paragraph:
+    - text: Tiene 8 clases futuras o en curso.
+    - link "Reasignar":
+      - /url: https://test.gestionar-te.com.ar/clases?profesor_id=4&estado=programada
+    - text: antes de desactivar.
+  - button "Ver"
+  - button "Editar"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - img "Inactivo"
+  - heading "Salinas, Verónica" [level=3]
+  - generic: Inactivo
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Liquidación:"
+  - generic: Por hora
+  - generic: "Valor/hora:"
+  - generic: $15,000.00
+  - generic: "Teléfono:"
+  - generic: "1196207167"
+  - generic: "Email:"
+  - generic: veronica.salinas@wings.test
+  - status: Inactiva. El acceso del usuario se habilita por separado en Usuarios.
+  - button "Ver"
+  - button "Editar"
+  - generic: Inactivo
+  - switch "Inactivo"
+- contentinfo:
+  - generic: Wings

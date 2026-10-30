@@ -1,0 +1,1529 @@
+{
+  "enlaces_rotos": [],
+  "imagenes": [
+    {
+      "archivo": "00-inicio-18nov.jpg",
+      "ancho": 1904,
+      "alto": 2724
+    },
+    {
+      "archivo": "41.0-apertura-heredada.jpg",
+      "ancho": 1918,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-intento-0.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-intento-1.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-intento-2.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-intento-3.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-intento-4.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-real-0.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-real-1.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-real-2.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-real-3.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.0-vacio.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.1-nivel-corregido.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.1-nivel-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.1-nivel-duplicado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.11-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.11-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.11-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.2-frecuencia-repetida-error.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.2-frecuencia-repetida.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.2-grupo-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.2-grupo-duplicado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.2-grupo-sin-planes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.2-precio-cero.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.3-comision-101.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.3-dni-repetido.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.3-email-error.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.3-email-invalido.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.3-profesor-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.3-sin-nombre.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.4-fecha-lejana.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.4-renzo-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.4-renzo-ficha.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.5-renzo-pagado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.5-solo-inscripcion-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.6-dante-historial.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.6-lucia-tras-intento-recibo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.6-recibo-inexistente.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.6-sandra-detalle-rocio.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.6-sandra-resumen-sin-permiso.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "41.7-bruno-ficha.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "41.7-bruno-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.7-joaquina-creada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.7-joaquina-espera-verificacion.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.7-joaquina-ficha.jpg",
+      "ancho": 1521,
+      "alto": 728
+    },
+    {
+      "archivo": "41.7-joaquina-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "41.8-bruno-doble-guardar.jpg",
+      "ancho": 1521,
+      "alto": 728
+    },
+    {
+      "archivo": "41.8-reenvio-modificado-rechazado.jpg",
+      "ancho": 1521,
+      "alto": 728
+    },
+    {
+      "archivo": "41.9-bruno-cobro.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.9-bruno-pago.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.9-joaquina-cobro.jpg",
+      "ancho": 1521,
+      "alto": 728
+    },
+    {
+      "archivo": "41.9-joaquina-pago.jpg",
+      "ancho": 1521,
+      "alto": 728
+    },
+    {
+      "archivo": "41.9-mariela-375-antes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.9-mariela-despues-guardar.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.9-mariela-lista-antes-guardar.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "41.9-mariela-lista-persistida.jpg",
+      "ancho": 1893,
+      "alto": 848
+    },
+    {
+      "archivo": "42.0-liam-aviso.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.0-liam-deuda-anterior.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-cancelar-sin-motivo.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-aviso-adelanto.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-aviso-parcial.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-cero-de-mas.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-invalido-0.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-invalido-1.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-invalido-2.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-pago-30000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-pago-300000.jpg",
+      "ancho": 1895,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-parcial-motivo.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-clara-saldo-270000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-cobro-cancelado.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-diciembre-pendiente-300000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-esperado-327600.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.1-esperado-baja-300000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.2-resma-doble.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.2-resma-form.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "42.3-caja-validada-sin-editar.jpg",
+      "ancho": 1920,
+      "alto": 854
+    },
+    {
+      "archivo": "42.3-resma-corregida.jpg",
+      "ancho": 1898,
+      "alto": 848
+    },
+    {
+      "archivo": "42.4-lucia-ficha-denegada.jpg",
+      "ancho": 1911,
+      "alto": 854
+    },
+    {
+      "archivo": "42.4-lucia-lista-mariela.jpg",
+      "ancho": 1902,
+      "alto": 848
+    },
+    {
+      "archivo": "42.5-cloudflare-522.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.5-internet-anulado-historial.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "42.5-internet-duplicado.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.5-internet-primero.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.5-internet-saldo-final.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.6-caja-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.6-cambio-excesivo.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "42.8-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 847
+    },
+    {
+      "archivo": "42.8-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "42.8-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "43.1-caja-pablo-abierta.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "43.1-dueno-no-ofrecido.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "43.2-dos-profesoras.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.2-gonzalo-no-ofrecido.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "43.3-futbol-cancelada-final.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.3-futbol-cancelada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.4-lista-antes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.4-lista-guardada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.4-lista-persistida.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.4-lucia-menu-sin-clave.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.5-cierre-ajeno-denegado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "43.5-edicion-ajena-denegada.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "43.5-pablo-detalle-rocio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.5-pablo-inicio-menu.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.5-resumen-denegado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "43.7-caja-sin-movimientos-cerrada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.8-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.8-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "43.8-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.1-cashflow-fecha21.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.1-cashflow-semana.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.1-historial-16-21.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.2-caja80-antes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.2-caja80-validada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.3-emma-inscripcion-conservada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.3-inscripcion-8000.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.4-gonzalo-ficha.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.4-mariela-ficha.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.5-gracia10-restaurada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.5-gracia25-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.5-gracia40-rechazo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.6-egresos-octubre.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.6-luz-confirmacion-visible.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.6-luz-fecha-futura.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.6-luz-guardada.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.6-luz-mes-cerrado.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.6-luz-pide-confirmar.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-cashflow.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-configuraciones.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-deportes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-grupos.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-niveles.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-reportes-alumnos.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-reportes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-rubros.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-tipos-caja.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-lucia-usuarios.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-cashflow.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-configuraciones.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-deportes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-grupos.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.7-sandra-niveles.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-reportes-alumnos.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-reportes.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-rubros.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-tipos-caja.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.7-sandra-usuarios.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "44.8-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.8-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "44.8-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.1-valentino-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.1-valentino-ficha.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.1-valentino-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.1-valentino-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.10-dueno-sin-lista1.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.10-hernan-pendiente.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.12-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.12-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.12-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.2-morena-mp-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.2-morena-mp-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.2-sandra-esperado-sin-cambio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.3-morena-anulado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.3-morena-galicia.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.3-motivo-corto.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.4-sandra-morena-sin-anular.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "45.5-renzo-con-pago-rechazado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.5-renzo-sin-motivo.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "45.6-cashflow-val-dueno.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.7-dueno-caja-abierta.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.7-dueno-validar-abierta.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.7-sandra-sin-validar.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.8-autor-sandra.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.8-gasto-dueno-turno.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.8-nuevo-dueno-cashflow.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "45.9-alma-sin-presentes-validos.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.9-cancelar-con-lista-aviso.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.9-clase-cancelada-19-marcas.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "45.9-confirmacion-lista.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.0-antes-recargo-cobranza.jpg",
+      "ancho": 1898,
+      "alto": 847
+    },
+    {
+      "archivo": "46.0-antes-recargo-inicio.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.0-recargo-automatico-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.0-recargo-automatico-confirmado.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.1-milagros-cobro22000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.1-milagros-creada.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.1-milagros-form.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.1-milagros-pago.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.1-pablo-abre10000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.2-milagros-duplicado-rechazo.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.2-milagros-un-pago.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.3-hernan-lista-24-antes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.3-hernan-lista-persistida-final.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.3-hernan-lista-persistida.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.4-thiago-futbol-antes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.4-thiago-patin-creado.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.4-thiago-patin-deuda20000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.4-thiago-patin-form.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.5-pablo-profesora-pasada.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.5-profesora-mariela-final.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.5-profesora-mariela.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.5-profesora-sin-motivo.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.6-internet-fecha-futura.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.6-internet-viejo-rechazo.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.6-internet23500-doble.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "46.7-cierre-faltante44000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.7-cierre-viejo-antes-envio.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "46.7-cierre-viejo11600.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "46.7-emilia44000-pago-confirmado.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.7-emilia44000-pago.jpg",
+      "ancho": 1920,
+      "alto": 855
+    },
+    {
+      "archivo": "46.7-resumen-faltante44000.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.8-caja-validada-diferencia.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.8-dueno-validar-diferencia.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.9-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.9-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "46.9-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.1-emma30410.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.1-morosos-seis.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.10-lautaro-activo.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.10-lautaro-inactivo-persistido.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.10-lautaro-inactivo.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.12-cajas-sin-abiertas.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.12-cierre-cobranza.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.12-cierre-inicio.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.12-cierre-reportes.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.2-infantiles4-creadas.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.2-solapamiento-hernan.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.3-adultos-aviso-bloques.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.3-adultos10-creadas.jpg",
+      "ancho": 1905,
+      "alto": 848
+    },
+    {
+      "archivo": "47.4-despues-diez-intentos.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.4-valentino-tras-intentos.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-clave-corta.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-claves-distintas.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-email-repetido.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-email-sin-arroba.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-gonzalo-usuario-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.5-reenvio-email-repetido.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.5-sin-nombre.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.5-sin-profesor.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "47.6-gonzalo-cuatro-clases-diciembre.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.6-gonzalo-primer-ingreso.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-esperado-vuelve30100.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-cobro19200.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-creado.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-dos-renglones-cancelados.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-enplazo19200.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.7-tobias-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.8-facundo-pago.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.8-facundo58800-form.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-01.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-02.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-03.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-04.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-05.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-06.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-07.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-08.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-09.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-10.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-11.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-12.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-13.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-14.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-15.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "47.9-esperado324100.jpg",
+      "ancho": 1905,
+      "alto": 904
+    }
+  ],
+  "pdfs": [
+    {
+      "archivo": "41.6-recibo-dante.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.4-valentino-recibo397.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.7-tobias-recibo402-anulado.pdf",
+      "paginas": 1,
+      "anulado": true
+    },
+    {
+      "archivo": "47.9-01-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-02-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-03-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-04-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-05-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-06-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-07-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-08-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-09-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-10-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-11-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-12-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-13-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-14-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    },
+    {
+      "archivo": "47.9-15-recibo.pdf",
+      "paginas": 1,
+      "anulado": false
+    }
+  ],
+  "quince_recibos": [
+    {
+      "paso": "47.9-01",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-02",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-03",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-04",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-05",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-06",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-07",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-08",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-09",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-10",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-11",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-12",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-13",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-14",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    },
+    {
+      "paso": "47.9-15",
+      "persona": true,
+      "importe": true,
+      "mes": true,
+      "medio": true
+    }
+  ],
+  "totales_adelantos": {
+    "EFE": 294000,
+    "MP": 208000,
+    "BGA": 102000
+  }
+}

@@ -1,0 +1,56 @@
+Browser tab: 1293181219, Title: "Ibarra, Gonzalo – Wings", URL: "https://test.gestionar-te.com.ar/profesores/7".
+1 AXWebArea Ibarra, Gonzalo – Wings, URL: test.gestionar-te.com.ar/profesores/7
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/administrar-profesores
+		30 button Salir
+	31 heading Ibarra, Gonzalo, Value: 1
+		32 text Ibarra, Gonzalo
+	33 container
+		34 text Activo
+		35 button Editar
+		36 image
+		37 text DEPORTE Fútbol
+		38 image
+		39 text TIPO DE LIQUIDACIÓN Por comisión
+		40 image
+		41 text PORCENTAJE DE COMISIÓN 35.00%
+		42 image
+		43 text TELÉFONO 11-4444-5555
+		44 image
+		45 text EMAIL gonzalo.ibarra@example.com
+		46 image
+		47 text CBU O ALIAS –
+		48 image
+		49 text CLASES ASIGNADAS Sin clases asignadas próximas.
+		50 image
+		51 text HISTORIAL DE LIQUIDACIONES Sin liquidaciones registradas.
+		52 button Volver
+	53 text Wings
+
+The focused UI element is 1 AXWebArea Ibarra, Gonzalo – Wings, URL: test.gestionar-te.com.ar/profesores/7

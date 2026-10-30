@@ -1,0 +1,82 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Mariela Ocampo
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-asistencia
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Federadas" [level=1]
+- main:
+  - heading "Jueves 19 de noviembre de 2026" [level=2]
+  - generic: 18:00 – 19:00
+  - generic: Patín
+  - generic: Patín — Federadas
+  - generic: Ocampo, Mariela
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "8"
+  - text: alumnos en el grupo ·
+  - strong: "7"
+  - text: presentes
+  - generic: Diaz, Catalina
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …501
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Diaz, Martina
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …042
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Iglesias, Helena
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …040
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Nuñez, Guadalupe
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …910
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramos, Lucia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …039
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rossi, Berenice
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …802
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rossi, Olivia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …041
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Vega, Florencia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …801
+  - generic: Presente
+  - checkbox "Presente" [checked] [active]
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings
