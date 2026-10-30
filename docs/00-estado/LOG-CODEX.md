@@ -9,6 +9,8 @@ Conservados T99, Clara $270.000, T101 y cierre viejo −$44.000. Diferencias 44.
 Sin consultas directas a base, reparaciones, código, vistas/CSS, catálogo/tablero, despliegue ni suite documental. Archivo propio sin cambios ajenos al editar; entrada antigua preservada íntegra por límite.
 Entrega para Claude: revisión independiente de diferencias, controles internos y prueba técnica. No autocierre de T14. Commit documental propio; sin push solicitado.
 
+Actualización 30/10: Carlos pidió publicar todo. Fetch: main y origin/main en e262de4e (0/0), entrega 099656d7 ya publicada. Árbol limpio antes de editar; LOG propio intacto desde 099656d7. Se publica este asiento con push normal; sin operar el sitio.
+
 ## 2026-10-30 — Codex CAB — Publicación de la tanda 3 y bitácora
 
 Carlos pidió actualizar mi bitácora y subir todo a GitHub. Fetch de origin comprobado: main local y remoto en18a8bc8d, divergencia0/0; contiene940c53b5, entrega de los días34–40.
