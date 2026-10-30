@@ -15,7 +15,8 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 - SIS-006: `lang/es/validation.php` nuevo, con las reglas genéricas de Laravel en castellano, los nombres de campo que ve la persona y «hoy» en lugar de «today». Antes, salteando el navegador, salía «The fecha field must be a date before or equal to today.».
 - Ficha: un cobro que no tocó ninguna cuota se nombra por lo que cobró («Inscripción», «Recargo por mora») y no con el mes del pago (`alumnos/show.blade.php`, `AlumnoWebController::show` carga `cargos`). Diseño autorizado por Carlos (30/10).
-- Pruebas: +1 en `AvisosCastellanoT47Test`, +1 en `CobranzaInscripcionEstadoTest`; corte 1305. Suite completa antes de subir al sitio de prueba junto con MF12 y MF13.
+- Pruebas: +1 en `AvisosCastellanoT47Test`, +1 en `CobranzaInscripcionEstadoTest`; corte 1305. Suite completa en `wings_testing_claude`: 1299 aprobadas, 6 omitidas, 0 fallidas (1195 s).
+- **Sitio de prueba de `69cb8ba5` a `82ae1b58`:** respaldo `wingstest-antes-despliegue-2026-10-30.sql.gz`, down → merge --ff-only → npm ci/build → 0 migraciones → cachés → up; /login 200, reloj intacto (11/11), sin errores nuevos en el registro. Incluye la etapa B de la Ayuda (`a6fee09b`). Comprobado en solo lectura: octubre sin pendientes por comisión, Iván dice «Inscripción», 0 clases sin lista. [Prompt para que Codex verifique](../06-pruebas/PRU-04/PROMPT-CODEX-VERIFICACION-MF12-MF13.md).
 
 ## 2026-10-30 — Claude CAB — T12/T13 etapa B devuelta entera
 

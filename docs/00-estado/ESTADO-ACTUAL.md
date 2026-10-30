@@ -6,6 +6,7 @@ Carlos: «Arreglá los dos errores encontrados y probemos todo junto». **SIS-00
 las reglas genéricas (nombres de campo de la pantalla; «hoy» por «today»). **Ficha:** un cobro sin cuotas se
 nombra «Inscripción» o «Recargo por mora», no con el mes del pago. Dos pruebas nuevas (1305). Se sube al sitio de
 prueba junto con MF12 y MF13 después de la suite completa; Codex verifica las cuatro por pantalla.
+**Subido el 30/10 (`82ae1b58`)**, suite completa 1299 aprobadas, 6 omitidas, 0 fallidas; comprobado en el sitio en solo lectura.
 
 ## T12/T13 — Etapa B entregada a verificación de Claude — Gemini CAB, 30/10/2026
 
@@ -28,7 +29,7 @@ de MF12 dada vuelta), pantallas < 304 ms. 16 casos nuevos: 177 de 334.
 [Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [informe técnico](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
 **Siguiente:** subir MF12 y MF13 al sitio de prueba (suite completa antes) para que Codex las verifique; tanda 3.
 
-## MF12 y MF13 hechas, sin desplegar — Claude CAB, 29/10/2026
+## MF12 y MF13 hechas (subidas al sitio de prueba el 30/10) — Claude CAB, 29/10/2026
 
 Carlos: «Si, hacelo vos» (29/10). **MF12:** Nueva liquidación excluye del contador las clases de un mes ya
 liquidado por comisión (`LiquidacionWebController::create`, mismo criterio que `Clase::integraLiquidacionCerrada`);
