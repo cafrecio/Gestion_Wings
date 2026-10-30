@@ -1,0 +1,5 @@
+Fuente: imagen original adjunta directamente por Carlos en este chat el 30/10/2026.
+La imagen muestra separador «30 de octubre» y hora del mensaje02:16.
+El reloj simulado del sitio se fijó en12/11/2026 07:58; reloj real del comando30/10/2026 02:13:23 Argentina. El resumen recibido cae en la ventana de espera prevista para las08:00 simuladas.
+La captura no trae la línea «Clases sin lista tomada». Sí trae dos excepciones en24h: alumno nuevo sin primer pago1 y asistencia de deudor1, coherentes con Iván y Santino del11/11. Inicio muestra Sin asistencia0.
+No se ejecutó el resumen manualmente. No se leyó otro chat ni se inició sesión en Telegram Web.

@@ -1,0 +1,78 @@
+Browser tab: 1320327715, Title: "Nueva Liquidación – Wings", URL: "https://test.gestionar-te.com.ar/liquidaciones/crear".
+1 AXWebArea Nueva Liquidación – Wings, URL: test.gestionar-te.com.ar/liquidaciones/crear
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/generar-liquidacion-profesor
+		30 button Salir
+	31 heading Nueva Liquidación, Value: 1
+		32 text Nueva Liquidación
+	33 container form-liquidacion
+		34 container
+			35 image
+			36 text Profesor *
+		37 container
+			38 radio button (settable, integer) Description: Acosta, Martín Fútbol Por comisión 0 clases liquidables, Value: 0, ID: prof-6
+			39 text Acosta, Martín Fútbol Por comisión 0 clases liquidables
+			40 radio button (settable, integer) Description: Directora, Vanina Patín Por hora 0 clases liquidables, Value: 0, ID: prof-5
+			41 text Directora, Vanina Patín Por hora 0 clases liquidables
+			42 radio button (settable, integer) Description: Gaitán, Lucía Patín Por hora 0 clases liquidables, Value: 0, ID: prof-1
+			43 text Gaitán, Lucía Patín Por hora 0 clases liquidables
+			44 radio button (settable, integer) Description: Ocampo, Mariela Patín Por hora 0 clases liquidables, Value: 0, ID: prof-3
+			45 text Ocampo, Mariela Patín Por hora 0 clases liquidables
+			46 radio button (settable, integer) Description: Quintana, Hernán Fútbol Por comisión 0 clases liquidables, Value: 0, ID: prof-4
+			47 text Quintana, Hernán Fútbol Por comisión 0 clases liquidables
+			48 radio button (settable, integer) Description: Salinas, Verónica · Inactiva, con clases dictadas pendientes Patín Por hora 0 clases liquidables, Value: 0, ID: prof-2
+			49 text Salinas, Verónica  · Inactiva, con clases dictadas pendientes Patín Por hora 0 clases liquidables
+		50 container
+			51 image
+			52 text Mes *
+		53 pop up button (collapsed, settable) Mes *, Value: Octubre, ID: mes, Secondary Actions: Expand
+			54 menu
+				55 — Seleccioná —
+				56 Enero
+				57 Febrero
+				58 Marzo
+				59 Abril
+				60 Mayo
+				61 Junio
+				62 Julio
+				63 Agosto
+				64 Septiembre
+				65 (selected) Octubre
+				66 Noviembre
+				67 Diciembre
+		68 container
+			69 image
+			70 text Año *
+		71 stepper (settable, integer) Año *, Value: 2026, ID: anio
+		72 text Se generará la liquidación con todas las clases liquidables del período seleccionado.
+		73 button Cancelar
+		74 button Generar
+	75 text Wings
+
+The focused UI element is 1 AXWebArea Nueva Liquidación – Wings, URL: test.gestionar-te.com.ar/liquidaciones/crear

@@ -1,0 +1,3 @@
+MF13: intento inicial de abrir Telegram Web bloqueado antes de leer comunicaciones. Motivo de revisión automática: acceso privado sin autorización explícita reconocida en los mensajes humanos.
+Respuesta directa de Carlos a la pregunta: «Autorizo leer ese resumen en Telegram Web».
+Se abrió https://web.telegram.org/ con esa autorización. La página redirigió a /k/; pantalla oscura/cargando, sin mensajes accesibles todavía. No se consultaron otros chats ni se enviaron mensajes.

@@ -1,0 +1,132 @@
+Browser tab: 1320327715, Title: "Vega, Florencia – Wings", URL: "https://test.gestionar-te.com.ar/alumnos/256".
+1 AXWebArea Vega, Florencia – Wings, URL: test.gestionar-te.com.ar/alumnos/256
+	2 container
+		3 link Description: WINGS, Value: test.gestionar-te.com.ar/
+		4 text DÍA A DÍA
+		5 link Description: Inicio, Value: test.gestionar-te.com.ar/admin/dashboard
+		6 link Description: Alumnos, Value: test.gestionar-te.com.ar/alumnos
+		7 link Description: Clases, Value: test.gestionar-te.com.ar/clases
+		8 text PLATA
+		9 link Description: Cobranza, Value: test.gestionar-te.com.ar/cobranza
+		10 link Description: Caja, Value: test.gestionar-te.com.ar/caja
+		11 link Description: Movimientos, Value: test.gestionar-te.com.ar/movimientos
+		12 link Description: Cashflow, Value: test.gestionar-te.com.ar/cashflow
+		13 link Description: Liquidaciones, Value: test.gestionar-te.com.ar/liquidaciones
+		14 link Description: Reportes, Value: test.gestionar-te.com.ar/reportes
+		15 link Description: Revisión, Value: test.gestionar-te.com.ar/revision-cobranza
+		16 text EL CLUB
+		17 link Description: Deportes, Value: test.gestionar-te.com.ar/deportes
+		18 link Description: Niveles, Value: test.gestionar-te.com.ar/niveles
+		19 link Description: Grupos, Value: test.gestionar-te.com.ar/grupos
+		20 link Description: Profesores, Value: test.gestionar-te.com.ar/profesores
+		21 link Description: Rubros, Value: test.gestionar-te.com.ar/rubros
+		22 link Description: Tipos de Caja, Value: test.gestionar-te.com.ar/tipos-caja
+		23 text SISTEMA
+		24 link Description: Configuración, Value: test.gestionar-te.com.ar/configuraciones
+		25 link Description: Usuarios, Value: test.gestionar-te.com.ar/usuarios
+		26 link Description: Ayuda, Value: test.gestionar-te.com.ar/ayuda
+	27 container
+		28 text Admin Prueba
+		29 link Description: Ayuda sobre esta pantalla, Value: test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+		30 button Salir
+	31 heading Vega, Florencia, Value: 1
+		32 text Vega, Florencia
+	33 container
+		34 text Activo
+		35 switch (settable, boolean) Description: Activo, Value: 1, ID: ds-toggle-6ae4290357e9a
+		36 button Cobrar
+		37 button Editar
+		38 image
+		39 text DNI 44100801
+		40 image
+		41 text NACIMIENTO 15/01/2005
+		42 image
+		43 text CELULAR 1145123408
+		44 image
+		45 text EMAIL flor.vega@testmail.com
+		46 image
+		47 text DEPORTE Patín
+		48 image
+		49 text GRUPO Patín — Federadas
+		50 image
+		51 text PLAN 2x sem. — $50,000.00/mes
+		52 image
+		53 text ALTA 10/03/2022
+		54 image
+		55 text ESTADO DE COBRANZA Al día
+		56 container recargos-mora
+			57 text Recargos por mora
+			58 text Recargo por mora — Noviembre 2026
+			59 text Pendiente: $0.00
+		60 container cuotas-pasadas
+			61 text Meses sin cuota generada
+			62 container
+				63 pop up button (collapsed, settable) Description: Mes sin cuota, Value: Marzo 2022 · $50,000.00, Secondary Actions: Expand
+					64 menu
+						65 (selected) Marzo 2022 · $50,000.00
+						66 Abril 2022 · $50,000.00
+						67 Mayo 2022 · $50,000.00
+						68 Junio 2022 · $50,000.00
+						69 Julio 2022 · $50,000.00
+						70 Agosto 2022 · $50,000.00
+						71 Septiembre 2022 · $50,000.00
+						72 Octubre 2022 · $50,000.00
+						73 Noviembre 2022 · $50,000.00
+						74 Diciembre 2022 · $50,000.00
+						75 Enero 2023 · $50,000.00
+						76 Febrero 2023 · $50,000.00
+						77 Marzo 2023 · $50,000.00
+						78 Abril 2023 · $50,000.00
+						79 Mayo 2023 · $50,000.00
+						80 Junio 2023 · $50,000.00
+						81 Julio 2023 · $50,000.00
+						82 Agosto 2023 · $50,000.00
+						83 Septiembre 2023 · $50,000.00
+						84 Octubre 2023 · $50,000.00
+						85 Noviembre 2023 · $50,000.00
+						86 Diciembre 2023 · $50,000.00
+						87 Enero 2024 · $50,000.00
+						88 Febrero 2024 · $50,000.00
+						89 Marzo 2024 · $50,000.00
+						90 Abril 2024 · $50,000.00
+						91 Mayo 2024 · $50,000.00
+						92 Junio 2024 · $50,000.00
+						93 Julio 2024 · $50,000.00
+						94 Agosto 2024 · $50,000.00
+						95 Septiembre 2024 · $50,000.00
+						96 Octubre 2024 · $50,000.00
+						97 Noviembre 2024 · $50,000.00
+						98 Diciembre 2024 · $50,000.00
+						99 Enero 2025 · $50,000.00
+						100 Febrero 2025 · $50,000.00
+						101 Marzo 2025 · $50,000.00
+						102 Abril 2025 · $50,000.00
+						103 Mayo 2025 · $50,000.00
+						104 Junio 2025 · $50,000.00
+						105 Julio 2025 · $50,000.00
+						106 Agosto 2025 · $50,000.00
+						107 Septiembre 2025 · $50,000.00
+						108 Octubre 2025 · $50,000.00
+						109 Noviembre 2025 · $50,000.00
+						110 Diciembre 2025 · $50,000.00
+						111 Enero 2026 · $50,000.00
+						112 Febrero 2026 · $50,000.00
+						113 Marzo 2026 · $50,000.00
+						114 Abril 2026 · $50,000.00
+						115 Mayo 2026 · $50,000.00
+						116 Junio 2026 · $50,000.00
+						117 Julio 2026 · $50,000.00
+						118 Agosto 2026 · $50,000.00
+						119 Septiembre 2026 · $50,000.00
+						120 Octubre 2026 · $50,000.00
+				121 button Crear
+		122 image
+		123 text HISTORIAL DE PAGOS 11/11/2026 · Nov 2026 $55,000.00
+		124 link Description: Recibo, Value: test.gestionar-te.com.ar/recibos/cuota/350?inline=1
+		125 image
+		126 text ASISTENCIAS — NOV 2026 3 clases 03/11 05/11 10/11
+		127 button Volver
+		128 text No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.
+	129 text Wings
+
+The focused UI element is 1 AXWebArea Vega, Florencia – Wings, URL: test.gestionar-te.com.ar/alumnos/256

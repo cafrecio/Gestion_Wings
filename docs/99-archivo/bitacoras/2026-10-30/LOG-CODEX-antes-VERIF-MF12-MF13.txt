@@ -1,0 +1,9 @@
+## 2026-10-28 — Codex CyE — T45 entregada a Claude
+
+Vigencias mensuales por deporte: abiertas bloquean e identifican; el mes actual y cerradas/pagadas conservan forma/importe. Porcentaje faltante avisa y frena liquidación; formulario conserva ambos valores y permite completar la próxima forma.
+14 propias/106 verdes. La migración anterior con profesora previa falló por tabla T45 inexistente; lectura compatible comprobada (1/4) y primera completa interrumpida voluntariamente. Aislamiento DDL igual a T27, sin cambiar migraciones viejas.
+Definitivas: rápida1113/6 omitidas/8523 aserciones/229,88s y completa1249/6 omitidas/10314/1317,09s, salidas0 en wings_testing_codex.18 fuentes propias y629 globales intactas. Incremento propio14; base1241 de92123ff6 con T12/T13 ajenas ya incorporadas.
+PHP/Blade/build correctos; Chrome1366/marco375 de cuatro pantallas y login, cambio real de mes y conservación de valores. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T45.html).
+Dos entradas antiguas archivadas intactas, SHA293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a; índice en esta bitácora. Tabla externa intacta, propuesta CAT-002 en el informe.
+T45 a_verificar, tiene/verifica=Claude; sigue T46. Sin autocierre, servidor, base del club ni despliegue.
+

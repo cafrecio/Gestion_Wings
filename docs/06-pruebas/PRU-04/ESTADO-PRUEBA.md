@@ -31,8 +31,8 @@ vez: 32 por $115.500 = $40.300 cobrados + $5.000 perdonados + $70.200 pendientes
 | 30.5 diciembre de Joaquín | **Verificado:** $48.000, pagada. El precio $52.000 rige desde el 8/11 para altas nuevas y desde el 1/12 para los existentes (T44). Mi control lo esperaba desde el 1/12: error mío, corregido | Nada |
 | 31.5 sin motivo: «Completa este campo» | **Error de mi guion:** el campo es obligatorio en el navegador, que frena antes. Forzando, el servidor dice «El motivo del rechazo es obligatorio.» y la operativa recibe 403 (prueba técnica). CAJ-029 cumple | Nada |
 | 32.1 registros internos de la deuda perdida | **Verificado:** una sola, del dueño, marcada en las cuotas por $77.000, sin pago ni movimiento; forzando, no de un activo, no con otro importe, no dos veces | Nada |
-| 32.4 la ficha etiqueta la inscripción como «Nov 2026» | **Observación menor:** el historial de la ficha etiqueta un pago sin cuotas con el mes del pago (`alumnos/show.blade.php:352-354`). El cobro y la cuenta corriente están bien | **Carlos decide** si entra como mejora futura |
-| 33.2 avisos en inglés | Por pantalla, Chrome frena en castellano. Forzando, el servidor contesta en inglés (`caja-rechazada-avisos-dia-33.txt`). SIS-006, menor; mismo origen que el hallazgo del día 17: no hay `lang/es/validation.php` | **Carlos decide** si entra como mejora futura |
+| 32.4 la ficha etiqueta la inscripción como «Nov 2026» | **Hallazgo previo al despliegue del 30/10:** el historial etiquetaba un pago sin cuotas con el mes del pago (`alumnos/show.blade.php:352-354` en ese corte). El cobro y la cuenta corriente estaban bien | Corregido por Claude el 30/10; etiqueta Inscripción verificada por Codex. [Control](VERIFICACION-MF12-MF13-CODEX.md) |
+| 33.2 avisos en inglés | **Hallazgo previo al despliegue del 30/10:** Chrome frenaba en castellano; forzando, el servidor contestaba en inglés (`caja-rechazada-avisos-dia-33.txt`). SIS-006, menor; en ese corte faltaba `lang/es/validation.php` | Corregido por Claude el 30/10; control de pantalla de Codex sin forzar el servidor. [Alcance](VERIFICACION-MF12-MF13-CODEX.md) |
 | 33.3 otro contado | Por pantalla no se llega: lo contado queda fijo, por diseño (CAJ-031). Forzando ya estaba probado (prueba técnica de los días 7 a 16) | Nada |
 | 33.8 quién y por qué perdonó | **Verificado en la base:** el evento de condonación tiene al dueño y el motivo (PEN-2). La ficha no lo muestra | Anotado |
 | 31 el reloj avanzó a las 12:19 por una pausa | Sin efecto en la plata; las capturas del día 31 llevan esa hora | Nada |
@@ -44,7 +44,9 @@ CBZ-024, CLA-015, CFG-006, PEN-001, MOV-010, COB-034, SIS-006, CSH-019 y REP-004
 **Prueba técnica de los días 29 a 33:** funcionamiento interno 36/36 (nueve controles nuevos), seguridad 31/31
 (cinco pruebas nuevas; la de MF12 dada vuelta) y velocidad por debajo de 304 ms ([informe](prueba-tecnica/INFORME.md)).
 
-**Lo que sigue:** MF12 y MF13 (hechas el 29/10, `ac712594`) se suben al sitio de prueba y Codex las verifica.
+**Verificación posterior de Codex CAB, 30/10:** MF12 y MF13 comprobadas por pantalla y Telegram recibido, cerradas con `verifica=Codex`; la ficha de inscripción corregida también cumple. SIS-006 se observó sin avisos en inglés durante las consultas, sin repetir validaciones forzadas del servidor. [Informe y evidencia](VERIFICACION-MF12-MF13-CODEX.md). Reloj dejado en 12/11, sin repetir los días 24–33.
+
+**Lo que sigue:**
 Tanda 3: alta tardía entre el 17 y el 30/11 que no viene (CBZ-017), cierre de noviembre y Revisión del 1/12.
 
 ## Revisión de Claude de los días 24 a 28 (2 al 6/11, tanda 1) — 29/10/2026

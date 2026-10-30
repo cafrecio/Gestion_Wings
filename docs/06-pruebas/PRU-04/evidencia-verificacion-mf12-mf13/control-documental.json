@@ -1,0 +1,72 @@
+{
+  "cuatroFilas": [
+    {
+      "fila": "MF12",
+      "resultado": "cumple"
+    },
+    {
+      "fila": "MF13",
+      "resultado": "cumple"
+    },
+    {
+      "fila": "Ficha",
+      "resultado": "cumple"
+    },
+    {
+      "fila": "SIS-006",
+      "resultado": "cumple en el alcance pedido, sin prueba backend propia"
+    }
+  ],
+  "imagenes": [
+    {
+      "archivo": "01-mf12-noviembre-contadores.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "01-mf12-octubre-cero-comision.jpg",
+      "ancho": 1920,
+      "alto": 911
+    },
+    {
+      "archivo": "01-mf12-octubre-pagado-listado.jpg",
+      "ancho": 1074,
+      "alto": 911
+    },
+    {
+      "archivo": "02-inicio-12nov-sin-asistencia-cero.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "02-telegram-recibido-original.png",
+      "ancho": 496,
+      "alto": 309
+    },
+    {
+      "archivo": "03-ficha-florencia-conserva-nov55000.jpg",
+      "ancho": 1905,
+      "alto": 904
+    },
+    {
+      "archivo": "03-ficha-ivan-inscripcion-5000.jpg",
+      "ancho": 1905,
+      "alto": 904
+    }
+  ],
+  "enlacesComprobados": 22,
+  "tableroCoincideCommit": "c7004dc81dd93b3a82c0e5425c1d5c51342fc734",
+  "registrosTareasCambiadosDesdeCopia": [
+    "MF12",
+    "MF13"
+  ],
+  "ajenosFueraDeMF": [
+    "T12",
+    "T13"
+  ],
+  "relojFijadoUnaVez": true,
+  "esperaSegundos": 199,
+  "noResumenManual": true,
+  "noRepetirDias": true,
+  "sinSuiteNueva": true
+}

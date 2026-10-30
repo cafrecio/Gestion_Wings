@@ -1,0 +1,6 @@
+Wings: resumen diario de pendientes
+
+Excepciones justificadas (últimas 24 horas): 2 — Alumno nuevo sin primer pago: 1; Asistencia de alumno deudor: 1
+— https://test.gestionar-te.com.ar/admin/dashboard#excepciones
+
+Revisá cada sección ingresando al enlace correspondiente.

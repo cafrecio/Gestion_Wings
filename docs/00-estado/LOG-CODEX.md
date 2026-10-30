@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-30 — Codex CAB — MF12/MF13 y observaciones verificadas en el sitio de prueba
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-MF12-MF13-CODEX.md): octubre sin clases pendientes por comisión, noviembre conservado y Verónica inactiva con 2; Iván dice Inscripción $5.000 y Florencia conserva Nov 2026 $55.000.
+Reloj 12/11 07:58 una vez, espera real de 199 segundos antes de abrir pantallas; resumen automático, sin ejecución manual ni repetir días 24–33. Telegram original de Carlos (30/10 02:16): dos excepciones y ninguna línea de clases sin lista; Inicio 0.
+Cuatro filas cumplen en el alcance pedido. SIS-006 sin forzar formularios ni prueba backend propia; no se observaron avisos en inglés en Wings. Diferencia registrada: la ficha de Iván dice alta 02/11 frente a 03/11 del prompt, con el pago indicado correcto.
+MF12 y MF13 cerradas por el comando del tablero, verifica=Codex. Carlos autorizó preservar cambios ajenos de T12/T13; las dos filas cerradas quedaron incorporadas por el commit concurrente c7004dc8, comprobado. Esta entrega documental no reescribe ese commit.
+Seis capturas Chrome y PNG original de Telegram, transcripciones, huellas e imágenes comprobadas. Telegram Web sin sesión; Carlos aportó la imagen después de autorizar su lectura. No se enviaron mensajes ni se leyó otro chat.
+Reloj dejado en 12/11; sin cobros, generación, reparaciones, producto, catálogo, despliegue ni push propios. LOG/resumen sin cambios ajenos al editar; T45 archivada íntegra para mantener límite.
+Sigue la tanda 3 por su guion y decisión de Carlos. Esta verificación no la ejecuta ni amplía el alcance de la prueba del servidor.
+
 ## 2026-10-29 — Codex CAB — PRU-04 días 29 a 33, tanda 2 entregada a revisión
 
 Ejecutados los 33 pasos por Chrome en test/wingstest ficticia, tras revisión de Claude de la tanda 1; los cinco cierres financieros coinciden. [Informes e índice](../06-pruebas/PRU-04/evidencia-dias-29-33/LEEME.md).
@@ -34,15 +44,6 @@ Baja bloqueada por clases activas futuras/en curso, aviso y reasignación existe
 PHP de12 archivos, Blade y build correctos. Chrome real1366/marco375, login calibrado; rechazo/éxito/doble clic del cliente sin navegación. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T46.html).
 Dos entradas antiguas archivadas intactas; SHAc34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81, enlace en esta bitácora. Catálogo/DU-44 intactos; propuesta PRO-004 en el informe.
 T46 a_verificar, tiene/verifica=Claude. T51(983c6bab), T45(e3ca5555) y T46 entregadas por separado; Carlos revisa aspecto y Claude la lógica. Sin autocierre, servidor, base del club ni despliegue.
-
-## 2026-10-28 — Codex CyE — T45 entregada a Claude
-
-Vigencias mensuales por deporte: abiertas bloquean e identifican; el mes actual y cerradas/pagadas conservan forma/importe. Porcentaje faltante avisa y frena liquidación; formulario conserva ambos valores y permite completar la próxima forma.
-14 propias/106 verdes. La migración anterior con profesora previa falló por tabla T45 inexistente; lectura compatible comprobada (1/4) y primera completa interrumpida voluntariamente. Aislamiento DDL igual a T27, sin cambiar migraciones viejas.
-Definitivas: rápida1113/6 omitidas/8523 aserciones/229,88s y completa1249/6 omitidas/10314/1317,09s, salidas0 en wings_testing_codex.18 fuentes propias y629 globales intactas. Incremento propio14; base1241 de92123ff6 con T12/T13 ajenas ya incorporadas.
-PHP/Blade/build correctos; Chrome1366/marco375 de cuatro pantallas y login, cambio real de mes y conservación de valores. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md) · [Galería](../06-pruebas/PRU-04/APROBAR-T45.html).
-Dos entradas antiguas archivadas intactas, SHA293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a; índice en esta bitácora. Tabla externa intacta, propuesta CAT-002 en el informe.
-T45 a_verificar, tiene/verifica=Claude; sigue T46. Sin autocierre, servidor, base del club ni despliegue.
 
 ## 2026-10-28 — Codex CAB — Cierre de bitácora y publicación en GitHub
 
@@ -81,3 +82,5 @@ Sin producto, pruebas, migraciones, cachés ni despliegue por esta actualizació
 [Dos entradas T65/T89 conservadas intactas al entregar días24–28](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS24-28.txt). Base original: docs/00-estado/. SHA256: 0f300f81f9febe5788f4e5f174751aac7ad2d606b9a8a9b63492ea3991c23058.
 
 [Dos entradas T51/T70–T71 conservadas íntegras al entregar días29–33](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS29-33.txt). Base original: docs/00-estado/. SHA256: b45291484c7ca448837203d16109b16b871834b7b615506aedd91d742c436a0c.
+
+[Entrada T45 conservada íntegra al verificar MF12/MF13](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-VERIF-MF12-MF13.txt). Base original: docs/00-estado/. SHA256: 50994edcd56eaad7da4b002a0a8fe9e373c7b045ba8f49509c42097a0003d196.

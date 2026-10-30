@@ -1,0 +1,17 @@
+commit c7004dc81dd93b3a82c0e5425c1d5c51342fc734
+Author:     Chalie <carlos.a.bonifacio@gmail.com>
+AuthorDate: Fri Oct 30 02:26:23 2026 -0300
+Commit:     Chalie <carlos.a.bonifacio@gmail.com>
+CommitDate: Fri Oct 30 02:26:23 2026 -0300
+
+    Tablero: T12 y T13 a_verificar por Claude
+
+diff --git a/docs/00-estado/tareas.json b/docs/00-estado/tareas.json
+index 16f035b7..85069fc5 100644
+--- a/docs/00-estado/tareas.json
++++ b/docs/00-estado/tareas.json
+@@ -84,2 +84,2 @@
+-  {"id":"MF12","titulo":"Nueva liquidacion cuenta como pendientes las clases de un mes ya liquidado por comision","gravedad":"","prioridad":"","estado":"a_verificar","tiene":"Codex","hizo":"Claude","verifica":"Codex","paso":"Hecho por Claude 29/10 (ac712594), sin desplegar. Codex lo verifica en el sitio de prueba cuando se suba","ref":"docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md","fecha":"2026-10-30","cerrado_el":""},
+-  {"id":"MF13","titulo":"El resumen diario cuenta como sin lista una clase con la lista tomada y todos ausentes","gravedad":"","prioridad":"","estado":"a_verificar","tiene":"Codex","hizo":"Claude","verifica":"Codex","paso":"Hecho por Claude 29/10 (ac712594), sin desplegar. Codex lo verifica en el sitio de prueba cuando se suba","ref":"docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md","fecha":"2026-10-30","cerrado_el":""},
++  {"id":"MF12","titulo":"Nueva liquidacion cuenta como pendientes las clases de un mes ya liquidado por comision","gravedad":"","prioridad":"","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Codex","paso":"","ref":"docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md","fecha":"2026-10-30","cerrado_el":"2026-10-30"},
++  {"id":"MF13","titulo":"El resumen diario cuenta como sin lista una clase con la lista tomada y todos ausentes","gravedad":"","prioridad":"","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Codex","paso":"","ref":"docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md","fecha":"2026-10-30","cerrado_el":"2026-10-30"},

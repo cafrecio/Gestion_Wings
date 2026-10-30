@@ -1,0 +1,4 @@
+Reloj fijado una vez: 2026-11-12 07:58.
+Fin del comando: 2026-10-30T05:13:23Z.
+Comprobación antes de abrir pantallas: 2026-10-30T05:16:40Z o posterior, más de tres minutos reales.
+No se ejecutó el resumen a mano ni se volvió a fijar la hora.

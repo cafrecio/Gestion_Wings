@@ -1,0 +1,30 @@
+[
+  {
+    "id": "MF12",
+    "titulo": "Nueva liquidacion cuenta como pendientes las clases de un mes ya liquidado por comision",
+    "gravedad": "",
+    "prioridad": "",
+    "estado": "cerrado",
+    "tiene": "nadie",
+    "hizo": "Claude",
+    "verifica": "Codex",
+    "paso": "",
+    "ref": "docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md",
+    "fecha": "2026-10-30",
+    "cerrado_el": "2026-10-30"
+  },
+  {
+    "id": "MF13",
+    "titulo": "El resumen diario cuenta como sin lista una clase con la lista tomada y todos ausentes",
+    "gravedad": "",
+    "prioridad": "",
+    "estado": "cerrado",
+    "tiene": "nadie",
+    "hizo": "Claude",
+    "verifica": "Codex",
+    "paso": "",
+    "ref": "docs/06-pruebas/PRU-04/ESTADO-PRUEBA.md",
+    "fecha": "2026-10-30",
+    "cerrado_el": "2026-10-30"
+  }
+]

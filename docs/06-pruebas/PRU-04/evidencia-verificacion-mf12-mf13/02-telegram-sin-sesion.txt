@@ -1,0 +1,24 @@
+Browser tab: 1320327718, Title: "Telegram Web", URL: "https://web.telegram.org/k/".
+0 AXWebArea Telegram Web, URL: web.telegram.org/k/
+	1 image
+	2 container auth-pages
+		3 button Dark Mode
+		4 container
+			5 heading Log in by QR Code, Value: 1
+				6 text Log in by QR Code
+			7 text Scan with Telegram app on your phone
+			8 content list
+				9 container
+					10 text 1 Open Telegram on your phone
+				11 container
+					12 text 2 Go to  Settings Devices Add Device
+				13 container
+					14 text 3 Point your phone at this screen to confirm login
+			15 button LOG IN BY PHONE NUMBER
+				16 text LOG IN BY PHONE NUMBER
+			17 button CONTINUAR EN ESPAÑOL
+				18 text CONTINUAR EN ESPAÑOL
+			19 button LOG IN BY PASSKEY
+				20 text LOG IN BY PASSKEY
+
+The focused UI element is 0 AXWebArea Telegram Web, URL: web.telegram.org/k/
