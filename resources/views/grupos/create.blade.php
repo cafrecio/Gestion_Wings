@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Grupo – Wings')
 @section('module-title', 'Nuevo Grupo')
+@section('ayuda-slug', 'administrar-grupos')
 
 @section('content')
 <div class="filtros-card">

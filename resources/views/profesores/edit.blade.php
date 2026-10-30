@@ -2,6 +2,7 @@
 
 @section('title', 'Editar – ' . $profesor->apellido . ', ' . $profesor->nombre)
 @section('module-title', 'Editar: ' . $profesor->apellido . ', ' . $profesor->nombre)
+@section('ayuda-slug', 'administrar-profesores')
 
 @section('content')
 <x-ds.mobile-errors id="profesor-error-resumen" />

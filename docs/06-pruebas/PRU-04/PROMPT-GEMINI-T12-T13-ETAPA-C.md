@@ -15,12 +15,11 @@ profesora, las pantallas que la lista no cubre y el **?** en todas las pantallas
 
 ## Paso 0 · Dos arreglos antes de empezar
 
-1. **El ? de Clases le da un error a la profesora.** `clases/index.blade.php:6` apunta a
-   `consultar-clases-operativo`, una página de la operativa. La profesora entra a Clases, toca **?** y Wings
-   responde «No tenés permisos para ver esta sección de la ayuda.» (`ManualService::buscarPagina`). En una
-   pantalla que ven varios roles, el **?** elige la página según el rol, como ya hace `clases/show.blade.php:23`.
-   **Prueba nueva:** para cada pantalla con **?** y para cada rol que la puede abrir, el enlace del **?**
-   responde 200. Esa prueba tiene que fallar hoy y pasar con el arreglo.
+1. **La profesora no tiene ? en Clases**, su pantalla principal: `clases/index.blade.php:5-7` lo oculta para
+   ella. En una pantalla que ven varios roles, el **?** elige la página según el rol, como ya hace
+   `clases/show.blade.php:23`. **Prueba nueva:** para cada pantalla con **?** y para cada rol que la puede abrir,
+   el enlace del **?** responde 200. *(Corregido el 30/10: la primera versión decía que le daba «No tenés
+   permisos…»; Claude había leído una línea y no el `@if` que la rodea.)*
 2. **`validar-rechazar-caja`.** La ficha copió el `@if` de los botones incompleto: `caja/resumen.blade.php:72`
    pide además `efectivo_contado !== null`, y `CajaService.php:432` rechaza validar sin efectivo contado.
    Copiá la condición completa en la ficha y agregá a la página qué ve el dueño en una caja Cerrada sin

@@ -1,22 +1,35 @@
-# Ficha de fuentes: Tomar asistencia en una clase (Profesor)
+# Ficha de fuentes: tomar-asistencia
 
-- **Página del manual:** `resources/manual/profesor/tomar-asistencia.md`
-- **Rol:** Profesor
-- **Pantalla:** `/clases/{id}`
-- **Fecha de verificación:** 28/10/2026
-- **Entorno de ejecución:** Wings local sobre base `wings_manual_gemini` / `wings_testing_gemini`
+- **Página:** `resources/manual/profesor/tomar-asistencia.md` · **Rol:** profesor · Escrita por Claude CAB el 30/10/2026 (etapa C).
+- La columna «Condición en el código» es la línea literal, tomada del archivo por `etapa-c/generar-fichas.py`.
 
----
-
-## 1. Verificación paso a paso y casos de salida
-
-| Paso / Caso | Qué se afirma en el manual | Archivo y línea en Wings | Resultado al ejecutar en el sistema |
+| Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
 |---|---|---|---|
-| **Paso 1: Entrar a la clase** | En menú lateral, tocar **Clases**. Se visualizan las clases programadas para hoy (`Tus clases de hoy`). En la tarjeta correspondiente, tocar botón **Ver**. | `resources/views/layouts/ds-app.blade.php:44`<br>`resources/views/clases/index.blade.php:74`<br>`resources/views/clases/_card.blade.php:97` | Ejecutado con usuario Profesor (Valeria Ríos): la barra lateral solo muestra **Clases** y **Ayuda**. En `/clases` se ven sus clases bajo el título `Tus clases de hoy` y el botón primario es **Ver**. Abre la ficha `/clases/{id}`. |
-| **Paso 2: Marcar presencias** | En la ficha de la clase se ve el listado de alumnos del grupo. Tildar la casilla **Presente** de los que asistieron (los no marcados quedan como ausentes). | `resources/views/clases/show.blade.php:467-480`<br>`app/Models/Clase.php` | Ejecutado: se listan las alumnas del grupo (Martina Gómez y Camila Fernández). Cada fila dispone de su casilla **Presente** (línea 470). No existe casilla "Ausente": dejar sin tildar registra la inasistencia. |
-| **Paso 3: Guardar la lista** | Al final del listado, tocar botón **Guardar**. Wings registra las asistencias y muestra el aviso «Asistencias guardadas.». | `resources/views/clases/show.blade.php:551`<br>`app/Http/Controllers/ClaseWebController.php:512, 516`<br>`resources/js/clases-show.js:136` | Ejecutado: al tocar **Guardar**, se envía el POST `/clases/{id}/asistencias` por AJAX, persiste los registros en la tabla `asistencias` y despliega en pantalla el toast verde con el texto «✓ Asistencias guardadas.». |
-| **Qué hago si: alumno no está en lista** | El alumno no está formalmente inscripto en el grupo en el sistema. Avisarle a la operativa en el mostrador para verificar ficha e inscripción; el profesor no puede crear alumnos. | `docs/02-contratos/PERMISOS-ROLES.md`<br>`routes/web.php:61-73` | Comprobado en permisos: el rol PROFESOR solo tiene acceso a `clases` y `clases/{id}` (403 en `/alumnos`). La inscripción la gestiona el mostrador. |
-| **Qué hago si: clase cancelada** | Si la clase figura cancelada, el botón **Guardar** está deshabilitado y Wings bloquea con «La clase está cancelada. No se pueden registrar asistencias.». | `app/Http/Controllers/ClaseWebController.php:360`<br>`resources/views/clases/show.blade.php:545` | Ejecutado: sobre clase con `cancelada = true`, el botón **Guardar** porta atributo `disabled` y el controlador rechaza la petición HTTP con el mensaje exacto. |
-| **Qué hago si: corregir marca** | En clase de hoy, modificar marcas y tocar **Guardar**. Si la clase ya pasó con lista tomada, cartel `Estás corrigiendo una lista ya tomada — indicá el motivo` y motivo obligatorio (si falta, avisa «Indicá el motivo de la corrección.»). Si integra liquidación cerrada, bloquea con «No se pueden modificar asistencias: la clase integra una liquidación cerrada.». | `resources/views/clases/show.blade.php:533`<br>`resources/js/clases-show.js:80`<br>`app/Http/Controllers/ClaseWebController.php:376, 396` | Ejecutado: en clase pasada con asistencia, se muestra el recuadro rojo de advertencia exigiendo motivo. Si se envía vacío, el toast advierte «Indicá el motivo de la corrección.». Si la liquidación está cerrada, el controlador devuelve error 422 con el mensaje exacto. |
-| **Qué hago si: clase antes del día** | La asistencia se toma solo desde el día de la clase. Antes de esa fecha, la casilla está deshabilitada y muestra «La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.». | `app/Http/Controllers/ClaseWebController.php:367`<br>`resources/views/clases/show.blade.php:476` | Ejecutado sobre una clase de fecha futura: las casillas tienen atributo `disabled` y el controlador rechaza el guardado con el mensaje citado. |
-| **Qué hago si: alumno moroso o con exceso** | Wings avisa en su tarjeta y abre campo de motivo de admisión (*El dueño lo verá en Inicio y en el resumen diario.*). Si se deja en blanco, avisa «Indicá el motivo para admitir al alumno.». | `resources/views/clases/show.blade.php:483`<br>`resources/js/clases-show.js:97`<br>`app/Services/ExcepcionCobranzaService.php` | Ejecutado: para alumnos con cuotas impagas vencidas, se expande el panel de excepción. Si el profesor tilda Presente sin escribir el motivo de admisión, el formulario bloquea con el mensaje citado. |
+| Abrir la clase desde Clases con Ver | `resources/views/clases/_card.blade.php:97` | `Ver` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Marcar Presente y Guardar | `resources/views/clases/show.blade.php:478`<br>`resources/views/clases/show.blade.php:552` | `<span class="hidden sm:inline">Presente</span>`<br>`<button id="btn-guardar-asistencias"` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Guardar deshabilitado en una clase cancelada; cartel arriba | `resources/views/clases/show.blade.php:390` | `Esta clase está cancelada. No se pueden registrar asistencias.` | Leído en el código; no ejecutado en pantalla. |
+| Clase futura: cartel y casillas deshabilitadas | `resources/views/clases/show.blade.php:484` | `{{ $todaviaNoOcurrio ? 'disabled' : '' }}` | Leído en el código; no ejecutado en pantalla. |
+| Corrección: motivo si pasó y tenía lista | `app/Http/Controllers/ClaseWebController.php:392` | `$esCorreccion       = $esPasada && $yaTieneAsistencias;` | Ejecutado (CapturasEtapaCTest): HTTP 422 · «Esta clase ya tenía lista tomada: indicá el motivo de la corrección.» |
+| No se modifica con liquidación cerrada | `app/Http/Controllers/ClaseWebController.php:376` | `$mensaje = 'No se pueden modificar asistencias: la clase integra una liquidación cerrada.';` | Leído en el código; no ejecutado en pantalla. |
+| Motivo obligatorio: nueva con 2 presentes o con historia en Deudor; Moroso con historia no | `app/Services/ExcepcionCobranzaService.php:42` | `: ($estado === CobranzaEstadoService::ESTADO_DEUDOR ? 'ASISTENCIA_DEUDOR' : null);` | Ejecutado (CapturasEtapaCTest): HTTP 422 · «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» |
+| Alumna nueva con menos de 2 presentes no pide motivo | `app/Services/ExcepcionCobranzaService.php:41` | `$tipo = $nuevo ? ((int) $previas->get($alumno->id, 0) >= 2 ? 'ASISTENCIA_NUEVO' : null)` | Ejecutado (CapturasEtapaCTest): HTTP 200 · «Asistencias guardadas.» |
+| Los de la primera carga no son nuevos | `app/Services/ExcepcionCobranzaService.php:39` | `$nuevo = !$conCuota->has($alumno->id) && !$conHistoriaInicial->has($alumno->id);` | Leído en el código; no ejecutado en pantalla. |
+| Aviso de exceso del plan, no obligatorio | `resources/views/clases/show.blade.php:505` | `Excede el plan — indicar motivo` | Leído en el código; no ejecutado en pantalla. |
+| Sin motivo obligatorio, la pantalla no guarda | `resources/js/clases-show.js:97` | `mostrarToast('Indicá el motivo para admitir al alumno.', false);` | Leído en el código; no ejecutado en pantalla. |
+
+## Rechazos y avisos de la acción
+
+Cada mensaje de Wings que cita la página, dónde está en el código y en qué sección de la página aparece. Los rechazos que la página no cita quedan en la tabla de arriba o en el informe del revisor.
+
+| Mensaje de Wings | Dónde está | ¿Está en la página? |
+|---|---|---|
+| «Asistencias guardadas.» | `app/Http/Controllers/ClaseWebController.php:512` | Sí — Paso 3. Guardar la lista |
+| «Esta clase está cancelada. No se pueden registrar asistencias.» | `resources/views/clases/show.blade.php:390` | Sí — ¿Qué hago si la clase figura cancelada? |
+| «Estás corrigiendo una lista ya tomada — indicá el motivo» | `resources/views/clases/show.blade.php:541` | Sí — ¿Qué hago si me equivoqué al marcar a un alumno? |
+| «Indicá el motivo de la corrección.» | `resources/js/clases-show.js:80` | Sí — ¿Qué hago si me equivoqué al marcar a un alumno? |
+| «No se pueden modificar asistencias: la clase integra una liquidación cerrada.» | `app/Http/Controllers/ClaseWebController.php:376` | Sí — ¿Qué hago si me equivoqué al marcar a un alumno? |
+| «Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.» | `resources/views/clases/show.blade.php:394` | Sí — ¿Qué hago si quiero tomar lista antes del día de la clase? |
+| «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» | `app/Services/ExcepcionCobranzaService.php:48` | Sí — ¿Qué hago si un alumno tiene cuota vencida o ya vino todas las veces de su plan? |
+| «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.» | `app/Services/ExcepcionCobranzaService.php:47` | Sí — ¿Qué hago si un alumno tiene cuota vencida o ya vino todas las veces de su plan? |
+| «Indicá el motivo para admitir al alumno.» | `resources/js/clases-show.js:97` | Sí — ¿Qué hago si un alumno tiene cuota vencida o ya vino todas las veces de su plan? |
+| «Excede el plan — indicar motivo» | `resources/views/clases/show.blade.php:505` | Sí — ¿Qué hago si un alumno tiene cuota vencida o ya vino todas las veces de su plan? |

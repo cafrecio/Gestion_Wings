@@ -2,6 +2,7 @@
 
 @section('title', 'Editar Nivel – ' . $nivel->nombre)
 @section('module-title', 'Editar Nivel: ' . $nivel->nombre)
+@section('ayuda-slug', 'administrar-niveles')
 
 @section('content')
 <div class="filtros-card">

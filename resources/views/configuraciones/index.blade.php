@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Configuración – Wings')
 @section('module-title', 'Configuración')
+@section('ayuda-slug', 'configurar-parametros')
 @php($title = 'Configuración')
 
 @section('content')

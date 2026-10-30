@@ -33,7 +33,6 @@ Esta tarea te explica cómo dar marcha atrás a la carga masiva de datos si dete
 3. Aceptá la confirmación. Wings eliminará de forma limpia los alumnos y deudas creados por esa planilla, manteniendo intactos tus deportes, categorías, grupos y usuarios.
 4. El asistente volverá al estado inicial con el mensaje «Se deshizo solamente la primera carga. Los catálogos y usuarios se conservan.» para que puedas corregir tu archivo y volver a importar.
 
-![Confirmación de reversión de la primera carga](/ayuda/img/admin/primera-carga-deshacer-paso2.png)
 
 ---
 

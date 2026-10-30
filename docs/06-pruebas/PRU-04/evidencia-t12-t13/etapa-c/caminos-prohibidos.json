@@ -1,0 +1,170 @@
+[
+    {
+        "caso": "Desactivar un deporte con alumnos activos",
+        "http": 302,
+        "error": "No se puede desactivar el deporte porque tiene 5 alumnos activos y 9 clases futuras.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Eliminar un nivel que usa un grupo",
+        "http": 302,
+        "error": "No se puede eliminar: hay 1 grupo(s) que usan este nivel.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Sacar del grupo una frecuencia con alumnos activos",
+        "http": 302,
+        "error": null,
+        "success": "Grupo actualizado correctamente.",
+        "observado": "La frecuencia de 2 veces sigue: sí"
+    },
+    {
+        "caso": "Desactivar un grupo con alumnos activos",
+        "http": 302,
+        "error": "No se puede desactivar el grupo porque tiene 5 alumnos activos y 1 clase futura.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Guardar un profesor sin valor por hora (el formulario lo marca obligatorio)",
+        "http": 302,
+        "error": null,
+        "success": "Profesor creado correctamente.",
+        "observado": "Se guardó: sí"
+    },
+    {
+        "caso": "Pasar a inactiva a una profesora con clases futuras",
+        "http": 302,
+        "error": "Tiene 9 clases futuras o en curso. Reasignalas antes de desactivar a la profesora.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Eliminar un rubro con subrubros",
+        "http": 302,
+        "error": "No se puede eliminar: tiene subrubros asociados.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Desactivar la cuenta del cajón del mostrador",
+        "http": 302,
+        "error": "No se puede desactivar porque es el medio de pago del cajón de mostrador.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Editar una cuenta con movimientos: ¿se ofrece el saldo inicial?",
+        "http": 200,
+        "error": null,
+        "success": null,
+        "observado": "Campo saldo_inicial en el formulario: no"
+    },
+    {
+        "caso": "Condonar con un motivo corto",
+        "http": 302,
+        "error": "El motivo de la condonación debe tener al menos 10 caracteres.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Eliminar un alumno con asistencias",
+        "http": 302,
+        "error": "No se puede eliminar el alumno: Tiene asistencias registradas. Puede darlo de baja cambiando su estado a inactivo.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Guardar reglas de primera cuota que dejan días sin cubrir",
+        "http": 422,
+        "error": "Los días 1 a 15 quedan sin cubrir. Todos los días del 1 al 31 deben estar cubiertos por una regla.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Desactivarse a uno mismo",
+        "http": 302,
+        "error": "No podés inactivarte a vos mismo.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Desactivar a la operativa con su caja abierta",
+        "http": 302,
+        "error": "Este usuario tiene una caja abierta. Primero hay que cerrar la caja.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Pedir un reporte de un mes futuro",
+        "http": 302,
+        "error": "El campo mes debe ser una fecha anterior o igual a 2026-10.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Eliminar una clase con asistencias",
+        "http": 302,
+        "error": "No se puede eliminar la clase: Tiene asistencias registradas: debe cancelarse con motivo.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Cambiar la fecha de una clase pasada",
+        "http": 302,
+        "error": "No se puede cambiar la fecha de una clase pasada ni mover una clase hacia el pasado.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Cambiar el medio del mostrador con una caja abierta",
+        "http": 302,
+        "error": "No se puede cambiar el medio del cajón mientras haya una caja abierta. Cerrá la caja abierta antes de cambiarlo.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Volver a la configuración del mostrador desde Caja una vez configurado",
+        "http": 200,
+        "error": null,
+        "success": null,
+        "observado": "Botón Configurar en Caja: no"
+    },
+    {
+        "caso": "Corregir la lista de ayer sin motivo",
+        "http": 422,
+        "error": "Esta clase ya tenía lista tomada: indicá el motivo de la corrección.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Marcar presente sin motivo a una alumna nueva (nunca pagó) en Deudor con menos de 2 presentes: no se pide (pedido directo)",
+        "http": 200,
+        "error": "Asistencias guardadas.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Alumna con historia en Deudor: marcarla ausente no pide motivo (pedido directo)",
+        "http": 200,
+        "error": "Asistencias guardadas.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "Alumna con historia en Deudor: marcarla presente sin motivo (pedido directo, sin la pantalla)",
+        "http": 422,
+        "error": "Tiene deuda vencida. Indicá el motivo para dejarlo entrar.",
+        "success": null,
+        "observado": null
+    },
+    {
+        "caso": "La profesora intenta cancelar una clase",
+        "http": 403,
+        "error": null,
+        "success": null,
+        "observado": null
+    }
+]

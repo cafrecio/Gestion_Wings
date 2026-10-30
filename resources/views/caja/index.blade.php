@@ -2,6 +2,7 @@
 
 @section('title', 'Caja – Wings')
 @section('module-title', 'Caja')
+@section('ayuda-slug', Auth::user()?->isAdmin() ? 'validar-rechazar-caja' : 'abrir-caja')
 
 @section('content')
 

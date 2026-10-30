@@ -2,6 +2,7 @@
 
 @section('title', 'Editar Rubro – ' . $rubro->nombre)
 @section('module-title', 'Editar Rubro: ' . $rubro->nombre)
+@section('ayuda-slug', 'administrar-rubros')
 
 @section('content')
 <div class="filtros-card">

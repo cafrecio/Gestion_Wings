@@ -104,6 +104,19 @@ Los profesores tienen una vista simplificada en su celular o tablet, centrada en
 | Etapa | Alcance | Tareas adicionales | Estado |
 |---|---|---|---|
 | **Muestras iniciales** | Páginas 1 (Cobrar), 29 (Ajuste Cashflow DU-27) y 51 (Tomar asistencia) | Estructura base de Ayuda, ruta de imágenes, botón ? y botón Imprimir | **APROBADO POR CLAUDE Y CARLOS** |
-| **Etapa A** | **Operativa: Páginas 2 a 20** (19 páginas) | **Buscador en /ayuda** y botón **?** en las pantallas de esas páginas | **EN CURSO** |
-| **Etapa B** | Dueño: Páginas 21 a 36 (15 páginas, excluyendo la 29) | Botón **?** en las pantallas de esas páginas | Pendiente |
-| **Etapa C** | Dueño: Páginas 37 a 49 y Profesora: Páginas 50, 52, 53 y 54 | Botón **?** en todas las pantallas restantes de Wings | Pendiente |
+| **Etapa A** | **Operativa: Páginas 2 a 20** (19 páginas) | **Buscador en /ayuda** y botón **?** en las pantallas de esas páginas | **Aprobada por Carlos (29/10)** |
+| **Etapa B** | Dueño: Páginas 21 a 36 (15 páginas, excluyendo la 29) | Botón **?** en las pantallas de esas páginas | **Aprobada por Carlos (30/10)** |
+| **Etapa C** | Dueño: Páginas 37 a 49 y Profesora: Páginas 50, 52, 53 y 54, más 55 a 59 | Botón **?** en todas las pantallas restantes de Wings | Hecha por Claude (30/10; Gemini sin crédito); falta control de Codex y OK de Carlos |
+
+## Páginas agregadas en la etapa C (Claude, 30/10/2026)
+
+Pantallas de Wings que ninguna página cubría. Sin página no podían tener su **?**.
+
+55. **Programar, editar y eliminar clases** (`admin/programar-clases.md`): clases únicas y series, edición, cancelar y eliminar.
+56. **Configurar el efectivo del mostrador** (`admin/configurar-mostrador.md`).
+57. **Leer la pantalla de Inicio del dueño** (`admin/inicio-dueno.md`).
+58. **Leer la pantalla de Inicio de la operativa** (`operativo/inicio-operativa.md`).
+59. **Editar o eliminar un movimiento de Cashflow** (`admin/corregir-movimiento-cashflow.md`): las pantallas de detalle y eliminación de un movimiento directo.
+
+Ajustes de títulos frente a la lista: la 37 es el reporte *Ingresos y egresos* (Wings no tiene un reporte de recaudación por medio de cobro); la 40 no incluye color (el deporte no tiene); la 41 no ordena niveles (no existe); la 42 no tiene cupos ni edades; la 43 no carga subrubro a mano (Wings lo crea solo); la 49 no tiene «reseteo de claves» propio: el dueño cambia la contraseña desde Editar.
+

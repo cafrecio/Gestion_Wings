@@ -7,6 +7,7 @@
 
 @section('title', $pageTitle . ' – Wings')
 @section('module-title', $pageTitle)
+@section('ayuda-slug', 'registrar-gasto-caja')
 
 @section('content')
 

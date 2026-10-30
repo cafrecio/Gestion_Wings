@@ -2,6 +2,7 @@
 
 @section('title', 'Editar Clase – Wings')
 @section('module-title', 'Editar Clase')
+@section('ayuda-slug', 'programar-clases')
 
 @section('content')
 

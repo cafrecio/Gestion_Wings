@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Movimiento – Cashflow – Wings')
 @section('module-title', 'Movimiento')
+@section('ayuda-slug', 'corregir-movimiento-cashflow')
 @section('content')
 <section class="alumno-card">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">{{ $movimiento->subrubro?->nombre }}</h3></div>

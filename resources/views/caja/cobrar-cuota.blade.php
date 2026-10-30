@@ -2,6 +2,7 @@
 
 @section('title', 'Cobrar cuota – Wings')
 @section('module-title', 'Cobrar cuota')
+@section('ayuda-slug', 'cobrar-cuota')
 
 @section('content')
 

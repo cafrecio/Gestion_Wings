@@ -2,6 +2,7 @@
 
 @section('title', 'Editar Usuario – Wings')
 @section('module-title', 'Editar Usuario')
+@section('ayuda-slug', 'administrar-usuarios')
 
 @section('content')
 

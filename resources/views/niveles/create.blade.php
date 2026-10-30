@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Nivel – Wings')
 @section('module-title', 'Nuevo Nivel')
+@section('ayuda-slug', 'administrar-niveles')
 
 @section('content')
 <div class="filtros-card">

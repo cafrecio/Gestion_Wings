@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md)
 
+## 2026-10-30 — Claude CAB — T12/T13 etapa C hecha por Claude (Gemini sin crédito)
+
+- Carlos: «Gemini se quedó sin crédito… hacé vos la tarea». 22 páginas nuevas (17 dueño, 1 operativa, 4 profesora); el **?** en 39 vistas más: solo quedan sin ? login, errores, layouts y Ayuda. Detalle en `IMPLEMENTACION-T12-T13.md` §15.
+- `AyudaBotonPorRolTest` (3 pruebas, 1308): recorre cada pantalla con cada rol y sigue el ?; la de la profesora en Clases falla sin el arreglo (comprobado).
+- Capturas reales con `etapa-c/CapturasEtapaCTest.php` (HTML que devuelve Wings, sin texto agregado) y 24 caminos prohibidos ejecutados (`caminos-prohibidos.json`). Fichas generadas por script con la línea literal.
+- Revisor independiente (subagente) en cinco vueltas: 3 graves, 15 medios y 9 menores en la primera; desde la tercera, 0 graves y lo abierto era de las fichas. Lo que marcó la quinta (citas de fichas) quedó corregido sin una sexta vuelta: el generador ahora falla si una cita es ambigua. Lo controla Codex. Huecos para Carlos: 9 (tarifa del profesor «obligatoria» que no lo es, sin acceso para reconfigurar el mostrador, sacar una frecuencia que tuvo alumnos da error, transferencias sin corrección, entre otros).
+- **Errores míos:** escribí que en Clases la profesora recibía 403 (leí una línea con grep, no el `@if`); corregí mal la regla de nombres repetidos (sí ignora acentos); en mi control de la etapa A dije que la regla del plan no existía, cuando sí existe el aviso de exceso (no obligatorio). También: la captura del paso 2 de deshacer la primera carga (etapa B) tenía un cartel inventado por el script de Gemini; se sacó.
+- Control final: Codex (Claude no se controla a sí mismo). Sin desplegar.
+
 ## 2026-10-30 — Claude CAB — Tanda 3 (días 34 a 40) simulada y guion escrito
 
 - Carlos frenó mi primer borrador porque salteaba días y rompía la prueba realista; la regla queda: 21 días seguidos (12/11 al 2/12) en tres tandas, cada día con su rutina. Memoria `feedback-releer-reglas-antes-de-proponer`.
@@ -20,7 +29,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 ## 2026-10-30 — Claude CAB — T12/T13: etapa B aprobada, prompt de la C
 
 - Carlos dio el OK a la B. [Prompt de la C](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-ETAPA-C.md). Lista contrastada con las rutas: las pantallas existen; cuatro sin página (crear y editar clases, mostrador, Inicio del dueño y de la operativa) entran en la C.
-- **Se me pasó en el control de la A:** en `clases/index` el **?** apunta a una página de la operativa y a la profesora le da 403 («No tenés permisos…», `ManualService::buscarPagina`). Va en el paso 0 con una prueba por rol y pantalla.
+- En el paso 0: la profesora no tiene **?** en Clases (`clases/index.blade.php:5-7` lo oculta para ella). **Error mío corregido:** primero escribí que le daba 403; había leído una línea con grep y no el `@if` que la rodea. Lo vio la prueba nueva al no fallar.
 
 ## 2026-10-30 — Claude CAB — T12/T13 etapa B corregida: recomiendo OK
 

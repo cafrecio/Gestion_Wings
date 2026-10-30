@@ -2,6 +2,7 @@
 
 @section('title', 'Editar Tipo de Caja – ' . $tipoCaja->nombre)
 @section('module-title', 'Editar Tipo de Caja: ' . $tipoCaja->nombre)
+@section('ayuda-slug', 'administrar-tipos-caja')
 
 @section('content')
 <div class="filtros-card">

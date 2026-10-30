@@ -2,6 +2,7 @@
 
 @section('title', $grupo->nombre_completo . ' – Wings')
 @section('module-title', $grupo->nombre_completo)
+@section('ayuda-slug', Auth::user()?->isAdmin() ? 'administrar-grupos' : 'consultar-grupos-planes')
 
 @section('content')
 

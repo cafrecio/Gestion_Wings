@@ -345,3 +345,37 @@ T12 y T13 quedan en el tablero con `estado=a_verificar`, `tiene=Claude`, `verifi
 *«Etapa A, segunda vuelta: control de Claude y OK de Carlos»*.
 
 **REGLA DURA:** No se inicia la Etapa B (páginas 21 a 36 del Dueño) hasta contar con la verificación favorable de Claude y la aprobación explícita de Carlos.
+
+## 15. Etapa C — hecha por Claude CAB (30/10/2026)
+
+Gemini se quedó sin crédito; Carlos pidió que la etapa C la haga Claude. El control final lo hace Codex (Claude no puede controlarse a sí mismo).
+
+### Qué se hizo
+- **22 páginas nuevas** (17 del dueño, 1 de la operativa, 4 de la profesora): las 37 a 49, 50, 52, 53 y 54 de la lista, más 5 pantallas que la lista no cubría (55 a 59). Ver `T12-LISTA-DE-PAGINAS.md`.
+- **El ? en todas las pantallas**: 39 vistas nuevas. Solo quedan sin ? el login, las páginas de error, los layouts y la Ayuda. En las pantallas que ven varios roles, el ? elige la página según el rol (Caja, Grupos, Clases, ficha de grupo).
+- **Paso 0**: la profesora no tenía ? en Clases (`clases/index.blade.php` lo ocultaba); ahora abre `consultar-mis-clases`. `validar-rechazar-caja` explica la caja Cerrada sin efectivo contado, con la condición literal en su ficha.
+- **Prueba nueva** `tests/Feature/AyudaBotonPorRolTest.php` (3 pruebas): recorre todas las pantallas sin parámetros con cada rol y sigue el ?, que tiene que responder 200; la profesora tiene ? en Clases (falla sin el arreglo, comprobado); cada página nombrada por un ? existe.
+- **Capturas reales**: `etapa-c/CapturasEtapaCTest.php` arma un club de prueba, abre cada pantalla con el usuario del rol y guarda el HTML que devuelve Wings; `etapa-c/html/` y 29 capturas en `resources/manual/img/`. Solo se abre un panel que en pantalla abre un botón, o se ocultan secciones de arriba. No se agrega texto.
+- **Caminos prohibidos ejecutados**: la misma prueba recorre 24 caminos (acciones que Wings tiene que rechazar y los bordes de cada regla) y guarda la respuesta en `etapa-c/caminos-prohibidos.json`.
+- **Fichas** `fuentes/<rol>-<pagina>.md`, generadas por `etapa-c/generar-fichas.py`: el número de línea y la condición se toman del archivo; si una cita no aparece, el script falla.
+
+### Correcciones a páginas aprobadas
+- `profesor/tomar-asistencia.md`: mezclaba el motivo obligatorio (Deudor, o alumna nueva con 2 presentes) con el aviso de exceso del plan, que no frena el guardado. Separado.
+- `admin/registrar-movimiento-cashflow.md`: decía que un movimiento se edita «mientras no corresponda a una caja cerrada o liquidación pagada»; la regla real es que sea directo, no anulado y de un subrubro no reservado (`CashflowMovimiento::puedeCorregirse`). Ahora remite a la página 59.
+- `admin/primera-carga-deshacer.md`: la captura del paso 2 (etapa B) mostraba un cartel «¿Deshacer la primera carga? Se borrarán los 35 alumnos…» que no existe en Wings: el script de la etapa B lo pegó al HTML (`scripts/pruebas/generar-capturas-etapa-b.php:306-309`). La confirmación real es la ventana del navegador. Se sacó la imagen.
+
+### Huecos para Carlos (no se arreglan)
+1. **Tarifa del profesor obligatoria solo de palabra.** El formulario marca **Valor por hora** y **Porcentaje de comisión (%)** con asterisco, pero Wings guarda sin ellos (`ProfesorWebController.php`, reglas `nullable`). Se descubre recién al liquidar. Ejecutado: se guardó.
+2. **No hay forma de volver a configurar el efectivo del mostrador.** Una vez configurado, ninguna pantalla muestra **Configurar** (`caja/index.blade.php`, `caja/apertura.blade.php` solo si la cuenta falta o está inactiva) y esa cuenta no se puede desactivar (`TipoCajaWebController::toggleActivo`). Solo se llega escribiendo la dirección.
+3. **Sacar una frecuencia con alumnos no avisa.** Si el dueño borra una frecuencia que tiene alumnos activos, Wings dice «Grupo actualizado correctamente.» y la frecuencia sigue (`GrupoWebController::update`, `whereNotExists`). Ejecutado.
+4. **Texto que mezcla baja con Inactivo.** Al no poder eliminar un alumno, Wings dice «Puede darlo de baja cambiando su estado a inactivo.» (`alumnos/show.blade.php` y `AlumnoWebController::destroy`). Carlos separó baja (eliminar) de Inactivo el 28/10.
+5. **Un nivel con grupos no se puede eliminar nunca**: los grupos no se borran ni cambian de nivel. Puede ser lo buscado; se anota para que Carlos lo confirme.
+6. **Sacar una frecuencia que tuvo alumnos da un error del servidor (probable 500).** Cambiar de plan deja guardada la asignación vieja (`CambioPlanService.php:68`, `activo => null`) y la relación `alumno_planes.plan_id` es `restrict` (`2026_01_12_091959_create_alumno_planes_table.php:17`); el borrado de `GrupoWebController::update` choca con esa relación. Hallado por el revisor independiente; comprobado en el código, no ejecutado.
+7. **Una transferencia entre cuentas no se puede corregir ni anular.** Solo hay rutas para crearla (`routes/web.php:138-139`); en Cashflow la fila muestra **Ver**. El manual dice que se haga otra en sentido contrario.
+8. **«Sin descubierto» solo se controla al pagar una liquidación** (`LiquidacionWebController.php:439`). Un gasto, un retiro o una transferencia pueden dejar la cuenta en negativo.
+9. **La profesora no encuentra una clase de más de 35 días con la lista tomada** (`ClaseWebController.php:97-100`): no puede corregirla. El manual le dice que avise al dueño.
+
+### Revisión independiente
+- Primera vuelta: `revisiones/2026-10-30-etapa-c.md`: 3 graves, 15 medios, 9 menores. Todos corregidos en las páginas (o anotados como hueco), con capturas regeneradas y la tabla «Rechazos y avisos» en las fichas.
+- Vueltas 2 a 5 (`revisiones/2026-10-30-etapa-c-*-vuelta.md`): desde la tercera, 0 graves; los medios abiertos eran de las fichas (filas que juntaban varias afirmaciones, citas a la primera aparición de un texto repetido). Lo que marcó la quinta se corrigió sin sexta vuelta: el generador acepta varias citas por fila y falla si una cita es ambigua. El control final es de Codex.
+- Corrección del revisor a Claude: la regla de nombres repetidos sí ignora acentos y espacios de más (`NombreUnico::normalizar`); Claude la había corregido mal.

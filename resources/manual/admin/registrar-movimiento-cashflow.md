@@ -46,7 +46,7 @@ Esta tarea te explica cómo registrar ingresos y egresos que no corresponden al 
 ## Qué hago si…
 
 ### ¿Qué hago si me equivoqué de medio de pago o de subrubro?
-Desde el listado de **Cashflow**, podés ubicar el movimiento y tocar sobre él para editar su imputación o corregir el monto mientras no corresponda a una caja cerrada o liquidación pagada.
+En el listado de **Cashflow**, en la fila del movimiento, tocá **Editar** para corregirlo o **Eliminar** para anularlo. Solo se puede con los movimientos cargados directo en Cashflow. Ver *Editar o eliminar un movimiento de Cashflow*.
 
 ### ¿Qué hago si la fecha que elijo es de un mes anterior?
 Si aparece el mensaje «Atención: fecha de un mes anterior» y el botón dice **Confirmar**, Wings te advierte que ese movimiento va a modificar el resultado y los saldos históricos de meses pasados. Si es correcto (por ejemplo, una factura que llegó con retraso), tocá **Confirmar** para guardar.

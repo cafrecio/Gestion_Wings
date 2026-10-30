@@ -2,6 +2,7 @@
 
 @section('title', 'Editar – ' . $deporte->nombre)
 @section('module-title', 'Editar: ' . $deporte->nombre)
+@section('ayuda-slug', 'administrar-deportes')
 
 @section('content')
 

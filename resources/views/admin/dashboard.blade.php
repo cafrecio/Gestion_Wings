@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Inicio – Wings')
 @section('module-title', 'Inicio')
+@section('ayuda-slug', 'inicio-dueno')
 @section('content')
 @php
     $dinero = fn ($centavos) => $centavos === null ? 'Sin historial' : \App\Support\FormatoImporte::pesos($centavos / 100);

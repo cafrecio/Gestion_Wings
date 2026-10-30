@@ -2,6 +2,7 @@
 
 @section('title', 'Tipos de Caja – Wings')
 @section('module-title', 'Tipos de Caja')
+@section('ayuda-slug', 'administrar-tipos-caja')
 
 @section('content')
 

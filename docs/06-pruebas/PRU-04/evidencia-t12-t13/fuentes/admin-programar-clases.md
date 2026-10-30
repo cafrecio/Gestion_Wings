@@ -1,0 +1,43 @@
+# Ficha de fuentes: programar-clases
+
+- **Página:** `resources/manual/admin/programar-clases.md` · **Rol:** admin · Escrita por Claude CAB el 30/10/2026 (etapa C).
+- La columna «Condición en el código» es la línea literal, tomada del archivo por `etapa-c/generar-fichas.py`.
+
+| Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
+|---|---|---|---|
+| Paso 1: Nuevo en Clases (dueño) | `resources/views/clases/index.blade.php:208` | `<x-ds.button variant="primary" href="{{ route('web.clases.create') }}">` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Paso 2: Clase única o Clases recurrentes con horario por día | `resources/views/clases/create.blade.php:23`<br>`resources/views/clases/create.blade.php:26`<br>`resources/views/clases/create.blade.php:55`<br>`resources/views/clases/create.blade.php:66`<br>`resources/views/clases/create.blade.php:78`<br>`resources/views/clases/create.blade.php:103`<br>`resources/views/clases/create.blade.php:108`<br>`resources/views/clases/create.blade.php:38`<br>`resources/views/clases/create.blade.php:152`<br>`resources/views/clases/create.blade.php:165`<br>`resources/views/clases/create.blade.php:128`<br>`resources/views/clases/create.blade.php:176` | `<input type="radio" name="tipo_creacion" value="unica" {{ old('tipo_creacion', 'unica') === 'unica' ? 'checked' : '' }}> Clase única`<br>`<input type="radio" name="tipo_creacion" value="recurrente" {{ old('tipo_creacion') === 'recurrente' ? 'checked' : '' }}> Clases recurrentes`<br>`Fecha desde <span class="form-required">*</span>`<br>`Fecha hasta <span class="form-required">*</span>`<br>`Días de la semana <span class="form-required">*</span>`<br>`<label for="horario-{{ $val }}-inicio" class="{{ $labelClass }}">Hora inicio <span class="form-required">*</span></label>`<br>`<label for="horario-{{ $val }}-fin" class="{{ $labelClass }}">Hora fin <span class="form-required">*</span></label>`<br>`Fecha <span class="form-required">*</span>`<br>`Hora inicio <span class="form-required">*</span>`<br>`Hora fin <span class="form-required">*</span>`<br>`Grupo <span class="form-required">*</span>`<br>`{{-- Profesores --}}` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Paso 3: solo profesoras activas del deporte (la pantalla filtra por deporte; el servidor rechaza otras) | `resources/js/clases-form.js:72`<br>`resources/js/clases-form.js:75`<br>`app/Http/Controllers/ClaseWebController.php:181`<br>`app/Http/Controllers/ClaseWebController.php:273` | `const pertenece = deporteId !== '' && etiqueta.dataset.profesorDeporte === deporteId;`<br>`casilla.disabled = !pertenece;`<br>`$profesores = Profesor::where('activo', true)->orderBy('apellido')->get();`<br>`'profesores' => 'Solo se pueden asignar profesores activos del deporte de la clase.',` | Leído en el código; no ejecutado en pantalla. |
+| Paso 4: aviso de cuántas se crearon | `app/Http/Controllers/ClaseWebController.php:230` | `->with('success', "{$count} clase(s) creada(s).");` | Leído en el código; no ejecutado en pantalla. |
+| Editar en la tarjeta del listado | `resources/views/clases/_card.blade.php:102` | `Editar` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Motivo no eliminable se muestra en lugar del botón | `resources/views/clases/show.blade.php:178` | `@if($esAdmin && !$puedeEliminar && $motivoNoEliminable)` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Cambiar profesoras: motivo solo si ya tenía | `app/Http/Controllers/ClaseWebController.php:740` | `$esCorreccion = $esPasada && !empty($actualesIds);` | Leído en el código; no ejecutado en pantalla. |
+| Cambiar profesoras con liquidación pagada o cerrada | `app/Http/Controllers/ClaseWebController.php:297` | `throw ValidationException::withMessages(['profesores' => 'La clase integra una liquidación pagada y no se puede modificar.']);` | Leído en el código; no ejecutado en pantalla. |
+| Cancelar una clase con lista pide confirmar | `app/Http/Controllers/ClaseWebController.php:658` | `$mensajeAviso = 'Esta clase ya tiene la lista tomada. Las marcas quedarán guardadas pero la clase dejará de contar para liquidaciones y comisiones. ¿Confirmás la cancelación?';` | Leído en el código; no ejecutado en pantalla. |
+| Editar en la ficha solo sin presentes y no validada | `resources/views/clases/show.blade.php:133` | `@if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)` | Captura de la pantalla real (CapturasEtapaCTest). |
+| Cancelar se rechaza con liquidación cerrada o pagada | `app/Http/Controllers/ClaseWebController.php:615` | `$mensaje = 'No se puede cancelar: la clase está en una liquidación cerrada o pagada.';` | Leído en el código; no ejecutado en pantalla. |
+| Superposición de horario de una profesora | `app/Services/ClaseService.php:162` | `"la profesora {$profesor->nombre_completo} ya tiene asignada la clase '{$grupoNombre}' " .` | Leído en el código; no ejecutado en pantalla. |
+| Solo profesoras activas del deporte | `app/Http/Controllers/ClaseWebController.php:273` | `'profesores' => 'Solo se pueden asignar profesores activos del deporte de la clase.',` | Leído en el código; no ejecutado en pantalla. |
+| No se crean clases en fechas pasadas | `app/Services/ProgramacionClasesService.php:37` | `'fecha.after_or_equal' => 'La fecha debe ser hoy o posterior.',` | Leído en el código; no ejecutado en pantalla. |
+| Aviso de bloques si el horario no es en punto | `app/Services/ProgramacionClasesService.php:106` | `if ($inicio % 60 === 0 && $fin % 60 === 0) {` | Leído en el código; no ejecutado en pantalla. |
+| Clase pasada: la fecha no cambia | `app/Http/Controllers/ClaseWebController.php:545` | `if (($pasada && $fechaCambio) \|\| (!$pasada && $validated['fecha'] < today()->format('Y-m-d'))) {` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede cambiar la fecha de una clase pasada ni mover una clase hacia el pasado.» |
+| Clase pasada: cambio de horario pide motivo | `app/Http/Controllers/ClaseWebController.php:559` | `'motivo' => 'Indicá el motivo del cambio de horario.',` | Leído en el código; no ejecutado en pantalla. |
+| Eliminar: sin asistencias, no validada, sin liquidación | `app/Models/Clase.php:190` | `return 'Tiene asistencias registradas: debe cancelarse con motivo.';` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede eliminar la clase: Tiene asistencias registradas: debe cancelarse con motivo.» |
+| Eliminar serie: todo o nada | `app/Http/Controllers/ClaseWebController.php:817` | `$mensaje = "No se puede eliminar la serie: la clase del {$fechaFmt} no es eliminable ({$motivo}).";` | Leído en el código; no ejecutado en pantalla. |
+| Cancelar: no la profesora | `app/Http/Controllers/ClaseWebController.php:604` | `abort(403, 'No tenés permiso para esta acción.');` | Ejecutado (CapturasEtapaCTest): HTTP 403 |
+| Cancelar serie: desde hoy, confirma si hay listas | `app/Http/Controllers/ClaseWebController.php:631` | `->whereDate('fecha', '>=', today());` | Leído en el código; no ejecutado en pantalla. |
+
+## Rechazos y avisos de la acción
+
+Cada mensaje de Wings que cita la página, dónde está en el código y en qué sección de la página aparece. Los rechazos que la página no cita quedan en la tabla de arriba o en el informe del revisor.
+
+| Mensaje de Wings | Dónde está | ¿Está en la página? |
+|---|---|---|
+| «Solo se pueden asignar profesores activos del deporte de la clase.» | `app/Http/Controllers/ClaseWebController.php:273` | Sí — Crear una clase o una serie |
+| «El alquiler se cuenta por bloques del reloj.» | `resources/views/clases/_aviso-cancha.blade.php:4` | Sí — El aviso de bloques de alquiler |
+| «Clase actualizada correctamente.» | `app/Http/Controllers/ClaseWebController.php:594` | Sí — Editar una clase |
+| «Esta clase ya tenía profesor asignado: indicá el motivo del cambio.» | `app/Http/Controllers/ClaseWebController.php:746` | Sí — Editar una clase |
+| «¿Confirmás la eliminación permanente de esta clase?» | `resources/views/clases/show.blade.php:195` | Sí — Cancelar o eliminar |
+| «No se puede eliminar:» | `resources/views/clases/show.blade.php:180` | Sí — ¿Qué hago si en lugar de Eliminar aparece «No se puede eliminar:»? |
+| «No se puede cancelar: la clase está en una liquidación cerrada o pagada.» | `app/Http/Controllers/ClaseWebController.php:615` | Sí — ¿Qué hago si en lugar de Eliminar aparece «No se puede eliminar:»? |
+| «No se puede cambiar el horario: la clase integra una liquidación cerrada.» | `app/Http/Controllers/ClaseWebController.php:553` | Sí — ¿Qué hago si dice «No se puede cambiar el horario: la clase integra una liquidación cerrada.»? |

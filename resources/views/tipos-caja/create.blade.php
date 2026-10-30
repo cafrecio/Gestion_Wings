@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Tipo de Caja – Wings')
 @section('module-title', 'Nuevo Tipo de Caja')
+@section('ayuda-slug', 'administrar-tipos-caja')
 
 @section('content')
 <div class="filtros-card">

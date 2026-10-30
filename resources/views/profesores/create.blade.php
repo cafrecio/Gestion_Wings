@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Profesor – Wings')
 @section('module-title', 'Nuevo Profesor')
+@section('ayuda-slug', 'administrar-profesores')
 
 @section('content')
 <x-ds.mobile-errors id="profesor-error-resumen" />

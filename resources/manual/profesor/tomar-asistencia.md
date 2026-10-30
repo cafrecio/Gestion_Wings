@@ -46,7 +46,7 @@ Esta tarea te explica cómo registrar la presencia o ausencia de los alumnos asi
 Si un alumno no figura en la lista de la clase, no está formalmente inscripto en el grupo en el sistema. Avisale a la operativa en el mostrador para que verifique su ficha e inscripción. No lo agregues a mano porque no podés crear alumnos desde tu usuario.
 
 ### ¿Qué hago si la clase figura cancelada?
-Si la clase fue cancelada, el botón **Guardar** estará deshabilitado. Si intentás registrar asistencia, Wings bloquea la acción informando «La clase está cancelada. No se pueden registrar asistencias.». En ese caso no se toma asistencia; si la cancelación fue un error, avisale al dueño para que la reactive.
+Si la clase fue cancelada, el botón **Guardar** estará deshabilitado. Arriba de la lista aparece «Esta clase está cancelada. No se pueden registrar asistencias.». En ese caso no se toma asistencia; si la cancelación fue un error, avisale al dueño para que la reactive.
 
 ### ¿Qué hago si me equivoqué al marcar a un alumno?
 Podés volver a entrar a la clase y modificar las marcas:
@@ -55,7 +55,9 @@ Podés volver a entrar a la clase y modificar las marcas:
 - Si la clase ya integra una liquidación cerrada, Wings no permite modificar asistencias y te avisa «No se pueden modificar asistencias: la clase integra una liquidación cerrada.». En ese caso, consultá con el dueño.
 
 ### ¿Qué hago si quiero tomar lista antes del día de la clase?
-Wings permite tomar lista únicamente desde el día en que la clase se dicta. Si intentás tomar asistencia antes, la casilla **Presente** estará deshabilitada y Wings mostrará «La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.».
+Wings permite tomar lista únicamente desde el día en que la clase se dicta. Si intentás tomar asistencia antes, la casilla **Presente** estará deshabilitada y arriba de la lista aparece «Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.».
 
-### ¿Qué hago si un alumno tiene cuota vencida o requiere autorización?
-Si un alumno debe cuotas o excede su plan, Wings te avisa en su tarjeta y abre el campo para indicar el motivo de admisión (*El dueño lo verá en Inicio y en el resumen diario.*). Escribí el motivo en el campo para admitirlo y tocá **Guardar**. Si lo dejás en blanco, Wings te avisa «Indicá el motivo para admitir al alumno.».
+### ¿Qué hago si un alumno tiene cuota vencida o ya vino todas las veces de su plan?
+Son dos avisos distintos:
+- Si el alumno nunca pagó una cuota (es *Nuevo*) y ya vino 2 veces, o si ya pagó alguna vez y ahora está *Deudor*, al marcarlo presente se abre el campo **Motivo**. Un alumno nuevo con menos de 2 presentes no lo pide, esté como esté su cuota; un alumno que ya pagó y está *Moroso*, tampoco. Los alumnos cargados en la primera carga no cuentan como nuevos. Los mensajes son «Tiene deuda vencida. Indicá el motivo para dejarlo entrar.» o «Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.». Es obligatorio: si lo dejás vacío, Wings no guarda y avisa «Indicá el motivo para admitir al alumno.». El dueño lo ve en Inicio y en el resumen diario.
+- Si el alumno ya vino esa semana las veces de su plan, aparece «Excede el plan — indicar motivo» para elegir si es una clase adicional o si recupera una clase perdida. No frena el guardado: si no elegís, queda como clase adicional.

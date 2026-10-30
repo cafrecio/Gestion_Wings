@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Reporte de alumnos – Wings')
 @section('module-title', 'Reporte de alumnos')
+@section('ayuda-slug', 'reportes-alumnos')
 @section('content')
 @vite(['resources/css/reportes-visual.css', 'resources/css/reportes-analiticos.css'])
 @php

@@ -2,6 +2,7 @@
 
 @section('title', 'Editar – ' . $grupo->nombre_completo . ' – Wings')
 @section('module-title', 'Editar: ' . $grupo->nombre_completo)
+@section('ayuda-slug', 'administrar-grupos')
 
 @section('content')
 <div class="filtros-card">

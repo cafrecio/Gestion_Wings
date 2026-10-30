@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Subrubro – Wings')
 @section('module-title', 'Nuevo Subrubro en: ' . $rubro->nombre)
+@section('ayuda-slug', 'administrar-rubros')
 
 @section('content')
 <div class="filtros-card">

@@ -2,6 +2,7 @@
 
 @section('title', 'Inicio – Wings')
 @section('module-title', 'Inicio')
+@section('ayuda-slug', 'inicio-operativa')
 
 @section('content')
 @php

@@ -2,6 +2,7 @@
 
 @section('title', 'Cancelar cobro – Wings')
 @section('module-title', 'Cancelar cobro')
+@section('ayuda-slug', 'cancelar-movimiento-caja')
 
 @section('content')
 

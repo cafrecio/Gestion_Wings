@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Eliminar movimiento – Cashflow – Wings')
 @section('module-title', 'Eliminar movimiento')
+@section('ayuda-slug', 'corregir-movimiento-cashflow')
 @section('content')
 <form method="POST" action="{{ route('web.cashflow.movimientos.destroy', $movimiento->id) }}">
     @csrf

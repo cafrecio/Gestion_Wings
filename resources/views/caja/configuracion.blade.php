@@ -1,6 +1,7 @@
 @extends('layouts.ds-app')
 @section('title', 'Efectivo del mostrador – Wings')
 @section('module-title', 'Efectivo del mostrador')
+@section('ayuda-slug', 'configurar-mostrador')
 @php($title = 'Efectivo del mostrador')
 
 @section('content')

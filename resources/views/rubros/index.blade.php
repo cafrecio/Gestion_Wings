@@ -2,6 +2,7 @@
 
 @section('title', 'Rubros – Wings')
 @section('module-title', 'Rubros')
+@section('ayuda-slug', 'administrar-rubros')
 
 @section('content')
 

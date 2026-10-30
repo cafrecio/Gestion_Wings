@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Ingresos y egresos – Wings')
 @section('module-title', 'Ingresos y egresos')
+@section('ayuda-slug', 'reportes-ingresos-egresos')
 @section('content')
 @vite(['resources/css/reportes-visual.css', 'resources/css/reportes-analiticos.css'])
 @php

@@ -2,6 +2,7 @@
 
 @section('title', 'Nuevo Rubro – Wings')
 @section('module-title', 'Nuevo Rubro')
+@section('ayuda-slug', 'administrar-rubros')
 
 @section('content')
 <div class="filtros-card">

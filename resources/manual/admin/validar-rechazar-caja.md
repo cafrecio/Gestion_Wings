@@ -59,3 +59,6 @@ Cuando rechazás la caja, la operativa puede ingresar al detalle de su turno y t
 
 ### ¿Se puede rechazar una caja que ya fue validada?
 No. Una vez validada, la caja no se puede rechazar ni reabrir. Si posteriormente se detecta un error, la corrección se hace mediante un ajuste compensatorio directo en **Cashflow**.
+
+### ¿Qué hago si la caja dice Cerrada pero no veo Validar ni Rechazar?
+A esa caja le falta el arqueo: se cerró sin declarar el efectivo contado y el cambio retenido. Hasta que se declare, Wings no muestra **Validar** ni **Rechazar**, y si se intenta validar responde «Falta declarar el efectivo contado y el cambio retenido antes de validar.». En su lugar aparece **Cerrar**: tocalo (o pedíselo a la operativa), cargá **Efectivo contado** y **Cambio que queda**, y tocá **Cerrar**. Después la caja muestra **Validar** y **Rechazar**.

@@ -2,6 +2,7 @@
 
 @section('title', 'Niveles – Wings')
 @section('module-title', 'Niveles')
+@section('ayuda-slug', 'administrar-niveles')
 
 @section('content')
 

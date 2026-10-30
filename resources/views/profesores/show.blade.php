@@ -2,6 +2,7 @@
 
 @section('title', $profesor->apellido . ', ' . $profesor->nombre . ' – Wings')
 @section('module-title', $profesor->apellido . ', ' . $profesor->nombre)
+@section('ayuda-slug', 'administrar-profesores')
 
 @section('content')
 

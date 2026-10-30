@@ -2,6 +2,7 @@
 
 @section('title', 'Deportes – Wings')
 @section('module-title', 'Deportes')
+@section('ayuda-slug', 'administrar-deportes')
 
 @section('content')
 
