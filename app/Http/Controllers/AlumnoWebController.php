@@ -645,7 +645,7 @@ class AlumnoWebController extends Controller
 
             if (!$alumnoBloqueado->esEliminable()) {
                 $motivo = $alumnoBloqueado->motivoNoEliminable();
-                $mensaje = "No se puede eliminar el alumno: {$motivo} Puede darlo de baja cambiando su estado a inactivo.";
+                $mensaje = "No se puede eliminar el alumno: {$motivo} Puede pasarlo a Inactivo.";
                 if ($request->wantsJson()) {
                     return response()->json(['success' => false, 'message' => $mensaje], 422);
                 }

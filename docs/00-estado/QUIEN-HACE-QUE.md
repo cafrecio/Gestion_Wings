@@ -59,9 +59,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (15)
+## Sin empezar (14)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T98, T99, T100, T101, T96, T97.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T99, T100, T101, T96, T97.
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

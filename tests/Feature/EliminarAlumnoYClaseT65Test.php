@@ -689,14 +689,14 @@ class EliminarAlumnoYClaseT65Test extends TestCase
         $resAlumnoConPago->assertOk();
         $resAlumnoConPago->assertDontSee('id="btn-abrir-eliminar-alumno"', false);
         // En su lugar ve por qué (Carlos, 29/10: el botón desaparecía sin explicación).
-        $resAlumnoConPago->assertSee('No se puede eliminar: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.');
+        $resAlumnoConPago->assertSee('No se puede eliminar: Tiene pagos registrados. Puede pasarlo a Inactivo.');
         $this->actingAs($this->operativo)->get(route('web.alumnos.show', $alumnoLimpio->id))->assertDontSee('id="motivo-no-eliminable"', false);
         $resAlumnoAdmin->assertDontSee('id="motivo-no-eliminable"', false);
         $resClaseAdmin->assertDontSee('id="motivo-no-eliminable"', false);
-        // Inactivo: el motivo, sin ofrecer la baja que ya tiene.
+        // Inactivo: el motivo, sin ofrecer el estado que ya tiene.
         $alumnoLimpio->update(['activo' => false]);
         $this->actingAs($this->admin)->get(route('web.alumnos.show', $alumnoLimpio->id))->assertOk()
-            ->assertSee('No se puede eliminar: Tiene pagos registrados.')->assertDontSee('Puede darlo de baja cambiando su estado a inactivo.');
+            ->assertSee('No se puede eliminar: Tiene pagos registrados.')->assertDontSee('Puede pasarlo a Inactivo.');
         $alumnoLimpio->update(['activo' => true]);
 
         // Si la clase tiene asistencia, Admin ya NO ve el botón Eliminar

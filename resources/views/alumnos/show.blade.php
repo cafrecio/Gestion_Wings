@@ -523,7 +523,7 @@
 {{-- Por qué no se puede eliminar: el dueño lo ve en lugar del botón (Carlos, 29/10) --}}
 @if(Auth::user()->isAdmin() && !$puedeEliminar && $motivoNoEliminable)
     <p id="motivo-no-eliminable" style="font-size:0.78rem; color:var(--color-text-muted); margin:0.5rem 0 0; text-align:right;">
-        No se puede eliminar: {{ $motivoNoEliminable }}@if($alumno->activo) Puede darlo de baja cambiando su estado a inactivo.@endif
+        No se puede eliminar: {{ $motivoNoEliminable }}@if($alumno->activo) Puede pasarlo a Inactivo.@endif
     </p>
 @endif
 
