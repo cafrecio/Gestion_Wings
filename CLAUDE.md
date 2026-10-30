@@ -94,6 +94,9 @@ En la prueba por días del sitio de prueba (PRU-04 / T14), Claude hace siempre e
    fuera de la pantalla lo nuevo de esos días) y performance. Todo en `docs/06-pruebas/PRU-04/prueba-tecnica/`.
 4. **Actualiza la planilla «Prueba por días»** (artifact https://claude.ai/artifact/8cgmP6kq4upcBKXw9KkJAt):
    cobertura por módulo, días y resultados, hasta el último día revisado (orden de Carlos, 27/10/2026).
+5. **Antes de entregar el prompt de una tanda, las rutinas tienen que estar en el sitio de prueba y probadas
+   ahí**: `git merge --ff-only origin/main` en `/home/wingstest/app` y la rutina del primer día con `--simular`.
+   El 30/10 Codex se frenó con «Plan inválido» porque las rutinas estaban en el repositorio y no en el sitio.
 
 Se registra, se sube y recién después se informa. Si el servidor no responde, se hace la parte local
 y se dice qué faltó. Carlos lo tuvo que repetir el 24/10 y el 26/10: no esperar el pedido.
