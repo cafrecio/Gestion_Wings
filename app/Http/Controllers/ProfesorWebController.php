@@ -72,7 +72,7 @@ class ProfesorWebController extends Controller
     {
         ImportePesos::preparar($request, ['valor_hora']);
         $validated = $request->validate(
-            $this->validationRules(),
+            $this->validationRules($request),
             $this->validationMessages()
         );
 
@@ -99,7 +99,7 @@ class ProfesorWebController extends Controller
         ImportePesos::preparar($request, ['valor_hora']);
         $profesor  = Profesor::findOrFail($id);
         $validated = $request->validate(
-            $this->validationRules($profesor->id),
+            $this->validationRules($request, $profesor->id),
             $this->validationMessages()
         );
 
@@ -147,8 +147,10 @@ class ProfesorWebController extends Controller
         app(SubrubroSueldoService::class)->paraProfesor($profesor);
     }
 
-    private function validationRules(?int $profesorId = null): array
+    private function validationRules(Request $request, ?int $profesorId = null): array
     {
+        $tipos = $this->tiposDeLiquidacion($request->input('deporte_id'));
+
         return [
             'nombre'              => 'required|string|max:255',
             'apellido'            => 'required|string|max:255',
@@ -160,9 +162,28 @@ class ProfesorWebController extends Controller
             'email'               => 'nullable|email|max:255',
             'telefono'            => 'required|string|max:50',
             'cbu_alias'           => ['nullable', new CbuOAlias],
-            'valor_hora'          => ['nullable', 'numeric', 'min:0', new ImportePesos],
-            'porcentaje_comision' => 'nullable|numeric|min:0|max:100',
+            'valor_hora'          => in_array(Deporte::TIPO_LIQUIDACION_HORA, $tipos, true)
+                ? ['required', 'numeric', 'gt:0', new ImportePesos]
+                : ['nullable', 'numeric', 'min:0', new ImportePesos],
+            'porcentaje_comision' => in_array(Deporte::TIPO_LIQUIDACION_COMISION, $tipos, true)
+                ? 'required|numeric|gt:0|max:100'
+                : 'nullable|numeric|min:0|max:100',
         ];
+    }
+
+    /**
+     * Cómo liquida el deporte hoy y desde el mes que viene: son las tarifas que
+     * el formulario pide. Sin ellas, la liquidación se frena recién a fin de mes.
+     */
+    private function tiposDeLiquidacion(mixed $deporteId): array
+    {
+        $deporte = is_numeric($deporteId) ? Deporte::find((int) $deporteId) : null;
+        if (!$deporte) {
+            return [];
+        }
+        $siguiente = today()->startOfMonth()->addMonth();
+
+        return [$deporte->tipo_liquidacion, $deporte->tipoLiquidacionParaPeriodo($siguiente->month, $siguiente->year)];
     }
 
     private function validationMessages(): array
@@ -180,8 +201,12 @@ class ProfesorWebController extends Controller
             'localidad.required'           => 'La localidad es obligatoria.',
             'telefono.required'            => 'El teléfono es obligatorio.',
             'email.email'                  => 'El email debe ser una dirección válida.',
+            'valor_hora.required'          => 'Cargá el valor por hora.',
+            'valor_hora.gt'                => 'El valor por hora debe ser mayor a cero.',
             'valor_hora.numeric'           => 'El valor por hora debe ser un número.',
             'valor_hora.min'               => 'El valor por hora no puede ser negativo.',
+            'porcentaje_comision.required' => 'Cargá el porcentaje de comisión.',
+            'porcentaje_comision.gt'       => 'El porcentaje de comisión debe ser mayor a cero.',
             'porcentaje_comision.numeric'  => 'El porcentaje de comisión debe ser un número.',
             'porcentaje_comision.min'      => 'El porcentaje de comisión no puede ser negativo.',
             'porcentaje_comision.max'      => 'El porcentaje de comisión no puede superar 100.',

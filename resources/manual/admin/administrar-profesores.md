@@ -19,7 +19,7 @@ Cargar un profesor no le da acceso a Wings. Para que entre a tomar lista, creale
 
 1. En el menú lateral, sección *El club*, entrá a **Profesores** y tocá **Nuevo**.
 2. Completá los datos obligatorios: **Nombre**, **Apellido**, **DNI**, **Fecha de nacimiento**, **Dirección**, **Localidad**, **Teléfono** y **Deporte**. **Email** y **CBU o alias** son opcionales.
-3. Según el deporte elegido aparece **Valor por hora** o **Porcentaje de comisión (%)** (de 0 a 100). Completalo: Wings deja guardar sin ese dato, pero después no puede generarle la liquidación y avisa «El profesor no tiene valor por hora configurado.» o «El profesor no tiene porcentaje de comisión configurado.».
+3. Según el deporte elegido aparece **Valor por hora** o **Porcentaje de comisión (%)** (hasta 100). Es obligatorio y tiene que ser mayor a cero: sin ese dato Wings no guarda y avisa «Cargá el valor por hora.» o «Cargá el porcentaje de comisión.».
 4. Tocá **Guardar**. Wings muestra «Profesor creado correctamente.».
 
 ![Formulario de nuevo profesor](/ayuda/img/admin/administrar-profesores-paso1.png)

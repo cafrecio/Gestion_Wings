@@ -88,8 +88,9 @@ class ImportesPesosT24Test extends TestCase
 
     public function test_el_cero_conserva_la_regla_de_cada_flujo(): void
     {
-        $permitido = ['apertura', 'rectificacion', 'cierre-contado', 'cierre-cambio', 'profesor-alta',
-            'profesor-editar', 'medio-alta', 'medio-editar', 'liquidacion'];
+        // Profesor salió de la lista el 30/10 (T95, Carlos): la tarifa tiene que ser mayor a cero.
+        $permitido = ['apertura', 'rectificacion', 'cierre-contado', 'cierre-cambio',
+            'medio-alta', 'medio-editar', 'liquidacion'];
         foreach (ImportesT24::CASOS as $caso) {
             DB::beginTransaction();
             try {

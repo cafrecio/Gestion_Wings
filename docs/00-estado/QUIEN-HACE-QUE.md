@@ -37,6 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
+| **T95** Tarifa del profesor: el formulario la marca obligatoria pero Wings guarda sin ella | Hecho, espera verificación (hizo Claude, verifica Carlos) | Carlos lo prueba por pantalla: Profesores -> Nuevo, sin la tarifa -> Guardar. Tiene que decir «Cargá el valor por hora.» o «Cargá el porcentaje de comisión.». Hecho: exige la tarifa del deporte, mayor a cero, al crear y editar. Sin tarifa, la liquidación ya se frenaba en los dos casos (LiquidacionService:435-445). Sin desplegar. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -59,9 +60,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (14)
+## Sin empezar (13)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T95, T100, T101, T96, T97, T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T96, T97, T102.
 
 ## Mejoras futuras, no se empiezan ahora (11)
 
