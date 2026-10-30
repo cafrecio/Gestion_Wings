@@ -70,7 +70,7 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 {{-- Precios por frecuencia --}}
 <div class="mt-5 pt-4" style="border-top: 1px solid var(--color-border);">
 
-    <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:0.75rem; padding-bottom:0.75rem; margin-bottom:0.5rem; border-bottom:1px solid var(--color-border);">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.75rem; padding-bottom:0.75rem; margin-bottom:0.5rem; border-bottom:1px solid var(--color-border);">
         <div style="flex:1 1 20rem; min-width:0;">
             <div style="margin-bottom:0.75rem;">
                 <span style="font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-muted);">
