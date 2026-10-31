@@ -56,6 +56,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Devuelto (hizo Claude, verifica Gemini) | Devuelta por Gemini (VERIFICACION-T96-GEMINI.md): casos 1-9, permisos y manual OK; hallazgo H1 en Cashflow al cambiar la cuenta con cambio retenido en el cajón |
 
 ## Codex
 
@@ -63,9 +64,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | En curso (hizo Claude, verifica Gemini) | Control en curso por Gemini: casos 1-9, cashflow con cambio retenido al cambiar cuenta, manual y suite rápida en wings_testing_gemini |
+Nada en este momento.
 
 ## Sin empezar (13)
 
