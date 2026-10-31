@@ -1,0 +1,205 @@
+{
+    "fecha_wings": "2026-10-31 06:19:26",
+    "base": "wings_testing_guion",
+    "maquina": "local (XAMPP), no el servidor",
+    "cobros": 15,
+    "cobros_registrados": 15,
+    "mediana": {
+        "formulario_ms": 69.1,
+        "cobro_ms": 72.3,
+        "recibo_primera_ms": 3263.7,
+        "recibo_segunda_ms": 9
+    },
+    "maximo": {
+        "formulario_ms": 199.7,
+        "cobro_ms": 851.6,
+        "recibo_primera_ms": 3683.1
+    },
+    "primero_y_ultimo_cobro_ms": [
+        127.6,
+        61.7
+    ],
+    "consultas_por_cobro": 85,
+    "filas": [
+        {
+            "alumno": 242,
+            "form_ms": 116.5,
+            "form_consultas": 77,
+            "cobro_ms": 127.6,
+            "cobro_consultas": 87,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3221.2,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8.1
+        },
+        {
+            "alumno": 243,
+            "form_ms": 61.3,
+            "form_consultas": 72,
+            "cobro_ms": 68.1,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3100.9,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 9
+        },
+        {
+            "alumno": 244,
+            "form_ms": 75.7,
+            "form_consultas": 72,
+            "cobro_ms": 162.3,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3455,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 11.6
+        },
+        {
+            "alumno": 245,
+            "form_ms": 66,
+            "form_consultas": 69,
+            "cobro_ms": 70.1,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3455.8,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 11.6
+        },
+        {
+            "alumno": 247,
+            "form_ms": 69.1,
+            "form_consultas": 67,
+            "cobro_ms": 72.3,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3421.9,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 33
+        },
+        {
+            "alumno": 248,
+            "form_ms": 198.6,
+            "form_consultas": 71,
+            "cobro_ms": 310.5,
+            "cobro_consultas": 87,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3328.9,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 61.6
+        },
+        {
+            "alumno": 249,
+            "form_ms": 199.7,
+            "form_consultas": 69,
+            "cobro_ms": 851.6,
+            "cobro_consultas": 87,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3311.5,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 62.9
+        },
+        {
+            "alumno": 250,
+            "form_ms": 105.5,
+            "form_consultas": 67,
+            "cobro_ms": 125.3,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3263.7,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 14.1
+        },
+        {
+            "alumno": 251,
+            "form_ms": 71.6,
+            "form_consultas": 69,
+            "cobro_ms": 80.6,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3506.4,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 10.7
+        },
+        {
+            "alumno": 252,
+            "form_ms": 70.5,
+            "form_consultas": 69,
+            "cobro_ms": 73.1,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3683.1,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8.4
+        },
+        {
+            "alumno": 253,
+            "form_ms": 65,
+            "form_consultas": 76,
+            "cobro_ms": 61.2,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3130.9,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8.6
+        },
+        {
+            "alumno": 254,
+            "form_ms": 63.4,
+            "form_consultas": 69,
+            "cobro_ms": 63.5,
+            "cobro_consultas": 87,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3104.9,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8
+        },
+        {
+            "alumno": 255,
+            "form_ms": 62.5,
+            "form_consultas": 78,
+            "cobro_ms": 68.6,
+            "cobro_consultas": 87,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3025.2,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8.2
+        },
+        {
+            "alumno": 256,
+            "form_ms": 60.4,
+            "form_consultas": 72,
+            "cobro_ms": 65.6,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3065.7,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 9
+        },
+        {
+            "alumno": 257,
+            "form_ms": 58.4,
+            "form_consultas": 67,
+            "cobro_ms": 61.7,
+            "cobro_consultas": 85,
+            "cobro_estado": 302,
+            "recibo_primera_ms": 3060.2,
+            "recibo_estado": 200,
+            "recibo_kb": 1656.4,
+            "recibo_segunda_ms": 8.8
+        }
+    ]
+}

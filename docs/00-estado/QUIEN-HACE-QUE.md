@@ -38,6 +38,11 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T95** Tarifa del profesor: el formulario la marca obligatoria pero Wings guarda sin ella | Hecho, espera verificación (hizo Claude, verifica Carlos) | Carlos lo prueba por pantalla: Profesores -> Nuevo, sin la tarifa -> Guardar. Tiene que decir «Cargá el valor por hora.» o «Cargá el porcentaje de comisión.». Hecho: exige la tarifa del deporte, mayor a cero, al crear y editar. Sin tarifa, la liquidación ya se frenaba en los dos casos (LiquidacionService:435-445). Sin desplegar. |
+| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Sin empezar | Medido en la tanda 4. Probado en local sin tocar Wings: con el recorte de fuentes de dompdf pesa 211 KB y tarda lo mismo; falta mirar que se vea igual. Carlos decide si entra antes de produccion. |
+| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Sin empezar | Dia 44.1: dicen ingresos 1.921.200 y entraron 421.200. Reportes esta bien. CSH-018 pide que los ingresos no cambien. Carlos decide si se excluyen de las tarjetas. |
+| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Sin empezar | Dia 46.7: el esperado se recalcula bien y el faltante queda a la vista del dueno, pero quien cierra no se entera. Carlos decide si Wings avisa antes de cerrar. |
+| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Sin empezar | Dia 46.4, Thiago: no tiene inscripcion registrada y Wings le cobra 8.000 en la ficha de Patin. Carlos decide si es lo que se quiere. |
+| **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Sin empezar | Solo escribiendo la direccion a mano, con sesion. No expone datos. Carlos decide si entra. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -50,7 +55,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 30/10: tanda 4 (dias 41 a 47) lista para Codex: guion, prompt, sitio en 937d99cc y rutina del dia 41 probada ahi. No desplegar hasta que Codex termine. T94 a T101 se prueban en la tanda 5. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
 
 ## Codex
 
@@ -60,15 +65,15 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini controla T96 con PROMPT-GEMINI-T96.md. Boton Configurar en Caja, inhabilitado con caja abierta. OK visual de Carlos 31/10. Sin desplegar. |
+| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | En curso (hizo Claude, verifica Gemini) | Control en curso por Gemini: casos 1-9, cashflow con cambio retenido al cambiar cuenta, manual y suite rápida en wings_testing_gemini |
 
 ## Sin empezar (13)
 
 T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T97, T102.
 
-## Mejoras futuras, no se empiezan ahora (11)
+## Mejoras futuras, no se empiezan ahora (12)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después), MF14 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 

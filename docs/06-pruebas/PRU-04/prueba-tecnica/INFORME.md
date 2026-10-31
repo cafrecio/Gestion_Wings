@@ -1,3 +1,74 @@
+# Prueba técnica de los días 41 a 47 (19 al 25/11) — 31/10/2026 · Claude CAB
+
+Sobre la base del sitio de prueba con el reloj en el 25/11, como `wingstest` y en solo lectura. La seguridad, en
+`wings_testing_claude`, sobre copias limpias del código: `main` en `c38e38fa` y el del sitio, `6214fd4a`. La otra sesión
+trabajaba en T96 en la misma carpeta y sus cambios sin subir quedaron afuera. La comparación de plata y los cobros seguidos,
+en copias locales descartables de la base del sitio.
+
+| Área | Resultado |
+|---|---|
+| Plata al peso contra la simulación | **0 diferencias en 11 tablas** (`comparar-con-simulacion-dias-41-47.txt`): 239 cuotas, 60 recargos e inscripciones con lo cobrado, 229 cobros, 117 alumnos, 120 planes, 18 precios, 40 cajas, 363 movimientos de caja, 396 de Cashflow, 226 clases y 8 excepciones. La simulación se rehízo en esta máquina con el código exacto del sitio y sus cierres dieron iguales a los del guion. La comparación es ahora más estricta: mira quién registró cada movimiento, las profesoras de cada clase y los motivos, y compara grupos y planes por nombre (los intentos fallidos de 41.2 consumen números internos sin dejar datos). **Ensayo del 1/12 sobre la copia de la base real:** 84 cuotas creadas, 7 a Revisión, 23 ya existían, 0 sin plan, deuda $3.652.910, lo calculado en el guion. Los $270.000 de Clara (T100) pasan a deuda ese día, comprobado. Los ingresos de diciembre son exactamente lo imputado a diciembre, $895.000 |
+| Funcionamiento interno | **58 de 58 bien** (`controles-internos-resultado-dias-41-47.json`). Catorce controles nuevos: las siete altas con su porcentaje y su inscripción; Clara (retrata T100); Morena; Tobías y Facundo; los quince adelantos; las seis cajas al peso; el gasto del dueño (retrata T101); Internet y Luz; configuración y recargo de Emma; los siete que deben, uno por uno; las clases tocadas por pantalla; quién no tenía que venir; Infantiles, Gonzalo y las 78 clases de diciembre; Lautaro. Once controles se pusieron al día porque describían el día 40. **Uno mío estaba mal:** REP-1 contaba el asiento en contra de un anulado y no su original, y marcaba $22.000 de más; Wings estaba bien. Probados contra una copia con ocho datos rotos a propósito: 12 controles en rojo |
+| Seguridad | **56 de 56 en `main`; 55 de 56 con el código del sitio**: la que falla es la frecuencia repetida de 41.2, T99, ya reparada y sin desplegar. Diecinueve pruebas nuevas, forzando por fuera de la pantalla, sin ningún agujero de permisos ni de plata. Detalle abajo |
+| Velocidad con los datos de hoy | **61 pantallas, todas por debajo de 335 ms** (`performance-sitio-dias-41-47.json`). La más lenta sigue siendo Reportes de Sueldos, 183 consultas en 334 ms (la tanda anterior, 281 ms en la pantalla más lenta). Por primera vez se midió el envío del cobro y el recibo: ver abajo |
+
+## Seguridad: lo forzado
+
+Lo marcado «Solo prueba técnica» y lo que Codex no pudo acreditar por pantalla. Los textos reales están en `seguridad-avisos-dias-41-47.txt`.
+
+| Caso | Forzado | Resultado |
+|---|---|---|
+| 45.7 | El dueño valida y rechaza una caja abierta; la operativa y la profesora también | No pasa nada. «Contá el efectivo y cerrá la caja antes de validarla.» y «Contá y cerrá la caja antes de rechazarla.» |
+| 42.3b | Editar, eliminar, cancelar, agregar, cerrar, rectificar y rechazar una caja validada, la dueña del turno y el dueño | Los 14 rechazados, ningún dato cambia |
+| 43.1 y 43.5 | Pablo abre seis direcciones de la caja de Sandra; el dueño abre a su nombre, al de una profesora o a un usuario inexistente | Detalle sí; las otras seis, 403. Aperturas rechazadas |
+| 42.0 y 42.1 | Adelanto debiendo un mes; importes 0, negativo, letras, tres decimales, vacío, `1e9` | Pide motivo; ninguno se cobra |
+| 46.2 y 46.7 | Cobrar dos veces; cerrar dos veces; cobrar con el turno cerrado | «El importe entregado debe ser positivo y no superar la deuda…», «La caja no está en estado editable.», «Abrí la caja y confirmá el efectivo antes de cobrar.» |
+| 46.5 y 43.2 | La operativa cambia la profesora de una clase pasada; el dueño sin motivo, con una de otro deporte o sin ninguna | 403 y 422 con sus textos; forzando bien, el motivo queda guardado. La profesora no cancela, no reasigna y no reactiva (ACC-012) |
+| 46.6b | Dos ediciones independientes del mismo movimiento | Gana la primera; la otra: «El movimiento cambió mientras editabas…». Una sola corrección |
+| 47.5 y 47.5b | Los seis errores del usuario, rol inventado, operativa y profesora creando un dueño, reenvío, segundo usuario para el mismo profesor | Todos con su texto; un usuario y un solo renglón de sueldo |
+| 47.4 y 41.6b | El mismo recibo diez veces, por dos operativas; la profesora; sin sesión | Diez PDF idénticos byte a byte y ningún dato escrito; la profesora, 403; sin sesión no entra |
+| 41.1 a 41.3 | Nivel, grupo y profesor con cada error, por envío directo | Todos con su texto, incluido el mail sin arroba (41.3b); nada guardado |
+| 44.3 y 44.6b | Inscripción con valores malos y por otros roles; fecha de un mes cerrado | Rechazado; sin confirmar no guarda; confirmado guarda y dispara una vez el aviso al dueño. **La recepción del aviso no se miró** |
+| 45.3 | Motivo corto, operativa y profesora anulando, anular dos veces | «El motivo de la anulación debe tener al menos 10 caracteres.»; 403; un solo asiento |
+| 47.9 | Campos de más en un cobro y un gasto: otro usuario, otra caja, otro importe, otro estado | Se ignoran: queda a nombre y en la caja de quien cobra, por el importe real |
+| Texto con código | `<img src=x onerror=…>` en nivel, profesor, usuario, motivos de cancelación, cambio y rechazo, en 15 pantallas | Siempre como texto |
+| Ingreso | Seis intentos con una dirección inventada en `X-Forwarded-For`, desde fuera de Cloudflare | El sexto recibe 429. No se saltea |
+
+**Mirado en el sitio real, sin iniciar sesión:** HTTPS estricto, `nosniff`, `DENY` y la política de contenido presentes;
+la cookie de sesión lleva `secure`, `httponly` y `samesite=lax`. Por la dirección directa del servidor el sitio no responde.
+`/.env`, `/.git/config`, `/phpinfo.php`, `/telescope` y `/horizon` dan 404; `/storage/logs/laravel.log` y `/server-status`, 403. `APP_DEBUG=false`.
+Los rangos de Cloudflare de `bootstrap/app.php` son los que Cloudflare publica hoy. Sin avisos de la política de contenido desde el 21/10.
+Del 30/10, 1.255 pedidos: un solo error del servidor, el de T99 (`POST /grupos`, también el único en `laravel.log`).
+De producción leí solo las líneas `SESSION_` de su configuración, para comparar: no toqué nada.
+
+**Tampoco hay consultas a la base armadas con lo que escribe el usuario** (búsqueda en `app/`).
+
+### Hallazgos
+
+| Hallazgo | Quién llega | Qué pasa | Gravedad |
+|---|---|---|---|
+| **Filtros con basura dan error del servidor** (`filtros-con-basura-dias-41-47.txt`, retrato en la prueba) | Solo alguien con sesión que escribe la dirección a mano. Las pantallas mandan fechas válidas | De 3.876 pedidos, 41 dan 500 (23 direcciones distintas, entre dueño y operativa). Historial con `?desde=abc` (`CajaWebController.php:214` usa `Carbon::parse` sin validar), Cajas con `?mes=abc`, y varias búsquedas con una lista en vez de un texto. Muestra «Algo falló», no expone datos y deja una línea en el registro. Reproducido en local; el código del sitio es el mismo | Menor |
+| **Recibo inexistente devuelve JSON crudo** (`ReciboController.php:41`), antes de mirar el rol: la profesora recibe 404 si no existe y 403 si existe | Quien escribe la dirección (Codex lo vio en 41.6) | Se ve texto técnico en vez de la pantalla de error. Los números de recibo no son secretos | Menor |
+| `?regenerar=1` en el recibo | Operativa o dueño, escribiendo la dirección | Rehace el PDF con el mismo número, sin tocar datos. No está en ninguna pantalla y es un pedido de lectura que escribe un archivo | Observación |
+
+Ninguno frena producción. No se reparó nada: alcance cerrado, los decide Carlos.
+
+## Velocidad: lo nuevo
+
+| Medición | Resultado | Lectura |
+|---|---|---|
+| **Primer recibo de un cobro, en el servidor** (`performance-recibo-servidor-dias-41-47.json`) | **~3 s de procesador y 1.656 KB**, siempre igual. Se genera al abrirlo por primera vez; después sale del archivo (9 ms en local) | Explica las demoras al bajar recibos que Codex anotó en 47.9, aunque no se midió su sesión. Son las cuatro fuentes completas dentro del PDF. **Probado en local sin tocar Wings: con el recorte de fuentes de dompdf pesa 211 KB (−87%), y tarda lo mismo.** Falta mirar que se vea igual. Con 100 cobros por mes y todos abiertos son unos 2 GB por año, que además entran al respaldo diario. Hoy hay 43 GB libres: no apura |
+| Quince cobros seguidos, en local (`performance-cobros-seguidos-dias-41-47.json`) | Formulario 69 ms, envío 72 ms con 85 consultas. El primero 128 ms, el último 62 ms | No se degrada al acumular. El máximo, 852 ms, fue uno suelto. Máquina local: valen las proporciones |
+| Ficha del alumno, para el dueño | Tres consultas por cada mes desde el alta (`AlumnoWebController.php:198` → `PagoCuotaService.php:623`): 212 consultas en 120 ms en quien ingresó en 2022 | Crece con la antigüedad, no con los cobros. No molesta hoy; es una mejora futura |
+| `/login` desde afuera, por Cloudflare | 210 a 250 ms; 740 ms el primero | Normal |
+| `scheduler.log` | Sitio: 10 MB y 178.778 líneas en cinco semanas. Producción: 3,9 MB (miré solo el tamaño). No encontré rotación en `logrotate.d` | Unas líneas por minuto, para siempre. Conviene rotarlo antes de abrir |
+
+**El corte de Cloudflare de 42.5 (error 522, 15:00:02 UTC del 30/10):** ningún pedido llegó a Apache entre las 14:59:23 y las 15:00:18;
+el cron corrió bien a las 15:00:02 y no hay errores ni bloqueos del firewall en el registro. Uno solo en 1.255 pedidos.
+**Causa no comprobada:** no hay historia de carga de esa hora. Se anota; si se repite, mirar el servidor en el momento.
+
+**No medido:** volumen de dos años (sigue `performance-volumen-2-anios-t79.json`); varios recibos generándose a la vez; tiempos reales de la sesión de Codex (Apache no registra duración).
+
 # Prueba técnica de los días 34 a 40 (12 al 18/11) — 30/10/2026 · Claude CAB
 
 Sobre la base del sitio de prueba con el reloj en el 18/11, como `wingstest` y en solo lectura; seguridad en

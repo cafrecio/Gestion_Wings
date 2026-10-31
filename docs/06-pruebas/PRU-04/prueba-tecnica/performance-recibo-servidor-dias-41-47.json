@@ -1,0 +1,57 @@
+{
+    "fecha": "2026-10-31T06:20:37-03:00",
+    "mediana_ms": 3034,
+    "filas": [
+        {
+            "pago": 418,
+            "ms": 3445,
+            "cpu_ms": 2959,
+            "kb": 1656,
+            "memoria_mb": 24
+        },
+        {
+            "pago": 417,
+            "ms": 2889,
+            "cpu_ms": 2804,
+            "kb": 1656,
+            "memoria_mb": 36
+        },
+        {
+            "pago": 416,
+            "ms": 2926,
+            "cpu_ms": 2838,
+            "kb": 1656,
+            "memoria_mb": 46
+        },
+        {
+            "pago": 415,
+            "ms": 3034,
+            "cpu_ms": 2942,
+            "kb": 1656,
+            "memoria_mb": 56
+        },
+        {
+            "pago": 414,
+            "ms": 3173,
+            "cpu_ms": 3072,
+            "kb": 1656,
+            "memoria_mb": 66
+        }
+    ],
+    "flujos_mas_grandes_kb": [
+        373,
+        344,
+        321,
+        196,
+        122,
+        51
+    ],
+    "imagenes": 2,
+    "fuentes_embebidas": 4,
+    "fuentes": [
+        "DejaVuSans-Bold",
+        "DejaVuSansMono-Bold",
+        "DejaVuSans",
+        "DejaVuSans-Oblique"
+    ]
+}

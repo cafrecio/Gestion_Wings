@@ -2,7 +2,18 @@
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
-T98, T99 y T103 cerradas; T95 hecha, espera la prueba de Carlos por pantalla. Sigue: T96, T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí. Falta la revisión de Claude de la tanda 4.
+T98, T99 y T103 cerradas; T95 hecha, espera la prueba de Carlos por pantalla. Sigue: T96, T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
+
+## T14 — Tanda 4 (días 41 a 47) revisada, con su prueba técnica — Claude CAB, 31/10/2026
+
+Plata al peso y **0 diferencias en 11 tablas** contra la simulación rehecha con el código del sitio. Ensayo del 1/12 sobre la
+copia de la base real: 84 cuotas, 7 a Revisión, 23 ya existían, deuda $3.652.910. Funcionamiento interno 58/58, seguridad 56/56
+en `main` (55/56 con el código del sitio: falta subir T99), 61 pantallas por debajo de 335 ms. Sin agujeros de permisos ni de
+plata. Defectos anunciados confirmados: T99, T100 y T101. **Nuevo, para que decida Carlos:** T105 (recibo de 1,7 MB y 3 s),
+T106 (las tarjetas de Cashflow e Historial suman las transferencias), T107 (cerrar con la pantalla vieja no avisa), T108
+(inscripción de la segunda ficha) y T109 (filtros con basura dan error del servidor). Dos errores de mi guion corregidos
+(44.1 y 45.10). 236 de 334 casos. Teléfono a 375 sin probar: la tanda 5 lleva otro método.
+[Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) · [Prueba técnica](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md).
 
 ## T14 — Tanda 4 (días 41 a 47, 19 al 25/11) lista para Codex — Claude CyE, 30/10/2026
 

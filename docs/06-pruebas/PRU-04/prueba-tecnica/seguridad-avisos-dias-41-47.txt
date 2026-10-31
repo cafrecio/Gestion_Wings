@@ -1,0 +1,79 @@
+45.7 dueño valida caja abierta: 302 · Contá el efectivo y cerrá la caja antes de validarla.
+45.7 dueño rechaza caja abierta: 302 · Contá y cerrá la caja antes de rechazarla.
+42.3b OPERATIVO put http://gestion-wings/caja/80/movimientos/48: 302 · Solo se pueden editar movimientos de una caja abierta o rechazada.
+42.3b OPERATIVO delete http://gestion-wings/caja/80/movimientos/48: 302 · La caja no está en estado editable.
+42.3b OPERATIVO post http://gestion-wings/caja/80/movimientos/48/cancelar: 302 · Solo se puede cancelar un cobro mientras la caja esté abierta o rechazada.
+42.3b OPERATIVO post http://gestion-wings/caja/80/editar: 302 · La caja no está en estado editable.
+42.3b OPERATIVO post http://gestion-wings/caja/80/cerrar: 302 · La caja no está en estado editable.
+42.3b OPERATIVO post http://gestion-wings/caja/80/rectificar: 302 · Solo se puede rectificar una caja en estado ABIERTA.
+42.3b OPERATIVO post http://gestion-wings/cajas/80/rechazar: 403 · <!DOCTYPE html>
+<html lang="es" data-formato-importes="{&quot;locale&quot;:&quot;en-US&quot;,&quot;decimales&quot;:2,&quot;decimal&quot;:&quot;.&quot;,&quot;miles&quot;:&quot;,&quot;,&quot;moneda&quot
+42.3b ADMIN put http://gestion-wings/caja/80/movimientos/48: 302 · Solo se pueden editar movimientos de una caja abierta o rechazada.
+42.3b ADMIN delete http://gestion-wings/caja/80/movimientos/48: 302 · La caja no está en estado editable.
+42.3b ADMIN post http://gestion-wings/caja/80/movimientos/48/cancelar: 302 · Solo se puede cancelar un cobro mientras la caja esté abierta o rechazada.
+42.3b ADMIN post http://gestion-wings/caja/80/editar: 302 · La caja no está en estado editable.
+42.3b ADMIN post http://gestion-wings/caja/80/cerrar: 302 · La caja no está en estado editable.
+42.3b ADMIN post http://gestion-wings/caja/80/rectificar: 302 · Solo se puede rectificar una caja en estado ABIERTA.
+42.3b ADMIN post http://gestion-wings/cajas/80/rechazar: 302 · Contá y cerrá la caja antes de rechazarla.
+42.0 adelanto debiendo octubre, sin motivo: 409 · {"tipos":["COBRO_DEUDA_ANTERIOR"],"cantidad_meses":1,"periodos":["2026-10"],"monto_total":30000,"cuotas_cobradas":["2026-11"],"message":"Quedan 1 meses anteriores impagos por $30,000.00 (octubre 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.","success":false,"requiere_confirmacion":true,"requiere_motivo":true,"errors":{"motivo":["Indicá el motivo para registrar esta excepción."]}}
+42.1 adelanto con importe «0»: 302 · El campo importe debe ser al menos 0.01.
+42.1 adelanto con importe «-30000»: 302 · El campo importe debe ser al menos 0.01. | Ingresá un importe válido, con hasta dos decimales.
+42.1 adelanto con importe «abc»: 302 · El campo importe debe ser un número. | Ingresá un importe válido, con hasta dos decimales.
+42.1 adelanto con importe «44.505»: 302 · Ingresá un importe válido, con hasta dos decimales.
+42.1 adelanto con importe «»: 422 · {"success":false,"message":"Indic\u00e1 el importe del mes que se cobra por adelantado."}
+42.1 adelanto con importe «1e9»: 302 · Ingresá un importe válido, con hasta dos decimales.
+42.1 adelanto con importe «30000,001»: 302 · El campo importe debe ser un número. | Ingresá un importe válido, con hasta dos decimales.
+46.2 segundo cobro desde otra pestaña: 302 · El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
+46.7 segundo cierre: 302 · La caja no está en estado editable.
+46.7 cobro con el turno ya cerrado: 422 · {"success":false,"message":"Abr\u00ed la caja y confirm\u00e1 el efectivo antes de cobrar."}
+46.5 operativa, clase pasada: 403 · Esta clase ya pasó: solo un administrador puede cambiar sus profesores.
+46.5 dueño sin motivo: Esta clase ya tenía profesor asignado: indicá el motivo del cambio.
+47.5 segundo usuario para el mismo profesor: 302 · Ese profesor ya tiene un usuario asignado.
+41.6 recibo 99999 operativa: 404 · application/json · {"error":"Pago no encontrado","message":"No existe un pago con ID 99999"}
+41.6 recibo 99999 profesora: 404
+41.2 grupo []: 302 · El grupo debe tener al menos una frecuencia para poder cargar alumnos.
+41.2 grupo [{"clases_por_semana":1,"precio_mensual":"0"}]: 302 · El precio debe ser mayor a cero.
+41.2 grupo [{"clases_por_semana":8,"precio_mensual":"25000"}]: 302 · El campo frecuencia no puede ser mayor que 7.
+41.2 grupo [{"clases_por_semana":0,"precio_mensual":"25000"}]: 302 · El campo frecuencia debe ser al menos 1.
+41.2 grupo [{"clases_por_semana":1,"precio_mensual":"-5"}]: 302 · El precio debe ser mayor a cero.
+41.2 grupo [{"clases_por_semana":1,"precio_mensual":"25000"},{"clases_por_semana":1,"precio_mensual":"26000"}]: 302 · Hay dos filas con la misma frecuencia. Dejá una sola.
+44.3 inscripción «-1»: 302 · El importe de la inscripción debe ser mayor que cero. | Ingresá un importe válido, con hasta dos decimales.
+44.3 inscripción «abc»: 302 · Ingresá un importe válido, con hasta dos decimales.
+44.3 inscripción «»: 302 · Completá este valor antes de guardar.
+44.3 inscripción «12.345»: 302 · Ingresá un importe válido, con hasta dos decimales.
+ayudante «autocomplete de alumnos» OPERATIVO: 200 · [{"id":58,"label":"Flores, Zoe","sub":"50000001 \u00b7 Pat\u00edn \u2014 Federadas","url":"http:\/\/gestion-wings\/alumnos\/58"}]
+ayudante «autocomplete de alumnos» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «previa de inscripción» OPERATIVO: 422 · {"message":"La fecha de alta es obligatoria.","errors":{"fecha_alta":["La fecha de alta es obligatoria."]}}
+ayudante «previa de inscripción» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «previa de cuota» OPERATIVO: 422 · {"message":"El valor elegido para plan no existe.","errors":{"plan_id":["El valor elegido para plan no existe."]}}
+ayudante «previa de cuota» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «grupo disponible» OPERATIVO: 200 · {"disponible":false}
+ayudante «grupo disponible» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «nivel disponible» OPERATIVO: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «nivel disponible» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «email disponible» OPERATIVO: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C
+ayudante «email disponible» PROFESOR: 403 · {
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
+    "file": "C:\\Users\\cafre\\AppData\\Local\\Temp\\claude\\C

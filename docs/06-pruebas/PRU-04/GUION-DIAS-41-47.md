@@ -8,6 +8,11 @@ muy pocos datos.
 operaciones de plata de este guion en test.gestionar-te.com.ar (base `wingstest`, datos ficticios). No hace falta
 volver a preguntar.
 
+**Erratas (revisión de Claude, 31/10/2026). Se corrigieron abajo:**
+- **44.1:** escribí que Historial muestra solo lo que pasó por las cajas y sin la transferencia. Es falso: suma también los
+  movimientos directos. Lo correcto es lo que vio Codex: $1.921.200 y $1.565.200 en las dos pantallas.
+- **45.10:** escribí «1 clase sin lista» con el reloj a las 09:00; la clase era de las 16 y todavía no había pasado.
+
 ## Para qué sirve esta semana
 
 Noviembre ya está casi cobrado: esta semana no vale por la cobranza, sino por lo que deja lista. Tiene cinco trabajos:
@@ -150,7 +155,7 @@ Reloj **20:00**. Sin actividad en el club.
 
 | # | Quién | Tarea | Esperado |
 |---|---|---|---|
-| 44.1 | Dueño | Historial del 16 al 21/11 y Cashflow del mismo período. | Historial: ingresos **$421.200**, egresos **$43.200**. Cashflow: ingresos $421.200, egresos **$65.200**. **La diferencia son los $22.000 de Internet:** Historial solo muestra lo que pasó por las cajas. **Contra el catálogo** (MOV-013/014 esperan otra cosa): anotarlo. |
+| 44.1 | Dueño | Historial del 16 al 21/11 y Cashflow del mismo período. | Historial y Cashflow dicen lo mismo: ingresos **$1.921.200** y egresos **$1.565.200**: los $421.200 y $65.200 del relato, Internet incluido, más la transferencia de $1.500.000 del 17/11, que las tarjetas suman de los dos lados (T106). Historial tiene una fila más: el cobro cancelado de Clara, que no suma (MOV-013, MOV-014). |
 | 44.2 | Dueño | Valida la caja de Pablo. | «Caja validada y reflejada en cashflow.»; no cambia ni un número (CAJ-037 b). |
 | 44.3 | Dueño | Configuración: inscripción a **$8.000**. | La de Emma Villalba sigue en $5.000; la deuda no cambia (CFG-003). |
 | 44.4 | Dueño | Fichas de Gonzalo y Mariela. | Datos reales, sin «Próximamente» (PRO-005, SIS-012). |
@@ -179,11 +184,11 @@ viene, la única vez en el mes** (falta Emma Villalba). **Hernán se olvida de l
 | 45.7 | Dueño y Sandra | El dueño busca validar la caja abierta de Sandra. Sandra busca Validar en la suya. | «Contá el efectivo y cerrá la caja antes de validarla.»; Sandra no tiene Validar ni Rechazar (CAJ-026, CAJ-028). **Solo prueba técnica:** forzar el envío. |
 | 45.8 | Dueño | Va a Nuevo movimiento de caja. Después, en la tarjeta del turno de Sandra, Agregar: **Insumos $3.000**, «Bombitas de luz: las pagó la caja». Sandra mira su caja. | Nuevo movimiento lleva a Cashflow (MOV-006). Agregar entra en la caja: esperado **$67.700 → $64.700** (CAJ-041). **DEFECTO probable (T101):** el catálogo pide que figure a nombre de quien lo cargó; en el código queda a nombre de Sandra (`CajaService.php:550`). Anotar qué muestra la pantalla. |
 | 45.9 | Dueño | 18:30: la clase de Intermedias de las 17 se suspendió a los 15 minutos. Cancelar con «Se cortó la luz a los 15 minutos». Confirmar. | Avisa que tiene la lista tomada y pide confirmar. «Clase cancelada.» Conserva sus **19 marcas** y deja de contar: **Alma queda con 0 presentes válidos en noviembre** (CLA-012 b y c). |
-| 45.10 | Dueño y Hernán | Inicio y «Sin asistencia». Hernán abre sus clases. | **1 clase sin lista:** Fútbol Principiantes de hoy. Hernán la ve pendiente. **No la carga hoy.** |
+| 45.10 | Dueño y Hernán | Inicio y «Sin asistencia». Hernán abre sus clases. | Fútbol Principiantes de hoy es a las 16: con el reloj a las 09:00 todavía no pasó y «Sin asistencia» sigue en **0**. Hernán la ve pendiente. **No la carga hoy.** |
 
 **Noche** (`dia-45-noche.json`): Sandra cierra con el esperado, **$64.700**, y deja $10.000; el dueño valida.
 
-**Cierre del día 45:** deuda **$205.200**; 112 activos: 106, 1, 5; **sin lista 1**. Ingresos **$4.244.100**; egresos
+**Cierre del día 45:** deuda **$205.200**; 112 activos: 106, 1, 5; **sin lista 0 con el reloj a las 09:00** (a la noche sería 1, y Hernán la carga el 46). Ingresos **$4.244.100**; egresos
 $2.810.080; resultado $1.434.020; disponible **$6.669.520,75**. Efectivo $1.407.400; MP $3.528.470,75; Galicia $1.675.650.
 
 ## Día 46: martes 24/11, el recargo de Emma

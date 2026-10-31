@@ -1,0 +1,42 @@
+3876 pedidos; 41 con error del servidor
+ADMIN web.caja.historial ?desde=abc
+OPERATIVO web.caja.historial ?desde=abc
+ADMIN web.caja.historial ?desde=9999-99-99
+OPERATIVO web.caja.historial ?desde=9999-99-99
+ADMIN web.caja.historial ?desde=1' OR '1'='1
+OPERATIVO web.caja.historial ?desde=1' OR '1'='1
+ADMIN web.caja.historial ?desde=0
+OPERATIVO web.caja.historial ?desde=0
+ADMIN web.caja.historial ?desde=[]
+OPERATIVO web.caja.historial ?desde=[]
+ADMIN web.caja.historial ?hasta=abc
+OPERATIVO web.caja.historial ?hasta=abc
+ADMIN web.caja.historial ?hasta=9999-99-99
+OPERATIVO web.caja.historial ?hasta=9999-99-99
+ADMIN web.caja.historial ?hasta=1' OR '1'='1
+OPERATIVO web.caja.historial ?hasta=1' OR '1'='1
+ADMIN web.caja.historial ?hasta=0
+OPERATIVO web.caja.historial ?hasta=0
+ADMIN web.caja.historial ?hasta=[]
+OPERATIVO web.caja.historial ?hasta=[]
+ADMIN web.caja.historial ?search=[]
+OPERATIVO web.caja.historial ?search=[]
+ADMIN web.movimientos.index ?desde=[]
+OPERATIVO web.movimientos.index ?desde=[]
+ADMIN web.movimientos.index ?hasta=[]
+OPERATIVO web.movimientos.index ?hasta=[]
+ADMIN web.cobranza.index ?estado=[]
+OPERATIVO web.cobranza.index ?estado=[]
+ADMIN web.clases.index ?fecha=[]
+OPERATIVO web.clases.index ?fecha=[]
+ADMIN web.alumnos.index ?search=[]
+OPERATIVO web.alumnos.index ?search=[]
+ADMIN web.alumnos.autocomplete ?q=[]
+OPERATIVO web.alumnos.autocomplete ?q=[]
+ADMIN web.caja.index ?mes=abc
+ADMIN web.caja.index ?mes=1' OR '1'='1
+ADMIN web.caja.index ?mes=0
+ADMIN web.caja.index ?mes=[]
+ADMIN web.caja.cobrar-cuota ?search=[]
+OPERATIVO web.caja.cobrar-cuota ?search=[]
+ADMIN web.profesores.index ?search=[]

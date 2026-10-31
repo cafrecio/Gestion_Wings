@@ -19,6 +19,44 @@ prueba sigue **día por día, sin saltear ninguno**, con su rutina de vida real,
 48-54, hasta la resolución de la Revisión el 2/12). Los siete días están simulados enteros sobre la copia posterior
 a la verificación de Codex. [Prompt para Codex](PROMPT-CODEX-DIAS-34-40.md).
 
+## Revisión de Claude de los días 41 a 47 (19 al 25/11, tanda 4) — 31/10/2026
+
+Revisado contra el [guion](GUION-DIAS-41-47.md), los informes de Codex ([41](DIA-41.md) a [47](DIA-47.md),
+[índice](evidencia-dias-41-47/LEEME.md)), el código y una copia de la base del sitio con el reloj en el 25/11.
+
+**La plata coincide al peso, los siete días, y fila por fila.** Los siete cierres son los del guion: al 25/11 deuda
+$215.910 (114 activos: 107 Al día, 2 En plazo, 5 Morosos), ingresos $4.327.900, egresos $2.833.880, disponible
+$7.441.520,75; Efectivo $1.772.100, Mercado Pago $3.835.270,75, Galicia $1.776.150, Nación $58.000. La base del sitio
+comparada con la simulación rehecha con el mismo código: **0 diferencias en 11 tablas**. Ensayo del 1/12 sobre la copia
+de la base real: 84 cuotas, 7 a Revisión, 23 ya existían, deuda $3.652.910, lo calculado.
+
+| Caso | Qué es | Qué hacer |
+|---|---|---|
+| 41.2 error del servidor con frecuencia repetida | **T99**, retratado a propósito. Reparada en `main`; el sitio todavía no la tiene | Se repite en la tanda 5 |
+| 42.1 Clara queda con $270.000 | **T100**, retratado a propósito. Verificado: el 1/12 pasan a deuda. El guion de la tanda 5 dice qué se hace | T100, sin empezar |
+| 45.8 el gasto del dueño figura a nombre de Sandra | **T101**, retratado a propósito | T101, sin empezar |
+| 44.1 Historial y Cashflow | **Error de mi guion**, no de Wings. Escribí que Historial muestra solo lo de las cajas: el código suma también los movimientos directos (`CajaWebController.php:239`). Lo que vio Codex es lo correcto: $1.921.200 y $1.565.200 son los $421.200 y $65.200 del relato más la transferencia de $1.500.000 del 17/11. Las 44 filas contra 43 son el cobro cancelado de Clara, que el dueño ve sin sumar. **MOV-013 y MOV-014 cumplen** | Errata en el guion. Pero ver T106 |
+| 44.1 las tarjetas suman la transferencia | **Hallazgo nuevo:** Cashflow e Historial cuentan una transferencia entre cuentas propias como ingreso y como egreso (`CashflowWebController.php:182`). Esa semana dicen «Ingresos $1.921.200» y entraron $421.200. Reportes está bien. CSH-018 pide que los ingresos no cambien | **T106**, para que Carlos decida |
+| 45.10 «Sin asistencia» 0 y no 1 | **Error de mi guion:** la clase era de las 16 y el reloj estaba en las 09:00, todavía no había pasado | Errata en el guion |
+| 46.7 cierre con la pantalla vieja | Lo que dice CAJ-023 se cumple: el esperado incluye el cobro y el faltante queda a la vista del dueño. **Lo que falta es un aviso** a quien cierra de que el esperado cambió desde que abrió la pantalla. Si copia lo que veía, queda un faltante falso de $44.000 | **T107**, para que Carlos decida |
+| 47.9 demoras al bajar recibos | **Medido:** cada recibo tarda ~3 s y pesa 1.656 KB la primera vez, también en el servidor. Probado en local: con el recorte de fuentes pesa 211 KB, tarda lo mismo | **T105**, para que Carlos decida |
+| 41.9b y 46.3b teléfono a 375 | **No probado.** La herramienta de Codex aceptó el tamaño pero la pantalla siguió en 1905. ASI-014 queda sin acreditar | La tanda 5 lleva otro método |
+| 41.3b, 41.6b, 42.3b, 44.6b, 46.2, 46.5, 46.6b, 47.4, 47.5b, 45.3, 45.7 | Lo que Codex no pudo ver o no debía forzar | **Forzado en la prueba técnica, todo cumple.** La llegada del aviso de 44.6b no se miró |
+| 42.5 corte de Cloudflare (522) | Uno en 1.255 pedidos, sin rastro en el servidor. Causa no comprobada | Anotado |
+| 43.6 «Tipos de Caja» y «Medios de pago» | La pantalla y SIS-013 dicen cosas distintas. Sin decidir cuál es la buena | Anotado |
+| 47.2 «la profesora Hernán Quintana» | El aviso de choque usa femenino para un profesor | Anotado |
+| 46.4 inscripción de la segunda ficha de Thiago | **Sin resolver:** vino de la primera carga, sin inscripción registrada, y Wings la cobra. No sé si es lo que se quiere | Duda para Carlos, en el tablero (T108) |
+
+**Casos acreditados por primera vez (58):** los 57 del guion salvo ASI-014, más ACC-012 por la prueba técnica. Total: **236 de 334**.
+Fallaron dentro de esos, ya conocidos: GRU-002 (T99), COB-019 (T100) y CAJ-041 (T101). Parciales: CAJ-023 (T107) y CSH-017 (no se probó la fecha del mes pasado).
+
+**Prueba técnica de los días 41 a 47:** plata sin diferencias, funcionamiento interno 58/58 (14 controles nuevos),
+seguridad 56/56 (19 pruebas nuevas, sin agujeros de permisos ni de plata) y velocidad por debajo de 335 ms
+([informe](prueba-tecnica/INFORME.md)).
+
+**Lo que sigue:** tanda 5 (días 48 a 54, 26/11 al 2/12): hay que desplegar antes lo que entra (T94 a T101 según el guion),
+fijar el método para el teléfono y escribir qué se hace con el saldo de Clara.
+
 ## Revisión de Claude de los días 34 a 40 (12 al 18/11, tanda 3) — 30/10/2026
 
 Revisado contra el [guion](GUION-DIAS-34-40.md), los informes de Codex ([34](DIA-34.md) a [40](DIA-40.md),
@@ -52,8 +90,7 @@ ver el mes siguiente y que no cambie con las reglas). CBZ-017 recién se ve el 1
 sin aviso al dueño (lo decidido el 10/10 en T18). Leído en el código, no ejecutado: el único límite es un
 centavo.
 
-**Lo que sigue:** tanda 4 (días 41 a 47, 19 al 25/11): Emma Villalba ya está Morosa el 24/11 y a las 06:15 de
-ese día le corresponde el recargo. Simulada y con [guion](GUION-DIAS-41-47.md) el 30/10; lista para Codex ([prompt](PROMPT-CODEX-DIAS-41-47.md)). T94 a T101 se prueban en la tanda 5.
+**Lo que seguía:** tanda 4 (días 41 a 47), [hecha y revisada](#revisión-de-claude-de-los-días-41-a-47-19-al-2511-tanda-4--31102026). T94 a T101 se prueban en la tanda 5.
 
 ## Revisión de Claude de los días 29 a 33 (7 al 11/11, tanda 2) — 30/10/2026
 

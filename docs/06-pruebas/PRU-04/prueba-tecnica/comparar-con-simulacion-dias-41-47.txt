@@ -1,0 +1,12 @@
+deudas      239 / 239 filas, 0 diferencias
+cargos      60 / 60 filas, 0 diferencias
+pagos       229 / 229 filas, 0 diferencias
+alumnos     117 / 117 filas, 0 diferencias
+planes      120 / 120 filas, 0 diferencias
+precios     18 / 18 filas, 0 diferencias
+cajas       40 / 40 filas, 0 diferencias
+movs_caja   363 / 363 filas, 0 diferencias
+cashflow    396 / 396 filas, 0 diferencias
+clases      226 / 226 filas, 0 diferencias
+excepciones 8 / 8 filas, 0 diferencias
+TOTAL diferencias: 0

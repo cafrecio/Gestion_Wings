@@ -38,9 +38,9 @@ La primera simulación (Claude CAB) se rehízo porque no preparaba todas las sal
 - «**la profesora** Hernán Quintana ya tiene asignada la clase…»: el aviso de choque nombra en femenino a un profesor.
 - **Menús:** la profesora ve Clases y Ayuda; la operativa no tiene «Sin asistencia» en el menú; el dueño ve «Tipos
   de Caja» donde el catálogo dice «Medios de pago». El catálogo (SIS-013) está viejo en eso.
-- **Historial:** muestra solo lo que pasó por las cajas, sin límite de 90 días y sin los movimientos directos ni
-  los cobros del dueño. El catálogo (MOV-013/014) espera otra cosa. Semana 16 a 21/11: Historial ingresos
-  $217.800 y egresos $28.300; Cashflow egresos $50.300 (la diferencia es el Internet del dueño).
+- **Historial** (corregido en la revisión del 31/10): decía acá que muestra solo lo de las cajas. Era falso: suma también
+  los movimientos directos y los cobros del dueño (`CajaWebController::historial`), y coincide con Cashflow, como pide
+  MOV-014. Las tarjetas de las dos pantallas suman las transferencias entre cuentas de los dos lados (T106).
 - **Mi guion de la tanda 3 decía que el recargo de Emma corría el 25/11:** corre el 24/11 a las 06:15 (corregido).
 - **El ejecutor de rutinas** tomaba por buena una serie que pedía confirmar el aviso de cancha y no creaba nada.
   Corregido en `scripts/pruebas/rutina/rutina.php`: ahora falla y pide hacerla por pantalla.

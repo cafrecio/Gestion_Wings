@@ -1,0 +1,472 @@
+{
+    "fecha_wings": "2026-11-25 23:59:59",
+    "base": "wingstest",
+    "controles": 58,
+    "aprobados": 58,
+    "resultados": [
+        {
+            "id": "CAJ-1",
+            "regla": "El efectivo esperado de cada caja cerrada es el inicial más sus movimientos en efectivo no cancelados; la diferencia es contado menos esperado; retenido más retirado es lo contado",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "40 cajas"
+        },
+        {
+            "id": "CAJ-2",
+            "regla": "Lo heredado por cada apertura es lo que retuvo la caja de origen",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-1",
+            "regla": "Cada movimiento no cancelado de una caja validada aparece una sola vez en Cashflow; un cancelado no aparece",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "358 movimientos de cajas validadas"
+        },
+        {
+            "id": "CSH-2",
+            "regla": "El reflejo conserva importe, fecha del día y medio de pago del movimiento de caja",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-3",
+            "regla": "Cada transferencia tiene exactamente dos patas TRASPASO, salida negativa y entrada positiva por el mismo importe; no hay TRASPASO suelto",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "4 transferencias"
+        },
+        {
+            "id": "COB-1",
+            "regla": "Cada cobro vigente reparte exactamente su importe entre cuotas e inscripción, y entra a caja (o a Cashflow si lo cobró el dueño) por ese mismo importe; un anulado no conserva imputaciones",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "229 cobros"
+        },
+        {
+            "id": "COB-2",
+            "regla": "Lo pagado de cada cuota es la suma de sus imputaciones vigentes; PAGADA sin saldo y PENDIENTE con saldo; nunca pagada de más",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "239 cuotas"
+        },
+        {
+            "id": "COB-3",
+            "regla": "Un alumno tiene a lo sumo una cuota por mes",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CBZ-1",
+            "regla": "La deuda de Cobranza es la de Reportes; vencidos más en plazo son los que deben; nadie Al día con deuda",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "deuda 215910; {\"MOROSO\":5,\"EN_PLAZO\":2,\"AL_DIA\":107}"
+        },
+        {
+            "id": "ALU-1",
+            "regla": "Todo alumno activo tiene plan para el mes en curso",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "0 activos sin cuota del mes guardada (decisión pendiente de Carlos, D4-OBS-01)"
+        },
+        {
+            "id": "REP-1",
+            "regla": "El disponible de Reportes es saldos iniciales más Cashflow más lo de cajas sin validar",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "disponible 7441520.75; hay movimientos anulados en Cashflow"
+        },
+        {
+            "id": "ASI-1",
+            "regla": "A lo sumo una marca por alumno y clase",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-2",
+            "regla": "No hay marcas en clases que todavía no ocurrieron ni cargadas en una clase ya cancelada",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "31 marcas conservadas en clases canceladas con la lista tomada (T62)"
+        },
+        {
+            "id": "ASI-3",
+            "regla": "Nadie tiene marca en una clase de su grupo actual anterior a su llegada",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CLA-1",
+            "regla": "Toda clase activa tiene al menos una profesora",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "LIQ-1",
+            "regla": "Por hora: cada clase paga valor hora × minutos; es del mes, de la profesora, no cancelada y con presentes o validada; el total es la suma",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "6 liquidaciones por hora"
+        },
+        {
+            "id": "LIQ-2",
+            "regla": "Por comisión: cada parte es el porcentaje de su cuota; ninguna cuota adelantada de un mes posterior; cada decisión de atrasada tiene su registro; ninguna cerrada con pendientes",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "2 liquidaciones por comisión"
+        },
+        {
+            "id": "LIQ-3",
+            "regla": "Una sola liquidación vigente por profesor y mes; ninguna clase se liquida dos veces a la misma profesora",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "LIQ-4",
+            "regla": "Lo cerrado sin pagar suma el «por pagar» de Reportes; ninguna liquidación sin pagar tiene movimiento en Cashflow",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "0 cerradas sin pagar, 0; abiertas 0"
+        },
+        {
+            "id": "REP-2",
+            "regla": "El reporte de octubre sigue igual que el 31/10, más la Luz de octubre que el dueño cargó tarde el 22/11",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "ingresos 3417850.75, egresos 341350, deuda 28000"
+        },
+        {
+            "id": "LIQ-5",
+            "regla": "Cada liquidación pagada tiene un único egreso en Cashflow por su importe y con su fecha de pago",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "8 pagadas"
+        },
+        {
+            "id": "CBZ-2",
+            "regla": "La constancia de noviembre sigue como quedó el 1/11 después de la segunda corrida del 2/11",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "fin 2026-11-01 06:02:31; creadas 0 (el 0 viene del día 23, antes de la reparación); ya existían 103"
+        },
+        {
+            "id": "COB-4",
+            "regla": "Cada excepción tiene motivo, autor y su cobro, del mismo alumno",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "8 excepciones"
+        },
+        {
+            "id": "COB-5",
+            "regla": "Las cuotas de meses que no empezaron existen solo pagadas por adelantado, salvo la del alta de Renzo (ingresa el 1/12) y la de Clara (T100)",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "23 adelantadas"
+        },
+        {
+            "id": "ALU-2",
+            "regla": "Ningún activo conserva fecha de baja; los inactivos sin fecha son anteriores a T70",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "inactivos sin fecha: Alvarez"
+        },
+        {
+            "id": "ALU-3",
+            "regla": "Un DNI aparece a lo sumo una vez por deporte",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "PEN-1",
+            "regla": "Cada recargo es el porcentaje configurado sobre el original de su cuota de noviembre, de un activo, uno por cuota: 32 de la corrida del 11/11 06:15 y uno de la del 24/11 06:15; Santino (octubre) y Candela (inactiva) sin recargo",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "33 recargos por 117810; porcentaje 10"
+        },
+        {
+            "id": "PEN-2",
+            "regla": "Lo aplicado en recargos es lo cobrado más lo condonado más lo pendiente; lo cobrado es lo que dice Reportes; cada condonación tiene al dueño y su motivo",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "aplicado 117810 = cobrado 97200 + condonado 5000 + pendiente 15610"
+        },
+        {
+            "id": "CBZ-3",
+            "regla": "La deuda perdida es una, de una inactiva, la registró el dueño, está marcada en sus cuotas por el mismo importe y no creó pago ni movimiento de plata",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "77000.00 el 2026-11-10 09:00:41"
+        },
+        {
+            "id": "PRO-1",
+            "regla": "Verónica inactiva: ninguna clase desde el 7/11, usuario desactivado y sin sesiones, sus 2 clases dictadas de noviembre siguen siendo suyas; las Intermedias quedaron con Lucía (5 de 7: la del 20/11 la dio Mariela y la del 23/11 se canceló)",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-4",
+            "regla": "Centenera quedó en 125.000 sin anularse, con una sola corrección que conserva antes, después, motivo y dueño",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CAJ-3",
+            "regla": "La #53 registra que la cerró el dueño, con faltante 500 y cambio 10.000; la #55 heredó 10.000, abrió con motivo, se rectificó con motivo y autora, se rechazó con motivo, lleva la resma del 9/11 y se validó con diferencia 0",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CLA-2",
+            "regla": "La clase reactivada conserva su motivo de cancelación; el amistoso eliminado no existe; Principiantes del 11/11 tiene 22 presentes y 2 ausentes, con excepción solo de Santino e Iván y los motivos del guion",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-6",
+            "regla": "Iván pagó primero solo la inscripción (5.000, sin tocar la cuota) y el 16/11 la cuota con su recargo (35.000 + 3.500); Florencia pagó cuota 50.000 y recargo 5.000 en un cobro con dos renglones en la caja",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "GRU-1",
+            "regla": "El plan de 2 por semana de Fútbol Avanzadas vale 52.000 desde el 1/12; sus cuotas de noviembre y el diciembre adelantado de Joaquín siguen en 48.000; los diciembres que Dante, Julián y Tomás adelantaron después del aumento son de 52.000",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "8 alumnos en el plan"
+        },
+        {
+            "id": "COB-7",
+            "regla": "Camila y Mora Benítez, con dos fichas cada una, pagaron noviembre con recargo desde cada ficha: un cobro por ficha, cada uno imputado a su cuota y su recargo",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-8",
+            "regla": "Benicio pagó la cuota sola el 12/11 y el recargo solo el 16/11; Joaquín pagó 20.000 a cuenta con el motivo de Sandra y el 14/11 el resto, 15.000 de cuota y 3.500 de recargo, sin motivo",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-9",
+            "regla": "Santino pagó octubre (mes cerrado) sin recargo, imputado a octubre; Guadalupe pagó noviembre, 50.000, y su recargo sigue perdonado entero",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-10",
+            "regla": "Diciembre no se generó: sus únicas cuotas son las 23 esperadas, una por persona: 21 adelantos pagados enteros, la del alta de Renzo pendiente y la de Clara en 300.000 con 30.000 pagados (T100)",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ALU-4",
+            "regla": "Bautista Sosa y Emma Villalba entraron el 17/11 con la cuota de noviembre al 70% (24.500 y 23.100) y una inscripción de 5.000; Bautista pagó las dos en un cobro y fue el 18/11 sin motivo; Emma no pagó ni vino",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ALU-5",
+            "regla": "Lara pasó a Patín Intermedias el 16/11: el plan de Principiantes cierra el 30/11, el de Intermedias (2 por semana) rige desde el 1/12, noviembre sigue pagada en 44.000 y desde el 16/11 figura solo en las listas de Intermedias",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CSH-5",
+            "regla": "La clase de Adultos del 19/11 está cancelada con el motivo de Mariela y sin lista; cada transferencia son dos renglones opuestos de traspaso del mismo día en dos cuentas, y la #4 es Efectivo → Galicia por 1.500.000 el 17/11",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "4 transferencias"
+        },
+        {
+            "id": "CAJ-4",
+            "regla": "Las seis cajas de los días 34 a 40 están validadas por el dueño y sin diferencia; la del sábado 14/11 se validó el domingo; la del 18/11 dejó los 7.000 contados como cambio y no entregó nada",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ALU-6",
+            "regla": "Las siete altas llevan la cuota del porcentaje del mes en que ingresan y la inscripción vigente ese día; lo pagado es lo del guion; Bruno es una sola ficha después del doble clic y del reenvío",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-11",
+            "regla": "Clara: 300.000 anulado con motivo y renglón cancelado, 30.000 vigente con motivo de parcial y el saldo fantasma de 270.000 de T100 sin tocar, listo para la tanda 5",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "retrata T100"
+        },
+        {
+            "id": "COB-12",
+            "regla": "Morena: el cobro del dueño por MP se anuló con motivo; Cashflow lleva +44.000 y -44.000 en MP y +44.000 en Galicia, con la misma fecha, sin pasar por ninguna caja",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-13",
+            "regla": "Tobías: el cobro se canceló entero con dos renglones cancelados, su motivo y el desglose; Facundo pagó noviembre, recargo y diciembre en un cobro de 58.800, sin motivo",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "COB-14",
+            "regla": "Los quince adelantos del 25/11 tienen su importe, su renglón y su medio (efectivo 294.000, MP 208.000, Galicia 102.000), recibos 404 a 418; noviembre no sube",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "imputado a diciembre 895000"
+        },
+        {
+            "id": "CAJ-5",
+            "regla": "Las seis cajas de los días 41 a 47 están validadas por el dueño con los importes del guion; el dueño abrió la del sábado a nombre de Pablo, sin movimientos, validada el domingo; la del 24/11 conserva el faltante de 44.000 con el cobro de Emilia adentro",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CAJ-6",
+            "regla": "El gasto de 3.000 que el dueño cargó en el turno de Sandra existe una vez y figura a nombre de ella",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": "retrata T101"
+        },
+        {
+            "id": "CSH-6",
+            "regla": "Internet: uno quedó en 23.500 con una sola corrección pese al doble clic; el duplicado está anulado con su asiento en contra y su motivo; la Luz de 9.400 lleva fecha 28/10 y se cargó el 22/11",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CFG-2",
+            "regla": "Inscripción en 8.000 y gracia en 10; la inscripción de Emma sigue en 5.000 y su recargo es 2.310, del 24/11 a las 06:15",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CBZ-4",
+            "regla": "Los siete que deben, cada uno con su importe y estado, suman los 215.910 de Cobranza; Clara no figura porque su saldo de diciembre todavía no cuenta",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CLA-3",
+            "regla": "Intermedias del 20/11 con Mariela y su motivo; Intermedias del 23/11 cancelada conservando 19 marcas; Federadas del 21/11 con Lucía y Mariela; Fútbol del 23/11 cargada el 24 sin motivo; Fútbol del 21/11 cancelada sin lista",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ASI-4",
+            "regla": "Nadie que no tenía que venir tiene presentes desde el 19/11; el único presente de Alma en noviembre es el de la clase cancelada; Liam vino",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "CAT-1",
+            "regla": "Nivel Infantiles una sola vez; Fútbol Infantiles con 1 por semana a 25.000 y 2 a 38.000; Gonzalo con 35%, un usuario, un renglón de sueldo y sus 4 clases; 78 clases de diciembre por grupo, sin repetidas",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "ALU-7",
+            "regla": "Lautaro quedó Inactivo con la fecha del 25/11 y sin cuota de diciembre",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        },
+        {
+            "id": "SIS-1",
+            "regla": "No hay registros que apunten a algo que no existe",
+            "ok": true,
+            "fallas": 0,
+            "muestra": [],
+            "detalle": ""
+        }
+    ]
+}

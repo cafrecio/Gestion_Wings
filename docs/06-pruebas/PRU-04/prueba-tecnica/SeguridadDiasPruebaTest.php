@@ -491,7 +491,7 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
     {
         // Alumno con cobro: el dueño forzando recibe el rechazo y el alumno sigue.
         $this->actingAs($this->duenio)->deleteJson(route('web.alumnos.destroy', $this->alumno->id))->assertStatus(422)
-            ->assertJsonPath('message', 'No se puede eliminar el alumno: Tiene pagos registrados. Puede darlo de baja cambiando su estado a inactivo.');
+            ->assertJsonPath('message', 'No se puede eliminar el alumno: Tiene pagos registrados. Puede pasarlo a Inactivo.');
         $this->assertNotNull($this->alumno->fresh());
 
         // Alumno recién cargado, sin nada: la operativa y la profesora no lo eliminan; el dueño sí.
@@ -957,5 +957,477 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->actingAs($this->sandra)->post(route('web.alumnos.store'), ['cuota_periodo_visto' => '2026-10', 'cuota_importe_visto' => '21000'] + $datos)->assertSessionHasNoErrors();
         $nuevo = Alumno::where('dni', '54111222')->sole();
         $this->assertSame('21000.00', DeudaCuota::where('alumno_id', $nuevo->id)->where('periodo', '2026-10')->value('monto_original'), 'La cuota de la segunda quincena es el 70% de 30.000');
+    }
+
+    // ── Días 41 a 47 (Claude, 31/10/2026) ───────────────────────────────────
+
+    private static bool $notasEmpezadas = false;
+
+    /** Lo que Wings contesta en los rechazos que Codex no pudo ver por pantalla queda en un archivo, para el informe. */
+    private function nota(string $texto): void
+    {
+        file_put_contents(__DIR__.'/seguridad-avisos-dias-41-47.txt', $texto."\n", self::$notasEmpezadas ? FILE_APPEND : 0);
+        self::$notasEmpezadas = true;
+    }
+
+    private function avisoDe($respuesta): string
+    {
+        $errores = session('errors')?->all() ?? [];
+        return $respuesta->getStatusCode().' · '.(session('error') ?? (implode(' | ', $errores) ?: (session('success') ?? mb_substr((string) $respuesta->getContent(), 0, 200))));
+    }
+
+    /** 45.7 (Solo prueba técnica): una caja abierta no se valida ni se rechaza forzando; la operativa y la profesora tampoco. */
+    public function test_dia_45_caja_abierta_no_se_valida_ni_se_rechaza_forzando(): void
+    {
+        $antes = $this->foto();
+        $validar = $this->actingAs($this->duenio)->post(route('web.cajas.validar', $this->cajaSandra->id));
+        $validar->assertSessionHas('error', 'Contá el efectivo y cerrá la caja antes de validarla.');
+        $this->nota('45.7 dueño valida caja abierta: '.$this->avisoDe($validar));
+        $rechazar = $this->actingAs($this->duenio)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'Rechazo forzado de una caja abierta']);
+        $this->nota('45.7 dueño rechaza caja abierta: '.$this->avisoDe($rechazar));
+        $this->assertNull(session('success'));
+        foreach ([$this->sandra, $this->lucia] as $quien) {
+            $this->assertTrue($this->prohibido($this->actingAs($quien)->post(route('web.cajas.validar', $this->cajaSandra->id))), "$quien->rol validó");
+            $this->assertTrue($this->prohibido($this->actingAs($quien)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => 'Rechazo forzado'])), "$quien->rol rechazó");
+        }
+        $this->assertSame($antes, $this->foto(), 'Algo de la caja abierta cambió');
+        $this->assertSame('ABIERTA', $this->cajaSandra->fresh()->estado);
+    }
+
+    /** 43.1 y 43.5: Pablo ve el detalle de la caja de Sandra y nada más; el dueño no abre a su nombre ni a nombre de una profesora, ni forzando. */
+    public function test_dia_43_caja_ajena_y_apertura_a_nombre_de_otro_forzando(): void
+    {
+        $mov = MovimientoOperativo::where('caja_operativa_id', $this->cajaSandra->id)->firstOrFail();
+        $this->actingAs($this->pablo)->get(route('web.caja.detalle', $this->cajaSandra->id))->assertOk();
+        foreach ([route('web.caja.resumen', $this->cajaSandra->id), route('web.caja.cierre', $this->cajaSandra->id), route('web.caja.rectificar', $this->cajaSandra->id), route('web.caja.editar', $this->cajaSandra->id),
+                  route('web.caja.movimientos.editar', [$this->cajaSandra->id, $mov->id]), route('web.caja.movimientos.cancelar', [$this->cajaSandra->id, $mov->id])] as $url) {
+            $this->actingAs($this->pablo)->get($url)->assertForbidden();
+        }
+        $cajas = CajaOperativa::count();
+        foreach ([$this->duenio->id, $this->lucia->id, 999999] as $operativo) {
+            $this->actingAs($this->duenio)->post(route('web.caja.abrir'), ['operativo_id' => $operativo, 'efectivo_inicial' => '15000', 'confirmacion' => '1'])->assertSessionHasErrors('operativo_id');
+        }
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->post(route('web.caja.abrir'), ['efectivo_inicial' => '15000', 'confirmacion' => '1'])), 'La profesora abrió una caja');
+        $this->assertSame($cajas, CajaOperativa::count());
+    }
+
+    /** 42.3b, que Codex no pudo forzar: una caja validada no se toca, ni la dueña del turno ni el dueño, por ningún camino. */
+    public function test_dia_42_caja_validada_no_se_toca_forzando(): void
+    {
+        $mov = MovimientoOperativo::where('caja_operativa_id', $this->cajaSandra->id)->firstOrFail();
+        DB::table('cajas_operativas')->where('id', $this->cajaSandra->id)->update(['estado' => 'VALIDADA', 'validada_at' => now(), 'usuario_admin_validacion_id' => $this->duenio->id]);
+        $id = $this->cajaSandra->id;
+        $datos = ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => $mov->subrubro_id, 'monto' => '1', 'fecha' => '2026-10-15', 'observaciones' => 'Forzado'];
+        $antes = $this->foto();
+        foreach ([$this->sandra, $this->duenio] as $quien) {
+            foreach ([['put', route('web.caja.movimientos.update', [$id, $mov->id]), $datos], ['delete', route('web.caja.movimientos.destroy', [$id, $mov->id]), []],
+                      ['post', route('web.caja.movimientos.cancelar.store', [$id, $mov->id]), ['motivo' => 'Forzado sobre una caja validada']], ['post', route('web.caja.editar.store', $id), $datos],
+                      ['post', route('web.caja.cerrar', $id), ['efectivo_contado' => '1', 'cambio_retenido' => '1']], ['post', route('web.caja.rectificar.guardar', $id), ['efectivo_inicial' => '1', 'motivo' => 'Forzado']],
+                      ['post', route('web.cajas.rechazar', $id), ['motivo' => 'Forzado sobre una caja validada']]] as [$verbo, $url, $cuerpo]) {
+                $r = $this->actingAs($quien)->$verbo($url, $cuerpo);
+                $this->nota("42.3b $quien->rol $verbo $url: ".$this->avisoDe($r));
+            }
+        }
+        $this->assertSame($antes, $this->foto(), 'Una caja validada cambió');
+    }
+
+    /** 42.0 y 42.1: el adelanto debiendo un mes anterior pide motivo, y lo mal escrito no se cobra, también forzando. */
+    public function test_dia_42_adelanto_debiendo_y_con_importes_mal_escritos_forzando(): void
+    {
+        $base = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'fecha_pago' => '2026-10-15', 'confirmar_pago_adelantado' => true];
+        $antes = $this->foto();
+        $r = $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000]]);
+        $r->assertStatus(409);
+        $this->nota('42.0 adelanto debiendo octubre, sin motivo: '.$r->getStatusCode().' · '.json_encode($r->json(), JSON_UNESCAPED_UNICODE));
+        $this->assertSame($antes, $this->foto());
+
+        $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'])->assertSessionHasNoErrors();
+        $antes = $this->foto();
+        foreach (['0', '-30000', 'abc', '44.505', '', '1e9', '30000,001'] as $importe) {
+            $r = $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => $importe]]);
+            $this->nota("42.1 adelanto con importe «{$importe}»: ".$this->avisoDe($r));
+            $this->assertFalse($this->cobroHecho($r), "Cobró un adelanto de «{$importe}»");
+        }
+        $this->assertSame($antes, $this->foto(), 'Un importe mal escrito dejó rastro');
+    }
+
+    /**
+     * Hallazgo T100 (42.1), retrato: cancelar un adelanto no borra la cuota creada con el importe equivocado. Se pone en
+     * rojo cuando se repare, y ahí se da vuelta.
+     */
+    public function test_hallazgo_t100_adelanto_cancelado_deja_saldo_fantasma(): void
+    {
+        $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'])->assertSessionHasNoErrors();
+        $base = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'fecha_pago' => '2026-10-15', 'confirmar_pago_adelantado' => true];
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 300000]])), 'No cobró los 300.000: el importe sin tope ya no es así');
+        $pago = Pago::latest('id')->firstOrFail();
+        $mov = MovimientoOperativo::where('pago_id', $pago->id)->firstOrFail();
+        // Sin motivo, ni la dueña del turno; otra operativa, tampoco.
+        $this->actingAs($this->sandra)->post(route('web.caja.movimientos.cancelar.store', [$this->cajaSandra->id, $mov->id]), [])->assertSessionHasErrors('motivo');
+        $this->actingAs($this->pablo)->post(route('web.caja.movimientos.cancelar.store', [$this->cajaSandra->id, $mov->id]), ['motivo' => 'Forzado por otra operativa'])->assertForbidden();
+        $this->assertNotSame('ANULADO', $pago->fresh()->estado);
+
+        $this->actingAs($this->sandra)->post(route('web.caja.movimientos.cancelar.store', [$this->cajaSandra->id, $mov->id]), ['motivo' => 'Un cero de más: eran $30.000'])->assertSessionHas('success');
+        $this->assertSame('ANULADO', $pago->fresh()->estado);
+        $nov = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->firstOrFail();
+        $this->assertSame([DeudaCuota::ESTADO_PENDIENTE, '300000.00', '0.00'], [$nov->estado, $nov->monto_original, $nov->monto_pagado], 'T100 corregida: dar vuelta esta prueba');
+
+        // El cobro correcto entra como parcial y queda el saldo fantasma.
+        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000]])->assertStatus(409)->assertJsonPath('requiere_motivo', true);
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000], 'motivo' => 'Corrijo el importe: eran $30.000'])));
+        $nov->refresh();
+        $this->assertSame('270000.00', number_format((float) $nov->monto_original - (float) $nov->monto_pagado, 2, '.', ''), 'T100 corregida: dar vuelta esta prueba');
+    }
+
+    /** 46.2 y 46.7: cobrar dos veces, cerrar dos veces y (hallazgo, retrato) cerrar con la pantalla vieja. */
+    public function test_dia_46_dos_cobros_dos_cierres_y_cierre_con_pantalla_vieja(): void
+    {
+        $esperadoVisto = (float) app(\App\Services\CajaService::class)->arqueoCaja($this->cajaSandra->id)['efectivo_esperado'];
+        $cobro = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15'];
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $cobro)));
+        $pagos = Pago::count();
+        $segundo = $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $cobro);
+        $this->assertFalse($this->cobroHecho($segundo), 'Cobró dos veces');
+        $this->nota('46.2 segundo cobro desde otra pestaña: '.$this->avisoDe($segundo));
+        $this->assertSame($pagos, Pago::count());
+
+        // 46.7: cierra con lo que veía antes del cobro. Wings acepta y lo deja a la vista como faltante.
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => (string) $esperadoVisto, 'cambio_retenido' => '1000'])->assertSessionHas('success', 'Caja cerrada.');
+        $caja = $this->cajaSandra->fresh();
+        $this->assertSame('CERRADA', $caja->estado);
+        $this->assertEqualsWithDelta($esperadoVisto + 30000, (float) $caja->efectivo_esperado, 0.001, 'El esperado no incluye el cobro: CAJ-023 no cumple');
+        $this->assertEqualsWithDelta(-30000, (float) $caja->diferencia_efectivo, 0.001, 'Ya no cierra con la pantalla vieja: dar vuelta esta prueba');
+
+        // Segundo cierre, con otro contado: rechazado y sin cambios.
+        $otro = $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => (string) ($esperadoVisto + 30000), 'cambio_retenido' => '1000']);
+        $this->nota('46.7 segundo cierre: '.$this->avisoDe($otro));
+        $this->assertEqualsWithDelta($esperadoVisto, (float) $caja->fresh()->efectivo_contado, 0.001, 'El segundo cierre cambió lo contado');
+
+        // CAJ-023 b: con la caja ya cerrada, cobrar desde la otra pestaña no entra en ese turno.
+        $tardio = $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'montos_cuota' => ['2026-11' => 30000], 'fecha_pago' => '2026-10-15', 'confirmar_pago_adelantado' => true]);
+        $this->nota('46.7 cobro con el turno ya cerrado: '.$this->avisoDe($tardio));
+        $this->assertFalse($this->cobroHecho($tardio), 'Cobró con el turno cerrado');
+        $this->assertEqualsWithDelta($esperadoVisto + 30000, (float) $caja->fresh()->efectivo_esperado, 0.001);
+    }
+
+    /** 43.2 y 46.5, avisos que Codex no pudo ver: el cambio de profesora de una clase que ya pasó, forzando. */
+    public function test_dias_43_y_46_cambiar_profesora_forzando(): void
+    {
+        // «Ya pasó» es desde el día siguiente (ClaseWebController::actualizarProfesores compara la fecha con hoy).
+        Carbon::setTestNow('2026-10-16 10:00:00');
+        $clase = $this->claseMariela;
+        $titular = $clase->profesores()->pluck('profesores.id')->all();
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $hernan = Profesor::create(['deporte_id' => $futbol->id, 'nombre' => 'Hernán', 'apellido' => 'Quintana', 'dni' => '30000009', 'fecha_nacimiento' => '1985-01-01', 'direccion' => 'x', 'localidad' => 'x', 'porcentaje_comision' => 40, 'activo' => true]);
+        $url = route('web.clases.profesores', $clase->id);
+
+        $r = $this->actingAs($this->sandra)->patchJson($url, ['profesores' => [$this->lucia->profesor_id], 'motivo' => 'Forzado por la operativa']);
+        $this->assertTrue(in_array($r->getStatusCode(), [403, 422], true));
+        $this->nota('46.5 operativa, clase pasada: '.$r->getStatusCode().' · '.$r->json('message'));
+        $this->assertSame(422, $this->actingAs($this->duenio)->patchJson($url, ['profesores' => [$this->lucia->profesor_id]])->getStatusCode(), 'El dueño cambió sin motivo');
+        $this->nota('46.5 dueño sin motivo: '.$this->actingAs($this->duenio)->patchJson($url, ['profesores' => [$this->lucia->profesor_id]])->json('message'));
+        $this->actingAs($this->duenio)->patchJson($url, ['profesores' => [$hernan->id], 'motivo' => 'Forzado: de otro deporte'])->assertStatus(422);
+        $this->actingAs($this->duenio)->patchJson($url, ['profesores' => [], 'motivo' => 'Forzado: sin ninguna'])->assertStatus(422);
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->patchJson($url, ['profesores' => [$this->lucia->profesor_id], 'motivo' => 'Forzado por la profesora'])) , 'La profesora cambió la asignación');
+        $this->assertSame($titular, $clase->fresh()->profesores()->pluck('profesores.id')->all());
+
+        $this->actingAs($this->duenio)->patchJson($url, ['profesores' => [$this->lucia->profesor_id], 'motivo' => 'La dio Lucía: Mariela estaba con médico'])->assertOk();
+        $this->assertSame([$this->lucia->profesor_id], $clase->fresh()->profesores()->pluck('profesores.id')->all());
+        $this->assertSame('La dio Lucía: Mariela estaba con médico', $clase->fresh()->motivo_cambio_profesor);
+
+        // ACC-012: la profesora no cancela, no reasigna y no reactiva, también por pedido directo. La cancelación es del dueño.
+        $futura = Clase::create(['grupo_id' => $clase->grupo_id, 'fecha' => '2026-10-19', 'hora_inicio' => '20:30', 'hora_fin' => '21:30', 'cancelada' => false, 'validada_para_liquidacion' => false]);
+        $futura->profesores()->attach($this->lucia->profesor_id);
+        foreach ([['patchJson', route('web.clases.toggle-cancelada', $futura->id), ['motivo_cancelacion' => 'Forzado por la profesora']], ['patchJson', route('web.clases.profesores', $futura->id), ['profesores' => [$this->mariela->profesor_id]]],
+                  ['put', route('web.clases.update', $futura->id), ['fecha' => '2026-10-20', 'hora_inicio' => '10:00', 'hora_fin' => '11:00']]] as [$verbo, $destino, $cuerpo]) {
+            $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->$verbo($destino, $cuerpo)), "La profesora pudo $destino");
+        }
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $futura->id), ['motivo_cancelacion' => 'Lluvia'])->assertOk();
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->patchJson(route('web.clases.toggle-cancelada', $futura->id), [])), 'La profesora reactivó la clase');
+        $futura->refresh();
+        $this->assertTrue((bool) $futura->cancelada);
+        $this->assertSame([$this->lucia->profesor_id], $futura->profesores()->pluck('profesores.id')->all());
+        $this->assertSame('2026-10-19', $futura->fecha->format('Y-m-d'));
+    }
+
+    /** 46.6b, que no se pudo probar por pantalla: dos ediciones independientes del mismo movimiento; gana la primera. */
+    public function test_dia_46_dos_ediciones_de_cashflow_forzando(): void
+    {
+        $luz = Subrubro::where('nombre', 'Luz')->value('id');
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'monto' => '22000', 'fecha' => '2026-10-15', 'observaciones' => 'Telecentro'])->assertSessionHasNoErrors();
+        $mov = \App\Models\CashflowMovimiento::orderByDesc('id')->firstOrFail();
+        $base = ['version' => 0, 'subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'fecha' => '2026-10-15', 'observaciones' => 'Telecentro', 'motivo' => 'La factura vino con el aumento'];
+        $una = (string) Str::uuid();
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $base + ['clave' => $una, 'monto' => '23500'])->assertSessionHasNoErrors();
+        // La otra pestaña, con su propia clave y la versión vieja.
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $base + ['clave' => (string) Str::uuid(), 'monto' => '24000'])
+            ->assertSessionHasErrors(['version' => 'El movimiento cambió mientras editabas. Recargá la pantalla antes de guardar.']);
+        // El mismo formulario ya usado, con otro importe (lo que sí se vio por pantalla).
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), $base + ['clave' => $una, 'monto' => '24000'])->assertSessionHasErrors('clave');
+        // Fecha de mañana, por envío directo.
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $mov->id), array_replace($base, ['version' => 1, 'clave' => (string) Str::uuid(), 'monto' => '24000', 'fecha' => '2026-10-16']))->assertSessionHasErrors('fecha');
+        $this->assertSame(['-23500.00', 1], [$mov->fresh()->monto, (int) $mov->fresh()->version_correccion]);
+        $this->assertSame(1, DB::table('cashflow_correcciones')->where('movimiento_id', $mov->id)->count());
+    }
+
+    /** 47.5: los avisos que Codex no pudo acreditar, el reenvío, un solo renglón de sueldo; la operativa y la profesora no crean usuarios. */
+    public function test_dia_47_usuario_forzando(): void
+    {
+        $patin = $this->alumno->deporte_id;
+        $gonzalo = Profesor::create(['deporte_id' => $patin, 'nombre' => 'Gonzalo', 'apellido' => 'Ibarra', 'dni' => '33444555', 'fecha_nacimiento' => '1990-06-15', 'direccion' => 'x', 'localidad' => 'x', 'valor_hora' => 9000, 'activo' => true]);
+        $base = ['name' => 'Gonzalo Ibarra', 'email' => 'gonzalo.ibarra@example.com', 'password' => 'Infantiles-2026!', 'password_confirmation' => 'Infantiles-2026!', 'rol' => 'PROFESOR', 'profesor_id' => $gonzalo->id];
+        $crear = fn (array $cambios) => $this->actingAs($this->duenio)->post(route('web.usuarios.store'), array_replace($base, $cambios));
+        $usuarios = User::count();
+        $crear(['email' => $this->sandra->email])->assertSessionHasErrors(['email' => 'Ya existe un usuario con ese email.']);
+        $crear(['email' => 'gonzalo.ibarra.example.com'])->assertSessionHasErrors(['email' => 'El email no tiene un formato válido.']);
+        $crear(['password' => 'Futbol26', 'password_confirmation' => 'Futbol26'])->assertSessionHasErrors(['password' => 'El campo clave debe tener al menos 12 caracteres.']);
+        $crear(['password_confirmation' => 'Infantiles-2027!'])->assertSessionHasErrors(['password' => 'Las contraseñas no coinciden.']);
+        $crear(['profesor_id' => ''])->assertSessionHasErrors(['profesor_id' => 'Debe seleccionar el profesor vinculado.']);
+        $crear(['profesor_id' => 999999])->assertSessionHasErrors(['profesor_id' => 'El profesor seleccionado no existe.']);
+        $crear(['name' => ''])->assertSessionHasErrors(['name' => 'El nombre es obligatorio.']);
+        $crear(['rol' => 'SUPERADMIN'])->assertSessionHasErrors('rol');
+        foreach ([$this->sandra, $this->lucia] as $quien) {
+            $this->assertTrue($this->prohibido($this->actingAs($quien)->post(route('web.usuarios.store'), array_replace($base, ['email' => 'intrusa@example.com', 'rol' => 'ADMIN']))), "$quien->rol creó un usuario");
+        }
+        $this->assertSame($usuarios, User::count());
+
+        $crear([])->assertSessionHasNoErrors();
+        $nuevo = User::where('email', $base['email'])->sole();
+        $this->assertSame(['PROFESOR', $gonzalo->id], [$nuevo->rol, $nuevo->profesor_id]);
+        $this->assertNotSame($base['password'], $nuevo->password);
+        // Atrás y reenvía; y otro usuario para el mismo profesor.
+        $crear([])->assertSessionHasErrors(['email' => 'Ya existe un usuario con ese email.']);
+        $otro = $crear(['email' => 'otro.gonzalo@example.com']);
+        $this->nota('47.5 segundo usuario para el mismo profesor: '.$this->avisoDe($otro));
+        $this->assertSame(1, User::where('profesor_id', $gonzalo->id)->count(), 'Dos usuarios para el mismo profesor');
+        $this->assertLessThanOrEqual(1, DB::table('subrubros')->where('nombre', 'like', '%Ibarra%')->count(), 'Más de un renglón de sueldo');
+    }
+
+    /** 47.4 y 41.6, que Codex no pudo acreditar: diez aperturas iguales sin escribir nada; la profesora no entra. */
+    public function test_dias_41_y_47_recibo_diez_veces_y_permisos_forzando(): void
+    {
+        \Illuminate\Support\Facades\Storage::fake(config('filesystems.default'));
+        $antes = $this->foto();
+        $url = route('web.recibos.cuota', $this->pago->id);
+        $huellas = [];
+        for ($i = 0; $i < 10; $i++) {
+            $r = $this->actingAs($i % 2 ? $this->pablo : $this->sandra)->get($url);
+            $r->assertOk();
+            $this->assertSame('application/pdf', $r->headers->get('Content-Type'));
+            $huellas[] = md5($r->getContent());
+        }
+        $this->assertCount(1, array_unique($huellas), 'El mismo recibo cambia entre aperturas');
+        $this->assertSame($antes, $this->foto(), 'Abrir un recibo escribió datos');
+
+        $this->actingAs($this->lucia)->get($url)->assertForbidden();
+        $this->actingAs($this->mariela)->get($url)->assertForbidden();
+        // Observación: el inexistente devuelve JSON crudo en el navegador, antes de mirar el rol.
+        $inexistente = $this->actingAs($this->sandra)->get(route('web.recibos.cuota', 99999));
+        $inexistente->assertNotFound();
+        $this->nota('41.6 recibo 99999 operativa: '.$inexistente->getStatusCode().' · '.$inexistente->headers->get('Content-Type').' · '.$inexistente->getContent());
+        $this->nota('41.6 recibo 99999 profesora: '.$this->actingAs($this->lucia)->get(route('web.recibos.cuota', 99999))->getStatusCode());
+        auth()->logout();
+        $this->assertNotSame(200, $this->get($url)->getStatusCode(), 'Un recibo abierto sin sesión');
+
+        // ?regenerar=1 no está en ninguna pantalla: rehace el PDF con el mismo número, sin tocar datos.
+        $this->actingAs($this->sandra)->get($url.'?regenerar=1')->assertOk();
+        $this->assertSame($antes, $this->foto(), 'Regenerar escribió datos');
+    }
+
+    /** 41.1 a 41.3, avisos que Codex no pudo acreditar o que la pantalla frena antes: forzando el envío. */
+    public function test_dia_41_nivel_grupo_y_profesor_forzando(): void
+    {
+        $patin = $this->alumno->deporte_id;
+        $this->actingAs($this->duenio)->post(route('web.niveles.store'), ['nombre' => 'Infantil'])->assertSessionHasNoErrors();
+        $this->actingAs($this->duenio)->post(route('web.niveles.store'), ['nombre' => 'infantil '])->assertSessionHasErrors(['nombre' => 'Ya existe un nivel con un nombre similar.']);
+        $nivel = Nivel::where('nombre', 'Infantil')->sole();
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+
+        $grupos = Grupo::count(); $planes = GrupoPlan::count();
+        $g = fn (array $d) => $this->actingAs($this->duenio)->post(route('web.grupos.store'), $d);
+        $g(['deporte_id' => $patin, 'nivel_id' => $this->claseMariela->grupo->nivel_id, 'planes' => [['clases_por_semana' => 1, 'precio_mensual' => '30000']]])->assertSessionHasErrors();
+        foreach ([['planes' => []], ['planes' => [['clases_por_semana' => 1, 'precio_mensual' => '0']]], ['planes' => [['clases_por_semana' => 8, 'precio_mensual' => '25000']]], ['planes' => [['clases_por_semana' => 0, 'precio_mensual' => '25000']]],
+                  ['planes' => [['clases_por_semana' => 1, 'precio_mensual' => '-5']]], ['planes' => [['clases_por_semana' => 1, 'precio_mensual' => '25000'], ['clases_por_semana' => 1, 'precio_mensual' => '26000']]]] as $caso) {
+            $r = $g(['deporte_id' => $futbol->id, 'nivel_id' => $nivel->id] + $caso);
+            $this->nota('41.2 grupo '.json_encode($caso['planes']).': '.$this->avisoDe($r));
+            $this->assertNotSame(500, $r->getStatusCode(), 'Error del servidor: T99 (el sitio de prueba todavía no la tiene)');
+        }
+        $this->assertSame([$grupos, $planes], [Grupo::count(), GrupoPlan::count()], 'Un grupo mal cargado dejó rastro');
+
+        $base = ['nombre' => 'Gonzalo', 'apellido' => 'Ibarra', 'deporte_id' => $futbol->id, 'dni' => '33444555', 'fecha_nacimiento' => '1990-06-15', 'direccion' => 'Av. Rivadavia 4500', 'localidad' => 'CABA', 'telefono' => '1144445555', 'email' => 'gonzalo.ibarra@example.com', 'porcentaje_comision' => '35'];
+        $p = fn (array $cambios) => $this->actingAs($this->duenio)->post(route('web.profesores.store'), array_replace($base, $cambios));
+        $profesores = Profesor::count();
+        $p(['dni' => '30000001'])->assertSessionHasErrors(['dni' => 'Ya existe un profesor con ese DNI.']);
+        $p(['porcentaje_comision' => '101'])->assertSessionHasErrors(['porcentaje_comision' => 'El porcentaje de comisión no puede superar 100.']);
+        $p(['email' => 'gonzalo.ibarra.example.com'])->assertSessionHasErrors(['email' => 'El email debe ser una dirección válida.']);
+        $p(['nombre' => ''])->assertSessionHasErrors(['nombre' => 'El nombre es obligatorio.']);
+        $this->assertSame($profesores, Profesor::count());
+        $p([])->assertSessionHasNoErrors();
+        $this->assertSame($profesores + 1, Profesor::count());
+    }
+
+    /** 44.3 y 44.6: la configuración forzando, y el aviso al dueño de un movimiento con fecha de un mes cerrado. */
+    public function test_dia_44_configuracion_y_fecha_vieja_forzando(): void
+    {
+        $valor = fn () => DB::table('configuraciones')->where('clave', 'inscripcion_importe')->value('valor');
+        $antes = $valor();
+        foreach ([$this->sandra, $this->lucia] as $quien) {
+            $this->assertTrue($this->prohibido($this->actingAs($quien)->patch(route('web.configuraciones.update', 'inscripcion_importe'), ['valor' => '1'])), "$quien->rol cambió la inscripción");
+        }
+        foreach (['-1', 'abc', '', '12.345'] as $v) {
+            $r = $this->actingAs($this->duenio)->patch(route('web.configuraciones.update', 'inscripcion_importe'), ['valor' => $v]);
+            $this->nota("44.3 inscripción «{$v}»: ".$this->avisoDe($r));
+            $this->assertSame($antes, $valor(), "Guardó la inscripción «{$v}»");
+        }
+
+        $aviso = $this->spy(\App\Services\AvisoAdminService::class);
+        $luz = Subrubro::where('nombre', 'Luz')->value('id');
+        $datos = ['subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'monto' => '9400', 'fecha' => '2026-09-28', 'observaciones' => 'Edesur: llegó tarde'];
+        $cuantos = DB::table('cashflow_movimientos')->count();
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), $datos)->assertSessionHas('aviso_fecha_vieja');
+        $this->assertSame($cuantos, DB::table('cashflow_movimientos')->count(), 'Guardó sin confirmar la fecha vieja');
+        $aviso->shouldNotHaveReceived('fechaVieja');
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), $datos + ['confirmar_fecha_vieja' => 1])->assertSessionHasNoErrors();
+        $this->assertSame($cuantos + 1, DB::table('cashflow_movimientos')->count());
+        $aviso->shouldHaveReceived('fechaVieja')->once();
+    }
+
+    /** 45.3: el motivo corto de una anulación, que no quedó en captura; anular dos veces; la operativa no anula un cobro del dueño. */
+    public function test_dia_45_anular_cobro_del_duenio_forzando(): void
+    {
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->duenio)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->galicia->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'])));
+        $pago = Pago::latest('id')->firstOrFail();
+        $this->actingAs($this->duenio)->post(route('web.pagos.anular', $pago->id), ['motivo' => 'MP'])->assertSessionHasErrors(['motivo' => 'El motivo de la anulación debe tener al menos 10 caracteres.']);
+        $this->assertTrue($this->prohibido($this->actingAs($this->sandra)->post(route('web.pagos.anular', $pago->id), ['motivo' => 'Forzado por la operativa'])));
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->post(route('web.pagos.anular', $pago->id), ['motivo' => 'Forzado por la profesora'])));
+        $this->assertNotSame(Pago::ESTADO_ANULADO, $pago->fresh()->estado);
+        $datos = ['motivo' => 'Era transferencia al Galicia, no Mercado Pago'];
+        $this->actingAs($this->duenio)->post(route('web.pagos.anular', $pago->id), $datos)->assertSessionHas('success');
+        $filas = DB::table('cashflow_movimientos')->where('referencia_tipo', 'PAGO_CUOTA')->where('referencia_id', $pago->id)->count();
+        $this->actingAs($this->duenio)->post(route('web.pagos.anular', $pago->id), $datos)->assertSessionHas('error');
+        $this->assertSame($filas, DB::table('cashflow_movimientos')->where('referencia_tipo', 'PAGO_CUOTA')->where('referencia_id', $pago->id)->count(), 'Anular dos veces dejó otro asiento');
+    }
+
+    /**
+     * 45.8, retrato de T101: el gasto que el dueño carga en el turno figura a nombre de la operativa. Se da vuelta al
+     * repararla. Pablo no carga en la caja de Sandra y la profesora tampoco.
+     */
+    public function test_hallazgo_t101_gasto_del_duenio_en_el_turno_figura_a_nombre_de_la_operativa(): void
+    {
+        $id = $this->cajaSandra->id;
+        $datos = ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'monto' => '3000', 'fecha' => '2026-10-15', 'observaciones' => 'Bombitas de luz'];
+        $antes = MovimientoOperativo::count();
+        $this->actingAs($this->pablo)->post(route('web.caja.editar.store', $id), $datos)->assertForbidden();
+        $this->assertTrue($this->prohibido($this->actingAs($this->lucia)->post(route('web.caja.editar.store', $id), $datos)));
+        $this->assertSame($antes, MovimientoOperativo::count());
+        $this->actingAs($this->duenio)->post(route('web.caja.editar.store', $id), $datos)->assertSessionHasNoErrors();
+        $mov = MovimientoOperativo::where('observaciones', 'Bombitas de luz')->sole();
+        $this->assertSame($this->sandra->id, $mov->usuario_id, 'T101 corregida: dar vuelta esta prueba');
+    }
+
+    /** 47.9: mandar campos de más en un cobro o un gasto no cambia de quién es ni cuánto vale ni en qué caja entra. */
+    public function test_dia_47_campos_de_mas_en_un_cobro_y_un_gasto_forzando(): void
+    {
+        $cajaPablo = CajaOperativa::where('usuario_operativo_id', $this->pablo->id)->firstOrFail();
+        $extra = ['usuario_id' => $this->pablo->id, 'usuario_operativo_id' => $this->pablo->id, 'caja_operativa_id' => $cajaPablo->id, 'monto_final' => 1, 'monto_base' => 1, 'estado' => 'ANULADO', 'alumno_id' => 999, 'operativo_id' => $this->pablo->id];
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'] + $extra)));
+        $pago = Pago::latest('id')->firstOrFail();
+        $this->assertSame(['COMPLETADO', '30000.00', $this->alumno->id], [$pago->estado, $pago->monto_final, $pago->alumno_id]);
+        $mov = MovimientoOperativo::where('pago_id', $pago->id)->sole();
+        $this->assertSame([$this->cajaSandra->id, $this->sandra->id], [$mov->caja_operativa_id, $mov->usuario_id]);
+
+        $this->actingAs($this->sandra)->post(route('web.caja.movimiento.store'), ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'monto' => '1000', 'observaciones' => 'Detergente'] + $extra)->assertSessionHasNoErrors();
+        $gasto = MovimientoOperativo::where('observaciones', 'Detergente')->sole();
+        $this->assertSame([$this->cajaSandra->id, $this->sandra->id, '1000.00'], [$gasto->caja_operativa_id, $gasto->usuario_id, $gasto->monto]);
+    }
+
+    /** Texto con código en lo que se escribió por primera vez en esta tanda: motivos, nivel, profesor, usuario. */
+    public function test_dias_41_47_texto_con_codigo_en_campos_nuevos(): void
+    {
+        $ataque = '<img src=x onerror=alert(1)>';
+        $this->actingAs($this->duenio)->post(route('web.niveles.store'), ['nombre' => $ataque]);
+        $nivelId = Nivel::where('nombre', $ataque)->value('id');
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $this->actingAs($this->duenio)->post(route('web.profesores.store'), ['nombre' => $ataque, 'apellido' => 'Ibarra', 'deporte_id' => $futbol->id, 'dni' => '33444555', 'fecha_nacimiento' => '1990-06-15', 'direccion' => $ataque, 'localidad' => 'CABA', 'telefono' => '1144445555', 'email' => 'g@example.com', 'porcentaje_comision' => '35']);
+        $profesorId = Profesor::where('dni', '33444555')->value('id');
+        $this->actingAs($this->duenio)->post(route('web.usuarios.store'), ['name' => $ataque, 'email' => 'u@example.com', 'password' => 'Infantiles-2026!', 'password_confirmation' => 'Infantiles-2026!', 'rol' => 'OPERATIVO']);
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.profesores', $this->claseMariela->id), ['profesores' => [$this->lucia->profesor_id], 'motivo' => $ataque]);
+        $canc = Clase::create(['grupo_id' => $this->claseMariela->grupo_id, 'fecha' => '2026-10-19', 'hora_inicio' => '20:30', 'hora_fin' => '21:30', 'cancelada' => false, 'validada_para_liquidacion' => false]);
+        $this->actingAs($this->duenio)->patchJson(route('web.clases.toggle-cancelada', $canc->id), ['motivo_cancelacion' => $ataque]);
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => Subrubro::where('nombre', 'Luz')->value('id'), 'tipo_caja_id' => $this->galicia->id, 'monto' => '1000', 'fecha' => '2026-10-15', 'observaciones' => $ataque]);
+        $mov = \App\Models\CashflowMovimiento::orderByDesc('id')->first();
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => '30000', 'cambio_retenido' => '1000']);
+        $this->actingAs($this->duenio)->post(route('web.cajas.rechazar', $this->cajaSandra->id), ['motivo' => $ataque]);
+
+        $pantallas = [[$this->duenio, route('web.niveles.index')], [$this->duenio, route('web.grupos.index')], [$this->duenio, route('web.profesores.index')], [$this->duenio, route('web.usuarios.index')],
+            [$this->duenio, route('web.clases.show', $this->claseMariela->id)], [$this->duenio, route('web.clases.show', $canc->id)], [$this->duenio, route('web.clases.index')],
+            [$this->duenio, route('web.cashflow.index')], [$this->duenio, route('web.cashflow.movimientos.show', $mov->id)], [$this->duenio, route('web.caja.detalle', $this->cajaSandra->id)], [$this->duenio, route('web.caja.historial')],
+            [$this->sandra, route('web.caja.resumen', $this->cajaSandra->id)], [$this->sandra, route('web.caja.index')], [$this->duenio, route('web.movimientos.index')]];
+        if ($profesorId) $pantallas[] = [$this->duenio, route('web.profesores.show', $profesorId)];
+        foreach ($pantallas as [$u, $url]) {
+            $r = $this->actingAs($u)->get($url);
+            $this->assertStringNotContainsString($ataque, $r->getContent(), "Código sin escapar en $url");
+        }
+        $this->assertNotNull($nivelId, 'El nivel con código no se guardó: la prueba no probaría nada');
+        $this->assertNotNull($profesorId, 'El profesor con código no se guardó: la prueba no probaría nada');
+    }
+
+    /** Filtros de las pantallas con basura en la dirección, por cada rol: lo que no se entiende no puede ser un error del servidor. */
+    public function test_dias_41_47_filtros_con_basura_no_dan_error_del_servidor(): void
+    {
+        \App\Models\Configuracion::set('mora_porcentaje', '10');
+        $pantallas = ['web.caja.historial', 'web.cashflow.index', 'web.movimientos.index', 'web.reportes.index', 'web.reportes.alumnos', 'web.reportes.sueldos', 'web.cobranza.index', 'web.clases.index',
+            'web.alumnos.index', 'web.alumnos.autocomplete', 'web.liquidaciones.index', 'web.liquidaciones.create', 'admin.dashboard', 'web.operativo.dashboard', 'web.caja.index', 'web.revision-cobranza.index', 'web.caja.cobrar-cuota', 'web.grupos.index', 'web.profesores.index'];
+        $parametros = ['desde', 'hasta', 'fecha', 'mes', 'anio', 'periodo', 'page', 'search', 'q', 'estado', 'tipo', 'subrubro_id', 'grupo_id', 'deporte_id', 'profesor_id', 'modo', 'tipo_caja_id'];
+        $valores = ['abc', '9999-99-99', '-1', "1' OR '1'='1", '0'];
+        $errores = []; $intentos = 0;
+        foreach ($pantallas as $nombre) {
+            foreach ($parametros as $p) {
+                foreach ([...$valores, ['x']] as $v) {
+                    foreach ([$this->duenio, $this->sandra] as $quien) {
+                        $intentos++;
+                        $r = $this->actingAs($quien)->get(route($nombre).'?'.http_build_query([$p => $v]));
+                        if ($r->getStatusCode() >= 500) {
+                            $errores[] = "$quien->rol $nombre ?$p=".(is_array($v) ? '[]' : $v);
+                        }
+                    }
+                }
+            }
+        }
+        file_put_contents(__DIR__.'/filtros-con-basura-dias-41-47.txt', "$intentos pedidos; ".count($errores)." con error del servidor\n".implode("\n", $errores)."\n");
+        // Hallazgo, retrato: Historial y Cajas no validan fechas ni mes, y varias búsquedas no aceptan una lista en vez de un texto.
+        // Se pone en rojo cuando se repare: ahí tiene que quedar en cero.
+        $this->assertSame(41, count($errores), 'Cambió la cantidad de filtros que dan error del servidor: ver filtros-con-basura-dias-41-47.txt');
+    }
+
+    /** Los ayudantes de los formularios, que no tienen pantalla propia: qué devuelven a cada rol. */
+    public function test_dias_41_47_ayudantes_de_formularios_por_rol(): void
+    {
+        $nivel = $this->claseMariela->grupo->nivel_id; $deporte = $this->alumno->deporte_id;
+        $urls = ['autocomplete de alumnos' => route('web.alumnos.autocomplete', ['q' => 'Zoe']), 'previa de inscripción' => route('web.alumnos.inscripcion-preview', ['dni' => '50000001', 'deporte_id' => $deporte]),
+            'previa de cuota' => route('web.alumnos.cuota-alta-preview', ['plan_id' => 1, 'fecha_alta' => '2026-10-15']), 'grupo disponible' => route('web.grupos.check-disponible', ['deporte_id' => $deporte, 'nivel_id' => $nivel]),
+            'nivel disponible' => route('web.niveles.check-disponible', ['nombre' => 'x']), 'email disponible' => route('web.usuarios.check-email', ['email' => $this->sandra->email])];
+        foreach ($urls as $nombre => $url) {
+            foreach ([$this->sandra, $this->lucia] as $quien) {
+                $r = $this->actingAs($quien)->get($url, ['Accept' => 'application/json']);
+                $this->nota("ayudante «{$nombre}» $quien->rol: ".$r->getStatusCode().' · '.mb_substr((string) $r->getContent(), 0, 160));
+            }
+            auth()->logout();
+            $this->assertNotSame(200, $this->get($url, ['Accept' => 'application/json'])->getStatusCode(), "$nombre responde sin sesión");
+        }
+        // La profesora no ve alumnos: el autocomplete no le puede contestar con datos.
+        $this->assertStringNotContainsString('Zoe', (string) $this->actingAs($this->lucia)->get($urls['autocomplete de alumnos'], ['Accept' => 'application/json'])->getContent());
+        $this->assertStringNotContainsString('50000001', (string) $this->actingAs($this->lucia)->get($urls['previa de inscripción'], ['Accept' => 'application/json'])->getContent());
+    }
+
+    /** El freno del ingreso cuenta por dirección real: inventar una cabecera X-Forwarded-For desde fuera de Cloudflare no lo saltea. */
+    public function test_el_freno_del_ingreso_no_se_saltea_con_una_direccion_inventada(): void
+    {
+        auth()->logout();
+        $ultima = null;
+        for ($i = 0; $i < 6; $i++) {
+            $ultima = $this->withServerVariables(['REMOTE_ADDR' => '8.8.8.8'])->withHeaders(['X-Forwarded-For' => "1.2.3.$i"])->post('/login', ['email' => "alguien$i@example.com", 'password' => 'mal']);
+        }
+        $this->assertSame(429, $ultima->getStatusCode());
     }
 }

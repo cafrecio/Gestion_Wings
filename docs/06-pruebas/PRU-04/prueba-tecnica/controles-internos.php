@@ -150,7 +150,8 @@ try {
 
     $f = [];
     $sinMes = 0;
-    foreach (App\Models\Alumno::where('activo', 1)->get() as $a) {
+    // Días 41 a 47: Renzo ingresa el 1/12, su plan rige desde ahí; todavía no tiene plan del mes en curso (41.4).
+    foreach (App\Models\Alumno::where('activo', 1)->where('fecha_alta', '<=', now()->endOfMonth()->toDateString())->get() as $a) {
         if (!app(App\Services\PagoCuotaService::class)->obtenerPlanParaPeriodo($a->id, now()->format('Y-m'))?->plan) $f[] = "alumno $a->id activo sin plan del mes";
         if (!DB::table('deuda_cuotas')->where('alumno_id', $a->id)->where('periodo', now()->format('Y-m'))->exists()) $sinMes++;
     }
@@ -158,7 +159,9 @@ try {
 
     // ── Disponible ───────────────────────────────────────────────────────
     $iniciales = DB::table('reporte_eventos')->where('tipo', 'CAJA_INICIAL')->sum('delta_centavos');
-    $cf = DB::table('cashflow_movimientos')->whereNull('anulado_at')->get()->sum(fn ($m) => $c($m->monto));
+    // Un movimiento anulado y su asiento en contra suman cero: se cuentan los dos. Hasta el día 42 (Internet anulado) no
+    // había ninguno; contar solo los no anulados sumaba de más el asiento en contra (error de este control, no de Wings).
+    $cf = DB::table('cashflow_movimientos')->get()->sum(fn ($m) => $c($m->monto));
     $contra = DB::table('cashflow_movimientos')->whereNotNull('anulado_at')->get()->sum(fn ($m) => $c($m->monto));
     $pend = DB::table('movimientos_operativos as m')->join('cajas_operativas as k', 'k.id', '=', 'm.caja_operativa_id')
         ->join('subrubros as s', 's.id', '=', 'm.subrubro_id')->join('rubros as r', 'r.id', '=', 's.rubro_id')
@@ -240,8 +243,9 @@ try {
         $oct = app(App\Services\ReporteMensualService::class)->obtener('2026-10');
         $f = [];
         if ((int) $oct['ingresos'] !== 341785075) $f[] = 'ingresos de octubre '.($oct['ingresos']/100).', el 31/10 eran 3417850.75';
-        if ((int) $oct['egresos'] !== 33195000) $f[] = 'egresos de octubre '.($oct['egresos']/100).', el 31/10 eran 331950';
-        control($resultados, 'REP-2', 'El reporte de octubre sigue igual que el 31/10', $f, 'ingresos '.($oct['ingresos']/100).', egresos '.($oct['egresos']/100).', deuda '.(($oct['deuda']['total'] ?? 0)/100));
+        // Egresos: 331.950 el 31/10 + 9.400 de la Luz con fecha 28/10, cargada el 22/11 (44.6, REP-005).
+        if ((int) $oct['egresos'] !== 34135000) $f[] = 'egresos de octubre '.($oct['egresos']/100).', con la Luz del 44.6 son 341350';
+        control($resultados, 'REP-2', 'El reporte de octubre sigue igual que el 31/10, más la Luz de octubre que el dueño cargó tarde el 22/11', $f, 'ingresos '.($oct['ingresos']/100).', egresos '.($oct['egresos']/100).', deuda '.(($oct['deuda']['total'] ?? 0)/100));
     }
 
     // ── Días 24 a 28 (2 al 6/11) ─────────────────────────────────────────
@@ -274,8 +278,10 @@ try {
     control($resultados, 'COB-4', 'Cada excepción tiene motivo, autor y su cobro, del mismo alumno', $f, DB::table('excepciones_cobranza')->count().' excepciones');
 
     // Un mes adelantado solo existe pagado y no suma a la deuda (COB-012, día 27.8).
-    $f = DB::table('deuda_cuotas')->where('periodo', '>', now()->format('Y-m'))->where('estado', '!=', 'PAGADA')->pluck('id')->map(fn ($id) => "cuota futura $id sin pagar");
-    control($resultados, 'COB-5', 'Las cuotas de meses que no empezaron existen solo pagadas por adelantado', $f,
+    // Días 41 a 47: dos excepciones conocidas. Renzo ingresa el 1/12 con su cuota creada en el alta (41.4); Clara es T100 (42.1).
+    $f = DB::table('deuda_cuotas as d')->join('alumnos as a', 'a.id', '=', 'd.alumno_id')->where('d.periodo', '>', now()->format('Y-m'))->where('d.estado', '!=', 'PAGADA')
+        ->whereNotIn(DB::raw("CONCAT(a.nombre,' ',a.apellido)"), ['Renzo Acuña', 'Clara Iglesias'])->pluck('d.id')->map(fn ($id) => "cuota futura $id sin pagar");
+    control($resultados, 'COB-5', 'Las cuotas de meses que no empezaron existen solo pagadas por adelantado, salvo la del alta de Renzo (ingresa el 1/12) y la de Clara (T100)', $f,
         DB::table('deuda_cuotas')->where('periodo', '>', now()->format('Y-m'))->count().' adelantadas');
 
     // La fecha de inactividad acompaña al estado (T70): el activo no la tiene; el que se dio de baja desde T70 sí.
@@ -309,10 +315,11 @@ try {
         if ($cg->estado !== 'VIGENTE') $f[] = "recargo $cg->id en estado $cg->estado";
     }
     foreach ($punitorios->groupBy('deuda_cuota_id')->filter(fn ($g) => $g->count() > 1)->keys() as $id) $f[] = "cuota $id con más de un recargo";
-    $minutos = $punitorios->map(fn ($cg) => substr((string) $cg->created_at, 0, 16))->unique();
-    if ($minutos->count() !== 1 || $minutos->first() !== '2026-11-11 06:15') $f[] = 'recargos aplicados en '.$minutos->implode(', ').' (esperada una sola corrida, 11/11 06:15)';
+    // Día 46: Emma Villalba se vuelve Morosa el 24/11 y su recargo es el único de esa mañana (46.0).
+    $porCorrida = $punitorios->groupBy(fn ($cg) => substr((string) $cg->created_at, 0, 16))->map->count()->sortKeys()->all();
+    if ($porCorrida !== ['2026-11-11 06:15' => 32, '2026-11-24 06:15' => 1]) $f[] = 'recargos por corrida: '.json_encode($porCorrida);
     foreach (['Santino', 'Candela'] as $n) if (($a = $porNombre($n)) && $punitorios->contains('alumno_id', $a->id)) $f[] = "$n tiene recargo y no correspondía";
-    control($resultados, 'PEN-1', 'Cada recargo es el porcentaje configurado sobre el original de su cuota de noviembre, de un activo, uno por cuota, todos de la única corrida del 11/11 06:15; Santino (octubre) y Candela (inactiva) sin recargo', $f,
+    control($resultados, 'PEN-1', 'Cada recargo es el porcentaje configurado sobre el original de su cuota de noviembre, de un activo, uno por cuota: 32 de la corrida del 11/11 06:15 y uno de la del 24/11 06:15; Santino (octubre) y Candela (inactiva) sin recargo', $f,
         $punitorios->count().' recargos por '.($punitorios->sum(fn ($x) => $c($x->monto_original)) / 100).'; porcentaje '.$pct);
 
     // Lo aplicado se reparte entre cobrado, condonado y pendiente (33.7, 33.8, 33.9); la condonación tiene dueño y motivo.
@@ -322,7 +329,8 @@ try {
     $pendiente = $aplicado - $cobrado - $condonado;
     $f = [];
     // Días 34 a 40: 40.300 hasta el 33, más 54.100 de la tanda (cuenta del guion: 16.300 + 7.300 + 7.900 + 7.200 + 9.100 + 3.500 + 2.800).
-    if ($cobrado !== 9440000) $f[] = 'cobrado de recargos '.($cobrado / 100).' (esperado 94.400)';
+    // Días 41 a 47: + 2.800 de Facundo (47.8).
+    if ($cobrado !== 9720000) $f[] = 'cobrado de recargos '.($cobrado / 100).' (esperado 97.200)';
     if ($condonado !== 500000) $f[] = 'condonado '.($condonado / 100).' (pantalla: 5.000)';
     foreach ($punitorios->where('monto_condonado', '>', 0) as $cg) {
         $ev = DB::table('cargo_alumno_eventos')->where('cargo_alumno_id', $cg->id)->orderByDesc('id')->first();
@@ -377,10 +385,11 @@ try {
         $lucia = DB::table('profesores')->where('nombre', 'Lucía')->first();
         $conLucia = fn ($fechas, $hora) => $lucia ? DB::table('clases as c')->join('clase_profesor as cp', 'cp.clase_id', '=', 'c.id')->where('cp.profesor_id', $lucia->id)
             ->where('c.cancelada', 0)->whereIn('c.fecha', $fechas)->where('c.hora_inicio', $hora)->count() : 0;
-        $reasignadas = $conLucia(['2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30'], '17:00:00') + $conLucia(['2026-11-13', '2026-11-20', '2026-11-27'], '16:00:00');
-        if ($reasignadas !== 7) $f[] = "$reasignadas de las 7 Intermedias están con Lucía";
+        // Días 41 a 47: de las 7, la del 20/11 la dio Mariela (46.5) y la del 23/11 se canceló (45.9): quedan 5.
+        $reasignadas = $conLucia(['2026-11-09', '2026-11-16', '2026-11-30'], '17:00:00') + $conLucia(['2026-11-13', '2026-11-27'], '16:00:00');
+        if ($reasignadas !== 5) $f[] = "$reasignadas de las 5 Intermedias que siguen están con Lucía";
     }
-    control($resultados, 'PRO-1', 'Verónica inactiva: ninguna clase desde el 7/11, usuario desactivado y sin sesiones, sus 2 clases dictadas de noviembre siguen siendo suyas; las 7 Intermedias quedaron con Lucía', $f);
+    control($resultados, 'PRO-1', 'Verónica inactiva: ninguna clase desde el 7/11, usuario desactivado y sin sesiones, sus 2 clases dictadas de noviembre siguen siendo suyas; las Intermedias quedaron con Lucía (5 de 7: la del 20/11 la dio Mariela y la del 23/11 se canceló)', $f);
 
     // Corrección de Centenera (30.2, CSH-007): el movimiento quedó en 125.000, con una corrección que guarda antes,
     // después, motivo y dueño, y sin anular.
@@ -502,11 +511,12 @@ try {
         $dic = DB::table('deuda_cuotas')->whereIn('alumno_id', $alumnosPlan)->where('periodo', '2026-12')->get();
         // Joaquín adelantó diciembre antes del aumento (48.000); Dante el 18/11, después (52.000, 40.3).
         $dicPorAlumno = $dic->mapWithKeys(fn ($d) => [DB::table('alumnos')->where('id', $d->alumno_id)->value('nombre') => $c($d->monto_original).' '.$d->estado]);
-        $dicEsperado = ['Joaquin' => '4800000 PAGADA', 'Dante' => '5200000 PAGADA'];
+        // Días 41 a 47: Julián y Tomás adelantaron el 25/11 (47.9), con el precio nuevo.
+        $dicEsperado = ['Joaquin' => '4800000 PAGADA', 'Dante' => '5200000 PAGADA', 'Julian' => '5200000 PAGADA', 'Tomas' => '5200000 PAGADA'];
         if ($dicPorAlumno->sortKeys()->all() !== collect($dicEsperado)->sortKeys()->all()) $f[] = 'cuotas de diciembre del plan: '.$dicPorAlumno->map(fn ($v, $k) => "$k $v")->implode(', ');
         $enPlan = $alumnosPlan->count().' alumnos en el plan';
     }
-    control($resultados, 'GRU-1', 'El plan de 2 por semana de Fútbol Avanzadas vale 52.000 desde el 1/12; sus cuotas de noviembre y el diciembre adelantado de Joaquín siguen en 48.000; el diciembre que Dante adelantó después del aumento es de 52.000', $f, $enPlan);
+    control($resultados, 'GRU-1', 'El plan de 2 por semana de Fútbol Avanzadas vale 52.000 desde el 1/12; sus cuotas de noviembre y el diciembre adelantado de Joaquín siguen en 48.000; los diciembres que Dante, Julián y Tomás adelantaron después del aumento son de 52.000', $f, $enPlan);
 
     // ── Días 34 a 40 (12 al 18/11) ───────────────────────────────────────
     // Lo que un cobro imputó, en centavos: [cuota, recargo, inscripción].
@@ -600,9 +610,15 @@ try {
     $dicTodas = DB::table('deuda_cuotas as d')->join('alumnos as a', 'a.id', '=', 'd.alumno_id')->where('d.periodo', '2026-12')
         ->get(['a.nombre', 'a.apellido', 'd.monto_original', 'd.monto_pagado', 'd.estado'])
         ->mapWithKeys(fn ($d) => ["$d->nombre $d->apellido" => $c($d->monto_original).'/'.$c($d->monto_pagado).' '.$d->estado])->sortKeys()->all();
-    $dicEsperadas = ['Dante Ramos' => '5200000/5200000 PAGADA', 'Emma Fernandez' => '4500000/4500000 PAGADA', 'Joaquin Vega' => '4800000/4800000 PAGADA'];
+    // Días 41 a 47: 15 adelantos de 47.9, Morena (45.3), Emilia (46.7), Facundo (47.8), Renzo pendiente (41.4) y Clara, que es T100 (42.1).
+    $dicEsperadas = ['Abril Silva' => '3000000/3000000 PAGADA', 'Agustin Acosta' => '3500000/3500000 PAGADA', 'Bautista Ferrari' => '3500000/3500000 PAGADA', 'Berenice Sanchez' => '4300000/4300000 PAGADA',
+        'Bianca Pereyra' => '4400000/4400000 PAGADA', 'Clara Iglesias' => '30000000/3000000 PENDIENTE', 'Dante Ramos' => '5200000/5200000 PAGADA', 'Emilia Medina' => '4400000/4400000 PAGADA',
+        'Emma Fernandez' => '4500000/4500000 PAGADA', 'Facundo Rios' => '2800000/2800000 PAGADA', 'Helena Iglesias' => '5000000/5000000 PAGADA', 'Joaquin Vega' => '4800000/4800000 PAGADA',
+        'Julian Navarro' => '5200000/5200000 PAGADA', 'Lola Rios' => '3000000/3000000 PAGADA', 'Mia Perez' => '4400000/4400000 PAGADA', 'Morena Rossi' => '4400000/4400000 PAGADA',
+        'Paula Ledesma' => '4300000/4300000 PAGADA', 'Paulina Benitez' => '4300000/4300000 PAGADA', 'Renzo Acuña' => '2500000/0 PENDIENTE', 'Sofia Gomez' => '3000000/3000000 PAGADA',
+        'Sol Ruiz' => '4300000/4300000 PAGADA', 'Tomas Gimenez' => '5200000/5200000 PAGADA', 'Zoe Flores' => '3000000/3000000 PAGADA'];
     if ($dicTodas !== $dicEsperadas) $f[] = 'cuotas de diciembre: '.json_encode($dicTodas, JSON_UNESCAPED_UNICODE);
-    control($resultados, 'COB-10', 'Diciembre no se generó: sus únicas cuotas son los tres adelantos, pagados enteros (Joaquín Vega 48.000, Emma Fernández 45.000 y Dante 52.000, ya con el precio nuevo)', $f);
+    control($resultados, 'COB-10', 'Diciembre no se generó: sus únicas cuotas son las 23 esperadas, una por persona: 21 adelantos pagados enteros, la del alta de Renzo pendiente y la de Clara en 300.000 con 30.000 pagados (T100)', $f);
 
     // 39.1 a 39.3 (COB-025, CBZ-017): dos altas del 17/11 al 70% de la cuota; Bautista pagó cuota e inscripción
     // en un cobro y fue a su primera clase el 18/11 sin motivo; Emma Villalba no pagó ni vino.
@@ -616,7 +632,8 @@ try {
         $insc = DB::table('cargos_alumno')->where('alumno_id', $al->id)->where('tipo', 'INSCRIPCION')->get();
         if ($insc->count() !== 1 || $c($insc[0]->monto_original) !== 500000) $f[] = "$n: inscripción distinta de una de 5.000";
         $p = $cobros($al->id);
-        $presentes = DB::table('asistencias')->where('alumno_id', $al->id)->where('presente', 1)->get();
+        // Hasta el 18/11: después Bautista siguió viniendo (rutinas de los días 41 a 47).
+        $presentes = DB::table('asistencias as a')->join('clases as k', 'k.id', '=', 'a.clase_id')->where('a.alumno_id', $al->id)->where('a.presente', 1)->where('k.fecha', '<=', '2026-11-18')->select('a.*')->get();
         if ($n === 'Bautista') {
             if ($p->count() !== 1 || $imputado($p[0]->id) !== [2450000, 0, 500000]) $f[] = 'Bautista: cobros '.$p->pluck('monto_final')->implode(', ');
             if (!$nov || $nov->estado !== 'PAGADA') $f[] = 'Bautista: noviembre no quedó pagada';
@@ -676,7 +693,7 @@ try {
     // Cajas de la tanda: todas validadas por el dueño y sin diferencia; la del sábado de Pablo, validada el domingo 15/11
     // (37.2); la de Rocío del 18/11 dejó todo lo contado como cambio (7.000) y no entregó nada.
     $f = [];
-    $tanda = DB::table('cajas_operativas')->where('apertura_at', '>=', '2026-11-12')->orderBy('id')->get();
+    $tanda = DB::table('cajas_operativas')->whereBetween('apertura_at', ['2026-11-12', '2026-11-18 23:59:59'])->orderBy('id')->get();
     if ($tanda->count() !== 6) $f[] = $tanda->count().' cajas abiertas desde el 12/11 (esperadas 6: no hay caja el domingo)';
     foreach ($tanda as $k) {
         if ($k->estado !== 'VALIDADA' || $c($k->diferencia_efectivo) !== 0) $f[] = "caja $k->id: $k->estado, diferencia $k->diferencia_efectivo";
@@ -687,6 +704,239 @@ try {
     $ult = $tanda->last();
     if (!$ult || $c($ult->efectivo_contado) !== 700000 || $c($ult->cambio_retenido) !== 700000 || $c($ult->efectivo_retirado) !== 0) $f[] = 'la caja del 18/11 no dejó los 7.000 contados como cambio';
     control($resultados, 'CAJ-4', 'Las seis cajas de los días 34 a 40 están validadas por el dueño y sin diferencia; la del sábado 14/11 se validó el domingo; la del 18/11 dejó los 7.000 contados como cambio y no entregó nada', $f);
+
+    // ── Días 41 a 47 (19 al 25/11) ───────────────────────────────────────
+    $cobradoCargo = fn (int $cargoId) => $c(DB::table('pago_cargo_alumno as pc')->join('pagos as p', 'p.id', '=', 'pc.pago_id')->where('pc.cargo_alumno_id', $cargoId)->where('p.estado', '!=', 'ANULADO')->sum('pc.monto_aplicado'));
+
+    // 41.4, 41.5, 41.7, 41.9, 45.1, 46.1, 46.4, 47.7 (ALU-007, COB-025, CFG-003): cada alta con el porcentaje del mes en que
+    // ingresa y la inscripción vigente ese día (5.000 hasta el 22/11, 8.000 después), y lo que pagó de cada una.
+    $f = [];
+    foreach ([['Acuña', 'Renzo', '2026-12-01', '2026-12', 2500000, 500000, 0, 500000], ['Luna', 'Joaquina', '2026-11-15', '2026-11', 3200000, 500000, 3200000, 500000],
+              ['Cabrera', 'Bruno', '2026-11-16', '2026-11', 2240000, 500000, 2240000, 500000], ['Godoy', 'Valentino', '2026-11-23', '2026-11', 3080000, 800000, 3080000, 800000],
+              ['Ferreyra', 'Milagros', '2026-11-24', '2026-11', 1400000, 800000, 1400000, 800000], ['Ruiz', 'Thiago', '2026-11-24', '2026-11', 1200000, 800000, 0, 0],
+              ['Vera', 'Tobías', '2026-11-25', '2026-11', 1120000, 800000, 0, 0]] as [$ap, $no, $alta, $periodo, $cuota, $insc, $pagoCuota, $pagoInsc]) {
+        $al = DB::table('alumnos')->where('apellido', $ap)->where('nombre', $no)->where('fecha_alta', $alta)->first();
+        if (!$al) { $f[] = "no está $no $ap con ingreso $alta"; continue; }
+        $d = DB::table('deuda_cuotas')->where('alumno_id', $al->id)->where('periodo', $periodo)->first();
+        if (!$d || $c($d->monto_original) !== $cuota || $c($d->monto_pagado) !== $pagoCuota) $f[] = "$no: cuota de $periodo ".($d->monto_original ?? 'ninguna').' pagado '.($d->monto_pagado ?? '-');
+        $cg = DB::table('cargos_alumno')->where('alumno_id', $al->id)->where('tipo', 'INSCRIPCION')->get();
+        if ($cg->count() !== 1 || $c($cg[0]->monto_original) !== $insc) $f[] = "$no: inscripción ".$cg->pluck('monto_original')->implode(', ');
+        elseif ($cobradoCargo($cg[0]->id) !== $pagoInsc) $f[] = "$no: cobrado de inscripción ".($cobradoCargo($cg[0]->id) / 100);
+    }
+    if (DB::table('alumnos')->where('apellido', 'Cabreras')->exists()) $f[] = 'quedó una ficha con apellido Cabreras (41.8)';
+    if (DB::table('alumnos')->where('nombre', 'Bruno')->where('apellido', 'Cabrera')->count() !== 1) $f[] = 'Bruno Cabrera no es una sola ficha (41.8)';
+    if (DB::table('deuda_cuotas as d')->join('alumnos as a', 'a.id', '=', 'd.alumno_id')->where('a.nombre', 'Renzo')->where('d.periodo', '<', '2026-12')->exists()) $f[] = 'Renzo tiene una cuota anterior a su ingreso';
+    control($resultados, 'ALU-6', 'Las siete altas llevan la cuota del porcentaje del mes en que ingresan y la inscripción vigente ese día; lo pagado es lo del guion; Bruno es una sola ficha después del doble clic y del reenvío', $f);
+
+    // 42.1 (COB-011, COB-019): RETRATA T100. Cuando se repare el saldo de Clara en la tanda 5, este control se da vuelta.
+    $f = [];
+    $clara = $porNombre('Clara', 'Iglesias');
+    $pagosClara = $clara ? DB::table('pagos')->where('alumno_id', $clara->id)->where('fecha_pago', '2026-11-20')->orderBy('id')->get() : collect();
+    if ($pagosClara->count() !== 2 || $pagosClara[0]->estado !== 'ANULADO' || $c($pagosClara[0]->monto_final) !== 30000000 || $pagosClara[1]->estado === 'ANULADO' || $c($pagosClara[1]->monto_final) !== 3000000) $f[] = 'Clara: cobros del 20/11 distintos de 300.000 anulado y 30.000 vigente';
+    else {
+        if (!str_contains((string) json_decode((string) $pagosClara[0]->detalle_anulacion, true)['motivo'], 'cero de m')) $f[] = 'Clara: el anulado no conserva su motivo';
+        $mov = DB::table('movimientos_operativos')->where('pago_id', $pagosClara[0]->id)->get();
+        if ($mov->count() !== 1 || $mov[0]->estado !== 'CANCELADO') $f[] = 'Clara: el renglón de 300.000 no quedó cancelado';
+        $exc = DB::table('excepciones_cobranza')->where('registro_tipo', 'PAGO')->where('registro_id', $pagosClara[1]->id)->get();
+        if ($exc->count() !== 1 || $exc[0]->tipo !== 'COBRO_PARCIAL' || trim((string) $exc[0]->motivo) !== 'Corrijo el importe: eran $30.000') $f[] = 'Clara: el cobro de 30.000 no tiene su motivo de parcial';
+    }
+    $dicClara = $clara ? DB::table('deuda_cuotas')->where('alumno_id', $clara->id)->where('periodo', '2026-12')->first() : null;
+    if (!$dicClara || $c($dicClara->monto_original) - $c($dicClara->monto_pagado) !== 27000000) $f[] = 'Clara: el saldo de diciembre ya no es 270.000 (¿reparado? dar vuelta este control)';
+    control($resultados, 'COB-11', 'Clara: 300.000 anulado con motivo y renglón cancelado, 30.000 vigente con motivo de parcial y el saldo fantasma de 270.000 de T100 sin tocar, listo para la tanda 5', $f, 'retrata T100');
+
+    // 45.2, 45.3 (COB-016, COB-021): Morena, cobro del dueño por MP anulado y cobrado de nuevo por Galicia, sin pasar por ninguna caja.
+    $f = [];
+    $mor = $porNombre('Morena', 'Rossi');
+    $pagosMor = $mor ? DB::table('pagos')->where('alumno_id', $mor->id)->where('fecha_pago', '2026-11-23')->orderBy('id')->get() : collect();
+    if ($pagosMor->count() !== 2 || $pagosMor[0]->estado !== 'ANULADO' || $pagosMor[1]->estado === 'ANULADO') $f[] = 'Morena: cobros distintos de uno anulado y uno vigente';
+    else {
+        if (!str_contains((string) json_decode((string) $pagosMor[0]->detalle_anulacion, true)['motivo'], 'Era transferencia al Galicia')) $f[] = 'Morena: el anulado no conserva su motivo';
+        $mp = DB::table('tipos_caja')->where('nombre', 'Mercado Pago')->value('id'); $bg = DB::table('tipos_caja')->where('nombre', 'Banco Galicia')->value('id');
+        $asientos = DB::table('cashflow_movimientos')->where('referencia_tipo', 'PAGO_CUOTA')->whereIn('referencia_id', $pagosMor->pluck('id'))->orderBy('id')->get();
+        $vistos = $asientos->map(fn ($x) => $x->tipo_caja_id.'|'.$c($x->monto).'|'.$x->fecha)->all();
+        if ($vistos !== ["$mp|4400000|2026-11-23", "$mp|-4400000|2026-11-23", "$bg|4400000|2026-11-23"]) $f[] = 'Morena: asientos '.json_encode($vistos);
+        if (DB::table('movimientos_operativos')->whereIn('pago_id', $pagosMor->pluck('id'))->exists()) $f[] = 'Morena: un cobro del dueño entró a una caja';
+    }
+    control($resultados, 'COB-12', 'Morena: el cobro del dueño por MP se anuló con motivo; Cashflow lleva +44.000 y -44.000 en MP y +44.000 en Galicia, con la misma fecha, sin pasar por ninguna caja', $f);
+
+    // 47.7 (COB-020): Tobías, cobro cancelado entero. 47.8 (PEN-001): Facundo paga cuota, recargo y diciembre en un cobro, sin motivo.
+    $f = [];
+    $tob = $porNombre('Tobías', 'Vera');
+    $pagoTob = $tob ? DB::table('pagos')->where('alumno_id', $tob->id)->get() : collect();
+    if ($pagoTob->count() !== 1 || $pagoTob[0]->estado !== 'ANULADO') $f[] = 'Tobías: esperado un solo cobro, anulado';
+    else {
+        $renglones = DB::table('movimientos_operativos')->where('pago_id', $pagoTob[0]->id)->get();
+        if ($renglones->count() !== 2 || $renglones->where('estado', 'CANCELADO')->count() !== 2 || $c($renglones->sum('monto')) !== 1920000) $f[] = 'Tobías: los dos renglones no quedaron cancelados por 19.200';
+        $det = json_decode((string) $pagoTob[0]->detalle_anulacion, true);
+        if (!str_contains((string) ($det['motivo'] ?? ''), 'no hay cupo')) $f[] = 'Tobías: el anulado no conserva su motivo';
+        if (count($det['periodos'] ?? []) !== 1 || count($det['cargos'] ?? []) !== 1) $f[] = 'Tobías: el anulado no conserva el desglose de cuota e inscripción';
+    }
+    $fac = $porNombre('Facundo', 'Rios');
+    $pagoFac = $fac ? DB::table('pagos')->where('alumno_id', $fac->id)->where('fecha_pago', '2026-11-25')->where('estado', '!=', 'ANULADO')->get() : collect();
+    if ($pagoFac->count() !== 1 || $c($pagoFac[0]->monto_final) !== 5880000) $f[] = 'Facundo: esperado un cobro de 58.800';
+    else {
+        $por = DB::table('pago_deuda_cuota as x')->join('deuda_cuotas as d', 'd.id', '=', 'x.deuda_cuota_id')->where('x.pago_id', $pagoFac[0]->id)->orderBy('d.periodo')->get()->map(fn ($x) => $x->periodo.':'.$c($x->monto_aplicado))->all();
+        if ($por !== ['2026-11:2800000', '2026-12:2800000'] || $imputado($pagoFac[0]->id)[1] !== 280000) $f[] = 'Facundo: imputó '.json_encode($por).' y recargo '.$imputado($pagoFac[0]->id)[1];
+        if (DB::table('excepciones_cobranza')->where('registro_tipo', 'PAGO')->where('registro_id', $pagoFac[0]->id)->exists()) $f[] = 'Facundo: el cobro pidió motivo';
+    }
+    control($resultados, 'COB-13', 'Tobías: el cobro se canceló entero con dos renglones cancelados, su motivo y el desglose; Facundo pagó noviembre, recargo y diciembre en un cobro de 58.800, sin motivo', $f);
+
+    // 47.9 (COB-030): quince adelantos seguidos, cada uno al precio del plan, un renglón con su medio y recibos 404 a 418.
+    $f = [];
+    $medios = ['EFE' => DB::table('tipos_caja')->where('nombre', 'Efectivo')->value('id'), 'MP' => DB::table('tipos_caja')->where('nombre', 'Mercado Pago')->value('id'), 'BG' => DB::table('tipos_caja')->where('nombre', 'Banco Galicia')->value('id')];
+    $totales = ['EFE' => 0, 'MP' => 0, 'BG' => 0];
+    foreach ([['Lola', 'Rios', 3000000, 'EFE'], ['Abril', 'Silva', 3000000, 'EFE'], ['Zoe', 'Flores', 3000000, 'EFE'], ['Sofia', 'Gomez', 3000000, 'EFE'], ['Bianca', 'Pereyra', 4400000, 'EFE'], ['Mia', 'Perez', 4400000, 'EFE'], ['Paula', 'Ledesma', 4300000, 'EFE'], ['Sol', 'Ruiz', 4300000, 'EFE'],
+              ['Berenice', 'Sanchez', 4300000, 'MP'], ['Paulina', 'Benitez', 4300000, 'MP'], ['Bautista', 'Ferrari', 3500000, 'MP'], ['Agustin', 'Acosta', 3500000, 'MP'], ['Julian', 'Navarro', 5200000, 'MP'],
+              ['Tomas', 'Gimenez', 5200000, 'BG'], ['Helena', 'Iglesias', 5000000, 'BG']] as [$no, $ap, $monto, $medio]) {
+        $al = $porNombre($no, $ap);
+        if (!$al) { $f[] = "no está $no $ap"; continue; }
+        $p = DB::table('pagos')->where('alumno_id', $al->id)->where('fecha_pago', '2026-11-25')->where('estado', '!=', 'ANULADO')->get();
+        if ($p->count() !== 1 || $c($p[0]->monto_final) !== $monto) { $f[] = "$no $ap: cobros del 25/11 ".$p->pluck('monto_final')->implode(', '); continue; }
+        if ($p[0]->id < 404 || $p[0]->id > 418) $f[] = "$no $ap: recibo {$p[0]->id} fuera de 404 a 418";
+        $renglon = DB::table('movimientos_operativos')->where('pago_id', $p[0]->id)->get();
+        if ($renglon->count() !== 1 || (int) $renglon[0]->tipo_caja_id !== (int) $medios[$medio] || $c($renglon[0]->monto) !== $monto) $f[] = "$no $ap: renglón distinto de uno por $medio";
+        $totales[$medio] += $monto;
+    }
+    if ($totales !== ['EFE' => 29400000, 'MP' => 20800000, 'BG' => 10200000]) $f[] = 'totales de los quince: '.json_encode($totales);
+    // El adelanto cuenta en el mes que paga: noviembre no sube (COB-030). Reportes no abre un mes futuro: lo de diciembre se mira el 1/12.
+    if ((int) $rep['ingresos'] !== 432790000) $f[] = 'ingresos de noviembre '.($rep['ingresos'] / 100).' (esperado 4.327.900)';
+    $imputadoDic = $c(DB::table('pago_deuda_cuota as x')->join('deuda_cuotas as d', 'd.id', '=', 'x.deuda_cuota_id')->join('pagos as p', 'p.id', '=', 'x.pago_id')->where('d.periodo', '2026-12')->where('p.estado', '!=', 'ANULADO')->sum('x.monto_aplicado'));
+    control($resultados, 'COB-14', 'Los quince adelantos del 25/11 tienen su importe, su renglón y su medio (efectivo 294.000, MP 208.000, Galicia 102.000), recibos 404 a 418; noviembre no sube', $f, 'imputado a diciembre '.($imputadoDic / 100));
+
+    // Cajas de la tanda (41 a 47). La del sábado la abrió el dueño a nombre de Pablo y se validó el domingo; la del 24/11 cerró con
+    // la pantalla vieja (46.7): queda con el faltante de 44.000 a la vista y el cobro de Emilia adentro.
+    $f = [];
+    $tanda4 = DB::table('cajas_operativas')->where('apertura_at', '>=', '2026-11-19')->orderBy('id')->get();
+    $esperadas = [['Sandra Vidal', 700000, 6920000, 6920000, 1000000, 5920000, 0, '2026-11-19'], ['Rocío Paz', 1000000, 5160000, 5160000, 1500000, 3660000, 0, '2026-11-20'], ['Pablo Ledesma', 1500000, 1500000, 1500000, 1500000, 0, 0, '2026-11-22'],
+                  ['Sandra Vidal', 1500000, 6470000, 6470000, 1000000, 5470000, 0, '2026-11-23'], ['Pablo Ledesma', 1000000, 5560000, 1160000, 500000, 660000, -4400000, '2026-11-24'], ['Rocío Paz', 500000, 32410000, 32410000, 1000000, 31410000, 0, '2026-11-25']];
+    if ($tanda4->count() !== 6) $f[] = $tanda4->count().' cajas desde el 19/11 (esperadas 6)';
+    else foreach ($tanda4->values() as $i => $k) {
+        [$quien, $ini, $esp, $con, $cam, $ret, $dif, $val] = $esperadas[$i];
+        if (DB::table('users')->where('id', $k->usuario_operativo_id)->value('name') !== $quien) $f[] = "caja $k->id no es de $quien";
+        if ($k->estado !== 'VALIDADA' || substr((string) $k->validada_at, 0, 10) !== $val) $f[] = "caja $k->id: $k->estado, validada el $k->validada_at";
+        if (DB::table('users')->where('id', $k->usuario_admin_validacion_id)->value('rol') !== 'ADMIN') $f[] = "caja $k->id no la validó el dueño";
+        if ([$c($k->efectivo_inicial), $c($k->efectivo_esperado), $c($k->efectivo_contado), $c($k->cambio_retenido), $c($k->efectivo_retirado), $c($k->diferencia_efectivo)] !== [$ini, $esp, $con, $cam, $ret, $dif]) $f[] = "caja $k->id: inicial $k->efectivo_inicial, esperado $k->efectivo_esperado, contado $k->efectivo_contado, cambio $k->cambio_retenido, entrega $k->efectivo_retirado, diferencia $k->diferencia_efectivo";
+    }
+    if ($tanda4->count() === 6) {
+        $sabado = $tanda4->values()[2];
+        if (DB::table('users')->where('id', $sabado->usuario_apertura_id)->value('rol') !== 'ADMIN') $f[] = 'la caja del sábado no registra que la abrió el dueño';
+        if (DB::table('movimientos_operativos')->where('caja_operativa_id', $sabado->id)->exists()) $f[] = 'la caja del sábado tiene movimientos';
+        $emi = $porNombre('Emilia', 'Medina');
+        if (!$emi || !DB::table('movimientos_operativos as m')->join('pagos as p', 'p.id', '=', 'm.pago_id')->where('p.alumno_id', $emi->id)->where('m.caja_operativa_id', $tanda4->values()[4]->id)->where('m.monto', '44000.00')->exists()) $f[] = 'el cobro de Emilia no está en la caja de Pablo del 24/11';
+    }
+    control($resultados, 'CAJ-5', 'Las seis cajas de los días 41 a 47 están validadas por el dueño con los importes del guion; el dueño abrió la del sábado a nombre de Pablo, sin movimientos, validada el domingo; la del 24/11 conserva el faltante de 44.000 con el cobro de Emilia adentro', $f);
+
+    // 45.8 (CAJ-041): RETRATA T101. El gasto del dueño figura a nombre de Sandra; al repararlo, este control se da vuelta.
+    $f = [];
+    $bomb = DB::table('movimientos_operativos')->where('observaciones', 'Bombitas de luz: las pagó la caja')->get();
+    if ($bomb->count() !== 1 || $c($bomb[0]->monto) !== 300000) $f[] = $bomb->count().' gastos de las bombitas';
+    elseif (DB::table('users')->where('id', $bomb[0]->usuario_id)->value('name') !== 'Sandra Vidal') $f[] = 'el gasto del dueño ya no figura a nombre de Sandra (¿reparado T101? dar vuelta este control)';
+    control($resultados, 'CAJ-6', 'El gasto de 3.000 que el dueño cargó en el turno de Sandra existe una vez y figura a nombre de ella', $f, 'retrata T101');
+
+    // 42.5, 46.6, 44.6 (CSH-005, CSH-008, CSH-010): Internet corregido con historial, el duplicado anulado con su asiento y la Luz de octubre.
+    $f = [];
+    $inet = DB::table('cashflow_movimientos')->find(456); $dup = DB::table('cashflow_movimientos')->find(457); $contraInet = DB::table('cashflow_movimientos')->find(458);
+    if (!$inet || $c($inet->monto) !== -2350000 || $inet->anulado_at || (int) $inet->version_correccion !== 1) $f[] = 'el Internet 456 no quedó en 23.500 con una corrección';
+    $corrI = DB::table('cashflow_correcciones')->where('movimiento_id', 456)->get();
+    if ($corrI->count() !== 1 || $corrI[0]->motivo !== 'La factura vino con el aumento: $23.500') $f[] = 'Internet 456: '.$corrI->count().' correcciones, doble clic o motivo distinto';
+    if (!$dup || !$dup->anulado_at || !$contraInet || (int) $contraInet->contra_origen_id !== 457 || $c($dup->monto) + $c($contraInet->monto) !== 0) $f[] = 'el Internet 457 no quedó anulado con un asiento en contra que lo cancele';
+    $corrD = DB::table('cashflow_correcciones')->where('movimiento_id', 457)->get();
+    if ($corrD->count() !== 1 || $corrD[0]->accion !== 'ELIMINAR' || $corrD[0]->motivo !== 'Cargado dos veces') $f[] = 'Internet 457: la eliminación no conserva acción y motivo';
+    $luz = DB::table('cashflow_movimientos')->where('observaciones', 'Edesur, octubre: llegó tarde')->get();
+    if ($luz->count() !== 1 || $c($luz[0]->monto) !== -940000 || (string) $luz[0]->fecha !== '2026-10-28' || substr((string) $luz[0]->created_at, 0, 10) !== '2026-11-22') $f[] = 'la Luz de octubre no es una de 9.400 con fecha 28/10 cargada el 22/11';
+    control($resultados, 'CSH-6', 'Internet: uno quedó en 23.500 con una sola corrección pese al doble clic; el duplicado está anulado con su asiento en contra y su motivo; la Luz de 9.400 lleva fecha 28/10 y se cargó el 22/11', $f);
+
+    // 44.3, 44.5 (CFG-001, CFG-003): configuración como quedó; la inscripción vieja de Emma no cambió.
+    // 46.0 (PEN-001): el recargo de Emma es el 10% de su cuota al 70%.
+    $f = [];
+    if ($c(App\Models\Configuracion::get('inscripcion_importe', 0)) !== 800000) $f[] = 'inscripción configurada en '.App\Models\Configuracion::get('inscripcion_importe', 0);
+    if ((int) App\Models\Configuracion::get('dias_gracia_cobranza', 0) !== 10) $f[] = 'días de gracia en '.App\Models\Configuracion::get('dias_gracia_cobranza', 0);
+    $emma = $porNombre('Emma', 'Villalba');
+    if (!$emma) $f[] = 'no está Emma Villalba';
+    else {
+        $cargos = DB::table('cargos_alumno')->where('alumno_id', $emma->id)->get();
+        $ins = $cargos->firstWhere('tipo', 'INSCRIPCION'); $rec = $cargos->firstWhere('tipo', 'PUNITORIO');
+        if (!$ins || $c($ins->monto_original) !== 500000) $f[] = 'la inscripción de Emma ya no es 5.000';
+        if (!$rec || $c($rec->monto_original) !== 231000 || substr((string) $rec->created_at, 0, 16) !== '2026-11-24 06:15') $f[] = 'el recargo de Emma no es 2.310 del 24/11 06:15';
+    }
+    control($resultados, 'CFG-2', 'Inscripción en 8.000 y gracia en 10; la inscripción de Emma sigue en 5.000 y su recargo es 2.310, del 24/11 a las 06:15', $f);
+
+    // 47.1: la deuda, persona por persona, suma lo que dice Cobranza. Clara no entra: su saldo de diciembre cuenta recién el 1/12.
+    $f = [];
+    $deudores = $lista->filter(fn ($a) => $a->deuda_total > 0)->mapWithKeys(fn ($a) => ["$a->nombre $a->apellido" => $c($a->deuda_total).' '.$a->estado_cobranza])->sortKeys()->all();
+    $deudoresEsperados = ['Alma Navarro' => '3630000 MOROSO', 'Emma Villalba' => '3041000 MOROSO', 'Liam Pereyra' => '3850000 MOROSO', 'Pilar Ramos' => '3300000 MOROSO', 'Thiago Ruiz' => '2000000 EN_PLAZO', 'Tobías Vera' => '1920000 EN_PLAZO', 'Valentina Suarez' => '3850000 MOROSO'];
+    if ($deudores !== $deudoresEsperados) $f[] = 'deudores: '.json_encode($deudores, JSON_UNESCAPED_UNICODE);
+    if ($deudaCobranza !== 21591000) $f[] = 'deuda total '.($deudaCobranza / 100);
+    control($resultados, 'CBZ-4', 'Los siete que deben, cada uno con su importe y estado, suman los 215.910 de Cobranza; Clara no figura porque su saldo de diciembre todavía no cuenta', $f);
+
+    // 43.2, 43.3, 45.9, 46.3, 46.5 (CLA-007, CLA-010, CLA-012, CLA-020, ASI-014): cada clase tocada por pantalla.
+    $f = [];
+    $profesDe = fn ($id) => DB::table('clase_profesor as cp')->join('profesores as p', 'p.id', '=', 'cp.profesor_id')->where('cp.clase_id', $id)->orderBy('p.apellido')->pluck('p.apellido')->all();
+    $marcasDe = fn ($id) => [DB::table('asistencias')->where('clase_id', $id)->count(), DB::table('asistencias')->where('clase_id', $id)->where('presente', 1)->count()];
+    foreach ([[215, 0, null, ['Ocampo'], [19, 17], 'La dio Mariela: Lucía estaba con médico'], [216, 1, 'Se cortó la luz a los 15 minutos', ['Gaitán'], [19, 18], null], [235, 0, null, ['Gaitán', 'Ocampo'], [8, 7], null],
+              [245, 0, null, ['Quintana'], [25, 24], null], [257, 1, 'Lluvia: la cancha está anegada', ['Quintana'], [0, 0], null]] as [$id, $canc, $motivo, $profes, $marcas, $mProf]) {
+        $k = DB::table('clases')->find($id);
+        if (!$k) { $f[] = "no está la clase $id"; continue; }
+        if ((int) $k->cancelada !== $canc || trim((string) $k->motivo_cancelacion) !== (string) $motivo) $f[] = "clase $id: cancelada $k->cancelada, motivo «{$k->motivo_cancelacion}»";
+        if ($profesDe($id) !== $profes) $f[] = "clase $id con ".implode(', ', $profesDe($id));
+        if ($marcasDe($id) !== $marcas) $f[] = "clase $id: marcas ".implode('/', $marcasDe($id));
+        if ($mProf !== null && trim((string) $k->motivo_cambio_profesor) !== $mProf) $f[] = "clase $id: motivo del cambio «{$k->motivo_cambio_profesor}»";
+    }
+    // Primera carga atrasada, sin motivo (46.3): ninguna excepción sobre la lista de la 245.
+    if (DB::table('excepciones_cobranza')->where('registro_tipo', 'like', '%ASIST%')->whereIn('registro_id', DB::table('asistencias')->where('clase_id', 245)->pluck('id'))->exists()) $f[] = 'la lista atrasada de la clase 245 generó excepciones';
+    control($resultados, 'CLA-3', 'Intermedias del 20/11 con Mariela y su motivo; Intermedias del 23/11 cancelada conservando 19 marcas; Federadas del 21/11 con Lucía y Mariela; Fútbol del 23/11 cargada el 24 sin motivo; Fútbol del 21/11 cancelada sin lista', $f);
+
+    // Lo que necesita el 1/12: quién no vino desde el 19/11, y Alma con un solo presente, en la clase que se canceló.
+    $f = [];
+    $presentesDesde = fn ($id) => DB::table('asistencias as a')->join('clases as k', 'k.id', '=', 'a.clase_id')->where('a.alumno_id', $id)->where('a.presente', 1)->whereBetween('k.fecha', ['2026-11-19', '2026-11-25']);
+    foreach ([['Pilar', 'Ramos'], ['Valentina', 'Suarez'], ['Facundo', 'Rios'], ['Emma', 'Villalba'], ['Valentino', 'Godoy'], ['Joaquina', 'Luna'], ['Bruno', 'Cabrera'], ['Tobías', 'Vera']] as [$no, $ap]) {
+        $al = $porNombre($no, $ap);
+        if (!$al) $f[] = "no está $no $ap";
+        elseif ($presentesDesde($al->id)->count()) $f[] = "$no $ap tiene presentes y no tenía que venir";
+    }
+    $thiago = DB::table('alumnos')->where('nombre', 'Thiago')->where('apellido', 'Ruiz')->where('fecha_alta', '2026-11-24')->first();
+    if ($thiago && $presentesDesde($thiago->id)->count()) $f[] = 'la ficha de Patín de Thiago tiene presentes';
+    $alma = $porNombre('Alma', 'Navarro');
+    $delaAlma = $alma ? DB::table('asistencias as a')->join('clases as k', 'k.id', '=', 'a.clase_id')->where('a.alumno_id', $alma->id)->where('a.presente', 1)->whereBetween('k.fecha', ['2026-11-01', '2026-11-30'])->get(['k.id', 'k.cancelada']) : collect();
+    if ($delaAlma->count() !== 1 || (int) $delaAlma[0]->id !== 216 || !$delaAlma[0]->cancelada) $f[] = 'Alma: presentes de noviembre '.$delaAlma->pluck('id')->implode(', ').' (esperado solo la 216, cancelada)';
+    $liam = $porNombre('Liam', 'Pereyra');
+    if (!$liam || !$presentesDesde($liam->id)->exists()) $f[] = 'Liam tenía que venir y no tiene presentes';
+    control($resultados, 'ASI-4', 'Nadie que no tenía que venir tiene presentes desde el 19/11; el único presente de Alma en noviembre es el de la clase cancelada; Liam vino', $f);
+
+    // 41.1 a 41.3, 47.2, 47.3, 47.5 (CAT-004, GRU-002, PRO-002, CLA-006, USU-002): lo nuevo del catálogo y el calendario de diciembre.
+    $f = [];
+    if (DB::table('niveles')->whereRaw('LOWER(TRIM(nombre)) LIKE ?', ['infantil%'])->pluck('nombre')->all() !== ['Infantiles']) $f[] = 'nivel: '.DB::table('niveles')->whereRaw('LOWER(TRIM(nombre)) LIKE ?', ['infantil%'])->pluck('nombre')->implode(', ');
+    $gi = DB::table('grupos as g')->join('niveles as n', 'n.id', '=', 'g.nivel_id')->join('deportes as d', 'd.id', '=', 'g.deporte_id')->where('n.nombre', 'Infantiles')->where('d.nombre', 'Fútbol')->pluck('g.id');
+    if ($gi->count() !== 1) $f[] = $gi->count().' grupos de Fútbol Infantiles';
+    else {
+        $pl = DB::table('grupo_planes')->where('grupo_id', $gi[0])->orderBy('clases_por_semana')->get()->map(fn ($x) => $x->clases_por_semana.':'.$c($x->precio_mensual))->all();
+        if ($pl !== ['1:2500000', '2:3800000']) $f[] = 'planes de Infantiles '.json_encode($pl);
+    }
+    $gon = DB::table('profesores')->where('nombre', 'Gonzalo')->where('apellido', 'Ibarra')->get();
+    if ($gon->count() !== 1 || $c($gon[0]->porcentaje_comision) !== 3500) $f[] = 'Gonzalo: '.$gon->count().' fichas o comisión distinta de 35%';
+    else {
+        $u = DB::table('users')->where('profesor_id', $gon[0]->id)->get();
+        if ($u->count() !== 1 || $u[0]->rol !== 'PROFESOR' || !$u[0]->activo) $f[] = 'Gonzalo: '.$u->count().' usuarios o rol distinto';
+        if (DB::table('users')->where('email', 'gonzalo.ibarra@example.com')->count() !== 1) $f[] = 'el mail de Gonzalo no es de un solo usuario';
+        // 41.3b y 47.5b, que Codex no pudo comprobar por pantalla: un solo renglón de sueldo, reservado.
+        $sueldo = DB::table('subrubros')->where('nombre', 'like', '%Gonzalo Ibarra%')->get();
+        if ($sueldo->count() !== 1 || !$sueldo[0]->es_reservado_sistema) $f[] = 'Gonzalo: '.$sueldo->count().' renglones de sueldo';
+        $clasesG = DB::table('clases as k')->join('clase_profesor as cp', 'cp.clase_id', '=', 'k.id')->where('cp.profesor_id', $gon[0]->id)->orderBy('k.fecha')->pluck('k.fecha')->map(fn ($x) => (string) $x)->all();
+        if ($clasesG !== ['2026-12-05', '2026-12-12', '2026-12-19', '2026-12-26']) $f[] = 'clases de Gonzalo '.json_encode($clasesG);
+    }
+    $porGrupo = DB::table('clases as k')->join('grupos as g', 'g.id', '=', 'k.grupo_id')->join('niveles as n', 'n.id', '=', 'g.nivel_id')->join('deportes as d', 'd.id', '=', 'g.deporte_id')
+        ->where('k.fecha', '>=', '2026-12-01')->selectRaw("CONCAT(d.nombre,' ',n.nombre) g, COUNT(*) n")->groupBy('g')->pluck('n', 'g')->map(fn ($n) => (int) $n)->sortKeys()->all();
+    if ($porGrupo !== ['Fútbol Avanzadas' => 14, 'Fútbol Infantiles' => 4, 'Fútbol Principiantes' => 9, 'Patín Adultos' => 10, 'Patín Avanzadas' => 10, 'Patín Federadas' => 14, 'Patín Intermedias' => 8, 'Patín Principiantes' => 9]) $f[] = 'clases de diciembre: '.json_encode($porGrupo, JSON_UNESCAPED_UNICODE);
+    $repetidas = DB::table('clases')->where('fecha', '>=', '2026-12-01')->select('grupo_id', 'fecha', 'hora_inicio')->groupBy('grupo_id', 'fecha', 'hora_inicio')->havingRaw('COUNT(*) > 1')->get()->count();
+    if ($repetidas) $f[] = "$repetidas clases de diciembre repetidas (doble clic)";
+    control($resultados, 'CAT-1', 'Nivel Infantiles una sola vez; Fútbol Infantiles con 1 por semana a 25.000 y 2 a 38.000; Gonzalo con 35%, un usuario, un renglón de sueldo y sus 4 clases; 78 clases de diciembre por grupo, sin repetidas', $f);
+
+    // 47.10 (ALU-026): Lautaro inactivo desde el 25/11, sin cuota de diciembre.
+    $f = [];
+    $lau = $porNombre('Lautaro', 'Medina');
+    if (!$lau || $lau->activo || substr((string) $lau->inactivo_desde, 0, 10) !== '2026-11-25') $f[] = 'Lautaro: activo '.($lau->activo ?? '?').', inactivo desde '.($lau->inactivo_desde ?? '?');
+    elseif (DB::table('deuda_cuotas')->where('alumno_id', $lau->id)->where('periodo', '2026-12')->exists()) $f[] = 'Lautaro tiene cuota de diciembre';
+    control($resultados, 'ALU-7', 'Lautaro quedó Inactivo con la fecha del 25/11 y sin cuota de diciembre', $f);
 
     // ── Huérfanos ────────────────────────────────────────────────────────
     $f = [];

@@ -16,12 +16,13 @@ $q = [
  'pagos' => "SELECT CONCAT(al.nombre,' ',al.apellido,' ',IFNULL(al.dni,'')) k, DATE(p.fecha_pago) f, p.monto_final, p.estado, p.mes, p.anio FROM pagos p JOIN alumnos al ON al.id=p.alumno_id",
  'alumnos' => "SELECT CONCAT(nombre,' ',apellido,' ',IFNULL(dni,'')) k, activo, fecha_alta FROM alumnos",
  'planes' => "SELECT CONCAT(al.nombre,' ',al.apellido,' ',IFNULL(al.dni,'')) k, CONCAT(g.deporte_id,'-',g.nivel_id,'-',gp.clases_por_semana) plan, ap.fecha_desde, IFNULL(ap.fecha_hasta,''), IFNULL(ap.activo,'null') FROM alumno_planes ap JOIN alumnos al ON al.id=ap.alumno_id JOIN grupo_planes gp ON gp.id=ap.plan_id JOIN grupos g ON g.id=gp.grupo_id",
- 'precios' => "SELECT grupo_plan_id, precio_mensual, vigente_desde FROM grupo_plan_precios",
+ 'precios' => "SELECT CONCAT(g.deporte_id,'-',n.nombre,'-',gp.clases_por_semana) plan, pr.precio_mensual, pr.vigente_desde FROM grupo_plan_precios pr JOIN grupo_planes gp ON gp.id=pr.grupo_plan_id JOIN grupos g ON g.id=gp.grupo_id JOIN niveles n ON n.id=g.nivel_id",
  'cajas' => "SELECT DATE(c.apertura_at) f, u.name, c.estado, c.efectivo_inicial, c.efectivo_esperado, IFNULL(c.efectivo_contado,''), IFNULL(c.cambio_retenido,''), IFNULL(c.diferencia_efectivo,'') FROM cajas_operativas c JOIN users u ON u.id=c.usuario_operativo_id",
- 'movs_caja' => "SELECT DATE(m.fecha) f, m.tipo_caja_id, m.subrubro_id, m.monto, IFNULL(m.estado,'') e FROM movimientos_operativos m",
- 'cashflow' => "SELECT DATE(fecha) f, subrubro_id, tipo_caja_id, monto, IF(anulado_at IS NULL,'','anulado') an, IFNULL(referencia_tipo,'') rt FROM cashflow_movimientos",
- 'clases' => "SELECT c.fecha, c.hora_inicio, c.grupo_id, c.cancelada, IFNULL(c.motivo_cancelacion,''),
-   (SELECT COUNT(*) FROM asistencias a WHERE a.clase_id=c.id AND a.presente=1) pres, (SELECT COUNT(*) FROM asistencias a WHERE a.clase_id=c.id AND a.presente=0) aus FROM clases c",
+ 'movs_caja' => "SELECT DATE(m.fecha) f, m.tipo_caja_id, s.nombre, m.monto, IFNULL(m.estado,'') e, u.name FROM movimientos_operativos m JOIN subrubros s ON s.id=m.subrubro_id JOIN users u ON u.id=m.usuario_id",
+ 'cashflow' => "SELECT DATE(cf.fecha) f, s.nombre, cf.tipo_caja_id, cf.monto, IF(cf.anulado_at IS NULL,'','anulado') an, IFNULL(cf.referencia_tipo,'') rt FROM cashflow_movimientos cf JOIN subrubros s ON s.id=cf.subrubro_id",
+ 'clases' => "SELECT c.fecha, c.hora_inicio, CONCAT(g.deporte_id,'-',n.nombre) grupo, c.cancelada, IFNULL(c.motivo_cancelacion,''), IFNULL(c.motivo_cambio_profesor,''),
+   (SELECT GROUP_CONCAT(p.apellido ORDER BY p.apellido) FROM clase_profesor cp JOIN profesores p ON p.id=cp.profesor_id WHERE cp.clase_id=c.id) profesores,
+   (SELECT COUNT(*) FROM asistencias a WHERE a.clase_id=c.id AND a.presente=1) pres, (SELECT COUNT(*) FROM asistencias a WHERE a.clase_id=c.id AND a.presente=0) aus FROM clases c JOIN grupos g ON g.id=c.grupo_id JOIN niveles n ON n.id=g.nivel_id",
  'excepciones' => "SELECT e.tipo, CONCAT(al.nombre,' ',al.apellido) k, e.motivo, e.registro_tipo FROM excepciones_cobranza e LEFT JOIN alumnos al ON al.id=e.alumno_id",
 ];
 function filas($db, $sql) {
