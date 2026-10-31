@@ -95,7 +95,7 @@ FICHAS = {
   ('No desactiva con alumnos activos o clases futuras', C+'GrupoWebController.php', "if ($alumnosActivos > 0 || $clasesFuturas > 0)", camino('Desactivar un grupo')),
  ],
  'admin-administrar-profesores': [
-  ('Tarifa: el formulario la marca obligatoria pero Wings guarda sin ella', C+'ProfesorWebController.php', "'valor_hora'          => ['nullable'", camino('Guardar un profesor sin valor')),
+  ('Tarifa: obligatoria según el deporte y mayor a cero (T95)', C+'ProfesorWebController.php', "'valor_hora.required'", 'Ejecutado (ProfesorTarifaObligatoriaT95Test, T95): sin la tarifa de su deporte no se guarda.'),
   ('Sin tarifa no se genera la liquidación', S+'LiquidacionService.php', "El profesor no tiene valor por hora configurado.", LEC),
   ('El concepto de sueldo se crea solo', C+'ProfesorWebController.php', "$this->crearSubrubroProfesor($profesor);§1", LEC),
   ('No pasa a inactiva con clases futuras', S+'ProfesorEstadoService.php', "clases futuras o en curso", camino('Pasar a inactiva')),
@@ -196,7 +196,7 @@ FICHAS = {
   ('Paso 2: pantalla Efectivo del mostrador, Medio de efectivo, solo cuentas activas', C+'CajaWebController.php', [(V+'caja/configuracion.blade.php', "Efectivo del mostrador§2"), (V+'caja/configuracion.blade.php', 'Medio de efectivo'), "$tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();"], CAP),
   ('Paso 3: Guardar y aviso', C+'CajaWebController.php', "Medio de efectivo configurado.", LEC),
   ('No se cambia con una caja abierta', S+'CajaService.php', "No se puede cambiar el medio del cajón mientras haya una caja abierta.", camino('Cambiar el medio del mostrador')),
-  ('Configurar aparece solo si no está configurado', V+'caja/index.blade.php', "$mostradorConfigurado ? route('web.caja.apertura') : route('web.caja.configuracion')", camino('Volver a la configuración del mostrador')),
+  ('Paso 1: Configurar en Caja, inhabilitado con una caja abierta (T96)', V+'caja/index.blade.php', ':disabled="$hayCajaAbierta"', 'Ejecutado (MedioPagoCajonTest, T96): habilitado sin caja abierta; con caja abierta, sin enlace y con disabled.'),
  ],
  'admin-inicio-dueno': [
   ('Clases sin asistencia quedan afuera de la liquidación hasta cargar la lista', S+'LiquidacionService.php', ["->where('cancelada', false)§1", "$q->where('validada_para_liquidacion', true)§1"], LEC),

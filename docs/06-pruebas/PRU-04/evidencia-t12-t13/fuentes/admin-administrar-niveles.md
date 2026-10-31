@@ -7,7 +7,7 @@
 |---|---|---|---|
 | No elimina un nivel que usa un grupo | `app/Http/Controllers/NivelWebController.php:79` | `if ($nivel->grupos_count > 0) {` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede eliminar: hay 1 grupo(s) que usan este nivel.» |
 | Nombre repetido: compara en minúsculas y sin espacios en los extremos | `app/Rules/NombreUnico.php:29` | `$nombre = mb_strtolower(trim($nombre));` | Leído en el código; no ejecutado en pantalla. |
-| Un grupo no cambia de nivel | `app/Http/Controllers/GrupoWebController.php:166` | `// nivel_id no cambia en edición` | Leído en el código; no ejecutado en pantalla. No hay ruta para borrar grupos. |
+| Un grupo no cambia de nivel | `app/Http/Controllers/GrupoWebController.php:167` | `// nivel_id no cambia en edición` | Leído en el código; no ejecutado en pantalla. No hay ruta para borrar grupos. |
 
 ## Rechazos y avisos de la acción
 

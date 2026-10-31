@@ -188,7 +188,8 @@ class CajaWebController extends Controller
         }
 
         $mostradorConfigurado = $this->cajaService->propuestaApertura()['tipo_caja_id'] !== null;
-        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes', 'mostradorConfigurado'));
+        $hayCajaAbierta = CajaOperativa::where('estado', 'ABIERTA')->exists();
+        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes', 'mostradorConfigurado', 'hayCajaAbierta'));
     }
 
     // ── Historial: movimientos del último trimestre (solo lectura) ───────

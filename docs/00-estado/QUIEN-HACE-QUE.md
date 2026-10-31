@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 30/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 31/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -58,11 +58,13 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini controla T96 con PROMPT-GEMINI-T96.md. Boton Configurar en Caja, inhabilitado con caja abierta. OK visual de Carlos 31/10. Sin desplegar. |
 
-## Sin empezar (14)
+## Sin empezar (13)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T96, T97, T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T97, T102.
 
 ## Mejoras futuras, no se empiezan ahora (11)
 

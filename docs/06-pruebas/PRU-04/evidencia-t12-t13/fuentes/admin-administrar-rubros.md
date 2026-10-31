@@ -5,7 +5,7 @@
 
 | Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
 |---|---|---|---|
-| El operativo ve un subrubro solo si es Ambos y Afecta caja | `app/Http/Controllers/CajaWebController.php:1140` | `$q->where('permitido_para', 'OPERATIVO')->where('afecta_caja', true);` | Leído en el código; no ejecutado en pantalla. |
+| El operativo ve un subrubro solo si es Ambos y Afecta caja | `app/Http/Controllers/CajaWebController.php:1141` | `$q->where('permitido_para', 'OPERATIVO')->where('afecta_caja', true);` | Leído en el código; no ejecutado en pantalla. |
 | Qué es: ingreso → Del club o Aporte; egreso → Del club o Retiro | `app/Support/ClasificacionSubrubros.php:64` | `return $tipoRubro === 'INGRESO' ? [self::NEGOCIO, self::APORTE] : [self::NEGOCIO, self::RETIRO];` | Leído en el código; no ejecutado en pantalla. |
 | Cambiar el tipo con un subrubro incompatible se rechaza | `app/Http/Controllers/RubroWebController.php:85` | `if ($noCorresponden->isNotEmpty()) {` | Leído en el código; no ejecutado en pantalla. |
 | No elimina un rubro con subrubros | `app/Http/Controllers/RubroWebController.php:107` | `->with('error', 'No se puede eliminar: tiene subrubros asociados.');` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede eliminar: tiene subrubros asociados.» |

@@ -9,7 +9,7 @@ pantalla: /caja/configuracion
 
 # Configurar el efectivo del mostrador
 
-El cajón del mostrador es el efectivo que maneja la operativa en su turno. Wings necesita saber a qué cuenta pertenece ese efectivo (por ejemplo, la cuenta *Efectivo*). Se configura una vez, antes de abrir la primera caja. Hoy Wings no muestra un botón para volver a esta pantalla una vez configurada: si necesitás cambiar la cuenta, consultá a soporte.
+El cajón del mostrador es el efectivo que maneja la operativa en su turno. Wings necesita saber a qué cuenta pertenece ese efectivo (por ejemplo, la cuenta *Efectivo*). Se configura antes de abrir la primera caja, y se puede cambiar después siempre que no haya ninguna caja abierta.
 
 Las transferencias y los cobros que hace el dueño directamente no pasan por este cajón.
 
@@ -17,7 +17,7 @@ Las transferencias y los cobros que hace el dueño directamente no pasan por est
 
 ## Pasos
 
-1. En el menú lateral entrá a **Caja**. Mientras el mostrador no está configurado, el botón dice **Configurar**; tocalo.
+1. En el menú lateral entrá a **Caja**. En la fila **Cajón del mostrador** tocá **Configurar**.
 2. Se abre **Efectivo del mostrador**. En **Medio de efectivo** elegí la cuenta. Solo aparecen cuentas activas.
 3. Tocá **Guardar**. Wings muestra «Medio de efectivo configurado.».
 
@@ -30,7 +30,7 @@ Si ya estaba configurado, la pantalla lo dice: «Configurado actualmente. Podés
 ## Qué hago si…
 
 ### ¿Qué hago si dice «No se puede cambiar el medio del cajón mientras haya una caja abierta. Cerrá la caja abierta antes de cambiarlo.»?
-El cambio no se puede hacer con un turno en curso, porque ese efectivo ya está contado en esa cuenta. Mientras haya una caja abierta, la pantalla muestra este aviso y el botón **Guardar** no aparece. Recordá que, una vez configurado, Wings no muestra un botón para volver a esta pantalla.
+El cambio no se puede hacer con un turno en curso, porque ese efectivo ya está contado en esa cuenta. Mientras haya una caja abierta, el botón **Configurar** queda inhabilitado en **Caja**. Cerrá la caja y volvé a intentarlo.
 
 ### ¿Qué hago si la cuenta que quiero no aparece?
 Solo se ofrecen cuentas activas. Activala o creala en **Tipos de Caja**.

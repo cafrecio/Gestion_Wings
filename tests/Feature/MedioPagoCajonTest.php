@@ -207,6 +207,55 @@ class MedioPagoCajonTest extends TestCase
         $this->assertEquals($this->tipoCajaOtro->id, $caja->tipo_caja_efectivo_id);
     }
 
+    public function test_caja_ofrece_configurar_al_duenio_con_el_mostrador_ya_configurado(): void
+    {
+        $response = $this->actingAs($this->admin)->get(route('web.caja.index'));
+
+        $response->assertOk();
+        $response->assertSee('href="'.route('web.caja.configuracion').'"', false);
+        $response->assertSee('Configurar');
+        $response->assertSee('href="'.route('web.caja.apertura').'"', false);
+    }
+
+    public function test_caja_deja_configurar_inhabilitado_con_una_caja_abierta(): void
+    {
+        CajaOperativa::create([
+            'usuario_operativo_id' => $this->operativo->id,
+            'tipo_caja_efectivo_id' => $this->tipoCajaMostrador->id,
+            'estado' => 'ABIERTA',
+            'efectivo_inicial' => 1000,
+            'apertura_at' => now(),
+        ]);
+
+        $response = $this->actingAs($this->admin)->get(route('web.caja.index'));
+
+        $response->assertOk();
+        $response->assertDontSee('href="'.route('web.caja.configuracion').'"', false);
+        $response->assertSee('title="No se puede cambiar el medio del cajón mientras haya una caja abierta."', false);
+        $response->assertSee('aria-disabled="true"', false);
+        $response->assertSee('Configurar');
+    }
+
+    public function test_caja_sin_mostrador_configurado_solo_ofrece_configurar(): void
+    {
+        \Illuminate\Support\Facades\DB::table('caja_mostrador')->where('id', 1)->update(['tipo_caja_id' => null]);
+
+        $response = $this->actingAs($this->admin)->get(route('web.caja.index'));
+
+        $response->assertOk();
+        $response->assertSee('href="'.route('web.caja.configuracion').'"', false);
+        $response->assertDontSee('href="'.route('web.caja.apertura').'"', false);
+    }
+
+    public function test_operativo_no_ve_configurar_en_caja(): void
+    {
+        $response = $this->actingAs($this->operativo)->get(route('web.caja.index'));
+
+        $response->assertOk();
+        $response->assertDontSee('Configurar');
+        $response->assertDontSee(route('web.caja.configuracion'), false);
+    }
+
     public function test_operativo_no_puede_desactivar_tipo_caja(): void
     {
         $response = $this->actingAs($this->operativo)
