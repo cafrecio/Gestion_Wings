@@ -25,7 +25,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Pruebas T102:** 23 nuevas; 12 mutaciones detectadas, entre [la primera vuelta](../06-pruebas/PRU-04/evidencia-t102/final/mutaciones.txt) y [la segunda](../06-pruebas/PRU-04/evidencia-t102/final/mutaciones-segunda-vuelta.txt). La primera encontró que la prueba de concurrencia no distinguía si había candado: corregida. Una regla repetida al crear se sacó.
 - **T105:** recorte de fuentes en `config/dompdf.php`: 1,7 MB a unos 225 KB. Cuatro recibos comparados: mismo texto, 232 píxeles distintos como máximo sobre 2,2 millones. Los 3 s no bajan.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
-- **Sigue:** control de Codex con [este prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T102-T105-CONTROL.md); Gemini retoma T94. Sin desplegar.
+- **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
 ## 2026-11-01 — Claude CAB — T97: control de la entrega de Codex, cerrada
 

@@ -55,17 +55,17 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Espera que Codex termine T97; ahi va el control con PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
-| **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: el gasto que el dueño agrega en un turno figura a su nombre, también en Cashflow al validar. Lo ya cargado no se corrige. Codex la controla junto con T100: PROMPT-CODEX-T100-CONTROL.md, cuando termine T97. Sin desplegar. |
-| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
-| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decisión de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta sí, y en Historial filtrando su subrubro. Las filas se siguen listando. Codex la controla con T100 y T101: PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Codex la controla, etapa 1 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
+| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta si, y en Historial filtrando su subrubro. Codex la controla, etapa 2 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Codex la controla, etapa 3, con PROMPT-CODEX-T102-CONTROL.md. Sin desplegar. |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia correcciones segunda vuelta T94 |
+| **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el gasto que el dueno agrega en un turno figura a su nombre, tambien en Cashflow al validar. Lo ya cargado no se corrige. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
+| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 
 ## Sin empezar (11)
 

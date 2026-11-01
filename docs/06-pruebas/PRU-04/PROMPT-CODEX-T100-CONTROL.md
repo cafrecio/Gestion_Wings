@@ -1,8 +1,12 @@
-# PROMPT — T100, T101 y T106: controlar el adelanto cancelado, el autor del gasto y los totales — para Codex
+# PROMPT — Control por etapas: T100, T106 y T102 — para Codex
 
-> Prompt para Codex, escrito por Claude CAB el 01/11/2026. Carlos lo copia y se lo pasa a Codex cuando termine T97.
+> Prompt para Codex, escrito por Claude CAB el 01/11/2026.
+
+**Por etapas, en este orden:** 1) T100, 2) T106, 3) T102 (en `PROMPT-CODEX-T102-CONTROL.md`). Cada etapa termina con su informe, su tablero y su commit antes de empezar la siguiente. Una etapa devuelta no frena las otras. T101 y T105 las controla Gemini.
 
 **Inicio.** Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md` y leer `AGENTS.md`. Traer `main` actualizado y marcar T100 `en_curso, tiene=Codex`.
+
+# Etapa 1: T100
 
 ## Qué pasó
 
@@ -50,27 +54,11 @@ Ejecutalo, no alcanza con leer: pantalla y pedidos directos, en una base tuya, c
 
 - El manual `cancelar-movimiento-caja` y los contratos contra el código, condición por condición (`docs/06-pruebas/PRU-04/REVISOR-MANUAL.md` punto 6), y `php scripts/manual/verificar-manual.php`.
 - Las pruebas nuevas tienen que fallar si se saca cada regla. Probalo con mutaciones y dejá el código como estaba.
-- Suite completa en `wings_testing_codex`, porque toca plata compartida.
+- Suite completa en `wings_testing_codex` una sola vez, al final de la etapa 3, porque toca plata compartida. Antes reservá la máquina como hiciste con T97 (`docs/00-estado/RESERVA-SUITE-T97.md`).
 
-## T101: en el mismo control
+# Etapa 2: T106
 
-Marcá también T101 `en_curso, tiene=Codex`. Si el dueño agrega un gasto en el turno de una operativa (**Agregar**, `editarStore`), el gasto entra en esa caja pero figura a nombre de quien lo cargó. Antes quedaba siempre a nombre de la operativa (día 45.8, caso CAJ-041 d). Cambios: `CajaService::registrarMovimientoEnCaja`, `CajaWebController::editarStore` y `tests/Feature/GastoDuenoEnTurnoT101Test.php`. Claude la hizo: el control es tuyo, con las mismas reglas.
-
-| # | Caso | Resultado esperado |
-|---|---|---|
-| 12 | Dueño agrega un gasto en el turno de la operativa | Figura a su nombre en Movimientos, también para la operativa; el efectivo esperado baja por el importe |
-| 13 | Operativa agrega en su propio turno, por **Agregar** y por movimiento de caja | Sigue a su nombre |
-| 14 | Otra operativa o la profesora, y un pedido directo con otro `usuario_id` | Rechazado, o el autor no cambia |
-| 15 | Validar esa caja | En Cashflow, «Registró» dice quién lo cargó (`CashflowIntegracionCajaService:81`) y el saldo da al peso |
-| 16 | Editar, cancelar o corregir ese gasto en la caja; recibo y resumen de cierre | Funciona igual; decí qué pasa con el autor |
-
-**Prestá atención a esto, que Claude no comprobó por pantalla:** cualquier lugar que dé por hecho que el autor de un movimiento es la operativa de su caja, como `CajaResumenService`, `CierreDiaResumenService` y `CashflowWebController`. El gasto ya cargado en el sitio de prueba (45.8) sigue a nombre de Sandra: no se corrige el dato, y por eso el control CAJ-6 sigue valiendo.
-
-El informe y el tablero son los mismos para las dos: una fila por caso y `cambiar T101` con su propio resultado.
-
-## T106: en el mismo control
-
-Marcá también T106 `en_curso, tiene=Codex`. **Decisión de Carlos, 01/11:** las tarjetas de Cashflow sin filtro de cuenta y de Historial no suman las transferencias; con el filtro de una cuenta sí, y en Historial también filtrando su subrubro. Las filas se siguen listando. Cambios: `CashflowWebController::index`, `CajaWebController::historial`, contrato V5, dos páginas del manual, CSH-018 y `tests/Feature/TotalesSinTransferenciasT106Test.php`. Claude cambió resultados esperados de dos pruebas ajenas: `TraspasosEntreMediosT61Test` y `AnulacionTransferenciasT97Test`. Revisá que sea por esta decisión y nada más.
+Marcá T106 `en_curso, tiene=Codex`. **Decisión de Carlos, 01/11:** las tarjetas de Cashflow sin filtro de cuenta y de Historial no suman las transferencias; con el filtro de una cuenta sí, y en Historial también filtrando su subrubro. Las filas se siguen listando. Cambios: `CashflowWebController::index`, `CajaWebController::historial`, contrato V5, dos páginas del manual, CSH-018 y `tests/Feature/TotalesSinTransferenciasT106Test.php`. Claude cambió resultados esperados de dos pruebas ajenas: `TraspasosEntreMediosT61Test` y `AnulacionTransferenciasT97Test`. Revisá que sea por esta decisión y nada más.
 
 | # | Caso | Resultado esperado |
 |---|---|---|
@@ -90,7 +78,7 @@ Marcá también T106 `en_curso, tiene=Codex`. **Decisión de Carlos, 01/11:** la
 
 ## Cómo entregar
 
-- Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md`: una fila por caso, lo comprobado y lo inferido por separado, cada hallazgo con gravedad y `archivo:línea`.
-- Sin graves ni medios: `php scripts/tablero/tablero.php cambiar T100 estado=cerrado verifica=Codex tiene=nadie`, con un paso que diga el resultado. Con hallazgos: `estado=devuelto tiene=Claude`, con el paso que corresponda.
+- Un informe por etapa, `docs/06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md` y `VERIFICACION-T106-CODEX.md`: una fila por caso, lo comprobado y lo inferido por separado, cada hallazgo con gravedad y `archivo:línea`.
+- Por cada tarea, sin graves ni medios: `php scripts/tablero/tablero.php cambiar T100 estado=cerrado verifica=Codex tiene=nadie`, con un paso que diga el resultado. Con hallazgos: `estado=devuelto tiene=Claude`, con el paso que corresponda.
 - Entrada en `docs/00-estado/LOG-CODEX.md`, firmada según la máquina.
 - **Commit solo de lo tuyo:** `git status`, mirar archivo por archivo, agregar por nombre con `git add <archivo>`, nunca `git add -A`, `git add .` ni `git commit -a`. Si un archivo tuyo tiene cambios ajenos sin publicar, frenar y avisar a Carlos.
