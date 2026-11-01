@@ -10,13 +10,13 @@
 
 ## T109 — Claude CAB, 01/11/2026
 
-**Hecha, falta el control de otra IA.** Un filtro inválido escrito a mano en la dirección se ignora y la pantalla abre normal (`IgnorarFiltrosInvalidos`, y el mes en `CajaWebController::index`). La prueba técnica pasó de 41 errores del servidor a 0 en 3.876 pedidos. Un recibo inexistente o una liquidación sin pagar muestran «Página no disponible», y la profesora recibe lo mismo exista o no el recibo. **Sigue en JSON** el aviso de `ReciboController` cuando falla armar el PDF: no entró en T109 y `ReciboErrorSanitizadoTest` lo fija. No cambia ninguna pantalla.
+**Cerrada: la controló Gemini el 01/11, sin hallazgos y sin desplegar** ([informe](../06-pruebas/PRU-04/VERIFICACION-T109-GEMINI.md)). Un filtro inválido escrito a mano en la dirección se ignora y la pantalla abre normal (`IgnorarFiltrosInvalidos`, y el mes en `CajaWebController::index`). La prueba técnica pasó de 41 errores del servidor a 0 en 3.876 pedidos. Un recibo inexistente o una liquidación sin pagar muestran «Página no disponible», y la profesora recibe lo mismo exista o no el recibo. **Sigue en JSON** el aviso de `ReciboController` cuando falla armar el PDF: no entró en T109 y `ReciboErrorSanitizadoTest` lo fija. No cambia ninguna pantalla.
 
 ## T102 y T105 — Claude CAB, 01/11/2026
 
 **T102, hecha, falta el control de otra IA.** Regla de Carlos del 01/11, que reemplaza la del 30/10: un nivel con grupos activos no se inactiva; esos grupos se pasan a otro nivel desde Editar grupo o se desactivan. Con el [OK visual de Carlos](../06-pruebas/PRU-04/APROBAR-T102.html). Contrato: `Wings-contrato-alumno-grupo-deporte-deuda-v5.md`, «Nivel del grupo». Lleva migración: `2026_11_01_140000_add_activo_to_niveles_table`.
 
-**T105, hecha, falta el control de otra IA.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los 3 segundos de armarlo no bajan; según el código el PDF se arma al registrar el cobro, sin medir todavía en el servidor. T106 a T109 se ven con Carlos; ya no figuran como pendientes suyos.
+**T105, cerrada: la controló Gemini el 01/11, sin desplegar.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los segundos de armarlo no bajan, pero **no los paga el cobro: el PDF se arma la primera vez que alguien lo abre.** El contenedor de Laravel deja en `null` el `?ReciboService $reciboService = null` de `PagoCuotaService` y `LiquidacionPagoService` (comprobado el 01/11), así que el `DB::afterCommit` que parece armarlo al cobrar no hace nada. Sin medir en el servidor con el recorte. [Informe](../06-pruebas/PRU-04/VERIFICACION-T105-GEMINI.md).
 
 ## T14 — Tanda 5 (días 48 a 54) simulada, sin entregar — Claude CAB, 01/11/2026
 
