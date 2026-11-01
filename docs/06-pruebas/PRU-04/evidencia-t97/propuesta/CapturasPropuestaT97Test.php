@@ -109,7 +109,10 @@ class CapturasPropuestaT97Test extends TestCase
         $vista = str_replace('{{ $mov->origenCorreccion }}',
             '<span style="display:block;white-space:normal;">{{ $mov->origenCorreccion }}</span>@if($mov->motivoPropuesta)<span style="display:block;white-space:normal;">Motivo: {{ $mov->motivoPropuesta }}</span>@endif', $vista, $n);
         $this->assertSame(2, $n); // Escritorio y tarjetas móviles.
-        return Blade::render($vista, $datos);
+        $html = Blade::render($vista, $datos);
+        // Ajuste pedido por Carlos sobre la propuesta: evita que los botones pisen el conteo.
+        // Solo estas dos capturas de Cashflow; no modifica el CSS compartido del producto.
+        return str_replace('</head>', '<style>'.file_get_contents(__DIR__.'/barra-movil.css').'</style></head>', $html);
     }
 
     private function guardar(string $nombre, string $html): void

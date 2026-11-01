@@ -1,0 +1,6 @@
+/* Propuesta T97: el contador tiene su fila; las acciones conservan el borde derecho. */
+@media (max-width: 640px) {
+    #cashflow-acciones { flex-wrap: wrap; row-gap: 8px; }
+    #cashflow-acciones > .stats-info { flex: 0 0 100%; }
+    #cashflow-acciones > .acciones-celular-derecha { margin-left: auto; }
+}

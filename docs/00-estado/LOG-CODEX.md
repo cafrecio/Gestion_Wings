@@ -9,6 +9,7 @@ Inventario inicial de 16 lectores; auditoría exhaustiva, reglas, concurrencia c
 Main actualizado al iniciar; cambios T96 de Gemini y evidencia T34 ajena preservados. Carlos autorizó mover solo T97; no se incluyen aportes ajenos en el commit propio.
 Sin modificar guardas, manual, catálogo de pruebas, vistas/CSS ni servidor. No desplegar mientras Cora trabaja en test. Propuesta y bitácora quedan documentadas; T97 sigue en curso, no a_verificar.
 Freno explícito del pedido: Carlos revisa APROBAR-T97.html; implementar recién con su OK y entregar después a Claude. Entrada antigua archivada íntegra por límite.
+Actualización 01/11: Carlos pidió separar botones y texto. Propuesta móvil corregida y recapturada: contador arriba, botones debajo; 8 px de separación, 96 × 32. Escritorios idénticos. Renderizado 1/11 verde; sigue pendiente su OK.
 
 ## 2026-10-30 — Codex CyE — PRU-04 días 41 a 47 entregados a revisión
 

@@ -13,7 +13,7 @@ Se cumple el freno del pedido antes de modificar `resources/views/**`.
 - `CashflowMovimiento::esDirecto` exige referencias y `contra_origen_id` nulos; las patas quedan fuera de la corrección de directos. No se modificó esa defensa ni `exigirSinTraspaso`.
 - La propuesta renderiza la ruta real de Cashflow y la plantilla real de eliminación, con componentes de Wings. El generador cambia en memoria los datos de presentación y el formulario. No modifica las vistas originales.
 - El resultado anulado se preparó **solo como fixture visual**: originales y dos inversos conservando fecha, subrubro, cuenta y clasificación. La referencia literal `ANULACION_TRANSFERENCIA` es ilustrativa; no se ha elegido un marcador de producto antes de completar el análisis de lectores.
-- Renderizado final: **1 prueba, 11 aserciones, salida 0, 13,43 s**, solo `wings_testing_codex`. [Salida](evidencia-t97/propuesta/renderizado.txt). Generador fuera del descubrimiento normal de la suite: no aumenta el número de pruebas del producto.
+- Renderizado final tras el ajuste móvil: **1 prueba, 11 aserciones, salida 0, 13,80 s**, solo `wings_testing_codex`. [Salida](evidencia-t97/propuesta/renderizado.txt). Generador fuera del descubrimiento normal de la suite: no aumenta el número de pruebas del producto.
 - Capturas revisadas en Chrome: seis pantallas y login de control. Viewport de escritorio 1366 (las capturas completas de Cashflow omiten sus 15 px de scrollbar: imagen de 1351); `innerWidth` del iframe 375, contenido 360 sin desborde horizontal (15 px corresponden al espacio de scrollbar del documento). El login entra completo. [Fuentes y hashes](evidencia-t97/propuesta/origen.json).
 - Se detectaron y corrigieron dos errores del generador: fecha del capital inicial posterior al escenario y sustitución de `$300` como referencia de regex. Se regeneraron HTML y capturas; no eran fallas del producto.
 - T97 pasó a `en_curso`, con Codex. Carlos autorizó actualizar solo T97 preservando T96; los cambios de Gemini y la evidencia T34 ajena no se incorporan como propios.
@@ -59,9 +59,12 @@ Lecturas puntuales confirmadas: ReporteMensual distingue referencias al resolver
 Falta una prueba por regla y contrapruebas retirando cada defensa; regresiones T61/T27 sin cambiar expectativas; suite completa exclusiva en `wings_testing_codex`. No se hereda como verde ninguna suite anterior.
 Faltan manual, fichas, contrato V5, estado/plan/checklist y eventual guía de despliegue, en el commit de implementación. La copia del catálogo de pruebas sigue solo lectura; se propondrán casos concretos para Claude en este informe.
 
-## Hallazgo fuera de alcance
+## Ajuste visual solicitado por Carlos el 01/11
 
-En la barra móvil del listado se observa el contador junto a Transferir con poco espacio y superposición. Esa parte de la plantilla no se cambió en la propuesta. Se informa sin corregirla en T97.
+Carlos señaló la superposición del contador con Transferir/Nuevo y pidió ajustar el diseño. Se corrigió **en la propuesta aislada**: contador en su propia fila y botones debajo a la derecha. Regla limitada a `#cashflow-acciones` en anchos de hasta 640; sin tocar el CSS compartido ni las vistas del producto.
+Se renovaron las dos capturas de Cashflow a 375. Medición real en Chrome con 2 y 4 movimientos: 8 px entre contador y botones, ambos de 96 × 32, con separación horizontal de 8 px y borde derecho común. [Mediciones](evidencia-t97/propuesta/medicion-barra.json) · [Detalle corregido](evidencia-t97/capturas/04-barra-corregida-375.jpg).
+Los dos escritorios se recapturaron con viewport 1366 y resultaron idénticos byte por byte a c7903931. Integridad final: ocho JPEG, incluidos login de control y detalle de la barra, 16 enlaces de galería y cuatro fuentes de producto intactas. [Verificación](evidencia-t97/propuesta/verificacion.json).
+Sigue pendiente el OK de Carlos sobre la propuesta actualizada; el pedido de corregir esta superposición no se registra como aprobación del conjunto.
 
 ## Próximo paso
 

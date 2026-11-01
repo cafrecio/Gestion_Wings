@@ -5,7 +5,7 @@
     "resources/views/cashflow/_acciones.blade.php",
     "resources/css/app.css"
   ],
-  "enlaces_galeria_resueltos": 14,
+  "enlaces_galeria_resueltos": 16,
   "capturas": [
     {
       "archivo": "evidencia-t97/capturas/00-login-control-375.jpg",
@@ -22,8 +22,8 @@
     {
       "archivo": "evidencia-t97/capturas/01-cashflow-anular-375.jpg",
       "ancho": 375,
-      "alto": 1440,
-      "sha256": "0af7908fcd879429cedc965bcde34b8d009e08476779a07b87e8b5f69280e9f8"
+      "alto": 1448,
+      "sha256": "d00960afdb8332147dca6011ac1d4ef72f08cf0ffb77c052537485b9557b02c3"
     },
     {
       "archivo": "evidencia-t97/capturas/02-confirmacion-1366.jpg",
@@ -46,8 +46,14 @@
     {
       "archivo": "evidencia-t97/capturas/03-cashflow-anulada-375.jpg",
       "ancho": 375,
-      "alto": 1900,
-      "sha256": "f471e73fc7a455927726d577cb81fbfa3a9f98a43c9ceb87fe4024ff2b0b9840"
+      "alto": 1909,
+      "sha256": "7270fde2749973ca2a32d58c08471e58b814c11d7349829c7fce8c8da1a037ef"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/04-barra-corregida-375.jpg",
+      "ancho": 375,
+      "alto": 111,
+      "sha256": "6d515d6aefed6c77b4072cf5205b9f459a68418a26e52760daa87a410697e294"
     }
   ],
   "medicion_navegador": {
@@ -56,5 +62,111 @@
     "iframe_body_clientWidth": 360,
     "iframe_body_scrollWidth": 360
   },
+  "medicion_barra_movil": [
+    {
+      "pantalla": "01-cashflow-anular",
+      "ancho": 360,
+      "barra": {
+        "bottom": 1074.109375,
+        "height": 86.796875,
+        "left": 16,
+        "right": 344,
+        "top": 987.3125,
+        "width": 328,
+        "x": 16,
+        "y": 987.3125
+      },
+      "botones": [
+        {
+          "bottom": 1062.109375,
+          "height": 32,
+          "left": 120,
+          "right": 216,
+          "texto": "Transferir",
+          "top": 1030.109375,
+          "width": 96,
+          "x": 120,
+          "y": 1030.109375
+        },
+        {
+          "bottom": 1062.109375,
+          "height": 32,
+          "left": 224,
+          "right": 320,
+          "texto": "Nuevo",
+          "top": 1030.109375,
+          "width": 96,
+          "x": 224,
+          "y": 1030.109375
+        }
+      ],
+      "contador": {
+        "bottom": 1022.109375,
+        "height": 22.796875,
+        "left": 40,
+        "right": 320,
+        "top": 999.3125,
+        "width": 280,
+        "x": 40,
+        "y": 999.3125
+      },
+      "contenido": 360,
+      "fin": 1417.703125,
+      "texto": "2 movimientos",
+      "viewport": 375
+    },
+    {
+      "pantalla": "03-cashflow-anulada",
+      "ancho": 360,
+      "barra": {
+        "bottom": 1037.71875,
+        "height": 86.796875,
+        "left": 16,
+        "right": 344,
+        "top": 950.921875,
+        "width": 328,
+        "x": 16,
+        "y": 950.921875
+      },
+      "botones": [
+        {
+          "bottom": 1025.71875,
+          "height": 32,
+          "left": 120,
+          "right": 216,
+          "texto": "Transferir",
+          "top": 993.71875,
+          "width": 96,
+          "x": 120,
+          "y": 993.71875
+        },
+        {
+          "bottom": 1025.71875,
+          "height": 32,
+          "left": 224,
+          "right": 320,
+          "texto": "Nuevo",
+          "top": 993.71875,
+          "width": 96,
+          "x": 224,
+          "y": 993.71875
+        }
+      ],
+      "contador": {
+        "bottom": 985.71875,
+        "height": 22.796875,
+        "left": 40,
+        "right": 320,
+        "top": 962.921875,
+        "width": 280,
+        "x": 40,
+        "y": 962.921875
+      },
+      "contenido": 360,
+      "fin": 1878.28125,
+      "texto": "4 movimientos",
+      "viewport": 375
+    }
+  ],
   "limite": "Integridad de la propuesta; no implementacion ni prueba financiera."
 }

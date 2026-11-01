@@ -38,11 +38,22 @@ for archivo in sorted((PROPUESTA.parent / 'capturas').glob('*.jpg')):
     assert ancho in ({1351, 1366} if '-1366.' in archivo.name else {375}), archivo.name
     capturas.append({'archivo': archivo.relative_to(PRU).as_posix(), 'ancho': ancho, 'alto': alto,
                      'sha256': sha256(archivo.read_bytes()).hexdigest()})
-assert len(capturas) == 7
+assert len(capturas) == 8
+mediciones = json.loads((PROPUESTA / 'medicion-barra.json').read_text(encoding='utf-8'))
+assert {m['texto'] for m in mediciones} == {'2 movimientos', '4 movimientos'}
+for medida in mediciones:
+    assert medida['viewport'] == 375 and medida['ancho'] == medida['contenido']
+    assert len(medida['botones']) == 2
+    for boton in medida['botones']:
+        assert boton['top'] - medida['contador']['bottom'] == 8
+        assert boton['width'] == 96 and boton['height'] == 32
+    assert medida['botones'][1]['left'] - medida['botones'][0]['right'] == 8
+    assert medida['botones'][1]['right'] == medida['contador']['right']
 resultado = {'fuentes_originales_intactas': list(origen['fuentes']),
              'enlaces_galeria_resueltos': len(enlaces.rutas), 'capturas': capturas,
              'medicion_navegador': {'escritorio_innerWidth': 1366, 'iframe_innerWidth': 375,
                                    'iframe_body_clientWidth': 360, 'iframe_body_scrollWidth': 360},
+             'medicion_barra_movil': mediciones,
              'limite': 'Integridad de la propuesta; no implementacion ni prueba financiera.'}
 (PROPUESTA / 'verificacion.json').write_text(json.dumps(resultado, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 print(f"OK: {len(capturas)} JPEG, {len(enlaces.rutas)} enlaces locales y {len(origen['fuentes'])} fuentes intactas.")

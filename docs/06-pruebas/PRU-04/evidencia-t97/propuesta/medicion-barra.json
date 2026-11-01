@@ -1,0 +1,106 @@
+[
+  {
+    "pantalla": "01-cashflow-anular",
+    "ancho": 360,
+    "barra": {
+      "bottom": 1074.109375,
+      "height": 86.796875,
+      "left": 16,
+      "right": 344,
+      "top": 987.3125,
+      "width": 328,
+      "x": 16,
+      "y": 987.3125
+    },
+    "botones": [
+      {
+        "bottom": 1062.109375,
+        "height": 32,
+        "left": 120,
+        "right": 216,
+        "texto": "Transferir",
+        "top": 1030.109375,
+        "width": 96,
+        "x": 120,
+        "y": 1030.109375
+      },
+      {
+        "bottom": 1062.109375,
+        "height": 32,
+        "left": 224,
+        "right": 320,
+        "texto": "Nuevo",
+        "top": 1030.109375,
+        "width": 96,
+        "x": 224,
+        "y": 1030.109375
+      }
+    ],
+    "contador": {
+      "bottom": 1022.109375,
+      "height": 22.796875,
+      "left": 40,
+      "right": 320,
+      "top": 999.3125,
+      "width": 280,
+      "x": 40,
+      "y": 999.3125
+    },
+    "contenido": 360,
+    "fin": 1417.703125,
+    "texto": "2 movimientos",
+    "viewport": 375
+  },
+  {
+    "pantalla": "03-cashflow-anulada",
+    "ancho": 360,
+    "barra": {
+      "bottom": 1037.71875,
+      "height": 86.796875,
+      "left": 16,
+      "right": 344,
+      "top": 950.921875,
+      "width": 328,
+      "x": 16,
+      "y": 950.921875
+    },
+    "botones": [
+      {
+        "bottom": 1025.71875,
+        "height": 32,
+        "left": 120,
+        "right": 216,
+        "texto": "Transferir",
+        "top": 993.71875,
+        "width": 96,
+        "x": 120,
+        "y": 993.71875
+      },
+      {
+        "bottom": 1025.71875,
+        "height": 32,
+        "left": 224,
+        "right": 320,
+        "texto": "Nuevo",
+        "top": 993.71875,
+        "width": 96,
+        "x": 224,
+        "y": 993.71875
+      }
+    ],
+    "contador": {
+      "bottom": 985.71875,
+      "height": 22.796875,
+      "left": 40,
+      "right": 320,
+      "top": 962.921875,
+      "width": 280,
+      "x": 40,
+      "y": 962.921875
+    },
+    "contenido": 360,
+    "fin": 1878.28125,
+    "texto": "4 movimientos",
+    "viewport": 375
+  }
+]
