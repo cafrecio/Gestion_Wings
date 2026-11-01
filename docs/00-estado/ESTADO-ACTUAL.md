@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T106 — Control Codex CAB, 01/11/2026
+
+**Cerrada por Codex.** Cinco casos con importes exactos, pantalla/directos y cargas historicas independientes. Area55/598 y propias2/72 verdes. Etiqueta Resultado: propuesta menor; verificador manual59/1 ajena a T106 tras T109. [Informe](../06-pruebas/PRU-04/VERIFICACION-T106-CODEX.md). Sin producto/despliegue; sigue T102 y completa unica final.
+
 ## T100 — Control Codex CAB, 01/11/2026
 
 **Devuelta a Claude por dos hallazgos medios de instrucciones y mensajes.** Once casos de negocio con importes exactos, pantalla y pedidos directos; ningún fallo monetario comprobado. Manual y paneles generalizan lo que ocurre con la cuota anulada. [Informe, límites y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md). Solo wings_testing_codex, copia ficticia autorizada; sin corregir producto, catálogo ni sitio. Sigue T106; suite completa única al final de T102.

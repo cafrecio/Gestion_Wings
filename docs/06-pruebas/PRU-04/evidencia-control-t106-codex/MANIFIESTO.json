@@ -1,0 +1,166 @@
+[
+  {
+    "archivo": "ControlT106CodexTest.php",
+    "sha256": "72b6069d5f6f527c282e036571443c907fba73bb991ca6ef4811a3cb341d88b1"
+  },
+  {
+    "archivo": "fuentes.json",
+    "sha256": "b4548a1b428c1b3b35dcf595c89e56a87d6b335da42901d3d0d10394bc1dea1c"
+  },
+  {
+    "archivo": "gw-control-t106-caso17-cashflow.jpg",
+    "sha256": "79c3d9da43dcd99062d3db6d078c4e348363c7696888f858cd1cbb18171b8436"
+  },
+  {
+    "archivo": "gw-control-t106-caso17-cashflow.txt",
+    "sha256": "eb307062daec302b6c53b61ca8c3b50cb53200abb20fef0bbff9043c4d15b95a"
+  },
+  {
+    "archivo": "gw-control-t106-caso17-historial.jpg",
+    "sha256": "5cc56780975c20c64c950d8cbc5f7ad85f8acdcfaa1ac60612ca6468b321c126"
+  },
+  {
+    "archivo": "gw-control-t106-caso17-historial.txt",
+    "sha256": "9bcdceee1a437a3166f6e7f671942ff25d6e9ef1d916e61193bc231311c05f78"
+  },
+  {
+    "archivo": "gw-control-t106-caso18-banco.jpg",
+    "sha256": "3d2fd7bc3cb2c6988fd15a24b02ca57687d57b3b457326b300e1e07b05b58c89"
+  },
+  {
+    "archivo": "gw-control-t106-caso18-banco.txt",
+    "sha256": "4568baec99c04781016c6d088c41027daf4400b10a44217a2408c44cb7e7891d"
+  },
+  {
+    "archivo": "gw-control-t106-caso18-efectivo.jpg",
+    "sha256": "782e67f540c3f8e013ce3ad478f6c02d521de315af95eb5eeb4501c5c375e290"
+  },
+  {
+    "archivo": "gw-control-t106-caso18-efectivo.txt",
+    "sha256": "b3d3af2da60234dabf946aaf53ddcd4c796a337dd7169db0a85a80e61a150d8c"
+  },
+  {
+    "archivo": "gw-control-t106-caso19-salida.jpg",
+    "sha256": "841fc64d810cdb0751eae1effd0a7f88830c3ddbf1dc14e5e3ac4804096b16ce"
+  },
+  {
+    "archivo": "gw-control-t106-caso19-salida.txt",
+    "sha256": "81cc8bb0284f64b111fb47ac7f9d627ebfb17c3e0a1a53c14432c05d3b523edd"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-anulada-cashflow.jpg",
+    "sha256": "0e8854e272b9ef976f2b3e5358a1b1d3ceb01f7aa09346f5bb21dc6a053e3f3d"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-anulada-cashflow.txt",
+    "sha256": "a204ae2a8fd04ffc75498e7b7ac53708af51d692f9ecdadf6a80ecc76398bf24"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-anulada-historial.jpg",
+    "sha256": "7e888800d05fced72c0a838ac031efa7782e60ac5b680eab4b01c1bdde39feee"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-anulada-historial.txt",
+    "sha256": "b2d7c4d093365e7c564307d2cb710a3c4ad0231174dbe17e0ce46a99304ccfa6"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-mes-anterior-excluido.jpg",
+    "sha256": "a87c07e5e7dd180d3007aaab418c98c0234bbdd16cae56b827732929d672eaea"
+  },
+  {
+    "archivo": "gw-control-t106-caso20-mes-anterior-excluido.txt",
+    "sha256": "263fc8ade4c4de1b532a988ff5064f411cd97fe8038b69034e8cada6645d1a8c"
+  },
+  {
+    "archivo": "gw-control-t106-caso21-inicio.jpg",
+    "sha256": "bed758629ed331a5fa13fcf340f18ce31e21701d5d14c7b1da62623ca5814dbe"
+  },
+  {
+    "archivo": "gw-control-t106-caso21-inicio.txt",
+    "sha256": "e7eca04bb3b7572b35cbfea2296d5c28317f620f1ccb53256b76e72c6774201d"
+  },
+  {
+    "archivo": "gw-control-t106-caso21-reportes.jpg",
+    "sha256": "77849dd41fbcb9c1ee7fa84579fb568195bc066d60a78810706e6a0c02c7319e"
+  },
+  {
+    "archivo": "gw-control-t106-caso21-reportes.txt",
+    "sha256": "05ceb63eaeff6239e362d1cc421d078a33e63b8b462ca9da67f2b2e39be6d872"
+  },
+  {
+    "archivo": "gw-control-t106-historico-noviembre.jpg",
+    "sha256": "43ba8d3c7ca1e82232b9c0479f29c6a954bfc3f6fa28c9055ab10077ae129bd2"
+  },
+  {
+    "archivo": "gw-control-t106-historico-noviembre.txt",
+    "sha256": "91715e160dc4596bb99185e3d0f95a0a5fce45f0f3079fd9966b1d68823082aa"
+  },
+  {
+    "archivo": "gw-control-t106-historico-octubre.jpg",
+    "sha256": "dc99dea7eed36bf5bafa9d9ca7e755aa2edc4a2a965082c07a113acd2870168c"
+  },
+  {
+    "archivo": "gw-control-t106-historico-octubre.txt",
+    "sha256": "59876a19bb44d654d205d32edca5631cd8ff8964f50c5fb16dcbe6f76c04d690"
+  },
+  {
+    "archivo": "gw-control-t106-historico-reportes.jpg",
+    "sha256": "689309f2a94cc2f3a845ead01d29add678e526a00e0921c531f7339c36348ccb"
+  },
+  {
+    "archivo": "gw-control-t106-historico-reportes.txt",
+    "sha256": "a57215c9031ec2036b7e6b0ace1f0dee8ca8924e49ab3d9a4f98b976df90272f"
+  },
+  {
+    "archivo": "gw-control-t106-inicio-antes.jpg",
+    "sha256": "6563c226c3c1bb3f5834661f9b6f7e4f916ed46d74c35b9f884fb1f8edd6b52a"
+  },
+  {
+    "archivo": "gw-control-t106-inicio-antes.txt",
+    "sha256": "c739a0b9a1f9334bd71c535ed71074c13b96a3fe661811e5ae00abff0f94978c"
+  },
+  {
+    "archivo": "historico.json",
+    "sha256": "9937a4bd86c2d196e3df94ea1edf3afd109690b0416a980bc0a2df0aaa01857c"
+  },
+  {
+    "archivo": "LEEME.md",
+    "sha256": "b380ef8b1cff04cd49eb17d298a20ba6f337c1becbfa1191ca0a691bb1e7ae08"
+  },
+  {
+    "archivo": "manual-verificador.txt",
+    "sha256": "d9dd30378571e3a0d24cd049ed6289168c8566db1c242048ea20c404aeee1708"
+  },
+  {
+    "archivo": "mes-anterior.json",
+    "sha256": "b93d4c9823e7d6d649f69a59acc586f58fa4d51d8715acafa82fd4795c5381a1"
+  },
+  {
+    "archivo": "preparacion.json",
+    "sha256": "5bf5b2c8edd2dcd4f5fb43429d4c299b4c1c83323b2761a227e2c70a86a4f249"
+  },
+  {
+    "archivo": "preparar-pantalla.php",
+    "sha256": "ef51b737b0513bd60a7d1ff001bbef86c1a181a344a596bc6480d7cdb68d7769"
+  },
+  {
+    "archivo": "primera-prueba-ruta-inicio-incorrecta.txt",
+    "sha256": "fdcc2f55c6b34550df0107058b3c5094d2fcb29bcb6730aa8b3775a71aa3d385"
+  },
+  {
+    "archivo": "pruebas-area.txt",
+    "sha256": "1be9af15799cffc0e33776145925c65aeaf9944fcdfc843417fb1e190cd2b92d"
+  },
+  {
+    "archivo": "pruebas-propias.txt",
+    "sha256": "c70871d13d0b4d30cfcc2925423d980628384dc3d9032933db39397fc6f84778"
+  },
+  {
+    "archivo": "revision-expectativas.txt",
+    "sha256": "af52b6b92a4f29fa753a20c3ce79e7a59d9d03163787f513f42e511b36b52f58"
+  },
+  {
+    "archivo": "salidas-originales.zip",
+    "sha256": "316d04b18a19ae1218b78433079848e5d0e5c647f10aa7d3015136208788fae8"
+  }
+]

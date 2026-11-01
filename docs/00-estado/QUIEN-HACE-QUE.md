@@ -57,7 +57,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta si, y en Historial filtrando su subrubro. Codex la controla, etapa 2 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Codex la controla, etapa 3, con PROMPT-CODEX-T102-CONTROL.md. Sin desplegar. |
 
 ## Gemini

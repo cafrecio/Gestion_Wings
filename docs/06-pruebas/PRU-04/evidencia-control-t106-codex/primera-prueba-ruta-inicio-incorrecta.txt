@@ -1,0 +1,22 @@
+   FAIL  Tests\Feature\ControlT106CodexTest
+  ⨯ casos 17 a 21 transferencia cuentas anulacion y otros reportes                                              14.85s
+  ✓ historicos sueltos con una pata en cada mes                                                                  0.39s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT106CodexTest > casos 17 a 21 transferencia cuentas anulacion y otros reportes
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t106-codex\ControlT106CodexTest.php:25
+     21▕  private function cf($q=[]){return $this->get('/cashflow?'.http_build_query($q+['periodo'=>'mes','fecha'=>'2026-11-20']))->assertOk();}
+     22▕  private function hi($q=[]){return $this->get('/caja/historial?'.http_build_query($q+['desde'=>'2026-11-01','hasta'=>'2026-11-30']))->assertOk();}
+     23▕  private function totals($r,$i,$e):void{$r->assertViewHas('totalIngresos',fn($v)=>(float)$v===$i)->assertViewHas('totalEgresos',fn($v)=>(float)$v===$e);}
+     24▕  public function test_casos_17_a_21_transferencia_cuentas_anulacion_y_otros_reportes():void {
+  ➜  25▕   $before=app(ReporteMensualService::class)->obtener('2026-11');$this->get('/inicio')->assertOk();$id=$this->transfer();
+     26▕   $r=$this->cf();$this->totals($r,421200.0,65200.0);$r->assertViewHas('movimientos',fn($m)=>$m->where('referencia_tipo','TRANSFERENCIA')->count()===2);$this->totals($this->hi(),421200.0,65200.0);
+     27▕   $this->totals($this->cf(['tipo_caja_id'=>$this->cash->id]),421200.0,1565200.0);$this->totals($this->cf(['tipo_caja_id'=>$this->bank->id]),1500000.0,0.0);
+     28▕   $s=collect(app(CashflowSaldoService::class)->obtenerSaldosPorTipoCaja()['por_tipo_caja'])->keyBy('tipo_caja_id');$this->assertEquals(-1144000,$s[$this->cash->id]['saldo']);$this->assertEquals(1500000,$s[$this->bank->id]['saldo']);
+     29▕   $salida=Subrubro::where('nombre','Salida a otro medio')->sole();$this->totals($this->hi(['subrubro_id'=>$salida->id]),0.0,1500000.0);
+
+
+  Tests:    1 failed, 1 passed (18 assertions)
+  Duration: 15.44s

@@ -1,0 +1,219 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control T106
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día"
+    - option "Semana"
+    - option "Mes" [selected]
+    - option "Año"
+  - generic: Año
+  - combobox "Año":
+    - option "2026" [selected]
+  - generic: Mes
+  - combobox "Mes":
+    - option "Enero"
+    - option "Febrero"
+    - option "Marzo"
+    - option "Abril"
+    - option "Mayo"
+    - option "Junio"
+    - option "Julio"
+    - option "Agosto"
+    - option "Septiembre"
+    - option "Octubre"
+    - option "Noviembre" [selected]
+    - option "Diciembre"
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: Noviembre 2026
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 20/11/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $1,500,000.00
+    - generic: Banco Nación
+    - strong: $0.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Efectivo
+    - strong: $856,000.00
+    - generic: Mercado Pago
+    - strong: $0.00
+  - strong: $421,200.00
+  - generic: ingresos
+  - strong: $65,200.00
+  - generic: egresos
+  - strong: $356,000.00
+  - generic: resultado del período
+  - strong: "4"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - 'row "20/11/2026 E EFT Transferencias internas — salidas — Salida a otro medio Control T106 transferencia ficticia Transferencia #1 · Efectivo → Banco Galicia −$1,500,000.00 Control T106 Ver Anular"':
+        - cell "20/11/2026"
+        - cell "E"
+        - cell "EFT"
+        - cell "Transferencias internas — salidas — Salida a otro medio"
+        - 'cell "Control T106 transferencia ficticia Transferencia #1 · Efectivo → Banco Galicia"':
+          - text: Control T106 transferencia ficticia
+          - generic: "Transferencia #1 · Efectivo → Banco Galicia"
+        - cell "−$1,500,000.00"
+        - cell "Control T106"
+        - cell
+        - cell "Ver Anular":
+          - link "Ver":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/3
+          - link "Anular":
+            - /url: http://127.0.0.1:8111/cashflow/transferencias/3/anular
+      - 'row "20/11/2026 I BGA Transferencias internas — entradas — Entrada desde otro medio Control T106 transferencia ficticia Transferencia #1 · Efectivo → Banco Galicia $1,500,000.00 Control T106 Ver Anular"':
+        - cell "20/11/2026"
+        - cell "I"
+        - cell "BGA"
+        - cell "Transferencias internas — entradas — Entrada desde otro medio"
+        - 'cell "Control T106 transferencia ficticia Transferencia #1 · Efectivo → Banco Galicia"':
+          - text: Control T106 transferencia ficticia
+          - generic: "Transferencia #1 · Efectivo → Banco Galicia"
+        - cell "$1,500,000.00"
+        - cell "Control T106"
+        - cell
+        - cell "Ver Anular":
+          - link "Ver":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/4
+          - link "Anular":
+            - /url: http://127.0.0.1:8111/cashflow/transferencias/4/anular
+      - row "16/11/2026 I EFT Intereses — Intereses Banco Negocio T106 Directo $421,200.00 Control T106 Editar Historial Eliminar":
+        - cell "16/11/2026"
+        - cell "I"
+        - cell "EFT"
+        - cell "Intereses — Intereses Banco"
+        - cell "Negocio T106 Directo":
+          - text: Negocio T106
+          - generic: Directo
+        - cell "$421,200.00"
+        - cell "Control T106"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/1/editar
+          - link "Historial":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/1
+          - link "Eliminar":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/1/eliminar
+      - row "16/11/2026 E EFT Servicios — Luz Negocio T106 Directo −$65,200.00 Control T106 Editar Historial Eliminar":
+        - cell "16/11/2026"
+        - cell "E"
+        - cell "EFT"
+        - cell "Servicios — Luz"
+        - cell "Negocio T106 Directo":
+          - text: Negocio T106
+          - generic: Directo
+        - cell "−$65,200.00"
+        - cell "Control T106"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/2/editar
+          - link "Historial":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/2
+          - link "Eliminar":
+            - /url: http://127.0.0.1:8111/cashflow/movimientos/2/eliminar
+- contentinfo:
+  - generic: Wings

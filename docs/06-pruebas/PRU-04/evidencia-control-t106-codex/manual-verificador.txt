@@ -1,0 +1,4 @@
+resources/manual/admin/descargar-recibo-liquidacion.md
+  - línea 44: texto entre «» «Solo se pueden generar recibos de liquidaciones que han sido pagadas» no aparece en el código de Wings
+
+59 páginas revisadas, 1 problemas.

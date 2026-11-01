@@ -1,0 +1,40 @@
+commit 2145888ba3a047cec8f969e37f77d5dff791e466
+Author: Chalie <carlos.a.bonifacio@gmail.com>
+Date:   Sun Nov 1 03:58:20 2026 -0300
+
+    T106: las transferencias entre cuentas no suman en los totales de Cashflow e Historial
+
+    Decision de Carlos: para el club no entra ni sale plata. Con el filtro de una cuenta si suman, y en Historial filtrando su subrubro; las filas se siguen listando. Saldos y Reportes no cambian. Corrige la contradiccion entre el contrato de T61 y CSH-018. Suite rapida: 1294 aprobadas, 6 omitidas, 0 fallidas.
+
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+diff --git a/tests/Feature/AnulacionTransferenciasT97Test.php b/tests/Feature/AnulacionTransferenciasT97Test.php
+index cd2d6c7a..478cf896 100644
+--- a/tests/Feature/AnulacionTransferenciasT97Test.php
++++ b/tests/Feature/AnulacionTransferenciasT97Test.php
+@@ -234,8 +234,8 @@ public function test_cashflow_historial_reportes_inicio_y_filtros_restauran_mes_
+         foreach (['2026-10', '2026-11'] as $mes) $antes[$mes] = app(ReporteMensualService::class)->obtener($mes);
+         $patas = $this->transferir('2026-10-20');
+         $this->get('/cashflow?periodo=mes&fecha=2026-10-20')->assertOk()
+-            ->assertViewHas('totalIngresos', fn ($n) => (int) round((float) $n * 100) === 31200050)
+-            ->assertViewHas('totalEgresos', fn ($n) => (float) $n === 300000.0)
++            ->assertViewHas('totalIngresos', fn ($n) => (int) round((float) $n * 100) === 1200050)
++            ->assertViewHas('totalEgresos', fn ($n) => (float) $n === 0.0)
+             ->assertViewHas('movimientos', fn ($m) => $m->where('referencia_tipo', CashflowMovimiento::REF_TRANSFERENCIA)->count() === 2
+                 && $m->where('referencia_tipo', CashflowMovimiento::REF_TRANSFERENCIA)
+                     ->every(fn ($f) => array_column($f->accionesCorreccion, 'nombre') === ['Ver', 'Anular']));
+diff --git a/tests/Feature/TraspasosEntreMediosT61Test.php b/tests/Feature/TraspasosEntreMediosT61Test.php
+index cc3db648..79f51181 100644
+--- a/tests/Feature/TraspasosEntreMediosT61Test.php
++++ b/tests/Feature/TraspasosEntreMediosT61Test.php
+@@ -132,8 +132,8 @@ public function test_transferencia_mueve_300mil_y_conserva_todos_los_indicadores
+         $this->assertSame(1, $movs->pluck('referencia_id')->unique()->count());
+         $this->assertSame(['TRASPASO', 'TRASPASO'], $movs->pluck('reporte_clasificacion')->all());
+         $this->get('/cashflow?periodo=mes&anio=2026&mes=10')->assertOk()
+-            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 320000.0)
+-            ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 307000.0);
++            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 20000.0)
++            ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 7000.0);
+         $libro = collect(app(CashflowSaldoService::class)->obtenerSaldosPorTipoCaja()['por_tipo_caja'])->keyBy('tipo_caja_id');
+         $this->assertEquals($d[$this->efectivo->id]['total'] / 100, $libro[$this->efectivo->id]['saldo']);
+         $this->assertEquals($d[$this->banco->id]['total'] / 100, $libro[$this->banco->id]['saldo']);

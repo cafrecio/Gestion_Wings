@@ -1,0 +1,63 @@
+   PASS  Tests\Feature\TotalesSinTransferenciasT106Test
+  ✓ cashflow sin filtro no suma las transferencias                                                              12.74s
+  ✓ cashflow sigue listando las dos filas de la transferencia                                                    0.18s
+  ✓ cashflow mirando una cuenta si las suma                                                                      0.14s
+  ✓ el filtro por tipo no cambia los totales                                                                     0.17s
+  ✓ historial no suma las transferencias y sigue listandolas                                                     0.48s
+  ✓ historial filtrando ese subrubro si lo suma                                                                  0.18s
+  ✓ los saldos de las cuentas siguen moviendose                                                                  0.19s
+  ✓ una transferencia anulada tampoco suma                                                                       0.50s
+  ✓ un movimiento sin clasificar sigue sumando                                                                   0.19s
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo protegido rechaza edicion renombre baja y subrubros adicionales                                     0.13s
+  ✓ transferencia mueve 300mil y conserva todos los indicadores del club                                         0.36s
+  ✓ fallo al guardar entrada revierte salida y cabecera                                                          0.15s
+  ✓ reenvio de la misma operacion no duplica y rechaza datos distintos                                           0.21s
+  ✓ rechaza misma cuenta inactiva fecha futura e importes invalidos sin escrituras                               0.25s
+  ✓ operativa y profesora no pueden abrir ni registrar transferencias                                            0.29s
+  ✓ no permite carga individual ni edicion o anulacion de una sola pata                                          0.26s
+  ✓ proteccion del catalogo existente no inventa vinculos historicos                                             0.11s
+  ✓ seeder idempotente preserva clasificaciones y snapshots                                                      0.14s
+  ✓ formulario pide dos cuentas un importe y una fecha sin rubros editables                                      0.71s
+  ✓ transferencia fin de anio con centavos conserva resultado y fecha de ambas patas                             0.19s
+  ✓ saldos actuales independientes del filtro y cajas pendientes                                                 0.24s
+  ✓ fecha de mes anterior pide confirmar sin escribir y luego registra ambas patas                               0.43s
+  ✓ h1 subrubro comun rechaza traspaso en alta edicion y cambio tipo                                             0.79s
+  ✓ h2 caja rechaza traspaso preexistente alta edicion interno y reflejo                                         0.14s
+  ✓ h3 cashflow rechaza correccion y alta manual traspaso sin cambiar gasto                                      0.26s
+
+   PASS  Tests\Feature\AnulacionTransferenciasT97Test
+  ✓ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                           0.37s
+  ✓ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.23s
+  ✓ motivo invalido rechazado sin escribir with data set "vacio"                                                 0.17s
+  ✓ motivo invalido rechazado sin escribir with data set "espacios"                                              0.22s
+  ✓ motivo invalido rechazado sin escribir with data set "nulo"                                                  0.19s
+  ✓ motivo invalido rechazado sin escribir with data set "array"                                                 0.15s
+  ✓ motivo invalido rechazado sin escribir with data set "numero"                                                0.14s
+  ✓ motivo invalido rechazado sin escribir with data set "largo"                                                 0.19s
+  ✓ otro admin puede anular incluso si se desactivo una cuenta                                                   0.19s
+  ✓ repetir anulacion por la otra pata no duplica ni cambia auditoria                                            0.18s
+  ✓ originales y contras no admiten correccion individual ni reanular contra                                     0.52s
+  ✓ patas vigentes siguen fuera del circuito de directos y traspasos sueltos                                     0.26s
+  ✓ permisos get post y servicio sin escrituras                                                                  0.23s
+  ✓ un directo no puede entrar en el circuito de transferencias                                                  0.19s
+  ✓ motivo se conserva completo y se muestra escapado                                                            0.24s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "falta pata"                              0.18s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "tercera pata"                            0.16s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "sin cabecera"                            0.14s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "importe"                                 0.16s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "fecha"                                   0.16s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "cuenta"                                  0.15s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "origen operativo"                        0.14s
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "anulada"                                 0.15s
+  ✓ fallo en segundo inverso revierte primer inverso marcas y cabecera                                           0.19s
+  ✓ cashflow historial reportes inicio y filtros restauran mes original                                          0.66s
+  ✓ referencias no se confunden con pago ni sueldos                                                              0.18s
+  ✓ inversos conservan fotos aunque cambie el catalogo                                                           0.20s
+  ✓ motivo cero se muestra en el listado                                                                         0.23s
+  ✓ motivo de espacios unicode tambien se rechaza en el servicio                                                 0.12s
+  ✓ reenvio de creacion no revive la transferencia anulada                                                       0.11s
+
+  Tests:    55 passed (598 assertions)
+  Duration: 26.25s

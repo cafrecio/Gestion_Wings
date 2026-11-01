@@ -1,0 +1,6 @@
+   PASS  Tests\Feature\ControlT106CodexTest
+  ✓ casos 17 a 21 transferencia cuentas anulacion y otros reportes                                              13.99s
+  ✓ historicos sueltos con una pata en cada mes                                                                  0.24s
+
+  Tests:    2 passed (72 assertions)
+  Duration: 14.42s

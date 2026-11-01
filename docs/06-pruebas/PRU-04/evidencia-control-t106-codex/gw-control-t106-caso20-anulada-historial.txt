@@ -1,0 +1,188 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control T106
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/consultar-historial-cajas
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Historial" [level=1]
+- main:
+  - textbox "Alumno, subrubro u observación..."
+  - combobox:
+    - option "Subrubro" [selected]
+    - 'option "Ajuste de saldo: entrada"'
+    - 'option "Ajuste de saldo: salida"'
+    - option "Centenera"
+    - option "Cuota Mensual"
+    - option "Entrada desde otro medio"
+    - option "Eventos"
+    - option "Indumentaria institucional"
+    - option "Inscripción al club"
+    - option "Inscripciones"
+    - option "Insumos Varios"
+    - option "Intereses Banco"
+    - option "Intereses Mercado Pago"
+    - option "Internet"
+    - option "Librería"
+    - option "Limpieza"
+    - option "Luz"
+    - option "Pago al organizador"
+    - option "Patines"
+    - option "Punitorio Cuota"
+    - option "Retiro de dueños"
+    - option "Salida a otro medio"
+    - option "San Carlos"
+    - option "VG Indumentaria"
+  - combobox:
+    - option "Ingreso / Egreso" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - generic: Desde
+  - textbox "Desde": 2026-11-01
+  - generic: Hasta
+  - textbox "Hasta": 2026-11-30
+  - button "Filtrar"
+  - button "Limpiar"
+  - strong: "6"
+  - text: movimientos · Ingresos
+  - strong: $421,200.00
+  - text: · Egresos
+  - strong: $65,200.00
+  - button "Volver"
+  - table:
+    - rowgroup:
+      - row "Fecha Detalle Medio Registró Monto":
+        - columnheader "Fecha"
+        - columnheader "Detalle"
+        - columnheader "Medio"
+        - columnheader "Registró"
+        - columnheader "Monto"
+    - rowgroup:
+      - row "20/11/2026 Salida a otro medio Control T106 transferencia ficticia Efectivo Control T106 −$1,500,000.00":
+        - cell "20/11/2026"
+        - cell "Salida a otro medio Control T106 transferencia ficticia":
+          - paragraph: Salida a otro medio
+          - paragraph: Control T106 transferencia ficticia
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "−$1,500,000.00"
+      - row "20/11/2026 Entrada desde otro medio Control T106 transferencia ficticia Banco Galicia Control T106 +$1,500,000.00":
+        - cell "20/11/2026"
+        - cell "Entrada desde otro medio Control T106 transferencia ficticia":
+          - paragraph: Entrada desde otro medio
+          - paragraph: Control T106 transferencia ficticia
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "+$1,500,000.00"
+      - 'row "20/11/2026 Salida a otro medio Anulación de transferencia #1 Efectivo Control T106 +$1,500,000.00"':
+        - cell "20/11/2026"
+        - 'cell "Salida a otro medio Anulación de transferencia #1"':
+          - paragraph: Salida a otro medio
+          - paragraph: "Anulación de transferencia #1"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "+$1,500,000.00"
+      - 'row "20/11/2026 Entrada desde otro medio Anulación de transferencia #1 Banco Galicia Control T106 −$1,500,000.00"':
+        - cell "20/11/2026"
+        - 'cell "Entrada desde otro medio Anulación de transferencia #1"':
+          - paragraph: Entrada desde otro medio
+          - paragraph: "Anulación de transferencia #1"
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "−$1,500,000.00"
+      - row "16/11/2026 Intereses Banco Negocio T106 Efectivo Control T106 +$421,200.00":
+        - cell "16/11/2026"
+        - cell "Intereses Banco Negocio T106":
+          - paragraph: Intereses Banco
+          - paragraph: Negocio T106
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "+$421,200.00"
+      - row "16/11/2026 Luz Negocio T106 Efectivo Control T106 −$65,200.00":
+        - cell "16/11/2026"
+        - cell "Luz Negocio T106":
+          - paragraph: Luz
+          - paragraph: Negocio T106
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Control T106":
+          - generic: Control T106
+        - cell "−$65,200.00"
+  - paragraph: Sin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.
+- contentinfo:
+  - generic: Wings

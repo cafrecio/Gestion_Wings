@@ -1,0 +1,57 @@
+[
+  {
+    "archivo": "app/Http/Controllers/CashflowWebController.php",
+    "sha256": "4cc1d1db08b8334115fc3adfeac99e59306157a69e269a316477f97af5d2d939",
+    "copia_identica": true
+  },
+  {
+    "archivo": "app/Http/Controllers/CajaWebController.php",
+    "sha256": "cbce95a2f37582332c834ac3bd3b4446b704b45f144e774347fb68358d2941c3",
+    "copia_identica": true
+  },
+  {
+    "archivo": "app/Http/Controllers/WebController.php",
+    "sha256": "6c7d7f2160c30c9a427b9a92c4bd245ff2f87514e6566b10f1ee2e345fdcb034",
+    "copia_identica": true
+  },
+  {
+    "archivo": "app/Services/TransferenciaCashflowService.php",
+    "sha256": "b452fa9bd367c8ef461bdb0f7b8266d4d74c6f97e088ce7610b32da04d156b65",
+    "copia_identica": true
+  },
+  {
+    "archivo": "app/Services/CashflowSaldoService.php",
+    "sha256": "b6b0453899d8be0dd3a99281a549dafe3d52707f575649451083f93c2431c37b",
+    "copia_identica": true
+  },
+  {
+    "archivo": "app/Services/ReporteMensualService.php",
+    "sha256": "31e41dbb094b91060374557d9fd47aecc4527f8d0ecc7bf34f4865e91f7c7362",
+    "copia_identica": true
+  },
+  {
+    "archivo": "resources/views/cashflow/index.blade.php",
+    "sha256": "b99687a37778d62c14171a9959efa35bae89dcc8ad82cb5de6d2a9c37dbbf47a",
+    "copia_identica": true
+  },
+  {
+    "archivo": "resources/views/caja/historial.blade.php",
+    "sha256": "09dd02b38f52380e217abe0cf19591443d4969a0eecf2d7e8b61a437293bb98f",
+    "copia_identica": true
+  },
+  {
+    "archivo": "tests/Feature/TotalesSinTransferenciasT106Test.php",
+    "sha256": "963533bed2c7b2335869dd6dda9ac36e4495a369b23633fc58d715283cfb9438",
+    "copia_identica": true
+  },
+  {
+    "archivo": "tests/Feature/TraspasosEntreMediosT61Test.php",
+    "sha256": "2fefeefd314697cde916f7823b1a9b522b8ef1a11ec44df06e172a9a84bd3e7b",
+    "copia_identica": true
+  },
+  {
+    "archivo": "tests/Feature/AnulacionTransferenciasT97Test.php",
+    "sha256": "d31d5799e169b57edd28787eb8d1360561541416ae5060a23649166e7090df8a",
+    "copia_identica": true
+  }
+]
