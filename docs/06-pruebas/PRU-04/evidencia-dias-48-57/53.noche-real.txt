@@ -1,0 +1,4 @@
+ 1. Pablo Ledesma cierra la caja #96: esperado $271.800,00, contado $271.800,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #96 (16 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $2.983.910,00 · {"AL_DIA":43,"EN_PLAZO":69,"MOROSO":0,"DEUDOR":6}
+GUARDADO.

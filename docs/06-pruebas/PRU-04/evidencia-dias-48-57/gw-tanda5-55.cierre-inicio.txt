@@ -1,0 +1,205 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/inicio-dueno
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - strong: Diciembre 2026
+  - text: · Todo el negocio
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12
+  - paragraph: Mes en curso · hasta el 3 de diciembre
+  - link "Ingresos del mes $2,950,410.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12#ingresos
+    - paragraph: Ingresos del mes
+    - paragraph: $2,950,410.00
+  - link "Egresos del mes $2,635,500.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12#egresos
+    - paragraph: Egresos del mes
+    - paragraph: $2,635,500.00
+  - link "Alumnos por cobrar $1,890,000.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12#deuda
+    - paragraph: Alumnos por cobrar
+    - paragraph: $1,890,000.00
+  - link "Profesores por pagar $0.00":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12#profesores
+    - paragraph: Profesores por pagar
+    - paragraph: $0.00
+  - generic: Resultado de diciembre
+  - strong: $314,910.00
+  - heading "Disponible" [level=3]
+  - paragraph: $7,051,980.25
+  - paragraph: BGA
+  - strong: $2,126,350.00
+  - paragraph: BNA
+  - strong: $58,000.00
+  - paragraph: Banco Nacion ahorro
+  - strong: $0.00
+  - paragraph: TOR
+  - strong: $56,000.00
+  - paragraph: EFE
+  - strong: $1,559,459.50
+  - paragraph: MP
+  - strong: $3,252,170.75
+  - text: Incluye arrastre ·
+  - generic: $0.00
+  - text: por validar
+  - heading "Para revisar" [level=3]
+  - link "Cajas por validar 0 →":
+    - /url: https://test.gestionar-te.com.ar/caja?pendientes=1
+    - generic: Cajas por validar
+    - strong: 0 →
+  - link "Liquidaciones pendientes 0 →":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones?pendientes=1
+    - generic: Liquidaciones pendientes
+    - strong: 0 →
+  - link "Clases sin asistencia 0 →":
+    - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+    - generic: Clases sin asistencia
+    - strong: 0 →
+  - link "Revisión de alumnos 0 →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza?estado=PENDIENTE
+    - generic: Revisión de alumnos
+    - strong: 0 →
+  - region "Excepciones justificadas":
+    - heading "Excepciones justificadas" [level=2]
+    - paragraph: Decisiones registradas por el equipo. Se incluyen juntas en el resumen diario, sin avisos individuales.
+    - article:
+      - heading "Vera, Tobías" [level=3]
+      - paragraph: Asistencia de alumno deudor
+      - paragraph: "Vino a probar: la mamá paga el miércoles"
+      - paragraph: "Hernán Quintana · 02/12/2026 19:01 · Asistencia #3419"
+      - button "Ver"
+    - article:
+      - heading "Pereyra, Liam" [level=3]
+      - paragraph: Asistencia de alumno deudor
+      - paragraph: El papá avisó que paga esta semana
+      - paragraph: "Hernán Quintana · 02/12/2026 19:01 · Asistencia #3407"
+      - button "Ver"
+    - article:
+      - heading "Pereyra, Liam" [level=3]
+      - paragraph: Cobro con meses anteriores impagos
+      - paragraph: "Paga diciembre: noviembre lo trae la semana que viene"
+      - paragraph: "Rocío Paz · 02/12/2026 09:05 · Pago #490"
+      - button "Ver"
+    - article:
+      - heading "Morales, Carla" [level=3]
+      - paragraph: Cobro parcial
+      - paragraph: Paga el resto el viernes
+      - paragraph: "Pablo Ledesma · 01/12/2026 09:10 · Pago #455"
+      - button "Ver"
+    - article:
+      - heading "Pereyra, Liam" [level=3]
+      - paragraph: Asistencia de alumno deudor
+      - paragraph: El papá avisó que paga esta semana
+      - paragraph: "Hernán Quintana · 01/12/2026 09:01 · Asistencia #3299"
+      - button "Ver"
+    - article:
+      - heading "Iglesias, Clara" [level=3]
+      - paragraph: Cobro parcial
+      - paragraph: "Corrijo el importe: eran $30.000"
+      - paragraph: "Rocío Paz · 20/11/2026 09:03 · Pago #396"
+      - button "Ver"
+    - article:
+      - heading "Rodriguez, Joaquin" [level=3]
+      - paragraph: Cobro parcial
+      - paragraph: La mamá trae el resto el sábado
+      - paragraph: "Sandra Vidal · 12/11/2026 09:22 · Pago #369"
+      - button "Ver"
+    - article:
+      - heading "Romero, Santino" [level=3]
+      - paragraph: Asistencia de alumno deudor
+      - paragraph: Octubre lo paga el viernes; lo habló la mamá con Sandra
+      - paragraph: "Hernán Quintana · 11/11/2026 09:04 · Asistencia #2016"
+      - button "Ver"
+    - article:
+      - heading "Paredes, Iván" [level=3]
+      - paragraph: Alumno nuevo sin primer pago
+      - paragraph: Pagó la inscripción; la cuota la trae el viernes
+      - paragraph: "Hernán Quintana · 11/11/2026 09:04 · Asistencia #2008"
+      - button "Ver"
+    - article:
+      - heading "Romero, Santino" [level=3]
+      - paragraph: Asistencia de alumno deudor
+      - paragraph: Vuelve a entrenar; octubre lo paga a fin de mes, lo autorizó el dueño
+      - paragraph: "Hernán Quintana · 09/11/2026 12:19 · Asistencia #1828"
+      - button "Ver"
+    - navigation "Paginación":
+      - paragraph: Mostrando 1 a 10 de 13 resultados
+      - generic "&laquo; Anterior":
+      - generic: "1"
+      - link "Ir a la página 2":
+        - /url: https://test.gestionar-te.com.ar/admin/dashboard?excepciones_pagina=2#excepciones
+        - text: "2"
+      - link "Siguiente &raquo;":
+        - /url: https://test.gestionar-te.com.ar/admin/dashboard?excepciones_pagina=2#excepciones
+- contentinfo:
+  - generic: Wings

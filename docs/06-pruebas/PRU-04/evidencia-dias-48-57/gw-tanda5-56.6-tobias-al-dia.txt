@@ -1,0 +1,100 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Vera, Tobías" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $0.00"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "53777888"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 30/08/2015
+  - paragraph:
+    - text: Celular
+  - paragraph: 11-6677-8899
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 25/11/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Andrea Vera
+  - paragraph: Teléfono
+  - paragraph: 11-6677-8899
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 04/12/2026 · Nov 2026, Dic 2026
+  - generic: $47,200.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/533?inline=1
+  - generic: 25/11/2026 · Nov 2026 · Anulado
+  - generic: $19,200.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/402?inline=1
+  - paragraph:
+    - text: Asistencias — Dic 2026
+  - paragraph: 1 clase
+  - generic: 02/12
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

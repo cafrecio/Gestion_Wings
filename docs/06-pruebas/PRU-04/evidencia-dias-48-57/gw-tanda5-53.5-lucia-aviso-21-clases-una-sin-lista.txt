@@ -1,0 +1,148 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/generar-liquidacion-profesor
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nueva Liquidación" [level=1]
+- main:
+  - text: Profesor
+  - generic: "*"
+  - radio "Acosta, Martín Fútbol Por comisión 4 clases liquidables"
+  - generic: Acosta, Martín
+  - generic: Fútbol
+  - generic: Por comisión
+  - generic: 4 clases liquidables
+  - radio "Directora, Vanina Patín Por hora 0 clases liquidables"
+  - generic: Directora, Vanina
+  - generic: Patín
+  - generic: Por hora
+  - generic: 0 clases liquidables
+  - radio "Gaitán, Lucía Patín Por hora 21 clases liquidables ⚠ 1 clase sin asistencia — no se liquidarán" [checked] [active]
+  - generic: Gaitán, Lucía
+  - generic: Patín
+  - generic: Por hora
+  - generic: 21 clases liquidables
+  - generic: ⚠ 1 clase sin asistencia — no se liquidarán
+  - radio "Ibarra, Gonzalo Fútbol Por comisión Sin clases pendientes" [disabled]
+  - generic: Ibarra, Gonzalo
+  - generic: Fútbol
+  - generic: Por comisión
+  - generic: Sin clases pendientes
+  - radio "Ocampo, Mariela Patín Por hora 19 clases liquidables"
+  - generic: Ocampo, Mariela
+  - generic: Patín
+  - generic: Por hora
+  - generic: 19 clases liquidables
+  - radio "Quintana, Hernán Fútbol Por comisión 20 clases liquidables"
+  - generic: Quintana, Hernán
+  - generic: Fútbol
+  - generic: Por comisión
+  - generic: 20 clases liquidables
+  - radio "Salinas, Verónica · Inactiva, con clases dictadas pendientes Patín Por hora 2 clases liquidables"
+  - generic: Salinas, Verónica · Inactiva, con clases dictadas pendientes
+  - generic: Patín
+  - generic: Por hora
+  - generic: 2 clases liquidables
+  - radio "Vidal, Nora Hockey Por hora Sin clases pendientes" [disabled]
+  - generic: Vidal, Nora
+  - generic: Hockey
+  - generic: Por hora
+  - generic: Sin clases pendientes
+  - generic: Gaitán, Lucía tiene 1 clase sin asistencia cargada que no se incluirá en esta liquidación. Podés cargar las asistencias antes de continuar.
+  - link "Ir a cargar asistencias →":
+    - /url: /clases?estado=finalizada&profesor_id=1
+  - text: Mes
+  - generic: "*"
+  - combobox "Mes *":
+    - option "— Seleccioná —"
+    - option "Enero"
+    - option "Febrero"
+    - option "Marzo"
+    - option "Abril"
+    - option "Mayo"
+    - option "Junio"
+    - option "Julio"
+    - option "Agosto"
+    - option "Septiembre"
+    - option "Octubre"
+    - option "Noviembre" [selected]
+    - option "Diciembre"
+  - text: Año
+  - generic: "*"
+  - spinbutton "Año *": "2026"
+  - paragraph: Se generará la liquidación con todas las clases liquidables del período seleccionado.
+  - button "Cancelar"
+  - button "Generar"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,1 @@
+Network.loadingFailed: net::ERR_INTERNET_DISCONNECTED; Fetch; tab1320328851. Segundo intento offline sin respuesta del servidor; primer aviso no capturado.

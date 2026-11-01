@@ -1,0 +1,54 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- button "Abrir menú":
+- generic: Nora Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-asistencia
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Hockey — Principiantes" [level=1]
+- main:
+  - heading "Sábado 5 de diciembre de 2026" [level=2]
+  - generic: 12:00 – 13:00
+  - generic: Hockey
+  - generic: Hockey — Principiantes
+  - generic: Vidal, Nora
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "3"
+  - text: alumnos en el grupo ·
+  - strong: "2"
+  - text: presentes
+  - generic: Funes, Ámbar
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …567
+  - checkbox [checked]
+  - generic: Luna, Benicio
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …456
+  - checkbox
+  - generic: Rodriguez, Mia
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …201
+  - checkbox [checked]
+  - generic: Excede el plan — indicar motivo
+  - combobox:
+    - option "Clase adicional (EXTRA)" [selected]
+    - option "Recupera clase perdida (RECUPERA)"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

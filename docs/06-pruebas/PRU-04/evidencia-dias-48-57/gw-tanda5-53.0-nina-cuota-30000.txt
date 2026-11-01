@@ -1,0 +1,135 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 2":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "2"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Arias, Nina" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $0.00"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "57222333"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 20/02/2018
+  - paragraph:
+    - text: Celular
+  - paragraph: "1177889900"
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $30,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 30/11/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: En plazo
+  - generic: 9 días de gracia
+  - generic: "Total adeudado: $30,000.00"
+  - generic: Dic 2026
+  - generic: $30,000.00
+  - button "Condonar"
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Pablo Arias
+  - paragraph: Teléfono
+  - paragraph: "1177889900"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 30/11/2026 · Nov 2026
+  - generic: $20,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/427?inline=1
+  - paragraph:
+    - text: Asistencias — Dic 2026
+  - paragraph: Sin asistencias en Dic 2026.
+  - button "Volver"
+  - paragraph: "No se puede eliminar: Tiene pagos registrados. Puede pasarlo a Inactivo."
+- contentinfo:
+  - generic: Wings

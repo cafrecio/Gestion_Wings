@@ -1,0 +1,46 @@
+[
+  {
+    "acciones": [
+      {
+        "aria": "Ver",
+        "tag": "A",
+        "text": "",
+        "title": "Ver"
+      }
+    ],
+    "text": "26/11/2026\tE\tMP\tTransferencias internas — salidas — Salida a otro medio\tEra a Nación, no a Galicia\nTransferencia #5 · Anulada\nMotivo: Cuenta de destino equivocada\n\t−$400,000.00\tAdmin Prueba\t\t"
+  },
+  {
+    "acciones": [
+      {
+        "aria": "Ver",
+        "tag": "A",
+        "text": "",
+        "title": "Ver"
+      }
+    ],
+    "text": "26/11/2026\tI\tBGA\tTransferencias internas — entradas — Entrada desde otro medio\tEra a Nación, no a Galicia\nTransferencia #5 · Anulada\nMotivo: Cuenta de destino equivocada\n\t$400,000.00\tAdmin Prueba\t\t"
+  },
+  {
+    "acciones": [
+      {
+        "aria": "Ver",
+        "tag": "A",
+        "text": "",
+        "title": "Ver"
+      }
+    ],
+    "text": "26/11/2026\tI\tMP\tTransferencias internas — salidas — Salida a otro medio\tAnulación de transferencia #5\nAnulación de transferencia #5\nMotivo: Cuenta de destino equivocada\n\t$400,000.00\tAdmin Prueba\t\t"
+  },
+  {
+    "acciones": [
+      {
+        "aria": "Ver",
+        "tag": "A",
+        "text": "",
+        "title": "Ver"
+      }
+    ],
+    "text": "26/11/2026\tE\tBGA\tTransferencias internas — entradas — Entrada desde otro medio\tAnulación de transferencia #5\nAnulación de transferencia #5\nMotivo: Cuenta de destino equivocada\n\t−$400,000.00\tAdmin Prueba\t\t"
+  }
+]

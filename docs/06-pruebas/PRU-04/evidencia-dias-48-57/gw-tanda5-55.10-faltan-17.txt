@@ -1,0 +1,367 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/auditar-detalle-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - alert: Faltan 17 movimientos por verificar antes de validar la caja.
+  - paragraph: Operativo
+  - paragraph: Sandra Vidal
+  - paragraph: Apertura
+  - paragraph: 03/12/2026 09:00
+  - paragraph: Cierre
+  - paragraph: 03/12/2026 21:00
+  - paragraph: Estado
+  - paragraph: CERRADA
+  - generic: 3 de 20 verificados
+  - button "Validar"
+  - button "Rechazar"
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/100/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Castro, Martina · PAT · 12/26 $30,000.00 Recibo Verificar movimiento 859":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Castro, Martina · PAT · 12/26":
+            - generic: Castro, Martina · PAT · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo Verificar movimiento 859":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/504?inline=1
+            - checkbox "Verificar movimiento 859" [checked]
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Lopez, Martina · PAT · 12/26 $30,000.00 Recibo Verificar movimiento 860":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Lopez, Martina · PAT · 12/26":
+            - generic: Lopez, Martina · PAT · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo Verificar movimiento 860":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/505?inline=1
+            - checkbox "Verificar movimiento 860" [checked]
+        - row "03/12/2026 09:00 I MP Cuotas — Cuota Mensual Cabrera, Renata · PAT · 12/26 $43,000.00 Recibo Verificar movimiento 861":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Cabrera, Renata · PAT · 12/26":
+            - generic: Cabrera, Renata · PAT · 12/26
+          - cell "$43,000.00"
+          - cell "Recibo Verificar movimiento 861":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/506?inline=1
+            - checkbox "Verificar movimiento 861" [checked]
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Gimenez, Helena · PAT · 12/26 $43,000.00 Recibo Verificar movimiento 862":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Gimenez, Helena · PAT · 12/26":
+            - generic: Gimenez, Helena · PAT · 12/26
+          - cell "$43,000.00"
+          - cell "Recibo Verificar movimiento 862":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/507?inline=1
+            - checkbox "Verificar movimiento 862"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Romero, Florencia · PAT · 12/26 $33,000.00 Recibo Verificar movimiento 863":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Romero, Florencia · PAT · 12/26":
+            - generic: Romero, Florencia · PAT · 12/26
+          - cell "$33,000.00"
+          - cell "Recibo Verificar movimiento 863":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/508?inline=1
+            - checkbox "Verificar movimiento 863"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Alvarez, Camila · PAT · 12/26 $35,000.00 Recibo Verificar movimiento 864":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Alvarez, Camila · PAT · 12/26":
+            - generic: Alvarez, Camila · PAT · 12/26
+          - cell "$35,000.00"
+          - cell "Recibo Verificar movimiento 864":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/509?inline=1
+            - checkbox "Verificar movimiento 864"
+        - row "03/12/2026 09:00 I MP Cuotas — Cuota Mensual Ramirez, Lucia · PAT · 12/26 $45,000.00 Recibo Verificar movimiento 865":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Ramirez, Lucia · PAT · 12/26":
+            - generic: Ramirez, Lucia · PAT · 12/26
+          - cell "$45,000.00"
+          - cell "Recibo Verificar movimiento 865":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/510?inline=1
+            - checkbox "Verificar movimiento 865"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Diaz, Martina · PAT · 12/26 $50,000.00 Recibo Verificar movimiento 866":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Diaz, Martina · PAT · 12/26":
+            - generic: Diaz, Martina · PAT · 12/26
+          - cell "$50,000.00"
+          - cell "Recibo Verificar movimiento 866":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/511?inline=1
+            - checkbox "Verificar movimiento 866"
+        - row "03/12/2026 09:00 I BGA Cuotas — Cuota Mensual Nuñez, Guadalupe · PAT · 12/26 $50,000.00 Recibo Verificar movimiento 867":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "BGA"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Nuñez, Guadalupe · PAT · 12/26":
+            - generic: Nuñez, Guadalupe · PAT · 12/26
+          - cell "$50,000.00"
+          - cell "Recibo Verificar movimiento 867":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/512?inline=1
+            - checkbox "Verificar movimiento 867"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Vega, Florencia · PAT · 12/26 $50,000.00 Recibo Verificar movimiento 868":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Vega, Florencia · PAT · 12/26":
+            - generic: Vega, Florencia · PAT · 12/26
+          - cell "$50,000.00"
+          - cell "Recibo Verificar movimiento 868":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/513?inline=1
+            - checkbox "Verificar movimiento 868"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Castro, Bruno · Fú · 12/26 $28,000.00 Recibo Verificar movimiento 869":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Castro, Bruno · Fú · 12/26":
+            - generic: Castro, Bruno · Fú · 12/26
+          - cell "$28,000.00"
+          - cell "Recibo Verificar movimiento 869":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/514?inline=1
+            - checkbox "Verificar movimiento 869"
+        - row "03/12/2026 09:00 I EFE Cuotas — Cuota Mensual Gutierrez, Tomas · Fú · 12/26 $28,000.00 Recibo Verificar movimiento 870":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Gutierrez, Tomas · Fú · 12/26":
+            - generic: Gutierrez, Tomas · Fú · 12/26
+          - cell "$28,000.00"
+          - cell "Recibo Verificar movimiento 870":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/515?inline=1
+            - checkbox "Verificar movimiento 870"
+        - row "03/12/2026 09:00 I MP Cuotas — Cuota Mensual Herrera, Facundo · Fú · 12/26 $28,000.00 Recibo Verificar movimiento 871":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Herrera, Facundo · Fú · 12/26":
+            - generic: Herrera, Facundo · Fú · 12/26
+          - cell "$28,000.00"
+          - cell "Recibo Verificar movimiento 871":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/516?inline=1
+            - checkbox "Verificar movimiento 871"
+        - 'row "03/12/2026 09:00 I EFE Indumentaria — Indumentaria institucional Remera del club: Vega $18,000.00 Verificar movimiento 872"':
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "I"
+          - cell "EFE"
+          - cell "Indumentaria — Indumentaria institucional"
+          - 'cell "Remera del club: Vega"':
+            - generic: "Remera del club: Vega"
+          - cell "$18,000.00"
+          - cell "Verificar movimiento 872":
+            - checkbox "Verificar movimiento 872"
+        - row "03/12/2026 09:00 E EFE Gastos Operativos — Limpieza Limpiavidrios $2,900.00 Verificar movimiento 873":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Limpieza"
+          - cell "Limpiavidrios":
+            - generic: Limpiavidrios
+          - cell "$2,900.00"
+          - cell "Verificar movimiento 873":
+            - checkbox "Verificar movimiento 873"
+        - row "03/12/2026 09:00 E EFE Gastos Operativos — Botiquín Gasas y cinta $1,500.00 Verificar movimiento 874":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Botiquín"
+          - cell "Gasas y cinta":
+            - generic: Gasas y cinta
+          - cell "$1,500.00"
+          - cell "Verificar movimiento 874":
+            - checkbox "Verificar movimiento 874"
+        - row "03/12/2026 09:00 E EFE Gastos Operativos — Librería Biromes $900.00 Verificar movimiento 875":
+          - cell "03/12/2026"
+          - cell "09:00"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Librería"
+          - cell "Biromes":
+            - generic: Biromes
+          - cell "$900.00"
+          - cell "Verificar movimiento 875":
+            - checkbox "Verificar movimiento 875"
+        - row "03/12/2026 09:05 I EFE Cuotas — Cuota Mensual Luna, Benicio · HOC · 12/26 $30,000.00 Recibo Verificar movimiento 876":
+          - cell "03/12/2026"
+          - cell "09:05"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Luna, Benicio · HOC · 12/26":
+            - generic: Luna, Benicio · HOC · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo Verificar movimiento 876":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/517?inline=1
+            - checkbox "Verificar movimiento 876"
+        - row "03/12/2026 09:05 I EFE Inscripciones — Inscripción al club Luna, Benicio · HOC · 12/26 $8,000.00 Recibo Verificar movimiento 877":
+          - cell "03/12/2026"
+          - cell "09:05"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Luna, Benicio · HOC · 12/26":
+            - generic: Luna, Benicio · HOC · 12/26
+          - cell "$8,000.00"
+          - cell "Recibo Verificar movimiento 877":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/517?inline=1
+            - checkbox "Verificar movimiento 877"
+        - row "03/12/2026 09:06 I MP Cuotas — Cuota Mensual Rodriguez, Mia · HOC · 12/26 $30,000.00 Recibo Verificar movimiento 878":
+          - cell "03/12/2026"
+          - cell "09:06"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Rodriguez, Mia · HOC · 12/26":
+            - generic: Rodriguez, Mia · HOC · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo Verificar movimiento 878":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/518?inline=1
+            - checkbox "Verificar movimiento 878"
+      - rowgroup:
+        - 'row "Ingresos: $579,000.00 · Egresos: $5,300.00 $573,700.00"':
+          - cell
+          - 'cell "Ingresos: $579,000.00 · Egresos: $5,300.00"':
+            - text: "Ingresos:"
+            - strong: $579,000.00
+            - text: "· Egresos:"
+            - strong: $5,300.00
+          - cell "$573,700.00"
+          - cell
+- contentinfo:
+  - generic: Wings

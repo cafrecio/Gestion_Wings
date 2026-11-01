@@ -1,0 +1,98 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/consultar-historial-cajas
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Historial" [level=1]
+- main:
+  - textbox "Alumno, subrubro u observación...": Lamparita del vestuario
+  - combobox:
+    - option "Subrubro" [selected]
+    - option "Botiquín"
+    - option "Clase particular"
+    - option "Cuota Mensual"
+    - option "Indumentaria institucional"
+    - option "Inscripción al club"
+    - option "Inscripciones"
+    - option "Insumos Varios"
+    - option "Librería"
+    - option "Limpieza"
+    - option "Patines"
+    - option "Punitorio Cuota"
+    - option "Reparaciones menores"
+    - option "VG Indumentaria"
+  - combobox:
+    - option "Ingreso / Egreso" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - generic: Desde
+  - textbox "Desde"
+  - generic: Hasta
+  - textbox "Hasta"
+  - button "Filtrar"
+  - button "Limpiar"
+  - strong: "1"
+  - text: movimiento · Ingresos
+  - strong: $0.00
+  - text: · Egresos
+  - strong: $2,500.00
+  - button "Volver"
+  - table:
+    - rowgroup:
+      - row "Fecha Detalle Medio Registró Monto":
+        - columnheader "Fecha"
+        - columnheader "Detalle"
+        - columnheader "Medio"
+        - columnheader "Registró"
+        - columnheader "Monto"
+    - rowgroup:
+      - 'row "27/11/2026 Insumos Varios Lamparita del vestuario: la pagó la caja Efectivo Admin Prueba −$2,500.00"':
+        - cell "27/11/2026"
+        - 'cell "Insumos Varios Lamparita del vestuario: la pagó la caja"':
+          - paragraph: Insumos Varios
+          - paragraph: "Lamparita del vestuario: la pagó la caja"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "−$2,500.00"
+  - paragraph: Se muestran los movimientos de los últimos 90 días.
+- contentinfo:
+  - generic: Wings

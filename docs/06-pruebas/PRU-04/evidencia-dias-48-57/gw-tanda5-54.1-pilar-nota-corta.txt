@@ -1,0 +1,214 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/resolver-revision-cobranza
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Revisión" [level=1]
+- main:
+  - paragraph: 8 alumnos pendientes de revisión
+  - paragraph: Estos alumnos no generaron deuda automática porque no tuvieron asistencias el mes anterior. Contactar al tutor y resolver.
+  - generic: Estado
+  - combobox:
+    - option "Pendientes" [selected]
+    - option "Resueltos"
+    - option "Todos"
+  - generic: Período
+  - combobox:
+    - option "Todos" [selected]
+    - option "2026-12"
+  - link "Limpiar":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+  - strong: "8"
+  - text: revisiones
+  - heading "Ramos, Pilar" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/279
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)" [active]:
+    - /placeholder: Registrá el contacto y el motivo
+    - text: Sí.
+  - button "Confirmar"
+  - heading "Suarez, Valentina" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Avanzadas
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/304
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Navarro, Alma" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/335
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Villalba, Emma" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Intermedias
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/351
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Luna, Joaquina" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Adultos
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/353
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Ruiz, Thiago" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Patín
+  - generic: "Grupo:"
+  - generic: Patín — Principiantes
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/357
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Vera, Tobías" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/358
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Paz, Ciro" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-12
+  - generic: "Deporte:"
+  - generic: Fútbol
+  - generic: "Grupo:"
+  - generic: Fútbol — Principiantes
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/alumnos/359
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-12 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+- contentinfo:
+  - generic: Wings

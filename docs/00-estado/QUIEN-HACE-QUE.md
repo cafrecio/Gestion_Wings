@@ -49,13 +49,12 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 dias48-57 recorridos: revisar RESULTADO-TANDA-5 y diez informes. Clara+270k deuda, Mariela-19k egresos, limites explicitos. Final5/12 21:30; no repetir operaciones. Carlos decide despliegue. |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: sitio en 219f5d59 y rutina del dia 48 probada. Carlos le pasa a Codex PROMPT-CODEX-DIAS-48-57.md. Con estos resultados se despliega en produccion. Despues revisa Claude. |
+Nada en este momento.
 
 ## Gemini
 

@@ -1,0 +1,102 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Juan Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Morales, Julieta" [level=1]
+- main:
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "58100911"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 12/03/2021
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145129901"
+  - paragraph:
+    - text: Email
+  - paragraph: esteban.morales@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Patín
+  - paragraph:
+    - text: Grupo
+  - paragraph: Patín — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $30,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 10/03/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Esteban Morales
+  - paragraph: Teléfono
+  - paragraph: "1145129901"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 05/12/2026 · Ene 2027
+  - generic: $30,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/563?inline=1
+  - generic: 02/12/2026 · Dic 2026
+  - generic: $30,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/472?inline=1
+  - generic: 13/10/2026 · Nov 2026
+  - generic: $30,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/9?inline=1
+  - paragraph:
+    - text: Asistencias — Dic 2026
+  - paragraph: 1 clase
+  - generic: 02/12
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

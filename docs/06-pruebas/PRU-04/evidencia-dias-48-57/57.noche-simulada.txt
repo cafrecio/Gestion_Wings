@@ -1,0 +1,10 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es sábado 5 de diciembre de 2026, 21:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Juan Pablo Ledesma cierra la caja #105: esperado $334.300,00, contado $334.300,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #105 (19 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $1.053.500,00 · {"AL_DIA":97,"EN_PLAZO":20,"MOROSO":0,"DEUDOR":2}
+SIMULADO: no se guardó nada.

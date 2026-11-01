@@ -1,0 +1,125 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día" [selected]
+    - option "Semana"
+    - option "Mes"
+    - option "Año"
+  - generic: Fecha
+  - textbox "Fecha": 2026-10-05
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: 5 de octubre de 2026
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 05/12/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $1,854,350.00
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: TOR
+    - strong: $0.00
+    - generic: Efectivo
+    - strong: $2,228,359.50
+    - generic: Mercado Pago
+    - strong: $3,555,370.75
+  - strong: $0.00
+  - generic: ingresos
+  - strong: $0.00
+  - generic: egresos
+  - strong: $0.00
+  - generic: resultado del período
+  - strong: "0"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - paragraph: Sin movimientos para los filtros seleccionados.
+- contentinfo:
+  - generic: Wings

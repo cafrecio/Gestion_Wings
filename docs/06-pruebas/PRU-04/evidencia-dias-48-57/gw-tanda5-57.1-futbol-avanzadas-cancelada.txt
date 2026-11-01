@@ -1,0 +1,190 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Fútbol — Avanzadas" [level=1]
+- main:
+  - heading "Sábado 5 de diciembre de 2026" [level=2]
+  - generic: 11:00 – 12:00
+  - generic: Fútbol
+  - generic: Fútbol — Avanzadas
+  - generic: Quintana, Hernán
+  - button "Editar"
+  - generic: Activa
+  - button "Cancelar"
+  - button "Validar"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/clases/392/edit
+  - button "Eliminar"
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - paragraph: Indicá el motivo de cancelación
+  - 'textbox "Ej: Feriado, Pista insegura, Lluvia..."': "Torneo de fin de año: Hernán lleva al equipo"
+  - button "…" [disabled]
+  - button "…" [disabled]
+  - button "Cerrar"
+  - strong: "15"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Diaz, Thiago
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …502
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Fernandez, Benjamin
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …302
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ferrari, Nicolas
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …805
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gimenez, Tomas
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …919
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gomez, Lucas
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …102
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Molina, Franco
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …015
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Morales, Lorenzo
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …017
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Navarro, Julian
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …806
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ortiz, Tobias
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …016
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Ramos, Dante
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …909
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rodriguez, Mateo
+  - paragraph: En plazo
+  - generic: 2/1 (Excede)
+  - generic: · DNI …203
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rossi, Leon
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …013
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Silva, Simon
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …014
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Sosa, Felipe
+  - paragraph: Al día
+  - generic: 2/1 (Excede)
+  - generic: · DNI …904
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Vega, Joaquin
+  - paragraph: Al día
+  - generic: 2/2 (Completo)
+  - generic: · DNI …914
+  - generic: Presente
+  - checkbox "Presente"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

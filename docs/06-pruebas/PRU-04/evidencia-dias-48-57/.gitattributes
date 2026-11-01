@@ -1,0 +1,3 @@
+# Evidencia cruda: conservar bytes y espacios de la salida de consola.
+* -text whitespace=cr-at-eol
+*.txt whitespace=cr-at-eol,-blank-at-eol

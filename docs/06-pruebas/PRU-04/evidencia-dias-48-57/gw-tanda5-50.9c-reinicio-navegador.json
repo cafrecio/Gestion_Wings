@@ -1,0 +1,29 @@
+{
+  "antes": [
+    {
+      "id": "MSEdge",
+      "windows": [
+        {
+          "app": "MSEdge",
+          "id": 6097616,
+          "title": "Inicio – Wings y 1 página más - Personal: Microsoft​ Edge"
+        }
+      ]
+    }
+  ],
+  "reabierto": [
+    {
+      "id": "MSEdge",
+      "windows": [
+        {
+          "app": "MSEdge",
+          "id": 4327916,
+          "title": "Nueva pestaña - Personal: Microsoft​ Edge"
+        }
+      ]
+    }
+  ],
+  "browserReabierto": "6",
+  "pestana": "8394474",
+  "nota": "Se cerraron las dos pestañas propias; Edge desapareció del inventario y se volvió a lanzar. No se afirma terminación de todos los procesos de fondo."
+}

@@ -1,0 +1,144 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/administrar-tipos-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Tipos de Caja" [level=1]
+- main:
+  - generic: Tipo de caja desactivado.
+  - strong: "6"
+  - text: tipos de caja
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/create
+  - heading "Banco Galicia" [level=3]
+  - generic: "Mov. operativos:"
+  - generic: "8"
+  - generic: "Mov. cashflow:"
+  - generic: "33"
+  - generic: "Descubierto:"
+  - generic: Sí
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/5/edit
+  - button "Desactivar"
+  - heading "Banco Nación" [level=3]
+  - paragraph: CTA CTE Banco Nación
+  - generic: "Mov. operativos:"
+  - generic: "5"
+  - generic: "Mov. cashflow:"
+  - generic: "9"
+  - generic: "Descubierto:"
+  - generic: Sí
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/2/edit
+  - button "Desactivar"
+  - heading "Banco Nacion ahorro" [level=3]
+  - generic: (inactivo)
+  - paragraph: Caja de ahorro Banco Nación
+  - generic: "Mov. operativos:"
+  - generic: "0"
+  - generic: "Mov. cashflow:"
+  - generic: "0"
+  - generic: "Descubierto:"
+  - generic: Sí
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/4/edit
+  - button "Activar"
+  - heading "Caja Torneo" [level=3]
+  - generic: "Mov. operativos:"
+  - generic: "2"
+  - generic: "Mov. cashflow:"
+  - generic: "2"
+  - generic: "Descubierto:"
+  - generic: "No"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/6/edit
+  - button "Desactivar"
+  - heading "Efectivo" [level=3]
+  - generic: "Mov. operativos:"
+  - generic: "321"
+  - generic: "Mov. cashflow:"
+  - generic: "316"
+  - generic: "Descubierto:"
+  - generic: "No"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/1/edit
+  - button "Desactivar"
+  - heading "Mercado Pago" [level=3]
+  - generic: "Mov. operativos:"
+  - generic: "130"
+  - generic: "Mov. cashflow:"
+  - generic: "145"
+  - generic: "Descubierto:"
+  - generic: "No"
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/tipos-caja/3/edit
+  - button "Desactivar"
+- contentinfo:
+  - generic: Wings

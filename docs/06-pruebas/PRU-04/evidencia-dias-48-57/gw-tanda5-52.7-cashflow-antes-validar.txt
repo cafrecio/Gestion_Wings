@@ -1,0 +1,259 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día" [selected]
+    - option "Semana"
+    - option "Mes"
+    - option "Año"
+  - generic: Fecha
+  - textbox "Fecha": 2026-11-30
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Caja Torneo"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: 30 de noviembre de 2026
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 30/11/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $2,606,350.00
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Caja Torneo
+    - strong: $56,000.00
+    - paragraph: "Confirmado: $50,000.00 · En cajas sin validar: $6,000.00"
+    - generic: Efectivo
+    - strong: $1,223,449.50
+    - paragraph: "Confirmado: $1,159,500.00 · En cajas sin validar: $63,949.50"
+    - generic: Mercado Pago
+    - strong: $3,989,270.75
+    - paragraph: "Confirmado: $3,951,270.75 · En cajas sin validar: $38,000.00"
+  - strong: $52,000.00
+  - generic: ingresos
+  - strong: $9,800.00
+  - generic: egresos
+  - strong: $42,200.00
+  - generic: resultado del período
+  - strong: "2"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "30/11/2026 I BGA Cuotas — Cuota Mensual Fernandez, Benjamin Cobro del dueño $52,000.00 Admin Prueba Anular":
+        - cell "30/11/2026"
+        - cell "I"
+        - cell "BGA"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Fernandez, Benjamin Cobro del dueño":
+          - text: Fernandez, Benjamin
+          - generic: Cobro del dueño
+        - cell "$52,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Anular":
+          - link "Anular":
+            - /url: https://test.gestionar-te.com.ar/alumnos/247
+      - row "30/11/2026 E BGA Servicios — Luz Edesur, noviembre Directo −$9,800.00 Admin Prueba Editar Historial Eliminar":
+        - cell "30/11/2026"
+        - cell "E"
+        - cell "BGA"
+        - cell "Servicios — Luz"
+        - cell "Edesur, noviembre Directo":
+          - text: Edesur, noviembre
+          - generic: Directo
+        - cell "−$9,800.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/678/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/678
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/678/eliminar
+  - heading "Mostrador · sin validar" [level=3]
+  - paragraph: Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.
+  - paragraph: "Remera del club: Romero"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $18,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/757/editar
+  - paragraph: Lavandina y escobillón
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $3,600.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/758/editar
+  - paragraph: Fotocopias de la planilla mensual
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $1,250.50
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/759/editar
+  - paragraph: Cinta de piso
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $2,800.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/760/editar
+  - paragraph: Alcohol
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $1,400.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/761/editar
+  - paragraph: "Pago cuota alumno #362 - Períodos: 2026-11"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $12,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - paragraph: "Inscripción al club - pago #427"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $8,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - paragraph: Inscripción torneo — familia Torres
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/764/editar
+  - paragraph: Inscripción torneo — familia Suarez
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $3,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - link "Editar":
+    - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/765/editar
+  - paragraph: "Pago cuota alumno #306 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $35,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/94/detalle
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 10 de 11 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-11-30&anio=2026&cajas_page=2
+      - text: "2"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-11-30&anio=2026&cajas_page=2
+- contentinfo:
+  - generic: Wings

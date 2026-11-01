@@ -1,0 +1,69 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/rectificar-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Rectificar apertura" [level=1]
+- main:
+  - alert:
+    - paragraph: No se pudo rectificar la apertura
+    - paragraph: El campo motivo de la rectificación debe tener al menos 3 caracteres.
+  - paragraph: Corregí el efectivo recibido declarado al abrir la caja si se ingresó un valor erróneo.
+  - text: Responsable
+  - paragraph: Rocío Paz
+  - text: Apertura
+  - paragraph: 04/12/2026 14:00
+  - text: Efectivo declarado actual
+  - paragraph: $12,000.00
+  - text: Nuevo efectivo recibido
+  - generic: "*"
+  - generic: $
+  - textbox "Nuevo efectivo recibido *":
+    - /placeholder: "0"
+    - text: 12,000.00
+  - text: Motivo de la rectificación
+  - generic: "*"
+  - textbox "Motivo de la rectificación *":
+    - /placeholder: "Ej: Se tipeó un cero de más"
+    - text: Ya
+  - button "Volver"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

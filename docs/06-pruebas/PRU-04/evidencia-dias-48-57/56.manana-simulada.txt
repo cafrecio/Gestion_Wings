@@ -1,0 +1,16 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es viernes 4 de diciembre de 2026, 09:30
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Quiroga, Lara $43.000,00 por Efectivo — Pago registrado para Quiroga, Lara.
+ 3. Pablo Ledesma cobra a Ramos, Santiago $28.000,00 por Efectivo — Pago registrado para Ramos, Santiago.
+ 4. Pablo Ledesma cobra a Ferrari, Nicolas $52.000,00 por Mercado Pago — Pago registrado para Ferrari, Nicolas.
+ 5. Pablo Ledesma cobra a Ortiz, Tobias $52.000,00 por Efectivo — Pago registrado para Ortiz, Tobias.
+ 6. Pablo Ledesma cobra a Funes, Graciela $33.000,00 por Efectivo — Pago registrado para Funes, Graciela.
+ 7. Pablo Ledesma cobra a Ibañez, Marcelo $43.000,00 por Mercado Pago — Pago registrado para Ibañez, Marcelo.
+ 8. Pablo Ledesma Insumos Varios $2200 por Efectivo — Movimiento registrado.
+Cobranza: $1.639.000,00 · {"AL_DIA":80,"EN_PLAZO":34,"MOROSO":0,"DEUDOR":4}
+SIMULADO: no se guardó nada.

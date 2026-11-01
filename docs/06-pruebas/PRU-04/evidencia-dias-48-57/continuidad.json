@@ -1,0 +1,16 @@
+{
+  "ultimo_dia_ejecutado": 57,
+  "estado": "Recorrido completo; T14 a_verificar, tiene Claude",
+  "siguiente": "Revision independiente de RESULTADO-TANDA-5.md y DIA-48 a DIA-57; no repetir operaciones ni rutinas",
+  "no_repetir": [48,49,50,51,52,53,54,55,56,57],
+  "ultimo_inicio_reloj": "2026-12-05 21:30 America/Argentina/Buenos_Aires; avanza hasta medianoche",
+  "caja105": "Validada; esperado=contado334300, deja10000",
+  "revision_pendiente": 0,
+  "deuda_activos": 1053500,
+  "activos_estados": {"total":119,"al_dia":97,"en_plazo":20,"moroso":0,"deudor":2},
+  "diciembre": {"ingresos":3866910,"egresos":2685900,"resultado":1181010,"disponible":7696080.25},
+  "medios": {"efectivo":2228359.50,"mercado_pago":3555370.75,"galicia":1854350,"nacion":58000,"torneo":0},
+  "diferencias": ["Clara270000diciembre sin condonar; deuda+270000 y1Enplazoextra", "Mariela pagada342000,no361000; egresos-19000 yGalicia/disponible+19000", "Inactivos83500frente80000guion"],
+  "limites": "Ver informes por paso; no heredar resultados de simulacion ni acreditar avisos no capturados",
+  "producto_catalogo_suite_despliegue": "Sin cambios de producto/catalogo, sin suite ni despliegue"
+}

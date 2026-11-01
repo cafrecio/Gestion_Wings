@@ -1,0 +1,226 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Sandra Vidal
+  - paragraph: Apertura
+  - paragraph: 30/11/2026 09:04
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "11"
+  - text: movimientos
+  - link "Resumen":
+    - /url: https://test.gestionar-te.com.ar/caja/94/resumen
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - 'row "30/11/2026 09:04 I EFE Indumentaria — Indumentaria institucional Remera del club: Romero $18,000.00 Editar Eliminar"':
+          - cell "30/11/2026"
+          - cell "09:04"
+          - cell "I"
+          - cell "EFE"
+          - cell "Indumentaria — Indumentaria institucional"
+          - 'cell "Remera del club: Romero"':
+            - generic: "Remera del club: Romero"
+          - cell "$18,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/757/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:04 E EFE Gastos Operativos — Limpieza Lavandina y escobillón $3,600.00 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:04"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Limpieza"
+          - cell "Lavandina y escobillón":
+            - generic: Lavandina y escobillón
+          - cell "$3,600.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/758/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:04 E EFE Gastos Operativos — Librería Fotocopias de la planilla mensual $1,250.50 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:04"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Librería"
+          - cell "Fotocopias de la planilla mensual":
+            - generic: Fotocopias de la planilla mensual
+          - cell "$1,250.50"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/759/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:04 E EFE Gastos Operativos — Insumos Varios Cinta de piso $2,800.00 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:04"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Insumos Varios"
+          - cell "Cinta de piso":
+            - generic: Cinta de piso
+          - cell "$2,800.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/760/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:04 E EFE Gastos Operativos — Botiquín Alcohol $1,400.00 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:04"
+          - cell "E"
+          - cell "EFE"
+          - cell "Gastos Operativos — Botiquín"
+          - cell "Alcohol":
+            - generic: Alcohol
+          - cell "$1,400.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/761/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:13 I EFE Cuotas — Cuota Mensual Arias, Nina · PAT · 11/26 $12,000.00 Recibo Cancelar":
+          - cell "30/11/2026"
+          - cell "09:13"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Arias, Nina · PAT · 11/26":
+            - generic: Arias, Nina · PAT · 11/26
+          - cell "$12,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/427?inline=1
+            - button "Cancelar"
+        - row "30/11/2026 09:13 I EFE Inscripciones — Inscripción al club Arias, Nina · PAT · 11/26 $8,000.00 Recibo Cancelar":
+          - cell "30/11/2026"
+          - cell "09:13"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Arias, Nina · PAT · 11/26":
+            - generic: Arias, Nina · PAT · 11/26
+          - cell "$8,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/427?inline=1
+            - button "Cancelar"
+        - row "30/11/2026 09:14 I TOR Torneos — Inscripciones Inscripción torneo — familia Torres $3,000.00 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:14"
+          - cell "I"
+          - cell "TOR"
+          - cell "Torneos — Inscripciones"
+          - cell "Inscripción torneo — familia Torres":
+            - generic: Inscripción torneo — familia Torres
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/764/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:14 I TOR Torneos — Inscripciones Inscripción torneo — familia Suarez $3,000.00 Editar Eliminar":
+          - cell "30/11/2026"
+          - cell "09:14"
+          - cell "I"
+          - cell "TOR"
+          - cell "Torneos — Inscripciones"
+          - cell "Inscripción torneo — familia Suarez":
+            - generic: Inscripción torneo — familia Suarez
+          - cell "$3,000.00"
+          - cell "Editar Eliminar":
+            - link "Editar":
+              - /url: https://test.gestionar-te.com.ar/caja/94/movimientos/765/editar
+            - button "Eliminar"
+        - row "30/11/2026 09:14 I EFE Cuotas — Cuota Mensual Gimenez, Delfina · PAT · 12/26 $35,000.00 Recibo Cancelar":
+          - cell "30/11/2026"
+          - cell "09:14"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Gimenez, Delfina · PAT · 12/26":
+            - generic: Gimenez, Delfina · PAT · 12/26
+          - cell "$35,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/428?inline=1
+            - button "Cancelar"
+        - row "30/11/2026 09:15 I MP Cuotas — Cuota Mensual Morales, Lorenzo · Fú · 12/26 $38,000.00 Recibo Cancelar":
+          - cell "30/11/2026"
+          - cell "09:15"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Morales, Lorenzo · Fú · 12/26":
+            - generic: Morales, Lorenzo · Fú · 12/26
+          - cell "$38,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/430?inline=1
+            - button "Cancelar"
+      - rowgroup:
+        - 'row "Ingresos: $117,000.00 · Egresos: $9,050.50 $107,949.50"':
+          - cell
+          - 'cell "Ingresos: $117,000.00 · Egresos: $9,050.50"':
+            - text: "Ingresos:"
+            - strong: $117,000.00
+            - text: "· Egresos:"
+            - strong: $9,050.50
+          - cell "$107,949.50"
+          - cell
+- contentinfo:
+  - generic: Wings

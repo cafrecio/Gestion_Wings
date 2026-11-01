@@ -1,5 +1,13 @@
 # Wings — Estado actual
 
+## T14 — Tanda 5 recorrida y entregada a revisión — Codex CAB, 01/11/2026
+
+Diez días48–57 recorridos en el sitio de prueba, datos ficticios, rutinas una vez y sin reparar diferencias. [Resultado para Carlos](../06-pruebas/PRU-04/RESULTADO-TANDA-5.md); informes DIA-48 a DIA-57 y evidencia enlazada. T14 a_verificar, tiene=Claude. No repetir operaciones ni reloj: último inicio5/12 21:30.
+
+Cierre observado: deuda **$1.053.500**,119activos97/20/0/2; diciembre ingresos **$3.866.910**,egresos **$2.685.900**,resultado **$1.181.010**,disponible **$7.696.080,25**. Octubre y noviembre conservados; Revisión/Sin asistencia/cajas pendientes0. Clara no ofrecía condonar futuro: deuda+270k. No se pudo editar tarifa histórica de Mariela: pago342k,19kmenos queguion. Inactivos83500frente80kguion. No se alteraron para hacer coincidir el ensayo.
+
+Ocho revisiones resueltas; Hockey completo,375px y sin señal, dos adelantos de enero. T110/T111/T112/T113 reproducidos; T114 Hernán diferencia100 comprobada, Mariela sin acreditar esa diferencia. Contador de listas, motivos, futuras ajenas y límites de textos/sesiones/formularios están separados en informes. Constancia y segunda ejecución interna de generación no visibles. Sin producto, catálogo, suite ni despliegue; Carlos decide con la revisión independiente.
+
 ## T12/T13 — Control de Gemini y corrección, Claude CAB, 01/11/2026
 
 **Gemini devolvió el manual por un hallazgo grave, confirmado:** decía que el dueño carga el retiro con Agregar y Wings lo rechaza (`CajaService.php:673`). Corregidas `dinero-del-dueno-retiros-aportes` y `registrar-gasto-caja`, con fichas y galería, a lo que Wings hace hoy: retiro por Cashflow y faltante en el turno, ejecutado en `evidencia-t12-t13/RetiroDuenoCajonRealidadTest.php`. Sin cambio de código. **T116, decisión de Carlos antes de producción.** La prueba de Gemini pasó a evidencia porque dejaba `DocumentacionNoMienteTest` en rojo; siguen 1470 pruebas. Segunda vuelta: [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md).

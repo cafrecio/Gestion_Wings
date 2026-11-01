@@ -1,0 +1,22 @@
+[
+  {
+    "intento": 2,
+    "mensaje": "\n  - img \"Wings\"\n  - heading \"Iniciar sesión\" [level=1]\n  - paragraph: Las credenciales ingresadas no son válidas.\n  - generic: Email\n  - textbox \"Email\" [active]:\n    - /placeholder: tu@email.com\n    - text: <redacted>\n  - generic: Contraseña\n  - textbox \"Contraseña\":\n    - /placeholder: ••••••••\n  - button \"Mostrar contraseña\":\n  - checkbox \"Recordarme\"\n  - generic: Recordarme\n  - button \"Ingresar\"\n- contentinfo:\n  - generic: Wings"
+  },
+  {
+    "intento": 3,
+    "mensaje": "\n  - img \"Wings\"\n  - heading \"Iniciar sesión\" [level=1]\n  - paragraph: Las credenciales ingresadas no son válidas.\n  - generic: Email\n  - textbox \"Email\" [active]:\n    - /placeholder: tu@email.com\n    - text: <redacted>\n  - generic: Contraseña\n  - textbox \"Contraseña\":\n    - /placeholder: ••••••••\n  - button \"Mostrar contraseña\":\n  - checkbox \"Recordarme\"\n  - generic: Recordarme\n  - button \"Ingresar\"\n- contentinfo:\n  - generic: Wings"
+  },
+  {
+    "intento": 4,
+    "mensaje": "\n  - img \"Wings\"\n  - heading \"Iniciar sesión\" [level=1]\n  - paragraph: Las credenciales ingresadas no son válidas.\n  - generic: Email\n  - textbox \"Email\" [active]:\n    - /placeholder: tu@email.com\n    - text: <redacted>\n  - generic: Contraseña\n  - textbox \"Contraseña\":\n    - /placeholder: ••••••••\n  - button \"Mostrar contraseña\":\n  - checkbox \"Recordarme\"\n  - generic: Recordarme\n  - button \"Ingresar\"\n- contentinfo:\n  - generic: Wings"
+  },
+  {
+    "intento": 5,
+    "mensaje": "\n  - img \"Wings\"\n  - heading \"Iniciar sesión\" [level=1]\n  - paragraph: Las credenciales ingresadas no son válidas.\n  - generic: Email\n  - textbox \"Email\" [active]:\n    - /placeholder: tu@email.com\n    - text: <redacted>\n  - generic: Contraseña\n  - textbox \"Contraseña\":\n    - /placeholder: ••••••••\n  - button \"Mostrar contraseña\":\n  - checkbox \"Recordarme\"\n  - generic: Recordarme\n  - button \"Ingresar\"\n- contentinfo:\n  - generic: Wings"
+  },
+  {
+    "intento": 6,
+    "mensaje": "\n  - article \"Demasiados intentos seguidos\":\n    - heading \"Demasiados intentos seguidos\" [level=2]\n    - paragraph: Esperá un momento y probá de nuevo.\n    - button \"Volver\"\n- contentinfo:\n  - generic: Wings"
+  }
+]

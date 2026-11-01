@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T14 tanda 5, diez días recorridos
+
+[Resultado para Carlos](../06-pruebas/PRU-04/RESULTADO-TANDA-5.md), diez informes DIA-48 a DIA-57 y evidencia propia. Sitio de prueba, datos ficticios; rutinas ejecutadas una vez.
+Generación automática observada y ocho revisiones resueltas; dos esperas reales. Constancia y segunda ejecución interna no visibles. T110/T111/T112/T113 reproducidos; T114 Hernán omite ajuste100, Mariela limitada.
+Cinco liquidaciones pagadas, sueldos920k, canchas305k. Hockey completo y sin señal a375px; dos adelantos de enero. Última caja105 validada334300; Torneo0/inactiva; retiro300k.
+Cierre5/12: deuda1053500,119activos97/20/0/2; diciembre3866910/2685900,disponible7696080.25; Revisión/Sin asistencia/cajas pendientes0. Octubre y noviembre intactos.
+Diferencias conservadas: Clara+270kdeuda; Mariela−19kegresos/+19kdisponible; inactivos83500frente80kguion. Contador de listas, motivos y futuras ajenas documentados, sin atribuir causas no comprobadas.
+Sin acreditar PDF visual, algunos avisos, abandono de alta, apertura vieja56.1, gastoSandra56.10 y menúGonzalo; detalle por paso. Rocío ingresó con clave ficticia recuperada bajo autorización, sin cambiarla ni guardarla.
+Sin código, vistas, catálogo, consultas de base, suite ni despliegue. Revisión documental: enlaces, integridad y diff. Reloj final5/12 21:30; no repetir ninguna operación ni rutina48–57.
+T14 a_verificar, tiene=Claude: revisar entrega y diferencias. Carlos decide despliegue; no se emite recomendación.
+
 ## 2026-11-01 — Codex CAB — T100 cerrada, tercera vuelta documental
 
 Lectura exclusiva de las dos frases de la ficha corregidas en7713bf9b, líneas18 y31, contra PagoCuotaService1256–1275 y mi propuesta.

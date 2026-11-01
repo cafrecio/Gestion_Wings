@@ -1,0 +1,26 @@
+[
+  {
+    "disabled": false,
+    "label": "nombre",
+    "readOnly": true,
+    "value": "Efectivo"
+  },
+  {
+    "disabled": false,
+    "label": "abreviatura",
+    "readOnly": false,
+    "value": "EFE"
+  },
+  {
+    "disabled": false,
+    "label": "descripcion",
+    "readOnly": false,
+    "value": ""
+  },
+  {
+    "disabled": false,
+    "label": "saldo_inicial",
+    "readOnly": true,
+    "value": "250,000.00"
+  }
+]

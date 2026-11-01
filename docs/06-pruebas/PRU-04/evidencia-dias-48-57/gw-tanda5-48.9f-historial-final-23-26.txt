@@ -1,0 +1,453 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/consultar-historial-cajas
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Historial" [level=1]
+- main:
+  - textbox "Alumno, subrubro u observación..."
+  - combobox:
+    - option "Subrubro" [selected]
+    - 'option "Ajuste de saldo: entrada"'
+    - 'option "Ajuste de saldo: salida"'
+    - option "Botiquín"
+    - option "Centenera"
+    - option "Clase particular"
+    - option "Cuota Mensual"
+    - option "Entrada desde otro medio"
+    - option "Eventos"
+    - option "Fútbol-Gonzalo Ibarra"
+    - option "Fútbol-Hernán Quintana"
+    - option "Fútbol-Martín Acosta"
+    - option "Indumentaria institucional"
+    - option "Inscripción al club"
+    - option "Inscripciones"
+    - option "Insumos Varios"
+    - option "Intereses Banco"
+    - option "Intereses Mercado Pago"
+    - option "Internet"
+    - option "Librería"
+    - option "Limpieza"
+    - option "Luz"
+    - option "Op-Pablo Ledesma"
+    - option "Op-Rocío Paz"
+    - option "Op-Sandra Vidal"
+    - option "Pago al organizador"
+    - option "Patín-Lucía Gaitán"
+    - option "Patín-Mariela Ocampo"
+    - option "Patín-Vanina Directora"
+    - option "Patín-Verónica Salinas"
+    - option "Patines"
+    - option "Punitorio Cuota"
+    - option "Reparaciones menores"
+    - option "Retiro de dueños"
+    - option "Salida a otro medio"
+    - option "San Carlos"
+    - option "VG Indumentaria"
+  - combobox:
+    - option "Ingreso / Egreso" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - generic: Desde
+  - textbox "Desde": 2026-11-23
+  - generic: Hasta
+  - textbox "Hasta": 2026-11-26
+  - button "Filtrar"
+  - button "Limpiar"
+  - strong: "81"
+  - text: movimientos · Ingresos
+  - strong: $991,600.00
+  - text: · Egresos
+  - strong: $58,400.00
+  - button "Volver"
+  - table:
+    - rowgroup:
+      - row "Fecha Detalle Medio Registró Monto":
+        - columnheader "Fecha"
+        - columnheader "Detalle"
+        - columnheader "Medio"
+        - columnheader "Registró"
+        - columnheader "Monto"
+    - rowgroup:
+      - row "26/11/2026 Cuota Mensual Paz, Ciro Efectivo Sandra Vidal +$28,000.00":
+        - cell "26/11/2026"
+        - cell "Cuota Mensual Paz, Ciro":
+          - paragraph: Cuota Mensual
+          - paragraph: Paz, Ciro
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$28,000.00"
+      - row "26/11/2026 Inscripción al club Paz, Ciro Efectivo Sandra Vidal +$8,000.00":
+        - cell "26/11/2026"
+        - cell "Inscripción al club Paz, Ciro":
+          - paragraph: Inscripción al club
+          - paragraph: Paz, Ciro
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$8,000.00"
+      - row "26/11/2026 Salida a otro medio Depósito del efectivo de la semana Efectivo Admin Prueba −$800,000.00":
+        - cell "26/11/2026"
+        - cell "Salida a otro medio Depósito del efectivo de la semana":
+          - paragraph: Salida a otro medio
+          - paragraph: Depósito del efectivo de la semana
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "−$800,000.00"
+      - row "26/11/2026 Entrada desde otro medio Depósito del efectivo de la semana Banco Galicia Admin Prueba +$800,000.00":
+        - cell "26/11/2026"
+        - cell "Entrada desde otro medio Depósito del efectivo de la semana":
+          - paragraph: Entrada desde otro medio
+          - paragraph: Depósito del efectivo de la semana
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "+$800,000.00"
+      - 'row "26/11/2026 Salida a otro medio Anulación de transferencia #5 Mercado Pago Admin Prueba +$400,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Salida a otro medio Anulación de transferencia #5"':
+          - paragraph: Salida a otro medio
+          - paragraph: "Anulación de transferencia #5"
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "+$400,000.00"
+      - 'row "26/11/2026 Entrada desde otro medio Anulación de transferencia #5 Banco Galicia Admin Prueba −$400,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Entrada desde otro medio Anulación de transferencia #5"':
+          - paragraph: Entrada desde otro medio
+          - paragraph: "Anulación de transferencia #5"
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "−$400,000.00"
+      - row "26/11/2026 Salida a otro medio Era a Nación, no a Galicia Mercado Pago Admin Prueba −$400,000.00":
+        - cell "26/11/2026"
+        - cell "Salida a otro medio Era a Nación, no a Galicia":
+          - paragraph: Salida a otro medio
+          - paragraph: Era a Nación, no a Galicia
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "−$400,000.00"
+      - row "26/11/2026 Entrada desde otro medio Era a Nación, no a Galicia Banco Galicia Admin Prueba +$400,000.00":
+        - cell "26/11/2026"
+        - cell "Entrada desde otro medio Era a Nación, no a Galicia":
+          - paragraph: Entrada desde otro medio
+          - paragraph: Era a Nación, no a Galicia
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "+$400,000.00"
+      - 'row "26/11/2026 Ajuste de saldo: salida Arqueo de la caja fuerte: faltan $1.200 Efectivo Admin Prueba −$1,200.00"':
+        - cell "26/11/2026"
+        - 'cell "Ajuste de saldo: salida Arqueo de la caja fuerte: faltan $1.200"':
+          - paragraph: "Ajuste de saldo: salida"
+          - paragraph: "Arqueo de la caja fuerte: faltan $1.200"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Admin Prueba":
+          - generic: Admin Prueba
+        - cell "−$1,200.00"
+      - 'row "26/11/2026 Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Diaz Efectivo Sandra Vidal +$3,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Diaz"':
+          - paragraph: Inscripciones
+          - paragraph: "Torneo de diciembre, Fútbol Avanzadas: familia Diaz"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$3,000.00"
+      - 'row "26/11/2026 Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Fernandez Efectivo Sandra Vidal +$3,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Fernandez"':
+          - paragraph: Inscripciones
+          - paragraph: "Torneo de diciembre, Fútbol Avanzadas: familia Fernandez"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$3,000.00"
+      - 'row "26/11/2026 Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Ferrari Efectivo Sandra Vidal +$3,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Ferrari"':
+          - paragraph: Inscripciones
+          - paragraph: "Torneo de diciembre, Fútbol Avanzadas: familia Ferrari"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$3,000.00"
+      - 'row "26/11/2026 Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Gomez Mercado Pago Sandra Vidal +$3,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Gomez"':
+          - paragraph: Inscripciones
+          - paragraph: "Torneo de diciembre, Fútbol Avanzadas: familia Gomez"
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$3,000.00"
+      - 'row "26/11/2026 Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Molina Efectivo Sandra Vidal +$3,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Inscripciones Torneo de diciembre, Fútbol Avanzadas: familia Molina"':
+          - paragraph: Inscripciones
+          - paragraph: "Torneo de diciembre, Fútbol Avanzadas: familia Molina"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$3,000.00"
+      - 'row "26/11/2026 Indumentaria institucional Remera del club: Rossi Efectivo Sandra Vidal +$18,000.00"':
+        - cell "26/11/2026"
+        - 'cell "Indumentaria institucional Remera del club: Rossi"':
+          - paragraph: Indumentaria institucional
+          - paragraph: "Remera del club: Rossi"
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "+$18,000.00"
+      - row "26/11/2026 Limpieza Trapos y lavandina Efectivo Sandra Vidal −$3,200.00":
+        - cell "26/11/2026"
+        - cell "Limpieza Trapos y lavandina":
+          - paragraph: Limpieza
+          - paragraph: Trapos y lavandina
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "−$3,200.00"
+      - row "26/11/2026 Librería Cuadernos de asistencia Efectivo Sandra Vidal −$1,500.00":
+        - cell "26/11/2026"
+        - cell "Librería Cuadernos de asistencia":
+          - paragraph: Librería
+          - paragraph: Cuadernos de asistencia
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "−$1,500.00"
+      - row "26/11/2026 Insumos Varios Pilas para el silbato electrónico Efectivo Sandra Vidal −$2,600.00":
+        - cell "26/11/2026"
+        - cell "Insumos Varios Pilas para el silbato electrónico":
+          - paragraph: Insumos Varios
+          - paragraph: Pilas para el silbato electrónico
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "−$2,600.00"
+      - row "26/11/2026 Botiquín Curitas Efectivo Sandra Vidal −$1,700.00":
+        - cell "26/11/2026"
+        - cell "Botiquín Curitas":
+          - paragraph: Botiquín
+          - paragraph: Curitas
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "−$1,700.00"
+      - row "26/11/2026 Reparaciones menores Cerradura del vestuario Efectivo Sandra Vidal −$4,800.00":
+        - cell "26/11/2026"
+        - cell "Reparaciones menores Cerradura del vestuario":
+          - paragraph: Reparaciones menores
+          - paragraph: Cerradura del vestuario
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Sandra Vidal":
+          - generic: Sandra Vidal
+        - cell "−$4,800.00"
+      - row "25/11/2026 Cuota Mensual Iglesias, Helena Banco Galicia Rocío Paz +$50,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Iglesias, Helena":
+          - paragraph: Cuota Mensual
+          - paragraph: Iglesias, Helena
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$50,000.00"
+      - row "25/11/2026 Cuota Mensual Gimenez, Tomas Banco Galicia Rocío Paz +$52,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Gimenez, Tomas":
+          - paragraph: Cuota Mensual
+          - paragraph: Gimenez, Tomas
+        - cell "Banco Galicia":
+          - generic: Banco Galicia
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$52,000.00"
+      - row "25/11/2026 Cuota Mensual Navarro, Julian Mercado Pago Rocío Paz +$52,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Navarro, Julian":
+          - paragraph: Cuota Mensual
+          - paragraph: Navarro, Julian
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$52,000.00"
+      - row "25/11/2026 Cuota Mensual Acosta, Agustin Mercado Pago Rocío Paz +$35,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Acosta, Agustin":
+          - paragraph: Cuota Mensual
+          - paragraph: Acosta, Agustin
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$35,000.00"
+      - row "25/11/2026 Cuota Mensual Ferrari, Bautista Mercado Pago Rocío Paz +$35,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Ferrari, Bautista":
+          - paragraph: Cuota Mensual
+          - paragraph: Ferrari, Bautista
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$35,000.00"
+      - row "25/11/2026 Cuota Mensual Benitez, Paulina Mercado Pago Rocío Paz +$43,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Benitez, Paulina":
+          - paragraph: Cuota Mensual
+          - paragraph: Benitez, Paulina
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$43,000.00"
+      - row "25/11/2026 Cuota Mensual Sanchez, Berenice Mercado Pago Rocío Paz +$43,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Sanchez, Berenice":
+          - paragraph: Cuota Mensual
+          - paragraph: Sanchez, Berenice
+        - cell "Mercado Pago":
+          - generic: Mercado Pago
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$43,000.00"
+      - row "25/11/2026 Cuota Mensual Ruiz, Sol Efectivo Rocío Paz +$43,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Ruiz, Sol":
+          - paragraph: Cuota Mensual
+          - paragraph: Ruiz, Sol
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$43,000.00"
+      - row "25/11/2026 Cuota Mensual Ledesma, Paula Efectivo Rocío Paz +$43,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Ledesma, Paula":
+          - paragraph: Cuota Mensual
+          - paragraph: Ledesma, Paula
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$43,000.00"
+      - row "25/11/2026 Cuota Mensual Perez, Mia Efectivo Rocío Paz +$44,000.00":
+        - cell "25/11/2026"
+        - cell "Cuota Mensual Perez, Mia":
+          - paragraph: Cuota Mensual
+          - paragraph: Perez, Mia
+        - cell "Efectivo":
+          - generic: Efectivo
+        - cell "Rocío Paz":
+          - generic: Rocío Paz
+        - cell "+$44,000.00"
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 30 de 81 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/caja/historial?desde=2026-11-23&hasta=2026-11-26&page=2
+      - text: "2"
+    - link "Ir a la página 3":
+      - /url: https://test.gestionar-te.com.ar/caja/historial?desde=2026-11-23&hasta=2026-11-26&page=3
+      - text: "3"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/caja/historial?desde=2026-11-23&hasta=2026-11-26&page=2
+  - paragraph: Sin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.
+- contentinfo:
+  - generic: Wings

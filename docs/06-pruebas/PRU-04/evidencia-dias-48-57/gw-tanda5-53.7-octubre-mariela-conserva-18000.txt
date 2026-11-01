@@ -1,0 +1,219 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/revisar-desglose-liquidacion
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Liquidación — Ocampo, Mariela" [level=1]
+- main:
+  - heading "Ocampo, Mariela" [level=2]
+  - generic: Octubre 2026
+  - generic: Patín
+  - generic: Tipo
+  - text: Por hora
+  - generic: Monto final
+  - generic: $270,000.00
+  - generic: Estado
+  - text: Pagada
+  - generic: Fecha de pago
+  - generic: 03/11/2026 — Banco Nación
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/liquidacion/6?inline=1
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones
+  - generic: Clases liquidadas
+  - generic: "15"
+  - generic: Valor por hora
+  - generic: $18,000.00
+  - generic: Total
+  - generic: $270,000.00
+  - heading "Jueves 1 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 3 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Martes 6 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Jueves 8 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 10 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Martes 13 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Jueves 15 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 17 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Martes 20 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Jueves 22 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 24 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Martes 27 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Jueves 29 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 31 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - heading "Sábado 31 de octubre" [level=3]
+  - generic: Con asistencia
+  - generic: "Grupo:"
+  - generic: Patín — Federadas
+  - generic: "Duración:"
+  - generic: 1 h
+  - generic: "Subtotal:"
+  - generic: $18,000.00
+  - generic: Cálculo de los detalles
+  - generic: $270,000.00
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,317 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día" [selected]
+    - option "Semana"
+    - option "Mes"
+    - option "Año"
+  - generic: Fecha
+  - textbox "Fecha": 2026-12-03
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Caja Torneo"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: 3 de diciembre de 2026
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 03/12/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $2,126,350.00
+    - paragraph: "Confirmado: $2,076,350.00 · En cajas sin validar: $50,000.00"
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Caja Torneo
+    - strong: $56,000.00
+    - generic: Efectivo
+    - strong: $1,521,459.50
+    - paragraph: "Confirmado: $1,181,759.50 · En cajas sin validar: $339,700.00"
+    - generic: Mercado Pago
+    - strong: $3,222,170.75
+    - paragraph: "Confirmado: $3,106,170.75 · En cajas sin validar: $116,000.00"
+  - strong: $0.00
+  - generic: ingresos
+  - strong: $1,255,000.00
+  - generic: egresos
+  - strong: $-1,255,000.00
+  - generic: resultado del período
+  - strong: "6"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - 'row "03/12/2026 E EFE Sueldos — Patín-Verónica Salinas Pago liquidación #16 - Verónica (11/2026) Liquidación pagada −$30,000.00 Admin Prueba Ver"':
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Sueldos — Patín-Verónica Salinas"
+        - 'cell "Pago liquidación #16 - Verónica (11/2026) Liquidación pagada"':
+          - text: "Pago liquidación #16 - Verónica (11/2026)"
+          - generic: Liquidación pagada
+        - cell "−$30,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/liquidaciones/16
+      - row "03/12/2026 E EFE Sueldos — Op-Sandra Vidal Sueldo de noviembre Directo −$320,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Sueldos — Op-Sandra Vidal"
+        - cell "Sueldo de noviembre Directo":
+          - text: Sueldo de noviembre
+          - generic: Directo
+        - cell "−$320,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/777/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/777
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/777/eliminar
+      - row "03/12/2026 E EFE Sueldos — Op-Pablo Ledesma Sueldo de noviembre Directo −$320,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Sueldos — Op-Pablo Ledesma"
+        - cell "Sueldo de noviembre Directo":
+          - text: Sueldo de noviembre
+          - generic: Directo
+        - cell "−$320,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/778/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/778
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/778/eliminar
+      - row "03/12/2026 E MP Sueldos — Op-Rocío Paz Sueldo de noviembre Directo −$280,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "MP"
+        - cell "Sueldos — Op-Rocío Paz"
+        - cell "Sueldo de noviembre Directo":
+          - text: Sueldo de noviembre
+          - generic: Directo
+        - cell "−$280,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/779/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/779
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/779/eliminar
+      - row "03/12/2026 E MP Alquileres — San Carlos Alquiler de cancha, noviembre Directo −$180,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "MP"
+        - cell "Alquileres — San Carlos"
+        - cell "Alquiler de cancha, noviembre Directo":
+          - text: Alquiler de cancha, noviembre
+          - generic: Directo
+        - cell "−$180,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/780/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/780
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/780/eliminar
+      - row "03/12/2026 E EFE Alquileres — Centenera Alquiler de cancha, noviembre Directo −$125,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "03/12/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Alquileres — Centenera"
+        - cell "Alquiler de cancha, noviembre Directo":
+          - text: Alquiler de cancha, noviembre
+          - generic: Directo
+        - cell "−$125,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/781/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/781
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/781/eliminar
+  - heading "Mostrador · sin validar" [level=3]
+  - paragraph: Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.
+  - paragraph: "Pago cuota alumno #337 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $30,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #248 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $30,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #333 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $43,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #267 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $43,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #296 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $33,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #308 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $35,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #266 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $45,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #313 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $50,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #271 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $50,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - paragraph: "Pago cuota alumno #256 - Períodos: 2026-12"
+  - text: Caja abierta · Sandra Vidal
+  - paragraph:
+    - strong: $50,000.00
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/caja/100/detalle
+  - navigation "Paginación":
+    - paragraph: Mostrando 1 a 10 de 17 resultados
+    - generic "&laquo; Anterior":
+    - generic: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-12-03&anio=2026&cajas_page=2
+      - text: "2"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?periodo=dia&fecha=2026-12-03&anio=2026&cajas_page=2
+- contentinfo:
+  - generic: Wings

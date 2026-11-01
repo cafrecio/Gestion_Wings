@@ -1,0 +1,301 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/revisar-desglose-liquidacion
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Liquidación — Acosta, Martín" [level=1]
+- main:
+  - generic: Liquidación pagada. Movimiento registrado en cashflow.
+  - heading "Acosta, Martín" [level=2]
+  - generic: Noviembre 2026
+  - generic: Fútbol
+  - generic: Tipo
+  - text: Por comisión
+  - generic: Monto final
+  - generic: $195,000.00
+  - generic: Estado
+  - text: Pagada
+  - generic: Fecha de pago
+  - generic: 02/12/2026 — Mercado Pago
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/liquidacion/15?inline=1
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones
+  - text: Cálculo original
+  - paragraph: $195,000.00
+  - text: Ajuste del admin
+  - paragraph: $0.00
+  - text: Monto final
+  - paragraph: $195,000.00
+  - generic: Alumnos con pagos registrados
+  - generic: "15"
+  - generic: "% Comisión"
+  - generic: 30.0%
+  - generic: Cálculo original
+  - generic: $195,000.00
+  - heading "Gomez, Lucas" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 03/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Rodriguez, Mateo" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 07/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Fernandez, Benjamin" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 02/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Diaz, Thiago" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 02/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Ferrari, Nicolas" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 03/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Navarro, Julian" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 05/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Sosa, Felipe" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Adelantada
+  - generic: "Cobrado:"
+  - generic: 22/10/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Ramos, Dante" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 07/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Rossi, Leon" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 04/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Silva, Simon" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 04/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Molina, Franco" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 07/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Ortiz, Tobias" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 05/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Morales, Lorenzo" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 07/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $38,000.00
+  - generic: "Comisión:"
+  - generic: $11,400.00
+  - heading "Vega, Joaquin" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 05/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - heading "Gimenez, Tomas" [level=3]
+  - generic: "Cuota:"
+  - generic: 11/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 07/11/2026
+  - generic: "Grupo:"
+  - generic: Fútbol — Avanzadas
+  - generic: "Monto pagado:"
+  - generic: $48,000.00
+  - generic: "Comisión:"
+  - generic: $14,400.00
+  - generic: Total confirmado
+  - generic: $195,000.00
+- contentinfo:
+  - generic: Wings

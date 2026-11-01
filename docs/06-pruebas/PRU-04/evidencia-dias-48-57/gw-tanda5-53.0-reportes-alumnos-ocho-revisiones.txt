@@ -1,0 +1,211 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 2":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "2"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/reportes-alumnos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Reporte de alumnos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12
+  - link "Ingresos y egresos":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-12
+  - strong: Alumnos
+  - link "Sueldos":
+    - /url: https://test.gestionar-te.com.ar/reportes/sueldos?mes=2026-12
+  - combobox "Mes":
+    - option "Diciembre 2026" [selected]
+    - option "Noviembre 2026"
+    - option "Octubre 2026"
+    - option "Septiembre 2026"
+    - option "Agosto 2026"
+    - option "Julio 2026"
+    - option "Junio 2026"
+    - option "Mayo 2026"
+    - option "Abril 2026"
+    - option "Marzo 2026"
+    - option "Febrero 2026"
+    - option "Enero 2026"
+    - option "Diciembre 2025"
+    - option "Noviembre 2025"
+    - option "Octubre 2025"
+    - option "Septiembre 2025"
+    - option "Agosto 2025"
+    - option "Julio 2025"
+    - option "Junio 2025"
+    - option "Mayo 2025"
+    - option "Abril 2025"
+    - option "Marzo 2025"
+    - option "Febrero 2025"
+    - option "Enero 2025"
+    - option "Diciembre 2024"
+    - option "Noviembre 2024"
+    - option "Octubre 2024"
+    - option "Septiembre 2024"
+    - option "Agosto 2024"
+    - option "Julio 2024"
+    - option "Junio 2024"
+    - option "Mayo 2024"
+    - option "Abril 2024"
+    - option "Marzo 2024"
+    - option "Febrero 2024"
+    - option "Enero 2024"
+    - option "Diciembre 2023"
+    - option "Noviembre 2023"
+    - option "Octubre 2023"
+    - option "Septiembre 2023"
+    - option "Agosto 2023"
+    - option "Julio 2023"
+    - option "Junio 2023"
+    - option "Mayo 2023"
+    - option "Abril 2023"
+    - option "Marzo 2023"
+    - option "Febrero 2023"
+    - option "Enero 2023"
+    - option "Diciembre 2022"
+    - option "Noviembre 2022"
+    - option "Octubre 2022"
+    - option "Septiembre 2022"
+    - option "Agosto 2022"
+    - option "Julio 2022"
+    - option "Junio 2022"
+    - option "Mayo 2022"
+    - option "Abril 2022"
+    - option "Marzo 2022"
+    - option "Febrero 2022"
+  - combobox "Deporte":
+    - option "Todos los deportes" [selected]
+    - option "Fútbol"
+    - option "Hockey"
+    - option "Patín"
+  - button "Filtrar"
+  - heading "Diciembre 2026" [level=2]
+  - generic: Asistencia hasta 01/12
+  - generic: Activos hoy
+  - generic: "117"
+  - generic: 3 inactivos
+  - text: Matrícula actual · 01/12
+  - generic: Asistencias del mes
+  - generic: "0"
+  - generic: 0 alumnos distintos
+  - text: Cada presente cuenta una vez
+  - generic: Presencia registrada
+  - generic: Sin datos
+  - generic: 0 ausencias registradas
+  - text: Sobre presentes + ausentes cargados
+  - generic: Clases sin registros
+  - generic: "4"
+  - generic: De 4 clases no canceladas
+  - text: No cuentan como ausencias
+  - generic: Altas del mes
+  - generic: "1"
+  - text: Ingresos por fecha de alta; no incluye reactivaciones
+  - generic: Pases a Inactivo del mes
+  - generic: "0"
+  - text: Cada alumno cuenta una vez, aunque vuelva a activo
+  - heading "Evolución de asistencia" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - generic: Meses cerrados
+  - img "Evolución de presentes y ausentes registrados"
+  - generic "Detalle"
+  - heading "Activos por deporte" [level=3]
+  - generic: Hoy · 01/12
+  - img "Distribución actual de alumnos activos por deporte"
+  - strong: "117"
+  - generic: Activos
+  - strong: "42"
+  - text: Fútbol
+  - strong: "75"
+  - text: Patín
+  - heading "Deporte y nivel" [level=2]
+  - generic: Matrícula hoy · Asistencia del mes
+  - heading "Activos por nivel" [level=3]
+  - img "Activos actuales por deporte y nivel"
+  - generic "Detalle"
+  - heading "Asistencia por nivel" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - img "Asistencias y ausencias registradas por deporte y nivel"
+  - generic "Detalle"
+  - heading "Seguimiento" [level=2]
+  - generic: Sin cambios automáticos de estado
+  - generic "Activos hoy sin presentes en diciembre · 117"
+  - text: 8 revisiones pendientes
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+  - generic: Matrícula actual · asistencia del mes elegido
+  - generic: Clases canceladas y futuras excluidas
+- contentinfo:
+  - generic: Wings

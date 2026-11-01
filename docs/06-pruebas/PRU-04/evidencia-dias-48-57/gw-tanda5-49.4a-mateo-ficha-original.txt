@@ -1,0 +1,111 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Rodriguez, Mateo" [level=1]
+- main:
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "49100203"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 05/06/2012
+  - paragraph:
+    - text: Celular
+  - paragraph: "1145123402"
+  - paragraph:
+    - text: Email
+  - paragraph: laura.rodriguez@testmail.com
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Avanzadas
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $38,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 10/04/2024
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Laura Rodriguez
+  - paragraph: Teléfono
+  - paragraph: "1145123402"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 07/11/2026 · Nov 2026
+  - generic: $38,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/288?inline=1
+  - generic: 13/10/2026 · Oct 2026
+  - generic: $38,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/8?inline=1
+  - generic: 10/10/2026 · Sep 2026
+  - generic: $38,000.00
+  - link "Recibo":
+    - /url: https://test.gestionar-te.com.ar/recibos/cuota/2?inline=1
+  - paragraph:
+    - text: Asistencias — Nov 2026
+  - paragraph: 10 clases
+  - generic: 03/11
+  - generic: 05/11
+  - generic: 07/11
+  - generic: 10/11
+  - generic: 12/11
+  - generic: 14/11
+  - generic: 17/11
+  - generic: 19/11
+  - generic: 24/11
+  - generic: 26/11
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

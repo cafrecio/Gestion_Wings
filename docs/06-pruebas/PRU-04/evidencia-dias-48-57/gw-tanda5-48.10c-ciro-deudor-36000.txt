@@ -1,0 +1,95 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Paz, Ciro" [level=1]
+- main:
+  - heading "Inscripción al club" [level=3]
+  - paragraph: "Por única vez por persona. Saldo pendiente: $8,000.00"
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "49111222"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 11/04/2015
+  - paragraph:
+    - text: Celular
+  - paragraph: 11-4455-6600
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Grupo
+  - paragraph: Fútbol — Principiantes
+  - paragraph:
+    - text: Plan
+  - paragraph: 1x sem. — $28,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 10/08/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Deudor
+  - generic: "Total adeudado: $36,000.00"
+  - generic: Nov 2026
+  - generic: $28,000.00
+  - paragraph:
+    - text: Tutor
+  - paragraph: Nombre
+  - paragraph: Laura Paz
+  - paragraph: Teléfono
+  - paragraph: 11-4455-6600
+  - paragraph:
+    - text: Historial de pagos
+  - paragraph: Sin pagos registrados.
+  - paragraph:
+    - text: Asistencias — Nov 2026
+  - paragraph: Sin asistencias en Nov 2026.
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

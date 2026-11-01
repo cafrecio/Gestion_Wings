@@ -1,0 +1,9 @@
+ 1. Sandra Vidal abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal Indumentaria institucional $18000 por Efectivo — Movimiento registrado.
+ 3. Sandra Vidal Limpieza $3600 por Efectivo — Movimiento registrado.
+ 4. Sandra Vidal Librería $1250.5 por Efectivo — Movimiento registrado.
+ 5. Sandra Vidal Insumos Varios $2800 por Efectivo — Movimiento registrado.
+ 6. Sandra Vidal Botiquín $1400 por Efectivo — Movimiento registrado.
+ 7. Lucía Gaitán lista de la #209: 30 alumnos, 27 presentes — Asistencias guardadas.
+Cobranza: $207.910,00 · {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+GUARDADO.

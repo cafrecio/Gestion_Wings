@@ -1,0 +1,151 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Lucía Gaitán
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-asistencia
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Intermedias" [level=1]
+- main:
+  - heading "Lunes 30 de noviembre de 2026" [level=2]
+  - generic: 17:00 – 18:00
+  - generic: Patín
+  - generic: Patín — Intermedias
+  - generic: Gaitán, Lucía
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "19"
+  - text: alumnos en el grupo ·
+  - strong: "16"
+  - text: presentes
+  - generic: Benitez, Paulina
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …031
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Cabrera, Constanza
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …021
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Cabrera, Renata
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …913
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ferrari, Josefina
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …019
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Juana
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …030
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Garcia, Melina
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …029
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gimenez, Helena
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …906
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ledesma, Paula
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …022
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Martinez, Delfina
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …601
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Navarro, Alma
+  - paragraph: Deudor
+  - paragraph: Requiere motivo al marcar presente
+  - generic: 0/1
+  - generic: · DNI …915
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Navarro, Malena
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …020
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Perez, Carla
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …028
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Quiroga, Lara
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …111
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rodriguez, Mia
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …201
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Romero, Florencia
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …025
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ruiz, Sol
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …027
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Sanchez, Berenice
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …024
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Sosa, Rocio
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …026
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Villalba, Emma
+  - paragraph: Nuevo · Deudor
+  - generic: 0/1
+  - generic: · DNI …444
+  - generic: Presente
+  - checkbox "Presente"
+  - paragraph: Estás corrigiendo una lista ya tomada — indicá el motivo
+  - 'textbox "Ej: Se nos pasó cargar a un alumno, se marcó por error..."': "Rocío Sosa no vino: la marqué mal"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

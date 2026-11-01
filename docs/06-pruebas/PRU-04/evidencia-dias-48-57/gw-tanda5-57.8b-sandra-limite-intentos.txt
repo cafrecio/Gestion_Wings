@@ -1,0 +1,14 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation
+- banner:
+  - heading "Esperá un momento" [level=1]
+- main:
+  - article "Demasiados intentos seguidos":
+    - heading "Demasiados intentos seguidos" [level=2]
+    - paragraph: Esperá un momento y probá de nuevo.
+    - button "Volver"
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,22 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Lucía Gaitán
+- button "Salir"
+- banner:
+  - heading "Dirección de una acción" [level=1]
+- main:
+  - article "Esta dirección no se abre a mano":
+    - heading "Esta dirección no se abre a mano" [level=2]
+    - paragraph: "Es la dirección de una acción: se usa desde su botón en la pantalla. No se hizo ningún cambio."
+    - button "Volver"
+- contentinfo:
+  - generic: Wings

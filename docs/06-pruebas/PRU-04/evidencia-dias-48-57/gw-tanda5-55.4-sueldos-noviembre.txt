@@ -1,0 +1,216 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/reportes-sueldos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Reporte de sueldos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-11
+  - link "Ingresos y egresos":
+    - /url: https://test.gestionar-te.com.ar/reportes?mes=2026-11
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/reportes/alumnos?mes=2026-11
+  - strong: Sueldos
+  - combobox "Mes":
+    - option "Diciembre 2026"
+    - option "Noviembre 2026" [selected]
+    - option "Octubre 2026"
+    - option "Septiembre 2026"
+  - combobox "Deporte":
+    - option "Todos los deportes" [selected]
+    - option "Fútbol"
+    - option "Hockey"
+    - option "Patín"
+  - button "Filtrar"
+  - heading "Noviembre 2026" [level=2]
+  - generic: Costo del mes · hasta 30/11
+  - generic: Costo de profesores
+  - generic: $1,392,000.00
+  - generic: Aunque se pague después
+  - generic: Cuotas atribuidas
+  - generic: $3,986,700.00
+  - generic: Importe real del mismo mes
+  - generic: Sueldos / cuotas
+  - generic: 34,9%
+  - generic: Parte de las cuotas destinada a profesores
+  - generic: Costo por asistencia
+  - generic: $1,562.29
+  - generic: 891 asistencias del mes
+  - heading "Pagos de operativas" [level=2]
+  - generic: Registrados en Cashflow durante el mes
+  - heading "Total pagado" [level=3]
+  - generic: $920,000.00
+  - paragraph: Gasto del club, sin reparto por deporte. Los indicadores de profesores corresponden a sus clases.
+  - text: Pablo Ledesma
+  - generic: 1 pago
+  - strong: $320,000.00
+  - text: Rocío Paz
+  - generic: 1 pago
+  - strong: $280,000.00
+  - text: Sandra Vidal
+  - generic: 1 pago
+  - strong: $320,000.00
+  - 'heading "Evolución: cuotas y sueldos" [level=3]'
+  - generic: Cuotas atribuidas
+  - generic: Costo de profesores
+  - img "Evolución de cuotas atribuidas y costo de profesores"
+  - generic "Detalle"
+  - heading "Por deporte" [level=3]
+  - img "Cuotas y sueldos por deporte"
+  - generic "Detalle"
+  - heading "Por profesor" [level=2]
+  - generic: Cada asistencia cuenta
+  - heading "Quintana, Hernán" [level=3]
+  - strong: $561,000.00
+  - text: Costo · Fútbol
+  - strong: $1,248,269.91
+  - text: Cuotas atribuidas
+  - strong: 44,9%
+  - text: Sueldos / cuotas
+  - strong: $1,558.33
+  - text: Por asistencia
+  - strong: "39"
+  - text: Alumnos con pagos registrados
+  - strong: "10"
+  - text: Asistencias sin pago de cuota
+  - strong: "360"
+  - text: Asistencias totales
+  - paragraph: Comisión sobre cuotas cobradas
+  - heading "Ocampo, Mariela" [level=3]
+  - strong: $342,000.00
+  - text: Costo · Patín
+  - strong: $527,965.25
+  - text: Cuotas atribuidas
+  - strong: 64,8%
+  - text: Sueldos / cuotas
+  - strong: $3,137.61
+  - text: Por asistencia
+  - strong: "27"
+  - text: Alumnos con pagos registrados
+  - strong: "0"
+  - text: Asistencias sin pago de cuota
+  - strong: "109"
+  - text: Asistencias totales
+  - paragraph: Estimado por clases del mes
+  - heading "Gaitán, Lucía" [level=3]
+  - strong: $264,000.00
+  - text: Costo · Patín
+  - strong: $1,845,584.75
+  - text: Cuotas atribuidas
+  - strong: 14,3%
+  - text: Sueldos / cuotas
+  - strong: $666.67
+  - text: Por asistencia
+  - strong: "63"
+  - text: Alumnos con pagos registrados
+  - strong: "0"
+  - text: Asistencias sin pago de cuota
+  - strong: "396"
+  - text: Asistencias totales
+  - paragraph: Estimado por clases del mes
+  - heading "Acosta, Martín" [level=3]
+  - strong: $195,000.00
+  - text: Costo · Fútbol
+  - strong: $172,430.09
+  - text: Cuotas atribuidas
+  - strong: 113,1%
+  - text: Sueldos / cuotas
+  - strong: $3,482.14
+  - text: Por asistencia
+  - strong: "15"
+  - text: Alumnos con pagos registrados
+  - strong: "0"
+  - text: Asistencias sin pago de cuota
+  - strong: "56"
+  - text: Asistencias totales
+  - paragraph: Comisión sobre cuotas cobradas
+  - heading "Salinas, Verónica" [level=3]
+  - strong: $30,000.00
+  - text: Costo · Patín
+  - strong: $192,450.00
+  - text: Cuotas atribuidas
+  - strong: 15,6%
+  - text: Sueldos / cuotas
+  - strong: $909.09
+  - text: Por asistencia
+  - strong: "16"
+  - text: Alumnos con pagos registrados
+  - strong: "1"
+  - text: Asistencias sin pago de cuota
+  - strong: "33"
+  - text: Asistencias totales
+  - paragraph: Estimado por clases del mes
+  - generic "Cómo se calcula"
+  - generic: Comparación económica · no determina ganancias del club
+  - generic: Datos faltantes no se dibujan como cero
+- contentinfo:
+  - generic: Wings

@@ -1,0 +1,527 @@
+[
+  {
+    "archivo": "57.manana-real-y-reloj-1330.txt",
+    "bytes": 1711,
+    "sha256": "EA0E04E055323D56421732B2C7F5076FD04B3D3022AA106180DF1B1508639466"
+  },
+  {
+    "archivo": "57.manana-simulada.txt",
+    "bytes": 1731,
+    "sha256": "68874B66224191BA3F3AC2B88FF02FF30566256D2E1C6F9A66E0B2BBB8927448"
+  },
+  {
+    "archivo": "57.noche-real-y-reloj-2130.txt",
+    "bytes": 574,
+    "sha256": "ECEB786A292FD345A1457B841408838B3792C135CB3784208BF31D9A496E937C"
+  },
+  {
+    "archivo": "57.noche-simulada.txt",
+    "bytes": 594,
+    "sha256": "34F8BEC6B2D5ED59E8BDE2E1F826E0B9E27DBEBC2A95959F5B8E22BD9CEA762F"
+  },
+  {
+    "archivo": "gw-tanda5-57.1-futbol-avanzadas-cancelada-confirmada.jpg",
+    "bytes": 91727,
+    "sha256": "5BCBCCBE785E1A423BF321A54311B8E3AC085FDDD6E9CF2C488E804081254639"
+  },
+  {
+    "archivo": "gw-tanda5-57.1-futbol-avanzadas-cancelada-confirmada.txt",
+    "bytes": 5277,
+    "sha256": "3379D5E5A5D66CF52E248676879331173611D24F27D66C1F6393D36EDC017A79"
+  },
+  {
+    "archivo": "gw-tanda5-57.1-futbol-avanzadas-cancelada.jpg",
+    "bytes": 101563,
+    "sha256": "BE946EE27EE73DD3A4241710C2C0D9CA22C9C85B8E1141F7B7E7773C18152165"
+  },
+  {
+    "archivo": "gw-tanda5-57.1-futbol-avanzadas-cancelada.txt",
+    "bytes": 5438,
+    "sha256": "466B5F077569FD784D34A255B4377DDC1C3235706D8C4F861C6588985973C707"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-herrera-torneo-3000.jpg",
+    "bytes": 91394,
+    "sha256": "6EFE6E4AC1C8DB53ADF819BAF2AC46F8717F98527BB54F5D2A854A2304E5DC4A"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-herrera-torneo-3000.txt",
+    "bytes": 3727,
+    "sha256": "6F617C06C83B0FC0C0E11D1A86FEBDEC5BEC99EE907BBF8D8D03802F2B370F03"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-lopez-torneo-3000.jpg",
+    "bytes": 91555,
+    "sha256": "17C1A59EE2205FFEC41BCDFEC1F45EF4D3E369FFE8A440E51433A90A5306062C"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-lopez-torneo-3000.txt",
+    "bytes": 3731,
+    "sha256": "27BBEB2FCD6D53DE66BB197C9FF8A401EFEF8C74845F7C5887BEFE560D729864"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-molina-torneo-3000.jpg",
+    "bytes": 91405,
+    "sha256": "8301A41AA54676105D7365B4E77FE3D150E0ACFCC89BD3FD31E9486A5AA07CE9"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-molina-torneo-3000.txt",
+    "bytes": 3727,
+    "sha256": "1C3553128F4D8C6D28536B96DAAF4E81DC3BB039CC184BB8A8C354EF52386232"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-romero-torneo-3000.jpg",
+    "bytes": 91477,
+    "sha256": "4367492E35299AF8B4CD67E76498059550581C2D33D120BAA948A92CC9DFF254"
+  },
+  {
+    "archivo": "gw-tanda5-57.2-romero-torneo-3000.txt",
+    "bytes": 3727,
+    "sha256": "69931A8EB596AC5DB01DCF196D863660FB6E12D9A685D895BE58973A5FBD018F"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-antes-corte-con-dos-presentes.jpg",
+    "bytes": 30298,
+    "sha256": "AE5332A3D6A6810AC2A792D1E148F2A91B5B61B53C893C8C119A8E8D8BC2FC07"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-antes-corte-con-dos-presentes.txt",
+    "bytes": 1464,
+    "sha256": "237E764A6BCA4B027BEE6F6547510F8352134B0D26985DEAA478EA2F4F11CACB"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-lista-persistida-3-marcas-2-presentes.jpg",
+    "bytes": 32504,
+    "sha256": "276E25B63046DE06ADDEAA3312FB7D7EB7DD0DFF6EF7CBC2D3927491C92A9FE5"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-lista-persistida-3-marcas-2-presentes.txt",
+    "bytes": 1464,
+    "sha256": "302A9EA2F727AFDD6DC6E52E6AACA970141B071A5F206BF979B7B37F55569E95"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-medidas-movil.json",
+    "bytes": 36,
+    "sha256": "7648596F5EA356C6ACF5FE8AD45B3D152665FDB5A21A48CCEA95A005133A79A6"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-offline-error-conexion-confirmado.jpg",
+    "bytes": 32045,
+    "sha256": "5BF66F8F2DC5048F1F921D18B58FEB59904782B5EAAB6E140D644613E17AE135"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-offline-error-conexion-confirmado.txt",
+    "bytes": 1455,
+    "sha256": "541571CCA0B462D7E8F205EA4141C6F8291D17E04679E499B7EC4B7209C13369"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-offline-error-marcas-conservadas.jpg",
+    "bytes": 32045,
+    "sha256": "5BF66F8F2DC5048F1F921D18B58FEB59904782B5EAAB6E140D644613E17AE135"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-offline-error-marcas-conservadas.txt",
+    "bytes": 1455,
+    "sha256": "541571CCA0B462D7E8F205EA4141C6F8291D17E04679E499B7EC4B7209C13369"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-online-lista-guardada.jpg",
+    "bytes": 32045,
+    "sha256": "5BF66F8F2DC5048F1F921D18B58FEB59904782B5EAAB6E140D644613E17AE135"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-online-lista-guardada.txt",
+    "bytes": 1455,
+    "sha256": "541571CCA0B462D7E8F205EA4141C6F8291D17E04679E499B7EC4B7209C13369"
+  },
+  {
+    "archivo": "gw-tanda5-57.3-red-offline.txt",
+    "bytes": 155,
+    "sha256": "2B8132AAA1BC5D25EA6A4B68F1B5A7D4F7D46A8AAE84CAA1CCB3A6C0BF5B70E6"
+  },
+  {
+    "archivo": "gw-tanda5-57.4-alma-pago-69300.jpg",
+    "bytes": 86440,
+    "sha256": "9346C17625BCE13BAFD2A9A5ADF2AAEB7FCC2098F5F17A22BF9E4FDC16900F17"
+  },
+  {
+    "archivo": "gw-tanda5-57.4-alma-pago-69300.txt",
+    "bytes": 5918,
+    "sha256": "293B961F581C1080229129AFA3BCCB044BACA3905AD94D322C92B6EE864F6919"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-al-dia-pago-unico.jpg",
+    "bytes": 88183,
+    "sha256": "124C3EE058772D414B5EFB567218CFE48C8A703079F8738FB119B219006D6CD3"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-al-dia-pago-unico.txt",
+    "bytes": 3005,
+    "sha256": "CB08474895D084550ACB3F9CA57D47C76F83F2DBB839B47EEA23488A2AE37A33"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-dueno-pantalla-vieja-15000.jpg",
+    "bytes": 105856,
+    "sha256": "38C09258C0D734023C789DD79D654886A44A317B8B92175EAC21F581A6DA3B13"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-dueno-pantalla-vieja-15000.txt",
+    "bytes": 4507,
+    "sha256": "51388F1D1A98889E6DE6097B7D9BA72D857B1209ED81588A114FAFDDCD57897B"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-pago-jp-15000.jpg",
+    "bytes": 86519,
+    "sha256": "F88AA0FF20E240EF8BA9C93FC84EF90E769DB7996A41774D383143A2E276BE46"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-pago-jp-15000.txt",
+    "bytes": 5919,
+    "sha256": "79D2083250BD245AEE94A1767FF244A23A5A76860B8E898D364F29AF5D2F6309"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-vieja-rechazada.jpg",
+    "bytes": 103114,
+    "sha256": "9CE8B2B042995F9C73D57A596660A67E70405521107C13E377E2F0AA556B2C29"
+  },
+  {
+    "archivo": "gw-tanda5-57.5-carla-vieja-rechazada.txt",
+    "bytes": 4368,
+    "sha256": "BEF13433A441050840D448FD039A400A389732E5350BA309412C71E8993EFD2B"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-diciembre-antes-adelantos.jpg",
+    "bytes": 88361,
+    "sha256": "D20CC37C89B60C903A97D223B5AE46265368284380ECD4E444675BD68D8CEC61"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-diciembre-antes-adelantos.txt",
+    "bytes": 6901,
+    "sha256": "E295F3D054EF2857F4F254BA6797B93F1320BF29B33820BD74D9D422343C0A8F"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-diciembre-despues-adelantos.jpg",
+    "bytes": 109500,
+    "sha256": "A1A32F67DC6E31BEFF74A5EAA143C23443A9C00A9A5714C42097997295495DEB"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-diciembre-despues-adelantos.txt",
+    "bytes": 6901,
+    "sha256": "0ED308205F09F35FA0A2166B0D68A1B1DB3EE8CCA2F3CA935C74E8D8D3E70749"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-confirmacion-sin-aviso-precio.jpg",
+    "bytes": 91232,
+    "sha256": "C412DB3E8B210C9691F885574909502D684B628AC9B6A95A7833F5EE91875F49"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-confirmacion-sin-aviso-precio.txt",
+    "bytes": 3715,
+    "sha256": "CA163D1352B9A870E28A31DC9F53F18C85E7415D8D9DBAF886570BC7FFF5EA5F"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-enero-pagado-30000.jpg",
+    "bytes": 79973,
+    "sha256": "E1741D1CF750C261A969F8139862A11495FBEBF793BBFC4890059445D0B2A981"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-enero-pagado-30000.txt",
+    "bytes": 2772,
+    "sha256": "FE1A52C84F7B34EA7E9291BAF3CDA00C94805D5F9FBDC4F13B876E53C0996EF6"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-pago-enero-30000.jpg",
+    "bytes": 86555,
+    "sha256": "52B580448E5C7ACBA1DE7BA3934CDA42ED89305B39362811F805E39810CCC771"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-julieta-pago-enero-30000.txt",
+    "bytes": 5921,
+    "sha256": "70C58A9FF766125E443620FAB7FF425B52E46D9A3352056653813A2A2A52B6B2"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-enero-48000-confirmacion.jpg",
+    "bytes": 91532,
+    "sha256": "7F196C96085BA82356263189D97B0FC2E0BC3C87330FA362A00866625D8AF907"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-enero-48000-confirmacion.txt",
+    "bytes": 3715,
+    "sha256": "7BE29F183B7007E9EB0798A81F85EB6359E5AAE6D1A50CC6FC7844F0E2053843"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-enero-pagado-48000.jpg",
+    "bytes": 85936,
+    "sha256": "16BA4D1654F1D42B898E3B5DAE8042590182257A16DCC19EC8A597324C21E7D0"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-enero-pagado-48000.txt",
+    "bytes": 3010,
+    "sha256": "6DD0BEF4A02F36B2BABE6DCA19878BF12F621E9E6239BEF6554DA985E10F0D05"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-pago-enero-48000.jpg",
+    "bytes": 86539,
+    "sha256": "AD9C52D0B763B21B6F2249D14ADD34ACA1B7421C094DA68122BB6E7B7CD3A69D"
+  },
+  {
+    "archivo": "gw-tanda5-57.6-valentina-pago-enero-48000.txt",
+    "bytes": 5921,
+    "sha256": "5A85EB4D7AB0805D5661D06315E44B2D5A42D2AD066AECD5E7808E5DCF06E73B"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-caja-torneo-saldo-68000.jpg",
+    "bytes": 100476,
+    "sha256": "2520A2DC5910F1731B441EA86D96F742131627332985AC7B392F7886CC5A7885"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-caja-torneo-saldo-68000.txt",
+    "bytes": 22466,
+    "sha256": "EA3B02BC6BA90DC566D04928B4B0855D5A0FDCE2E727A929BFEB032F13E39FAE"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-historial-torneo-inactivo.jpg",
+    "bytes": 102309,
+    "sha256": "74E88DB7E5031AD2F18BC6C568ABF4CEB4BD6C051A7F81CFD98ED0178F8084AF"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-historial-torneo-inactivo.txt",
+    "bytes": 17591,
+    "sha256": "CB512CEDA4DD9A30E3C044B488CFAED524C3B2FC1C57067B903D66CF07B1ECD7"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-organizador-40000-registrado.jpg",
+    "bytes": 101264,
+    "sha256": "863B14188D3472FD1B1FD7DD3CAAC5DD633E9E3988C7DAB79CDC4AD415F64199"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-organizador-40000-registrado.txt",
+    "bytes": 22924,
+    "sha256": "B56F23B8E45C018CCE0D162864BB68F88921ACB4BC11565B4D0DFCB11522FB5B"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-ausente-cobrar.jpg",
+    "bytes": 101404,
+    "sha256": "8170C9D145BBCB56B3DA5225F77278B5FEBE04DCBF9341601F80CF7AD08262EA"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-ausente-cobrar.txt",
+    "bytes": 4860,
+    "sha256": "B459022C495935658D82DA39D29E7E74B0C559AF36A6F79F8C141439AD59A5D3"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-ausente-nuevo-gasto.jpg",
+    "bytes": 72091,
+    "sha256": "37FF92B6D25C14EEC8A6557F89A95896034F1E3AFD640C81498EB7F6CE2DB427"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-ausente-nuevo-gasto.txt",
+    "bytes": 3549,
+    "sha256": "8F77FFE92A6E8B8FEB081AF1AC4579108D40D8624BC3C7563A39CEF480AA5082"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-inactivo-confirmado.jpg",
+    "bytes": 84017,
+    "sha256": "213F21730BD357160952FE3F291F4555ACE8FB0FF36C6FC704E1BB422E934FFF"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-inactivo-confirmado.txt",
+    "bytes": 4367,
+    "sha256": "9B1F280DE084BD9538101082765508ED2A6E82C5ED57D76695841FE8AF6F4F69"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-inactivo.jpg",
+    "bytes": 81522,
+    "sha256": "C3F2A8E0A7BBADCD4CC073541F6D92FC3DA2363F6E2EDF2E99D936A57ADFC426"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-torneo-inactivo.txt",
+    "bytes": 4366,
+    "sha256": "5CEB3B7F3F93B274FA4AE7DBF769A507988C837676F1A010EB37E50344BD2653"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-transferencia-torneo-galicia-28000.jpg",
+    "bytes": 99823,
+    "sha256": "0A9F05F7C1E0B4AD1B23FAD931B02712AFDB1305BE80F3664FD6C43E26C0C2D2"
+  },
+  {
+    "archivo": "gw-tanda5-57.7-transferencia-torneo-galicia-28000.txt",
+    "bytes": 23534,
+    "sha256": "CCC380CBAE9E02D5F431B2D6891B4DF4FF018282A0EB68B6617DF2664848CBD2"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-antes-retiro-reportes.jpg",
+    "bytes": 109455,
+    "sha256": "494ED55C4C171AB67BE05F3D4855736627B0C9D5397E1563AD2A37172724441B"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-antes-retiro-reportes.txt",
+    "bytes": 6901,
+    "sha256": "FDA28C48C1A89A013FE9308EE2E844F6B7CB49F34987D1028167FDD8B56D5AC3"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-despues-retiro-reportes.jpg",
+    "bytes": 109500,
+    "sha256": "A1A32F67DC6E31BEFF74A5EAA143C23443A9C00A9A5714C42097997295495DEB"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-despues-retiro-reportes.txt",
+    "bytes": 6901,
+    "sha256": "0EF17CC8D1A192A83DCCD945E660B6662B659B8CC84E7DA781EF30C7055DE942"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-300000-registrado.jpg",
+    "bytes": 99930,
+    "sha256": "9A985BC2FB00489A8672BCDA9DD376ABF0DA2D697E8EB9A8D81B3AA1AE7287F4"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-300000-registrado.txt",
+    "bytes": 23852,
+    "sha256": "E6CC4D975525A4927FC35823B59A401709BBFF21E397C0F3A780AC39F9003C7B"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-fila-cashflow-dia-correcto.jpg",
+    "bytes": 102571,
+    "sha256": "0FF01AE00362687ECFD8AF7CB13EF76C9FB1EA9201881CA21607210F280694A1"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-fila-cashflow-dia-correcto.txt",
+    "bytes": 18427,
+    "sha256": "5A52F1614BE4833E7F77785A5A310B95738D28998CEF09DAB876319791469A81"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-fila-cashflow.jpg",
+    "bytes": 96627,
+    "sha256": "5C023347F2E0E5808ECA51D67C6B9801C2234F406EF610A30A28ED142E1E16E1"
+  },
+  {
+    "archivo": "gw-tanda5-57.8-retiro-fila-cashflow.txt",
+    "bytes": 3705,
+    "sha256": "DB9F0FAD198A2F15DFD0AC6F5E274D658D28C5416AE5BEB845BB945D06F6D609"
+  },
+  {
+    "archivo": "gw-tanda5-57.8b-intentos-sandra.json",
+    "bytes": 2401,
+    "sha256": "4FF9797A5E679DCF7E15EA5C5E62B688747668F53303D4523B1439176862FA1D"
+  },
+  {
+    "archivo": "gw-tanda5-57.8b-sandra-ingreso-tras-minuto-real.jpg",
+    "bytes": 81360,
+    "sha256": "75EDAA826E19520424AF65AE35668AAC00875734EC405C0A16D68A9624EF63C3"
+  },
+  {
+    "archivo": "gw-tanda5-57.8b-sandra-ingreso-tras-minuto-real.txt",
+    "bytes": 3201,
+    "sha256": "7AA58FEF2877991E60F26E3E323B54B27CBED870C772F94BBF55BD740BCD4311"
+  },
+  {
+    "archivo": "gw-tanda5-57.8b-sandra-limite-intentos.jpg",
+    "bytes": 36497,
+    "sha256": "DB9ACD279211718FDCBC29180140CCE2D716C6C8DE72E3EBE28E5941DC46D1FB"
+  },
+  {
+    "archivo": "gw-tanda5-57.8b-sandra-limite-intentos.txt",
+    "bytes": 355,
+    "sha256": "15F07DC00DCEAF6498D98946027F3014E32F01F94B2C44B9B907A8049ACF2AE9"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-diciembre.jpg",
+    "bytes": 100115,
+    "sha256": "4345969061894B9A20DB4FE178A1FE50CDFB881B664218ED6D958D0258B19422"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-diciembre.txt",
+    "bytes": 23331,
+    "sha256": "3AE6C004EF622644730412278B4FB53FB21F39CD7C3291960EB4D673894088C8"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-noviembre.jpg",
+    "bytes": 100173,
+    "sha256": "C2EDAFCF2751F2FED85DA2B3FE8F6CCA0A4ED22D96697E6A273FC1EF8AF89AFD"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-noviembre.txt",
+    "bytes": 24038,
+    "sha256": "197407B056C1949370661C82C4A6CBEAE99A819D7A7C031E1D93C00A6ED911FF"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-octubre.jpg",
+    "bytes": 100067,
+    "sha256": "5B44EDF97CCE8900788C1AFAABED778DFEBA89833CDDB3D6FD2B2392DB2D1EA0"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cashflow-octubre.txt",
+    "bytes": 22978,
+    "sha256": "385D920E10D256EBABCD956643B8E3B91134EE33886E0D37A1D869B5DC5ECD73"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cobranza-final.jpg",
+    "bytes": 106672,
+    "sha256": "1FC5E4DAF7E4A574B2C2D3C7CD1FD93A7D4B5873A711CE56E78C29C5D4F917EE"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-cobranza-final.txt",
+    "bytes": 6165,
+    "sha256": "46DC29CB5463D20E79714917A7D2A9C40C0CAD710FE174188A364CCC346E9C3A"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-final.jpg",
+    "bytes": 74589,
+    "sha256": "5E67B3C442A2E75A11CD009A024974A1B9F97AF64C5BAC7EFDE6A8FABC459FF2"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-final.txt",
+    "bytes": 7679,
+    "sha256": "CCEA90E347DEBF206382A442B4E28CDF1DB80C524EB6E379FA720941498EA187"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-rocio.jpg",
+    "bytes": 81071,
+    "sha256": "261203B66E8ED1EE335DCE53BECEF044C78982E62B59F7BE91C832499CC9A430"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-rocio.txt",
+    "bytes": 3197,
+    "sha256": "2DA45BA6A46DC8D5E64EFDE9D106F425F5638FD13A5D92C7AA9C58E7543E5E67"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-sandra.jpg",
+    "bytes": 81360,
+    "sha256": "75EDAA826E19520424AF65AE35668AAC00875734EC405C0A16D68A9624EF63C3"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-inicio-sandra.txt",
+    "bytes": 3201,
+    "sha256": "7AA58FEF2877991E60F26E3E323B54B27CBED870C772F94BBF55BD740BCD4311"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-diciembre.jpg",
+    "bytes": 109500,
+    "sha256": "A1A32F67DC6E31BEFF74A5EAA143C23443A9C00A9A5714C42097997295495DEB"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-diciembre.txt",
+    "bytes": 6901,
+    "sha256": "0EF17CC8D1A192A83DCCD945E660B6662B659B8CC84E7DA781EF30C7055DE942"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-noviembre.jpg",
+    "bytes": 109474,
+    "sha256": "7B79635F98635DA7CF3495CEFC75811D79520B9C4A3FE3759ECD4C7763A78733"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-noviembre.txt",
+    "bytes": 6976,
+    "sha256": "D05E3898508D771C59467D3433BB3F13BA2A8A5F067B0FE5A273F3A93E034D65"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-octubre.jpg",
+    "bytes": 106167,
+    "sha256": "6EAC319898B48BED4206493825770A55DECE2EC1049B8D58ED6EA73AC1EA9F05"
+  },
+  {
+    "archivo": "gw-tanda5-57.9-reportes-octubre.txt",
+    "bytes": 7102,
+    "sha256": "3BF054A639A6FB9E208B59F9F9A40BD0CC8D6C6019FBCDC9F360C674B63D44AA"
+  }
+]

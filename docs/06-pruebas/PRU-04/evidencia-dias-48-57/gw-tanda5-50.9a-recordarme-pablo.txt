@@ -1,0 +1,22 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation
+- main:
+  - img "Wings"
+  - heading "Iniciar sesión" [level=1]
+  - generic: Email
+  - textbox "Email":
+    - /placeholder: tu@email.com
+    - text: <redacted>
+  - generic: Contraseña
+  - textbox "Contraseña":
+    - /placeholder: ••••••••
+    - text: <redacted>
+  - button "Mostrar contraseña":
+  - checkbox "Recordarme" [checked] [active]
+  - generic: Recordarme
+  - button "Ingresar"
+- contentinfo:
+  - generic: Wings

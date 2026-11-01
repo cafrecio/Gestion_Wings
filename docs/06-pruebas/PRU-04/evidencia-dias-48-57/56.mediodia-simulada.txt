@@ -1,0 +1,10 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es viernes 4 de diciembre de 2026, 13:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Pablo Ledesma cierra la caja #102: esperado $163.800,00, contado $163.800,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #102 (7 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $1.639.000,00 · {"AL_DIA":80,"EN_PLAZO":34,"MOROSO":0,"DEUDOR":4}
+SIMULADO: no se guardó nada.

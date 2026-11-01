@@ -1,0 +1,107 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/transferir-entre-cuentas
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Transferir" [level=1]
+- main:
+  - paragraph: Mové plata entre cuentas del club. La salida y la entrada se guardan juntas, por el mismo importe.
+  - generic: Cuenta de salida *
+  - combobox "Cuenta de salida *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia" [selected]
+    - option "BNA — Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "TOR — Caja Torneo"
+    - option "EFE — Efectivo"
+    - option "MP — Mercado Pago"
+  - generic: Cuenta de destino *
+  - combobox "Cuenta de destino *":
+    - option "Seleccionar..."
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación" [selected]
+    - option "Banco Nacion ahorro"
+    - option "TOR — Caja Torneo"
+    - option "EFE — Efectivo"
+    - option "MP — Mercado Pago"
+  - generic: Importe *
+  - textbox "Importe *":
+    - /placeholder: "0"
+    - text: 50,000.00
+  - generic: Fecha *
+  - textbox "Fecha *": 2026-10-20
+  - generic: Observación
+  - textbox "Observación": Quedó sin cargar en octubre
+  - paragraph: "Atención: fecha de un mes anterior"
+  - paragraph: La transferencia quedará con esa fecha y cambiará los saldos de ambas cuentas desde ese mes. El resultado del club no cambia. Confirmá para guardar la salida y la entrada.
+  - button "Volver"
+  - button "Confirmar"
+- contentinfo:
+  - generic: Wings

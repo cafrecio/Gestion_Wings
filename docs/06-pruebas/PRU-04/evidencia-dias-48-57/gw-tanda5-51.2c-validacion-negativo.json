@@ -1,0 +1,6 @@
+{
+  "message": "Ingresá un importe válido, con hasta dos decimales.",
+  "min": "0",
+  "type": "text",
+  "value": "-1"
+}

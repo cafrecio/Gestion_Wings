@@ -1,0 +1,9 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es lunes 30 de noviembre de 2026, 21:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Sandra Vidal cierra la caja #94: esperado $73.949,50, contado $73.949,50 — Caja cerrada.
+Cobranza: $207.910,00 · {"AL_DIA":110,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+SIMULADO: no se guardó nada.

@@ -1,0 +1,133 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/administrar-grupos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Fútbol — Infantiles" [level=1]
+- main:
+  - generic: "1x por semana tiene 1 alumno: cambiales el plan antes."
+  - generic: Activo
+  - button "Editar"
+  - paragraph:
+    - text: Deporte
+  - paragraph: Fútbol
+  - paragraph:
+    - text: Nivel
+  - paragraph: Infantiles
+  - paragraph:
+    - text: Alumnos
+  - paragraph: 1 activos / 1 total
+  - paragraph:
+    - text: Creación
+  - paragraph: 19/11/2026
+  - paragraph:
+    - text: Alumnos en este grupo
+  - list:
+    - link "Acuña, Renzo":
+      - /url: https://test.gestionar-te.com.ar/alumnos/352
+  - paragraph:
+    - text: Precios por frecuencia
+  - table:
+    - rowgroup:
+      - row "Frecuencia Precio mensual":
+        - columnheader "Frecuencia"
+        - columnheader "Precio mensual"
+        - columnheader
+    - rowgroup:
+      - row "1x / semana $25,000.00 Eliminar":
+        - cell "1x / semana"
+        - cell "$25,000.00"
+        - cell "Eliminar":
+          - button "Eliminar"
+      - row "2x / semana $38,000.00 Eliminar":
+        - cell "2x / semana"
+        - cell "$38,000.00"
+        - cell "Eliminar":
+          - button "Eliminar"
+  - paragraph:
+    - text: Cronograma semanal
+  - list:
+    - generic: Sáb. 05/12 10:00 a 11:00
+    - link "Ver":
+      - /url: https://test.gestionar-te.com.ar/clases/401
+    - generic: Sáb. 12/12 10:00 a 11:00
+    - link "Ver":
+      - /url: https://test.gestionar-te.com.ar/clases/402
+    - generic: Sáb. 19/12 10:00 a 11:00
+    - link "Ver":
+      - /url: https://test.gestionar-te.com.ar/clases/403
+    - generic: Sáb. 26/12 10:00 a 11:00
+    - link "Ver":
+      - /url: https://test.gestionar-te.com.ar/clases/404
+  - link "Ver todas las clases del grupo":
+    - /url: https://test.gestionar-te.com.ar/clases?grupo_id=9
+  - button "Volver"
+- contentinfo:
+  - generic: Wings

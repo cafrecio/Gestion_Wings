@@ -1,0 +1,15 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es viernes 4 de diciembre de 2026, 15:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Rocío Paz cobra a Torres, Benicio $28.000,00 por Efectivo — Pago registrado para Torres, Benicio.
+ 2. Rocío Paz cobra a Martinez, Bautista $28.000,00 por Efectivo — Pago registrado para Martinez, Bautista.
+ 3. Rocío Paz cobra a Pereyra, Manuel $35.000,00 por Mercado Pago — Pago registrado para Pereyra, Manuel.
+ 4. Rocío Paz cobra a Ramirez, Felipe $35.000,00 por Efectivo — Pago registrado para Ramirez, Felipe.
+ 5. Rocío Paz cobra a Rodriguez, Joaquin $35.000,00 por Efectivo — Pago registrado para Rodriguez, Joaquin.
+ 6. Rocío Paz Limpieza $2400 por Efectivo — Movimiento registrado.
+ 7. Rocío Paz Librería $800 por Efectivo — Movimiento registrado.
+Cobranza: $1.430.800,00 · {"AL_DIA":87,"EN_PLAZO":29,"MOROSO":0,"DEUDOR":3}
+SIMULADO: no se guardó nada.

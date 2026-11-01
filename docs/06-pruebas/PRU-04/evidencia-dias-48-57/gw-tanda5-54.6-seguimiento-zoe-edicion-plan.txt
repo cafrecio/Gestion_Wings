@@ -1,0 +1,139 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/modificar-alumno
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Editar: Pereyra, Zoe" [level=1]'
+- main:
+  - paragraph: Ingrese el DNI y la fecha real de ingreso para consultar la inscripción.
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *" [active]:
+    - /placeholder: Nombre
+    - text: Zoe
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *":
+    - /placeholder: Apellido
+    - text: Pereyra
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+    - text: "55400036"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *": 2012-01-29
+  - text: Fecha de alta
+  - generic: "*"
+  - textbox "Fecha de alta *": 2022-04-15
+  - text: Celular
+  - textbox "Celular":
+    - /placeholder: 11-1234-5678
+    - text: "1145120036"
+  - checkbox "Mismo que el teléfono del tutor"
+  - text: Mismo que el teléfono del tutor
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+    - text: <redacted>
+  - text: Deporte
+  - paragraph: Patín
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar..."
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas" [selected]
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - text: Motivo si corrige la fecha de ingreso
+  - textbox "Motivo si corrige la fecha de ingreso"
+  - paragraph: Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.
+  - text: Frecuencia semanal
+  - generic: (define el precio mensual)
+  - combobox "Frecuencia semanal (define el precio mensual)":
+    - option "Seleccionar frecuencia..."
+    - option "1 vez/semana — $35,000.00" [selected]
+    - option "2 veces/semana — $45,000.00"
+  - paragraph: Datos del tutor — obligatorio para menores de edad
+  - text: Nombre del tutor
+  - textbox "Nombre del tutor":
+    - /placeholder: Nombre y Apellido
+    - text: Tutor Pereyra
+  - text: Teléfono del tutor
+  - textbox "Teléfono del tutor":
+    - /placeholder: 11-1234-5678
+    - text: "1145120036"
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

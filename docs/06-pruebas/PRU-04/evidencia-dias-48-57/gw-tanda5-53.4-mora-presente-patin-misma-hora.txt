@@ -1,0 +1,285 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 1":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "1"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Principiantes" [level=1]
+- main:
+  - heading "Lunes 30 de noviembre de 2026" [level=2]
+  - generic: 16:00 – 17:00
+  - generic: Patín
+  - generic: Patín — Principiantes
+  - generic: Gaitán, Lucía
+  - button "Editar"
+  - generic: Activa
+  - button "Cancelar"
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - paragraph: "No se puede eliminar: Tiene asistencias registradas: debe cancelarse con motivo."
+  - strong: "31"
+  - text: alumnos en el grupo ·
+  - strong: "27"
+  - text: presentes
+  - generic: Acosta, Victoria
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …001
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Arias, Nina
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …333
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Benítez, Mora
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …456
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Castro, Martina
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …917
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Renata
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …002
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Flores, Zoe
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …903
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Godoy, Valentino
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …555
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Gomez, Sofia
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …101
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gutierrez, Olivia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …907
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Gutierrez, Paulina
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …006
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Herrera, Alma
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …004
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Iglesias, Clara
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …009
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Lopez, Martina
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …401
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Lopez, Valentina
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …402
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Medina, Emilia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …003
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Molina, Milagros
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …012
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Morales, Agustina
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …014
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Morales, Julieta
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …911
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ortiz, Micaela
+  - paragraph: En plazo
+  - generic: 1/2
+  - generic: · DNI …013
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Pereyra, Bianca
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …007
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Perez, Mia
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …017
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ramos, Pilar
+  - paragraph: Deudor
+  - paragraph: Requiere motivo al marcar presente
+  - generic: 0/1
+  - generic: · DNI …008
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Rios, Lola
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …015
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rodriguez, Mateo
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …203
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Romero, Catalina
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …018
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Rossi, Morena
+  - paragraph: Al día
+  - generic: 1/2
+  - generic: · DNI …010
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Ruiz, Thiago
+  - paragraph: Nuevo · Deudor
+  - generic: 0/1
+  - generic: · DNI …002
+  - generic: Presente
+  - checkbox "Presente"
+  - generic: Silva, Abril
+  - paragraph: Al día
+  - generic: 1/1 (Completo)
+  - generic: · DNI …011
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Silva, Paulina
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …920
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Suarez, Juana
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …005
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - generic: Torres, Luciana
+  - paragraph: En plazo
+  - generic: 1/1 (Completo)
+  - generic: · DNI …016
+  - generic: Presente
+  - checkbox "Presente" [checked]
+  - paragraph: Estás corrigiendo una lista ya tomada — indicá el motivo
+  - 'textbox "Ej: Se nos pasó cargar a un alumno, se marcó por error..."'
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

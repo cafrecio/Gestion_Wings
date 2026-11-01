@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-lista-mostrador
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Patín — Adultos" [level=1]
+- main:
+  - heading "Jueves 3 de diciembre de 2026" [level=2]
+  - generic: 20:30 – 21:30
+  - generic: Patín
+  - generic: Patín — Adultos
+  - generic: Ocampo, Mariela
+  - button "Editar" [active]
+  - generic: Cancelada
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - generic: Esta clase está cancelada. No se pueden registrar asistencias.
+  - paragraph: Profesores asignados a esta clase *
+  - paragraph: Seleccioná al menos una profesora activa del deporte.
+  - checkbox "Directora, Vanina"
+  - text: Directora, Vanina
+  - checkbox "Gaitán, Lucía"
+  - text: Gaitán, Lucía
+  - checkbox "Ocampo, Mariela" [checked]
+  - text: Ocampo, Mariela
+  - button "Guardar"
+  - button "Cancelar"
+  - strong: "4"
+  - text: alumnos en el grupo ·
+  - strong: "0"
+  - text: presentes
+  - generic: Cabrera, Bruno
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …444
+  - generic: Presente
+  - checkbox "Presente" [disabled]
+  - generic: Funes, Graciela
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …555
+  - generic: Presente
+  - checkbox "Presente" [disabled]
+  - generic: Ibañez, Marcelo
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …222
+  - generic: Presente
+  - checkbox "Presente" [disabled]
+  - generic: Luna, Joaquina
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …222
+  - generic: Presente
+  - checkbox "Presente" [disabled]
+- contentinfo:
+  - generic: Wings

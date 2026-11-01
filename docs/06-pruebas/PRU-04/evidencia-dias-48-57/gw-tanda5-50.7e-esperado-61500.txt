@@ -1,0 +1,126 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Pablo Ledesma
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cerrar-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Resumen de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Pablo Ledesma
+  - paragraph: Apertura
+  - paragraph: 28/11/2026 09:30
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "7"
+  - text: movimientos
+  - link "Cobrar":
+    - /url: https://test.gestionar-te.com.ar/caja/cobrar
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/caja/92/editar
+  - button "Cerrar"
+  - button "Rectificar"
+  - link "Detalle":
+    - /url: https://test.gestionar-te.com.ar/caja/92/detalle
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - heading "Efectivo del mostrador" [level=3]
+  - text: Inicial
+  - paragraph: $10,000.00
+  - text: Esperado
+  - paragraph: $61,500.00
+  - text: Contado
+  - paragraph: Sin declarar
+  - text: Diferencia
+  - paragraph: Sin declarar
+  - text: Cambio que queda
+  - paragraph: Sin declarar
+  - text: Retiro / entrega
+  - paragraph: Sin declarar
+  - paragraph: Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.
+  - paragraph: Por medio de pago
+  - table:
+    - rowgroup:
+      - row "Abr. Medio Total":
+        - columnheader "Abr."
+        - columnheader "Medio"
+        - columnheader "Total"
+    - rowgroup:
+      - row "EFE Efectivo $51,500.00":
+        - cell "EFE"
+        - cell "Efectivo"
+        - cell "$51,500.00"
+      - row "MP Mercado Pago $38,000.00":
+        - cell "MP"
+        - cell "Mercado Pago"
+        - cell "$38,000.00"
+  - paragraph: Por rubro
+  - table:
+    - rowgroup:
+      - row "Rubro Tipo Total":
+        - columnheader "Rubro"
+        - columnheader "Tipo"
+        - columnheader "Total"
+    - rowgroup:
+      - row "Torneos INGRESO $3,000.00":
+        - cell "Torneos"
+        - cell "INGRESO"
+        - cell "$3,000.00"
+      - row "Indumentaria INGRESO $18,000.00":
+        - cell "Indumentaria"
+        - cell "INGRESO"
+        - cell "$18,000.00"
+      - row "Gastos Operativos EGRESO $7,500.00":
+        - cell "Gastos Operativos"
+        - cell "EGRESO"
+        - cell "$7,500.00"
+      - row "Cuotas INGRESO $76,000.00":
+        - cell "Cuotas"
+        - cell "INGRESO"
+        - cell "$76,000.00"
+  - paragraph: Ingresos
+  - paragraph: $97,000.00
+  - paragraph: Egresos
+  - paragraph: $7,500.00
+  - paragraph: Neto
+  - paragraph: $89,500.00
+- contentinfo:
+  - generic: Wings

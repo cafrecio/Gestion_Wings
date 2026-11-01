@@ -1,0 +1,605 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día"
+    - option "Semana"
+    - option "Mes"
+    - option "Año" [selected]
+  - generic: Año
+  - combobox "Año":
+    - option "2026" [selected]
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Caja Torneo"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: Año 2026 completo
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 29/11/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $2,564,150.00
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Caja Torneo
+    - strong: $50,000.00
+    - generic: Efectivo
+    - strong: $1,159,500.00
+    - generic: Mercado Pago
+    - strong: $3,951,270.75
+  - strong: $9,434,750.75
+  - generic: ingresos
+  - strong: $3,271,830.00
+  - generic: egresos
+  - strong: $6,162,920.75
+  - generic: resultado del período
+  - strong: "441"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "29/10/2026 I EFE Indumentaria — Indumentaria institucional Venta de remera, día 20 Caja validada $18,000.00 Rocío Paz AP Ver":
+        - cell "29/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Venta de remera, día 20 Caja validada":
+          - text: Venta de remera, día 20
+          - generic: Caja validada
+        - cell "$18,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/38/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Acosta, Victoria Caja validada $30,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Acosta, Victoria Caja validada":
+          - text: Acosta, Victoria
+          - generic: Caja validada
+        - cell "$30,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I MP Cuotas — Cuota Mensual Flores, Renata Caja validada $30,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Flores, Renata Caja validada":
+          - text: Flores, Renata
+          - generic: Caja validada
+        - cell "$30,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Herrera, Alma Caja validada $40,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Herrera, Alma Caja validada":
+          - text: Herrera, Alma
+          - generic: Caja validada
+        - cell "$40,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I MP Cuotas — Cuota Mensual Medina, Emilia Caja validada $40,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Medina, Emilia Caja validada":
+          - text: Medina, Emilia
+          - generic: Caja validada
+        - cell "$40,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Benitez, Paulina Caja validada $43,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Benitez, Paulina Caja validada":
+          - text: Benitez, Paulina
+          - generic: Caja validada
+        - cell "$43,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Cabrera, Constanza Caja validada $33,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Cabrera, Constanza Caja validada":
+          - text: Cabrera, Constanza
+          - generic: Caja validada
+        - cell "$33,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Castro, Bruno Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Castro, Bruno Caja validada":
+          - text: Castro, Bruno
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I MP Cuotas — Cuota Mensual Diaz, Thiago Caja validada $38,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Diaz, Thiago Caja validada":
+          - text: Diaz, Thiago
+          - generic: Caja validada
+        - cell "$38,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Torres, Benicio Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Torres, Benicio Caja validada":
+          - text: Torres, Benicio
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I MP Cuotas — Cuota Mensual Rossi, Leon Caja validada $38,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Rossi, Leon Caja validada":
+          - text: Rossi, Leon
+          - generic: Caja validada
+        - cell "$38,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 E EFE Gastos Operativos — Limpieza Limpieza del miércoles Caja validada −$3,500.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Limpieza del miércoles Caja validada":
+          - text: Limpieza del miércoles
+          - generic: Caja validada
+        - cell "−$3,500.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Indumentaria — Indumentaria institucional Remera del club, talle 10 Caja validada $18,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Indumentaria — Indumentaria institucional"
+        - cell "Remera del club, talle 10 Caja validada":
+          - text: Remera del club, talle 10
+          - generic: Caja validada
+        - cell "$18,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - row "28/10/2026 I EFE Cuotas — Cuota Mensual Vega, Joaquin Caja validada $44,000.00 Sandra Vidal AP Ver":
+        - cell "28/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Vega, Joaquin Caja validada":
+          - text: Vega, Joaquin
+          - generic: Caja validada
+        - cell "$44,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/36/detalle
+      - 'row "28/10/2026 E BGA Servicios — Luz Edesur, octubre: llegó tarde Directo −$9,400.00 Admin Prueba Editar Historial Eliminar"':
+        - cell "28/10/2026"
+        - cell "E"
+        - cell "BGA"
+        - cell "Servicios — Luz"
+        - 'cell "Edesur, octubre: llegó tarde Directo"':
+          - text: "Edesur, octubre: llegó tarde"
+          - generic: Directo
+        - cell "−$9,400.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/483/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/483
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/483/eliminar
+      - row "27/10/2026 I MP Cuotas — Cuota Mensual Navarro, Alma Caja validada $58,000.00 Pablo Ledesma AP Ver":
+        - cell "27/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Navarro, Alma Caja validada":
+          - text: Navarro, Alma
+          - generic: Caja validada
+        - cell "$58,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/17/detalle
+      - row "27/10/2026 I EFE Cuotas — Cuota Mensual Sanchez, Berenice Caja validada $43,000.00 Pablo Ledesma AP Ver":
+        - cell "27/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Sanchez, Berenice Caja validada":
+          - text: Sanchez, Berenice
+          - generic: Caja validada
+        - cell "$43,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/17/detalle
+      - row "26/10/2026 E EFE Gastos Operativos — Limpieza Limpieza del lunes Caja validada −$3,800.00 Rocío Paz AP Ver":
+        - cell "26/10/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Limpieza del lunes Caja validada":
+          - text: Limpieza del lunes
+          - generic: Caja validada
+        - cell "−$3,800.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/16/detalle
+      - row "26/10/2026 I EFE Cuotas — Cuota Mensual Romero, Santino Caja validada $56,000.00 Rocío Paz AP Ver":
+        - cell "26/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Romero, Santino Caja validada":
+          - text: Romero, Santino
+          - generic: Caja validada
+        - cell "$56,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/16/detalle
+      - row "26/10/2026 E EFE Gastos Operativos — Botiquín Gasas y alcohol Caja validada −$6,500.00 Rocío Paz AP Ver":
+        - cell "26/10/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Botiquín"
+        - cell "Gasas y alcohol Caja validada":
+          - text: Gasas y alcohol
+          - generic: Caja validada
+        - cell "−$6,500.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/16/detalle
+      - row "24/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Berenice Caja validada $50,000.00 Pablo Ledesma AP Ver":
+        - cell "24/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Rossi, Berenice Caja validada":
+          - text: Rossi, Berenice
+          - generic: Caja validada
+        - cell "$50,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/14/detalle
+      - 'row "24/10/2026 I EFE Torneos — Inscripciones Torneo de primavera: 3 inscripciones Caja validada $24,000.00 Pablo Ledesma AP Ver"':
+        - cell "24/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Torneos — Inscripciones"
+        - 'cell "Torneo de primavera: 3 inscripciones Caja validada"':
+          - text: "Torneo de primavera: 3 inscripciones"
+          - generic: Caja validada
+        - cell "$24,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/14/detalle
+      - row "23/10/2026 I EFE Cuotas — Cuota Mensual Ramos, Dante Caja validada $38,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Ramos, Dante Caja validada":
+          - text: Ramos, Dante
+          - generic: Caja validada
+        - cell "$38,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I MP Cuotas — Cuota Mensual Pereyra, Zoe Caja validada $45,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Pereyra, Zoe Caja validada":
+          - text: Pereyra, Zoe
+          - generic: Caja validada
+        - cell "$45,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I EFE Cuotas — Cuota Mensual Rossi, Morena Caja validada $40,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Rossi, Morena Caja validada":
+          - text: Rossi, Morena
+          - generic: Caja validada
+        - cell "$40,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I BNA Cuotas — Cuota Mensual Castro, Mateo Caja validada $28,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "BNA"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Castro, Mateo Caja validada":
+          - text: Castro, Mateo
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I BNA Inscripciones — Inscripción al club Castro, Mateo Caja validada $5,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "BNA"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Castro, Mateo Caja validada":
+          - text: Castro, Mateo
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I MP Cuotas — Cuota Mensual Lopez, Martina Caja validada $30,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Lopez, Martina Caja validada":
+          - text: Lopez, Martina
+          - generic: Caja validada
+        - cell "$30,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 I MP Inscripciones — Inscripción al club Lopez, Martina Caja validada $5,000.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Inscripciones — Inscripción al club"
+        - cell "Lopez, Martina Caja validada":
+          - text: Lopez, Martina
+          - generic: Caja validada
+        - cell "$5,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+      - row "23/10/2026 E EFE Gastos Operativos — Librería Resma de papel Caja validada −$1,500.00 Pablo Ledesma AP Ver":
+        - cell "23/10/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Librería"
+        - cell "Resma de papel Caja validada":
+          - text: Resma de papel
+          - generic: Caja validada
+        - cell "−$1,500.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/13/detalle
+  - navigation "Paginación":
+    - paragraph: Mostrando 331 a 360 de 441 resultados
+    - link "&laquo; Anterior":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=11
+    - link "Ir a la página 1":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=1
+      - text: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=2
+      - text: "2"
+    - generic: ...
+    - link "Ir a la página 6":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=6
+      - text: "6"
+    - link "Ir a la página 7":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=7
+      - text: "7"
+    - link "Ir a la página 8":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=8
+      - text: "8"
+    - link "Ir a la página 9":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=9
+      - text: "9"
+    - link "Ir a la página 10":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=10
+      - text: "10"
+    - link "Ir a la página 11":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=11
+      - text: "11"
+    - generic: "12"
+    - link "Ir a la página 13":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=13
+      - text: "13"
+    - link "Ir a la página 14":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=14
+      - text: "14"
+    - link "Ir a la página 15":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=15
+      - text: "15"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=13
+- contentinfo:
+  - generic: Wings

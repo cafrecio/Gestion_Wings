@@ -1,0 +1,10 @@
+
+   INFO  Configuration cache cleared successfully.  
+
+Wings ahora cree que es miércoles 2 de diciembre de 2026, 21:00
+El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.
+Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.
+ 1. Rocío Paz cierra la caja #98: esperado $501.510,00, contado $501.510,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #98 (25 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $2.383.000,00 · {"AL_DIA":59,"EN_PLAZO":53,"MOROSO":0,"DEUDOR":4}
+SIMULADO: no se guardó nada.

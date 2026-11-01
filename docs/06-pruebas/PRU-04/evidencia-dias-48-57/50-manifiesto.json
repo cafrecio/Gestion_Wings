@@ -1,0 +1,537 @@
+[
+  {
+    "archivo": "50.0-reloj-0930.txt",
+    "bytes": 276,
+    "sha256": "0b23599a052ddc9dab4e907f488952c90385438c5ff17824f2ef006f9514eeb9"
+  },
+  {
+    "archivo": "50.0-rutina-manana-real.txt",
+    "bytes": 487,
+    "sha256": "0d0a6efe6906d8c79d71f7f7d0dc0635614adf5f38cd97030dd2044c95ba86d9"
+  },
+  {
+    "archivo": "50.0-rutina-manana-simulada.txt",
+    "bytes": 507,
+    "sha256": "c9a27e744639de442498731998c2af9015535af3da08da9525c84ae4203c514b"
+  },
+  {
+    "archivo": "50.11-reloj-noche.txt",
+    "bytes": 276,
+    "sha256": "2c9b7f58a8c77629dd89af7a66ae600a1cc3975403feb228f5387a44317f943e"
+  },
+  {
+    "archivo": "50.11-rutina-noche-real.txt",
+    "bytes": 287,
+    "sha256": "d5f3f8982f1b18a4d23a846c851681ced1310c702d6870a68486b830efb265c8"
+  },
+  {
+    "archivo": "50.11-rutina-noche-simulada.txt",
+    "bytes": 307,
+    "sha256": "2149456fbd0197bcd3982b9ce2ee12327673e99b8ea062dffa74fa1a828b14ec"
+  },
+  {
+    "archivo": "50.2-reloj-1030.txt",
+    "bytes": 276,
+    "sha256": "d5facbf4c0bae6ec405fc05f8c8a7731acb2cfdff911f6a1c1484fc3092f2955"
+  },
+  {
+    "archivo": "50.3-reloj-1230.txt",
+    "bytes": 276,
+    "sha256": "2613476f68e4880641918a5b1322ebc72d9a3946d815f4acafaf0b6fa5bdfca9"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-1.jpg",
+    "bytes": 44798,
+    "sha256": "a8619499efb2f2586c0e2e7dd9861e322cc918131938d3f567e9f54a823ead8c"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-1.txt",
+    "bytes": 668,
+    "sha256": "c92e4aa8e5142cfb9015b5c37725358498b77786a08932a79e5d14377481daa9"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-2.jpg",
+    "bytes": 44798,
+    "sha256": "a8619499efb2f2586c0e2e7dd9861e322cc918131938d3f567e9f54a823ead8c"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-2.txt",
+    "bytes": 668,
+    "sha256": "c92e4aa8e5142cfb9015b5c37725358498b77786a08932a79e5d14377481daa9"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-3.jpg",
+    "bytes": 42163,
+    "sha256": "299e35633d9a7d685e69ec5d5753d4256d7ca79f2c198de45e2b3c528d33b713"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-3.txt",
+    "bytes": 657,
+    "sha256": "a1bf317f777eab2bdd4258616b284dfaf1e5b9c0ecfa6ed9243f52c518032a8f"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-4.jpg",
+    "bytes": 42163,
+    "sha256": "299e35633d9a7d685e69ec5d5753d4256d7ca79f2c198de45e2b3c528d33b713"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-lucia-4.txt",
+    "bytes": 657,
+    "sha256": "a1bf317f777eab2bdd4258616b284dfaf1e5b9c0ecfa6ed9243f52c518032a8f"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-1.jpg",
+    "bytes": 40188,
+    "sha256": "91327b34677d7f83171ff73485498deb6b6dc832fe0fccb49d7708a69e75e0bd"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-1.txt",
+    "bytes": 1471,
+    "sha256": "15509b2a30a2511a2c0a56805afb3bf3c574db0a23af3763d7d1b5ca7244041e"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-2.jpg",
+    "bytes": 39497,
+    "sha256": "a5fa292017cb38c5db79c1870437ee9bf631405c2f74a1723b323208adadab7b"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-2.txt",
+    "bytes": 1471,
+    "sha256": "15509b2a30a2511a2c0a56805afb3bf3c574db0a23af3763d7d1b5ca7244041e"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-3.jpg",
+    "bytes": 39497,
+    "sha256": "a5fa292017cb38c5db79c1870437ee9bf631405c2f74a1723b323208adadab7b"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-3.txt",
+    "bytes": 1471,
+    "sha256": "15509b2a30a2511a2c0a56805afb3bf3c574db0a23af3763d7d1b5ca7244041e"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-4.jpg",
+    "bytes": 37070,
+    "sha256": "50ada9f7a21887dd7245ed1b0a889ff561721b33518be2c51b175b4e057fa075"
+  },
+  {
+    "archivo": "gw-tanda5-50.10-pablo-4.txt",
+    "bytes": 1460,
+    "sha256": "98268a95cb3b5ab565c7eaa7ad386ff644aea2c8ffc839c0ab7b30c28093ce72"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-cobranza-cierre.jpg",
+    "bytes": 64171,
+    "sha256": "6382566424afde8c94272a6ab5adca595fcfdbf399dd882277673a08b720c8f0"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-cobranza-cierre.txt",
+    "bytes": 7602,
+    "sha256": "af93389efb0efac5e324d418ae1ed437f544ffb7761eb503b65a65ed16d0897a"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-inicio-cierre.jpg",
+    "bytes": 56292,
+    "sha256": "c558e34b1642cf8932948dc1516153eed5f8392ad4796e9c4ad99642f3f93328"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-inicio-cierre.txt",
+    "bytes": 6713,
+    "sha256": "98783f18ebc15ef1ea3e60146d6ecdee7ae601185208a4ce672773aa45b4ceab"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-reportes-cierre.jpg",
+    "bytes": 66142,
+    "sha256": "cd03a0275e99fe9b0460dac349161dfbfe5fc77ea263a52c469e882e82432577"
+  },
+  {
+    "archivo": "gw-tanda5-50.12-reportes-cierre.txt",
+    "bytes": 6391,
+    "sha256": "689a11338fcfe323628b3ee4057c2861da895bc5893a49cf346b287b2ca64bbf"
+  },
+  {
+    "archivo": "gw-tanda5-50.1a-pablo-apertura-preparada.jpg",
+    "bytes": 63020,
+    "sha256": "56cb1bb261d801447f04414eba9e23ddfdbfb948d547b9c0d8b5d2e8bb583f90"
+  },
+  {
+    "archivo": "gw-tanda5-50.1a-pablo-apertura-preparada.txt",
+    "bytes": 1922,
+    "sha256": "871ea61869a99c2b1670650e0acbb76cc4937e9e12aeacc8f00b0c755466b70a"
+  },
+  {
+    "archivo": "gw-tanda5-50.1b-sandra-apertura-preparada.jpg",
+    "bytes": 45795,
+    "sha256": "7b408cd5765ed86c6455fecdb83b93b0c8d37bf6c9291f0794d0da1671bc7ba8"
+  },
+  {
+    "archivo": "gw-tanda5-50.1b-sandra-apertura-preparada.txt",
+    "bytes": 1921,
+    "sha256": "c18a6e578b6a7e0518777e3c980af9fc61acf3f8250fde51eed96111e77c5567"
+  },
+  {
+    "archivo": "gw-tanda5-50.1c-pablo-resultado.jpg",
+    "bytes": 83426,
+    "sha256": "3c58d46b6e8bf439901efa7f1c80a4a8d8ef72d3fa38a627b49ebb97a1f5742a"
+  },
+  {
+    "archivo": "gw-tanda5-50.1c-pablo-resultado.txt",
+    "bytes": 2510,
+    "sha256": "ea6970ae5670342a6c4a5e8a6b5881814119cc0d32410267711064136c3bb485"
+  },
+  {
+    "archivo": "gw-tanda5-50.1d-sandra-resultado.jpg",
+    "bytes": 42951,
+    "sha256": "dff49ff1f3b22a248d7e4af1618482627d0ce5e7f05a0f0afe9bd0470050823d"
+  },
+  {
+    "archivo": "gw-tanda5-50.1d-sandra-resultado.txt",
+    "bytes": 1598,
+    "sha256": "79f25e4df84a22f7b4015a2217a25e6b685415d42e31f586ab7c798491be48c6"
+  },
+  {
+    "archivo": "gw-tanda5-50.2a-clases-0930.jpg",
+    "bytes": 64276,
+    "sha256": "8e349c93fe60e25c44bf45efc0848ea952b464b6f54fb78d09a6ec48b8ffda0c"
+  },
+  {
+    "archivo": "gw-tanda5-50.2a-clases-0930.txt",
+    "bytes": 10054,
+    "sha256": "f26aa28d841a39da0c56923c776db8cf22c2414418c8d36fd32d51d7d9667d8f"
+  },
+  {
+    "archivo": "gw-tanda5-50.2b-clases-1030.jpg",
+    "bytes": 64204,
+    "sha256": "aeb7b97a23c3a427df035454adfac680b6fad74ea49cb20b46ece7b0b6f754e7"
+  },
+  {
+    "archivo": "gw-tanda5-50.2b-clases-1030.txt",
+    "bytes": 10052,
+    "sha256": "bc62e905492beb7ffe509fbe270bb826a16d6b09d09ea425de78739580f4156b"
+  },
+  {
+    "archivo": "gw-tanda5-50.3a-dos-finalizadas.jpg",
+    "bytes": 64125,
+    "sha256": "05e497f5100412bd0044659e678bf7a9cdd738c7d3fda868bdda6e578b538575"
+  },
+  {
+    "archivo": "gw-tanda5-50.3a-dos-finalizadas.txt",
+    "bytes": 10052,
+    "sha256": "d99fc413233574f1f8b297c62a2e24aca6d4c07c9e881fcf3b00efc0d4aa8c2d"
+  },
+  {
+    "archivo": "gw-tanda5-50.3b-sin-asistencia-dos.jpg",
+    "bytes": 53007,
+    "sha256": "1b7f32118f590e93103086925cfafa281e7b643eb0199c7fce37be25c8234aa0"
+  },
+  {
+    "archivo": "gw-tanda5-50.3b-sin-asistencia-dos.txt",
+    "bytes": 6718,
+    "sha256": "b5e5e378c25c56ba21e00e4ab3ff8d55fe3abe07bd0ddc60dbad4ccd8a83c55d"
+  },
+  {
+    "archivo": "gw-tanda5-50.3c-filtro-finalizadas.jpg",
+    "bytes": 55799,
+    "sha256": "cd664a7035515ee0395aebf8f66df246dc55fb7e04c027f7534f70de0a10935b"
+  },
+  {
+    "archivo": "gw-tanda5-50.3c-filtro-finalizadas.txt",
+    "bytes": 4174,
+    "sha256": "cae0345dad36b5a0b4d853f4ce97776f576588d44de8f00e9a7c17e43ba0ed81"
+  },
+  {
+    "archivo": "gw-tanda5-50.4a-mariela-seis-presentes.jpg",
+    "bytes": 55597,
+    "sha256": "82fc96cbcb2d8a3da5ba3e3ea27394ea861999a855f9d0fb82f407af4a709bdc"
+  },
+  {
+    "archivo": "gw-tanda5-50.4a-mariela-seis-presentes.txt",
+    "bytes": 2974,
+    "sha256": "9f359b2e0870a5bfa1254ff3934c6fac2ba4e835bb8c4427122a3d3392b22554"
+  },
+  {
+    "archivo": "gw-tanda5-50.4b-mariela-persistida.jpg",
+    "bytes": 52605,
+    "sha256": "5ae68b97db78747ef0b69886bd56fb89c6522db44d6592b65e2d92ea81d5054a"
+  },
+  {
+    "archivo": "gw-tanda5-50.4b-mariela-persistida.txt",
+    "bytes": 2966,
+    "sha256": "c5fa67773a5e0a2099d26d7960929627296bf3828861a0ce331b5bc90f0f54a9"
+  },
+  {
+    "archivo": "gw-tanda5-50.4c-pablo-vieja-siete-presentes.jpg",
+    "bytes": 101900,
+    "sha256": "dec03bb3a644a84d6cfae86de42792e574023a3dd749cfe10dc67ea2588e0cea"
+  },
+  {
+    "archivo": "gw-tanda5-50.4c-pablo-vieja-siete-presentes.txt",
+    "bytes": 3994,
+    "sha256": "f884e0d67ea7189dccbe5f171ccd84b213ea15a720d2f687c3942adcbfb9d695"
+  },
+  {
+    "archivo": "gw-tanda5-50.4d-ultima-lista-persistida.jpg",
+    "bytes": 93339,
+    "sha256": "a38e8d2bfdc0e5f3f43f2de8b09ccd12b02d78a52d2be898400c1c9cbef83c2d"
+  },
+  {
+    "archivo": "gw-tanda5-50.4d-ultima-lista-persistida.txt",
+    "bytes": 3984,
+    "sha256": "f092e862e24decbff92ed0235e1f1a3887ec9dd59ba73ebb3c7e3cacd5897a87"
+  },
+  {
+    "archivo": "gw-tanda5-50.5a-hernan-lucas-ausente.jpg",
+    "bytes": 57786,
+    "sha256": "e7b7e3ef9c2e7f0a01b9125edc4eb350658a2e6b56742bff1afd8114799b81ba"
+  },
+  {
+    "archivo": "gw-tanda5-50.5a-hernan-lucas-ausente.txt",
+    "bytes": 5398,
+    "sha256": "99fc7385113382f2d97d08706d21f2a24960fbc5de806e1ff54fd81a9f030b36"
+  },
+  {
+    "archivo": "gw-tanda5-50.5b-lista-hernan-persistida.jpg",
+    "bytes": 52931,
+    "sha256": "e5cb82d94606e650f19bd4a8fa83aab48254f0cae722b8df37f1882f8f738a18"
+  },
+  {
+    "archivo": "gw-tanda5-50.5b-lista-hernan-persistida.txt",
+    "bytes": 5375,
+    "sha256": "804cbe9039b86e214e8e2ec34e983d499ef0b3a9330e5c469b27a69aa2a9f311"
+  },
+  {
+    "archivo": "gw-tanda5-50.5c-inicio-sin-asistencia.jpg",
+    "bytes": 79307,
+    "sha256": "ca39b8a4840eea99a827b13e965507879519299d273fc1b5fe0aee0f2ba2dfa4"
+  },
+  {
+    "archivo": "gw-tanda5-50.5c-inicio-sin-asistencia.txt",
+    "bytes": 6718,
+    "sha256": "b5e5e378c25c56ba21e00e4ab3ff8d55fe3abe07bd0ddc60dbad4ccd8a83c55d"
+  },
+  {
+    "archivo": "gw-tanda5-50.6a-pablo-no-desactivado-con-caja.jpg",
+    "bytes": 83781,
+    "sha256": "1834f2bd7ecde8607371d98ef683aa9068cec52a1e399eaa3c013d68a12e6454"
+  },
+  {
+    "archivo": "gw-tanda5-50.6a-pablo-no-desactivado-con-caja.txt",
+    "bytes": 5300,
+    "sha256": "503fd98fd61e2ecfa3ccf9ed652db351efbd8d8a3269a2550622d0df39f8c621"
+  },
+  {
+    "archivo": "gw-tanda5-50.6b-hernan-desactivado.jpg",
+    "bytes": 85220,
+    "sha256": "dbc53751c76095aa4cf8bbc618eb5931eb24f7292da39b28263b9a483b49e27c"
+  },
+  {
+    "archivo": "gw-tanda5-50.6b-hernan-desactivado.txt",
+    "bytes": 5314,
+    "sha256": "b49c93f9550abafdfb5c3cf12b4f6169122c51c4e65ebd81800fdafd840d7e7d"
+  },
+  {
+    "archivo": "gw-tanda5-50.6c-hernan-navega-tras-baja.jpg",
+    "bytes": 26427,
+    "sha256": "ede18933745bf04eaaca23a0d41856580d287bd4a8e95abd44339f0b279b49de"
+  },
+  {
+    "archivo": "gw-tanda5-50.6c-hernan-navega-tras-baja.txt",
+    "bytes": 509,
+    "sha256": "d369bb3122f924613c5cd642b431ebe168b914a737ed840eb716db8da716a26a"
+  },
+  {
+    "archivo": "gw-tanda5-50.6d-guardar-sesion-desactivada.jpg",
+    "bytes": 50839,
+    "sha256": "00a7e076d6718e60d0b12ca35399a21bea429cfdea5f86257336a8d9a897418d"
+  },
+  {
+    "archivo": "gw-tanda5-50.6d-guardar-sesion-desactivada.txt",
+    "bytes": 5375,
+    "sha256": "804cbe9039b86e214e8e2ec34e983d499ef0b3a9330e5c469b27a69aa2a9f311"
+  },
+  {
+    "archivo": "gw-tanda5-50.6e-recarga-exige-ingreso.jpg",
+    "bytes": 23644,
+    "sha256": "0723091c88498c17ebb95b79760c0c6e66bfe707485aa416af38bab922409efc"
+  },
+  {
+    "archivo": "gw-tanda5-50.6e-recarga-exige-ingreso.txt",
+    "bytes": 467,
+    "sha256": "992acdcf44dac2035bb89292606a412a1ce495034b8f3cc171817b0d5c6720f9"
+  },
+  {
+    "archivo": "gw-tanda5-50.6f-hernan-reactivado.jpg",
+    "bytes": 84727,
+    "sha256": "470881a42e5de29059243c916bb3142427b005f1c8dfffbc6039ed977d447531"
+  },
+  {
+    "archivo": "gw-tanda5-50.6f-hernan-reactivado.txt",
+    "bytes": 5320,
+    "sha256": "5097fb04662d494d35fac06bdd02d1b1293cad08b8a2331d7572af5a61705d1b"
+  },
+  {
+    "archivo": "gw-tanda5-50.6g-hernan-entra-marcas-intactas.jpg",
+    "bytes": 54979,
+    "sha256": "6391103b27a15ef352abbf73bbec80025bf969be7fb6f9ac8fb51f7e2dfb6cdb"
+  },
+  {
+    "archivo": "gw-tanda5-50.6g-hernan-entra-marcas-intactas.txt",
+    "bytes": 5375,
+    "sha256": "804cbe9039b86e214e8e2ec34e983d499ef0b3a9330e5c469b27a69aa2a9f311"
+  },
+  {
+    "archivo": "gw-tanda5-50.7a-franco-38000-antes.jpg",
+    "bytes": 104266,
+    "sha256": "efc7929e49b2abe362c23c579a4d3e2b32d0f3b84e241f6edd5df47a6f623fe5"
+  },
+  {
+    "archivo": "gw-tanda5-50.7a-franco-38000-antes.txt",
+    "bytes": 3445,
+    "sha256": "7f2e78c43185bcbd7485b57adacc437d3e1acc576dfc81f5145b994a4204fbc9"
+  },
+  {
+    "archivo": "gw-tanda5-50.7b-franco-cobrado.jpg",
+    "bytes": 91241,
+    "sha256": "6c96f29a183d1a8379965b1550c336e218d18845e25318b4b738a7efa003ecbd"
+  },
+  {
+    "archivo": "gw-tanda5-50.7b-franco-cobrado.txt",
+    "bytes": 5905,
+    "sha256": "909496586cfd4d05b1aad11f6c1c0d206eb6e0fe1bbaed9e9b14a7cd2c408c5f"
+  },
+  {
+    "archivo": "gw-tanda5-50.7c-felipe-38000-antes.jpg",
+    "bytes": 104048,
+    "sha256": "26002f9508846c9dac4285dfe275484adcd0f9d6779194619f23728f0b9bcebc"
+  },
+  {
+    "archivo": "gw-tanda5-50.7c-felipe-38000-antes.txt",
+    "bytes": 3452,
+    "sha256": "4e8150a6fb0ab0e29d8b9f650bea15aaf1d09ab6054ea35f25a5edf7dd6d2086"
+  },
+  {
+    "archivo": "gw-tanda5-50.7d-felipe-cobrado.jpg",
+    "bytes": 91182,
+    "sha256": "84262bb41a65bd3b6f6962cdd65e0fd188bd071c64237aa66832f2e21ae16ece"
+  },
+  {
+    "archivo": "gw-tanda5-50.7d-felipe-cobrado.txt",
+    "bytes": 5903,
+    "sha256": "d1180a9e680f17c79540df3e160df520ab78f7566c21ba50a50ad65bab2a9a33"
+  },
+  {
+    "archivo": "gw-tanda5-50.7e-esperado-61500.jpg",
+    "bytes": 99376,
+    "sha256": "063ab759b35b28dcd2d6430243a11d86d0cd06132f6b098051ca3428e99046ae"
+  },
+  {
+    "archivo": "gw-tanda5-50.7e-esperado-61500.txt",
+    "bytes": 3683,
+    "sha256": "b19d4100633cb57ed6e778bf6367dbdccdfd982e2c6a7d052b9118158409852c"
+  },
+  {
+    "archivo": "gw-tanda5-50.8a-cancelar-solo-esta.jpg",
+    "bytes": 90284,
+    "sha256": "e2a83c78f59f340f9069dde062f07c8a84d2f0e710e44f74eb3699d4ae4dae68"
+  },
+  {
+    "archivo": "gw-tanda5-50.8a-cancelar-solo-esta.txt",
+    "bytes": 2542,
+    "sha256": "2ec84a4e21989c49274cd766e6716ec7ed0111d53686601eb28b4c03e481d640"
+  },
+  {
+    "archivo": "gw-tanda5-50.8b-clase-cancelada.jpg",
+    "bytes": 83559,
+    "sha256": "e8cc9b2ff481e15e53e63a45d08cd7c5a73d51f8f971fe88e6c9d2f2016756d6"
+  },
+  {
+    "archivo": "gw-tanda5-50.8b-clase-cancelada.txt",
+    "bytes": 2400,
+    "sha256": "6248b3ce088c49108f1c2199c574489857187fdd69aaf17b66a1ff6849172a91"
+  },
+  {
+    "archivo": "gw-tanda5-50.9a-recordarme-pablo.jpg",
+    "bytes": 24987,
+    "sha256": "f04bc513b071ac94d50391a9d42f34c9efa5d8f97a828402890f869601b6a412"
+  },
+  {
+    "archivo": "gw-tanda5-50.9a-recordarme-pablo.txt",
+    "bytes": 523,
+    "sha256": "4dfcc28609e55910cd6835c15c705d756606ed043e6d6f077fcf7dcba79d4bce"
+  },
+  {
+    "archivo": "gw-tanda5-50.9b-segunda-sesion-pablo.jpg",
+    "bytes": 61250,
+    "sha256": "daf4ad00c5fc9d70e964f13e498bfac517fb983a06618a4a42d3e6d4d2f6bc4c"
+  },
+  {
+    "archivo": "gw-tanda5-50.9b-segunda-sesion-pablo.txt",
+    "bytes": 3135,
+    "sha256": "178603c501c3d73ef784b3a811f6470eff1dc6189e5e662dcd03086e2e47476b"
+  },
+  {
+    "archivo": "gw-tanda5-50.9c-edge-reabierto-sigue-pablo.jpg",
+    "bytes": 62280,
+    "sha256": "f91b953ab0df338ff01a6ff21886286500176deffeec1f12fd81fc3da00b1e47"
+  },
+  {
+    "archivo": "gw-tanda5-50.9c-edge-reabierto-sigue-pablo.txt",
+    "bytes": 3135,
+    "sha256": "178603c501c3d73ef784b3a811f6470eff1dc6189e5e662dcd03086e2e47476b"
+  },
+  {
+    "archivo": "gw-tanda5-50.9c-reinicio-navegador.json",
+    "bytes": 676,
+    "sha256": "620bdd60cda81f002a6dbfe6f2e4655e425a9f8c0ed70e1e84891496494ff1b4"
+  },
+  {
+    "archivo": "gw-tanda5-50.9d-salir-primer-navegador.jpg",
+    "bytes": 31921,
+    "sha256": "5d499a8185afd58f29f9b32477c6b25903e7c602865e1fa303f51f9c6a457b70"
+  },
+  {
+    "archivo": "gw-tanda5-50.9d-salir-primer-navegador.txt",
+    "bytes": 467,
+    "sha256": "992acdcf44dac2035bb89292606a412a1ce495034b8f3cc171817b0d5c6720f9"
+  },
+  {
+    "archivo": "gw-tanda5-50.9e-atras-despues-salir.jpg",
+    "bytes": 82491,
+    "sha256": "ff151aef7ac091e3a2679ecc4b767764ea2300456ce0d3b68bc625e839154429"
+  },
+  {
+    "archivo": "gw-tanda5-50.9e-atras-despues-salir.txt",
+    "bytes": 2400,
+    "sha256": "6248b3ce088c49108f1c2199c574489857187fdd69aaf17b66a1ff6849172a91"
+  },
+  {
+    "archivo": "gw-tanda5-50.9f-otra-sesion-sigue-activa.jpg",
+    "bytes": 62280,
+    "sha256": "f91b953ab0df338ff01a6ff21886286500176deffeec1f12fd81fc3da00b1e47"
+  },
+  {
+    "archivo": "gw-tanda5-50.9f-otra-sesion-sigue-activa.txt",
+    "bytes": 3135,
+    "sha256": "178603c501c3d73ef784b3a811f6470eff1dc6189e5e662dcd03086e2e47476b"
+  },
+  {
+    "archivo": "gw-tanda5-50.9g-atras-editar-solo-panel.jpg",
+    "bytes": 85653,
+    "sha256": "31e2aa3521ee6b293c9a101f6d24514c81dfc52019bda8be8e0e8f5526ee2b99"
+  },
+  {
+    "archivo": "gw-tanda5-50.9g-atras-editar-solo-panel.txt",
+    "bytes": 2758,
+    "sha256": "25969bc3b1ae279c102cba696aa5bbaba100adb22e0c1b449e895bdf0515e81f"
+  },
+  {
+    "archivo": "gw-tanda5-50.9h-recarga-pide-ingreso.jpg",
+    "bytes": 31932,
+    "sha256": "28671a72867fc493939194ba0594b7de38a072012a373a6cd2b5501f7a5974c4"
+  },
+  {
+    "archivo": "gw-tanda5-50.9h-recarga-pide-ingreso.txt",
+    "bytes": 467,
+    "sha256": "992acdcf44dac2035bb89292606a412a1ce495034b8f3cc171817b0d5c6720f9"
+  }
+]

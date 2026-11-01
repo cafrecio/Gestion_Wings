@@ -1,0 +1,605 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día"
+    - option "Semana"
+    - option "Mes"
+    - option "Año" [selected]
+  - generic: Año
+  - combobox "Año":
+    - option "2026" [selected]
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Caja Torneo"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: Año 2026 completo
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 29/11/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $2,564,150.00
+    - generic: Banco Nación
+    - strong: $58,000.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Caja Torneo
+    - strong: $50,000.00
+    - generic: Efectivo
+    - strong: $1,159,500.00
+    - generic: Mercado Pago
+    - strong: $3,951,270.75
+  - strong: $9,434,750.75
+  - generic: ingresos
+  - strong: $3,271,830.00
+  - generic: egresos
+  - strong: $6,162,920.75
+  - generic: resultado del período
+  - strong: "441"
+  - text: movimientos
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "14/11/2026 I MP Cuotas — Cuota Mensual Fernandez, Emma Caja validada $45,000.00 Pablo Ledesma AP Ver":
+        - cell "14/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Fernandez, Emma Caja validada":
+          - text: Fernandez, Emma
+          - generic: Caja validada
+        - cell "$45,000.00"
+        - cell "Pablo Ledesma"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/66/detalle
+      - row "13/11/2026 E BGA Servicios — Luz Edesur, factura de noviembre Directo −$38,000.00 Admin Prueba Editar Historial Eliminar":
+        - cell "13/11/2026"
+        - cell "E"
+        - cell "BGA"
+        - cell "Servicios — Luz"
+        - cell "Edesur, factura de noviembre Directo":
+          - text: Edesur, factura de noviembre
+          - generic: Directo
+        - cell "−$38,000.00"
+        - cell "Admin Prueba"
+        - cell
+        - cell "Editar Historial Eliminar":
+          - link "Editar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/371/editar
+          - link "Historial":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/371
+          - link "Eliminar":
+            - /url: https://test.gestionar-te.com.ar/cashflow/movimientos/371/eliminar
+      - row "13/11/2026 I EFE Cuotas — Cuota Mensual Romero, Santino Caja validada $28,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Romero, Santino Caja validada":
+          - text: Romero, Santino
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I MP Cuotas — Cuota Mensual Nuñez, Guadalupe Caja validada $50,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Nuñez, Guadalupe Caja validada":
+          - text: Nuñez, Guadalupe
+          - generic: Caja validada
+        - cell "$50,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Cuotas — Cuota Mensual Ortega, Valentín Caja validada $35,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Ortega, Valentín Caja validada":
+          - text: Ortega, Valentín
+          - generic: Caja validada
+        - cell "$35,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Punitorios — Punitorio Cuota Ortega, Valentín Caja validada $3,500.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Ortega, Valentín Caja validada":
+          - text: Ortega, Valentín
+          - generic: Caja validada
+        - cell "$3,500.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Cuotas — Cuota Mensual Quiroga, Lara Caja validada $44,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Quiroga, Lara Caja validada":
+          - text: Quiroga, Lara
+          - generic: Caja validada
+        - cell "$44,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Punitorios — Punitorio Cuota Quiroga, Lara Caja validada $4,400.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Quiroga, Lara Caja validada":
+          - text: Quiroga, Lara
+          - generic: Caja validada
+        - cell "$4,400.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 E EFE Gastos Operativos — Limpieza Lavandina y trapos Caja validada −$4,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "E"
+        - cell "EFE"
+        - cell "Gastos Operativos — Limpieza"
+        - cell "Lavandina y trapos Caja validada":
+          - text: Lavandina y trapos
+          - generic: Caja validada
+        - cell "−$4,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Cuotas — Cuota Mensual Benítez, Mora Caja validada $44,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Benítez, Mora Caja validada":
+          - text: Benítez, Mora
+          - generic: Caja validada
+        - cell "$44,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I EFE Punitorios — Punitorio Cuota Benítez, Mora Caja validada $4,400.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Benítez, Mora Caja validada":
+          - text: Benítez, Mora
+          - generic: Caja validada
+        - cell "$4,400.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I MP Cuotas — Cuota Mensual Benítez, Mora Caja validada $28,000.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Benítez, Mora Caja validada":
+          - text: Benítez, Mora
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "13/11/2026 I MP Punitorios — Punitorio Cuota Benítez, Mora Caja validada $2,800.00 Rocío Paz AP Ver":
+        - cell "13/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Benítez, Mora Caja validada":
+          - text: Benítez, Mora
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Rocío Paz"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/64/detalle
+      - row "12/11/2026 I MP Cuotas — Cuota Mensual Castro, Mateo Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Castro, Mateo Caja validada":
+          - text: Castro, Mateo
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I MP Punitorios — Punitorio Cuota Castro, Mateo Caja validada $2,800.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Castro, Mateo Caja validada":
+          - text: Castro, Mateo
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Flores, Santino Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Flores, Santino Caja validada":
+          - text: Flores, Santino
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Punitorios — Punitorio Cuota Flores, Santino Caja validada $2,800.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Flores, Santino Caja validada":
+          - text: Flores, Santino
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I MP Cuotas — Cuota Mensual Herrera, Facundo Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Herrera, Facundo Caja validada":
+          - text: Herrera, Facundo
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I MP Punitorios — Punitorio Cuota Herrera, Facundo Caja validada $2,800.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Herrera, Facundo Caja validada":
+          - text: Herrera, Facundo
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Rossi, Morena Caja validada $44,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Rossi, Morena Caja validada":
+          - text: Rossi, Morena
+          - generic: Caja validada
+        - cell "$44,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Punitorios — Punitorio Cuota Rossi, Morena Caja validada $4,400.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Rossi, Morena Caja validada":
+          - text: Rossi, Morena
+          - generic: Caja validada
+        - cell "$4,400.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I MP Cuotas — Cuota Mensual Suarez, Ignacio Caja validada $35,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Suarez, Ignacio Caja validada":
+          - text: Suarez, Ignacio
+          - generic: Caja validada
+        - cell "$35,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I MP Punitorios — Punitorio Cuota Suarez, Ignacio Caja validada $3,500.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "MP"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Suarez, Ignacio Caja validada":
+          - text: Suarez, Ignacio
+          - generic: Caja validada
+        - cell "$3,500.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Benitez, Camila Caja validada $45,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Benitez, Camila Caja validada":
+          - text: Benitez, Camila
+          - generic: Caja validada
+        - cell "$45,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Punitorios — Punitorio Cuota Benitez, Camila Caja validada $4,500.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Benitez, Camila Caja validada":
+          - text: Benitez, Camila
+          - generic: Caja validada
+        - cell "$4,500.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Benitez, Camila Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Benitez, Camila Caja validada":
+          - text: Benitez, Camila
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Punitorios — Punitorio Cuota Benitez, Camila Caja validada $2,800.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Punitorios — Punitorio Cuota"
+        - cell "Benitez, Camila Caja validada":
+          - text: Benitez, Camila
+          - generic: Caja validada
+        - cell "$2,800.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Torres, Benicio Caja validada $28,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Torres, Benicio Caja validada":
+          - text: Torres, Benicio
+          - generic: Caja validada
+        - cell "$28,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "12/11/2026 I EFE Cuotas — Cuota Mensual Rodriguez, Joaquin Caja validada $20,000.00 Sandra Vidal AP Ver":
+        - cell "12/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Rodriguez, Joaquin Caja validada":
+          - text: Rodriguez, Joaquin
+          - generic: Caja validada
+        - cell "$20,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/62/detalle
+      - row "11/11/2026 I EFE Cuotas — Cuota Mensual Flores, Zoe Caja validada $30,000.00 Sandra Vidal AP Ver":
+        - cell "11/11/2026"
+        - cell "I"
+        - cell "EFE"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Flores, Zoe Caja validada":
+          - text: Flores, Zoe
+          - generic: Caja validada
+        - cell "$30,000.00"
+        - cell "Sandra Vidal"
+        - cell "AP"
+        - cell "Ver":
+          - link "Ver":
+            - /url: https://test.gestionar-te.com.ar/caja/59/detalle
+  - navigation "Paginación":
+    - paragraph: Mostrando 151 a 180 de 441 resultados
+    - link "&laquo; Anterior":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=5
+    - link "Ir a la página 1":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=1
+      - text: "1"
+    - link "Ir a la página 2":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=2
+      - text: "2"
+    - link "Ir a la página 3":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=3
+      - text: "3"
+    - link "Ir a la página 4":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=4
+      - text: "4"
+    - link "Ir a la página 5":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=5
+      - text: "5"
+    - generic: "6"
+    - link "Ir a la página 7":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=7
+      - text: "7"
+    - link "Ir a la página 8":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=8
+      - text: "8"
+    - link "Ir a la página 9":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=9
+      - text: "9"
+    - link "Ir a la página 10":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=10
+      - text: "10"
+    - generic: ...
+    - link "Ir a la página 14":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=14
+      - text: "14"
+    - link "Ir a la página 15":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=15
+      - text: "15"
+    - link "Siguiente &raquo;":
+      - /url: https://test.gestionar-te.com.ar/cashflow?page=7
+- contentinfo:
+  - generic: Wings

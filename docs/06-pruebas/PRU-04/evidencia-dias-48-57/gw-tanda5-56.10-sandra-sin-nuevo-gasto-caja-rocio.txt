@@ -1,0 +1,141 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Rocío Paz
+  - paragraph: Apertura
+  - paragraph: 04/12/2026 14:00
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "5"
+  - text: movimientos
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/movimientos
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - row "04/12/2026 14:03 I EFE Cuotas — Cuota Mensual Funes, Ámbar · HOC · 12/26 $30,000.00 Recibo":
+          - cell "04/12/2026"
+          - cell "14:03"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Funes, Ámbar · HOC · 12/26":
+            - generic: Funes, Ámbar · HOC · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/531?inline=1
+        - row "04/12/2026 14:03 I EFE Inscripciones — Inscripción al club Funes, Ámbar · HOC · 12/26 $8,000.00 Recibo":
+          - cell "04/12/2026"
+          - cell "14:03"
+          - cell "I"
+          - cell "EFE"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Funes, Ámbar · HOC · 12/26":
+            - generic: Funes, Ámbar · HOC · 12/26
+          - cell "$8,000.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/531?inline=1
+        - row "04/12/2026 14:04 I EFE Cuotas — Cuota Mensual Silva, Paulina · PAT · 09/26 $30,000.00 Recibo":
+          - cell "04/12/2026"
+          - cell "14:04"
+          - cell "I"
+          - cell "EFE"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Silva, Paulina · PAT · 09/26":
+            - generic: Silva, Paulina · PAT · 09/26
+          - cell "$30,000.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/532?inline=1
+        - row "04/12/2026 14:04 I MP Cuotas — Cuota Mensual Vera, Tobías · Fú · 11/26, 12/26 $39,200.00 Recibo":
+          - cell "04/12/2026"
+          - cell "14:04"
+          - cell "I"
+          - cell "MP"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Vera, Tobías · Fú · 11/26, 12/26":
+            - generic: Vera, Tobías · Fú · 11/26, 12/26
+          - cell "$39,200.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/533?inline=1
+        - row "04/12/2026 14:04 I MP Inscripciones — Inscripción al club Vera, Tobías · Fú · 11/26, 12/26 $8,000.00 Recibo":
+          - cell "04/12/2026"
+          - cell "14:04"
+          - cell "I"
+          - cell "MP"
+          - cell "Inscripciones — Inscripción al club"
+          - cell "Vera, Tobías · Fú · 11/26, 12/26":
+            - generic: Vera, Tobías · Fú · 11/26, 12/26
+          - cell "$8,000.00"
+          - cell "Recibo":
+            - link "Recibo":
+              - /url: https://test.gestionar-te.com.ar/recibos/cuota/533?inline=1
+      - rowgroup:
+        - 'row "Ingresos: $115,200.00 · Egresos: $0.00 $115,200.00"':
+          - cell
+          - 'cell "Ingresos: $115,200.00 · Egresos: $0.00"':
+            - text: "Ingresos:"
+            - strong: $115,200.00
+            - text: "· Egresos:"
+            - strong: $0.00
+          - cell "$115,200.00"
+          - cell
+- contentinfo:
+  - generic: Wings

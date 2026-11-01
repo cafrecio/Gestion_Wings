@@ -1,0 +1,197 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/generar-liquidacion-profesor
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Liquidaciones" [level=1]
+- main:
+  - strong: "10"
+  - text: liquidaciones
+  - link "Nuevo":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/crear
+  - generic: Profesor
+  - combobox:
+    - option "Todos" [selected]
+    - option "Acosta, Martín"
+    - option "Directora, Vanina"
+    - option "Gaitán, Lucía"
+    - option "Ibarra, Gonzalo"
+    - option "Ocampo, Mariela"
+    - option "Quintana, Hernán"
+    - option "Vidal, Nora"
+  - generic: Mes
+  - combobox:
+    - option "Todos" [selected]
+    - option "Enero"
+    - option "Febrero"
+    - option "Marzo"
+    - option "Abril"
+    - option "Mayo"
+    - option "Junio"
+    - option "Julio"
+    - option "Agosto"
+    - option "Septiembre"
+    - option "Octubre"
+    - option "Noviembre"
+    - option "Diciembre"
+  - generic: Año
+  - combobox:
+    - option "Todos" [selected]
+    - option "2026"
+  - generic: Estado
+  - combobox:
+    - option "Todos" [selected]
+    - option "Abierta"
+    - option "Cerrada"
+    - option "Cancelada"
+    - option "Pagada"
+  - button "Filtrar"
+  - heading "Gaitán, Lucía — Noviembre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $264,000.00
+  - generic: "Estado:"
+  - generic: Cerrada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/11
+  - heading "Gaitán, Lucía — Noviembre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $264,000.00
+  - generic: "Estado:"
+  - generic: Cancelada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/10
+  - heading "Acosta, Martín — Octubre 2026" [level=3]
+  - generic: Por comisión
+  - generic: "Total:"
+  - generic: $186,600.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/9
+  - heading "Quintana, Hernán — Octubre 2026" [level=3]
+  - generic: Por comisión
+  - generic: "Total:"
+  - generic: $484,680.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/8
+  - heading "Ocampo, Mariela — Octubre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $270,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/6
+  - heading "Salinas, Verónica — Octubre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $105,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/4
+  - heading "Gaitán, Lucía — Octubre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $204,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/2
+  - heading "Ocampo, Mariela — Septiembre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $54,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/7
+  - heading "Salinas, Verónica — Septiembre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $30,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/5
+  - heading "Gaitán, Lucía — Septiembre 2026" [level=3]
+  - generic: Por hora
+  - generic: "Total:"
+  - generic: $36,000.00
+  - generic: "Estado:"
+  - generic: Pagada
+  - link "Ver":
+    - /url: https://test.gestionar-te.com.ar/liquidaciones/3
+- contentinfo:
+  - generic: Wings

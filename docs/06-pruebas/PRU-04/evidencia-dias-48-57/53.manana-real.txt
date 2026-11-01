@@ -1,0 +1,22 @@
+ 1. Pablo Ledesma abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Pablo Ledesma cobra a Acosta, Victoria $30.000,00 por Efectivo — Pago registrado para Acosta, Victoria.
+ 3. Pablo Ledesma cobra a Flores, Renata $30.000,00 por Efectivo — Pago registrado para Flores, Renata.
+ 4. Pablo Ledesma cobra a Gutierrez, Olivia $44.000,00 por Mercado Pago — Pago registrado para Gutierrez, Olivia.
+ 5. Pablo Ledesma cobra a Gutierrez, Paulina $30.000,00 por Efectivo — Pago registrado para Gutierrez, Paulina.
+ 6. Pablo Ledesma cobra a Herrera, Alma $44.000,00 por Mercado Pago — Pago registrado para Herrera, Alma.
+ 7. Pablo Ledesma cobra a Molina, Milagros $30.000,00 por Efectivo — Pago registrado para Molina, Milagros.
+ 8. Pablo Ledesma cobra a Morales, Agustina $30.000,00 por Efectivo — Pago registrado para Morales, Agustina.
+ 9. Pablo Ledesma cobra a Cabrera, Constanza $33.000,00 por Efectivo — Pago registrado para Cabrera, Constanza.
+10. Pablo Ledesma cobra a Ferrari, Josefina $33.000,00 por Banco Galicia — Pago registrado para Ferrari, Josefina.
+11. Pablo Ledesma cobra a Flores, Juana $33.000,00 por Efectivo — Pago registrado para Flores, Juana.
+12. Pablo Ledesma cobra a Garcia, Melina $43.000,00 por Mercado Pago — Pago registrado para Garcia, Melina.
+13. Pablo Ledesma cobra a Martinez, Delfina $33.000,00 por Efectivo — Pago registrado para Martinez, Delfina.
+14. Pablo Ledesma Limpieza $3100 por Efectivo — Movimiento registrado.
+15. Pablo Ledesma Librería $1700 por Efectivo — Movimiento registrado.
+16. Pablo Ledesma Insumos Varios $2400 por Efectivo — Movimiento registrado.
+17. Lucía Gaitán lista de la #353: 13 alumnos, 11 presentes — Asistencias guardadas.
+18. Mariela Ocampo lista de la #363: 8 alumnos, 7 presentes — Asistencias guardadas.
+19. Hernán Quintana lista de la #386: 15 alumnos, 14 presentes — Asistencias guardadas.
+20. Mariela Ocampo lista de la #405: 4 alumnos, 3 presentes — Asistencias guardadas.
+Cobranza: $3.003.910,00 · {"AL_DIA":43,"EN_PLAZO":69,"MOROSO":0,"DEUDOR":6}
+GUARDADO.

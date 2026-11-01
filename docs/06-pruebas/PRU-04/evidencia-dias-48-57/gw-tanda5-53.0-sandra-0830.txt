@@ -1,0 +1,104 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 2":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "2"
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Sandra Vidal
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/inicio-operativa
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Inicio" [level=1]
+- main:
+  - heading "Mostrador Operativo" [level=1]
+  - paragraph: Martes 1 de diciembre de 2026 · Turno de Sandra Vidal
+  - link "Caja":
+    - /url: https://test.gestionar-te.com.ar/caja
+  - link "Cobranza":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+  - link "Alumnos":
+    - /url: https://test.gestionar-te.com.ar/alumnos
+  - generic: Cajón listo para iniciar
+  - paragraph: No hay turno abierto hoy
+  - paragraph: Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial.
+  - link "Abrir":
+    - /url: https://test.gestionar-te.com.ar/caja/apertura
+  - text: Clases de hoy —
+  - strong: "4"
+  - paragraph: 17:00 — Patín — Avanzadas
+  - paragraph: Sin lista
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/353
+  - paragraph: 18:00 — Patín — Federadas
+  - paragraph: Sin lista
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/363
+  - paragraph: 19:00 — Fútbol — Avanzadas
+  - paragraph: Sin lista
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/386
+  - paragraph: 20:30 — Patín — Adultos
+  - paragraph: Sin lista
+  - link "Lista":
+    - /url: https://test.gestionar-te.com.ar/clases/405
+  - generic: Atención a alumnos
+  - link "Vencidos 6 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza
+    - paragraph: Vencidos
+    - paragraph: "6"
+    - paragraph: Ir a cobranza →
+  - link "En plazo 80 Ir a cobranza →":
+    - /url: https://test.gestionar-te.com.ar/cobranza?estado=EN_PLAZO
+    - paragraph: En plazo
+    - paragraph: "80"
+    - paragraph: Ir a cobranza →
+  - link "Posibles inactivos 8 Ir a revisión →":
+    - /url: https://test.gestionar-te.com.ar/revision-cobranza
+    - paragraph: Posibles inactivos
+    - paragraph: "8"
+    - paragraph: Ir a revisión →
+  - generic: Recaudación de hoy
+  - paragraph: Cobrado hoy
+  - paragraph: $0.00
+  - paragraph: Cobros registrados
+  - paragraph: "0"
+  - paragraph: Cajas del turno
+  - paragraph: "0"
+- contentinfo:
+  - generic: Wings

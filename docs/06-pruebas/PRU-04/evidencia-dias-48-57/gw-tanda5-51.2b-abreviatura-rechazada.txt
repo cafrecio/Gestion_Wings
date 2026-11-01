@@ -1,0 +1,101 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: https://test.gestionar-te.com.ar/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: https://test.gestionar-te.com.ar/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: https://test.gestionar-te.com.ar/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: https://test.gestionar-te.com.ar/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: https://test.gestionar-te.com.ar/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: https://test.gestionar-te.com.ar/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: https://test.gestionar-te.com.ar/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: https://test.gestionar-te.com.ar/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: https://test.gestionar-te.com.ar/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: https://test.gestionar-te.com.ar/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Admin Prueba
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/administrar-tipos-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nuevo Tipo de Caja" [level=1]
+- main:
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *" [active]:
+    - /placeholder: "Ej: Caja Chica"
+    - text: Caja Torneo
+  - text: Abreviatura
+  - generic: "*"
+  - textbox "Abreviatura *":
+    - /placeholder: "Ej: EFT"
+    - text: TORNEO
+  - paragraph: La abreviatura no puede tener más de 5 caracteres.
+  - text: Descripción
+  - textbox "Descripción":
+    - /placeholder: "Ej: Efectivo para gastos menores del día"
+  - text: Saldo inicial
+  - generic: "*"
+  - generic: $
+  - textbox "Saldo inicial *":
+    - /placeholder: "0"
+    - text: 50,000.00
+  - generic: Sin descubierto
+  - switch "Sin descubierto"
+  - generic: Si está activado, el saldo puede quedar negativo al registrar el pago.
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

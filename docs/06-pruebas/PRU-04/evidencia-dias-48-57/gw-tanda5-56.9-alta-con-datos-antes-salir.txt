@@ -1,0 +1,105 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: https://test.gestionar-te.com.ar/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: https://test.gestionar-te.com.ar/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: https://test.gestionar-te.com.ar/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: https://test.gestionar-te.com.ar/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: https://test.gestionar-te.com.ar/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: https://test.gestionar-te.com.ar/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: https://test.gestionar-te.com.ar/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- generic: Rocío Paz
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/alta-alumno
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Nuevo Alumno" [level=1]
+- main:
+  - paragraph: Ingrese el DNI y la fecha real de ingreso para consultar la inscripción.
+  - text: Nombre
+  - generic: "*"
+  - textbox "Nombre *":
+    - /placeholder: Nombre
+    - text: Prueba
+  - text: Apellido
+  - generic: "*"
+  - textbox "Apellido *" [active]:
+    - /placeholder: Apellido
+    - text: SinGuardar
+  - text: DNI
+  - generic: "*"
+  - textbox "DNI *":
+    - /placeholder: "12345678"
+  - text: Fecha de nacimiento
+  - generic: "*"
+  - textbox "Fecha de nacimiento *"
+  - text: Fecha de alta
+  - generic: "*"
+  - textbox "Fecha de alta *": 2026-12-04
+  - text: Celular
+  - generic: "*"
+  - textbox "Celular *":
+    - /placeholder: 11-1234-5678
+  - checkbox "Mismo que el teléfono del tutor"
+  - text: Mismo que el teléfono del tutor
+  - text: Email
+  - textbox "Email":
+    - /placeholder: email@ejemplo.com
+  - text: Deporte
+  - generic: "*"
+  - combobox "Deporte *":
+    - option "Seleccionar..." [selected]
+    - option "Fútbol"
+    - option "Hockey"
+    - option "Patín"
+  - text: Grupo
+  - generic: "*"
+  - combobox "Grupo *":
+    - option "Seleccionar..." [selected]
+    - option "Fútbol — Avanzadas"
+    - option "Fútbol — Infantiles"
+    - option "Fútbol — Principiantes"
+    - option "Hockey — Principiantes"
+    - option "Patín — Adultos"
+    - option "Patín — Avanzadas"
+    - option "Patín — Federadas"
+    - option "Patín — Intermedias"
+    - option "Patín — Principiantes"
+  - paragraph: Datos del tutor — obligatorio para menores de edad
+  - text: Nombre del tutor
+  - textbox "Nombre del tutor":
+    - /placeholder: Nombre y Apellido
+  - text: Teléfono del tutor
+  - textbox "Teléfono del tutor":
+    - /placeholder: 11-1234-5678
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

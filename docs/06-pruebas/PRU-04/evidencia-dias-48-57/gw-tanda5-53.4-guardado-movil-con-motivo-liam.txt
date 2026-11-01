@@ -1,0 +1,179 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - link "Clases":
+      - /url: https://test.gestionar-te.com.ar/clases
+      - text: Clases
+    - link "Sin asistencia 2":
+      - /url: https://test.gestionar-te.com.ar/clases?estado=finalizada
+      - text: Sin asistencia
+      - generic: "2"
+    - link "Ayuda":
+      - /url: https://test.gestionar-te.com.ar/ayuda
+      - text: Ayuda
+- button "Abrir menú":
+- generic: Hernán Quintana
+- link "Ayuda sobre esta pantalla":
+  - /url: https://test.gestionar-te.com.ar/ayuda/tomar-asistencia
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Clase — Fútbol — Principiantes" [level=1]
+- main:
+  - heading "Lunes 30 de noviembre de 2026" [level=2]
+  - generic: 16:00 – 17:00
+  - generic: Fútbol
+  - generic: Fútbol — Principiantes
+  - generic: Quintana, Hernán
+  - generic: Activa
+  - link "Volver":
+    - /url: https://test.gestionar-te.com.ar/clases
+  - strong: "27"
+  - text: alumnos en el grupo ·
+  - strong: "26"
+  - text: presentes
+  - generic: Acosta, Agustin
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …005
+  - checkbox [checked]
+  - generic: Benitez, Camila
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …700
+  - checkbox [checked]
+  - generic: Benítez, Mora
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …456
+  - checkbox [checked]
+  - generic: Castro, Bruno
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …009
+  - checkbox [checked]
+  - generic: Castro, Mateo
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …918
+  - checkbox [checked]
+  - generic: Ferrari, Bautista
+  - paragraph: Al día
+  - generic: 0/2
+  - generic: · DNI …916
+  - checkbox [checked]
+  - generic: Flores, Santino
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …004
+  - checkbox [checked]
+  - generic: Gutierrez, Tomas
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …010
+  - checkbox [checked]
+  - generic: Herrera, Facundo
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …007
+  - checkbox [checked]
+  - generic: Martinez, Bautista
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …602
+  - checkbox [checked]
+  - generic: Medina, Lautaro
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …006
+  - checkbox [checked]
+  - generic: Ortega, Valentín
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …987
+  - checkbox [checked]
+  - generic: Paredes, Iván
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …777
+  - checkbox [checked]
+  - generic: Paz, Ciro
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …222
+  - checkbox [checked]
+  - generic: Pereyra, Liam
+  - paragraph: Deudor
+  - generic: 0/2
+  - generic: · DNI …908
+  - checkbox [checked]
+  - paragraph: Motivo registrado. El dueño lo verá en Inicio y en el resumen diario.
+  - generic: Motivo *
+  - textbox "Motivo *":
+    - /placeholder: Motivo para admitir al alumno...
+    - text: El papá avisó que paga esta semana
+  - generic: Pereyra, Manuel
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …011
+  - checkbox [checked]
+  - generic: Quiroga, Tomás
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …222
+  - checkbox [checked]
+  - generic: Ramirez, Felipe
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …003
+  - checkbox [checked]
+  - generic: Ramos, Santiago
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …012
+  - checkbox [checked]
+  - generic: Rios, Facundo
+  - paragraph: Al día
+  - generic: 0/1
+  - generic: · DNI …912
+  - checkbox
+  - generic: Rodriguez, Joaquin
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …202
+  - checkbox [checked]
+  - generic: Romero, Santino
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …902
+  - checkbox [checked]
+  - generic: Ruiz, Thiago
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …002
+  - checkbox [checked]
+  - generic: Sosa, Bautista
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …222
+  - checkbox [checked]
+  - generic: Suarez, Ignacio
+  - paragraph: En plazo
+  - generic: 0/2
+  - generic: · DNI …008
+  - checkbox [checked]
+  - generic: Torres, Benicio
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …001
+  - checkbox [checked]
+  - generic: Vera, Tobías
+  - paragraph: En plazo
+  - generic: 0/1
+  - generic: · DNI …888
+  - checkbox [checked]
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings
