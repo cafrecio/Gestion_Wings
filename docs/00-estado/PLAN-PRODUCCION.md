@@ -11,6 +11,8 @@
 | T12 manual y T13 ayuda dentro de Wings | Gemini |
 | T82 ensayo de restauración | Claude |
 
+**T82 devuelta por Codex CAB01/11:** recuperación de datos/configuración/archivos y funcionamiento de prueba comprobados; cuatro hallazgos medios en el circuito/control y efecto de rclone. Limpieza final comprobada. No se ensayó servidor vacío ni volumen real; los tres pendientes de Carlos siguen abiertos. [Verificación](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md). Sin correcciones ni despliegue.
+
 **T46 CERRADA 28/10:** lógica verificada por Claude CAB ([informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. Baja con reasignación previa, liquidación de lo dictado y cierre de usuario/sesiones. Completa1264/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md). T51/T45/T46 entregadas; sin despliegue.
 
 **T45 CERRADA 28/10:** lógica verificada por Claude CyE ([informe](../06-pruebas/PRU-04/VERIFICACION-T45-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. Vigencia mensual, abiertas bloqueadas y porcentaje sin inventar. Completa1249/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T45.md). T46 entregada después; sin despliegue.

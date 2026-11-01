@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:22:18.620763+00:00",
+  "segundos": 2.21,
+  "codigo": 0,
+  "salida": "lectura-legacy-sin-mascara-flags.txt",
+  "error": "lectura-legacy-sin-mascara-flags.stderr.txt"
+}

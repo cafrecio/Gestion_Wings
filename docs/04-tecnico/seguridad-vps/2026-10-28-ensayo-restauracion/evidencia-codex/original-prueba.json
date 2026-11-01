@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:04:39.180893+00:00",
+  "segundos": 64.98,
+  "codigo": 81,
+  "salida": "original-prueba.txt",
+  "error": "original-prueba.stderr.txt"
+}

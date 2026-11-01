@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T82 — Control independiente Codex CAB, 01/11/2026
+
+**Devuelta a Claude por cuatro hallazgos medios.** Restauradas las piezas de Wings; prueba117 alumnos/229 pagos,56 tablas completas y65 archivos iguales; alumno/pago/liquidación y recibo guardado funcionan,APP_KEY recuperada probada. Original producción40s y prueba59s; `restaurar.sh ensayo`0 en ambos. El script original no compara liquidaciones y termina0 aun con error; fallo provocado deja SQL/env/base/usuario hasta limpieza externa. Restaurador viejo bajo `/root/wings-backup` solo repone base (leído,no ejecutado). La primera descarga reescribió `rclone.conf`14:00:06UTC; causa OAuth inferida, sin diff anterior ni reversión. Limpieza final0restos; negocio vivo igual, sesiones de producción variaron con bots. [Informe de siete controles y límites](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md). Sin servidor vacío/volumen real comprobados; tres pendientes existentes abiertos. Sin corregir producto, despliegue ni suite PHP local.
+
 ## Segunda vuelta T100/T102 — Codex CAB, 01/11/2026
 
 **T102 cerrada por Codex en segunda vuelta.** S1: mismo reproductor T100→Carrera T94→Claude T94, 3/6 verde. S2 sola, 2/23; diagnóstico 1/9 guarda el alta y no vuelve a Primera carga. Nivel actual inactivo y manual comprobados en navegador. Única completa del corte1f0af02f: **1479 aprobadas, 0 fallidas, 6 omitidas,11614 aserciones,1311.52s,salida0**;878 fuentes intactas y244 muestras sin otra suite. [Informe](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md), sección Segunda vuelta. La completa roja anterior conserva su evidencia histórica. T100 devuelta solo por H1 residual de ficha; T106 cerrada. Reserva LIBERADA, solo wings_testing_codex, sin producto/catalogo/despliegue.

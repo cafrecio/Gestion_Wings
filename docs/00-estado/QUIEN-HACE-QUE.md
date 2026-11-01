@@ -41,15 +41,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | Ensayo hecho por Claude CyE 28/10: produccion desde Drive en 52 s y, con datos, el sitio de prueba en 56 s (105 alumnos, 909 asistencias, plata al peso identica). Informe en docs/04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion. No probado: servidor desde cero. Pendientes: credencial propia de rclone (Carlos, 5 min en la consola de Google), pasar la clave al administrador de contrasenas y sacarla de la carpeta de respaldos, decidir si el repositorio sigue publico. |
+Nada.
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
+| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
 

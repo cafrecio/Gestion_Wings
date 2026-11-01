@@ -1,0 +1,77 @@
+CONTROL_UTC 2026-11-01T14:07:58Z
+LOAD 0.18 0.42 0.25 1/287 1346403
+ACCESO_EDAD_SEGUNDOS 121017
+ACCESO_EDAD_SEGUNDOS 24396
+{"control": "estado_vivo_inicial", "tablas": {"wings": 35, "wingstest": 56}}
+RESPALDO_DRIVE wings_2026-11-01_0315.tgz.enc
+RESTAURAR_CANONICO_IGUAL_REPO
+== Descifrando ==
+   contenido: env.txt paquete.tgz storage.tgz wings.sql
+== Ensayo en base descartable ==
+== Comparacion contra la base viva ==
+   alumno_planes                0        = 0        ok
+   alumnos                      0        = 0        ok
+   alumnos_revision_cobranza    0        = 0        ok
+   asistencia_excesos           0        = 0        ok
+   asistencias                  0        = 0        ok
+   cache                        presente (cambia sola, no se cuenta)
+   cache_locks                  presente (cambia sola, no se cuenta)
+   cajas_operativas             0        = 0        ok
+   cashflow_movimientos         0        = 0        ok
+   clase_profesor               3        = 3        ok
+   clases                       3        = 3        ok
+   configuraciones              2        = 2        ok
+   deportes                     2        = 2        ok
+   deuda_cuotas                 0        = 0        ok
+   failed_jobs                  presente (cambia sola, no se cuenta)
+   grupo_planes                 12       = 12       ok
+   grupos                       7        = 7        ok
+   job_batches                  presente (cambia sola, no se cuenta)
+   jobs                         presente (cambia sola, no se cuenta)
+   liquidacion_detalles         0        = 0        ok
+   liquidaciones                0        = 0        ok
+   migrations                   74       = 74       ok
+   movimientos_operativos       0        = 0        ok
+   niveles                      7        = 7        ok
+   pago_deuda_cuota             0        = 0        ok
+   pagos                        0        = 0        ok
+   password_reset_tokens        presente (cambia sola, no se cuenta)
+   personal_access_tokens       0        = 0        ok
+   profesores                   1        = 1        ok
+   reglas_primer_pago           3        = 3        ok
+   rubros                       2        = 2        ok
+   sessions                     presente (cambia sola, no se cuenta)
+   subrubros                    3        = 3        ok
+   tipos_caja                   0        = 0        ok
+   users                        4        = 4        ok
+== Contenido financiero ==
+   pagos completados            0.00           = 0.00           ok
+   pagos anulados               0.00           = 0.00           ok
+   imputaciones                 0.00           = 0.00           ok
+   deuda pendiente              0.00           = 0.00           ok
+   deuda cobrada                0.00           = 0.00           ok
+   movimientos activos          0.00           = 0.00           ok
+   cashflow                     0.00           = 0.00           ok
+   liquidado                    0.00           = 0.00           ok
+   detalle liquidado            0.00           = 0.00           ok
+== Coherencia interna ==
+   deudas descuadradas          0              = 0              ok
+   imputaciones huerfanas       0              = 0              ok
+   cashflow sin caja            0              = 0              ok
+   liquidaciones descuadradas   0              = 0              ok
+== Archivos subidos ==
+   archivos                     3        >= 3        ok
+== Configuracion ==
+   APP_KEY presente en env.txt
+== ENSAYO CORRECTO: 28 tablas, importes, archivos y configuracion ==
+RESULTADO_RESTAURAR_ENSAYO 0
+TEMP_AUTOLIMPIEZA 0
+CONTROL_SALIDA_ORIGINAL 0
+{"control": "bases_vivas_despues", "resultado": {"wings": {"tablas": 35, "tablas_cambiadas": ["sessions"], "sin_cambios": false}, "wingstest": {"tablas": 56, "tablas_cambiadas": [], "sin_cambios": true}}}
+LIMPIEZA_COMPROBADA
+CARPETA_AUSENTE /root/ensayo-t82
+CARPETA_AUSENTE /root/control-t82
+bases_residuales	0
+usuarios_residuales	0
+PUERTO_8099_RESIDUAL 0
+TEMP_RESTAURAR_RESIDUAL 0

@@ -1,0 +1,4 @@
+UTC 2026-11-01T14:13:51Z
+sesiones_produccion_ventana_1404_1409	2	0	0	2	2026-11-01 14:05:11	2026-11-01 14:08:28
+sesiones_prueba_en_10m_reales	0
+{"control": "accesos_produccion_sin_IP_sin_personas", "por_minuto": {"01/Nov/2026:14:05": {"solicitudes": 1, "agente_contiene_bot": 1, "agente_curl": 0}, "01/Nov/2026:14:08": {"solicitudes": 1, "agente_contiene_bot": 1, "agente_curl": 0}}}

@@ -1,0 +1,52 @@
+CONTROL_UTC 2026-11-01T14:19:42Z
+LOAD 0.07 0.28 0.27 1/286 1350447
+ACCESO_EDAD_SEGUNDOS 121721
+ACCESO_EDAD_SEGUNDOS 25100
+{"control": "estado_vivo_inicial", "tablas": {"wings": 35, "wingstest": 56}}
+
+== [0s] 1. Armar el paquete de wingstest como respaldar.sh
+   -> ok: wingstest_ensayo.tgz.enc (85M)
+
+== [6s] 2. Descifrar (clave identica a la copia de Drive, comprobada por huella)
+   -> ok: env.txt storage.tgz wings.sql
+
+== [7s] 3. Base aparte
+   -> ok: 56 tablas
+   users                    viva=10      copia=10      ok
+   alumnos                  viva=117     copia=117     ok
+   pagos                    viva=229     copia=229     ok
+   deuda_cuotas             viva=239     copia=239     ok
+   clases                   viva=226     copia=226     ok
+   asistencias              viva=1763    copia=1763    ok
+   cajas_operativas         viva=40      copia=40      ok
+   movimientos_operativos   viva=363     copia=363     ok
+   cashflow_movimientos     viva=396     copia=396     ok
+   liquidaciones            viva=8       copia=8       ok
+   profesores               viva=7       copia=7       ok
+   migrations               viva=110     copia=110     ok
+   pagos.SUM(monto_final)   viva=9013600.00   copia=9013600.00   ok
+   deuda_cuotas.SUM(monto_original) viva=8874500.00   copia=8874500.00   ok
+   deuda_cuotas.SUM(monto_pagado) viva=8222200.00   copia=8222200.00   ok
+   cashflow_movimientos.SUM(monto) viva=5871520.75   copia=5871520.75   ok
+   movimientos_operativos.SUM(monto) viva=9706600.00   copia=9706600.00   ok
+   liquidaciones.SUM(monto_final) viva=NULL         copia=NULL         ok
+   -> diferencias: 0
+
+== [8s] 4. Codigo desde GitHub, sin credenciales (como en un servidor nuevo)
+fatal: unable to access 'https://github.com/cafrecio/Gestion_Wings.git/': Failed to connect to 127.0.0.1 port 9: Connection refused
+   -> FALLA: no se pudo clonar sin credenciales
+FALLO_GITHUB_PROVOCADO_RESULTADO_SCRIPT 1
+RESIDUO_ANTES_DE_LIMPIEZA_EXTERNA /root/ensayo-t82/paquete.tgz
+RESIDUO_ANTES_DE_LIMPIEZA_EXTERNA /root/ensayo-t82/wings.sql
+RESIDUO_ANTES_DE_LIMPIEZA_EXTERNA /root/ensayo-t82/env.txt
+BASE_ANTES_LIMPIEZA_EXTERNA	1
+USUARIO_ANTES_LIMPIEZA_EXTERNA	1
+CONTROL_SALIDA_ORIGINAL 1
+{"control": "bases_vivas_despues", "resultado": {"wings": {"tablas": 35, "tablas_cambiadas": [], "sin_cambios": true}, "wingstest": {"tablas": 56, "tablas_cambiadas": [], "sin_cambios": true}}}
+LIMPIEZA_COMPROBADA
+CARPETA_AUSENTE /root/ensayo-t82
+CARPETA_AUSENTE /root/control-t82
+bases_residuales	0
+usuarios_residuales	0
+PUERTO_8099_RESIDUAL 0
+TEMP_RESTAURAR_RESIDUAL 0

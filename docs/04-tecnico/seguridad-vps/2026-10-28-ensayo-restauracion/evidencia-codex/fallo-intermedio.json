@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:19:39.917131+00:00",
+  "segundos": 13.3,
+  "codigo": 1,
+  "salida": "fallo-intermedio.txt",
+  "error": "fallo-intermedio.stderr.txt"
+}

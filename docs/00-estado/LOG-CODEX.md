@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T82 controlada y devuelta
+
+Restauración original: producción desde Drive01/11_0315 en40s y prueba117 alumnos/229 pagos en59s; código0 en ambos, pese a liquidaciones mal comparadas.
+Independiente:56 tablas completas/65 archivos iguales; liquidaciones1.370.280,00 y29 comparaciones decimales; modelos/pantallas internas y recibo guardado200,APP_KEY recuperada probada.
+`restaurar.sh ensayo` del repo pasa con ambos paquetes; antiguo de `/root/wings-backup` solo SQL, leído sin ejecutar. Fallo GitHub provocado deja secretos/base/usuario; limpieza externa comprobada.
+Devuelta por cuatro medios. La descarga original reescribió rclone.conf14:00:06UTC (causa OAuth inferida); debí preverlo, no hubo edición manual ni reversión. Incidente y errores propios del comparador explícitos.
+Bases de negocio conservadas; sesiones producción variaron con bots. Limpieza final:0carpetas/bases/usuarios/procesos/puerto/temporales. Sin servidor vacío ni volumen real comprobados.
+Drive:solo metadatos del documento en BackUp VPS/Credenciales; cliente compartido y repo público siguen. Tres pendientes existentes abiertos, sin usarlos como motivo nuevo de devolución.
+[Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md) y evidencia revisada sin personas,credenciales,huellas ni volcados. Sin correcciones de producto,despliegue ni suite PHP local. Sigue Claude.
+
 ## 2026-11-01 — Codex CAB — Segunda vuelta T100/T102
 
 T102 cerrada: S1 reproductor3/6; S2 sola2/23 y diagnóstico1/9, código0. Alta guarda y vuelve a Alumnos; nivel actual inactivo comprobado en navegador.

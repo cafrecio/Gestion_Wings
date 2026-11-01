@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:09:53.879142+00:00",
+  "segundos": 19.12,
+  "codigo": 0,
+  "salida": "restaurar-prueba.txt",
+  "error": "restaurar-prueba.stderr.txt"
+}

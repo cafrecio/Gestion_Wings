@@ -1,0 +1,98 @@
+CONTROL_UTC 2026-11-01T14:09:56Z
+LOAD 0.24 0.37 0.25 1/290 1347135
+ACCESO_EDAD_SEGUNDOS 121135
+ACCESO_EDAD_SEGUNDOS 24514
+{"control": "estado_vivo_inicial", "tablas": {"wings": 35, "wingstest": 56}}
+PAQUETE_PRUEBA_PROPIO_CREADO
+RESTAURAR_CANONICO_IGUAL_REPO
+== Descifrando ==
+   contenido: env.txt paquete.tgz storage.tgz wings.sql
+== Ensayo en base descartable ==
+== Comparacion contra la base viva ==
+   alumno_estado_historial      5        = 5        ok
+   alumno_planes                120      = 120      ok
+   alumnos                      117      = 117      ok
+   alumnos_revision_cobranza    0        = 0        ok
+   asistencia_excesos           301      = 301      ok
+   asistencias                  1763     = 1763     ok
+   cache                        presente (cambia sola, no se cuenta)
+   cache_locks                  presente (cambia sola, no se cuenta)
+   caja_mostrador               1        = 1        ok
+   cajas_operativas             40       = 40       ok
+   cargo_alumno_eventos         62       = 62       ok
+   cargos_alumno                60       = 60       ok
+   cashflow_correcciones        5        = 5        ok
+   cashflow_movimientos         396      = 396      ok
+   cashflow_transferencias      4        = 4        ok
+   clase_profesor               237      = 237      ok
+   clases                       226      = 226      ok
+   configuraciones              8        = 8        ok
+   deporte_liquidacion_vigencias 1        = 1        ok
+   deportes                     2        = 2        ok
+   deuda_cuotas                 239      = 239      ok
+   deudas_perdidas              1        = 1        ok
+   excepciones_cobranza         8        = 8        ok
+   failed_jobs                  presente (cambia sola, no se cuenta)
+   generaciones_cuotas          2        = 2        ok
+   grupo_planes                 16       = 16       ok
+   grupo_plan_precios           18       = 18       ok
+   grupos                       8        = 8        ok
+   inscripcion_personas         29       = 29       ok
+   job_batches                  presente (cambia sola, no se cuenta)
+   jobs                         presente (cambia sola, no se cuenta)
+   liquidacion_ajustes          0        = 0        ok
+   liquidacion_decisiones_atrasadas 13       = 13       ok
+   liquidacion_detalles         102      = 102      ok
+   liquidaciones                8        = 8        ok
+   migrations                   110      = 110      ok
+   movimiento_operativo_correcciones 3        = 3        ok
+   movimientos_operativos       363      = 363      ok
+   niveles                      6        = 6        ok
+   pago_cargo_alumno            50       = 50       ok
+   pago_deuda_cuota             228      = 228      ok
+   pagos                        229      = 229      ok
+   password_reset_tokens        presente (cambia sola, no se cuenta)
+   personal_access_tokens       0        = 0        ok
+   primera_carga                1        = 1        ok
+   profesores                   7        = 7        ok
+   reglas_primer_pago           3        = 3        ok
+   reporte_analitico_cobertura  1        = 1        ok
+   reporte_analitico_historial  965      = 965      ok
+   reporte_cobertura            1        = 1        ok
+   reporte_eventos              520      = 520      ok
+   rubros                       16       = 16       ok
+   sessions                     presente (cambia sola, no se cuenta)
+   subrubros                    34       = 34       ok
+   tipos_caja                   5        = 5        ok
+   users                        10       = 10       ok
+== Contenido financiero ==
+   pagos completados            8440400.00     = 8440400.00     ok
+   pagos anulados               573200.00      = 573200.00      ok
+   imputaciones                 8222200.00     = 8222200.00     ok
+   deuda pendiente              652300.00      = 652300.00      ok
+   deuda cobrada                8222200.00     = 8222200.00     ok
+   movimientos activos          9321400.00     = 9321400.00     ok
+   cashflow                     5871520.75     = 5871520.75     ok
+   liquidado                    1370280.00     = 1370280.00     ok
+   detalle liquidado            1370280.00     = 1370280.00     ok
+== Coherencia interna ==
+   deudas descuadradas          0              = 0              ok
+   imputaciones huerfanas       0              = 0              ok
+   cashflow sin caja            0              = 0              ok
+   liquidaciones descuadradas   0              = 0              ok
+== Archivos subidos ==
+   archivos                     65       >= 65       ok
+== Configuracion ==
+   APP_KEY presente en env.txt
+== ENSAYO CORRECTO: 49 tablas, importes, archivos y configuracion ==
+RESULTADO_RESTAURAR_ENSAYO 0
+TEMP_AUTOLIMPIEZA 0
+CONTROL_SALIDA_ORIGINAL 0
+{"control": "bases_vivas_despues", "resultado": {"wings": {"tablas": 35, "tablas_cambiadas": [], "sin_cambios": true}, "wingstest": {"tablas": 56, "tablas_cambiadas": [], "sin_cambios": true}}}
+LIMPIEZA_COMPROBADA
+CARPETA_AUSENTE /root/ensayo-t82
+CARPETA_AUSENTE /root/control-t82
+bases_residuales	0
+usuarios_residuales	0
+PUERTO_8099_RESIDUAL 0
+TEMP_RESTAURAR_RESIDUAL 0

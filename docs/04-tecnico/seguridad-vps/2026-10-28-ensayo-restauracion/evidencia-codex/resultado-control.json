@@ -1,0 +1,89 @@
+{
+  "fecha": "2026-11-01",
+  "produccion": {
+    "respaldo": "wings_2026-11-01_0315.tgz.enc",
+    "script_segundos_control_valido": 40,
+    "script_codigo": 0,
+    "limitacion_script": "columna monto_final inexistente en liquidaciones, diferencias1 pese a codigo0",
+    "tablas_comparadas": 35,
+    "tablas_contenido_igual": 34,
+    "diferencia_esperada_backup_vivo": [
+      "sessions"
+    ],
+    "sin_operacion_real": true
+  },
+  "prueba": {
+    "script_segundos": 59,
+    "script_codigo": 0,
+    "alumnos": 117,
+    "pagos": 229,
+    "tablas_completas_iguales": 56,
+    "archivos_completos_iguales": 65,
+    "comparaciones_decimales": 29,
+    "liquidaciones_total_calculado": "1370280.000000",
+    "funcional": {
+      "control": "funcionamiento_independiente",
+      "fuente": "wingstest",
+      "app_key_del_respaldo_cargada": true,
+      "descifra_con_clave_recuperada": true,
+      "modelos": {
+        "alumno_leido": true,
+        "pago_leido": true,
+        "liquidacion_leida": true,
+        "pago_con_alumno": true,
+        "liquidacion_con_profesor": true
+      },
+      "peticiones_internas_con_admin_copiado": {
+        "alumno": {
+          "http": 200,
+          "muestra_alumno_leido": true
+        },
+        "liquidacion": {
+          "http": 200,
+          "muestra_profesor_leido": true
+        }
+      },
+      "recibo_guardado": {
+        "encontrado": true,
+        "http": 200,
+        "tipo_pdf": true,
+        "bytes_iguales_al_guardado": true,
+        "cabecera_pdf": true,
+        "cierre_pdf": true,
+        "cantidad_bytes": 1696172
+      },
+      "aprobado": true
+    }
+  },
+  "restaurar_modo_ensayo": {
+    "produccion_codigo_script": 0,
+    "prueba_codigo_script": 0,
+    "temporales_finales": 0,
+    "legacy_no_ejecutado": true
+  },
+  "fallo_intermedio": {
+    "provocado_solo_en_proceso": "proxy local sin servicio para GitHub",
+    "script_codigo": 1,
+    "residuos_antes_limpieza_externa": [
+      "paquete descifrado",
+      "SQL",
+      "env.txt",
+      "base",
+      "usuario"
+    ],
+    "despues_limpieza": "ausentes"
+  },
+  "incidencias_del_control": [
+    "Primera invariancia invalida por listas/tuplas; repetida",
+    "Primeras sumas propias de produccion incompletas por COUNT cadena; repetidas en control de datos",
+    "rclone.conf reescrito durante primera descarga, mtime14:00:06UTC; no se conserva version previa para certificar diff; no se hizo cambio manual ni se revirtio"
+  ],
+  "limites": [
+    "servidor vacio no ensayado",
+    "volumen real del club no ensayado",
+    "clave del documento Drive no leida",
+    "peticiones funcionales internas del kernel con admin copiado; sin login por contrasena ni navegador",
+    "modo EN-SERIO nunca ejecutado"
+  ],
+  "resultado": "devuelto por hallazgos medios; sin correcciones de producto"
+}

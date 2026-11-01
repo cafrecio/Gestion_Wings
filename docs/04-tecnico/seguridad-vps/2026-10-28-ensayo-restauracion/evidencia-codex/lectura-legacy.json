@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:16:51.223670+00:00",
+  "segundos": 2.26,
+  "codigo": 0,
+  "salida": "lectura-legacy.txt",
+  "error": "lectura-legacy.stderr.txt"
+}

@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:15:28.423045+00:00",
+  "segundos": 61.47,
+  "codigo": 0,
+  "salida": "independiente-prueba.txt",
+  "error": "independiente-prueba.stderr.txt"
+}

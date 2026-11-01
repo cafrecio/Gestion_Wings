@@ -1,0 +1,265 @@
+{
+  "nota": "Solo nombres y tamanos; no se publican huellas.",
+  "archivos": [
+    {
+      "nombre": "auditar-datos.py",
+      "bytes": 4085
+    },
+    {
+      "nombre": "comprobacion-final.json",
+      "bytes": 177
+    },
+    {
+      "nombre": "comprobacion-final.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "comprobacion-final.txt",
+      "bytes": 485
+    },
+    {
+      "nombre": "comprobar-final.sh",
+      "bytes": 1915
+    },
+    {
+      "nombre": "contexto-firewall.json",
+      "bytes": 175
+    },
+    {
+      "nombre": "contexto-firewall.sh",
+      "bytes": 990
+    },
+    {
+      "nombre": "contexto-firewall.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "contexto-firewall.txt",
+      "bytes": 215
+    },
+    {
+      "nombre": "control-independiente-wings.sh",
+      "bytes": 31648
+    },
+    {
+      "nombre": "control-independiente-wingstest.sh",
+      "bytes": 17096
+    },
+    {
+      "nombre": "correr-original-wings.sh",
+      "bytes": 15845
+    },
+    {
+      "nombre": "correr-original-wingstest.sh",
+      "bytes": 15849
+    },
+    {
+      "nombre": "ejecutar-remoto.py",
+      "bytes": 1369
+    },
+    {
+      "nombre": "fallo-intermedio-controlado.sh",
+      "bytes": 17082
+    },
+    {
+      "nombre": "fallo-intermedio.json",
+      "bytes": 173
+    },
+    {
+      "nombre": "fallo-intermedio.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "fallo-intermedio.txt",
+      "bytes": 2570
+    },
+    {
+      "nombre": "funcionamiento.php",
+      "bytes": 4187
+    },
+    {
+      "nombre": "guardia-y-limpieza.sh",
+      "bytes": 8748
+    },
+    {
+      "nombre": "incidente-control-inicial.md",
+      "bytes": 1330
+    },
+    {
+      "nombre": "independiente-produccion-datos.json",
+      "bytes": 202
+    },
+    {
+      "nombre": "independiente-produccion-datos.sh",
+      "bytes": 24699
+    },
+    {
+      "nombre": "independiente-produccion-datos.stderr.txt",
+      "bytes": 504
+    },
+    {
+      "nombre": "independiente-produccion-datos.txt",
+      "bytes": 11511
+    },
+    {
+      "nombre": "independiente-produccion.json",
+      "bytes": 190
+    },
+    {
+      "nombre": "independiente-produccion.stderr.txt",
+      "bytes": 504
+    },
+    {
+      "nombre": "independiente-produccion.txt",
+      "bytes": 7393
+    },
+    {
+      "nombre": "independiente-prueba.json",
+      "bytes": 182
+    },
+    {
+      "nombre": "independiente-prueba.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "independiente-prueba.txt",
+      "bytes": 14507
+    },
+    {
+      "nombre": "lectura-legacy-sin-mascara-flags.json",
+      "bytes": 205
+    },
+    {
+      "nombre": "lectura-legacy-sin-mascara-flags.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "lectura-legacy-sin-mascara-flags.txt",
+      "bytes": 2468
+    },
+    {
+      "nombre": "lectura-legacy.json",
+      "bytes": 169
+    },
+    {
+      "nombre": "lectura-legacy.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "lectura-legacy.txt",
+      "bytes": 2478
+    },
+    {
+      "nombre": "LEEME.md",
+      "bytes": 4223
+    },
+    {
+      "nombre": "leer-legacy.sh",
+      "bytes": 343
+    },
+    {
+      "nombre": "metadatos-servidor.py",
+      "bytes": 10853
+    },
+    {
+      "nombre": "observar-sesiones.sh",
+      "bytes": 1151
+    },
+    {
+      "nombre": "original-produccion-control-corregido.json",
+      "bytes": 216
+    },
+    {
+      "nombre": "original-produccion-control-corregido.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "original-produccion-control-corregido.txt",
+      "bytes": 3651
+    },
+    {
+      "nombre": "original-produccion.json",
+      "bytes": 181
+    },
+    {
+      "nombre": "original-produccion.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "original-produccion.txt",
+      "bytes": 5305
+    },
+    {
+      "nombre": "original-prueba.json",
+      "bytes": 173
+    },
+    {
+      "nombre": "original-prueba.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "original-prueba.txt",
+      "bytes": 3653
+    },
+    {
+      "nombre": "preparar-paquetes.json",
+      "bytes": 1052
+    },
+    {
+      "nombre": "restaurar-modo-ensayo-wings.sh",
+      "bytes": 24188
+    },
+    {
+      "nombre": "restaurar-modo-ensayo-wingstest.sh",
+      "bytes": 24553
+    },
+    {
+      "nombre": "restaurar-produccion.json",
+      "bytes": 183
+    },
+    {
+      "nombre": "restaurar-produccion.stderr.txt",
+      "bytes": 504
+    },
+    {
+      "nombre": "restaurar-produccion.txt",
+      "bytes": 4021
+    },
+    {
+      "nombre": "restaurar-prueba.json",
+      "bytes": 174
+    },
+    {
+      "nombre": "restaurar-prueba.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "restaurar-prueba.txt",
+      "bytes": 5159
+    },
+    {
+      "nombre": "resultado-control.json",
+      "bytes": 2880
+    },
+    {
+      "nombre": "revision-entrega.json",
+      "bytes": 950
+    },
+    {
+      "nombre": "sesiones-produccion.json",
+      "bytes": 179
+    },
+    {
+      "nombre": "sesiones-produccion.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "nombre": "sesiones-produccion.txt",
+      "bytes": 387
+    },
+    {
+      "nombre": "ubicacion-clave-metadata.json",
+      "bytes": 515
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "enlaces_verificados": 22,
+  "problemas_enlaces": [],
+  "archivos_sensibles_en_evidencia": [],
+  "ids_tablero_cambiados": [
+    "T82"
+  ],
+  "scripts_producto_sin_cambios": true,
+  "informe_Claude_sin_cambios": true,
+  "suites_php_locales_ejecutadas": 0,
+  "normalizacion_salidas": [
+    "fallo-intermedio.txt",
+    "lectura-legacy-sin-mascara-flags.txt",
+    "lectura-legacy.txt",
+    "original-produccion-control-corregido.txt",
+    "original-produccion.txt",
+    "original-prueba.txt",
+    "restaurar-produccion.txt",
+    "restaurar-prueba.txt"
+  ],
+  "limite_archivo_protegido": "rclone.conf registra mtime dentro de primera descarga; causa inferida; no se acredita invariante absoluta",
+  "resultado": "devuelto",
+  "diff_check": "Una linea en blanco con cuatro espacios generada por tablero.php en TABLERO.html:98. No se edita a mano el HTML generado. Los errores de archivos PRU-04 ajenos quedan fuera del commit."
+}

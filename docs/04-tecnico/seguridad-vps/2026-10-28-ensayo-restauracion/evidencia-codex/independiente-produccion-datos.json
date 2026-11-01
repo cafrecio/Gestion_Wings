@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:17:20.472993+00:00",
+  "segundos": 12.57,
+  "codigo": 1,
+  "salida": "independiente-produccion-datos.txt",
+  "error": "independiente-produccion-datos.stderr.txt"
+}

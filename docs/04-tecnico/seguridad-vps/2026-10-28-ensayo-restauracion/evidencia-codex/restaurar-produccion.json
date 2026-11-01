@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:07:56.770527+00:00",
+  "segundos": 39.94,
+  "codigo": 81,
+  "salida": "restaurar-produccion.txt",
+  "error": "restaurar-produccion.stderr.txt"
+}

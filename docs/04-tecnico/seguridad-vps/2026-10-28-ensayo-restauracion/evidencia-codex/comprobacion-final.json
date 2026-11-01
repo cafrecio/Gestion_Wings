@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:22:16.331203+00:00",
+  "segundos": 2.24,
+  "codigo": 0,
+  "salida": "comprobacion-final.txt",
+  "error": "comprobacion-final.stderr.txt"
+}

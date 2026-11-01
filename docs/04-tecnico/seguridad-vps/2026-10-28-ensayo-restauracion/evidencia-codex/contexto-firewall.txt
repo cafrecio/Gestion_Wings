@@ -1,0 +1,1 @@
+{"control": "contexto_firewall_sin_cambios", "csf_ipv6_habilitado": false, "ipv6_sistema_deshabilitado": false, "rangos_ipv4_codigo": 15, "rangos_ipv4_en_csf": 15, "rangos_ipv6_codigo": 7, "rangos_ipv6_en_csf": 0}

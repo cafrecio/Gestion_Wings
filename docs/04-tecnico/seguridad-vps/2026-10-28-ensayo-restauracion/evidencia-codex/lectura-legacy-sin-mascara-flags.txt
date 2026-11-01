@@ -1,0 +1,62 @@
+FUENTE_LEGACY_SOLO_LECTURA
+1: #!/bin/bash
+2: # Restaura un respaldo de Wings.
+3: #
+4: #   Ensayo (no toca nada real):   ./restaurar.sh <archivo.enc> ensayo
+5: #   De verdad (PISA la base):     ./restaurar.sh <archivo.enc> EN-SERIO
+6: #
+7: # El ensayo restaura en una base descartable y compara los conteos.
+8: set -euo pipefail
+9:
+10: ARCHIVO="${1:-}"
+11: MODO="${2:-ensayo}"
+12: CLAVE=[valor omitido]
+13:
+14: if [ -z "${ARCHIVO}" ] || [ ! -f "${ARCHIVO}" ]; then
+15:     echo "Falta el archivo de respaldo. Los disponibles:"
+16:     ls -1t /var/backups/wings/*.tgz.enc 2>/dev/null || echo "  (ninguno)"
+17:     exit 1
+18: fi
+19:
+20: WORKDIR=$(mktemp -d /tmp/restaurar-wings-XXXXXX)
+21: limpiar() { rm -rf "${WORKDIR}"; }
+22: trap limpiar EXIT
+23:
+24: echo "== Descifrando =="
+25: openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+26:     -in "${ARCHIVO}" -out "${WORKDIR}/paquete.tgz" -pass file:"${CLAVE}"
+27: tar -xzf "${WORKDIR}/paquete.tgz" -C "${WORKDIR}"
+28: echo "   contenido: $(ls -1 "${WORKDIR}" | tr '\n' ' ')"
+29:
+30: if [ "${MODO}" = "EN-SERIO" ]; then
+31:     echo "== RESTAURANDO SOBRE LA BASE REAL =="
+32:     mysql wings < "${WORKDIR}/wings.sql"
+33:     echo "   listo. Revisar el .env por separado: ${WORKDIR}/env.txt"
+34:     exit 0
+35: fi
+36:
+37: echo "== Ensayo en base descartable =="
+38: mysql -e "DROP DATABASE IF EXISTS wings_ensayo; CREATE DATABASE wings_ensayo CHARACTER SET utf8mb4;"
+39: mysql wings_ensayo < "${WORKDIR}/wings.sql"
+40:
+41: echo "== Comparacion contra la base viva =="
+42: DIFERENCIAS=0
+43: for TABLA in users alumnos pagos deuda_cuotas clases cajas_operativas movimientos_operativos cashflow_movimientos profesores deportes niveles grupos rubros subrubros tipos_caja; do
+44:     VIVA=$(mysql -N -B -e "SELECT COUNT(*) FROM wings.${TABLA};" 2>/dev/null || echo "?")
+45:     COPIA=$(mysql -N -B -e "SELECT COUNT(*) FROM wings_ensayo.${TABLA};" 2>/dev/null || echo "?")
+46:     if [ "${VIVA}" = "${COPIA}" ]; then
+47:         printf "   %-24s %-6s = %-6s ok\n" "${TABLA}" "${VIVA}" "${COPIA}"
+48:     else
+49:         printf "   %-24s %-6s = %-6s NO COINCIDE\n" "${TABLA}" "${VIVA}" "${COPIA}"
+50:         DIFERENCIAS=$((DIFERENCIAS + 1))
+51:     fi
+52: done
+53:
+54: mysql -e "DROP DATABASE wings_ensayo;"
+55:
+56: if [ "${DIFERENCIAS}" -eq 0 ]; then
+57:     echo "== ENSAYO CORRECTO: el respaldo se restaura completo =="
+58:     exit 0
+59: fi
+60: echo "== ENSAYO FALLIDO: ${DIFERENCIAS} tabla(s) no coinciden =="
+61: exit 1

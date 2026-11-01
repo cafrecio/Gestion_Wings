@@ -1,0 +1,11 @@
+{
+  "control": "metadatos_google_drive_conector",
+  "documento": "Credenciales Back-ups",
+  "tipo": "Google Docs",
+  "carpeta_padre": "Credenciales",
+  "carpeta_abuela": "BackUp VPS",
+  "contenido_leido": false,
+  "contenido_descargado": false,
+  "ubicacion_confirmada_por": "search item_type=document best_effort_fetch=false y files.get con fields de metadatos",
+  "nota": "No se publican IDs ni enlaces del documento de credenciales; no se verifico su contenido ni su coincidencia con la clave local."
+}

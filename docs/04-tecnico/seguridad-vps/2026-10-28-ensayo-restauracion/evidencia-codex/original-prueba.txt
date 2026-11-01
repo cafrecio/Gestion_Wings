@@ -1,0 +1,85 @@
+CONTROL_UTC 2026-11-01T14:04:41Z
+LOAD 0.21 0.31 0.16 1/293 1345421
+ACCESO_EDAD_SEGUNDOS 120820
+ACCESO_EDAD_SEGUNDOS 24199
+{"control": "estado_vivo_inicial", "tablas": {"wings": 35, "wingstest": 56}}
+
+== [0s] 1. Armar el paquete de wingstest como respaldar.sh
+   -> ok: wingstest_ensayo.tgz.enc (85M)
+
+== [7s] 2. Descifrar (clave identica a la copia de Drive, comprobada por huella)
+   -> ok: env.txt storage.tgz wings.sql
+
+== [8s] 3. Base aparte
+   -> ok: 56 tablas
+   users                    viva=10      copia=10      ok
+   alumnos                  viva=117     copia=117     ok
+   pagos                    viva=229     copia=229     ok
+   deuda_cuotas             viva=239     copia=239     ok
+   clases                   viva=226     copia=226     ok
+   asistencias              viva=1763    copia=1763    ok
+   cajas_operativas         viva=40      copia=40      ok
+   movimientos_operativos   viva=363     copia=363     ok
+   cashflow_movimientos     viva=396     copia=396     ok
+   liquidaciones            viva=8       copia=8       ok
+   profesores               viva=7       copia=7       ok
+   migrations               viva=110     copia=110     ok
+   pagos.SUM(monto_final)   viva=9013600.00   copia=9013600.00   ok
+   deuda_cuotas.SUM(monto_original) viva=8874500.00   copia=8874500.00   ok
+   deuda_cuotas.SUM(monto_pagado) viva=8222200.00   copia=8222200.00   ok
+   cashflow_movimientos.SUM(monto) viva=5871520.75   copia=5871520.75   ok
+   movimientos_operativos.SUM(monto) viva=9706600.00   copia=9706600.00   ok
+   liquidaciones.SUM(monto_final) viva=NULL         copia=NULL         ok
+   -> diferencias: 0
+
+== [9s] 4. Codigo desde GitHub, sin credenciales (como en un servidor nuevo)
+   -> ok: 6214fd4a PRU-04: prompt de Codex para la tanda 4; T94 a T101 quedan para la tanda 5
+
+== [29s] 5. Configuracion y archivos subidos
+   -> APP_KEY presente en el respaldo
+   -> storage/app restaurado: 65 archivos
+
+== [30s] 6. Dependencias y compilacion
+   -> composer: 0
+   -> build ok: 129 archivos
+
+== [52s] 7. Arranque
+   migraciones aplicadas: 110
+   migraciones pendientes del codigo de produccion: 0
+[ERROR] APP_ENV=production: El perfil de desarrollo no puede servir en internet.
+[OK] APP_DEBUG=false
+[OK] APP_KEY presente
+[OK] DB_USERNAME dedicado
+[ERROR] APP_URL con HTTPS: Las credenciales viajarían sin TLS.
+[ERROR] SESSION_SECURE_COOKIE=true: La cookie de sesión podría viajar sin HTTPS.
+[ERROR] SESSION_ENCRYPT=true: El contenido de la sesión no estaría cifrado.
+[ERROR] SESSION_SAME_SITE=strict: La cookie admitiría más contexto entre sitios del necesario.
+[OK] SESSION_DOMAIN vacío
+[OK] LOG_LEVEL=warning
+[OK] Sin cuentas de prueba
+[OK] Administrador activo presente
+
+Preflight rechazado: 5 verificación(es) fallaron.
+
+  0  6 * * *  php artisan cobranza:generar-deudas --si-falta  Next Due: en 6 horas
+  15 6 * * *  php artisan cobranza:aplicar-punitorios ... Next Due: en 6 horas
+  0  8 * * *  php artisan avisos:resumen-diario ......... Next Due: en 8 horas
+  0  7 * * 1  bash /root/ensayo-t82/app/scripts/servidor/resumen-csp.sh  Next Due: en 4 días
+
+   /login -> 200
+   /      -> 302
+
+== [58s] 8. Limpieza
+   -> base, usuario y carpeta del ensayo borrados
+
+== TOTAL: 59s
+RESULTADO_SCRIPT_SIN_MODIFICAR 0
+CONTROL_SALIDA_ORIGINAL 0
+{"control": "bases_vivas_despues", "resultado": {"wings": {"tablas": 35, "tablas_cambiadas": ["sessions"], "sin_cambios": false}, "wingstest": {"tablas": 56, "tablas_cambiadas": [], "sin_cambios": true}}}
+LIMPIEZA_COMPROBADA
+CARPETA_AUSENTE /root/ensayo-t82
+CARPETA_AUSENTE /root/control-t82
+bases_residuales	0
+usuarios_residuales	0
+PUERTO_8099_RESIDUAL 0
+TEMP_RESTAURAR_RESIDUAL 0

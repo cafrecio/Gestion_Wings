@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:02:45.965067+00:00",
+  "segundos": 45.19,
+  "codigo": 0,
+  "salida": "original-produccion-control-corregido.txt",
+  "error": "original-produccion-control-corregido.stderr.txt"
+}

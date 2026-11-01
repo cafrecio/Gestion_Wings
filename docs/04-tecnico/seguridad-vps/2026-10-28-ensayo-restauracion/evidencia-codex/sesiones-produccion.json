@@ -1,0 +1,7 @@
+{
+  "inicio_UTC": "2026-11-01T14:13:49.662740+00:00",
+  "segundos": 2.28,
+  "codigo": 0,
+  "salida": "sesiones-produccion.txt",
+  "error": "sesiones-produccion.stderr.txt"
+}

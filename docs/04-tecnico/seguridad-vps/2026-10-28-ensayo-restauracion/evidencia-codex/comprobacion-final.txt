@@ -1,0 +1,7 @@
+{"control": "limpieza_final", "carpetas": {"/root/ensayo-t82": false, "/root/control-t82": false}, "procesos_relacionados": [], "temporales_restaurar": 0, "rclone_conf_modificacion_UTC": "2026-11-01T14:00:06.425297+00:00", "rangos_codigo_validos_sin_loopback": 22, "rangos_codigo_presentes_en_csf": 15, "rangos_codigo_ausentes_en_csf": 7}
+bases_ensayo_residuales	0
+usuario_mysql_residual	0
+prod_alumnos_pagos	0	0
+test_alumnos_pagos	117	229
+USUARIO_SISTEMA_AUSENTE
+PUERTO_8099 0
