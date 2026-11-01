@@ -65,6 +65,8 @@ Se conservan los dos movimientos originales y se agregan dos asientos en contra:
 
 Por ejemplo, si Efectivo tenía $600,000.00 y Banco $100,000.00, transferir $300,000.00 los deja en $300,000.00 y $400,000.00. Anular devuelve los saldos a $600,000.00 y $100,000.00. El total del club se conserva.
 
+Si la plata ya se gastó de la cuenta de destino, Wings anula igual y esa cuenta puede quedar en negativo.
+
 En Cashflow quedan la transferencia marcada como anulada, sus dos asientos en contra y el motivo. Las cuatro filas quedan solo con **Ver**: no se editan ni se anula un contraasiento. Volver a confirmar no duplica la anulación.
 
 ### ¿Qué hago si no deja anular?

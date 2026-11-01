@@ -50,7 +50,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T97** Transferencia entre cuentas: no se puede corregir ni anular | Hecho, espera verificación (hizo Codex, verifica Claude) | Codex entrega7e72b0d4: completa1401 aprobadas/6omitidas/11287aserciones, 1300.66s; 669fuentes intactas. IntegracionT106:65/774 verde. 19mutaciones y dos conexiones. Revisar IMPLEMENTACION-T97.md y VER-T97.html. Reserva LIBERADA; sin despliegue. |
 
 ## Codex
 

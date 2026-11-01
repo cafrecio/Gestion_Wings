@@ -27,6 +27,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** control de Codex con [este prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T102-T105-CONTROL.md); Gemini retoma T94. Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T97: control de la entrega de Codex, cerrada
+
+- **Resultado:** aprobada. Las 31 de Codex pasan sobre `main` con T106, y 8 mías también: plata al peso con centavos, mes anterior, permisos y formulario viejo. [Informe](../06-pruebas/PRU-04/VERIFICACION-T97-CLAUDE.md).
+- **Error mío:** T106 dejó falsa una frase de `consultar-cashflow.md`; no busqué todas las menciones al cerrarla. Corregida. **Agregado:** el manual ahora avisa que anular puede dejar una cuenta en negativo.
+- **Tabla:** CSH-020 a CSH-025, publicados. La planilla se actualiza con la tanda 5. Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T106: las transferencias no suman en los totales
 
 - **Decisión de Carlos:** Cashflow sin filtro de cuenta e Historial no las suman; con filtro de cuenta sí, y en Historial filtrando su subrubro. Las filas se siguen listando. Corrige la contradicción entre el contrato de T61 y CSH-018.

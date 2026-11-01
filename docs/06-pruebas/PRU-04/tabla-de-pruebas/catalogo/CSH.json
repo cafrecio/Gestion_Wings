@@ -888,6 +888,186 @@
       "tarea": "",
       "tipo": "normal",
       "titulo": "Períodos de Cashflow"
+    },
+    {
+      "accion": "Transfiere $300.000 de Efectivo a Banco. Toca Anular en una de las dos filas, completa el motivo y confirma. Repite en otro caso desde la otra fila.",
+      "codigo": "CSH-020",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cuentas",
+          "l": "a",
+          "texto": "Vuelven a $600.000 y $100.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Quedan los dos originales y dos asientos en contra, con la fecha original y el motivo; las cuatro filas solo con Ver.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Efectivo $600.000 y Banco $100.000.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "normal",
+      "titulo": "Anular una transferencia desde cualquiera de sus filas"
+    },
+    {
+      "accion": "Envía el motivo vacío, con espacios y con 501 caracteres; después uno válido. Confirma de nuevo desde otra pestaña.",
+      "codigo": "CSH-021",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Lo inválido se rechaza sin escribir; admite hasta 500 caracteres.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Repetir",
+          "l": "b",
+          "texto": "La segunda confirmación avisa que ya está anulada; no duplica ni cambia motivo o autor.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Una transferencia vigente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "mal_uso",
+      "titulo": "Anular sin motivo, con un motivo largo y dos veces"
+    },
+    {
+      "accion": "Transfiere con fecha 20/10 y la anula en noviembre.",
+      "codigo": "CSH-022",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Meses",
+          "l": "a",
+          "texto": "Octubre y noviembre quedan iguales que sin la transferencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes e Inicio",
+          "l": "b",
+          "texto": "No pierden el negocio de esos meses.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Un ingreso en Banco del 10/10 y un gasto en Efectivo del 03/11.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "normal",
+      "titulo": "Anular una transferencia de un mes anterior"
+    },
+    {
+      "accion": "Pide editar o eliminar un original o un asiento en contra, anular desde un asiento en contra y cargar un traspaso suelto.",
+      "codigo": "CSH-023",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pedidos",
+          "l": "a",
+          "texto": "Todos rechazados.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuentas",
+          "l": "b",
+          "texto": "Ninguna cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Una transferencia anulada y otra vigente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "mal_uso",
+      "titulo": "Querer corregir una sola fila de una transferencia"
+    },
+    {
+      "accion": "Un segundo dueño anula lo que cargó el primero; dos pestañas confirman a la vez.",
+      "codigo": "CSH-024",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Anulación",
+          "l": "a",
+          "texto": "Queda un solo par de asientos en contra, con autor y momento de quien confirmó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Segunda",
+          "l": "b",
+          "texto": "Se rechaza sin escribir.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Dos dueños activos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "mal_uso",
+      "titulo": "Dos dueños anulan la misma transferencia"
+    },
+    {
+      "accion": "En una copia descartable, altera una fila del par antes de anular.",
+      "codigo": "CSH-025",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "«Los movimientos de la transferencia necesitan revisión. No se anuló la operación.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No repara ni modifica nada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-anular-transferencia",
+      "requiere": "Base de prueba descartable.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T97",
+      "tipo": "mal_uso",
+      "titulo": "Anular una transferencia con los datos alterados"
     }
   ],
   "modulo": "Cashflow",
