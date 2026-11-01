@@ -41,7 +41,7 @@ Esta tarea te explica cómo generar, descargar e imprimir el comprobante oficial
 ## Qué hago si…
 
 ### ¿Qué hago si el botón Recibo no aparece?
-Si en la pantalla no figura el botón de descarga del comprobante, verificá el estado de la liquidación. Si figura como *Abierta*, debés cerrarla y asentar el pago. Wings bloquea la generación de recibos con el mensaje: «Solo se pueden generar recibos de liquidaciones que han sido pagadas» hasta que no se registre la salida de fondos.
+Si en la pantalla no figura el botón de descarga del comprobante, verificá el estado de la liquidación. Si figura como *Abierta*, debés cerrarla y asentar el pago. Hasta entonces no hay recibo: si escribís su dirección, Wings muestra «Página no disponible».
 
 ### ¿Se puede volver a descargar el recibo más adelante?
 Sí. El recibo queda almacenado de forma permanente en el historial del club. Podés volver a abrir la liquidación en cualquier momento y tocar **Recibo** para descargar una copia idéntica a la original.

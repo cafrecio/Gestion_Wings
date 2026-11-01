@@ -9,6 +9,7 @@ use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Nivel;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
@@ -32,6 +33,7 @@ class ControlT94CarreraTest extends TestCase
         parent::setUp();
         // Sin transacción: la otra conexión tiene que ver los datos.
         $this->artisan('migrate:fresh');
+        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'TERMINADA']);
         $this->admin = User::factory()->create(['rol' => User::ROL_ADMIN, 'activo' => true]);
         $deporte = Deporte::create(['nombre' => 'Control', 'tipo_liquidacion' => Deporte::TIPO_LIQUIDACION_HORA, 'activo' => true]);
         $nivel = Nivel::create(['nombre' => 'Control']);
@@ -39,6 +41,14 @@ class ControlT94CarreraTest extends TestCase
         $this->uno = GrupoPlan::create(['grupo_id' => $this->grupo->id, 'clases_por_semana' => 1, 'precio_mensual' => 20000, 'activo' => true]);
         $this->dos = GrupoPlan::create(['grupo_id' => $this->grupo->id, 'clases_por_semana' => 2, 'precio_mensual' => 30000, 'activo' => true]);
         $this->alumno = $this->crearAlumno('31000222');
+    }
+
+    protected function tearDown(): void
+    {
+        // Los datos de la carrera quedan confirmados: la clase siguiente tiene que encontrar la base limpia.
+        $this->artisan('migrate:fresh');
+        RefreshDatabaseState::$migrated = true;
+        parent::tearDown();
     }
 
     private function crearAlumno(string $dni): Alumno

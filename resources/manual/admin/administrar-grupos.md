@@ -39,7 +39,7 @@ Un grupo es la combinación de un deporte y un nivel (por ejemplo, "Patín – E
 ## Pasar un grupo a otro nivel
 
 1. En **Grupos**, tocá **Editar** en la tarjeta del grupo.
-2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos.
+2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos; si el grupo ya tiene un nivel inactivo, también aparece para conservarlo.
 3. Tocá **Guardar**. Wings muestra «Grupo actualizado correctamente.».
 
 El grupo conserva sus alumnos, sus precios y sus clases. Su nombre cambia en todas las pantallas, también en clases y liquidaciones anteriores. Los recibos PDF ya generados no cambian.

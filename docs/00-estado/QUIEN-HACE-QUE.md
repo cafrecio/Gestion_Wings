@@ -50,19 +50,20 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Codex controlo c91b4555: manual y avisos corregidos; H1 residual en dos campos de la ficha que aun generalizan PENDIENTE. H2 paneles espera aprobacion visual de Carlos. T100 pasa en completa final; cinco avisos mecanicos menores del manual. VERIFICACION-T100-CODEX.md. |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Devuelto (hizo Claude, verifica Codex) | Control Codex: ocho casos T102 correctos. Devuelta por S1/S2 aislamiento: completa unica1428/51fallidas/6omitidas; T94 contamina otras clases e inscripcion aislada se desvia a Primera carga. VERIFICACION-T102-CODEX.md. Sin producto ni despliegue. |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidos 01/11 H1 y H2 (Carlos: Arreglalos; tres paneles). Completa 1479/0/6 antes de los textos. Falta la segunda vuelta de Codex: PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. Sin desplegar. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidos 01/11 S1, S2 y H1: la completa pasa de 51 fallidas a 1479/0/6, en wings_testing_claude. Falta la segunda vuelta de Codex: PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. Sin desplegar. |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
-| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
+| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | En curso (hizo Claude, verifica Gemini) | Gemini verifica los 8 casos de cierre con pantalla vieja, concurrencia y Cashflow |
+| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | En curso (hizo Claude, verifica Gemini) | Gemini verifica los 7 casos de segunda ficha e inscripcion, reportes y manual |
 
 ## Sin empezar (10)
 

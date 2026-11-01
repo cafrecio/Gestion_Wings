@@ -439,7 +439,7 @@
 <div id="modal-anular" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Anular cobro</p>
-        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda vuelve a quedar pendiente y la plata sale del cashflow. El recibo queda marcado como anulado.</p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La plata sale del cashflow y el recibo queda anulado. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.</p>
         <form id="form-anular" method="POST" action="">
             @csrf
             <textarea name="motivo" required minlength="10" maxlength="500" rows="3"

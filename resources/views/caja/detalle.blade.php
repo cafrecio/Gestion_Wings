@@ -303,7 +303,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 <div id="modal-cancelar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Cancelar cobro de cuota</p>
-        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda del alumno volverá a estado pendiente.</p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.</p>
         <form id="form-cancelar" method="POST" action="">
             @csrf
             <textarea name="motivo" required maxlength="500" rows="3"

@@ -30,7 +30,7 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 ### Paso 2. Localizar la operación y tocar Cancelar
 1. En la tabla de movimientos, localizá la fila del cobro de cuota que necesitás anular (los ingresos y gastos manuales se corrigen o borran con los botones **Editar** y **Eliminar**).
 2. Al final de la fila, hacé clic en el botón rojo **Cancelar**.
-3. Se despliega el panel **Cancelar cobro de cuota** con la indicación «La deuda del alumno volverá a estado pendiente.».
+3. Se despliega el panel **Cancelar cobro de cuota** con la indicación «El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.».
 
 ![Botón Cancelar en la fila](/ayuda/img/operativo/cancelar-movimiento-caja-paso2.png)
 
@@ -39,7 +39,7 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 ### Paso 3. Ingresar el motivo obligatorio y confirmar
 1. En la casilla de texto, escribí el motivo claro y descriptivo de la anulación (por ejemplo: "Cobro duplicado por error" o "Monto ingresado incorrectamente").
 2. Hacé clic en el botón **Confirmar** (o en **Cerrar** si no deseás cancelar).
-3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica «¿Qué pasa si cancelo un cobro adelantado?».
+3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica la pregunta sobre el cobro adelantado, más abajo.
 
 ![Modal de confirmación con motivo](/ayuda/img/operativo/cancelar-movimiento-caja-paso3.png)
 
@@ -52,10 +52,10 @@ Si ese cobro creó la cuota de un mes que todavía no empezó, y no queda otro c
 
 En estos casos la cuota no se borra:
 
-- **El mes ya empezó, tiene un recargo o entró en una liquidación:** queda pendiente al precio del plan.
-- **La cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla:** queda pendiente con el importe que tenía.
-- **Queda otro cobro de ese mes:** ese cobro sigue en pie y queda pendiente lo que falta.
-- **Parte de la cuota se dio por perdida:** queda pendiente con el importe que tenía.
+- Si el mes ya empezó, tiene un recargo o entró en una liquidación, queda pendiente al precio del plan.
+- Si la cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla, queda pendiente con el importe que tenía.
+- Si queda otro cobro de ese mes, ese cobro sigue en pie y queda pendiente lo que falta.
+- Si parte de la cuota se dio por perdida, queda pendiente con el importe que tenía.
 
 ### ¿Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?
 Si la caja está en estado *Cerrada*, la botonera de cancelación se deshabilita para evitar adulteraciones posteriores al arqueo. Hablá con el dueño y pedile que rechace la caja: al pasar a estado *Rechazada*, el botón **Cancelar** vuelve a estar habilitado para que corrijas la operación.

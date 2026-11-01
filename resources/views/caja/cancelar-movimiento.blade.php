@@ -43,7 +43,7 @@ $alumnoNombre = $movimiento->alumno
             <p style="font-size:0.75rem; color:var(--color-danger); margin-top:4px;">{{ $message }}</p>
         @enderror
         <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:8px;">
-            La deuda del alumno volverá a estado pendiente.
+            El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.
         </p>
     </div>
 

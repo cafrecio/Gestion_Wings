@@ -27,6 +27,8 @@ class InscripcionConcurrenteTest extends TestCase
             $this->artisan('migrate:fresh')->assertExitCode(0);
             RefreshDatabaseState::$migrated = true;
         }
+        // migrate:fresh repone la Primera carga pendiente y el alta se desviaría a esa pantalla.
+        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'TERMINADA']);
         $this->seed(CatalogosSeeder::class);
         \App\Models\ReglaPrimerPago::query()->delete();
         Carbon::setTestNow('2026-09-24 12:00:00');
@@ -84,7 +86,10 @@ class InscripcionConcurrenteTest extends TestCase
         $otro = Grupo::create(['deporte_id' => Deporte::whereKeyNot($this->datos['deporte_id'])->first()->id, 'nivel_id' => Nivel::first()->id, 'activo' => true]);
         $plan = GrupoPlan::create(['grupo_id' => $otro->id, 'clases_por_semana' => 2, 'precio_mensual' => 30000, 'activo' => true]);
         $datosOtro = array_replace($this->datos, ['deporte_id' => $otro->deporte_id, 'grupo_id' => $otro->id, 'plan_id' => $plan->id]);
-        $this->iniciar(fn () => $this->post('/alumnos', $this->datos)->assertRedirect());
+        $this->iniciar(function () {
+            $this->post('/alumnos', $this->datos)->assertRedirect();
+            $this->assertSame(1, Alumno::count(), 'La primera alta no llegó a guardar: no hay nada que serializar');
+        });
         $this->esperaSinEscribir(fn () => $this->post('/alumnos', $datosOtro));
         $this->post('/alumnos', $datosOtro)->assertRedirect();
         $this->assertDatabaseCount('alumnos', 2);

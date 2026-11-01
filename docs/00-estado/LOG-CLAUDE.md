@@ -43,6 +43,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre, y después me desdije leyendo el código: la primera versión era la correcta (ver la revisión de T105). Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T100 y T102: arreglado lo que devolvió Codex
+
+- **T102, S1:** las 51 fallas venían de mi `ControlT94CarreraTest`: dejaba datos confirmados. Yo cerré T94 sin correr la completa después de que entrara a `tests/`. Ahora limpia la base al terminar. **S2:** `InscripcionConcurrenteTest`, de ENT-01, se desviaba a Primera carga si corría primera; ahora marca el club operativo y exige que la primera alta guarde.
+- **Completa antes de los textos de pantalla:** 1.479 aprobadas, 0 fallidas, 6 omitidas, en `wings_testing_claude`. El comando sale con código 1 igual, también con una sola clase en verde; no determiné la causa.
+- **T100, H2:** Carlos: «Arreglalos». Cambié el texto de tres paneles (la tercera, `caja/cancelar-movimiento`, tenía la misma frase falsa). Sin capturas: solo texto.
+- **Manual:** verificador en 0. Mi corrección anterior le había metido 5 problemas por no correrlo.
+- **Sigue:** segunda vuelta de Codex, [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md). Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T110, T111 y T112 para después de producción
 
 - Decisión de Carlos: «para después. No sigamos agregando cosas.» Se retratan en la tanda 5 y no se reparan antes.
