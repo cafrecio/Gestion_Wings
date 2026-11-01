@@ -167,6 +167,15 @@ $env:DB_DATABASE='wings_testing_gemini'; php artisan test --exclude-group=lento
 ```
 - **Resultado:** **1351 aprobadas, 6 omitidas, 0 fallidas (9885 aserciones)** en **360.62 s**. Salida con código 0.
 
+### D. Comportamiento ante cuenta desactivada a mitad de sesión (fuera de la tarea)
+- **Análisis:** Cuando un usuario es desactivado mientras mantiene la sesión abierta, el middleware `EnsureActiveUserWeb` invalida la sesión y responde con una redirección HTTP 302 a `/login` con el error flash `'Tu cuenta fue desactivada.'`.
+- **Cómo queda con el cambio:** Anteriormente, `fetch` seguía transparentemente el 302 recibiendo el HTML de login, lo que en scripts como `clases-show.js:138` provocaba que cayera en el bloque de error genérico mostrando `✗ Error de conexión.`. Con el interceptor global en `resources/js/bootstrap.js`, al detectar que la respuesta redirigida conduce a `/login` (`respuesta.redirected && respuesta.url.includes('/login')`), el navegador navega a la URL final `/login` mostrando el error `'Tu cuenta fue desactivada.'` en pantalla, evitando que la interfaz quede varada con un error falso de conectividad.
+
+### E. Relevamiento en el manual (`resources/manual/`)
+- Se realizó una búsqueda exhaustiva en las 59 páginas de `resources/manual/` respecto a menciones de sesión vencida, expiración o tiempo límite (`sesión`, `expir`, `vencid`).
+- **Hallazgo:** Ninguna página del manual describe hoy el comportamiento ante sesión expirada o tiempo de inactividad (solo se menciona el cierre de sesiones activas al desactivar un profesor en `administrar-profesores.md` y al cambiar la contraseña en `administrar-usuarios.md`).
+- **Propuesta para el manual:** Dado que el catálogo ACC-006 admite que lo cargado antes de la expiración se pierde por seguridad, se sugiere que en futuras revisiones de la documentación de ingreso/acceso se aclare brevemente que tras un tiempo prolongado de inactividad, Wings solicitará volver a ingresar por seguridad y descartará los datos no guardados.
+
 ---
 
 ## 4. Estado de tareas y entrega
