@@ -1,0 +1,5 @@
+   PASS  Tests\Feature\ControlComisionHttpT100Test
+  ✓ recalcular por post retiro cobro anulado y conservo cerrada                                                  0.37s
+
+  Tests:    1 passed (7 assertions)
+  Duration: 0.56s

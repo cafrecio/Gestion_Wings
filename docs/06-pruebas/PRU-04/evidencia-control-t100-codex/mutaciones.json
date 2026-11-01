@@ -1,0 +1,80 @@
+[
+  {
+    "regla": "sin_origen",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 16.01
+  },
+  {
+    "regla": "sin_otro_pago",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 15.37
+  },
+  {
+    "regla": "sin_perdida",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 24.6
+  },
+  {
+    "regla": "sin_recargo",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 25.87
+  },
+  {
+    "regla": "sin_liquidacion",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 24.82
+  },
+  {
+    "regla": "sin_mes_empezado",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 35.1
+  },
+  {
+    "regla": "sin_borrado",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 24.53
+  },
+  {
+    "regla": "sin_precio_plan",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.94
+  },
+  {
+    "regla": "sin_limpiar_origen",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 32.89
+  },
+  {
+    "regla": "sin_marca_origen",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 27.96
+  },
+  {
+    "regla": "marca_cuota_preexistente",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 33.23
+  },
+  {
+    "regla": "sin_cancelacion_operativa",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.47
+  },
+  {
+    "regla": "sin_anulacion_duenio",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.9
+  }
+]

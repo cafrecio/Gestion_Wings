@@ -1,0 +1,5 @@
+   PASS  Tests\Feature\ManualRechazosT100CodexTest
+  ✓ manual rechazos por motivo estado y cobro ya cancelado                                                      13.54s
+
+  Tests:    1 passed (14 assertions)
+  Duration: 13.69s

@@ -1,0 +1,39 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+
+  ⨯ caso 9 recargo y perdida impiden borrar                                                                     23.13s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 9 recargo y perdida impiden borrar                ErrorException
+
+  Attempt to read property "monto_original" on null
+
+
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:101
+
+     97▕   $p=$this->cobrar(['2026-12'=>300000],$this->admin);
+
+     98▕   CargoAlumno::create(['alumno_id'=>$this->alumno->id,'deuda_cuota_id'=>$this->cuota()->id,'tipo'=>'PUNITORIO','clave_origen'=>'control-t100','monto_original'=>100,'estado'=>'VIGENTE','calculo'=>[],'subrubro_id'=>Subrubro::first()->id]);
+
+     99▕   $this->revertir($p,true); $this->assertSame('30000.00',$this->cuota()->monto_original);
+
+    100▕   $p2=$this->cobrar(['2026-11'=>300000],$this->admin); $this->cuota('2026-11')->forceFill(['monto_perdido'=>100])->save();
+
+  ➜ 101▕   $this->revertir($p2,true); $this->assertSame('300000.00',$this->cuota('2026-11')->monto_original);
+
+    102▕  }
+
+    103▕  public function test_caso_10_primera_cuota_futura_con_descuento():void {
+
+    104▕   $this->cuota('2026-10')->delete(); $this->alumno->update(['fecha_alta'=>'2026-12-20']);
+
+    105▕   AlumnoPlan::where('alumno_id',$this->alumno->id)->update(['fecha_desde'=>'2026-12-20']);
+
+
+
+
+
+  Tests:    1 failed (6 assertions)
+
+  Duration: 23.35s

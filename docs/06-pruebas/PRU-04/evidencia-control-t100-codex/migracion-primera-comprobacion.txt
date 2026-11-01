@@ -1,0 +1,3 @@
+In migracion-copia-sitio.php line 22:
+
+  Se cambio cuota anterior

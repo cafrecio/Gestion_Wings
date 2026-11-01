@@ -1,0 +1,32 @@
+{
+    "con_asistencia": {
+        "id": 30,
+        "alumno_id": 3,
+        "periodo": "2026-11",
+        "monto_original": "30000.00",
+        "monto_pagado": "0.00",
+        "estado": "PENDIENTE",
+        "observaciones": null,
+        "created_at": "2026-11-01T09:00:00.000000Z",
+        "updated_at": "2026-11-01T09:00:00.000000Z",
+        "porcentaje_alta": null,
+        "fecha_reingreso": null,
+        "monto_perdido": "0.00",
+        "pago_origen_id": null
+    },
+    "sin_asistencia": null,
+    "revision": {
+        "id": 3,
+        "alumno_id": 4,
+        "periodo_objetivo": "2026-11",
+        "motivo": "SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES",
+        "estado_revision": "PENDIENTE",
+        "resolucion": null,
+        "nota_resolucion": null,
+        "usuario_resolucion_id": null,
+        "resuelto_at": null,
+        "created_at": "2026-11-01T09:00:00.000000Z",
+        "updated_at": "2026-11-01T09:00:00.000000Z"
+    },
+    "cierre_intacto": true
+}

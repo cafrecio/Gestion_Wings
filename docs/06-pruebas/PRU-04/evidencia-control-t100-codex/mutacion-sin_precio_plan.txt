@@ -1,0 +1,53 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+
+  ⨯ caso 5 caja rechazada mes empezado                                                                          28.96s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 5 caja rechazada mes empezado
+
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
+-    0 => '30000.00',
++    0 => '300000.00',
+     1 => '0.00',
+     2 => 'PENDIENTE',
+     3 => null,
+ ]
+
+
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:79
+
+     75▕  }
+
+     76▕  public function test_caso_5_caja_rechazada_mes_empezado():void {
+
+     77▕   $p=$this->cobrar(['2026-12'=>300000]); $this->caja->update(['estado'=>'RECHAZADA']);
+
+     78▕   $this->reloj('2026-12-03 10:00:00'); $this->revertir($p);
+
+  ➜  79▕   $q=$this->cuota(); $this->assertSame(['30000.00','0.00','PENDIENTE',null],[$q->monto_original,$q->monto_pagado,$q->estado,$q->pago_origen_id]);
+
+     80▕  }
+
+     81▕  public function test_caso_6_multimes_y_7_cuota_preexistente():void {
+
+     82▕   $this->cuota('2026-10')->update(['monto_pagado'=>0,'estado'=>'PENDIENTE']);
+
+     83▕   $this->revertir($this->cobrar(['2026-10'=>30000,'2026-12'=>30000]));
+
+
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:79
+
+
+
+
+
+  Tests:    1 failed (4 assertions)
+
+  Duration: 29.16s

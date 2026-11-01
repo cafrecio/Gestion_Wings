@@ -1,0 +1,124 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+
+  ⨯ caso 2 duenio cashflow y ficha sin cuota                                                                    29.01s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 2 duenio cashflow y ficha sin cuota
+
+  Failed asserting that App\Models\DeudaCuota Object #915 (
+    'connection' => 'mysql',
+    'table' => 'deuda_cuotas',
+    'primaryKey' => 'id',
+    'keyType' => 'int',
+    'incrementing' => true,
+    'with' => Array &0 [],
+    'withCount' => Array &1 [],
+    'preventsLazyLoading' => false,
+    'perPage' => 15,
+    'exists' => true,
+    'wasRecentlyCreated' => false,
+    'escapeWhenCastingToString' => false,
+    'attributes' => Array &2 [
+        'id' => 2,
+        'alumno_id' => 1,
+        'periodo' => '2026-12',
+        'monto_original' => '300000.00',
+        'monto_pagado' => '0.00',
+        'estado' => 'PENDIENTE',
+        'observaciones' => '[2026-10-05 10:00:00] [ANULADO] Pago #1 revertido - Control: cero de más',
+        'created_at' => '2026-10-05 10:00:00',
+        'updated_at' => '2026-10-05 10:00:00',
+        'porcentaje_alta' => null,
+        'fecha_reingreso' => null,
+        'monto_perdido' => '0.00',
+        'pago_origen_id' => 1,
+    ],
+    'original' => Array &3 [
+        'id' => 2,
+        'alumno_id' => 1,
+        'periodo' => '2026-12',
+        'monto_original' => '300000.00',
+        'monto_pagado' => '0.00',
+        'estado' => 'PENDIENTE',
+        'observaciones' => '[2026-10-05 10:00:00] [ANULADO] Pago #1 revertido - Control: cero de más',
+        'created_at' => '2026-10-05 10:00:00',
+        'updated_at' => '2026-10-05 10:00:00',
+        'porcentaje_alta' => null,
+        'fecha_reingreso' => null,
+        'monto_perdido' => '0.00',
+        'pago_origen_id' => 1,
+    ],
+    'changes' => Array &4 [],
+    'previous' => Array &5 [],
+    'casts' => Array &6 [
+        'monto_original' => 'decimal:2',
+        'monto_pagado' => 'decimal:2',
+        'monto_perdido' => 'decimal:2',
+        'porcentaje_alta' => 'decimal:2',
+        'fecha_reingreso' => 'date',
+    ],
+    'classCastCache' => Array &7 [],
+    'attributeCastCache' => Array &8 [],
+    'dateFormat' => null,
+    'appends' => Array &9 [],
+    'dispatchesEvents' => Array &10 [],
+    'observables' => Array &11 [],
+    'relations' => Array &12 [],
+    'touches' => Array &13 [],
+    'relationAutoloadCallback' => null,
+    'relationAutoloadContext' => null,
+    'timestamps' => true,
+    'usesUniqueIds' => false,
+    'hidden' => Array &14 [],
+    'visible' => Array &15 [],
+    'fillable' => Array &16 [
+        0 => 'alumno_id',
+        1 => 'periodo',
+        2 => 'monto_original',
+        3 => 'monto_pagado',
+        4 => 'estado',
+        5 => 'observaciones',
+        6 => 'porcentaje_alta',
+        7 => 'fecha_reingreso',
+        8 => 'pago_origen_id',
+    ],
+    'guarded' => Array &17 [
+        0 => '*',
+    ],
+    'fechaHistorial' => null,
+) is null.
+
+
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:60
+
+     56▕  }
+
+     57▕  public function test_caso_2_duenio_cashflow_y_ficha_sin_cuota():void {
+
+     58▕   $p=$this->cobrar(['2026-12'=>300000],$this->admin);
+
+     59▕   $this->assertEquals(300000,CashflowMovimiento::sum('monto')); $this->revertir($p,true);
+
+  ➜  60▕   $this->assertNull($this->cuota()); $this->assertEquals(0,CashflowMovimiento::sum('monto'));
+
+     61▕   $this->assertSame('ANULADO',$p->fresh()->estado); $this->assertSame('2026-12',$p->fresh()->detalle_anulacion['periodos'][0]['periodo']);
+
+     62▕   $this->actingAs($this->admin)->get(route('web.alumnos.show',$this->alumno->id))->assertOk()->assertSee('Anulado');
+
+     63▕   $this->cobrar(['2026-12'=>30000],$this->admin); $this->assertEquals(30000,CashflowMovimiento::sum('monto'));
+
+     64▕  }
+
+
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:60
+
+
+
+
+
+  Tests:    1 failed (5 assertions)
+
+  Duration: 29.17s

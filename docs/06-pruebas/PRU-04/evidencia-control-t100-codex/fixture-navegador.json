@@ -1,0 +1,21 @@
+{
+    "base": "wings_testing_codex",
+    "admin": 1,
+    "operativa": 2,
+    "caja": 1,
+    "medio": 1,
+    "plan": 1,
+    "alumnos": {
+        "Operativa": 1,
+        "Dueño": 2,
+        "Asistencia": 3,
+        "Revisión": 4,
+        "Caja rechazada": 5,
+        "Multimes": 6,
+        "Preexistente": 7,
+        "Dos cobros": 8,
+        "Recargo": 9,
+        "Descuento": 10,
+        "Meses seguidos": 11
+    }
+}

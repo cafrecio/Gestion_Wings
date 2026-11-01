@@ -1,0 +1,253 @@
+{
+    "reloj": "2026-10-05 10:00:00",
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100: un cero de m\\u00e1s\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "monto_final": "30000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 3,
+            "alumno_id": 2,
+            "monto_final": "300000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        }
+    ],
+    "cuotas": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 2,
+            "alumno_id": 2,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 3,
+            "alumno_id": 3,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 4,
+            "alumno_id": 4,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 5,
+            "alumno_id": 5,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 6,
+            "alumno_id": 6,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 7,
+            "alumno_id": 7,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 8,
+            "alumno_id": 8,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 9,
+            "alumno_id": 9,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 10,
+            "alumno_id": 10,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 11,
+            "alumno_id": 11,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 13,
+            "alumno_id": 1,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": 2
+        },
+        {
+            "id": 14,
+            "alumno_id": 2,
+            "periodo": "2026-12",
+            "monto_original": "300000.00",
+            "monto_pagado": "300000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": 3
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "pago_id": 1,
+            "monto": "300000.00",
+            "estado": "CANCELADO"
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "pago_id": 2,
+            "monto": "30000.00",
+            "estado": "ACTIVO"
+        }
+    ],
+    "cashflow": [
+        {
+            "id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 3,
+            "monto": "300000.00"
+        }
+    ],
+    "reporte": {
+        "mes": "2026-10",
+        "fecha_corte": "2026-10-05",
+        "deporte_id": null,
+        "ingresos": 0,
+        "egresos": 0,
+        "resultado": 0,
+        "resultado_global": 33000000,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 0,
+            "mes": 0,
+            "anteriores": 0,
+            "filas": [],
+            "cuotas": 0,
+            "inscripciones": 0,
+            "punitorios": 0
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 0,
+            "mes": 0,
+            "anteriores": 0,
+            "filas": []
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 30000000,
+                "pendiente": 3000000,
+                "total": 33000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 33000000,
+        "historial_desde": "2026-01-01",
+        "filas": [],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 0,
+            "liquidaciones_abiertas": 0,
+            "asistencia": 0,
+            "revision": 0
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T100 Codex",
+                "nivel": "Inicial Control Codex",
+                "cantidad": 11
+            }
+        ]
+    }
+}

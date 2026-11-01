@@ -1,0 +1,119 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Operativa Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - generic: Cobro cancelado y deuda revertida.
+  - paragraph: Operativo
+  - paragraph: Operativa Control Codex
+  - paragraph: Apertura
+  - paragraph: 05/10/2026 10:00
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: RECHAZADA
+  - strong: "3"
+  - text: movimientos
+  - link "Resumen":
+    - /url: http://127.0.0.1:8111/caja/1/resumen
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - 'row "05/10/2026 10:00 I EFT Cuotas — Cuota Mensual Control T100, Operativa · CON Cancelado: Control T100: un cero de más $300,000.00 Cancelado"':
+          - cell "05/10/2026"
+          - cell "10:00"
+          - cell "I"
+          - cell "EFT"
+          - cell "Cuotas — Cuota Mensual"
+          - 'cell "Control T100, Operativa · CON Cancelado: Control T100: un cero de más"':
+            - generic: Control T100, Operativa · CON
+            - generic: "Cancelado: Control T100: un cero de más"
+          - cell "$300,000.00"
+          - cell "Cancelado"
+        - row "05/10/2026 10:00 I EFT Cuotas — Cuota Mensual Control T100, Operativa · CON · 12/26 $30,000.00 Recibo Cancelar":
+          - cell "05/10/2026"
+          - cell "10:00"
+          - cell "I"
+          - cell "EFT"
+          - cell "Cuotas — Cuota Mensual"
+          - cell "Control T100, Operativa · CON · 12/26":
+            - generic: Control T100, Operativa · CON · 12/26
+          - cell "$30,000.00"
+          - cell "Recibo Cancelar":
+            - link "Recibo":
+              - /url: http://127.0.0.1:8111/recibos/cuota/2?inline=1
+            - button "Cancelar"
+        - 'row "05/10/2026 10:00 I EFT Cuotas — Cuota Mensual Control T100, Caja rechazada · CON Cancelado: Control T100: diciembre ya empezó, caja rechazada $300,000.00 Cancelado"':
+          - cell "05/10/2026"
+          - cell "10:00"
+          - cell "I"
+          - cell "EFT"
+          - cell "Cuotas — Cuota Mensual"
+          - 'cell "Control T100, Caja rechazada · CON Cancelado: Control T100: diciembre ya empezó, caja rechazada"':
+            - generic: Control T100, Caja rechazada · CON
+            - generic: "Cancelado: Control T100: diciembre ya empezó, caja rechazada"
+          - cell "$300,000.00"
+          - cell "Cancelado"
+      - rowgroup:
+        - 'row "Ingresos: $30,000.00 · Egresos: $0.00 $30,000.00"':
+          - cell
+          - 'cell "Ingresos: $30,000.00 · Egresos: $0.00"':
+            - text: "Ingresos:"
+            - strong: $30,000.00
+            - text: "· Egresos:"
+            - strong: $0.00
+          - cell "$30,000.00"
+          - cell
+- contentinfo:
+  - generic: Wings

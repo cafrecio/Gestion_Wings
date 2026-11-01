@@ -1,0 +1,512 @@
+{
+    "base": "wings_testing_codex",
+    "fuente_sitio_commit": "6214fd4a8e2e3bfe493171a2edbb27abc2d8dbfb",
+    "tablas_antes": {
+        "alumno_estado_historial": {
+            "filas": 5,
+            "sha256": "86cfcf3a641f4d2d7b506edeecab8246c610cb46011f578d57078b5b14e6b3c3"
+        },
+        "alumno_planes": {
+            "filas": 120,
+            "sha256": "2abbb150e7a23f1926d0a88e61a3982051753944a645dd6f2f73340c09414a35"
+        },
+        "alumnos": {
+            "filas": 117,
+            "sha256": "afe613f638c52f53bdaabfe7370d927dcd319a72514c63b341f16ca267b5bba4"
+        },
+        "alumnos_revision_cobranza": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "asistencia_excesos": {
+            "filas": 301,
+            "sha256": "bf723a1f693dba9e0b9a10723087fed3f00df9ffd6b576d6bac4e9b3316199a3"
+        },
+        "asistencias": {
+            "filas": 1763,
+            "sha256": "79eed1d9c364097f83e9a6a0d8e554667ef41faa7157d0d69615deb8cc629cc1"
+        },
+        "cache": {
+            "filas": 9,
+            "sha256": "3ded82cd30d4266df965d6c1dfd75b6f5cc65ef0740f15b171a659802b62ccff"
+        },
+        "cache_locks": {
+            "filas": 4,
+            "sha256": "799c3a21e2cd29e8f984965e075cadd9609c34e7e522ff8eaf4386296001095b"
+        },
+        "caja_mostrador": {
+            "filas": 1,
+            "sha256": "7fdb957757f6637a2a692a899d079721f27c4d790f6d9cab1a215236ab351c48"
+        },
+        "cajas_operativas": {
+            "filas": 40,
+            "sha256": "b70c96f8eb0ce2e9c6e8c14bf63c2e590effdafc0151100313d655bacb350575"
+        },
+        "cargo_alumno_eventos": {
+            "filas": 62,
+            "sha256": "554b9b0514e904d80bb80bdf0f0f482788b13e5ad5a038e5bc79fc688ccbcde3"
+        },
+        "cargos_alumno": {
+            "filas": 60,
+            "sha256": "8a6e2472e329017c6eb5c372172d7624949026f8ac7a0d4854797d15a1e348ec"
+        },
+        "cashflow_correcciones": {
+            "filas": 5,
+            "sha256": "24c107d458c0b0a0145756f57d6e3487f67332135f351ea6013165a4c057f395"
+        },
+        "cashflow_movimientos": {
+            "filas": 396,
+            "sha256": "a52b6c9b14663f2387479cb0a5879511dbe29d9be89b269d668d59c089616cdc"
+        },
+        "cashflow_transferencias": {
+            "filas": 4,
+            "sha256": "75c4cfeaccab9d14f57699d44373b63a80d2532528e66b8624cde39cfea7c4e6"
+        },
+        "clase_profesor": {
+            "filas": 237,
+            "sha256": "27e9d2c8a4602d81c2236dd1a10f79ba434da9aa52076f167f9dbeb9372208dc"
+        },
+        "clases": {
+            "filas": 226,
+            "sha256": "d1685960d3d1b36036419b1b017979e5ca1cde7ef28feb6c60266ffd989d5821"
+        },
+        "configuraciones": {
+            "filas": 8,
+            "sha256": "9b2e5b3fa4f6525bd3a0ef9535458dbc89bbf29aa1031b552abc47949acb57d8"
+        },
+        "deporte_liquidacion_vigencias": {
+            "filas": 1,
+            "sha256": "9f3626195b9a960aaa8d51d9ac4f00525f742998021d40579f89bedad576f47e"
+        },
+        "deportes": {
+            "filas": 2,
+            "sha256": "fc28ef74a60953aa1084379874acf2c08010ebd1f2072b58563ccd0d6051c459"
+        },
+        "deuda_cuotas": {
+            "filas": 239,
+            "sha256": "caf59722bac09ba87cd7c492a88392319e705d8d33e699b1554625fc13cf31ac"
+        },
+        "deudas_perdidas": {
+            "filas": 1,
+            "sha256": "33d2bb2ffdeaab49f342a4efc31c750fcc04683245265ad313a39b166b08167b"
+        },
+        "excepciones_cobranza": {
+            "filas": 8,
+            "sha256": "bd49a6647e2ca562e8b604f5ab9e6be4b853299971c74c4a019634a9dbc40891"
+        },
+        "failed_jobs": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "generaciones_cuotas": {
+            "filas": 2,
+            "sha256": "67c96251b3c1cc5ce509b07f4a5bf0fa28c44aa935fbdf407f0a50bbdbb1e999"
+        },
+        "grupo_plan_precios": {
+            "filas": 18,
+            "sha256": "5ac811893c180bb7d59aceed788d5ce3cf0be11e2723de081a2242cd6f2eef7b"
+        },
+        "grupo_planes": {
+            "filas": 16,
+            "sha256": "e6c2fb8d45e791744e1a666382d4a477514ff5e6d79cc111a9d29d7f83029be4"
+        },
+        "grupos": {
+            "filas": 8,
+            "sha256": "9963479cf6b1577f5680a84b14f02bf2597511a5ec65bfbcbb1fd31aebddbb3a"
+        },
+        "inscripcion_personas": {
+            "filas": 29,
+            "sha256": "6770cc6c9a62d143ceefeb11caecd2c0541a404af095cf3639cecea8719b5326"
+        },
+        "job_batches": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "jobs": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "liquidacion_ajustes": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "liquidacion_decisiones_atrasadas": {
+            "filas": 13,
+            "sha256": "22185dcd0570284f2cd30dde64e5d9f99512a6b6cd426ba6a9415200cf9c570e"
+        },
+        "liquidacion_detalles": {
+            "filas": 102,
+            "sha256": "05fce083f11d00966ab8eb5b993dfcd110614131a73c191888d46d3f25d30d40"
+        },
+        "liquidaciones": {
+            "filas": 8,
+            "sha256": "c2654faeca1619b8a90240cd10978840d5154a1af543fec6c93fcd07c1416fda"
+        },
+        "migrations": {
+            "filas": 110,
+            "sha256": "e5491da00da29de624c74f6bbec5a8cd2d7de0b7886281fd46d2e03f8d26831d"
+        },
+        "movimiento_operativo_correcciones": {
+            "filas": 3,
+            "sha256": "749615d584bb11125435f942491e9237ef1ccaa57dfb115c36d9492da7f7d357"
+        },
+        "movimientos_operativos": {
+            "filas": 363,
+            "sha256": "9530e75505bd1bceea9cb4f10939c7fe4ac7befa8f0b382f5374d8db14d04e96"
+        },
+        "niveles": {
+            "filas": 6,
+            "sha256": "09bff5a977e5bff8c5c2e004d6c1068ea7bb299554419b9c3fb7255e7f4ec68e"
+        },
+        "pago_cargo_alumno": {
+            "filas": 50,
+            "sha256": "a8f5fedae9f20bd22cb5b9f3897afd28f4875ca0b2f1530943f322e6642c030d"
+        },
+        "pago_deuda_cuota": {
+            "filas": 228,
+            "sha256": "04ae5441c3374263f845de0c4fc248ca8deec7e89909545206f1d9b7e309a165"
+        },
+        "pagos": {
+            "filas": 229,
+            "sha256": "b382f815213cf1652d738c4a031a4a2f3133328c307878ab46b2dc348f8a5b18"
+        },
+        "password_reset_tokens": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "personal_access_tokens": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "primera_carga": {
+            "filas": 1,
+            "sha256": "b9ef0511a98a2292f15f94796abae4f2156cb3717a6cd3e0f377e201503077df"
+        },
+        "profesores": {
+            "filas": 7,
+            "sha256": "347fe58bc1816bf1cbc99563898dc6f7777e60634040295f339ef3592c124b9f"
+        },
+        "reglas_primer_pago": {
+            "filas": 3,
+            "sha256": "c6e588d0d4b091fbb27cc4dc1fb95df57d22af0e7cd4f1ff9bc857443cc4316b"
+        },
+        "reporte_analitico_cobertura": {
+            "filas": 1,
+            "sha256": "4fa4f51f841daaf21e2f693880a65b51dff5205365c217ade58fffd4ca08a8a8"
+        },
+        "reporte_analitico_historial": {
+            "filas": 965,
+            "sha256": "bad85acf68c7208ea7654f0fc73ec6203161cb7a6fa1ed166bdeaee94f997664"
+        },
+        "reporte_cobertura": {
+            "filas": 1,
+            "sha256": "29481cb01a49dc90f590203f43611aed4677464283d3476814f2d1188764f8de"
+        },
+        "reporte_eventos": {
+            "filas": 520,
+            "sha256": "74f0333eca7585ca1eb36d5523c719ec60935e59e935802e425c8a422dec8e64"
+        },
+        "rubros": {
+            "filas": 16,
+            "sha256": "553d515e12dfffd170636195f659f378c787d3b69b51b41e74dcd625bf0c04d7"
+        },
+        "sessions": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "subrubros": {
+            "filas": 34,
+            "sha256": "ceca138b3a438a9db229746dfb4fb04ab33d5ef0a03afa49931be3400e1385b0"
+        },
+        "tipos_caja": {
+            "filas": 5,
+            "sha256": "293e820dca82782b96e95ebbbb1b25cb467edd2396aaf5a96c9711d6d9bc6bf3"
+        }
+    },
+    "tablas_despues": {
+        "alumno_estado_historial": {
+            "filas": 5,
+            "sha256": "86cfcf3a641f4d2d7b506edeecab8246c610cb46011f578d57078b5b14e6b3c3"
+        },
+        "alumno_planes": {
+            "filas": 120,
+            "sha256": "2abbb150e7a23f1926d0a88e61a3982051753944a645dd6f2f73340c09414a35"
+        },
+        "alumnos": {
+            "filas": 117,
+            "sha256": "afe613f638c52f53bdaabfe7370d927dcd319a72514c63b341f16ca267b5bba4"
+        },
+        "alumnos_revision_cobranza": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "asistencia_excesos": {
+            "filas": 301,
+            "sha256": "bf723a1f693dba9e0b9a10723087fed3f00df9ffd6b576d6bac4e9b3316199a3"
+        },
+        "asistencias": {
+            "filas": 1763,
+            "sha256": "79eed1d9c364097f83e9a6a0d8e554667ef41faa7157d0d69615deb8cc629cc1"
+        },
+        "cache": {
+            "filas": 9,
+            "sha256": "3ded82cd30d4266df965d6c1dfd75b6f5cc65ef0740f15b171a659802b62ccff"
+        },
+        "cache_locks": {
+            "filas": 4,
+            "sha256": "799c3a21e2cd29e8f984965e075cadd9609c34e7e522ff8eaf4386296001095b"
+        },
+        "caja_mostrador": {
+            "filas": 1,
+            "sha256": "7fdb957757f6637a2a692a899d079721f27c4d790f6d9cab1a215236ab351c48"
+        },
+        "cajas_operativas": {
+            "filas": 40,
+            "sha256": "b70c96f8eb0ce2e9c6e8c14bf63c2e590effdafc0151100313d655bacb350575"
+        },
+        "cargo_alumno_eventos": {
+            "filas": 62,
+            "sha256": "554b9b0514e904d80bb80bdf0f0f482788b13e5ad5a038e5bc79fc688ccbcde3"
+        },
+        "cargos_alumno": {
+            "filas": 60,
+            "sha256": "8a6e2472e329017c6eb5c372172d7624949026f8ac7a0d4854797d15a1e348ec"
+        },
+        "cashflow_correcciones": {
+            "filas": 5,
+            "sha256": "24c107d458c0b0a0145756f57d6e3487f67332135f351ea6013165a4c057f395"
+        },
+        "cashflow_movimientos": {
+            "filas": 396,
+            "sha256": "a52b6c9b14663f2387479cb0a5879511dbe29d9be89b269d668d59c089616cdc"
+        },
+        "cashflow_transferencias": {
+            "filas": 4,
+            "sha256": "75c4cfeaccab9d14f57699d44373b63a80d2532528e66b8624cde39cfea7c4e6"
+        },
+        "clase_profesor": {
+            "filas": 237,
+            "sha256": "27e9d2c8a4602d81c2236dd1a10f79ba434da9aa52076f167f9dbeb9372208dc"
+        },
+        "clases": {
+            "filas": 226,
+            "sha256": "d1685960d3d1b36036419b1b017979e5ca1cde7ef28feb6c60266ffd989d5821"
+        },
+        "configuraciones": {
+            "filas": 8,
+            "sha256": "9b2e5b3fa4f6525bd3a0ef9535458dbc89bbf29aa1031b552abc47949acb57d8"
+        },
+        "deporte_liquidacion_vigencias": {
+            "filas": 1,
+            "sha256": "9f3626195b9a960aaa8d51d9ac4f00525f742998021d40579f89bedad576f47e"
+        },
+        "deportes": {
+            "filas": 2,
+            "sha256": "fc28ef74a60953aa1084379874acf2c08010ebd1f2072b58563ccd0d6051c459"
+        },
+        "deuda_cuotas": {
+            "filas": 239,
+            "sha256": "caf59722bac09ba87cd7c492a88392319e705d8d33e699b1554625fc13cf31ac"
+        },
+        "deudas_perdidas": {
+            "filas": 1,
+            "sha256": "33d2bb2ffdeaab49f342a4efc31c750fcc04683245265ad313a39b166b08167b"
+        },
+        "excepciones_cobranza": {
+            "filas": 8,
+            "sha256": "bd49a6647e2ca562e8b604f5ab9e6be4b853299971c74c4a019634a9dbc40891"
+        },
+        "failed_jobs": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "generaciones_cuotas": {
+            "filas": 2,
+            "sha256": "67c96251b3c1cc5ce509b07f4a5bf0fa28c44aa935fbdf407f0a50bbdbb1e999"
+        },
+        "grupo_plan_precios": {
+            "filas": 18,
+            "sha256": "5ac811893c180bb7d59aceed788d5ce3cf0be11e2723de081a2242cd6f2eef7b"
+        },
+        "grupo_planes": {
+            "filas": 16,
+            "sha256": "e6c2fb8d45e791744e1a666382d4a477514ff5e6d79cc111a9d29d7f83029be4"
+        },
+        "grupos": {
+            "filas": 8,
+            "sha256": "9963479cf6b1577f5680a84b14f02bf2597511a5ec65bfbcbb1fd31aebddbb3a"
+        },
+        "inscripcion_personas": {
+            "filas": 29,
+            "sha256": "6770cc6c9a62d143ceefeb11caecd2c0541a404af095cf3639cecea8719b5326"
+        },
+        "job_batches": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "jobs": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "liquidacion_ajustes": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "liquidacion_decisiones_atrasadas": {
+            "filas": 13,
+            "sha256": "22185dcd0570284f2cd30dde64e5d9f99512a6b6cd426ba6a9415200cf9c570e"
+        },
+        "liquidacion_detalles": {
+            "filas": 102,
+            "sha256": "05fce083f11d00966ab8eb5b993dfcd110614131a73c191888d46d3f25d30d40"
+        },
+        "liquidaciones": {
+            "filas": 8,
+            "sha256": "c2654faeca1619b8a90240cd10978840d5154a1af543fec6c93fcd07c1416fda"
+        },
+        "migrations": {
+            "filas": 110,
+            "sha256": "e5491da00da29de624c74f6bbec5a8cd2d7de0b7886281fd46d2e03f8d26831d"
+        },
+        "movimiento_operativo_correcciones": {
+            "filas": 3,
+            "sha256": "749615d584bb11125435f942491e9237ef1ccaa57dfb115c36d9492da7f7d357"
+        },
+        "movimientos_operativos": {
+            "filas": 363,
+            "sha256": "9530e75505bd1bceea9cb4f10939c7fe4ac7befa8f0b382f5374d8db14d04e96"
+        },
+        "niveles": {
+            "filas": 6,
+            "sha256": "09bff5a977e5bff8c5c2e004d6c1068ea7bb299554419b9c3fb7255e7f4ec68e"
+        },
+        "pago_cargo_alumno": {
+            "filas": 50,
+            "sha256": "a8f5fedae9f20bd22cb5b9f3897afd28f4875ca0b2f1530943f322e6642c030d"
+        },
+        "pago_deuda_cuota": {
+            "filas": 228,
+            "sha256": "04ae5441c3374263f845de0c4fc248ca8deec7e89909545206f1d9b7e309a165"
+        },
+        "pagos": {
+            "filas": 229,
+            "sha256": "b382f815213cf1652d738c4a031a4a2f3133328c307878ab46b2dc348f8a5b18"
+        },
+        "password_reset_tokens": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "personal_access_tokens": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "primera_carga": {
+            "filas": 1,
+            "sha256": "b9ef0511a98a2292f15f94796abae4f2156cb3717a6cd3e0f377e201503077df"
+        },
+        "profesores": {
+            "filas": 7,
+            "sha256": "347fe58bc1816bf1cbc99563898dc6f7777e60634040295f339ef3592c124b9f"
+        },
+        "reglas_primer_pago": {
+            "filas": 3,
+            "sha256": "c6e588d0d4b091fbb27cc4dc1fb95df57d22af0e7cd4f1ff9bc857443cc4316b"
+        },
+        "reporte_analitico_cobertura": {
+            "filas": 1,
+            "sha256": "4fa4f51f841daaf21e2f693880a65b51dff5205365c217ade58fffd4ca08a8a8"
+        },
+        "reporte_analitico_historial": {
+            "filas": 965,
+            "sha256": "bad85acf68c7208ea7654f0fc73ec6203161cb7a6fa1ed166bdeaee94f997664"
+        },
+        "reporte_cobertura": {
+            "filas": 1,
+            "sha256": "29481cb01a49dc90f590203f43611aed4677464283d3476814f2d1188764f8de"
+        },
+        "reporte_eventos": {
+            "filas": 520,
+            "sha256": "74f0333eca7585ca1eb36d5523c719ec60935e59e935802e425c8a422dec8e64"
+        },
+        "rubros": {
+            "filas": 16,
+            "sha256": "553d515e12dfffd170636195f659f378c787d3b69b51b41e74dcd625bf0c04d7"
+        },
+        "sessions": {
+            "filas": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "subrubros": {
+            "filas": 34,
+            "sha256": "ceca138b3a438a9db229746dfb4fb04ab33d5ef0a03afa49931be3400e1385b0"
+        },
+        "tipos_caja": {
+            "filas": 5,
+            "sha256": "293e820dca82782b96e95ebbbb1b25cb467edd2396aaf5a96c9711d6d9bc6bf3"
+        }
+    },
+    "datos_identicos": true,
+    "cuotas_origen_no_nulo": 0,
+    "adelantos_muestra": [
+        {
+            "pago_id": 9,
+            "alumno_id": 331,
+            "fecha_pago": "2026-10-13",
+            "deuda_id": 247,
+            "periodo": "2026-11",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 18,
+            "alumno_id": 318,
+            "fecha_pago": "2026-10-16",
+            "deuda_id": 248,
+            "periodo": "2026-11",
+            "monto_original": "35000.00",
+            "monto_pagado": "35000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 53,
+            "alumno_id": 265,
+            "fecha_pago": "2026-10-22",
+            "deuda_id": 251,
+            "periodo": "2026-11",
+            "monto_original": "38000.00",
+            "monto_pagado": "38000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 262,
+            "alumno_id": 334,
+            "fecha_pago": "2026-11-05",
+            "deuda_id": 474,
+            "periodo": "2026-12",
+            "monto_original": "48000.00",
+            "monto_pagado": "48000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 386,
+            "alumno_id": 246,
+            "fecha_pago": "2026-11-14",
+            "deuda_id": 475,
+            "periodo": "2026-12",
+            "monto_original": "45000.00",
+            "monto_pagado": "45000.00",
+            "pago_origen_id": null
+        }
+    ],
+    "anulacion_legado": {
+        "pago_id": 399,
+        "deuda_id": 484,
+        "periodo": "2026-12",
+        "original": "44000.00",
+        "pagado_antes": "44000.00",
+        "pagado_despues": "0.00",
+        "estado": "PENDIENTE",
+        "pago_origen_id": null
+    }
+}

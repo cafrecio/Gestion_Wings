@@ -1,0 +1,39 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+
+  ⨯ caso 8 dos cobros ambos ordenes                                                                             13.93s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 8 dos cobros ambos ordenes                        ErrorException
+
+  Attempt to read property "monto_pagado" on null
+
+
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:92
+
+     88▕  public function test_caso_8_dos_cobros_ambos_ordenes():void {
+
+     89▕   foreach([false,true] as $inverso) {
+
+     90▕    $p=$this->cobrar(['2026-12'=>30000],$this->admin); $this->cuota()->update(['monto_original'=>50000,'estado'=>'PENDIENTE']);
+
+     91▕    $p2=$this->cobrar(['2026-12'=>20000],$this->admin,['motivo'=>'Control de saldo restante']);
+
+  ➜  92▕    $this->revertir($inverso?$p2:$p,true); $this->assertSame($inverso?'30000.00':'20000.00',$this->cuota()->monto_pagado);
+
+     93▕    $this->revertir($inverso?$p:$p2,true); $this->assertNull($this->cuota());
+
+     94▕   }
+
+     95▕  }
+
+     96▕  public function test_caso_9_recargo_y_perdida_impiden_borrar():void {
+
+
+
+
+
+  Tests:    1 failed (4 assertions)
+
+  Duration: 14.12s

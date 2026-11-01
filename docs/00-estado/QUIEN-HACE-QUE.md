@@ -51,12 +51,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Control Codex: once casos monetarios comprobados. Corregir H1 manual y H2 mensajes que generalizan cuota pendiente o eliminada; VERIFICACION-T100-CODEX.md. Sigue T106, sin despliegue. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | En curso (hizo Claude, verifica Codex) | Control independiente: casos, pantalla, pedidos directos y dinero al peso; completa al final de T102 |
 | **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta si, y en Historial filtrando su subrubro. Codex la controla, etapa 2 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Codex la controla, etapa 3, con PROMPT-CODEX-T102-CONTROL.md. Sin desplegar. |
 

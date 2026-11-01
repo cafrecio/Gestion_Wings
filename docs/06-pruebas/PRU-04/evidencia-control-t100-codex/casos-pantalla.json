@@ -1,0 +1,49 @@
+{
+    "caso3": {
+        "alumno": 3,
+        "pago": 5
+    },
+    "caso4": {
+        "alumno": 4,
+        "pago": 6
+    },
+    "caso5": {
+        "alumno": 5,
+        "pago": 7,
+        "movimiento": 3
+    },
+    "caso6": {
+        "alumno": 6,
+        "pago": 8
+    },
+    "caso7": {
+        "alumno": 7,
+        "pago": 9
+    },
+    "caso8": {
+        "alumno": 8,
+        "pago_primero": 10,
+        "pago_segundo": 11
+    },
+    "caso9-recargo": {
+        "alumno": 9,
+        "pago": 12
+    },
+    "caso9-liquidacion": {
+        "alumno": 12,
+        "pago": 13
+    },
+    "caso9-perdida": {
+        "alumno": 13,
+        "pago": 14
+    },
+    "caso10": {
+        "alumno": 10,
+        "pago": 15
+    },
+    "caso11": {
+        "alumno": 11,
+        "pago_noviembre": 16,
+        "pago_diciembre": 17
+    }
+}

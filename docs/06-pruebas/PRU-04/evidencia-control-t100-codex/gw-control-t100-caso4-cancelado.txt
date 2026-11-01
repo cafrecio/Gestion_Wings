@@ -1,0 +1,131 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/pasar-alumno-inactivo
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Control T100, Revisión" [level=1]
+- main:
+  - generic: Cobro anulado y deuda restituida.
+  - generic: Activo
+  - switch "Activo" [checked]
+  - button "Cobrar"
+  - button "Editar"
+  - paragraph:
+    - text: DNI
+  - paragraph: "99001003"
+  - paragraph:
+    - text: Nacimiento
+  - paragraph: 01/01/2000
+  - paragraph:
+    - text: Celular
+  - paragraph: "1100000000"
+  - paragraph:
+    - text: Email
+  - paragraph: –
+  - paragraph:
+    - text: Deporte
+  - paragraph: Control T100 Codex
+  - paragraph:
+    - text: Grupo
+  - paragraph: Control T100 Codex — Inicial Control Codex
+  - paragraph:
+    - text: Plan
+  - paragraph: 2x sem. — $30,000.00/mes
+  - paragraph:
+    - text: Alta
+  - paragraph: 10/01/2026
+  - paragraph:
+    - text: Estado de cobranza
+  - generic: Al día
+  - paragraph: Meses sin cuota generada
+  - combobox "Mes sin cuota":
+    - option "Enero 2026 · $30,000.00" [selected]
+    - option "Febrero 2026 · $30,000.00"
+    - option "Marzo 2026 · $30,000.00"
+    - option "Abril 2026 · $30,000.00"
+    - option "Mayo 2026 · $30,000.00"
+    - option "Junio 2026 · $30,000.00"
+    - option "Julio 2026 · $30,000.00"
+    - option "Agosto 2026 · $30,000.00"
+    - option "Septiembre 2026 · $30,000.00"
+  - button "Crear"
+  - paragraph:
+    - text: Historial de pagos
+  - generic: 05/10/2026 · Nov 2026 · Anulado
+  - generic: $300,000.00
+  - link "Recibo":
+    - /url: http://127.0.0.1:8111/recibos/cuota/6?inline=1
+  - paragraph:
+    - text: Asistencias — Oct 2026
+  - paragraph: Sin asistencias en Oct 2026.
+  - button "Volver"
+  - paragraph: "No se puede eliminar: Tiene pagos registrados. Puede pasarlo a Inactivo."
+- contentinfo:
+  - generic: Wings

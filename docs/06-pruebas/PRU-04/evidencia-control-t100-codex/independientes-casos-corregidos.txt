@@ -1,0 +1,7 @@
+   PASS  Tests\Feature\ControlT100CodexTest
+  ✓ casos 3 4 generacion con y sin asistencia                                                                   23.92s
+  ✓ caso 6 multimes y 7 cuota preexistente                                                                       2.40s
+  ✓ reportes antes despues y cierre octubre intacto                                                              3.74s
+
+  Tests:    3 passed (34 assertions)
+  Duration: 30.26s

@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — Control T100 entregado; sigue T106
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md): once casos por pantalla y pedidos directos, importes al peso; solo wings_testing_codex, copia aislada y sin despliegue.
+T100 devuelta a Claude por H1/H2: manual y mensajes generalizan deuda pendiente o desaparición de cuota. Sin corregir producto ni catálogo.
+Originales12/56; 20 métodos independientes en ejecuciones separadas, incluidos cuatro cruces con dos conexiones y cero escrituras del segundo intento. Trece mutaciones detectadas; fuentes restauradas.
+Migración sobre copia ficticia autorizada: 55 tablas intactas, origen legado NULL y cuota44.000 conservada. SQL solo en storage ignorado, sin usuarios/sesiones/tokens.
+Comisión120.000→0 por POST, resultado en pantalla y cierre120.000 intacto; el diálogo nativo de Recalcular quedó como límite del navegador. PDF anulado inspeccionado.
+Suite completa única al final de T102, como pidió Carlos. Continúa T106 después de este commit; no se hereda una suite anterior.
+
 ## 2026-11-01 — Codex CAB — T97 entregada a revisión de Claude
 
 Implementación propia publicada en 7e72b0d4; aspecto aprobado por Carlos: «Esta OK ahora». [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) · [Capturas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
@@ -40,55 +49,27 @@ Se conservan los siete informes, evidencias y diferencias; sigue la revisión in
 Único cambio local ajeno: evidencia-correccion-t34/sin-presentes.html, preservado sin incorporarlo. Sin cambios propios de producto, catálogo/tablero ni operaciones en el sitio.
 Enlaces, integridad y diff documentales comprobados; entrada antigua archivada íntegra por límite. Publicación por push normal a origin/main y comprobación del SHA remoto al entregar.
 
-## 2026-10-30 — Codex CAB — Tanda 3, días 34 a 40 entregados a revisión
 
-Reanudada por orden de Carlos tras informar carga de rutinas; simulación del día34 correcta, sin repetir reloj del 12/11 ni operaciones anteriores. [Siete informes y evidencia](../06-pruebas/PRU-04/evidencia-dias-34-40/LEEME.md).
-25 pasos principales: 23 cumple y 2 no cumple (39.1 sin aviso previo de segunda quincena; 40.2 Bautista dice Al día, no Nuevo). Tres subcomprobaciones no probadas y espera del alta de Emma registradas, sin reparar.
-Siete cierres coinciden al peso con guion y entre Inicio/Cobranza/Reportes. Final18/11: deuda $205.200, ingresos $4.094.900, egresos $2.738.780, resultado $1.356.120, disponible $6.358.020,75; 108 activos, 102 Al día/1 En plazo/5 Morosos; Sin asistencia0, cajas pendientes0.
-Sábado sin validar; domingo ocho movimientos por UI una sola vez. Cambio de Lara antes de rutina; adelantos diciembre Emma45.000/Dante52.000; Emma Villalba queda sin pago; transferencia#4 y Adultos19 cancelada con motivo comprobados.
-Capturas Chrome con TXT, salidas de reloj/rutinas, tres recibos PDF renderizados, cierres cruzados, enlaces/huellas revisados. Consola solo reloj/rutinas; sin consultas directas a base, producto, vistas, catálogo/tablero, suite documental, despliegue ni push propios.
-LOG/resumen sin aportes ajenos al editar; dos entradas antiguas archivadas intactas por límite. Cambios concurrentes ajenos preservados y excluidos del commit propio.
-Sigue Claude: revisión independiente de informes, diferencias e internos antes de la tanda4. No repetir días34–40 ni generar diciembre; no autocierre de T14.
-
+[Bitácora anterior íntegra](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-control-T100.txt). SHA256: 16d7275dece50200726259b1addeb97caad7330e1ec0ccf8296e5d4b32367e86.
+[Propuesta T97 y su aprobación, archivadas íntegras al entregar](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-propuesta-T97-antes-entrega.txt). Base original: docs/00-estado/. SHA256: 6070bc11254f12db81ec48ca87b73d41efe4cec78edb6f344b172fd2b1ae79bd.
 [MF12/MF13 archivados íntegros al implementar T97](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-implementar-T97.txt). Base original: docs/00-estado/. SHA256: d357334b16cb68d88c9ede1114a1c9a8d80e901980836470de605bc6aadfd4df.
-
 [Días29–33 archivados íntegros al preparar T97](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-propuesta-T97.txt). Base original: docs/00-estado/. SHA256: 55086a3c3d9390dd6e49ada30e50d01eb39d24ebe59d272069833a6174eca607.
-
 [Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
-
 [Dos entradas antiguas intactas, archivadas al implementar T45](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T45.txt). Base original: docs/00-estado/. SHA256: 293c1f37f6ce2b626f424d2a15e053b30d53ebd703629d04f038ee190a76d04a.
-
 [Entrada íntegra de días17–18](../99-archivo/bitacoras/2026-10-26/LOG-CODEX-DIAS-17-18-ANTECEDENTE.md).
-
-
 [Dos entradas anteriores archivadas intactas al iniciar T88/B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-inicio-T88-B3.txt).
-
 [Entrada histórica previa de días17–18 archivada intacta al cerrar B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-cierre-B3.txt).
-
 [T83 archivada intacta al registrar la devolución B3](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-devolucion-B3.txt).
-
 [Días19–22 archivada íntegra al verificar T65](../99-archivo/bitacoras/2026-10-27/LOG-CODEX-verificacion-T65.txt). Base original de enlaces: docs/00-estado/. SHA256: d3da73340bef8e9318bc40905b19b956c4189cc1b9629e3dbdc4841596ca4765.
-
 [Día23 íntegro](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-DIA23-antes-galerias.txt). Base: docs/00-estado/. SHA256: 328a5888b652c9ad59245be38e19d7e87f1d3326480700861795a4580b70849f.
-
 [Dos entradas T92 íntegras, archivadas al implementar T89](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T92-antes-T89.txt). Base original de enlaces: docs/00-estado/. SHA256: 96aaf11c859e54e0a339f6c4941774f7ce8aecb197ffab025ceba0a46c767733.
-
 [T90 íntegra, archivada al publicar la bitácora](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-T90-antes-publicacion.txt). Base original: docs/00-estado/; separador vacío final excluido. SHA256: 0d3df2dd8830174d27d8a5a92dc777685e20122f5f119506fc2c173a85a2acbd.
-
 [Dos entradas íntegras T88/B3 y T86, archivadas al implementar T70/T71](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T70-T71.txt). Base original: docs/00-estado/. SHA256: 922e3e4ae896f356fd08ea56fd9d50ae5f886df57fc4826fad1b1a628bf58ba3.
-
 [Dos entradas T65/T89 conservadas intactas al entregar días24–28](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS24-28.txt). Base original: docs/00-estado/. SHA256: 0f300f81f9febe5788f4e5f174751aac7ad2d606b9a8a9b63492ea3991c23058.
-
 [Dos entradas T51/T70–T71 conservadas íntegras al entregar días29–33](../99-archivo/bitacoras/2026-10-29/LOG-CODEX-antes-PRU04-DIAS29-33.txt). Base original: docs/00-estado/. SHA256: b45291484c7ca448837203d16109b16b871834b7b615506aedd91d742c436a0c.
-
 [Entrada T45 conservada íntegra al verificar MF12/MF13](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-VERIF-MF12-MF13.txt). Base original: docs/00-estado/. SHA256: 50994edcd56eaad7da4b002a0a8fe9e373c7b045ba8f49509c42097a0003d196.
-
 [Entrada T46 íntegra al registrar la detención del día34](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-DETENCION-DIA34.txt). Base original: docs/00-estado/. SHA256: 5e4f7912ec5ea3b7dd3e6e52432ecfafad2d33f42eb35c678c13156a681c5e90.
-
 [Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-detencion-DIA34-antes-reanudar.txt). Base original: docs/00-estado/. SHA256: e2cda1be2a6f67d605d5075f4f0b4760599c1019f98af0f5eff506c918eb83e4.
-
 [Entrada íntegra archivada al entregar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-ENTREGA34-40.txt). Base original: docs/00-estado/. SHA256: 4c9d6c1003376fb5f92ebcb3188ff8c581b4d8533d375f502f6b59ecdc3bd09c.
-
 [Entrada de publicación del28/10 archivada íntegra al publicar días34–40](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-publicacion28-antes-PUSH34-40.txt). Base original: docs/00-estado/. SHA256: 40588dda410c547001a8ff1db9e7296c95c4c287400f88386e1ce179c138f9d2.
-
 [Días24–28 íntegros, archivados al entregar días41–47](../99-archivo/bitacoras/2026-10-30/LOG-CODEX-antes-ENTREGA41-47.txt). Base original: docs/00-estado/. SHA256: f9a99a385b0184454f806dabf6f732664b84065d7b7cd5105a0124374107415b.

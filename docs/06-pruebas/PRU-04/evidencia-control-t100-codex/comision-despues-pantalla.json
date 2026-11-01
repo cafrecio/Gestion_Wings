@@ -1,0 +1,1206 @@
+{
+    "reloj": "2026-12-03 10:00:00",
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100: un cero de m\\u00e1s\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "monto_final": "30000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 3,
+            "alumno_id": 2,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100: cero de m\\u00e1s en el adelanto\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 4,
+            "alumno_id": 2,
+            "monto_final": "30000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 5,
+            "alumno_id": 3,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control caso 3: adelanto cancelado con asistencia\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-11\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 6,
+            "alumno_id": 4,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control caso 4: adelanto cancelado sin asistencia\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-11\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 7,
+            "alumno_id": 5,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100: diciembre ya empez\\u00f3, caja rechazada\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 8,
+            "alumno_id": 6,
+            "monto_final": "60000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso6-multimes: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-10\",\"monto_aplicado\":\"30000.00\"},{\"periodo\":\"2026-12\",\"monto_aplicado\":\"30000.00\"}]}"
+        },
+        {
+            "id": 9,
+            "alumno_id": 7,
+            "monto_final": "25000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso7-preexistente: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"25000.00\"}]}"
+        },
+        {
+            "id": 10,
+            "alumno_id": 8,
+            "monto_final": "30000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso8-primero: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"30000.00\"}]}"
+        },
+        {
+            "id": 11,
+            "alumno_id": 8,
+            "monto_final": "20000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso8-ultimo: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"20000.00\"}]}"
+        },
+        {
+            "id": 12,
+            "alumno_id": 9,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso9-recargo: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 13,
+            "alumno_id": 12,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso9-liquidacion: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 14,
+            "alumno_id": 13,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso9-perdida: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        },
+        {
+            "id": 15,
+            "alumno_id": 10,
+            "monto_final": "51000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso10-primer-mes-descuento: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-10\",\"monto_aplicado\":\"21000.00\"},{\"periodo\":\"2026-11\",\"monto_aplicado\":\"30000.00\"}]}"
+        },
+        {
+            "id": 16,
+            "alumno_id": 11,
+            "monto_final": "30000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 caso11-cancelar-noviembre: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-11\",\"monto_aplicado\":\"30000.00\"}]}"
+        },
+        {
+            "id": 17,
+            "alumno_id": 11,
+            "monto_final": "30000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 18,
+            "alumno_id": 14,
+            "monto_final": "300000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": "{\"motivo\":\"Control T100 comision-anular-cobro: cancelaci\\u00f3n de prueba\",\"cargos\":[],\"periodos\":[{\"periodo\":\"2026-12\",\"monto_aplicado\":\"300000.00\"}]}"
+        }
+    ],
+    "cuotas": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 2,
+            "alumno_id": 2,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 3,
+            "alumno_id": 3,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 4,
+            "alumno_id": 4,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 5,
+            "alumno_id": 5,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 6,
+            "alumno_id": 6,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 7,
+            "alumno_id": 7,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 8,
+            "alumno_id": 8,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 9,
+            "alumno_id": 9,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 10,
+            "alumno_id": 10,
+            "periodo": "2026-10",
+            "monto_original": "21000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 11,
+            "alumno_id": 11,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 13,
+            "alumno_id": 1,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": 2
+        },
+        {
+            "id": 15,
+            "alumno_id": 2,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": 4
+        },
+        {
+            "id": 18,
+            "alumno_id": 5,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 20,
+            "alumno_id": 7,
+            "periodo": "2026-12",
+            "monto_original": "25000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 22,
+            "alumno_id": 9,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 23,
+            "alumno_id": 12,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 24,
+            "alumno_id": 12,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 25,
+            "alumno_id": 13,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 26,
+            "alumno_id": 13,
+            "periodo": "2026-12",
+            "monto_original": "300000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": 14
+        },
+        {
+            "id": 29,
+            "alumno_id": 11,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": 17
+        },
+        {
+            "id": 30,
+            "alumno_id": 3,
+            "periodo": "2026-11",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        },
+        {
+            "id": 31,
+            "alumno_id": 14,
+            "periodo": "2026-10",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "estado": "PAGADA",
+            "pago_origen_id": null
+        },
+        {
+            "id": 32,
+            "alumno_id": 14,
+            "periodo": "2026-12",
+            "monto_original": "30000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE",
+            "pago_origen_id": null
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "pago_id": 1,
+            "monto": "300000.00",
+            "estado": "CANCELADO"
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "pago_id": 2,
+            "monto": "30000.00",
+            "estado": "ACTIVO"
+        },
+        {
+            "id": 3,
+            "alumno_id": 5,
+            "pago_id": 7,
+            "monto": "300000.00",
+            "estado": "CANCELADO"
+        }
+    ],
+    "cashflow": [
+        {
+            "id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 3,
+            "monto": "300000.00"
+        },
+        {
+            "id": 2,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 3,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 3,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 4,
+            "monto": "30000.00"
+        },
+        {
+            "id": 4,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 5,
+            "monto": "300000.00"
+        },
+        {
+            "id": 5,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 6,
+            "monto": "300000.00"
+        },
+        {
+            "id": 6,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 8,
+            "monto": "60000.00"
+        },
+        {
+            "id": 7,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 9,
+            "monto": "25000.00"
+        },
+        {
+            "id": 8,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 10,
+            "monto": "30000.00"
+        },
+        {
+            "id": 9,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 11,
+            "monto": "20000.00"
+        },
+        {
+            "id": 10,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 12,
+            "monto": "300000.00"
+        },
+        {
+            "id": 11,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 13,
+            "monto": "300000.00"
+        },
+        {
+            "id": 12,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 14,
+            "monto": "300000.00"
+        },
+        {
+            "id": 13,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 15,
+            "monto": "51000.00"
+        },
+        {
+            "id": 14,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 16,
+            "monto": "30000.00"
+        },
+        {
+            "id": 15,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 17,
+            "monto": "30000.00"
+        },
+        {
+            "id": 16,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 5,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 17,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 6,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 18,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 8,
+            "monto": "-60000.00"
+        },
+        {
+            "id": 19,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 9,
+            "monto": "-25000.00"
+        },
+        {
+            "id": 20,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 10,
+            "monto": "-30000.00"
+        },
+        {
+            "id": 21,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 11,
+            "monto": "-20000.00"
+        },
+        {
+            "id": 22,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 12,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 23,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 13,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 24,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 14,
+            "monto": "-300000.00"
+        },
+        {
+            "id": 25,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 15,
+            "monto": "-51000.00"
+        },
+        {
+            "id": 26,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 16,
+            "monto": "-30000.00"
+        },
+        {
+            "id": 27,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 18,
+            "monto": "300000.00"
+        },
+        {
+            "id": 28,
+            "referencia_tipo": "PAGO_CUOTA",
+            "referencia_id": 18,
+            "monto": "-300000.00"
+        }
+    ],
+    "reporte": {
+        "mes": "2026-12",
+        "fecha_corte": "2026-12-03",
+        "deporte_id": null,
+        "ingresos": 9000000,
+        "egresos": 0,
+        "resultado": 9000000,
+        "resultado_global": 0,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 52600000,
+            "mes": 44500000,
+            "anteriores": 8100000,
+            "filas": [
+                {
+                    "id": 10,
+                    "persona_id": 10,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 2100000
+                },
+                {
+                    "id": 6,
+                    "persona_id": 6,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 30,
+                    "persona_id": 3,
+                    "periodo": "2026-11",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 32,
+                    "persona_id": 14,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 20,
+                    "persona_id": 7,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 2500000
+                },
+                {
+                    "id": 26,
+                    "persona_id": 13,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 29990000
+                },
+                {
+                    "id": 24,
+                    "persona_id": 12,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 22,
+                    "persona_id": 9,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 18,
+                    "persona_id": 5,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 1,
+                    "persona_id": 9,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 10000,
+                    "concepto": "Recargo por mora — Diciembre 2026"
+                }
+            ],
+            "cuotas": 52590000,
+            "inscripciones": 0,
+            "punitorios": 10000
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 12000000,
+            "mes": 12000000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-12",
+                    "deporte_id": 3,
+                    "centavos": 12000000
+                }
+            ]
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 6000000,
+                "pendiente": 3000000,
+                "total": 9000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 9000000,
+        "historial_desde": "2026-01-01",
+        "filas": [
+            {
+                "id": 1,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 3,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 2,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 3,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 3,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 4,
+                        "deuda_id": 15,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 6,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 7,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 2500000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 9,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 2500000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 8,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 10,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 9,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 2000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 11,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 2000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 10,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 12,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 11,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 13,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 12,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 14,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 15,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 17,
+                        "deuda_id": 29,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 18,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 19,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -2500000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 9,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 2500000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 20,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 10,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 21,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -2000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 11,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 2000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 22,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 12,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 23,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 13,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 24,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 14,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 27,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 18,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 28,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -30000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 18,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 30000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            },
+            {
+                "id": 2,
+                "origen": "OPERATIVO",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (12\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": false,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 2,
+                        "deuda_id": 13,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-12"
+            }
+        ],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 1,
+            "asistencia": 0,
+            "revision": 12
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T100 Codex",
+                "nivel": "Inicial Control Codex",
+                "cantidad": 14
+            }
+        ]
+    }
+}

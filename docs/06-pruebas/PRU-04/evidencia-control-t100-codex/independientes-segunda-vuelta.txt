@@ -1,0 +1,131 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+  ✓ caso 1 operativa diciembre y caja al peso                                                                   13.83s
+  ✓ caso 2 duenio cashflow y ficha sin cuota                                                                     0.35s
+  ⨯ casos 3 4 generacion con y sin asistencia                                                                    0.26s
+  ✓ caso 5 caja rechazada mes empezado                                                                           0.26s
+  ⨯ caso 6 multimes y 7 cuota preexistente                                                                       0.24s
+  ✓ caso 8 dos cobros ambos ordenes                                                                              0.42s
+  ✓ caso 9 recargo y perdida impiden borrar                                                                      0.26s
+  ✓ caso 10 primera cuota futura con descuento                                                                   0.25s
+  ✓ caso 11 orden tras cancelar noviembre                                                                        0.26s
+  ⨯ reportes antes despues y cierre octubre intacto                                                              0.90s
+  ✓ caso 9 liquidacion atada no borra ni reescribe cierre                                                        0.27s
+  ✓ comision t43 y t42 sin comision residual del anulado                                                         0.24s
+  ✓ adelanto anterior a t100 no se infiere origen                                                                0.19s
+  ✓ recibo original y regenerado tras borrado                                                                    9.66s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT100CodexTest > casos 3 4 generacion con y sin asistencia
+  Session is missing expected key [success].
+Failed asserting that false is true.
+
+The following errors occurred during the last request:
+
+{
+    "tipos": [
+        "COBRO_DEUDA_ANTERIOR"
+    ],
+    "cantidad_meses": 1,
+    "periodos": [
+        "2026-11"
+    ],
+    "monto_total": 30000,
+    "cuotas_cobradas": [
+        "2026-12"
+    ],
+    "message": "Quedan 1 meses anteriores impagos por $30,000.00 (noviembre 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.",
+    "success": false,
+    "requiere_confirmacion": true,
+    "requiere_motivo": true,
+    "errors": {
+        "motivo": [
+            "Indicá el motivo para registrar esta excepción."
+        ]
+    }
+}
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:40
+     36▕  protected function tearDown():void { Carbon::setTestNow(); CarbonImmutable::setTestNow(); parent::tearDown(); }
+     37▕  protected function cuota(string $mes='2026-12'):?DeudaCuota {return DeudaCuota::where('alumno_id',$this->alumno->id)->where('periodo',$mes)->first();}
+     38▕  protected function cobrar(array $partes,?User $user=null,array $extra=[]):Pago {
+     39▕   $this->actingAs($user??$this->op)->post(route('web.caja.pagar',$this->alumno->id),array_replace([
+  ➜  40▕    'tipo_caja_id'=>$this->medio->id,'periodos'=>array_keys($partes),'montos_cuota'=>$partes,'fecha_pago'=>now()->toDateString(),'confirmar_pago_adelantado'=>1],$extra))->assertSessionHas('success');
+     41▕   return Pago::latest('id')->firstOrFail();
+     42▕  }
+     43▕  protected function revertir(Pago $pago,bool $admin=false):void {
+     44▕   if($admin) $this->actingAs($this->admin)->post(route('web.pagos.anular',$pago->id),['motivo'=>'Control: cero de más'])->assertSessionHas('success');
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:72
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 6 multimes y 7 cuota preexistente
+  Session is missing expected key [success].
+Failed asserting that false is true.
+
+The following errors occurred during the last request:
+
+{
+    "tipos": [
+        "COBRO_DEUDA_ANTERIOR"
+    ],
+    "cantidad_meses": 1,
+    "periodos": [
+        "2026-10"
+    ],
+    "monto_total": 30000,
+    "cuotas_cobradas": [
+        "2026-12"
+    ],
+    "message": "Quedan 1 meses anteriores impagos por $30,000.00 (octubre 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.",
+    "success": false,
+    "requiere_confirmacion": true,
+    "requiere_motivo": true,
+    "errors": {
+        "motivo": [
+            "Indicá el motivo para registrar esta excepción."
+        ]
+    }
+}
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:40
+     36▕  protected function tearDown():void { Carbon::setTestNow(); CarbonImmutable::setTestNow(); parent::tearDown(); }
+     37▕  protected function cuota(string $mes='2026-12'):?DeudaCuota {return DeudaCuota::where('alumno_id',$this->alumno->id)->where('periodo',$mes)->first();}
+     38▕  protected function cobrar(array $partes,?User $user=null,array $extra=[]):Pago {
+     39▕   $this->actingAs($user??$this->op)->post(route('web.caja.pagar',$this->alumno->id),array_replace([
+  ➜  40▕    'tipo_caja_id'=>$this->medio->id,'periodos'=>array_keys($partes),'montos_cuota'=>$partes,'fecha_pago'=>now()->toDateString(),'confirmar_pago_adelantado'=>1],$extra))->assertSessionHas('success');
+     41▕   return Pago::latest('id')->firstOrFail();
+     42▕  }
+     43▕  protected function revertir(Pago $pago,bool $admin=false):void {
+     44▕   if($admin) $this->actingAs($this->admin)->post(route('web.pagos.anular',$pago->id),['motivo'=>'Control: cero de más'])->assertSessionHas('success');
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:86
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT100CodexTest > reportes antes despues y cierre octubre intacto
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
+     'mes' => '2026-10',
+-    'fecha_corte' => '2026-10-05',
++    'fecha_corte' => '2026-10-31',
+     'deporte_id' => null,
+     'ingresos' => 0,
+     'egresos' => 0,
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:125
+    121▕   $this->assertSame(0,$this->informe('2026-10')['ingresos']); $this->assertSame(30000000,$this->informe('2026-10')['disponible']);
+    122▕   $this->revertir($p,true); $fin=$this->informe('2026-10');
+    123▕   foreach(['ingresos','egresos','deuda','disponible'] as $campo) $this->assertSame($base[$campo],$fin[$campo],$campo);
+    124▕   $this->assertSame(0,DB::table('reporte_eventos')->where('tipo','CUOTA')->where('periodo','2026-12')->count());
+  ➜ 125▕   $this->reloj('2026-11-05 10:00:00'); $this->assertSame($fin,$this->informe('2026-10'));
+    126▕  }
+    127▕  public function test_caso_9_liquidacion_atada_no_borra_ni_reescribe_cierre():void {
+    128▕   $p=$this->cobrar(['2026-12'=>300000],$this->admin);
+    129▕   $prof=Profesor::create(['deporte_id'=>$this->alumno->deporte_id,'nombre'=>'Docente','apellido'=>'Sintética','dni'=>'99000101','fecha_nacimiento'=>'1980-01-01','direccion'=>'Prueba','localidad'=>'Prueba','porcentaje_comision'=>40,'activo'=>true]);
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:125
+
+
+  Tests:    3 failed, 11 passed (108 assertions)
+  Duration: 27.61s

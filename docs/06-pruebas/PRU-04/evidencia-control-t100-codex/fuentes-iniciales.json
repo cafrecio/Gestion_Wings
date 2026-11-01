@@ -1,0 +1,17 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "B7A435AC123794A5CFE26D56C98E7B75B5A2DCB9464F89ADEC0D67261F7347B0",
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\app\\Services\\PagoCuotaService.php"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "7E58714C51D227BB02251A4119A6968A275C0998F6C0E67C3104F338334427FF",
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\database\\migrations\\2026_11_01_130000_add_pago_origen_to_deuda_cuotas.php"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "4C51D814D260F12204CE9535BDA7131BFE9600ABA19210374FBC82927A5E3DA2",
+    "Path": "C:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\AdelantoCanceladoT100Test.php"
+  }
+]

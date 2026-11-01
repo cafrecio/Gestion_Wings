@@ -1,0 +1,802 @@
+[
+  {
+    "archivo": "avanzar-mes.php",
+    "bytes": 1995,
+    "sha256": "a4d8687d6ba0dffe44e054f77072f5c2e8d87d68f18b58a219f454568676fe72"
+  },
+  {
+    "archivo": "caso-1-adelanto-300000.jpg",
+    "bytes": 88202,
+    "sha256": "5ee53f7afde6c541aa7622a0e629d3f2ddfe407fc64a88b00f3012a3116dc3a4"
+  },
+  {
+    "archivo": "caso-1-cancelado.jpg",
+    "bytes": 70481,
+    "sha256": "77585374eedfbf08190f135c34dcc04739e6ef5e399ee23fc0706185181f2d12"
+  },
+  {
+    "archivo": "caso2-antes-anular.json",
+    "bytes": 6742,
+    "sha256": "b92ea11f8fc7469fbc6ba1c90976bfcde37b72ba4b89fa67669b4a5dec316b7e"
+  },
+  {
+    "archivo": "caso5-arqueo-antes.json",
+    "bytes": 73,
+    "sha256": "9791632ec5dea4f20a317c92f3a1a35c6d055211ee64d7c2a94a878fa55870a9"
+  },
+  {
+    "archivo": "caso5-final.json",
+    "bytes": 38216,
+    "sha256": "e345746e0d28fbda1e145b1093db570501767a172848b249adca708524c73f37"
+  },
+  {
+    "archivo": "casos-pantalla.json",
+    "bytes": 814,
+    "sha256": "c5163e49a036d9c4a9055cf5c938cabe6b518b2921f9a1ba0972d9a3be02877c"
+  },
+  {
+    "archivo": "casos3-4-generacion.json",
+    "bytes": 16627,
+    "sha256": "3f8cb8ba2496f43fe369e850cd686a2369125f44075f71df06b44ce1035747df"
+  },
+  {
+    "archivo": "casos3-4-generacion.txt",
+    "bytes": 1001,
+    "sha256": "b0b9088e1f606df72687a5559afc2fd18414e291df83558a2c19070db74a7766"
+  },
+  {
+    "archivo": "casos6-11-tras-pantalla.json",
+    "bytes": 22412,
+    "sha256": "04724aa685567dd6fbc72a481d23fcd3b0a62bda8304efaec63cb249ecc2e352"
+  },
+  {
+    "archivo": "comision-antes.json",
+    "bytes": 628,
+    "sha256": "6ebd36510445d998fd2d721c2b88349d7615ffe40b39e4a0423fc98e86bb0419"
+  },
+  {
+    "archivo": "comision-despues-pantalla.json",
+    "bytes": 39587,
+    "sha256": "b092ff98d9658b18812afb9c4234a933927002c2dfb72c935b4100c13231bdcd"
+  },
+  {
+    "archivo": "comision-post-prueba.txt",
+    "bytes": 232,
+    "sha256": "35885de8f2504a24e2192335a45000636f819b3116f2f32e86abf675cc3259bf"
+  },
+  {
+    "archivo": "comision-post-resultado.json",
+    "bytes": 2448,
+    "sha256": "d5c1c434a38ab9d75471602eecf2e04275021f0f2dc3343e7566fc667c54cba3"
+  },
+  {
+    "archivo": "comision-preparacion.txt",
+    "bytes": 388,
+    "sha256": "0f6acee5d105772dad4310cd8e136ed2390f4b6ff63ed51b140a6c21eea0a60b"
+  },
+  {
+    "archivo": "commit-fuentes.txt",
+    "bytes": 42,
+    "sha256": "366b0cbb7dd05fd79f77c1a3a39d2b725a7f8fca4d01a070a5d58f28fa03470d"
+  },
+  {
+    "archivo": "concurrencia-pruebas.txt",
+    "bytes": 597,
+    "sha256": "8138ce4a2ea2959e924d61ba47282d89d872d3f695d56feea2ff6b906e2f43a7"
+  },
+  {
+    "archivo": "concurrencia.jsonl",
+    "bytes": 708,
+    "sha256": "f33837a9f790f07a77ce7842badc4601ce8a0572c2569ea70b5e43e2a09a030c"
+  },
+  {
+    "archivo": "ConcurrenteT100CodexTest.php",
+    "bytes": 4211,
+    "sha256": "52a89eeda81cd187772daf95ece3cdf9f96bef71720a16261487cc596689692a"
+  },
+  {
+    "archivo": "ControlComisionHttpT100Test.php",
+    "bytes": 1453,
+    "sha256": "cd0919eebac1463cd1b151393985a26c21978347fbed1d1d7a44b01edbb5ad49"
+  },
+  {
+    "archivo": "ControlT100CodexTest.php",
+    "bytes": 13904,
+    "sha256": "357443e9bd66249b5cc8a4772d6f411dd11f281144d9ff6a54d26c7a7a561db2"
+  },
+  {
+    "archivo": "fixture-navegador.json",
+    "bytes": 439,
+    "sha256": "0953c5ac6a067c4fee9b8f2ab353cb7411cbdf17ae773122f962a1b974e468cd"
+  },
+  {
+    "archivo": "fuentes-finales.json",
+    "bytes": 670,
+    "sha256": "52dfe38a6b8fd6ec5ac1004f3719d339cca51134d3469450d787f25f35c47712"
+  },
+  {
+    "archivo": "fuentes-iniciales.json",
+    "bytes": 670,
+    "sha256": "52dfe38a6b8fd6ec5ac1004f3719d339cca51134d3469450d787f25f35c47712"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-300000.jpg",
+    "bytes": 88202,
+    "sha256": "5ee53f7afde6c541aa7622a0e629d3f2ddfe407fc64a88b00f3012a3116dc3a4"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-cancelado.jpg",
+    "bytes": 70481,
+    "sha256": "77585374eedfbf08190f135c34dcc04739e6ef5e399ee23fc0706185181f2d12"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-ficha.jpg",
+    "bytes": 75657,
+    "sha256": "ba3b163e101862d27de132f92e0039ef467655a223ff89d45a77ac0444047664"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-ficha.txt",
+    "bytes": 2473,
+    "sha256": "7e2ee7d031095c54dbcd1673e9b16f19cf23ff9288ebec9ffce83a94fcf91837"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-inicio.jpg",
+    "bytes": 70645,
+    "sha256": "ef307312852b027c333b96b721a768f2a839f98c0de5f16a621d35341aa424db"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-inicio.txt",
+    "bytes": 4433,
+    "sha256": "ea7c6488be3ca4b307c5073b16b8afde372dcc572c6bf6f6423c341d12fbae66"
+  },
+  {
+    "archivo": "gw-control-t100-caso1-recobrado.jpg",
+    "bytes": 60625,
+    "sha256": "371ac65817d0babecef51f7d47fc9ec13ac8dd27d345b2e1fde3ffb1e9e57a36"
+  },
+  {
+    "archivo": "gw-control-t100-caso10-octubre-21000.jpg",
+    "bytes": 98865,
+    "sha256": "103523fe04794c89251cf4c1b4dfd20e8e1423aa59f07b5a66dcfd65eb278e42"
+  },
+  {
+    "archivo": "gw-control-t100-caso10-octubre-21000.txt",
+    "bytes": 3957,
+    "sha256": "ca217cb5c7e329882b38fa678551ed77e644b0b53b9f1687fad8ab84cb7f89e6"
+  },
+  {
+    "archivo": "gw-control-t100-caso10-primer-mes-descuento-antes.txt",
+    "bytes": 3428,
+    "sha256": "ca99901dc24806008253c6d35288e40434d348c0e5992426f7959aea6202cd02"
+  },
+  {
+    "archivo": "gw-control-t100-caso10-primer-mes-descuento-despues.jpg",
+    "bytes": 95881,
+    "sha256": "c246f291958a2d0d13168f2995bae3d19016516864fff0abb6193125f66d7941"
+  },
+  {
+    "archivo": "gw-control-t100-caso10-primer-mes-descuento-despues.txt",
+    "bytes": 3644,
+    "sha256": "c1292cbbcd8edfdb4bde1c4c6a7e08e0c9e518ac0dc029ce3050238db067df90"
+  },
+  {
+    "archivo": "gw-control-t100-caso11-cancelar-noviembre-antes.txt",
+    "bytes": 4066,
+    "sha256": "0433e6750c089c42a08999d6f19cdffded3fb25a788933830df15648ed5c97e6"
+  },
+  {
+    "archivo": "gw-control-t100-caso11-cancelar-noviembre-despues.jpg",
+    "bytes": 94925,
+    "sha256": "069f73edbc5500df5ab8eab9d8cf1f83488b7166459fd090fb1a4b8545c28243"
+  },
+  {
+    "archivo": "gw-control-t100-caso11-cancelar-noviembre-despues.txt",
+    "bytes": 4104,
+    "sha256": "63c8b8d8da78db21061bb1aaac17f12cd0e806dbb50005f5df3a41e306462cc3"
+  },
+  {
+    "archivo": "gw-control-t100-caso11-noviembre-disponible.jpg",
+    "bytes": 103244,
+    "sha256": "04665c09cbe714085f49433556a07cdd85062c61e66a3f998f5d43672d565b66"
+  },
+  {
+    "archivo": "gw-control-t100-caso11-noviembre-disponible.txt",
+    "bytes": 3885,
+    "sha256": "dcd179f2705e48516dab331d446a891b5ce96267850f864c5270fc14d9caa304"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cashflow-antes.jpg",
+    "bytes": 101563,
+    "sha256": "8cacd21d82df4852ae3fcbed5e8153d121e7e1f2bcaca658184579c1966e7511"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cashflow-antes.txt",
+    "bytes": 5037,
+    "sha256": "6077870d1c21928866f02ce72a1eaba13a4706de6354e2038829e89018830476"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cashflow-despues.jpg",
+    "bytes": 99994,
+    "sha256": "4caaf7699e5937c739d49503b9e65d0329c57f30ad83d55b09cd514df8054f31"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cashflow-despues.txt",
+    "bytes": 5585,
+    "sha256": "e5bff13f0c8160ea50b3d0409e3eab2c08f1d3e3b2d9fe3a27901a247319a478"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cobranza-antes.txt",
+    "bytes": 3328,
+    "sha256": "7b09d8b629fbcd7943c49cd61700badfeed9e731f0196cd6441301914efb2a90"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-cobranza-despues.txt",
+    "bytes": 3328,
+    "sha256": "7b09d8b629fbcd7943c49cd61700badfeed9e731f0196cd6441301914efb2a90"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-ficha-anulado.jpg",
+    "bytes": 87597,
+    "sha256": "4641ff7f2552cb76cffab048788f0278992cee765e419d00f54e60b33e83d7d3"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-ficha-anulado.txt",
+    "bytes": 3884,
+    "sha256": "33ffa2e09cc8aa7221deb6e205b88387868860a6bed27f964c5550977cf69eed"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-inicio-antes.txt",
+    "bytes": 4435,
+    "sha256": "a0349391528c0f6ba010a4abb348426c536072fde332a87d810c3a49965f7d13"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-inicio-despues.txt",
+    "bytes": 4433,
+    "sha256": "ea7c6488be3ca4b307c5073b16b8afde372dcc572c6bf6f6423c341d12fbae66"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-panel-anular.jpg",
+    "bytes": 74631,
+    "sha256": "b03d4e64370b68d9442f3b12d685436a746de6a282e1f08b89b3bb702391c602"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-panel-anular.txt",
+    "bytes": 4135,
+    "sha256": "0b99422cd4de4e88f53894a0c193bb126b175235c4e34de97486fb99de0fd536"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-recobrado.jpg",
+    "bytes": 91039,
+    "sha256": "e702835e5c50696268c44e5c854c45df6c78a72dcce0fd7e292c27b306ff951e"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-recobrado.txt",
+    "bytes": 4047,
+    "sha256": "44c9c5cbe97b97828e0a7d6110a15bd260b9aa96e2a15f77cc9357ecfb95b9af"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-reportes-antes.txt",
+    "bytes": 4746,
+    "sha256": "f2e03d2e93fedd83610f9c48199f2d14157e4cec71322dc2a76a83d8010d64ff"
+  },
+  {
+    "archivo": "gw-control-t100-caso2-reportes-despues.txt",
+    "bytes": 4745,
+    "sha256": "f7485437f68b7c98a55116e5173c812ccbedf5a4732ac892ee80746110a0a269"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-antes.jpg",
+    "bytes": 88671,
+    "sha256": "9c31c75e8404eee6f5ec30f0ee31a53e6993202c6d6e454bebcfa2e35c2a6596"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-antes.txt",
+    "bytes": 3897,
+    "sha256": "a225984c6c9cc2df89018fcdd30bc6499a667beb7a9d9aad7793c04b904d1f52"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-cancelado.jpg",
+    "bytes": 90593,
+    "sha256": "b24d4d8b5e676aa6f7bc7d3bb3500632f61de3ecc198efdd45a0137fe8ec320c"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-cancelado.txt",
+    "bytes": 4191,
+    "sha256": "cdafbd692ff4103eedd7560b45f48d78e4a30da3ffb4a031d3991dfc0abef317"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-noviembre-generado.jpg",
+    "bytes": 90868,
+    "sha256": "4d0c7a948dfcf58da9359f3dbbc9270345a6a70ba5b9db1b83e1abc8c4cc27fb"
+  },
+  {
+    "archivo": "gw-control-t100-caso3-noviembre-generado.txt",
+    "bytes": 4035,
+    "sha256": "704a883a511290279000744466e5d0b5b8191789a5825d859b8e1e891da674dc"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-cancelado.jpg",
+    "bytes": 90154,
+    "sha256": "fe32ad4349b36226679e121632d0781a90bc239fa99aed700344450dd3448bb6"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-cancelado.txt",
+    "bytes": 3935,
+    "sha256": "c71e87932e8491fc2b5277de282fdb97d2353ae1242bc5af54f892e34e681d30"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-revision.jpg",
+    "bytes": 91230,
+    "sha256": "2dde68d7a91c76ce2398bc49ffcd0159def03373762372ae4c6b2ab6e4318c4c"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-revision.txt",
+    "bytes": 10854,
+    "sha256": "3d4ac5cff32a850e7ff8166c1955f77ba531d7f30246c6c444ef26519c16b7e6"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-sin-deuda.jpg",
+    "bytes": 88202,
+    "sha256": "64477d83ff02fd5446c37530a60d196a0d21d480f6cff243f8af916db438862b"
+  },
+  {
+    "archivo": "gw-control-t100-caso4-sin-deuda.txt",
+    "bytes": 3887,
+    "sha256": "d763f6efebd20b8531a2523d6c17563d4d124ddaaf89ce8af6404b10874eeba3"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-caja-rechazada-antes.jpg",
+    "bytes": 89240,
+    "sha256": "d5c0cb2aefec90b9dc05106c7fa1a7f285e89808956bf87cd867d86e744db65f"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-caja-rechazada-antes.txt",
+    "bytes": 4297,
+    "sha256": "3d3922a96dc1dde0c830f995cc7cf0c95a5c34a227df59f5fde0c563a807342d"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-caja-rechazada-despues.jpg",
+    "bytes": 93492,
+    "sha256": "bf9cfb43ed0c5e53eb0bd639edc5d4f2937cb61b53cf847e9a14a9a9da513e97"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-caja-rechazada-despues.txt",
+    "bytes": 4384,
+    "sha256": "87ef0cd32011738e8895b5c1d377188a1bdbff2e470cd6a9d871586c7d014877"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-diciembre-pendiente-30000.jpg",
+    "bytes": 79735,
+    "sha256": "157db05a2522d8c1ff9bcf2eeb62a1b7d89737af10875ede8fe986c9e5530f9b"
+  },
+  {
+    "archivo": "gw-control-t100-caso5-diciembre-pendiente-30000.txt",
+    "bytes": 2460,
+    "sha256": "9a554741aee01545c2098febadb8261ac9303e1f7b9c8ba38332d54600af319a"
+  },
+  {
+    "archivo": "gw-control-t100-caso6-multimes-antes.txt",
+    "bytes": 3905,
+    "sha256": "a05fd1bc7f1443016eecf0632d0701590707423c1749a0569cd74f077f34f3c6"
+  },
+  {
+    "archivo": "gw-control-t100-caso6-multimes-despues.jpg",
+    "bytes": 90457,
+    "sha256": "e5171950e470423f775b96fe350b1498637487b8f9566021fb81359490137e7d"
+  },
+  {
+    "archivo": "gw-control-t100-caso6-multimes-despues.txt",
+    "bytes": 4056,
+    "sha256": "3d85980d8356aff551c286e445913fbe9a37ab5ece4d9edd4ed21ac1d7405d66"
+  },
+  {
+    "archivo": "gw-control-t100-caso7-preexistente-antes.txt",
+    "bytes": 3899,
+    "sha256": "01a07dc1417d233d2ff43754ab039fde92c4182ece495f5166a27577dea2743e"
+  },
+  {
+    "archivo": "gw-control-t100-caso7-preexistente-despues.jpg",
+    "bytes": 90996,
+    "sha256": "369a40988f020cafe12b7fcf4ca7595025fab6c9bd01cdb100aa6e48d5268cb7"
+  },
+  {
+    "archivo": "gw-control-t100-caso7-preexistente-despues.txt",
+    "bytes": 3937,
+    "sha256": "a49302c4db9d0904146d025bddd29d73f39fbf5a694cb9107378c5eec2745ac1"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-cuota-deshacida.jpg",
+    "bytes": 101901,
+    "sha256": "c6a0d09a334ca28486d5532380a368501fe2f5adfef95ea0058d3bd291437cc3"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-cuota-deshacida.txt",
+    "bytes": 3912,
+    "sha256": "dc6c53ecf9dc76d48782603aa7040b31d24480dd738648468a13463ef3dcc2ed"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-primero-antes.txt",
+    "bytes": 4062,
+    "sha256": "976db1113ee7c07560aa1747128982414c172bb459266a8a98c6a160d94a49c4"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-primero-despues.jpg",
+    "bytes": 93776,
+    "sha256": "461366458d5c685d08fd7ceb3bfea87eb7f888c9220e12f20b54c0e0a06ceab0"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-primero-despues.txt",
+    "bytes": 4100,
+    "sha256": "7f44cd729a92c9d9700212f2ade5ce31480cca79c8f4b269252c46b9f85a437e"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-queda-otro-cobro.jpg",
+    "bytes": 100902,
+    "sha256": "13f3cd85d8ae8df69233570e87528f7a097407fd512a16687c41469584d011f5"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-queda-otro-cobro.txt",
+    "bytes": 3976,
+    "sha256": "e7c035b754b7c1e6fd779b95c03f6e9c76b4a9d515af6e03796375fe311cc900"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-ultimo-antes.txt",
+    "bytes": 4052,
+    "sha256": "af703dbca7295fc024feaf62f49a0d897f379d060e92692aa38401f081e2ff29"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-ultimo-despues.jpg",
+    "bytes": 93353,
+    "sha256": "1ccda0c8a2660d70e679a2fe9df729224c76063a9661028228059db267ba5ada"
+  },
+  {
+    "archivo": "gw-control-t100-caso8-ultimo-despues.txt",
+    "bytes": 4090,
+    "sha256": "8fb53121bdb8b7c7ecc7da71eaca970e771386b28e188b4d93b6892ae7d16256"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-antes.txt",
+    "bytes": 3900,
+    "sha256": "968a55728bcea83629e8ac085d09d034f23445939f83ee12b975dc61e57c3c06"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-cierre-intacto.jpg",
+    "bytes": 94599,
+    "sha256": "03ce68b1ab1d66508cabe4ca9cb7aaa35918d431c26ce749b734db56f9809409"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-cierre-intacto.txt",
+    "bytes": 4567,
+    "sha256": "9804001fa1f45e8a535b9ecc61cca0b82529933e243dbcf6bad5cb6dda20b8bc"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-despues.jpg",
+    "bytes": 90870,
+    "sha256": "c357d9f7813f5ee6c4b84ed6a74812e9d2a90be835b451b46a587352cf517642"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-despues.txt",
+    "bytes": 3938,
+    "sha256": "b541a95ca8679d2b90f00e5989f07c70e563980b8e68d62c7a0c95a036b39488"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-pendiente.jpg",
+    "bytes": 99396,
+    "sha256": "61d841cd96d237d53499b0eb3ac0597f5a955c03b744e4ecb77a31b0a49a6e17"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-liquidacion-pendiente.txt",
+    "bytes": 3936,
+    "sha256": "2718879a104e296e5f944f09b4f0771f9f543919ef9ab2bd34ce481811611960"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-perdida-antes.txt",
+    "bytes": 3896,
+    "sha256": "ec98112cae00cd9db9c991ed993fd521dfb08a3967a8a43a8662adfee94353a1"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-perdida-despues.jpg",
+    "bytes": 89924,
+    "sha256": "e7d0b36d618126bfaaa49e9e2bd12065dd017834e92182e89333e2d3beddfad2"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-perdida-despues.txt",
+    "bytes": 3934,
+    "sha256": "1b8c5835546bbbd4661557970db396e158229a96a5538701a6fbb9b30d10ad04"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-perdida-pendiente.jpg",
+    "bytes": 98741,
+    "sha256": "51d64629ad89c597e1b93ba6d8a1c95fe3375b6cae507a16557f4dc179046d11"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-perdida-pendiente.txt",
+    "bytes": 3933,
+    "sha256": "7613c4795ff82e252a42c6a7cabb3db7f3b12881cbbe9fd08bcb5b46581659bc"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-recargo-antes.txt",
+    "bytes": 4042,
+    "sha256": "a79e2e86a2c584a42cd6f74866f5d9d03b0065ec8b8e9789dda4189de9cf0487"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-recargo-despues.jpg",
+    "bytes": 92351,
+    "sha256": "1c151efdbb6d6c2cfb35e89c8435806e002dc298b8279a1544b9e117ddd27458"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-recargo-despues.txt",
+    "bytes": 4080,
+    "sha256": "ec25a131771c1697f5c2cf4853bd001b9f0a0ce590b6106fcf583142fb15a1ff"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-recargo-pendiente.jpg",
+    "bytes": 98892,
+    "sha256": "13a032ac8cc4eadb3e5868b28b6c92e52ebdd31c0fc28b38ec45b92c5da10be5"
+  },
+  {
+    "archivo": "gw-control-t100-caso9-recargo-pendiente.txt",
+    "bytes": 3932,
+    "sha256": "4aa514b5c1f9c272642d1c72806f97ef2abd1dff5364cd921b29c08c2961e0f8"
+  },
+  {
+    "archivo": "gw-control-t100-comision-120000-antes.jpg",
+    "bytes": 101358,
+    "sha256": "ec16c4c7d59aa3a164551c5242749b766e2f2e01a47f2c28be48c197e3787806"
+  },
+  {
+    "archivo": "gw-control-t100-comision-120000-antes.txt",
+    "bytes": 3534,
+    "sha256": "bf16a3ea89a275237c5d918783d4ab4450f121795d620c81d5e7d6c70b12b46d"
+  },
+  {
+    "archivo": "gw-control-t100-comision-antes-recalcular.jpg",
+    "bytes": 101358,
+    "sha256": "ec16c4c7d59aa3a164551c5242749b766e2f2e01a47f2c28be48c197e3787806"
+  },
+  {
+    "archivo": "gw-control-t100-comision-antes-recalcular.txt",
+    "bytes": 3534,
+    "sha256": "bf16a3ea89a275237c5d918783d4ab4450f121795d620c81d5e7d6c70b12b46d"
+  },
+  {
+    "archivo": "gw-control-t100-comision-anular-cobro-antes.txt",
+    "bytes": 3942,
+    "sha256": "70b93f33a9edcc74066280821afb7ed595ccdbacea8128d77356c8061308c094"
+  },
+  {
+    "archivo": "gw-control-t100-comision-anular-cobro-despues.jpg",
+    "bytes": 91199,
+    "sha256": "b956c88669343fbaed7ece27cbd8d85218fc17a6f7722d2899e7a0972c90c8c1"
+  },
+  {
+    "archivo": "gw-control-t100-comision-anular-cobro-despues.txt",
+    "bytes": 4127,
+    "sha256": "83259c660111ca439a14a8c2ab147373b8f32d1af2ef1e1fb3e2a4957b527b0a"
+  },
+  {
+    "archivo": "gw-control-t100-comision-cero-despues.jpg",
+    "bytes": 85387,
+    "sha256": "10d40cb43b1273cc105ac4ecdc4e2480130f6d13e45e9b183754f4b8ede4168c"
+  },
+  {
+    "archivo": "gw-control-t100-comision-cero-despues.txt",
+    "bytes": 3111,
+    "sha256": "9713ec1c962578245c6324025ad782259de15e9659a9a83414eb5c0b0c690fb0"
+  },
+  {
+    "archivo": "gw-control-t100-panel-cancelar.jpg",
+    "bytes": 64634,
+    "sha256": "fe3bc606f64f8f23b99e2768fb46982929f8e57a7c84f46f3f5ef55b323fde86"
+  },
+  {
+    "archivo": "independientes-casos-corregidos.txt",
+    "bytes": 471,
+    "sha256": "21c032703e713ae967c449c658bfe7bb3231d198e3150ea3c6b110c878d2260c"
+  },
+  {
+    "archivo": "independientes-primera-vuelta.txt",
+    "bytes": 8735,
+    "sha256": "df021e839fc577c690a3d0e55742cd479da3f4c346b7d39e9a1d5852cf5d26e0"
+  },
+  {
+    "archivo": "independientes-segunda-vuelta.txt",
+    "bytes": 8735,
+    "sha256": "7f362d0dfe108b3a9afb6ec4dcf5435b228b7a7264b17aa1c3ec8176948308e5"
+  },
+  {
+    "archivo": "LEEME.md",
+    "bytes": 976,
+    "sha256": "421d586ab656190aca06c89e35b2666b16d425b3ab3c18f6f91e068a1c412701"
+  },
+  {
+    "archivo": "manual-rechazos-prueba.txt",
+    "bytes": 234,
+    "sha256": "7919e347121bcb6055d964c8cb35f8c3b6b3715884bb70b9448fba3cd9ad8f2f"
+  },
+  {
+    "archivo": "manual-verificador.txt",
+    "bytes": 37,
+    "sha256": "5d20d5f51255a07e3308a9f4433a95eef4584f55c81780193498799653011b18"
+  },
+  {
+    "archivo": "ManualRechazosT100CodexTest.php",
+    "bytes": 1470,
+    "sha256": "f0b9ce101e824cde452040d8d22fc45d7dbdd9e1135a744b84acfa5d43897ac4"
+  },
+  {
+    "archivo": "migracion-copia-sitio.json",
+    "bytes": 19003,
+    "sha256": "915e0500fd0a91da7940a6b3498d8d9c2501da2c2a787a21643afd7b7bafc585"
+  },
+  {
+    "archivo": "migracion-copia-sitio.php",
+    "bytes": 4192,
+    "sha256": "007b067e7bcd3addb78dce015ccc33e32ec961fc0925ec70f8b3e6f540eaba83"
+  },
+  {
+    "archivo": "migracion-copia-sitio.txt",
+    "bytes": 1896,
+    "sha256": "d4909ccc21e8616194e0029ec95cab250f8b27ffeecec4755dee1386ba29c685"
+  },
+  {
+    "archivo": "migracion-primera-comprobacion.txt",
+    "bytes": 69,
+    "sha256": "e2e664b9d2e50270eafddd8f8198b27cde3edac9dc956d4e668083c2366f99d8"
+  },
+  {
+    "archivo": "mutacion-marca_cuota_preexistente.txt",
+    "bytes": 1827,
+    "sha256": "8126e7d9602a7048edefa945492a8ec7d2e48d8c8f5599e300d91e405abbea80"
+  },
+  {
+    "archivo": "mutacion-sin_anulacion_duenio.txt",
+    "bytes": 4501,
+    "sha256": "221e0eff7be1dae21597b0d1d9b93d901c2ec58ae05660b1b046fa8aa33b5f82"
+  },
+  {
+    "archivo": "mutacion-sin_borrado.txt",
+    "bytes": 4546,
+    "sha256": "307507ecdae590d6a2f0a055df451dded8f30f2789cd6c38eccc4a625b3f5f4d"
+  },
+  {
+    "archivo": "mutacion-sin_cancelacion_operativa.txt",
+    "bytes": 4546,
+    "sha256": "0d49e9162afa7e5de15fa6de320e375f85433a28fa3d8efb1cfcd18f5ba8e07a"
+  },
+  {
+    "archivo": "mutacion-sin_limpiar_origen.txt",
+    "bytes": 1822,
+    "sha256": "8c6373446e99ac886b6f85dce8fc482c5b23178f27f15cd737266107d2be744b"
+  },
+  {
+    "archivo": "mutacion-sin_liquidacion.txt",
+    "bytes": 42640,
+    "sha256": "411281a397cf51a90fb5f4f2cb4f01f151ade0e3f28f270e3d3177975d39357e"
+  },
+  {
+    "archivo": "mutacion-sin_marca_origen.txt",
+    "bytes": 1310,
+    "sha256": "47b08d7415d7106bc2df4029e5c3a9fe3b95fe4740e46cf063063042a87a465c"
+  },
+  {
+    "archivo": "mutacion-sin_mes_empezado.txt",
+    "bytes": 1602,
+    "sha256": "e5014d744ff66f3ff6717038feeda5ff64d0a47d6b2110a114ed5393430ee655"
+  },
+  {
+    "archivo": "mutacion-sin_origen.txt",
+    "bytes": 1304,
+    "sha256": "2fca0486f490e0edd659e4cc8778f0b7eca28f6083c5feec034a33b4f77e4058"
+  },
+  {
+    "archivo": "mutacion-sin_otro_pago.txt",
+    "bytes": 1616,
+    "sha256": "6e3d04bcf70a4455ea72691104c252fb095b5bca19cb1a84bbd03ff39afd0186"
+  },
+  {
+    "archivo": "mutacion-sin_perdida.txt",
+    "bytes": 1883,
+    "sha256": "f67fee9e2b7311b0d6f2fb272fe7df8d5371bae6836156675b063287dde916ba"
+  },
+  {
+    "archivo": "mutacion-sin_precio_plan.txt",
+    "bytes": 1845,
+    "sha256": "fe522248f2bd32d95363b93a510455ff587789ece3ee98b21d6b9b4825209a40"
+  },
+  {
+    "archivo": "mutacion-sin_recargo.txt",
+    "bytes": 42553,
+    "sha256": "025bceb543fc12b9df99258cb821097334cf8e830761d60864ce112ab008a17b"
+  },
+  {
+    "archivo": "mutaciones-restauracion.json",
+    "bytes": 185,
+    "sha256": "3653b48496538da47fe728c6af48fa919b401598f5b9491a4485ace27048f3ee"
+  },
+  {
+    "archivo": "mutaciones-revisadas.json",
+    "bytes": 2719,
+    "sha256": "a76bfe2c2ff33095363a9d94da15c6a89b0c7232758432e44003a1a9e5d1fad6"
+  },
+  {
+    "archivo": "mutaciones.json",
+    "bytes": 1406,
+    "sha256": "a212416d2a78605b1af490a98b8e6c051fe54ea44749bfcd062c02d3923a0684"
+  },
+  {
+    "archivo": "mutaciones.py",
+    "bytes": 3301,
+    "sha256": "69a49de8a128d2892785e7a37ace2e3d89a0bb150d00a34714700e7a8c3224e9"
+  },
+  {
+    "archivo": "observacion-cli.txt",
+    "bytes": 40794,
+    "sha256": "9846f4f9e2eb6694ff32d5dbab641bd78eb7ce2132b33dd81644fe0755f85528"
+  },
+  {
+    "archivo": "observacion-local.php",
+    "bytes": 1418,
+    "sha256": "b7897a9954b887a43b9fb7f8746b5ad585b2e26b9fd5925e0239b55b79530ee2"
+  },
+  {
+    "archivo": "panel-cancelar-texto-pendiente.jpg",
+    "bytes": 64634,
+    "sha256": "fe3bc606f64f8f23b99e2768fb46982929f8e57a7c84f46f3f5ef55b323fde86"
+  },
+  {
+    "archivo": "preparacion-casos-pantalla.txt",
+    "bytes": 864,
+    "sha256": "f0a4ed0e97e6d10f56782829ac0afab541f9ce9f216aa783477285c14b9124a3"
+  },
+  {
+    "archivo": "preparar-caja-rechazada.php",
+    "bytes": 667,
+    "sha256": "526e1a2692e593e64d57c42211f25cdafcc69e1dfc62b8db06e48b570981aa5d"
+  },
+  {
+    "archivo": "preparar-casos-pantalla.php",
+    "bytes": 4797,
+    "sha256": "dae344057238234dec9f2457ff11515d4a3bc42c79cce5778105545d4c8517ce"
+  },
+  {
+    "archivo": "preparar-comision.php",
+    "bytes": 2413,
+    "sha256": "15aaf64bc506496395106cda4c78aeb1a24e7802206be5c38e277ea72478ff66"
+  },
+  {
+    "archivo": "preparar-navegador.php",
+    "bytes": 3079,
+    "sha256": "ff94df01e79f98cadee5758f8541b3622778489167d9aaffe4d698159ba65be1"
+  },
+  {
+    "archivo": "recibo-anulado-0.pdf",
+    "bytes": 221649,
+    "sha256": "3fcf29757768459a2e5b39e63b8c969fbce508b38af0ea4b823d187ba0bc0b02"
+  },
+  {
+    "archivo": "recibo-anulado-1.pdf",
+    "bytes": 221649,
+    "sha256": "dc1389f84510382cb6ff56fd0aca6ba73c841643237d55ea3eec2d1bab615e58"
+  },
+  {
+    "archivo": "recibo-anulado-render.png",
+    "bytes": 107449,
+    "sha256": "ea819b70ac8ec5062ea9ca8188db8413b93190cb80140a5f5624e8aa676bfb30"
+  },
+  {
+    "archivo": "recibo-anulado-texto.txt",
+    "bytes": 987,
+    "sha256": "600193a9d14c9848cc60b9c1324f0823283f38ac657a15fd898730fd7dfb25ac"
+  },
+  {
+    "archivo": "salidas-originales.zip",
+    "bytes": 93477,
+    "sha256": "f4c6786d691b375b4b3f529e56529890f59eeb92dfd3320e8633029d6b07b718"
+  },
+  {
+    "archivo": "suite-claude.txt",
+    "bytes": 1575,
+    "sha256": "70ddd42d42c9ddfa1cdb6bed668cad39587d2f9fe34354bf023f2a2df42871e0"
+  }
+]

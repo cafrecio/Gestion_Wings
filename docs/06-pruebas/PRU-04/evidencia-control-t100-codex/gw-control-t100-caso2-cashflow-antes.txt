@@ -1,0 +1,160 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/corregir-movimiento-caja-validada
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cashflow" [level=1]
+- main:
+  - generic: Período
+  - combobox "Período":
+    - option "Día"
+    - option "Semana"
+    - option "Mes"
+    - option "Año" [selected]
+  - generic: Año
+  - combobox "Año":
+    - option "2026" [selected]
+  - generic: Tipo de caja
+  - combobox:
+    - option "Todos" [selected]
+    - option "Banco Galicia"
+    - option "Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "Efectivo"
+    - option "Mercado Pago"
+  - generic: Tipo
+  - combobox:
+    - option "Todos" [selected]
+    - option "Ingresos"
+    - option "Egresos"
+  - paragraph:
+    - generic: "Período:"
+    - strong: Año 2026 completo
+  - region "Saldos por medio":
+    - heading "Saldos por medio" [level=2]
+    - paragraph: Al 05/10/2026 · No dependen del período del listado.
+    - generic: Banco Galicia
+    - strong: $0.00
+    - generic: Banco Nación
+    - strong: $0.00
+    - generic: Banco Nacion ahorro
+    - strong: $0.00
+    - generic: Efectivo
+    - strong: $330,000.00
+    - paragraph: "Confirmado: $300,000.00 · En cajas sin validar: $30,000.00"
+    - generic: Mercado Pago
+    - strong: $0.00
+  - strong: $300,000.00
+  - generic: ingresos
+  - strong: $0.00
+  - generic: egresos
+  - strong: $300,000.00
+  - generic: resultado del período
+  - strong: "1"
+  - text: movimiento
+  - button "Transferir"
+  - button "Nuevo"
+  - table:
+    - rowgroup:
+      - row "Fecha I/E Tipo caja Rubro — Subrubro Detalle Monto Registró Val. Acciones":
+        - columnheader "Fecha"
+        - columnheader "I/E"
+        - columnheader "Tipo caja"
+        - columnheader "Rubro — Subrubro"
+        - columnheader "Detalle"
+        - columnheader "Monto"
+        - columnheader "Registró"
+        - columnheader "Val."
+        - columnheader "Acciones"
+    - rowgroup:
+      - row "05/10/2026 I EFT Cuotas — Cuota Mensual Control T100, Dueño Cobro del dueño $300,000.00 Dueño Control Codex Anular":
+        - cell "05/10/2026"
+        - cell "I"
+        - cell "EFT"
+        - cell "Cuotas — Cuota Mensual"
+        - cell "Control T100, Dueño Cobro del dueño":
+          - text: Control T100, Dueño
+          - generic: Cobro del dueño
+        - cell "$300,000.00"
+        - cell "Dueño Control Codex"
+        - cell
+        - cell "Anular":
+          - link "Anular":
+            - /url: http://127.0.0.1:8111/alumnos/2
+  - heading "Mostrador · sin validar" [level=3]
+  - paragraph: Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.
+  - paragraph: "Pago cuota alumno #1 - Períodos: 2026-12"
+  - text: Caja abierta · Operativa Control Codex
+  - paragraph:
+    - strong: $30,000.00
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/caja/1/detalle
+- contentinfo:
+  - generic: Wings

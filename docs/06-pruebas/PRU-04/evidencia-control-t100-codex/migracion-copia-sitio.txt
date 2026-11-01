@@ -1,0 +1,66 @@
+{
+    "tablas": 55,
+    "datos_identicos": true,
+    "muestra": [
+        {
+            "pago_id": 9,
+            "alumno_id": 331,
+            "fecha_pago": "2026-10-13",
+            "deuda_id": 247,
+            "periodo": "2026-11",
+            "monto_original": "30000.00",
+            "monto_pagado": "30000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 18,
+            "alumno_id": 318,
+            "fecha_pago": "2026-10-16",
+            "deuda_id": 248,
+            "periodo": "2026-11",
+            "monto_original": "35000.00",
+            "monto_pagado": "35000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 53,
+            "alumno_id": 265,
+            "fecha_pago": "2026-10-22",
+            "deuda_id": 251,
+            "periodo": "2026-11",
+            "monto_original": "38000.00",
+            "monto_pagado": "38000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 262,
+            "alumno_id": 334,
+            "fecha_pago": "2026-11-05",
+            "deuda_id": 474,
+            "periodo": "2026-12",
+            "monto_original": "48000.00",
+            "monto_pagado": "48000.00",
+            "pago_origen_id": null
+        },
+        {
+            "pago_id": 386,
+            "alumno_id": 246,
+            "fecha_pago": "2026-11-14",
+            "deuda_id": 475,
+            "periodo": "2026-12",
+            "monto_original": "45000.00",
+            "monto_pagado": "45000.00",
+            "pago_origen_id": null
+        }
+    ],
+    "legado": {
+        "pago_id": 399,
+        "deuda_id": 484,
+        "periodo": "2026-12",
+        "original": "44000.00",
+        "pagado_antes": "44000.00",
+        "pagado_despues": "0.00",
+        "estado": "PENDIENTE",
+        "pago_origen_id": null
+    }
+}

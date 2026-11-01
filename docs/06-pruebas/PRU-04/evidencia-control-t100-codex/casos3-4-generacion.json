@@ -1,0 +1,482 @@
+{
+    "reloj": "2026-11-01 10:00:00",
+    "salida": "=== Generación de deudas para período: 2026-11 ===\r\nVerificando asistencias del mes anterior: 2026-10\r\n  Alumno #1 (Operativa Control T100): enviado a revisión.\r\n  Alumno #2 (Dueño Control T100): enviado a revisión.\r\n  Alumno #3 (Asistencia Control T100): deuda creada - $30000\r\n  Alumno #4 (Revisión Control T100): enviado a revisión.\r\n  Alumno #5 (Caja rechazada Control T100): enviado a revisión.\r\n  Alumno #6 (Multimes Control T100): enviado a revisión.\r\n  Alumno #7 (Preexistente Control T100): enviado a revisión.\r\n  Alumno #8 (Dos cobros Control T100): enviado a revisión.\r\n  Alumno #9 (Recargo Control T100): enviado a revisión.\r\n  Alumno #10 (Descuento Control T100): enviado a revisión.\r\n  Alumno #11 (Meses seguidos Control T100): enviado a revisión.\r\n  Alumno #12 (Liquidacion Control T100): enviado a revisión.\r\n  Alumno #13 (Perdida Control T100): enviado a revisión.\r\n\r\n=== Resumen ===\r\nTotal alumnos activos: 13\r\nDeudas creadas: 1\r\nEnviados a revisión: 12\r\nYa existían (skipped): 0\r\n",
+    "cuota_con_asistencia": {
+        "id": 30,
+        "alumno_id": 3,
+        "periodo": "2026-11",
+        "monto_original": "30000.00",
+        "monto_pagado": "0.00",
+        "estado": "PENDIENTE",
+        "observaciones": null,
+        "created_at": "2026-11-01T09:00:00.000000Z",
+        "updated_at": "2026-11-01T09:00:00.000000Z",
+        "porcentaje_alta": null,
+        "fecha_reingreso": null,
+        "monto_perdido": "0.00",
+        "pago_origen_id": null
+    },
+    "cuota_sin_asistencia": null,
+    "revision_sin_asistencia": {
+        "id": 3,
+        "alumno_id": 4,
+        "periodo_objetivo": "2026-11",
+        "motivo": "SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES",
+        "estado_revision": "PENDIENTE",
+        "resolucion": null,
+        "nota_resolucion": null,
+        "usuario_resolucion_id": null,
+        "resuelto_at": null,
+        "created_at": "2026-11-01T09:00:00.000000Z",
+        "updated_at": "2026-11-01T09:00:00.000000Z"
+    },
+    "octubre_antes": {
+        "mes": "2026-10",
+        "fecha_corte": "2026-10-31",
+        "deporte_id": null,
+        "ingresos": 0,
+        "egresos": 0,
+        "resultado": 0,
+        "resultado_global": 39000000,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 5100000,
+            "mes": 5100000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 10,
+                    "persona_id": 10,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 2100000
+                },
+                {
+                    "id": 6,
+                    "persona_id": 6,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                }
+            ],
+            "cuotas": 5100000,
+            "inscripciones": 0,
+            "punitorios": 0
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 0,
+            "mes": 0,
+            "anteriores": 0,
+            "filas": []
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 6000000,
+                "pendiente": 33000000,
+                "total": 39000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 39000000,
+        "historial_desde": "2026-01-01",
+        "filas": [
+            {
+                "id": 6,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 13,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 2100000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 2100000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-11",
+                        "periodo_comision": "2026-11",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 18,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 25,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -2100000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 2100000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-11",
+                        "periodo_comision": "2026-11",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            }
+        ],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 0,
+            "asistencia": 0,
+            "revision": 0
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T100 Codex",
+                "nivel": "Inicial Control Codex",
+                "cantidad": 13
+            }
+        ]
+    },
+    "octubre_despues": {
+        "mes": "2026-10",
+        "fecha_corte": "2026-10-31",
+        "deporte_id": null,
+        "ingresos": 0,
+        "egresos": 0,
+        "resultado": 0,
+        "resultado_global": 39000000,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 5100000,
+            "mes": 5100000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 10,
+                    "persona_id": 10,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 2100000
+                },
+                {
+                    "id": 6,
+                    "persona_id": 6,
+                    "periodo": "2026-10",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                }
+            ],
+            "cuotas": 5100000,
+            "inscripciones": 0,
+            "punitorios": 0
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 0,
+            "mes": 0,
+            "anteriores": 0,
+            "filas": []
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 6000000,
+                "pendiente": 33000000,
+                "total": 39000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 39000000,
+        "historial_desde": "2026-01-01",
+        "filas": [
+            {
+                "id": 6,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 13,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 2100000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 2100000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-11",
+                        "periodo_comision": "2026-11",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 18,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-05",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 8,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-12",
+                        "periodo_comision": "2026-12",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            },
+            {
+                "id": 25,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-20",
+                "concepto": "Cuota Mensual (10\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": -2100000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-10",
+                        "periodo_comision": "2026-10",
+                        "centavos": 2100000,
+                        "origen": "del_mes"
+                    },
+                    {
+                        "pago_id": 15,
+                        "deuda_id": null,
+                        "periodo_cuota": "2026-11",
+                        "periodo_comision": "2026-11",
+                        "centavos": 3000000,
+                        "origen": "adelantado"
+                    }
+                ],
+                "periodo_ingreso": "2026-10"
+            }
+        ],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 0,
+            "asistencia": 0,
+            "revision": 12
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T100 Codex",
+                "nivel": "Inicial Control Codex",
+                "cantidad": 13
+            }
+        ]
+    },
+    "cierre_monetario_intacto": true
+}

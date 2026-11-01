@@ -1,0 +1,122 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/cobrar-cuota
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Cobrar: Control T100, Meses seguidos" [level=1]'
+- main:
+  - paragraph: DNI
+  - paragraph: "99001010"
+  - paragraph: Deporte
+  - paragraph: Control T100 Codex
+  - paragraph: Grupo
+  - paragraph: Control T100 Codex — Inicial Control Codex
+  - paragraph: Total pendiente
+  - paragraph: $0.00
+  - paragraph: Cuotas pendientes — seleccioná las que querés cobrar
+  - paragraph: Sin cuotas pendientes.
+  - paragraph: Mes sin deuda o cobro adelantado
+  - text: Mes
+  - combobox "Mes":
+    - option "Seleccionar..." [selected]
+    - option "Noviembre 2026"
+    - option "Enero 2027"
+    - option "Febrero 2027"
+    - option "Marzo 2027"
+    - option "Abril 2027"
+    - option "Mayo 2027"
+    - option "Junio 2027"
+    - option "Julio 2027"
+    - option "Agosto 2027"
+    - option "Septiembre 2027"
+    - option "Octubre 2027"
+  - text: Importe
+  - textbox "Importe":
+    - /placeholder: "0"
+  - button "Agregar" [disabled]
+  - paragraph: "Elegí un mes que no figura como deuda. El importe sugerido es el precio del plan. Para meses futuros, si ya se anunció un aumento, cambialo: lo que se cobre queda fijo para ese mes."
+  - text: Medio de pago
+  - generic: "*"
+  - combobox "Medio de pago *":
+    - option "Seleccionar..." [selected]
+    - option "BGA — Banco Galicia"
+    - option "BNA — Banco Nación"
+    - option "Banco Nacion ahorro"
+    - option "EFT — Efectivo"
+    - option "MP — Mercado Pago"
+  - text: Fecha del pago
+  - textbox "Fecha del pago": 2026-10-20
+  - text: Observaciones
+  - textbox "Observaciones":
+    - /placeholder: Opcional
+  - button "Cancelar"
+  - button "Cobrar" [disabled]
+- contentinfo:
+  - generic: Wings

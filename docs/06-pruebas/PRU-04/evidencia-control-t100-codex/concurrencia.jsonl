@@ -1,0 +1,4 @@
+{"admin":false,"cancelar_primero":true,"conexiones":[26678,26694],"espera_for_update":true,"escrituras_segundo":0,"original":"30000.00","pagado":"30000.00","estado":"PAGADA"}
+{"admin":false,"cancelar_primero":false,"conexiones":[26699,26718],"espera_for_update":true,"escrituras_segundo":0,"original":"330000.00","pagado":"30000.00","estado":"PENDIENTE"}
+{"admin":true,"cancelar_primero":true,"conexiones":[26725,26763],"espera_for_update":true,"escrituras_segundo":0,"original":"30000.00","pagado":"30000.00","estado":"PAGADA"}
+{"admin":true,"cancelar_primero":false,"conexiones":[26769,26770],"espera_for_update":true,"escrituras_segundo":0,"original":"330000.00","pagado":"30000.00","estado":"PENDIENTE"}

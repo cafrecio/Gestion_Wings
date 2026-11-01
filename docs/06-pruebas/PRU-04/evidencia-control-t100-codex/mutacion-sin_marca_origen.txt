@@ -1,0 +1,43 @@
+   FAIL  Tests\Feature\AdelantoCanceladoT100Test
+
+  ⨯ el adelanto recuerda el cobro del que nacio                                                                 27.02s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\AdelantoCanceladoT100Test > el adelanto recuerda el cobro del que nacio
+
+  Failed asserting that null is identical to 1.
+
+
+
+  at tests\Feature\AdelantoCanceladoT100Test.php:113
+
+    109▕     public function test_el_adelanto_recuerda_el_cobro_del_que_nacio(): void
+
+    110▕     {
+
+    111▕         $pago = $this->cobrarAdelanto($this->operativo, 300000);
+
+    112▕
+
+  ➜ 113▕         $this->assertSame($pago->id, $this->noviembre()->pago_origen_id);
+
+    114▕     }
+
+    115▕
+
+    116▕     public function test_cancelar_y_cobrar_bien_no_deja_saldo_fantasma(): void
+
+    117▕     {
+
+
+
+  1   tests\Feature\AdelantoCanceladoT100Test.php:113
+
+
+
+
+
+  Tests:    1 failed (2 assertions)
+
+  Duration: 27.22s

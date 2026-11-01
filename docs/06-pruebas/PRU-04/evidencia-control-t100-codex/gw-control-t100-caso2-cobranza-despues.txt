@@ -1,0 +1,112 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/consultar-cobranza
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cobranza" [level=1]
+- main:
+  - paragraph: Total adeudado
+  - paragraph: $0.00
+  - paragraph: Total activos
+  - paragraph: "11"
+  - paragraph: Al día
+  - paragraph: "11"
+  - paragraph: En plazo
+  - paragraph: "0"
+  - paragraph: Morosos
+  - paragraph: "0"
+  - paragraph: Deudores
+  - paragraph: "0"
+  - combobox:
+    - option "Con deuda (Deudores y morosos)" [selected]
+    - option "Todos los estados"
+    - option "Al día"
+    - option "En plazo"
+    - option "Moroso"
+    - option "Deudor"
+  - combobox:
+    - option "Deporte" [selected]
+    - option "Control T100 Codex"
+    - option "Fútbol"
+    - option "Patín"
+  - combobox:
+    - option "Grupo" [selected]
+    - option "Control T100 Codex — Inicial Control Codex"
+  - button "Filtrar"
+  - paragraph: No hay alumnos para los filtros seleccionados.
+  - heading "Deuda de alumnos inactivos" [level=2]
+  - paragraph: Actual al 05/10/2026. Separada del por cobrar y de los totales de Inicio.
+  - strong: "0"
+  - text: alumnos
+  - generic: $0.00
+  - paragraph: Sin deuda de alumnos inactivos.
+  - status
+- contentinfo:
+  - generic: Wings

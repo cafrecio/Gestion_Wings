@@ -1,0 +1,155 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/reportes-ingresos-egresos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Ingresos y egresos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/admin/dashboard
+  - navigation "Reportes":
+    - strong: Ingresos y egresos
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/reportes/alumnos?mes=2026-10
+    - link "Sueldos":
+      - /url: http://127.0.0.1:8111/reportes/sueldos?mes=2026-10
+  - combobox "Mes":
+    - option "Octubre 2026" [selected]
+    - option "Septiembre 2026"
+    - option "Agosto 2026"
+    - option "Julio 2026"
+    - option "Junio 2026"
+    - option "Mayo 2026"
+    - option "Abril 2026"
+    - option "Marzo 2026"
+    - option "Febrero 2026"
+    - option "Enero 2026"
+  - combobox "Deporte":
+    - option "Todo el negocio" [selected]
+    - option "Control T100 Codex"
+    - option "Fútbol"
+    - option "Patín"
+  - button "Filtrar"
+  - heading "Evolución mensual" [level=3]
+  - generic: Ingresos
+  - generic: Egresos
+  - generic: Meses cerrados
+  - img "Evolución de ingresos y egresos de los meses cerrados disponibles"
+  - generic "Detalle"
+  - heading "Cambio en el resultado" [level=3]
+  - paragraph
+  - paragraph: Sin comparación disponible
+  - heading "Octubre en curso" [level=2]
+  - generic: Hasta 05/10
+  - generic: Ingresos
+  - strong:
+    - generic: $0.00
+  - generic: Egresos
+  - strong:
+    - generic: $0.00
+  - generic: Resultado
+  - strong:
+    - generic: $0.00
+  - heading "Origen de ingresos" [level=3]
+  - paragraph: Sin ingresos registrados
+  - generic "Detalle"
+  - heading "Destino de gastos" [level=3]
+  - paragraph: Sin egresos registrados
+  - generic "Detalle"
+  - heading "Situación al 05/10" [level=2]
+  - generic: Saldos acumulados
+  - generic: Disponible
+  - strong:
+    - generic: $330,000.00
+  - generic: Por cobrar
+  - strong:
+    - generic: $0.00
+  - generic: Por pagar
+  - strong:
+    - generic: $0.00
+  - generic "Detalle de cajas y aportes"
+  - generic "Por cobrar · $0.00"
+  - generic "Por pagar · $0.00"
+  - heading "Deuda de alumnos inactivos" [level=2]
+  - paragraph: Actual al 05/10/2026. Separada del por cobrar y de los totales de Inicio.
+  - strong: "0"
+  - text: alumnos
+  - generic: $0.00
+  - paragraph: Sin deuda de alumnos inactivos.
+  - status
+  - generic: Cobros y pagos · confirmado + por validar
+  - link "Alumnos":
+    - /url: http://127.0.0.1:8111/reportes/alumnos?mes=2026-10
+  - text: ·
+  - link "Sueldos":
+    - /url: http://127.0.0.1:8111/reportes/sueldos?mes=2026-10
+- contentinfo:
+  - generic: Wings

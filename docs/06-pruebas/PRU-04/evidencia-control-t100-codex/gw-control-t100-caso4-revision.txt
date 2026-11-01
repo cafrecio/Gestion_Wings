@@ -1,0 +1,319 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Dueño Control Codex
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/resolver-revision-cobranza
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Revisión" [level=1]
+- main:
+  - paragraph: 12 alumnos pendientes de revisión
+  - paragraph: Estos alumnos no generaron deuda automática porque no tuvieron asistencias el mes anterior. Contactar al tutor y resolver.
+  - generic: Estado
+  - combobox:
+    - option "Pendientes" [selected]
+    - option "Resueltos"
+    - option "Todos"
+  - generic: Período
+  - combobox:
+    - option "Todos" [selected]
+    - option "2026-11"
+  - link "Limpiar":
+    - /url: http://127.0.0.1:8111/revision-cobranza
+  - strong: "12"
+  - text: revisiones
+  - heading "Control T100, Operativa" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/1
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Dueño" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/2
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Revisión" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/4
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Caja rechazada" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/5
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Multimes" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/6
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Preexistente" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/7
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Dos cobros" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/8
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Recargo" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/9
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Descuento" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/10
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Meses seguidos" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/11
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Liquidacion" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/12
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+  - heading "Control T100, Perdida" [level=3]
+  - generic: PENDIENTE
+  - generic: "Período:"
+  - generic: 2026-11
+  - generic: "Deporte:"
+  - generic: Control T100 Codex
+  - generic: "Grupo:"
+  - generic: Control T100 Codex — Inicial Control Codex
+  - generic: "Motivo:"
+  - generic: SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/alumnos/13
+  - generic: Activo
+  - switch "Activo" [checked]
+  - paragraph: Se generará la cuota de 2026-11 al confirmar.
+  - text: Nota (contacto y motivo)
+  - textbox "Nota (contacto y motivo)":
+    - /placeholder: Registrá el contacto y el motivo
+  - button "Confirmar"
+- contentinfo:
+  - generic: Wings

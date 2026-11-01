@@ -1,0 +1,39 @@
+   FAIL  Tests\Feature\AdelantoCanceladoT100Test
+
+  ⨯ una cuota que ya existia sigue igual                                                                        14.94s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\AdelantoCanceladoT100Test > una cuota que ya existia sigue igual              ErrorException
+
+  Attempt to read property "monto_original" on null
+
+
+
+  at tests\Feature\AdelantoCanceladoT100Test.php:217
+
+    213▕
+
+    214▕         $this->cancelar($this->cobrarAdelanto($this->operativo, 25000));
+
+    215▕
+
+    216▕         $noviembre = $this->noviembre();
+
+  ➜ 217▕         $this->assertSame('25000.00', $noviembre->monto_original);
+
+    218▕         $this->assertSame(DeudaCuota::ESTADO_PENDIENTE, $noviembre->estado);
+
+    219▕     }
+
+    220▕
+
+    221▕     public function test_no_se_deshace_mientras_otro_cobro_la_sostenga(): void
+
+
+
+
+
+  Tests:    1 failed (2 assertions)
+
+  Duration: 15.13s

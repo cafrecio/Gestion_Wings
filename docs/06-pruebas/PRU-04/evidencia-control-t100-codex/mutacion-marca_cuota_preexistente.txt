@@ -1,0 +1,39 @@
+   FAIL  Tests\Feature\ControlT100CodexTest
+
+  ⨯ caso 6 multimes y 7 cuota preexistente                                                                      32.37s
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+   FAILED  Tests\Feature\ControlT100CodexTest > caso 6 multimes y 7 cuota preexistente                 ErrorException
+
+  Attempt to read property "monto_original" on null
+
+
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t100-codex\ControlT100CodexTest.php:86
+
+     82▕   $this->cuota('2026-10')->update(['monto_pagado'=>0,'estado'=>'PENDIENTE']);
+
+     83▕   $this->revertir($this->cobrar(['2026-10'=>30000,'2026-12'=>30000]));
+
+     84▕   $this->assertSame('PENDIENTE',$this->cuota('2026-10')->estado); $this->assertNull($this->cuota());
+
+     85▕   DeudaCuota::create(['alumno_id'=>$this->alumno->id,'periodo'=>'2026-12','monto_original'=>25000,'monto_pagado'=>0,'estado'=>'PENDIENTE']);
+
+  ➜  86▕   $this->revertir($this->cobrar(['2026-12'=>25000],null,['motivo'=>'Control de cuota preexistente con octubre pendiente'])); $this->assertSame('25000.00',$this->cuota()->monto_original);
+
+     87▕  }
+
+     88▕  public function test_caso_8_dos_cobros_ambos_ordenes():void {
+
+     89▕   foreach([false,true] as $inverso) {
+
+     90▕    $p=$this->cobrar(['2026-12'=>30000],$this->admin); $this->cuota()->update(['monto_original'=>50000,'estado'=>'PENDIENTE']);
+
+
+
+
+
+  Tests:    1 failed (7 assertions)
+
+  Duration: 32.53s

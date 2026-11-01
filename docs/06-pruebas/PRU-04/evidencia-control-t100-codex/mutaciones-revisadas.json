@@ -1,0 +1,119 @@
+[
+  {
+    "regla": "sin_origen",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 16.01,
+    "fallo_asercion": false,
+    "fallo_por_cuota_borrada": true,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_otro_pago",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 15.37,
+    "fallo_asercion": false,
+    "fallo_por_cuota_borrada": true,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_perdida",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 24.6,
+    "fallo_asercion": false,
+    "fallo_por_cuota_borrada": true,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_recargo",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 25.87,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_liquidacion",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 24.82,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_mes_empezado",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 35.1,
+    "fallo_asercion": false,
+    "fallo_por_cuota_borrada": true,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_borrado",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 24.53,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_precio_plan",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.94,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_limpiar_origen",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 32.89,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_marca_origen",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 27.96,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "marca_cuota_preexistente",
+    "exit": 2,
+    "detectada": false,
+    "segundos": 33.23,
+    "fallo_asercion": false,
+    "fallo_por_cuota_borrada": true,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_cancelacion_operativa",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.47,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  },
+  {
+    "regla": "sin_anulacion_duenio",
+    "exit": 1,
+    "detectada": true,
+    "segundos": 29.9,
+    "fallo_asercion": true,
+    "fallo_por_cuota_borrada": false,
+    "detectada_revisada": true
+  }
+]

@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T100 — Control Codex CAB, 01/11/2026
+
+**Devuelta a Claude por dos hallazgos medios de instrucciones y mensajes.** Once casos de negocio con importes exactos, pantalla y pedidos directos; ningún fallo monetario comprobado. Manual y paneles generalizan lo que ocurre con la cuota anulada. [Informe, límites y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md). Solo wings_testing_codex, copia ficticia autorizada; sin corregir producto, catálogo ni sitio. Sigue T106; suite completa única al final de T102.
+
 ## T109 — Claude CAB, 01/11/2026
 
 **Hecha, falta el control de otra IA.** Un filtro inválido escrito a mano en la dirección se ignora y la pantalla abre normal (`IgnorarFiltrosInvalidos`, y el mes en `CajaWebController::index`). La prueba técnica pasó de 41 errores del servidor a 0 en 3.876 pedidos. Un recibo inexistente o una liquidación sin pagar muestran «Página no disponible», y la profesora recibe lo mismo exista o no el recibo. **Sigue en JSON** el aviso de `ReciboController` cuando falla armar el PDF: no entró en T109 y `ReciboErrorSanitizadoTest` lo fija. No cambia ninguna pantalla.
