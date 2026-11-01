@@ -44,7 +44,8 @@ Qué cambió:
 
 - Es un control: no corrijas páginas, capturas ni fichas. Lo que encuentres se informa con gravedad y `archivo:línea`. Revisá que la línea citada sea la real: en la primera vuelta citaste 30-35 y el texto estaba en 38-43.
 - Separá lo comprobado de lo inferido. No declares «comprobado en navegador» lo que fue un pedido HTTP, ni «ejecutado» lo que leíste.
-- Pruebas solo en `wings_testing_gemini`. Sin desplegar. No toques el sitio de prueba: Codex está recorriendo ahí los días 48 a 57.
+- Pruebas solo en `wings_testing_gemini`. Sin desplegar. No escribas en el sitio de prueba: Codex terminó ahí los días 48 a 57 y su base es la evidencia de la tanda 5.
+- Si T117 y T118 siguen abiertas, no mezcles commits: esta vuelta no cambia código ni manual.
 - Comando: `php scripts/manual/verificar-manual.php`, más `tests/Feature/AyudaManualT12T13Test.php`, `tests/Feature/AyudaBotonPorRolTest.php` y `tests/Feature/DocumentacionNoMienteTest.php`.
 - T116 es una decisión de Carlos y no se cuenta como hallazgo. Si Carlos cambia el comportamiento, el manual se vuelve a tocar.
 
