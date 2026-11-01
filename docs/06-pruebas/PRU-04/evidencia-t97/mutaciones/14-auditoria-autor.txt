@@ -1,0 +1,42 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                          22.06s  
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.22s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that null is identical to 1.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:37
+     33▕             ->assertSessionHasNoErrors()->assertRedirect(route('web.cashflow.index', ['periodo' => 'mes', 'fecha' => '2026-10-20']));
+     34▕         $this->assertCuentasT97();
+     35▕         $cabecera = DB::table('cashflow_transferencias')->find($patas[0]->referencia_id);
+     36▕         $this->assertSame('Cuenta de destino equivocada', $cabecera->motivo_anulacion);
+  ➜  37▕         $this->assertSame($this->admin->id, $cabecera->anulo_admin_id);
+     38▕         $this->assertNotNull($cabecera->anulada_at);
+     39▕         $this->assertSame('2026-11-15 12:00:00', $cabecera->anulada_at);
+     40▕         foreach ($patas as $pata) {
+     41▕             $contra = CashflowMovimiento::where('contra_origen_id', $pata->id)->sole();
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:37
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that null is identical to 2.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:37
+     33▕             ->assertSessionHasNoErrors()->assertRedirect(route('web.cashflow.index', ['periodo' => 'mes', 'fecha' => '2026-10-20']));
+     34▕         $this->assertCuentasT97();
+     35▕         $cabecera = DB::table('cashflow_transferencias')->find($patas[0]->referencia_id);
+     36▕         $this->assertSame('Cuenta de destino equivocada', $cabecera->motivo_anulacion);
+  ➜  37▕         $this->assertSame($this->admin->id, $cabecera->anulo_admin_id);
+     38▕         $this->assertNotNull($cabecera->anulada_at);
+     39▕         $this->assertSame('2026-11-15 12:00:00', $cabecera->anulada_at);
+     40▕         foreach ($patas as $pata) {
+     41▕             $contra = CashflowMovimiento::where('contra_origen_id', $pata->id)->sole();
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:37
+
+
+  Tests:    2 failed (34 assertions)
+  Duration: 23.15s
+

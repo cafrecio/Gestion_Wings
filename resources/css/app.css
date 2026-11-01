@@ -1758,3 +1758,10 @@ a:hover {
 @media (max-width: 640px) {
     .cashflow-mobile-cards > div { padding-inline: 0 !important; }
 }
+
+/* T97: Carlos aprobó contador separado y acciones a la derecha, 01/11/2026. */
+@media (max-width: 640px) {
+    #cashflow-acciones { flex-wrap: wrap; row-gap: 8px; }
+    #cashflow-acciones > .stats-info { flex: 0 0 100%; }
+    #cashflow-acciones > .acciones-celular-derecha { margin-left: auto; }
+}

@@ -1,0 +1,26 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasConcurrentesT97Test
+  ⨯ dos conexiones anulando el mismo par no duplican ni escriben sin candado                                    18.82s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasConcurrentesT97Test > dos conexiones anulando el mismo par no duplic…   
+  Expected: insert into `cashflow_movimientos` (`fecha`, `subrubro_id`, `tipo_caja_id`, `monto`, `observaciones`, `usuario_admin_id`, `referencia_tipo`, `referencia_id`, `contra_origen_id`, `reporte_tipo`, `reporte_clasificacion`, `reporte_deporte_id`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+  To contain: for update
+
+  at tests\Feature\AnulacionTransferenciasConcurrentesT97Test.php:54
+     50▕             } catch (DeadlockException|QueryException $e) {
+     51▕                 $sql = $e instanceof QueryException ? $e : $e->getPrevious();
+     52▕                 $this->assertInstanceOf(QueryException::class, $sql);
+     53▕                 $this->assertStringContainsString('Lock wait timeout', $e->getMessage());
+  ➜  54▕                 $this->assertStringContainsString('for update', strtolower($sql->getSql()));
+     55▕             } finally {
+     56▕                 $consultas = DB::getQueryLog(); DB::disableQueryLog();
+     57▕                 DB::statement('SET SESSION innodb_lock_wait_timeout = '.(int) $timeout);
+     58▕             }
+
+  1   tests\Feature\AnulacionTransferenciasConcurrentesT97Test.php:54
+
+
+  Tests:    1 failed (4 assertions)
+  Duration: 19.46s
+

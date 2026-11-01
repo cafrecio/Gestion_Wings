@@ -1,0 +1,29 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ inversos conservan fotos aunque cambie el catalogo                                                          14.57s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > inversos conservan fotos aunque cambie el catalogo            
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'EGRESO'
++'INGRESO'
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:293
+    289▕         }
+    290▕         $this->post($this->rutaT97($patas[0]->id), ['motivo' => 'Respetar foto original'])->assertSessionHasNoErrors();
+    291▕         foreach ($patas as $pata) {
+    292▕             $contra = CashflowMovimiento::where('contra_origen_id', $pata->id)->sole();
+  ➜ 293▕             foreach (['reporte_tipo', 'reporte_clasificacion', 'reporte_deporte_id'] as $campo) $this->assertSame($pata->$campo, $contra->$campo);
+    294▕         }
+    295▕         $this->assertSame(0, app(ReporteMensualService::class)->obtener('2026-11')['resultado']);
+    296▕         $this->assertCuentasT97();
+    297▕     }
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:293
+
+
+  Tests:    1 failed (2 assertions)
+  Duration: 15.17s
+

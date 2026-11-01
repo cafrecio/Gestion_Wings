@@ -1,0 +1,18 @@
+{
+    "base": "wings_testing_codex",
+    "fecha_fixture": "2026-10-20",
+    "circuito": "GET Cashflow, GET confirmación, POST por la otra pata, GET Cashflow, GET login",
+    "transferencia": 1,
+    "salida_centavos": 60000000,
+    "destino_centavos": 10000000,
+    "fuentes": {
+        "app/Services/AnulacionTransferenciaCashflowService.php": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563",
+        "app/Http/Controllers/TransferenciaCashflowWebController.php": "a797f2d2debebeb57212f2edfc02d195215af00ddde279d427e7b7b601565830",
+        "app/Http/Controllers/CashflowWebController.php": "0fa0945ba93648c671d440053cdf4a9a2a5aa8a1a1315e5547b27f6f0b4b5ce3",
+        "app/Models/CashflowMovimiento.php": "a9ec721da20deb4eb12822dfbd915b9bb63565cab4f5c458811679190402bf8e",
+        "routes/web.php": "c1de788f771a3af1f493febb68574a35c253683c777cf8c3f07149d0cfbef980",
+        "resources/views/cashflow/index.blade.php": "b99687a37778d62c14171a9959efa35bae89dcc8ad82cb5de6d2a9c37dbbf47a",
+        "resources/views/cashflow/anular-transferencia.blade.php": "3ebe942494b4960d966400bc5b7f3c108fba7b2af4dac587cc0f31e903133004",
+        "resources/css/app.css": "0cb70ee3c8b22b3db5a8aa701cc2c23b75dc80d45bcfeced34e00ab7a05a9729"
+    }
+}

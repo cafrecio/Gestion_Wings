@@ -1,0 +1,25 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ permisos get post y servicio sin escrituras                                                                 13.14s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > permisos get post y servicio sin esc…  AssertionFailedError   
+  Servicio sin control de rol/actividad
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:153
+    149▕     }
+    150▕ 
+    151▕     private function assertServicioDenegado(int $id, int $usuario): void
+    152▕     {
+  ➜ 153▕         try { app(AnulacionTransferenciaCashflowService::class)->anular($id, $usuario, ['motivo' => 'No autorizado']); $this->fail('Servicio sin control de rol/actividad'); }
+    154▕         catch (AuthorizationException) { $this->addToAssertionCount(1); }
+    155▕     }
+    156▕ 
+    157▕     public function test_un_directo_no_puede_entrar_en_el_circuito_de_transferencias(): void
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:153
+  2   tests\Feature\AnulacionTransferenciasT97Test.php:140
+
+
+  Tests:    1 failed (3 assertions)
+  Duration: 13.65s
+

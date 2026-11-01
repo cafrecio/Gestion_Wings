@@ -1,0 +1,79 @@
+
+   PASS  Tests\Feature\AnulacionTransferenciasConcurrentesT97Test
+  ✓ dos conexiones anulando el mismo par no duplican ni escriben sin candado                                    19.74s  
+
+   PASS  Tests\Feature\AnulacionTransferenciasT97Test
+  ✓ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                          13.70s  
+  ✓ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.25s  
+  ✓ motivo invalido rechazado sin escribir with data set "vacio"                                                 0.22s  
+  ✓ motivo invalido rechazado sin escribir with data set "espacios"                                              0.21s  
+  ✓ motivo invalido rechazado sin escribir with data set "nulo"                                                  0.19s  
+  ✓ motivo invalido rechazado sin escribir with data set "array"                                                 0.18s  
+  ✓ motivo invalido rechazado sin escribir with data set "numero"                                                0.20s  
+  ✓ motivo invalido rechazado sin escribir with data set "largo"                                                 0.20s  
+  ✓ otro admin puede anular incluso si se desactivo una cuenta                                                   0.19s  
+  ✓ repetir anulacion por la otra pata no duplica ni cambia auditoria                                            0.24s  
+  ✓ originales y contras no admiten correccion individual ni reanular contra                                     0.59s  
+  ✓ patas vigentes siguen fuera del circuito de directos y traspasos sueltos                                     0.23s  
+  ✓ permisos get post y servicio sin escrituras                                                                  0.24s  
+  ✓ un directo no puede entrar en el circuito de transferencias                                                  0.19s  
+  ✓ motivo se conserva completo y se muestra escapado                                                            0.23s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "falta pata"                              0.20s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "tercera pata"                            0.22s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "sin cabecera"                            0.19s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "importe"                                 0.20s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "fecha"                                   0.21s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "cuenta"                                  0.21s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "origen operativo"                        0.19s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "anulada"                                 0.19s  
+  ✓ fallo en segundo inverso revierte primer inverso marcas y cabecera                                           0.22s  
+  ✓ cashflow historial reportes inicio y filtros restauran mes original                                          0.75s  
+  ✓ referencias no se confunden con pago ni sueldos                                                              0.83s  
+  ✓ inversos conservan fotos aunque cambie el catalogo                                                           0.23s  
+  ✓ motivo cero se muestra en el listado                                                                         0.25s  
+  ✓ motivo de espacios unicode tambien se rechaza en el servicio                                                 0.19s  
+  ✓ reenvio de creacion no revive la transferencia anulada                                                       0.21s  
+
+   PASS  Tests\Feature\CashflowCorreccionesConcurrentesT27Test
+  ✓ dos conexiones no duplican una edicion                                                                      14.90s  
+  ✓ dos conexiones no duplican un contraasiento                                                                 23.26s  
+
+   PASS  Tests\Feature\CashflowCorreccionesT27Test
+  ✓ editar conserva id creador y antes despues con centavos y motivo opcional                                   13.37s  
+  ✓ pedido directo rechaza tres decimales cero negativos letras y fuera de capacidad                             0.24s  
+  ✓ cualquier mes anterior se corrige y no admite fecha futura                                                   0.17s  
+  ✓ eliminar conserva original y contraasiento mismo mes medio y clasificacion                                   0.19s  
+  ✓ doble envio editar y eliminar es idempotente y no reutiliza clave con otros datos                            0.25s  
+  ✓ formulario viejo no pisa edicion ni elimina valor que no se vio                                              0.18s  
+  ✓ otros roles no ven ni escriben forzando rutas                                                                0.19s  
+  ✓ referencias de pago caja y liquidacion no se corrigen como directos                                          0.38s  
+  ✓ subrubro reservado no recibe ediciones directas                                                              0.14s  
+  ✓ cashflow inicio reportes historial y saldo coinciden tras editar y eliminar                                  0.42s  
+  ✓ historial muestra egreso directo como salida y total positivo                                                0.16s  
+  ✓ reporte original se actualiza y contraasiento respeta clasificacion congelada                                0.23s  
+  ✓ liquidacion pendiente usa editor existente y pagada permanece intacta                                        0.28s  
+  ✓ cambiar medio y subrubro actualiza ambos saldos y clasificacion con historial                                0.35s  
+  ✓ falla al guardar historial revierte original contraasiento y version                                         0.21s  
+  ✓ servicio rechaza actor no admin o inactivo sin escribir                                                      0.12s  
+
+   PASS  Tests\Feature\TraspasosEntreMediosT61Test
+  ✓ catalogo protegido rechaza edicion renombre baja y subrubros adicionales                                     0.24s  
+  ✓ transferencia mueve 300mil y conserva todos los indicadores del club                                         0.43s  
+  ✓ fallo al guardar entrada revierte salida y cabecera                                                          0.20s  
+  ✓ reenvio de la misma operacion no duplica y rechaza datos distintos                                           0.25s  
+  ✓ rechaza misma cuenta inactiva fecha futura e importes invalidos sin escrituras                               0.24s  
+  ✓ operativa y profesora no pueden abrir ni registrar transferencias                                            0.21s  
+  ✓ no permite carga individual ni edicion o anulacion de una sola pata                                          0.28s  
+  ✓ proteccion del catalogo existente no inventa vinculos historicos                                             0.18s  
+  ✓ seeder idempotente preserva clasificaciones y snapshots                                                      0.20s  
+  ✓ formulario pide dos cuentas un importe y una fecha sin rubros editables                                      0.94s  
+  ✓ transferencia fin de anio con centavos conserva resultado y fecha de ambas patas                             1.14s  
+  ✓ saldos actuales independientes del filtro y cajas pendientes                                                 1.05s  
+  ✓ fecha de mes anterior pide confirmar sin escribir y luego registra ambas patas                               1.01s  
+  ✓ h1 subrubro comun rechaza traspaso en alta edicion y cambio tipo                                             0.45s  
+  ✓ h2 caja rechaza traspaso preexistente alta edicion interno y reflejo                                         0.82s  
+  ✓ h3 cashflow rechaza correccion y alta manual traspaso sin cambiar gasto                                      0.83s  
+
+  Tests:    65 passed (774 assertions)
+  Duration: 105.20s
+

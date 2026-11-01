@@ -1,0 +1,27 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ repetir anulacion por la otra pata no duplica ni cambia auditoria                                           13.07s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > repetir anulacion por la otra pata no duplica ni cambia au…   
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'La transferencia ya está anulada.'
++'Los movimientos de la transferencia necesitan revisión. No se anuló la operación.'
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:87
+     83▕         $this->post($this->rutaT97($patas[0]->id), ['motivo' => 'Primera decisión'])->assertSessionHasNoErrors();
+     84▕         $foto = $this->fotoT97();
+     85▕         $this->postJson($this->rutaT97($patas[1]->id), ['motivo' => 'Otra decisión'])
+     86▕             ->assertUnprocessable()->assertJsonValidationErrors('motivo')
+  ➜  87▕             ->assertJsonPath('errors.motivo.0', 'La transferencia ya está anulada.');
+     88▕         $this->get(route('web.cashflow.transferencia.anular', $patas[1]->id))->assertRedirect();
+     89▕         $this->assertSame($foto, $this->fotoT97());
+     90▕         $this->assertDatabaseCount('cashflow_movimientos', 4);
+     91▕         $this->assertCuentasT97();
+
+
+  Tests:    1 failed (5 assertions)
+  Duration: 13.93s
+

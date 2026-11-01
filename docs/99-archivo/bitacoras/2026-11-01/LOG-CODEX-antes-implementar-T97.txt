@@ -1,0 +1,10 @@
+## 2026-10-30 — Codex CAB — MF12/MF13 y observaciones verificadas en el sitio de prueba
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-MF12-MF13-CODEX.md): octubre sin clases pendientes por comisión, noviembre conservado y Verónica inactiva con 2; Iván dice Inscripción $5.000 y Florencia conserva Nov 2026 $55.000.
+Reloj 12/11 07:58 una vez, espera real de 199 segundos antes de abrir pantallas; resumen automático, sin ejecución manual ni repetir días 24–33. Telegram original de Carlos (30/10 02:16): dos excepciones y ninguna línea de clases sin lista; Inicio 0.
+Cuatro filas cumplen en el alcance pedido. SIS-006 sin forzar formularios ni prueba backend propia; no se observaron avisos en inglés en Wings. Diferencia registrada: la ficha de Iván dice alta 02/11 frente a 03/11 del prompt, con el pago indicado correcto.
+MF12 y MF13 cerradas por el comando del tablero, verifica=Codex. Carlos autorizó preservar cambios ajenos de T12/T13; las dos filas cerradas quedaron incorporadas por el commit concurrente c7004dc8, comprobado. Esta entrega documental no reescribe ese commit.
+Seis capturas Chrome y PNG original de Telegram, transcripciones, huellas e imágenes comprobadas. Telegram Web sin sesión; Carlos aportó la imagen después de autorizar su lectura. No se enviaron mensajes ni se leyó otro chat.
+Reloj dejado en 12/11; sin cobros, generación, reparaciones, producto, catálogo, despliegue ni push propios. LOG/resumen sin cambios ajenos al editar; T45 archivada íntegra para mantener límite.
+Sigue la tanda 3 por su guion y decisión de Carlos. Esta verificación no la ejecuta ni amplía el alcance de la prueba del servidor.
+

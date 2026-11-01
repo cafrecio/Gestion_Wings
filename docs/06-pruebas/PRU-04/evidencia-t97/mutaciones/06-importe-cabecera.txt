@@ -1,0 +1,30 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "falta pata"                             15.48s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "tercera pata"                            1.03s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "sin cabecera"                            0.49s  
+  ⨯ par inconsistente se rechaza sin reparar ni escribir with data set "importe"                                 1.03s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "fecha"                                   0.80s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "cuenta"                                  0.53s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "origen operativo"                        0.56s  
+  ✓ par inconsistente se rechaza sin reparar ni escribir with data set "anulada"                                 1.17s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > par inconsistente se rechaza sin reparar ni escribir with…    
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:203
+    199▕             'anulada' => DB::table('cashflow_movimientos')->where('id', $patas[1]->id)->update(['anulado_at' => now()]),
+    200▕         };
+    201▕         $foto = $this->fotoT97();
+    202▕         $saldos = app(ReporteMensualService::class)->saldosPorCaja('2026-11-15');
+  ➜ 203▕         $this->postJson($this->rutaT97($patas[0]->id), ['motivo' => 'Par incompleto'])->assertUnprocessable()->assertJsonValidationErrors('motivo');
+    204▕         $this->assertSame($foto, $this->fotoT97());
+    205▕         $this->assertSame($saldos, app(ReporteMensualService::class)->saldosPorCaja('2026-11-15'));
+    206▕     }
+    207▕
+
+
+  Tests:    1 failed, 7 passed (36 assertions)
+  Duration: 21.65s
+

@@ -5,12 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\TipoCaja;
 use App\Rules\ImportePesos;
 use App\Services\TransferenciaCashflowService;
+use App\Services\AnulacionTransferenciaCashflowService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
 class TransferenciaCashflowWebController extends Controller
 {
+    public function anularForm(int $id, AnulacionTransferenciaCashflowService $servicio)
+    {
+        $transferencia = $servicio->desdeMovimiento($id);
+        if ($transferencia->anulada_at !== null) {
+            return redirect()->route('web.cashflow.index', ['periodo' => 'mes', 'fecha' => $transferencia->fecha])
+                ->with('error', 'La transferencia ya está anulada.');
+        }
+        return view('cashflow.anular-transferencia', ['transferencia' => $transferencia,
+            'fecha' => Carbon::parse($transferencia->fecha), 'movimientoId' => $id]);
+    }
+
+    public function anular(Request $request, int $id, AnulacionTransferenciaCashflowService $servicio)
+    {
+        $transferencia = $servicio->desdeMovimiento($id);
+        $transferenciaId = $servicio->anular($id, $request->user()->id, $request->all());
+        return redirect()->route('web.cashflow.index', ['periodo' => 'mes', 'fecha' => $transferencia->fecha])
+            ->with('success', 'Transferencia #'.$transferenciaId.' anulada. Los originales y los dos asientos en contra se conservan.');
+    }
+
     public function create()
     {
         $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();

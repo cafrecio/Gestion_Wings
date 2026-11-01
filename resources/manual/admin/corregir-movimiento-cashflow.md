@@ -11,7 +11,7 @@ pantalla: /cashflow
 
 Un movimiento que cargaste directo en **Cashflow** (un gasto, un ingreso, un aporte o un retiro) se puede corregir o eliminar desde ahí mismo. Wings guarda el historial: queda registrado qué decía antes, qué dice ahora, quién lo cambió y el motivo.
 
-Los movimientos que vienen de otro lado (una caja validada, un cobro tuyo, el pago de una liquidación) no se editan desde Cashflow: cada uno se corrige en su propio recorrido. Una transferencia entre cuentas hoy no se puede corregir ni anular: si te equivocaste, hacé otra transferencia en sentido contrario.
+Los movimientos que vienen de otro lado (una caja validada, un cobro tuyo, el pago de una liquidación) no se editan desde Cashflow: cada uno se corrige en su propio recorrido. Una transferencia entre cuentas se anula completa desde **Anular**, en cualquiera de sus dos filas. Si necesitás corregirla, anulala y cargá otra con los datos correctos.
 
 ---
 
@@ -42,8 +42,17 @@ Eliminar no lo borra: Wings lo marca como anulado y carga un asiento en contra p
 
 ## Qué hago si…
 
+### ¿Cómo anulo una transferencia entre cuentas?
+En cualquiera de sus dos filas, tocá **Anular**. Revisá el importe, la cuenta de salida, la de destino y la fecha. Escribí el **Motivo** obligatorio, de hasta 500 caracteres, y confirmá con **Anular**. **Volver** regresa sin anular.
+
+Solo el dueño con cuenta activa puede hacerlo, aunque la transferencia la haya registrado otro dueño. Se revierten las dos cuentas por el importe completo y con la fecha original, incluso si era de otro mes. Quedan los originales marcados como anulados, sus dos asientos en contra y el motivo. Esas cuatro filas quedan solo con **Ver**: no se editan ni se vuelve a anular un asiento en contra.
+
+![Anular la transferencia completa con motivo](/ayuda/img/admin/transferir-entre-cuentas-anular.jpg)
+
+Si falta el motivo, Wings muestra «Indicá el motivo de la anulación.». Si otra persona ya la anuló, muestra «La transferencia ya está anulada.», sin duplicarla. Para el recorrido y los demás avisos, ver *Transferir entre medios propios*.
+
 ### ¿Qué hago si en la fila no aparecen Editar ni Eliminar?
-Ese movimiento no es directo, o ya fue anulado, o es de un concepto que administra Wings. En su lugar aparece **Ver** (o **Anular**, si es un cobro tuyo), que lleva al lugar donde se corrige. Para un error dentro de una caja ya validada, ver *Corregir un movimiento mal cargado en una caja ya validada*.
+Ese movimiento no es directo, o ya fue anulado, o es de un concepto que administra Wings. En su lugar aparece **Ver** (o **Anular**, si es un cobro tuyo o una transferencia vigente), que lleva al lugar donde se corrige. Para un error dentro de una caja ya validada, ver *Corregir un movimiento mal cargado en una caja ya validada*.
 
 ### ¿Qué hago si dice «El movimiento cambió mientras editabas. Recargá la pantalla antes de guardar.»?
 Otra persona (u otra pestaña) lo modificó mientras lo tenías abierto. Recargá la pantalla para ver la versión actual y volvé a corregir.

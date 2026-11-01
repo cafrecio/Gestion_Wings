@@ -40,7 +40,7 @@ Esta tarea te explica cómo consultar el libro de caja central de Wings (**Cashf
    - **Ingresos** del período: Cobranzas de cuotas, inscripciones y otros ingresos del club.
    - **Egresos** del período: Pagos de liquidaciones, gastos operativos y compras.
    - **Resultado:** Diferencia neta (superávit en verde o déficit en rojo).
-3. En la tabla inferior podés filtrar por medio de pago o rubro para auditar cualquier operación específica.
+3. Usá los filtros por tipo de caja y tipo (ingresos o egresos) para revisar los movimientos. El de tipo de caja también cambia los totales del listado.
 
 ![Filtrar por año o mes y consultar el resultado del período](/ayuda/img/admin/consultar-cashflow-paso2.png)
 
@@ -53,3 +53,8 @@ Porque la caja del turno todavía está en poder de la operativa (estado *Abiert
 
 ### ¿Qué significan los movimientos con clasificación «Traspaso entre medios»?
 Son transferencias internas entre cuentas propias del club (por ejemplo, cuando depositás efectivo en el banco). Tienen una salida en una cuenta y una entrada en la otra, por lo que no alteran el resultado del período.
+
+### ¿Cómo reconozco una transferencia anulada?
+Las dos filas originales muestran el número de transferencia y **Anulada**. Los dos asientos en contra dicen **Anulación de transferencia**, con el mismo número. Se ve el motivo y queda solo **Ver**. La fecha sigue siendo la de la transferencia original.
+
+Para anular una transferencia vigente, el dueño con cuenta activa usa **Anular** en cualquiera de sus dos filas y completa el motivo obligatorio. El recorrido está en *Transferir entre medios propios*. Los inversos compensan los originales también al filtrar por su mes o su cuenta. Las transferencias vigentes siguen contando en las entradas y salidas del listado; anular deja esos totales como si la transferencia no hubiera existido.

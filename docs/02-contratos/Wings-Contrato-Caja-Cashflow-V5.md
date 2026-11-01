@@ -195,12 +195,27 @@ Aclaración de Carlos, 20/10/2026: formulario único con cuenta de salida, cuent
 - Solo ADMIN registra transferencias. El formulario pide cuenta de salida, destino, importe positivo, fecha y observación opcional. Las cuentas deben ser distintas y activas.
 - Se generan dos movimientos vinculados por una cabecera, por igual importe y fecha: salida negativa y entrada positiva. Se guardan ambos en una transacción o ninguno; reenviar la misma operación no la duplica.
 - Rubro **Transferencias internas — salidas**, subrubro **Salida a otro medio**, de EGRESO. Rubro **Transferencias internas — entradas**, subrubro **Entrada desde otro medio**, de INGRESO. Ambos son exclusivos del sistema, activos, ADMIN, afectan caja y clasificación `TRASPASO`. No admiten edición, renombre ni baja manual; el sistema los asigna sin pedirlos en el formulario.
-- El movimiento directo común no acepta un traspaso suelto. La corrección individual de los movimientos vinculados se bloquea para no romper su igualdad. Un circuito propio de corrección/anulación de transferencias no forma parte de esta corrección.
+- El movimiento directo común no acepta un traspaso suelto. La corrección individual de los movimientos vinculados se bloquea para no romper su igualdad. T97 agrega el circuito de anulación completa descrito abajo; no habilita corregir patas sueltas.
 - Cada cuenta cambia por el importe transferido. Ejemplo: Efectivo −$300.000 y Banco +$300.000. Ingresos/gastos del club, aportes/retiros, resultado y disponible global no cambian. Ambos movimientos sí cuentan en los totales de entradas/salidas de Cashflow.
 - Cashflow conserva los saldos actuales compartidos con Reportes, independientes de los filtros del listado, con pendientes sin validar explícitos.
 - Las fotos históricas de clasificación se conservan. No se enlazan ni reescriben las antiguas cargas independientes; una salida histórica en septiembre y entrada en octubre siguen afectando sus respectivos globales mensuales. Las nuevas transferencias tienen una sola fecha para ambas patas.
 - Catálogo idempotente sin duplicar ni pisar clasificaciones anteriores. Una incompatibilidad de catálogo impide registrar la transferencia; no se la corrige por conjetura.
 - [Implementación vigente y texto para T13](../06-pruebas/PRU-04/IMPLEMENTACION-T61.md). [Entrega anterior conservada como antecedente](../06-pruebas/PRU-04/IMPLEMENTACION-T61-ANTECEDENTE-DOS-CARGAS.md).
+
+### Anulación completa de transferencias — T97, 01/11/2026
+
+Aspecto aprobado por Carlos tras corregir la superposición móvil: «Esta OK ahora» ([propuesta aprobada](../06-pruebas/PRU-04/APROBAR-T97.html)). Implementación local en curso; la aprobación del aspecto no certifica reglas financieras ni despliegue.
+
+- Solo ADMIN activo anula una transferencia, incluso si la registró otro ADMIN. Se llega desde cualquiera de sus dos movimientos originales en Cashflow. No existe edición: corregir implica anular y registrar otra.
+- El motivo es obligatorio, de 1 a 500 caracteres después de quitar espacios exteriores. La cabecera conserva motivo, autor de la anulación y fecha/hora real. La fecha de los movimientos financieros sigue siendo la original, también para un mes anterior.
+- Bajo bloqueo y en una transacción, se comprueba una cabecera vigente y exactamente dos patas íntegras: mismas cuentas, importe y fecha, sin origen operativo, marcas ni inversos previos. Se guardan dos inversos completos, las marcas de ambos originales y la auditoría de la cabecera, o no se guarda nada. Un par inconsistente se rechaza sin repararlo.
+- Cada inverso mantiene cuenta, subrubro y fotos históricas de tipo, clasificación y deporte de su original; cambia el signo del importe. Usa `ANULACION_TRANSFERENCIA`, referencia la cabecera y enlaza su original por `contra_origen_id` (único). No usa referencias de cobros, liquidaciones ni correcciones de directos. `esDirecto()` y `exigirSinTraspaso()` conservan sus defensas.
+- Una cuenta desactivada conserva la posibilidad de deshacer su transferencia histórica. No se agrega una regla nueva de disponibilidad de fondos: T104 queda fuera de este trabajo.
+- Una anulación confirmada no se repite: un reenvío o la otra conexión recibe «La transferencia ya está anulada.» y no cambia la auditoría ni agrega movimientos. Los contraasientos no admiten edición ni anulación. Originales anulados e inversos quedan identificados en Cashflow y solo ofrecen Ver.
+- Saldos por cuenta y mes vuelven al estado anterior a la transferencia; disponible y resultado del club se conservan. Los inversos compensan los totales de entradas/salidas en el mes original y al filtrar cada cuenta. T106 sigue separada: no se cambia la política de contar las transferencias vigentes en esas tarjetas.
+- Las antiguas cargas independientes, sin cabecera de transferencia, permanecen intactas y no se convierten en transferencias anulables.
+
+[Implementación, comprobaciones e informe T97](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md).
 
 ### Exclusividad de TRASPASO — segunda vuelta T61, 21/10/2026
 

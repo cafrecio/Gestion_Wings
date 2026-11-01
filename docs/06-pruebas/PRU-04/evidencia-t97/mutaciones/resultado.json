@@ -1,0 +1,161 @@
+{
+  "base": "wings_testing_codex",
+  "fuentes_base_sha256": {
+    "app/Http/Controllers/CashflowWebController.php": "0fa0945ba93648c671d440053cdf4a9a2a5aa8a1a1315e5547b27f6f0b4b5ce3",
+    "app/Services/AnulacionTransferenciaCashflowService.php": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+  },
+  "casos": [
+    {
+      "caso": "01-permisos",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_permisos_get_post_y_servicio_sin_escrituras",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "02-motivo-obligatorio",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_motivo_invalido_rechazado_sin_escribir",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "03-motivo-maximo",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_motivo_invalido_rechazado_sin_escribir",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "04-origen-transferencia",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_un_directo_no_puede_entrar_en_el_circuito_de_transferencias",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "05-par-completo",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_par_inconsistente_se_rechaza_sin_reparar_ni_escribir",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "06-importe-cabecera",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_par_inconsistente_se_rechaza_sin_reparar_ni_escribir",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "07-fecha-cabecera",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_par_inconsistente_se_rechaza_sin_reparar_ni_escribir",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "08-fecha-inverso",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "09-cuenta-inverso",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "10-signo-inverso",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "11-fotos-historicas",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_inversos_conservan_fotos_aunque_cambie_el_catalogo",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "12-marca-original",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "13-auditoria-motivo",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "14-auditoria-autor",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "15-referencia-propia",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_cualquier_pata_anula_el_par_y_conserva_motivo_autor_y_fecha",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "16-atomicidad",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_fallo_en_segundo_inverso_revierte_primer_inverso_marcas_y_cabecera",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "17-candados-reales",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_dos_conexiones_anulando_el_mismo_par_no_duplican_ni_escriben_sin_candado",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "18-no-repetir",
+      "archivo": "app/Services/AnulacionTransferenciaCashflowService.php",
+      "filtro": "test_repetir_anulacion_por_la_otra_pata_no_duplica_ni_cambia_auditoria",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "823a3248fb30a38dd4981b47ece81ffbdf549b2288682dbdfe6ec9da38b3a563"
+    },
+    {
+      "caso": "19-acciones-anulada",
+      "archivo": "app/Http/Controllers/CashflowWebController.php",
+      "filtro": "test_originales_y_contras_no_admiten_correccion_individual_ni_reanular_contra",
+      "exit": 1,
+      "detectada": true,
+      "fuente_restaurada_sha256": "0fa0945ba93648c671d440053cdf4a9a2a5aa8a1a1315e5547b27f6f0b4b5ce3"
+    }
+  ]
+}

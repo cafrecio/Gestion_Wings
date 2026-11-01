@@ -1,0 +1,33 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ fallo en segundo inverso revierte primer inverso marcas y cabecera                                          13.04s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > fallo en segundo inverso revierte primer inverso marcas y…    
+  Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+ Array &0 [
+     'cashflow_transferencias' => '[{"id":1,"clave":"2c25bc50-58e8-4c59-8b05-7375f90e5947","salida_id":1,"destino_id":2,"monto":"300000.00","fecha":"2026-11-15","observaciones":"Dep\u00f3sito del efectivo en el banco","admin_id":1,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","anulada_at":null,"anulo_admin_id":null,"motivo_anulacion":null}]',
+-    'cashflow_movimientos' => '[{"id":1,"fecha":"2026-11-15","subrubro_id":5,"tipo_caja_id":1,"monto":"-300000.00","observaciones":"Dep\u00f3sito del efectivo en el banco","usuario_admin_id":1,"referencia_tipo":"TRANSFERENCIA","referencia_id":1,"movimiento_operativo_id":null,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","reporte_deporte_id":null,"reporte_clasificacion":"TRASPASO","reporte_tipo":"EGRESO","version_correccion":0,"anulado_at":null,"contra_origen_id":null},{"id":2,"fecha":"2026-11-15","subrubro_id":6,"tipo_caja_id":2,"monto":"300000.00","observaciones":"Dep\u00f3sito del efectivo en el banco","usuario_admin_id":1,"referencia_tipo":"TRANSFERENCIA","referencia_id":1,"movimiento_operativo_id":null,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","reporte_deporte_id":null,"reporte_clasificacion":"TRASPASO","reporte_tipo":"INGRESO","version_correccion":0,"anulado_at":null,"contra_origen_id":null}]',
++    'cashflow_movimientos' => '[{"id":1,"fecha":"2026-11-15","subrubro_id":5,"tipo_caja_id":1,"monto":"-300000.00","observaciones":"Dep\u00f3sito del efectivo en el banco","usuario_admin_id":1,"referencia_tipo":"TRANSFERENCIA","referencia_id":1,"movimiento_operativo_id":null,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","reporte_deporte_id":null,"reporte_clasificacion":"TRASPASO","reporte_tipo":"EGRESO","version_correccion":1,"anulado_at":"2026-11-15 12:00:00","contra_origen_id":null},{"id":2,"fecha":"2026-11-15","subrubro_id":6,"tipo_caja_id":2,"monto":"300000.00","observaciones":"Dep\u00f3sito del efectivo en el banco","usuario_admin_id":1,"referencia_tipo":"TRANSFERENCIA","referencia_id":1,"movimiento_operativo_id":null,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","reporte_deporte_id":null,"reporte_clasificacion":"TRASPASO","reporte_tipo":"INGRESO","version_correccion":0,"anulado_at":null,"contra_origen_id":null},{"id":3,"fecha":"2026-11-15","subrubro_id":5,"tipo_caja_id":1,"monto":"300000.00","observaciones":"Anulaci\u00f3n de transferencia #1","usuario_admin_id":1,"referencia_tipo":"ANULACION_TRANSFERENCIA","referencia_id":1,"movimiento_operativo_id":null,"created_at":"2026-11-15 12:00:00","updated_at":"2026-11-15 12:00:00","reporte_deporte_id":null,"reporte_clasificacion":"TRASPASO","reporte_tipo":"EGRESO","version_correccion":0,"anulado_at":null,"contra_origen_id":1}]',
+     'reporte_eventos' => '[{"id":1,"tipo":"CAJA_INICIAL","origen_id":1,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-09-01","delta_centavos":0,"motivo":"CREACION","registrado_en":"2026-11-01 02:44:51"},{"id":2,"tipo":"CAJA_INICIAL","origen_id":2,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-09-01","delta_centavos":0,"motivo":"CREACION","registrado_en":"2026-11-01 02:44:51"},{"id":3,"tipo":"CAJA_INICIAL","origen_id":3,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-11-15","delta_centavos":0,"motivo":"CREACION","registrado_en":"2026-11-15 12:00:00"},{"id":4,"tipo":"CAJA_INICIAL","origen_id":4,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-11-15","delta_centavos":0,"motivo":"CREACION","registrado_en":"2026-11-15 12:00:00"},{"id":5,"tipo":"CAJA_INICIAL","origen_id":5,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-11-15","delta_centavos":0,"motivo":"CREACION","registrado_en":"2026-11-15 12:00:00"},{"id":6,"tipo":"CAJA_INICIAL","origen_id":1,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-09-01","delta_centavos":60000000,"motivo":"CAMBIO","registrado_en":"2026-11-01 02:44:51"},{"id":7,"tipo":"CAJA_INICIAL","origen_id":2,"deuda_cuota_id":null,"liquidacion_id":null,"periodo":null,"persona_id":null,"deporte_id":null,"nivel_id":null,"fecha":"2026-09-01","delta_centavos":10000000,"motivo":"CAMBIO","registrado_en":"2026-11-01 02:44:51"}]',
+ ]
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:222
+    218▕             app(AnulacionTransferenciaCashflowService::class)->anular($patas[0]->id, $this->admin->id, ['motivo' => 'Fallo controlado']);
+    219▕             $this->fail('No llegó a la segunda escritura');
+    220▕         } catch (\RuntimeException $e) { $this->assertSame('Fallo simulado del segundo inverso', $e->getMessage()); }
+    221▕         finally { Event::forget($evento); }
+  ➜ 222▕         $this->assertSame($foto, $this->fotoT97()); $this->assertCuentasT97(30000000, 40000000);
+    223▕     }
+    224▕ 
+    225▕     public function test_cashflow_historial_reportes_inicio_y_filtros_restauran_mes_original(): void
+    226▕     {
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:222
+
+
+  Tests:    1 failed (2 assertions)
+  Duration: 13.82s
+

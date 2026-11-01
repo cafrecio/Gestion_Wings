@@ -220,7 +220,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 </td>
                 <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->alumnoNombre ?? $mov->observaciones ?? '' }}">
                     {{ $mov->alumnoNombre ?? $mov->observaciones ?? '–' }}
-                    <small style="display:block; margin-top:3px; font-size:0.7rem;">{{ $mov->origenCorreccion }}</small>
+                    <small style="display:block; margin-top:3px; font-size:0.7rem;"><span style="display:block;white-space:normal;">{{ $mov->origenCorreccion }}</span>@if($mov->motivoTransferencia !== null)<span style="display:block;white-space:normal;">Motivo: {{ $mov->motivoTransferencia }}</span>@endif</small>
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
                     <span class="ds-money ds-money--row">{{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}</span>
@@ -294,7 +294,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             @endif
         </div>
         <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end; gap:8px;">
-            <small style="margin-right:auto; font-size:0.7rem; color:var(--color-text-muted);">{{ $mov->origenCorreccion }}</small>
+            <small style="margin-right:auto; font-size:0.7rem; color:var(--color-text-muted);"><span style="display:block;white-space:normal;">{{ $mov->origenCorreccion }}</span>@if($mov->motivoTransferencia !== null)<span style="display:block;white-space:normal;">Motivo: {{ $mov->motivoTransferencia }}</span>@endif</small>
             @include('cashflow._acciones', ['acciones' => $mov->accionesCorreccion])
         </div>
     </div>

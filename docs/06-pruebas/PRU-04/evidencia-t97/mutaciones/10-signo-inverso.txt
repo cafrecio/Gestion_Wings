@@ -1,0 +1,44 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                          14.76s  
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.88s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that -150 is identical to 60000000.
+
+  at tests\Support\TransferenciasT97.php:68
+     64▕ 
+     65▕     protected function assertCuentasT97(int $salida = 60000000, int $destino = 10000000): void
+     66▕     {
+     67▕         $saldos = collect(app(ReporteMensualService::class)->saldosPorCaja('2026-11-15'))->keyBy('id');
+  ➜  68▕         $this->assertSame($salida, $saldos[$this->salida->id]['total']);
+     69▕         $this->assertSame($destino, $saldos[$this->destino->id]['total']);
+     70▕         $this->assertSame($salida + $destino, array_sum(array_column($saldos->all(), 'total')));
+     71▕     }
+     72▕
+
+  1   tests\Support\TransferenciasT97.php:68
+  2   tests\Feature\AnulacionTransferenciasT97Test.php:34
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that -150 is identical to 60000000.
+
+  at tests\Support\TransferenciasT97.php:68
+     64▕ 
+     65▕     protected function assertCuentasT97(int $salida = 60000000, int $destino = 10000000): void
+     66▕     {
+     67▕         $saldos = collect(app(ReporteMensualService::class)->saldosPorCaja('2026-11-15'))->keyBy('id');
+  ➜  68▕         $this->assertSame($salida, $saldos[$this->salida->id]['total']);
+     69▕         $this->assertSame($destino, $saldos[$this->destino->id]['total']);
+     70▕         $this->assertSame($salida + $destino, array_sum(array_column($saldos->all(), 'total')));
+     71▕     }
+     72▕
+
+  1   tests\Support\TransferenciasT97.php:68
+  2   tests\Feature\AnulacionTransferenciasT97Test.php:34
+
+
+  Tests:    2 failed (26 assertions)
+  Duration: 16.20s
+

@@ -1,0 +1,125 @@
+{
+  "antes": {
+    "bar": {
+      "bottom": 1074.109375,
+      "height": 86.796875,
+      "left": 16,
+      "right": 344,
+      "top": 987.3125,
+      "width": 328,
+      "x": 16,
+      "y": 987.3125
+    },
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 1062.109375,
+          "height": 32,
+          "left": 120,
+          "right": 216,
+          "top": 1030.109375,
+          "width": 96,
+          "x": 120,
+          "y": 1030.109375
+        },
+        "text": "Transferir"
+      },
+      {
+        "rect": {
+          "bottom": 1062.109375,
+          "height": 32,
+          "left": 224,
+          "right": 320,
+          "top": 1030.109375,
+          "width": 96,
+          "x": 224,
+          "y": 1030.109375
+        },
+        "text": "Nuevo"
+      }
+    ],
+    "scrollWidth": 360,
+    "stats": {
+      "bottom": 1022.109375,
+      "height": 22.796875,
+      "left": 40,
+      "right": 320,
+      "top": 999.3125,
+      "width": 280,
+      "x": 40,
+      "y": 999.3125
+    },
+    "width": 360
+  },
+  "despues": {
+    "bar": {
+      "bottom": 1037.71875,
+      "height": 86.796875,
+      "left": 16,
+      "right": 344,
+      "top": 950.921875,
+      "width": 328,
+      "x": 16,
+      "y": 950.921875
+    },
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 1025.71875,
+          "height": 32,
+          "left": 120,
+          "right": 216,
+          "top": 993.71875,
+          "width": 96,
+          "x": 120,
+          "y": 993.71875
+        },
+        "text": "Transferir"
+      },
+      {
+        "rect": {
+          "bottom": 1025.71875,
+          "height": 32,
+          "left": 224,
+          "right": 320,
+          "top": 993.71875,
+          "width": 96,
+          "x": 224,
+          "y": 993.71875
+        },
+        "text": "Nuevo"
+      }
+    ],
+    "scrollWidth": 360,
+    "stats": {
+      "bottom": 985.71875,
+      "height": 22.796875,
+      "left": 40,
+      "right": 320,
+      "top": 962.921875,
+      "width": 280,
+      "x": 40,
+      "y": 962.921875
+    },
+    "width": 360
+  },
+  "confirmacion": {
+    "marco": 375,
+    "anchoContenido": 360,
+    "botones": {
+      "Volver": {
+        "left": 120,
+        "top": 524.53125,
+        "width": 96,
+        "height": 32
+      },
+      "Anular": {
+        "left": 224,
+        "top": 524.53125,
+        "width": 96,
+        "height": 32
+      }
+    },
+    "fuente": "Medición DOM de esta sesión antes de capturar 02-confirmacion-375.jpg"
+  }
+}

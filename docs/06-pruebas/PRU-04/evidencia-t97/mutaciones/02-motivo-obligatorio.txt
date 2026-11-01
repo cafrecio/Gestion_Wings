@@ -1,0 +1,60 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ motivo invalido rechazado sin escribir with data set "vacio"                                                19.48s  
+  ⨯ motivo invalido rechazado sin escribir with data set "espacios"                                              0.62s  
+  ⨯ motivo invalido rechazado sin escribir with data set "nulo"                                                  0.60s  
+  ✓ motivo invalido rechazado sin escribir with data set "array"                                                 0.73s  
+  ✓ motivo invalido rechazado sin escribir with data set "numero"                                                0.69s  
+  ✓ motivo invalido rechazado sin escribir with data set "largo"                                                 0.65s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > motivo invalido rechazado sin escribir with data set "vaci…   
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:62
+     58▕     #[DataProvider('motivosInvalidos')]
+     59▕     public function test_motivo_invalido_rechazado_sin_escribir(mixed $motivo): void
+     60▕     {
+     61▕         $patas = $this->transferir(); $foto = $this->fotoT97();
+  ➜  62▕         $this->postJson($this->rutaT97($patas[0]->id), ['motivo' => $motivo])->assertUnprocessable()->assertJsonValidationErrors('motivo');
+     63▕         $this->assertSame($foto, $this->fotoT97());
+     64▕         $this->assertCuentasT97(30000000, 40000000);
+     65▕     }
+     66▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > motivo invalido rechazado sin escribir with data set "espa…   
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:62
+     58▕     #[DataProvider('motivosInvalidos')]
+     59▕     public function test_motivo_invalido_rechazado_sin_escribir(mixed $motivo): void
+     60▕     {
+     61▕         $patas = $this->transferir(); $foto = $this->fotoT97();
+  ➜  62▕         $this->postJson($this->rutaT97($patas[0]->id), ['motivo' => $motivo])->assertUnprocessable()->assertJsonValidationErrors('motivo');
+     63▕         $this->assertSame($foto, $this->fotoT97());
+     64▕         $this->assertCuentasT97(30000000, 40000000);
+     65▕     }
+     66▕
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > motivo invalido rechazado sin escribir with data set "nulo…   
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:62
+     58▕     #[DataProvider('motivosInvalidos')]
+     59▕     public function test_motivo_invalido_rechazado_sin_escribir(mixed $motivo): void
+     60▕     {
+     61▕         $patas = $this->transferir(); $foto = $this->fotoT97();
+  ➜  62▕         $this->postJson($this->rutaT97($patas[0]->id), ['motivo' => $motivo])->assertUnprocessable()->assertJsonValidationErrors('motivo');
+     63▕         $this->assertSame($foto, $this->fotoT97());
+     64▕         $this->assertCuentasT97(30000000, 40000000);
+     65▕     }
+     66▕
+
+
+  Tests:    3 failed, 3 passed (24 assertions)
+  Duration: 23.28s
+

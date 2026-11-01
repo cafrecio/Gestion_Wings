@@ -16,6 +16,7 @@ use App\Rules\ImportePesos;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CashflowWebController extends Controller
 {
@@ -199,12 +200,25 @@ class CashflowWebController extends Controller
         $liquidacionesPendientes = Liquidacion::with('profesor')->where('estado_pago', 'PENDIENTE')
             ->whereIn('estado', ['ABIERTA', 'CERRADA'])->orderByDesc('anio')->orderByDesc('mes')
             ->paginate(10, ['*'], 'liquidaciones_page')->withQueryString();
+        $transferencias = DB::table('cashflow_transferencias as t')
+            ->join('tipos_caja as salida', 'salida.id', '=', 't.salida_id')
+            ->join('tipos_caja as destino', 'destino.id', '=', 't.destino_id')
+            ->whereIn('t.id', $movimientos->whereIn('referencia_tipo',
+                [CashflowMovimiento::REF_TRANSFERENCIA, CashflowMovimiento::REF_ANULACION_TRANSFERENCIA])->pluck('referencia_id'))
+            ->select('t.*', 'salida.nombre as salida_nombre', 'destino.nombre as destino_nombre')->get()->keyBy('id');
         foreach ($movimientos as $mov) {
+            $esTransferencia = in_array($mov->referencia_tipo,
+                [CashflowMovimiento::REF_TRANSFERENCIA, CashflowMovimiento::REF_ANULACION_TRANSFERENCIA], true);
+            $transferencia = $esTransferencia ? $transferencias->get($mov->referencia_id) : null;
             $origen = match ($mov->referencia_tipo) {
                 CashflowMovimiento::REF_CAJA => 'Caja validada',
                 CashflowMovimiento::REF_PAGO_CUOTA => 'Cobro del dueño',
                 CashflowMovimiento::REF_LIQUIDACION => 'Liquidación pagada',
                 CashflowMovimiento::REF_CORRECCION => 'Anulación de directo',
+                CashflowMovimiento::REF_TRANSFERENCIA => 'Transferencia #'.$mov->referencia_id
+                    .($transferencia?->anulada_at ? ' · Anulada'
+                        : ($transferencia ? ' · '.$transferencia->salida_nombre.' → '.$transferencia->destino_nombre : '')),
+                CashflowMovimiento::REF_ANULACION_TRANSFERENCIA => 'Anulación de transferencia #'.$mov->referencia_id,
                 default => match ($mov->reporte_clasificacion) {'APORTE' => 'Aporte', 'RETIRO' => 'Retiro', 'TRASPASO' => 'Traspaso', default => 'Directo'},
             };
             $acciones = [];
@@ -224,7 +238,12 @@ class CashflowWebController extends Controller
                 };
                 if ($url) $acciones[] = ['nombre' => $pago && $pago->estado !== 'ANULADO' ? 'Anular' : 'Ver', 'url' => $url];
             }
-            $mov->origenCorreccion = $origen.($mov->anulado_at ? ' · Anulado' : '');
+            if ($mov->referencia_tipo === CashflowMovimiento::REF_TRANSFERENCIA && $mov->contra_origen_id === null
+                && $mov->anulado_at === null && $transferencia && $transferencia->anulada_at === null) {
+                $acciones[] = ['nombre' => 'Anular', 'url' => route('web.cashflow.transferencia.anular', $mov->id)];
+            }
+            $mov->origenCorreccion = $origen.(!$esTransferencia && $mov->anulado_at ? ' · Anulado' : '');
+            $mov->motivoTransferencia = $transferencia?->motivo_anulacion;
             $mov->accionesCorreccion = $acciones;
         }
 

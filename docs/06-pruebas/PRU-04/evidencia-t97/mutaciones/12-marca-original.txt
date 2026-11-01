@@ -1,0 +1,42 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                          15.98s  
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.90s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that null is not null.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:47
+     43▕             foreach (['fecha', 'subrubro_id', 'tipo_caja_id', 'reporte_tipo', 'reporte_clasificacion', 'reporte_deporte_id', 'referencia_id'] as $campo) {
+     44▕                 $this->assertEquals($pata->$campo, $contra->$campo, $campo);
+     45▕             }
+     46▕             $this->assertSame(0, (int) str_replace('.', '', $pata->monto) + (int) str_replace('.', '', $contra->monto));
+  ➜  47▕             $this->assertNotNull($pata->fresh()->anulado_at);
+     48▕             $this->assertSame(1, $pata->fresh()->version_correccion);
+     49▕         }
+     50▕     }
+     51▕
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:47
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that null is not null.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:47
+     43▕             foreach (['fecha', 'subrubro_id', 'tipo_caja_id', 'reporte_tipo', 'reporte_clasificacion', 'reporte_deporte_id', 'referencia_id'] as $campo) {
+     44▕                 $this->assertEquals($pata->$campo, $contra->$campo, $campo);
+     45▕             }
+     46▕             $this->assertSame(0, (int) str_replace('.', '', $pata->monto) + (int) str_replace('.', '', $contra->monto));
+  ➜  47▕             $this->assertNotNull($pata->fresh()->anulado_at);
+     48▕             $this->assertSame(1, $pata->fresh()->version_correccion);
+     49▕         }
+     50▕     }
+     51▕
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:47
+
+
+  Tests:    2 failed (58 assertions)
+  Duration: 17.48s
+

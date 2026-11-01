@@ -1,0 +1,10 @@
+
+resources/manual/admin/administrar-grupos.md
+  - línea 56: negrita «Si nunca se usó» no aparece en el código de Wings
+  - línea 57: negrita «Si se usó antes pero no tiene alumnos hoy» no aparece en el código de Wings
+  - línea 58: texto entre «» «2x por semana tiene 1 alumno: cambiales el plan antes» no aparece en el código de Wings
+  - línea 58: texto entre «» «2x por semana tiene 3 alumnos: cambiales el plan antes» no aparece en el código de Wings
+  - línea 58: negrita «Si tiene alumnos hoy» no aparece en el código de Wings
+  - línea 59: negrita «Si es la última frecuencia activa» no aparece en el código de Wings
+
+59 páginas revisadas, 6 problemas.

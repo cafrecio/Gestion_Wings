@@ -1,0 +1,23 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ originales y contras no admiten correccion individual ni reanular contra                                    13.58s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > originales y contras no admiten correccion individual ni r…   
+  Failed asserting that the value at [movimientos] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:114
+    110▕             }
+    111▕         }
+    112▕         $this->get('/cashflow?periodo=mes&fecha=2026-11-15')->assertOk()
+    113▕             ->assertSee('Anulación de transferencia #'.$patas[0]->referencia_id)
+  ➜ 114▕             ->assertSee('Destino equivocado')->assertViewHas('movimientos', function ($movimientos) {
+    115▕                 return $movimientos->every(fn ($m) => array_column($m->accionesCorreccion, 'nombre') === ['Ver']);
+    116▕             });
+    117▕         $this->assertSame($foto, $this->fotoT97()); $this->assertCuentasT97();
+    118▕     }
+
+
+  Tests:    1 failed (33 assertions)
+  Duration: 14.41s
+

@@ -18,6 +18,10 @@ class Handler(BaseHTTPRequestHandler):
         ruta = unquote(urlsplit(self.path).path)
         if ruta.startswith('/propuesta/'):
             base, relativa = PROPUESTA / 'html', ruta.removeprefix('/propuesta/')
+        elif ruta.startswith('/final/'):
+            base, relativa = EVIDENCIA / 'final' / 'html', ruta.removeprefix('/final/')
+        elif ruta.startswith('/final-capturas/'):
+            base, relativa = EVIDENCIA / 'final' / 'capturas', ruta.removeprefix('/final-capturas/')
         elif ruta.startswith('/assets/'):
             base, relativa = PUBLIC, ruta.removeprefix('/assets/')
             if relativa.split('/')[0] not in {'build', 'images', 'img', 'fonts'}:
@@ -25,7 +29,7 @@ class Handler(BaseHTTPRequestHandler):
                 return
         elif ruta.startswith('/capturas/'):
             base, relativa = EVIDENCIA / 'capturas', ruta.removeprefix('/capturas/')
-        elif ruta in {'/APROBAR-T97.html', '/IMPLEMENTACION-T97.md'}:
+        elif ruta in {'/APROBAR-T97.html', '/VER-T97.html', '/IMPLEMENTACION-T97.md'}:
             base, relativa = EVIDENCIA.parent, ruta.removeprefix('/')
         else:
             self.send_error(404)
@@ -39,12 +43,15 @@ class Handler(BaseHTTPRequestHandler):
             contenido = datos.decode('utf-8')
             contenido = contenido.replace(PUBLIC.as_uri() + '/', '/assets/')
             contenido = contenido.replace('evidencia-t97/capturas/', '/capturas/')
+            contenido = contenido.replace('evidencia-t97/final/capturas/', '/final-capturas/')
             datos = contenido.encode('utf-8')
         self.send_response(200)
         tipo = 'text/plain; charset=utf-8' if archivo.suffix == '.md' else mimetypes.guess_type(archivo.name)[0]
         self.send_header('Content-Type', tipo or 'application/octet-stream')
         self.send_header('Content-Length', str(len(datos)))
         self.send_header('Cache-Control', 'no-store')
+        # El visor no debe enviar los formularios capturados a la aplicación local.
+        self.send_header('Content-Security-Policy', "form-action 'none'; connect-src 'none'")
         self.end_headers()
         self.wfile.write(datos)
 

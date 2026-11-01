@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CapturasFinalesT97Test
+  ✓ capturas reales del circuito completo                                                                       13.13s  
+
+  Tests:    1 passed (13 assertions)
+  Duration: 13.33s
+

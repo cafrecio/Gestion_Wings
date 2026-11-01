@@ -21,6 +21,7 @@ class CashflowMovimiento extends Model
     const REF_LIQUIDACION = 'LIQUIDACION';    // pago de liquidación a profesor
     const REF_CORRECCION = 'CORRECCION_DIRECTO'; // contraasiento de un directo, no editable
     const REF_TRANSFERENCIA = 'TRANSFERENCIA'; // dos movimientos de una operación indivisible
+    const REF_ANULACION_TRANSFERENCIA = 'ANULACION_TRANSFERENCIA'; // inversos del par; nunca directos
 
     protected $fillable = [
         'reporte_deporte_id',

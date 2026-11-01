@@ -1,0 +1,11 @@
+No syntax errors detected in app/Services/AnulacionTransferenciaCashflowService.php
+No syntax errors detected in app/Http/Controllers/CashflowWebController.php
+No syntax errors detected in app/Http/Controllers/TransferenciaCashflowWebController.php
+No syntax errors detected in app/Models/CashflowMovimiento.php
+No syntax errors detected in routes/web.php
+No syntax errors detected in database/migrations/2026_11_01_020000_agregar_anulacion_transferencias_cashflow.php
+No syntax errors detected in tests/Feature/AnulacionTransferenciasT97Test.php
+No syntax errors detected in tests/Feature/AnulacionTransferenciasConcurrentesT97Test.php
+No syntax errors detected in tests/Support/TransferenciasT97.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t97/final/CapturasFinalesT97Test.php
+No syntax errors detected in docs/06-pruebas/PRU-04/evidencia-t97/phpunit-mutaciones-t97.php

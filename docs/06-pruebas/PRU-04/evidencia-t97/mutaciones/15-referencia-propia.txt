@@ -1,0 +1,52 @@
+
+   FAIL  Tests\Feature\AnulacionTransferenciasT97Test
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "salida"                          14.97s  
+  ⨯ cualquier pata anula el par y conserva motivo autor y fecha with data set "entrada"                          0.81s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'ANULACION_TRANSFERENCIA'
++'CORRECCION_DIRECTO'
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:42
+     38▕         $this->assertNotNull($cabecera->anulada_at);
+     39▕         $this->assertSame('2026-11-15 12:00:00', $cabecera->anulada_at);
+     40▕         foreach ($patas as $pata) {
+     41▕             $contra = CashflowMovimiento::where('contra_origen_id', $pata->id)->sole();
+  ➜  42▕             $this->assertSame(CashflowMovimiento::REF_ANULACION_TRANSFERENCIA, $contra->referencia_tipo);
+     43▕             foreach (['fecha', 'subrubro_id', 'tipo_caja_id', 'reporte_tipo', 'reporte_clasificacion', 'reporte_deporte_id', 'referencia_id'] as $campo) {
+     44▕                 $this->assertEquals($pata->$campo, $contra->$campo, $campo);
+     45▕             }
+     46▕             $this->assertSame(0, (int) str_replace('.', '', $pata->monto) + (int) str_replace('.', '', $contra->monto));
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:42
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\AnulacionTransferenciasT97Test > cualquier pata anula el par y conserva motivo autor y fech…   
+  Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'ANULACION_TRANSFERENCIA'
++'CORRECCION_DIRECTO'
+
+  at tests\Feature\AnulacionTransferenciasT97Test.php:42
+     38▕         $this->assertNotNull($cabecera->anulada_at);
+     39▕         $this->assertSame('2026-11-15 12:00:00', $cabecera->anulada_at);
+     40▕         foreach ($patas as $pata) {
+     41▕             $contra = CashflowMovimiento::where('contra_origen_id', $pata->id)->sole();
+  ➜  42▕             $this->assertSame(CashflowMovimiento::REF_ANULACION_TRANSFERENCIA, $contra->referencia_tipo);
+     43▕             foreach (['fecha', 'subrubro_id', 'tipo_caja_id', 'reporte_tipo', 'reporte_clasificacion', 'reporte_deporte_id', 'referencia_id'] as $campo) {
+     44▕                 $this->assertEquals($pata->$campo, $contra->$campo, $campo);
+     45▕             }
+     46▕             $this->assertSame(0, (int) str_replace('.', '', $pata->monto) + (int) str_replace('.', '', $contra->monto));
+
+  1   tests\Feature\AnulacionTransferenciasT97Test.php:42
+
+
+  Tests:    2 failed (40 assertions)
+  Duration: 16.33s
+

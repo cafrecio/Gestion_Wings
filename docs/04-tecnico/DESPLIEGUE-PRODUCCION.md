@@ -15,6 +15,9 @@ planes, 3 subrubros. **Los 4 usuarios son reales (Carlos, 30/10): no se tocan ni
 
 ## Qué se hace, en orden
 
+T97 (01/11/2026) agrega `2026_11_01_020000_agregar_anulacion_transferencias_cashflow`: fecha/hora, administrador y motivo de anulación en la cabecera. Debe correr en el paso 5 antes de habilitar el nuevo código de Cashflow; las cabeceras existentes quedan sin anulación y no se reescriben movimientos. Su `down()` conserva la auditoría financiera, como la cabecera T61: no elimina esos datos. Para una vuelta atrás se usa el respaldo, no se borra el rastro de una anulación.
+Las **36 pendientes** de arriba son el corte leído el 27/10, no un conteo actual: se vuelve a obtener `migrate:status` durante el ensayo, incluyendo las migraciones posteriores de T96/T97 y otras tareas. Este trabajo no desplegó ni consultó producción o test; no desplegar mientras Cora trabaja en el sitio de prueba.
+
 El script [`scripts/servidor/desplegar-produccion.sh`](../../scripts/servidor/desplegar-produccion.sh) hace los
 pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano.
 

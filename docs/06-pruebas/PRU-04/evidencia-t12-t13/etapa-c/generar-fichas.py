@@ -212,10 +212,34 @@ FICHAS = {
   ('Editar abre el mismo formulario con el que se cargó', C+'CashflowCorreccionWebController.php', "return view('cashflow.movimiento', $datos + ['movimiento' => $movimiento", LEC),
   ('Motivo (opcional) en el formulario de edición', V+'cashflow/movimiento.blade.php', ['@if($movimiento)§2', '<label for="motivo"'], LEC),
   ('El motivo es opcional', S+'CashflowCorreccionService.php', "'motivo' => 'nullable|string|max:500'", LEC),
-  ('Transferencia: solo crear y guardar, sin corrección', 'routes/web.php', "Route::post('/cashflow/transferencia'", LEC),
+  ('Transferencia: anular el par desde cualquiera de sus filas; corregir es anular y crear otra', 'routes/web.php', "Route::post('/cashflow/transferencias/{id}/anular'", LEC),
+  ('Anulación de transferencia solo por ADMIN activo; no exige ser su creador', S+'AnulacionTransferenciaCashflowService.php', 'if (!$admin->isAdmin() || !$admin->isActivo()) throw new AuthorizationException();', LEC),
+  ('Motivo obligatorio hasta 500 caracteres para la transferencia; el del directo sigue opcional', S+'AnulacionTransferenciaCashflowService.php', "['motivo' => 'required|string|max:500']", LEC),
+  ('No vuelve a anular una transferencia confirmada', S+'AnulacionTransferenciaCashflowService.php', 'if ($transferencia->anulada_at !== null)', LEC),
   ('Solo directos, no anulados, no reservados', 'app/Models/CashflowMovimiento.php', "return $this->esDirecto() && $this->anulado_at === null && !$this->subrubro?->es_reservado_sistema;", CAP),
   ('Editar / Historial / Eliminar en la fila', C+'CashflowWebController.php', "if ($correccionesDisponibles && $mov->puedeCorregirse())", LEC),
   ('Eliminar anula con asiento en contra', C+'CashflowCorreccionWebController.php', "Movimiento anulado. El original y el asiento en contra se conservan.", LEC),
+ ],
+ 'admin-transferir-entre-cuentas': [
+  ('Cuenta de salida y destino distintas; importe positivo y fecha no futura', S+'TransferenciaCashflowService.php', ["'destino_id' => 'required|integer|different:salida_id|exists:tipos_caja,id'", "'monto' => ['required', 'numeric', 'min:0.01'", "'fecha' => 'required|date_format:Y-m-d|before_or_equal:today'"], LEC),
+  ('Ambas cuentas activas al registrar', S+'TransferenciaCashflowService.php', "if ($cuentas->count() !== 2 || $cuentas->contains(fn ($c) => !$c->activo))", LEC),
+  ('Mes anterior requiere confirmar al registrar', C+'TransferenciaCashflowWebController.php', "if ($fechaVieja && !$request->boolean('confirmar_fecha_vieja'))", LEC),
+  ('Anular desde cualquiera de los originales, no desde un contraasiento', S+'AnulacionTransferenciaCashflowService.php', "$movimiento->referencia_tipo !== CashflowMovimiento::REF_TRANSFERENCIA", LEC),
+  ('Solo ADMIN activo; puede anular lo registrado por otro ADMIN', S+'AnulacionTransferenciaCashflowService.php', 'if (!$admin->isAdmin() || !$admin->isActivo()) throw new AuthorizationException();', LEC),
+  ('Motivo sin espacios exteriores, obligatorio y hasta 500 caracteres', S+'AnulacionTransferenciaCashflowService.php', ["$datos['motivo'] = preg_replace(", "['motivo' => 'required|string|max:500']"], LEC),
+  ('Volver no anula; Anular envía la confirmación', V+'cashflow/anular-transferencia.blade.php', ['Volver</x-ds.button>', 'Anular</x-ds.button>'], LEC),
+  ('Se exige cabecera vigente, exactamente dos patas y ambas cuentas existentes; no exige reactivar cuentas', S+'AnulacionTransferenciaCashflowService.php', ['if (!$transferencia || $cuentas->count() !== 2)', 'if ($transferencia->anulada_at !== null)', 'if ($patas->count() !== 2)'], LEC),
+  ('Mismo importe, fecha y cuentas que la transferencia; marcas previas o inconsistencia se rechazan', S+'AnulacionTransferenciaCashflowService.php', ["$pata->anulado_at !== null || $pata->monto !== $signo.$transferencia->monto", "$pata->fecha->toDateString() !== $transferencia->fecha"], LEC),
+  ('Dos inversos en una transacción; conservan fecha y cuenta originales', S+'AnulacionTransferenciaCashflowService.php', ["return DB::transaction(function () use ($origen, $adminId, $datos)", "'fecha' => $pata->fecha->toDateString(), 'subrubro_id' => $pata->subrubro_id", "'tipo_caja_id' => $pata->tipo_caja_id"], LEC),
+  ('La cabecera conserva motivo, autor y fecha/hora de la anulación', S+'AnulacionTransferenciaCashflowService.php', ["'anulada_at' => now(), 'anulo_admin_id' => $adminId", "'motivo_anulacion' => $datos['motivo']"], LEC),
+  ('Originales anulados y contraasientos quedan solo con Ver y motivo', C+'CashflowWebController.php', ["&& $mov->anulado_at === null && $transferencia && $transferencia->anulada_at === null", '$mov->motivoTransferencia = $transferencia?->motivo_anulacion;'], LEC),
+ ],
+ 'admin-consultar-cashflow': [
+  ('El filtro de cuenta cambia filas y totales del listado', C+'CashflowWebController.php', "->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))", LEC),
+  ('El filtro de tipo cambia las filas', C+'CashflowWebController.php', "->when($tipo, fn($q) => $q->whereHas('subrubro.rubro'", LEC),
+  ('Transferencia vigente ofrece Anular; original anulado y contraasiento solo Ver', C+'CashflowWebController.php', ["CashflowMovimiento::REF_ANULACION_TRANSFERENCIA => 'Anulación de transferencia #'", "&& $mov->anulado_at === null && $transferencia && $transferencia->anulada_at === null"], LEC),
+  ('Motivo visible con el mismo número de transferencia', V+'cashflow/index.blade.php', '$mov->motivoTransferencia§1', LEC),
+  ('Los inversos compensan los originales también por mes y cuenta', S+'AnulacionTransferenciaCashflowService.php', ["'fecha' => $pata->fecha->toDateString(), 'subrubro_id' => $pata->subrubro_id", "'tipo_caja_id' => $pata->tipo_caja_id", "'monto' => str_starts_with($pata->monto, '-')"], LEC),
  ],
  'admin-validar-rechazar-caja': [],
  'profesor-tomar-asistencia': [
@@ -257,12 +281,20 @@ FICHAS = {
  ],
 }
 
+solo = set(sys.argv[1:])
+if solo - set(FICHAS):
+    raise SystemExit('Fichas desconocidas: ' + ', '.join(sorted(solo - set(FICHAS))))
+
 for nombre, filas in FICHAS.items():
+    if solo and nombre not in solo: continue
     if not filas: continue
     pagina = nombre.split('-', 1)
     rol, slug = pagina[0], pagina[1]
+    autoria = ('Ficha actualizada por Codex CAB el 01/11/2026 para T97.' if nombre in {
+        'admin-corregir-movimiento-cashflow', 'admin-transferir-entre-cuentas', 'admin-consultar-cashflow'}
+        else 'Escrita por Claude CAB el 30/10/2026 (etapa C).')
     out = [f'# Ficha de fuentes: {slug}', '',
-           f'- **Página:** `resources/manual/{rol}/{slug}.md` · **Rol:** {rol} · Escrita por Claude CAB el 30/10/2026 (etapa C).',
+           f'- **Página:** `resources/manual/{rol}/{slug}.md` · **Rol:** {rol} · {autoria}',
            '- La columna «Condición en el código» es la línea literal, tomada del archivo por `etapa-c/generar-fichas.py`.', '',
            '| Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |', '|---|---|---|---|']
     for afirma, archivo, texto, resultado in filas:

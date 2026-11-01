@@ -1,0 +1,14 @@
+{
+    "base": "wings_testing_codex",
+    "conexiones": [
+        15540,
+        15541
+    ],
+    "segundo_timeout_antes_de_escribir": true,
+    "escrituras_segundo": [],
+    "originales": 2,
+    "inversos": 2,
+    "salida_centavos": 60000000,
+    "destino_centavos": 10000000,
+    "reintento": "rechazado: ya anulada, auditoría y movimientos idénticos"
+}

@@ -1,30 +1,32 @@
-# Ficha de fuentes: Transferir entre medios propios
+# Ficha de fuentes: transferir-entre-cuentas
 
-- **Página del manual:** `resources/manual/admin/transferir-entre-cuentas.md`
-- **Rol:** Admin (Dueño)
-- **Pantalla analizada:** `/cashflow/transferencia`
-- **Fecha de verificación:** 30/10/2026
-- **Entorno de verificación:** Wings local sobre base `wings_testing_gemini`
+- **Página:** `resources/manual/admin/transferir-entre-cuentas.md` · **Rol:** admin · Ficha actualizada por Codex CAB el 01/11/2026 para T97.
+- La columna «Condición en el código» es la línea literal, tomada del archivo por `etapa-c/generar-fichas.py`.
 
----
-
-## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
-
-| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
-|---|---|---|---|---|
-| **Acceso exclusivo admin** | La transferencia interna entre medios propios es una acción exclusiva del dueño en Cashflow. No altera el resultado global del club. | `routes/web.php:138`<br>`app/Services/TransferenciaCashflowService.php:18` | `if (!$admin->isAdmin() \|\| !$admin->isActivo()) throw new AuthorizationException();` | Al intentar ingresar a `/cashflow/transferencia` con un usuario no administrador, el sistema aborta de inmediato con HTTP 403 Forbidden. |
-| **Paso 1 y 2: Formulario y cuentas distintas** | Seleccionar cuenta de salida, cuenta de destino e importe. Ambas cuentas deben ser distintas. | `resources/views/cashflow/transferencia.blade.php:25-50`<br>`app/Services/TransferenciaCashflowService.php:31` | `'destino_id' => 'required\|integer\|different:salida_id\|exists:tipos_caja,id'` | Si se selecciona la misma cuenta tanto en salida como en destino, la validación del sistema bloquea el guardado y muestra el error: «Elegí una cuenta de destino distinta de la salida.». |
-| **Fecha de un mes anterior** | Si se elige una fecha de un mes anterior, Wings pide confirmar porque cambiará los saldos históricos de ambas cuentas desde ese período. | `app/Http/Controllers/TransferenciaCashflowWebController.php:25-29`<br>`resources/views/cashflow/transferencia.blade.php:55` | `if ($fechaVieja && !$request->boolean('confirmar_fecha_vieja')) { return back()->withInput()->with('aviso_fecha_vieja', 'La transferencia quedará con esa fecha y cambiará los saldos de ambas cuentas desde ese mes. El resultado del club no cambia. Confirmá para guardar la salida y la entrada.'); }` | Al cargar una transferencia con fecha anterior sin marcar la confirmación requerida, la pantalla no guarda los movimientos, recarga con el aviso textual «La transferencia quedará con esa fecha y cambiará los saldos de ambas cuentas desde ese mes. El resultado del club no cambia. Confirmá para guardar la salida y la entrada.» y el botón cambia a **Confirmar**. |
-| **Registro indivisible de salida y entrada** | Al confirmar, Wings registra la salida y la entrada enlazadas en una única transacción atómica y muestra «salida y entrada guardadas.». | `app/Services/TransferenciaCashflowService.php:12, 21-24`<br>`app/Http/Controllers/TransferenciaCashflowWebController.php:40` | `return DB::transaction(function () use ($adminId, $datos) { return $this->guardar($adminId, $datos); }, 3);` | La operación es indivisible: si falla la inserción de una de las dos patas, la transacción se revierte por completo evitando saldos inconsistentes. Al completarse con éxito, redirige a Cashflow confirmando que ambas operaciones fueron guardadas. |
-
----
-
-## 2. Rechazos y avisos de la acción
-
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
+| Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
 |---|---|---|---|
-| `Elegí una cuenta de destino distinta de la salida.` | `app/Services/TransferenciaCashflowService.php:35` | Sí | Qué hago si: ¿Qué hago si elijo la misma cuenta en salida y destino? |
-| `La transferencia quedará con esa fecha y cambiará los saldos de ambas cuentas desde ese mes. El resultado del club no cambia. Confirmá para guardar la salida y la entrada.` | `app/Http/Controllers/TransferenciaCashflowWebController.php:28` | Sí | Qué hago si: ¿Qué hago si la fecha es de un mes anterior? |
-| `salida y entrada guardadas.` | `app/Http/Controllers/TransferenciaCashflowWebController.php:40` | Sí | Paso 2: Indicar salida, destino e importe |
-| `El campo monto debe ser al menos 0.01.` | `app/Services/TransferenciaCashflowService.php:32` | No | Validación requerida de monto numérico positivo. |
-| `La fecha no puede ser futura.` | `app/Services/TransferenciaCashflowService.php:33` | No | Validación estándar que impide transferencias con fechas posteriores a hoy. |
+| Cuenta de salida y destino distintas; importe positivo y fecha no futura | `app/Services/TransferenciaCashflowService.php:31`<br>`app/Services/TransferenciaCashflowService.php:32`<br>`app/Services/TransferenciaCashflowService.php:33` | `'destino_id' => 'required\|integer\|different:salida_id\|exists:tipos_caja,id',`<br>`'monto' => ['required', 'numeric', 'min:0.01', 'max:9999999999.99', new ImportePesos],`<br>`'fecha' => 'required\|date_format:Y-m-d\|before_or_equal:today',` | Leído en el código; no ejecutado en pantalla. |
+| Ambas cuentas activas al registrar | `app/Services/TransferenciaCashflowService.php:59` | `if ($cuentas->count() !== 2 \|\| $cuentas->contains(fn ($c) => !$c->activo)) {` | Leído en el código; no ejecutado en pantalla. |
+| Mes anterior requiere confirmar al registrar | `app/Http/Controllers/TransferenciaCashflowWebController.php:46` | `if ($fechaVieja && !$request->boolean('confirmar_fecha_vieja')) {` | Leído en el código; no ejecutado en pantalla. |
+| Anular desde cualquiera de los originales, no desde un contraasiento | `app/Services/AnulacionTransferenciaCashflowService.php:16` | `if ($movimiento->referencia_tipo !== CashflowMovimiento::REF_TRANSFERENCIA` | Leído en el código; no ejecutado en pantalla. |
+| Solo ADMIN activo; puede anular lo registrado por otro ADMIN | `app/Services/AnulacionTransferenciaCashflowService.php:32` | `if (!$admin->isAdmin() \|\| !$admin->isActivo()) throw new AuthorizationException();` | Leído en el código; no ejecutado en pantalla. |
+| Motivo sin espacios exteriores, obligatorio y hasta 500 caracteres | `app/Services/AnulacionTransferenciaCashflowService.php:33`<br>`app/Services/AnulacionTransferenciaCashflowService.php:34` | `if (isset($datos['motivo']) && is_string($datos['motivo'])) $datos['motivo'] = preg_replace('/^\s+\|\s+$/u', '', $datos['motivo']);`<br>`$datos = Validator::make($datos, ['motivo' => 'required\|string\|max:500'],` | Leído en el código; no ejecutado en pantalla. |
+| Volver no anula; Anular envía la confirmación | `resources/views/cashflow/anular-transferencia.blade.php:20`<br>`resources/views/cashflow/anular-transferencia.blade.php:21` | `<x-ds.button variant="secondary" style="width:96px; height:32px; font-size:0.82rem;" :href="route('web.cashflow.index', ['periodo' => 'mes', 'fecha' => $transferencia->fecha])">Volver</x-ds.button>`<br>`<x-ds.button variant="danger" type="submit" style="width:96px; height:32px; font-size:0.82rem; background:none; color:var(--color-btn-danger); border-color:var(--color-btn-danger);">Anular</x-ds.button>` | Leído en el código; no ejecutado en pantalla. |
+| Se exige cabecera vigente, exactamente dos patas y ambas cuentas existentes; no exige reactivar cuentas | `app/Services/AnulacionTransferenciaCashflowService.php:44`<br>`app/Services/AnulacionTransferenciaCashflowService.php:45`<br>`app/Services/AnulacionTransferenciaCashflowService.php:50` | `if (!$transferencia \|\| $cuentas->count() !== 2) $this->inconsistente();`<br>`if ($transferencia->anulada_at !== null) {`<br>`if ($patas->count() !== 2) $this->inconsistente();` | Leído en el código; no ejecutado en pantalla. |
+| Mismo importe, fecha y cuentas que la transferencia; marcas previas o inconsistencia se rechazan | `app/Services/AnulacionTransferenciaCashflowService.php:56`<br>`app/Services/AnulacionTransferenciaCashflowService.php:57` | `\|\| $pata->anulado_at !== null \|\| $pata->monto !== $signo.$transferencia->monto`<br>`\|\| $pata->fecha->toDateString() !== $transferencia->fecha) $this->inconsistente();` | Leído en el código; no ejecutado en pantalla. |
+| Dos inversos en una transacción; conservan fecha y cuenta originales | `app/Services/AnulacionTransferenciaCashflowService.php:38`<br>`app/Services/AnulacionTransferenciaCashflowService.php:63`<br>`app/Services/AnulacionTransferenciaCashflowService.php:64` | `return DB::transaction(function () use ($origen, $adminId, $datos) {`<br>`'fecha' => $pata->fecha->toDateString(), 'subrubro_id' => $pata->subrubro_id,`<br>`'tipo_caja_id' => $pata->tipo_caja_id,` | Leído en el código; no ejecutado en pantalla. |
+| La cabecera conserva motivo, autor y fecha/hora de la anulación | `app/Services/AnulacionTransferenciaCashflowService.php:78`<br>`app/Services/AnulacionTransferenciaCashflowService.php:79` | `'anulada_at' => now(), 'anulo_admin_id' => $adminId,`<br>`'motivo_anulacion' => $datos['motivo'], 'updated_at' => now(),` | Leído en el código; no ejecutado en pantalla. |
+| Originales anulados y contraasientos quedan solo con Ver y motivo | `app/Http/Controllers/CashflowWebController.php:242`<br>`app/Http/Controllers/CashflowWebController.php:246` | `&& $mov->anulado_at === null && $transferencia && $transferencia->anulada_at === null) {`<br>`$mov->motivoTransferencia = $transferencia?->motivo_anulacion;` | Leído en el código; no ejecutado en pantalla. |
+
+## Rechazos y avisos de la acción
+
+Cada mensaje de Wings que cita la página, dónde está en el código y en qué sección de la página aparece. Los rechazos que la página no cita quedan en la tabla de arriba o en el informe del revisor.
+
+| Mensaje de Wings | Dónde está | ¿Está en la página? |
+|---|---|---|
+| «salida y entrada guardadas.» | `app/Http/Controllers/TransferenciaCashflowWebController.php:60` | Sí — Paso 2. Indicar salida, destino e importe |
+| «Elegí una cuenta de destino distinta de la salida.» | `app/Services/TransferenciaCashflowService.php:35` | Sí — ¿Qué hago si elijo la misma cuenta en salida y destino? |
+| «La transferencia quedará con esa fecha y cambiará los saldos de ambas cuentas desde ese mes. El resultado del club no cambia. Confirmá para guardar la salida y la entrada.» | `app/Http/Controllers/TransferenciaCashflowWebController.php:48` | Sí — ¿Qué hago si la fecha es de un mes anterior? |
+| «Indicá el motivo de la anulación.» | `app/Services/AnulacionTransferenciaCashflowService.php:35` | Sí — ¿Qué hago si no deja anular? |
+| «La transferencia ya está anulada.» | `app/Http/Controllers/TransferenciaCashflowWebController.php:20` | Sí — ¿Qué hago si no deja anular? |
+| «Los movimientos de la transferencia necesitan revisión. No se anuló la operación.» | `app/Services/AnulacionTransferenciaCashflowService.php:87` | Sí — ¿Qué hago si no deja anular? |

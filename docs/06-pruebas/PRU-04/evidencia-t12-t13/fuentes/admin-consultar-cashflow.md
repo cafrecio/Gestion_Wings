@@ -1,28 +1,20 @@
-# Ficha de fuentes: Consultar el libro Cashflow y saldos por medio
+# Ficha de fuentes: consultar-cashflow
 
-- **Página del manual:** `resources/manual/admin/consultar-cashflow.md`
-- **Rol:** Admin (Dueño)
-- **Pantalla analizada:** `/cashflow`
-- **Fecha de verificación:** 30/10/2026
-- **Entorno de verificación:** Wings local sobre base `wings_testing_gemini`
+- **Página:** `resources/manual/admin/consultar-cashflow.md` · **Rol:** admin · Ficha actualizada por Codex CAB el 01/11/2026 para T97.
+- La columna «Condición en el código» es la línea literal, tomada del archivo por `etapa-c/generar-fichas.py`.
 
----
-
-## 1. Verificación paso a paso, condiciones en código y caminos prohibidos
-
-| Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
-|---|---|---|---|---|
-| **Acceso exclusivo admin** | El libro Cashflow consolida todas las entradas y salidas de las cuentas y cajas del club; es exclusivo del dueño. | `routes/web.php:137`<br>`app/Http/Middleware/EnsureUserIsAdmin.php:17` | `if (!$request->user() \|\| !$request->user()->isAdmin()) abort(403);` | Al intentar ingresar a `/cashflow` con usuario del rol operativo o profesor, Wings aborta de inmediato con HTTP 403 Forbidden. |
-| **Paso 1: Filtro por Mes o Año** | Permite alternar la vista entre el resultado mensual y el consolidado anual con tarjetas de saldos por medio. | `app/Http/Controllers/CashflowWebController.php:26-55`<br>`resources/views/cashflow/index.blade.php:30-80` | `if (in_array($modo, ['mes', 'anio'], true))` | Si se pasan parámetros manipulados (por ejemplo `periodo=trimestre` o `mes=15`), la validación del controlador rechaza la petición con error 422 Unprocessable Entity. |
-| **Paso 2: Detalle de movimientos y orígenes** | Lista ingresos y egresos cronológicos con fecha, medio, rubro, observación y monto. Muestra badges de origen (Caja, Liquidación, Manual). | `resources/views/cashflow/index.blade.php:120-195`<br>`app/Models/CashflowMovimiento.php:45` | `@if($movimiento->origen === 'CAJA')`<br>`<span ...>Caja</span>`<br>`@elseif($movimiento->origen === 'LIQUIDACION')` | Si un movimiento proviene de una caja validada o de una liquidación, no se muestra el botón de eliminación directa en la fila para proteger la consistencia de los módulos de origen. |
-| **Qué hago si: diferencias de saldo** | Si el saldo en pantalla no coincide con el dinero físico, se auditan las cajas cerradas del período o se registra un ajuste manual. | `resources/views/cashflow/index.blade.php:65-75`<br>`app/Services/CashflowService.php:80` | `if ($cuenta->saldo_actual !== $cuenta->saldo_calculado)` | Al no existir movimientos en un período filtrado, la tabla muestra el estado vacío: «Sin movimientos para los filtros seleccionados.». |
-
----
-
-## 2. Rechazos y avisos de la acción
-
-| Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
+| Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
 |---|---|---|---|
-| `Sin movimientos para los filtros seleccionados.` | `resources/views/cashflow/index.blade.php:185` | No | Estado vacío natural de la tabla cuando no hubo operaciones en el mes o año consultado. |
-| `El campo mes debe estar entre 1 y 12.` | `app/Http/Controllers/CashflowWebController.php:30` | No | Validación estándar de Laravel ante alteración manual de la URL. |
-| `El campo anio debe estar entre 1900 y 2100.` | `app/Http/Controllers/CashflowWebController.php:29` | No | Validación estándar de Laravel ante manipulación de query params. |
+| El filtro de cuenta cambia filas y totales del listado | `app/Http/Controllers/CashflowWebController.php:69` | `->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId));` | Leído en el código; no ejecutado en pantalla. |
+| El filtro de tipo cambia las filas | `app/Http/Controllers/CashflowWebController.php:77` | `->when($tipo, fn($q) => $q->whereHas('subrubro.rubro', fn($r) => $r->where('tipo', $tipo)))` | Leído en el código; no ejecutado en pantalla. |
+| Transferencia vigente ofrece Anular; original anulado y contraasiento solo Ver | `app/Http/Controllers/CashflowWebController.php:221`<br>`app/Http/Controllers/CashflowWebController.php:242` | `CashflowMovimiento::REF_ANULACION_TRANSFERENCIA => 'Anulación de transferencia #'.$mov->referencia_id,`<br>`&& $mov->anulado_at === null && $transferencia && $transferencia->anulada_at === null) {` | Leído en el código; no ejecutado en pantalla. |
+| Motivo visible con el mismo número de transferencia | `resources/views/cashflow/index.blade.php:223` | `<small style="display:block; margin-top:3px; font-size:0.7rem;"><span style="display:block;white-space:normal;">{{ $mov->origenCorreccion }}</span>@if($mov->motivoTransferencia !== null)<span style="display:block;white-space:normal;">Motivo: {{ $mov->motivoTransferencia }}</span>@endif</small>` | Leído en el código; no ejecutado en pantalla. |
+| Los inversos compensan los originales también por mes y cuenta | `app/Services/AnulacionTransferenciaCashflowService.php:63`<br>`app/Services/AnulacionTransferenciaCashflowService.php:64`<br>`app/Services/AnulacionTransferenciaCashflowService.php:65` | `'fecha' => $pata->fecha->toDateString(), 'subrubro_id' => $pata->subrubro_id,`<br>`'tipo_caja_id' => $pata->tipo_caja_id,`<br>`'monto' => str_starts_with($pata->monto, '-') ? substr($pata->monto, 1) : '-'.$pata->monto,` | Leído en el código; no ejecutado en pantalla. |
+
+## Rechazos y avisos de la acción
+
+Cada mensaje de Wings que cita la página, dónde está en el código y en qué sección de la página aparece. Los rechazos que la página no cita quedan en la tabla de arriba o en el informe del revisor.
+
+| Mensaje de Wings | Dónde está | ¿Está en la página? |
+|---|---|---|
+| «Traspaso entre medios» | `app/Support/ClasificacionSubrubros.php:25` | Sí — ¿Qué significan los movimientos con clasificación «Traspaso entre medios»? |

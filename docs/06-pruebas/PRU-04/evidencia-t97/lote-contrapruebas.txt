@@ -1,0 +1,27 @@
+01-permisos DETECTADA exit 1
+02-motivo-obligatorio DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+03-motivo-maximo DETECTADA exit 1
+04-origen-transferencia DETECTADA exit 1
+05-par-completo DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+06-importe-cabecera DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+07-fecha-cabecera DETECTADA exit 1
+08-fecha-inverso DETECTADA exit 1
+09-cuenta-inverso DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+10-signo-inverso DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+11-fotos-historicas DETECTADA exit 1
+12-marca-original DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+13-auditoria-motivo DETECTADA exit 1
+14-auditoria-autor DETECTADA exit 1
+15-referencia-propia DETECTADA exit 1
+Espera: otra prueba PHP activa; ninguna fuente se modifica durante la espera.
+16-atomicidad DETECTADA exit 1
+17-candados-reales DETECTADA exit 1
+18-no-repetir DETECTADA exit 1
+19-acciones-anulada DETECTADA exit 1
+19/19 retiradas detectadas; fuentes restauradas byte por byte.

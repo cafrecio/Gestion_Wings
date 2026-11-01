@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T97 implementada; espera suite completa exclusiva
+
+Carlos aprobó el aspecto: «Esta OK ahora». Anulación atómica del par con motivo, autor, fecha y dos inversos; defensas de directos intactas. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) y [pantallas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
+65 dirigidas/774 y rápida1266/6 omitidas/9482 verdes; 19 mutaciones detectadas con fuentes restauradas y dos conexiones reales sin escritura del segundo intento. Manual aislado59/0; vistas compilan.
+La completa anterior se interrumpió al reiniciar la sesión: no tiene resultado final. Copia aislada HEAD62a5df3f + T97 preparada (1389 métodos, vendor real), solo wings_testing_codex; espera las pruebas T102.
+Carlos autorizó «Sí, publicar solo T97 y preservar lo ajeno». Se separan CSS, rutas, generador, informe compartido y contadores; T94/T102/T105 y evidencia T34 quedan fuera del commit propio.
+Manual, fichas, contrato y despliegue documentados. Se guarda la implementación sin dar por terminada la verificación. T97 sigue en curso; después de la completa se entrega a Claude, sin autocierre ni despliegue.
+
 ## 2026-11-01 — Codex CAB — T97, propuesta visual pendiente de Carlos
 
 Anulación completa de transferencia: propuesta aislada con componentes reales; vistas del producto intactas. [Galería 1366/375](../06-pruebas/PRU-04/APROBAR-T97.html) · [Informe y pendientes](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md).
@@ -10,6 +18,7 @@ Main actualizado al iniciar; cambios T96 de Gemini y evidencia T34 ajena preserv
 Sin modificar guardas, manual, catálogo de pruebas, vistas/CSS ni servidor. No desplegar mientras Cora trabaja en test. Propuesta y bitácora quedan documentadas; T97 sigue en curso, no a_verificar.
 Freno explícito del pedido: Carlos revisa APROBAR-T97.html; implementar recién con su OK y entregar después a Claude. Entrada antigua archivada íntegra por límite.
 Actualización 01/11: Carlos pidió separar botones y texto. Propuesta móvil corregida y recapturada: contador arriba, botones debajo; 8 px de separación, 96 × 32. Escritorios idénticos. Renderizado 1/11 verde; sigue pendiente su OK.
+OK visual 01/11: Carlos: «Esta OK ahora». Continúa la implementación financiera T97; después controla Claude.
 
 ## 2026-10-30 — Codex CyE — PRU-04 días 41 a 47 entregados a revisión
 
@@ -40,15 +49,7 @@ Capturas Chrome con TXT, salidas de reloj/rutinas, tres recibos PDF renderizados
 LOG/resumen sin aportes ajenos al editar; dos entradas antiguas archivadas intactas por límite. Cambios concurrentes ajenos preservados y excluidos del commit propio.
 Sigue Claude: revisión independiente de informes, diferencias e internos antes de la tanda4. No repetir días34–40 ni generar diciembre; no autocierre de T14.
 
-## 2026-10-30 — Codex CAB — MF12/MF13 y observaciones verificadas en el sitio de prueba
-
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-MF12-MF13-CODEX.md): octubre sin clases pendientes por comisión, noviembre conservado y Verónica inactiva con 2; Iván dice Inscripción $5.000 y Florencia conserva Nov 2026 $55.000.
-Reloj 12/11 07:58 una vez, espera real de 199 segundos antes de abrir pantallas; resumen automático, sin ejecución manual ni repetir días 24–33. Telegram original de Carlos (30/10 02:16): dos excepciones y ninguna línea de clases sin lista; Inicio 0.
-Cuatro filas cumplen en el alcance pedido. SIS-006 sin forzar formularios ni prueba backend propia; no se observaron avisos en inglés en Wings. Diferencia registrada: la ficha de Iván dice alta 02/11 frente a 03/11 del prompt, con el pago indicado correcto.
-MF12 y MF13 cerradas por el comando del tablero, verifica=Codex. Carlos autorizó preservar cambios ajenos de T12/T13; las dos filas cerradas quedaron incorporadas por el commit concurrente c7004dc8, comprobado. Esta entrega documental no reescribe ese commit.
-Seis capturas Chrome y PNG original de Telegram, transcripciones, huellas e imágenes comprobadas. Telegram Web sin sesión; Carlos aportó la imagen después de autorizar su lectura. No se enviaron mensajes ni se leyó otro chat.
-Reloj dejado en 12/11; sin cobros, generación, reparaciones, producto, catálogo, despliegue ni push propios. LOG/resumen sin cambios ajenos al editar; T45 archivada íntegra para mantener límite.
-Sigue la tanda 3 por su guion y decisión de Carlos. Esta verificación no la ejecuta ni amplía el alcance de la prueba del servidor.
+[MF12/MF13 archivados íntegros al implementar T97](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-implementar-T97.txt). Base original: docs/00-estado/. SHA256: d357334b16cb68d88c9ede1114a1c9a8d80e901980836470de605bc6aadfd4df.
 
 [Días29–33 archivados íntegros al preparar T97](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-propuesta-T97.txt). Base original: docs/00-estado/. SHA256: 55086a3c3d9390dd6e49ada30e50d01eb39d24ebe59d272069833a6174eca607.
 

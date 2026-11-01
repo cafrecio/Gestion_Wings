@@ -1,0 +1,53 @@
+{
+  "capturas": [
+    {
+      "archivo": "evidencia-t97/final/capturas/00-login-control-375.jpg",
+      "ancho": 375,
+      "alto": 850,
+      "sha256": "f08cd91a15e76ab0ec7a8e14fe125fa0cd5b8fdef91111c8ff17702e793297d1"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/01-cashflow-anular-1366.jpg",
+      "ancho": 1366,
+      "alto": 1200,
+      "sha256": "48b55cd214afaa0ed4425448ae48e247a09b3f259be18abd1dcf794a63ab5061"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/01-cashflow-anular-375.jpg",
+      "ancho": 375,
+      "alto": 1450,
+      "sha256": "94a6a23e68d1ffb8943fe9f66c06a4c152e74679f1933dd54cdf9b8e7098e91a"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/02-confirmacion-1366.jpg",
+      "ancho": 1366,
+      "alto": 1000,
+      "sha256": "5d59ba89a669f7334ff8c3ccc9575727594196b6a7abf5540a61225b055d98fd"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/02-confirmacion-375.jpg",
+      "ancho": 375,
+      "alto": 620,
+      "sha256": "8410714751cf50ba2cdac7913c3d453cad38e8d40f8e7b943bb28ea583a9021d"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/03-cashflow-anulada-1366.jpg",
+      "ancho": 1366,
+      "alto": 1400,
+      "sha256": "2f7cf3e5ba47cbedac7d28776815f81a1d5d2240998375efb61174c9886fe774"
+    },
+    {
+      "archivo": "evidencia-t97/final/capturas/03-cashflow-anulada-375.jpg",
+      "ancho": 375,
+      "alto": 2000,
+      "sha256": "d151d8fcb2d3e1c10b0d72332fc7969ac49d6690ef034613e8887d86858fe57c"
+    }
+  ],
+  "enlaces_galeria": 17,
+  "fuentes_verificadas": 8,
+  "fuentes_identicas_en_bytes": 8,
+  "normalizacion_permitida": "solo CRLF a LF",
+  "sin_desborde_horizontal": true,
+  "barra_sin_superposicion": true,
+  "copia_manual_identica": true
+}
