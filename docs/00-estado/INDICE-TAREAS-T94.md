@@ -1,0 +1,20 @@
+# Índice de tareas desde T94
+
+Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene, **sacando las tareas ya cerradas**. Cada vez que se retoma el tema se le muestra de nuevo. El estado que manda es el del [tablero](QUIEN-HACE-QUE.md): antes de mostrarlo, comparar contra `tareas.json`.
+
+| Tarea | De qué se trata | Estado |
+|---|---|---|
+| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | La hace Gemini cuando termine T96; opción elegida: desactivar. El prompt, solo cuando Carlos lo pida. |
+| **T96** | Cómo se configura el efectivo del cajón: ahora es siempre Efectivo y el dueño carga una vez el saldo inicial. | Gemini la está controlando. |
+| **T97** | Una transferencia entre cuentas no se puede corregir ni anular. | Prompt para Codex entregado (`PRU-04/PROMPT-CODEX-T97.md`). Controla Claude. |
+| **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | La resuelve Claude, controla Codex (Carlos, 01/11). |
+| **T101** | Un gasto que carga el dueño en el turno de una operativa queda a nombre de ella. | Sin empezar. Visto en el código; falta verlo en pantalla (día 45.8). |
+| **T102** | Un nivel con grupos no se puede eliminar, y tampoco inactivar porque esa opción no existe. | Sin empezar. La hace Claude; lleva OK visual de Carlos. |
+| **T104** | «Sin descubierto» solo se controla al pagar una liquidación; un gasto o una transferencia pueden dejar la cuenta en negativo igual. | Sin empezar. Claude lee los contratos y le explica a Carlos si el problema es real. |
+| **T105** | Cada recibo PDF pesa 1,7 MB y el primero tarda 3 segundos. Recortando las fuentes baja a 211 KB, pero falta ver si se ve igual. | Sin empezar. Carlos decide si entra antes de producción. |
+| **T106** | Cashflow e Historial cuentan las transferencias entre cuentas como ingreso y egreso: dicen $1.921.200 de ingresos cuando entraron $421.200. Reportes está bien. | Sin empezar. Carlos decide si se sacan de esas tarjetas. |
+| **T107** | Si alguien cierra la caja con la pantalla desactualizada, Wings no le avisa que el esperado cambió. El dueño ve el faltante, pero quien cierra no se entera. | Sin empezar. Carlos decide si avisa antes de cerrar. |
+| **T108** | Un alumno que vino de la primera carga no tiene inscripción registrada, y al abrirle una segunda ficha Wings le cobra inscripción ($8.000 en el caso de Thiago). | Sin empezar. Carlos decide si es lo que quiere. |
+| **T109** | Escribir basura en la dirección de un filtro da error del servidor, y un recibo que no existe devuelve texto técnico. Hace falta sesión iniciada y no expone datos. | Sin empezar. Carlos decide si entra. |
+
+**Pendiente suelto de Carlos:** con qué rubro se compensa un cobro de más en una caja ya validada (`corregir-movimiento-caja-validada.md:44`); «Ajuste de saldo» no sirve, porque deja el cobro duplicado en el resultado.
