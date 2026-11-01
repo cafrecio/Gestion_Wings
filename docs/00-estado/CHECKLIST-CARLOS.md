@@ -185,6 +185,12 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   administrador de contrasenas de Google. La clave de respaldos tiene copia fuera del servidor, comprobada por huella el 28/10 (Drive, carpeta de los respaldos); falta pasarla al administrador de contrasenas y sacarla de esa carpeta.
 - [ ] Pasar credenciales del servidor y clave de backups a un administrador de
   contraseñas. No ponerlas en el repositorio ni en las bitacoras.
+- [ ] **T82, credencial propia de Google para los respaldos (5 minutos en la consola de Google):**
+  la copia a Drive usa una credencial compartida que Google retira durante 2026. Si se corta, el
+  respaldo queda solo en el servidor (avisa por Telegram). Sigue pendiente al 01/11/2026.
+- [ ] **T82, decidir si el repositorio sigue público.** Pasarlo a privado obliga a clonar con
+  credencial en un servidor nuevo. Detalle en el
+  [ensayo de restauración](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md).
 
 ## 4. Para la entrega
 
