@@ -4,7 +4,6 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
-| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | Gemini subió las 5 correcciones. Falta el segundo control de Claude. |
 | **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | Hecha por Claude: cancelar borra la cuota nacida de ese cobro (Carlos eligió, 01/11). La controla Codex, etapa 1. |
 | **T101** | Un gasto que carga el dueño en el turno de una operativa queda a nombre de ella. | Hecha por Claude: ahora figura a nombre de quien lo cargó. La controla Gemini, después de T94. |
 | **T102** | Un nivel con grupos no se puede eliminar, y tampoco inactivar porque esa opción no existe. Regla de Carlos (01/11): con grupos activos no se inactiva; los grupos se pasan a otro nivel. | Hecha por Claude, con tu OK visual. La controla Codex, etapa 3. |

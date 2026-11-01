@@ -164,7 +164,7 @@
         {
           "donde": "Con alumnos",
           "l": "a",
-          "texto": "«No se puede eliminar: hay alumnos con este plan activo.»",
+          "texto": "«Nx por semana tiene N alumnos: cambiales el plan antes.» No guarda nada. Cuenta también a un alumno inactivo y a un cambio de plan programado.",
           "tipo": "directo"
         },
         {
@@ -174,27 +174,45 @@
           "tipo": "directo"
         },
         {
-          "donde": "Libre",
+          "donde": "Nunca usada",
           "l": "c",
-          "texto": "Se elimina; deja de ofrecerse en altas y cobros.",
+          "texto": "Se elimina: «Plan eliminado.» en la ficha, «Grupo actualizado correctamente.» al editar.",
           "tipo": "directo"
         },
         {
-          "donde": "Historia",
+          "donde": "Usada antes, sin alumnos hoy",
           "l": "d",
-          "texto": "Los alumnos inactivos que tuvieron ese plan conservan sus cuotas y pagos.",
+          "texto": "«Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.» No se ofrece en altas ni cobros, y cuotas, pagos y precios quedan intactos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reactivar",
+          "l": "e",
+          "texto": "Volver a agregarla reactiva la misma fila con el precio nuevo, sin duplicar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pantalla vieja",
+          "l": "f",
+          "texto": "Un formulario que trae una frecuencia ya desactivada se rechaza: «Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.»",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cambiar la frecuencia de una fila",
+          "l": "g",
+          "texto": "A la de una desactivada: «Ya hay una Nx desactivada. Agregala con Nuevo en vez de cambiar esta fila.» A la de otra activa: «Ya hay una fila con esa frecuencia. Cambialas de a una.»",
           "tipo": "indirecto"
         }
       ],
-      "estado": "vigente",
-      "fuente": "GrupoWebController::destroyPlan (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T94, con la propuesta de Gemini. VERIFICACION-T94-CLAUDE.md. GrupoWebController::destroyPlan (código leído).",
       "modulo": "Grupos y planes",
       "pantalla": "cat-grupos-form",
       "requiere": "Un grupo con dos planes, uno con alumnos activos; otro grupo con un solo plan.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T94",
       "tipo": "error",
       "titulo": "Quitar un plan en uso o el único plan"
     },

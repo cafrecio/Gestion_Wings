@@ -34,6 +34,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T94: segundo control, cerrada
+
+- **Resultado:** aprobada. H1 a H5 corregidos; 33 pruebas y 3 carreras con dos conexiones reales en verde. [Informe](../06-pruebas/PRU-04/VERIFICACION-T94-CLAUDE.md). GRU-004 publicado.
+- **Observación baja:** orden de bloqueos distinto entre `destroyPlan` y `update`. No se reprodujo en 3 intentos. Sin cambio de código.
+- **Errores míos:** creé una base propia que Wings no acepta como descartable, y la borré. Con dos sesiones de Claude en la misma máquina, `wings_testing_claude` se pisa: hay que avisar antes de correr. Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T107 y T108
 
 - **T107:** la pantalla de cierre guarda el esperado que mostró; si cambió, Wings no cierra y avisa el nuevo. Un faltante real con la pantalla al día sigue cerrando. Un POST sin ese dato cierra como antes: solo se perjudica quien lo arma.

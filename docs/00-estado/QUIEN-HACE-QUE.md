@@ -52,7 +52,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Hecho, espera verificación (hizo Gemini, verifica Claude) | T94 segunda vuelta corregida: H1-H5 implementados, 36 pruebas verdes (incluye carrera real) |
 
 ## Codex
 

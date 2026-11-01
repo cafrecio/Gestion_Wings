@@ -63,3 +63,24 @@ Filas 1x y 2x, guardando la primera como 2x y la segunda como 1x: HTTP 500 por l
 `ControlT94ClaudeTest.php` y `ControlT94CarreraTest.php` afirman lo que tendría que pasar: hoy fallan 4 y 2, una por hallazgo (H1 tiene dos). Se corren por ruta y no están en la suite. Al arreglarlos tienen que pasar sin cambiarles lo que esperan.
 
 GRU-004 se actualiza en la tabla de pruebas cuando T94 cierre.
+
+---
+
+## Segunda vuelta — aprobada y cerrada, Claude CAB, 01/11/2026
+
+Controlé `44cafb95`, sobre `main` con T102, T107 y T108, en `wings_testing_claude`.
+
+| Qué | Resultado |
+|---|---|
+| H1 a H5 | Corregidos. Mis pruebas pasan: Gemini solo les sumó los avisos y, en H4, que la fila editada no cambie. No aflojó lo que esperaban |
+| `SacarFrecuenciaGrupoT94Test` y `ControlT94ClaudeTest` | 33 aprobadas, 150 aserciones |
+| `ControlT94CarreraTest`, dos conexiones reales: editando con frecuencia usada, nunca usada, y desde la ficha | 3 aprobadas. La carrera de H1 ya no deja a nadie en una frecuencia desactivada ni da error |
+| Consolidación de H4 | Leído en el diff: ya no se mueven alumnos, pagos ni precios entre filas |
+| Manual | Leí los avisos nuevos de `administrar-grupos`: coinciden con el código |
+| Informe | Ahora trae la suite: 1305 aprobadas, 6 omitidas. No la repetí |
+
+**Observación baja, no reproducida:** `destroyPlan` toma plan y después grupo; `update`, grupo y después plan. Podría dar un error con dos dueños en el mismo instante. Lo probé tres veces con dos conexiones ([`ControlT94OrdenBloqueosTest.php`](evidencia-t94-control/ControlT94OrdenBloqueosTest.php)) y no dio error del servidor; no puedo afirmar que nunca pase, porque depende de cuál de los dos pedidos cancele la base. Queda anotado, sin cambio de código.
+
+**No comprobé:** las mutaciones de Gemini ni su suite; pantalla por navegador, porque las vistas no cambiaron; producción.
+
+GRU-004 pasó a la tabla de pruebas, con el texto propuesto y los avisos nuevos.
