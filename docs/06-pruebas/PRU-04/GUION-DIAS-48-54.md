@@ -68,7 +68,7 @@ Igual que las tandas anteriores: reloj del día una vez, rutina de la mañana co
 
 **Teléfono:** en cada paso marcado teléfono, usar `Emulation.setDeviceMetricsOverride` con ancho 375 y `mobile: true`, como `scripts/medir-ancho-movil.mjs:98`, y dejar en la evidencia `window.innerWidth` y `document.documentElement.scrollWidth`. Si `innerWidth` no da 375, el paso queda **no probado**: en la tanda 4 la pantalla siguió en 1905.
 
-**Defectos que este guion espera:** son nuevos y están retratados a propósito.
+**Defectos que este guion espera:** son nuevos y están retratados a propósito. Carlos los dejó para después de producción (01/11).
 
 | Tarea | Paso | Qué pasa |
 |---|---|---|

@@ -37,7 +37,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
-| **T112** Un presente no saca a un alumno de Revision | Sin empezar | Ejecutado 01/11 (53.4, Tobias); anotado en el catalogo el 13/10 sin tarea. CBZ-016 a pide que salga, por el contrato de estados. Para decidir: se arregla o se corrige el catalogo. Hoy se resuelve a mano en Revision. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -66,9 +65,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
 
-## Sin empezar (9)
+## Sin empezar (10)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110, T111.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 

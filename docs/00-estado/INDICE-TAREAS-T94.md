@@ -8,8 +8,7 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 | **T102** | Un nivel con grupos no se puede eliminar, y tampoco inactivar porque esa opción no existe. Regla de Carlos (01/11): con grupos activos no se inactiva; los grupos se pasan a otro nivel. | Hecha por Claude, con tu OK visual. La controla Codex, etapa 3. |
 | **T107** | Si alguien cierra la caja con la pantalla desactualizada, Wings no le avisa que el esperado cambió. El dueño ve el faltante, pero quien cierra no se entera. | Hecha por Claude: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini (`PRU-04/PROMPT-GEMINI-T107-T108-CONTROL.md`). |
 | **T108** | Un alumno que vino de la primera carga no tiene inscripción registrada, y al abrirle una segunda ficha Wings le cobra inscripción ($8.000 en el caso de Thiago). | Hecha por Claude: quien ya tiene ficha no vuelve a pagar (decisión de Carlos). La controla Gemini, mismo prompt que T107. |
-| **T110** | Guardar un grupo con la pantalla vieja borra sin aviso la frecuencia que agregó otra pestaña. | Nueva, sin empezar. Apareció al simular la tanda 5. |
-| **T111** | Quien tiene una ficha por deporte puede quedar presente en dos clases a la misma hora. | Nueva, sin empezar. Apareció al simular la tanda 5. |
-| **T112** | Un presente no saca a nadie de Revisión; el catálogo pide que sí. | Nueva: para que decidas si se arregla o se corrige el catálogo. |
+
+**Para después de producción (Carlos, 01/11):** T110, T111 y T112. No entran antes.
 
 **Pendiente suelto de Carlos:** con qué rubro se compensa un cobro de más en una caja ya validada (`corregir-movimiento-caja-validada.md:44`); «Ajuste de saldo» no sirve, porque deja el cobro duplicado en el resultado.
