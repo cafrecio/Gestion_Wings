@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T12 y T13: Control del manual tras T94 a T109 (Devuelto a Claude por Hallazgo Grave en Camino 1)
+
+- **Objetivo:** Ejecutar el control independiente del manual de usuario tras las tareas T94 a T109 según `PROMPT — T12 y T13: control del manual después de T94 a T109 — para Gemini`.
+- **Acciones y resultados ([VERIFICACION-T12-T13-T94-T109-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T12-T13-T94-T109-GEMINI.md)):**
+  1. **Auditoría de los 4 caminos ejecutados (`tests/Feature/VerificacionManualT94T109GeminiTest.php` en `wings_testing_gemini`):**
+     - *Camino 1 (Hallazgo Grave):* El manual en `admin/dinero-del-dueno-retiros-aportes.md:30-35` instruye al dueño a registrar retiros físicos de efectivo del turno en curso usando **Agregar** con el subrubro **Retiro de dueños**. En Wings, `CajaWebController::editarStore` delega en `CajaService::validarSubrubroManual`, el cual rechaza la transacción arrojando excepción: `El subrubro seleccionado no está permitido para usuarios operativos.` debido a que valida `subrubro->permitido_para !== 'OPERATIVO'` sin contemplar el rol `ADMIN`. El flujo documentado falla y no es permitido por Wings.
+     - *Camino 2 (Comprobado):* Botón **Anular** en `alumnos/show.blade.php` solo aparece para `ADMIN`, en pagos no anulados y fuera de caja (`sinCaja()`). Restaura el mes previo a `PENDIENTE` y deshace/elimina por completo el registro de cuota si fue cobro adelantado.
+     - *Camino 3 (Comprobado):* En `/caja/cobrar/{alumno}`, cuotas tienen casillas de selección; matrícula de inscripción y recargos no tienen casilla y su imputación es automática con el importe entregado respetando el orden de cascada.
+     - *Camino 4 (Comprobado):* Ajustes de saldo (`Ajuste de saldo: entrada`, `APORTE`) impactan totales y saldo en Cashflow sin alterar el resultado operativo en Reportes mensuales.
+  2. **Auditoría de capturas y enlaces:**
+     - 7 capturas nuevas inspeccionadas: auténticas, generadas con Chrome CDP sobre copia descartable real, respetando roles, sin texto DOM inyectado.
+     - Capturas anteriores identificadas que aún reflejan interfaces previas a T94-T109 (`cobrar-cuota-paso2.png`, `dinero-del-dueno-retiros-aportes-paso2.png`, `consultar-movimientos-paso3.png`, `primera-carga-descargar-plantilla-paso2.png`).
+     - Botón `?` y redirección `/caja/configuracion` -> `/caja` verificados con `AyudaManualT12T13Test` y `AyudaBotonPorRolTest` (23 passed, 119 assertions).
+     - Clasificadas las 45 citas a mano de `citas-a-mano-t94-t109.txt` (ninguna oculta errores en el manual). Galería `APROBAR-T12-T13-T94-T109.html` verificada.
+- **Tablero y próximo paso:** T12 y T13 pasadas a `estado=devuelto`, `tiene=Claude` para alinear backend y manual en el registro de retiros de efectivo del dueño.
+
 ## 2026-11-01 — LOG GEM CAB — T107 y T108: Segunda vuelta de control (concurrencia real, Excel real y navegador Chrome CDP)
 
 - **Objetivo:** Ejecutar las tres comprobaciones prácticas pendientes de T107 y T108 en `wings_testing_gemini` solicitadas en el prompt de segunda vuelta.
@@ -155,11 +171,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   2. **Hallazgo H1 (Grave) — Cashflow al peso al cambiar la cuenta con `cambio_retenido > 0`:** Probado al peso (`Caja #1` en `Cuenta A` ingresa `$30.000`, retiene `$10.000` de cambio y retira `$20.000` &rarr; cambio de mostrador a `Cuenta B` &rarr; `Caja #2` hereda `$10.000` bajo `Cuenta B`, ingresa `$5.000`, gasta `$8.000` y cierra cuadrada con `$7.000` retenidos). Tras validar ambas cajas, en Cashflow (`saldosPorCaja`, `saldoAcumuladoHastaFecha` y `/cashflow`) `Cuenta A` queda en **`$30.000,00`** (`+$10.000,00` de más) y `Cuenta B` queda en **`-$3.000,00`** (negativa, cuando el arqueo validado de `Caja #2` tiene `$7.000,00` en `Cuenta B`). Causa en `CajaService.php:42-74, 127-135, 196-206, 609-616` y `CashflowIntegracionCajaService.php:23-90`.
   3. **Manual, fichas, mutaciones y suite rápida:** `resources/manual/admin/configurar-mostrador.md` y fichas `admin-configurar-mostrador.md` / `admin-administrar-profesores.md` verificadas línea por línea contra el código; `php scripts/manual/verificar-manual.php` &rarr; **59 páginas revisadas, 0 problemas**; comprobado que las 4 pruebas nuevas de `MedioPagoCajonTest` fallan al quitar el botón o la condición de caja abierta (y código restaurado); suite rápida completa en `wings_testing_gemini` &rarr; **1178 passed, 6 skipped (8850 assertions, 262.29s)**.
 - **Tablero y próximo paso:** `T96` pasada a `estado=devuelto`, `verifica=Gemini`, `tiene=Claude`. Queda en manos de Claude resolver el descuadre de `cambio_retenido` en Cashflow al cambiar la cuenta del mostrador.
-
-## 2026-10-30 — LOG GEM CAB — Actualización de bitácora y sincronización con GitHub
-
-- **Objetivo:** Registrar la finalización del control independiente de la Etapa C de T12/T13, actualización de la bitácora activa conforme a las reglas de AGENTS.md y GEMINI.md (archivando entradas históricas de 19/10 a 28/10 en `docs/99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md` para mantener la bitácora activa dentro del límite de tamaño) y confirmación de la sincronización completa con GitHub.
-- **Estado de ramas y remoto:** `origin/main` y `main` local sincronizados en `df5535ae` (incorporados los commits de Claude `18a8bc8d` con T94–T98 y de Codex `df5535ae` con la entrega de días 34–40 de PRU-04).
-- **Entregables de T12 y T13:** Control final documentado en `docs/06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-C-GEMINI.md` (0 hallazgos en las 59 páginas, 33 pantallas con botón `?` probadas por rol, 5 vueltas del revisor subsanadas y ejecución real del caso 6 en base propia). Tablero en `a_verificar`, `hizo=Claude`, `verifica=Gemini`, `tiene=Carlos`, paso *«Etapa C controlada por Gemini: OK de Carlos»*.
-- **Comprobaciones técnicas:** Suite rápida `wings_testing_gemini` y pruebas automáticas de ayuda en verde; árbol de trabajo limpio sin modificaciones espurias; cero archivos tocados en `resources/views/` ni `resources/css/`.
-- **Próximo paso:** Esperar la revisión y visto bueno de Carlos para dar por cerradas T12 y T13, o nueva asignación según tablero.

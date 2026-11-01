@@ -48,6 +48,8 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Devuelto (hizo Claude, verifica Gemini) | Devuelto a Claude por hallazgo Grave en Camino 1: Wings rechaza registrar Retiro de dueños en caja operativa desde CajaService |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Devuelto (hizo Claude, verifica Gemini) | Devuelto a Claude por hallazgo Grave en Camino 1: Wings rechaza registrar Retiro de dueños en caja operativa desde CajaService |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
@@ -58,10 +60,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | 01/11: manual al dia con T94 a T109 (14 paginas, 7 capturas, 70 citas). Gemini lo controla: PROMPT-GEMINI-T12-T13-T94-T109.md. Despues, OK de Carlos con APROBAR-T12-T13-T94-T109.html |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | 01/11: ayuda al dia con T94 a T109. Gemini controla el ? de las pantallas que cambiaron: PROMPT-GEMINI-T12-T13-T94-T109.md |
+Nada en este momento.
 
 ## Sin empezar (10)
 
