@@ -50,6 +50,10 @@ class CambioPlanService
     {
         return DB::transaction(function () use ($alumno, $nuevo) {
             $alumno = Alumno::whereKey($alumno->id)->lockForUpdate()->firstOrFail();
+            $nuevo = GrupoPlan::whereKey($nuevo->id)->lockForUpdate()->firstOrFail();
+            if (!$nuevo->activo) {
+                throw ValidationException::withMessages(['plan_id' => 'No se puede cambiar a un plan inactivo.']);
+            }
             $actual = $this->cuotas->obtenerPlanParaPeriodo($alumno->id, now()->format('Y-m'));
             $desde = $this->seDifiere($alumno, $nuevo) ? today()->addMonthNoOverflow()->startOfMonth() : today();
             $precio = $this->precioDelMes($alumno, $nuevo);

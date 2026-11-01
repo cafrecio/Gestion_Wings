@@ -52,6 +52,12 @@ Ejemplo:
 - Cada plan define:
   - Cantidad de clases por semana.
   - Precio mensual asociado.
+- **Sacar una frecuencia (T94, Carlos 01/11/2026):**
+  - Si nunca se usó: se elimina físicamente del grupo.
+  - Si se usó antes pero no tiene alumnos activos hoy: se desactiva (`activo` = false); deja de ofrecerse para nuevas asignaciones y cobros, conservando intacto el historial anterior (cuotas, deudas, pagos y precios).
+  - Si tiene alumnos hoy (cualquier asignación con `activo` = true, incluyendo alumnos inactivos o cambios futuros programados): se rechaza sin guardar y avisa cuántos tiene («Nx por semana tiene N alumnos: cambiales el plan antes.»).
+  - Un grupo debe conservar al menos una frecuencia activa: no se permite eliminar la última.
+  - Volver a agregar una frecuencia desactivada reactiva la misma fila (`activo` = true) con el nuevo precio sin duplicar registros.
 
 ---
 

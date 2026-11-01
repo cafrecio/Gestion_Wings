@@ -51,9 +51,12 @@ Ese grupo ya existe, quizás inactivo. Buscalo en **Grupos** y activalo, o edit�
 Al crear el grupo, elegiste dos veces la misma frecuencia. Sacá una de las dos filas y tocá de nuevo **Guardar**.
 
 ### ¿Qué hago si quiero sacar una frecuencia?
-Solo se puede sacar una frecuencia que nunca tuvo alumnos. Si borrás la fila de una frecuencia con alumnos activos y guardás, Wings no la elimina y no muestra ningún aviso. Y si la frecuencia tuvo alumnos alguna vez (aunque ya los hayas pasado a otra), Wings guarda esa historia y al guardar el grupo muestra una página de error. En esos casos, dejá la frecuencia en el grupo.
+Podés sacarla editando el grupo (**Editar** y quitando la fila con **✕**) o desde su ficha (**Ver** y tocando **Eliminar** en la fila de la frecuencia, tras confirmar «¿Eliminar este plan?»):
 
-También podés sacar una frecuencia desde la ficha del grupo (**Ver**), con **Eliminar** en su fila: pide confirmar «¿Eliminar este plan?» y, si se puede, muestra «Plan eliminado.». Wings avisa si el grupo quedaría sin frecuencias («No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.») o si tiene alumnos activos («No se puede eliminar: hay alumnos con este plan activo.»). Si la frecuencia tuvo alumnos alguna vez, el resultado es el mismo error de antes. Un grupo tiene que conservar al menos una frecuencia: si las borrás todas, Wings responde «El grupo debe tener al menos una frecuencia para poder cargar alumnos.».
+- *Si nunca se usó:* se borra por completo y muestra «Plan eliminado.» (en la ficha) o «Grupo actualizado correctamente.» (en edición).
+- *Si se usó antes pero no tiene alumnos hoy:* se desactiva y deja de ofrecerse para nuevas inscripciones o cobros, mostrando «Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.». El historial anterior (cuotas, deudas y pagos) se conserva intacto. Si más adelante volvés a agregar esa misma frecuencia, se reactiva con el nuevo precio.
+- *Si tiene alumnos hoy:* Wings no la saca y avisa cuántos tiene, por ejemplo *2x por semana tiene 1 alumno: cambiales el plan antes.* (o *2x por semana tiene 3 alumnos: cambiales el plan antes.*). Si estabas editando el formulario, no se guarda ningún cambio hasta que les asignes otro plan.
+- *Si es la última frecuencia activa:* el grupo no puede quedar vacío. En la ficha avisa «No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.», y al editar «El grupo debe tener al menos una frecuencia para poder cargar alumnos.».
 
 ### ¿Qué hago si no me deja desactivar el grupo?
 Wings no desactiva un grupo con alumnos activos o clases futuras sin cancelar, y el aviso dice cuántos tiene, por ejemplo *No se puede desactivar el grupo porque tiene 1 alumno activo*. Movelos o pasalos a **Inactivo**, y cancelá las clases futuras.

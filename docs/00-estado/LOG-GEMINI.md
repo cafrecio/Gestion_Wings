@@ -11,6 +11,29 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T94: Sacar una frecuencia de un grupo (nunca usada se borra; usada antes se desactiva; con alumnos hoy se rechaza; reactivar si se vuelve a agregar)
+
+- **Objetivo:** Implementar la decisión de Carlos para sacar frecuencias de un grupo (`T94`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T94.md`.
+- **Acciones y resultados ([IMPLEMENTACION-T94.md](../06-pruebas/PRU-04/IMPLEMENTACION-T94.md)):**
+  1. **Controlador y vistas (`GrupoWebController.php`):**
+     - `show` y `edit` filtran `'planes' => fn($q) => $q->where('activo', true)->orderBy('clases_por_semana')`, logrando que la ficha y el formulario muestren únicamente frecuencias activas sin tocar ninguna vista Blade (diseño 100% protegido).
+     - `destroyPlan`: si nunca se usó, se borra físicamente con `«Plan eliminado.»`; si se usó antes y no tiene alumnos hoy, se desactiva (`activo = false`) con `«Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.»` consolidando posibles filas previas para evitar colisiones del unique `unique_grupo_clases_activo`; si tiene alumnos hoy (`activo = true`), rechaza con `«Nx por semana tiene N alumno(s): cambiales el plan antes.»`; si es la última activa, rechaza con `«No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.»`.
+     - `storePlan`: si ya existe activa, avisa; si existe inactiva, la reactiva con el nuevo precio sin duplicar; si no existe, la crea. Redirige con `«Plan agregado.»`.
+     - `update`: validación con `distinct` en frecuencias (`«Hay dos filas con la misma frecuencia. Dejá una sola.»`); si alguna frecuencia removida tiene alumnos hoy, aborta la transacción sin guardar nada (`«Nx por semana tiene N alumno(s): cambiales el plan antes.»`); frecuencias removidas nunca usadas se borran y usadas antes se desactivan; frecuencias enviadas reactivan filas inactivas con el nuevo precio si ya existían; avisa `«Frecuencia desactivada...»` si hubo desactivaciones o `«Grupo actualizado correctamente.»`.
+  2. **Bloqueo a pedidos directos:**
+     - `AlumnoWebController.php` (`store`, `update`, `previsualizarCuotaAlta`) y `CajaWebController.php` (`pagar` con `nuevo_plan_id`) exigen `activo = true` en la regla de validación de `plan_id`.
+     - `CambioPlanService::cambiar` bloquea el plan `FOR UPDATE` y lanza `ValidationException` si `!$nuevo->activo`.
+  3. **Pruebas automáticas (`tests/Feature/SacarFrecuenciaGrupoT94Test.php`):**
+     - 22 pruebas cubriendo cada rama y caso borde: nunca usado, usado sin alumnos, con alumnos activos, plural, alumno inactivo en club con plan activo, cambio de plan futuro, última frecuencia activa, vaciado de frecuencias, reactivación vía store/update, colisiones unique, formulario con frecuencias repetidas, filtrado en show/edit, rechazo en alta/edición/cambio directo, flujo e2e al peso con cobro de deuda vieja de plan desactivado y posterior reactivación con nuevo alumno, concurrencia de asignación vs eliminación.
+     - Pruebas de mutación ejecutadas (quitar última activa, quitar alumnos hoy, quitar plan inactivo en servicio): todas fallaron (`Exit 1`) y el código quedó restaurado.
+  4. **Documentos actualizados:**
+     - `resources/manual/admin/administrar-grupos.md` reescrita la sección de sacar frecuencias explicando las 4 ramas.
+     - `docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/admin-administrar-grupos.md` actualizada con líneas y textos literales exactos.
+     - `docs/06-pruebas/PRU-04/IMPLEMENTACION-T12-T13.md` resueltos huecos 3 y 6 en §15.
+     - `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v5.md` incorporadas reglas de T94 en §2.c.
+     - Propuesta formal para `GRU-004` en `IMPLEMENTACION-T94.md` para Claude.
+- **Tablero y próximo paso:** Pasada a `estado=a_verificar`, `hizo=Gemini`, `tiene=Claude`, `verifica=Claude`.
+
 ## 2026-11-01 — LOG GEM CAB — T96 segunda vuelta: Control de saldo inicial fijo de Efectivo, subrubros de ajuste, manual, mutaciones y suite rápida (cerrada)
 
 - **Objetivo:** Ejecutar el control independiente de la segunda vuelta de `T96` (implementada por Claude en `4611b4c5` tras la decisión de Carlos del 01/11 que reemplaza `DU-59`) siguiendo `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T96-SEGUNDA-VUELTA.md`.

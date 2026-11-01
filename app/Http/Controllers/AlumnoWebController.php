@@ -32,7 +32,7 @@ class AlumnoWebController extends Controller
                     }
                 },
             ],
-            'plan_id' => 'nullable|integer|exists:grupo_planes,id',
+            'plan_id' => ['nullable', 'integer', Rule::exists('grupo_planes', 'id')->where('activo', true)],
         ], $this->validationMessages());
         return response()->json($service->previsualizarCuotaAlta($data['fecha_alta'], isset($data['plan_id']) ? (int) $data['plan_id'] : null));
     }
@@ -369,7 +369,7 @@ class AlumnoWebController extends Controller
         }
         $rules = $this->validationRules($request);
         $rules['dni']     = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->where('deporte_id', $request->input('deporte_id'))];
-        $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
+        $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))->where('activo', true)];
         $rules['generar_cuota_actual'] = [Rule::requiredIf($mesCerrado), 'nullable', 'boolean'];
 
         $validated = $request->validate($rules, array_merge($this->validationMessages(), [
@@ -382,6 +382,10 @@ class AlumnoWebController extends Controller
 
         DB::transaction(function () use ($validated, $request, $fingerprint) {
             app(\App\Services\InscripcionService::class)->bloquear($validated['dni']);
+            $plan = \App\Models\GrupoPlan::whereKey($validated['plan_id'])->lockForUpdate()->firstOrFail();
+            if (!$plan->activo) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['plan_id' => 'La frecuencia seleccionada no corresponde al grupo.']);
+            }
             if ($request->filled('alta_token')) {
                 $anterior = Alumno::where('alta_token', $request->alta_token)->lockForUpdate()->first();
                 if ($anterior && $anterior->alta_fingerprint !== $fingerprint) {
@@ -503,9 +507,9 @@ class AlumnoWebController extends Controller
 
         // Plan obligatorio si el alumno no tiene uno vigente o si cambia de grupo
         if (!$tienePlanValido || $cambiaGrupo) {
-            $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
+            $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))->where('activo', true)];
         } elseif ($request->filled('plan_id')) {
-            $rules['plan_id'] = [Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)];
+            $rules['plan_id'] = [Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)->where('activo', true)];
         }
 
         $validated = $request->validate($rules, array_merge($this->validationMessages(), [

@@ -51,6 +51,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar T94 en pantalla y código |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude) | Claude activo el recorte de fuentes en config/dompdf.php: de 1,7 MB a unos 225 KB, mismo texto y casi los mismos pixeles. Los 3 s no bajan. Falta suite, contador de pruebas, commit y control de otra IA. |
 
 ## Codex
@@ -63,9 +64,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia implementacion de T94 |
+Nada en este momento.
 
 ## Sin empezar (12)
 
