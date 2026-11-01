@@ -16,7 +16,7 @@
 **Qué cambió:** compara `total_calculado` y `liquidacion_detalles`; un error de consulta cuenta como diferencia; el código de salida dice la verdad; cualquier salida limpia base, usuario y carpeta; rclone trabaja sobre una copia de su configuración, y el `rclone.conf` real quedó igual, comprobado por huella.
 
 **Falta:**
-- **Decisión de Carlos: el `restaurar.sh` viejo sigue en `/root/wings-backup/`.** Es del 30/08 y solo repone la base, sin los archivos. El que vale es `/home/wings/app/scripts/servidor/restaurar.sh`. Quise renombrarlo y el permiso lo frenó: no se tocó.
+- **El `restaurar.sh` viejo de `/root/wings-backup/` se retiró el 01/11, con el OK de Carlos:** ahora se llama `restaurar.sh.viejo-20260830-no-usar`. Era del 30/08 y solo reponía la base, sin los archivos; nada lo llamaba. El que vale es `/home/wings/app/scripts/servidor/restaurar.sh`.
 - **Lo que este ensayo no prueba:** un servidor vacío ni el volumen real del club. Solo se recuperaron las piezas de Wings en este mismo servidor. Las piezas de la tabla «Qué no está en el respaldo» hay que rearmarlas a mano.
 - **Repetirlo:** antes de desplegar, con el código y las migraciones nuevas sobre una copia; después, con el primer respaldo que traiga el esquema nuevo.
 - Los tres pendientes de abajo siguen abiertos.

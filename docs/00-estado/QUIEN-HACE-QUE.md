@@ -39,9 +39,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
-| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude) | Reparada: serie, medio inactivo y deporte, sin desplegar. 8 pruebas, 13 mutaciones. Decidir quien controla: propongo Codex. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
-| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1, H2 y H4 corregidos y corridos en el VPS. H3: retirar el restaurar.sh viejo de /root/wings-backup lo decide Carlos, el permiso lo freno. Falta quien controla: propongo Codex. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -57,7 +55,10 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude, verifica Codex) | Reparada, sin desplegar. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 1. |
+| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 a H4 corregidos; restaurar.sh viejo retirado con OK de Carlos. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 2. |
 
 ## Gemini
 

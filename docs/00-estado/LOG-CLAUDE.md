@@ -14,7 +14,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 ## 2026-11-01 — Claude CAB — T82: hallazgos de Codex corregidos
 
 - H1, H2 y H4 en `ensayo-restauracion.sh`: compara la plata de liquidaciones, el código de salida dice la verdad, limpia en cualquier salida y no toca el `rclone.conf` real. Corrido en el VPS: prueba 75 s, producción 53 s y dos fallas provocadas; sin restos. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md).
-- H3 no quedó: renombrar el `restaurar.sh` viejo de `/root/wings-backup/` lo frenó el permiso. Lo decide Carlos. `DESPLIEGUE-PRODUCCION.md` ya indica el correcto.
+- H3: Carlos autorizó retirar el `restaurar.sh` viejo; renombrado a `restaurar.sh.viejo-20260830-no-usar`. `DESPLIEGUE-PRODUCCION.md` indica el correcto. Control de T82 y T119: Codex ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md)).
 - Me lo dijo Carlos («¿estás sin hacer nada?»): estaba esperando la base para T115 con T82 devuelta a mí.
 
 ## 2026-11-01 — Claude CAB — Pisé la base de otra sesión
