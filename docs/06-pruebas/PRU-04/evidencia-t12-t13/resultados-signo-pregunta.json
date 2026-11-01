@@ -1,0 +1,47 @@
+[
+  {
+    "nombre": "Admin T96: /tipos-caja abre administrar-tipos-caja",
+    "ok": true,
+    "detalle": "Destino: /ayuda/administrar-tipos-caja | Título: Administrar las cuentas (tipos de caja) – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin T96: /caja/configuracion abre configurar-mostrador",
+    "ok": true,
+    "detalle": "Destino: /ayuda/configurar-mostrador | Título: Cargar el saldo inicial de Efectivo – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin: /configuraciones abre configurar-parametros",
+    "ok": true,
+    "detalle": "Destino: /ayuda/configurar-parametros | Título: Configurar los parámetros del club – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin T97: /cashflow/transferencia abre transferir-entre-cuentas",
+    "ok": true,
+    "detalle": "Destino: /ayuda/transferir-entre-cuentas | Título: Transferir entre medios propios – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin T97: /cashflow abre corregir-movimiento-caja-validada",
+    "ok": true,
+    "detalle": "Destino: /ayuda/corregir-movimiento-caja-validada | Título: Corregir un movimiento mal cargado en una caja ya validada – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin T102: /niveles abre administrar-niveles",
+    "ok": true,
+    "detalle": "Destino: /ayuda/administrar-niveles | Título: Administrar los niveles – Ayuda Wings"
+  },
+  {
+    "nombre": "Admin T102: /grupos abre administrar-grupos",
+    "ok": true,
+    "detalle": "Destino: /ayuda/administrar-grupos | Título: Crear y administrar grupos y sus precios – Ayuda Wings"
+  },
+  {
+    "nombre": "Operativo T96: /caja/apertura abre abrir-caja",
+    "ok": true,
+    "detalle": "Destino: /ayuda/abrir-caja | Título: Abrir el turno de caja – Ayuda Wings"
+  },
+  {
+    "nombre": "Profesor: /clases abre consultar-mis-clases",
+    "ok": true,
+    "detalle": "Destino: /ayuda/consultar-mis-clases | Título: Ver mis clases de hoy y de otros días – Ayuda Wings"
+  }
+]

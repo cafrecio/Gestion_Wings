@@ -11,6 +11,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T12 y T13: Segunda vuelta del control del manual tras T94 a T109 (OK para Carlos)
+
+- **Objetivo:** Ejecutar la segunda vuelta de control del manual tras la rectificación del camino 1 (retiros por Cashflow y faltante en turno) realizada por Claude, según `PROMPT — T12 y T13: segunda vuelta del control del manual — para Gemini`.
+- **Acciones y resultados ([VERIFICACION-T12-T13-T94-T109-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T12-T13-T94-T109-GEMINI.md) «Segunda vuelta»):**
+  1. **Comprobación del camino 1 rectificado (`evidencia-t12-t13/SegundaVueltaManualGeminiTest.php` en `wings_testing_gemini`):**
+     - Retiro no entra al turno operativo ni por el dueño (`Agregar`) ni por la operativa (`/caja/movimiento`), rechazando con `El subrubro seleccionado no está permitido para usuarios operativos.`
+     - Retiro por Cashflow descuenta la cuenta Efectivo una sola vez ($15.000 a $12.000); esperado de turno no cambia ($10.000) y caja cierra con faltante (-$3.000). Al validar, la cuenta Efectivo no se vuelve a descontar.
+     - Si Efectivo queda en negativo por retiro previo (-$4.000), al validar la caja con los cobros del turno ($10.000) el saldo se acomoda exactamente (-4.000 + 10.000 = +$6.000), verificando la literalidad del manual.
+     - Aporte con `Agregar` entra solo si el subrubro está en `Ambos` (`OPERATIVO`) y `afecta_caja = true`, sube el esperado y queda a nombre del dueño (`usuario_id`).
+     - 5 pasadas, 28 aserciones en 14,40 s.
+  2. **Auditoría transversal y galería:**
+     - Rastreadas las 59 páginas: ninguna otra página supone que un retiro entra a un turno ni que un subrubro Solo Admin entra a caja.
+     - Galería `APROBAR-T12-T13-T94-T109.html` coincide palabra por palabra con las páginas corregidas.
+     - Validadas las 3 capturas observadas en primera vuelta: `cobrar-cuota-paso2.png` y `primera-carga-descargar-plantilla-paso2.png` sin cambios de vistas desde `d797d0b5`, y `consultar-movimientos-paso3.png` con la columna `Registró` actualizada de T101.
+  3. **Botón ? en navegador real (Chrome CDP headless):**
+     - 9 comprobaciones con clics reales (`comprobar-signo-pregunta-t96-t97-t102.mjs`) sobre los tres roles: `/tipos-caja` -> `administrar-tipos-caja`, `/caja/configuracion` -> `configurar-mostrador`, `/configuraciones` -> `configurar-parametros`, `/cashflow/transferencia` -> `transferir-entre-cuentas`, `/cashflow` -> `corregir-movimiento-caja-validada`, `/niveles` -> `administrar-niveles`, `/grupos` -> `administrar-grupos`, `/caja/apertura` -> `abrir-caja`, `/clases` -> `consultar-mis-clases`.
+     - 8 capturas guardadas en `docs/06-pruebas/PRU-04/evidencia-t12-t13/`.
+  4. **Comandos de manual y guardianes:**
+     - `verificar-manual.php` (59 páginas, 0 problemas), `AyudaManualT12T13Test` (20 passed, 111 aserciones), `AyudaBotonPorRolTest` (3 passed, 8 aserciones), `DocumentacionNoMienteTest` (1 passed, 7 aserciones).
+- **Tablero:** T12 y T13 pasan a `a_verificar`, `tiene=Carlos`, paso: «Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html». Sin hallazgos graves ni medios.
+
 ## 2026-11-01 — LOG GEM CAB — T117 y T118: Sesión vencida en peticiones AJAX y mayúsculas con acento (a verificación)
 
 - **Objetivo:** Implementar la expiración de sesión sin recargar pantalla (T117, ACC-006) y corregir mayúsculas y cortes que rompen acentos en castellano (T118) según `PROMPT — T117 y T118: sesión vencida y mayúsculas con acento — para Gemini`.

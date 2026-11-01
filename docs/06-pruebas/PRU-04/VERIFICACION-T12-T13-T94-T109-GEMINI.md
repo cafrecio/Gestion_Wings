@@ -171,3 +171,88 @@ Debido al **Hallazgo Grave** detectado en el **Camino 1** (`resources/manual/adm
 
 **Próximo paso para Claude:**
 - Alinear el procedimiento entre el código (`CajaService.php` / `CajaWebController.php`) y el manual: o bien permitir que el dueño autenticado pueda registrar `Retiro de dueños` en el turno operativo mediante `CajaService`, o bien rectificar el manual indicando el canal real permitido por Wings para retiros de efectivo.
+
+---
+
+## Segunda vuelta — 01/11/2026
+
+- **Agente:** Gemini (Antigravity CAB)
+- **Motivo:** Control de la corrección realizada por Claude en el manual tras el hallazgo del camino 1 (retiro del dueño por Cashflow y faltante en turno), según `PROMPT — T12 y T13: segunda vuelta del control del manual — para Gemini`.
+- **Base de datos de prueba:** `wings_testing_gemini` exclusivamente.
+- **Resultado:** **0 hallazgos graves, 0 hallazgos medios**. T12 y T13 pasan a `a_verificar`, `tiene=Carlos`.
+
+### 1. Comprobaciones de las dos páginas corregidas (Camino 1 rectificado)
+
+Se ejecutó la prueba automatizada propia [`docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php) sobre `wings_testing_gemini` (5 pruebas, 28 aserciones, salida 0 en 14.40 s):
+
+1. **Un retiro no entra al turno ([`test_un_retiro_no_entra_al_turno_ni_por_duenio_ni_por_operativa`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php)):**
+   - *Comprobado:* El dueño intentando registrar `Retiro de dueños` con el botón **Agregar** en la tarjeta de caja es rechazado con `El subrubro seleccionado no está permitido para usuarios operativos.`
+   - *Comprobado:* La operativa intentando registrarlo desde `/caja/movimiento` es rechazada con el mismo mensaje. Ningún movimiento se guarda en la caja y el esperado no se altera ($10.000).
+2. **Retiro por Cashflow y cierre con faltante ([`test_retiro_en_cashflow_baja_efectivo_una_vez_y_validar_no_duplica_descuento`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php)):**
+   - *Comprobado:* El retiro de $3.000 asentado por el dueño en Cashflow descuenta inmediatamente la cuenta `Efectivo` de $15.000 a $12.000.
+   - *Comprobado:* El efectivo esperado del turno no se entera ($10.000). Al contar el cajón físico ($7.000), la caja cierra con faltante de -$3.000.
+   - *Comprobado:* Al validar la caja, el faltante no vuelve a descontar la cuenta `Efectivo` (permanece en $12.000).
+   - *Comprobado:* El reporte mensual (`ReporteMensualService`) computa los $3.000 como retiros del período sin alterar el resultado operativo ($0).
+3. **Saldo temporalmente en negativo y acomodación al validar ([`test_efectivo_queda_en_negativo_y_se_acomoda_al_validar_cobros_del_turno`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php)):**
+   - *Comprobado:* Si la cuenta Efectivo arranca en $0 y el dueño carga un retiro de $4.000, Efectivo queda en -$4.000.
+   - *Comprobado:* Al validarse la caja del turno (con cobros del día por $10.000), los ingresos del mostrador se integran a Cashflow y el saldo final de Efectivo se acomoda a +$6.000 (-4.000 + 10.000). La afirmación del manual («el saldo se acomoda al validar») es estrictamente exacta.
+4. **Condiciones para el ingreso de un aporte con Agregar ([`test_aporte_entra_con_agregar_solo_si_esta_en_ambos_y_afecta_caja`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php)):**
+   - *Comprobado:* Un subrubro con `permitido_para = 'ADMIN'` (Solo Admin) es rechazado.
+   - *Comprobado:* Un subrubro en `Ambos` (`OPERATIVO`) pero con `afecta_caja = false` es rechazado con `El subrubro seleccionado no afecta la caja operativa.`
+   - *Comprobado:* Un subrubro en `Ambos` y con `afecta_caja = true` ingresa exitosamente, sube el esperado del turno de $10.000 a $15.000 y queda registrado a nombre del dueño (`usuario_id = duenio_id`).
+5. **Oferta y rechazo con mensaje exacto ([`test_agregar_ofrece_subrubros_al_duenio_que_luego_rechaza_con_mensaje_exacto`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/SegundaVueltaManualGeminiTest.php)):**
+   - *Comprobado:* La vista `/caja/{id}/editar` despliega `Retiro de dueños` en el combo de subrubros para el dueño, pero al enviarse es rechazado con el texto exacto declarado en el manual: `El subrubro seleccionado no está permitido para usuarios operativos.`
+
+### 2. Revisión transversal en las 59 páginas del manual
+- *Comprobado:* Se rastrearon todas las apariciones de `retiro`, `dueño`, `agregar` y `solo admin` en `resources/manual/`.
+- En `admin/validar-rechazar-caja.md` y `operativo/cerrar-caja.md`, la mención «Retiro / entrega» describe exclusivamente el rótulo del sobre físico de rendición al contar billetes (`efectivo_contado - cambio_retenido`).
+- Ninguna otra página asume que un retiro o subrubro "Solo Admin" ingresa a un turno operativo.
+
+### 3. Comprobación del botón ? en navegador real (Chrome CDP)
+Se ejecutó el script [`docs/06-pruebas/PRU-04/evidencia-t12-t13/comprobar-signo-pregunta-t96-t97-t102.mjs`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t12-t13/comprobar-signo-pregunta-t96-t97-t102.mjs) interactuando con Chrome headless y haciendo clic real sobre `a[aria-label="Ayuda sobre esta pantalla"]`:
+
+| Rol | Pantalla probada | Destino alcanzado | Título | Resultado |
+|---|---|---|---|---|
+| Admin | `/tipos-caja` (T96) | `/ayuda/administrar-tipos-caja` | Administrar las cuentas (tipos de caja) – Ayuda Wings | **PASS** |
+| Admin | `/caja/configuracion` (T96) | `/ayuda/configurar-mostrador` | Cargar el saldo inicial de Efectivo – Ayuda Wings | **PASS** |
+| Admin | `/configuraciones` | `/ayuda/configurar-parametros` | Configurar los parámetros del club – Ayuda Wings | **PASS** |
+| Admin | `/cashflow/transferencia` (T97) | `/ayuda/transferir-entre-cuentas` | Transferir entre medios propios – Ayuda Wings | **PASS** |
+| Admin | `/cashflow` (T97) | `/ayuda/corregir-movimiento-caja-validada` | Corregir un movimiento mal cargado en una caja ya validada – Ayuda Wings | **PASS** (*) |
+| Admin | `/niveles` (T102) | `/ayuda/administrar-niveles` | Administrar los niveles – Ayuda Wings | **PASS** |
+| Admin | `/grupos` (T102) | `/ayuda/administrar-grupos` | Crear y administrar grupos y sus precios – Ayuda Wings | **PASS** |
+| Operativo | `/caja/apertura` (T96) | `/ayuda/abrir-caja` | Abrir el turno de caja – Ayuda Wings | **PASS** |
+| Profesor | `/clases` | `/ayuda/consultar-mis-clases` | Ver mis clases de hoy y de otros días – Ayuda Wings | **PASS** |
+
+(*) *Nota de observación:* En `/cashflow` (`resources/views/cashflow/index.blade.php:5`), la vista declara `@section('ayuda-slug', 'corregir-movimiento-caja-validada')`. Por ende, el botón `?` conduce a esa guía de corrección. Si a futuro se desea que conduzca a `consultar-cashflow` (que también declara `pantalla: /cashflow`), bastaría ajustar la sección Blade en una tarea posterior autorizada. En el comportamiento actual, el enlace funciona al 100% y abre una guía autorizada que el rol Admin puede leer sin error.
+
+Capturas guardadas en `docs/06-pruebas/PRU-04/evidencia-t12-t13/`:
+- `signo-pregunta-sv-admin-tipos-caja.png`
+- `signo-pregunta-sv-admin-configurar-mostrador.png`
+- `signo-pregunta-sv-admin-configuraciones.png`
+- `signo-pregunta-sv-admin-transferencia.png`
+- `signo-pregunta-sv-admin-cashflow.png`
+- `signo-pregunta-sv-admin-niveles.png`
+- `signo-pregunta-sv-admin-grupos.png`
+- `signo-pregunta-sv-operativo-abrir-caja.png`
+- `signo-pregunta-sv-profesor-clases.png`
+
+### 4. Certificación de las tres capturas revisadas
+1. `operativo/consultar-movimientos-paso3.png`:
+   - *Comprobado:* La imagen contiene efectivamente la columna `Registró` incorporada por T101. El rubro «Gastos Menores» que aparece en la fila corresponde únicamente al fixture de ejemplo empleado durante la captura, no a una discrepancia de la interfaz. La captura es válida.
+2. `operativo/cobrar-cuota-paso2.png`:
+   - *Comprobado:* Las vistas `caja/cobrar.blade.php` y `caja/cobrar-cuota.blade.php` no sufrieron modificaciones desde `d797d0b5`. La captura es válida.
+3. `admin/primera-carga-descargar-plantilla-paso2.png`:
+   - *Comprobado:* Las vistas del módulo `primera-carga` no sufrieron modificaciones desde `d797d0b5`. La captura es válida.
+
+### 5. Galería de aprobación (`APROBAR-T12-T13-T94-T109.html`)
+- *Comprobado:* Las secciones para `registrar-gasto-caja.md` (líneas 26-28) y `dinero-del-dueno-retiros-aportes.md` (líneas 29-49) reflejan textualmente el contenido vigente de ambas páginas, incluyendo las advertencias sobre retiros por Cashflow y faltantes en turno.
+
+### 6. Ejecución de comandos del manual
+- `php scripts/manual/verificar-manual.php` -> **59 páginas revisadas, 0 problemas**.
+- `php artisan test tests/Feature/AyudaManualT12T13Test.php` -> **20 passed (111 assertions)**.
+- `php artisan test tests/Feature/AyudaBotonPorRolTest.php` -> **3 passed (8 assertions)**.
+- `php artisan test tests/Feature/DocumentacionNoMienteTest.php` -> **1 passed (7 assertions)**.
+
+### Conclusión de la segunda vuelta
+Las páginas corregidas reflejan fielmente el comportamiento real de Wings. No existen contradicciones con el código ni con las demás páginas del manual.
+**T12 y T13 quedan listas para la aprobación de Carlos.**

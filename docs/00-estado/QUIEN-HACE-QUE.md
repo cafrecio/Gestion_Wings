@@ -28,16 +28,16 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 01/11/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 02/11/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
-| **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Hernan figura 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Mariela no se pudo reproducir: el valor hora no se muestra en diciembre porque Patin paso a comision (error del guion 53.7). Se retrata en 55.4. |
-| **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Sin empezar | Decidir: propuesta avisar o rechazar un periodo futuro antes del 2/1/2027. No mueve plata y se elimina. Probado en la copia, simulacion/tanda-5/ano.php. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
 | **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude) | Reparada: serie, medio inactivo y deporte, sin desplegar. 8 pruebas, 13 mutaciones. Decidir quien controla: propongo Codex. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
@@ -50,6 +50,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | En curso | Carlos 01/11: hacerlo. Rechazar un mes que todavia no empezo. |
 | **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude |
 | **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
@@ -62,16 +63,15 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Claude, verifica Gemini) | Segunda vuelta de control tras corrección de retiros del dueño por Claude |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Claude, verifica Gemini) | Segunda vuelta de control tras corrección de retiros del dueño por Claude |
+| **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | En curso | Implementar Desvalidar según PROMPT-GEMINI-T113.md |
 
-## Sin empezar (11)
+## Sin empezar (10)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después), T113 (antes de producción).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
 
-## Mejoras futuras, no se empiezan ahora (13)
+## Mejoras futuras, no se empiezan ahora (14)
 
-MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después), MF14 (después), MF15 (después).
+MF6 (ahora), MF1, MF2, MF3, MF4, MF5, MF7, MF10, MF11, MF8 (después), MF9 (después), MF14 (después), MF15 (después), MF16 (después).
 
 ## De otros proyectos, no es pendiente de Wings (1)
 
