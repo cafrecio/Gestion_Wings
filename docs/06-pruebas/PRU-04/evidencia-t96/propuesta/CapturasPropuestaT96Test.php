@@ -83,9 +83,9 @@ class CapturasPropuestaT96Test extends TestCase
         $parte = Blade::render(<<<'BLADE'
 <div class="filtros-card">
     @if($editable)
-    <p class="text-sm text-wings-muted mb-4">Indicá cuánto efectivo tiene el club hoy. Después del primer movimiento de la cuenta, este saldo no se puede cambiar.</p>
+    <p class="text-sm text-wings-muted mb-4">Indicá cuánto efectivo tiene el club hoy. Una vez guardado no se puede cambiar: cualquier ajuste posterior se hace con un movimiento.</p>
     @else
-    <p class="text-sm text-wings-muted mb-4">Efectivo ya tiene movimientos: su saldo inicial no se puede cambiar. Se ajusta con un movimiento.</p>
+    <p class="text-sm text-wings-muted mb-4">Efectivo ya tiene movimientos: su saldo inicial no se puede cambiar. Cualquier ajuste se hace con un movimiento.</p>
     @endif
     <form method="POST" action="#">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -123,6 +123,15 @@ BLADE, compact('editable', 'saldo', 'etiqueta'));
             '<input type="text" id="nombre" readonly$1><p class="text-xs mt-1 text-wings-muted">El nombre de esta cuenta no se puede cambiar.</p>',
             $html, 1, $cambios
         );
+        $this->assertSame(1, $cambios);
+
+        // El saldo de Efectivo ya guardado se ve igual que el de una cuenta con historial.
+        $saldo = Blade::render(
+            '<x-ds.money-input id="saldo_inicial" :value="2310000" readonly /><p class="text-xs mt-1 text-wings-muted">Se ajusta con un movimiento, no editando el saldo inicial.</p>'
+        );
+        $nuevo = preg_replace('#<div class="money-input-wrap[^"]*">.*?</div>#s', $saldo, $nuevo, 1, $cambios);
+        $this->assertSame(1, $cambios);
+        $nuevo = preg_replace('#(Saldo inicial\s*)<span class="form-required">\*</span>#', '$1', $nuevo, 1, $cambios);
         $this->assertSame(1, $cambios);
 
         return str_replace(' required autofocus', '', $nuevo);

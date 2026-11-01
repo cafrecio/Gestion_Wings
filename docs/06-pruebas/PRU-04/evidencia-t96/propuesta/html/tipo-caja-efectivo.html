@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="wwGAkYJWMB8qHbzw7frOmsOF6N4OolrbOO0ui6R8">
+    <meta name="csrf-token" content="p1tvtMHm5CzNi1BPeU2vQCU2ccIwCyElJTIbNX8j">
     <title>Editar Tipo de Caja – Efectivo</title>
     <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
@@ -236,7 +236,7 @@
                             <span style="font-weight:700; font-size:1.15rem; line-height:1; display:inline-block; transform:translateY(-1px);">?</span>
                         </a>
                                         <form method="POST" action="http://gestion-wings/logout">
-                        <input type="hidden" name="_token" value="wwGAkYJWMB8qHbzw7frOmsOF6N4OolrbOO0ui6R8" autocomplete="off">                        <button class="ds-btn ds-btn--ghost"
+                        <input type="hidden" name="_token" value="p1tvtMHm5CzNi1BPeU2vQCU2ccIwCyElJTIbNX8j" autocomplete="off">                        <button class="ds-btn ds-btn--ghost"
             type="submit"
             >
 
@@ -263,7 +263,7 @@
             
             <div class="filtros-card">
     <form method="POST" action="http://gestion-wings/tipos-caja/1">
-        <input type="hidden" name="_token" value="wwGAkYJWMB8qHbzw7frOmsOF6N4OolrbOO0ui6R8" autocomplete="off">        <input type="hidden" name="_method" value="PUT">        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="hidden" name="_token" value="p1tvtMHm5CzNi1BPeU2vQCU2ccIwCyElJTIbNX8j" autocomplete="off">        <input type="hidden" name="_method" value="PUT">        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
     
     <div>
@@ -316,23 +316,24 @@
     <div class="md:col-span-2">
         <label for="saldo_inicial" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
-            Saldo inicial <span class="form-required">*</span>        </label>
+            Saldo inicial         </label>
                 <div class="money-input-wrap ">
         <span class="money-prefix" aria-hidden="true">$</span>
         <input
         type="text"
-         id="saldo_inicial"          name="saldo_inicial"         value="2,310,000.00"
+         id="saldo_inicial"                 value="2,310,000.00"
         placeholder="0"
         inputmode="decimal"
         autocomplete="off"
         data-money="true"
-        required
         
         
+        readonly
         min="0"
                 class="w-full py-2.5 text-sm wings-input money-input"
     >
 </div>
+<p class="text-xs mt-1 text-wings-muted">Se ajusta con un movimiento, no editando el saldo inicial.</p>
                     </div>
 
     
