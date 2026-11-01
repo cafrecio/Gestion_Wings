@@ -1,0 +1,8 @@
+campo {"v":"12345","type":"text","valido":true}
+-> PATCH /configuraciones/inscripcion_importe
+<- 419 /configuraciones/inscripcion_importe
+DIALOGO beforeunload hasBrowserHandler=true
+respondido false
+url /configuraciones
+estado {"boton":true,"campo":true,"v":"12345.00","error":"\n            \n        ","resumenOculto":true}
+aviso false

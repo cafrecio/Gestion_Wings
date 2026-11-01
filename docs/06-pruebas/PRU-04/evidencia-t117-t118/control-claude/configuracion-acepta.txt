@@ -1,0 +1,12 @@
+campo {"v":"12345","type":"text","valido":true}
+-> PATCH /configuraciones/inscripcion_importe
+<- 419 /configuraciones/inscripcion_importe
+DIALOGO beforeunload hasBrowserHandler=true
+respondido true
+-> GET /login
+<- 200 /login
+-> GET /site.webmanifest
+<- 200 /site.webmanifest
+url /login
+estado sin form
+aviso true

@@ -1,0 +1,12 @@
+sin mutar: Tests:    7 passed (29 assertions)
+M1 sin el JSON del 419 => Tests:    1 failed, 6 passed (26 assertions)
+M2 el 419 de api va al ingreso => Tests:    1 failed, 6 passed (26 assertions)
+M3 sin el aviso guardado => Tests:    1 failed, 6 passed (27 assertions)
+M4 Revisión strtoupper => Tests:    1 failed, 6 passed (28 assertions)
+M5 detalle strtoupper => Tests:    1 failed, 6 passed (28 assertions)
+M6 detalle substr => Tests:    1 failed, 6 passed (28 assertions)
+M7 movimientos substr => Tests:    1 failed, 6 passed (28 assertions)
+M8 movimientos strlen => Tests:    7 passed (29 assertions)
+M9 tipo de caja, alta => Tests:    7 passed (29 assertions)
+M10 tipo de caja, edición => Tests:    7 passed (29 assertions)
+fin mutaciones

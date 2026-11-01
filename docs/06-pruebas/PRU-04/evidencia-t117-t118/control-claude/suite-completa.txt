@@ -1,0 +1,6 @@
+  Tests:    6 skipped, 1497 passed (11731 assertions)
+  Duration: 1589.03s
+
+Inicio 20:18:58
+codigo 0
+20:45:28

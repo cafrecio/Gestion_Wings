@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md) · [Entradas archivadas el 31/10](../99-archivo/bitacoras/2026-10-31/LOG-CLAUDE.md)
 
+## 2026-11-01 — Claude CAB — T117 y T118 controladas: vuelven a Gemini
+
+- Navegador real, 10 mutaciones y completa en copia de `fe1cddc6`: 1.497 aprobadas, 0 fallidas, 6 omitidas. [Verificación](../06-pruebas/PRU-04/VERIFICACION-T117-T118-CLAUDE.md), [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md).
+- La sesión vencida funciona. Configuración se traba si la persona cancela el aviso de salida. Con la cuenta desactivada no hay aviso, y el informe decía que sí: arreglarlo lo decide Carlos (`ACC-005 a`).
+- T118 se ve bien; faltan 3 pruebas. El sembrador de Gemini borra la base que encuentre.
+- Mi reserva tenía la palabra LIBERADA en otra línea y otra sesión la tomó como liberada: reescrita, y el control repetido entero.
+
 ## 2026-11-01 — Claude CAB — T82: hallazgos de Codex corregidos
 
 - H1, H2 y H4 en `ensayo-restauracion.sh`: compara la plata de liquidaciones, el código de salida dice la verdad, limpia en cualquier salida y no toca el `rclone.conf` real. Corrido en el VPS: prueba 75 s, producción 53 s y dos fallas provocadas; sin restos. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md).

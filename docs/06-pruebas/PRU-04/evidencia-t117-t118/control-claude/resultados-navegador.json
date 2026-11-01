@@ -1,0 +1,90 @@
+[
+  {
+    "caso": "A cuenta desactivada + Guardar lista",
+    "url": "/login",
+    "avisos": [],
+    "asistencias": "[{\"n\":0}]"
+  },
+  {
+    "caso": "B cuenta desactivada + Cobrar",
+    "url": "/login",
+    "avisos": [],
+    "pagos": "[{\"n\":0}]"
+  },
+  {
+    "caso": "B2 cuenta desactivada + navegar",
+    "url": "/login",
+    "avisos": [
+      "Tu cuenta fue desactivada."
+    ]
+  },
+  {
+    "caso": "C vencida con cookie + Cobrar",
+    "url": "/login",
+    "avisos": [
+      "Tu sesión expiró. Iniciá sesión nuevamente."
+    ],
+    "pagos": "[{\"n\":0}]",
+    "movAntes": "[{\"n\":2}]",
+    "movDespues": "[{\"n\":2}]"
+  },
+  {
+    "caso": "D vencida + Guardar lista escritorio",
+    "url": "/login",
+    "avisos": [
+      "Tu sesión expiró. Iniciá sesión nuevamente."
+    ],
+    "asistencias": "[{\"n\":0}]"
+  },
+  {
+    "caso": "E vencida + Cambiar profesoras",
+    "url": "/login",
+    "avisos": [
+      "Tu sesión expiró. Iniciá sesión nuevamente."
+    ],
+    "antes": "[{\"n\":0}]",
+    "despues": "[{\"n\":0}]"
+  },
+  {
+    "caso": "F vencida + Estado de profesora",
+    "url": "/login",
+    "avisos": [
+      "Tu sesión expiró. Iniciá sesión nuevamente."
+    ],
+    "profesorActivo": "[{\"activo\":1}]",
+    "despues": "[{\"activo\":1}]"
+  },
+  {
+    "caso": "G vencida + Configuración, aviso de salida cancela",
+    "campo": "inscripcion_importe",
+    "url": "/configuraciones",
+    "dialogos": [],
+    "avisos": [],
+    "trabado": "{\"boton\":false,\"campo\":false}",
+    "resumen": true
+  },
+  {
+    "caso": "G vencida + Configuración, aviso de salida acepta",
+    "campo": "inscripcion_importe",
+    "url": "/configuraciones",
+    "dialogos": [],
+    "avisos": [],
+    "trabado": "{\"boton\":false,\"campo\":false}",
+    "resumen": true
+  },
+  {
+    "caso": "H vencida + GET sin encabezados",
+    "tipo": "navegó: Inspected target navigated or closed",
+    "url": "/login",
+    "avisos": []
+  },
+  {
+    "caso": "I vencida + GET con Accept JSON",
+    "g401": "{\"status\":401,\"cuerpo\":\"{\\\"success\\\":false,\\\"error\\\":{\\\"code\\\":\\\"UNAUTHENTICATED\\\"}}\"}",
+    "url": "/alumnos"
+  },
+  {
+    "caso": "J reingreso de profesora",
+    "url": "/clases"
+  }
+]
