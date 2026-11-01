@@ -1,0 +1,45 @@
+{
+    "fecha_medicion": "2026-11-01 07:58:28",
+    "cuota_normal": {
+        "bytes_sin": 1698121,
+        "kb_sin": 1658.3,
+        "ms_sin": 3829.2,
+        "bytes_con": 220330,
+        "kb_con": 215.2,
+        "ms_con": 5104.7,
+        "ahorro_porc": 87
+    },
+    "cuota_anulada": {
+        "bytes_sin": 1700328,
+        "kb_sin": 1660.5,
+        "ms_sin": 5253.1,
+        "bytes_con": 223775,
+        "kb_con": 218.5,
+        "ms_con": 6093.6,
+        "ahorro_porc": 86.8
+    },
+    "liquidacion_hora": {
+        "bytes_sin": 1704453,
+        "kb_sin": 1664.5,
+        "ms_sin": 5309.6,
+        "bytes_con": 229471,
+        "kb_con": 224.1,
+        "ms_con": 5311.8,
+        "ahorro_porc": 86.5
+    },
+    "liquidacion_comision": {
+        "bytes_sin": 1704222,
+        "kb_sin": 1664.3,
+        "ms_sin": 5051.7,
+        "bytes_con": 230031,
+        "kb_con": 224.6,
+        "ms_con": 5151.7,
+        "ahorro_porc": 86.5
+    },
+    "mediciones_cobro": {
+        "cobro_sin_recibo_inyectado_ms": 77.7,
+        "cobro_con_recibo_inyectado_ms": 71.9,
+        "generacion_pdf_primera_vez_ms": 4203.6,
+        "consulta_pdf_cacheado_ms": 7.92
+    }
+}

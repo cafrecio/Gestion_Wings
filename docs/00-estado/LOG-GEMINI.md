@@ -11,6 +11,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T105: Verificación de recorte de fuentes en recibos y medición de cobros (cerrada sin hallazgos)
+
+- **Objetivo:** Ejecutar el control independiente de T105 (activación de `enable_font_subsetting` en `config/dompdf.php`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.
+- **Acciones y resultados ([VERIFICACION-T105-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T105-GEMINI.md)):**
+  1. **Ahorro de peso en 4 tipos de recibos comprobado:**
+     - Cuota normal: 1.658,3 KB → 215,2 KB (-87,0%).
+     - Cuota anulada: 1.660,5 KB → 218,5 KB (-86,8%).
+     - Liquidación por hora: 1.664,5 KB → 224,1 KB (-86,5%).
+     - Liquidación por comisión: 1.664,3 KB → 224,6 KB (-86,5%).
+  2. **Integridad tipográfica y de contenido (100% idénticos):**
+     - Descompresión e inspección de flujos `/Contents`: flujos de páginas 100% idénticos byte a byte entre la versión original y la recortada.
+     - Presencia perfecta de caracteres acentuados (á, é, í, ó, ú), eñes (ñ, Ñ) y caracteres especiales ($, –, ·, /, :, ,, ., %). El recorte solo descarta glifos TrueType no utilizados en `/FontFile2`.
+  3. **Discrepancia de tiempos resuelta (72 ms vs ~4 s):**
+     - La generación del PDF es *perezosa* (lazy): `PagoCuotaService::__construct` define `?ReciboService $reciboService = null`. Al resolverse por inyección de dependencias de Laravel sin binding contextual, recibe `null` y omite la compilación del PDF durante `registrarPagoCuotaOperativo`. El cobro tarda ~72–78 ms de pura base de datos.
+     - La generación real del PDF ocurre al consultar la URL `/recibos/cuota/{id}`: tarda ~4.200 ms la primera vez (compilación DomPDF) y 7,9 ms en descargas posteriores desde caché en disco.
+  4. **Pruebas y suite:** 2 pruebas de `ReciboPesoT105Test` aprobadas; suite rápida en `wings_testing_gemini` en ejecución.
+- **Tablero y próximo paso:** T105 cerrada (`hizo=Claude`, `verifica=Gemini`, `tiene=nadie`). Sigue Etapa 3 (T109).
+
 ## 2026-11-01 — LOG GEM CAB — T101: Control de gasto del dueño en turno de operativa (cerrada sin hallazgos)
 
 - **Objetivo:** Ejecutar el control independiente de T101 (implementada por Claude en commit `0805d759`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.

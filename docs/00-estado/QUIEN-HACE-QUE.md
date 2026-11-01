@@ -57,13 +57,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Codex la controla, etapa 3, con PROMPT-CODEX-T102-CONTROL.md. Sin desplegar. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude, verifica Codex) | Codex controla etapa 3, niveles y grupos con importes historicos. Solo wings_testing_codex; completa unica reservada al final. |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude, verifica Gemini) | Gemini inicia mediciones y control de T105 |
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
 | **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el filtro invalido en la direccion se ignora (41 errores a 0 en 3.876 pedidos) y el recibo inexistente muestra la pantalla comun. 12 pruebas y 8 mutaciones detectadas. La controla Gemini, etapa 3 de PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
