@@ -2,7 +2,7 @@
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
-T95, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10). T96 devuelta por Gemini: cambiar la cuenta del cajón con cambio retenido corre ese importe de cuenta en Cashflow ([informe](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI.md)). Decisión de Carlos, 01/11, reemplaza DU-59: un solo cajón, en Efectivo, sin poder cambiar la cuenta; el dueño carga una vez el saldo inicial y los ajustes se hacen con un movimiento «Ajuste de saldo» ([capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html)). Implementada, la controla Gemini ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T96-SEGUNDA-VUELTA.md)); sin desplegar. Un cajón por cajero queda como MF15. Sigue: T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
+T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. Sigue: T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
 
 ## T14 — Tanda 4 (días 41 a 47) revisada, con su prueba técnica — Claude CAB, 31/10/2026
 

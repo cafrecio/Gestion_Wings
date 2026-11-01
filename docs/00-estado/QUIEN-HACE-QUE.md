@@ -64,9 +64,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Implementada por Claude 01/11, decisión de Carlos (reemplaza DU-59): cuenta fija Efectivo, el dueño carga una vez el saldo inicial, ajustes con movimiento Ajuste de saldo. Aspecto aprobado (APROBAR-T96-PROPUESTA.html). Suite completa 1328 aprobadas, 6 omitidas, 0 fallidas. La controla Gemini: PROMPT-GEMINI-T96-SEGUNDA-VUELTA.md. Sin desplegar. |
+Nada en este momento.
 
 ## Sin empezar (12)
 
