@@ -55,9 +55,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidas 01/11 las dos frases de la ficha que devolvio Codex. Plata, manual y textos ya controlados. Codex las lee: PROMPT-CODEX-T100-TERCERA-VUELTA.md. |
+Nada en este momento.
 
 ## Gemini
 

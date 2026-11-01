@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T100 cerrada, tercera vuelta documental
+
+Lectura exclusiva de las dos frases de la ficha corregidas en7713bf9b, líneas18 y31, contra PagoCuotaService1256–1275 y mi propuesta.
+Inferido: ambas incluyen la excepción del adelanto que se deshace; H1 residual resuelto. [Resultado al final del informe](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md).
+T100 cerrada, verificaCodex, tiene nadie. Estado/resumen sincronizados; los resultados anteriores conservan fecha y alcance.
+No se repitieron controles, no se ejecutó suite ni se tocaron producto, ficha, vistas o catálogo. Sin despliegue.
+Sigue el trabajo vigente de Carlos; esta lectura no ejecuta ni sustituye otros controles.
+
 ## 2026-11-01 — Codex CAB — T82 controlada y devuelta
 
 Restauración original: producción desde Drive01/11_0315 en40s y prueba117 alumnos/229 pagos en59s; código0 en ambos, pese a liquidaciones mal comparadas.

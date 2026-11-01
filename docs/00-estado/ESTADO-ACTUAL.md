@@ -6,7 +6,7 @@
 
 ## Segunda vuelta T100/T102 — Codex CAB, 01/11/2026
 
-**T102 cerrada por Codex en segunda vuelta.** S1: mismo reproductor T100→Carrera T94→Claude T94, 3/6 verde. S2 sola, 2/23; diagnóstico 1/9 guarda el alta y no vuelve a Primera carga. Nivel actual inactivo y manual comprobados en navegador. Única completa del corte1f0af02f: **1479 aprobadas, 0 fallidas, 6 omitidas,11614 aserciones,1311.52s,salida0**;878 fuentes intactas y244 muestras sin otra suite. [Informe](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md), sección Segunda vuelta. La completa roja anterior conserva su evidencia histórica. T100 devuelta solo por H1 residual de ficha; T106 cerrada. Reserva LIBERADA, solo wings_testing_codex, sin producto/catalogo/despliegue.
+**T102 cerrada por Codex en segunda vuelta.** S1: mismo reproductor T100→Carrera T94→Claude T94, 3/6 verde. S2 sola, 2/23; diagnóstico 1/9 guarda el alta y no vuelve a Primera carga. Nivel actual inactivo y manual comprobados en navegador. Única completa del corte1f0af02f: **1479 aprobadas, 0 fallidas, 6 omitidas,11614 aserciones,1311.52s,salida0**;878 fuentes intactas y244 muestras sin otra suite. [Informe](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md), sección Segunda vuelta. La completa roja anterior conserva su evidencia histórica. T100 cerrada en tercera vuelta documental (Inferido); T106 cerrada. Reserva LIBERADA, solo wings_testing_codex, sin producto/catalogo/despliegue.
 
 ## T106 — Control Codex CAB, 01/11/2026
 
@@ -14,7 +14,7 @@
 
 ## T100 — Control Codex CAB, 01/11/2026
 
-**T100 devuelta a Claude solo por H1 residual de la ficha de fuentes.** Segunda vuelta: manual incluye las protecciones de la función; tres paneles y ambos avisos comprobados por navegador. H2 resuelto; el aviso de anulación se leyó en la salida de Chrome, su captura posterior ya no lo conserva (límite explícito). En la ficha quedan dos generalizaciones de pendiente, líneas18 y31. Manual59/0 y completa1479/0fallos/6omitidas,salida0. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md), sección Segunda vuelta. No se repitieron los once casos monetarios ni la migración. Sin producto, catálogo, base del club ni despliegue.
+**T100 cerrada por Codex, tercera vuelta documental del01/11 (Inferido).** Las dos frases de la ficha corregidas en7713bf9b incluyen «salvo el adelanto que se deshace» y coinciden con PagoCuotaService1256–1275 y la propuesta de segunda vuelta. H1 residual resuelto. [Informe](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md), sección Tercera vuelta. No se repitió ningún control ni se ejecutó suite. Los controles de negocio/pantalla y la completa anteriores conservan sus cortes y límites; sin producto ni despliegue.
 
 ## T109 — Claude CAB, 01/11/2026
 
@@ -28,11 +28,11 @@
 
 ## T14 — Tanda 5 (días 48 a 57) simulada, sin entregar — Claude CAB, 01/11/2026
 
-Carlos sumó los días 55, 56 y 57, cambió Natación por Hockey y decidió: **con estos resultados se despliega en producción.** [Guion](../06-pruebas/PRU-04/GUION-DIAS-48-57.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-57.md). Diez días corridos sobre la copia del sitio al 25/11 con `main`; plata comparada a mano, después de correr, al peso. Al 5/12: deuda $783.500, disponible $7.677.080,25, Revisión 0, 2 Deudores. **Antes de entregarlo:** terminar T100, desplegar y probar la rutina en el sitio. Defectos anunciados: T110 a T112 (después de producción) y T113 y T114 (sin decisión). La primera carga sí está probada ([P1](../06-pruebas/PRU-02/VERIFICACION-P1.md) y T4): la planilla solo cuenta lo recorrido dentro de los días. Paso de año, probado en la copia: generación, 14 pantallas y adelantos bien; una trampa en Nueva liquidación (T115).
+Carlos sumó los días 55, 56 y 57, cambió Natación por Hockey y decidió: **con estos resultados se despliega en producción.** [Guion](../06-pruebas/PRU-04/GUION-DIAS-48-57.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-57.md). Diez días corridos sobre la copia del sitio al 25/11 con `main`; plata comparada a mano, después de correr, al peso. Al 5/12: deuda $783.500, disponible $7.677.080,25, Revisión 0, 2 Deudores. **Antes de entregarlo:** T100 ya cerrada por lectura; quedan desplegar y probar la rutina en el sitio. Defectos anunciados: T110 a T112 (después de producción) y T113 y T114 (sin decisión). La primera carga sí está probada ([P1](../06-pruebas/PRU-02/VERIFICACION-P1.md) y T4): la planilla solo cuenta lo recorrido dentro de los días. Paso de año, probado en la copia: generación, 14 pantallas y adelantos bien; una trampa en Nueva liquidación (T115).
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
-T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. T94 y T97 cerradas; T104 cerrada como repetida de T60. T102 cerrada en segunda vuelta; sigue Claude con H1 residual de T100 (responsables en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
+T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. T94 y T97 cerradas; T104 cerrada como repetida de T60. T102 cerrada en segunda vuelta; T100 cerrada en tercera vuelta documental (responsables en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
 
 ## T14 — Tanda 4 (días 41 a 47) revisada, con su prueba técnica — Claude CAB, 31/10/2026
 

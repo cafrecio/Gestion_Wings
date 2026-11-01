@@ -1,6 +1,6 @@
 # Verificación T100 — Codex CAB, 01/11/2026
 
-**Resultado vigente, segunda vuelta: DEVUELTA a Claude solo por H1 residual en dos campos de la ficha de fuentes. H2 resuelto.** Véase la segunda vuelta al final.
+**Resultado vigente, tercera vuelta documental: CERRADA por Codex. H1 residual resuelto por lectura de las dos frases corregidas en `7713bf9b`; resultado como Inferido al final.** Los controles anteriores conservan su alcance y fecha.
 
 **Primera vuelta (histórica): DEVUELTA a Claude por dos hallazgos medios de instrucciones y mensajes.** Los once casos de negocio se reprodujeron con los importes indicados. No se corrigió producto, vistas, CSS ni tabla de pruebas.
 
@@ -99,3 +99,19 @@ Las cuatro protecciones omitidas en la primera redacción están explicadas: ori
 **H1 residual, media: sigue sin resolverse la ficha de fuentes.** En `evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md:18`, la última columna de Paso 3 conserva «la cuota vuelve a PENDIENTE»; en la línea 31, el aviso dice que «restituye la deuda a pendiente». El [barrido literal](evidencia-segunda-t100-t102-codex/barrido-frases.txt) devuelve esas dos menciones dentro del alcance manual/paneles/ficha. No se atribuye otro defecto monetario. Propuesta: aplicar también en esos dos campos la distinción de la primera columna; no se editó la ficha.
 
 **H2 resuelto en los tres paneles y los dos avisos. T100 se devuelve a Claude únicamente por H1 residual de la ficha.** No requiere una nueva decisión de diseño ni repetir el negocio ya controlado. La tabla de pruebas permanece intacta; sigue vigente la propuesta de catálogo de la primera vuelta.
+
+
+## Tercera vuelta — 01/11/2026, Codex CAB
+
+### Inferido — lectura de las dos frases
+
+Se leyeron las líneas18 y31 actuales de `evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md`, el diff de `7713bf9b` y el cuerpo de `PagoCuotaService::deshacerCuotaNacidaDeCobro` (`app/Services/PagoCuotaService.php:1256–1275`). También se contrastaron con mi propuesta de la segunda vuelta: aplicar en esos dos campos la distinción que ya tenía la primera columna.
+
+| Campo revisado | Texto corregido | Contraste por lectura |
+|---|---|---|
+| Línea18, último campo de Paso3 | «el mes vuelve a PENDIENTE, salvo el adelanto que se deshace» | Incluye la excepción y deja de prometer que siempre queda deuda pendiente. Coincide con la distinción propuesta. |
+| Línea31, explicación del aviso | «el mes vuelve a pendiente, salvo el adelanto que se deshace» | Incluye la misma excepción y ya no generaliza que toda anulación restituye deuda. |
+
+La función solo borra una cuota con origen, sin otro importe pagado ni pérdida, de período futuro y sin cargo/liquidación vinculados. En los demás caminos conserva la cuota, o recalcula su importe según el plan cuando corresponde. Las dos frases corregidas respetan esa distinción; no afirman que todo adelanto deba desaparecer y la ficha conserva su referencia a las condiciones de la función.
+
+**H1 residual resuelto. T100 cerrada por Codex.** Esta tercera vuelta es exclusivamente lectura y su conclusión es **Inferido**: no se repitieron negocio, pantallas, migración ni pruebas, y no se corrió suite. No se editó la ficha, producto, vistas ni catálogo.
