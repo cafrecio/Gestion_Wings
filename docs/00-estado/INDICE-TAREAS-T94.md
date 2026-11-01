@@ -4,7 +4,7 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
-| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | Devuelta a Gemini por el control de Claude (`PRU-04/VERIFICACION-T94-CLAUDE.md`). Lo central anda; faltan 5 correcciones. T102 ya subió: el prompt se puede pasar. |
+| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | Devuelta a Gemini por el control de Claude (`PRU-04/VERIFICACION-T94-CLAUDE.md`). Gemini está haciendo las 5 correcciones; después la controla Claude. |
 | **T97** | Una transferencia entre cuentas no se puede corregir ni anular. | Codex la está haciendo, con tu OK visual. Después la controla Claude. |
 | **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | Hecha por Claude: cancelar borra la cuota nacida de ese cobro (Carlos eligió, 01/11). Falta el control de Codex, después de T97. |
 | **T101** | Un gasto que carga el dueño en el turno de una operativa queda a nombre de ella. | Hecha por Claude: ahora figura a nombre de quien lo cargó. La controla Codex junto con T100, después de T97. |
