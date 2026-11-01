@@ -36,7 +36,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
-| **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Sin empezar | Decidir: antes o despues de produccion. CLA-024 lo describe desde el 13/10; la clase validada se paga en la proxima liquidacion. Se retrata en 56.8. |
 | **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Hernan figura 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Mariela no se pudo reproducir: el valor hora no se muestra en diciembre porque Patin paso a comision (error del guion 53.7). Se retrata en 55.4. |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Sin empezar | Decidir: propuesta avisar o rechazar un periodo futuro antes del 2/1/2027. No mueve plata y se elimina. Probado en la copia, simulacion/tanda-5/ano.php. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
@@ -63,12 +62,12 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
+| **T12** Manual del usuario: contenido por tarea y por rol | En curso (hizo Claude, verifica Gemini) | Segunda vuelta de control tras corrección de retiros del dueño por Claude |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | En curso (hizo Claude, verifica Gemini) | Segunda vuelta de control tras corrección de retiros del dueño por Claude |
 
-## Sin empezar (10)
+## Sin empezar (11)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después), T113 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 
