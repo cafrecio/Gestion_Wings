@@ -57,7 +57,8 @@ final class ImportesT24
         $this->liquidacion = Liquidacion::create(['profesor_id' => $this->profesor->id, 'mes' => 10, 'anio' => 2026,
             'tipo' => 'COMISION', 'total_calculado' => '48000.50', 'porcentaje_comision_aplicado' => 20,
             'estado' => 'ABIERTA', 'estado_pago' => 'PENDIENTE']);
-        app(CajaService::class)->configurarMostrador($this->medio->id, $this->admin->id);
+        // T96: la cuenta del cajón ya no edita su saldo, y este caso prueba justamente esa edición.
+        if ($caso !== 'medio-editar') app(CajaService::class)->configurarMostrador($this->medio->id, $this->admin->id);
         if ($caso !== 'apertura') {
             $this->caja = CajaDeclarada::crear($this->operativo->id, $this->medio->id);
             $this->caja->update(['efectivo_inicial' => '48000.50']);

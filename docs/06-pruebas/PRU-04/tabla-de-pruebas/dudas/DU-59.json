@@ -3,7 +3,7 @@
     "CAJ-002"
   ],
   "codigo": "DU-59",
-  "contexto": "Se elige una sola vez y hoy no se puede cambiar nunca. En DU-16 elegiste solo impedir que se desactive. Queda este caso: si se eligió mal (por ejemplo «Banco» en vez de «Efectivo»), no hay forma de corregirlo desde el sistema.",
+  "contexto": "Se elige una sola vez y hoy no se puede cambiar nunca. En DU-16 elegiste solo impedir que se desactive. Queda este caso: si se eligió mal (por ejemplo «Banco» en vez de «Efectivo»), no hay forma de corregirlo desde el sistema. Reemplazada por decisión de Carlos el 01/11/2026 (T96): la cuenta del cajón es siempre Efectivo, no se elige ni se cambia, y el dueño solo carga su saldo inicial una vez.",
   "modulo": "Caja",
   "opciones": [
     "Sí, pero solo cuando no hay ninguna caja abierta",

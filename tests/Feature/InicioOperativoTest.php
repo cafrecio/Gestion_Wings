@@ -50,7 +50,7 @@ class InicioOperativoTest extends TestCase
         ]);
 
         $this->tipoEfectivo = TipoCaja::first();
-        $this->actingAs($this->admin)->post('/caja/configuracion', ['tipo_caja_id' => $this->tipoEfectivo->id]);
+        $this->actingAs($this->admin)->post('/caja/configuracion', ['saldo_inicial' => '0']);
     }
 
     protected function tearDown(): void

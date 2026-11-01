@@ -29,13 +29,26 @@ Un tipo de caja es cada lugar donde el club tiene plata: el efectivo, una cuenta
 
 - **Editar** en la tarjeta cambia nombre, abreviatura, descripción y descubierto. El **Saldo inicial** solo se puede cambiar mientras la cuenta no tenga ningún movimiento, ni siquiera uno cancelado.
 - **Desactivar** en la tarjeta la saca de uso; **Activar** la vuelve a habilitar.
+- **Efectivo** es la cuenta del cajón: no se le puede cambiar el nombre ni desactivar. Su saldo inicial se carga una sola vez. Ver *Cargar el saldo inicial de Efectivo*.
+
+---
+
+## Ajustar el saldo de una cuenta
+
+Cuando el saldo de una cuenta no coincide con la realidad y ya no se puede editar, se corrige con un movimiento:
+
+1. Entrá a **Cashflow** y tocá **Nuevo**.
+2. Si en la cuenta falta plata, elegí **INGRESO**, rubro **Ajustes de saldo — entradas** y subrubro **Ajuste de saldo: entrada**. Si sobra, elegí **EGRESO**, rubro **Ajustes de saldo — salidas** y subrubro **Ajuste de saldo: salida**.
+3. Elegí la cuenta en **Medio de pago**, escribí la diferencia en **Monto** y el motivo en **Observaciones**. Tocá **Registrar**.
+
+El ajuste cambia el saldo pero no el resultado del club. En Reportes se suma a los aportes o a los retiros de los dueños.
 
 ---
 
 ## Qué hago si…
 
 ### ¿Qué hago si no puedo cambiar el saldo inicial?
-La cuenta ya tiene movimientos, y cambiar el saldo inicial cambiaría todos los saldos hacia atrás. Si el saldo no coincide con la realidad, registrá un movimiento de ajuste en **Cashflow** con el motivo.
+La cuenta ya tiene movimientos o es **Efectivo** ya configurada, y cambiar el saldo inicial cambiaría todos los saldos hacia atrás. Si el saldo no coincide con la realidad, hacé un ajuste: ver *Ajustar el saldo de una cuenta*.
 
 ### ¿Qué hago si dice «No se puede desactivar porque es el medio de pago del cajón de mostrador.»?
-Esa cuenta es el efectivo del mostrador y no se puede desactivar mientras lo sea. Ver *Configurar el efectivo del mostrador*.
+Esa cuenta es **Efectivo**, la del cajón, y no se puede desactivar.

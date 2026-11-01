@@ -11,6 +11,11 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 6h18M3 14h11"/></svg>
             Nombre <span class="form-required">*</span>
         </label>
+        @if($nombreBloqueado ?? false)
+        <input type="text" id="nombre" value="{{ $tipoCaja->nombre }}" readonly
+               class="w-full px-4 py-2.5 text-sm wings-input">
+        <p class="text-xs mt-1 text-wings-muted">El nombre de esta cuenta no se puede cambiar.</p>
+        @else
         <input type="text" id="nombre" name="nombre"
                value="{{ old('nombre', $tipoCaja->nombre ?? '') }}"
                required autofocus maxlength="100"
@@ -26,6 +31,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
              style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
             Ya existe un tipo de caja con ese nombre.
         </div>
+        @endif
     </div>
 
     {{-- Abreviatura --}}

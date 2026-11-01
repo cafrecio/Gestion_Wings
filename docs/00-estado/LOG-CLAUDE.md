@@ -19,6 +19,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Carpeta compartida:** otra sesión hacía T96 al mismo tiempo. Probé en una copia limpia y el commit va por rutas. El cambio de T96 en el tablero (`en_curso`, tiene Gemini) estaba sin subir y entra con este commit: el archivo es uno solo.
 - De producción leí las líneas `SESSION_` de su configuración y el tamaño de `scheduler.log`; no toqué nada.
 
+## 2026-11-01 — Claude CAB — T96: un solo cajón en Efectivo, saldo inicial una vez; T95 cerrada
+
+- **T95 cerrada:** Carlos probó los cinco casos por pantalla.
+- **T96:** Gemini devolvió H1: cambiar la cuenta con cambio retenido corre el importe de cuenta en Cashflow. Causa confirmada leyendo el código; su corrida no la repetí. Propuse una transferencia automática y Carlos lo vio mejor: casi no hay nada real que cambiar. Decidió, y reemplaza DU-59: cuenta fija Efectivo, el dueño carga una vez el saldo inicial, los ajustes van con un movimiento. El saldo de la cuenta y el cajón son dos datos separados (Carlos: «no mezclemos»). El botón de T96 aprobado el 31/10 se sacó.
+- **Hecho:** `CajaService::configurarEfectivo`, pantalla nueva, Efectivo no se renombra ni se desactiva, subrubros «Ajuste de saldo» (Aporte y Retiro) con migración. Aprobado con capturas (`APROBAR-T96-PROPUESTA.html`); las reales están en `evidencia-t96/final/`. Manual, contratos, CAJ-001/002, paso 10 del despliegue y MF15 (un cajón por cajero) al día.
+- **Errores míos:** volví a abrir la galería con `Start-Process archivo.html` (VS Code) y le dije a Carlos que estaba abierta; comprobado ahora con el título de la ventana. Mezclé saldo de cuenta y cajón en un aviso de la pantalla; lo saqué.
+- **Lo encontrado:** el catálogo no tenía ningún rubro de ajuste, aunque el manual lo nombraba. `corregir-movimiento-caja-validada.md:44` lo sigue nombrando para compensar un cobro: ahí un «Ajuste de saldo» dejaría el cobro duplicado en el resultado. Pendiente de Carlos. `AvisoAdminResumenDiarioTest` usaba el reloj real y falla el día 1 de cada mes: fecha fija. `CapturasEtapaCTest` y `caminos-prohibidos.json` (evidencia del 30/10) siguen probando la regla vieja; no se repiten.
+- **Suite completa:** 1328 aprobadas, 6 omitidas, 0 fallidas (10718 aserciones, 1157 s). Antes, rápida con 4 fallidas por el reloj (arriba), repetida solo esa clase: 8/8.
+- **Base local de CAB (`wings_test`):** migración de los ajustes aplicada; el cajón sigue sin configurar. **Sigue:** control de Gemini, [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T96-SEGUNDA-VUELTA.md). Sin desplegar. Después, T94.
+
 ## 2026-10-31 — Claude CAB — T96: botón Configurar en Caja
 
 - **Hecho:** en Caja, el dueño ve **Configurar** al lado de **Abrir**; con una caja abierta queda inhabilitado. La regla ya estaba (`CajaService::configurarMostrador` rechaza el cambio): faltaba el acceso. Texto de la fila acortado a «Cajón del mostrador» para que no ocupe 5 renglones en celular.

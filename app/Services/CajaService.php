@@ -14,6 +14,8 @@ use Illuminate\Validation\ValidationException;
 
 class CajaService
 {
+    public const EFECTIVO_YA_CONFIGURADO = 'Efectivo ya está configurado y no se puede cambiar.';
+
     private ?CashflowIntegracionCajaService $cashflowIntegracion = null;
 
     /**
@@ -49,16 +51,48 @@ class CajaService
             if (!$tipo) {
                 throw ValidationException::withMessages(['tipo_caja_id' => 'Elegí un medio de pago activo.']);
             }
-            if ($configuracion->tipo_caja_id !== null && (int) $configuracion->tipo_caja_id !== $tipoCajaId) {
-                if (CajaOperativa::where('estado', 'ABIERTA')->exists()) {
-                    throw new \DomainException('No se puede cambiar el medio del cajón mientras haya una caja abierta. Cerrá la caja abierta antes de cambiarlo.');
+            // T96, Carlos 01/11/2026: cambiarla dejaba el cambio retenido en una cuenta y los billetes en otra.
+            if ($configuracion->tipo_caja_id !== null) {
+                if ((int) $configuracion->tipo_caja_id !== $tipoCajaId) {
+                    throw new \DomainException(self::EFECTIVO_YA_CONFIGURADO);
                 }
+                return;
             }
             DB::table('caja_mostrador')->where('id', 1)->update([
                 'tipo_caja_id' => $tipoCajaId,
                 'configurado_por_id' => $adminId,
                 'configurado_at' => now(),
             ]);
+        });
+    }
+
+    /**
+     * T96: el dueño configura una sola vez. La cuenta es siempre Efectivo; lo único que carga es su
+     * saldo inicial, y si la cuenta ya tiene movimientos ese saldo queda como está.
+     */
+    public function configurarEfectivo(int $adminId, mixed $saldoInicial): void
+    {
+        DB::transaction(function () use ($adminId, $saldoInicial) {
+            $admin = User::findOrFail($adminId);
+            abort_unless($admin->isAdmin() && $admin->activo, 403);
+            if ($this->bloquearMostrador()->tipo_caja_id !== null) {
+                throw new \DomainException(self::EFECTIVO_YA_CONFIGURADO);
+            }
+            $efectivo = TipoCaja::where('nombre', TipoCaja::NOMBRE_EFECTIVO)->lockForUpdate()->first()
+                ?? TipoCaja::create(['nombre' => TipoCaja::NOMBRE_EFECTIVO, 'abreviatura' => 'EFT', 'activo' => true]);
+            if (!$efectivo->tieneMovimientos()) {
+                $datos = Validator::make(['saldo_inicial' => $saldoInicial], [
+                    'saldo_inicial' => ['required', 'numeric', 'min:0', new \App\Rules\ImportePesos],
+                ], [
+                    'saldo_inicial.required' => 'El saldo inicial es obligatorio.',
+                    'saldo_inicial.numeric' => 'El saldo inicial debe ser un número.',
+                    'saldo_inicial.min' => 'El saldo inicial no puede ser negativo.',
+                ])->validate();
+                $efectivo->update(['saldo_inicial' => $datos['saldo_inicial'], 'activo' => true]);
+            } elseif (!$efectivo->activo) {
+                $efectivo->update(['activo' => true]);
+            }
+            $this->configurarMostrador($efectivo->id, $adminId);
         });
     }
 
@@ -90,7 +124,7 @@ class CajaService
             $actor = User::findOrFail($actorId ?? $operativoId);
             abort_unless($actor->activo && ($actor->isAdmin() || $actor->id === $operativoId), 403);
             if (!$configuracion->tipo_caja_id || !TipoCaja::whereKey($configuracion->tipo_caja_id)->where('activo', true)->exists()) {
-                throw ValidationException::withMessages(['efectivo_inicial' => 'ADMIN debe configurar el medio de efectivo antes de abrir.']);
+                throw ValidationException::withMessages(['efectivo_inicial' => 'El dueño tiene que configurar Efectivo antes de abrir la caja.']);
             }
             if (CajaOperativa::where('estado', 'ABIERTA')->lockForUpdate()->exists()) {
                 throw ValidationException::withMessages(['efectivo_inicial' => 'Hay un turno abierto. Cerralo antes de abrir otro.']);

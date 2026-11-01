@@ -29,7 +29,7 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 | 7 | Programador: el cron de producción (`ejecutar-scheduler.sh`) corre cada minuto; cuotas 06:00, recargos 06:15, resumen 08:00 | Claude | el cron existe; al día siguiente, el resumen de las 08:00 llega |
 | 8 | **Correo y Telegram.** Producción no manda correo (SERVIDOR.md §correo): el `.env` no viaja con el código, así que el script copia las líneas `MAIL_` del sitio de prueba si faltan (paso 2b). El chat de avisos se configura en Configuración → avisos | script; Carlos confirma que le llega el primer aviso | «Probar» en Configuración de avisos |
 | 9 | Respaldos y monitoreo: comprobar que `respaldar.sh` incluye `wings` y que el monitoreo HTTPS mira `wings.gestionar-te.com.ar` | Claude | última corrida del respaldo del día; `probar-monitoreo.sh` |
-| 10 | Primer ingreso de Carlos con su usuario real; Configuración: medios de pago, día de generación, gracia, mora (0 hasta que decida), inscripción | Carlos | las pantallas que usa el dueño abren y guardan |
+| 10 | Primer ingreso de Carlos con su usuario real. **Primero, Caja → Configurar: saldo inicial de Efectivo (T96); se carga una sola vez y hasta entonces no se puede abrir caja.** Después Tipos de Caja: saldo inicial de las demás cuentas. Configuración: medios de pago, día de generación, gracia, mora (0 hasta que decida), inscripción | Carlos | las pantallas que usa el dueño abren y guardan; en Caja aparece **Abrir** |
 | 11 | Carga del club por el circuito acordado: primera carga por Excel (plantilla, revisión, carga, deshacer) con el primer mes de deuda; después alumnos sueltos por pantalla | Carlos / el club | Cobranza y Reportes dicen lo que dice la planilla |
 | 12 | Primera caja real acompañada | el club, con Claude mirando | apertura, cobros, cierre y validación del primer día |
 
@@ -41,7 +41,7 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 - **T82 — restauración:** ensayada (52 s desde Drive). Pendientes de Carlos: credencial propia de rclone y
   sacar la clave de la carpeta de respaldos.
 - **Ayuda (T12/T13):** sube como está (etapas A y B); la C sigue después.
-- **13 mejoras futuras** del tablero: ninguna toca plata ni datos; siguen siendo futuras.
+- **Mejoras futuras** del tablero (MF): siguen siendo futuras. La única que toca plata es MF15, un cajón por cajero (Carlos, 01/11/2026).
 
 ## Riesgo asumido y cómo se cubre
 

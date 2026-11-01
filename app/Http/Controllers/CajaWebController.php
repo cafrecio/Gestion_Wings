@@ -40,21 +40,23 @@ class CajaWebController extends Controller
 
     public function configuracionMostrador()
     {
-        $propuesta = $this->cajaService->propuestaApertura();
-        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
-        $hayCajaAbierta = CajaOperativa::where('estado', 'ABIERTA')->exists();
-        return view('caja.configuracion', compact('propuesta', 'tiposCaja', 'hayCajaAbierta'));
+        if ($this->cajaService->tipoCajaMostradorId() !== null) {
+            return redirect()->route('web.caja.index');
+        }
+        $efectivo = TipoCaja::where('nombre', TipoCaja::NOMBRE_EFECTIVO)->first();
+        $saldoEditable = !$efectivo || !$efectivo->tieneMovimientos();
+        return view('caja.configuracion', compact('efectivo', 'saldoEditable'));
     }
 
     public function configurarMostrador(Request $request)
     {
-        $datos = $request->validate(['tipo_caja_id' => 'required|integer|exists:tipos_caja,id']);
+        ImportePesos::preparar($request, ['saldo_inicial']);
         try {
-            $this->cajaService->configurarMostrador((int) $datos['tipo_caja_id'], Auth::id());
+            $this->cajaService->configurarEfectivo(Auth::id(), $request->input('saldo_inicial'));
         } catch (\DomainException $e) {
-            return back()->with('error', \App\Support\AvisoError::texto($e));
+            return redirect()->route('web.caja.index')->with('error', \App\Support\AvisoError::texto($e));
         }
-        return redirect()->route('web.caja.index')->with('success', 'Medio de efectivo configurado.');
+        return redirect()->route('web.caja.index')->with('success', 'Efectivo configurado.');
     }
 
     public function apertura()
@@ -188,8 +190,7 @@ class CajaWebController extends Controller
         }
 
         $mostradorConfigurado = $this->cajaService->propuestaApertura()['tipo_caja_id'] !== null;
-        $hayCajaAbierta = CajaOperativa::where('estado', 'ABIERTA')->exists();
-        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes', 'mostradorConfigurado', 'hayCajaAbierta'));
+        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes', 'mostradorConfigurado'));
     }
 
     // ── Historial: movimientos del último trimestre (solo lectura) ───────

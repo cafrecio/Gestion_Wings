@@ -21,7 +21,7 @@
             @endif
         </div>
     @elseif(!$tipoEfectivo || !$tipoEfectivo->activo)
-        <p class="text-sm">ADMIN debe configurar un medio de efectivo activo antes de abrir el cajón.</p>
+        <p class="text-sm">El dueño tiene que configurar Efectivo antes de abrir la caja.</p>
         <div class="filtros-actions mt-6 pt-4" style="border-top:1px solid var(--color-border); justify-content:flex-end;">
             <x-ds.button variant="secondary" href="{{ route('web.caja.index') }}">Volver</x-ds.button>
             @if(auth()->user()->isAdmin())<x-ds.button variant="primary" href="{{ route('web.caja.configuracion') }}">Configurar</x-ds.button>@endif

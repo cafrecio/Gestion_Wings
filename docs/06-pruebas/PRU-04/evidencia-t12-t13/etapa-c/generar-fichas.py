@@ -111,8 +111,9 @@ FICHAS = {
  ],
  'admin-administrar-tipos-caja': [
   ('Descubierto: solo se controla al pagar una liquidación', C+'LiquidacionWebController.php', 'if ($saldoResultante < 0 && !$tipoCaja->permite_descubierto)', LEC),
-  ('Saldo inicial editable solo sin movimientos', C+'TipoCajaWebController.php', "return !$tipoCaja->movimientosOperativos()->exists()", camino('Editar una cuenta con movimientos')),
-  ('No desactiva la cuenta del mostrador', C+'TipoCajaWebController.php', "if ($tipoCaja->activo && (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId())", camino('Desactivar la cuenta del cajón')),
+  ('Saldo inicial editable solo sin movimientos', C+'TipoCajaWebController.php', "return !$tipoCaja->tieneMovimientos()", camino('Editar una cuenta con movimientos')),
+  ('No desactiva ni renombra Efectivo (T96)', C+'TipoCajaWebController.php', "if ($tipoCaja->activo && $this->esCuentaDelCajon($tipoCaja))", 'Ejecutado (MedioPagoCajonTest, T96): también antes de configurarla.'),
+  ('Ajuste de saldo: subrubros y clasificación (T96)', 'app/Support/ClasificacionSubrubros.php', "'subrubro' => 'Ajuste de saldo: entrada'", 'Ejecutado (MedioPagoCajonTest, T96): entrada APORTE, salida RETIRO; la operativa no puede usarlo.'),
   ('Botón Desactivar / Activar', V+'tipos-caja/index.blade.php', "'Desactivar' : 'Activar'", CAP),
  ],
  'admin-condonar-deuda-alumno': [
@@ -193,10 +194,13 @@ FICHAS = {
   ('Cancelar serie: desde hoy, confirma si hay listas', C+'ClaseWebController.php', "->whereDate('fecha', '>=', today());", LEC),
  ],
  'admin-configurar-mostrador': [
-  ('Paso 2: pantalla Efectivo del mostrador, Medio de efectivo, solo cuentas activas', C+'CajaWebController.php', [(V+'caja/configuracion.blade.php', "Efectivo del mostrador§2"), (V+'caja/configuracion.blade.php', 'Medio de efectivo'), "$tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();"], CAP),
-  ('Paso 3: Guardar y aviso', C+'CajaWebController.php', "Medio de efectivo configurado.", LEC),
-  ('No se cambia con una caja abierta', S+'CajaService.php', "No se puede cambiar el medio del cajón mientras haya una caja abierta.", camino('Cambiar el medio del mostrador')),
-  ('Paso 1: Configurar en Caja, inhabilitado con una caja abierta (T96)', V+'caja/index.blade.php', ':disabled="$hayCajaAbierta"', 'Ejecutado (MedioPagoCajonTest, T96): habilitado sin caja abierta; con caja abierta, sin enlace y con disabled.'),
+  ('Paso 1: fila y Configurar en Caja (T96)', V+'caja/index.blade.php', "Falta cargar el saldo de Efectivo", 'Ejecutado (MedioPagoCajonTest, T96): sin configurar solo ofrece Configurar; configurada solo Abrir.'),
+  ('Paso 2: pantalla Saldo inicial de Efectivo, cuenta fija', C+'CajaWebController.php', [(V+'caja/configuracion.blade.php', "Saldo inicial de Efectivo§3"), (V+'caja/configuracion.blade.php', 'TipoCaja::NOMBRE_EFECTIVO'), "TipoCaja::where('nombre', TipoCaja::NOMBRE_EFECTIVO)->first()"], CAP),
+  ('Paso 3: Guardar y aviso', C+'CajaWebController.php', "Efectivo configurado.", 'Ejecutado (MedioPagoCajonTest, T96): guarda saldo, cuenta, autor y fecha.'),
+  ('Saldo obligatorio, cero admitido', S+'CajaService.php', "'saldo_inicial.required' => 'El saldo inicial es obligatorio.'", 'Ejecutado (MedioPagoCajonTest, T96): vacío, negativo, tres decimales y letras no configuran; 0 sí.'),
+  ('Una vez guardado no cambia', S+'CajaService.php', "Efectivo ya está configurado y no se puede cambiar.", 'Ejecutado (MedioPagoCajonTest, T96): con y sin caja abierta, y por pedido directo.'),
+  ('Con movimientos el saldo queda como está', V+'caja/configuracion.blade.php', "Efectivo ya tiene movimientos", 'Ejecutado (MedioPagoCajonTest, T96).'),
+  ('Aviso a la operativa', V+'caja/apertura.blade.php', "El dueño tiene que configurar Efectivo antes de abrir la caja.", 'Ejecutado (MedioPagoCajonTest, T96): sin Configurar y sin abrir caja.'),
  ],
  'admin-inicio-dueno': [
   ('Clases sin asistencia quedan afuera de la liquidación hasta cargar la lista', S+'LiquidacionService.php', ["->where('cancelada', false)§1", "$q->where('validada_para_liquidacion', true)§1"], LEC),

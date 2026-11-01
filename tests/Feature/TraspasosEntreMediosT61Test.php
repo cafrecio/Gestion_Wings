@@ -230,7 +230,7 @@ class TraspasosEntreMediosT61Test extends TestCase
         $this->assertTrue($this->entrada->rubro->fresh()->es_reservado_sistema);
         $this->assertSame($foto, $historico->fresh()->getAttributes());
         $this->assertDatabaseCount('cashflow_transferencias', 0);
-        $this->assertDatabaseCount('subrubros', 21);
+        $this->assertDatabaseCount('subrubros', 23);
     }
 
     public function test_seeder_idempotente_preserva_clasificaciones_y_snapshots(): void
@@ -241,8 +241,8 @@ class TraspasosEntreMediosT61Test extends TestCase
         $luz->update(['clasificacion_resultado' => 'RETIRO']);
         ClasificacionSubrubros::aplicarTraspasos();
         ClasificacionSubrubros::aplicarTraspasos();
-        $this->assertDatabaseCount('rubros', 14);
-        $this->assertDatabaseCount('subrubros', 21);
+        $this->assertDatabaseCount('rubros', 16);
+        $this->assertDatabaseCount('subrubros', 23);
         $this->assertSame('RETIRO', $luz->fresh()->clasificacion_resultado);
         $this->assertSame($foto, CashflowMovimiento::orderBy('id')->get()->toJson());
     }

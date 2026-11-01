@@ -23,7 +23,7 @@ V4 queda como antecedente, no como instrucción para abrir o cerrar el cajón.
 | Aperturas siguientes | Proponer el cambio del último cierre del club y pedir confirmación. Si propone $10.000 y cuenta $8.000, declara $8.000 con motivo; conservar ambos valores. |
 | Cierre y retiro | Quien cierra cuenta y decide cuánto deja. Contado $35.000, cambio $10.000: retiro $25.000. Puede dejar $15.000 y retirar $20.000; no está atado al cambio inicial. |
 | Diferencias | Inicio $10.000 + cobros $30.000 − gastos $5.000: esperado $35.000. Contado $34.000: faltante $1.000. Mostrar los tres y permitir cerrar; ADMIN revisa. |
-| Medio físico | ADMIN configura el medio correspondiente al efectivo del cajón; Transferencia no integra ese conteo. **El medio de pago asignado al cajón no se puede desactivar** (DU-16, T57). **El dueño puede cambiar el medio de pago del cajón, pero SOLO cuando no hay ninguna caja ABIERTA**; si hay caja abierta debe cerrarse antes de cambiarlo (DU-59, T57). Cada cambio registra autor y fecha (`configurado_por_id`, `configurado_at`). |
+| Medio físico | El efectivo del cajón es siempre la cuenta **Efectivo**; Transferencia no integra ese conteo. **Esa cuenta no se puede desactivar ni renombrar** (DU-16, T57; T96). **Decisión de Carlos, 01/11/2026, reemplaza DU-59 (T96): la cuenta del cajón no se elige ni se cambia.** Cambiarla dejaba el cambio retenido contabilizado en una cuenta y los billetes en otra. El dueño configura una sola vez cargando el **saldo inicial de Efectivo**; queda autor y fecha (`configurado_por_id`, `configurado_at`). Cualquier ajuste posterior se hace con un movimiento «Ajuste de saldo». Un cajón por cajero queda como mejora futura MF15. |
 | Cobros del ADMIN | Vanina guarda su efectivo aparte: no aumenta el esperado del turno operativo. |
 | Validación ADMIN | Debe contar y cerrar primero, incluso el turno de otra persona. Validar no sustituye el conteo. |
 | Rechazo posterior | Corregir movimientos conserva lo contado y entregado; no cambia lo recibido por el turno siguiente. Respuesta de Carlos: «Sí, conservar lo que se contó y entregó». |
@@ -40,10 +40,15 @@ a revisar por otro agente, sin despliegue. El detalle normativo sigue a continua
 
 - Un solo cajón compartido del club; como máximo un turno ABIERTA para todos los
   operativos. Cerrar el turno anterior antes de abrir el siguiente.
-- ADMIN selecciona el TipoCaja activo que representa billetes del mostrador. Se guarda su
-  ID y autor/fecha (`configurado_por_id`, `configurado_at`); cambiar su nombre no cambia el medio. No se deduce por nombre.
-- El medio configurado para el mostrador **no se puede desactivar** (DU-16, T57).
-- El dueño puede cambiar el medio del cajón en cualquier momento, **siempre y cuando no haya ninguna caja ABIERTA** (DU-59, T57). Si hay un turno abierto, el cambio queda bloqueado en interfaz y servidor hasta su cierre.
+- ADMIN configura una sola vez cargando el saldo inicial de la cuenta **Efectivo** (T96). Wings la
+  busca por nombre solo en ese momento y guarda su ID y autor/fecha (`configurado_por_id`, `configurado_at`).
+  Si Efectivo ya tiene movimientos, su saldo inicial no cambia y la configuración igual se completa.
+- La cuenta del cajón **no se puede desactivar ni renombrar**, tampoco antes de configurarla (DU-16, T57; T96).
+- Una vez configurada, la cuenta del cajón **no se puede cambiar**, haya o no caja abierta, y su saldo inicial
+  queda fijo aunque no tenga movimientos (T96, reemplaza DU-59). Los demás tipos de caja siguen la regla de V4 §4.3.
+- Un ajuste de saldo es un movimiento de Cashflow con los subrubros «Ajuste de saldo: entrada» (clasificado
+  APORTE) o «Ajuste de saldo: salida» (clasificado RETIRO), solo para ADMIN: cambia el saldo, no el resultado, y
+  en Reportes se suma a los aportes y retiros de los dueños.
 - La apertura es explícita: declara efectivo recibido no negativo y confirma haberlo
   contado. El primer movimiento y los POST directos no abren una caja por su cuenta.
 - La primera apertura, sin cierre declarado previo, no presupone efectivo recibido.

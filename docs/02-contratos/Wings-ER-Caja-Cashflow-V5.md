@@ -12,7 +12,8 @@ los otros campos históricos de ese documento. [Reglas V5](Wings-Contrato-Caja-C
 - `configurado_at`: timestamp nullable.
 
 El servicio bloquea esa fila en transacción para configurar una vez y para serializar
-apertura/cierre. La migración deja el medio pendiente de elección por ADMIN.
+apertura/cierre. La migración deja el medio pendiente: lo completa ADMIN al cargar el saldo inicial
+de Efectivo (T96); una vez completo no cambia.
 
 ## Nuevos campos de `cajas_operativas`
 

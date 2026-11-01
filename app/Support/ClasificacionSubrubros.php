@@ -58,6 +58,16 @@ class ClasificacionSubrubros
         ['rubro' => 'Transferencias internas — entradas', 'tipo' => 'INGRESO', 'subrubro' => 'Entrada desde otro medio'],
     ];
 
+    /**
+     * T96, Carlos 01/11/2026: corrigen el saldo de una cuenta sin tocar el resultado del club.
+     * Se clasifican como aporte y retiro porque son las únicas categorías fuera del resultado
+     * que el formulario admite; en Reportes se suman a las de los dueños.
+     */
+    public const AJUSTES = [
+        ['rubro' => 'Ajustes de saldo — entradas', 'tipo' => 'INGRESO', 'subrubro' => 'Ajuste de saldo: entrada', 'clasificacion' => self::APORTE],
+        ['rubro' => 'Ajustes de saldo — salidas', 'tipo' => 'EGRESO', 'subrubro' => 'Ajuste de saldo: salida', 'clasificacion' => self::RETIRO],
+    ];
+
     /** Un aporte solo puede entrar y un retiro solo puede salir. */
     public static function permitidas(string $tipoRubro): array
     {
@@ -101,6 +111,25 @@ class ClasificacionSubrubros
                     'clasificacion_resultado' => self::TRASPASO, 'created_at' => now(), 'updated_at' => now()]);
             }
             self::reservarTraspasos();
+        });
+    }
+
+    /** Solo agrega lo que falta: si alguien ya creó el subrubro, no lo duplica ni lo reclasifica. */
+    public static function aplicarAjustes(): void
+    {
+        DB::transaction(function () {
+            foreach (self::AJUSTES as $ajuste) {
+                if (DB::table('subrubros')->where('nombre', $ajuste['subrubro'])->exists()) continue;
+                $rubroId = DB::table('rubros')->where('nombre', $ajuste['rubro'])->where('tipo', $ajuste['tipo'])->value('id')
+                    ?? DB::table('rubros')->insertGetId([
+                        'nombre' => $ajuste['rubro'], 'tipo' => $ajuste['tipo'],
+                        'observacion' => 'Corrige el saldo de una cuenta; no cuenta en el resultado del club',
+                        'created_at' => now(), 'updated_at' => now(),
+                    ]);
+                DB::table('subrubros')->insert(['rubro_id' => $rubroId, 'nombre' => $ajuste['subrubro'],
+                    'permitido_para' => 'ADMIN', 'afecta_caja' => true, 'activo' => true,
+                    'clasificacion_resultado' => $ajuste['clasificacion'], 'created_at' => now(), 'updated_at' => now()]);
+            }
         });
     }
 

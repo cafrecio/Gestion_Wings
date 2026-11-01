@@ -63,7 +63,8 @@ class TipoCajaWebController extends Controller
     {
         $tipoCaja = TipoCaja::findOrFail($id);
         $saldoInicialEditable = $this->saldoInicialEditable($tipoCaja);
-        return view('tipos-caja.edit', compact('tipoCaja', 'saldoInicialEditable'));
+        $nombreBloqueado = $this->esCuentaDelCajon($tipoCaja);
+        return view('tipos-caja.edit', compact('tipoCaja', 'saldoInicialEditable', 'nombreBloqueado'));
     }
 
     public function update(Request $request, int $id)
@@ -72,9 +73,10 @@ class TipoCajaWebController extends Controller
         DB::transaction(function () use ($request, $id) {
             $tipoCaja = TipoCaja::lockForUpdate()->findOrFail($id);
             $saldoInicialEditable = $this->saldoInicialEditable($tipoCaja);
+            $esCuentaDelCajon = $this->esCuentaDelCajon($tipoCaja);
 
             $datos = $request->validate([
-                'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
+                'nombre'      => [Rule::excludeIf($esCuentaDelCajon), 'required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
                 'abreviatura' => 'required|string|max:5',
                 'descripcion' => 'nullable|string|max:255',
                 // Con historial se excluye antes de validar, incluso en pedidos armados a mano.
@@ -93,7 +95,7 @@ class TipoCajaWebController extends Controller
             $datos['descripcion'] = $datos['descripcion'] ?? null;
             $datos['permite_descubierto'] = $request->boolean('permite_descubierto');
 
-            if ($request->has('activo') && !$request->boolean('activo') && (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId()) {
+            if ($request->has('activo') && !$request->boolean('activo') && $esCuentaDelCajon) {
                 throw \Illuminate\Validation\ValidationException::withMessages([
                     'activo' => 'No se puede desactivar porque es el medio de pago del cajón de mostrador.',
                 ]);
@@ -108,16 +110,23 @@ class TipoCajaWebController extends Controller
 
     private function saldoInicialEditable(TipoCaja $tipoCaja): bool
     {
-        // Cualquier movimiento cuenta, incluso uno operativo cancelado.
-        return !$tipoCaja->movimientosOperativos()->exists()
-            && !$tipoCaja->cashflowMovimientos()->exists();
+        // T96: el saldo de la cuenta del cajón se carga una sola vez, al configurarla.
+        return !$tipoCaja->tieneMovimientos()
+            && (int) $tipoCaja->id !== (int) $this->cajaService->tipoCajaMostradorId();
+    }
+
+    /** T96: Efectivo se busca por nombre hasta configurarse: ni renombrarla ni desactivarla antes. */
+    private function esCuentaDelCajon(TipoCaja $tipoCaja): bool
+    {
+        return $tipoCaja->nombre === TipoCaja::NOMBRE_EFECTIVO
+            || (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId();
     }
 
     public function toggleActivo(Request $request, int $id)
     {
         $tipoCaja = TipoCaja::findOrFail($id);
 
-        if ($tipoCaja->activo && (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId()) {
+        if ($tipoCaja->activo && $this->esCuentaDelCajon($tipoCaja)) {
             $mensaje = 'No se puede desactivar porque es el medio de pago del cajón de mostrador.';
             if ($request->expectsJson()) {
                 return response()->json(['error' => $mensaje], 422);

@@ -1,32 +1,32 @@
 {
   "casos": [
     {
-      "accion": "El dueño entra a la configuración del mostrador, elige Efectivo y guarda. Después le cambia el nombre a ese medio en Medios de pago.",
+      "accion": "El dueño entra a Caja, toca Configurar, carga el saldo inicial de Efectivo y guarda.",
       "codigo": "CAJ-001",
       "duda": "",
       "esperado": [
         {
           "donde": "Guardado",
           "l": "a",
-          "texto": "Queda guardado el medio elegido, quién lo eligió y cuándo.",
+          "texto": "Queda el saldo inicial en la cuenta Efectivo, y quién lo cargó y cuándo. La cuenta no se elige.",
           "tipo": "directo"
         },
         {
-          "donde": "Renombre",
+          "donde": "Saldo",
           "l": "b",
-          "texto": "Cambiar el nombre del medio no cambia cuál es el medio del cajón.",
+          "texto": "El saldo es obligatorio y admite 0. Si Efectivo ya tiene movimientos, se ve y no se edita.",
           "tipo": "directo"
         },
         {
           "donde": "Apertura",
           "l": "c",
-          "texto": "A partir de ahí las operativas pueden abrir caja.",
+          "texto": "A partir de ahí las operativas pueden abrir caja; antes ven el aviso, sin Configurar.",
           "tipo": "indirecto"
         },
         {
           "donde": "Arqueo",
           "l": "d",
-          "texto": "El efectivo esperado de cada turno cuenta solo los movimientos de ese medio.",
+          "texto": "El efectivo esperado de cada turno cuenta solo los movimientos de Efectivo.",
           "tipo": "indirecto"
         },
         {
@@ -36,53 +36,53 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "vigente",
-      "fuente": "Contrato Caja V5; CajaWebController (mostrador) (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T96: decisión de Carlos, reemplaza DU-59. Contrato Caja V5; CajaService::configurarEfectivo (código leído).",
       "modulo": "Caja",
       "pantalla": "caja-configuracion",
-      "requiere": "Medios de pago cargados. Mostrador todavía sin configurar.",
+      "requiere": "Mostrador todavía sin configurar.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T96",
       "tipo": "normal",
-      "titulo": "Elegir cuál medio de pago es el efectivo del cajón"
+      "titulo": "Cargar el saldo inicial de Efectivo"
     },
     {
-      "accion": "El dueño intenta elegir otro medio.",
+      "accion": "El dueño intenta cambiar la cuenta del cajón, su nombre o su saldo inicial, por pantalla y por pedido directo.",
       "codigo": "CAJ-002",
-      "duda": "DU-16",
+      "duda": "DU-59",
       "esperado": [
         {
-          "donde": "Sin caja abierta",
+          "donde": "Caja",
           "l": "a",
-          "texto": "El dueño puede elegir otro medio para el cajón.",
+          "texto": "Ya no aparece Configurar y la dirección de la pantalla vuelve a Caja. Un pedido directo se rechaza y nada cambia.",
           "tipo": "directo"
         },
         {
-          "donde": "Con caja abierta",
+          "donde": "Tipos de Caja",
           "l": "b",
-          "texto": "No lo deja cambiar mientras haya un turno abierto; lo explica.",
+          "texto": "Nombre y saldo inicial de Efectivo son de solo lectura, y no se puede desactivar.",
           "tipo": "directo"
         },
         {
-          "donde": "Turno",
+          "donde": "Cashflow",
           "l": "c",
-          "texto": "Cada turno sigue contando con el medio con el que abrió.",
+          "texto": "Un ajuste se hace con un movimiento «Ajuste de saldo», que cambia el saldo y no el resultado.",
           "tipo": "indirecto"
         }
       ],
       "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-16 y DU-59, 13/10). Falta programar: T57. Antes: CajaWebController (mostrador) (código leído); Contrato Caja V5 (el medio queda guardado en el turno).",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T96: decisión de Carlos, reemplaza DU-59. Contrato Caja V5; CajaService::configurarEfectivo (código leído).",
       "modulo": "Caja",
       "pantalla": "caja-configuracion",
-      "requiere": "Mostrador ya configurado. Probar sin turno abierto y con un turno abierto.",
+      "requiere": "Efectivo ya configurado. Probar sin turno abierto y con un turno abierto.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "T57",
+      "tarea": "T96",
       "tipo": "mal_uso",
-      "titulo": "Querer cambiar el medio del cajón después de elegido"
+      "titulo": "Querer cambiar Efectivo después de configurado"
     },
     {
       "accion": "La operativa intenta abrir la caja.",

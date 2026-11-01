@@ -52,6 +52,9 @@ class AvisoAdminResumenDiarioTest extends TestCase
     {
         parent::setUp();
 
+        // Fecha fija: el día 1 de cada mes el resumen avisa que faltan generar las cuotas (T40).
+        $this->travelTo('2026-10-15 09:00:00');
+
         config()->set('services.telegram.bot_token', 'token-de-prueba');
         Configuracion::set('avisos_telegram_chat_id', '12345');
 

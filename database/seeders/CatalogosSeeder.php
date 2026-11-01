@@ -18,6 +18,7 @@ class CatalogosSeeder extends Seeder
         $this->seedNiveles();
         $this->seedRubrosYSubrubros();
         \App\Support\ClasificacionSubrubros::aplicarTraspasos();
+        \App\Support\ClasificacionSubrubros::aplicarAjustes();
         $this->seedTiposCaja();
         $this->seedReglasPrimerPago();
         foreach ([

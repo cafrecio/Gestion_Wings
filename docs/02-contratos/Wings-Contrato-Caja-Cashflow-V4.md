@@ -96,7 +96,8 @@ historia sin dejar rastro.
 
 **Única excepción admitida:** mientras el tipo de caja **no tenga ningún movimiento**,
 el saldo inicial puede corregirse. Cubre el error de tipeo del primer día sin permitir
-reescribir un historial que ya existe.
+reescribir un historial que ya existe. **Efectivo no tiene esta excepción una vez configurada** (T96,
+Carlos 01/11/2026): queda fija al guardarla y se corrige con un «Ajuste de saldo» ([V5](Wings-Contrato-Caja-Cashflow-V5.md)).
 
 ### 4.4 Movimientos no económicos
 
