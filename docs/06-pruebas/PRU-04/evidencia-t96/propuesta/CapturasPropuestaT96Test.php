@@ -48,6 +48,12 @@ class CapturasPropuestaT96Test extends TestCase
             'Falta cargar el saldo de Efectivo', 'Configurar'
         ));
 
+        // Para comparar: lo que ve una operativa con el saldo sin cargar. HTML real, sin reemplazos.
+        $operativa = User::factory()->create(['name' => 'Sandra Ríos', 'rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        $guardar('operativa-caja', $this->actingAs($operativa)->get(route('web.caja.index'))->assertOk()->getContent());
+        $guardar('operativa-apertura', $this->actingAs($operativa)->get(route('web.caja.apertura'))->assertOk()->getContent());
+        file_put_contents($destino.'/roles.txt', 'Laura Gómez: '.$admin->rol.PHP_EOL.'Sandra Ríos: '.$operativa->rol.PHP_EOL);
+
         // 2 y 3. La pantalla de configuración, con el saldo editable y con Efectivo ya usado.
         $pantalla = $this->actingAs($admin)->get(route('web.caja.configuracion'))->assertOk()->getContent();
         $guardar('configuracion-saldo-editable', $this->conFormulario($pantalla, true, ''));
