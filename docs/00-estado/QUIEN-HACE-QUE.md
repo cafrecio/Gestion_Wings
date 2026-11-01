@@ -43,8 +43,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude) | Hecha por Claude 01/11, pedido de Carlos: si el esperado cambió desde que se abrió la pantalla de cierre, Wings no cierra y avisa el nuevo. Falta que la controle otro agente. Sin desplegar. |
-| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene una ficha no vuelve a pagar inscripción, aunque no tenga una registrada. La de Thiago en el sitio se resuelve en la tanda 5. Falta que la controle otro agente. Sin desplegar. |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | Ensayo hecho por Claude CyE 28/10: produccion desde Drive en 52 s y, con datos, el sitio de prueba en 56 s (105 alumnos, 909 asistencias, plata al peso identica). Informe en docs/04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion. No probado: servidor desde cero. Pendientes: credencial propia de rclone (Carlos, 5 min en la consola de Google), pasar la clave al administrador de contrasenas y sacarla de la carpeta de respaldos, decidir si el repositorio sigue publico. |
 
 ## Claude
@@ -66,6 +64,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
+| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
+| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
 | **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el filtro invalido en la direccion se ignora (41 errores a 0 en 3.876 pedidos) y el recibo inexistente muestra la pantalla comun. 12 pruebas y 8 mutaciones detectadas. La controla Gemini, etapa 3 de PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 
 ## Sin empezar (8)
