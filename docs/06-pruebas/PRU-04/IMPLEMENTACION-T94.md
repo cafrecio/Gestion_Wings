@@ -72,12 +72,12 @@ Se verificaron todas las referencias a `GrupoPlan` y `grupo_planes` en el reposi
 3. **Tiene alumnos hoy:** Comprobado con alumnos activos, con plural (`3 alumnos`), con alumnos inactivos en el club pero con asignación deportiva activa, con cambios de plan programados a futuro y con rollback total en edición: no guarda nada y muestra `«Nx por semana tiene N alumno(s): cambiales el plan antes.»`.
 4. **Última frecuencia activa:** Comprobado que rechaza eliminar o vaciar frecuencias si el grupo quedaría sin frecuencias activas.
 5. **Reactivación:** Comprobado que al volver a agregar la frecuencia vía `storePlan` o `update`, se reactiva la misma fila (`assertDatabaseHas('grupo_planes', ['id' => $id, 'activo' => true, 'precio_mensual' => ...])`) y no crea una fila nueva.
-6. **Colisión de índice unique:** Comprobado que si existían registros previos inactivos o duplicados en bases antiguas, la desactivación consolida referencias y no falla por MySQL 1062.
+6. **Colisión de índice unique y rechazos por integridad (H4 y H5):** Conforme a la segunda vuelta, se retiró toda consolidación que movía referencias entre filas. Si se intenta intercambiar dos frecuencias activas en el mismo formulario, se rechaza con `«Ya hay una fila con esa frecuencia. Cambialas de a una.»`. Si se intenta editar una fila existente cambiándole la frecuencia a una que ya existe desactivada, se rechaza con `«Ya hay una Nx desactivada. Agregala con Nuevo en vez de cambiar esta fila.»`. Y si en una base de datos existieran filas duplicadas previa (una activa y una inactiva de la misma frecuencia), la desactivación se rechaza con aviso seguro `«Ya hay una Nx desactivada en el grupo.»`, sin error 500 y sin tocar nada.
 7. **Filtrado en vistas:** Comprobado que `show` y `edit` no muestran frecuencias desactivadas.
 8. **Rechazo en endpoints directos:** Comprobado rechazo en alta de alumno, edición de alumno y `CambioPlanService::cambiar`.
 9. **Prueba de punta a punta con plata real al peso:** Comprobado flujo completo: alumno inicia con 2x ($30.000), pasa a 1x ($20.000), dueño desactiva 2x, se cobra en caja la deuda vieja de $30.000 (deuda pasa a `PAGADA`, saldo pendiente 0, pago registrado), se reactiva 2x a $35.000 y un alumno nuevo se inscribe y toma el plan 2x a $35.000.
-10. **Concurrencia / Serialización:** Comprobado que dos pedidos concurrentes (sacar frecuencia y asignar alumno) se serializan mediante bloqueos `FOR UPDATE` detectando la asignación y rechazando el borrado.
-11. **Pruebas de mutación:** Se ejecutaron mutaciones deliberadas (anular control de última frecuencia activa, anular control de alumnos hoy, anular control de plan inactivo en servicio) y en todos los casos las pruebas fallaron con error exacto (`Exit 1`), restaurando el código original a continuación.
+10. **Concurrencia / Serialización (H1):** Comprobado mediante prueba real de carrera de dos conexiones concurrentes en procesos independientes (`ControlT94CarreraTest`, 3 casos, 52s): al bloquear los planes removidos con `orderBy('id')->lockForUpdate()` y evaluar los alumnos activos con `lockForUpdate()->count()`, InnoDB fuerza una lectura actual (current read) que detecta las asignaciones confirmadas por transacciones concurrentes, impidiendo que una frecuencia sea desactivada o eliminada con alumnos activos y arrojando en todos los casos `«Nx por semana tiene N alumno(s): cambiales el plan antes.»`.
+11. **Pruebas de mutación:** Se ejecutaron mutaciones deliberadas (anular control de última frecuencia activa, anular control de alumnos hoy, anular control de plan inactivo en servicio, anular control H5 de frecuencias intercambiadas, anular control H4 de frecuencia desactivada existente y anular control H4 en destroyPlan) y en todos los casos las pruebas fallaron con error exacto (`Exit 1`), restaurando el código original a continuación.
 
 ### Inferido
 - En una base de datos donde ninguna frecuencia haya sido desactivada todavía, el comportamiento de lectura es 100% idéntico al histórico, ya que todas las frecuencias preexistentes tienen `activo = 1`.
@@ -168,3 +168,34 @@ Conforme a `AGENTS.md §5-ter`, la tabla de pruebas es de solo lectura para Gemi
 ## 7. Verificación de diseño
 Verificado con `git diff --stat -- resources/views resources/css`:
 Cero archivos de vistas modificados para T94. El diseño y los componentes visuales permanecen 100% intactos conforme a `AGENTS.md §1`.
+
+---
+
+## 8. Segunda vuelta: correcciones del control de Claude (H1 a H5)
+
+A partir del informe `VERIFICACION-T94-CLAUDE.md`, se implementaron y verificaron los 5 hallazgos:
+
+1. **H1 (Carrera concurrente / aislamiento InnoDB):**
+   - Se ordenó el bloqueo de planes a remover: `GrupoPlan::whereIn('id', ...)->orderBy('id')->lockForUpdate()->get()`.
+   - Se forzó la lectura actual (current read) en InnoDB al contar alumnos sobre la relación: `AlumnoPlan::where('plan_id', $removido->id)->where('activo', true)->lockForUpdate()->count()`. Esto evita que el snapshot inicial de una transacción repeatable read oculte la inserción confirmada por una transacción concurrente.
+   - Verificado con `ControlT94CarreraTest.php` (3 pruebas reales con subprocesos independientes `proc_open` en 52s).
+2. **H2 (Formulario viejo con ID desactivado):**
+   - En `update`, se verifica que todos los `id` enviados existan y estén activos (`where('activo', true)`). Si viene el `id` de una frecuencia ya desactivada, se rechaza inmediatamente con `«Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.»`.
+   - Reactivar una frecuencia requiere agregarla como fila nueva (`id == null`).
+3. **H3 (Quitar y volver a agregar la misma frecuencia):**
+   - Se computa `$quedoAlgunaDesactivada` comprobando si alguna de las frecuencias desactivadas en la operación no fue vuelta a dar de alta en las filas enviadas.
+   - Si la frecuencia se quitó y se volvió a agregar con «Nuevo», la frecuencia sigue activa en el resultado final y el aviso devuelto es `«Grupo actualizado correctamente.»`.
+4. **H4 (Retiro de consolidación de referencias):**
+   - Se eliminaron todos los bucles que transferían `alumno_planes`, `pagos` y `grupo_plan_precios` entre filas de un mismo plan.
+   - Si un usuario edita una fila existente (`id` presente) cambiándole la frecuencia por una que ya existe desactivada, se rechaza con `«Ya hay una {$frecuencia}x desactivada. Agregala con Nuevo en vez de cambiar esta fila.»`.
+   - Si la base tuviera un estado preexistente con filas duplicadas (una activa y una inactiva de la misma frecuencia), desactivar se aborta con `«Ya hay una {$frecuencia}x desactivada en el grupo.»`, sin error 500 y sin alterar datos.
+5. **H5 (Intercambio de frecuencias activas):**
+   - Si el formulario envía un intercambio de frecuencias entre dos filas existentes con `id`, se rechaza con `«Ya hay una fila con esa frecuencia. Cambialas de a una.»`.
+
+### Suites ejecutadas y resultados:
+- `tests/Feature/SacarFrecuenciaGrupoT94Test.php`: 25 pruebas, 122 aserciones (17.79s).
+- `tests/Feature/ControlT94ClaudeTest.php`: 8 pruebas, 28 aserciones (14.25s).
+- `tests/Feature/ControlT94CarreraTest.php`: 3 pruebas (lentas con 2 conexiones reales concurrentes), 6 aserciones (52.20s).
+- Total pruebas de la tarea T94: 36 pruebas, todas en verde.
+- Suite rápida del proyecto (`--exclude-group=lento`): 1305 pasadas, 6 omitidas. Total métodos de test en repo: 1437.
+

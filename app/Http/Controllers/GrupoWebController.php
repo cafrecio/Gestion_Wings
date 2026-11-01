@@ -222,22 +222,58 @@ class GrupoWebController extends Controller
             $planes = collect($validated['planes']);
             $idsSubmitted = $planes->pluck('id')->filter()->map(fn($v) => (int) $v)->all();
 
-            // Una frecuencia pudo eliminarse mientras se esperaba el bloqueo.
+            // Una frecuencia pudo eliminarse o desactivarse mientras se esperaba el bloqueo (H2).
             if (!empty($idsSubmitted)) {
-                if (GrupoPlan::where('grupo_id', $id)->whereIn('id', $idsSubmitted)->count() !== count(array_unique($idsSubmitted))) {
+                $activosEnBd = GrupoPlan::where('grupo_id', $id)
+                    ->whereIn('id', $idsSubmitted)
+                    ->where('activo', true)
+                    ->count();
+                if ($activosEnBd !== count(array_unique($idsSubmitted))) {
                     return back()->withInput()->with('error', 'Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.');
                 }
             }
 
-            // Frecuencias activas en BD que no están en lo enviado
+            // H4 y H5: validaciones de cambio de frecuencia en filas existentes enviadas con id
+            foreach ($planes as $planData) {
+                $planId = !empty($planData['id']) ? (int) $planData['id'] : null;
+                if ($planId) {
+                    $planActual = GrupoPlan::where('id', $planId)->where('grupo_id', $id)->first();
+                    $nuevaFrecuencia = (int) $planData['clases_por_semana'];
+                    if ($planActual && (int) $planActual->clases_por_semana !== $nuevaFrecuencia) {
+                        // H5: si otra fila activa ya tiene esa frecuencia (ej. intercambio de frecuencias)
+                        $yaExisteOtraActiva = GrupoPlan::where('grupo_id', $id)
+                            ->where('activo', true)
+                            ->where('clases_por_semana', $nuevaFrecuencia)
+                            ->where('id', '!=', $planId)
+                            ->exists();
+                        if ($yaExisteOtraActiva) {
+                            return back()->withInput()->with('error', 'Ya hay una fila con esa frecuencia. Cambialas de a una.');
+                        }
+
+                        // H4: si ya hay una fila desactivada con esa frecuencia
+                        $yaExisteInactiva = GrupoPlan::where('grupo_id', $id)
+                            ->where('activo', false)
+                            ->where('clases_por_semana', $nuevaFrecuencia)
+                            ->where('id', '!=', $planId)
+                            ->exists();
+                        if ($yaExisteInactiva) {
+                            return back()->withInput()->with('error', "Ya hay una {$nuevaFrecuencia}x desactivada. Agregala con Nuevo en vez de cambiar esta fila.");
+                        }
+                    }
+                }
+            }
+
+            // H1: Bloquear las filas de los planes que se sacan, en orden estable, antes de contar alumnos
             $planesRemovidos = GrupoPlan::where('grupo_id', $id)
                 ->where('activo', true)
                 ->when(!empty($idsSubmitted), fn($q) => $q->whereNotIn('id', $idsSubmitted))
+                ->orderBy('id')
+                ->lockForUpdate()
                 ->get();
 
             // Si alguna frecuencia removida tiene alumnos activos, no se guarda nada
             foreach ($planesRemovidos as $removido) {
-                $alumnosHoy = AlumnoPlan::where('plan_id', $removido->id)->where('activo', true)->count();
+                $alumnosHoy = AlumnoPlan::where('plan_id', $removido->id)->where('activo', true)->lockForUpdate()->count();
                 if ($alumnosHoy > 0) {
                     $palabra = $alumnosHoy === 1 ? 'alumno' : 'alumnos';
                     return back()->withInput()->with('error', "{$removido->clases_por_semana}x por semana tiene {$alumnosHoy} {$palabra}: cambiales el plan antes.");
@@ -250,25 +286,23 @@ class GrupoWebController extends Controller
             }
 
             // Procesar frecuencias removidas: desactivar si se usó antes, borrar si nunca se usó
-            $huboDesactivacion = false;
+            $desactivados = [];
             foreach ($planesRemovidos as $removido) {
                 $usadoAntes = AlumnoPlan::where('plan_id', $removido->id)->exists()
                     || Pago::where('plan_id', $removido->id)->exists();
 
                 if ($usadoAntes) {
-                    $otrosInactivos = GrupoPlan::where('grupo_id', $id)
+                    $otraInactiva = GrupoPlan::where('grupo_id', $id)
                         ->where('clases_por_semana', $removido->clases_por_semana)
                         ->where('activo', false)
                         ->where('id', '!=', $removido->id)
-                        ->get();
-                    foreach ($otrosInactivos as $otro) {
-                        AlumnoPlan::where('plan_id', $otro->id)->update(['plan_id' => $removido->id]);
-                        Pago::where('plan_id', $otro->id)->update(['plan_id' => $removido->id]);
-                        DB::table('grupo_plan_precios')->where('grupo_plan_id', $otro->id)->update(['grupo_plan_id' => $removido->id]);
-                        $otro->delete();
+                        ->exists();
+                    if ($otraInactiva) {
+                        return back()->withInput()->with('error', "Ya hay una {$removido->clases_por_semana}x desactivada en el grupo.");
                     }
+
                     $removido->update(['activo' => false]);
-                    $huboDesactivacion = true;
+                    $desactivados[] = (int) $removido->clases_por_semana;
                 } else {
                     $removido->delete();
                 }
@@ -279,18 +313,6 @@ class GrupoWebController extends Controller
                 $planId = !empty($planData['id']) ? (int) $planData['id'] : null;
 
                 if ($planId) {
-                    $inactivos = GrupoPlan::where('grupo_id', $id)
-                        ->where('clases_por_semana', $planData['clases_por_semana'])
-                        ->where('activo', false)
-                        ->where('id', '!=', $planId)
-                        ->get();
-                    foreach ($inactivos as $inactivo) {
-                        AlumnoPlan::where('plan_id', $inactivo->id)->update(['plan_id' => $planId]);
-                        Pago::where('plan_id', $inactivo->id)->update(['plan_id' => $planId]);
-                        DB::table('grupo_plan_precios')->where('grupo_plan_id', $inactivo->id)->update(['grupo_plan_id' => $planId]);
-                        $inactivo->delete();
-                    }
-
                     GrupoPlan::where('id', $planId)->where('grupo_id', $id)->firstOrFail()->update([
                         'clases_por_semana' => $planData['clases_por_semana'],
                         'precio_mensual'    => $planData['precio_mensual'],
@@ -304,17 +326,6 @@ class GrupoWebController extends Controller
                         ->first();
 
                     if ($inactivo) {
-                        $otrosInactivos = GrupoPlan::where('grupo_id', $id)
-                            ->where('clases_por_semana', $planData['clases_por_semana'])
-                            ->where('activo', false)
-                            ->where('id', '!=', $inactivo->id)
-                            ->get();
-                        foreach ($otrosInactivos as $otro) {
-                            AlumnoPlan::where('plan_id', $otro->id)->update(['plan_id' => $inactivo->id]);
-                            Pago::where('plan_id', $otro->id)->update(['plan_id' => $inactivo->id]);
-                            DB::table('grupo_plan_precios')->where('grupo_plan_id', $otro->id)->update(['grupo_plan_id' => $inactivo->id]);
-                            $otro->delete();
-                        }
                         $inactivo->update([
                             'activo'         => true,
                             'precio_mensual' => $planData['precio_mensual'],
@@ -341,7 +352,11 @@ class GrupoWebController extends Controller
                 }
             }
 
-            $mensajeExito = $huboDesactivacion
+            // H3: el aviso sale del resultado final: si la frecuencia sigue activa, «Grupo actualizado correctamente.»
+            $frecuenciasEnviadas = $planes->pluck('clases_por_semana')->map(fn($v) => (int) $v)->all();
+            $quedoAlgunaDesactivada = collect($desactivados)->contains(fn($f) => !in_array($f, $frecuenciasEnviadas, true));
+
+            $mensajeExito = $quedoAlgunaDesactivada
                 ? 'Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.'
                 : 'Grupo actualizado correctamente.';
 
@@ -468,17 +483,6 @@ class GrupoWebController extends Controller
                 ->first();
 
             if ($inactivo) {
-                $otrosInactivos = GrupoPlan::where('grupo_id', $id)
-                    ->where('clases_por_semana', $validated['clases_por_semana'])
-                    ->where('activo', false)
-                    ->where('id', '!=', $inactivo->id)
-                    ->get();
-                foreach ($otrosInactivos as $otro) {
-                    AlumnoPlan::where('plan_id', $otro->id)->update(['plan_id' => $inactivo->id]);
-                    Pago::where('plan_id', $otro->id)->update(['plan_id' => $inactivo->id]);
-                    DB::table('grupo_plan_precios')->where('grupo_plan_id', $otro->id)->update(['grupo_plan_id' => $inactivo->id]);
-                    $otro->delete();
-                }
                 $inactivo->update([
                     'activo'         => true,
                     'precio_mensual' => $validated['precio_mensual'],
@@ -520,16 +524,13 @@ class GrupoWebController extends Controller
             $grupoId = $plan->grupo_id;
 
             if ($usadoAntes) {
-                $otrosInactivos = GrupoPlan::where('grupo_id', $grupoId)
+                $otraInactiva = GrupoPlan::where('grupo_id', $grupoId)
                     ->where('clases_por_semana', $plan->clases_por_semana)
                     ->where('activo', false)
                     ->where('id', '!=', $planId)
-                    ->get();
-                foreach ($otrosInactivos as $otro) {
-                    AlumnoPlan::where('plan_id', $otro->id)->update(['plan_id' => $plan->id]);
-                    Pago::where('plan_id', $otro->id)->update(['plan_id' => $plan->id]);
-                    DB::table('grupo_plan_precios')->where('grupo_plan_id', $otro->id)->update(['grupo_plan_id' => $plan->id]);
-                    $otro->delete();
+                    ->exists();
+                if ($otraInactiva) {
+                    return back()->with('error', "Ya hay una {$plan->clases_por_semana}x desactivada en el grupo.");
                 }
 
                 $plan->update(['activo' => false]);

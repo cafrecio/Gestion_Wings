@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T94 segunda vuelta: Corrección de hallazgos del control (H1 a H5), concurrencia real comprobada y suite al día
+
+- **Objetivo:** Corregir los 5 hallazgos reportados por Claude en `VERIFICACION-T94-CLAUDE.md` sobre T94 (`sacar una frecuencia de un grupo`), incorporando las pruebas de control de `docs/06-pruebas/PRU-04/evidencia-t94-control/` y actualizando el manual y la documentación técnica.
+- **Acciones y resultados ([IMPLEMENTACION-T94.md](../06-pruebas/PRU-04/IMPLEMENTACION-T94.md) §8):**
+  1. **H1 (Carrera concurrente):** Se serializó el bloqueo de planes removidos en orden estable (`orderBy('id')->lockForUpdate()`) y se implementó lectura actual (`lockForUpdate()->count()`) sobre `AlumnoPlan` dentro de la transacción de `update`. Esto resuelve la anomalía de repeatable read en InnoDB, detectando confirmaciones concurrentes de alumnos y rechazando con `«Nx por semana tiene N alumno(s): cambiales el plan antes.»`. Verificado con `tests/Feature/ControlT94CarreraTest.php` (3 pruebas reales con conexiones simultáneas vía `proc_open`, 52s).
+  2. **H2 (Formulario viejo con ID desactivado):** Se valida que todo ID enviado en `planes` exista y esté activo (`where('activo', true)`). Si viene un ID desactivado, rechaza con `«Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.»`.
+  3. **H3 (Quitar y volver a agregar misma frecuencia):** Se calcula si la frecuencia quedó efectivamente desactivada en el resultado final (`$quedoAlgunaDesactivada`). Si la frecuencia se volvió a cargar como nueva fila en el mismo formulario, permanece activa y avisa `«Grupo actualizado correctamente.»`.
+  4. **H4 (Retiro de consolidación):** Se eliminó la transferencia de referencias entre filas. Cambiar una fila existente a la frecuencia de una desactivada avisa `«Ya hay una Nx desactivada. Agregala con Nuevo en vez de cambiar esta fila.»`. Si ya existieran registros duplicados en la base, desactivar avisa `«Ya hay una Nx desactivada en el grupo.»` sin error 500 y sin modificar registros.
+  5. **H5 (Intercambio de frecuencias):** El intercambio de frecuencias entre filas activas existentes en el mismo envío se rechaza con `«Ya hay una fila con esa frecuencia. Cambialas de a una.»`.
+  6. **Manual y verificación:** `resources/manual/admin/administrar-grupos.md` y su ficha de fuentes actualizadas con los 3 nuevos avisos de validación; `php scripts/manual/verificar-manual.php` &rarr; 59 páginas revisadas, 0 problemas.
+  7. **Pruebas y suite:** 36 pruebas directas de T94 en verde (`SacarFrecuenciaGrupoT94Test`: 25, `ControlT94ClaudeTest`: 8, `ControlT94CarreraTest`: 3 lentas). Suite rápida en `wings_testing_gemini`: 1305 pasadas, 6 omitidas. Total métodos de prueba del repo actualizado a 1437 en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`.
+- **Tablero y próximo paso:** Pasada a `estado=a_verificar`, `hizo=Gemini`, `tiene=Claude`, `verifica=Claude`.
+
 ## 2026-11-01 — LOG GEM CAB — T94: Sacar una frecuencia de un grupo (nunca usada se borra; usada antes se desactiva; con alumnos hoy se rechaza; reactivar si se vuelve a agregar)
 
 - **Objetivo:** Implementar la decisión de Carlos para sacar frecuencias de un grupo (`T94`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T94.md`.

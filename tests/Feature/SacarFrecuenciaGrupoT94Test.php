@@ -442,7 +442,7 @@ class SacarFrecuenciaGrupoT94Test extends TestCase
 
     public function test_si_existian_dos_filas_inactivas_desactivar_no_da_error_500(): void
     {
-        // Simular caso borde donde una fila inactiva ya existía y se desactiva otra
+        // Simular caso borde donde una fila inactiva ya existía y se desactiva otra: rechaza con aviso sin tocar nada (H4)
         $otroInactivo = GrupoPlan::create([
             'grupo_id' => $this->grupo->id,
             'clases_por_semana' => 3,
@@ -474,10 +474,10 @@ class SacarFrecuenciaGrupoT94Test extends TestCase
             ->delete(route('web.grupos.plans.destroy', $plan3Activo));
 
         $response->assertRedirect(route('web.grupos.show', $this->grupo))
-            ->assertSessionHas('success', 'Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.');
+            ->assertSessionHas('error', 'Ya hay una 3x desactivada en el grupo.');
 
-        $this->assertFalse($plan3Activo->fresh()->activo);
-        $this->assertDatabaseMissing('grupo_planes', ['id' => $otroInactivo->id]);
+        $this->assertTrue($plan3Activo->fresh()->activo);
+        $this->assertDatabaseHas('grupo_planes', ['id' => $otroInactivo->id]);
     }
 
     public function test_update_con_frecuencias_duplicadas_en_formulario_se_rechaza(): void
@@ -695,33 +695,116 @@ class SacarFrecuenciaGrupoT94Test extends TestCase
     }
 
     // -------------------------------------------------------------------------
-    // 10. CONCURRENCIA / SERIALIZACIÓN
+    // 10. REGLAS DE CONTROL Y SEGUNDA VUELTA (H2, H3, H4, H5)
     // -------------------------------------------------------------------------
 
-    public function test_concurrencia_sacar_frecuencia_mientras_se_asigna_alumno(): void
+    public function test_rechaza_intercambiar_dos_frecuencias_activas_en_formulario(): void
     {
-        // Si una transacción asigna un alumno justo antes de que el plan intente borrarse,
-        // al adquirir el lock de actualización el borrado debe detectar el alumno asignado y rechazar.
+        // H5: intercambiar frecuencias en el mismo formulario se rechaza con aviso
+        $response = $this->from(route('web.grupos.edit', $this->grupo))
+            ->put(route('web.grupos.update', $this->grupo), [
+                'planes' => [
+                    ['id' => $this->plan1->id, 'clases_por_semana' => 2, 'precio_mensual' => 20000],
+                    ['id' => $this->plan2->id, 'clases_por_semana' => 1, 'precio_mensual' => 30000],
+                ],
+            ]);
+
+        $response->assertRedirect(route('web.grupos.edit', $this->grupo))
+            ->assertSessionHas('error', 'Ya hay una fila con esa frecuencia. Cambialas de a una.');
+
+        $this->assertSame(1, (int) $this->plan1->fresh()->clases_por_semana);
+        $this->assertSame(2, (int) $this->plan2->fresh()->clases_por_semana);
+    }
+
+    public function test_rechaza_cambiar_fila_a_frecuencia_de_desactivada_sin_mover_historia(): void
+    {
+        // H4: cambiar una fila a la frecuencia de una desactivada se rechaza con aviso
+        // y no mueve historial ni referencias de alumnos
         $alumno = $this->crearAlumno([
             'deporte_id' => $this->deporte->id,
             'grupo_id' => $this->grupo->id,
             'activo' => true,
         ]);
+        AlumnoPlan::create([
+            'alumno_id' => $alumno->id,
+            'plan_id' => $this->plan2->id,
+            'fecha_desde' => today()->subMonth(),
+            'activo' => null,
+        ]);
 
-        \Illuminate\Support\Facades\DB::transaction(function () use ($alumno) {
-            AlumnoPlan::create([
-                'alumno_id' => $alumno->id,
-                'plan_id' => $this->plan2->id,
-                'fecha_desde' => today(),
-                'activo' => true,
+        // Desactivar plan2
+        $this->delete(route('web.grupos.plans.destroy', $this->plan2))->assertSessionHas('success');
+        $this->assertFalse($this->plan2->fresh()->activo);
+
+        // Crear plan3 de 3x
+        $plan3 = GrupoPlan::create([
+            'grupo_id' => $this->grupo->id,
+            'clases_por_semana' => 3,
+            'precio_mensual' => 40000,
+            'activo' => true,
+        ]);
+
+        // Intentar cambiar plan3 a 2x (frecuencia de plan2 desactivado)
+        $response = $this->from(route('web.grupos.edit', $this->grupo))
+            ->put(route('web.grupos.update', $this->grupo), [
+                'planes' => [
+                    ['id' => $this->plan1->id, 'clases_por_semana' => 1, 'precio_mensual' => 20000],
+                    ['id' => $plan3->id, 'clases_por_semana' => 2, 'precio_mensual' => 40000],
+                ],
             ]);
-        });
 
-        $response = $this->from(route('web.grupos.show', $this->grupo))
-            ->delete(route('web.grupos.plans.destroy', $this->plan2));
+        $response->assertRedirect(route('web.grupos.edit', $this->grupo))
+            ->assertSessionHas('error', 'Ya hay una 2x desactivada. Agregala con Nuevo en vez de cambiar esta fila.');
 
-        $response->assertRedirect(route('web.grupos.show', $this->grupo))
-            ->assertSessionHas('error', '2x por semana tiene 1 alumno: cambiales el plan antes.');
+        $this->assertSame(3, (int) $plan3->fresh()->clases_por_semana);
+        $this->assertSame($this->plan2->id, AlumnoPlan::where('alumno_id', $alumno->id)->value('plan_id'));
+    }
+
+    public function test_rechaza_formulario_con_id_de_frecuencia_desactivada(): void
+    {
+        // H2: un formulario viejo que envíe el id de una frecuencia desactivada se rechaza
+        $this->plan2->update(['activo' => false]);
+
+        $response = $this->from(route('web.grupos.edit', $this->grupo))
+            ->put(route('web.grupos.update', $this->grupo), [
+                'planes' => [
+                    ['id' => $this->plan1->id, 'clases_por_semana' => 1, 'precio_mensual' => 20000],
+                    ['id' => $this->plan2->id, 'clases_por_semana' => 2, 'precio_mensual' => 30000],
+                ],
+            ]);
+
+        $response->assertRedirect(route('web.grupos.edit', $this->grupo))
+            ->assertSessionHas('error', 'Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.');
+
+        $this->assertFalse($this->plan2->fresh()->activo);
+    }
+
+    public function test_sacar_y_volver_a_cargar_misma_frecuencia_avisa_grupo_actualizado(): void
+    {
+        // H3: si se remueve una fila activa y se agrega una nueva con la misma frecuencia,
+        // al quedar activa al final debe avisar «Grupo actualizado correctamente.»
+        $alumno = $this->crearAlumno([
+            'deporte_id' => $this->deporte->id,
+            'grupo_id' => $this->grupo->id,
+            'activo' => true,
+        ]);
+        AlumnoPlan::create([
+            'alumno_id' => $alumno->id,
+            'plan_id' => $this->plan2->id,
+            'fecha_desde' => today()->subMonth(),
+            'activo' => null,
+        ]);
+
+        $response = $this->from(route('web.grupos.edit', $this->grupo))
+            ->put(route('web.grupos.update', $this->grupo), [
+                'planes' => [
+                    ['id' => $this->plan1->id, 'clases_por_semana' => 1, 'precio_mensual' => 20000],
+                    ['id' => null, 'clases_por_semana' => 2, 'precio_mensual' => 35000],
+                ],
+            ]);
+
+        $response->assertRedirect(route('web.grupos.index'))
+            ->assertSessionHas('success', 'Grupo actualizado correctamente.');
 
         $this->assertTrue($this->plan2->fresh()->activo);
     }

@@ -63,6 +63,12 @@ Ese nivel se inactivó mientras completabas el formulario. Elegí otro, o activa
 ### ¿Qué hago si dice «Hay dos filas con la misma frecuencia. Dejá una sola.»?
 Al crear el grupo, elegiste dos veces la misma frecuencia. Sacá una de las dos filas y tocá de nuevo **Guardar**.
 
+### ¿Qué hago si dice «Ya hay una fila con esa frecuencia. Cambialas de a una.»?
+Al editar el grupo, intentaste cambiar una fila a una frecuencia que ya tiene otra fila activa (por ejemplo, intercambiar 1x y 2x). Wings no permite intercambiarlas en el mismo paso: cambiá una primero a una frecuencia libre o guardá los cambios de a una fila.
+
+### ¿Qué hago si dice «Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.»?
+Alguien modificó o desactivó alguna frecuencia mientras tenías la pantalla abierta. Volvé a entrar a **Editar** para ver las frecuencias actuales del grupo.
+
 ### ¿Qué hago si quiero sacar una frecuencia?
 Podés sacarla editando el grupo (**Editar** y quitando la fila con **✕**) o desde su ficha (**Ver** y tocando **Eliminar** en la fila de la frecuencia, tras confirmar «¿Eliminar este plan?»):
 
@@ -70,6 +76,8 @@ Podés sacarla editando el grupo (**Editar** y quitando la fila con **✕**) o d
 - *Si se usó antes pero no tiene alumnos hoy:* se desactiva y deja de ofrecerse para nuevas inscripciones o cobros, mostrando «Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.». El historial anterior (cuotas, deudas y pagos) se conserva intacto. Si más adelante volvés a agregar esa misma frecuencia, se reactiva con el nuevo precio.
 - *Si tiene alumnos hoy:* Wings no la saca y avisa cuántos tiene, por ejemplo *2x por semana tiene 1 alumno: cambiales el plan antes.* (o *2x por semana tiene 3 alumnos: cambiales el plan antes.*). Si estabas editando el formulario, no se guarda ningún cambio hasta que les asignes otro plan.
 - *Si es la última frecuencia activa:* el grupo no puede quedar vacío. En la ficha avisa «No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.», y al editar «El grupo debe tener al menos una frecuencia para poder cargar alumnos.».
+
+Si editás una fila existente para cambiarla a una frecuencia que ya estaba desactivada, Wings avisa por ejemplo *Ya hay una 2x desactivada. Agregala con Nuevo en vez de cambiar esta fila.*. Tocá **Nuevo** para reactivarla con su nuevo precio en vez de modificar una fila existente.
 
 ### ¿Qué hago si no me deja desactivar el grupo?
 Wings no desactiva un grupo con alumnos activos o clases futuras sin cancelar, y el aviso dice cuántos tiene, por ejemplo *No se puede desactivar el grupo porque tiene 1 alumno activo*. Movelos o pasalos a **Inactivo**, y cancelá las clases futuras.

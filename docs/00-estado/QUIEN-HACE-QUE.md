@@ -50,12 +50,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Hecho, espera verificación (hizo Gemini, verifica Claude) | T94 segunda vuelta corregida: H1-H5 implementados, 36 pruebas verdes (incluye carrera real) |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Codex la controla, etapa 1 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | En curso (hizo Claude, verifica Codex) | Control independiente: casos, pantalla, pedidos directos y dinero al peso; completa al final de T102 |
 | **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta si, y en Historial filtrando su subrubro. Codex la controla, etapa 2 de PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Codex la controla, etapa 3, con PROMPT-CODEX-T102-CONTROL.md. Sin desplegar. |
 
@@ -63,7 +64,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia correcciones segunda vuelta T94 |
 | **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el gasto que el dueno agrega en un turno figura a su nombre, tambien en Cashflow al validar. Lo ya cargado no se corrige. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 

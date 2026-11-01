@@ -57,7 +57,9 @@ Ejemplo:
   - Si se usó antes pero no tiene alumnos activos hoy: se desactiva (`activo` = false); deja de ofrecerse para nuevas asignaciones y cobros, conservando intacto el historial anterior (cuotas, deudas, pagos y precios).
   - Si tiene alumnos hoy (cualquier asignación con `activo` = true, incluyendo alumnos inactivos o cambios futuros programados): se rechaza sin guardar y avisa cuántos tiene («Nx por semana tiene N alumnos: cambiales el plan antes.»).
   - Un grupo debe conservar al menos una frecuencia activa: no se permite eliminar la última.
-  - Volver a agregar una frecuencia desactivada reactiva la misma fila (`activo` = true) con el nuevo precio sin duplicar registros.
+  - Volver a agregar una frecuencia desactivada reactiva la misma fila (`activo` = true) con el nuevo precio sin duplicar registros. Reactivar solo es válido agregando una nueva fila; cambiar una fila existente a una frecuencia desactivada se rechaza («Ya hay una Nx desactivada. Agregala con Nuevo en vez de cambiar esta fila.»).
+  - Intercambiar frecuencias en edición se rechaza («Ya hay una fila con esa frecuencia. Cambialas de a una.»).
+  - No se mueven referencias (`alumno_planes`, `pagos`, `grupo_plan_precios`) entre filas: la historia queda intacta en su fila original. Si en la base existieran duplicados inactivos previos, la desactivación se rechaza con aviso sin tocar registros.
 
 ---
 
