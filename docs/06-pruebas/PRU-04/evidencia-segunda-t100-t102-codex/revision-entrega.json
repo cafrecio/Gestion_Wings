@@ -1,0 +1,13 @@
+{
+  "ids_tablero_cambiados": [
+    "T100",
+    "T102"
+  ],
+  "enlaces": 23,
+  "problemas_enlaces": [],
+  "producto_cambiado": [],
+  "catalogo_cambiado": [],
+  "limites_evidencia_aviso_anulado": "observacion-aviso-anulado.md",
+  "sintaxis_php": "2 archivos propios sin errores",
+  "diff_check": "sin errores"
+}

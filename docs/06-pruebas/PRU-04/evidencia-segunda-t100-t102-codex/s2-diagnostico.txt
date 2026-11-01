@@ -1,0 +1,6 @@
+
+   PASS  Tests\Feature\DiagnosticoS2SegundaCodexTest
+  ✓ diagnostico s2 ya llega al alta                                                                             25.17s
+
+  Tests:    1 passed (9 assertions)
+  Duration: 25.32s

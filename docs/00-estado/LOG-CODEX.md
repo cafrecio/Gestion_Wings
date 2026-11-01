@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — Segunda vuelta T100/T102
+
+T102 cerrada: S1 reproductor3/6; S2 sola2/23 y diagnóstico1/9, código0. Alta guarda y vuelve a Alumnos; nivel actual inactivo comprobado en navegador.
+T100 devuelta solo por H1 residual: dos campos de ficha aún generalizan pendiente. Manual incluye protecciones; tres paneles y dos avisos vistos, H2 resuelto. Captura de anulación posterior no conserva el aviso; límite documentado.
+Manual59/0 y recibo impago «Página no disponible» comprobados. No se repitieron matrices de negocio ni migración del primer control.
+Única completa del corte1f0af02f:1479 aprobadas/0fallidas/6omitidas,11614 aserciones,1311.52s,salida0.878 fuentes intactas;244 muestras sin otra suite/PHP. Reserva LIBERADA.
+[Informes T100](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md) y [T102](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md), sección Segunda vuelta. Fuera del corte: dos pruebas nuevas ajenas T107/T108.
+Tablero y continuidad actualizados. Solo wings_testing_codex; sin producto, catálogo, base del club ni despliegue. Sigue Claude con la ficha T100.
+
 ## 2026-11-01 — Codex CAB — T102 entregada; tres etapas de control finalizadas
 
 [Informe T102](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md): ocho casos de negocio correctos, doce tablas e importes historicos conservados, PDF directo validado por identidad. Un PDF cacheado de otro fixture queda excluido.

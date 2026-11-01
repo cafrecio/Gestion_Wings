@@ -1,6 +1,8 @@
 # Verificación T102 — Codex CAB, 01/11/2026
 
-**Resultado: DEVUELTA a Claude por S1/S2, aislamiento de pruebas. Los ocho casos de negocio de T102 pasaron.** Se verifica la implementación de Claude, sin corregir producto, vistas, CSS ni catálogo de casos. La completa final quedó roja y no se presenta como aprobada; no se comprobó un defecto de negocio de T102.
+**Resultado vigente, segunda vuelta: CERRADA por Codex. S1/S2 y H1 resueltos; completa sin fallos, código 0.** Véase la segunda vuelta al final.
+
+**Primera vuelta (histórica): DEVUELTA a Claude por S1/S2, aislamiento de pruebas. Los ocho casos de negocio de T102 pasaron.** Se verifica la implementación de Claude, sin corregir producto, vistas, CSS ni catálogo de casos. La completa final quedó roja y no se presenta como aprobada; no se comprobó un defecto de negocio de T102.
 
 ## Entorno y criterio
 
@@ -67,3 +69,37 @@ En InactivosT70T71Test hubo un PID breve sin línea de comando identificable dur
 **Verificación final:** 878 fuentes aisladas idénticas antes/después; checkout de producto sin cambios propios. Vistas compilaron y se limpió su caché en la copia. Sintaxis de todos los PHP propios y enlaces de los tres informes comprobados. Verificador mecánico del manual en el corte final: [59 páginas / 6 problemas](evidencia-control-t102-codex/manual-verificador-final.txt): uno por el texto de recibo impago de T109 y cinco por formato/literales de la corrección posterior del manual T100; no señala las dos páginas T102. Eso no se oculta como un verde mecánico ni se atribuye a su lógica de niveles.
 
 **Entrega final:** T102 devuelta a Claude por S1/S2 de aislamiento; comportamiento de niveles/grupos e importes comprobado. T106 cerrada; T100 conserva su devolución con el seguimiento indicado. Una sola completa ejecutada. Sin producto, catálogo de casos ni despliegue. Resolver los problemas de la suite antes de pretender un verde global o desplegar.
+
+
+## Segunda vuelta — 01/11/2026, Codex CAB
+
+Solo S1/S2 y H1 devueltos, más la comprobación pedida del manual del recibo. Código corregido `103360f7`; corte final de la completa `1f0af02f`. Copia aislada `storage/app/control-gw-261101/app`, con vendor físico; única base `wings_testing_codex`. No se repitieron los ocho casos de negocio ni los controles históricos anteriores.
+
+### Comprobado
+
+| Punto | Ejecución actual | Resultado |
+|---|---|---|
+| S1 | Mismo reproductor: método T100 de calentamiento → Carrera T94 → Claude T94, en un único proceso; sin cambiar sus expectativas | **3 aprobadas, 6 aserciones, 44,34 s, código 0**. [Salida](evidencia-segunda-t100-t102-codex/s1-reproductor.txt) |
+| S2 sola | `InscripcionConcurrenteTest.php`, proceso nuevo, sin preparar el club por fuera | **2 aprobadas, 23 aserciones, 46,49 s, código 0**. [Salida](evidencia-segunda-t100-t102-codex/s2-sola.txt) |
+| S2 diagnóstico | Control independiente heredando el mismo `setUp`, ejecutado aparte y filtrado para no repetir los otros métodos | **1 aprobada, 9 aserciones, 25,32 s, código 0**. Primera carga TERMINADA, alta guarda un alumno y redirige a `/alumnos`. [Prueba](evidencia-segunda-t100-t102-codex/DiagnosticoS2SegundaCodexTest.php), [salida](evidencia-segunda-t100-t102-codex/s2-diagnostico.txt), [filas](evidencia-segunda-t100-t102-codex/s2-diagnostico.json) |
+| H1 del manual de grupos | Editar grupo cuyo nivel actual está inactivo, en navegador | Selector ofrece **Control actual inactivo (inactivo)** seleccionado, junto a niveles activos; no ofrece el otro nivel inactivo preparado como contraste. Coincide con el manual. [Captura](evidencia-segunda-t100-t102-codex/gw-segunda-grupo.jpg), [DOM](evidencia-segunda-t100-t102-codex/gw-segunda-grupo.txt) |
+| Manuales | `php scripts/manual/verificar-manual.php` | **59 páginas, 0 problemas, código 0**. [Salida](evidencia-segunda-t100-t102-codex/manual-verificador.txt) |
+| Recibo sin pagar | Dueño abre la URL del recibo de una liquidación CERRADA/PENDIENTE del fixture | Pantalla **«Página no disponible»**, sin JSON crudo. Coincide con la frase corregida del manual. [Captura](evidencia-segunda-t100-t102-codex/gw-segunda-recibo-impago.jpg), [DOM](evidencia-segunda-t100-t102-codex/gw-segunda-recibo-impago.txt) |
+
+La prueba S2 ejecutada conserva la espera de la segunda conexión, exige error de espera en `FOR UPDATE`, comprueba que no hubo `INSERT/UPDATE/DELETE` antes de liberar y reintenta después del commit. La nueva aserción exige que la primera alta efectivamente haya persistido. No se presenta solo una inspección de su texto como prueba de concurrencia.
+
+### Inferido — lectura de la corrección y límites
+
+Se leyeron los cuerpos completos de ambas pruebas. Carrera T94 repone la base al terminar y sincroniza `RefreshDatabaseState::$migrated`; ambas preparaciones marcan Primera carga TERMINADA. El diff agrega limpieza/estado y fortalece la primera alta; no afloja las expectativas del reproductor. S1 y S2 dejan de reproducirse en los comandos ejecutados, sin concluir que esto pruebe todos los posibles órdenes de la suite.
+
+El selector de grupos y la condición del recibo se contrastaron con sus vistas/controladores reales. El grafo informó cobertura no disponible/metadatos cambiados en los archivos usados; se recurrió a lectura directa de los cuerpos y rangos pertinentes, sin presentar el índice como evidencia de comportamiento.
+
+### Única suite completa final
+
+**1.479 aprobadas, 0 fallidas, 6 omitidas, 11.614 aserciones, 1.311,52 s; código 0**. [Salida completa](evidencia-segunda-t100-t102-codex/suite-completa.txt) y [código/horarios](evidencia-segunda-t100-t102-codex/suite-resultado.json). Se ejecutó una sola vez, entre 10:01 y 10:23, únicamente en `wings_testing_codex`. El runner midió 1.317,69 s incluyendo arranque/observación final; el resumen de pruebas informa 1.311,52 s.
+
+Las **878 fuentes coinciden**, tanto en la copia como en el checkout, con sus hashes iniciales. **244 muestras del monitor no registran otra suite ni otro PHP**. [Integridad, corte y concurrencia](evidencia-segunda-t100-t102-codex/verificacion-final.json). Dos pruebas nuevas de T107/T108 ajenas y aún sin publicar quedaron fuera del corte; no se certifican aquí. En esta ejecución `artisan test` terminó con **código 0**, no 1; no se atribuye una causa a resultados de otras ejecuciones.
+
+Se guardó el corte de las **878 fuentes** antes de iniciar: [hashes y HEAD](evidencia-segunda-t100-t102-codex/fuentes-antes-completa.json). El [runner](evidencia-segunda-t100-t102-codex/correr-completa.ps1) revisa que no haya otra suite antes y registra durante la ejecución el árbol completo de procesos, incluidos intermediarios `cmd.exe`; el PHPUnit descendiente pertenece a esta misma corrida. Los procesos ajenos de `schedule:run`, si aparecen, se separan de otras suites y no se les atribuyen fallos.
+
+**T102 cerrada por Codex: S1/S2/H1 resueltos, sin hallazgos graves ni medios en esta segunda vuelta, completa sin fallos e integridad comprobada.** T100 conserva su devolución por la ficha de fuentes, detallada en su segunda vuelta; no arrastra ese hallazgo a T102. Sin cambios de producto, catálogo, base del club ni despliegue.

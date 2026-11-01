@@ -1,6 +1,8 @@
 # Verificación T100 — Codex CAB, 01/11/2026
 
-**Resultado: DEVUELTA a Claude por dos hallazgos medios de instrucciones y mensajes.** Los once casos de negocio se reprodujeron con los importes indicados. No se corrigió producto, vistas, CSS ni tabla de pruebas.
+**Resultado vigente, segunda vuelta: DEVUELTA a Claude solo por H1 residual en dos campos de la ficha de fuentes. H2 resuelto.** Véase la segunda vuelta al final.
+
+**Primera vuelta (histórica): DEVUELTA a Claude por dos hallazgos medios de instrucciones y mensajes.** Los once casos de negocio se reprodujeron con los importes indicados. No se corrigió producto, vistas, CSS ni tabla de pruebas.
 
 ## Entorno y evidencia
 
@@ -66,3 +68,34 @@ Claude publicó c91b4555 y volvió a dejar T100 a verificar. Se releyeron el man
 **H1 no queda resuelto por completo:** en la ficha `evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md:18,31`, el último campo de Paso 3 todavía afirma que la cuota vuelve a PENDIENTE y la explicación del flash todavía dice que restituye la deuda a pendiente. La primera columna fue aclarada, las otras dos menciones no. Corregir esas generalizaciones sigue dentro de H1.
 
 H2 permanece: los paneles Blade siguen diciendo deuda pendiente y esperan la aprobación visual de Carlos; no se tocaron. Por H1 residual y H2 **T100 vuelve a devuelto, tiene Claude**. El verificador final además señala cinco problemas mecánicos de formato/literales en el nuevo texto del manual (baja, líneas42 y55–58): título de la pregunta entre comillas y condiciones de negocio en negrita se tratan como literales de pantalla. Propuesta: ajustar ese formato sin cambiar las condiciones; el sexto problema del verificador es ajeno, recibo impago de T109. [Salida y cierre de las tres etapas](VERIFICACION-T102-CODEX.md). Sin cambios de producto ni catálogo por Codex.
+
+
+## Segunda vuelta — 01/11/2026, Codex CAB
+
+Control limitado a H1/H2 devueltos, sobre la corrección `103360f7`. No se repitieron los once casos de negocio, la migración del sitio ni las mutaciones del primer control. Pantallas servidas por Wings real en la copia aislada, únicamente `wings_testing_codex`; identidades ficticias preparadas por [fixture](evidencia-segunda-t100-t102-codex/preparar-pantallas.php). Sin cambios propios de producto ni despliegue.
+
+### Comprobado
+
+- Los tres paneles muestran el texto aprobado: [Detalle de caja](evidencia-segunda-t100-t102-codex/gw-segunda-panel-detalle.jpg), [formulario de cancelación](evidencia-segunda-t100-t102-codex/gw-segunda-panel-formulario.jpg) y [anulación desde ficha](evidencia-segunda-t100-t102-codex/gw-segunda-panel-anular.jpg). Sus DOM están junto a cada captura, con igual nombre y extensión `.txt`.
+- Se ejecutaron la cancelación operativa y la anulación del dueño sobre cobros ficticios para comprobar los avisos. Se vieron **«Cobro cancelado.»** ([captura](evidencia-segunda-t100-t102-codex/gw-segunda-flash-cancelado-final.jpg)) y **«Cobro anulado.»** (leído en el snapshot visible de Chrome; [registro de observación](evidencia-segunda-t100-t102-codex/observacion-aviso-anulado.md)). La captura y DOM guardados después de la anulación muestran el resultado final, pero ya no contienen ese aviso transitorio: no se usan como prueba del literal. La primera captura de la cancelación llegó después de que el aviso se ocultara; se preparó otra operación ficticia para capturarlo. Eso no se presenta como repetición de los casos monetarios anteriores.
+- `php scripts/manual/verificar-manual.php`: **59 páginas, 0 problemas, código 0** ([salida](evidencia-segunda-t100-t102-codex/manual-verificador.txt)). Los cinco avisos mecánicos de la entrega anterior ya no aparecen.
+- Única completa final: **1.479 aprobadas, 0 fallidas, 6 omitidas, 11.614 aserciones, 1.311,52 s; código 0**. La ejecución y su alcance se registran al final de la segunda vuelta de T102; no se hereda la completa de Claude.
+
+### Inferido — contraste por lectura de fuentes actuales
+
+El Paso 3 del manual remite ahora a la excepción del adelanto. Su pregunta «¿Qué pasa si cancelo un cobro adelantado?» se contrastó con el cuerpo de `PagoCuotaService::deshacerCuotaNacidaDeCobro`, líneas 1256–1275:
+
+| Condición de la función | Texto actual del manual | Resultado del contraste |
+|---|---|---|
+| `pago_origen_id === null` | Cuota previa o adelanto anterior a esta regla conserva el importe | Incluida |
+| `monto_pagado > 0` | Otro cobro sigue vigente y solo queda pendiente lo que falta | Incluida |
+| `monto_perdido > 0` | Parte dada por perdida conserva el importe | Incluida |
+| `CargoAlumno` o `LiquidacionDetalle` vinculado | Recargo o liquidación impiden borrar y queda al precio del plan | Incluida |
+| Período futuro y sin vínculos, después de superar las tres salidas anteriores | Cuota nacida de ese adelanto, sin otro cobro, se deshace; abajo explicita las excepciones | Incluida |
+| Mes iniciado; existe el plan para el período | Pendiente al precio del plan | Incluida; la asignación del precio en código requiere encontrar ese plan |
+
+Las cuatro protecciones omitidas en la primera redacción están explicadas: origen previo/legado, otro cobro, pérdida y recargo/liquidación. Esta tabla acredita lectura; los efectos monetarios corresponden a los casos ya ejecutados en la primera vuelta.
+
+**H1 residual, media: sigue sin resolverse la ficha de fuentes.** En `evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md:18`, la última columna de Paso 3 conserva «la cuota vuelve a PENDIENTE»; en la línea 31, el aviso dice que «restituye la deuda a pendiente». El [barrido literal](evidencia-segunda-t100-t102-codex/barrido-frases.txt) devuelve esas dos menciones dentro del alcance manual/paneles/ficha. No se atribuye otro defecto monetario. Propuesta: aplicar también en esos dos campos la distinción de la primera columna; no se editó la ficha.
+
+**H2 resuelto en los tres paneles y los dos avisos. T100 se devuelve a Claude únicamente por H1 residual de la ficha.** No requiere una nueva decisión de diseño ni repetir el negocio ya controlado. La tabla de pruebas permanece intacta; sigue vigente la propuesta de catálogo de la primera vuelta.

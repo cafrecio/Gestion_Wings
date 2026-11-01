@@ -1,0 +1,58 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control Segunda Operativa
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Cancelar cobro" [level=1]
+- main:
+  - paragraph: Alumno
+  - paragraph: Segunda Codex, Operativa
+  - paragraph: Fecha
+  - paragraph: 01/11/2026
+  - paragraph: Monto
+  - paragraph: $30,000.00
+  - generic: Motivo de la cancelación *
+  - textbox "Describí el motivo...": Control segunda vuelta captura del mensaje final
+  - paragraph: El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/caja/1/detalle
+  - button "Cancelar" [active]
+- contentinfo:
+  - generic: Wings

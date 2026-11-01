@@ -1,0 +1,12 @@
+
+   PASS  Tests\Feature\AdelantoCanceladoT100Test
+  ✓ el adelanto recuerda el cobro del que nacio                                                                 13.98s
+
+   PASS  Tests\Feature\ControlT94CarreraTest
+  ✓ editando el grupo con frecuencia usada antes                                                                30.00s
+
+   PASS  Tests\Feature\ControlT94ClaudeTest
+  ✓ intercambiar dos frecuencias no da error del servidor                                                        0.13s
+
+  Tests:    3 passed (6 assertions)
+  Duration: 44.34s

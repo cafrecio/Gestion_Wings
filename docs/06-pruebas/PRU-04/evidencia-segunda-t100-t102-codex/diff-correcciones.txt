@@ -1,0 +1,174 @@
+commit 103360f7cd09cf26a6dacb7130a1d22d54781d1d
+Author: Chalie <carlos.a.bonifacio@gmail.com>
+Date:   Sun Nov 1 09:39:56 2026 -0300
+
+    T100 y T102: arreglo lo devuelto por Codex, aislamiento de dos pruebas, manual y textos de paneles
+
+    S1: ControlT94CarreraTest deja la base limpia. S2: InscripcionConcurrenteTest llega a la concurrencia. Completa antes de los textos: 1479 aprobadas, 0 fallidas, 6 omitidas. Paneles: tres frases decian que la deuda vuelve a pendiente tambien cuando el adelanto se deshace.
+
+    Diseno-autorizado: Carlos lo pidio el 01/11 (Arreglalos), con el texto propuesto en el chat; solo cambia el texto de tres avisos
+
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+diff --git a/resources/manual/admin/administrar-grupos.md b/resources/manual/admin/administrar-grupos.md
+index 1699475a..a830957d 100644
+--- a/resources/manual/admin/administrar-grupos.md
++++ b/resources/manual/admin/administrar-grupos.md
+@@ -39,7 +39,7 @@ ## Cambiar un precio o agregar una frecuencia
+ ## Pasar un grupo a otro nivel
+
+ 1. En **Grupos**, tocá **Editar** en la tarjeta del grupo.
+-2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos.
++2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos; si el grupo ya tiene un nivel inactivo, también aparece para conservarlo.
+ 3. Tocá **Guardar**. Wings muestra «Grupo actualizado correctamente.».
+
+ El grupo conserva sus alumnos, sus precios y sus clases. Su nombre cambia en todas las pantallas, también en clases y liquidaciones anteriores. Los recibos PDF ya generados no cambian.
+diff --git a/resources/manual/admin/descargar-recibo-liquidacion.md b/resources/manual/admin/descargar-recibo-liquidacion.md
+index 73aa58ae..e760fe36 100644
+--- a/resources/manual/admin/descargar-recibo-liquidacion.md
++++ b/resources/manual/admin/descargar-recibo-liquidacion.md
+@@ -41,7 +41,7 @@ ### Paso 2. Visualizar y descargar el comprobante en PDF
+ ## Qué hago si…
+
+ ### ¿Qué hago si el botón Recibo no aparece?
+-Si en la pantalla no figura el botón de descarga del comprobante, verificá el estado de la liquidación. Si figura como *Abierta*, debés cerrarla y asentar el pago. Wings bloquea la generación de recibos con el mensaje: «Solo se pueden generar recibos de liquidaciones que han sido pagadas» hasta que no se registre la salida de fondos.
++Si en la pantalla no figura el botón de descarga del comprobante, verificá el estado de la liquidación. Si figura como *Abierta*, debés cerrarla y asentar el pago. Hasta entonces no hay recibo: si escribís su dirección, Wings muestra «Página no disponible».
+
+ ### ¿Se puede volver a descargar el recibo más adelante?
+ Sí. El recibo queda almacenado de forma permanente en el historial del club. Podés volver a abrir la liquidación en cualquier momento y tocar **Recibo** para descargar una copia idéntica a la original.
+diff --git a/resources/manual/operativo/cancelar-movimiento-caja.md b/resources/manual/operativo/cancelar-movimiento-caja.md
+index df121ec4..12cff6f4 100644
+--- a/resources/manual/operativo/cancelar-movimiento-caja.md
++++ b/resources/manual/operativo/cancelar-movimiento-caja.md
+@@ -30,7 +30,7 @@ ### Paso 1. Ingresar al detalle de tu caja
+ ### Paso 2. Localizar la operación y tocar Cancelar
+ 1. En la tabla de movimientos, localizá la fila del cobro de cuota que necesitás anular (los ingresos y gastos manuales se corrigen o borran con los botones **Editar** y **Eliminar**).
+ 2. Al final de la fila, hacé clic en el botón rojo **Cancelar**.
+-3. Se despliega el panel **Cancelar cobro de cuota** con la indicación «La deuda del alumno volverá a estado pendiente.».
++3. Se despliega el panel **Cancelar cobro de cuota** con la indicación «El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.».
+
+ ![Botón Cancelar en la fila](/ayuda/img/operativo/cancelar-movimiento-caja-paso2.png)
+
+@@ -39,7 +39,7 @@ ### Paso 2. Localizar la operación y tocar Cancelar
+ ### Paso 3. Ingresar el motivo obligatorio y confirmar
+ 1. En la casilla de texto, escribí el motivo claro y descriptivo de la anulación (por ejemplo: "Cobro duplicado por error" o "Monto ingresado incorrectamente").
+ 2. Hacé clic en el botón **Confirmar** (o en **Cerrar** si no deseás cancelar).
+-3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica «¿Qué pasa si cancelo un cobro adelantado?».
++3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica la pregunta sobre el cobro adelantado, más abajo.
+
+ ![Modal de confirmación con motivo](/ayuda/img/operativo/cancelar-movimiento-caja-paso3.png)
+
+@@ -52,10 +52,10 @@ ### ¿Qué pasa si cancelo un cobro adelantado?
+
+ En estos casos la cuota no se borra:
+
+-- **El mes ya empezó, tiene un recargo o entró en una liquidación:** queda pendiente al precio del plan.
+-- **La cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla:** queda pendiente con el importe que tenía.
+-- **Queda otro cobro de ese mes:** ese cobro sigue en pie y queda pendiente lo que falta.
+-- **Parte de la cuota se dio por perdida:** queda pendiente con el importe que tenía.
++- Si el mes ya empezó, tiene un recargo o entró en una liquidación, queda pendiente al precio del plan.
++- Si la cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla, queda pendiente con el importe que tenía.
++- Si queda otro cobro de ese mes, ese cobro sigue en pie y queda pendiente lo que falta.
++- Si parte de la cuota se dio por perdida, queda pendiente con el importe que tenía.
+
+ ### ¿Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?
+ Si la caja está en estado *Cerrada*, la botonera de cancelación se deshabilita para evitar adulteraciones posteriores al arqueo. Hablá con el dueño y pedile que rechace la caja: al pasar a estado *Rechazada*, el botón **Cancelar** vuelve a estar habilitado para que corrijas la operación.
+diff --git a/resources/views/alumnos/show.blade.php b/resources/views/alumnos/show.blade.php
+index 5efb271d..b4e3a4f9 100644
+--- a/resources/views/alumnos/show.blade.php
++++ b/resources/views/alumnos/show.blade.php
+@@ -439,7 +439,7 @@ class="ds-btn-row ds-btn-row--dang"
+ <div id="modal-anular" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
+         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Anular cobro</p>
+-        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda vuelve a quedar pendiente y la plata sale del cashflow. El recibo queda marcado como anulado.</p>
++        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La plata sale del cashflow y el recibo queda anulado. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.</p>
+         <form id="form-anular" method="POST" action="">
+             @csrf
+             <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
+diff --git a/resources/views/caja/cancelar-movimiento.blade.php b/resources/views/caja/cancelar-movimiento.blade.php
+index 594fc52b..934a2701 100644
+--- a/resources/views/caja/cancelar-movimiento.blade.php
++++ b/resources/views/caja/cancelar-movimiento.blade.php
+@@ -43,7 +43,7 @@ class="w-full px-4 py-2.5 text-sm wings-input"
+             <p style="font-size:0.75rem; color:var(--color-danger); margin-top:4px;">{{ $message }}</p>
+         @enderror
+         <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:8px;">
+-            La deuda del alumno volverá a estado pendiente.
++            El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.
+         </p>
+     </div>
+
+diff --git a/resources/views/caja/detalle.blade.php b/resources/views/caja/detalle.blade.php
+index 37b80fd4..e199b080 100644
+--- a/resources/views/caja/detalle.blade.php
++++ b/resources/views/caja/detalle.blade.php
+@@ -303,7 +303,7 @@ class="ds-btn-row ds-btn-row--sec" target="_blank">Recibo</a>
+ <div id="modal-cancelar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
+         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Cancelar cobro de cuota</p>
+-        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda del alumno volverá a estado pendiente.</p>
++        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">El cobro sale de la caja. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.</p>
+         <form id="form-cancelar" method="POST" action="">
+             @csrf
+             <textarea name="motivo" required maxlength="500" rows="3"
+diff --git a/tests/Feature/ControlT94CarreraTest.php b/tests/Feature/ControlT94CarreraTest.php
+index 573496f2..8d6fdac3 100644
+--- a/tests/Feature/ControlT94CarreraTest.php
++++ b/tests/Feature/ControlT94CarreraTest.php
+@@ -9,6 +9,7 @@
+ use App\Models\GrupoPlan;
+ use App\Models\Nivel;
+ use App\Models\User;
++use Illuminate\Foundation\Testing\RefreshDatabaseState;
+ use Illuminate\Support\Facades\DB;
+ use PHPUnit\Framework\Attributes\Group;
+ use Tests\TestCase;
+@@ -32,6 +33,7 @@ protected function setUp(): void
+         parent::setUp();
+         // Sin transacción: la otra conexión tiene que ver los datos.
+         $this->artisan('migrate:fresh');
++        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'TERMINADA']);
+         $this->admin = User::factory()->create(['rol' => User::ROL_ADMIN, 'activo' => true]);
+         $deporte = Deporte::create(['nombre' => 'Control', 'tipo_liquidacion' => Deporte::TIPO_LIQUIDACION_HORA, 'activo' => true]);
+         $nivel = Nivel::create(['nombre' => 'Control']);
+@@ -41,6 +43,14 @@ protected function setUp(): void
+         $this->alumno = $this->crearAlumno('31000222');
+     }
+
++    protected function tearDown(): void
++    {
++        // Los datos de la carrera quedan confirmados: la clase siguiente tiene que encontrar la base limpia.
++        $this->artisan('migrate:fresh');
++        RefreshDatabaseState::$migrated = true;
++        parent::tearDown();
++    }
++
+     private function crearAlumno(string $dni): Alumno
+     {
+         return Alumno::create(['nombre' => 'Carrera', 'apellido' => $dni, 'dni' => $dni, 'fecha_nacimiento' => '2000-01-01',
+diff --git a/tests/Feature/InscripcionConcurrenteTest.php b/tests/Feature/InscripcionConcurrenteTest.php
+index 5d861e9a..36c27eb2 100644
+--- a/tests/Feature/InscripcionConcurrenteTest.php
++++ b/tests/Feature/InscripcionConcurrenteTest.php
+@@ -27,6 +27,8 @@ protected function setUp(): void
+             $this->artisan('migrate:fresh')->assertExitCode(0);
+             RefreshDatabaseState::$migrated = true;
+         }
++        // migrate:fresh repone la Primera carga pendiente y el alta se desviaría a esa pantalla.
++        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'TERMINADA']);
+         $this->seed(CatalogosSeeder::class);
+         \App\Models\ReglaPrimerPago::query()->delete();
+         Carbon::setTestNow('2026-09-24 12:00:00');
+@@ -84,7 +86,10 @@ public function test_dos_altas_del_mismo_dni_en_deportes_distintos_se_serializan
+         $otro = Grupo::create(['deporte_id' => Deporte::whereKeyNot($this->datos['deporte_id'])->first()->id, 'nivel_id' => Nivel::first()->id, 'activo' => true]);
+         $plan = GrupoPlan::create(['grupo_id' => $otro->id, 'clases_por_semana' => 2, 'precio_mensual' => 30000, 'activo' => true]);
+         $datosOtro = array_replace($this->datos, ['deporte_id' => $otro->deporte_id, 'grupo_id' => $otro->id, 'plan_id' => $plan->id]);
+-        $this->iniciar(fn () => $this->post('/alumnos', $this->datos)->assertRedirect());
++        $this->iniciar(function () {
++            $this->post('/alumnos', $this->datos)->assertRedirect();
++            $this->assertSame(1, Alumno::count(), 'La primera alta no llegó a guardar: no hay nada que serializar');
++        });
+         $this->esperaSinEscribir(fn () => $this->post('/alumnos', $datosOtro));
+         $this->post('/alumnos', $datosOtro)->assertRedirect();
+         $this->assertDatabaseCount('alumnos', 2);

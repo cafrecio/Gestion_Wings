@@ -1,0 +1,20 @@
+{
+    "base": "wings_testing_codex",
+    "admin": 1,
+    "op": 2,
+    "caja": 1,
+    "grupo_inactivo": 2,
+    "liquidacion_impaga": 1,
+    "casos": {
+        "Operativa": {
+            "alumno": 1,
+            "pago": 1,
+            "movimiento": 1
+        },
+        "Dueño": {
+            "alumno": 2,
+            "pago": 2,
+            "movimiento": null
+        }
+    }
+}

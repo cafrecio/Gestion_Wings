@@ -1,0 +1,23 @@
+{
+  "head_antes": "1f0af02ff13cb2ca93418d7e4c6af5e77aa1d594",
+  "head_despues": "1f0af02ff13cb2ca93418d7e4c6af5e77aa1d594",
+  "fuentes_comparadas": 878,
+  "cambios": [],
+  "fuentes_nuevas_ajenas_fuera_del_corte": [
+    "tests/Feature/CarreraCierreCobroT107Test.php",
+    "tests/Feature/PrimeraCargaExcelRealT108Test.php"
+  ],
+  "muestras_monitor": 244,
+  "otras_suites_observadas": [],
+  "muestras_con_otros_php": [],
+  "resumen": "6 skipped, 1479 passed (11614 assertions)",
+  "duracion_resumen": "1311.52s",
+  "runner": {
+    "otras_suites": [],
+    "fin": "2026-11-01T10:23:15.6005008-03:00",
+    "base": "wings_testing_codex",
+    "inicio": "2026-11-01T10:01:17.9058065-03:00",
+    "codigo": 0,
+    "segundos": 1317.69
+  }
+}

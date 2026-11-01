@@ -1,8 +1,8 @@
 # Wings — Estado actual
 
-## T102 y suite final de las tres etapas — Codex CAB, 01/11/2026
+## Segunda vuelta T100/T102 — Codex CAB, 01/11/2026
 
-**T102 devuelta a Claude por S1/S2 de aislamiento de pruebas.** Sus ocho casos de negocio, historia monetaria y concurrencia dieron bien. Completa unica: **1428 aprobadas, 51 fallidas, 6 omitidas, 11344 aserciones, 1457.01s, salida2**; T100/T106/T102 verdes dentro de ella. Diez archivos pasan aislados; inscripcion depende de preparar la Primera carga. Contaminacion entre clases T94 reproducida con/sin Carrera y desvio de inscripcion comprobado por POST. [Informe y fuentes](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md). Sin verde global ni despliegue. Reserva LIBERADA; incidentes de scheduler/monitor conservados. Solo wings_testing_codex, producto y catalogo sin cambios propios. T106 cerrada; T100 conserva su devolucion.
+**T102 cerrada por Codex en segunda vuelta.** S1: mismo reproductor T100→Carrera T94→Claude T94, 3/6 verde. S2 sola, 2/23; diagnóstico 1/9 guarda el alta y no vuelve a Primera carga. Nivel actual inactivo y manual comprobados en navegador. Única completa del corte1f0af02f: **1479 aprobadas, 0 fallidas, 6 omitidas,11614 aserciones,1311.52s,salida0**;878 fuentes intactas y244 muestras sin otra suite. [Informe](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md), sección Segunda vuelta. La completa roja anterior conserva su evidencia histórica. T100 devuelta solo por H1 residual de ficha; T106 cerrada. Reserva LIBERADA, solo wings_testing_codex, sin producto/catalogo/despliegue.
 
 ## T106 — Control Codex CAB, 01/11/2026
 
@@ -10,7 +10,7 @@
 
 ## T100 — Control Codex CAB, 01/11/2026
 
-**Devuelta a Claude por dos hallazgos medios de instrucciones y mensajes.** Once casos de negocio con importes exactos, pantalla y pedidos directos; ningún fallo monetario comprobado. En el corte controlado, manual y paneles generalizaban lo que ocurre con la cuota anulada. Claude corrigio despues el manual y los avisos de exito (c91b4555); la ficha de fuentes aun generaliza PENDIENTE en dos campos y los paneles siguen pendientes de aprobacion visual. [Informe, límites y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md). Solo wings_testing_codex, copia ficticia autorizada; sin corregir producto, catálogo ni sitio. T106 ya controlada; resultado de la unica completa conjunta en el informe T102.
+**T100 devuelta a Claude solo por H1 residual de la ficha de fuentes.** Segunda vuelta: manual incluye las protecciones de la función; tres paneles y ambos avisos comprobados por navegador. H2 resuelto; el aviso de anulación se leyó en la salida de Chrome, su captura posterior ya no lo conserva (límite explícito). En la ficha quedan dos generalizaciones de pendiente, líneas18 y31. Manual59/0 y completa1479/0fallos/6omitidas,salida0. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md), sección Segunda vuelta. No se repitieron los once casos monetarios ni la migración. Sin producto, catálogo, base del club ni despliegue.
 
 ## T109 — Claude CAB, 01/11/2026
 
@@ -18,7 +18,7 @@
 
 ## T102 y T105 — Claude CAB, 01/11/2026
 
-**T102, control funcional aprobado y devuelta a Claude por aislamiento de pruebas el 01/11/2026.** Regla de Carlos del 01/11, que reemplaza la del 30/10: un nivel con grupos activos no se inactiva; esos grupos se pasan a otro nivel desde Editar grupo o se desactivan. Con el [OK visual de Carlos](../06-pruebas/PRU-04/APROBAR-T102.html). Contrato: `Wings-contrato-alumno-grupo-deporte-deuda-v5.md`, «Nivel del grupo». Lleva migración: `2026_11_01_140000_add_activo_to_niveles_table`.
+**T102 cerrada por Codex en segunda vuelta el 01/11/2026; aislamiento corregido y comprobado, completa sin fallos (resultado arriba).** Regla de Carlos del 01/11, que reemplaza la del 30/10: un nivel con grupos activos no se inactiva; esos grupos se pasan a otro nivel desde Editar grupo o se desactivan. Con el [OK visual de Carlos](../06-pruebas/PRU-04/APROBAR-T102.html). Contrato: `Wings-contrato-alumno-grupo-deporte-deuda-v5.md`, «Nivel del grupo». Lleva migración: `2026_11_01_140000_add_activo_to_niveles_table`.
 
 **T105, cerrada: la controló Gemini el 01/11, sin desplegar.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los segundos de armarlo no bajan, pero **no los paga el cobro: el PDF se arma la primera vez que alguien lo abre.** El contenedor de Laravel deja en `null` el `?ReciboService $reciboService = null` de `PagoCuotaService` y `LiquidacionPagoService` (comprobado el 01/11), así que el `DB::afterCommit` que parece armarlo al cobrar no hace nada. Sin medir en el servidor con el recorte. [Informe](../06-pruebas/PRU-04/VERIFICACION-T105-GEMINI.md).
 
@@ -28,7 +28,7 @@
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
-T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. T94 y T97 cerradas; T104 cerrada como repetida de T60. Sigue: T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
+T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. T94 y T97 cerradas; T104 cerrada como repetida de T60. T102 cerrada en segunda vuelta; sigue Claude con H1 residual de T100 (responsables en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
 
 ## T14 — Tanda 4 (días 41 a 47) revisada, con su prueba técnica — Claude CAB, 31/10/2026
 

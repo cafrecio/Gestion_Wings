@@ -1,0 +1,102 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control Segunda Dueño
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/administrar-grupos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Editar: Control segunda vuelta — Control actual inactivo" [level=1]'
+- main:
+  - text: Deporte
+  - paragraph: Control segunda vuelta
+  - text: Nivel
+  - generic: "*"
+  - combobox "Nivel *":
+    - option "Seleccionar nivel..."
+    - option "Avanzadas"
+    - option "Control activo"
+    - option "Control actual inactivo (inactivo)" [selected]
+    - option "Control destino activo"
+    - option "Intermedias"
+    - option "Principiantes"
+  - generic: Precios por frecuencia
+  - paragraph: "Al guardar un precio: altas nuevas desde 01/11/2026; alumnos existentes desde 01/12/2026. Las cuotas generadas se conservan."
+  - button "Nuevo"
+  - combobox:
+    - option "1 vez/semana" [selected]
+    - option "2 veces/semana"
+    - option "3 veces/semana"
+    - option "4 veces/semana"
+    - option "5 veces/semana"
+  - generic: $
+  - textbox "0": 10,000.00
+  - button "✕"
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

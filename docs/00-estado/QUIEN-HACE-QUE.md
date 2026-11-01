@@ -50,13 +50,11 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Segunda vuelta Codex: H2 comprobado en tres paneles y dos avisos; manual59/0. H1 residual medio: ficha de fuentes lineas18 y31 aun generaliza pendiente. Completa1479/0fallos/6omitidas, salida0. VERIFICACION-T100-CODEX.md, Segunda vuelta. Sin despliegue. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | En curso (hizo Claude, verifica Codex) | Codex segunda vuelta: solo H1/H2 devueltos, texto y pantallas; sin repetir negocio. PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude, verifica Codex) | Codex segunda vuelta: S1/S2 aislamiento y H1 manual; una sola completa al final, solo wings_testing_codex. |
+Nada en este momento.
 
 ## Gemini
 

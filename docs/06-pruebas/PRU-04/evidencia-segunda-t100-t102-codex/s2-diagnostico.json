@@ -1,0 +1,10 @@
+{
+    "estado": "TERMINADA",
+    "destino": "http:\/\/127.0.0.1:8111\/alumnos",
+    "alumnos": [
+        {
+            "id": 1,
+            "dni": "41999111"
+        }
+    ]
+}

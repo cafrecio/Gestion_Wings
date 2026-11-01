@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\InscripcionConcurrenteTest
+  ✓ dos altas del mismo dni en deportes distintos se serializan                                                 30.84s
+  ✓ segundo cobro relee saldo despues de esperar                                                                15.47s
+
+  Tests:    2 passed (23 assertions)
+  Duration: 46.49s

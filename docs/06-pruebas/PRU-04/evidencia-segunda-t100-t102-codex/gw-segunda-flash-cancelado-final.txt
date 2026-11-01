@@ -1,0 +1,94 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/operativo
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - generic: Sistema
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control Segunda Operativa
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/cancelar-movimiento-caja
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Detalle de caja" [level=1]
+- main:
+  - paragraph: Operativo
+  - paragraph: Control Segunda Operativa
+  - paragraph: Apertura
+  - paragraph: 01/11/2026 10:00
+  - paragraph: Cierre
+  - paragraph: –
+  - paragraph: Estado
+  - paragraph: ABIERTA
+  - strong: "1"
+  - text: movimiento
+  - link "Resumen":
+    - /url: http://127.0.0.1:8111/caja/1/resumen
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/caja
+  - region "Movimientos de la caja":
+    - table:
+      - rowgroup:
+        - row "Fecha Hora I/E Medio Rubro — Subrubro Alumno / Obs. Monto":
+          - columnheader "Fecha"
+          - columnheader "Hora"
+          - columnheader "I/E"
+          - columnheader "Medio"
+          - columnheader "Rubro — Subrubro"
+          - columnheader "Alumno / Obs."
+          - columnheader "Monto"
+          - columnheader
+      - rowgroup:
+        - 'row "01/11/2026 10:00 I EFT Cuotas — Cuota Mensual Segunda Codex, Operativa · CON Cancelado: Control segunda vuelta captura del mensaje final $30,000.00 Cancelado"':
+          - cell "01/11/2026"
+          - cell "10:00"
+          - cell "I"
+          - cell "EFT"
+          - cell "Cuotas — Cuota Mensual"
+          - 'cell "Segunda Codex, Operativa · CON Cancelado: Control segunda vuelta captura del mensaje final"':
+            - generic: Segunda Codex, Operativa · CON
+            - generic: "Cancelado: Control segunda vuelta captura del mensaje final"
+          - cell "$30,000.00"
+          - cell "Cancelado"
+      - rowgroup:
+        - 'row "Ingresos: $0.00 · Egresos: $0.00 $0.00"':
+          - cell
+          - 'cell "Ingresos: $0.00 · Egresos: $0.00"':
+            - text: "Ingresos:"
+            - strong: $0.00
+            - text: "· Egresos:"
+            - strong: $0.00
+          - cell "$0.00"
+          - cell
+- contentinfo:
+  - generic: Wings

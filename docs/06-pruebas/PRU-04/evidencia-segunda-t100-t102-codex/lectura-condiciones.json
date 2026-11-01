@@ -1,0 +1,242 @@
+[
+  {
+    "archivo": "app/Services/PagoCuotaService.php",
+    "sha256": "b7a435ac123794a5cfe26d56c98e7b75b5a2dcb9464f89adec0d67261f7347b0",
+    "lineas": [
+      {
+        "numero": 1256,
+        "texto": "    private function deshacerCuotaNacidaDeCobro(DeudaCuota $deuda): void"
+      },
+      {
+        "numero": 1257,
+        "texto": "    {"
+      },
+      {
+        "numero": 1258,
+        "texto": "        if ($deuda->pago_origen_id === null || (float) $deuda->monto_pagado > 0 || (float) $deuda->monto_perdido > 0) {"
+      },
+      {
+        "numero": 1259,
+        "texto": "            return;"
+      },
+      {
+        "numero": 1260,
+        "texto": "        }"
+      },
+      {
+        "numero": 1261,
+        "texto": ""
+      },
+      {
+        "numero": 1262,
+        "texto": "        $enUso = \\App\\Models\\CargoAlumno::where('deuda_cuota_id', $deuda->id)->exists()"
+      },
+      {
+        "numero": 1263,
+        "texto": "            || \\App\\Models\\LiquidacionDetalle::where('deuda_cuota_id', $deuda->id)->exists();"
+      },
+      {
+        "numero": 1264,
+        "texto": "        if ($deuda->periodo > now()->format('Y-m') && !$enUso) {"
+      },
+      {
+        "numero": 1265,
+        "texto": "            $deuda->delete();"
+      },
+      {
+        "numero": 1266,
+        "texto": "            return;"
+      },
+      {
+        "numero": 1267,
+        "texto": "        }"
+      },
+      {
+        "numero": 1268,
+        "texto": ""
+      },
+      {
+        "numero": 1269,
+        "texto": "        $plan = $this->obtenerPlanParaPeriodo($deuda->alumno_id, $deuda->periodo);"
+      },
+      {
+        "numero": 1270,
+        "texto": "        if ($plan?->plan) {"
+      },
+      {
+        "numero": 1271,
+        "texto": "            $deuda->monto_original = $plan->plan->precioParaPeriodo($deuda->periodo, Alumno::findOrFail($deuda->alumno_id)->fecha_alta);"
+      },
+      {
+        "numero": 1272,
+        "texto": "        }"
+      },
+      {
+        "numero": 1273,
+        "texto": "        $deuda->pago_origen_id = null;"
+      },
+      {
+        "numero": 1274,
+        "texto": "        $deuda->save();"
+      },
+      {
+        "numero": 1275,
+        "texto": "    }"
+      }
+    ]
+  },
+  {
+    "archivo": "resources/manual/operativo/cancelar-movimiento-caja.md",
+    "sha256": "b83b31e1cc6a17e115d0b652c7ead738eff3f096e36b6abb9401f78531a03725",
+    "lineas": [
+      {
+        "numero": 39,
+        "texto": "### Paso 3. Ingresar el motivo obligatorio y confirmar"
+      },
+      {
+        "numero": 40,
+        "texto": "1. En la casilla de texto, escribí el motivo claro y descriptivo de la anulación (por ejemplo: \"Cobro duplicado por error\" o \"Monto ingresado incorrectamente\")."
+      },
+      {
+        "numero": 41,
+        "texto": "2. Hacé clic en el botón **Confirmar** (o en **Cerrar** si no deseás cancelar)."
+      },
+      {
+        "numero": 42,
+        "texto": "3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica la pregunta sobre el cobro adelantado, más abajo."
+      },
+      {
+        "numero": 43,
+        "texto": ""
+      },
+      {
+        "numero": 44,
+        "texto": "![Modal de confirmación con motivo](/ayuda/img/operativo/cancelar-movimiento-caja-paso3.png)"
+      },
+      {
+        "numero": 45,
+        "texto": ""
+      },
+      {
+        "numero": 46,
+        "texto": "---"
+      },
+      {
+        "numero": 47,
+        "texto": ""
+      },
+      {
+        "numero": 48,
+        "texto": "## Qué hago si…"
+      },
+      {
+        "numero": 49,
+        "texto": ""
+      },
+      {
+        "numero": 50,
+        "texto": "### ¿Qué pasa si cancelo un cobro adelantado?"
+      },
+      {
+        "numero": 51,
+        "texto": "Si ese cobro creó la cuota de un mes que todavía no empezó, y no queda otro cobro de ese mes, es como si no hubiera existido: el mes deja de tener cuota, y si lo volvés a cobrar escribís el importe de nuevo."
+      },
+      {
+        "numero": 52,
+        "texto": ""
+      },
+      {
+        "numero": 53,
+        "texto": "En estos casos la cuota no se borra:"
+      },
+      {
+        "numero": 54,
+        "texto": ""
+      },
+      {
+        "numero": 55,
+        "texto": "- Si el mes ya empezó, tiene un recargo o entró en una liquidación, queda pendiente al precio del plan."
+      },
+      {
+        "numero": 56,
+        "texto": "- Si la cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla, queda pendiente con el importe que tenía."
+      },
+      {
+        "numero": 57,
+        "texto": "- Si queda otro cobro de ese mes, ese cobro sigue en pie y queda pendiente lo que falta."
+      },
+      {
+        "numero": 58,
+        "texto": "- Si parte de la cuota se dio por perdida, queda pendiente con el importe que tenía."
+      }
+    ]
+  },
+  {
+    "archivo": "docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md",
+    "sha256": "44a5eafddb37b0f1c731da03e5716d204ab330b69b412a806cc5d80946786ff3",
+    "lineas": [
+      {
+        "numero": 18,
+        "texto": "| **Paso 3: Motivo y confirmar** | Escribir motivo obligatorio y tocar botón **Confirmar**. Tacha movimiento y descuenta dinero. El mes vuelve a pendiente, salvo el adelanto que se deshace (`PagoCuotaService::deshacerCuotaNacidaDeCobro`, T100; condiciones verificadas por Codex, VERIFICACION-T100-CODEX.md). | `resources/views/caja/detalle.blade.php:315, 317`<br>`app/Http/Controllers/CajaWebController.php:625` | `Validator::make($request->all(), ['motivo' => 'required\\|string\\|max:500'])->validate();` | Al enviar motivo vacío, el formulario no se envía. Con motivo válido, la operación queda tachada con badge rojo `Cancelado: <motivo>` y la cuota vuelve a `PENDIENTE`. |"
+      }
+    ]
+  },
+  {
+    "archivo": "docs/06-pruebas/PRU-04/evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md",
+    "sha256": "44a5eafddb37b0f1c731da03e5716d204ab330b69b412a806cc5d80946786ff3",
+    "lineas": [
+      {
+        "numero": 31,
+        "texto": "| `Cobro cancelado.` | `app/Http/Controllers/CajaWebController.php:630` | No | Mensaje flash del backend; el Paso 3 explica que tacha el movimiento y restituye la deuda a pendiente. |"
+      }
+    ]
+  },
+  {
+    "archivo": "resources/manual/admin/administrar-grupos.md",
+    "sha256": "314713b607768c339641fa6c2c66be3baec9fd5402c8b1a20b4d1de8876dd781",
+    "lineas": [
+      {
+        "numero": 39,
+        "texto": "## Pasar un grupo a otro nivel"
+      },
+      {
+        "numero": 40,
+        "texto": ""
+      },
+      {
+        "numero": 41,
+        "texto": "1. En **Grupos**, tocá **Editar** en la tarjeta del grupo."
+      },
+      {
+        "numero": 42,
+        "texto": "2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos; si el grupo ya tiene un nivel inactivo, también aparece para conservarlo."
+      },
+      {
+        "numero": 43,
+        "texto": "3. Tocá **Guardar**. Wings muestra «Grupo actualizado correctamente.»."
+      },
+      {
+        "numero": 44,
+        "texto": ""
+      }
+    ]
+  },
+  {
+    "archivo": "resources/manual/admin/descargar-recibo-liquidacion.md",
+    "sha256": "c811470dcb17c6267cb76afec8d8e2f5adf59aa363bed869b497a1bdfcde55a8",
+    "lineas": [
+      {
+        "numero": 42,
+        "texto": ""
+      },
+      {
+        "numero": 43,
+        "texto": "### ¿Qué hago si el botón Recibo no aparece?"
+      },
+      {
+        "numero": 44,
+        "texto": "Si en la pantalla no figura el botón de descarga del comprobante, verificá el estado de la liquidación. Si figura como *Abierta*, debés cerrarla y asentar el pago. Hasta entonces no hay recibo: si escribís su dirección, Wings muestra «Página no disponible»."
+      }
+    ]
+  }
+]

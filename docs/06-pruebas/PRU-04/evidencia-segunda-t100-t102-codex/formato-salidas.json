@@ -1,0 +1,89 @@
+{
+  "cambio": "Solo espacios finales, saltos LF y blancos al final; originales exactos preservados en .raw.gz",
+  "archivos": [
+    {
+      "archivo": "diff-correcciones.txt",
+      "original_sha256": "80b99723b6e5eb4d2f15231d70953278fd1ff5a4f6938bc003750b1d931076f0",
+      "original_gzip": "diff-correcciones.txt.raw.gz",
+      "normalizado_sha256": "7f38bf6cb22b10a5adf05af2233994c7af3e9a4315e4ce4c9f93c434e241e740"
+    },
+    {
+      "archivo": "gw-segunda-flash-anulado.txt",
+      "original_sha256": "4304760aaf96d8bc8de1aafa795a93b6f0f3a4e05ca03777fb3b44e2b4a1871d",
+      "original_gzip": "gw-segunda-flash-anulado.txt.raw.gz",
+      "normalizado_sha256": "cccac61d956c9ff2b81aed15d486a7733f0a131f9687fe4560d1fd9be586fd64"
+    },
+    {
+      "archivo": "gw-segunda-flash-cancelado-final.txt",
+      "original_sha256": "8cbf176bc302d383e43fc4803c7739a4b8269963d5dd641ac82b0140a8746941",
+      "original_gzip": "gw-segunda-flash-cancelado-final.txt.raw.gz",
+      "normalizado_sha256": "2abefe9729f956daf39f34eec47cb074be5520f54498ba62b206967dd82caca3"
+    },
+    {
+      "archivo": "gw-segunda-flash-cancelado-inmediato.txt",
+      "original_sha256": "188e5325eb420e4391d1b3cc3e144c38f98d394fc09e74add674b5732e7891d8",
+      "original_gzip": "gw-segunda-flash-cancelado-inmediato.txt.raw.gz",
+      "normalizado_sha256": "0e30c09cd54132d0896f7139457b5f6d8a8b8678a90824fe0a6f592376478014"
+    },
+    {
+      "archivo": "gw-segunda-flash-cancelado.txt",
+      "original_sha256": "05075901a64e47eeaf4cd5b9706d7ba7e02954e9b262a0ef8914f452456fbcff",
+      "original_gzip": "gw-segunda-flash-cancelado.txt.raw.gz",
+      "normalizado_sha256": "4b2930721c9c57d3fe20f8da68b11850d03cdbf871fb7185ee7090038ebfd4b3"
+    },
+    {
+      "archivo": "gw-segunda-grupo.txt",
+      "original_sha256": "063547b13eb0a02c2509a3dc2f232df4b6ac36f51e1dfb423d609fdfbb51526e",
+      "original_gzip": "gw-segunda-grupo.txt.raw.gz",
+      "normalizado_sha256": "c54aded08976a64b3f31e9f48a243e59e2c6c70efda4beb8e27c3185b63bd42b"
+    },
+    {
+      "archivo": "gw-segunda-panel-anular.txt",
+      "original_sha256": "d1e391a72bc1635a231b4690e290ce609d02b49ee1e0a55710cf65ab21213053",
+      "original_gzip": "gw-segunda-panel-anular.txt.raw.gz",
+      "normalizado_sha256": "fb48afd68927eb3c63dc7cdb27f0358b9150eb5193413c2427b580d261b125fa"
+    },
+    {
+      "archivo": "gw-segunda-panel-detalle.txt",
+      "original_sha256": "656b5666e76ecd0e6f32021219e8215b713db0769b27ce9eebdb2d8bc11e3bc7",
+      "original_gzip": "gw-segunda-panel-detalle.txt.raw.gz",
+      "normalizado_sha256": "79f5dc9139aa8e9d0109fe41055f51fe25ed2eac1625e9d265beb70a692945d8"
+    },
+    {
+      "archivo": "gw-segunda-panel-formulario.txt",
+      "original_sha256": "0194560ef551d7bf09fb1611155a717ad672dcbe7e4e0ad03ecd37f9457afba2",
+      "original_gzip": "gw-segunda-panel-formulario.txt.raw.gz",
+      "normalizado_sha256": "640f8db65ff5a2d102c2bab8f8ebad03352598bb37f4b8d2a3d5bddb6d7aff53"
+    },
+    {
+      "archivo": "gw-segunda-recibo-impago.txt",
+      "original_sha256": "e4b07a233583ef7884eb48a193b47ca7c241e86ead552b5f81554ae1f3319da6",
+      "original_gzip": "gw-segunda-recibo-impago.txt.raw.gz",
+      "normalizado_sha256": "66e1d807567433b03f2cb2c0a66a0919f14c84e48fd3cb1d36cffd30d33523a7"
+    },
+    {
+      "archivo": "s1-reproductor.txt",
+      "original_sha256": "0822d274763c128da97951d735e14500dbe11549db563bf60b7c76265e311c4b",
+      "original_gzip": "s1-reproductor.txt.raw.gz",
+      "normalizado_sha256": "3c067d2dec011cb167cec9ccabb353d777fcdfa27a6b94f1387b2d1e7c8c02d4"
+    },
+    {
+      "archivo": "s2-diagnostico.txt",
+      "original_sha256": "afb4838e6d119891373a8252e31511ce5ecfeb5198744acf6b3da427c614f53c",
+      "original_gzip": "s2-diagnostico.txt.raw.gz",
+      "normalizado_sha256": "109f336e869275a165c62ae027d07af39f7b699f7dd8329376298d05a5dac83f"
+    },
+    {
+      "archivo": "s2-sola.txt",
+      "original_sha256": "f18bc7412cf099511c458cff500e4a5974d26198359c9215b8189d26c112f003",
+      "original_gzip": "s2-sola.txt.raw.gz",
+      "normalizado_sha256": "6b582671dc021b3a21a1c0968e022f788418505e304a428bd6fe2e499f534ec1"
+    },
+    {
+      "archivo": "suite-completa.txt",
+      "original_sha256": "be2ab0534eac7f0a1969f547cd3d34794ebacd16e18b69b0bd04d2634aaa8026",
+      "original_gzip": "suite-completa.txt.raw.gz",
+      "normalizado_sha256": "62615861b84cb0ce39dd3ee2336e104a77c4fdb64c39177f6e9ef13b268155a8"
+    }
+  ]
+}
