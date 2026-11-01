@@ -1,10 +1,10 @@
-# PROMPT — Control por etapas: T101 y T105 — para Gemini
+# PROMPT — Control por etapas: T101, T105 y T109 — para Gemini
 
 > Prompt para Gemini, escrito por Claude CAB el 01/11/2026. Va después de entregar la segunda vuelta de T94.
 
 **Inicio.** Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md` y leer `AGENTS.md`. Traer `main` actualizado.
 
-**Por etapas, en este orden:** 1) T101, 2) T105. Cada etapa termina con su informe, su tablero y su commit antes de empezar la siguiente. Una etapa devuelta no frena la otra.
+**Por etapas, en este orden:** 1) T101, 2) T105, 3) T109. Cada etapa termina con su informe, su tablero y su commit antes de empezar la siguiente. Una etapa devuelta no frena las otras.
 
 **Ejecutalo, no alcanza con leer:** pantalla y pedidos directos, en una base tuya, con las cifras al peso. Lo que no ejecutaste se declara como leído, no como comprobado.
 
@@ -28,6 +28,23 @@ Marcá T105 `en_curso, tiene=Gemini`. Claude la hizo: el control es tuyo. El rec
 
 `config/dompdf.php` activa `enable_font_subsetting`. Generá recibos reales de cuota, cuota anulada y liquidación por hora y por comisión, con acentos, ñ y los símbolos que usan, y compará contra la versión sin recorte: que se lean igual y que no falte ninguna letra. Medí el tiempo en la misma máquina. **Medí también cuánto tarda registrar un cobro con el PDF real:** el código lo arma después de guardar el cobro (`PagoCuotaService.php:172`) y la prueba técnica midió 72 ms; las dos cosas no cierran.
 
+# Etapa 3: T109
+
+Marcá T109 `en_curso, tiene=Gemini`. Claude la hizo: el control es tuyo. Un filtro inválido escrito a mano en la dirección se ignora, y un recibo que no existe muestra «Página no disponible» en vez de texto técnico. Cambios: `app/Http/Middleware/IgnorarFiltrosInvalidos.php`, `bootstrap/app.php`, `CajaWebController::index` (el mes), `ReciboController` y `tests/Feature/FiltrosInvalidosT109Test.php`.
+
+| # | Caso | Resultado esperado |
+|---|---|---|
+| 1 | Historial: `desde` y `hasta` con texto, fecha imposible y comillas | La pantalla abre, sin el filtro y con el campo vacío |
+| 2 | Listados: `?search[]=x`, `?estado[]=x`, `?fecha[]=x`, `?q[]=x`, `?desde[]=x` | La pantalla abre, sin error del servidor |
+| 3 | Caja del dueño: `?mes=abc`, `?mes=2026-13`, `?mes[]=x` | Abre en el mes actual |
+| 4 | Fechas, mes y búsquedas válidos, usando los filtros de las pantallas | Filtran igual que antes |
+| 5 | Recibo inexistente, como operativa y como dueño | «Página no disponible» |
+| 6 | Recibo que existe e inexistente, como profesora | 403 en los dos |
+| 7 | Liquidación inexistente o sin pagar, como dueño | «Página no disponible» |
+| 8 | Recibo que existe, con `?inline=1` y descargándolo | Funciona igual |
+
+**Prestá atención a esto, que Claude no comprobó por pantalla:** la limpieza vale para todas las direcciones de la web con esos nombres (`search`, `q`, `estado`, `fecha`, `desde`, `hasta`). Buscá si alguna pantalla o algún enlace usa uno de ellos con otro formato o como lista. Repetí la prueba técnica `test_dias_41_47_filtros_con_basura_no_dan_error_del_servidor` de `prueba-tecnica/SeguridadDiasPruebaTest.php`.
+
 ## Reglas
 
 - Pruebas solo en `wings_testing_gemini`. **No uses la base local de trabajo.** Sin despliegue: Cora trabaja en el sitio de prueba.
@@ -37,7 +54,7 @@ Marcá T105 `en_curso, tiene=Gemini`. Claude la hizo: el control es tuyo. El rec
 
 ## Cómo entregar
 
-- Un informe por etapa, `docs/06-pruebas/PRU-04/VERIFICACION-T101-GEMINI.md` y `VERIFICACION-T105-GEMINI.md`: una fila por caso, lo comprobado y lo inferido por separado, cada hallazgo con gravedad y `archivo:línea`.
+- Un informe por etapa, `docs/06-pruebas/PRU-04/VERIFICACION-T101-GEMINI.md`, `VERIFICACION-T105-GEMINI.md` y `VERIFICACION-T109-GEMINI.md`: una fila por caso, lo comprobado y lo inferido por separado, cada hallazgo con gravedad y `archivo:línea`.
 - Por cada tarea, sin graves ni medios: `php scripts/tablero/tablero.php cambiar T101 estado=cerrado verifica=Gemini tiene=nadie`, con un paso que diga el resultado. Con hallazgos: `estado=devuelto tiene=Claude`, con el paso que corresponda.
 - Entrada en `docs/00-estado/LOG-GEMINI.md`, firmada según la máquina.
 - **Commit solo de lo tuyo:** `git status`, mirar archivo por archivo, agregar por nombre con `git add <archivo>`, nunca `git add -A`, `git add .` ni `git commit -a`. Si un archivo tuyo tiene cambios ajenos sin publicar, frenar y avisar a Carlos.
