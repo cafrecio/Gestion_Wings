@@ -55,15 +55,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidos 01/11 H1 y H2 (Carlos: Arreglalos; tres paneles). Completa 1479/0/6 antes de los textos. Falta la segunda vuelta de Codex: PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. Sin desplegar. |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidos 01/11 S1, S2 y H1: la completa pasa de 51 fallidas a 1479/0/6, en wings_testing_claude. Falta la segunda vuelta de Codex: PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. Sin desplegar. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | En curso (hizo Claude, verifica Codex) | Codex segunda vuelta: solo H1/H2 devueltos, texto y pantallas; sin repetir negocio. PROMPT-CODEX-T100-T102-SEGUNDA-VUELTA.md. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude, verifica Codex) | Codex segunda vuelta: S1/S2 aislamiento y H1 manual; una sola completa al final, solo wings_testing_codex. |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | En curso (hizo Claude, verifica Gemini) | Gemini verifica los 8 casos de cierre con pantalla vieja, concurrencia y Cashflow |
-| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | En curso (hizo Claude, verifica Gemini) | Gemini verifica los 7 casos de segunda ficha e inscripcion, reportes y manual |
+Nada en este momento.
 
 ## Sin empezar (10)
 

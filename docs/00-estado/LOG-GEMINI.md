@@ -11,6 +11,25 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T107 y T108: Cierre de caja con pantalla vieja e inscripción en segunda ficha (cerradas sin hallazgos)
+
+- **Objetivo:** Ejecutar el control independiente de T107 y T108 (implementadas por Claude en commit `a85d5c39`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T107-T108-CONTROL.md`.
+- **Acciones y resultados ([VERIFICACION-T107-T108-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T107-T108-GEMINI.md)):**
+  1. **T107 (Cierre con pantalla vieja — 8 casos comprobados):**
+     - Cobros o cancelaciones concurrentes mientras la pantalla de cierre está abierta son detectados por `CajaService::cerrarCajaOperativa` contra `esperado_visto`, bloqueando el cierre e informando el nuevo esperado sin crear faltantes falsos.
+     - Cierres con esperado al día cierran con éxito (`diferencia = 0.00`). Faltantes reales se registran. Doble clic es rechazado.
+     - En caja rechazada, el efectivo contado previo es inmutable (`La corrección no puede cambiar el efectivo que ya se contó y entregó`) y el nuevo cierre exige actualizar `esperado_visto`.
+     - Validar la caja en Cashflow asienta los movimientos y preserva el arqueo al centavo.
+  2. **T108 (Inscripción en segunda ficha — 7 casos comprobados):**
+     - Alumno que ya tiene ficha en el club no vuelve a pagar matrícula al registrarse en un segundo deporte (`yaEsDelClub`), incluso si provino de la primera carga sin inscripción previa (caso Thiago).
+     - Preview avisa «Esta persona ya es del club: no paga inscripción.»; persona nueva paga; DNI con formato o ficha inactiva no duplican; si se elimina la única ficha, vuelve a pagar.
+     - Primera carga por Excel respeta la declaración por fila sin duplicar por DNI repetido. Ficha, cobranza y reportes reflejan solo la cuota mensual.
+  3. **Mutaciones y verificación técnica:**
+     - 7 mutaciones ejecutadas en worktree aislado (`mutaciones.py`): 100% detectadas y abatidas.
+     - 18 pruebas directas (`CierrePantallaViejaT107Test`: 10, `InscripcionSegundaFichaT108Test`: 8) y 16 de verificación integral en `VerificacionT107T108GeminiTest.php` pasadas (87 aserciones).
+     - Manuales (`cerrar-caja.md` y `alta-alumno.md`) y contratos V5 verificados condición por condición; `verificar-manual.php` en 0 problemas.
+- **Tablero y próximo paso:** T107 y T108 pasadas a `estado=cerrado`, `hizo=Claude`, `verifica=Gemini`, `tiene=nadie`.
+
 ## 2026-11-01 — LOG GEM CAB — T109: Control de filtros inválidos y páginas no disponibles en recibos (cerrada sin hallazgos)
 
 - **Objetivo:** Ejecutar el control independiente de T109 (implementado por Claude en commit `88db2b24`) según la Etapa 3 de `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.

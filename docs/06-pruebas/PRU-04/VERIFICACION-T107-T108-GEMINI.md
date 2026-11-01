@@ -1,0 +1,115 @@
+# Verificación T107 y T108 — Cierre de caja con pantalla vieja e inscripción en segunda ficha
+
+> **Agente:** Gemini (Antigravity) · **Máquina:** CAB (`LOG GEM CAB`) · **Fecha:** 01/11/2026  
+> **Tareas:** T107 y T108 (`docs/06-pruebas/PRU-04/PROMPT-GEMINI-T107-T108-CONTROL.md`)  
+> **Commit bajo control:** `a85d5c39` (implementado por Claude)  
+> **Base de pruebas:** `wings_testing_gemini`  
+
+---
+
+## 1. Resumen ejecutivo
+
+- **Estado:** **AMBAS CERRADAS SIN HALLAZGOS (Aprobadas)**.
+- **T107 (Cierre con pantalla vieja):**
+  - Se verificaron por ejecución los 8 casos del prompt más concurrencia real y cuadre en Cashflow.
+  - Al ingresar un cobro o corrección mientras la pantalla de cierre está abierta, el sistema detecta la discrepancia contra `esperado_visto`, bloquea el cierre con error de validación descriptivo y recarga la vista con el efectivo esperado actualizado al centavo.
+  - Se eliminó el riesgo de registrar faltantes ficticios por cierres concurrentes o pestañas desactualizadas (día 46.7).
+- **T108 (Inscripción en segunda ficha):**
+  - Se verificaron los 7 casos del prompt (casos 9 al 15).
+  - Quien ya posee una ficha en el club (activa o inactiva, con DNI formateado o limpio) no vuelve a pagar matrícula de inscripción al registrarse en un segundo deporte (`yaEsDelClub`), independientemente de si su primera ficha ingresó sin inscripción registrada (día 46.4, caso Thiago).
+  - El preview de inscripción avisa preventivamente antes de guardar.
+- **Análisis de mutaciones:** Se ejecutó en worktree aislado (`mutaciones.py`), detectando y abatiendo el 100% de las 7 mutaciones introducidas en ambos módulos.
+- **Manuales y contratos:** `operativo/cerrar-caja.md` y `operativo/alta-alumno.md` coinciden condición por condición con el código y contratos V5; `php scripts/manual/verificar-manual.php` reporta 0 problemas.
+
+---
+
+## 2. Matriz de Casos T107 — Cierre con pantalla vieja
+
+| # | Caso | Resultado Esperado | Resultado Obtenido | Estado | Tipo |
+|---|---|---|---|---|---|
+| **1** | Pantalla de cierre abierta, entra cobro en efectivo en otra pestaña y se intenta cerrar | No cierra; avisa «Cambió el efectivo esperado: ahora es $…»; pantalla vuelve con el esperado al día | Comprobado. Se abre cierre con $11.600; entran $44.000 en otra pestaña. El intento de cierre es rechazado, la caja permanece `ABIERTA`, y la pantalla recarga con $55.600 y `esperado_visto = 55600.00` | **OK** | Comprobado |
+| **2** | Cerrar de nuevo con lo contado de verdad | Cierra sin diferencia | Comprobado. Con pantalla al día ($55.600), el conteo real cierra exitosamente con `diferencia_efectivo = 0.00` y mensaje «Caja cerrada.» | **OK** | Comprobado |
+| **3** | Cancelar o corregir un movimiento en otra pestaña | También avisa | Comprobado. Al cancelar un cobro de $44.000, el esperado baja a $11.600. El cierre con el valor previo es rechazado con el nuevo esperado al día | **OK** | Comprobado |
+| **4** | Movimiento en otra cuenta (Banco Galicia) | Cierra sin aviso | Comprobado. Movimiento de $50.000 en cuenta bancaria no altera el efectivo esperado del cajón; el cierre procede sin advertencias | **OK** | Comprobado |
+| **5** | Faltante real con la pantalla al día | Cierra con la diferencia | Comprobado. Esperado $11.600, contado $10.000. Cierra en estado `CERRADA` registrando `diferencia_efectivo = -1600.00` | **OK** | Comprobado |
+| **6** | Doble clic en el botón Cerrar | Segundo envío rechazado | Comprobado. El segundo POST simultáneo es interceptado por la máquina de estados con «La caja no está en estado editable.» | **OK** | Comprobado |
+| **7** | Dueño cerrando turno de operativa; caja rechazada que se vuelve a cerrar | El dueño recibe el aviso si cambió el esperado; en caja rechazada el contado entregado es inmutable | Comprobado. El dueño está sujeto a la misma validación de `esperado_visto`. En una caja rechazada, si se agregan movimientos, el efectivo contado previo es inmutable (regla A25) y el nuevo cierre exige actualizar `esperado_visto` | **OK** | Comprobado |
+| **8** | Pedido directo sin `esperado_visto`, o con valor inválido | Sin dato cierra como antes; valor inválido se rechaza | Comprobado. Sin el parámetro cierra directamente (compatibilidad scripts); con texto (`'basura'`) falla validación `numeric` | **OK** | Comprobado |
+| **C1** | Concurrencia real (dos procesos PHP simultáneos) | Serialización atómica en transacción con `lockForUpdate` | Comprobado. `CajaService::cerrarCajaOperativa` bloquea el mostrador y la fila de `cajas_operativas` bajo transacción, impidiendo condiciones de carrera | **OK** | Comprobado |
+| **C2** | Arqueo en Cashflow al validar, al peso | Asientos reflejan exactamente importes y diferencias al centavo | Comprobado. Al validar la caja, los movimientos operativos se asientan en Cashflow y la caja conserva la diferencia y fondos de cambio al peso | **OK** | Comprobado |
+
+---
+
+## 3. Matriz de Casos T108 — Inscripción en segunda ficha
+
+| # | Caso | Resultado Esperado | Resultado Obtenido | Estado | Tipo |
+|---|---|---|---|---|---|
+| **9** | Segunda ficha de quien no tiene inscripción, por pantalla | No se crea inscripción; aviso previo: «Esta persona ya es del club: no paga inscripción.» | Comprobado. Thiago (con ficha previa sin inscripción) es dado de alta en Patín. El preview anuncia que no paga inscripción y el alta no crea ningún registro en `cargos_alumnos` | **OK** | Comprobado |
+| **10** | Persona nueva | Paga inscripción normalmente | Comprobado. DNI inexistente muestra «Corresponde inscripción por única vez: $8,000.00» y genera el cargo al guardar | **OK** | Comprobado |
+| **11** | Quien ya tiene inscripción (pendiente o cobrada) | Sigue con una sola | Comprobado. Alumno con inscripción en Fútbol se inscribe en Patín. El preview avisa saldo pendiente y no se genera una segunda inscripción | **OK** | Comprobado |
+| **12** | DNI con puntos o espacios; ficha inactiva | Cuenta como la misma persona | Comprobado. DNI con formato (`54.400.002`) o con ficha inactiva (`activo = false`) es normalizado por `yaEsDelClub` y no cobra inscripción | **OK** | Comprobado |
+| **13** | Se eliminó su única ficha y se la vuelve a dar de alta | Persona nueva: paga | Comprobado. Tras eliminación física de su única ficha, el DNI no existe en el club y genera matrícula normalmente | **OK** | Comprobado |
+| **14** | Primera carga por Excel con «Inscripción: Sí», y con «No» | La primera crea y la segunda no, incluso con dos filas del mismo DNI | Comprobado. `InscripcionService::sincronizar` con motivo de Excel crea una única inscripción para la primera fila y no duplica en la segunda | **OK** | Comprobado |
+| **15** | Cobranza, ficha, deuda total y Reportes de esa segunda ficha | Solo la cuota, sin inscripción, al peso | Comprobado. En ficha, cobranza y deuda total del segundo deporte solo se adeuda la cuota mensual ($25.000); sin rastro de inscripción | **OK** | Comprobado |
+
+---
+
+## 4. Respuestas a preguntas y análisis de riesgos del prompt
+
+### Caso 7: El dueño cerrando el turno ajeno y la caja rechazada
+- **Comportamiento del dueño:** El dueño no saltea la validación de `esperado_visto`. Si cierra el turno de una operativa desde una pantalla desactualizada, recibe el mismo mensaje de protección. Esto es correcto: el rol ADMIN no debe cometer el error humano de cerrar con un arqueo que no contempla movimientos de último momento.
+- **Comportamiento en caja rechazada:** Cuando una caja es rechazada por el dueño, el dinero físico ya fue contado y retirado en el sobre de rendición. Por ello, la regla de negocio A25 (`CajaService:411`) exige:
+  ```php
+  if ($caja->efectivo_contado !== null && $this->centavos($arqueo['efectivo_contado']) !== $this->centavos($caja->efectivo_contado)) {
+      throw ValidationException::withMessages(['efectivo_contado' => 'La corrección no puede cambiar el efectivo que ya se contó y entregó.']);
+  }
+  ```
+  Si la operativa agrega o corrige movimientos en la caja rechazada, el efectivo esperado cambia. Al volver a cerrar, debe ingresar el **mismo efectivo contado original** pero con el **`esperado_visto` actualizado**. Si intenta mandar el `esperado_visto` anterior, T107 le avisa el cambio de esperado; si intenta cambiar el contado, A25 se lo bloquea. Este comportamiento es perfectamente consistente y seguro.
+
+### Caso 8: Pedido directo sin `esperado_visto` o con valor inválido
+- **Sin `esperado_visto`:** El parámetro es opcional (`nullable|numeric`). Si una llamada directa (vía API o script de prueba) no envía `esperado_visto`, la condición `if ($visto !== null)` no se activa y la caja cierra según el conteo proporcionado.
+- **¿Es esto un riesgo?** No. `esperado_visto` es una salvaguarda de interfaz de usuario orientada a prevenir errores humanos por pestañas obsoletas (concurrencia optimista en el cliente). Quien consume el endpoint programáticamente sin enviar la foto vista asume explícitamente el cálculo de su conteo. Si se envía basura no numérica, el validador de Laravel lo rechaza inmediatamente con HTTP 422 / redirect con error de validación.
+
+---
+
+## 5. Análisis de mutaciones en worktree aislado
+
+Se ejecutó [`docs/06-pruebas/PRU-04/evidencia-t107-t108/mutaciones.py`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t107-t108/mutaciones.py) en una copia temporal aislada (`tempfile.mkdtemp` con `git worktree add`).
+Resultados registrados en [`mutaciones.txt`](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t107-t108/mutaciones.txt):
+
+1. **DETECTADA** `T107: cierre sin validar visto` · Tests: 4 failed, 6 passed (19 assertions)
+2. **DETECTADA** `T107: vista sin input esperado_visto` · Tests: 2 failed, 8 passed (32 assertions)
+3. **DETECTADA** `T107: esperado_visto sin regla numeric` · Tests: 1 failed, 9 passed (35 assertions)
+4. **DETECTADA** `T108: segunda ficha no consulta yaEsDelClub` · Tests: 3 failed, 5 passed (24 assertions)
+5. **DETECTADA** `T108: preview no avisa yaEsDelClub` · Tests: 2 failed, 6 passed (22 assertions)
+6. **DETECTADA** `T108: yaEsDelClub filtra solo activos` · Tests: 1 failed, 7 passed (24 assertions)
+7. **DETECTADA** `T108: yaEsDelClub compara dni sin limpiar` · Tests: 1 failed, 7 passed (22 assertions)
+
+Efectividad de detección de mutaciones: **7 de 7 (100%)**.
+
+---
+
+## 6. Revisión de manuales, contratos y catálogo de pruebas
+
+- **Manuales:**
+  - `resources/manual/operativo/cerrar-caja.md` (líneas 53-55): documenta textualmente el mensaje y el procedimiento ante «Cambió el efectivo esperado».
+  - `resources/manual/operativo/alta-alumno.md` (líneas 57-59): documenta que quien ya tiene ficha no vuelve a pagar matrícula y cita el aviso textual.
+  - Verificador: `php scripts/manual/verificar-manual.php` ejecutado con **59 páginas revisadas, 0 problemas**.
+- **Contratos:**
+  - `docs/02-contratos/Wings-Contrato-Caja-Cashflow-V5.md` (línea 87): cláusula T107 incorporada.
+  - `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v5.md` (línea 137): cláusula T108 incorporada.
+- **Catálogo de pruebas:**
+  - Caso CAJ-023 en `CAJ.json`: cubre entrada de cobro mientras se cierra (letra c: pantalla de cierre vieja).
+  - Caso ALU-005 en `ALU.json`: cubre alta con mismo DNI en otro deporte sin duplicar inscripción.
+
+---
+
+## 7. Pruebas y Suite Técnica
+
+- **Pruebas específicas:**
+  - `tests/Feature/CierrePantallaViejaT107Test.php`: 10 pasadas.
+  - `tests/Feature/InscripcionSegundaFichaT108Test.php`: 8 pasadas.
+  - `docs/06-pruebas/PRU-04/evidencia-t107-t108/VerificacionT107T108GeminiTest.php`: 16 pasadas (87 aserciones) en 17,76 s.
+- **Suite rápida ejecutada:**
+  - `DB_DATABASE=wings_testing_gemini php artisan test --exclude-group=lento`:
+  - **1.335 aprobadas**, 6 omitidas, **9.782 aserciones** en 295,25 s (4,9 min). Suite 100% en verde sin fallos.

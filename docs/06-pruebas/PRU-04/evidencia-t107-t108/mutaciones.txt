@@ -1,0 +1,7 @@
+DETECTADA T107: cierre sin validar visto · Tests:    4 failed, 6 passed (19 assertions)
+DETECTADA T107: vista sin input esperado_visto · Tests:    2 failed, 8 passed (32 assertions)
+DETECTADA T107: esperado_visto sin regla numeric · Tests:    1 failed, 9 passed (35 assertions)
+DETECTADA T108: segunda ficha no consulta yaEsDelClub · Tests:    3 failed, 5 passed (24 assertions)
+DETECTADA T108: preview no avisa yaEsDelClub · Tests:    2 failed, 6 passed (22 assertions)
+DETECTADA T108: yaEsDelClub filtra solo activos · Tests:    1 failed, 7 passed (24 assertions)
+DETECTADA T108: yaEsDelClub compara dni sin limpiar · Tests:    1 failed, 7 passed (22 assertions)
