@@ -40,9 +40,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Hernan figura 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Mariela no se pudo reproducir: el valor hora no se muestra en diciembre porque Patin paso a comision (error del guion 53.7). Se retrata en 55.4. |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Sin empezar | Decidir: propuesta avisar o rechazar un periodo futuro antes del 2/1/2027. No mueve plata y se elimina. Probado en la copia, simulacion/tanda-5/ano.php. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
-| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Sin empezar | Decidir: propongo antes de produccion. No guarda nada ni toca plata. Comprobado en navegador real y en el sitio. Ver prueba-tecnica/INFORME.md. |
-| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Sin empezar | Decidir: una linea, revision-cobranza/index.blade.php:116. Toca una vista. |
-| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Sin empezar | Decidir: propongo antes de produccion. Solo con sesion de operativa y envio armado a mano: cancela una serie, cobra por un medio inactivo, cambia el deporte. Retratado en SeguridadDiasPruebaTest. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -53,6 +50,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | En curso | Carlos 01/11: la repara Claude. |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
@@ -66,9 +64,9 @@ Nada en este momento.
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
 
-## Sin empezar (10)
+## Sin empezar (12)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después), T117 (antes de producción), T118 (antes de producción).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 
