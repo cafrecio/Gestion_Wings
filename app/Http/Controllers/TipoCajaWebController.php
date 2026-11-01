@@ -49,7 +49,7 @@ class TipoCajaWebController extends Controller
 
         TipoCaja::create([
             'nombre'              => $request->nombre,
-            'abreviatura'         => strtoupper($request->abreviatura),
+            'abreviatura'         => mb_strtoupper($request->abreviatura, 'UTF-8'),
             'descripcion'         => $request->descripcion,
             'permite_descubierto' => $request->boolean('permite_descubierto'),
             'saldo_inicial'       => $request->input('saldo_inicial'),
@@ -91,7 +91,7 @@ class TipoCajaWebController extends Controller
                 'saldo_inicial.min'      => 'El saldo inicial no puede ser negativo.',
             ]);
 
-            $datos['abreviatura'] = strtoupper($datos['abreviatura']);
+            $datos['abreviatura'] = mb_strtoupper($datos['abreviatura'], 'UTF-8');
             $datos['descripcion'] = $datos['descripcion'] ?? null;
             $datos['permite_descubierto'] = $request->boolean('permite_descubierto');
 

@@ -1,0 +1,42 @@
+[
+  {
+    "nombre": "1. Cobrar con sesión vencida lleva a /login con aviso",
+    "ok": true,
+    "detalle": "URL: /login"
+  },
+  {
+    "nombre": "8a. Reingreso de operativa llega a inicio de su rol",
+    "ok": true,
+    "detalle": "URL: /operativo"
+  },
+  {
+    "nombre": "2. Guardar lista con sesión vencida a 375px lleva a /login con aviso",
+    "ok": true,
+    "detalle": "URL: /login"
+  },
+  {
+    "nombre": "3. Cancelar clase con sesión vencida lleva a /login con aviso",
+    "ok": true,
+    "detalle": "URL: /login"
+  },
+  {
+    "nombre": "8b. Reingreso de admin llega a inicio de su rol",
+    "ok": true,
+    "detalle": "URL: /admin/dashboard"
+  },
+  {
+    "nombre": "T118. Revisión muestra REACTIVADO AUTOMÁTICAMENTE con tilde",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "T118. Caja detalle muestra abreviatura FÚT",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "T118. Movimientos recorta observación sin romper caracteres",
+    "ok": true,
+    "detalle": ""
+  }
+]

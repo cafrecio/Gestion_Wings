@@ -51,6 +51,8 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude |
+| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
@@ -63,8 +65,6 @@ Nada en este momento.
 |---|---|---|
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregido por Claude tras el hallazgo de Gemini: retiro por Cashflow y faltante en el turno. Segunda vuelta: PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md. Despues, OK de Carlos. |
-| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | En curso (hizo Gemini) | Implementando sesion vencida en pedidos AJAX (ACC-006) |
-| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | En curso (hizo Gemini) | Implementando mb_strtoupper y mb_substr para acentos |
 
 ## Sin empezar (10)
 

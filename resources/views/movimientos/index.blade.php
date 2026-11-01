@@ -116,8 +116,8 @@
                     $subNombre    = $mov->subrubro?->nombre ?? '–';
                     $alumnoObs    = $mov->alumno
                         ? $mov->alumno->apellido . ', ' . $mov->alumno->nombre
-                        : (strlen($mov->observaciones ?? '') > 36
-                            ? substr($mov->observaciones, 0, 36) . '…'
+                        : (mb_strlen($mov->observaciones ?? '', 'UTF-8') > 36
+                            ? mb_substr($mov->observaciones, 0, 36, 'UTF-8') . '…'
                             : ($mov->observaciones ?? '–'));
                     $caja         = $mov->cajaOperativa;
                 @endphp

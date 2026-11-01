@@ -113,7 +113,7 @@
         <span style="margin-left:auto; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:999px;
                      background:color-mix(in srgb, {{ $isPendiente ? 'var(--color-warning)' : $resolucionColor }} 12%, transparent);
                      color:{{ $isPendiente ? 'var(--color-warning)' : $resolucionColor }};">
-            {{ $isPendiente ? 'PENDIENTE' : strtoupper($resolucionLabel) }}
+            {{ $isPendiente ? 'PENDIENTE' : mb_strtoupper($resolucionLabel, 'UTF-8') }}
         </span>
     </div>
 

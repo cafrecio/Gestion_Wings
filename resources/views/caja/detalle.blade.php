@@ -133,7 +133,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                 $rubroNombre    = $mov->subrubro?->rubro?->nombre ?? '';
                 $subrubroNombre = $mov->subrubro?->nombre ?? '–';
                 if ($mov->alumno) {
-                    $depAbrev  = strtoupper(substr($mov->alumno->deporte->nombre ?? '', 0, 3));
+                    $depAbrev  = mb_strtoupper(mb_substr($mov->alumno->deporte->nombre ?? '', 0, 3, 'UTF-8'), 'UTF-8');
                     $periodos  = '';
                     if ($mov->pago && $mov->pago->deudasCuota->isNotEmpty()) {
                         $periodos = ' · ' . $mov->pago->deudasCuota

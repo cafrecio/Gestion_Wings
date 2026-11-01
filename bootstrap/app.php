@@ -95,7 +95,16 @@ return Application::configure(basePath: dirname(__DIR__))
         // 419 CSRF expirado → login. TokenMismatchException es convertida a
         // HttpException(419) por prepareException() antes de llegar aquí.
         $exceptions->render(function (HttpException $e, Request $request) {
-            if ($e->getStatusCode() === 419 && !$request->is('api/*') && !$request->expectsJson()) {
+            if ($e->getStatusCode() === 419 && !$request->is('api/*')) {
+                if ($request->expectsJson()) {
+                    $request->session()->flash('error', 'Tu sesión expiró. Iniciá sesión nuevamente.');
+
+                    return response()->json([
+                        'message' => 'Tu sesión expiró. Iniciá sesión nuevamente.',
+                        'redirect' => route('login'),
+                    ], 419);
+                }
+
                 return redirect()->route('login')
                     ->with('error', 'Tu sesión expiró. Iniciá sesión nuevamente.');
             }

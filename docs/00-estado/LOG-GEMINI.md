@@ -11,6 +11,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T117 y T118: Sesión vencida en peticiones AJAX y mayúsculas con acento (a verificación)
+
+- **Objetivo:** Implementar la expiración de sesión sin recargar pantalla (T117, ACC-006) y corregir mayúsculas y cortes que rompen acentos en castellano (T118) según `PROMPT — T117 y T118: sesión vencida y mayúsculas con acento — para Gemini`.
+- **Implementación y resultados ([IMPLEMENTACION-T117-T118-GEMINI.md](../06-pruebas/PRU-04/IMPLEMENTACION-T117-T118-GEMINI.md)):**
+  1. **T117 (Sesión vencida en AJAX en un solo lugar):**
+     - *Servidor (`bootstrap/app.php:95-107`):* En excepción 419 fuera de `api/*`, si espera JSON almacena flash `'error' => 'Tu sesión expiró. Iniciá sesión nuevamente.'` y responde JSON 419 con `{ message, redirect: route('login') }`. Si es formulario común mantiene redirect 302 con flash. `api/*` responde JSON estándar sin redirect.
+     - *Cliente (`resources/js/bootstrap.js` + `npm run build`):* Interceptor global en `window.fetch` que ante 419 redirige automáticamente con `window.location.assign(destino)` y retorna promesa pendiente para silenciar toasts de error en la página emisora. Cubre todas las peticiones fetch presentes y futuras (`cobrar.js`, `clases-show.js`, `ds-app.js`, etc.).
+     - *Reingreso por rol verificado:* `ADMIN` -> `/admin/dashboard`, `OPERATIVO` -> `/operativo`, `PROFESOR` -> `/clases`. Datos a medias verificados: 0 pagos, 0 asistencias, clase no cancelada, movimientos inalterados.
+  2. **T118 (Mayúsculas y recortes con mbstring):**
+     - `resources/views/revision-cobranza/index.blade.php:116`: `mb_strtoupper($resolucionLabel, 'UTF-8')` -> `REACTIVADO AUTOMÁTICAMENTE`.
+     - `resources/views/caja/detalle.blade.php:136`: `mb_strtoupper(mb_substr(..., 0, 3, 'UTF-8'), 'UTF-8')` -> `FÚT`.
+     - `resources/views/movimientos/index.blade.php:119-121`: `mb_strlen` y `mb_substr(..., 0, 36, 'UTF-8')` recortan a 36 caracteres sin partir caracteres multibyte.
+     - `app/Http/Controllers/TipoCajaWebController.php:52, 94`: `mb_strtoupper($data['nombre'], 'UTF-8')`.
+  3. **Pruebas y evidencia:**
+     - Feature test: `tests/Feature/SesionVencidaYMayusculasT117T118Test.php` (7 passed, 29 aserciones).
+     - Chrome CDP headless: `docs/06-pruebas/PRU-04/evidencia-t117-t118/comprobar-navegador-t117-t118.mjs` (8/8 passed, 6 capturas guardadas).
+     - Suite rápida (`--exclude-group=lento`): 1351 aprobadas, 6 omitidas, 0 fallidas (9885 aserciones, 360.62 s, salida 0 en `wings_testing_gemini`).
+     - Sin errores de sintaxis (`php -l`), vistas compilan (`php artisan view:cache; php artisan view:clear`), `TableroAlDiaTest` pasa (6 passed), `DocumentacionNoMienteTest` pasa (1 passed).
+- **Tablero:** T117 y T118 marcadas como `a_verificar`, `hizo=Gemini`, `tiene=Claude`.
+
 ## 2026-11-01 — LOG GEM CAB — T12 y T13: Control del manual tras T94 a T109 (Devuelto a Claude por Hallazgo Grave en Camino 1)
 
 - **Objetivo:** Ejecutar el control independiente del manual de usuario tras las tareas T94 a T109 según `PROMPT — T12 y T13: control del manual después de T94 a T109 — para Gemini`.
