@@ -1,0 +1,7 @@
+@media (max-width: 640px) {
+    .alumno-actions.niveles-actions .ds-toggle {
+        flex-basis: 100%;
+        justify-content: flex-end !important;
+        gap: 10px;
+    }
+}

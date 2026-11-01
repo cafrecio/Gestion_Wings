@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T102 — Inactivar un nivel</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:24px;background:#f4f6f8;color:#111827}
+h1{font-size:1.4rem}h2{font-size:1.1rem;margin-top:32px}p,li{max-width:960px;line-height:1.5}
+.fila{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}.esc{width:min(900px,100%)}.cel{width:375px;max-width:100%}
+figure{margin:0}figcaption{margin:8px 0;font-size:.9rem}img{display:block;width:100%;border:1px solid #d8e0ea;background:#fff;box-sizing:border-box}a{color:#174a7e}
+</style></head><body>
+<h1>T102 — Inactivar un nivel</h1>
+<p><strong>Propuesta para aprobar el aspecto.</strong> Capturas del HTML de Wings con sus componentes reales y datos ficticios. Todavía no está implementada: la pantalla real no se tocó.</p>
+<h2>Qué cambia en la pantalla Niveles</h2>
+<ul>
+<li>Cada tarjeta suma el interruptor <strong>Activo / Inactivo</strong>, el mismo de Deportes y Profesores.</li>
+<li>El punto de la tarjeta pasa a mostrar ese estado: verde si está activo, gris si está inactivo. Hoy muestra si tiene grupos, y ese dato ya está en «Grupos».</li>
+<li>En celular el interruptor va en su propia fila y <strong>Editar</strong> y <strong>Eliminar</strong> debajo, como en Profesores: los tres no entran en una sola fila.</li>
+</ul>
+<h2>Cómo funciona</h2>
+<ul>
+<li>Un nivel inactivo no se ofrece al crear un grupo. Los grupos que ya lo usan siguen igual, con sus alumnos y sus clases.</li>
+<li>Se puede volver a activar con el mismo interruptor.</li>
+<li><strong>Eliminar</strong> sigue igual: con grupos no borra, y el aviso suma «Podés inactivarlo.».</li>
+</ul>
+<h2>Listado</h2>
+<div class="fila">
+<figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t102/capturas/01-niveles-1366.jpg"><img src="evidencia-t102/capturas/01-niveles-1366.jpg" alt="Niveles en escritorio: cinco tarjetas con interruptor, Editar y Eliminar; dos inactivas con punto gris"></a></figure>
+<figure class="cel"><figcaption>Celular · 375</figcaption><a href="evidencia-t102/capturas/01-niveles-375.jpg"><img src="evidencia-t102/capturas/01-niveles-375.jpg" alt="Niveles en celular: interruptor en su fila y Editar y Eliminar debajo, alineados a la derecha"></a></figure>
+</div>
+</body></html>

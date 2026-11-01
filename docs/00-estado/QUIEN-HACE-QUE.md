@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
+| **T102** Nivel: poder inactivarlo (hoy no existe; con grupos no se puede eliminar) | En curso (hizo Claude) | Propuesta lista para el OK visual de Carlos: docs/06-pruebas/PRU-04/APROBAR-T102.html. Con el OK: migracion, controlador, pantalla, manual y pruebas. GrupoWebController y app.css esperan que Gemini (T94) y Codex (T97) suban lo suyo. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -51,7 +52,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude) | Claude activo el recorte de fuentes en config/dompdf.php: de 1,7 MB a unos 225 KB, mismo texto y casi los mismos pixeles. Los 3 s no bajan. Falta suite, contador de pruebas, commit y control de otra IA. |
-| **T102** Nivel: poder inactivarlo (hoy no existe; con grupos no se puede eliminar) | En curso (hizo Claude) | Claude arma la propuesta visual aislada para el OK de Carlos; despues migracion, controlador, pantalla, manual y pruebas. |
 
 ## Codex
 
