@@ -3,7 +3,7 @@
 - **Página del manual:** `resources/manual/operativo/cancelar-movimiento-caja.md`
 - **Rol:** Operativo
 - **Pantalla:** `/caja/{cajaId}/detalle`
-- **Fecha de verificación:** 29/10/2026
+- **Fecha de verificación:** 29/10/2026; «¿Qué pasa si cancelo un cobro adelantado?» agregada el 01/11/2026 por T100 (`PagoCuotaService::deshacerCuotaNacidaDeCobro`, ejecutado en `AdelantoCanceladoT100Test`)
 - **Entorno de ejecución:** Wings local sobre base `wings_testing_gemini`
 
 ---

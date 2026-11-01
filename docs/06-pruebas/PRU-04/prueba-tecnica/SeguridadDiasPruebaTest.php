@@ -1052,10 +1052,9 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
     }
 
     /**
-     * Hallazgo T100 (42.1), retrato: cancelar un adelanto no borra la cuota creada con el importe equivocado. Se pone en
-     * rojo cuando se repare, y ahí se da vuelta.
+     * T100 (42.1), reparada el 01/11: cancelar un adelanto borra la cuota nacida de ese cobro y cobrar bien no deja saldo.
      */
-    public function test_hallazgo_t100_adelanto_cancelado_deja_saldo_fantasma(): void
+    public function test_t100_adelanto_cancelado_no_deja_saldo_fantasma(): void
     {
         $this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'fecha_pago' => '2026-10-15'])->assertSessionHasNoErrors();
         $base = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-11'], 'fecha_pago' => '2026-10-15', 'confirmar_pago_adelantado' => true];
@@ -1069,14 +1068,12 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
 
         $this->actingAs($this->sandra)->post(route('web.caja.movimientos.cancelar.store', [$this->cajaSandra->id, $mov->id]), ['motivo' => 'Un cero de más: eran $30.000'])->assertSessionHas('success');
         $this->assertSame('ANULADO', $pago->fresh()->estado);
-        $nov = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->firstOrFail();
-        $this->assertSame([DeudaCuota::ESTADO_PENDIENTE, '300000.00', '0.00'], [$nov->estado, $nov->monto_original, $nov->monto_pagado], 'T100 corregida: dar vuelta esta prueba');
+        $this->assertFalse(DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->exists(), 'La cuota nacida del cobro cancelado sigue guardada');
 
-        // El cobro correcto entra como parcial y queda el saldo fantasma.
-        $this->actingAs($this->sandra)->postJson(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000]])->assertStatus(409)->assertJsonPath('requiere_motivo', true);
-        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000], 'motivo' => 'Corrijo el importe: eran $30.000'])));
-        $nov->refresh();
-        $this->assertSame('270000.00', number_format((float) $nov->monto_original - (float) $nov->monto_pagado, 2, '.', ''), 'T100 corregida: dar vuelta esta prueba');
+        // El cobro correcto es un adelanto nuevo: sin motivo de parcial y sin saldo.
+        $this->assertTrue($this->cobroHecho($this->actingAs($this->sandra)->post(route('web.caja.pagar', $this->alumno->id), $base + ['montos_cuota' => ['2026-11' => 30000]])));
+        $nov = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->firstOrFail();
+        $this->assertSame([DeudaCuota::ESTADO_PAGADA, '30000.00', '30000.00'], [$nov->estado, $nov->monto_original, $nov->monto_pagado]);
     }
 
     /** 46.2 y 46.7: cobrar dos veces, cerrar dos veces y (hallazgo, retrato) cerrar con la pantalla vieja. */

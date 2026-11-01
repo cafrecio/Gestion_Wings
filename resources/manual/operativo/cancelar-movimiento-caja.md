@@ -47,6 +47,9 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 
 ## Qué hago si…
 
+### ¿Qué pasa si cancelo un cobro adelantado?
+Si cobraste un mes que todavía no empezó y lo cancelás, queda como si ese cobro no hubiera existido: el mes deja de tener cuota, y si lo volvés a cobrar escribís el importe de nuevo. Si ese mes ya empezó, queda pendiente al precio del plan.
+
 ### ¿Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?
 Si la caja está en estado *Cerrada*, la botonera de cancelación se deshabilita para evitar adulteraciones posteriores al arqueo. Hablá con el dueño y pedile que rechace la caja: al pasar a estado *Rechazada*, el botón **Cancelar** vuelve a estar habilitado para que corrijas la operación.
 

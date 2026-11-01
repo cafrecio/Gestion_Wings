@@ -1134,6 +1134,9 @@ class PagoCuotaService
                     'deuda_cuota_id' => $deuda->id,
                     'monto_aplicado' => $montosAplicados[$item['periodo']],
                 ]);
+                if ($deuda->wasRecentlyCreated && $deuda->periodo > now()->format('Y-m')) {
+                    $deuda->update(['pago_origen_id' => $pago->id]);
+                }
             }
         }
         // Pago::created ocurre antes de adjuntar las imputaciones; congelar el estado completo.
@@ -1232,6 +1235,7 @@ class PagoCuotaService
                 );
 
                 $deuda->save();
+                $this->deshacerCuotaNacidaDeCobro($deuda);
             }
 
             PagoDeudaCuota::where('pago_id', $pago->id)->delete();
@@ -1242,6 +1246,32 @@ class PagoCuotaService
 
             MovimientoOperativo::where('pago_id', $pago->id)->update(['estado' => 'CANCELADO', 'motivo_cancelacion' => $motivo]);
         });
+    }
+
+    /**
+     * T100 (Carlos, 01/11/2026, reemplaza CJ-26): sin cobros que la sostengan, una cuota adelantada
+     * vuelve a como estaba antes de ese cobro. Si no, un cero de más queda como deuda del mes.
+     * Con el mes ya empezado no se borra, porque la generación ya pasó: vale el precio del plan.
+     */
+    private function deshacerCuotaNacidaDeCobro(DeudaCuota $deuda): void
+    {
+        if ($deuda->pago_origen_id === null || (float) $deuda->monto_pagado > 0 || (float) $deuda->monto_perdido > 0) {
+            return;
+        }
+
+        $enUso = \App\Models\CargoAlumno::where('deuda_cuota_id', $deuda->id)->exists()
+            || \App\Models\LiquidacionDetalle::where('deuda_cuota_id', $deuda->id)->exists();
+        if ($deuda->periodo > now()->format('Y-m') && !$enUso) {
+            $deuda->delete();
+            return;
+        }
+
+        $plan = $this->obtenerPlanParaPeriodo($deuda->alumno_id, $deuda->periodo);
+        if ($plan?->plan) {
+            $deuda->monto_original = $plan->plan->precioParaPeriodo($deuda->periodo, Alumno::findOrFail($deuda->alumno_id)->fecha_alta);
+        }
+        $deuda->pago_origen_id = null;
+        $deuda->save();
     }
 
     /**
@@ -1310,6 +1340,7 @@ class PagoCuotaService
                     "[ANULADO] Pago #{$pago->id} revertido - {$motivo}"
                 );
                 $deuda->save();
+                $this->deshacerCuotaNacidaDeCobro($deuda);
             }
 
             PagoDeudaCuota::where('pago_id', $pago->id)->delete();

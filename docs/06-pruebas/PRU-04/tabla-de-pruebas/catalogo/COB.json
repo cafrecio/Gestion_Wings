@@ -1049,13 +1049,13 @@
         {
           "donde": "Noviembre",
           "l": "b",
-          "texto": "La cuota de noviembre queda guardada y pendiente por el importe pactado.",
+          "texto": "La cuota que nació de ese cobro se borra: noviembre queda como antes de cobrarlo. Si se vuelve a cobrar, se escribe el importe de nuevo y no pide motivo de cobro parcial.",
           "tipo": "indirecto"
         },
         {
           "donde": "Deuda",
           "l": "c",
-          "texto": "No cuenta como deuda en ninguna pantalla hasta que empiece noviembre.",
+          "texto": "No queda saldo ni deuda de noviembre en ninguna pantalla.",
           "tipo": "indirecto"
         },
         {
@@ -1067,19 +1067,19 @@
         {
           "donde": "1 de noviembre",
           "l": "e",
-          "texto": "Ese día pasa a ser deuda por el importe pactado, no por el precio del plan.",
+          "texto": "Sigue el circuito normal: con asistencia en octubre, cuota a precio del plan; sin asistencia, Revisión.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "vigente",
-      "fuente": "Decisión de Carlos 10/10 (CJ-26); CobranzaEstadoService::estaImpaga (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T100: decisión de Carlos, reemplaza CJ-26. PagoCuotaService::deshacerCuotaNacidaDeCobro (código leído).",
       "modulo": "Cobrar",
       "pantalla": "caja-cancelar",
       "requiere": "Cobro adelantado de noviembre hecho en octubre, en el turno abierto.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T100",
       "tipo": "normal",
       "titulo": "Cancelar un cobro adelantado"
     },

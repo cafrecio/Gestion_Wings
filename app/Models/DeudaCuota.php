@@ -28,6 +28,7 @@ class DeudaCuota extends Model
         'observaciones',
         'porcentaje_alta',
         'fecha_reingreso',
+        'pago_origen_id',
     ];
 
     protected $casts = [

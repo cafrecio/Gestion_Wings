@@ -33,6 +33,8 @@ Si al registrar un pago no existe DeudaCuota para el período solicitado:
 - Si el período es futuro → se crea al confirmar el cobro adelantado (T18).
 - Si el período es pasado y no existe deuda → error.
 
+**T100, decisión de Carlos del 01/11/2026 (reemplaza CJ-26):** cancelar o anular un adelanto deja todo como si ese cobro no hubiera existido. La cuota que nació de ese cobro (`pago_origen_id`) se borra si el mes todavía no empezó y ningún otro cobro la sostiene: al volver a cobrar se escribe de nuevo el importe, y si nadie cobra, al llegar el mes sigue el circuito normal (con asistencia, cuota a precio del plan; sin asistencia, Revisión). Con el mes ya empezado no se borra, porque la generación ya pasó: queda pendiente al precio del plan. Tampoco se borra si tiene un recargo o una liquidación atados. Lo cobrado y cancelado queda en el detalle del cobro anulado. Las cuotas anteriores a T100 no tienen el dato y siguen como estaban.
+
 **T77, decisión de Carlos del 25/10/2026:** «Si no tiene deuda, ¿por qué ofrece cobrar octubre?
 No se puede cobrar dos veces.» Cobrar muestra entre las cuotas pendientes exclusivamente las
 guardadas: no arma una cuota corriente en memoria, no la marca ni la suma a «Total pendiente».

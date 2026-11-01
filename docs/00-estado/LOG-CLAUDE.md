@@ -19,6 +19,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Carpeta compartida:** otra sesión hacía T96 al mismo tiempo. Probé en una copia limpia y el commit va por rutas. El cambio de T96 en el tablero (`en_curso`, tiene Gemini) estaba sin subir y entra con este commit: el archivo es uno solo.
 - De producción leí las líneas `SESSION_` de su configuración y el tamaño de `scheduler.log`; no toqué nada.
 
+## 2026-11-01 — Claude CAB — T100: cancelar un adelanto lo deja como si no hubiera existido
+
+- **Decisión de Carlos, reemplaza CJ-26:** el 10/10 había decidido que la cuota quedara por el importe pactado (COB-019); ese importe era justo el error de Clara. Le planteé el choque antes de tocar nada y eligió borrar.
+- **Hecho:** la cuota adelantada guarda de qué cobro nació (`pago_origen_id`, migración). Al cancelar o anular, sin otro cobro que la sostenga, se borra si el mes no empezó; si ya empezó, o tiene recargo o liquidación atados, queda al precio del plan. Las cuotas anteriores no tienen el dato: Clara no se arregla sola.
+- **Comprobado:** 12 pruebas nuevas; prueba técnica dada vuelta. Sin asistencia va a Revisión, no a cuota: lo aprendí al fallar mi propia prueba. **No comprobado, pedido a Codex:** efecto de la cascada de `reporte_eventos`, comisión y reportes por pantalla.
+- **Sin cambiar:** el panel de cancelar dice «La deuda del alumno volverá a estado pendiente.»; para un adelanto ya no es cierto y es una vista. Lo propone Codex y decide Carlos.
+- **Sigue:** control de Codex después de T97, [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md). Sin desplegar. T96 cerrada por Gemini. [Índice](INDICE-TAREAS-T94.md) al día.
+
 ## 2026-11-01 — Claude CAB — T96: un solo cajón en Efectivo, saldo inicial una vez; T95 cerrada
 
 - **T95 cerrada:** Carlos probó los cinco casos por pantalla.

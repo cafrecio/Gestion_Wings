@@ -37,11 +37,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
-| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Sin empezar | Medido en la tanda 4. Probado en local sin tocar Wings: con el recorte de fuentes de dompdf pesa 211 KB y tarda lo mismo; falta mirar que se vea igual. Carlos decide si entra antes de produccion. |
-| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Sin empezar | Dia 44.1: dicen ingresos 1.921.200 y entraron 421.200. Reportes esta bien. CSH-018 pide que los ingresos no cambien. Carlos decide si se excluyen de las tarjetas. |
-| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Sin empezar | Dia 46.7: el esperado se recalcula bien y el faltante queda a la vista del dueno, pero quien cierra no se entera. Carlos decide si Wings avisa antes de cerrar. |
-| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Sin empezar | Dia 46.4, Thiago: no tiene inscripcion registrada y Wings le cobra 8.000 en la ficha de Patin. Carlos decide si es lo que se quiere. |
-| **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Sin empezar | Solo escribiendo la direccion a mano, con sesion. No expone datos. Carlos decide si entra. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -55,20 +50,24 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | En curso (hizo Claude) | La hace la sesion de Claude gestion-wings-50, orden de Carlos 01/11; despues de su suite de T100. Reproducido en 45.8: el gasto que carga el dueno en un turno figura a nombre de la operativa; CAJ-041 pide quien lo cargo. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | Propuesta visual lista en APROBAR-T97.html (1366 y 375); espera OK de Carlos antes de implementar. Renderizado 1/11 verde en wings_testing_codex; faltan pruebas financieras y revision de Claude |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Espera que Codex termine T97; ahi va el control con PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
+| **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | OK visual de Carlos 01/11: Esta OK ahora; implementar anulacion atomica del par, verificar importes y dos conexiones, actualizar manual y entregar a Claude |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia implementacion de T94 |
 
-## Sin empezar (12)
+## Sin empezar (14)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104, T105 (ahora), T106 (ahora), T107 (ahora), T108 (ahora), T109 (ahora), T102.
 
 ## Mejoras futuras, no se empiezan ahora (13)
 

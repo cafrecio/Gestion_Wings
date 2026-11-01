@@ -147,7 +147,7 @@ Formato y pantalla: [maqueta aprobada](../05-pendientes/maqueta-primera-carga/RE
   Los existentes pagan octubre a $40.000 y noviembre a $50.000. Un alta del 22/10 usa
   $45.000 en octubre; un alta del 26/10 usa $50.000. En noviembre ambos usan $50.000.
 - Cambiar la tarifa del catálogo no modifica ninguna cuota ya generada, incluida una
-  cobrada por adelantado. T18 conserva también el importe elegido al cobrar adelantado.
+  cobrada por adelantado. T18 conserva también el importe elegido al cobrar adelantado, mientras ese cobro siga en pie (T100: cancelarlo deshace la cuota).
 - Cambiar la frecuencia del alumno es una operación distinta: **bajar siempre rige desde
   el mes siguiente**. Subir rige en este mes si la cuota está pendiente o parcialmente
   pagada: ajusta el importe y resta lo ya pagado. Si el mes está saldado, rige el mes siguiente.
