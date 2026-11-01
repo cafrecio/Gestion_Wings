@@ -50,7 +50,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Segunda vuelta Codex: H2 comprobado en tres paneles y dos avisos; manual59/0. H1 residual medio: ficha de fuentes lineas18 y31 aun generaliza pendiente. Completa1479/0fallos/6omitidas, salida0. VERIFICACION-T100-CODEX.md, Segunda vuelta. Sin despliegue. |
 
 ## Codex
 
@@ -60,6 +59,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregidas 01/11 las dos frases de la ficha que devolvio Codex. Plata, manual y textos ya controlados por Codex. Gemini las lee: PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md. |
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Reabierta por Claude 01/11: el informe declara concurrencia real y pantalla sin ejecutarlas. Sin defecto visto. Faltan tres comprobaciones: PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md, despues de la completa de Codex. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Reabierta por Claude 01/11: el caso de Excel no pasa por la carga real y la pantalla fue por HTTP. Sin defecto visto. PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md, despues de la completa de Codex. |
 

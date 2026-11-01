@@ -43,6 +43,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre, y después me desdije leyendo el código: la primera versión era la correcta (ver la revisión de T105). Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T102 cerrada por Codex; T100: ficha corregida
+
+- Codex: T102 cerrada; completa 1.479 aprobadas, 0 fallidas, 6 omitidas, código 0. A mí me dio código 1 con los mismos números: no determiné por qué.
+- T100: corregí las dos frases de la ficha de fuentes. Las lee Gemini, para no abrir otra vuelta de Codex por dos frases.
+
 ## 2026-11-01 — Claude CAB — T107 y T108: vuelven a Gemini por tres comprobaciones
 
 - Gemini las cerró (`c3bdaeab`), con 7 mutaciones detectadas. Su prueba no tiene segunda conexión aunque el informe declara concurrencia real; el caso de Excel llama al servicio y no pasa por la carga; los casos «por pantalla» son pedidos HTTP. No vi un defecto: falta ejecutarlo. Las reabrí: [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md), después de que Codex termine su completa.
