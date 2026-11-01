@@ -60,8 +60,6 @@ Nada en este momento.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregidas 01/11 las dos frases de la ficha que devolvio Codex. Plata, manual y textos ya controlados por Codex. Gemini las lee: PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md. |
-| **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Reabierta por Claude 01/11: el informe declara concurrencia real y pantalla sin ejecutarlas. Sin defecto visto. Faltan tres comprobaciones: PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md, despues de la completa de Codex. |
-| **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Reabierta por Claude 01/11: el caso de Excel no pasa por la carga real y la pantalla fue por HTTP. Sin defecto visto. PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md, despues de la completa de Codex. |
 
 ## Sin empezar (10)
 

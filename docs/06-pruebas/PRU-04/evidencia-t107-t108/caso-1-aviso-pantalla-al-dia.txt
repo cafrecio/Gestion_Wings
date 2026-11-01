@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:8112/caja/1/cerrar",
+  "alerta": "No se cerró la caja Cambió el efectivo esperado: ahora es $55,600.00. Entró o se corrigió un movimiento desde que abriste esta pantalla. Revisá lo que contaste y tocá Cerrar de nuevo.",
+  "esperadoVisto": "55600.00",
+  "infoValues": [
+    "$11,600.00",
+    "$55,600.00",
+    "Faltante $44,000.00",
+    "$6,600.00"
+  ]
+}

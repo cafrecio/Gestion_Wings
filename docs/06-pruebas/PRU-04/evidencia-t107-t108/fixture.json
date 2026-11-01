@@ -1,0 +1,11 @@
+﻿{
+    "base": "wings_testing_gemini",
+    "admin_id": 1,
+    "operativa_id": 2,
+    "caja_id": 1,
+    "efectivo_inicial": "11600.00",
+    "thiago_dni": "45000001",
+    "patin_deporte_id": 2,
+    "patin_grupo_id": 2,
+    "patin_plan_id": 2
+}

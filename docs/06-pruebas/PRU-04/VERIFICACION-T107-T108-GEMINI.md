@@ -113,3 +113,64 @@ Efectividad de detección de mutaciones: **7 de 7 (100%)**.
 - **Suite rápida ejecutada:**
   - `DB_DATABASE=wings_testing_gemini php artisan test --exclude-group=lento`:
   - **1.335 aprobadas**, 6 omitidas, **9.782 aserciones** en 295,25 s (4,9 min). Suite 100% en verde sin fallos.
+
+---
+
+## 8. Segunda vuelta — Ejecución directa de comprobaciones pendientes
+
+Se ejecutaron de forma directa las tres comprobaciones solicitadas para la segunda vuelta de verificación sobre el entorno `wings_testing_gemini`:
+
+### 1. C1: Concurrencia real con dos procesos PHP y conexiones PDO independientes
+- **Prueba técnica:** `tests/Feature/CarreraCierreCobroT107Test.php`.
+- **Mecanismo:** Dos conexiones reales e independientes a la base de datos (una del proceso principal PHPUnit y otra de un subproceso CLI invocado vía `proc_open`), con sincronización por pipes de entrada/salida y transacciones con bloqueos de fila reales (`FOR UPDATE` / `LOCK IN SHARE MODE`). La base queda completamente limpia tras la ejecución.
+- **Resultados obtenidos:**
+  1. *Orden A (Cierre bloquea primero):* El cierre de caja inicia su transacción e inserta el registro `CIERRE` bloqueando el arqueo. El cobro concurrente en segundo proceso intenta registrar un pago en efectivo pero la validación detecta que la caja ya está cerrada y rechaza la operación con `No se puede cobrar: la caja está cerrada.`. No se genera faltante falso ni descuadre.
+  2. *Orden B (Cobro bloquea primero):* El cobro concurrente se procesa exitosamente incrementando el efectivo esperado de $30.000 a $50.000. El cierre que tenía la pantalla desactualizada intenta cerrar con `esperado_visto = 30000.00`. El cierre es rechazado informando `Cambió el efectivo esperado: ahora es $50.000,00. Revisá el nuevo saldo y volvé a contar antes de cerrar.`, la caja permanece `ABIERTA` y no se produce ningún cierre con faltante espurio.
+- **Resultado:** 2 pasadas, 14 aserciones en 62,90 s.
+
+### 2. Caso 14: Primera carga por archivo Excel real
+- **Prueba técnica:** `tests/Feature/PrimeraCargaExcelRealT108Test.php`.
+- **Mecanismo:** Generación mediante `PhpSpreadsheet` de un archivo `.xlsx` real a partir de `PrimeraCargaTemplate.xlsx` y posterior envío mediante petición HTTP multipart/form-data pasando por el flujo completo de la aplicación: `POST /sistema/primera-carga/revisar` y `POST /sistema/primera-carga/cargar`.
+- **Datos evaluados en el Excel:**
+  - DNI `50300001` (Fútbol, «Inscripción: Sí»): Primera vez, debe cobrar inscripción.
+  - DNI `50300002` (Fútbol, «Inscripción: No»): Exento, no debe generar inscripción.
+  - DNI `50300003` (Patín, «Inscripción: Sí»): Primera vez para esta persona, debe cobrar inscripción.
+  - DNI `50300003` (Taekwondo, «Inscripción: Sí»): Segunda fila para la misma persona en otro deporte en la misma carga, no debe duplicar la inscripción.
+- **Resultados en base de datos:**
+  - Se crearon los 4 alumnos correspondientes.
+  - Se generaron exactamente 2 registros de tipo `INSCRIPCION` en `cargos_alumno` ($5.000 cada uno, para los DNI 50300001 y 50300003).
+  - El DNI 50300002 no tuvo cargos de inscripción ($0).
+  - El DNI 50300003 quedó con 2 fichas pero exactamente 1 solo cargo de inscripción.
+  - En la tabla `inscripcion_personas` quedaron registrados de forma única los 2 DNI que abonaron inscripción.
+- **Resultado:** 1 pasada, 16 aserciones en 15,58 s.
+
+### 3. Casos 1 y 9: Comprobación por pantalla en navegador real (Chrome CDP)
+- **Ejecución:** Servidor local `php artisan serve --port=8112` con `DB_DATABASE=wings_testing_gemini` y navegador Chrome automatizado mediante protocolo CDP (`docs/06-pruebas/PRU-04/evidencia-t107-t108/ejecutar-navegador.mjs`).
+- **Caso 1 (Cierre de caja con aviso y pantalla al día):**
+  - La operativa ingresa a `/caja/1/cerrar` viendo un esperado de `$11.600,00` (`esperado_visto = 11600.00`).
+  - Concurrentemente entra un nuevo cobro en efectivo de `$44.000,00`, pasando el esperado real a `$55.600,00`.
+  - La operativa intenta cerrar con `$11.600,00`. La pantalla recarga y muestra el mensaje de alerta:
+    `No se cerró la caja: Cambió el efectivo esperado: ahora es $55,600.00. Revisá el nuevo saldo y volvé a contar antes de cerrar.`
+  - La pantalla queda automáticamente al día con el nuevo esperado `$55,600.00` y `esperado_visto = 55600.00`.
+  - La operativa cuenta `$55.600,00` reales, vuelve a enviar y la caja queda cerrada (`CERRADA`, diferencia `$0,00`).
+  - *Evidencias:*
+    - Captura del aviso con pantalla actualizada: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-1-aviso-pantalla-al-dia.png`.
+    - Captura de caja cerrada con arqueo al día: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-1-cerrada-al-dia.png`.
+    - Volcado textual: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-1-aviso-pantalla-al-dia.txt`.
+- **Caso 9 (Alta de alumno: aviso previo dinámico al ingresar DNI existente):**
+  - Se ingresa al formulario de alta de alumno `/alumnos/create`.
+  - Se escribe en el campo DNI el valor `45000001` (Thiago Silva, ya activo en Fútbol).
+  - Al disparar el evento de cambio, la vista consulta de manera asíncrona y despliega inmediatamente el aviso previo dinámico:
+    `Esta persona ya es del club: no paga inscripción.`
+  - Se guardan los datos para la segunda ficha en Patín: la ficha se crea con éxito, el alumno cuenta con dos deportes y no se le genera cargo de matrícula adicional.
+  - *Evidencias:*
+    - Captura del aviso previo dinámico: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-9-aviso-previo-segunda-ficha.png`.
+    - Captura de la ficha creada: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-9-ficha-segunda-ficha.png`.
+    - Volcado textual: `docs/06-pruebas/PRU-04/evidencia-t107-t108/caso-9-aviso-previo-segunda-ficha.txt`.
+
+---
+
+## 9. Veredicto Final
+
+- **T107:** CERRADA. Verificada por Gemini. Protección de cierre concurrente ante movimientos intermedios y recarga al día comprobada en procesos reales y pantalla.
+- **T108:** CERRADA. Verificada por Gemini. Unicidad de cobro de inscripción por persona física comprobada en formulario dinámico, importación masiva por Excel real y modelos de datos.

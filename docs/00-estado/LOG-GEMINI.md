@@ -11,6 +11,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T107 y T108: Segunda vuelta de control (concurrencia real, Excel real y navegador Chrome CDP)
+
+- **Objetivo:** Ejecutar las tres comprobaciones prácticas pendientes de T107 y T108 en `wings_testing_gemini` solicitadas en el prompt de segunda vuelta.
+- **Acciones y resultados ([VERIFICACION-T107-T108-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T107-T108-GEMINI.md) §8):**
+  1. **C1 (Concurrencia real con 2 procesos PHP y conexiones PDO independientes):**
+     - Desarrollada `tests/Feature/CarreraCierreCobroT107Test.php` con subproceso CLI (`proc_open`), pipes y locks reales en `wings_testing_gemini`.
+     - *Orden A (Cierre bloquea primero):* Cobro concurrente detecta caja cerrada y es rechazado sin cobro espurio.
+     - *Orden B (Cobro bloquea primero):* Cobro incrementa saldo de $30.000 a $50.000; cierre con pantalla vieja es rechazado (`Cambió el efectivo esperado: ahora es $50.000,00`), caja queda abierta sin faltante falso. Base de datos limpia tras la corrida.
+     - 2 pasadas, 14 aserciones en 62,90 s.
+  2. **Caso 14 (Primera carga por Excel real):**
+     - Desarrollada `tests/Feature/PrimeraCargaExcelRealT108Test.php` generando archivo `.xlsx` real con `PhpSpreadsheet` y subiéndolo por HTTP multipart (`revisar` y `cargar`).
+     - Filas con «Inscripción: Sí» cobran matrícula ($5.000), «Inscripción: No» no cobran ($0), y dos filas con el mismo DNI en deportes distintos cobran exactamente una sola inscripción.
+     - 4 alumnos creados, exactamente 2 cargos `INSCRIPCION` en `cargos_alumno` y 2 DNI únicos en `inscripcion_personas`.
+     - 1 pasada, 16 aserciones en 15,58 s.
+  3. **Casos 1 y 9 (Comprobación por pantalla en navegador Chrome CDP real):**
+     - Ejecutado script `ejecutar-navegador.mjs` contra servidor local `artisan serve` (puerto 8112).
+     - *Caso 1:* Operativa en `/caja/1/cerrar` ve $11.600; entra cobro de $44.000; intenta cerrar con $11.600 y recibe alerta «No se cerró la caja: Cambió el efectivo esperado: ahora es $55,600.00...». Pantalla se actualiza en el lugar a $55.600 (`esperado_visto = 55600.00`), cuenta $55.600 y cierra con éxito (`CERRADA`, diferencia $0,00). Capturas y volcado de texto guardados.
+     - *Caso 9:* En `/alumnos/create` se escribe DNI existente `45000001` (Thiago Silva) y la pantalla despliega dinámicamente: «Esta persona ya es del club: no paga inscripción.». Se completa segunda ficha para Patín y se guarda sin duplicar matrícula. Capturas y volcado guardados.
+- **Tablero y estado:** T107 y T108 cerradas con `verifica=Gemini`, `tiene=nadie`.
+
 ## 2026-11-01 — LOG GEM CAB — T107 y T108: Cierre de caja con pantalla vieja e inscripción en segunda ficha (cerradas sin hallazgos)
 
 - **Objetivo:** Ejecutar el control independiente de T107 y T108 (implementadas por Claude en commit `a85d5c39`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T107-T108-CONTROL.md`.
@@ -143,28 +163,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Entregables de T12 y T13:** Control final documentado en `docs/06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-C-GEMINI.md` (0 hallazgos en las 59 páginas, 33 pantallas con botón `?` probadas por rol, 5 vueltas del revisor subsanadas y ejecución real del caso 6 en base propia). Tablero en `a_verificar`, `hizo=Claude`, `verifica=Gemini`, `tiene=Carlos`, paso *«Etapa C controlada por Gemini: OK de Carlos»*.
 - **Comprobaciones técnicas:** Suite rápida `wings_testing_gemini` y pruebas automáticas de ayuda en verde; árbol de trabajo limpio sin modificaciones espurias; cero archivos tocados en `resources/views/` ni `resources/css/`.
 - **Próximo paso:** Esperar la revisión y visto bueno de Carlos para dar por cerradas T12 y T13, o nueva asignación según tablero.
-
-## 2026-10-30 — LOG GEM CAB — T12 y T13: Control final de la Etapa C hecha por Claude (auditoría de páginas contra código, botón ? por rol en 33 pantallas, capturas, los 9 huecos para Carlos con ejecución del #6 y las 5 vueltas del revisor; 0 hallazgos)
-
-- **Objetivo:** Ejecutar el control independiente de la Etapa C del manual del usuario (`T12` y `T13`, implementada por Claude en `d797d0b5`) siguiendo `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-CONTROL-ETAPA-C.md`.
-- **Acciones y resultados concretos ([VERIFICACION-T12-T13-ETAPA-C-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T12-T13-ETAPA-C-GEMINI.md)):**
-  1. **Controles automáticos y suite:** `php scripts/manual/verificar-manual.php` &rarr; **59 páginas revisadas, 0 problemas**. `AyudaManualT12T13Test` y `AyudaBotonPorRolTest` en `wings_testing_gemini` &rarr; **23 passed (119 assertions)**.
-  2. **Páginas contra el código (`REVISOR-MANUAL.md` punto 6):** Auditadas en profundidad 12 páginas contra los `if` completos de controladores/servicios/modelos y `@if` de vistas Blade (`admin/programar-clases`, `admin/administrar-grupos`, las 4 de `profesor/*`, `admin/condonar-deuda-alumno`, `admin/eliminar-alumno`, `admin/corregir-movimiento-cashflow`, `admin/administrar-tipos-caja`, `admin/configurar-parametros` y `profesor/tomar-asistencia`) y releídas las 12 restantes de la etapa. **0 diferencias**.
-  3. **El botón `?` por rol en pantalla:** Probadas en `wings_testing_gemini` **33 combinaciones de rol (`PROFESOR`, `OPERATIVO`, `ADMIN`) y pantalla** con y sin parámetros. Las 33 devuelven HTTP 200 y su botón `?` responde HTTP 200 con la guía correspondiente al rol y tarea.
-  4. **Capturas (`CapturasEtapaCTest.php` y PNGs):** Verificado que `CapturasEtapaCTest.php` solo revela paneles existentes u oculta secciones superiores con CSS sin agregar texto inventado, que las capturas muestran el menú lateral real de cada rol (`Laura Gómez`, `Sandra Ríos`, `Lucía Méndez`), y que se eliminó la captura fabricada `primera-carga-deshacer-paso2.png` de la Etapa B.
-  5. **Los 9 «Huecos para Carlos» (`IMPLEMENTACION-T12-T13.md` §15):** Comprobados los 9 en el código con `archivo:línea`. Ejecutado en `wings_testing_gemini` el hueco #6: tanto en `GrupoWebController::update` como en `GrupoWebController::destroyPlan` lanza `QueryException` (`1451` sobre `alumno_planes_plan_id_foreign`) y `ExceptionHandler` devuelve **HTTP 500**, conservando el plan en la base.
-  6. **Las 5 vueltas del revisor independiente (`revisiones/2026-10-30-etapa-c*.md`):** Comprobado que todos los hallazgos de las vueltas 1 a 5 quedaron subsanados.
-- **Tablero y próximo paso:** `T12` y `T13` actualizadas a `estado=a_verificar`, `hizo=Claude`, `verifica=Gemini`, `tiene=Carlos`, paso *«Etapa C controlada por Gemini: OK de Carlos»*.
-
-## 2026-10-30 — LOG GEM CAB — T12 y T13: Etapa B segunda vuelta (ajuste de liquidación a comisión abierta o cerrada, los 4 rechazos de primera-carga-deshacer, eliminación total de backticks, 16 fichas con if completo y caminos prohibidos probados, revisión independiente en 0)
-
-- **Objetivo:** Subsanar los hallazgos de la devolución de Claude (`VERIFICACION-T12-T13-ETAPA-B-CLAUDE.md`) y Carlos sobre la Etapa B: reescribir `recalcular-ajustar-liquidacion.md`, documentar los 4 rechazos de `primera-carga-deshacer.md`, eliminar todas las comillas de código (backticks) del manual, quitar menciones comerciales a "Banco Galicia", retirar MF12 de huecos y completar las 16 fichas de fuentes con la columna «Condición en el código (if)» y «Qué pasó al ejecutar el camino prohibido en el sistema».
-- **Resultados:** `php scripts/manual/verificar-manual.php` &rarr; **37 páginas revisadas, 0 problemas**; `AyudaManualT12T13Test.php` &rarr; **20 passed**; informe en `revisiones/2026-10-30-etapa-b-segunda-vuelta.md` con **0 Graves, 0 Medias, 0 Menores**.
-
-## 2026-10-30 — LOG GEM CAB — T12 y T13: Etapa B (Manual del Dueño, páginas 21 a 36, botón `?` en 8 pantallas de administración, 31 capturas con hashes únicos, 15 fichas de fuentes con la regla del «Sí», galería visual y revisión independiente en 0)
-
-- **Objetivo:** Ejecutar y entregar la Etapa B de T12 y T13 (páginas 21 a 36 para el rol Administrador / Dueño) aplicando `PROMPT-GEMINI-T12-T13-ETAPAS.md`, incorporar el botón `?` en las 8 vistas de administración autorizadas, generar 31 capturas reales con hashes únicos, confeccionar las 15 fichas de fuentes con la regla del «Sí», generar `APROBAR-T12-T13-ETAPA-B.html` y subsanar hallazgos del revisor independiente hasta 0 abiertas (`revisiones/2026-10-30-etapa-b.md`).
-
-## 2026-10-29 — LOG GEM CAB — T12 y T13: Etapa A (19 páginas operativas, buscador en /ayuda, botón [?] en 16 pantallas, segunda vuelta de rechazos/avisos y revisión independiente en 0)
-
-- **Objetivo:** Completar y auditar la Etapa A del manual operativo (págs. 2 a 20), buscador en `/ayuda`, botón `[?]` en 16 pantallas, 20 fichas `operativo-*.md` con las 54 condiciones `if` y tabla de rechazos/avisos probados en el sistema, y `VerificarCaminosProhibidosManualTest.php` (`18 passed`). Revisiones independientes (`2026-10-29-etapa-a*.md`) cerradas en **0 hallazgos abiertos**.

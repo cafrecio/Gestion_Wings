@@ -1,0 +1,4 @@
+{
+  "avisoInscripcion": "Esta persona ya es del club: no paga inscripción.",
+  "importeVisto": "5000"
+}
