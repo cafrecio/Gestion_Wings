@@ -11,6 +11,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T109: Control de filtros inválidos y páginas no disponibles en recibos (cerrada sin hallazgos)
+
+- **Objetivo:** Ejecutar el control independiente de T109 (implementado por Claude en commit `88db2b24`) según la Etapa 3 de `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.
+- **Acciones y resultados ([VERIFICACION-T109-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T109-GEMINI.md)):**
+  1. **8 casos del prompt verificados y aprobados:**
+     - Caso 1: En Historial, `desde` y `hasta` con texto, fechas imposibles e inyecciones abren normalmente (HTTP 200), ignoran el filtro y limpian los campos del formulario.
+     - Caso 2: Parámetros tipo array (`search[]`, `estado[]`, etc.) en 14 pantallas y listados abren sin errores 500.
+     - Caso 3: En Caja del dueño, valores inválidos en `mes` cargan de manera segura el mes actual (`now()->format('Y-m')`).
+     - Caso 4: Filtros válidos (fechas, búsquedas de alumnos y meses) preservan su funcionalidad completa.
+     - Caso 5: Recibo inexistente (numérico o texto) muestra la pantalla estándar «Página no disponible» (HTTP 404 web), sin JSON técnico.
+     - Caso 6: La profesora recibe HTTP 403 tanto para recibos existentes como inexistentes, garantizando que no se filtre información sobre cobros.
+     - Caso 7: Liquidación inexistente o sin pagar (`estado_pago = PENDIENTE`) muestra «Página no disponible» (HTTP 404 web) en vez de error JSON.
+     - Caso 8: Recibos existentes se visualizan con `?inline=1` (`Content-Disposition: inline`) y se descargan sin parámetro (`Content-Disposition: attachment`), ambos con PDF íntegro.
+  2. **Pruebas técnicas y suite:**
+     - 12 pruebas de `FiltrosInvalidosT109Test.php` pasadas.
+     - 8 pruebas de verificación exhaustiva en `docs/06-pruebas/PRU-04/evidencia-t109/VerificacionT109GeminiTest.php` pasadas (162 aserciones).
+     - Prueba masiva de seguridad `test_dias_41_47_filtros_con_basura_no_dan_error_del_servidor` en `SeguridadDiasPruebaTest.php`: 3.876 peticiones HTTP sobre 19 pantallas con **0 errores 500**.
+     - Relevamiento de vistas y JS: ningún formulario ni enlace usa arrays para estos filtros.
+- **Tablero y próximo paso:** T109 pasada a `estado=cerrado`, `hizo=Claude`, `verifica=Gemini`, `tiene=nadie`. Etapa 3 completada. Siguiente control asignado: T107 y T108 según `PROMPT-GEMINI-T107-T108-CONTROL.md`.
+
 ## 2026-11-01 — LOG GEM CAB — T105: Verificación de recorte de fuentes en recibos y medición de cobros (cerrada sin hallazgos)
 
 - **Objetivo:** Ejecutar el control independiente de T105 (activación de `enable_font_subsetting` en `config/dompdf.php`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.
@@ -26,7 +46,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   3. **Discrepancia de tiempos resuelta (72 ms vs ~4 s):**
      - La generación del PDF es *perezosa* (lazy): `PagoCuotaService::__construct` define `?ReciboService $reciboService = null`. Al resolverse por inyección de dependencias de Laravel sin binding contextual, recibe `null` y omite la compilación del PDF durante `registrarPagoCuotaOperativo`. El cobro tarda ~72–78 ms de pura base de datos.
      - La generación real del PDF ocurre al consultar la URL `/recibos/cuota/{id}`: tarda ~4.200 ms la primera vez (compilación DomPDF) y 7,9 ms en descargas posteriores desde caché en disco.
-  4. **Pruebas y suite:** 2 pruebas de `ReciboPesoT105Test` aprobadas; suite rápida en `wings_testing_gemini` en ejecución.
+  4. **Pruebas y suite:** 2 pruebas de `ReciboPesoT105Test` aprobadas; suite rápida en `wings_testing_gemini` aprobada (1335 pasadas, 6 omitidas en 451 s).
 - **Tablero y próximo paso:** T105 cerrada (`hizo=Claude`, `verifica=Gemini`, `tiene=nadie`). Sigue Etapa 3 (T109).
 
 ## 2026-11-01 — LOG GEM CAB — T101: Control de gasto del dueño en turno de operativa (cerrada sin hallazgos)

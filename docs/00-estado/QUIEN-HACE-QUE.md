@@ -65,7 +65,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
-| **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el filtro invalido en la direccion se ignora (41 errores a 0 en 3.876 pedidos) y el recibo inexistente muestra la pantalla comun. 12 pruebas y 8 mutaciones detectadas. La controla Gemini, etapa 3 de PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 
 ## Sin empezar (7)
 
