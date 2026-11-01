@@ -34,6 +34,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T104 respondida: ya estaba decidida (DU-28, T60)
+
+- Ejecuté un gasto y una transferencia sobre una cuenta «Sin descubierto»: quedan en −$4.000. Los contratos no lo definen, pero Carlos lo decidió el 13/10 (DU-28, CSH-016: avisar y dejar seguir) y quedó en T60, para después de producción. Propongo cerrarla como repetida: [detalle](../06-pruebas/PRU-04/evidencia-t104/LEEME.md). Sin cambio de código.
+- **Error mío:** cerré el turno con T104 y la tanda 5 pendientes mientras Carlos dormía, y no se avanzó nada en dos horas. Quedó en memoria: no se cierra un turno con trabajo propio que no dependa de él.
+
 ## 2026-11-01 — Claude CAB — T94: segundo control, cerrada
 
 - **Resultado:** aprobada. H1 a H5 corregidos; 33 pruebas y 3 carreras con dos conexiones reales en verde. [Informe](../06-pruebas/PRU-04/VERIFICACION-T94-CLAUDE.md). GRU-004 publicado.

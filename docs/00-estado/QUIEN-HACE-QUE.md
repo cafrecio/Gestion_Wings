@@ -37,6 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
+| **T104** «Sin descubierto» solo se controla al pagar una liquidación | Hecho, espera verificación (hizo Claude, verifica Carlos) | Respondida 01/11: el problema es real (ejecutado: un gasto y una transferencia dejan en negativo una cuenta Sin descubierto) y Carlos ya lo decidio el 13/10 (DU-28, CSH-016: avisar y dejar seguir), anotado en T60 para despues de produccion. No frena produccion. Propuesta: cerrarla como repetida de T60. PRU-04/evidencia-t104/LEEME.md. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -63,14 +64,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
+| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude, verifica Gemini) | Gemini inicia mediciones y control de T105 |
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
 | **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el filtro invalido en la direccion se ignora (41 errores a 0 en 3.876 pedidos) y el recibo inexistente muestra la pantalla comun. 12 pruebas y 8 mutaciones detectadas. La controla Gemini, etapa 3 de PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 
-## Sin empezar (8)
+## Sin empezar (7)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 
