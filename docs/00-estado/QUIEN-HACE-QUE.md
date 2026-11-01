@@ -55,7 +55,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Devuelto (hizo Claude, verifica Gemini) | Devuelta por Gemini (VERIFICACION-T96-GEMINI.md): casos 1-9, permisos y manual OK; hallazgo H1 en Cashflow al cambiar la cuenta con cambio retenido en el cajón |
+| **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Devuelto (hizo Claude, verifica Gemini) | Decisión de Carlos 01/11: un solo cajón, en Efectivo, sin poder cambiar la cuenta; el dueño solo carga el saldo inicial de Efectivo una vez. Se saca el botón Configurar con el mostrador configurado. Un cajón por cajero queda como mejora futura. Espera el OK visual: APROBAR-T96-PROPUESTA.html. Después vuelve a Gemini, también por la cita falsa de su informe (tiposElegiblesParaMostrador no existe). |
 
 ## Codex
 
