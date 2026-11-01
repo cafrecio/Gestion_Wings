@@ -1,0 +1,18 @@
+deudas      341 / 341 filas, 2 diferencias
+  + wings_t5_sitio: Clara Iglesias 55400009 | 2026-12 | 300000.00 | 30000.00 | PENDIENTE
+  - wings_t5_sim: Clara Iglesias 55400009 | 2026-12 | 300000.00 | 30000.00 | CONDONADA
+cargos      64 / 64 filas, 0 diferencias
+pagos       315 / 315 filas, 0 diferencias
+alumnos     123 / 123 filas, 0 diferencias
+planes      128 / 128 filas, 0 diferencias
+precios     25 / 25 filas, 0 diferencias
+cajas       50 / 50 filas, 0 diferencias
+movs_caja   507 / 507 filas, 0 diferencias
+cashflow    567 / 567 filas, 2 diferencias
+  + wings_t5_sitio: 2026-12-02 | Patín-Mariela Ocampo | 5 | -342000.00 |  | LIQUIDACION
+  - wings_t5_sim: 2026-12-02 | Patín-Mariela Ocampo | 5 | -361000.00 |  | LIQUIDACION
+clases      232 / 232 filas, 0 diferencias
+excepciones 14 / 14 filas, 2 diferencias
+  + wings_t5_sitio: ASISTENCIA_DEUDOR | Tobías Vera | Vino a probar: la mamá paga el miércoles | ASISTENCIA
+  - wings_t5_sim: ASISTENCIA_DEUDOR | Tobías Vera | La mamá paga esta semana | ASISTENCIA
+TOTAL diferencias: 6

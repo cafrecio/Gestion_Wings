@@ -35,10 +35,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
 | **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Sin empezar | Decidir: antes o despues de produccion. CLA-024 lo describe desde el 13/10; la clase validada se paga en la proxima liquidacion. Se retrata en 56.8. |
-| **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Mariela figura 342.000 y se pago 361.000; Hernan 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Se retrata en 55.4. |
+| **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Hernan figura 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Mariela no se pudo reproducir: el valor hora no se muestra en diciembre porque Patin paso a comision (error del guion 53.7). Se retrata en 55.4. |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Sin empezar | Decidir: propuesta avisar o rechazar un periodo futuro antes del 2/1/2027. No mueve plata y se elimina. Probado en la copia, simulacion/tanda-5/ano.php. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
+| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Sin empezar | Decidir: propongo antes de produccion. No guarda nada ni toca plata. Comprobado en navegador real y en el sitio. Ver prueba-tecnica/INFORME.md. |
+| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Sin empezar | Decidir: una linea, revision-cobranza/index.blade.php:116. Toca una vista. |
+| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Sin empezar | Decidir: propongo antes de produccion. Solo con sesion de operativa y envio armado a mano: cancela una serie, cobra por un medio inactivo, cambia el deporte. Retratado en SeguridadDiasPruebaTest. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -49,7 +53,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 dias48-57 recorridos: revisar RESULTADO-TANDA-5 y diez informes. Clara+270k deuda, Mariela-19k egresos, limites explicitos. Final5/12 21:30; no repetir operaciones. Carlos decide despliegue. |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex

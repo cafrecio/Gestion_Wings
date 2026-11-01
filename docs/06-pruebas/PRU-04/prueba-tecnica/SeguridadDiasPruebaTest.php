@@ -1431,4 +1431,313 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         }
         $this->assertSame(429, $ultima->getStatusCode());
     }
+
+    // ── Días 48 a 57 ─────────────────────────────────────────────────────
+    private static bool $notas5 = false;
+    private function nota5(string $texto): void
+    {
+        file_put_contents(__DIR__.'/seguridad-avisos-dias-48-57.txt', $texto."\n", self::$notas5 ? FILE_APPEND : 0);
+        self::$notas5 = true;
+    }
+
+    private function aviso($r): string
+    {
+        $json = $r->headers->get('content-type') && str_contains($r->headers->get('content-type'), 'json') ? $r->json() : [];
+        $errores = session('errors');
+        return trim(($json['message'] ?? '').' '.($json['error'] ?? '').' '.(string) session('error').' '.($errores ? implode(' / ', $errores->all()) : ''));
+    }
+
+    private function fuerza(string $caso, User $quien, string $metodo, string $url, array $datos = [], array $cabeceras = [])
+    {
+        $r = $this->actingAs($quien)->withHeaders($cabeceras)->{$metodo}($url, $datos);
+        $this->nota5("$caso | $quien->rol | ".strtoupper($metodo).' '.parse_url($url, PHP_URL_PATH).' | '.$r->getStatusCode().' | '.$this->aviso($r));
+        $this->assertLessThan(500, $r->getStatusCode(), "$caso dio error del servidor");
+        return $r;
+    }
+
+    /** Liquidación de Mariela, octubre: generada, cerrada y pagada de punta a punta por las rutas de verdad. */
+    private function liquidacionPagada(): \App\Models\Liquidacion
+    {
+        $this->actingAs($this->mariela)->postJson(route('web.clases.asistencias', $this->claseMariela->id), ['items' => [['alumno_id' => $this->alumno->id, 'presente' => true, 'motivo_excepcion' => 'Motivo de prueba']]])->assertOk();
+        Carbon::setTestNow('2026-11-02 10:00:00');
+        $this->galicia->update(['saldo_inicial' => 1000000]);
+        Profesor::whereKey($this->mariela->profesor_id)->update(['subrubro_id' => Subrubro::where('nombre', 'Luz')->value('id')]);
+        $this->fuerza('armado: generar', $this->duenio, 'post', route('web.liquidaciones.store'), ['profesor_id' => $this->mariela->profesor_id, 'mes' => 10, 'anio' => 2026]);
+        $l = \App\Models\Liquidacion::where('profesor_id', $this->mariela->profesor_id)->firstOrFail();
+        $this->fuerza('armado: cerrar', $this->duenio, 'post', route('web.liquidaciones.cerrar', $l->id));
+        $this->fuerza('armado: pagar', $this->duenio, 'post', route('web.liquidaciones.pagar', $l->id), ['fecha_pago' => '2026-11-02', 'tipo_caja_id' => $this->galicia->id, 'confirmar_fecha_vieja' => 1]);
+        $this->assertSame('PAGADA', $l->fresh()->estado_pago);
+        return $l->fresh();
+    }
+
+    private function cerrarYValidar(CajaOperativa $caja, User $quien): void
+    {
+        $svc = app(\App\Services\CajaService::class);
+        $esperado = $svc->arqueoCaja($caja->id)['efectivo_esperado'];
+        $this->actingAs($quien)->post(route('web.caja.cerrar', $caja->id), ['efectivo_contado' => $esperado, 'cambio_retenido' => $esperado])->assertSessionHas('success');
+        foreach (MovimientoOperativo::where('caja_operativa_id', $caja->id)->get() as $m) {
+            $svc->verificarMovimiento($caja->id, $m->id, $this->duenio->id, true, $m->huellaVerificacion());
+        }
+        $this->actingAs($this->duenio)->post(route('web.cajas.validar', $caja->id))->assertSessionHas('success');
+    }
+
+    public function test_dias_48_57_efectivo_y_medios_forzados(): void
+    {
+        app(\App\Services\CajaService::class)->configurarMostrador($this->efectivo->id, $this->duenio->id);
+        $antes = $this->efectivo->fresh()->only(['nombre', 'saldo_inicial', 'activo']);
+        $r = $this->actingAs($this->duenio)->get('/caja/configuracion');
+        $this->nota5('48.5 | ADMIN | GET /caja/configuracion | '.$r->getStatusCode().' → '.$r->headers->get('Location'));
+        $this->fuerza('48.5 configuración', $this->duenio, 'post', route('web.caja.configuracion.store'), ['tipo_caja_efectivo_id' => $this->galicia->id]);
+        $this->fuerza('48.5 nombre y saldo de Efectivo', $this->duenio, 'put', route('web.tipos-caja.update', $this->efectivo->id), ['nombre' => 'Otra cosa', 'abreviatura' => 'OTR', 'saldo_inicial' => '999']);
+        $this->fuerza('55.6 desactivar Efectivo', $this->duenio, 'patch', route('web.tipos-caja.toggle-activo', $this->efectivo->id));
+        $this->assertEquals($antes, $this->efectivo->fresh()->only(['nombre', 'saldo_inicial', 'activo']));
+
+        $torneo = TipoCaja::create(['nombre' => 'Caja de prueba', 'abreviatura' => 'CDP', 'activo' => true, 'saldo_inicial' => 100]);
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => Subrubro::where('nombre', 'Luz')->value('id'), 'tipo_caja_id' => $torneo->id, 'monto' => '10', 'fecha' => '2026-10-15', 'observaciones' => 'Mueve la cuenta'])->assertSessionHas('success');
+        $this->fuerza('52.3 saldo inicial de un medio usado', $this->duenio, 'put', route('web.tipos-caja.update', $torneo->id), ['nombre' => 'Caja de prueba', 'abreviatura' => 'CDP', 'saldo_inicial' => '50000']);
+        $this->assertEquals(100, (float) $torneo->fresh()->saldo_inicial, 'CAT-005 c: el saldo inicial no se cambia con movimientos');
+    }
+
+    public function test_dias_48_57_clase_serie_subrubro_reservado_forzados(): void
+    {
+        $serie = (string) Str::uuid();
+        $hermanas = collect(['2026-10-20', '2026-10-27'])->map(function ($f) use ($serie) {
+            $c = $this->claseMariela->replicate(); $c->fecha = $f; $c->serie_id = $serie; $c->save(); return $c;
+        });
+        $this->fuerza('50.8 la operativa cancela la serie', $this->sandra, 'patch', route('web.clases.toggle-cancelada', $hermanas[0]->id), ['motivo_cancelacion' => 'Mariela no puede', 'cancelar_serie' => 1], ['Accept' => 'application/json']);
+        // RETRATA T119: el botón no se le ofrece, pero el envío directo la cancela entera. Al repararlo, este control se da vuelta.
+        $this->assertTrue((bool) $hermanas[1]->fresh()->cancelada, 'CLA-025 b: hoy la serie se cancela');
+
+        $cuota = Subrubro::where('nombre', 'Cuota Mensual')->firstOrFail();
+        $antes = $cuota->only(['nombre', 'activo', 'permitido_para']);
+        $this->fuerza('51.4 editar Cuota Mensual', $this->duenio, 'put', route('web.subrubros.update', [$cuota->rubro_id, $cuota->id]), ['nombre' => 'Cuota', 'permitido_para' => 'ADMIN', 'afecta_caja' => 1]);
+        $this->fuerza('51.4 desactivar Cuota Mensual', $this->duenio, 'patch', route('web.subrubros.toggle-activo', [$cuota->rubro_id, $cuota->id]));
+        $this->fuerza('51.4 borrar su rubro', $this->duenio, 'delete', route('web.rubros.destroy', $cuota->rubro_id));
+        $this->assertEquals($antes, $cuota->fresh()->only(['nombre', 'activo', 'permitido_para']));
+    }
+
+    public function test_dias_48_57_lo_que_no_se_corrige_desde_cashflow(): void
+    {
+        // Cobro del dueño, sin caja. Una liquidación pagada. Un movimiento de caja validada. Un anulado.
+        $this->actingAs($this->duenio)->post(route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $this->galicia->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15'])->assertSessionHasNoErrors();
+        $cobro = DB::table('cashflow_movimientos')->whereNull('movimiento_operativo_id')->orderByDesc('id')->first();
+        $this->assertNotNull($cobro);
+        $pagoCobro = Pago::orderByDesc('id')->first();
+        $this->cerrarYValidar($this->cajaSandra, $this->sandra);
+        $deCaja = DB::table('cashflow_movimientos')->whereNotNull('movimiento_operativo_id')->first();
+        $this->assertNotNull($deCaja);
+        $l = $this->liquidacionPagada();
+        $pagoLiq = DB::table('cashflow_movimientos')->where('referencia_tipo', 'LIQUIDACION')->where('referencia_id', $l->id)->first();
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => Subrubro::where('nombre', 'Luz')->value('id'), 'tipo_caja_id' => $this->galicia->id, 'monto' => '100', 'fecha' => '2026-11-02', 'observaciones' => 'Para anular'])->assertSessionHas('success');
+        $paraAnular = DB::table('cashflow_movimientos')->orderByDesc('id')->first();
+        $this->actingAs($this->duenio)->delete(route('web.cashflow.movimientos.destroy', $paraAnular->id), ['clave' => (string) Str::uuid(), 'version' => $paraAnular->version_correccion, 'motivo' => 'Anulado para la prueba forzada'])->assertSessionHasNoErrors();
+        $anulado = DB::table('cashflow_movimientos')->whereNotNull('anulado_at')->first();
+
+        $antes = md5(DB::table('cashflow_movimientos')->orderBy('id')->get()->toJson());
+        $luz = Subrubro::where('nombre', 'Luz')->value('id');
+        foreach (['caja validada' => $deCaja, 'liquidación pagada' => $pagoLiq, 'anulado' => $anulado, 'cobro del dueño' => $cobro] as $que => $m) {
+            if (!$m) { $this->nota5("51.8 $que | sin fila para probar"); continue; }
+            $this->fuerza("51.8 editar $que", $this->duenio, 'put', route('web.cashflow.movimientos.update', $m->id), ['monto' => '1', 'fecha' => '2026-11-02', 'subrubro_id' => $luz, 'tipo_caja_id' => $this->galicia->id, 'observaciones' => 'Forzado', 'motivo' => 'Forzado desde la prueba', 'clave' => (string) Str::uuid(), 'version' => $m->version_correccion]);
+            $this->fuerza("51.8 eliminar $que", $this->duenio, 'delete', route('web.cashflow.movimientos.destroy', $m->id), ['motivo' => 'Forzado desde la prueba', 'clave' => (string) Str::uuid(), 'version' => $m->version_correccion]);
+        }
+        $this->assertSame($antes, md5(DB::table('cashflow_movimientos')->orderBy('id')->get()->toJson()), 'CSH-009 f: nada cambia');
+    }
+
+    public function test_dias_48_57_liquidacion_pagada_y_generar_dos_veces(): void
+    {
+        $l = $this->liquidacionPagada();
+        $antes = [md5($l->fresh()->toJson()), md5(DB::table('cashflow_movimientos')->orderBy('id')->get()->toJson())];
+        $this->fuerza('53.5 generar otra vez', $this->duenio, 'post', route('web.liquidaciones.store'), ['profesor_id' => $l->profesor_id, 'mes' => 10, 'anio' => 2026]);
+        $this->assertSame(1, \App\Models\Liquidacion::where('profesor_id', $l->profesor_id)->count());
+        foreach ([['54.7 cancelar', 'post', 'cancelar', ['motivo' => 'Forzado desde la prueba']], ['53.7 y 54.7 eliminar', 'delete', 'eliminar', []], ['54.7 recalcular', 'post', 'recalcular', []],
+                  ['54.7 ajustar', 'post', 'ajustar', ['monto_final' => '1', 'monto_anterior' => (string) $l->total_calculado, 'motivo' => 'Forzado desde la prueba']], ['54.7 pagar de nuevo', 'post', 'pagar', ['fecha_pago' => '2026-11-02', 'tipo_caja_id' => $this->galicia->id]]] as [$caso, $m, $ruta, $datos]) {
+            $this->fuerza($caso, $this->duenio, $m, route("web.liquidaciones.$ruta", $l->id), $datos);
+        }
+        $this->assertSame($antes, [md5($l->fresh()->toJson()), md5(DB::table('cashflow_movimientos')->orderBy('id')->get()->toJson())], 'LIQ-013 b');
+
+        // 53.9: quien no tuvo clases. Por pantalla el radio está apagado; forzado, ¿queda una vacía?
+        $otra = Profesor::create(['deporte_id' => Profesor::find($l->profesor_id)->deporte_id, 'nombre' => 'Sin', 'apellido' => 'Clases', 'dni' => '30000099', 'fecha_nacimiento' => '1985-01-01', 'direccion' => 'x', 'localidad' => 'x', 'telefono' => '1', 'valor_hora' => 1000, 'activo' => true]);
+        $this->fuerza('53.9 liquidación de quien no tuvo clases', $this->duenio, 'post', route('web.liquidaciones.store'), ['profesor_id' => $otra->id, 'mes' => 10, 'anio' => 2026]);
+        $this->nota5('53.9 | quedó creada: '.\App\Models\Liquidacion::where('profesor_id', $otra->id)->count());
+    }
+
+    public function test_dias_48_57_rectificar_y_abrir_con_pantalla_vieja(): void
+    {
+        $antes = $this->cajaSandra->fresh()->efectivo_inicial;
+        $datos = ['efectivo_inicial' => '1', 'motivo' => 'Forzado desde la prueba', 'motivo_rectificacion' => 'Forzado desde la prueba'];
+        $this->fuerza('56.2 Pablo rectifica la caja abierta de Sandra', $this->pablo, 'post', route('web.caja.rectificar.guardar', $this->cajaSandra->id), $datos);
+        $this->fuerza('56.2 Sandra rectifica con motivo corto', $this->sandra, 'post', route('web.caja.rectificar.guardar', $this->cajaSandra->id), ['efectivo_inicial' => '1', 'motivo' => 'Ya', 'motivo_rectificacion' => 'Ya']);
+        $this->assertEquals($antes, $this->cajaSandra->fresh()->efectivo_inicial);
+
+        app(\App\Services\CajaService::class)->configurarMostrador($this->efectivo->id, $this->duenio->id);
+        $this->cerrarYValidar($this->cajaSandra, $this->sandra);
+        $this->fuerza('56.2 Sandra rectifica su validada', $this->sandra, 'post', route('web.caja.rectificar.guardar', $this->cajaSandra->id), $datos);
+        $this->assertEquals($antes, $this->cajaSandra->fresh()->efectivo_inicial);
+
+        // 56.1: la pantalla se abrió con el cierre de Sandra; después cerró Pablo y su cierre es el último.
+        $cajaPablo = CajaOperativa::where('usuario_operativo_id', $this->pablo->id)->firstOrFail();
+        $this->cerrarYValidar($cajaPablo, $this->pablo);
+        $cuantas = CajaOperativa::count();
+        $this->fuerza('56.1 abrir con la pantalla vieja', $this->sandra, 'post', route('web.caja.abrir'), ['caja_origen_id' => $this->cajaSandra->id, 'efectivo_inicial' => '99999', 'confirmacion' => 1, 'confirmar_diferencia_grande' => 1, 'motivo_apertura' => 'Forzado desde la prueba']);
+        $this->nota5('56.1 | cajas nuevas: '.(CajaOperativa::count() - $cuantas));
+        $this->assertSame($cuantas, CajaOperativa::count(), 'CAJ-011 a: no abre con el dato viejo');
+    }
+
+    public function test_dias_48_57_cuota_pasada_y_alumno_con_pagos_forzados(): void
+    {
+        $this->fuerza('56.5 Sandra crea un mes pasado', $this->sandra, 'post', route('web.alumnos.cuotas-pasadas', $this->alumno->id), ['periodo' => '2026-08']);
+        $this->fuerza('56.5 mes anterior al ingreso', $this->duenio, 'post', route('web.alumnos.cuotas-pasadas', $this->alumno->id), ['periodo' => '2026-08']);
+        $this->fuerza('56.5 mes que ya existe', $this->duenio, 'post', route('web.alumnos.cuotas-pasadas', $this->alumno->id), ['periodo' => '2026-09']);
+        $this->assertSame(0, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-08')->count());
+        $this->assertSame(1, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-09')->count());
+
+        $this->fuerza('55.5 Sandra elimina', $this->sandra, 'delete', route('web.alumnos.destroy', $this->alumno->id));
+        $this->fuerza('55.5 el dueño elimina con pagos', $this->duenio, 'delete', route('web.alumnos.destroy', $this->alumno->id));
+        $this->assertNotNull($this->alumno->fresh());
+    }
+
+    public function test_dias_48_57_cobros_forzados(): void
+    {
+        $url = route('web.caja.pagar', $this->alumno->id); $json = ['Accept' => 'application/json', 'X-Requested-With' => 'XMLHttpRequest'];
+        $ajena = Alumno::create(['nombre' => 'Otra', 'apellido' => 'Persona', 'dni' => '50000002', 'fecha_nacimiento' => '2012-01-01', 'celular' => '1111111112', 'deporte_id' => $this->alumno->deporte_id, 'grupo_id' => $this->alumno->grupo_id, 'fecha_alta' => '2026-09-01', 'activo' => true]);
+        $base = ['tipo_caja_id' => $this->efectivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15'];
+        $antes = $this->foto();
+        foreach (['importe negativo' => ['monto_entregado' => -5], 'importe mayor al saldo' => ['monto_entregado' => 30001], 'cuota con importe negativo' => ['montos_cuota' => ['2026-10' => -5]], 'medio inexistente' => ['tipo_caja_id' => 999999], 'período inexistente' => ['periodos' => ['2020-01'], 'montos_cuota' => ['2020-01' => 100]], 'con letras' => ['montos_cuota' => ['2026-10' => 'abc']]] as $caso => $cambio) {
+            $this->fuerza("COB-026 $caso", $this->sandra, 'post', $url, array_merge($base, $cambio), $json);
+        }
+        $this->fuerza('COB-026 alumno inexistente', $this->sandra, 'post', route('web.caja.pagar', 999999), $base, $json);
+        $this->nota5('COB-026 | pagos después de los adulterados: '.Pago::orderBy('id')->get(['id', 'monto_final', 'estado'])->map(fn ($p) => "$p->id:$p->monto_final:$p->estado")->implode(' ').' | cuota de octubre: '.DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->get(['monto_original', 'monto_pagado', 'estado'])->toJson());
+        $this->assertSame($antes, $this->foto(), 'COB-026 b: ningún cobro adulterado cambia nada');
+
+        // Un importe de cuota mayor al saldo no cobra de más: se ignora y cobra lo que se debe.
+        // COB-027 / 57.5: los dos con la misma pantalla. Gana el primero.
+        $this->fuerza('COB-026 importe de cuota mayor al saldo', $this->sandra, 'post', $url, array_merge($base, ['montos_cuota' => ['2026-10' => 30001]]));
+        $this->assertEquals(30000, Pago::orderByDesc('id')->value('monto_final'), 'Cobra lo que se debe, no lo enviado');
+        $pagos = Pago::count(); $cf = DB::table('cashflow_movimientos')->count();
+        $this->fuerza('57.5 el dueño, con la pantalla vieja, por Galicia', $this->duenio, 'post', $url, array_merge($base, ['tipo_caja_id' => $this->galicia->id]));
+        $this->assertSame([$pagos, $cf], [Pago::count(), DB::table('cashflow_movimientos')->count()], 'COB-027: un solo cobro');
+
+        // MOV-017: un cobro no se edita ni se elimina como si fuera un movimiento.
+        $mov = MovimientoOperativo::where('pago_id', $this->pago->id)->firstOrFail();
+        $foto = md5($mov->fresh()->toJson());
+        foreach ([$this->sandra, $this->duenio] as $q) {
+            $this->fuerza('MOV-017 editar', $q, 'put', route('web.caja.movimientos.update', [$mov->caja_operativa_id, $mov->id]), ['monto' => '1', 'tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => $mov->subrubro_id, 'observaciones' => 'Forzado', 'fecha' => '2026-10-15']);
+            $this->fuerza('MOV-017 eliminar', $q, 'delete', route('web.caja.movimientos.destroy', [$mov->caja_operativa_id, $mov->id]));
+        }
+        $this->assertSame($foto, md5($mov->fresh()->toJson()));
+        $this->assertSame('COMPLETADO', $this->pago->fresh()->estado);
+
+        // CBZ-009: condonar lo pagado o lo ya condonado; cobrar lo condonado.
+        $pagada = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-09')->firstOrFail();
+        $this->fuerza('CBZ-009 condonar la pagada', $this->duenio, 'post', route('web.deudas.condonar', $pagada->id), ['motivo' => 'Motivo largo de prueba de seguridad']);
+        $this->assertSame('PAGADA', $pagada->fresh()->estado);
+        $otra = DeudaCuota::create(['alumno_id' => $ajena->id, 'periodo' => '2026-10', 'monto_original' => 30000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
+        $this->fuerza('CBZ-009 motivo corto', $this->duenio, 'post', route('web.deudas.condonar', $otra->id), ['motivo' => 'Mal']);
+        $this->assertSame('PENDIENTE', $otra->fresh()->estado);
+        $this->actingAs($this->duenio)->post(route('web.deudas.condonar', $otra->id), ['motivo' => 'Motivo largo de prueba de seguridad'])->assertSessionHas('success');
+        $this->fuerza('CBZ-009 condonar la condonada', $this->duenio, 'post', route('web.deudas.condonar', $otra->id), ['motivo' => 'Motivo largo de prueba de seguridad']);
+        $pagosAntes = Pago::count();
+        $this->fuerza('CBZ-009 cobrar la condonada', $this->sandra, 'post', route('web.caja.pagar', $ajena->id), $base, $json);
+        $this->assertSame($pagosAntes, Pago::count(), 'CBZ-009 c');
+    }
+
+    public function test_dias_48_57_lista_forzada(): void
+    {
+        $url = route('web.clases.asistencias', $this->claseMariela->id);
+        $otroGrupo = Grupo::create(['deporte_id' => $this->alumno->deporte_id, 'nivel_id' => Nivel::create(['nombre' => 'Otro'])->id, 'activo' => true]);
+        $datos = ['fecha_nacimiento' => '2012-01-01', 'celular' => '1111111113', 'deporte_id' => $this->alumno->deporte_id, 'fecha_alta' => '2026-09-01'];
+        $ajeno = Alumno::create($datos + ['nombre' => 'De', 'apellido' => 'OtroGrupo', 'dni' => '50000003', 'grupo_id' => $otroGrupo->id, 'activo' => true]);
+        $baja = Alumno::create($datos + ['nombre' => 'De', 'apellido' => 'Baja', 'dni' => '50000004', 'grupo_id' => $this->alumno->grupo_id, 'activo' => false]);
+        $antes = DB::table('asistencias')->count();
+        foreach (['de otro grupo' => $ajeno->id, 'inexistente' => 999999, 'dado de baja' => $baja->id] as $caso => $id) {
+            $this->fuerza("ASI-010 alumno $caso", $this->mariela, 'postJson', $url, ['items' => [['alumno_id' => $id, 'presente' => true, 'motivo_excepcion' => 'Motivo de prueba']]]);
+        }
+        $this->fuerza('ASI-010 clase inexistente', $this->mariela, 'postJson', route('web.clases.asistencias', 999999), ['items' => [['alumno_id' => $this->alumno->id, 'presente' => true]]]);
+        $futura = $this->claseMariela->replicate(); $futura->fecha = '2026-12-19'; $futura->save();
+        $this->fuerza('56.8 lista de una clase futura', $this->mariela, 'postJson', route('web.clases.asistencias', $futura->id), ['items' => [['alumno_id' => $this->alumno->id, 'presente' => true, 'motivo_excepcion' => 'Motivo de prueba']]]);
+        $this->assertSame($antes, DB::table('asistencias')->count(), 'ASI-010 d');
+        foreach ([$this->sandra, $this->mariela] as $q) {
+            $this->fuerza('T113 validar una clase', $q, 'patch', route('web.clases.toggle-validada', $futura->id), [], ['Accept' => 'application/json']);
+            $this->assertFalse((bool) $futura->fresh()->validada_para_liquidacion, 'Validar es del dueño');
+        }
+        // 55.8 y PERMISOS-ROLES:124: la profesora ve y carga cualquier clase, para las suplencias; no cancela ni reasigna.
+        $this->actingAs($this->lucia)->get(route('web.clases.show', $this->claseMariela->id))->assertOk();
+    }
+
+    public function test_dias_48_57_alta_y_edicion_adulteradas(): void
+    {
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $g = Grupo::create(['deporte_id' => $futbol->id, 'nivel_id' => Nivel::create(['nombre' => 'Otro'])->id, 'activo' => true]);
+        $pOtro = GrupoPlan::create(['grupo_id' => $g->id, 'clases_por_semana' => 1, 'precio_mensual' => 1000, 'activo' => true]);
+        $base = $this->alumno->only(['nombre', 'apellido', 'dni', 'celular', 'deporte_id', 'grupo_id']) + ['fecha_alta' => '2026-09-01', 'fecha_nacimiento' => '2012-01-01', 'nombre_tutor' => 'Tutora', 'telefono_tutor' => '1111111111'];
+        $plan = AlumnoPlan::where('alumno_id', $this->alumno->id)->value('plan_id');
+        $estado = fn () => md5($this->alumno->fresh()->toJson()).md5(AlumnoPlan::where('alumno_id', $this->alumno->id)->get()->toJson());
+        $antes = $estado();
+        foreach (['grupo de otro deporte' => ['grupo_id' => $g->id, 'plan_id' => $pOtro->id], 'plan de otro grupo' => ['plan_id' => $pOtro->id]] as $caso => $cambio) {
+            $this->fuerza("ALU-019 $caso", $this->sandra, 'put', route('web.alumnos.update', $this->alumno->id), array_merge($base, ['plan_id' => $plan], $cambio));
+        }
+        $this->nota5('ALU-019 | después: '.$this->alumno->fresh()->only(['deporte_id', 'grupo_id'])['deporte_id'].' / '.$this->alumno->fresh()->grupo_id.' · deporte original '.$base['deporte_id'].' · planes '.AlumnoPlan::where('alumno_id', $this->alumno->id)->get(['plan_id', 'fecha_desde', 'fecha_hasta', 'activo'])->toJson());
+        $this->assertSame($antes, $estado(), 'ALU-019 d');
+
+        // T95: el servidor pide el valor hora, por envío directo también.
+        $datos = ['nombre' => 'Sin', 'apellido' => 'Tarifa', 'dni' => '30111222', 'fecha_nacimiento' => '1985-03-10', 'direccion' => 'Calle 1', 'localidad' => 'CABA', 'telefono' => '1166554433', 'deporte_id' => $this->alumno->deporte_id];
+        foreach (['vacío' => '', 'cero' => '0', 'negativo' => '-1'] as $caso => $v) {
+            $this->fuerza("T95 valor hora $caso", $this->duenio, 'post', route('web.profesores.store'), $datos + ['valor_hora' => $v]);
+        }
+        $this->assertSame(0, Profesor::where('apellido', 'Tarifa')->count(), 'T95: sin tarifa no se crea');
+    }
+
+    public function test_dias_48_57_medianoche_y_texto_con_codigo(): void
+    {
+        // SIS-004: 00:10 es el día siguiente y la caja de ayer pasa a ser vieja.
+        Carbon::setTestNow('2026-10-16 00:10:00');
+        $this->assertSame('America/Argentina/Buenos_Aires', config('app.timezone'));
+        $this->fuerza('SIS-004 00:10 con la caja de ayer abierta', $this->sandra, 'post', route('web.caja.movimiento.store'), ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => Subrubro::where('permitido_para', 'OPERATIVO')->where('afecta_caja', true)->value('id'), 'monto' => '100', 'fecha' => '2026-10-16', 'observaciones' => 'Pasada la medianoche']);
+        $this->assertSame(0, MovimientoOperativo::where('observaciones', 'Pasada la medianoche')->count(), 'SIS-004 b');
+
+        // Texto con código en lo nuevo de estos días: el motivo de una condonación.
+        Carbon::setTestNow('2026-10-15 18:00:00');
+        $otra = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->firstOrFail();
+        $this->actingAs($this->duenio)->post(route('web.deudas.condonar', $otra->id), ['motivo' => '<img src=x onerror=alert(1)> motivo largo'])->assertSessionHas('success');
+        $ficha = (string) $this->actingAs($this->duenio)->get(route('web.alumnos.show', $this->alumno->id))->getContent();
+        $this->assertStringNotContainsString('<img src=x', $ficha);
+    }
+
+    /**
+     * RETRATA T119: controles que están solo en la pantalla. Quien tiene sesión de operativa y arma el envío a mano puede
+     * cobrar por un medio inactivo y cambiarle el deporte a un alumno. La serie está en el control de arriba. Al repararlo, se dan vuelta.
+     */
+    public function test_dias_48_57_retrato_de_controles_solo_en_pantalla(): void
+    {
+        $inactivo = TipoCaja::create(['nombre' => 'Viejo', 'abreviatura' => 'VJO', 'activo' => false, 'saldo_inicial' => 0]);
+        $this->fuerza('T119 cobrar por un medio inactivo', $this->sandra, 'post', route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $inactivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15']);
+        $this->assertSame('PAGADA', DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->value('estado'), 'Hoy el cobro entra');
+        $this->assertSame(1, MovimientoOperativo::where('tipo_caja_id', $inactivo->id)->count());
+
+        $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
+        $g = Grupo::create(['deporte_id' => $futbol->id, 'nivel_id' => Nivel::create(['nombre' => 'Otro'])->id, 'activo' => true]);
+        $p = GrupoPlan::create(['grupo_id' => $g->id, 'clases_por_semana' => 1, 'precio_mensual' => 1000, 'activo' => true]);
+        $datos = $this->alumno->only(['nombre', 'apellido', 'dni', 'celular']) + ['fecha_alta' => '2026-09-01', 'fecha_nacimiento' => '2012-01-01', 'nombre_tutor' => 'Tutora', 'telefono_tutor' => '1111111111', 'deporte_id' => $futbol->id, 'grupo_id' => $g->id, 'plan_id' => $p->id];
+        $this->fuerza('T119 cambiarle el deporte a un alumno', $this->sandra, 'put', route('web.alumnos.update', $this->alumno->id), $datos);
+        $this->assertSame($futbol->id, (int) $this->alumno->fresh()->deporte_id, 'ALU-019 c: hoy el deporte cambia');
+    }
+
+    /** REP-009: un subrubro viejo sin clasificar, con un movimiento este mes. */
+    public function test_dias_48_57_movimiento_sin_clasificar(): void
+    {
+        $luz = Subrubro::where('nombre', 'Luz')->firstOrFail();
+        try {
+            DB::table('subrubros')->where('id', $luz->id)->update(['clasificacion_resultado' => null]);
+        } catch (\Throwable $e) {
+            $this->nota5('REP-009 | la columna no acepta vacío: '.mb_substr($e->getMessage(), 0, 120));
+            $this->assertTrue(true);
+            return;
+        }
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $luz->id, 'tipo_caja_id' => $this->galicia->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Sin clasificar']);
+        foreach (['Reportes' => route('web.reportes.index'), 'Inicio' => route('admin.dashboard')] as $que => $url) {
+            $r = $this->actingAs($this->duenio)->get($url);
+            $this->nota5("REP-009 | $que ".$r->getStatusCode().' | avisa sin clasificar: '.(stripos((string) $r->getContent(), 'sin clasificar') !== false ? 'sí' : 'no'));
+            $this->assertLessThan(500, $r->getStatusCode());
+        }
+    }
 }

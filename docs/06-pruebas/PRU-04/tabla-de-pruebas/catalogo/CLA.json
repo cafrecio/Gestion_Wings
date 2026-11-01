@@ -956,7 +956,7 @@
         {
           "donde": "18:30 sin lista",
           "l": "d",
-          "texto": "Finalizada: pasó y sigue trabando el pago.",
+          "texto": "Finalizada: pasó y sigue trabando el pago. La tarjeta del día ya dice Finalizada; el acceso «Sin asistencia», el filtro y el aviso de Inicio la cuentan recién desde el día siguiente.",
           "tipo": "directo"
         },
         {
@@ -979,7 +979,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "clases/index y clases/_card (vistas leídas el 13/10).",
+      "fuente": "clases/index y clases/_card (vistas leídas el 13/10). Actualizado por Claude CAB el 01/11/2026, revisión de la tanda 5: 50.3.",
       "modulo": "Clases",
       "pantalla": "clases-listado",
       "requiere": "Una clase de hoy de 17 a 18. Mirar a las 15:00, 16:30, 17:30, 18:30 sin lista, y otra vez después de tomar lista.",
@@ -1095,14 +1095,14 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "clases/show (vista leída el 13/10). ClaseWebController::toggleCancelada no distingue rol para la serie: es probable que forzándolo la cancele entera. Comprobado por Claude el 13/10 en la base descartable: la operativa, enviándolo a mano, cancela las tres clases de la serie.",
+      "fuente": "clases/show (vista leída el 13/10). ClaseWebController::toggleCancelada no distingue rol para la serie: es probable que forzándolo la cancele entera. Comprobado por Claude el 13/10 en la base descartable: la operativa, enviándolo a mano, cancela las tres clases de la serie. Revisión de la tanda 5, 01/11/2026: Forzado: la operativa cancela la serie entera por envío directo. T119.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una serie con clases futuras.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T119",
       "tipo": "seguridad",
       "titulo": "La operativa y la cancelación de series"
     }

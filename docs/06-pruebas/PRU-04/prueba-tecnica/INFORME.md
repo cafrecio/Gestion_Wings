@@ -1,3 +1,70 @@
+# Prueba técnica de los días 48 a 57 (26/11 al 5/12) — 01/11/2026 · Claude CAB
+
+Sobre la base del sitio de prueba con el reloj en el 5/12, como `wingstest` y en solo lectura. El navegador real y el paso de año, en copias locales descartables de esa base. La seguridad, en `wings_testing_claude`. El código del sitio (`219f5d59`) y el de `main` son iguales salvo manual y documentos: `git diff` vacío en `app`, `routes`, `database`, `bootstrap`, `config` y vistas.
+
+| Área | Resultado |
+|---|---|
+| Plata al peso contra la simulación | **11 tablas: 3 diferencias, y ninguna es de Wings** (`comparar-con-simulacion-dias-48-57.txt`). 341 cuotas, 64 recargos e inscripciones, 315 cobros, 123 alumnos, 128 planes, 25 precios, 50 cajas, 507 movimientos de caja, 567 de Cashflow y 232 clases. Las tres: **Clara**, diciembre Pendiente y no Condonada; **Mariela**, $342.000 y no $361.000; y el texto de un motivo de Tobías. Los dos importes salen de pasos del guion que simulé tocando la base y por pantalla no existen (ver la revisión) |
+| Suite completa | **1.482 aprobadas, 0 fallidas, 6 omitidas, código 0**, en `wings_testing_claude`, 1.668 s |
+| Funcionamiento interno | **66 de 66 en el sitio** (`controles-internos-resultado-dias-48-57.json`). Dieciséis controles describían el día 47 y se pusieron al día; **nueve nuevos**: constancia y corrida del 3/12, los ocho de Revisión, frecuencias y nivel, Efectivo y transferencias, T100, T101 y T108, liquidaciones, Hockey, Mora, Paulina y enero, y los tres meses medio por medio. Probados contra una copia con nueve datos rotos a propósito: 12 en rojo, los nueve nuevos incluidos |
+| Navegador real | **8 de 10 bien** (`navegador-dias-48-57.json`, con su script). Las dos que no: T117 |
+| Seguridad | **68 de 68** (`SeguridadDiasPruebaTest.php`). Doce pruebas nuevas, con 3 caminos que hoy pasan y la prueba **retrata a propósito**: T119. Textos reales en `seguridad-avisos-dias-48-57.txt` |
+| Errores del servidor | **Ninguno** en los 3.027 pedidos del recorrido (registro de Apache del 01/11), y `laravel.log` sin entradas desde el 31/10 |
+| Velocidad | **73 pantallas, todas por debajo de 506 ms** (`performance-sitio-dias-48-57.json`). La más lenta, Reportes de Sueldos de noviembre: 193 consultas. Recibo: 3,2 s y 211 KB (`performance-recibo-servidor-dias-48-57.json`): T105 bajó el peso de 1.656 KB, no el tiempo |
+
+## Lo que Codex no pudo acreditar, y cómo dio
+
+| Caso | Cómo se comprobó | Resultado |
+|---|---|---|
+| 53.0 constancia | La fila de la base | 78 creadas, 8 a Revisión, 31 ya existían, 0 sin plan, 06:00:16. Lo del guion |
+| 55.0 segunda corrida (CBZ-012) | `scheduler.log` y la misma fila | El 3/12 a las 06:00 corrió y no creó nada; la constancia no cambió |
+| 48.1 misma fila (T94) | La base | Federadas 1 por semana es la fila 7, creada en septiembre, reactivada a $42.000 |
+| 51.1 sin tarifa (T95) | Navegador real y forzado | «Cargá el valor por hora.»; con cero o negativo tampoco crea |
+| 49.7 aspecto del PDF (T105) | Claude miró el PDF de Codex | Se ve bien: logo, datos, detalle y total |
+| 56.1 apertura vieja (CAJ-011) | Forzado | «Cambió el último cierre. Volvé a abrir la pantalla y confirmá el efectivo.»; no abre |
+| 56.3 menú de Gonzalo | Navegador real, copia con clave temporal | Inicio, Alumnos, Clases, Cobranza, Caja, Movimientos, Revisión, Grupos, Ayuda |
+| 56.9 salir del alta (ALU-011) | Navegador real | Pregunta; Cancelar conserva; Aceptar no guarda; sin datos no pregunta; recargar también pregunta |
+| 56.10 sesión vencida (ACC-006) | Navegador real | Nuevo gasto: va al ingreso con el aviso, sin guardar. Cobrar y la lista: T117 |
+| 50.6 guardar con la cuenta desactivada | Navegador real | No escribe; dice «Error de conexión.» en lugar de «Tu cuenta fue desactivada.» |
+| 57.5 pantalla vieja (COB-027) | Forzado | «El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.»; un solo cobro |
+| 53.5 generar dos veces (LIQ-004) | Forzado | «Ya existe una liquidación para el profesor en 10/2026.» |
+| 54.6 Zoe en enero | Copia, generación de enero | $35.000, el plan nuevo. Martina $33.000; Julieta y Valentina conservan su adelanto |
+| CBZ-020 y paso de año | Copia: sin correr el 1/1, corre el 3/1 | 110 creadas, 7 a Revisión, 2 ya existían, sin duplicar; otra corrida no hace nada |
+| 57.8b con el reloj detenido | No se probó | No aplica en producción: ahí no hay reloj simulado |
+
+## Seguridad: lo forzado
+
+| Caso | Forzado | Resultado |
+|---|---|---|
+| 48.5 y 55.6 | Cambiar el medio del cajón; nombre, saldo y desactivar Efectivo | «Efectivo ya está configurado y no se puede cambiar.»; nada cambia |
+| 52.3 | Saldo inicial de un medio con movimientos | No cambia |
+| 51.4 | Editar, desactivar y borrar Cuota Mensual | «No se puede editar: subrubro reservado del sistema.» y sus pares |
+| 51.8 | Editar y eliminar: caja validada, cobro del dueño, liquidación pagada, anulado, con clave y versión válidas | 403 los ocho; Cashflow idéntico |
+| 54.7 | Cancelar, eliminar, recalcular, ajustar y volver a pagar una pagada | Rechazados; nada cambia |
+| 56.2 | Rectificar la caja ajena, con motivo corto y la validada | 403 y rechazados; ninguna caja cambia |
+| 56.5 | La operativa crea un mes pasado; mes anterior al ingreso; mes que ya existe | 403; «Ese mes es anterior al ingreso del alumno.»; «Ese mes ya tiene su cuota.» |
+| 55.5 | Eliminar con pagos: operativa y dueño | 403; «No se puede eliminar el alumno: Tiene pagos registrados. Puede pasarlo a Inactivo.» |
+| ASI-010 y 56.8 | Alumno de otro grupo, inexistente, de baja; clase inexistente; lista de una clase futura | Rechazados; nada guardado |
+| COB-026 | Negativo, mayor, letras, medio inexistente, período inexistente, alumno inexistente | Rechazados. Un importe de cuota mayor que el saldo se ignora y cobra lo que se debe |
+| MOV-017, CBZ-009 | Editar o eliminar un cobro como movimiento; condonar lo pagado o lo condonado; cobrar lo condonado | Rechazados |
+| SIS-004 | Movimiento a las 00:10 con la caja de ayer abierta | «Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.» |
+| REP-009 | Subrubro sin clasificar con movimiento | Reportes e Inicio lo avisan. No se miró que el resultado se oculte ni que el aviso se vaya |
+| 53.9 | Liquidación de quien no tuvo clases | Por pantalla no se llega; forzada, se crea vacía. Mismo fondo que T115 |
+
+**En el sitio, sin sesión:** HTTPS estricto, `nosniff`, `DENY` y la política de contenido presentes. `/.env`, `/.git/config`, `/phpinfo.php`, `/telescope` y `/horizon` dan 404; `laravel.log`, 403. Hubo bots buscando esos archivos: los 1.446 pedidos con 404 son casi todos de ellos, y no encontraron nada.
+
+### Hallazgos
+
+| Hallazgo | Quién llega | Qué pasa | Gravedad |
+|---|---|---|---|
+| **T117. Sesión vencida en lo que se envía sin recargar** (`bootstrap/app.php:98`, `clases-show.js:109`, `cobrar.js:169`). Comprobado en navegador real y en el sitio | Cualquiera: la sesión dura 120 minutos. Una profesora con la lista abierta, una operativa con Cobrar abierto. **Se dio en la prueba: 50.6** | Dice «✗ CSRF token mismatch.» en inglés y se queda en la pantalla. No guarda nada y la plata no se toca, pero quien lo lee no sabe qué hacer. ACC-006 pide ir al ingreso con «Tu sesión expiró.» | Media |
+| **T119. Tres controles están solo en la pantalla** (`ClaseWebController.php:624`, `CajaWebController.php:472` y `:552`, `AlumnoWebController.php:510`). Retratados en la prueba | Solo quien tiene sesión de operativa y arma el envío a mano | Cancela una serie entera, cobra por un medio inactivo y le cambia el deporte a un alumno. CLA-025, COB-026 y ALU-019 piden rechazarlo | Media |
+| **T118. «REACTIVADO AUTOMáTICAMENTE»** (`revision-cobranza/index.blade.php:116`, `strtoupper`) | Quien abre Revisión → Resueltos | Se ve la á minúscula | Menor |
+
+Ninguno frena producción por plata. No se reparó nada: alcance cerrado, los decide Carlos.
+
+**No medido:** cobros seguidos otra vez (el código no cambió desde la tanda 4 y el estado de diciembre ya no permite repetirla); volumen de dos años; varios recibos a la vez; tiempos reales de la sesión de Codex; instalar la aplicación en un teléfono (ACC-018).
+
 # Prueba técnica de los días 41 a 47 (19 al 25/11) — 31/10/2026 · Claude CAB
 
 Sobre la base del sitio de prueba con el reloj en el 25/11, como `wingstest` y en solo lectura. La seguridad, en

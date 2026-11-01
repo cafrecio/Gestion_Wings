@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T14 — Tanda 5 revisada: prueba por días terminada — Claude CAB, 01/11/2026
+
+[Revisión](../06-pruebas/PRU-04/ESTADO-PRUEBA.md) y [prueba técnica](../06-pruebas/PRU-04/prueba-tecnica/INFORME.md). Plata igual a la simulación en 11 tablas, salvo Clara y Mariela, errores del guion. Las 13 reparaciones cumplen. Suite completa 1.482 aprobadas, 0 fallidas, 6 omitidas. Interno 66/66. Seguridad 68/68, con T119 retratada. Sin errores del servidor. 328 de 341 casos. **Nuevos para que decida Carlos: T117, T118 y T119.** Sin reparar ni desplegar. Decide si se despliega.
+
 ## T14 — Tanda 5 recorrida y entregada a revisión — Codex CAB, 01/11/2026
 
 Diez días48–57 recorridos en el sitio de prueba, datos ficticios, rutinas una vez y sin reparar diferencias. [Resultado para Carlos](../06-pruebas/PRU-04/RESULTADO-TANDA-5.md); informes DIA-48 a DIA-57 y evidencia enlazada. T14 a_verificar, tiene=Claude. No repetir operaciones ni reloj: último inicio5/12 21:30.

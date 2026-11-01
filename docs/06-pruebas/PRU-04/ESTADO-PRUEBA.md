@@ -19,6 +19,46 @@ prueba sigue **día por día, sin saltear ninguno**, con su rutina de vida real,
 48-54, hasta la resolución de la Revisión el 2/12). Los siete días están simulados enteros sobre la copia posterior
 a la verificación de Codex. [Prompt para Codex](PROMPT-CODEX-DIAS-34-40.md).
 
+## Revisión de Claude de los días 48 a 57 (26/11 al 5/12, tanda 5) — 01/11/2026
+
+Revisado contra el [guion](GUION-DIAS-48-57.md), el [resultado de Codex](RESULTADO-TANDA-5.md), los informes [48](DIA-48.md) a [57](DIA-57.md), el código y una copia de la base del sitio al 5/12. Prueba técnica en [INFORME](prueba-tecnica/INFORME.md).
+
+**Lo que el guion pedía para desplegar, punto por punto:**
+
+| # | Punto | Resultado |
+|---|---|---|
+| 1 | Plata al peso | **Cumple.** La base del sitio es igual a la simulación en 11 tablas, salvo Clara, Mariela y el texto de un motivo: errores de mi guion, abajo. Final: deuda $1.053.500, disponible $7.696.080,25 |
+| 2 | Las reparaciones cumplen | **Cumplen las 13.** Codex marcó cuatro «no cumple» por el texto o el momento, y T95 y T105 «no probado»: abajo, una por una |
+| 3 | Sin error del servidor ni inglés | **Error del servidor: ninguno. Inglés: no cumple**, T117 |
+| 4 | Solo defectos anunciados | T110 a T114 salieron como se anunciaron. **Nuevos: T117, T118 y T119** |
+| 5 | Lo no probado, por su nombre | Al final |
+
+**Las diferencias de plata son errores míos.** Simulé dos pasos tocando la base o llamando directo, sin mirar si la pantalla los ofrece:
+
+| Paso | Qué decía el guion | Qué es verdad | Efecto |
+|---|---|---|---|
+| 49.2 Clara | Condonar diciembre en noviembre | La ficha no lista meses futuros y Cobrar no ofrece condonar: se ofrece desde el 1/12. T100 impide que esto se repita | Deuda +$270.000, 1 En plazo de más. Queda en el sitio; no pasa a producción |
+| 53.7 Mariela | Subirle el valor hora a $19.000 | Patín pasó a comisión desde el 1/12 (día 26): el formulario de diciembre ya no muestra el valor hora. Para pagar de más, en un deporte por hora no hay ajuste: **el camino real no existe** | Egresos −$19.000, Galicia +$19.000. Es lo que T114 mira |
+
+**Otros errores del guion, Wings está bien:** inactivos $80.000 (mi cuenta dejaba afuera el recargo de Valentina; lo correcto es $83.500); 50.3 esperaba 2 en «Sin asistencia» (mi cuenta miraba hasta hoy; el menú, Inicio y el filtro cuentan desde el día siguiente y dicen lo mismo); 52.7 $19.850,50 (es $18.850,50); 53.4 motivos de Tobías y Thiago (estaban En plazo: no piden); 53.9 Gonzalo (sin clases no se puede elegir: bien); 55.8 «solo lo suyo» (PERMISOS-ROLES dice que la profesora ve cualquier clase, por las suplencias); 48.9 los importes eran del cierre del día; 56.10 Sandra no puede abrir un gasto con el turno de Rocío abierto.
+
+**Reparaciones, una por una:**
+
+| Tarea | Codex | Claude | Por qué |
+|---|---|---|---|
+| T94 | no cumple | **Cumple** | Misma fila, comprobado en la base. «Grupo actualizado» es el aviso de Editar, previsto en GRU-004 c |
+| T95 | no probado | **Cumple** | Navegador real y forzado |
+| T96 | cumple | **Cumple** | Forzado también |
+| T97 | no cumple | **Cumple** | Motivo vacío: lo frena el navegador antes que Wings |
+| T98 | no cumple | **Cumple** | La ficha y el aviso forzado difieren en dos palabras; ninguno dice dar de baja |
+| T99, T100, T101, T102, T107, T108 | cumple | **Cumple** | Controles internos y base |
+| T105, T109 | no probado | **Cumple** | Miré el PDF: se ve bien. Sigue tardando 3 s, no era el objetivo |
+| T106 | no cumple | **Cumple** | Las cifras del guion eran las del cierre del día: al cierre dan |
+
+**Lo de Codex, leído contra su evidencia:** el recorrido es sólido y separa bien lo observado de lo inferido. Lleva a «no cumple» diferencias de un literal que son del navegador; por eso la tabla de arriba. Dejó anotadas dos cosas que importan y no estaban en el guion: 50.6, que llevó a T117, y «AUTOMáTICAMENTE» en 54.3, T118.
+
+**Sin probar, por su nombre:** ACC-018 (instalar en un teléfono), ACC-019 (no apareció ningún error), REP-014, COB-010, CSH-016, PEN-002, ALU-016 y ALU-022 (sus tareas son para después de producción), ALU-023 (T56 impide llegar), CAJ-003, CAJ-042 y SIS-011 (van con el despliegue), CBZ-005 (solo pasa con la primera carga; verificado en T31). Sin acreditar: el aviso al dueño de CBZ-020 b en esta corrida; varios avisos fugaces, sustituidos por el estado guardado; los recibos ya emitidos después de renombrar a Pablo (no se miró el PDF; el recibo guarda «Operativo», no el nombre, leído en un solo PDF).
+
 ## Guion de la tanda 5, días 48 a 54 — Claude CAB, 01/11/2026
 
 [Guion](GUION-DIAS-48-57.md) y [prompt](PROMPT-CODEX-DIAS-48-57.md), con los siete días simulados sobre la copia del sitio al 25/11 con `main`. **No se entrega todavía:** faltan los controles abiertos y desplegar. Clara y Thiago se limpian por pantalla (49.2 y 49.3). Tres defectos nuevos, retratados a propósito: T110, T111 y T112.

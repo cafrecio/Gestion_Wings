@@ -4,6 +4,13 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
+| T113 | Validar se ofrece en una clase futura y no se deshace | Decide Carlos |
+| T114 | Reportes → Sueldos no refleja un ajuste o un cambio de tarifa | Decide Carlos |
+| T115 | Nueva liquidación en enero: cambiar solo el mes genera una vacía de diciembre del año nuevo | Decide Carlos |
+| T116 | Un retiro del dueño no entra al turno | Decide Carlos |
+| T117 | Con la sesión vencida, Cobrar y Guardar lista dicen «CSRF token mismatch.» en inglés | Decide Carlos: propongo antes de producción |
+| T118 | «REACTIVADO AUTOMáTICAMENTE» en Revisión | Decide Carlos: una línea |
+| T119 | Serie, medio inactivo y deporte: tres controles solo en pantalla | Decide Carlos: propongo antes de producción |
 
 **Para después de producción (Carlos, 01/11):** T110, T111 y T112. No entran antes.
 

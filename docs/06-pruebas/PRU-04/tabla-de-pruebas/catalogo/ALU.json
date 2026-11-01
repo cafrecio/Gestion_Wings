@@ -503,7 +503,7 @@
         {
           "donde": "Rechazo",
           "l": "a",
-          "texto": "No guarda y dice que la configuración de inscripción está incompleta y que el dueño debe corregirla.",
+          "texto": "Por pantalla no se llega: Configuración no deja guardar cero («El importe de la inscripción debe ser mayor que cero.»). Si el dato faltara por otra vía, no guarda y dice que la configuración de inscripción está incompleta y que el dueño debe corregirla.",
           "tipo": "directo"
         },
         {
@@ -514,7 +514,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "InscripcionService::importe (código leído).",
+      "fuente": "InscripcionService::importe (código leído). Actualizado por Claude CAB el 01/11/2026, revisión de la tanda 5: 52.1.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-alta",
       "requiere": "Importe de inscripción vacío o en cero en Configuración.",
@@ -1003,7 +1003,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Contrato alumno-grupo-deporte V4. Por lectura del código, en la edición el plan solo se valida contra el grupo cuando el alumno no tiene plan: es probable que acepte un plan de otro grupo. Comprobado por Claude el 13/10 en la base descartable: la edición acepta el plan de otro grupo y lo deja como plan activo.",
+      "fuente": "Contrato alumno-grupo-deporte V4. Por lectura del código, en la edición el plan solo se valida contra el grupo cuando el alumno no tiene plan: es probable que acepte un plan de otro grupo. Comprobado por Claude el 13/10 en la base descartable: la edición acepta el plan de otro grupo y lo deja como plan activo. Revisión de la tanda 5, 01/11/2026: Forzado: el deporte se puede cambiar por envío directo. T119.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-edicion",
       "requiere": "Herramienta para enviar el formulario adulterado.",
@@ -1011,7 +1011,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T119",
       "tipo": "romper",
       "titulo": "Forzar un plan o un grupo que no corresponde"
     },

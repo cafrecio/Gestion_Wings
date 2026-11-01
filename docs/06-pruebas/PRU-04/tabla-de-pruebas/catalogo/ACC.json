@@ -214,7 +214,7 @@
         {
           "donde": "Su caja",
           "l": "c",
-          "texto": "Si tenía una caja abierta, queda abierta a su nombre; el dueño puede contarla y cerrarla (ver CAJ, cierre por el dueño).",
+          "texto": "Con una caja abierta no se puede desactivar: «Este usuario tiene una caja abierta. Primero hay que cerrar la caja.» Hay que cerrarla antes.",
           "tipo": "indirecto"
         },
         {
@@ -225,7 +225,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Middleware EnsureActiveUserWeb (código leído); Contrato Caja V5.",
+      "fuente": "Middleware EnsureActiveUserWeb (código leído); Contrato Caja V5. Actualizado por Claude CAB el 01/11/2026, revisión de la tanda 5: 50.6.",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-ingreso",
       "requiere": "La operativa está trabajando con la sesión abierta; el dueño la desactiva desde Usuarios.",
@@ -263,7 +263,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Aceptado por Carlos (DU-01, 13/10): lo que se estaba cargando se pierde. Antes: bootstrap/app.php, respuesta 419 (código leído).",
+      "fuente": "Aceptado por Carlos (DU-01, 13/10): lo que se estaba cargando se pierde. Antes: bootstrap/app.php, respuesta 419 (código leído). Revisión de la tanda 5, 01/11/2026: Comprobado en navegador real: el formulario común cumple; Cobrar y Guardar lista muestran «CSRF token mismatch.» y se quedan. T117.",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-ingreso",
       "requiere": "Un formulario cargado (cobro, alta de alumno, asistencia) y la sesión vencida por tiempo.",
@@ -272,7 +272,7 @@
         "OPERATIVO",
         "PROFESOR"
       ],
-      "tarea": "",
+      "tarea": "T117",
       "tipo": "error",
       "titulo": "Se vence la sesión con un formulario a medio llenar"
     },

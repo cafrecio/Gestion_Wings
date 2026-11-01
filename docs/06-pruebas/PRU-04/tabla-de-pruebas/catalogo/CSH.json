@@ -907,8 +907,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo $600.000 y Banco $100.000.",
@@ -937,8 +937,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Una transferencia vigente.",
@@ -967,8 +967,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Un ingreso en Banco del 10/10 y un gasto en Efectivo del 03/11.",
@@ -997,8 +997,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Una transferencia anulada y otra vigente.",
@@ -1027,8 +1027,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Dos dueños activos.",
@@ -1057,8 +1057,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
+      "estado": "vigente",
+      "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md. Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Base de prueba descartable.",

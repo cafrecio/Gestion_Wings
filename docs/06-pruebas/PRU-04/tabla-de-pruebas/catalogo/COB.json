@@ -1077,8 +1077,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Actualizado por Claude CAB el 01/11/2026, con la propuesta de Codex (VERIFICACION-T100-CODEX.md). Actualizado por Claude CAB el 01/11/2026 por T100: decisión de Carlos, reemplaza CJ-26. PagoCuotaService::deshacerCuotaNacidaDeCobro (código leído).",
+      "estado": "vigente",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026, con la propuesta de Codex (VERIFICACION-T100-CODEX.md). Actualizado por Claude CAB el 01/11/2026 por T100: decisión de Carlos, reemplaza CJ-26. PagoCuotaService::deshacerCuotaNacidaDeCobro (código leído). Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Cobrar",
       "pantalla": "caja-cancelar",
       "requiere": "Cobro adelantado de noviembre hecho en octubre, en el turno abierto.",
@@ -1409,14 +1409,14 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "PagoCuotaService y validaciones de CajaWebController::pagar (código leído).",
+      "fuente": "PagoCuotaService y validaciones de CajaWebController::pagar (código leído). Revisión de la tanda 5, 01/11/2026: Forzado: un medio inactivo se acepta; un importe de cuota mayor que el saldo se ignora y cobra lo que se debe. T119.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Caja abierta. Herramienta para enviar el formulario adulterado.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T119",
       "tipo": "seguridad",
       "titulo": "Forzar un cobro adulterado"
     },

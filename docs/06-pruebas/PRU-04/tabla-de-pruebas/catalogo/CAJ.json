@@ -72,8 +72,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T96: decisión de Carlos, reemplaza DU-59. Contrato Caja V5; CajaService::configurarEfectivo (código leído).",
+      "estado": "vigente",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T96: decisión de Carlos, reemplaza DU-59. Contrato Caja V5; CajaService::configurarEfectivo (código leído). Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Caja",
       "pantalla": "caja-configuracion",
       "requiere": "Efectivo ya configurado. Probar sin turno abierto y con un turno abierto.",

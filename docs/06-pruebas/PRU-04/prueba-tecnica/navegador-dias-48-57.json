@@ -1,0 +1,122 @@
+{
+  "fecha": "2026-11-01T20:59:42.227Z",
+  "base": "wings_t5_nav",
+  "resultado": [
+    {
+      "caso": "ALU-011 a: al tocar otra opción pregunta y Cancelar deja todo",
+      "ok": true,
+      "detalle": {
+        "dialogo": {
+          "tipo": "confirm",
+          "texto": "Tenés cambios sin guardar. ¿Querés salir y perder lo cargado?"
+        },
+        "url": "/alumnos/create"
+      }
+    },
+    {
+      "caso": "ALU-011 c: Aceptar sale y no guarda nada",
+      "ok": true,
+      "detalle": {
+        "url": "/caja",
+        "alumnos": [
+          "123",
+          "123"
+        ]
+      }
+    },
+    {
+      "caso": "ALU-011 b: sin datos sale sin preguntar",
+      "ok": true,
+      "detalle": {
+        "dialogos": 0,
+        "url": "/caja"
+      }
+    },
+    {
+      "caso": "ALU-011 a: recargar con datos también pregunta",
+      "ok": true,
+      "detalle": {
+        "dialogo": {
+          "tipo": "beforeunload",
+          "texto": ""
+        }
+      }
+    },
+    {
+      "caso": "ACC-006 a y b: Nuevo gasto con la sesión vencida va al ingreso con el aviso, sin guardar",
+      "ok": true,
+      "detalle": {
+        "url": "/login",
+        "aviso": true,
+        "cajaAbierta": "1",
+        "formulario": {
+          "valido": true,
+          "invalidos": [],
+          "subrubro": "32",
+          "monto": "1,500.00",
+          "boton": true,
+          "deshabilitado": false
+        },
+        "pantalla": "WINGS\nTu sesión expiró. Iniciá sesión nuevamente.\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings"
+      }
+    },
+    {
+      "caso": "ACC-006: Cobrar con la sesión vencida dice en castellano qué pasó y lleva al ingreso",
+      "ok": false,
+      "detalle": {
+        "url": "/caja/cobrar/279",
+        "mensaje": "CSRF token mismatch.",
+        "sinCobro": true
+      }
+    },
+    {
+      "caso": "USU-008 b: Gonzalo entra con el menú de operativa",
+      "ok": true,
+      "detalle": {
+        "url": "/operativo",
+        "menu": [
+          "Inicio",
+          "Alumnos",
+          "Clases",
+          "Cobranza",
+          "Caja",
+          "Movimientos",
+          "Revisión",
+          "Grupos",
+          "Ayuda"
+        ]
+      }
+    },
+    {
+      "caso": "ACC-006 / 50.6: guardar la lista con la sesión vencida avisa en castellano y lleva al ingreso",
+      "ok": false,
+      "detalle": {
+        "url": "/clases/346",
+        "avisoDePantalla": "✗ CSRF token mismatch.",
+        "marcasGuardadas": "0"
+      }
+    },
+    {
+      "caso": "50.6: guardar con la cuenta desactivada no escribe",
+      "ok": true,
+      "detalle": {
+        "url": "/clases/346",
+        "avisoDePantalla": "✗ Error de conexión.",
+        "marcasGuardadas": "0"
+      }
+    },
+    {
+      "caso": "T95 / 51.1: sin valor hora no se crea y lo dice",
+      "ok": true,
+      "detalle": {
+        "nativo": {
+          "requerido": false,
+          "mensaje": "",
+          "visible": true
+        },
+        "url": "/profesores/create",
+        "avisoServidor": true
+      }
+    }
+  ]
+}

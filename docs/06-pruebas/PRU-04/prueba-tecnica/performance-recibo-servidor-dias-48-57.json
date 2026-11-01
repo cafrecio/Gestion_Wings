@@ -1,0 +1,57 @@
+{
+    "fecha": "2026-11-01T18:05:21-03:00",
+    "mediana_ms": 3208,
+    "filas": [
+        {
+            "pago": 563,
+            "ms": 4272,
+            "cpu_ms": 3188,
+            "kb": 211,
+            "memoria_mb": 30
+        },
+        {
+            "pago": 562,
+            "ms": 3254,
+            "cpu_ms": 3093,
+            "kb": 210,
+            "memoria_mb": 36
+        },
+        {
+            "pago": 561,
+            "ms": 3208,
+            "cpu_ms": 2984,
+            "kb": 211,
+            "memoria_mb": 40
+        },
+        {
+            "pago": 560,
+            "ms": 3133,
+            "cpu_ms": 2988,
+            "kb": 211,
+            "memoria_mb": 40
+        },
+        {
+            "pago": 559,
+            "ms": 3138,
+            "cpu_ms": 3001,
+            "kb": 210,
+            "memoria_mb": 40
+        }
+    ],
+    "flujos_mas_grandes_kb": [
+        122,
+        51,
+        9,
+        7,
+        5,
+        5
+    ],
+    "imagenes": 2,
+    "fuentes_embebidas": 4,
+    "fuentes": [
+        "SUBAAB+DejaVuSans-Bold",
+        "SUBAAC+DejaVuSansMono-Bold",
+        "SUBAAD+DejaVuSans",
+        "SUBAAE+DejaVuSans-Oblique"
+    ]
+}

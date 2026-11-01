@@ -402,3 +402,7 @@ Reloj **21:30**.
 | ALU-019, ASI-010, COB-026, MOV-017, CBZ-009 b, CBZ-020, SIS-004 | Forzar o simular: los hace Claude en la prueba técnica, sobre una copia |
 | ACC-018, ACC-019, REP-009, SIS-010 | No hay cómo llegar en este relato sin romper el sitio: prueba técnica o quedan sin acreditar, y se dice cuáles |
 | COB-010, CSH-016, PEN-002, REP-014, ALU-016 | Su tarea es para después de producción (MF11, T60, POS-06, T72 y T53) |
+
+## Errores de este guion, encontrados al revisar la tanda
+
+49.2 Condonar diciembre no se ofrece en noviembre; 53.7 el valor hora de Mariela no se puede cambiar en diciembre; inactivos es $83.500; 50.3 «Sin asistencia» cuenta desde el día siguiente; 52.7 es $18.850,50; 53.4 Tobías y Thiago no piden motivo; 53.9 Gonzalo no se puede elegir; 55.8 la profesora ve cualquier clase; 48.9 las cifras son del cierre. Detalle en la [revisión](ESTADO-PRUEBA.md). El guion queda como se entregó, para que se entienda el recorrido de Codex.

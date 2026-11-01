@@ -204,8 +204,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T94, con la propuesta de Gemini. VERIFICACION-T94-CLAUDE.md. GrupoWebController::destroyPlan (código leído).",
+      "estado": "vigente",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T94, con la propuesta de Gemini. VERIFICACION-T94-CLAUDE.md. GrupoWebController::destroyPlan (código leído). Vigente desde el despliegue del 01/11/2026 en el sitio de prueba (Claude CAB).",
       "modulo": "Grupos y planes",
       "pantalla": "cat-grupos-form",
       "requiere": "Un grupo con dos planes, uno con alumnos activos; otro grupo con un solo plan.",

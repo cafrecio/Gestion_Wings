@@ -650,7 +650,7 @@
         {
           "donde": "Con conexión",
           "l": "b",
-          "texto": "Guarda y avisa «Lista guardada».",
+          "texto": "Guarda y avisa «Asistencias guardadas.»",
           "tipo": "directo"
         },
         {
@@ -667,7 +667,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "clases/show (script leído el 13/10).",
+      "fuente": "clases/show (script leído el 13/10). Actualizado por Claude CAB el 01/11/2026, revisión de la tanda 5: 57.3.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Teléfono en la cancha con mala señal.",

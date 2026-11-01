@@ -57,7 +57,7 @@
         {
           "donde": "Formato",
           "l": "b",
-          "texto": "Mismo formato en todas: signo de pesos, punto de miles y coma decimal.",
+          "texto": "Mismo formato en todas, desde T30: signo de pesos, coma de miles y punto decimal: $1,250.50.",
           "tipo": "directo"
         },
         {
@@ -68,7 +68,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "T30 (vistas aprobadas por Carlos 12/10); DESIGN-RULES §11.",
+      "fuente": "T30 (vistas aprobadas por Carlos 12/10); DESIGN-RULES §11. Actualizado por Claude CAB el 01/11/2026, revisión de la tanda 5: 52.7.",
       "modulo": "Transversales",
       "pantalla": "cashflow",
       "requiere": "Movimientos con centavos ($1.250,50) y sin centavos.",
