@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 31/10/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 01/11/2026. Avance: **69 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -37,7 +37,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
-| **T95** Tarifa del profesor: el formulario la marca obligatoria pero Wings guarda sin ella | Hecho, espera verificación (hizo Claude, verifica Carlos) | Carlos lo prueba por pantalla: Profesores -> Nuevo, sin la tarifa -> Guardar. Tiene que decir «Cargá el valor por hora.» o «Cargá el porcentaje de comisión.». Hecho: exige la tarifa del deporte, mayor a cero, al crear y editar. Sin tarifa, la liquidación ya se frenaba en los dos casos (LiquidacionService:435-445). Sin desplegar. |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Sin empezar | Medido en la tanda 4. Probado en local sin tocar Wings: con el recorte de fuentes de dompdf pesa 211 KB y tarda lo mismo; falta mirar que se vea igual. Carlos decide si entra antes de produccion. |
 | **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Sin empezar | Dia 44.1: dicen ingresos 1.921.200 y entraron 421.200. Reportes esta bien. CSH-018 pide que los ingresos no cambien. Carlos decide si se excluyen de las tarjetas. |
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Sin empezar | Dia 46.7: el esperado se recalcula bien y el faltante queda a la vista del dueno, pero quien cierra no se entera. Carlos decide si Wings avisa antes de cerrar. |

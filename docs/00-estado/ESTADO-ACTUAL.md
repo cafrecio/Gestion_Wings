@@ -2,7 +2,7 @@
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
-T98, T99 y T103 cerradas; T95 hecha, espera la prueba de Carlos por pantalla. Sigue: T96, T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
+T95, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10). T96 devuelta por Gemini: el botón y los permisos están bien, pero cambiar la cuenta del cajón con cambio retenido corre ese importe de cuenta en Cashflow ([informe](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI.md)); el arreglo espera la decisión de Carlos. Sigue: T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.
 
 ## T14 — Tanda 4 (días 41 a 47) revisada, con su prueba técnica — Claude CAB, 31/10/2026
 
