@@ -1,0 +1,60 @@
+{
+  "fuentes_originales_intactas": [
+    "resources/views/cashflow/index.blade.php",
+    "resources/views/cashflow/eliminar.blade.php",
+    "resources/views/cashflow/_acciones.blade.php",
+    "resources/css/app.css"
+  ],
+  "enlaces_galeria_resueltos": 14,
+  "capturas": [
+    {
+      "archivo": "evidencia-t97/capturas/00-login-control-375.jpg",
+      "ancho": 375,
+      "alto": 850,
+      "sha256": "f36306458a8f4db5436361120eb9608e1a641b185c0f4646cdd9e9da1d5f8604"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/01-cashflow-anular-1366.jpg",
+      "ancho": 1351,
+      "alto": 1071,
+      "sha256": "c4b3372e0ba2b7f25ebcf71c16a4318e12785b0d3d5d266da3c8f41ef7ded4bc"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/01-cashflow-anular-375.jpg",
+      "ancho": 375,
+      "alto": 1440,
+      "sha256": "0af7908fcd879429cedc965bcde34b8d009e08476779a07b87e8b5f69280e9f8"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/02-confirmacion-1366.jpg",
+      "ancho": 1366,
+      "alto": 1000,
+      "sha256": "e1dcae8fd33af54a0a2dcd198c9753c61b96fe3c1abbdd10d9f41881dde40000"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/02-confirmacion-375.jpg",
+      "ancho": 375,
+      "alto": 850,
+      "sha256": "ef1cd0a8c8e466c8638eea25b386bea0d77d685c4da3d1b685c98f74d74341a4"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/03-cashflow-anulada-1366.jpg",
+      "ancho": 1351,
+      "alto": 1385,
+      "sha256": "2676c935b3408680562cdd1a7a1d4001aef0ec562bb35097c743ae01350923f5"
+    },
+    {
+      "archivo": "evidencia-t97/capturas/03-cashflow-anulada-375.jpg",
+      "ancho": 375,
+      "alto": 1900,
+      "sha256": "f471e73fc7a455927726d577cb81fbfa3a9f98a43c9ceb87fe4024ff2b0b9840"
+    }
+  ],
+  "medicion_navegador": {
+    "escritorio_innerWidth": 1366,
+    "iframe_innerWidth": 375,
+    "iframe_body_clientWidth": 360,
+    "iframe_body_scrollWidth": 360
+  },
+  "limite": "Integridad de la propuesta; no implementacion ni prueba financiera."
+}

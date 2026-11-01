@@ -58,7 +58,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | Propuesta visual lista en APROBAR-T97.html (1366 y 375); espera OK de Carlos antes de implementar. Renderizado 1/11 verde en wings_testing_codex; faltan pruebas financieras y revision de Claude |
 
 ## Gemini
 
@@ -66,9 +68,9 @@ Nada en este momento.
 |---|---|---|
 | **T96** Mostrador: una vez configurado el efectivo del cajón, ninguna pantalla permite volver a cambiarlo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Implementada por Claude 01/11, decisión de Carlos (reemplaza DU-59): cuenta fija Efectivo, el dueño carga una vez el saldo inicial, ajustes con movimiento Ajuste de saldo. Aspecto aprobado (APROBAR-T96-PROPUESTA.html). Suite completa 1328 aprobadas, 6 omitidas, 0 fallidas. La controla Gemini: PROMPT-GEMINI-T96-SEGUNDA-VUELTA.md. Sin desplegar. |
 
-## Sin empezar (13)
+## Sin empezar (12)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T97, T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T94, T100, T101, T104, T102.
 
 ## Mejoras futuras, no se empiezan ahora (13)
 

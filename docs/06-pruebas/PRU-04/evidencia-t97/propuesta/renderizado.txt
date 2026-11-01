@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CapturasPropuestaT97Test
+  ✓ renderiza propuesta sin cambiar vistas del producto                                                         13.26s  
+
+  Tests:    1 passed (11 assertions)
+  Duration: 13.43s
+

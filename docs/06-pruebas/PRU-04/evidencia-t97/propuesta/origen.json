@@ -1,0 +1,14 @@
+{
+    "base": "wings_testing_codex",
+    "fecha_fixture": "2026-10-20",
+    "transferencia": 1,
+    "importe": "300000.00",
+    "motivo": "Se eligió una cuenta de destino equivocada",
+    "nota": "Propuesta visual: ruta real de Cashflow; confirmación sobre plantilla de eliminar; estado anulado armado solo como fixture.",
+    "fuentes": {
+        "resources/views/cashflow/index.blade.php": "f9a0c343921674bf8e3ecabc7e938a120238975688671574fa61f4ab88019308",
+        "resources/views/cashflow/eliminar.blade.php": "378efc9c7958fa5593e62745785fee53c80409934fcc7c465d7814d221557a50",
+        "resources/views/cashflow/_acciones.blade.php": "80cbf6e02d27e4f50df700871fcf0ecb605471a4f3d13129286e8c9d73a3b20c",
+        "resources/css/app.css": "6377ea4263e3786f826b69986f7ea9a7679f282781eed084bbf019ca987a7f91"
+    }
+}

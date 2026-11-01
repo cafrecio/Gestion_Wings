@@ -1,0 +1,10 @@
+## 2026-10-29 — Codex CAB — PRU-04 días 29 a 33, tanda 2 entregada a revisión
+
+Ejecutados los 33 pasos por Chrome en test/wingstest ficticia, tras revisión de Claude de la tanda 1; los cinco cierres financieros coinciden. [Informes e índice](../06-pruebas/PRU-04/evidencia-dias-29-33/LEEME.md).
+Final 11/11 simulado: deuda $850.200, ingresos $3.359.300, egresos $2.678.280, disponible $5.585.920,75; 83 Al día, 22 Morosos y 1 Deudor. Sin asistencia 0 y cajas por validar 0. Recargo 10% activo: $115.500 = $40.300 cobrados + $5.000 condonados + $70.200 pendientes.
+Baja/reasignación de Verónica, pérdida de Julieta, aumento de Fútbol Avanzadas y corrección/rechazo/cierre hechos por UI. 138 capturas originales, 139 imágenes comprobadas, recibo CUOTA-350 de dos renglones, 128 enlaces y manifiesto SHA256. [Día 33](../06-pruebas/PRU-04/DIA-33.md).
+Diferencias conservadas: avisos nativos, filtro de tipo y etiqueta de inscripción; 33.3 tiene contado/cambio fijos, sin probar otro contado. Autor interno 29.2 y registros internos 32.1/33.8 pendientes de Claude; sin reparaciones.
+Relojes/rutinas guardados una vez; día 30 sin noche por validación UI. Día 33 esperó 179 segundos entre 06:13 y después de 06:15 antes de poner 09:00; recargo automático comprobado. Bloqueos de aprobación 29/31 resueltos sin duplicar operaciones; pausa del 31 conservada con hora 12:19.
+Sin producto, vistas/CSS, catálogo/tablero, consultas directas a base, suite documental ni despliegue propios. Cambios ajenos concurrentes excluidos; SHA desplegado no certificado. Huellas de LOG/resumen intactas antes de editar; dos entradas antiguas archivadas íntegras para mantener límites.
+Sigue revisión independiente de Claude de informes, diferencias y controles internos. No repetir días 29–33, generar diciembre ni pagar otras liquidaciones. Sin autocierre de T14/casos; commit documental propio, sin push solicitado.
+

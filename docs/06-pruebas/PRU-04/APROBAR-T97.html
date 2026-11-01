@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T97 — Anular transferencia</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:24px;background:#f4f6f8;color:#111827}
+h1{font-size:1.4rem}h2{font-size:1.1rem;margin-top:32px}p{max-width:960px;line-height:1.5}
+.fila{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}.esc{width:min(900px,100%)}.cel{width:375px;max-width:100%}
+figure{margin:0}figcaption{margin:8px 0;font-size:.9rem}img{display:block;width:100%;border:1px solid #d8e0ea;background:#fff;box-sizing:border-box}
+code{overflow-wrap:anywhere}a{color:#174a7e}table{border-collapse:collapse;background:white}th,td{padding:8px 16px;border:1px solid #d8e0ea;text-align:right}th:first-child,td:first-child{text-align:left}
+</style></head><body>
+<h1>T97 — Anular una transferencia completa</h1>
+<p><strong>Propuesta para aprobar el aspecto.</strong> Capturas del HTML de Wings con sus componentes reales; solo se reemplazaron las partes propuestas. La anulación aún no está implementada. El ejemplo usa datos ficticios y no opera el sitio de prueba.</p>
+<p>Desde cualquiera de las dos filas se llega a la misma confirmación. Se pide motivo, se conservan los originales y aparecen las dos anulaciones relacionadas. Las filas anuladas y sus contraasientos quedan solo con <strong>Ver</strong>.</p>
+<table><thead><tr><th>Ejemplo</th><th>Efectivo</th><th>Banco Nación</th></tr></thead><tbody><tr><td>Antes</td><td>$600.000</td><td>$100.000</td></tr><tr><td>Transferencia de $300.000</td><td>$300.000</td><td>$400.000</td></tr><tr><td>Después de anular (propuesto)</td><td>$600.000</td><td>$100.000</td></tr></tbody></table>
+<p>Escritorio: 1366 de ancho. Celular: HTML dentro de un marco de 375; no es una ventana recortada. Abrí cada imagen para verla en tamaño original.</p>
+<h2>1. Cashflow: Anular en ambas filas</h2>
+<div class="fila"><figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t97/capturas/01-cashflow-anular-1366.jpg"><img src="evidencia-t97/capturas/01-cashflow-anular-1366.jpg" alt="Cashflow con el icono Anular en la salida y la entrada de la transferencia"></a></figure><figure class="cel"><figcaption>Celular · marco de 375</figcaption><a href="evidencia-t97/capturas/01-cashflow-anular-375.jpg"><img src="evidencia-t97/capturas/01-cashflow-anular-375.jpg" alt="Las dos tarjetas de la transferencia con Anular en celular"></a></figure></div>
+<h2>2. Confirmación: transferencia completa y motivo obligatorio</h2>
+<div class="fila"><figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t97/capturas/02-confirmacion-1366.jpg"><img src="evidencia-t97/capturas/02-confirmacion-1366.jpg" alt="Confirmación con importe, cuentas, efecto en ambas, motivo y botones Volver y Anular"></a></figure><figure class="cel"><figcaption>Celular · marco de 375</figcaption><a href="evidencia-t97/capturas/02-confirmacion-375.jpg"><img src="evidencia-t97/capturas/02-confirmacion-375.jpg" alt="Confirmación completa de anulación en celular"></a></figure></div>
+<h2>3. Cashflow después: originales anulados, contraasientos y motivo</h2>
+<div class="fila"><figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t97/capturas/03-cashflow-anulada-1366.jpg"><img src="evidencia-t97/capturas/03-cashflow-anulada-1366.jpg" alt="Cuatro filas vinculadas por Transferencia número 1, con motivo y solo Ver"></a></figure><figure class="cel"><figcaption>Celular · marco de 375</figcaption><a href="evidencia-t97/capturas/03-cashflow-anulada-375.jpg"><img src="evidencia-t97/capturas/03-cashflow-anulada-375.jpg" alt="Originales anulados y contraasientos identificados en celular"></a></figure></div>
+<p>El estado final se armó como escenario visual. No acredita las reglas financieras, los filtros ni la concurrencia: se comprobarán al implementar. La decisión de T106 sobre si las transferencias cuentan en las tarjetas sigue aparte.</p>
+<p><a href="evidencia-t97/capturas/00-login-control-375.jpg">Control del método: login real dentro del marco de 375</a> · <a href="IMPLEMENTACION-T97.md">Informe y pendientes</a></p>
+</body></html>

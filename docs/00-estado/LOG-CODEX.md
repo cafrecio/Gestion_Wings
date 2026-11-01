@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T97, propuesta visual pendiente de Carlos
+
+Anulación completa de transferencia: propuesta aislada con componentes reales; vistas del producto intactas. [Galería 1366/375](../06-pruebas/PRU-04/APROBAR-T97.html) · [Informe y pendientes](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md).
+Confirmación con ambas cuentas y motivo obligatorio; originales anulados y contraasientos identificados, solo Ver. Ejemplo visual: Efectivo/Banco 600.000/100.000 → 300.000/400.000 → 600.000/100.000.
+Renderizado final en wings_testing_codex: 1/11, salida 0; seis capturas Chrome y control de login en marco real de 375. Estado anulado preparado como fixture: no acredita implementación financiera.
+Inventario inicial de 16 lectores; auditoría exhaustiva, reglas, concurrencia con dos conexiones, T61/T27 y suite completa pendientes tras OK. Sin aumentar el contador de pruebas del producto.
+Main actualizado al iniciar; cambios T96 de Gemini y evidencia T34 ajena preservados. Carlos autorizó mover solo T97; no se incluyen aportes ajenos en el commit propio.
+Sin modificar guardas, manual, catálogo de pruebas, vistas/CSS ni servidor. No desplegar mientras Cora trabaja en test. Propuesta y bitácora quedan documentadas; T97 sigue en curso, no a_verificar.
+Freno explícito del pedido: Carlos revisa APROBAR-T97.html; implementar recién con su OK y entregar después a Claude. Entrada antigua archivada íntegra por límite.
+
 ## 2026-10-30 — Codex CyE — PRU-04 días 41 a 47 entregados a revisión
 
 Recorrido en test ficticio tras pull de main, sin repetir días 34–40. [Siete informes y evidencia](../06-pruebas/PRU-04/evidencia-dias-41-47/LEEME.md). Relojes y rutinas en orden; 43 sin mañana, 44 sin rutina, 46 con recargo automático observado tras espera real y antes de las 09:00.
@@ -39,15 +49,7 @@ Seis capturas Chrome y PNG original de Telegram, transcripciones, huellas e imá
 Reloj dejado en 12/11; sin cobros, generación, reparaciones, producto, catálogo, despliegue ni push propios. LOG/resumen sin cambios ajenos al editar; T45 archivada íntegra para mantener límite.
 Sigue la tanda 3 por su guion y decisión de Carlos. Esta verificación no la ejecuta ni amplía el alcance de la prueba del servidor.
 
-## 2026-10-29 — Codex CAB — PRU-04 días 29 a 33, tanda 2 entregada a revisión
-
-Ejecutados los 33 pasos por Chrome en test/wingstest ficticia, tras revisión de Claude de la tanda 1; los cinco cierres financieros coinciden. [Informes e índice](../06-pruebas/PRU-04/evidencia-dias-29-33/LEEME.md).
-Final 11/11 simulado: deuda $850.200, ingresos $3.359.300, egresos $2.678.280, disponible $5.585.920,75; 83 Al día, 22 Morosos y 1 Deudor. Sin asistencia 0 y cajas por validar 0. Recargo 10% activo: $115.500 = $40.300 cobrados + $5.000 condonados + $70.200 pendientes.
-Baja/reasignación de Verónica, pérdida de Julieta, aumento de Fútbol Avanzadas y corrección/rechazo/cierre hechos por UI. 138 capturas originales, 139 imágenes comprobadas, recibo CUOTA-350 de dos renglones, 128 enlaces y manifiesto SHA256. [Día 33](../06-pruebas/PRU-04/DIA-33.md).
-Diferencias conservadas: avisos nativos, filtro de tipo y etiqueta de inscripción; 33.3 tiene contado/cambio fijos, sin probar otro contado. Autor interno 29.2 y registros internos 32.1/33.8 pendientes de Claude; sin reparaciones.
-Relojes/rutinas guardados una vez; día 30 sin noche por validación UI. Día 33 esperó 179 segundos entre 06:13 y después de 06:15 antes de poner 09:00; recargo automático comprobado. Bloqueos de aprobación 29/31 resueltos sin duplicar operaciones; pausa del 31 conservada con hora 12:19.
-Sin producto, vistas/CSS, catálogo/tablero, consultas directas a base, suite documental ni despliegue propios. Cambios ajenos concurrentes excluidos; SHA desplegado no certificado. Huellas de LOG/resumen intactas antes de editar; dos entradas antiguas archivadas íntegras para mantener límites.
-Sigue revisión independiente de Claude de informes, diferencias y controles internos. No repetir días 29–33, generar diciembre ni pagar otras liquidaciones. Sin autocierre de T14/casos; commit documental propio, sin push solicitado.
+[Días29–33 archivados íntegros al preparar T97](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-antes-propuesta-T97.txt). Base original: docs/00-estado/. SHA256: 55086a3c3d9390dd6e49ada30e50d01eb39d24ebe59d272069833a6174eca607.
 
 [Dos entradas antiguas intactas, archivadas al implementar T46](../99-archivo/bitacoras/2026-10-28/LOG-CODEX-antes-T46.txt). Base original: docs/00-estado/. SHA256: c34cc6148a4e3451b96cd1708ab89419722482824c9eb65cc39f84fb1aff2e81.
 
