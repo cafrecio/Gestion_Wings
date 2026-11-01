@@ -69,7 +69,9 @@ class AlumnoWebController extends Controller
         $cargo = $service->cargo($data['dni']);
         $mensaje = $cargo
             ? 'Esta persona ya tiene una inscripción registrada. Saldo: ' . \App\Support\FormatoImporte::pesos($cargo->saldo_pendiente)
-            : 'Corresponde inscripción por única vez: ' . \App\Support\FormatoImporte::pesos($importe);
+            : ($service->yaEsDelClub($data['dni'])
+                ? 'Esta persona ya es del club: no paga inscripción.'
+                : 'Corresponde inscripción por única vez: ' . \App\Support\FormatoImporte::pesos($importe));
         if ($request->filled('alumno_id')) {
             $editado = Alumno::findOrFail($request->integer('alumno_id'));
             if ($editado->fecha_alta->format('Y-m-d') !== Carbon::parse($data['fecha_alta'])->format('Y-m-d') && $cargo) {
@@ -410,7 +412,9 @@ class AlumnoWebController extends Controller
                 'fecha_desde' => $alumno->fecha_alta,
                 'activo'      => true,
             ]);
-            app(\App\Services\InscripcionService::class)->sincronizar($alumno, $request->user()->id);
+            if (!app(\App\Services\InscripcionService::class)->yaEsDelClub($alumno->dni, $alumno->id)) {
+                app(\App\Services\InscripcionService::class)->sincronizar($alumno, $request->user()->id);
+            }
             $cargo = app(\App\Services\InscripcionService::class)->cargo($alumno->dni);
             if ($request->filled('inscripcion_importe_visto') && $cargo && $cargo->alumno_id === $alumno->id && (float) $request->input('inscripcion_importe_visto') !== (float) $cargo->monto_original) {
                 throw \Illuminate\Validation\ValidationException::withMessages(['fecha_alta' => 'El importe de inscripción cambió. Revise el nuevo importe antes de guardar.']);

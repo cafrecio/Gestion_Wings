@@ -54,6 +54,9 @@ Esta tarea te explica cómo registrar a un nuevo deportista en Wings, asignar su
 ### ¿Qué hago si el DNI ya está registrado en el sistema?
 En Wings cada persona tiene un único DNI. Si el alumno ya practicó alguna disciplina en el club o estuvo registrado antes, el sistema no permite duplicarlo. Buscalo en el listado de alumnos para reactivarlo o agregarle una nueva actividad desde su legajo existente.
 
+### ¿Paga inscripción quien se anota en un segundo deporte?
+No. Quien ya tiene una ficha en el club no vuelve a pagarla, aunque no tenga una registrada. Antes de guardar, el aviso dice «Esta persona ya es del club: no paga inscripción.» o, si tiene una registrada, cuánto le queda por pagar.
+
 ### ¿Qué hago si el alumno empieza a mitad de mes?
 Al completar la **Fecha de alta**, Wings evalúa automáticamente la regla de ingreso. En **Cuota al dar de alta** podés elegir **Sí.** para generar la cuota proporcional o completa del mes, o **No.** para que empiece a tributar recién a partir del 1° del mes siguiente. La matrícula de inscripción es independiente y se registra según las políticas vigentes del club.
 

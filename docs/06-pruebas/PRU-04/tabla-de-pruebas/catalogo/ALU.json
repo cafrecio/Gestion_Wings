@@ -278,10 +278,16 @@
           "l": "g",
           "texto": "Activos +1 en Fútbol; la persona cuenta en los dos deportes.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin inscripción registrada",
+          "l": "h",
+          "texto": "Si vino de la primera carga con «Inscripción: No», tampoco paga: el aviso dice «Esta persona ya es del club: no paga inscripción.»",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "InscripcionService::sincronizar y CobranzaEstadoService (código leído); ENT-01; A55.",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T108. InscripcionService::sincronizar y CobranzaEstadoService (código leído); ENT-01; A55.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-alta",
       "requiere": "Una persona que ya es alumna de Patín. Probar con su inscripción paga y con su inscripción pendiente.",
@@ -289,7 +295,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T108",
       "tipo": "normal",
       "titulo": "La misma persona se anota en un segundo deporte"
     },

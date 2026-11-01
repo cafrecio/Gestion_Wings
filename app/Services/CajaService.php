@@ -391,6 +391,7 @@ class CajaService
         Validator::make($arqueo, [
             'efectivo_contado' => 'required|numeric|min:0|max:9999999999.99|decimal:0,2',
             'cambio_retenido' => 'required|numeric|min:0|lte:efectivo_contado|decimal:0,2',
+            'esperado_visto' => 'nullable|numeric',
         ])->validate();
         return DB::transaction(function () use ($cajaId, $usuarioId, $esAdmin, $arqueo) {
             $this->bloquearMostrador();
@@ -411,6 +412,12 @@ class CajaService
                 throw ValidationException::withMessages(['efectivo_contado' => 'La corrección no puede cambiar el efectivo que ya se contó y entregó.']);
             }
             $esperado = $this->arqueoCaja($cajaId)['efectivo_esperado'];
+            // T107: quien cierra con la pantalla vieja copia lo que veía y queda un faltante que no existe.
+            $visto = $arqueo['esperado_visto'] ?? null;
+            if ($visto !== null && $esperado !== null && $this->centavos($visto) !== $this->centavos($esperado)) {
+                throw ValidationException::withMessages(['efectivo_contado' => 'Cambió el efectivo esperado: ahora es '
+                    .\App\Support\FormatoImporte::pesos($esperado).'. Entró o se corrigió un movimiento desde que abriste esta pantalla. Revisá lo que contaste y tocá Cerrar de nuevo.']);
+            }
             if ($caja->efectivo_contado === null) {
                 $caja->cierre_at = now();
                 $caja->usuario_cierre_id = $usuarioId;

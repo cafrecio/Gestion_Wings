@@ -29,3 +29,5 @@
 | `La corrección no puede cambiar el efectivo que ya se contó y entregó.` | `app/Services/CajaService.php:376` | No | Regla contable interna al corregir caja rechazada; en pantalla se refleja al no alterar el retiro entregado. |
 | `The cambio retenido field must be less than or equal to :efectivo_contado.` | `app/Services/CajaService.php:359` | No | Validación estándar del formulario; en Paso 2 se explica conceptualmente que el retiro es contado menos retenido. |
 | `Caja cerrada.` | `app/Http/Controllers/CajaWebController.php:190` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que la caja pasa a estado Cerrada. |
+
+- **Agregado el 01/11/2026 por T107 (`CajaService::cerrarCajaOperativa`, ejecutado en `CierrePantallaViejaT107Test`): el aviso «Cambió el efectivo esperado».**

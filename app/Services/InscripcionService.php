@@ -30,6 +30,17 @@ class InscripcionService
         return $query->first();
     }
 
+    /**
+     * T108, Carlos 01/11/2026: quien ya tiene una ficha es del club y no vuelve a pagar inscripción,
+     * aunque no tenga una registrada, como quien entró por la primera carga con «Inscripción: No».
+     */
+    public function yaEsDelClub(string $dni, ?int $salvoAlumnoId = null): bool
+    {
+        return Alumno::whereRaw("REPLACE(REPLACE(REPLACE(dni, '.', ''), ' ', ''), '-', '') = ?", [self::dni($dni)])
+            ->when($salvoAlumnoId, fn ($q) => $q->whereKeyNot($salvoAlumnoId))
+            ->exists();
+    }
+
     public function importe(): float
     {
         $importe = Configuracion::get('inscripcion_importe');

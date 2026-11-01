@@ -134,6 +134,7 @@ Formato y pantalla: [maqueta aprobada](../05-pendientes/maqueta-primera-carga/RE
 - Una fila por DNI/deporte; 12 pares mes/monto. Solo Alumnos se completa; Catálogos y Guía no se importan.
 - Grupo y plan activos existentes, relacionados al deporte y con precio. Nunca se crean catálogos desde el archivo.
 - Revisión completa sin escrituras: todos los errores con fila, columna y esperado. Excel original con AM Errores, conservando datos y tipos.
+- **T108, Carlos 01/11/2026:** quien ya tiene una ficha en el club, activa o inactiva, no vuelve a pagar inscripción al darle de alta otra, aunque no tenga una registrada (por ejemplo, entró por la primera carga con «Inscripción: No»). El aviso previo lo dice. Lo cargado antes de este cambio no se corrige solo.
 - Sí/No de inscripción y cuotas son independientes. No en cuotas exige pares vacíos; Sí exige al menos uno completo y no repetir mes.
 - Carga atómica: alumno, plan, inscripción si el archivo dice Sí (una por DNI al importe configurado), y solamente las deudas declaradas. Sin cuotas automáticas, descuentos de bienvenida, pagos ni movimientos de caja.
 - Monto es saldo pendiente: una cuota de $48.000 con $20.000 pagados antes del sistema entra como deuda de $28.000 y cero pagos locales; no se inventa el pago previo.

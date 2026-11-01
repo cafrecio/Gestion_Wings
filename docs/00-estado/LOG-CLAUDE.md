@@ -27,6 +27,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T107 y T108
+
+- **T107:** la pantalla de cierre guarda el esperado que mostró; si cambió, Wings no cierra y avisa el nuevo. Un faltante real con la pantalla al día sigue cerrando. Un POST sin ese dato cierra como antes: solo se perjudica quien lo arma.
+- **T108, decisión de Carlos:** quien ya tiene una ficha no vuelve a pagar inscripción, aunque no tenga una registrada. Solo en el alta manual: la primera carga con «Sí» la sigue creando. La inscripción de $8.000 de Thiago en el sitio no se corrige sola; lo resuelve el guion de la tanda 5, como el saldo de Clara.
+- **Pruebas:** 18 nuevas. No hice mutaciones en la carpeta compartida, después de lo de T94. **Sigue:** falta decidir quién controla. Sin desplegar. Segundo control de T94, que Gemini ya subió.
+
 ## 2026-11-01 — Claude CAB — T97: control de la entrega de Codex, cerrada
 
 - **Resultado:** aprobada. Las 31 de Codex pasan sobre `main` con T106, y 8 mías también: plata al peso con centavos, mes anterior, permisos y formulario viejo. [Informe](../06-pruebas/PRU-04/VERIFICACION-T97-CLAUDE.md).

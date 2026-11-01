@@ -84,6 +84,7 @@ Solo movimientos ACTIVO del medio físico guardado en el turno:
 - Contado y cambio retenido deben ser no negativos; retenido no supera contado.
   Se puede dejar más cambio que al abrir, si alcanza el efectivo realmente contado.
 - Faltante o sobrante no bloquean cerrar. ADMIN revisa esperado, contado y diferencia.
+- **T107, Carlos 01/11/2026:** si el esperado cambió desde que se abrió la pantalla de cierre, no se cierra: se avisa el esperado nuevo y se vuelve a la pantalla. Un faltante real con la pantalla al día sigue cerrando.
 - El dueño del turno o ADMIN cuentan y cierran. Guardar actor, fecha y condición ADMIN.
 - Validar o rechazar exige caja CERRADA con conteo; ninguna de esas acciones cierra
   automáticamente una ABIERTA ni inventa un contado.

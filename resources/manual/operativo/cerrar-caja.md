@@ -50,6 +50,9 @@ Esta tarea te explica cómo realizar el cierre de tu turno de caja al finalizar 
 
 ## Qué hago si…
 
+### ¿Qué hago si dice «Cambió el efectivo esperado»?
+Entró o se corrigió un movimiento desde que abriste la pantalla, por ejemplo un cobro desde otra pestaña. Wings no cierra la caja: vuelve a la pantalla con el esperado nuevo. Revisá lo que contaste y tocá **Cerrar** de nuevo.
+
 ### ¿Qué hago si tengo un faltante o sobrante de dinero?
 No alteres los números para forzar que den cero: ingresá el efectivo real que contaste físicamente. Wings permite cerrar el turno con diferencia. El dueño revisará los cobros y egresos al momento de la validación y decidirá cómo proceder.
 

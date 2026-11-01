@@ -959,17 +959,23 @@
           "l": "b",
           "texto": "Con la caja ya cerrada, cobrar desde la otra pestaña manda a Apertura.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Pantalla de cierre vieja",
+          "l": "c",
+          "texto": "Si el esperado cambió desde que se abrió, no cierra: avisa el esperado nuevo y vuelve a la pantalla, sin faltante falso.",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "Contrato Caja V5 (CJ-34).",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T107. Contrato Caja V5 (CJ-34).",
       "modulo": "Caja",
       "pantalla": "caja-cierre",
       "requiere": "Caja abierta en dos pestañas.",
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T107",
       "tipo": "romper",
       "titulo": "Entra un cobro mientras se cierra"
     },

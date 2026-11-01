@@ -31,3 +31,5 @@
 | `Debe seleccionar la frecuencia semanal.` | `app/Http/Controllers/AlumnoWebController.php:372` | No | El Paso 3 explica que se debe elegir la frecuencia semanal para definir el plan, sin citar el mensaje de validación del formulario. |
 | `El campo dni ya ha sido registrado.` | `app/Http/Controllers/AlumnoWebController.php:371` | No | En «Qué hago si: ¿Qué hago si el DNI ya está registrado en el sistema?» explica conceptualmente que el DNI es único sin citar la validación técnica. |
 | `Alumno creado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:420` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que Wings guarda y te lleva directo a su ficha. |
+
+- **Agregado el 01/11/2026 por T108 (`InscripcionService::yaEsDelClub`, ejecutado en `InscripcionSegundaFichaT108Test`): el segundo deporte no paga inscripción.**

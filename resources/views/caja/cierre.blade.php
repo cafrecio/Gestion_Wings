@@ -22,6 +22,9 @@
     </div>
     <form method="POST" action="{{ route('web.caja.cerrar', $caja->id) }}" data-caja-arqueo data-esperado-centavos="{{ $arqueo['efectivo_esperado'] === null ? '' : (int) round($arqueo['efectivo_esperado'] * 100) }}">
         @csrf
+        @if($arqueo['efectivo_esperado'] !== null)
+        <input type="hidden" name="esperado_visto" value="{{ $arqueo['efectivo_esperado'] }}">
+        @endif
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach(['efectivo_contado' => 'Efectivo contado', 'cambio_retenido' => 'Cambio que queda'] as $campo => $rotulo)
             <div>
