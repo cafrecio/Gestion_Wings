@@ -51,8 +51,6 @@ Nada.
 |---|---|---|
 | **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Hecho, espera verificación (hizo Gemini) | Verificar implementación de Desvalidar y propuesta de catálogo/manual |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | En curso | Carlos 01/11: hacerlo. Rechazar un mes que todavia no empezo. |
-| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude |
-| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude |
 
 ## Codex
 
@@ -63,7 +61,10 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Devuelto (hizo Gemini) | Configuracion se traba si se cancela el aviso de salida; informe a corregir. Prompt: PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md |
+| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Devuelto (hizo Gemini) | Se ve bien en pantalla; faltan 3 pruebas. Prompt: PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md |
 
 ## Sin empezar (10)
 
