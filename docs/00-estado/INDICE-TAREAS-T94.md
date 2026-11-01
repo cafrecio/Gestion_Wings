@@ -4,10 +4,9 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
-| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | La hace Gemini cuando termine T96; opción elegida: desactivar. El prompt, solo cuando Carlos lo pida. |
-| **T96** | Cómo se configura el efectivo del cajón: ahora es siempre Efectivo y el dueño carga una vez el saldo inicial. | Gemini la está controlando. |
-| **T97** | Una transferencia entre cuentas no se puede corregir ni anular. | Prompt para Codex entregado (`PRU-04/PROMPT-CODEX-T97.md`). Controla Claude. |
-| **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | La resuelve Claude, controla Codex (Carlos, 01/11). |
+| **T94** | Sacarle una frecuencia a un grupo da error si alguna vez se usó, y dice «Grupo actualizado» sin haberlo hecho si tiene alumnos. | La hace Gemini, con la opción de desactivar. Prompt entregado (`PRU-04/PROMPT-GEMINI-T94.md`). Controla Claude. |
+| **T97** | Una transferencia entre cuentas no se puede corregir ni anular. | Codex la está haciendo, con tu OK visual. Después la controla Claude. |
+| **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | Hecha por Claude: cancelar borra la cuota nacida de ese cobro (Carlos eligió, 01/11). Falta el control de Codex, después de T97. |
 | **T101** | Un gasto que carga el dueño en el turno de una operativa queda a nombre de ella. | Sin empezar. Visto en el código; falta verlo en pantalla (día 45.8). |
 | **T102** | Un nivel con grupos no se puede eliminar, y tampoco inactivar porque esa opción no existe. | Sin empezar. La hace Claude; lleva OK visual de Carlos. |
 | **T104** | «Sin descubierto» solo se controla al pagar una liquidación; un gasto o una transferencia pueden dejar la cuenta en negativo igual. | Sin empezar. Claude lee los contratos y le explica a Carlos si el problema es real. |
