@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\{CashflowCorreccion, CashflowMovimiento, Subrubro, User};
 use App\Rules\ImportePesos;
+use App\Rules\MedioDePagoActivo;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\{DB, Schema, Validator};
 use Illuminate\Validation\ValidationException;
@@ -36,7 +37,7 @@ class CashflowCorreccionService
         if ($accion === 'EDITAR') $reglas += [
             'monto' => ['required', 'numeric', 'min:0.01', 'max:9999999999.99', new ImportePesos],
             'fecha' => 'required|date_format:Y-m-d|before_or_equal:today',
-            'tipo_caja_id' => 'required|integer|exists:tipos_caja,id',
+            'tipo_caja_id' => ['bail', 'required', 'integer', 'exists:tipos_caja,id', new MedioDePagoActivo(($medio = CashflowMovimiento::whereKey($id)->value('tipo_caja_id')) !== null ? (int) $medio : null)],
             'subrubro_id' => 'required|integer|exists:subrubros,id',
             'observaciones' => 'required|string|max:500',
         ];

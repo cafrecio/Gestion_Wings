@@ -1,77 +1,77 @@
 48.5 | ADMIN | GET /caja/configuracion | 302 → http://gestion-wings/caja
 48.5 configuración | ADMIN | POST /caja/configuracion | 302 | Efectivo ya está configurado y no se puede cambiar.
-48.5 nombre y saldo de Efectivo | ADMIN | PUT /tipos-caja/338 | 302 | 
-55.6 desactivar Efectivo | ADMIN | PATCH /tipos-caja/338/toggle-activo | 302 | No se puede desactivar porque es el medio de pago del cajón de mostrador.
-52.3 saldo inicial de un medio usado | ADMIN | PUT /tipos-caja/344 | 302 | 
-50.8 la operativa cancela la serie | OPERATIVO | PATCH /clases/68/cancelar | 200 | 2 clase(s) de la serie canceladas.
-51.4 editar Cuota Mensual | ADMIN | PUT /rubros/465/subrubros/870 | 302 | No se puede editar: subrubro reservado del sistema.
-51.4 desactivar Cuota Mensual | ADMIN | PATCH /rubros/465/subrubros/870/toggle-activo | 302 | No se puede desactivar: subrubro reservado del sistema.
-51.4 borrar su rubro | ADMIN | DELETE /rubros/465 | 302 | No se puede eliminar: tiene subrubros asociados.
+48.5 nombre y saldo de Efectivo | ADMIN | PUT /tipos-caja/1 | 302 | 
+55.6 desactivar Efectivo | ADMIN | PATCH /tipos-caja/1/toggle-activo | 302 | No se puede desactivar porque es el medio de pago del cajón de mostrador.
+52.3 saldo inicial de un medio usado | ADMIN | PUT /tipos-caja/7 | 302 | 
+50.8 la operativa cancela la serie | OPERATIVO | PATCH /clases/3/cancelar | 403 | La serie la cancela el dueño. No se canceló ninguna clase.
+51.4 editar Cuota Mensual | ADMIN | PUT /rubros/17/subrubros/24 | 302 | No se puede editar: subrubro reservado del sistema.
+51.4 desactivar Cuota Mensual | ADMIN | PATCH /rubros/17/subrubros/24/toggle-activo | 302 | No se puede desactivar: subrubro reservado del sistema.
+51.4 borrar su rubro | ADMIN | DELETE /rubros/17 | 302 | No se puede eliminar: tiene subrubros asociados.
 armado: generar | ADMIN | POST /liquidaciones | 302 | 
-armado: cerrar | ADMIN | POST /liquidaciones/7/cerrar | 302 | 
-armado: pagar | ADMIN | POST /liquidaciones/7/pagar | 302 | 
-51.8 editar caja validada | ADMIN | PUT /cashflow/movimientos/15 | 403 | 
-51.8 eliminar caja validada | ADMIN | DELETE /cashflow/movimientos/15 | 403 | 
-51.8 editar liquidación pagada | ADMIN | PUT /cashflow/movimientos/16 | 403 | 
-51.8 eliminar liquidación pagada | ADMIN | DELETE /cashflow/movimientos/16 | 403 | 
-51.8 editar anulado | ADMIN | PUT /cashflow/movimientos/17 | 403 | 
-51.8 eliminar anulado | ADMIN | DELETE /cashflow/movimientos/17 | 403 | 
-51.8 editar cobro del dueño | ADMIN | PUT /cashflow/movimientos/14 | 403 | 
-51.8 eliminar cobro del dueño | ADMIN | DELETE /cashflow/movimientos/14 | 403 | 
+armado: cerrar | ADMIN | POST /liquidaciones/1/cerrar | 302 | 
+armado: pagar | ADMIN | POST /liquidaciones/1/pagar | 302 | 
+51.8 editar caja validada | ADMIN | PUT /cashflow/movimientos/3 | 403 | 
+51.8 eliminar caja validada | ADMIN | DELETE /cashflow/movimientos/3 | 403 | 
+51.8 editar liquidación pagada | ADMIN | PUT /cashflow/movimientos/4 | 403 | 
+51.8 eliminar liquidación pagada | ADMIN | DELETE /cashflow/movimientos/4 | 403 | 
+51.8 editar anulado | ADMIN | PUT /cashflow/movimientos/5 | 403 | 
+51.8 eliminar anulado | ADMIN | DELETE /cashflow/movimientos/5 | 403 | 
+51.8 editar cobro del dueño | ADMIN | PUT /cashflow/movimientos/2 | 403 | 
+51.8 eliminar cobro del dueño | ADMIN | DELETE /cashflow/movimientos/2 | 403 | 
 armado: generar | ADMIN | POST /liquidaciones | 302 | 
-armado: cerrar | ADMIN | POST /liquidaciones/8/cerrar | 302 | 
-armado: pagar | ADMIN | POST /liquidaciones/8/pagar | 302 | 
+armado: cerrar | ADMIN | POST /liquidaciones/2/cerrar | 302 | 
+armado: pagar | ADMIN | POST /liquidaciones/2/pagar | 302 | 
 53.5 generar otra vez | ADMIN | POST /liquidaciones | 302 | Ya existe una liquidación para el profesor en 10/2026.
-54.7 cancelar | ADMIN | POST /liquidaciones/8/cancelar | 302 | No se puede cancelar una liquidación pagada.
-53.7 y 54.7 eliminar | ADMIN | DELETE /liquidaciones/8 | 302 | No se puede eliminar una liquidación cerrada o cancelada.
-54.7 recalcular | ADMIN | POST /liquidaciones/8/recalcular | 302 | No se puede recalcular una liquidación cerrada, cancelada o pagada.
-54.7 ajustar | ADMIN | POST /liquidaciones/8/ajustar | 302 | Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.
-54.7 pagar de nuevo | ADMIN | POST /liquidaciones/8/pagar | 302 | 
+54.7 cancelar | ADMIN | POST /liquidaciones/2/cancelar | 302 | No se puede cancelar una liquidación pagada.
+53.7 y 54.7 eliminar | ADMIN | DELETE /liquidaciones/2 | 302 | No se puede eliminar una liquidación cerrada o cancelada.
+54.7 recalcular | ADMIN | POST /liquidaciones/2/recalcular | 302 | No se puede recalcular una liquidación cerrada, cancelada o pagada.
+54.7 ajustar | ADMIN | POST /liquidaciones/2/ajustar | 302 | Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.
+54.7 pagar de nuevo | ADMIN | POST /liquidaciones/2/pagar | 302 | 
 53.9 liquidación de quien no tuvo clases | ADMIN | POST /liquidaciones | 302 | 
 53.9 | quedó creada: 1
-56.2 Pablo rectifica la caja abierta de Sandra | OPERATIVO | POST /caja/122/rectificar | 403 | 
-56.2 Sandra rectifica con motivo corto | OPERATIVO | POST /caja/122/rectificar | 302 | El campo motivo de la rectificación debe tener al menos 3 caracteres.
-56.2 Sandra rectifica su validada | OPERATIVO | POST /caja/122/rectificar | 302 | Solo se puede rectificar una caja en estado ABIERTA.
+56.2 Pablo rectifica la caja abierta de Sandra | OPERATIVO | POST /caja/9/rectificar | 403 | 
+56.2 Sandra rectifica con motivo corto | OPERATIVO | POST /caja/9/rectificar | 302 | El campo motivo de la rectificación debe tener al menos 3 caracteres.
+56.2 Sandra rectifica su validada | OPERATIVO | POST /caja/9/rectificar | 302 | Solo se puede rectificar una caja en estado ABIERTA.
 56.1 abrir con la pantalla vieja | OPERATIVO | POST /caja/apertura | 302 | Cambió el último cierre. Volvé a abrir la pantalla y confirmá el efectivo.
 56.1 | cajas nuevas: 0
-56.5 Sandra crea un mes pasado | OPERATIVO | POST /alumnos/65/cuotas-pasadas | 403 | 
-56.5 mes anterior al ingreso | ADMIN | POST /alumnos/65/cuotas-pasadas | 302 | Ese mes es anterior al ingreso del alumno.
-56.5 mes que ya existe | ADMIN | POST /alumnos/65/cuotas-pasadas | 302 | Ese mes ya tiene su cuota.
-55.5 Sandra elimina | OPERATIVO | DELETE /alumnos/65 | 403 | 
-55.5 el dueño elimina con pagos | ADMIN | DELETE /alumnos/65 | 302 | No se puede eliminar el alumno: Tiene pagos registrados. Puede pasarlo a Inactivo.
-COB-026 importe negativo | OPERATIVO | POST /caja/cobrar/66 | 422 | El campo monto entregado debe ser al menos 0.01. (and 1 more error)
-COB-026 importe mayor al saldo | OPERATIVO | POST /caja/cobrar/66 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
-COB-026 cuota con importe negativo | OPERATIVO | POST /caja/cobrar/66 | 422 | El campo importe debe ser al menos 0.01. (and 1 more error)
-COB-026 medio inexistente | OPERATIVO | POST /caja/cobrar/66 | 422 | El valor elegido para medio de pago no existe.
-COB-026 período inexistente | OPERATIVO | POST /caja/cobrar/66 | 302 | El alumno no tiene un plan aplicable al período 2020-01.
-COB-026 con letras | OPERATIVO | POST /caja/cobrar/66 | 422 | El campo importe debe ser un número. (and 1 more error)
+56.5 Sandra crea un mes pasado | OPERATIVO | POST /alumnos/6/cuotas-pasadas | 403 | 
+56.5 mes anterior al ingreso | ADMIN | POST /alumnos/6/cuotas-pasadas | 302 | Ese mes es anterior al ingreso del alumno.
+56.5 mes que ya existe | ADMIN | POST /alumnos/6/cuotas-pasadas | 302 | Ese mes ya tiene su cuota.
+55.5 Sandra elimina | OPERATIVO | DELETE /alumnos/6 | 403 | 
+55.5 el dueño elimina con pagos | ADMIN | DELETE /alumnos/6 | 302 | No se puede eliminar el alumno: Tiene pagos registrados. Puede pasarlo a Inactivo.
+COB-026 importe negativo | OPERATIVO | POST /caja/cobrar/7 | 422 | El campo monto entregado debe ser al menos 0.01. (and 1 more error)
+COB-026 importe mayor al saldo | OPERATIVO | POST /caja/cobrar/7 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
+COB-026 cuota con importe negativo | OPERATIVO | POST /caja/cobrar/7 | 422 | El campo importe debe ser al menos 0.01. (and 1 more error)
+COB-026 medio inexistente | OPERATIVO | POST /caja/cobrar/7 | 422 | El valor elegido para medio de pago no existe.
+COB-026 período inexistente | OPERATIVO | POST /caja/cobrar/7 | 302 | El alumno no tiene un plan aplicable al período 2020-01.
+COB-026 con letras | OPERATIVO | POST /caja/cobrar/7 | 422 | El campo importe debe ser un número. (and 1 more error)
 COB-026 alumno inexistente | OPERATIVO | POST /caja/cobrar/999999 | 404 | No query results for model [App\Models\Alumno] 999999
-COB-026 | pagos después de los adulterados: 77:30000.00:COMPLETADO | cuota de octubre: [{"monto_original":"30000.00","monto_pagado":"0.00","estado":"PENDIENTE"}]
-COB-026 importe de cuota mayor al saldo | OPERATIVO | POST /caja/cobrar/66 | 302 | 
-57.5 el dueño, con la pantalla vieja, por Galicia | ADMIN | POST /caja/cobrar/66 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
-MOV-017 editar | OPERATIVO | PUT /caja/126/movimientos/79 | 302 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
-MOV-017 eliminar | OPERATIVO | DELETE /caja/126/movimientos/79 | 422 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
-MOV-017 editar | ADMIN | PUT /caja/126/movimientos/79 | 302 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
-MOV-017 eliminar | ADMIN | DELETE /caja/126/movimientos/79 | 422 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
-CBZ-009 condonar la pagada | ADMIN | POST /deudas/131/condonar | 302 | Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: PAGADA
-CBZ-009 motivo corto | ADMIN | POST /deudas/132/condonar | 302 | El motivo de la condonación debe tener al menos 10 caracteres.
-CBZ-009 condonar la condonada | ADMIN | POST /deudas/132/condonar | 302 | Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: CONDONADA
-CBZ-009 cobrar la condonada | OPERATIVO | POST /caja/cobrar/67 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
-ASI-010 alumno de otro grupo | PROFESOR | POSTJSON /clases/75/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
-ASI-010 alumno inexistente | PROFESOR | POSTJSON /clases/75/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
-ASI-010 alumno dado de baja | PROFESOR | POSTJSON /clases/75/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
+COB-026 | pagos después de los adulterados: 8:30000.00:COMPLETADO | cuota de octubre: [{"monto_original":"30000.00","monto_pagado":"0.00","estado":"PENDIENTE"}]
+COB-026 importe de cuota mayor al saldo | OPERATIVO | POST /caja/cobrar/7 | 302 | 
+57.5 el dueño, con la pantalla vieja, por Galicia | ADMIN | POST /caja/cobrar/7 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
+MOV-017 editar | OPERATIVO | PUT /caja/13/movimientos/7 | 302 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
+MOV-017 eliminar | OPERATIVO | DELETE /caja/13/movimientos/7 | 422 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
+MOV-017 editar | ADMIN | PUT /caja/13/movimientos/7 | 302 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
+MOV-017 eliminar | ADMIN | DELETE /caja/13/movimientos/7 | 422 | Los cobros y movimientos automáticos no se editan ni eliminan. Los cobros se cancelan con motivo.
+CBZ-009 condonar la pagada | ADMIN | POST /deudas/14/condonar | 302 | Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: PAGADA
+CBZ-009 motivo corto | ADMIN | POST /deudas/15/condonar | 302 | El motivo de la condonación debe tener al menos 10 caracteres.
+CBZ-009 condonar la condonada | ADMIN | POST /deudas/15/condonar | 302 | Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: CONDONADA
+CBZ-009 cobrar la condonada | OPERATIVO | POST /caja/cobrar/8 | 302 | El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.
+ASI-010 alumno de otro grupo | PROFESOR | POSTJSON /clases/10/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
+ASI-010 alumno inexistente | PROFESOR | POSTJSON /clases/10/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
+ASI-010 alumno dado de baja | PROFESOR | POSTJSON /clases/10/asistencias | 422 | El alumno indicado no pertenece al grupo de la clase.
 ASI-010 clase inexistente | PROFESOR | POSTJSON /clases/999999/asistencias | 404 | No query results for model [App\Models\Clase] 999999
-56.8 lista de una clase futura | PROFESOR | POSTJSON /clases/76/asistencias | 422 | La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.
-T113 validar una clase | OPERATIVO | PATCH /clases/76/validar | 403 | 
-T113 validar una clase | PROFESOR | PATCH /clases/76/validar | 403 | 
-ALU-019 grupo de otro deporte | OPERATIVO | PUT /alumnos/71 | 302 | El grupo seleccionado no pertenece al deporte elegido.
-ALU-019 plan de otro grupo | OPERATIVO | PUT /alumnos/71 | 302 | La frecuencia seleccionada no corresponde al grupo.
-ALU-019 | después: 200 / 69 · deporte original 200 · planes [{"plan_id":67,"fecha_desde":"2026-09-01T03:00:00.000000Z","fecha_hasta":null,"activo":true}]
+56.8 lista de una clase futura | PROFESOR | POSTJSON /clases/11/asistencias | 422 | La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.
+T113 validar una clase | OPERATIVO | PATCH /clases/11/validar | 403 | 
+T113 validar una clase | PROFESOR | PATCH /clases/11/validar | 403 | 
+ALU-019 grupo de otro deporte | OPERATIVO | PUT /alumnos/12 | 302 | El grupo seleccionado no pertenece al deporte elegido.
+ALU-019 plan de otro grupo | OPERATIVO | PUT /alumnos/12 | 302 | La frecuencia seleccionada no corresponde al grupo.
+ALU-019 | después: 27 / 10 · deporte original 27 · planes [{"plan_id":9,"fecha_desde":"2026-09-01T03:00:00.000000Z","fecha_hasta":null,"activo":true}]
 T95 valor hora vacío | ADMIN | POST /profesores | 302 | Cargá el valor por hora.
 T95 valor hora cero | ADMIN | POST /profesores | 302 | El valor por hora debe ser mayor a cero.
 T95 valor hora negativo | ADMIN | POST /profesores | 302 | El valor por hora debe ser mayor a cero. / Ingresá un importe válido, con hasta dos decimales.
 SIS-004 00:10 con la caja de ayer abierta | OPERATIVO | POST /caja/movimiento | 302 | Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.
-T119 cobrar por un medio inactivo | OPERATIVO | POST /caja/cobrar/73 | 302 | 
-T119 cambiarle el deporte a un alumno | OPERATIVO | PUT /alumnos/73 | 302 | 
+T119 cobrar por un medio inactivo | OPERATIVO | POST /caja/cobrar/14 | 302 | Elegí un medio de pago activo.
+T119 cambiarle el deporte a un alumno | OPERATIVO | PUT /alumnos/14 | 302 | No se puede cambiar el deporte de un alumno: cargá otra ficha para el otro deporte.
 REP-009 | Reportes 200 | avisa sin clasificar: sí
 REP-009 | Inicio 200 | avisa sin clasificar: sí

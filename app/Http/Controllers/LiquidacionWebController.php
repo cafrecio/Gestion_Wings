@@ -11,6 +11,7 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Rules\ImportePesos;
+use App\Rules\MedioDePagoActivo;
 use App\Services\LiquidacionPagoService;
 use App\Services\LiquidacionService;
 use Illuminate\Http\RedirectResponse;
@@ -408,7 +409,7 @@ class LiquidacionWebController extends Controller
     {
         $request->validate([
             'fecha_pago'    => 'required|date|before_or_equal:today',
-            'tipo_caja_id'  => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'observaciones' => 'nullable|string|max:500',
             'monto_esperado'=> 'nullable|numeric|min:0',
         ], [

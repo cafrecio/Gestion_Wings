@@ -18,6 +18,7 @@ use App\Models\TipoCaja;
 use App\Models\User;
 use App\Services\CajaService;
 use App\Rules\ImportePesos;
+use App\Rules\MedioDePagoActivo;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -469,7 +470,7 @@ class CajaWebController extends Controller
         }
 
         $request->validate([
-            'tipo_caja_id'  => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
@@ -548,8 +549,9 @@ class CajaWebController extends Controller
             return back()->with('error', 'Solo se pueden editar movimientos de una caja abierta o rechazada.');
         }
 
+        $medioActual = MovimientoOperativo::where('caja_operativa_id', $caja->id)->whereKey($movId)->value('tipo_caja_id');
         $request->validate([
-            'tipo_caja_id'  => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo($medioActual !== null ? (int) $medioActual : null)],
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
@@ -881,7 +883,7 @@ class CajaWebController extends Controller
         ImportePesos::preparar($request, ['montos_cuota.*', 'monto_entregado']);
 
         $request->validate([
-            'tipo_caja_id'   => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'   => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'periodos'       => 'nullable|array',
             'periodos.*'     => ['required', 'string', 'regex:/^\d{4}-(0[1-9]|1[0-2])$/'],
             'periodos_manuales' => 'nullable|array',
@@ -1112,7 +1114,7 @@ class CajaWebController extends Controller
         ImportePesos::preparar($request, ['monto']);
 
         $request->validate([
-            'tipo_caja_id'  => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'observaciones' => 'nullable|string|max:500',

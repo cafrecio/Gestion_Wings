@@ -1003,7 +1003,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Contrato alumno-grupo-deporte V4. Por lectura del código, en la edición el plan solo se valida contra el grupo cuando el alumno no tiene plan: es probable que acepte un plan de otro grupo. Comprobado por Claude el 13/10 en la base descartable: la edición acepta el plan de otro grupo y lo deja como plan activo. Revisión de la tanda 5, 01/11/2026: Forzado: el deporte se puede cambiar por envío directo. T119.",
+      "fuente": "Contrato alumno-grupo-deporte V4. Por lectura del código, en la edición el plan solo se valida contra el grupo cuando el alumno no tiene plan: es probable que acepte un plan de otro grupo. Comprobado por Claude el 13/10 en la base descartable: la edición acepta el plan de otro grupo y lo deja como plan activo. Revisión de la tanda 5, 01/11/2026: Forzado: el deporte se podía cambiar por envío directo. Reparado en T119, sin desplegar.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-edicion",
       "requiere": "Herramienta para enviar el formulario adulterado.",

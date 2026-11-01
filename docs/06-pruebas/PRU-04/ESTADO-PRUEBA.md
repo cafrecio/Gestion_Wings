@@ -30,7 +30,7 @@ Revisado contra el [guion](GUION-DIAS-48-57.md), el [resultado de Codex](RESULTA
 | 1 | Plata al peso | **Cumple.** La base del sitio es igual a la simulación en 11 tablas, salvo Clara, Mariela y el texto de un motivo: errores de mi guion, abajo. Final: deuda $1.053.500, disponible $7.696.080,25 |
 | 2 | Las reparaciones cumplen | **Cumplen las 13.** Codex marcó cuatro «no cumple» por el texto o el momento, y T95 y T105 «no probado»: abajo, una por una |
 | 3 | Sin error del servidor ni inglés | **Error del servidor: ninguno. Inglés: no cumple**, T117 |
-| 4 | Solo defectos anunciados | T110 a T114 salieron como se anunciaron. **Nuevos: T117, T118 y T119** |
+| 4 | Solo defectos anunciados | T110 a T114 salieron como se anunciaron. **Nuevos: T117, T118 y T119**. T119 reparada por Claude el mismo día, sin desplegar; T117 y T118 las tiene Gemini |
 | 5 | Lo no probado, por su nombre | Al final |
 
 **Las diferencias de plata son errores míos.** Simulé dos pasos tocando la base o llamando directo, sin mirar si la pantalla los ofrece:

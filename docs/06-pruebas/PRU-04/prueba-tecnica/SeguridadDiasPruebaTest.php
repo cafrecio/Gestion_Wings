@@ -1505,8 +1505,9 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
             $c = $this->claseMariela->replicate(); $c->fecha = $f; $c->serie_id = $serie; $c->save(); return $c;
         });
         $this->fuerza('50.8 la operativa cancela la serie', $this->sandra, 'patch', route('web.clases.toggle-cancelada', $hermanas[0]->id), ['motivo_cancelacion' => 'Mariela no puede', 'cancelar_serie' => 1], ['Accept' => 'application/json']);
-        // RETRATA T119: el botón no se le ofrece, pero el envío directo la cancela entera. Al repararlo, este control se da vuelta.
-        $this->assertTrue((bool) $hermanas[1]->fresh()->cancelada, 'CLA-025 b: hoy la serie se cancela');
+        // T119 reparada: antes la cancelaba entera.
+        $this->assertFalse((bool) $hermanas[1]->fresh()->cancelada, 'CLA-025 b: la serie no se cancela');
+        $this->assertFalse((bool) $hermanas[0]->fresh()->cancelada, 'CLA-025: tampoco la clase desde la que se pidió');
 
         $cuota = Subrubro::where('nombre', 'Cuota Mensual')->firstOrFail();
         $antes = $cuota->only(['nombre', 'activo', 'permitido_para']);
@@ -1704,22 +1705,22 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
     }
 
     /**
-     * RETRATA T119: controles que están solo en la pantalla. Quien tiene sesión de operativa y arma el envío a mano puede
-     * cobrar por un medio inactivo y cambiarle el deporte a un alumno. La serie está en el control de arriba. Al repararlo, se dan vuelta.
+     * T119 reparada: controles que estaban solo en la pantalla. Antes, con sesión de operativa y el envío armado a mano,
+     * se podía cobrar por un medio inactivo y cambiarle el deporte a un alumno. La serie está en el control de arriba.
      */
-    public function test_dias_48_57_retrato_de_controles_solo_en_pantalla(): void
+    public function test_dias_48_57_controles_que_estaban_solo_en_pantalla(): void
     {
         $inactivo = TipoCaja::create(['nombre' => 'Viejo', 'abreviatura' => 'VJO', 'activo' => false, 'saldo_inicial' => 0]);
         $this->fuerza('T119 cobrar por un medio inactivo', $this->sandra, 'post', route('web.caja.pagar', $this->alumno->id), ['tipo_caja_id' => $inactivo->id, 'periodos' => ['2026-10'], 'montos_cuota' => ['2026-10' => 30000], 'fecha_pago' => '2026-10-15']);
-        $this->assertSame('PAGADA', DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->value('estado'), 'Hoy el cobro entra');
-        $this->assertSame(1, MovimientoOperativo::where('tipo_caja_id', $inactivo->id)->count());
+        $this->assertSame('PENDIENTE', DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-10')->value('estado'), 'El cobro no entra');
+        $this->assertSame(0, MovimientoOperativo::where('tipo_caja_id', $inactivo->id)->count());
 
         $futbol = Deporte::create(['nombre' => 'Fútbol', 'tipo_liquidacion' => 'COMISION', 'activo' => true]);
         $g = Grupo::create(['deporte_id' => $futbol->id, 'nivel_id' => Nivel::create(['nombre' => 'Otro'])->id, 'activo' => true]);
         $p = GrupoPlan::create(['grupo_id' => $g->id, 'clases_por_semana' => 1, 'precio_mensual' => 1000, 'activo' => true]);
         $datos = $this->alumno->only(['nombre', 'apellido', 'dni', 'celular']) + ['fecha_alta' => '2026-09-01', 'fecha_nacimiento' => '2012-01-01', 'nombre_tutor' => 'Tutora', 'telefono_tutor' => '1111111111', 'deporte_id' => $futbol->id, 'grupo_id' => $g->id, 'plan_id' => $p->id];
         $this->fuerza('T119 cambiarle el deporte a un alumno', $this->sandra, 'put', route('web.alumnos.update', $this->alumno->id), $datos);
-        $this->assertSame($futbol->id, (int) $this->alumno->fresh()->deporte_id, 'ALU-019 c: hoy el deporte cambia');
+        $this->assertNotSame($futbol->id, (int) $this->alumno->fresh()->deporte_id, 'ALU-019 c: el deporte no cambia');
     }
 
     /** REP-009: un subrubro viejo sin clasificar, con un movimiento este mes. */

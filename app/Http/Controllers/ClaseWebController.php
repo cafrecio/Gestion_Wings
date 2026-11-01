@@ -609,6 +609,15 @@ class ClaseWebController extends Controller
             $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
             if (!$clase->cancelada) {
+                // T119 / CLA-025: la serie la cancela el dueño. La pantalla no se la ofrece a la operativa; el envío directo tampoco pasa.
+                if ($request->boolean('cancelar_serie') && !Auth::user()->isAdmin()) {
+                    $mensaje = 'La serie la cancela el dueño. No se canceló ninguna clase.';
+                    if ($esJson) {
+                        return response()->json(['success' => false, 'message' => $mensaje], 403);
+                    }
+                    return back()->with('error', $mensaje);
+                }
+
                 // T90 / DU-30: una clase que integra una liquidación cerrada o pagada no se cancela;
                 // la liquidación quedaría pagando una clase cancelada. La pantalla muestra este texto.
                 if ($clase->integraLiquidacionCerrada()) {

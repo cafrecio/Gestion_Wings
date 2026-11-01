@@ -8,9 +8,9 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 | T114 | Reportes → Sueldos no refleja un ajuste o un cambio de tarifa | Decide Carlos |
 | T115 | Nueva liquidación en enero: cambiar solo el mes genera una vacía de diciembre del año nuevo | Decide Carlos |
 | T116 | Un retiro del dueño no entra al turno | Decide Carlos |
-| T117 | Con la sesión vencida, Cobrar y Guardar lista dicen «CSRF token mismatch.» en inglés | Decide Carlos: propongo antes de producción |
-| T118 | «REACTIVADO AUTOMáTICAMENTE» en Revisión | Decide Carlos: una línea |
-| T119 | Serie, medio inactivo y deporte: tres controles solo en pantalla | Decide Carlos: propongo antes de producción |
+| T117 | Con la sesión vencida, Cobrar y Guardar lista dicen «CSRF token mismatch.» en inglés | Gemini la repara; controla Claude |
+| T118 | «REACTIVADO AUTOMáTICAMENTE» en Revisión y otros cortes de texto con acentos | Gemini la repara; controla Claude |
+| T119 | Serie, medio inactivo y deporte: tres controles solo en pantalla | Reparada por Claude, sin desplegar; falta quién la controla |
 
 **Para después de producción (Carlos, 01/11):** T110, T111 y T112. No entran antes.
 

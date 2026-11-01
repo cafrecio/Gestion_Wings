@@ -8,7 +8,7 @@ Sobre la base del sitio de prueba con el reloj en el 5/12, como `wingstest` y en
 | Suite completa | **1.482 aprobadas, 0 fallidas, 6 omitidas, código 0**, en `wings_testing_claude`, 1.668 s |
 | Funcionamiento interno | **66 de 66 en el sitio** (`controles-internos-resultado-dias-48-57.json`). Dieciséis controles describían el día 47 y se pusieron al día; **nueve nuevos**: constancia y corrida del 3/12, los ocho de Revisión, frecuencias y nivel, Efectivo y transferencias, T100, T101 y T108, liquidaciones, Hockey, Mora, Paulina y enero, y los tres meses medio por medio. Probados contra una copia con nueve datos rotos a propósito: 12 en rojo, los nueve nuevos incluidos |
 | Navegador real | **8 de 10 bien** (`navegador-dias-48-57.json`, con su script). Las dos que no: T117 |
-| Seguridad | **68 de 68** (`SeguridadDiasPruebaTest.php`). Doce pruebas nuevas, con 3 caminos que hoy pasan y la prueba **retrata a propósito**: T119. Textos reales en `seguridad-avisos-dias-48-57.txt` |
+| Seguridad | **68 de 68** (`SeguridadDiasPruebaTest.php`). Doce pruebas nuevas. Tres caminos pasaban y la prueba los retrató: T119; reparada, ahora exige el rechazo. Textos reales en `seguridad-avisos-dias-48-57.txt` |
 | Errores del servidor | **Ninguno** en los 3.027 pedidos del recorrido (registro de Apache del 01/11), y `laravel.log` sin entradas desde el 31/10 |
 | Velocidad | **73 pantallas, todas por debajo de 506 ms** (`performance-sitio-dias-48-57.json`). La más lenta, Reportes de Sueldos de noviembre: 193 consultas. Recibo: 3,2 s y 211 KB (`performance-recibo-servidor-dias-48-57.json`): T105 bajó el peso de 1.656 KB, no el tiempo |
 
@@ -58,7 +58,7 @@ Sobre la base del sitio de prueba con el reloj en el 5/12, como `wingstest` y en
 | Hallazgo | Quién llega | Qué pasa | Gravedad |
 |---|---|---|---|
 | **T117. Sesión vencida en lo que se envía sin recargar** (`bootstrap/app.php:98`, `clases-show.js:109`, `cobrar.js:169`). Comprobado en navegador real y en el sitio | Cualquiera: la sesión dura 120 minutos. Una profesora con la lista abierta, una operativa con Cobrar abierto. **Se dio en la prueba: 50.6** | Dice «✗ CSRF token mismatch.» en inglés y se queda en la pantalla. No guarda nada y la plata no se toca, pero quien lo lee no sabe qué hacer. ACC-006 pide ir al ingreso con «Tu sesión expiró.» | Media |
-| **T119. Tres controles están solo en la pantalla** (`ClaseWebController.php:624`, `CajaWebController.php:472` y `:552`, `AlumnoWebController.php:510`). Retratados en la prueba | Solo quien tiene sesión de operativa y arma el envío a mano | Cancela una serie entera, cobra por un medio inactivo y le cambia el deporte a un alumno. CLA-025, COB-026 y ALU-019 piden rechazarlo | Media |
+| *(Reparado en T119, 01/11; falta el control de otro agente.)* **T119. Tres controles estaban solo en la pantalla** (`ClaseWebController.php:624`, `CajaWebController.php:884`, `AlumnoWebController.php:510`). Ahora los rechaza el servidor | Solo quien tiene sesión de operativa y arma el envío a mano | Cancela una serie entera, cobra por un medio inactivo y le cambia el deporte a un alumno. CLA-025, COB-026 y ALU-019 piden rechazarlo | Media |
 | **T118. «REACTIVADO AUTOMáTICAMENTE»** (`revision-cobranza/index.blade.php:116`, `strtoupper`) | Quien abre Revisión → Resueltos | Se ve la á minúscula | Menor |
 
 Ninguno frena producción por plata. No se reparó nada: alcance cerrado, los decide Carlos.

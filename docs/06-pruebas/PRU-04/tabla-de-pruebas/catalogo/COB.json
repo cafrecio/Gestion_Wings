@@ -1409,7 +1409,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "PagoCuotaService y validaciones de CajaWebController::pagar (código leído). Revisión de la tanda 5, 01/11/2026: Forzado: un medio inactivo se acepta; un importe de cuota mayor que el saldo se ignora y cobra lo que se debe. T119.",
+      "fuente": "PagoCuotaService y validaciones de CajaWebController::pagar (código leído). Revisión de la tanda 5, 01/11/2026: Forzado: un medio inactivo se aceptaba, reparado en T119, sin desplegar. Un importe de cuota mayor que el saldo se ignora y cobra lo que se debe.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Caja abierta. Herramienta para enviar el formulario adulterado.",

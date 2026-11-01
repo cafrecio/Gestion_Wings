@@ -1095,7 +1095,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "clases/show (vista leída el 13/10). ClaseWebController::toggleCancelada no distingue rol para la serie: es probable que forzándolo la cancele entera. Comprobado por Claude el 13/10 en la base descartable: la operativa, enviándolo a mano, cancela las tres clases de la serie. Revisión de la tanda 5, 01/11/2026: Forzado: la operativa cancela la serie entera por envío directo. T119.",
+      "fuente": "clases/show (vista leída el 13/10). ClaseWebController::toggleCancelada no distingue rol para la serie: es probable que forzándolo la cancele entera. Comprobado por Claude el 13/10 en la base descartable: la operativa, enviándolo a mano, cancela las tres clases de la serie. Revisión de la tanda 5, 01/11/2026: Forzado: la operativa cancelaba la serie entera por envío directo. Reparado en T119, sin desplegar.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una serie con clases futuras.",

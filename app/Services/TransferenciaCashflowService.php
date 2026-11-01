@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\{CashflowMovimiento, Subrubro, TipoCaja, User};
 use App\Rules\ImportePesos;
+use App\Rules\MedioDePagoActivo;
 use App\Support\ClasificacionSubrubros;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\{DB, Validator};
@@ -27,8 +28,8 @@ class TransferenciaCashflowService
     {
         $datos = Validator::make($datos, [
             'clave' => 'required|uuid',
-            'salida_id' => 'required|integer|exists:tipos_caja,id',
-            'destino_id' => 'required|integer|different:salida_id|exists:tipos_caja,id',
+            'salida_id' => ['bail', 'required', 'integer', 'exists:tipos_caja,id', new MedioDePagoActivo],
+            'destino_id' => ['bail', 'required', 'integer', 'different:salida_id', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'monto' => ['required', 'numeric', 'min:0.01', 'max:9999999999.99', new ImportePesos],
             'fecha' => 'required|date_format:Y-m-d|before_or_equal:today',
             'observaciones' => 'nullable|string|max:500',

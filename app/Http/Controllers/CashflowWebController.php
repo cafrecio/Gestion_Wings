@@ -13,6 +13,7 @@ use App\Services\CashflowService;
 use App\Services\ReporteMensualService;
 use App\Support\RegistroReporteDisponible;
 use App\Rules\ImportePesos;
+use App\Rules\MedioDePagoActivo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -288,7 +289,7 @@ class CashflowWebController extends Controller
     {
         ImportePesos::preparar($request, ['monto']);
         $request->validate([
-            'tipo_caja_id'  => 'required|exists:tipos_caja,id',
+            'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',

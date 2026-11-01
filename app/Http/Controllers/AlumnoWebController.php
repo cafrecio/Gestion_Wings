@@ -508,6 +508,8 @@ class AlumnoWebController extends Controller
 
         $rules = $this->validationRules($request, $alumno);
         $rules['dni'] = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->ignore($alumno->id)->where('deporte_id', $request->input('deporte_id', $alumno->deporte_id))];
+        // T119 / ALU-019: cambiar de deporte es crear otra ficha. El formulario no lo ofrece; el envío directo tampoco pasa.
+        $rules['deporte_id'] = ['required', Rule::in([(string) $alumno->deporte_id, (int) $alumno->deporte_id])];
 
         // Plan obligatorio si el alumno no tiene uno vigente o si cambia de grupo
         if (!$tienePlanValido || $cambiaGrupo) {
@@ -519,6 +521,7 @@ class AlumnoWebController extends Controller
         $validated = $request->validate($rules, array_merge($this->validationMessages(), [
             'plan_id.required' => $cambiaGrupo ? 'Debe seleccionar la frecuencia semanal del nuevo grupo.' : 'Debe seleccionar la frecuencia semanal.',
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
+            'deporte_id.in'    => 'No se puede cambiar el deporte de un alumno: cargá otra ficha para el otro deporte.',
         ]));
         $validated = $this->completarCelular($validated);
 
