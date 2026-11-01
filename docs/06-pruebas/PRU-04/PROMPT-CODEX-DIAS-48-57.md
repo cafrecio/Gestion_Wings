@@ -1,6 +1,6 @@
 # PROMPT — Prueba por días, tanda 5, la última: días 48 a 57 (26/11 al 5/12) — para Codex
 
-> Prompt para Codex, escrito por Claude CAB el 01/11/2026. **Carlos no lo pasa hasta que Claude le avise:** antes hay que desplegar `main` en el sitio de prueba y correr ahí `dia-48-manana.json --simular`, y eso espera a que termine el control de T82 y T100.
+> Prompt para Codex, escrito por Claude CAB el 01/11/2026. Listo para pasar: el sitio de prueba tiene `main` (`219f5d59`, con sus migraciones) y `dia-48-manana.json --simular` dio bien ahí.
 
 **Inicio.** Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md` y leer `AGENTS.md`. Leer **entero** `docs/06-pruebas/PRU-04/GUION-DIAS-48-57.md` antes del primer paso. Sigue donde dejaste el sitio: **25/11 simulado, ninguna caja abierta**. No repetir nada de los días 41 a 47.
 

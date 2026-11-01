@@ -2,7 +2,7 @@
 
 **El guion es [GUION-DIAS-48-57.md](../../GUION-DIAS-48-57.md)**; el prompt, [PROMPT-CODEX-DIAS-48-57.md](../../PROMPT-CODEX-DIAS-48-57.md).
 
-**Todavía no se entrega:** falta T100 y desplegar. El sitio sigue en `6214fd4a`. `ano.php` es la prueba del paso de año, aparte: corre sobre la foto del 57 después de lanzar la generación del 1/1/2027.
+**Lista para entregar:** el sitio tiene `219f5d59` y la rutina del día 48 dio bien con `--simular`. `ano.php` es la prueba del paso de año, aparte: corre sobre la foto del 57 después de lanzar la generación del 1/1/2027.
 
 ## Cómo retomar
 

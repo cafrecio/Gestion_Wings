@@ -92,7 +92,7 @@ Comprobado corriendo la generación de las 06:00 sobre la simulación.
 
 ## Punto de partida
 
-- **El sitio tiene que tener `main` desplegado, con sus migraciones.** Hasta el día 47 tenía `6214fd4a`.
+- **El sitio tiene `main` desplegado, con sus migraciones:** `219f5d59`, 01/11. Hasta el día 47 tenía `6214fd4a`.
 - Reloj en el **25/11**; **no volver atrás**.
 - Deuda **$215.910**; 114 activos: 107 Al día, 2 En plazo (Thiago y Tobías), 5 Morosos. Disponible **$7.441.520,75**: Efectivo $1.772.100, Mercado Pago $3.835.270,75, Galicia $1.776.150, Nación $58.000. Rocío dejó $10.000 de cambio.
 - **No vienen en toda la tanda:** Pilar, Valentina, Emma Villalba, Valentino, Joaquina, Bruno y la ficha de Patín de Thiago. **Alma no viene.** **Liam viene y no paga.** **Tobías viene una vez, a probar, el 30/11.**
