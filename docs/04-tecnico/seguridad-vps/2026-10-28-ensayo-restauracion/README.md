@@ -1,5 +1,26 @@
 # Ensayo de restauración de Wings (T82) — 28/10/2026
 
+## Corrección del 01/11/2026, después del control de Codex
+
+[Control de Codex](VERIFICACION-T82-CODEX.md). **Lo que sigue más abajo es del 28/10.** Allí «plata idéntica» no incluía liquidaciones: el script sumaba una columna vacía o inexistente y decía «ok» sin comparar.
+
+**Script corregido** (`scripts/servidor/ensayo-restauracion.sh`) y corrido de nuevo el 01/11 en el VPS, con el código que tiene cada sitio hoy:
+
+| Corrida | Resultado |
+|---|---|
+| Sitio de prueba, con los datos del 5/12 | 75 s. Todas las tablas contadas y 7 sumas iguales, incluidas liquidaciones $3.026.280,00 y sus detalles. 66 archivos. `/login` 200. Código de salida 0 |
+| Producción, desde Drive, `wings_2026-11-01_0315` | 53 s. `/login` 200. Sin datos de negocio: no prueba plata. Código de salida 0 |
+| GitHub inaccesible, a propósito | Código de salida 1 y limpia todo |
+| Consulta de plata rota, a propósito | «NO COINCIDE», diferencias 1, código de salida 1 y limpia todo |
+
+**Qué cambió:** compara `total_calculado` y `liquidacion_detalles`; un error de consulta cuenta como diferencia; el código de salida dice la verdad; cualquier salida limpia base, usuario y carpeta; rclone trabaja sobre una copia de su configuración, y el `rclone.conf` real quedó igual, comprobado por huella.
+
+**Falta:**
+- **Decisión de Carlos: el `restaurar.sh` viejo sigue en `/root/wings-backup/`.** Es del 30/08 y solo repone la base, sin los archivos. El que vale es `/home/wings/app/scripts/servidor/restaurar.sh`. Quise renombrarlo y el permiso lo frenó: no se tocó.
+- **Lo que este ensayo no prueba:** un servidor vacío ni el volumen real del club. Solo se recuperaron las piezas de Wings en este mismo servidor. Las piezas de la tabla «Qué no está en el respaldo» hay que rearmarlas a mano.
+- **Repetirlo:** antes de desplegar, con el código y las migraciones nuevas sobre una copia; después, con el primer respaldo que traiga el esquema nuevo.
+- Los tres pendientes de abajo siguen abiertos.
+
 Claude CyE. Script: [scripts/servidor/ensayo-restauracion.sh](../../../../scripts/servidor/ensayo-restauracion.sh), corrido en el VPS como root. No toca `/home/wings`, `/home/wingstest` ni las bases `wings` y `wingstest`; al final borra su base, su usuario y su carpeta.
 
 ## Primer ensayo: producción, desde Drive — 52 segundos
@@ -45,7 +66,7 @@ Se rearma a mano o desde otro lado. Lo que dice «repo» está en `scripts/servi
 | Certificado | Let's Encrypt, se emite de nuevo (necesita el DNS apuntando) |
 | Cron del scheduler (usuario `wings`) y del respaldo (root) | Crontab del servidor; los scripts sí están en el repo |
 | `rclone.conf` (acceso a Drive) | Solo en el servidor |
-| Monitoreo y Telegram | `monitoreo.env` solo en el servidor; ejemplo en el repo |
+| Monitoreo y Telegram | `/etc/wings-monitor/alertas.env`, solo en el servidor; ejemplo en el repo |
 | Cloudflare y firewall (`csf.allow`) | Cloudflare y el servidor; rangos documentados en `SERVIDOR.md` |
 | Acceso SSH de los agentes | Se rearma solo desde GitHub (`acceso-agentes.sh`, repo) |
 

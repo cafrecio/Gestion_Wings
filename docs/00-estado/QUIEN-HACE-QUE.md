@@ -41,6 +41,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
 | **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude) | Reparada: serie, medio inactivo y deporte, sin desplegar. 8 pruebas, 13 mutaciones. Decidir quien controla: propongo Codex. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
+| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1, H2 y H4 corregidos y corridos en el VPS. H3: retirar el restaurar.sh viejo de /root/wings-backup lo decide Carlos, el permiso lo freno. Falta quien controla: propongo Codex. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -53,7 +54,6 @@ Nada.
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | En curso | Carlos 01/11: hacerlo. Rechazar un mes que todavia no empezo. |
 | **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude |
 | **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude |
-| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Devuelto (hizo Claude, verifica Codex) | Control Codex 01/11: datos/APP_KEY/archivos recuperados; prueba56 tablas y65 archivos identicos,funcional200. Devuelto por liquidaciones/falso0, falta limpieza en fallo, restaurador legacy y rclone.conf reescrito por llamada original. Limpieza final0restos. VERIFICACION-T82-CODEX.md; servidor vacio/volumen real no probados; tres pendientes existentes abiertos. |
 
 ## Codex
 

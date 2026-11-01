@@ -11,6 +11,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md) · [Entradas archivadas el 31/10](../99-archivo/bitacoras/2026-10-31/LOG-CLAUDE.md)
 
+## 2026-11-01 — Claude CAB — T82: hallazgos de Codex corregidos
+
+- H1, H2 y H4 en `ensayo-restauracion.sh`: compara la plata de liquidaciones, el código de salida dice la verdad, limpia en cualquier salida y no toca el `rclone.conf` real. Corrido en el VPS: prueba 75 s, producción 53 s y dos fallas provocadas; sin restos. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md).
+- H3 no quedó: renombrar el `restaurar.sh` viejo de `/root/wings-backup/` lo frenó el permiso. Lo decide Carlos. `DESPLIEGUE-PRODUCCION.md` ya indica el correcto.
+- Me lo dijo Carlos («¿estás sin hacer nada?»): estaba esperando la base para T115 con T82 devuelta a mí.
+
+## 2026-11-01 — Claude CAB — Pisé la base de otra sesión
+
+- A las 20:06 corrí 3 pruebas de T115 en `wings_testing_claude` mientras otra sesión controlaba ahí T117 y T118. Mi espera buscaba «LIBERADA» en su reserva y esa palabra ya estaba en la regla del archivo, así que terminó enseguida. Avisé a esa sesión: su suite no había arrancado, pisé su control de navegador y lo repite. Para esperar una reserva, mirar la línea «Estado:», no la palabra suelta.
+
 ## 2026-11-01 — Claude CAB — T119 reparada; T117 y T118 a Gemini
 
 - Carlos: T117 y T118 con prompt para Gemini; T119 la reparo yo. Serie: 403 para la operativa. Medio inactivo: regla `MedioDePagoActivo` en los ocho lugares web que escriben un medio. Deporte: no cambia al editar. La API está apagada y no se tocó.

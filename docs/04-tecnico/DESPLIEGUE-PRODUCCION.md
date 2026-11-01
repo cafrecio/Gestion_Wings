@@ -41,8 +41,9 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 - **T10 — textos legales:** condiciones de servicio, privacidad, cookies y leyenda de inscripción esperan los
   datos de Carlos (entre corchetes), moneda, IVA, país del servidor e inscripción en la AAIP. No frena el
   despliegue; frena abrirlo a terceros sin esos textos.
-- **T82 — restauración:** ensayada (52 s desde Drive). Pendientes de Carlos: credencial propia de rclone y
-  sacar la clave de la carpeta de respaldos.
+- **T82 — restauración:** ensayada en este servidor, sin probar un servidor vacío ni el volumen real. Repetir el ensayo
+  antes de desplegar, con el código nuevo sobre una copia, y después, con el primer respaldo del esquema nuevo. Pendientes de
+  Carlos: credencial propia de rclone, sacar la clave de la carpeta de respaldos y retirar el `restaurar.sh` viejo de `/root/wings-backup/`.
 - **Ayuda (T12/T13):** sube como está (etapas A y B); la C sigue después.
 - **Mejoras futuras** del tablero (MF): siguen siendo futuras. La única que toca plata es MF15, un cajón por cajero (Carlos, 01/11/2026).
 
@@ -57,5 +58,5 @@ falló, por Telegram y correo.
 ## Vuelta atrás
 
 El script deja el respaldo con fecha y hora. Volver atrás es: `artisan down`, `git reset --hard <commit anterior>`,
-restaurar la base desde ese respaldo (`restaurar.sh`), cachés, `artisan up`. Como la base arranca vacía de
+restaurar la base desde ese respaldo (`/home/wings/app/scripts/servidor/restaurar.sh`, **no** el de `/root/wings-backup/`, que es viejo y no repone los archivos), cachés, `artisan up`. Como la base arranca vacía de
 operación, el riesgo real de la vuelta atrás es nulo hasta que el club empiece a cargar.
