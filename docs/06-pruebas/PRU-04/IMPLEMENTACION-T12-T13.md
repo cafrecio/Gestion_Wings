@@ -378,6 +378,7 @@ Gemini se quedó sin crédito; Carlos pidió que la etapa C la haga Claude. El c
 ### Puesta al día con T94 a T109 (Claude CAB, 01/11/2026)
 - Barrido del código contra el manual desde `d797d0b5`: 14 páginas corregidas, 7 capturas rehechas del Wings real en un navegador (`scripts/pruebas/capturar-manual-t94-t109.mjs`), 70 citas corridas en 26 fichas (`scripts/manual/actualizar-citas-fichas.php`).
 - [Galería para el OK de Carlos](APROBAR-T12-T13-T94-T109.html). Controla Gemini: [prompt](PROMPT-GEMINI-T12-T13-T94-T109.md).
+- **Control de Gemini, 01/11: un hallazgo grave, confirmado.** Escribí que el dueño carga el retiro con Agregar sin ejecutarlo; T101 solo había probado un subrubro en Ambos. Wings lo rechaza (`CajaService.php:673`). Corregidas las dos páginas: retiro por Cashflow y faltante en el turno, ejecutado en `evidencia-t12-t13/RetiroDuenoCajonRealidadTest.php`. Decisión de Carlos en T116. [Segunda vuelta](PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md).
 - **Abierto, lo decide Carlos:** con qué rubro se compensa un cobro de más en una caja validada. La captura `corregir-movimiento-paso4.png` muestra un rubro que el catálogo no trae: se rehace cuando se decida.
 
 ### Revisión independiente

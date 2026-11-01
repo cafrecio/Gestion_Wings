@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T12/T13 — Control de Gemini y corrección, Claude CAB, 01/11/2026
+
+**Gemini devolvió el manual por un hallazgo grave, confirmado:** decía que el dueño carga el retiro con Agregar y Wings lo rechaza (`CajaService.php:673`). Corregidas `dinero-del-dueno-retiros-aportes` y `registrar-gasto-caja`, con fichas y galería, a lo que Wings hace hoy: retiro por Cashflow y faltante en el turno, ejecutado en `evidencia-t12-t13/RetiroDuenoCajonRealidadTest.php`. Sin cambio de código. **T116, decisión de Carlos antes de producción.** La prueba de Gemini pasó a evidencia porque dejaba `DocumentacionNoMienteTest` en rojo; siguen 1470 pruebas. Segunda vuelta: [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-SEGUNDA-VUELTA.md).
+
 ## T82 — Control independiente Codex CAB, 01/11/2026
 
 **Devuelta a Claude por cuatro hallazgos medios.** Restauradas las piezas de Wings; prueba117 alumnos/229 pagos,56 tablas completas y65 archivos iguales; alumno/pago/liquidación y recibo guardado funcionan,APP_KEY recuperada probada. Original producción40s y prueba59s; `restaurar.sh ensayo`0 en ambos. El script original no compara liquidaciones y termina0 aun con error; fallo provocado deja SQL/env/base/usuario hasta limpieza externa. Restaurador viejo bajo `/root/wings-backup` solo repone base (leído,no ejecutado). La primera descarga reescribió `rclone.conf`14:00:06UTC; causa OAuth inferida, sin diff anterior ni reversión. Limpieza final0restos; negocio vivo igual, sesiones de producción variaron con bots. [Informe de siete controles y límites](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md). Sin servidor vacío/volumen real comprobados; tres pendientes existentes abiertos. Sin corregir producto, despliegue ni suite PHP local.

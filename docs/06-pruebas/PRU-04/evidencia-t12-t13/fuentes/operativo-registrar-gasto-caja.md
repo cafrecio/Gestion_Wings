@@ -12,7 +12,7 @@
 
 | Paso / Caso / Regla | Qué afirma el manual | Archivo y línea en Wings | Condición en el código (`if`) | Qué pasó al ejecutar el camino prohibido en el sistema |
 |---|---|---|---|---|
-| **Regla del dinero del dueño** | El dueño no retira dinero sin asentar. Todo retiro se carga como EGRESO en la caja del mostrador por la operativa. | `app/Http/Controllers/CajaWebController.php:336`<br>`app/Services/CajaService.php:300` | `'tipo' => 'required\|in:INGRESO,EGRESO'` | Mantiene la trazabilidad: el saldo físico esperado del arqueo final coincide con el efectivo real remanente en el cajón. |
+| **Regla del dinero del dueño** | Lo que el dueño se lleva del cajón lo asienta él en Cashflow; el esperado no cambia y el turno cierra con faltante. | `app/Services/CajaService.php:673`<br>`app/Http/Controllers/CajaWebController.php:1150` | `if ($subrubro->permitido_para !== 'OPERATIVO')` | Ejecutado 01/11 (`RetiroDuenoCajonRealidadTest`): esperado sin cambios, diferencia −$2.000 al cerrar. |
 | **Paso 1: Entrar a movimiento** | En **Caja**, tocar botón **Nuevo**. Abre formulario de registro de movimiento. | `resources/views/caja/resumen.blade.php:63`<br>`resources/views/caja/movimiento.blade.php:2` | `@if(in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esPropietario)` | Con caja cerrada o validada el botón no se exhibe. |
 | **Paso 2: Opción EGRESO y rubro** | Seleccionar botón rojo **EGRESO**, **Medio de pago** (Efectivo), **Rubro** y **Subrubro**. | `resources/views/caja/movimiento.blade.php:25-50` | `'tipo' => 'required\|in:INGRESO,EGRESO'` | Al seleccionar EGRESO, la interfaz cambia el color del botón a rojo y filtra los rubros de salida habilitados. |
 | **Paso 3: Monto y registrar** | Ingresar **Monto**, **Observaciones** y tocar botón **Registrar**. Descuenta del saldo de caja. | `resources/views/caja/movimiento.blade.php:60-75`<br>`app/Services/CajaService.php:614-616` | `'monto' => 'required\|numeric\|min:0.01'`<br>`if ($disponible - $viejo + $nuevo < 0)` | Si el gasto supera los billetes del cajón, rechaza con: `El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.`. Con saldo suficiente, descuenta del saldo del turno. |
@@ -36,4 +36,4 @@
 
 | Qué afirma el manual | Archivo y línea | Tarea |
 |---|---|---|
-| El gasto del dueño queda en el turno y a su nombre | `app/Http/Controllers/CajaWebController.php:496` | T101 |
+| El gasto del dueño queda en el turno y a su nombre (solo subrubros en Ambos; no aplica al retiro) | `app/Http/Controllers/CajaWebController.php:496` | T101 |

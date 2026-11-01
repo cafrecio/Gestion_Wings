@@ -35,7 +35,7 @@ Se realizó el control integral del manual de usuario tras los cambios introduci
 
 ## 2. Auditoría de los 4 caminos ejecutados
 
-Todos los caminos fueron implementados y ejecutados en `tests/Feature/VerificacionManualT94T109GeminiTest.php` sobre `wings_testing_gemini`. (Corrida: 4 tests, 35 aserciones, OK en 15.61 s).
+Todos los caminos fueron implementados y ejecutados en `tests/Feature/VerificacionManualT94T109GeminiTest.php` sobre `wings_testing_gemini`. (Corrida: 4 tests, 35 aserciones, OK en 15.61 s). *Nota de Claude CAB, 01/11: la prueba se movió a `docs/06-pruebas/PRU-04/evidencia-t12-t13/`: retrata el defecto como correcto y dejaba `DocumentacionNoMienteTest` en rojo.*
 
 | Camino | Descripción | Resultado | Clasificación | Evidencia |
 |---|---|---|---|---|

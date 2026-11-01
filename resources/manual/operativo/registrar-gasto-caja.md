@@ -3,17 +3,17 @@ titulo: Registrar un gasto menor o salida de dinero del cajón
 rol: operativo
 categoria: Caja y cobranza
 orden: 120
-resumen: Cómo asentar una salida de efectivo del cajón para compras menores o cuando el dueño retira dinero del mostrador.
+resumen: Cómo asentar una salida de efectivo del cajón para compras menores, y qué hacer cuando el dueño se lleva plata.
 pantalla: /caja/movimiento
 du: CAJ-002b
 ---
 
 # Registrar un gasto menor o salida de dinero del cajón
 
-Esta tarea te explica cómo asentar cualquier salida física de billetes del cajón de mostrador: compras menores de insumos, reparaciones urgentes o retiros de efectivo realizados por el dueño del club.
+Esta tarea te explica cómo asentar una salida física de billetes del cajón de mostrador: compras menores de insumos o reparaciones urgentes.
 
 > [!NOTE]
-> *Regla del dinero del dueño:* Si el dueño saca efectivo del cajón, lo carga él mismo en tu turno. Vas a ver ese movimiento en tu caja, a su nombre, y tu efectivo esperado baja en ese importe. Si sacó plata y no lo ves cargado, avisale antes de cerrar: si no, aparece como faltante.
+> *Regla del dinero del dueño:* Si el dueño se lleva efectivo del cajón, no lo cargues vos: no es un gasto del club. Lo asienta él en Cashflow. Tu efectivo esperado no cambia, así que al contar te va a faltar ese importe: cerrá con lo que contaste, queda como faltante y el dueño lo ve al validar.
 
 ---
 
@@ -31,7 +31,7 @@ Esta tarea te explica cómo asentar cualquier salida física de billetes del caj
 ### Paso 2. Seleccionar la opción EGRESO
 1. En **Tipo de movimiento**, hacé clic en el botón rojo **EGRESO**.
 2. En **Medio de pago**, seleccioná la caja de donde sale el dinero (por defecto, **Efectivo**).
-3. En **Rubro**, elegí la clasificación correspondiente (por ejemplo: Gastos generales, Insumos o Retiros).
+3. En **Rubro**, elegí la clasificación correspondiente (por ejemplo: Gastos Operativos).
 4. En **Subrubro**, seleccioná el concepto específico habilitado para mostrador.
 
 ![Selección de EGRESO](/ayuda/img/operativo/registrar-gasto-caja-paso2.png)
@@ -40,7 +40,7 @@ Esta tarea te explica cómo asentar cualquier salida física de billetes del caj
 
 ### Paso 3. Cargar el importe y registrar
 1. En el campo **Monto**, escribí el importe exacto en pesos que sale del cajón.
-2. En **Observaciones**, ingresá el detalle de la compra o destino del dinero (por ejemplo: "Compra artículos de limpieza para vestuarios" o "Retiro de efectivo por dueño").
+2. En **Observaciones**, ingresá el detalle de la compra o destino del dinero (por ejemplo: "Compra artículos de limpieza para vestuarios").
 3. Hacé clic en el botón **Registrar**.
 4. Wings resta el importe del saldo de efectivo de tu turno de caja y lo asienta en el detalle de operaciones.
 

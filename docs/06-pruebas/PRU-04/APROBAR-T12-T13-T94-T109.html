@@ -1,7 +1,7 @@
 <!doctype html><html lang="es"><meta charset="utf-8"><title>Aprobar T12/T13 · Puesta al día con T94 a T109</title>
 <style>body{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;padding:0 16px;color:#1f2937}h1{font-size:1.5rem}section{border:1px solid #d1d5db;border-radius:8px;padding:16px;margin:16px 0}h2{font-size:1.1rem;margin:0 0 4px}.meta{color:#6b7280;font-size:.85rem;margin:0 0 10px}pre{white-space:pre-wrap;background:#f3f4f6;padding:12px;border-radius:6px;font:inherit;font-size:.92rem}img{max-width:100%;border:1px solid #d1d5db;border-radius:6px;margin-top:10px}</style>
 <h1>T12/T13 · Lo que cambió en el manual por T94 a T109</h1>
-<p>Escrito por Claude CAB el 01/11/2026. Son 14 páginas de 59. Las capturas son del Wings real, en un navegador y sobre una copia de la prueba. Lo controla Gemini. Queda abierta una decisión tuya: con qué rubro se compensa un cobro de más en una caja validada. El resto del manual sigue en la <a href="APROBAR-T12-T13-ETAPA-C.html">galería de la etapa C</a>, que ya usa las capturas nuevas.</p>
+<p>Escrito por Claude CAB el 01/11/2026. Son 14 páginas de 59. Las capturas son del Wings real, en un navegador y sobre una copia de la prueba. Lo controla Gemini. Quedan abiertas dos decisiones tuyas: con qué rubro se compensa un cobro de más en una caja validada, y T116, el retiro del dueño en el turno. El resto del manual sigue en la <a href="APROBAR-T12-T13-ETAPA-C.html">galería de la etapa C</a>, que ya usa las capturas nuevas.</p>
 <section><h2>Dar de alta a un alumno nuevo</h2><p class="meta">T108 · <code>resources/manual/operativo/alta-alumno.md</code></p><p>DNI repetido: ahora dice la regla real, una ficha por deporte. Captura: el aviso de inscripción real; antes mostraba un error.</p>
 <pre>¿Qué hago si dice «Ya existe un alumno con ese DNI en el mismo deporte.»?
 Esa persona ya tiene ficha en ese deporte. Buscala en **Alumnos**; si está *Inactiva*, reactivala desde su ficha. Wings tiene una ficha por deporte: para anotar a alguien en otro deporte, hacé un alta nueva con el mismo DNI.</pre>
@@ -23,18 +23,29 @@ Todavía no se cargó cuánto efectivo tiene el club. No podés abrir hasta que 
 
 ![Seleccionar las cuotas a cobrar](/ayuda/img/operativo/cobrar-cuota-paso2.png)</pre>
 </section>
-<section><h2>Registrar un gasto menor o salida de dinero del cajón</h2><p class="meta">T101 · <code>resources/manual/operativo/registrar-gasto-caja.md</code></p><p>El dueño carga él mismo lo que saca del cajón.</p>
-<pre>Regla del dinero del dueño:* Si el dueño saca efectivo del cajón, lo carga él mismo en tu turno. Vas a ver ese movimiento en tu caja, a su nombre, y tu efectivo esperado baja en ese importe. Si sacó plata y no lo ves cargado, avisale antes de cerrar: si no, aparece como faltante.</pre>
+<section><h2>Registrar un gasto menor o salida de dinero del cajón</h2><p class="meta">T101 · <code>resources/manual/operativo/registrar-gasto-caja.md</code></p><p>Corregida el 01/11 tras el control de Gemini: lo que el dueño se lleva va por Cashflow y en el turno queda como faltante.</p>
+<pre>Regla del dinero del dueño:* Si el dueño se lleva efectivo del cajón, no lo cargues vos: no es un gasto del club. Lo asienta él en Cashflow. Tu efectivo esperado no cambia, así que al contar te va a faltar ese importe: cerrá con lo que contaste, queda como faltante y el dueño lo ve al validar.</pre>
 </section>
-<section><h2>Retiros y aportes personales del dueño</h2><p class="meta">T101 · <code>resources/manual/admin/dinero-del-dueno-retiros-aportes.md</code></p><p>El dueño tiene Agregar en el turno; la operativa no puede cargar un retiro.</p>
-<pre>Canal 2. Retiro o aporte de efectivo físico en el cajón de la operativa (en Caja)
-1. Si sacás o ponés plata en el cajón durante el turno, lo cargás vos: en **Caja**, en la tarjeta de ese turno, tocá **Agregar**. La operativa no puede: el subrubro **Retiro de dueños** solo se le ofrece al dueño.
-   - Si retirás efectivo: elegí **Retiros** → **Retiro de dueños**.
-   - Si aportás cambio o efectivo: elegí el subrubro de aporte.
-2. El movimiento queda a tu nombre, en la columna **Registró**, y cambia el efectivo esperado del turno. Avisale a la operativa antes de que cuente.
-3. Al finalizar el turno, cuando valides la caja, el movimiento se incorporará con su clasificación correspondiente a Cashflow.
+<section><h2>Retiros y aportes personales del dueño</h2><p class="meta">T101 · <code>resources/manual/admin/dinero-del-dueno-retiros-aportes.md</code></p><p>Corregida el 01/11 tras el control de Gemini: un retiro no se puede cargar en el turno. Se sacó la captura, que era del formulario de la operativa. Depende de T116, que espera tu decisión.</p>
+<pre>Canal 2. Plata del cajón durante el turno de la operativa
 
-![Asentar retiro o aporte en el formulario de la caja del turno](/ayuda/img/admin/dinero-del-dueno-retiros-aportes-paso2.png)</pre>
+Si sacás efectivo del cajón, un retiro no se puede cargar dentro del turno, ni vos ni la operativa. Va por Cashflow.
+1. Cargalo como en el Canal 1, con la cuenta **Efectivo**.
+2. Avisale a la operativa. El efectivo esperado de su turno no cambia, así que al contar le va a faltar ese importe y la caja cierra con faltante.
+3. Cuando valides, vas a ver esa diferencia. La plata baja una sola vez, por tu retiro: el faltante no vuelve a descontarla de la cuenta.
+
+Si podés esperar, sacala después del cierre, de lo que entrega la operativa. El retiro va igual por Cashflow, pero el turno no queda con faltante.
+
+Si ponés efectivo en el cajón:
+1. En **Caja**, en la tarjeta del turno, tocá **Agregar** y elegí tu subrubro de aporte. Tiene que estar en **Ambos** y en **Afecta caja**: así también lo ve y lo puede cargar la operativa.
+2. El movimiento queda a tu nombre, en la columna **Registró**, y sube el efectivo esperado del turno.
+3. Cuando valides la caja, pasa a Cashflow con su clasificación.
+
+¿Qué pasa si dice «El subrubro seleccionado no está permitido para usuarios operativos.»?
+En **Agregar**, Wings te ofrece todos tus subrubros, pero solo acepta los que están en **Ambos**. No se registró nada: cargalo por **Cashflow**.
+
+¿Por qué la cuenta Efectivo quedó en negativo después de mi retiro?
+Los cobros en efectivo del turno entran a la cuenta recién cuando validás la caja. Wings te deja cargar el retiro igual, y el saldo se acomoda al validar.</pre>
 </section>
 <section><h2>Corregir un movimiento mal cargado en una caja ya validada</h2><p class="meta">T100 · <code>resources/manual/admin/corregir-movimiento-caja-validada.md</code></p><p>Pregunta nueva: anular un cobro hecho por el dueño, sin caja.</p>
 <pre>¿Y si el cobro lo hice yo, sin caja?
