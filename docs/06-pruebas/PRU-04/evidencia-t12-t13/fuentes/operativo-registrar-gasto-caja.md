@@ -24,8 +24,16 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» | `app/Services/CajaService.php:615` | Sí | Qué hago si: ¿Qué hago si el gasto supera el efectivo que hay en el cajón? |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Excepción interna; la página explica que se usa Editar y Eliminar sin citar el error de abort. |
-| `El subrubro ':nombre' es reservado del sistema y no puede usarse manualmente.` | `app/Services/CajaService.php:627` | No | Excepción técnica del sistema; el selector de la pantalla ya filtra solo subrubros no reservados habilitados para mostrador. |
+| «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» | `app/Services/CajaService.php:657` | Sí | Qué hago si: ¿Qué hago si el gasto supera el efectivo que hay en el cajón? |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:20` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:619` | No | Excepción interna; la página explica que se usa Editar y Eliminar sin citar el error de abort. |
+| `El subrubro ':nombre' es reservado del sistema y no puede usarse manualmente.` | `app/Services/CajaService.php:669` | No | Excepción técnica del sistema; el selector de la pantalla ya filtra solo subrubros no reservados habilitados para mostrador. |
 | `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | No | Validación estándar del formulario; en Paso 2 se indica ingresar el importe numérico en pesos. |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| El gasto del dueño queda en el turno y a su nombre | `app/Http/Controllers/CajaWebController.php:496` | T101 |

@@ -1,0 +1,45 @@
+  admin-auditar-detalle-caja.md:15 | 0 apariciones | app/Http/Controllers/CajaWebController.php:576-583 | if (!auth()->user()->isAdmin()) abort(
+  admin-descargar-recibo-liquidacion.md:27 | 4 apariciones | app/Http/Controllers/ReciboController.php:146 | No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administ
+  admin-dinero-del-dueno-retiros-aportes.md:28 | 0 apariciones | app/Http/Controllers/CashflowWebController.php:248 | Saldo insuficiente en
+  admin-registrar-movimiento-cashflow.md:18 | 0 apariciones | app/Http/Controllers/CashflowWebController.php:247-251 | permite_descubierto)
+  admin-registrar-movimiento-cashflow.md:27 | 0 apariciones | app/Http/Controllers/CashflowWebController.php:248 | Saldo insuficiente en
+  admin-registrar-movimiento-cashflow.md:28 | 0 apariciones | app/Http/Controllers/CashflowWebController.php:235 | El campo monto debe ser al menos
+  admin-registrar-movimiento-cashflow.md:29 | 0 apariciones | app/Http/Controllers/CashflowWebController.php:234 | El campo subrubro es obligatorio
+  admin-revisar-desglose-liquidacion.md:16 | 0 apariciones | resources/views/liquidaciones/show.blade.php:30-85 | ->estaAbierta())
+  operativo-abrir-caja.md:29 | 0 apariciones | app/Http/Controllers/CajaWebController.php:79 | Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla
+  operativo-alta-alumno.md:31 | 2 apariciones | app/Http/Controllers/AlumnoWebController.php:372 | Debe seleccionar la frecuencia semanal
+  operativo-alta-alumno.md:32 | 0 apariciones | app/Http/Controllers/AlumnoWebController.php:371 | El campo dni ya ha sido registrado
+  operativo-buscar-alumnos.md:15 | 0 apariciones | routes/web.php:161-163 | (['auth', 'role:ADMIN,OPERATIVO'])
+  operativo-buscar-alumnos.md:19 | 0 apariciones | resources/views/alumnos/index.blade.php:204-215 | ()->isOperativo() || Auth
+  operativo-buscar-alumnos.md:29 | 0 apariciones | app/Http/Controllers/AlumnoWebController.php:150 | El alumno no existe
+  operativo-cancelar-movimiento-caja.md:30 | 0 apariciones | app/Http/Controllers/CajaWebController.php:625 | El campo motivo es obligatorio
+  operativo-cerrar-caja.md:19 | 0 apariciones | app/Services/CajaService.php:390 | ->diferencia =
+  operativo-cerrar-caja.md:27 | 3 apariciones | app/Services/CajaService.php:366 | La caja no está en estado editable
+  operativo-cerrar-caja.md:30 | 0 apariciones | app/Services/CajaService.php:359 | The cambio retenido field must be less than or equal to
+  operativo-cobrar-cuota.md:34 | 0 apariciones | app/Http/Controllers/CajaWebController.php:79 | Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla
+  operativo-cobrar-cuota.md:36 | 0 apariciones | app/Http/Controllers/CajaWebController.php:928 | que todavía no empezó. El importe queda fijo aunque después cambie la cuota
+  operativo-cobrar-cuota.md:41 | 0 apariciones | app/Services/ExcepcionCobranzaService.php:96-100 | ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en e
+  operativo-cobrar-pago-parcial.md:32 | 0 apariciones | app/Http/Controllers/CajaWebController.php:79 | Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla
+  operativo-consultar-clases-operativo.md:18 | 0 apariciones | resources/views/clases/index.blade.php:140-170 | ->filled('deporte_id'))
+  operativo-consultar-cobranza.md:15 | 0 apariciones | routes/web.php:73 | (['auth', 'role:ADMIN,OPERATIVO'])
+  operativo-consultar-cobranza.md:18 | 0 apariciones | resources/views/cobranza/index.blade.php:226 | id) }}">Cobrar
+  operativo-consultar-cobranza.md:19 | 0 apariciones | app/Services/CobranzaEstadoService.php:15-40 | ) return self::ESTADO_DEUDOR
+  operativo-consultar-cobranza.md:28 | 0 apariciones | resources/views/cobranza/index.blade.php:80 | alumnos encontrados
+  operativo-consultar-grupos-planes.md:15 | 0 apariciones | routes/web.php:66 | (['auth', 'role:ADMIN,OPERATIVO'])
+  operativo-consultar-grupos-planes.md:18 | 0 apariciones | resources/views/grupos/index.blade.php:65-125 | id) }}">Ver
+  operativo-consultar-historial-cajas.md:15 | 0 apariciones | routes/web.php:67 | (['auth', 'role:ADMIN,OPERATIVO'])
+  operativo-consultar-historial-cajas.md:18 | 2 apariciones | resources/views/caja/historial.blade.php:50-80 | Ingresos
+  operativo-consultar-historial-cajas.md:29 | 0 apariciones | resources/views/caja/historial.blade.php:85 | movimientos encontrados
+  operativo-consultar-movimientos.md:15 | 0 apariciones | routes/web.php:74 | (['auth', 'role:ADMIN,OPERATIVO'])
+  operativo-modificar-alumno.md:28 | 0 apariciones | app/Http/Controllers/AlumnoWebController.php:530 | El campo motivo fecha alta es obligatorio
+  operativo-pasar-alumno-inactivo.md:29 | 0 apariciones | app/Http/Controllers/AlumnoWebController.php:440 | Alumno activado correctamente
+  operativo-pasar-alumno-inactivo.md:30 | 0 apariciones | app/Http/Controllers/AlumnoWebController.php:445 | Alumno desactivado correctamente
+  operativo-rectificar-caja.md:29 | 0 apariciones | app/Services/CajaService.php:154 | El campo motivo rectificación es obligatorio
+  operativo-registrar-gasto-caja.md:17 | 0 apariciones | resources/views/caja/movimiento.blade.php:25-50 | 'tipo' => 'required|in:INGRESO,EGRESO'
+  operativo-registrar-gasto-caja.md:31 | 0 apariciones | app/Http/Controllers/CajaWebController.php:337 | The monto field must be at least
+  operativo-registrar-ingreso-caja.md:17 | 0 apariciones | resources/views/caja/movimiento.blade.php:25-50 | 'tipo' => 'required|in:INGRESO,EGRESO'
+  operativo-registrar-ingreso-caja.md:30 | 0 apariciones | app/Http/Controllers/CajaWebController.php:337 | The monto field must be at least
+  operativo-registrar-ingreso-caja.md:31 | 2 apariciones | app/Http/Controllers/CajaWebController.php:502 | Movimiento registrado
+  operativo-tomar-lista-mostrador.md:30 | 0 apariciones | app/Http/Controllers/ClaseWebController.php:367 | Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase
+  operativo-tomar-lista-mostrador.md:31 | 0 apariciones | app/Http/Controllers/ClaseWebController.php:360 | Esta clase está cancelada. No se pueden registrar asistencias
+  operativo-tomar-lista-mostrador.md:38 | 0 apariciones | resources/js/clases-show.js:145 | Asistencias guardadas

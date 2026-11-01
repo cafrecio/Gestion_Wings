@@ -113,7 +113,7 @@ Los profesores tienen una vista simplificada en su celular o tablet, centrada en
 Pantallas de Wings que ninguna página cubría. Sin página no podían tener su **?**.
 
 55. **Programar, editar y eliminar clases** (`admin/programar-clases.md`): clases únicas y series, edición, cancelar y eliminar.
-56. **Configurar el efectivo del mostrador** (`admin/configurar-mostrador.md`).
+56. **Cargar el saldo inicial de Efectivo** (`admin/configurar-mostrador.md`).
 57. **Leer la pantalla de Inicio del dueño** (`admin/inicio-dueno.md`).
 58. **Leer la pantalla de Inicio de la operativa** (`operativo/inicio-operativa.md`).
 59. **Editar o eliminar un movimiento de Cashflow** (`admin/corregir-movimiento-cashflow.md`): las pantallas de detalle y eliminación de un movimiento directo.

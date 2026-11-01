@@ -25,4 +25,4 @@
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
 | `HTTP 403 Forbidden` | `routes/web.php:200`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para endpoints de creación/edición de grupos; la página explica que la creación de planes es exclusiva del dueño. |
-| `0 grupos encontrados` | `resources/views/grupos/index.blade.php:80` | No | Estado vacío visual en pantalla cuando el filtro de deporte no devuelve grupos. |
+| `0 grupos encontrados` | `resources/views/grupos/index.blade.php:41` | No | Estado vacío visual en pantalla cuando el filtro de deporte no devuelve grupos. |

@@ -25,4 +25,12 @@
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
 | `HTTP 403 Forbidden` | `routes/web.php:74`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para rol Profesor; la operativa tiene acceso pleno a Movimientos. |
-| `No hay movimientos registrados.` | `resources/views/movimientos/index.blade.php:100` | No | Estado vacío visual en pantalla cuando el filtro de fechas o tipo no devuelve operaciones. |
+| `Sin movimientos` | `resources/views/movimientos/index.blade.php:207` | No | Estado vacío visual en pantalla cuando el filtro de fechas o tipo no devuelve operaciones. |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Columna Registró | `resources/views/movimientos/index.blade.php:184` | T101 |

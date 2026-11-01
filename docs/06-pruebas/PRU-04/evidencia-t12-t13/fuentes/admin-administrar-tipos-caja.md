@@ -19,3 +19,11 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 |---|---|---|
 | «Tipo de caja creado correctamente.» | `app/Http/Controllers/TipoCajaWebController.php:59` | Sí — Crear una cuenta |
 | «No se puede desactivar porque es el medio de pago del cajón de mostrador.» | `app/Http/Controllers/TipoCajaWebController.php:100` | Sí — ¿Qué hago si dice «No se puede desactivar porque es el medio de pago del cajón de mostrador.»? |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| En Cashflow el ajuste sí suma en los totales: solo se excluye el traspaso | `app/Http/Controllers/CashflowWebController.php:187` | T96, T106 |

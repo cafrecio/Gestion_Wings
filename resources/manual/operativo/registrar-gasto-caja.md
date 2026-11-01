@@ -13,7 +13,7 @@ du: CAJ-002b
 Esta tarea te explica cómo asentar cualquier salida física de billetes del cajón de mostrador: compras menores de insumos, reparaciones urgentes o retiros de efectivo realizados por el dueño del club.
 
 > [!NOTE]
-> *Regla del dinero del dueño:* El dueño nunca retira dinero del mostrador de forma directa ni por fuera del sistema. Si el dueño necesita efectivo del cajón, la operativa asienta el **EGRESO** en su turno de caja abierto indicando el monto y el concepto. Esto garantiza que a la hora del arqueo el saldo físico coincida y no aparezca un faltante injustificado.
+> *Regla del dinero del dueño:* Si el dueño saca efectivo del cajón, lo carga él mismo en tu turno. Vas a ver ese movimiento en tu caja, a su nombre, y tu efectivo esperado baja en ese importe. Si sacó plata y no lo ves cargado, avisale antes de cerrar: si no, aparece como faltante.
 
 ---
 

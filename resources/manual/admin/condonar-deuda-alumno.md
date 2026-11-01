@@ -41,4 +41,4 @@ Solo aparece en lo que todavía se debe: una cuota pendiente, una inscripción v
 Escribí un motivo más completo, por ejemplo "Beca otorgada por la comisión".
 
 ### ¿Qué hago si quiero devolverle a un alumno una cuota que ya pagó?
-Condonar no sirve para eso: solo perdona lo que se debe. Para una cuota cobrada, ver *Corregir un movimiento mal cargado en una caja ya validada*.
+Condonar no sirve para eso: solo perdona lo que se debe. Si el cobro lo hiciste vos, sin caja, se anula desde la ficha. Si pasó por una caja, ver *Corregir un movimiento mal cargado en una caja ya validada*: esa página explica los dos casos.

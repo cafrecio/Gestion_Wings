@@ -27,9 +27,17 @@
 |---|---|---|---|
 | `Es un cobro parcial: queda parte de la cuota pendiente.` | `app/Services/ExcepcionCobranzaService.php:93` | Sí | Paso 3: punto 5 |
 | `Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario.` | `app/Services/ExcepcionCobranzaService.php:100` | Sí | Paso 3: punto 5 |
-| `Debés indicar un motivo.` | `app/Services/ExcepcionCobranzaService.php:123` | No | En Paso 3 punto 5 se explica que el motivo es obligatorio y que sin motivo no cobra, sin citar el texto de la excepción técnica. |
-| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | No | Requisito previo general de caja para operar en mostrador; explicado en cobrar-cuota.md. |
+| `Indicá un motivo de hasta 500 caracteres.` | `app/Services/ExcepcionCobranzaService.php:124` | No | En Paso 3 punto 5 se explica que el motivo es obligatorio y que sin motivo no cobra, sin citar el texto de la excepción técnica. |
+| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:312` | No | Requisito previo general de caja para operar en mostrador; explicado en cobrar-cuota.md. |
 | `Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.` | `app/Http/Controllers/CajaWebController.php:79` | No | Requisito previo general de caja; explicado en abrir-caja.md y cobrar-cuota.md. |
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | En «Qué hago si me equivoqué de importe al ingresar el pago parcial?» explica conceptualmente el flujo sin citar el mensaje de error de URL. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Validación interna de URL que restringe la cancelación exclusivamente a cuotas con alumno. |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción interna del servicio contable si la caja ya fue validada. |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:613` | No | En «Qué hago si me equivoqué de importe al ingresar el pago parcial?» explica conceptualmente el flujo sin citar el mensaje de error de URL. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:619` | No | Validación interna de URL que restringe la cancelación exclusivamente a cuotas con alumno. |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:20` | No | Excepción interna del servicio contable si la caja ya fue validada. |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Cancelar un adelanto lo deshace | `resources/views/caja/detalle.blade.php:306` | T100 |

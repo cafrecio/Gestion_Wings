@@ -24,8 +24,19 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Atención: fecha de un mes anterior` | `resources/views/cashflow/movimiento.blade.php:40` | Sí | Paso 3: Cargar el ajuste compensatorio |
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | Explicado conceptualmente en «¿Qué hago si la caja todavía no fue validada?» sin citar el texto literal de excepción HTTP. |
-| `Este cobro se hizo por caja: se anula desde el detalle de esa caja.` | `app/Services/PagoCuotaService.php:1266` | No | Limitación interna del sistema detallada conceptualmente en «¿Qué pasa si el cobro mal hecho correspondía a la cuota de un alumno?». |
+| `Atención: fecha de un mes anterior` | `resources/views/cashflow/movimiento.blade.php:192` | Sí | Paso 3: Cargar el ajuste compensatorio |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:613` | No | Explicado conceptualmente en «¿Qué hago si la caja todavía no fue validada?» sin citar el texto literal de excepción HTTP. |
+| `Este cobro se hizo por caja: se anula desde el detalle de esa caja.` | `app/Services/PagoCuotaService.php:1296` | No | Limitación interna del sistema detallada conceptualmente en «¿Qué pasa si el cobro mal hecho correspondía a la cuota de un alumno?». |
 | `Solo se pueden reactivar cuotas CONDONADAS.` | `app/Services/PagoCuotaService.php:380` | No | Excepción técnica del servicio contable de cuotas. |
 | `Usá el recorrido propio de este movimiento.` | `app/Http/Controllers/CashflowCorreccionWebController.php:55` | No | Bloqueo de seguridad al intentar corregir asientos automáticos de cierre de caja por fuera del circuito administrativo. |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Anular solo aparece en cobros sin caja y sin anular | `resources/views/alumnos/show.blade.php:390` | A13, T100 |
+| Motivo de al menos 10 caracteres | `app/Http/Controllers/AlumnoWebController.php:304` | A13 |
+| «Cobro anulado.» | `app/Http/Controllers/AlumnoWebController.php:317` | T100 |
+| Qué pasa con el mes | `resources/views/alumnos/show.blade.php:442` | T100 |

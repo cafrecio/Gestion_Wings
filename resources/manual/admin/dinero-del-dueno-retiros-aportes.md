@@ -28,7 +28,7 @@ Esta tarea te explica cómo asentar el dinero que los dueños retiran del club o
 3. Si aportás capital personal:
    - Seleccioná la pestaña **INGRESO**.
    - Elegí la cuenta de destino (la cuenta bancaria, **Efectivo**, etc.).
-   - Seleccioná el subrubro clasificado como «Aporte de los dueños» (por ejemplo, *Aportes* → *Aporte de dueños*).
+   - Seleccioná el subrubro clasificado como «Aporte de los dueños». Wings no trae uno de fábrica: si no lo tenés, crealo en **Rubros**.
    - Escribí el monto y guardá.
 
 ![Registrar retiro o aporte directo en Cashflow](/ayuda/img/admin/dinero-del-dueno-retiros-aportes-paso1.png)
@@ -36,11 +36,10 @@ Esta tarea te explica cómo asentar el dinero que los dueños retiran del club o
 ---
 
 ### Canal 2. Retiro o aporte de efectivo físico en el cajón de la operativa (en Caja)
-1. Si retirás dinero físico del cajón del mostrador durante el turno de la operativa, lo debe asentar la operativa en su caja activa:
-   - Como administrador no podés cargar movimientos dentro del turno de la operativa (Wings avisa: «Tus movimientos se cargan en Cashflow; la caja es de la operativa. No se registró nada.»).
-2. La operativa ingresa a **Caja**, toca el botón **Agregar** (o **Nuevo** en el resumen de caja abierta):
-   - Si retirás efectivo: Registra un **Gasto** por el monto retirado, seleccionando el subrubro de retiro de dueños.
-   - Si aportás cambio o efectivo: Registra un **Ingreso** seleccionando el subrubro de aporte de dueños.
+1. Si sacás o ponés plata en el cajón durante el turno, lo cargás vos: en **Caja**, en la tarjeta de ese turno, tocá **Agregar**. La operativa no puede: el subrubro **Retiro de dueños** solo se le ofrece al dueño.
+   - Si retirás efectivo: elegí **Retiros** → **Retiro de dueños**.
+   - Si aportás cambio o efectivo: elegí el subrubro de aporte.
+2. El movimiento queda a tu nombre, en la columna **Registró**, y cambia el efectivo esperado del turno. Avisale a la operativa antes de que cuente.
 3. Al finalizar el turno, cuando valides la caja, el movimiento se incorporará con su clasificación correspondiente a Cashflow.
 
 ![Asentar retiro o aporte en el formulario de la caja del turno](/ayuda/img/admin/dinero-del-dueno-retiros-aportes-paso2.png)
@@ -49,8 +48,8 @@ Esta tarea te explica cómo asentar el dinero que los dueños retiran del club o
 
 ## Qué hago si…
 
-### ¿Qué pasa si intento cargar un movimiento en la caja del turno con mi usuario de administrador?
-Wings te redirige a Cashflow con el mensaje: «Tus movimientos se cargan en Cashflow; la caja es de la operativa. No se registró nada.» Los movimientos del dueño van siempre por **Cashflow** (Canal 1). Si la operación afecta el dinero físico del cajón del día, debe registrarla la operativa desde su propia sesión (Canal 2).
+### ¿Qué pasa si dice «Tus movimientos se cargan en Cashflow; la caja es de la operativa. No se registró nada.»?
+Entraste por el formulario general de movimientos de caja, que es el de la operativa. Lo tuyo va por **Cashflow** (Canal 1). Si la plata salió del cajón del día, usá **Agregar** en la tarjeta del turno (Canal 2).
 
 ### ¿Qué pasa si el retiro de efectivo supera lo disponible en el cajón?
 Al intentar registrar el gasto en caja, Wings muestra: «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» La operativa no puede registrar una salida mayor al efectivo real disponible en el turno. Debe registrarse primero el dinero faltante o ajustar el monto retirado.

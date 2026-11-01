@@ -31,7 +31,7 @@
 | `Esta clase está cancelada. No se pueden registrar asistencias.` | `app/Http/Controllers/ClaseWebController.php:360` | Sí | Qué hago si: ¿Qué hago si la clase figura cancelada? |
 | `No se pueden modificar asistencias: la clase integra una liquidación cerrada.` | `app/Http/Controllers/ClaseWebController.php:376` | Sí | Qué hago si: ¿Qué hago si la clase ya integra una liquidación cerrada? |
 | `Esta clase ya tenía lista tomada: indicá el motivo de la corrección.` | `app/Http/Controllers/ClaseWebController.php:396` | No | En «Qué hago si me equivoqué al marcar a un alumno?» explica que se solicita motivo obligatorio de corrección sin citar el texto de validación. |
-| `Tiene deuda vencida. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:44` | Sí | Paso 2: punto 4 |
+| `Tiene deuda vencida. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:48` | Sí | Paso 2: punto 4 |
 | `Todavía no registró un pago de cuota. Indicá el motivo para dejarlo entrar.` | `app/Services/ExcepcionCobranzaService.php:46` | Sí | Paso 2: punto 4 |
 | `Excede el plan — indicar motivo` | `resources/views/clases/show.blade.php:505` | Sí | Paso 2: punto 3 |
 | `El alumno indicado no pertenece al grupo de la clase.` | `app/Http/Controllers/ClaseWebController.php:428` | No | En «Qué hago si: ¿Qué pasa si una alumna que vino no figura en la lista del grupo?» explica el procedimiento sin citar la excepción técnica. |

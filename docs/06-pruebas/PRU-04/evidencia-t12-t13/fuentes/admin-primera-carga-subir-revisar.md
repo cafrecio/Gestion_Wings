@@ -29,4 +29,4 @@
 | `Elegí el Excel que completaste.` | `app/Http/Controllers/PrimeraCargaWebController.php:50` | No | Validación requerida cuando se envía el formulario sin seleccionar archivo. |
 | `Guardá y elegí un archivo Excel .xlsx.` | `app/Http/Controllers/PrimeraCargaWebController.php:50` | No | Validación de formato de archivo cuando no es hoja de cálculo xlsx. |
 | `El archivo puede pesar hasta 10 MB.` | `app/Http/Controllers/PrimeraCargaWebController.php:50` | No | Validación de tamaño máximo de archivo. |
-| `La primera carga ya está terminada.` | `app/Http/Controllers/PrimeraCargaWebController.php:48` | No | Bloqueo de seguridad si se intenta revisar cuando la importación ya culminó. |
+| `La primera carga ya está terminada.` | `app/Http/Controllers/PrimeraCargaWebController.php:99` | No | Bloqueo de seguridad si se intenta revisar cuando la importación ya culminó. |

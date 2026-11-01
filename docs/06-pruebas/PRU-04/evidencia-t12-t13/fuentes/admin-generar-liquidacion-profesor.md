@@ -24,7 +24,7 @@
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
 | `Ya existe una liquidación para el profesor en ` | `app/Services/LiquidacionService.php:466` | Sí | Qué hago si: ¿Qué hago si Wings dice que ya existe una liquidación para ese mes? |
-| `Seleccioná un profesor.` | `app/Http/Controllers/LiquidacionWebController.php:82` | No | Validación requerida de formulario si se envía sin elegir profesor. |
-| `Seleccioná el mes.` | `app/Http/Controllers/LiquidacionWebController.php:83` | No | Validación estándar de formulario para el mes de liquidación. |
-| `Ingresá el año.` | `app/Http/Controllers/LiquidacionWebController.php:84` | No | Validación estándar de formulario para el año de liquidación. |
-| `Liquidación generada correctamente.` | `app/Http/Controllers/LiquidacionWebController.php:125` | No | Mensaje flash emitido tras completar la redirección al desglose. |
+| `Seleccioná un profesor.` | `app/Http/Controllers/LiquidacionWebController.php:236` | No | Validación requerida de formulario si se envía sin elegir profesor. |
+| `Seleccioná el mes.` | `app/Http/Controllers/LiquidacionWebController.php:237` | No | Validación estándar de formulario para el mes de liquidación. |
+| `Ingresá el año.` | `app/Http/Controllers/LiquidacionWebController.php:238` | No | Validación estándar de formulario para el año de liquidación. |
+| `Liquidación generada correctamente.` | `app/Http/Controllers/LiquidacionWebController.php:269` | No | Mensaje flash emitido tras completar la redirección al desglose. |

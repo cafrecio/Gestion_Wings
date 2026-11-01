@@ -23,6 +23,6 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Debe seleccionar la frecuencia semanal del nuevo grupo.` | `app/Http/Controllers/AlumnoWebController.php:511` | No | El Paso 2 indica que se debe elegir el nuevo plan en Frecuencia semanal sin citar el texto de validación del backend. |
-| `El grupo no pertenece al deporte del alumno.` | `app/Http/Controllers/AlumnoWebController.php:508` | No | El desplegable en pantalla solo muestra los grupos del deporte del alumno; validación técnica interna. |
-| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te muestra la ficha actualizada. |
+| `Debe seleccionar la frecuencia semanal del nuevo grupo.` | `app/Http/Controllers/AlumnoWebController.php:520` | No | El Paso 2 indica que se debe elegir el nuevo plan en Frecuencia semanal sin citar el texto de validación del backend. |
+| `El grupo seleccionado no pertenece al deporte elegido.` | `app/Http/Controllers/AlumnoWebController.php:730` | No | El desplegable en pantalla solo muestra los grupos del deporte del alumno; validación técnica interna. |
+| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:555` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te muestra la ficha actualizada. |

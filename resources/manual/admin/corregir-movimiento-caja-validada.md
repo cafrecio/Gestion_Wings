@@ -68,8 +68,16 @@ Si la caja del turno fue cerrada por la operativa pero vos todavía no la valida
 3. La operativa va a poder entrar a su caja rechazada, tocar **Cancelar** sobre el cobro erróneo y volver a cerrarla para que la valides limpia.
 
 ### ¿Qué hago si el error afectó la deuda de un alumno?
-*Importante:* Hoy Wings no tiene forma de devolverle la deuda a ese alumno. Una cuota cobrada por caja no se anula desde la ficha del alumno y una caja ya validada no permite cancelar movimientos. El botón para reactivar cuotas solo acepta cuotas condonadas, nunca cuotas pagadas.
+*Importante:* Hoy Wings no tiene forma de devolverle la deuda a ese alumno si el cobro pasó por una caja ya validada. Una cuota cobrada por caja no se anula desde la ficha del alumno y una caja ya validada no permite cancelar movimientos. El botón para reactivar cuotas solo acepta cuotas condonadas, nunca cuotas pagadas.
 Por lo tanto, el ajuste en **Cashflow** compensa el saldo financiero del club, pero la ficha del alumno conservará la cuota como saldada. La deuda no se puede reabrir en el sistema.
+
+### ¿Y si el cobro lo hice yo, sin caja?
+Ese cobro no entró a ningún turno, así que se anula desde la ficha del alumno:
+
+1. En el historial de pagos de la ficha, tocá **Anular** en la fila del cobro. El botón solo aparece en los cobros sin caja que no estén anulados.
+2. Escribí el motivo, de al menos 10 caracteres, y confirmá. Wings muestra «Cobro anulado.».
+
+La plata sale del cashflow y el recibo queda anulado. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.
 
 ### ¿Qué hago si lo que tengo que hacer es pasar efectivo al banco?
 Eso no es un error de caja, es una transferencia entre cuentas del club. En **Cashflow**, tocá el botón **Transferir** y elegí la **Cuenta de salida** y la **Cuenta de destino**. Wings genera las dos patas vinculadas sin alterar el resultado del club.

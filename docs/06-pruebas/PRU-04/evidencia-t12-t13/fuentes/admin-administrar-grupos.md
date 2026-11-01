@@ -39,3 +39,11 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 | «Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está.» | `app/Http/Controllers/GrupoWebController.php:360` | Sí — ¿Qué hago si quiero sacar una frecuencia? |
 | «No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.» | `app/Http/Controllers/GrupoWebController.php:512` | Sí — ¿Qué hago si quiero sacar una frecuencia? |
 | «El grupo debe tener al menos una frecuencia para poder cargar alumnos.» | `app/Http/Controllers/GrupoWebController.php:64` | Sí — ¿Qué hago si quiero sacar una frecuencia? |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Ya hay una desactivada en el grupo | `app/Http/Controllers/GrupoWebController.php:301` | T94 |

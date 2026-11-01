@@ -27,4 +27,4 @@
 |---|---|---|---|
 | `Solo se puede rectificar una caja en estado ABIERTA.` | `app/Http/Controllers/CajaWebController.php:102, 113`<br>`app/Services/CajaService.php:161` | No | En > [!NOTE] Requisito de rectificación se explica que solo se rectifica con caja Abierta sin citar el mensaje de error de URL. |
 | `El campo motivo rectificación es obligatorio.` | `app/Services/CajaService.php:154` | No | Paso 2 indica que se debe escribir el motivo sin citar el texto de validación técnica. |
-| `Apertura rectificada correctamente.` | `app/Http/Controllers/CajaWebController.php:118` | Sí | Paso 2: punto 4 |
+| `Apertura rectificada correctamente.` | `app/Http/Controllers/CajaWebController.php:123` | Sí | Paso 2: punto 4 |

@@ -20,3 +20,11 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 | «Traspaso entre medios» | `app/Support/ClasificacionSubrubros.php:25` | Sí — ¿Qué significan los movimientos con clasificación «Traspaso entre medios»? |
 
 - **Agregado el 01/11/2026 por T106 (`CashflowWebController::index`):** las transferencias no suman en los totales, salvo con filtro de cuenta o de su subrubro. Ejecutado en `TotalesSinTransferenciasT106Test`.
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Aportes, retiros y ajustes suman en los totales de Cashflow | `app/Http/Controllers/CashflowWebController.php:187` | T106 |

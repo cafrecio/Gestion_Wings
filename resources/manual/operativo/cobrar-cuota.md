@@ -30,7 +30,7 @@ Esta tarea te explica cómo registrar el cobro de cuotas, matrícula de inscripc
 
 ### Paso 2. Elegir qué vas a cobrar
 1. En la parte superior de la pantalla vas a ver los datos del alumno y el **Total pendiente**.
-2. Marcá la casilla del período o concepto que el alumno va a pagar (por ejemplo, cuotas del mes, meses anteriores, matrícula de inscripción o recargos por mora).
+2. Marcá la casilla del mes que el alumno va a pagar (el mes en curso o meses anteriores). La inscripción y los recargos no tienen casilla: la inscripción pendiente se cubre antes que la cuota, en cualquiera de los deportes, y el recargo de un mes se cubre después de su cuota.
 3. Si el alumno entrega un importe parcial, podés modificar el monto directamente en el campo de la cuota; o si adeuda matrícula de inscripción o recargos, ingresar lo que entrega en el campo **Importe que entrega (dejar vacío para cobrar el total)** para que Wings lo distribuya automáticamente.
 
 ![Seleccionar las cuotas a cobrar](/ayuda/img/operativo/cobrar-cuota-paso2.png)
@@ -58,7 +58,7 @@ Esta tarea te explica cómo registrar el cobro de cuotas, matrícula de inscripc
 ## Qué hago si…
 
 ### ¿Qué hago si me equivoqué al registrar un cobro?
-Si tu caja sigue abierta (o fue rechazada), entrá a **Caja**, tocá **Detalle** de tu caja y en la fila del cobro tocá el botón **Cancelar**. Wings te va a pedir un motivo obligatorio para anularlo. Al confirmar, Wings cancela el cobro y revierte la deuda del alumno.
+Si tu caja sigue abierta (o fue rechazada), entrá a **Caja**, tocá **Detalle** de tu caja y en la fila del cobro tocá el botón **Cancelar**. Wings te va a pedir un motivo obligatorio para anularlo. Al confirmar, Wings cancela el cobro: si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.
 
 Si la caja ya fue cerrada pero el dueño todavía no la validó (está en estado *Cerrada*), la operativa no puede cancelar cobros: tenés que pedirle al dueño que rechace la caja para que vuelva a estar en estado *Rechazada* y puedas cancelarlo.
 

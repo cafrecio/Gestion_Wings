@@ -41,7 +41,7 @@ Cuando el saldo de una cuenta no coincide con la realidad y ya no se puede edita
 2. Si en la cuenta falta plata, elegí **INGRESO**, rubro **Ajustes de saldo — entradas** y subrubro **Ajuste de saldo: entrada**. Si sobra, elegí **EGRESO**, rubro **Ajustes de saldo — salidas** y subrubro **Ajuste de saldo: salida**.
 3. Elegí la cuenta en **Medio de pago**, escribí la diferencia en **Monto** y el motivo en **Observaciones**. Tocá **Registrar**.
 
-El ajuste cambia el saldo pero no el resultado del club. En Reportes se suma a los aportes o a los retiros de los dueños.
+El ajuste cambia el saldo pero no el resultado del club en **Reportes**: ahí se suma a los aportes o a los retiros de los dueños. En **Cashflow** sí se ve en los ingresos o egresos del período, porque esa pantalla muestra toda la plata que entró y salió.
 
 ---
 

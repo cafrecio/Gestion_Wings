@@ -6,7 +6,7 @@
 | Qué afirma la página | Archivo y línea | Condición en el código | Qué pasó al ejecutarlo |
 |---|---|---|---|
 | Séptimo motivo | `app/Models/Alumno.php:278` | `return 'Tiene cargos con cobro o condonados.';` | Leído en el código; no ejecutado en pantalla. |
-| Solo el dueño elimina | `app/Http/Controllers/AlumnoWebController.php:639` | `abort(403, 'Solo el dueño puede eliminar alumnos.');` | Leído en el código; no ejecutado en pantalla. |
+| Solo el dueño elimina | `app/Http/Controllers/AlumnoWebController.php:643` | `abort(403, 'Solo el dueño puede eliminar alumnos.');` | Leído en el código; no ejecutado en pantalla. |
 | Motivos que impiden eliminar | `app/Models/Alumno.php:242` | `return 'Tiene pagos registrados.';` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede eliminar el alumno: Tiene asistencias registradas. Puede darlo de baja cambiando su estado a inactivo.» |
 | La ficha muestra el motivo en lugar del botón | `resources/views/alumnos/show.blade.php:524` | `@if(Auth::user()->isAdmin() && !$puedeEliminar && $motivoNoEliminable)` | Captura de la pantalla real (CapturasEtapaCTest). |
 

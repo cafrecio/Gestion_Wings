@@ -24,9 +24,9 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `El motivo del rechazo es obligatorio.` | `app/Http/Controllers/CajaWebController.php:694` | No | Validación requerida al intentar rechazar sin ingresar texto en el panel. |
-| `Contá el efectivo y cerrá la caja antes de validarla.` | `app/Services/CajaService.php:419` | No | Excepción técnica si se invoca la ruta de validación en una caja aún abierta. |
-| `Solo se pueden validar cajas cerradas.` | `app/Services/CajaService.php:430` | No | Excepción técnica si la caja no está cerrada. |
-| `Contá y cerrá la caja antes de rechazarla.` | `app/Services/CajaService.php:506` | No | Excepción técnica al intentar rechazar una caja sin cierre previo. |
-| `Caja validada y reflejada en cashflow.` | `app/Http/Controllers/CajaWebController.php:675` | No | Mensaje flash emitido tras la validación exitosa. |
-| `Caja rechazada.` | `app/Http/Controllers/CajaWebController.php:705` | No | Mensaje flash emitido tras el rechazo exitoso. |
+| `El motivo del rechazo es obligatorio.` | `app/Http/Controllers/CajaWebController.php:704` | No | Validación requerida al intentar rechazar sin ingresar texto en el panel. |
+| `Contá el efectivo y cerrá la caja antes de validarla.` | `app/Services/CajaService.php:460` | No | Excepción técnica si se invoca la ruta de validación en una caja aún abierta. |
+| `Solo se pueden validar cajas cerradas.` | `app/Services/CajaService.php:471` | No | Excepción técnica si la caja no está cerrada. |
+| `Contá y cerrá la caja antes de rechazarla.` | `app/Services/CajaService.php:547` | No | Excepción técnica al intentar rechazar una caja sin cierre previo. |
+| `Caja validada y reflejada en cashflow.` | `app/Http/Controllers/CajaWebController.php:685` | No | Mensaje flash emitido tras la validación exitosa. |
+| `Caja rechazada.` | `app/Http/Controllers/CajaWebController.php:715` | No | Mensaje flash emitido tras el rechazo exitoso. |

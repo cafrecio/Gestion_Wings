@@ -16,7 +16,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Decisión de Carlos:** se suman 55, 56 y 57, Hockey reemplaza a Natación y **con estos resultados se despliega en producción**. Reescribí [guion](../06-pruebas/PRU-04/GUION-DIAS-48-57.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-57.md): objetivos, criterio de despliegue y una historia que cierra (temporada 2027, Hockey de punta a punta, torneo, sueldos y canchas, Verónica). Diez días simulados, 0 no esperados; plata a mano, al peso. Las comisiones de Hernán y Martín siguen sin recalcular.
 - **Encontrado:** T113 (Validar en una clase futura, sin deshacer), T114 (Reportes → Sueldos no refleja lo pagado) y T115 (trampa de Nueva liquidación en enero). Ocho casos del catálogo decían «no implementado» con la tarea cerrada: corregidos.
 - **Errores míos:** le dije a Carlos que la primera carga no se había probado, repitiendo la planilla, sin mirar P1 ni T4. Casi reporto un cobro contado en dos meses: el de septiembre era otro. Una corrida salteó el día 53 sin avisar, probablemente por un archivo abierto (no lo confirmé); la rehice controlando que cada salida se actualizara.
-- **No hecho:** T100 sigue en Codex y no desplegué: el prompt no se entrega todavía. Este commit lleva el estado de T82 que dejó Codex en el tablero.
+- **No hecho al subirlo:** T100 seguía en Codex y no había desplegado.
+
+## 2026-11-01 — Claude CAB — T12/T13: manual al día con T94 a T109
+
+- **Hecho, pedido de Carlos («lo vas a hacer vos y lo va a controlar Gemini»):** un barrido independiente del código y mi comprobación: 14 páginas corregidas, 7 capturas rehechas del Wings real en un navegador, 70 citas corridas y 15 fichas con una sección nueva. Verificador en 0; pruebas de la ayuda 52/247 en `wings_testing_claude`. [Galería](../06-pruebas/PRU-04/APROBAR-T12-T13-T94-T109.html) y [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T12-T13-T94-T109.md).
+- **Lo más serio:** el manual le decía a la operativa que cargara el retiro del dueño, y ella no puede: ese subrubro es solo del dueño. No venía de T94 a T109: se lo vio al revisar T101. Otra: mandaba a buscar «agregar una actividad» desde el legajo, cosa que no existe.
+- **Sin resolver:** quedan 45 citas para mirar a mano ([lista](../06-pruebas/PRU-04/evidencia-t12-t13/citas-a-mano-t94-t109.txt)) y el rubro para compensar un cobro de más, que decide Carlos.
+- **Error mío:** en una consulta por SSH leí también la tabla de subrubros de producción (`wings`), sin necesidad; la columna no existe allí y devolvió error. No cambió nada.
 
 ## 2026-11-01 — Claude CAB — Revisión de los controles de Gemini: T101, T105 y T109
 

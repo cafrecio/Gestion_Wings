@@ -40,7 +40,7 @@ Esta tarea te explica cómo consultar el libro de caja central de Wings (**Cashf
    - **Ingresos** del período: Cobranzas de cuotas, inscripciones y otros ingresos del club.
    - **Egresos** del período: Pagos de liquidaciones, gastos operativos y compras.
    - **Resultado:** Diferencia neta (superávit en verde o déficit en rojo).
-3. Usá los filtros por tipo de caja y tipo (ingresos o egresos) para revisar los movimientos. El de tipo de caja también cambia los totales del listado. Las transferencias entre cuentas propias no suman en estos totales, porque para el club no entra ni sale plata, pero sus filas se ven en el listado. Si filtrás una cuenta, sí suman: para esa cuenta entró o salió plata.
+3. Usá los filtros por tipo de caja y tipo (ingresos o egresos) para revisar los movimientos. El de tipo de caja también cambia los totales del listado. Las transferencias entre cuentas propias no suman en estos totales, porque para el club no entra ni sale plata, pero sus filas se ven en el listado. Si filtrás una cuenta, sí suman: para esa cuenta entró o salió plata. Los aportes, los retiros y los ajustes de saldo también suman en estos totales: para ver el resultado del negocio sin ellos, mirá **Reportes**.
 
 ![Filtrar por año o mes y consultar el resultado del período](/ayuda/img/admin/consultar-cashflow-paso2.png)
 

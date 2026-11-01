@@ -27,5 +27,5 @@
 | `Esta revisión ya fue resuelta.` | `app/Services/RevisionCobranzaService.php:31` | No | Excepción técnica ante concurrencia; el listado solo muestra revisiones pendientes. |
 | `La nota es obligatoria.` | `app/Http/Controllers/RevisionCobranzaWebController.php:48` | Sí | Qué hago si: ¿Qué hago si el sistema rechaza la nota al confirmar? |
 | `La nota debe tener al menos 5 caracteres.` | `app/Http/Controllers/RevisionCobranzaWebController.php:49` | Sí | Qué hago si: ¿Qué hago si el sistema rechaza la nota al confirmar? |
-| `Alumno confirmado como activo. Se generó la deuda del período.` | `app/Http/Controllers/RevisionCobranzaWebController.php:57` | No | Mensaje flash del backend tras redirección; en Paso 2 y 3 se explica que genera la cuota y archiva el caso. |
+| `Alumno confirmado como activo. Se generó la deuda del período.` | `app/Http/Controllers/RevisionCobranzaWebController.php:61` | No | Mensaje flash del backend tras redirección; en Paso 2 y 3 se explica que genera la cuota y archiva el caso. |
 | `Alumno marcado como inactivo.` | `app/Http/Controllers/RevisionCobranzaWebController.php:61` | No | Mensaje flash del backend tras redirección; en Paso 2 y 3 se explica que marca inactivo y archiva el caso. |

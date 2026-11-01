@@ -34,6 +34,7 @@ Esta tarea te explica cómo preparar los catálogos deportivos y descargar la pl
    - Una sola fila por cada alumno en un deporte. Si una persona practica dos deportes, usá una fila distinta para cada deporte.
    - Escribí DNI, apellido, nombre, fecha de nacimiento, fecha real de ingreso al club y celular de contacto (para menores, es obligatorio indicar nombre y celular del tutor).
    - Seleccioná deporte, grupo y plan usando las listas desplegables de la planilla.
+   - Respondé **Debe inscripción**: "Sí" genera esa deuda al importe vigente; "No" no la genera, y esa persona tampoco va a pagar inscripción si después se anota en otro deporte.
    - Si debe cuotas anteriores, respondé "Sí" en **Tiene deuda** y completá los pares **Período** (ej: "102026") y **Monto** con lo que efectivamente resta pagar (hasta 12 períodos por fila).
 
 ![Descargar la plantilla Excel en el paso 2](/ayuda/img/admin/primera-carga-descargar-plantilla-paso2.png)

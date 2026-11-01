@@ -25,3 +25,11 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 | «Primero cerrá la caja abierta del usuario vinculado.» | `app/Services/ProfesorEstadoService.php:31` | Sí — ¿Qué hago si no me deja pasarlo a inactivo? |
 | «La cuenta vinculada está protegida. No se puede desactivar desde Profesores.» | `app/Services/ProfesorEstadoService.php:28` | Sí — ¿Qué hago si no me deja pasarlo a inactivo? |
 | «Ya existe un profesor con ese DNI.» | `app/Http/Controllers/ProfesorWebController.php:197` | Sí — ¿Qué hago si dice «Ya existe un profesor con ese DNI.»? |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Con cambio programado se piden las dos tarifas | `app/Http/Controllers/ProfesorWebController.php:152` | T95 |

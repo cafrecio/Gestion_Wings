@@ -25,11 +25,19 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:611` | No | En > [!NOTE] Requisito previo se indica que los datos del tutor son obligatorios para menores, sin citar el texto de validación exacto. |
-| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:612` | No | En > [!NOTE] Requisito previo se indica que los datos del tutor son obligatorios para menores, sin citar el texto de validación exacto. |
+| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:731` | No | En > [!NOTE] Requisito previo se indica que los datos del tutor son obligatorios para menores, sin citar el texto de validación exacto. |
+| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:732` | No | En > [!NOTE] Requisito previo se indica que los datos del tutor son obligatorios para menores, sin citar el texto de validación exacto. |
 | `La fecha de ingreso no puede ser posterior al :fecha_limite.` | `app/Support/FechaIngresoRegla.php:42` | Sí | Qué hago si: ¿Qué hago si la fecha de ingreso es a futuro? |
 | `Debe seleccionar la frecuencia semanal.` | `app/Http/Controllers/AlumnoWebController.php:372` | No | El Paso 3 explica que se debe elegir la frecuencia semanal para definir el plan, sin citar el mensaje de validación del formulario. |
 | `El campo dni ya ha sido registrado.` | `app/Http/Controllers/AlumnoWebController.php:371` | No | En «Qué hago si: ¿Qué hago si el DNI ya está registrado en el sistema?» explica conceptualmente que el DNI es único sin citar la validación técnica. |
-| `Alumno creado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:420` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que Wings guarda y te lleva directo a su ficha. |
+| `Alumno creado correctamente.` | `app/Http/Controllers/AlumnoWebController.php:433` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que Wings guarda y te lleva directo a su ficha. |
 
 - **Agregado el 01/11/2026 por T108 (`InscripcionService::yaEsDelClub`, ejecutado en `InscripcionSegundaFichaT108Test`): el segundo deporte no paga inscripción.**
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| DNI repetido: una ficha por deporte | `app/Http/Controllers/AlumnoWebController.php:721` | T108 |

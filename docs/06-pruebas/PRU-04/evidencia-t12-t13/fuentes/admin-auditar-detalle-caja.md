@@ -23,7 +23,7 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Deslizá la tabla para ver todas las columnas.` | `resources/views/caja/detalle.blade.php:83` | No | Indicación responsive para celulares cuando la tabla desborda horizontalmente. |
-| `Esta caja no tiene movimientos.` | `resources/views/caja/detalle.blade.php:97` | No | Estado vacío informativo que solo se presenta si la caja fue abierta y cerrada sin ninguna operación. |
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | Explicado conceptualmente en «¿Puedo anular un cobro desde esta pantalla siendo administrador?» sin citar el error técnico de URL. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Restricción interna que impide cancelar gastos o aportes mediante la ruta de cobros. |
+| `Deslizá la tabla para ver todas las columnas.` | `resources/views/caja/detalle.blade.php:93` | No | Indicación responsive para celulares cuando la tabla desborda horizontalmente. |
+| `Esta caja no tiene movimientos.` | `resources/views/caja/detalle.blade.php:275` | No | Estado vacío informativo que solo se presenta si la caja fue abierta y cerrada sin ninguna operación. |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:613` | No | Explicado conceptualmente en «¿Puedo anular un cobro desde esta pantalla siendo administrador?» sin citar el error técnico de URL. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:619` | No | Restricción interna que impide cancelar gastos o aportes mediante la ruta de cobros. |

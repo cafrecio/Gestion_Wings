@@ -24,8 +24,8 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:278` | No | Requisito previo general de caja; la página explica que el turno debe estar en estado Abierta sin citar el error técnico. |
-| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:24` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | Excepción interna; la página explica que se usa Editar y Eliminar para ingresos manuales. |
+| `Debés abrir la caja y confirmar el efectivo antes de operar.` | `app/Services/CajaService.php:312` | No | Requisito previo general de caja; la página explica que el turno debe estar en estado Abierta sin citar el error técnico. |
+| `La caja no está en estado editable.` | `app/Services/CajaCorreccionService.php:20` | No | Excepción contable interna; la página explica en Qué hago si que no se edita en caja validada. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:619` | No | Excepción interna; la página explica que se usa Editar y Eliminar para ingresos manuales. |
 | `The monto field must be at least 0.01.` | `app/Http/Controllers/CajaWebController.php:337` | No | Validación estándar del formulario; en Paso 3 se indica ingresar el importe en pesos. |
 | `Movimiento registrado.` | `app/Http/Controllers/CajaWebController.php:502` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que Wings asienta el movimiento sumándolo al saldo. |

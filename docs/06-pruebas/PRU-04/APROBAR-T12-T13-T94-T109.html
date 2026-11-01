@@ -1,0 +1,104 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Aprobar T12/T13 · Puesta al día con T94 a T109</title>
+<style>body{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;padding:0 16px;color:#1f2937}h1{font-size:1.5rem}section{border:1px solid #d1d5db;border-radius:8px;padding:16px;margin:16px 0}h2{font-size:1.1rem;margin:0 0 4px}.meta{color:#6b7280;font-size:.85rem;margin:0 0 10px}pre{white-space:pre-wrap;background:#f3f4f6;padding:12px;border-radius:6px;font:inherit;font-size:.92rem}img{max-width:100%;border:1px solid #d1d5db;border-radius:6px;margin-top:10px}</style>
+<h1>T12/T13 · Lo que cambió en el manual por T94 a T109</h1>
+<p>Escrito por Claude CAB el 01/11/2026. Son 14 páginas de 59. Las capturas son del Wings real, en un navegador y sobre una copia de la prueba. Lo controla Gemini. Queda abierta una decisión tuya: con qué rubro se compensa un cobro de más en una caja validada. El resto del manual sigue en la <a href="APROBAR-T12-T13-ETAPA-C.html">galería de la etapa C</a>, que ya usa las capturas nuevas.</p>
+<section><h2>Dar de alta a un alumno nuevo</h2><p class="meta">T108 · <code>resources/manual/operativo/alta-alumno.md</code></p><p>DNI repetido: ahora dice la regla real, una ficha por deporte. Captura: el aviso de inscripción real; antes mostraba un error.</p>
+<pre>¿Qué hago si dice «Ya existe un alumno con ese DNI en el mismo deporte.»?
+Esa persona ya tiene ficha en ese deporte. Buscala en **Alumnos**; si está *Inactiva*, reactivala desde su ficha. Wings tiene una ficha por deporte: para anotar a alguien en otro deporte, hacé un alta nueva con el mismo DNI.</pre>
+<img src="../../../resources/manual/img/operativo/alta-alumno-paso3.png" alt="Dar de alta a un alumno nuevo">
+</section>
+<section><h2>Abrir el turno de caja</h2><p class="meta">T96 · <code>resources/manual/operativo/abrir-caja.md</code></p><p>Pregunta nueva: el aviso de que falta cargar Efectivo.</p>
+<pre>¿Qué hago si dice «El dueño tiene que configurar Efectivo antes de abrir la caja.»?
+Todavía no se cargó cuánto efectivo tiene el club. No podés abrir hasta que el dueño lo cargue: es una sola vez. Avisale y volvé a entrar.</pre>
+</section>
+<section><h2>Cancelar un cobro de cuota en una caja abierta o rechazada</h2><p class="meta">T100 · <code>resources/manual/operativo/cancelar-movimiento-caja.md</code></p><p>Capturas: una fila de cuota con Cancelar y el panel con el texto nuevo.</p>
+<img src="../../../resources/manual/img/operativo/cancelar-movimiento-caja-paso2.png" alt="Cancelar un cobro de cuota en una caja abierta o rechazada">
+<img src="../../../resources/manual/img/operativo/cancelar-movimiento-caja-paso3.png" alt="Cancelar un cobro de cuota en una caja abierta o rechazada">
+</section>
+<section><h2>Cobrar una cuota</h2><p class="meta">T100, T108 · <code>resources/manual/operativo/cobrar-cuota.md</code></p><p>La inscripción y los recargos no tienen casilla. Cancelar un adelanto lo deshace.</p>
+<pre>Paso 2. Elegir qué vas a cobrar
+1. En la parte superior de la pantalla vas a ver los datos del alumno y el **Total pendiente**.
+2. Marcá la casilla del mes que el alumno va a pagar (el mes en curso o meses anteriores). La inscripción y los recargos no tienen casilla: la inscripción pendiente se cubre antes que la cuota, en cualquiera de los deportes, y el recargo de un mes se cubre después de su cuota.
+3. Si el alumno entrega un importe parcial, podés modificar el monto directamente en el campo de la cuota; o si adeuda matrícula de inscripción o recargos, ingresar lo que entrega en el campo **Importe que entrega (dejar vacío para cobrar el total)** para que Wings lo distribuya automáticamente.
+
+![Seleccionar las cuotas a cobrar](/ayuda/img/operativo/cobrar-cuota-paso2.png)</pre>
+</section>
+<section><h2>Registrar un gasto menor o salida de dinero del cajón</h2><p class="meta">T101 · <code>resources/manual/operativo/registrar-gasto-caja.md</code></p><p>El dueño carga él mismo lo que saca del cajón.</p>
+<pre>Regla del dinero del dueño:* Si el dueño saca efectivo del cajón, lo carga él mismo en tu turno. Vas a ver ese movimiento en tu caja, a su nombre, y tu efectivo esperado baja en ese importe. Si sacó plata y no lo ves cargado, avisale antes de cerrar: si no, aparece como faltante.</pre>
+</section>
+<section><h2>Retiros y aportes personales del dueño</h2><p class="meta">T101 · <code>resources/manual/admin/dinero-del-dueno-retiros-aportes.md</code></p><p>El dueño tiene Agregar en el turno; la operativa no puede cargar un retiro.</p>
+<pre>Canal 2. Retiro o aporte de efectivo físico en el cajón de la operativa (en Caja)
+1. Si sacás o ponés plata en el cajón durante el turno, lo cargás vos: en **Caja**, en la tarjeta de ese turno, tocá **Agregar**. La operativa no puede: el subrubro **Retiro de dueños** solo se le ofrece al dueño.
+   - Si retirás efectivo: elegí **Retiros** → **Retiro de dueños**.
+   - Si aportás cambio o efectivo: elegí el subrubro de aporte.
+2. El movimiento queda a tu nombre, en la columna **Registró**, y cambia el efectivo esperado del turno. Avisale a la operativa antes de que cuente.
+3. Al finalizar el turno, cuando valides la caja, el movimiento se incorporará con su clasificación correspondiente a Cashflow.
+
+![Asentar retiro o aporte en el formulario de la caja del turno](/ayuda/img/admin/dinero-del-dueno-retiros-aportes-paso2.png)</pre>
+</section>
+<section><h2>Corregir un movimiento mal cargado en una caja ya validada</h2><p class="meta">T100 · <code>resources/manual/admin/corregir-movimiento-caja-validada.md</code></p><p>Pregunta nueva: anular un cobro hecho por el dueño, sin caja.</p>
+<pre>¿Y si el cobro lo hice yo, sin caja?
+Ese cobro no entró a ningún turno, así que se anula desde la ficha del alumno:
+
+1. En el historial de pagos de la ficha, tocá **Anular** en la fila del cobro. El botón solo aparece en los cobros sin caja que no estén anulados.
+2. Escribí el motivo, de al menos 10 caracteres, y confirmá. Wings muestra «Cobro anulado.».
+
+La plata sale del cashflow y el recibo queda anulado. Si el mes ya existía, vuelve a estar pendiente; si era un adelanto, se deshace.</pre>
+</section>
+<section><h2>Condonar una cuota, la inscripción o un recargo</h2><p class="meta">T98, T100 · <code>resources/manual/admin/condonar-deuda-alumno.md</code></p><p>Remite a los dos casos. Captura: el texto nuevo de la ficha.</p>
+<pre>¿Qué hago si quiero devolverle a un alumno una cuota que ya pagó?
+Condonar no sirve para eso: solo perdona lo que se debe. Si el cobro lo hiciste vos, sin caja, se anula desde la ficha. Si pasó por una caja, ver *Corregir un movimiento mal cargado en una caja ya validada*: esa página explica los dos casos.</pre>
+<img src="../../../resources/manual/img/admin/condonar-deuda-alumno-paso1.png" alt="Condonar una cuota, la inscripción o un recargo">
+</section>
+<section><h2>Administrar las cuentas (tipos de caja)</h2><p class="meta">T96 · <code>resources/manual/admin/administrar-tipos-caja.md</code></p><p>El ajuste no cambia el resultado en Reportes, pero sí se ve en Cashflow.</p>
+<pre>Ajustar el saldo de una cuenta
+
+Cuando el saldo de una cuenta no coincide con la realidad y ya no se puede editar, se corrige con un movimiento:
+
+1. Entrá a **Cashflow** y tocá **Nuevo**.
+2. Si en la cuenta falta plata, elegí **INGRESO**, rubro **Ajustes de saldo — entradas** y subrubro **Ajuste de saldo: entrada**. Si sobra, elegí **EGRESO**, rubro **Ajustes de saldo — salidas** y subrubro **Ajuste de saldo: salida**.
+3. Elegí la cuenta en **Medio de pago**, escribí la diferencia en **Monto** y el motivo en **Observaciones**. Tocá **Registrar**.
+
+El ajuste cambia el saldo pero no el resultado del club en **Reportes**: ahí se suma a los aportes o a los retiros de los dueños. En **Cashflow** sí se ve en los ingresos o egresos del período, porque esa pantalla muestra toda la plata que entró y salió.</pre>
+</section>
+<section><h2>Consultar el libro Cashflow y saldos por medio</h2><p class="meta">T106 · <code>resources/manual/admin/consultar-cashflow.md</code></p><p>Aportes, retiros y ajustes suman en estos totales. Capturas con el catálogo real.</p>
+<img src="../../../resources/manual/img/admin/consultar-cashflow-paso1.png" alt="Consultar el libro Cashflow y saldos por medio">
+<img src="../../../resources/manual/img/admin/consultar-cashflow-paso2.png" alt="Consultar el libro Cashflow y saldos por medio">
+</section>
+<section><h2>Crear y administrar grupos y sus precios</h2><p class="meta">T94, T99 · <code>resources/manual/admin/administrar-grupos.md</code></p><p>Dos filas iguales también al editar. Captura: Nuevo arriba, con la línea.</p>
+<img src="../../../resources/manual/img/admin/administrar-grupos-paso1.png" alt="Crear y administrar grupos y sus precios">
+</section>
+<section><h2>Cargar y administrar profesores</h2><p class="meta">T95 · <code>resources/manual/admin/administrar-profesores.md</code></p><p>Con cambio programado se piden las dos tarifas. Editar sin tarifa no guarda.</p>
+<pre>Dar de alta un profesor
+
+1. En el menú lateral, sección *El club*, entrá a **Profesores** y tocá **Nuevo**.
+2. Completá los datos obligatorios: **Nombre**, **Apellido**, **DNI**, **Fecha de nacimiento**, **Dirección**, **Localidad**, **Teléfono** y **Deporte**. **Email** y **CBU o alias** son opcionales.
+3. Según el deporte elegido aparece **Valor por hora** o **Porcentaje de comisión (%)** (hasta 100). Es obligatorio y tiene que ser mayor a cero: sin ese dato Wings no guarda y avisa «Cargá el valor por hora.» o «Cargá el porcentaje de comisión.». Si el deporte tiene programado un cambio de forma de pago para el mes que viene, aparecen los dos y hay que cargar los dos.
+4. Tocá **Guardar**. Wings muestra «Profesor creado correctamente.».
+
+![Formulario de nuevo profesor](/ayuda/img/admin/administrar-profesores-paso1.png)</pre>
+</section>
+<section><h2>Descargar la plantilla de primera carga</h2><p class="meta">T108 · <code>resources/manual/admin/primera-carga-descargar-plantilla.md</code></p><p>Qué significa «No» en Debe inscripción.</p>
+<pre>Paso 2. Descargar y conocer la plantilla
+1. En la sección **2. Completar la plantilla**, tocá el botón **Descargar**. Wings generará el archivo en formato .xlsx listo para completar.
+2. Abrí el archivo en tu computadora y completá **solamente la hoja Alumnos**:
+   - Una sola fila por cada alumno en un deporte. Si una persona practica dos deportes, usá una fila distinta para cada deporte.
+   - Escribí DNI, apellido, nombre, fecha de nacimiento, fecha real de ingreso al club y celular de contacto (para menores, es obligatorio indicar nombre y celular del tutor).
+   - Seleccioná deporte, grupo y plan usando las listas desplegables de la planilla.
+   - Respondé **Debe inscripción**: &quot;Sí&quot; genera esa deuda al importe vigente; &quot;No&quot; no la genera, y esa persona tampoco va a pagar inscripción si después se anota en otro deporte.
+   - Si debe cuotas anteriores, respondé &quot;Sí&quot; en **Tiene deuda** y completá los pares **Período** (ej: &quot;102026&quot;) y **Monto** con lo que efectivamente resta pagar (hasta 12 períodos por fila).
+
+![Descargar la plantilla Excel en el paso 2](/ayuda/img/admin/primera-carga-descargar-plantilla-paso2.png)</pre>
+</section>
+<section><h2>Consultar el registro de movimientos</h2><p class="meta">T101 · <code>resources/manual/operativo/consultar-movimientos.md</code></p><p>La columna Registró.</p>
+<pre>Paso 3. Auditar los registros
+1. En la tabla vas a ver:
+   - La fecha y hora exacta del movimiento.
+   - El indicador de **Ingreso** o **Egreso**.
+   - El concepto o nombre del alumno involucrado.
+   - El medio de pago utilizado.
+   - El importe cobrado o egresado.
+   - **Registró:** quién lo cargó. Un gasto que el dueño cargó en tu turno aparece a su nombre.
+
+![Detalle de operaciones](/ayuda/img/operativo/consultar-movimientos-paso3.png)</pre>
+</section>

@@ -23,7 +23,7 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Atención: fecha de un mes anterior` | `resources/views/cashflow/movimiento.blade.php:40` | Sí | Paso 2: Completar los datos y guardar |
+| `Atención: fecha de un mes anterior` | `resources/views/cashflow/movimiento.blade.php:192` | Sí | Paso 2: Completar los datos y guardar |
 | `Saldo insuficiente en :cuenta. Saldo disponible: :disponible` | `app/Http/Controllers/CashflowWebController.php:248` | No | Validación general de saldo disponible en cuentas sin descubierto. |
 | `El campo monto debe ser al menos 0.01.` | `app/Http/Controllers/CashflowWebController.php:235` | No | Validación estándar de formulario para monto mínimo. |
 | `El campo subrubro es obligatorio.` | `app/Http/Controllers/CashflowWebController.php:234` | No | Validación estándar de formulario cuando no se selecciona subrubro. |

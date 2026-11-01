@@ -27,4 +27,12 @@
 | `Prepará al menos un grupo con un plan activo y precio.` | `app/Http/Controllers/PrimeraCargaWebController.php:32` | Sí | Qué hago si: ¿Qué hago si al querer continuar me dice que faltan catálogos? |
 | `Pendiente. Falta al menos un grupo con un plan activo y precio.` | `resources/views/primera-carga/index.blade.php:39` | No | Texto alternativo del indicador cuando los catálogos están incompletos. |
 | `Faltan planes activos con precio.` | `app/Http/Controllers/PrimeraCargaWebController.php:41` | No | Mensaje de excepción alternativa al invocar la ruta directa de descarga sin catálogos. |
-| `La primera carga ya está terminada.` | `app/Http/Controllers/PrimeraCargaWebController.php:40` | No | Excepción técnica de ruta si se intenta descargar la plantilla tras finalizar la importación. |
+| `La primera carga ya está terminada.` | `app/Http/Controllers/PrimeraCargaWebController.php:99` | No | Excepción técnica de ruta si se intenta descargar la plantilla tras finalizar la importación. |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| «No» en Debe inscripción: tampoco paga en otra ficha | `app/Services/InscripcionService.php:37` | T108 |

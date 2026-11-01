@@ -19,3 +19,11 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 | «Se perdona el saldo pendiente. No mueve plata. Podés reactivarlo con motivo desde esta ficha.» | `resources/views/alumnos/show.blade.php:463` | Sí — Pasos para condonar |
 | «Deuda condonada correctamente.» | `app/Http/Controllers/AlumnoWebController.php:231` | Sí — Pasos para condonar |
 | «El motivo de la condonación debe tener al menos 10 caracteres.» | `app/Http/Controllers/AlumnoWebController.php:211` | Sí — ¿Qué hago si dice «El motivo de la condonación debe tener al menos 10 caracteres.»? |
+
+---
+
+## Actualización por T94 a T109 (Claude CAB, 01/11/2026)
+
+| Qué afirma el manual | Archivo y línea | Tarea |
+|---|---|---|
+| Una cuota cobrada: remite a la página que explica los dos casos | `resources/views/alumnos/show.blade.php:390` | T100 |

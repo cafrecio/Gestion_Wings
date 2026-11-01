@@ -43,6 +43,9 @@ Esta tarea te explica cómo realizar la apertura de la caja al inicio de tu jorn
 ### ¿Qué hago si la pantalla dice «Debe cerrarse antes de abrir el siguiente.»?
 Wings solo permite un turno de mostrador abierto por vez. Si el turno anterior (de la mañana o del día previo) todavía no se cerró, debe cerrarse primero. Si corresponde a la misma compañera, pedile que realice su cierre; si sos vos misma, tocá el botón **Cerrar** para rendir el turno anterior antes de iniciar el nuevo.
 
+### ¿Qué hago si dice «El dueño tiene que configurar Efectivo antes de abrir la caja.»?
+Todavía no se cargó cuánto efectivo tiene el club. No podés abrir hasta que el dueño lo cargue: es una sola vez. Avisale y volvé a entrar.
+
 ### ¿Qué hago si la diferencia con el cierre anterior es muy grande?
 Si el importe que ingresaste difiere en más de un 50% de lo dejado en el cierre anterior, Wings muestra el recuadro de advertencia **Diferencia importante con el cierre anterior**. Verificá el conteo físico de los billetes y, si confirmás que el valor es el correcto, marcá la casilla **Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.** para poder tocar el botón **Abrir**.
 

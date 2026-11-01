@@ -35,8 +35,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
-| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
-| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Sin empezar | Decidir: antes o despues de produccion. CLA-024 lo describe desde el 13/10; la clase validada se paga en la proxima liquidacion. Se retrata en 56.8. |
 | **T114** Reportes Sueldos no refleja lo pagado cuando cambia el valor hora o hay ajuste | Sin empezar | Decidir: Mariela figura 342.000 y se pago 361.000; Hernan 561.000 y se pago 561.100. Dice Estimado aunque ya este pagado. Se retrata en 55.4. |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Sin empezar | Decidir: propuesta avisar o rechazar un periodo futuro antes del 2/1/2027. No mueve plata y se elimina. Probado en la copia, simulacion/tanda-5/ano.php. |
@@ -59,7 +57,10 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | 01/11: manual al dia con T94 a T109 (14 paginas, 7 capturas, 70 citas). Gemini lo controla: PROMPT-GEMINI-T12-T13-T94-T109.md. Despues, OK de Carlos con APROBAR-T12-T13-T94-T109.html |
+| **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | 01/11: ayuda al dia con T94 a T109. Gemini controla el ? de las pantallas que cambiaron: PROMPT-GEMINI-T12-T13-T94-T109.md |
 
 ## Sin empezar (10)
 

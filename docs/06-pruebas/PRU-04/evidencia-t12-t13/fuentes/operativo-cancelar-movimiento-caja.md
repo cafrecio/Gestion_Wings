@@ -25,7 +25,7 @@
 
 | Rechazo / Aviso | Archivo:Línea | ¿Está en la página? | Sección en la página / Motivo si no está |
 |---|---|---|---|
-| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:601` | No | En > [!NOTE] Requisito de estado y en «Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?» se explica la regla conceptual sin citar el error técnico de URL. |
-| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:608` | No | El Paso 2 explica que Cancelar aplica a cobros de cuota (ingresos y gastos usan Editar y Eliminar) sin citar el mensaje de abort. |
+| `Solo se puede cancelar un cobro con la caja abierta o rechazada.` | `app/Http/Controllers/CajaWebController.php:613` | No | En > [!NOTE] Requisito de estado y en «Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?» se explica la regla conceptual sin citar el error técnico de URL. |
+| `Solo se pueden cancelar cobros de cuota.` | `app/Http/Controllers/CajaWebController.php:619` | No | El Paso 2 explica que Cancelar aplica a cobros de cuota (ingresos y gastos usan Editar y Eliminar) sin citar el mensaje de abort. |
 | `El campo motivo es obligatorio.` | `app/Http/Controllers/CajaWebController.php:625` | No | El Paso 3 indica que el motivo es obligatorio sin citar la validación técnica. |
-| `Cobro cancelado.` | `app/Http/Controllers/CajaWebController.php:630` | No | Mensaje flash del backend; el Paso 3 explica que tacha el movimiento y que el mes vuelve a pendiente, salvo el adelanto que se deshace. |
+| `Cobro cancelado.` | `app/Http/Controllers/CajaWebController.php:648` | No | Mensaje flash del backend; el Paso 3 explica que tacha el movimiento y que el mes vuelve a pendiente, salvo el adelanto que se deshace. |

@@ -44,6 +44,7 @@ Esta tarea te explica cómo revisar el libro cronológico de movimientos de caja
    - El concepto o nombre del alumno involucrado.
    - El medio de pago utilizado.
    - El importe cobrado o egresado.
+   - **Registró:** quién lo cargó. Un gasto que el dueño cargó en tu turno aparece a su nombre.
 
 ![Detalle de operaciones](/ayuda/img/operativo/consultar-movimientos-paso3.png)
 

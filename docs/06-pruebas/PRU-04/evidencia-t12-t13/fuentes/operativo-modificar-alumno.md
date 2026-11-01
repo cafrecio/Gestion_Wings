@@ -27,6 +27,6 @@
 |---|---|---|---|
 | `El campo motivo fecha alta es obligatorio.` | `app/Http/Controllers/AlumnoWebController.php:530` | No | El Paso 2 indica que el motivo es obligatorio si se corrige la fecha de alta, sin citar el texto de validación técnica. |
 | `La fecha de ingreso no puede ser posterior al :fecha_limite.` | `app/Support/FechaIngresoRegla.php:42` | No | Regla de validación de fecha máxima explicada en alta-alumno.md; en edición rige la misma restricción sin citar el mensaje en esta página. |
-| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:611` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
-| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:612` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
-| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:547` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te redirige mostrando el aviso de confirmación. |
+| `El nombre del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:731` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
+| `El teléfono del tutor es obligatorio para menores de edad.` | `app/Http/Controllers/AlumnoWebController.php:732` | No | Validación para menores; el formulario marca requeridos los campos de tutor. |
+| `Alumno actualizado.` | `app/Http/Controllers/AlumnoWebController.php:555` | No | Mensaje flash del backend tras redirección; en Paso 3 se explica que te redirige mostrando el aviso de confirmación. |
