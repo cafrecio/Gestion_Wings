@@ -1,6 +1,6 @@
 # T97 — Anulación de transferencia completa
 
-Entrega local de Codex CAB, 01/11/2026. **Implementación terminada; verificaciones generales en curso.** La lógica debe revisarla Claude antes del cierre. Sin despliegue ni acceso al sitio de prueba o producción.
+Entrega local de Codex CAB, 01/11/2026. **Implementación publicada en `7e72b0d4`; entregada a Claude con T97 `a_verificar`.** La lógica debe revisarla Claude antes del cierre. Sin despliegue ni acceso al sitio de prueba o producción.
 
 ## Resultado
 
@@ -14,7 +14,7 @@ La barra móvil implementada deja el contador arriba y Transferir/Nuevo debajo, 
 
 ## Ejemplos comprobados, con ambas cuentas
 
-### Transferencia simple y captura real
+### Transferencia simple y captura real (corte 7e72b0d4, anterior a T106)
 
 | Estado | Efectivo | Banco Nación | Total del club | Tarjetas ingreso/egreso |
 |---|---:|---:|---:|---:|
@@ -35,7 +35,7 @@ Reloj de prueba: 15/11/2026. Además del capital anterior hay un ingreso bancari
 
 Se compararon las estructuras de ReporteMensual antes de transferir y después de anular: ingresos, egresos, resultado, resultado global, aportes, retiros, disponible, cajas, deuda y por pagar, para ambos meses. Los GET de Reportes e Inicio dieron esos mismos saldos; Inicio usa noviembre. Cashflow verificó los totales y la cantidad de filas con todas las cuentas, solo Efectivo y solo Banco, en ambos meses. Historial verificó entradas/salidas por las dos ventanas de fechas. La prueba adicional con $300.000,75 verifica también los centavos de ambos inversos.
 
-**Diferencia entre el pedido y los filtros existentes:** Historial no tiene filtro de cuenta; Reportes filtra mes/deporte y muestra las cuentas; Inicio usa el mes actual y no ofrece filtro de mes/cuenta. Se usaron sus caminos reales y se filtró por cuenta donde existe, sin agregar filtros. T106 no se decidió: una transferencia vigente sigue sumando ingreso y egreso en Cashflow/Historial; la anulada se compensa hasta dejar sus tarjetas como antes de existir.
+**Diferencia entre el pedido y los filtros existentes:** Historial no tiene filtro de cuenta; Reportes filtra mes/deporte y muestra las cuentas; Inicio usa el mes actual y no ofrece filtro de mes/cuenta. Se usaron sus caminos reales y se filtró por cuenta donde existe, sin agregar filtros. Esta entrega no decidió T106: en el corte 7e72b0d4 una transferencia vigente sumaba ingreso y egreso en Cashflow/Historial; la anulada se compensaba hasta dejar sus tarjetas como antes de existir. Durante la espera, el trabajo T106 cambió en la carpeta la política de totales globales para excluir TRASPASO, conservando el detalle por cuenta; también ajustó dos expectativas de la prueba T97. Esos cambios ajenos se preservan y quedan fuera de esta verificación aislada. Las cifras de esta tabla y las capturas identifican expresamente su corte anterior.
 
 ## Reglas y pruebas permanentes
 
@@ -86,7 +86,7 @@ Los contadores de ESTADO/PLAN/CHECKLIST distinguen métodos permanentes de casos
 
 ## Carpeta compartida y corte de evidencia
 
-Al iniciar la suite completa, HEAD tenía 1.371 métodos; T97 agrega 18 y había otros 2 de T105 sin publicar. El checkout contaba 1.391, mientras que un commit solo de T97 sobre ese HEAD debe contar 1.389 si T105 sigue sin publicar. T94 agrega **22**, no 24: los otros dos eran T105. Se corrigió esa atribución al contar cada archivo y el árbol de HEAD por separado.
+Al iniciar la suite completa, HEAD tenía 1.371 métodos; T97 agrega 18 y había otros 2 de T105 sin publicar. El checkout contaba 1.391 por dos métodos T105 todavía sin publicar. El commit propio 7e72b0d4 y la copia de la completa tuvieron 1.389 métodos, excluyendo esos dos; T102/T105 se publicaron después en a648ec9e. T94 agrega **22**, no 24: los otros dos eran T105. Se corrigió esa atribución al contar cada archivo y el árbol de HEAD por separado.
 
 Durante la completa, T102 agregó una ruta de niveles en `routes/web.php` y doce líneas limitadas a `.niveles-actions` en el CSS compartido. Esos archivos contienen también los cambios propios. Se frenó su preparación para commit y se consultó a Carlos, conforme al pedido de no mezclar cambios ajenos. **Carlos autorizó: «Sí, publicar solo T97 y preservar lo ajeno».** Se preparan solo los cambios propios en el índice, conservando todo en la carpeta. Los avances ajenos de T94/T102 en el tablero se conservan. No se atribuyen ni se incorporan como implementación de T97.
 
@@ -102,9 +102,10 @@ Las capturas y sus ocho hashes corresponden al corte previo a esos agregados T10
 | Build | **Correcto**, 41,26 s — [salida](evidencia-t97/build.txt) |
 | Manual | **Copia aislada: 59 páginas, 0 problemas**, salida 0 — [salida final](evidencia-t97/manual-aislado.txt). Primera lectura en carpeta compartida: 6 problemas solo en administrar-grupos ajena — [salida histórica](evidencia-t97/manual.txt) |
 | Suite rápida | **1.266 aprobadas, 6 omitidas, 9.482 aserciones, 363,83 s, salida 0** — [salida](evidencia-t97/suite-rapida.txt); 674 fuentes idénticas antes/después |
-| Suite completa | Primera corrida interrumpida por reinicio de sesión, sin resultado final; [salida parcial conservada](evidencia-t97/suite-completa-interrumpida.txt). Repetición preparada en copia aislada HEAD + T97, solo `wings_testing_codex`; completar resultado antes de entregar |
+| Suite completa | **1.401 aprobadas, 6 omitidas, 11.287 aserciones, 1.300,66 s, salida 0** — [salida](evidencia-t97/suite-completa.txt). Copia aislada del corte propio, 1.389 métodos y **669 fuentes idénticas antes/después** — [inventario final](evidencia-t97/final/despues-completa-aislada.json) |
+| Regresión tras T106 | **65 aprobadas, 774 aserciones, 97,36 s, salida 0** — [salida](evidencia-t97/dirigidas-integracion-t106.txt) · [cuatro fuentes restauradas](evidencia-t97/final/integracion-t106.json) |
 | Sintaxis y vistas | **11 PHP sin errores**; `view:cache` y `view:clear` correctos — [sintaxis](evidencia-t97/sintaxis.txt) · [vistas](evidencia-t97/vistas.txt) |
-| Integridad final | 7 JPEG válidos, 17 enlaces de galería, 8 fuentes iguales al renderizado, barra sin superposición y copia del manual idéntica — [resultado](evidencia-t97/final/verificacion.json); diff final pendiente |
+| Integridad final | 7 JPEG válidos, 17 enlaces de galería, 8 fuentes coinciden con el commit 7e72b0d4 (normalización CRLF/LF), barra sin superposición y copia del manual idéntica — [resultado por commit](evidencia-t97/final/verificacion-commit.json). Diff, enlaces e integridad revisados para la entrega |
 
 La ejecución inicial corrigió errores del soporte: conflicto entre traits y una expectativa propia de HTTP 422 cuando el formulario existente redirige 302 con error; otra aserción inicial incluía un movimiento de negocio en la lista de acciones de transferencia. Se preservan salidas iniciales para trazabilidad. No se cambiaron las expectativas de T61/T27 para hacerlas pasar.
 
@@ -127,4 +128,16 @@ Nuevos casos, códigos definitivos a asignar por Claude:
 
 **No certificado:** despliegue, datos del club, condiciones de servidores y verificación independiente de Claude. La aprobación de Carlos corresponde al aspecto; no se usa como aprobación de la lógica. La lectura de fuentes no sustituye la ejecución y el índice no certifica exhaustividad.
 
-**Siguiente:** terminar la repetición completa en copia aislada y entregar en tablero `a_verificar`, `tiene=Claude`. Carlos no necesita aprobar nuevamente el mismo diseño. Claude revisa código, cifras y comportamiento; T97 no se autocierra.
+**Siguiente:** Claude revisa la entrega, ya en tablero `a_verificar`, `tiene=Claude`. Carlos no necesita aprobar nuevamente el mismo diseño. Claude revisa código, cifras y comportamiento; T97 no se autocierra.
+
+Actualización de exclusividad: el primer arranque aislado comenzó sin otras pruebas (03:37:11), pero T102 lanzó otra a las 03:37:23. Se detuvo únicamente T97, conservando la salida en `suite-completa-interrumpida-por-solapamiento.txt`. Se reintentó después de 120 segundos libres, con vigilancia de procesos y detención de la propia ante cualquier nuevo solapamiento. Ninguna corrida interrumpida se contó como verde. Implementación `7e72b0d4` confirmada en origin/main; no es despliegue.
+
+Corte posterior observado en solo lectura: `a648ec9e` publicó T102/T105. T106 después modificó el cálculo global de tarjetas en `CashflowWebController` y las expectativas previas a anular en `AnulacionTransferenciasT97Test`; Codex no modifica ni incluye ese trabajo. La comprobación completa propia usa la copia aislada anterior (1.389 métodos), cuya implementación coincide con `7e72b0d4`. No se presenta como verificación de T106 ni de T102/T105.
+
+Coordinación por pedido de Carlos: reserva solicitada directamente y confirmada por Gemini y ambas sesiones de Claude; [confirmaciones](evidencia-t97/reserva-confirmaciones.json). Tras corregir un falso positivo del monitor (su propio PHPUnit pasaba por cmd.exe), comenzó la corrida exclusiva final a las 04:11:46. El primer registro automático se conserva con su corrección explícita en `solapamientos.jsonl`; no fue una prueba ajena. El ejecutor reconoce ahora la cadena PHP/cmd y la ruta de configuración propia.
+
+Expectativas posteriores, ajenas a T97: `2145888b` cambió en T61 los totales globales previos a anular de $320.000/$307.000 a $20.000/$7.000, y en una prueba de T97 de $312.000,50/$300.000 a $12.000,50/$0. Lo hizo porque T106 excluye la transferencia vigente del total global. T97 no cambió esas expectativas para aprobar su entrega: sus 65 dirigidas y su completa aislada usan las anteriores. La regresión adicional de T97/T61/T27 con los dos controladores y las expectativas publicadas por T106 pasó 65/774 (97,36 s, salida 0), sin tocar el código compartido ni dar por verificada toda T106. Se restauraron después los cuatro archivos de la copia aislada.
+
+Las tres fichas de T97 se regeneraron otra vez para actualizar las líneas desplazadas por T106; se preservó íntegro el agregado de T106 en `admin-consultar-cashflow.md`. El cambio de cada ficha es solo una línea de referencias de fuente.
+
+**Resultado final de la reserva:** confirmada por las tres sesiones, completa y regresión terminadas, estado LIBERADA en `docs/00-estado/RESERVA-SUITE-T97.md`. Las primeras salidas interrumpidas se conservan como tales; el verde corresponde únicamente a la corrida completa final y a la regresión identificadas arriba. No hay despliegue.

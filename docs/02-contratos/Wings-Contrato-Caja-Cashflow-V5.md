@@ -204,7 +204,7 @@ Aclaración de Carlos, 20/10/2026: formulario único con cuenta de salida, cuent
 
 ### Anulación completa de transferencias — T97, 01/11/2026
 
-Aspecto aprobado por Carlos tras corregir la superposición móvil: «Esta OK ahora» ([propuesta aprobada](../06-pruebas/PRU-04/APROBAR-T97.html)). Implementación local en curso; la aprobación del aspecto no certifica reglas financieras ni despliegue.
+Aspecto aprobado por Carlos tras corregir la superposición móvil: «Esta OK ahora» ([propuesta aprobada](../06-pruebas/PRU-04/APROBAR-T97.html)). Implementada en 7e72b0d4 y entregada a revisión independiente de Claude; la aprobación del aspecto no sustituye esa revisión ni autoriza despliegue.
 
 - Solo ADMIN activo anula una transferencia, incluso si la registró otro ADMIN. Se llega desde cualquiera de sus dos movimientos originales en Cashflow. No existe edición: corregir implica anular y registrar otra.
 - El motivo es obligatorio, de 1 a 500 caracteres después de quitar espacios exteriores. La cabecera conserva motivo, autor de la anulación y fecha/hora real. La fecha de los movimientos financieros sigue siendo la original, también para un mes anterior.

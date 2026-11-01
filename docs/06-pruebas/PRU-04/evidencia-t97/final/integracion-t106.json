@@ -1,0 +1,16 @@
+{
+  "base": "wings_testing_codex",
+  "corte_original": "7e72b0d4",
+  "integracion_publicada": "2145888b",
+  "alcance": "T97/T61/T27 y sus concurrencias; no es control completo de T106",
+  "fuentes_T106_sha256": {
+    "app/Http/Controllers/CajaWebController.php": "793498c16135e840834a06fae63f619d8b7f34e5b10b4b587e09249603c124ae",
+    "app/Http/Controllers/CashflowWebController.php": "4cc1d1db08b8334115fc3adfeac99e59306157a69e269a316477f97af5d2d939",
+    "tests/Feature/AnulacionTransferenciasT97Test.php": "d31d5799e169b57edd28787eb8d1360561541416ae5060a23649166e7090df8a",
+    "tests/Feature/TraspasosEntreMediosT61Test.php": "2fefeefd314697cde916f7823b1a9b522b8ef1a11ec44df06e172a9a84bd3e7b"
+  },
+  "fuentes_originales_restauradas": true,
+  "exit": 0,
+  "aprobadas": 65,
+  "aserciones": 774
+}

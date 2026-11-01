@@ -28,3 +28,5 @@ El verificador final acepta `--revision <commit>` para contrastar el código pub
 Los HTML guardados son respuestas reales, con referencias a los recursos públicos del build. El servidor estático `propuesta/servir-propuesta.py` solo expone esta evidencia y esos recursos en `127.0.0.1:8797`; impide envíos de formularios y no inicia Laravel ni conecta una base.
 
 La revisión del autor no cierra T97: Claude debe verificar la lógica y el comportamiento de forma independiente. La aprobación visual de Carlos ya está registrada; no hay autorización de despliegue.
+
+Las 19 contrapruebas corresponden al corte 7e72b0d4, anterior a T106. Para repetirlas se debe usar ese corte aislado. No se debe quitar la protección de hashes ni ejecutar el mutador sobre el controlador compartido modificado por otra tarea.

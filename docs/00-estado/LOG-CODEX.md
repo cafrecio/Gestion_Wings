@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T97 entregada a revisión de Claude
+
+Implementación propia publicada en 7e72b0d4; aspecto aprobado por Carlos: «Esta OK ahora». [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) · [Capturas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
+Completa en wings_testing_codex: 1401 aprobadas, 6 omitidas, 11287 aserciones, 1300,66s, salida0; copia aislada1389 métodos y669 fuentes intactas. T61/T27 con sus expectativas originales verdes.
+T106 posterior preservada: regresión T97/T61/T27 con controladores y expectativas2145888b, 65/774 verdes,97,36s; cuatro fuentes aisladas restauradas. No es el control completo de T106.
+Manual aislado59/0; 19 contrapruebas detectadas, dos conexiones reales y seis capturas reales. Fichas refrescadas conservando el agregado ajeno de T106.
+Carlos pidió solicitar la reserva: confirmaron Gemini y ambas sesiones de Claude; reserva LIBERADA. Falso positivo inicial del monitor corregido y documentado, sin heredar verdes de corridas interrumpidas.
+T97 a_verificar, tieneClaude; sin autocierre, base del club ni despliegue. Código ajeno y evidenciaT34 preservados; entrega documental final solo propia.
+
+Pedido de Carlos: [reserva de suite T97](RESERVA-SUITE-T97.md), LIBERADA tras la completa y regresión; confirmaron Gemini y dos sesiones de Claude.
+
 ## 2026-11-01 — Codex CAB — T97 implementada; espera suite completa exclusiva
 
 Carlos aprobó el aspecto: «Esta OK ahora». Anulación atómica del par con motivo, autor, fecha y dos inversos; defensas de directos intactas. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) y [pantallas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
@@ -8,17 +19,7 @@ La completa anterior se interrumpió al reiniciar la sesión: no tiene resultado
 Carlos autorizó «Sí, publicar solo T97 y preservar lo ajeno». Se separan CSS, rutas, generador, informe compartido y contadores; T94/T102/T105 y evidencia T34 quedan fuera del commit propio.
 Manual, fichas, contrato y despliegue documentados. Se guarda la implementación sin dar por terminada la verificación. T97 sigue en curso; después de la completa se entrega a Claude, sin autocierre ni despliegue.
 
-## 2026-11-01 — Codex CAB — T97, propuesta visual pendiente de Carlos
-
-Anulación completa de transferencia: propuesta aislada con componentes reales; vistas del producto intactas. [Galería 1366/375](../06-pruebas/PRU-04/APROBAR-T97.html) · [Informe y pendientes](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md).
-Confirmación con ambas cuentas y motivo obligatorio; originales anulados y contraasientos identificados, solo Ver. Ejemplo visual: Efectivo/Banco 600.000/100.000 → 300.000/400.000 → 600.000/100.000.
-Renderizado final en wings_testing_codex: 1/11, salida 0; seis capturas Chrome y control de login en marco real de 375. Estado anulado preparado como fixture: no acredita implementación financiera.
-Inventario inicial de 16 lectores; auditoría exhaustiva, reglas, concurrencia con dos conexiones, T61/T27 y suite completa pendientes tras OK. Sin aumentar el contador de pruebas del producto.
-Main actualizado al iniciar; cambios T96 de Gemini y evidencia T34 ajena preservados. Carlos autorizó mover solo T97; no se incluyen aportes ajenos en el commit propio.
-Sin modificar guardas, manual, catálogo de pruebas, vistas/CSS ni servidor. No desplegar mientras Cora trabaja en test. Propuesta y bitácora quedan documentadas; T97 sigue en curso, no a_verificar.
-Freno explícito del pedido: Carlos revisa APROBAR-T97.html; implementar recién con su OK y entregar después a Claude. Entrada antigua archivada íntegra por límite.
-Actualización 01/11: Carlos pidió separar botones y texto. Propuesta móvil corregida y recapturada: contador arriba, botones debajo; 8 px de separación, 96 × 32. Escritorios idénticos. Renderizado 1/11 verde; sigue pendiente su OK.
-OK visual 01/11: Carlos: «Esta OK ahora». Continúa la implementación financiera T97; después controla Claude.
+[Propuesta T97 y su aprobación, archivadas íntegras al entregar](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-propuesta-T97-antes-entrega.txt). Base original: docs/00-estado/. SHA256: 6070bc11254f12db81ec48ca87b73d41efe4cec78edb6f344b172fd2b1ae79bd.
 
 ## 2026-10-30 — Codex CyE — PRU-04 días 41 a 47 entregados a revisión
 

@@ -1,0 +1,62 @@
+
+   PASS  Tests\Unit\AlumnoAutocompleteViewSecurityTest
+  ✓ autocomplete inserta textos de base sin interpretarlos como html                                             0.52s  
+
+   PASS  Tests\Unit\DatabaseExportSafetyTest
+  ✓ database no contiene exportadores y el dump esta ignorado                                                    0.69s  
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Unit\FormatoImporteTest
+  ✓ muestra centavos y enteros sin perder precision de la base                                                   0.03s  
+  ✓ suma visible conserva los centavos de cada renglon
+  ✓ publica la misma politica para browser y excel
+
+   PASS  Tests\Unit\ImportePesosTest
+  ✓ formato y preparacion no redondean pedidos invalidos                                                         0.04s  
+
+   PASS  Tests\Unit\MoneyLockingTest
+  ✓ validacion de caja bloquea la fila antes de cambiar estado                                                   0.04s  
+  ✓ ambos flujos de pago serializan al alumno y bloquean la deuda
+
+   PASS  Tests\Unit\ProgramacionClasesTest
+  ✓ media hora cuenta dos bloques y exige confirmar                                                              3.39s  
+  ✓ fin en punto no ocupa el bloque siguiente                                                                    0.05s  
+  ✓ horarios en punto no piden confirmacion                                                                      0.02s  
+  ✓ confirmacion no sirve para otra carga                                                                        0.04s  
+  ✓ seis programaciones generan 76 clases con el horario correcto                                                0.44s  
+  ✓ serie con horario comun sigue siendo valida                                                                  0.47s  
+  ✓ no acepta fin anterior o faltante en un dia elegido                                                          0.11s  
+  ✓ rechaza fechas pasadas y dias inexistentes                                                                   0.08s  
+  ✓ aviso de serie identifica el dia y renueva la firma si cambia                                                0.07s  
+
+   PASS  Tests\Feature\AccesoSinPermisoTest
+  ✓ profesor sin permiso en alumnos                                                                             28.79s  
+  ✓ profesor sin permiso en caja                                                                                 0.09s  
+  ✓ profesor sin permiso en grupos                                                                               0.17s  
+  ✓ profesor sin permiso en cashflow                                                                             0.24s  
+  ✓ profesor sin permiso en liquidaciones                                                                        0.16s  
+  ✓ profesor sin permiso en usuarios                                                                             0.10s  
+  ✓ profesor sin permiso en configuraciones                                                                      0.09s  
+  ✓ operativo sin permiso en cashflow                                                                            0.32s  
+  ✓ operativo sin permiso en liquidaciones                                                                       0.17s  
+  ✓ operativo sin permiso en usuarios                                                                            0.20s  
+  ✓ operativo sin permiso en configuraciones                                                                     0.16s  
+  ✓ admin rechazado en cuenta protegida vuelve a su tablero                                                      0.62s  
+  ✓ sin sesion se sigue pidiendo ingresar                                                                        0.11s  
+  ✓ cuenta inactiva no conserva acceso                                                                           0.09s  
+
+   PASS  Tests\Feature\AdelantoCanceladoT100Test
+  ✓ el adelanto recuerda el cobro del que nacio                                                                  0.69s  
+  ✓ cancelar y cobrar bien no deja saldo fantasma                                                                0.23s  
+  ✓ cancelar baja el efectivo esperado y conserva el detalle                                                     1.38s  
+  ✓ el duenio anula su adelanto y la cuota tampoco queda                                                         0.14s  
+  ✓ al llegar el mes con asistencia se genera a precio del plan                                                  0.22s  
+  ✓ al llegar el mes sin asistencia va a revision y no debe nada                                                 0.16s  
+  ✓ con el mes ya empezado no se borra y vale el precio del plan                                                 0.68s  
+  ✓ cancelar un cobro de varios meses solo borra los que nacieron de el                                          0.57s  
+  ✓ una cuota que ya existia sigue igual                                                                         0.66s  
+  ✓ no se deshace mientras otro cobro la sostenga                                                                1.39s  
+  ✓ con un recargo atado no se borra                                                                             0.51s  
+  ✓ con una parte dada por perdida no se toca                                                                    0.88s  

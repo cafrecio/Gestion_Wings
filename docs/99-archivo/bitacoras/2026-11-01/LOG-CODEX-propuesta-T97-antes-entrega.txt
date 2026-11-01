@@ -1,0 +1,12 @@
+## 2026-11-01 — Codex CAB — T97, propuesta visual pendiente de Carlos
+
+Anulación completa de transferencia: propuesta aislada con componentes reales; vistas del producto intactas. [Galería 1366/375](../06-pruebas/PRU-04/APROBAR-T97.html) · [Informe y pendientes](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md).
+Confirmación con ambas cuentas y motivo obligatorio; originales anulados y contraasientos identificados, solo Ver. Ejemplo visual: Efectivo/Banco 600.000/100.000 → 300.000/400.000 → 600.000/100.000.
+Renderizado final en wings_testing_codex: 1/11, salida 0; seis capturas Chrome y control de login en marco real de 375. Estado anulado preparado como fixture: no acredita implementación financiera.
+Inventario inicial de 16 lectores; auditoría exhaustiva, reglas, concurrencia con dos conexiones, T61/T27 y suite completa pendientes tras OK. Sin aumentar el contador de pruebas del producto.
+Main actualizado al iniciar; cambios T96 de Gemini y evidencia T34 ajena preservados. Carlos autorizó mover solo T97; no se incluyen aportes ajenos en el commit propio.
+Sin modificar guardas, manual, catálogo de pruebas, vistas/CSS ni servidor. No desplegar mientras Cora trabaja en test. Propuesta y bitácora quedan documentadas; T97 sigue en curso, no a_verificar.
+Freno explícito del pedido: Carlos revisa APROBAR-T97.html; implementar recién con su OK y entregar después a Claude. Entrada antigua archivada íntegra por límite.
+Actualización 01/11: Carlos pidió separar botones y texto. Propuesta móvil corregida y recapturada: contador arriba, botones debajo; 8 px de separación, 96 × 32. Escritorios idénticos. Renderizado 1/11 verde; sigue pendiente su OK.
+OK visual 01/11: Carlos: «Esta OK ahora». Continúa la implementación financiera T97; después controla Claude.
+

@@ -50,6 +50,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
+| **T97** Transferencia entre cuentas: no se puede corregir ni anular | Hecho, espera verificación (hizo Codex, verifica Claude) | Codex entrega7e72b0d4: completa1401 aprobadas/6omitidas/11287aserciones, 1300.66s; 669fuentes intactas. IntegracionT106:65/774 verde. 19mutaciones y dos conexiones. Revisar IMPLEMENTACION-T97.md y VER-T97.html. Reserva LIBERADA; sin despliegue. |
 
 ## Codex
 
@@ -59,7 +60,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: el gasto que el dueño agrega en un turno figura a su nombre, también en Cashflow al validar. Lo ya cargado no se corrige. Codex la controla junto con T100: PROMPT-CODEX-T100-CONTROL.md, cuando termine T97. Sin desplegar. |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
 | **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decisión de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta sí, y en Historial filtrando su subrubro. Las filas se siguen listando. Codex la controla con T100 y T101: PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
-| **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | Implementacion propia 7e72b0d4 publicada. Codex espera una franja sin otras pruebas para la suite completa en wings_testing_codex; no iniciar suites mientras corre. Despues entrega a Claude; sin despliegue. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
 
 ## Gemini

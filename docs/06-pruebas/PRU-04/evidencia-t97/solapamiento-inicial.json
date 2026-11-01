@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-11-01",
+  "zona": "America/Buenos_Aires",
+  "T97": {
+    "artisan_pid": 50536,
+    "phpunit_pid": 29900,
+    "inicio": "03:37:11.729354",
+    "copia_aislada": true
+  },
+  "otra_suite": {
+    "artisan_pid": 7020,
+    "phpunit_pid": 24872,
+    "inicio": "03:37:23.305714",
+    "filtro": "NivelInactivo"
+  },
+  "accion": "Se detuvieron solamente los dos procesos T97 verificados por PID y ruta; salida parcial conservada; no se usa como resultado completo",
+  "salida": "suite-completa-interrumpida-por-solapamiento.txt"
+}

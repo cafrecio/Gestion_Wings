@@ -14,7 +14,7 @@
 | Motivo obligatorio hasta 500 caracteres para la transferencia; el del directo sigue opcional | `app/Services/AnulacionTransferenciaCashflowService.php:34` | `$datos = Validator::make($datos, ['motivo' => 'required\|string\|max:500'],` | Leído en el código; no ejecutado en pantalla. |
 | No vuelve a anular una transferencia confirmada | `app/Services/AnulacionTransferenciaCashflowService.php:45` | `if ($transferencia->anulada_at !== null) {` | Leído en el código; no ejecutado en pantalla. |
 | Solo directos, no anulados, no reservados | `app/Models/CashflowMovimiento.php:89` | `return $this->esDirecto() && $this->anulado_at === null && !$this->subrubro?->es_reservado_sistema;` | Captura de la pantalla real (CapturasEtapaCTest). |
-| Editar / Historial / Eliminar en la fila | `app/Http/Controllers/CashflowWebController.php:225` | `if ($correccionesDisponibles && $mov->puedeCorregirse()) {` | Leído en el código; no ejecutado en pantalla. |
+| Editar / Historial / Eliminar en la fila | `app/Http/Controllers/CashflowWebController.php:231` | `if ($correccionesDisponibles && $mov->puedeCorregirse()) {` | Leído en el código; no ejecutado en pantalla. |
 | Eliminar anula con asiento en contra | `app/Http/Controllers/CashflowCorreccionWebController.php:48` | `return redirect()->route('web.cashflow.movimientos.show', $id)->with('success', 'Movimiento anulado. El original y el asiento en contra se conservan.');` | Leído en el código; no ejecutado en pantalla. |
 
 ## Rechazos y avisos de la acción
