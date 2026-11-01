@@ -1,0 +1,2 @@
+[56.9a] Lucía, Alma presente sin motivo → 400 Tiene deuda vencida. Indicá el motivo para dejarlo entrar. OK
+[56.9b] con el motivo de Alma → 302 Asistencias guardadas. OK

@@ -1,6 +1,6 @@
 == inicio 53 (después de la rutina) 2026-12-01 11:00:00
-   Cobranza: $2.738.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
-   Saldos: Efectivo $1.203.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.991.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $70.000,00
+   Cobranza: $2.733.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
+   Saldos: Efectivo $1.223.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.989.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $56.000,00
    Caja #91 u3 ABIERTA esperado $0,00
 [53.4a] Hernán marca todos, sin motivos → 400 Tiene deuda vencida. Indicá el motivo para dejarlo entrar. OK
 [53.4b] con los motivos; Mora presente, con su lista de Patín a la misma hora → 302 Asistencias guardadas. OK
@@ -50,6 +50,6 @@
 [53.10] Carla Morales paga $20.000 de diciembre → 302 Pago registrado para Morales, Carla. OK
    Carla: PENDIENTE $35.000,00 pagado $20.000,00
 == fin 53 (antes de la noche) 2026-12-01 11:00:00
-   Cobranza: $2.718.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
-   Saldos: Efectivo $1.203.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.991.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $70.000,00
+   Cobranza: $2.713.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
+   Saldos: Efectivo $1.223.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.989.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $56.000,00
    Caja #91 u3 ABIERTA esperado $0,00

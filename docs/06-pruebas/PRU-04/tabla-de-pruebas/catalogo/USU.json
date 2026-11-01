@@ -180,8 +180,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-04, 13/10): renombrar el rubro al guardar. Falta programar: T48. Antes: Los listados leen el nombre actual del usuario (código leído); recibos emitidos se conservan (T30).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-04, 13/10): renombrar el rubro al guardar. Falta programar: T48. Antes: Los listados leen el nombre actual del usuario (código leído); recibos emitidos se conservan (T30). Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Una operativa con cobros, cajas y movimientos hechos.",
@@ -300,8 +300,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::toggleActivo no mira cajas (código leído); Contrato Caja V5.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::toggleActivo no mira cajas (código leído); Contrato Caja V5. Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Operativa con turno abierto y cobros hechos.",
@@ -342,8 +342,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::update (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::update (código leído). Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Una operativa con caja abierta e historial; una profesora con clases.",

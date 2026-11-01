@@ -1,0 +1,225 @@
+{
+ "dia": "2026-12-03",
+ "descripcion": "Día 55, jueves 3/12: Sandra abre; sigue la cobranza; remera y gastos; listas de Avanzadas, Federadas y Fútbol Avanzadas.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Castro, Martina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Lopez, Martina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Cabrera, Renata",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Gimenez, Helena",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Romero, Florencia",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Alvarez, Camila",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Ramirez, Lucia",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "45000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Diaz, Martina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "50000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Nuñez, Guadalupe",
+   "medio": "Banco Galicia",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "50000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Vega, Florencia",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "50000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Castro, Bruno",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Tomas",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "cobrar",
+   "alumno": "Herrera, Facundo",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club: Vega"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2900",
+   "obs": "Limpiavidrios"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1500",
+   "obs": "Gasas y cinta"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "900",
+   "obs": "Biromes"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Ramirez, Lucia"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Rossi, Olivia"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": [
+    "Silva, Simon"
+   ]
+  }
+ ]
+}

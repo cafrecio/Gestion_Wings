@@ -1,6 +1,6 @@
 == inicio 52 (después de la rutina) 2026-11-30 11:00:00
    Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.953.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.564.150,00 · Caja Torneo $50.000,00
+   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.951.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.564.150,00 · Caja Torneo $50.000,00
    Caja #90 u2 ABIERTA esperado $0,00
 [52.1] el dueño deja la inscripción en $0 → 422 El importe de la inscripción debe ser mayor que cero. OK
    aviso del alta: {"mes_cerrado":false,"periodo":"2026-11","mes_ingreso":"noviembre de 2026","mes_cuota":"noviembre de 2026","porcentaje":40,"importe":12000}
@@ -10,16 +10,21 @@
 [52.2c] el dueño la vuelve a $8.000 → 302 Configuración guardada. OK
 [52.2d] Sandra guarda de nuevo → 302 Alumno creado correctamente. OK
    Nina: 2026-11:PENDIENTE $12.000,00 · inscripción $8.000,00
-[52.3a] Nina paga todo por Caja Torneo → 302 Pago registrado para Arias, Nina. OK
-   cobro $20.000,00 · esperado $18.949,50
+[52.3a] Nina paga todo en efectivo → 302 Pago registrado para Arias, Nina. OK
+   cobro $20.000,00 · esperado $38.949,50
+[52.3b] familia Torres paga el torneo por Caja Torneo → 302 Movimiento registrado. OK
+[52.3c] familia Suarez paga el torneo por Caja Torneo → 302 Movimiento registrado. OK
+[52.3d] el dueño intenta cambiarle el saldo inicial → 302 Tipo de caja actualizado correctamente.
+   Caja Torneo, saldo inicial: $50.000,00
+[52.3e] usuario de Nora → 302 Usuario creado correctamente. OK
 [52.4a] Sandra: Delfina Giménez diciembre $35.000 en efectivo → 302 Pago registrado para Gimenez, Delfina. OK
 [52.4b] Sandra: Lorenzo Morales diciembre $38.000 por MP → 302 Pago registrado para Morales, Lorenzo. OK
 [52.4c] el dueño: Benjamín Fernández diciembre $52.000 por Galicia → 302 Pago registrado para Fernandez, Benjamin. OK
 [52.5] gasto directo: Luz $9.800 por Galicia → 302 Movimiento directo registrado en cashflow. OK
-   noviembre, mañana a tarde: ingresos $4.401.900,00 → $4.421.900,00 · egresos $2.888.330,50 → $2.898.130,50
+   noviembre, mañana a tarde: ingresos $4.399.900,00 → $4.425.900,00 · egresos $2.888.330,50 → $2.898.130,50
 [52.5b] Renzo: ingreso al 5/12, sin motivo → 422 El campo motivo de la fecha de ingreso es obligatorio. OK
    Sandra, gasto (200): Reparaciones menores no se ofrece
 == fin 52 (antes de la noche) 2026-11-30 11:00:00
    Cobranza: $207.910,00 activos 117 {"AL_DIA":110,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.953.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $50.000,00
+   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.951.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $50.000,00
    Caja #90 u2 ABIERTA esperado $0,00

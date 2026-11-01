@@ -1646,8 +1646,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-54, 13/10): exigir todos tildados. Falta programar: T36. Antes: caja/detalle (vista y script leídos el 13/10): los tildes solo cambian el color del botón.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-54, 13/10): exigir todos tildados. Falta programar: T36. Antes: caja/detalle (vista y script leídos el 13/10): los tildes solo cambian el color del botón. Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Caja",
       "pantalla": "caja-detalle",
       "requiere": "Caja cerrada con ocho movimientos.",

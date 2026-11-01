@@ -14,9 +14,9 @@
 14. Pablo Ledesma Limpieza $3100 por Efectivo — Movimiento registrado.
 15. Pablo Ledesma Librería $1700 por Efectivo — Movimiento registrado.
 16. Pablo Ledesma Insumos Varios $2400 por Efectivo — Movimiento registrado.
-17. Lucía Gaitán lista de la #353: 14 alumnos, 12 presentes — Asistencias guardadas.
+17. Lucía Gaitán lista de la #353: 13 alumnos, 11 presentes — Asistencias guardadas.
 18. Mariela Ocampo lista de la #363: 8 alumnos, 7 presentes — Asistencias guardadas.
 19. Hernán Quintana lista de la #386: 15 alumnos, 14 presentes — Asistencias guardadas.
 20. Mariela Ocampo lista de la #405: 4 alumnos, 3 presentes — Asistencias guardadas.
-Cobranza: $2.738.910,00 · {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
+Cobranza: $2.733.910,00 · {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
 GUARDADO.

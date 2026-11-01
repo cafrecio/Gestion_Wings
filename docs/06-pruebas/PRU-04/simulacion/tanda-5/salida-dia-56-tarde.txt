@@ -1,0 +1,9 @@
+ 1. Rocío Paz cobra a Torres, Benicio $28.000,00 por Efectivo — Pago registrado para Torres, Benicio.
+ 2. Rocío Paz cobra a Martinez, Bautista $28.000,00 por Efectivo — Pago registrado para Martinez, Bautista.
+ 3. Rocío Paz cobra a Pereyra, Manuel $35.000,00 por Mercado Pago — Pago registrado para Pereyra, Manuel.
+ 4. Rocío Paz cobra a Ramirez, Felipe $35.000,00 por Efectivo — Pago registrado para Ramirez, Felipe.
+ 5. Rocío Paz cobra a Rodriguez, Joaquin $35.000,00 por Efectivo — Pago registrado para Rodriguez, Joaquin.
+ 6. Rocío Paz Limpieza $2400 por Efectivo — Movimiento registrado.
+ 7. Rocío Paz Librería $800 por Efectivo — Movimiento registrado.
+Cobranza: $1.160.800,00 · {"AL_DIA":88,"EN_PLAZO":28,"MOROSO":0,"DEUDOR":3}
+GUARDADO.

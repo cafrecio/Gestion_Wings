@@ -1,0 +1,23 @@
+ 1. Sandra Vidal abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Sandra Vidal cobra a Castro, Martina $30.000,00 por Efectivo — Pago registrado para Castro, Martina.
+ 3. Sandra Vidal cobra a Lopez, Martina $30.000,00 por Efectivo — Pago registrado para Lopez, Martina.
+ 4. Sandra Vidal cobra a Cabrera, Renata $43.000,00 por Mercado Pago — Pago registrado para Cabrera, Renata.
+ 5. Sandra Vidal cobra a Gimenez, Helena $43.000,00 por Efectivo — Pago registrado para Gimenez, Helena.
+ 6. Sandra Vidal cobra a Romero, Florencia $33.000,00 por Efectivo — Pago registrado para Romero, Florencia.
+ 7. Sandra Vidal cobra a Alvarez, Camila $35.000,00 por Efectivo — Pago registrado para Alvarez, Camila.
+ 8. Sandra Vidal cobra a Ramirez, Lucia $45.000,00 por Mercado Pago — Pago registrado para Ramirez, Lucia.
+ 9. Sandra Vidal cobra a Diaz, Martina $50.000,00 por Efectivo — Pago registrado para Diaz, Martina.
+10. Sandra Vidal cobra a Nuñez, Guadalupe $50.000,00 por Banco Galicia — Pago registrado para Nuñez, Guadalupe.
+11. Sandra Vidal cobra a Vega, Florencia $50.000,00 por Efectivo — Pago registrado para Vega, Florencia.
+12. Sandra Vidal cobra a Castro, Bruno $28.000,00 por Efectivo — Pago registrado para Castro, Bruno.
+13. Sandra Vidal cobra a Gutierrez, Tomas $28.000,00 por Efectivo — Pago registrado para Gutierrez, Tomas.
+14. Sandra Vidal cobra a Herrera, Facundo $28.000,00 por Mercado Pago — Pago registrado para Herrera, Facundo.
+15. Sandra Vidal Indumentaria institucional $18000 por Efectivo — Movimiento registrado.
+16. Sandra Vidal Limpieza $2900 por Efectivo — Movimiento registrado.
+17. Sandra Vidal Botiquín $1500 por Efectivo — Movimiento registrado.
+18. Sandra Vidal Librería $900 por Efectivo — Movimiento registrado.
+19. Lucía Gaitán lista de la #354: 12 alumnos, 11 presentes — Asistencias guardadas.
+20. Mariela Ocampo lista de la #364: 8 alumnos, 7 presentes — Asistencias guardadas.
+21. Hernán Quintana lista de la #391: 15 alumnos, 14 presentes — Asistencias guardadas.
+Cobranza: $1.620.000,00 · {"AL_DIA":73,"EN_PLAZO":39,"MOROSO":0,"DEUDOR":4}
+GUARDADO.

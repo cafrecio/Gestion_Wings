@@ -1,0 +1,16 @@
+{
+ "dia": "2026-12-04",
+ "descripcion": "Día 56, 13:00: Pablo cierra y deja $12.000; el dueño valida. Rocío tenía la apertura abierta desde las 09:00.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cerrar_caja",
+   "cambio": 12000
+  },
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Pablo Ledesma"
+  }
+ ]
+}

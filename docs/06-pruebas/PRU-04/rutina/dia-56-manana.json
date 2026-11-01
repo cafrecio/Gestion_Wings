@@ -1,0 +1,90 @@
+{
+ "dia": "2026-12-04",
+ "descripcion": "Día 56, viernes 4/12, turno de la mañana: Pablo abre, cobra y carga gastos.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Quiroga, Lara",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ramos, Santiago",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ferrari, Nicolas",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "52000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Tobias",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "52000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Funes, Graciela",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ibañez, Marcelo",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "2200",
+   "obs": "Silbatos"
+  }
+ ]
+}

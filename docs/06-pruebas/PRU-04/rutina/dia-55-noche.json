@@ -1,0 +1,10 @@
+{
+ "dia": "2026-12-03",
+ "descripcion": "Día 55, noche: Sandra cierra con lo esperado y deja $10.000. El dueño valida por pantalla, con los tildes.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "cerrar_caja"
+  }
+ ]
+}

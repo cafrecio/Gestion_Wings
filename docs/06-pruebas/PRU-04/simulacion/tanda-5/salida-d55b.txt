@@ -1,0 +1,4 @@
+   alumnos de la lista: 2
+[55.8] Nora toma la lista → 302 Asistencias guardadas. OK
+   Nora ve Clases: 200 Clases – Wings
+   Nora escribe Alumnos: 403 Sin permiso – Wings

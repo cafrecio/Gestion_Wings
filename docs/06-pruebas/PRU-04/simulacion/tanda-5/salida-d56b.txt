@@ -1,0 +1,39 @@
+[56.1a] Rocío abre con la pantalla vieja → 422 Cambió el último cierre. Volvé a abrir la pantalla y confirmá el efectivo. OK
+   al recargar propone $12.000,00
+[56.1b] recarga y abre → 302 Caja abierta con el efectivo declarado. OK
+[56.2a] Pablo rectifica la caja de Rocío → 403 HTTP 403 OK
+[56.2b] Pablo rectifica la suya ya cerrada → 400 Solo se puede rectificar una caja en estado ABIERTA. OK
+[56.2c] Rocío con un motivo de dos letras → 422 El campo motivo de la rectificación debe tener al menos 3 caracteres. OK
+   caja de Rocío: inicial $12.000,00 · caja de Pablo VALIDADA
+[56.3a] cambiarle el rol a Rocío, con la caja abierta → 400 Este usuario tiene una caja abierta. Primero hay que cerrar la caja. OK
+[56.3b] Pablo pasa a llamarse Juan Pablo Ledesma → 302 Usuario actualizado correctamente. OK
+   subrubro: Op-Juan Pablo Ledesma · cierres a su nombre 18
+[56.3c] Gonzalo pasa a operativa → 302 Usuario actualizado correctamente. OK
+   Gonzalo: rol OPERATIVO · profesor vinculado null · subrubro ["Fútbol-Gonzalo Ibarra","Op-Gonzalo Ibarra"] · clases futuras 4
+[56.4a] Ámbar Funes, Hockey → 302 Alumno creado correctamente. OK
+[56.4b] Ámbar paga en efectivo → 302 Pago registrado para Funes, Ámbar. OK
+   cobro $38.000,00
+   ficha de Paulina, dueño: Meses sin cuota generada Septiembre 2026 · $30,000.00 Crear Tutor Nombre Veronica Silva Teléfono 1145129908 Historial de pagos 11/11/2026 · Nov 2026 $33,000.00 $33,
+   ficha de Paulina, Rocío: no lo ve
+[56.5a] Rocío la crea, forzado → 403 HTTP 403 OK
+[56.5b] el dueño, un mes anterior al ingreso → 400 Ese mes es anterior al ingreso del alumno. OK
+[56.5c] el dueño, septiembre → 302 Se creó la cuota de septiembre 2026: $30,000.00. OK
+[56.5d] otra vez septiembre → 400 Ese mes ya tiene su cuota. OK
+   Paulina: DEUDOR $60.000,00
+[56.5e] Rocío cobra septiembre en efectivo → 302 Pago registrado para Silva, Paulina. OK
+   cobro $30.000,00 · Paulina: EN_PLAZO $30.000,00
+   2026-09: ingresos $30.000,00
+   2026-12: ingresos $3.269.410,00
+   Tobías: DEUDOR $47.200,00
+[56.6] la mamá de Tobías paga todo por MP → 302 Pago registrado para Vera, Tobías. OK
+   cobro $47.200,00 · Tobías: AL_DIA $0,00
+[56.7] Patín Principiantes: $33.000 y $48.000 desde enero → 302 Grupo actualizado correctamente. OK
+   diciembre ya generado de Martina Castro: $30.000,00 · precio del plan para diciembre $30.000,00 · para enero $33.000,00
+   ficha de la clase del 19/12: botón Validar SE OFRECE
+[56.8] el dueño valida la clase del 19/12 por error → 302 Clase validada para liquidación.
+   validada: 1 · botón Desvalidar no se ofrece
+== fin 56, tarde 2026-12-04 14:00:00
+   Cobranza: $1.321.800,00 activos 119 {"AL_DIA":83,"EN_PLAZO":33,"MOROSO":0,"DEUDOR":3}
+   Saldos: Efectivo $1.713.259,50 · Banco Nación $58.000,00 · Mercado Pago $3.347.170,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.107.350,00 · Caja Torneo $56.000,00
+   Caja #94 u3 VALIDADA esperado $163.800,00
+   Caja #95 u8 ABIERTA esperado $0,00

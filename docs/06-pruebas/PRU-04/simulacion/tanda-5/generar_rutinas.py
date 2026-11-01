@@ -46,7 +46,7 @@ def noche(como, dia, descripcion, validar=True, cambio=None):
     pasos = [cierre]
     if validar:
         pasos.append({'como': AD, 'accion': 'validar_caja', 'de': como})
-    escribir(f'dia-{dia}-noche.json', {48: '2026-11-26', 49: '2026-11-27', 50: '2026-11-28', 52: '2026-11-30', 53: '2026-12-01', 54: '2026-12-02'}[dia], descripcion, pasos)
+    escribir(f'dia-{dia}-noche.json', {48: '2026-11-26', 49: '2026-11-27', 50: '2026-11-28', 52: '2026-11-30', 53: '2026-12-01', 54: '2026-12-02', 55: '2026-12-03', 56: '2026-12-04', 57: '2026-12-05'}[dia], descripcion, pasos)
 
 
 # Día 48, jueves 26/11
@@ -106,3 +106,38 @@ escribir('dia-54-manana.json', '2026-12-02', 'Día 54, miércoles 2/12: Rocío a
     lista(LU, PPAT, '16:00', ['Ramos, Pilar', 'Godoy, Valentino', 'Silva, Paulina', 'Ruiz, Thiago']),
 ])
 noche(RO, 54, 'Día 54, noche: Rocío cierra con lo esperado y deja $10.000; el dueño valida.')
+# Día 55, jueves 3/12: se termina de pagar noviembre
+escribir('dia-55-manana.json', '2026-12-03', 'Día 55, jueves 3/12: Sandra abre; sigue la cobranza; remera y gastos; listas de Avanzadas, Federadas y Fútbol Avanzadas.', [
+    abrir(SA),
+    cobra(SA, 'Castro, Martina', EF, 30000), cobra(SA, 'Lopez, Martina', EF, 30000), cobra(SA, 'Cabrera, Renata', MP, 43000), cobra(SA, 'Gimenez, Helena', EF, 43000),
+    cobra(SA, 'Romero, Florencia', EF, 33000), cobra(SA, 'Alvarez, Camila', EF, 35000), cobra(SA, 'Ramirez, Lucia', MP, 45000), cobra(SA, 'Diaz, Martina', EF, 50000),
+    cobra(SA, 'Nuñez, Guadalupe', GA, 50000), cobra(SA, 'Vega, Florencia', EF, 50000), cobra(SA, 'Castro, Bruno', EF, 28000), cobra(SA, 'Gutierrez, Tomas', EF, 28000), cobra(SA, 'Herrera, Facundo', MP, 28000),
+    mov(SA, 'Indumentaria institucional', EF, 18000, 'Remera del club: Vega'),
+    mov(SA, 'Limpieza', EF, 2900, 'Limpiavidrios'), mov(SA, 'Botiquín', EF, 1500, 'Gasas y cinta'), mov(SA, 'Librería', EF, 900, 'Biromes'),
+    lista(LU, AVA, '17:00', ['Ramirez, Lucia']), lista(MA, FED, '18:00', ['Rossi, Olivia']), lista(HE, FAVA, '19:00', ['Silva, Simon']),
+])
+noche(SA, 55, 'Día 55, noche: Sandra cierra con lo esperado y deja $10.000. El dueño valida por pantalla, con los tildes.', validar=False)
+# Día 56, viernes 4/12: dos turnos
+escribir('dia-56-manana.json', '2026-12-04', 'Día 56, viernes 4/12, turno de la mañana: Pablo abre, cobra y carga gastos.', [
+    abrir(PA),
+    cobra(PA, 'Quiroga, Lara', EF, 43000), cobra(PA, 'Ramos, Santiago', EF, 28000), cobra(PA, 'Ferrari, Nicolas', MP, 52000), cobra(PA, 'Ortiz, Tobias', EF, 52000),
+    cobra(PA, 'Funes, Graciela', EF, 33000), cobra(PA, 'Ibañez, Marcelo', MP, 43000), mov(PA, 'Insumos Varios', EF, 2200, 'Silbatos'),
+])
+escribir('dia-56-mediodia.json', '2026-12-04', 'Día 56, 13:00: Pablo cierra y deja $12.000; el dueño valida. Rocío tenía la apertura abierta desde las 09:00.', [
+    {'como': PA, 'accion': 'cerrar_caja', 'cambio': 12000}, {'como': AD, 'accion': 'validar_caja', 'de': PA},
+])
+escribir('dia-56-tarde.json', '2026-12-04', 'Día 56, turno de la tarde: Rocío cobra y carga gastos.', [
+    cobra(RO, 'Torres, Benicio', EF, 28000), cobra(RO, 'Martinez, Bautista', EF, 28000), cobra(RO, 'Pereyra, Manuel', MP, 35000), cobra(RO, 'Ramirez, Felipe', EF, 35000),
+    cobra(RO, 'Rodriguez, Joaquin', EF, 35000), mov(RO, 'Limpieza', EF, 2400, 'Bolsas'), mov(RO, 'Librería', EF, 800, 'Sobres'),
+])
+noche(RO, 56, 'Día 56, noche: Rocío cierra con lo esperado y deja $10.000; el dueño valida.')
+# Día 57, sábado 5/12: el torneo
+JP = 'Juan Pablo Ledesma'
+escribir('dia-57-manana.json', '2026-12-05', 'Día 57, sábado 5/12: Juan Pablo abre; cobros; gastos; listas de Federadas y de Fútbol Infantiles, la primera clase de Renzo.', [
+    abrir(JP),
+    cobra(JP, 'Paredes, Iván', EF, 35000), cobra(JP, 'Ortega, Valentín', EF, 35000), cobra(JP, 'Quiroga, Tomás', MP, 28000), cobra(JP, 'Sosa, Bautista', EF, 35000),
+    cobra(JP, 'Suarez, Ignacio', EF, 35000), cobra(JP, 'Acuña, Renzo', EF, 25000), cobra(JP, 'Diaz, Catalina', MP, 50000), cobra(JP, 'Rossi, Olivia', EF, 50000),
+    mov(JP, 'Limpieza', EF, 3200, 'Limpieza después del torneo'), mov(JP, 'Insumos Varios', EF, 1800, 'Medallas: cintas'),
+    lista(MA, FED, '10:00', ['Ramos, Lucia']), lista(JP, 'Fútbol — Infantiles', '10:00'),
+])
+noche(JP, 57, 'Día 57, noche: Juan Pablo cierra con lo esperado y deja $10.000; el dueño valida.')

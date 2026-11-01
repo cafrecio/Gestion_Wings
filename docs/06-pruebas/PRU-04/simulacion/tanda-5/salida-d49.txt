@@ -4,7 +4,7 @@
    Caja #88 u8 ABIERTA esperado $0,00
 [49.1a] Mateo Castro: diciembre $280.000 → 302 Pago registrado para Castro, Mateo. OK
    esperado con el error: $304.400,00
-[49.1b] cancela con motivo → 302 Cobro cancelado y deuda revertida. OK
+[49.1b] cancela con motivo → 302 Cobro cancelado. OK
    diciembre de Mateo: no existe · esperado $24.400,00
 [49.1c] diciembre bien, $28.000 → 302 Pago registrado para Castro, Mateo. OK
    diciembre de Mateo: PAGADA $28.000,00 pagado $28.000,00
@@ -16,10 +16,10 @@
 [49.3] condona la inscripción de Thiago → 302 Inscripción condonada. OK
    Thiago después: EN_PLAZO $12.000,00 · deuda total $207.910,00
    aviso previo (200): {"importe":8000,"mensaje":"Esta persona ya es del club: no paga inscripci\u00f3n."}
-[49.4a] segunda ficha de Mateo Rodríguez, Patín Avanzadas → 302 Alumno creado correctamente. OK
-   ficha nueva: 2026-11:PENDIENTE $14.000,00 · inscripciones de esa persona 0 · deuda total $221.910,00
+[49.4a] segunda ficha de Mateo Rodríguez, Patín Principiantes → 302 Alumno creado correctamente. OK
+   ficha nueva: 2026-11:PENDIENTE $12.000,00 · inscripciones de esa persona 0 · deuda total $219.910,00
 [49.4b] paga noviembre por MP → 302 Pago registrado para Rodriguez, Mateo. OK
-   cobro $14.000,00
+   cobro $12.000,00
 [49.5] dueño: Insumos $2.500 en el turno de Rocío → 302 Movimiento registrado. OK
    a nombre de: Admin Prueba · esperado $49.900,00
 [49.6a] Catalina Castro diciembre $45.000 por MP → 302 Pago registrado para Castro, Catalina. OK

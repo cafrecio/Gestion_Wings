@@ -1,0 +1,138 @@
+{
+ "dia": "2026-12-05",
+ "descripcion": "Día 57, sábado 5/12: Juan Pablo abre; cobros; gastos; listas de Federadas y de Fútbol Infantiles, la primera clase de Renzo.",
+ "pasos": [
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Paredes, Iván",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ortega, Valentín",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Quiroga, Tomás",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Sosa, Bautista",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Suarez, Ignacio",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Acuña, Renzo",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "25000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Diaz, Catalina",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "50000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Rossi, Olivia",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "50000"
+   }
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3200",
+   "obs": "Limpieza después del torneo"
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "1800",
+   "obs": "Medallas: cintas"
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "10:00",
+   "ausentes": [
+    "Ramos, Lucia"
+   ]
+  },
+  {
+   "como": "Juan Pablo Ledesma",
+   "accion": "lista",
+   "grupo": "Fútbol — Infantiles",
+   "hora": "10:00",
+   "ausentes": []
+  }
+ ]
+}

@@ -264,8 +264,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-41, 13/10). Falta programar: T63. Antes: GrupoWebController::toggleActivo no controla nada (código leído); SI-05.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-41, 13/10). Falta programar: T63. Antes: GrupoWebController::toggleActivo no controla nada (código leído); SI-05. Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Grupos y planes",
       "pantalla": "cat-grupos",
       "requiere": "Grupo con alumnos activos, deuda y clases futuras.",

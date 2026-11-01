@@ -1523,8 +1523,8 @@
           "tipo": "directo"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-23, 13/10). Falta programar: T58. Antes: PagoCuotaService (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-23, 13/10). Falta programar: T58. Antes: PagoCuotaService (código leído). Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno activo desde agosto al que nunca se le generó septiembre.",

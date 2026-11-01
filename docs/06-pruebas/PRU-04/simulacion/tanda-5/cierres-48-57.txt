@@ -1,0 +1,40 @@
+Thu 26/11 · deuda $215.910,00 · activos 115 {"AL_DIA":108,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0} · inactivos $33.000,00
+   ingresos $4.378.900,00 · egresos $2.847.680,00 · resultado $1.531.220,00 · disponible $7.495.520,75 · por validar (cajas) 0 · sin lista 0
+   caja #87 Sandra Vidal VALIDADA esperado $62.200,00 contado $62.200,00 cambio $10.000,00
+   saldos: Efectivo $1.023.100,00 · Banco Nación $58.000,00 · Mercado Pago $3.838.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+Fri 27/11 · deuda $207.910,00 · activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0} · inactivos $33.000,00
+   ingresos $4.396.900,00 · egresos $2.859.780,00 · resultado $1.537.120,00 · disponible $7.655.420,75 · por validar (cajas) 0 · sin lista 0
+   caja #88 Rocío Paz VALIDADA esperado $94.900,00 contado $94.900,00 cambio $10.000,00
+   saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.913.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+Sat 28/11 · deuda $207.910,00 · activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0} · inactivos $33.000,00
+   ingresos $4.399.900,00 · egresos $2.867.280,00 · resultado $1.532.620,00 · disponible $7.744.920,75 · por validar (cajas) 0 · sin lista 0
+   caja #89 Pablo Ledesma VALIDADA esperado $61.500,00 contado $61.500,00 cambio $10.000,00
+   saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.951.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+Sun 29/11 · deuda $207.910,00 · activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0} · inactivos $33.000,00
+   ingresos $4.399.900,00 · egresos $2.879.280,00 · resultado $1.520.620,00 · disponible $7.782.920,75 · por validar (cajas) 0 · sin lista 0
+   saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.951.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.564.150,00 · Caja Torneo $50.000,00
+Mon 30/11 · deuda $207.910,00 · activos 117 {"AL_DIA":110,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0} · inactivos $33.000,00
+   ingresos $4.425.900,00 · egresos $2.898.130,50 · resultado $1.527.769,50 · disponible $7.933.070,25 · por validar (cajas) 1 · sin lista 2
+   caja #90 Sandra Vidal CERRADA esperado $73.949,50 contado $73.949,50 cambio $10.000,00
+   saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.951.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $50.000,00
+Tue 01/12 · deuda $2.713.910,00 · activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6} · inactivos $33.000,00
+   ingresos $1.647.000,00 · egresos $7.200,00 · resultado $1.639.800,00 · disponible $8.358.870,25 · por validar (cajas) 0 · sin lista 0
+   caja #91 Pablo Ledesma VALIDADA esperado $271.800,00 contado $271.800,00 cambio $10.000,00
+   saldos: Efectivo $1.485.249,50 · Banco Nación $58.000,00 · Mercado Pago $4.120.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.639.350,00 · Caja Torneo $56.000,00
+Wed 02/12 · deuda $2.113.000,00 · activos 116 {"AL_DIA":60,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":4} · inactivos $80.000,00
+   ingresos $2.389.410,00 · egresos $1.394.200,00 · resultado $995.210,00 · disponible $7.714.280,25 · por validar (cajas) 0 · sin lista 0
+   caja #92 Rocío Paz VALIDADA esperado $501.510,00 contado $501.510,00 cambio $10.000,00
+   saldos: Efectivo $1.976.759,50 · Banco Nación $58.000,00 · Mercado Pago $3.566.170,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.057.350,00 · Caja Torneo $56.000,00
+Thu 03/12 · deuda $1.620.000,00 · activos 118 {"AL_DIA":75,"EN_PLAZO":39,"MOROSO":0,"DEUDOR":4} · inactivos $80.000,00
+   ingresos $2.950.410,00 · egresos $2.654.500,00 · resultado $295.910,00 · disponible $7.032.980,25 · por validar (cajas) 0 · sin lista 0
+   caja #93 Sandra Vidal VALIDADA esperado $387.700,00 contado $387.700,00 cambio $10.000,00
+   saldos: Efectivo $1.559.459,50 · Banco Nación $58.000,00 · Mercado Pago $3.252.170,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.107.350,00 · Caja Torneo $56.000,00
+Fri 04/12 · deuda $1.160.800,00 · activos 119 {"AL_DIA":88,"EN_PLAZO":28,"MOROSO":0,"DEUDOR":3} · inactivos $80.000,00
+   ingresos $3.477.610,00 · egresos $2.659.900,00 · resultado $817.710,00 · disponible $7.554.780,25 · por validar (cajas) 0 · sin lista 0
+   caja #94 Juan Pablo Ledesma VALIDADA esperado $163.800,00 contado $163.800,00 cambio $12.000,00
+   caja #95 Rocío Paz VALIDADA esperado $202.800,00 contado $202.800,00 cambio $10.000,00
+   saldos: Efectivo $1.904.059,50 · Banco Nación $58.000,00 · Mercado Pago $3.429.370,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.107.350,00 · Caja Torneo $56.000,00
+Sat 05/12 · deuda $783.500,00 · activos 119 {"AL_DIA":98,"EN_PLAZO":19,"MOROSO":0,"DEUDOR":2} · inactivos $80.000,00
+   ingresos $3.866.910,00 · egresos $2.704.900,00 · resultado $1.162.010,00 · disponible $7.677.080,25 · por validar (cajas) 0 · sin lista 0
+   caja #96 Juan Pablo Ledesma VALIDADA esperado $334.300,00 contado $334.300,00 cambio $10.000,00
+   saldos: Efectivo $2.228.359,50 · Banco Nación $58.000,00 · Mercado Pago $3.555.370,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.835.350,00 · Caja Torneo $0,00

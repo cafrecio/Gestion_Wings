@@ -10,13 +10,21 @@ estado('inicio 51');
 // 51.1 CAT-001
 $dc = app(DeporteWebController::class);
 $dep = fn (string $n, string $t) => enviar($ad, 'POST', '/deportes', ['nombre' => $n, 'tipo_liquidacion' => $t], fn ($r) => $dc->store($r));
-paso('51.1a', 'deporte Natación, por hora', $dep('Natación', 'HORA'), 200);
-paso('51.1b', 'natación con espacios', $dep(' natación ', 'COMISION'), 422);
+paso('51.1a', 'deporte Hockey, por hora', $dep('Hockey', 'HORA'), 200);
+paso('51.1b', 'hockey con espacios', $dep(' hockey ', 'COMISION'), 422);
 // 51.1c T95: un profesor sin tarifa avisa en el momento
-$pc0 = app(ProfesorWebController::class); $nat = Deporte::where('nombre', 'Natación')->firstOrFail();
+$pc0 = app(ProfesorWebController::class); $nat = Deporte::where('nombre', 'Hockey')->firstOrFail();
 $prof = fn (array $mas) => enviar($ad, 'POST', '/profesores', ['nombre' => 'Nora', 'apellido' => 'Vidal', 'deporte_id' => $nat->id, 'dni' => '30111222', 'fecha_nacimiento' => '1985-03-10', 'direccion' => 'Av. Rivadavia 1200', 'localidad' => 'CABA', 'telefono' => '1166554433'] + $mas, fn ($r) => $pc0->store($r));
-paso('51.1c', 'Nora Vidal, Natación, sin valor hora', $prof([]), 422);
+paso('51.1c', 'Nora Vidal, Hockey, sin valor hora', $prof([]), 422);
 paso('51.1d', 'con valor hora $14.000', $prof(['valor_hora' => '14000']), 200);
+// 51.1e el grupo y las clases: hasta acá Hockey no le servía a nadie (T66: una clase necesita profesora)
+$nivP = App\Models\Nivel::where('nombre', 'Principiantes')->firstOrFail(); $gcH = app(App\Http\Controllers\GrupoWebController::class);
+paso('51.1e', 'grupo Hockey Principiantes, 1 por semana $30.000 y 2 por semana $42.000', enviar($ad, 'POST', '/grupos', ['deporte_id' => $nat->id, 'nivel_id' => $nivP->id, 'planes' => [['clases_por_semana' => 1, 'precio_mensual' => '30000'], ['clases_por_semana' => 2, 'precio_mensual' => '42000']]], fn ($r) => $gcH->store($r)), 200);
+$gh = App\Models\Grupo::where('deporte_id', $nat->id)->firstOrFail(); $nora = Profesor::where('apellido', 'Vidal')->where('nombre', 'Nora')->firstOrFail(); $clc = app(App\Http\Controllers\ClaseWebController::class);
+$serie = fn (array $profes) => enviar($ad, 'POST', '/clases', ['grupo_id' => $gh->id, 'profesores' => $profes, 'tipo_creacion' => 'recurrente', 'fecha_desde' => '2026-12-03', 'fecha_hasta' => '2026-12-19', 'dias_semana' => [4, 6], 'horarios' => [4 => ['hora_inicio' => '16:00', 'hora_fin' => '17:00'], 6 => ['hora_inicio' => '12:00', 'hora_fin' => '13:00']]], fn ($r) => $clc->store($r));
+paso('51.1f', 'clases de Hockey sin profesora', $serie([]), 422);
+paso('51.1g', 'jueves 16:00 y sábados 12:00, del 3 al 19/12, con Nora', $serie([$nora->id]), 200);
+echo '   clases de Hockey: '.App\Models\Clase::where('grupo_id', $gh->id)->count().' · sesiones '.App\Models\Clase::where('grupo_id', $gh->id)->orderBy('fecha')->pluck('fecha')->map(fn ($f) => $f->format('d/m'))->implode(' ')."\n";
 // 51.2 CAT-005
 $tc = app(TipoCajaWebController::class);
 $medio = fn (array $d) => enviar($ad, 'POST', '/tipos-caja', $d, fn ($r) => $tc->store($r));

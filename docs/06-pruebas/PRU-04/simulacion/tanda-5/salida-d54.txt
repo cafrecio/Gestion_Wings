@@ -1,14 +1,14 @@
 == inicio 54 (después de la rutina) 2026-12-02 11:00:00
-   Cobranza: $2.154.910,00 activos 118 {"AL_DIA":59,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":7}
-   Saldos: Efectivo $1.465.249,50 · Banco Nación $58.000,00 · Mercado Pago $4.122.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.639.350,00 · Caja Torneo $70.000,00
+   Cobranza: $2.149.910,00 activos 118 {"AL_DIA":59,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":7}
+   Saldos: Efectivo $1.485.249,50 · Banco Nación $58.000,00 · Mercado Pago $4.120.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.639.350,00 · Caja Torneo $56.000,00
    Caja #92 u8 ABIERTA esperado $0,00
-   Revisión pendientes: 8 · deuda $2.154.910,00
+   Revisión pendientes: 8 · deuda $2.149.910,00
 [54.1a] Pilar sin nota → 422 La nota es obligatoria. OK
 [54.1b] con tres letras → 422 La nota debe tener al menos 5 caracteres. OK
 [54.1c] Pilar continúa → 302 Alumno confirmado como activo. Se generó la deuda del período. OK
-   Pilar: diciembre PENDIENTE $30.000,00 · DEUDOR $63.000,00 · pendientes 7 · deuda $2.184.910,00
+   Pilar: diciembre PENDIENTE $30.000,00 · DEUDOR $63.000,00 · pendientes 7 · deuda $2.179.910,00
 [54.1d] Valentina, inactivo → 302 Alumno marcado como inactivo. OK
-   Valentina: activo 0 · diciembre sin cuota · en Cobranza no · deuda $2.146.410,00 · pendientes 6
+   Valentina: activo 0 · diciembre sin cuota · en Cobranza no · deuda $2.141.410,00 · pendientes 6
    nota de Pilar: {"estado_revision":"RESUELTO","resolucion":"CONTINUA","nota_resolucion":"La mamá confirma que vuelve en diciembre"} por Rocío Paz
 [54.2a] Joaquina continúa → 302 Alumno confirmado como activo. Se generó la deuda del período. OK
 [54.2b] Rocío, con la pantalla vieja, inactivo → 400 Esta revisión ya fue resuelta. OK
@@ -19,7 +19,7 @@
 [54.3b] Emma paga diciembre, $33.000 → 302 Pago registrado para Villalba, Emma. OK
    revisión {"estado_revision":"RESUELTO","resolucion":"REACTIVADO_AUTO","nota_resolucion":null} · pendientes 4 · diciembre PAGADA $33.000,00
 [54.4a] la ficha de Patín de Thiago, inactivo → 302 Alumno marcado como inactivo. OK
-   Thiago Patín: activo 0 · Fútbol sigue activo 1; EN_PLAZO $28.000,00 · deuda $2.137.000,00
+   Thiago Patín: activo 0 · Fútbol sigue activo 1; EN_PLAZO $28.000,00 · deuda $2.132.000,00
 [54.4b] Alma continúa → 302 Alumno confirmado como activo. Se generó la deuda del período. OK
    Tobías, que tiene un presente del 30/11: revisión PENDIENTE
 [54.4c] Tobías continúa → 302 Alumno confirmado como activo. Se generó la deuda del período. OK
@@ -34,7 +34,7 @@
    Liam antes: DEUDOR $73.500,00
 [54.6c] Liam paga diciembre debiendo noviembre, sin motivo → 409 Quedan 1 meses anteriores impagos por $38,500.00 (noviembre 2026). ¿Cobrás igual solo los meses elegidos? Indicá el motivo; el dueño lo verá en Inicio y en el resumen diario. OK
 [54.6d] con motivo → 302 Pago registrado para Pereyra, Liam. OK
-   Liam después: DEUDOR $38.500,00 · deuda $2.118.000,00
+   Liam después: DEUDOR $38.500,00 · deuda $2.113.000,00
 [54.7] paga a Gaitán $264.000,00 por Banco Galicia → 302 Liquidación pagada. Movimiento registrado en cashflow. OK
 [54.7] paga a Ocampo $361.000,00 por Banco Galicia → 302 Liquidación pagada. Movimiento registrado en cashflow. OK
 [54.7] paga a Quintana $561.100,00 por Mercado Pago → 302 Liquidación pagada. Movimiento registrado en cashflow. OK
@@ -43,7 +43,7 @@
 [54.7c] LIQ-013: forzar eliminar la pagada → 400 No se puede eliminar una liquidación cerrada o cancelada. OK
 [54.7d] LIQ-013: forzar cancelar la pagada → 400 No se puede cancelar una liquidación pagada. OK
 == fin 54 (antes de la noche) 2026-12-02 11:00:00
-   Cobranza: $2.118.000,00 activos 116 {"AL_DIA":60,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":4}
-   Saldos: Efectivo $1.465.249,50 · Banco Nación $58.000,00 · Mercado Pago $3.366.170,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.014.350,00 · Caja Torneo $70.000,00
+   Cobranza: $2.113.000,00 activos 116 {"AL_DIA":60,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":4}
+   Saldos: Efectivo $1.485.249,50 · Banco Nación $58.000,00 · Mercado Pago $3.364.170,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.014.350,00 · Caja Torneo $56.000,00
    Caja #92 u8 ABIERTA esperado $0,00
    Sueldos de noviembre en Cashflow: $-264.000,00 $-361.000,00 $-561.100,00 $-195.000,00

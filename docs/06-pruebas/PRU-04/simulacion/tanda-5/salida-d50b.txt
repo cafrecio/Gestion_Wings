@@ -1,6 +1,6 @@
 == inicio 50 (después de la rutina) 2026-11-28 12:30:00
    Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.915.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.913.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
    Caja #89 u3 ABIERTA esperado $0,00
    sin lista: 2
 [50.2a] Mariela guarda Federadas, faltan Lucía Ramos y Berenice Rossi → 302 Asistencias guardadas. OK
@@ -21,5 +21,5 @@
    canceladas de Adultos en diciembre: 1 · esperado de Pablo $61.500,00
 == fin 50 (antes de cerrar) 2026-11-28 12:30:00
    Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
-   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.915.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.913.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
    Caja #89 u3 ABIERTA esperado $0,00

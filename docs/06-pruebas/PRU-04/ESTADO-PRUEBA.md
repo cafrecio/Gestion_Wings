@@ -21,7 +21,7 @@ a la verificación de Codex. [Prompt para Codex](PROMPT-CODEX-DIAS-34-40.md).
 
 ## Guion de la tanda 5, días 48 a 54 — Claude CAB, 01/11/2026
 
-[Guion](GUION-DIAS-48-54.md) y [prompt](PROMPT-CODEX-DIAS-48-54.md), con los siete días simulados sobre la copia del sitio al 25/11 con `main`. **No se entrega todavía:** faltan los controles abiertos y desplegar. Clara y Thiago se limpian por pantalla (49.2 y 49.3). Tres defectos nuevos, retratados a propósito: T110, T111 y T112.
+[Guion](GUION-DIAS-48-57.md) y [prompt](PROMPT-CODEX-DIAS-48-57.md), con los siete días simulados sobre la copia del sitio al 25/11 con `main`. **No se entrega todavía:** faltan los controles abiertos y desplegar. Clara y Thiago se limpian por pantalla (49.2 y 49.3). Tres defectos nuevos, retratados a propósito: T110, T111 y T112.
 
 ## Revisión de Claude de los días 41 a 47 (19 al 25/11, tanda 4) — 31/10/2026
 

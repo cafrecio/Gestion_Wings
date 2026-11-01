@@ -17,6 +17,6 @@
 17. Rocío Paz Limpieza $2700 por Efectivo — Movimiento registrado.
 18. Rocío Paz Botiquín $1900 por Efectivo — Movimiento registrado.
 19. Rocío Paz Librería $1300 por Efectivo — Movimiento registrado.
-20. Lucía Gaitán lista de la #336: 30 alumnos, 26 presentes — Asistencias guardadas.
-Cobranza: $2.154.910,00 · {"AL_DIA":59,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":7}
+20. Lucía Gaitán lista de la #336: 31 alumnos, 27 presentes — Asistencias guardadas.
+Cobranza: $2.149.910,00 · {"AL_DIA":59,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":7}
 GUARDADO.

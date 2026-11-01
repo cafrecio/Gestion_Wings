@@ -1,3 +1,3 @@
- 1. Sandra Vidal cierra la caja #90: esperado $53.949,50, contado $53.949,50 — Caja cerrada.
+ 1. Sandra Vidal cierra la caja #90: esperado $73.949,50, contado $73.949,50 — Caja cerrada.
 Cobranza: $207.910,00 · {"AL_DIA":110,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
 GUARDADO.

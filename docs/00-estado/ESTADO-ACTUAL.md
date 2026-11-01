@@ -26,9 +26,9 @@
 
 **T105, cerrada: la controló Gemini el 01/11, sin desplegar.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los segundos de armarlo no bajan, pero **no los paga el cobro: el PDF se arma la primera vez que alguien lo abre.** El contenedor de Laravel deja en `null` el `?ReciboService $reciboService = null` de `PagoCuotaService` y `LiquidacionPagoService` (comprobado el 01/11), así que el `DB::afterCommit` que parece armarlo al cobrar no hace nada. Sin medir en el servidor con el recorte. [Informe](../06-pruebas/PRU-04/VERIFICACION-T105-GEMINI.md).
 
-## T14 — Tanda 5 (días 48 a 54) simulada, sin entregar — Claude CAB, 01/11/2026
+## T14 — Tanda 5 (días 48 a 57) simulada, sin entregar — Claude CAB, 01/11/2026
 
-[Guion](../06-pruebas/PRU-04/GUION-DIAS-48-54.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-54.md). Siete días corridos sobre la copia del sitio al 25/11 con `main`; plata comparada a mano, después de correr, al peso. Al 2/12: deuda $2.118.000, disponible $7.710.280,75, Revisión 0. **Antes de entregarlo:** controles abiertos, desplegar y probar la rutina en el sitio. Tres defectos nuevos: T110, T111 y T112.
+Carlos sumó los días 55, 56 y 57, cambió Natación por Hockey y decidió: **con estos resultados se despliega en producción.** [Guion](../06-pruebas/PRU-04/GUION-DIAS-48-57.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-57.md). Diez días corridos sobre la copia del sitio al 25/11 con `main`; plata comparada a mano, después de correr, al peso. Al 5/12: deuda $783.500, disponible $7.677.080,25, Revisión 0, 2 Deudores. **Antes de entregarlo:** terminar T100, desplegar y probar la rutina en el sitio. Defectos anunciados: T110 a T112 (después de producción) y T113 y T114 (sin decisión). La primera carga sí está probada ([P1](../06-pruebas/PRU-02/VERIFICACION-P1.md) y T4): la planilla solo cuenta lo recorrido dentro de los días. Paso de año, probado en la copia: generación, 14 pantallas y adelantos bien; una trampa en Nueva liquidación (T115).
 
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 

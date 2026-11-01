@@ -1,0 +1,30 @@
+== inicio 57 (después de la rutina) 2026-12-05 13:30:00
+   Cobranza: $867.800,00 activos 119 {"AL_DIA":96,"EN_PLAZO":20,"MOROSO":0,"DEUDOR":3}
+   Saldos: Efectivo $1.904.059,50 · Banco Nación $58.000,00 · Mercado Pago $3.429.370,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.107.350,00 · Caja Torneo $56.000,00
+   Caja #96 u3 ABIERTA esperado $0,00
+[57.1] cancela Fútbol Avanzadas de las 11 → 302 Clase cancelada. OK
+[57.2] familia Herrera paga el torneo → 302 Movimiento registrado. OK
+[57.2] familia Molina paga el torneo → 302 Movimiento registrado. OK
+[57.2] familia Romero paga el torneo → 302 Movimiento registrado. OK
+[57.2] familia Lopez paga el torneo → 302 Movimiento registrado. OK
+   Caja Torneo, antes de validar la caja: $56.000,00
+   lista de Hockey: 3
+[57.3] Nora toma Hockey → 302 Asistencias guardadas. OK
+   Alma: DEUDOR $69.300,00
+[57.4] Alma paga todo en efectivo → 302 Pago registrado para Navarro, Alma. OK
+   cobro $69.300,00 · Alma: AL_DIA $0,00
+   Carla debe $15.000,00
+[57.5a] Juan Pablo cobra los $15.000 de Carla → 302 Pago registrado para Morales, Carla. OK
+[57.5b] el dueño, con la pantalla vieja → 400 El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción. OK
+   cobros de diciembre de Carla: 4 · diciembre PAGADA
+   Cobrar de Valentina (200): Enero 2027 Febrero 2027 Marzo 2027 Abril 2027 Mayo 2027 Junio 202
+[57.6a] Valentina López paga enero $48.000 por MP → 302 Pago registrado para Lopez, Valentina. OK
+   enero de Valentina: PAGADA $48.000,00 pagado $48.000,00
+[57.6b] Julieta Morales paga enero con el precio viejo: $30.000 → 302 Pago registrado para Morales, Julieta.
+   enero de Julieta: PAGADA $30.000,00 pagado $30.000,00
+   /reportes?mes=2027-01: 302 redirige a http://localhost/caja/cobrar/249
+   /cashflow?anio=2027: 200 Cashflow histórico – Wings
+== fin 57, antes de la noche 2026-12-05 13:30:00
+   Cobranza: $783.500,00 activos 119 {"AL_DIA":98,"EN_PLAZO":19,"MOROSO":0,"DEUDOR":2}
+   Saldos: Efectivo $1.904.059,50 · Banco Nación $58.000,00 · Mercado Pago $3.429.370,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.107.350,00 · Caja Torneo $56.000,00
+   Caja #96 u3 ABIERTA esperado $0,00

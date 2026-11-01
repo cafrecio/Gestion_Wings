@@ -1,0 +1,4 @@
+   caja #93: 20 renglones
+[55.9a] valida sin tildar nada → 400 Faltan 20 movimientos por verificar antes de validar la caja. OK
+[55.9b] con tres tildes → 400 Faltan 17 movimientos por verificar antes de validar la caja. OK
+[55.9c] con todos → 302 Caja validada y reflejada en cashflow. OK

@@ -26,8 +26,17 @@ paso('52.2d', 'Sandra guarda de nuevo', $alta(['inscripcion_importe_visto' => '8
 $ni = A('Arias, Nina');
 echo '   Nina: '.DeudaCuota::where('alumno_id', $ni->id)->get()->map(fn ($d) => "$d->periodo:$d->estado ".plata($d->monto_original))->implode(' ').' · inscripción '.plata(DB::table('cargos_alumno')->where('alumno_id', $ni->id)->where('tipo', 'INSCRIPCION')->value('monto_original'))."\n";
 // 52.3 CAT-005: el medio nuevo se usa y ya no se le cambia el saldo inicial
-paso('52.3a', 'Nina paga todo por Caja Torneo', enviar($sa, 'POST', "/caja/cobrar/{$ni->id}", ['tipo_caja_id' => M('Caja Torneo'), 'periodos' => ['2026-11'], 'fecha_pago' => '2026-11-30'], fn ($r) => $caja->pagar($r, $ni->id), true), 200);
+paso('52.3a', 'Nina paga todo en efectivo', enviar($sa, 'POST', "/caja/cobrar/{$ni->id}", ['tipo_caja_id' => M('Efectivo'), 'periodos' => ['2026-11'], 'fecha_pago' => '2026-11-30'], fn ($r) => $caja->pagar($r, $ni->id), true), 200);
 echo '   cobro '.plata(Pago::where('alumno_id', $ni->id)->latest('id')->value('monto_final')).' · esperado '.plata($esp())."\n";
+$torneoCT = fn (string $f) => enviar($sa, 'POST', '/caja/movimiento', ['subrubro_id' => S('Inscripciones'), 'tipo_caja_id' => M('Caja Torneo'), 'monto' => '3000', 'observaciones' => "Torneo de diciembre, Patín Principiantes: familia $f"], fn ($r) => $caja->movimientoStore($r));
+paso('52.3b', 'familia Torres paga el torneo por Caja Torneo', $torneoCT('Torres'), 200);
+paso('52.3c', 'familia Suarez paga el torneo por Caja Torneo', $torneoCT('Suarez'), 200);
+$ct = TipoCaja::where('nombre', 'Caja Torneo')->firstOrFail(); $tcC = app(TipoCajaWebController::class);
+paso('52.3d', 'el dueño intenta cambiarle el saldo inicial', enviar($ad, 'PUT', "/tipos-caja/{$ct->id}", ['nombre' => 'Caja Torneo', 'abreviatura' => 'TOR', 'saldo_inicial' => '60000'], fn ($r) => $tcC->update($r, $ct->id)));
+echo '   Caja Torneo, saldo inicial: '.plata($ct->fresh()->saldo_inicial)."\n";
+// 52.3e la profesora nueva necesita usuario antes de su primera clase
+$noraP = App\Models\Profesor::where('apellido', 'Vidal')->where('nombre', 'Nora')->firstOrFail();
+paso('52.3e', 'usuario de Nora', enviar($ad, 'POST', '/usuarios', ['name' => 'Nora Vidal', 'email' => 'nora.vidal@example.com', 'password' => 'Hockey-del-club-2026!', 'password_confirmation' => 'Hockey-del-club-2026!', 'rol' => 'PROFESOR', 'profesor_id' => $noraP->id], fn ($r) => app(App\Http\Controllers\UsuarioWebController::class)->store($r)), 200);
 // 52.4 adelantos y cobro del dueño
 $adelanto = fn (User $q, Alumno $a, string $medio, string $monto) => enviar($q, 'POST', "/caja/cobrar/{$a->id}", ['tipo_caja_id' => M($medio), 'periodos' => ['2026-12'], 'montos_cuota' => ['2026-12' => $monto], 'fecha_pago' => '2026-11-30', 'confirmar_pago_adelantado' => '1'], fn ($r) => $caja->pagar($r, $a->id), true);
 paso('52.4a', 'Sandra: Delfina Giménez diciembre $35.000 en efectivo', $adelanto($sa, A('Gimenez, Delfina'), 'Efectivo', '35000'), 200);

@@ -230,7 +230,7 @@
         {
           "donde": "Efectivo del cajón",
           "l": "b",
-          "texto": "No deja desactivar el medio elegido para el cajón; explica que primero hay que elegir otro.",
+          "texto": "No deja desactivar Efectivo, el medio del cajón: «No se puede desactivar porque es el medio de pago del cajón de mostrador.» Desde T96 no hay otro para elegir.",
           "tipo": "directo"
         },
         {
@@ -240,8 +240,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-16, 13/10): solo impedir desactivarlo. Falta programar: T57. Antes: TipoCajaWebController::toggleActivo no controla nada (código leído); SI-07. Comprobado por Claude el 13/10 en la base descartable: el medio queda inactivo, la apertura queda trabada y reconfigurar el cajón responde «Elegí un medio de pago activo».",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-16, 13/10): solo impedir desactivarlo. Falta programar: T57. Antes: TipoCajaWebController::toggleActivo no controla nada (código leído); SI-07. Comprobado por Claude el 13/10 en la base descartable: el medio queda inactivo, la apertura queda trabada y reconfigurar el cajón responde «Elegí un medio de pago activo». Actualizado por Claude CAB el 01/11/2026: su tarea está cerrada y se comprobó en la simulación de la tanda 5; deja de figurar «no implementado».",
       "modulo": "Catálogos",
       "pantalla": "cat-tipos-caja",
       "requiere": "Un medio con cobros hechos; el medio que es el efectivo del cajón, con y sin turno abierto.",

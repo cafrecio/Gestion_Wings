@@ -1,0 +1,82 @@
+{
+ "dia": "2026-12-04",
+ "descripcion": "Día 56, turno de la tarde: Rocío cobra y carga gastos.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Torres, Benicio",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Martinez, Bautista",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "28000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Pereyra, Manuel",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Ramirez, Felipe",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Rodriguez, Joaquin",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "35000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2400",
+   "obs": "Bolsas"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "800",
+   "obs": "Sobres"
+  }
+ ]
+}

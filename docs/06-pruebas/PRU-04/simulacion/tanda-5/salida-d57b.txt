@@ -1,0 +1,15 @@
+   Caja Torneo: $68.000,00
+[57.7a] paga al organizador $40.000 por Caja Torneo → 302 Movimiento directo registrado en cashflow. OK
+   queda $28.000,00
+[57.7b] pasa lo que queda a Galicia → 302 Transferencia #8 registrada: salida y entrada guardadas. OK
+[57.7c] desactiva Caja Torneo → 200 {"activo":false} OK
+   activa: 0 · saldo $0,00
+   Juan Pablo, gasto (302): Caja Torneo no se ofrece
+   Cashflow filtrado por Caja Torneo (200): organizador Torneo de fin de año: organizador Directo −$40,00
+[57.8] retiro del dueño $300.000 por Galicia → 302 Movimiento directo registrado en cashflow. OK
+   Deudor: Pereyra, Liam $38.500,00
+   Deudor: Ramos, Pilar $63.000,00
+   2026-10: ingresos $3.417.850,75 · egresos $341.350,00 · resultado $3.076.500,75
+   2026-11: ingresos $4.425.900,00 · egresos $2.898.130,50 · resultado $1.527.769,50
+   2026-12: ingresos $3.866.910,00 · egresos $2.704.900,00 · resultado $1.162.010,00
+   volumen: movimientos de caja 507 · cobros 315 · marcas 2087 · Cashflow 567 · alumnos 123 · liquidaciones 14 · clases 232
