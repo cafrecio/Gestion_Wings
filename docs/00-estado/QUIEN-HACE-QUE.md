@@ -50,13 +50,15 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | En curso (hizo Claude) | La hace la sesion de Claude gestion-wings-50, orden de Carlos 01/11; despues de su suite de T100. Reproducido en 45.8: el gasto que carga el dueno en un turno figura a nombre de la operativa; CAJ-041 pide quien lo cargo. |
+| **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude) | Claude activo el recorte de fuentes en config/dompdf.php: de 1,7 MB a unos 225 KB, mismo texto y casi los mismos pixeles. Los 3 s no bajan. Falta suite, contador de pruebas, commit y control de otra IA. |
+| **T102** Nivel: poder inactivarlo (hoy no existe; con grupos no se puede eliminar) | En curso (hizo Claude) | Claude arma la propuesta visual aislada para el OK de Carlos; despues migracion, controlador, pantalla, manual y pruebas. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Espera que Codex termine T97; ahi va el control con PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
+| **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: el gasto que el dueño agrega en un turno figura a su nombre, también en Cashflow al validar. Lo ya cargado no se corrige. Codex la controla junto con T100: PROMPT-CODEX-T100-CONTROL.md, cuando termine T97. Sin desplegar. |
 | **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | OK visual de Carlos 01/11: Esta OK ahora; implementar anulacion atomica del par, verificar importes y dos conexiones, actualizar manual y entregar a Claude |
 
 ## Gemini
@@ -65,9 +67,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia implementacion de T94 |
 
-## Sin empezar (14)
+## Sin empezar (12)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104, T105 (ahora), T106 (ahora), T107 (ahora), T108 (ahora), T109 (ahora), T102.
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104, T106 (ahora), T107 (ahora), T108 (ahora), T109 (ahora).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 

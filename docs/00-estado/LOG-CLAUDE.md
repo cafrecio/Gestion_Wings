@@ -19,6 +19,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Carpeta compartida:** otra sesión hacía T96 al mismo tiempo. Probé en una copia limpia y el commit va por rutas. El cambio de T96 en el tablero (`en_curso`, tiene Gemini) estaba sin subir y entra con este commit: el archivo es uno solo.
 - De producción leí las líneas `SESSION_` de su configuración y el tamaño de `scheduler.log`; no toqué nada.
 
+## 2026-11-01 — Claude CAB — T101: el gasto del dueño en un turno figura a su nombre
+
+- **Hecho:** `registrarMovimientoEnCaja` guarda quién lo cargó y `editarStore` lo pasa; `movimientoStore` sigue con la operativa. En Cashflow, «Registró» también cambia al validar. 8 pruebas nuevas; sacando la regla fallan (probado). Retrato de la prueba técnica dado vuelta.
+- **Sin corregir:** el gasto 45.8 del sitio sigue a nombre de Sandra, porque es lo ya cargado; el control CAJ-6 sigue valiendo. **Sigue:** Codex la controla junto con T100, mismo [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md). Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T100: cancelar un adelanto lo deja como si no hubiera existido
 
 - **Decisión de Carlos, reemplaza CJ-26:** el 10/10 había decidido que la cuota quedara por el importe pactado (COB-019); ese importe era justo el error de Clara. Le planteé el choque antes de tocar nada y eligió borrar.

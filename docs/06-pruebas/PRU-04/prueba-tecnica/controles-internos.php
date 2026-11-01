@@ -830,8 +830,8 @@ try {
     $f = [];
     $bomb = DB::table('movimientos_operativos')->where('observaciones', 'Bombitas de luz: las pagó la caja')->get();
     if ($bomb->count() !== 1 || $c($bomb[0]->monto) !== 300000) $f[] = $bomb->count().' gastos de las bombitas';
-    elseif (DB::table('users')->where('id', $bomb[0]->usuario_id)->value('name') !== 'Sandra Vidal') $f[] = 'el gasto del dueño ya no figura a nombre de Sandra (¿reparado T101? dar vuelta este control)';
-    control($resultados, 'CAJ-6', 'El gasto de 3.000 que el dueño cargó en el turno de Sandra existe una vez y figura a nombre de ella', $f, 'retrata T101');
+    elseif (DB::table('users')->where('id', $bomb[0]->usuario_id)->value('name') !== 'Sandra Vidal') $f[] = 'el gasto del dueño ya no figura a nombre de Sandra (T101 no cambia lo ya cargado; revisar este control)';
+    control($resultados, 'CAJ-6', 'El gasto de 3.000 que el dueño cargó en el turno de Sandra existe una vez y figura a nombre de ella', $f, 'cargado antes de T101: el dato del sitio no se corrige');
 
     // 42.5, 46.6, 44.6 (CSH-005, CSH-008, CSH-010): Internet corregido con historial, el duplicado anulado con su asiento y la Luz de octubre.
     $f = [];

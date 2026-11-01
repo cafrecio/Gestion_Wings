@@ -581,7 +581,8 @@ class CajaService
                 'subrubro_id'       => $data['subrubro_id'],
                 'monto'             => $data['monto'],
                 'observaciones'     => $data['observaciones'] ?? null,
-                'usuario_id'        => $caja->usuario_operativo_id,
+                // T101: figura quien lo cargó; el dueño puede agregar un gasto en el turno de una operativa.
+                'usuario_id'        => $data['usuario_id'] ?? $caja->usuario_operativo_id,
                 'alumno_id'         => $data['alumno_id'] ?? null,
             ]);
         });

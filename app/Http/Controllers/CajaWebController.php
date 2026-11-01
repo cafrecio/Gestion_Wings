@@ -486,6 +486,7 @@ class CajaWebController extends Controller
                 'monto'         => $request->input('monto'),
                 'fecha'         => $request->input('fecha'),
                 'observaciones' => $request->input('observaciones'),
+                'usuario_id'    => $user->id,
             ]);
 
             if ($esFechaVieja) {
@@ -882,7 +883,7 @@ class CajaWebController extends Controller
             'montos_cuota'   => 'array',
             'montos_cuota.*' => ['nullable', 'numeric', 'min:0.01', new ImportePesos],
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
-            'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
+            'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)->where('activo', true)],
             'confirmar_deuda_anterior' => 'nullable|boolean',
             'confirmar_fecha_vieja'    => 'nullable|boolean',
             'confirmar_pago_adelantado' => 'nullable|boolean',

@@ -1306,10 +1306,10 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
     }
 
     /**
-     * 45.8, retrato de T101: el gasto que el dueño carga en el turno figura a nombre de la operativa. Se da vuelta al
-     * repararla. Pablo no carga en la caja de Sandra y la profesora tampoco.
+     * 45.8, T101 reparada el 01/11: el gasto que el dueño carga en el turno figura a su nombre.
+     * Pablo no carga en la caja de Sandra y la profesora tampoco.
      */
-    public function test_hallazgo_t101_gasto_del_duenio_en_el_turno_figura_a_nombre_de_la_operativa(): void
+    public function test_t101_gasto_del_duenio_en_el_turno_figura_a_su_nombre(): void
     {
         $id = $this->cajaSandra->id;
         $datos = ['tipo_caja_id' => $this->efectivo->id, 'subrubro_id' => Subrubro::where('nombre', 'Limpieza')->value('id'), 'monto' => '3000', 'fecha' => '2026-10-15', 'observaciones' => 'Bombitas de luz'];
@@ -1319,7 +1319,8 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->assertSame($antes, MovimientoOperativo::count());
         $this->actingAs($this->duenio)->post(route('web.caja.editar.store', $id), $datos)->assertSessionHasNoErrors();
         $mov = MovimientoOperativo::where('observaciones', 'Bombitas de luz')->sole();
-        $this->assertSame($this->sandra->id, $mov->usuario_id, 'T101 corregida: dar vuelta esta prueba');
+        $this->assertSame($this->duenio->id, $mov->usuario_id);
+        $this->assertSame($id, $mov->caja_operativa_id);
     }
 
     /** 47.9: mandar campos de más en un cobro o un gasto no cambia de quién es ni cuánto vale ni en qué caja entra. */
