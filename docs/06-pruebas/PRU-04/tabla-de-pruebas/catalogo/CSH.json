@@ -910,7 +910,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Efectivo $600.000 y Banco $100.000.",
       "roles": [
         "ADMIN"
@@ -940,7 +940,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Una transferencia vigente.",
       "roles": [
         "ADMIN"
@@ -970,7 +970,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Un ingreso en Banco del 10/10 y un gasto en Efectivo del 03/11.",
       "roles": [
         "ADMIN"
@@ -1000,7 +1000,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Una transferencia anulada y otra vigente.",
       "roles": [
         "ADMIN"
@@ -1030,7 +1030,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Dos dueños activos.",
       "roles": [
         "ADMIN"
@@ -1060,7 +1060,7 @@
       "estado": "no_implementado",
       "fuente": "Propuesto por Codex y pasado por Claude CAB el 01/11/2026 (T97). VERIFICACION-T97-CLAUDE.md.",
       "modulo": "Cashflow",
-      "pantalla": "cashflow-anular-transferencia",
+      "pantalla": "cashflow",
       "requiere": "Base de prueba descartable.",
       "roles": [
         "ADMIN"

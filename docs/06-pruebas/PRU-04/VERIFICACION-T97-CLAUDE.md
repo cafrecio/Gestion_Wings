@@ -39,4 +39,4 @@ Sitio de prueba y producción: la migración se corre al desplegar. Pantalla por
 
 ## Tabla de pruebas
 
-Pasé las propuestas de Codex a CSH-020 a CSH-025, `no_implementado` hasta desplegar. El total de casos sube de 334 a 340 sin contar otros cambios; la planilla «Prueba por días» se actualiza con la tanda 5.
+Pasé las propuestas de Codex a CSH-020 a CSH-025, `no_implementado` hasta desplegar. El catálogo queda en 341 casos; la planilla «Prueba por días» se actualiza con la tanda 5.
