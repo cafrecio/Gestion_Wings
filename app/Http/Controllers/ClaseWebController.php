@@ -782,22 +782,67 @@ class ClaseWebController extends Controller
         });
     }
 
-    public function toggleValidada(int $id)
+    public function toggleValidada(Request $request, int $id)
     {
-        $clase = Clase::findOrFail($id);
-
-        if ($clase->integraLiquidacionCerrada()) {
-            $mensaje = 'No se puede modificar la validación: la clase integra una liquidación cerrada.';
-            if (request()->expectsJson() || request()->header('X-Requested-With') === 'XMLHttpRequest') {
-                return response()->json(['success' => false, 'message' => $mensaje], 422);
-            }
-            return back()->with('error', $mensaje);
+        if (!Auth::user()?->isAdmin()) {
+            abort(403, 'Solo el dueño puede validar o desvalidar clases.');
         }
 
-        $clase->update(['validada_para_liquidacion' => !$clase->validada_para_liquidacion]);
+        return DB::transaction(function () use ($request, $id) {
+            $clase = Clase::whereKey($id)->lockForUpdate()->firstOrFail();
+            $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
+            $accion = $request->input('accion');
 
-        $estado = $clase->validada_para_liquidacion ? 'validada para liquidación' : 'desmarcada de validación';
-        return back()->with('success', "Clase {$estado}.");
+            if ($accion && !in_array($accion, ['validar', 'desvalidar'], true)) {
+                $mensaje = 'Acción de validación no reconocida.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
+
+            // Caso 9: Doble clic y pantalla vieja (la clase ya está en el estado solicitado)
+            if ($accion === 'validar' && $clase->validada_para_liquidacion) {
+                $mensaje = 'La clase cambió mientras la mirabas. Recargá la pantalla.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
+
+            if ($accion === 'desvalidar' && !$clase->validada_para_liquidacion) {
+                $mensaje = 'La clase cambió mientras la mirabas. Recargá la pantalla.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
+
+            // Caso 5: Clase en liquidación cerrada o pagada
+            if ($clase->integraLiquidacionCerrada()) {
+                $mensaje = 'No se puede modificar la validación: la clase integra una liquidación cerrada.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
+
+            $nuevoEstado = $accion ? ($accion === 'validar') : !$clase->validada_para_liquidacion;
+
+            // Caso 6: Desvalidar clase que integra liquidación por hora abierta
+            if (!$nuevoEstado && $clase->integraLiquidacionHoraAbierta()) {
+                $mensaje = 'No se puede desvalidar: la clase está en una liquidación abierta. Eliminá esa liquidación, desvalidá y generala de nuevo.';
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => $mensaje], 422);
+                }
+                return back()->with('error', $mensaje);
+            }
+
+            $clase->update(['validada_para_liquidacion' => $nuevoEstado]);
+
+            $estado = $clase->validada_para_liquidacion ? 'validada para liquidación' : 'desmarcada de validación';
+            return back()->with('success', "Clase {$estado}.");
+        });
     }
 
     /**

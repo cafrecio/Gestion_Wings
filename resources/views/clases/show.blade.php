@@ -133,16 +133,38 @@
                 @if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)
                     <form method="POST" action="{{ route('web.clases.toggle-validada', $clase->id) }}" style="display:inline;">
                         @csrf @method('PATCH')
+                        <input type="hidden" name="accion" value="validar">
                         <button type="submit"
                                 style="display:inline-flex; align-items:center; justify-content:center;
                                        width:96px; height:32px; font-size:0.82rem; font-weight:600;
                                        border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
                                        border:none; font-family:inherit;
-                                       background:{{ $clase->validada_para_liquidacion ? 'var(--color-btn-secondary)' : 'var(--color-btn-primary)' }};
+                                       background:var(--color-btn-primary);
                                        color:var(--color-surface);">
-                            {{ $clase->validada_para_liquidacion ? 'Desvalidar' : 'Validar' }}
+                            Validar
                         </button>
                     </form>
+                @endif
+
+                {{-- Desvalidar: solo admin, solo si validada y no integra liquidación cerrada ni abierta por hora --}}
+                @if($esAdmin && $clase->puedeDesvalidar())
+                    <form method="POST" action="{{ route('web.clases.toggle-validada', $clase->id) }}" style="display:inline;">
+                        @csrf @method('PATCH')
+                        <input type="hidden" name="accion" value="desvalidar">
+                        <button type="submit"
+                                style="display:inline-flex; align-items:center; justify-content:center;
+                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                       border:none; font-family:inherit;
+                                       background:var(--color-btn-secondary);
+                                       color:var(--color-surface);">
+                            Desvalidar
+                        </button>
+                    </form>
+                @endif
+
+                {{-- Editar: solo admin, solo si no validada y sin presentes (mismo criterio original) --}}
+                @if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)
                     <a href="{{ route('web.clases.edit', $clase->id) }}"
                        style="display:inline-flex; align-items:center; justify-content:center;
                               width:96px; height:32px; font-size:0.82rem; font-weight:600;

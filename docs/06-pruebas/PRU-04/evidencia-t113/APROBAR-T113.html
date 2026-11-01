@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T113 — Evidencia de Aprobación Visual — Desvalidar Clase</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 2rem; }
+        h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #38bdf8; }
+        p.sub { color: #94a3b8; margin-top: 0; margin-bottom: 2rem; font-size: 0.95rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 2rem; }
+        .card { background: #1e293b; border-radius: 12px; padding: 1.25rem; border: 1px solid #334155; }
+        .card h2 { font-size: 1.1rem; margin-top: 0; color: #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
+        .badge { font-size: 0.75rem; padding: 3px 8px; border-radius: 999px; background: #0284c7; color: white; }
+        .card p { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 1rem; line-height: 1.4; }
+        .img-container { background: #0b0f19; border-radius: 8px; overflow: hidden; border: 1px solid #475569; text-align: center; }
+        .img-container img { width: 100%; height: auto; display: block; }
+        .img-mobile { max-width: 375px; margin: 0 auto; }
+        footer { margin-top: 3rem; text-align: center; color: #64748b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <h1>T113 — Desvalidar una clase (Solo Dueño)</h1>
+    <p class="sub">Evidencia de interacción en navegador real Chrome CDP sobre base local descartable (<code>wings_testing_gemini</code>).</p>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Caso 1 — Escritorio: Botón Desvalidar visible <span class="badge">Escritorio 1366px</span></h2>
+            <p>Clase pasada validada sin liquidación: el dueño ve el botón «Desvalidar» (gris secundario) y el badge «Validada para liquidación».</p>
+            <div class="img-container">
+                <img src="01-t113-caso1-desvalidar-visible-desktop.png" alt="Caso 1 Escritorio antes">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 1 — Móvil: Botón Desvalidar <span class="badge">Móvil 375px</span></h2>
+            <p>En pantalla móvil de 375px el botón mantiene tamaño 96×32px y texto corto «Desvalidar» sin desbordes.</p>
+            <div class="img-container img-mobile">
+                <img src="01-t113-caso1-desvalidar-visible-375.png" alt="Caso 1 Móvil antes">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 1 — Escritorio: Éxito tras Desvalidar <span class="badge">Escritorio 1366px</span></h2>
+            <p>Tras hacer clic en «Desvalidar»: flash «Clase desmarcada de validación.», badge desaparece y vuelve a ofrecer «Validar» y «Editar».</p>
+            <div class="img-container">
+                <img src="02-t113-caso1-desvalidada-exito-desktop.png" alt="Caso 1 Escritorio después">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 1 — Móvil: Éxito tras Desvalidar <span class="badge">Móvil 375px</span></h2>
+            <p>En móvil a 375px tras desvalidar: se muestra el flash verde y reaparece «Validar».</p>
+            <div class="img-container img-mobile">
+                <img src="02-t113-caso1-desvalidada-exito-375.png" alt="Caso 1 Móvil después">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 2 — Clase futura (19/12) desvalidada <span class="badge">Escritorio</span></h2>
+            <p>Clase futura validada por error en la tanda 5: se desvalida igual y no contará en liquidaciones posteriores.</p>
+            <div class="img-container">
+                <img src="03-t113-caso2-clase-futura-desvalidada.png" alt="Caso 2 Futura desvalidada">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 6 — Liquidación abierta: sin Desvalidar <span class="badge">Escritorio</span></h2>
+            <p>Clase que integra una liquidación por hora ABIERTA: la pantalla no ofrece el botón Desvalidar.</p>
+            <div class="img-container">
+                <img src="04-t113-caso6-sin-boton-desvalidar.png" alt="Caso 6 Sin botón">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 6 — Liquidación abierta: forzado rechazado <span class="badge">Escritorio</span></h2>
+            <p>Envío forzado directo: rechaza con «No se puede desvalidar: la clase está en una liquidación abierta. Eliminá esa liquidación, desvalidá y generala de nuevo.»</p>
+            <div class="img-container">
+                <img src="05-t113-caso6-rechazo-forzado.png" alt="Caso 6 Rechazo forzado">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Caso 9 — Doble clic / Pantalla vieja <span class="badge">Escritorio</span></h2>
+            <p>Envío de desvalidar sobre pantalla desactualizada: rechaza con «La clase cambió mientras la mirabas. Recargá la pantalla.» sin invertir estado.</p>
+            <div class="img-container">
+                <img src="06-t113-caso9-pantalla-vieja-error.png" alt="Caso 9 Pantalla vieja">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Gestión Wings — T113 — Implementado por Gemini CAB (01/11/2026). Control independiente por Claude.</p>
+    </footer>
+</body>
+</html>

@@ -176,6 +176,28 @@ class Clase extends Model
     }
 
     /**
+     * T113: Verifica si la clase está en una liquidación por HORA en estado ABIERTA.
+     */
+    public function integraLiquidacionHoraAbierta(): bool
+    {
+        return LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+            ->where('referencia_id', $this->id)
+            ->whereHas('liquidacion', fn ($q) => $q->where('estado', Liquidacion::ESTADO_ABIERTA))
+            ->exists();
+    }
+
+    /**
+     * T113: Una clase puede desvalidarse si está validada y no integra una
+     * liquidación cerrada/pagada ni una liquidación por hora abierta.
+     */
+    public function puedeDesvalidar(): bool
+    {
+        return (bool) $this->validada_para_liquidacion
+            && !$this->integraLiquidacionCerrada()
+            && !$this->integraLiquidacionHoraAbierta();
+    }
+
+    /**
      * T65 (DU-48, CLA-021): Una clase es eliminable por el dueño solo si no tiene asistencias,
      * no está validada para liquidación y no integra ninguna liquidación.
      */

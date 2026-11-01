@@ -49,6 +49,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Hecho, espera verificación (hizo Gemini) | Verificar implementación de Desvalidar y propuesta de catálogo/manual |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | En curso | Carlos 01/11: hacerlo. Rechazar un mes que todavia no empezo. |
 | **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude |
 | **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude |
@@ -62,9 +63,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | En curso | Implementar Desvalidar según PROMPT-GEMINI-T113.md |
+Nada en este momento.
 
 ## Sin empezar (10)
 

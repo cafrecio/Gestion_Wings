@@ -11,6 +11,31 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T113: Desvalidar una clase para el dueño (a verificación)
+
+- **Objetivo:** Implementar la desvalidación de clases por el dueño (`ADMIN`) según `PROMPT — T113: Desvalidar una clase — para Gemini` para corregir validaciones erróneas sin perder el enlace `Editar` ni alternar a ciegas.
+- **Implementación y resultados ([IMPLEMENTACION-T113-GEMINI.md](../06-pruebas/PRU-04/IMPLEMENTACION-T113-GEMINI.md)):**
+  1. **Modelo `app/Models/Clase.php`:**
+     - `integraLiquidacionHoraAbierta(): bool` (L180-186): verifica si la clase integra un detalle de liquidación por hora en estado `ABIERTA`.
+     - `puedeDesvalidar(): bool` (L192-197): valida si está marcada para liquidación y no integra liquidación cerrada/pagada ni abierta por hora.
+  2. **Controlador `app/Http/Controllers/ClaseWebController.php` (L785-844):**
+     - Endpoint protegido con `abort(403)` defensivo para no administradores.
+     - Bloqueo pesimista `lockForUpdate()` en transacción.
+     - Detección de doble clic y pantalla vieja: si `accion === 'validar'` y ya estaba validada, o si `accion === 'desvalidar'` y ya estaba desmarcada, rechaza con *«La clase cambió mientras la mirabas. Recargá la pantalla.»*.
+     - Bloqueo en liquidación cerrada/pagada: *«No se puede modificar la validación: la clase integra una liquidación cerrada.»*.
+     - Bloqueo de desvalidación en liquidación por hora abierta: *«No se puede desvalidar: la clase está en una liquidación abierta. Eliminá esa liquidación, desvalidá y generala de nuevo.»*.
+     - Estado booleano asignado según la intención explícita enviada por el formulario (`accion`).
+  3. **Vista `resources/views/clases/show.blade.php` (L133-176):**
+     - Botón `Validar` condicionado a `@if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)` con `accion="validar"`.
+     - Botón `Desvalidar` condicionado a `@if($esAdmin && $clase->puedeDesvalidar())` con `accion="desvalidar"`.
+     - Enlace `Editar` conservado en su bloque independiente con su condición original intacta. Sin JavaScript incrustado.
+  4. **Pruebas y evidencia:**
+     - Feature test: `tests/Feature/DesvalidarClaseT113Test.php` (14 passed, 87 assertions), cubriendo los 10 casos de la tabla y 4 mutaciones dirigidas.
+     - Compatibilidad: `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php` (11 passed, 78 assertions).
+     - Comprobación en navegador real Chrome CDP: `docs/06-pruebas/PRU-04/evidencia-t113/comprobar-navegador-t113.mjs` (7/7 passed, 8 capturas en escritorio 1366px y móvil 375px). Galería visual en `docs/06-pruebas/PRU-04/evidencia-t113/APROBAR-T113.html`.
+     - Sintaxis PHP (`php -l`) limpia; compilación y limpieza de vistas Blade (`view:cache; view:clear`) limpia.
+- **Tablero:** Marcada T113 como `a_verificar`, `hizo=Gemini`, `tiene=Claude`. Conteo oficial del repositorio actualizado a 1499 pruebas.
+
 ## 2026-11-01 — LOG GEM CAB — T12 y T13: Segunda vuelta del control del manual tras T94 a T109 (OK para Carlos)
 
 - **Objetivo:** Ejecutar la segunda vuelta de control del manual tras la rectificación del camino 1 (retiros por Cashflow y faltante en turno) realizada por Claude, según `PROMPT — T12 y T13: segunda vuelta del control del manual — para Gemini`.

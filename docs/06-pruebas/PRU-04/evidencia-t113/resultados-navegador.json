@@ -1,0 +1,37 @@
+[
+  {
+    "nombre": "Caso 1: Botón Desvalidar y badge Validada visibles inicialmente",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 1: Clic en Desvalidar muestra flash de éxito, badge desaparece y ofrece Validar",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 2: Clase futura validada ofrece botón Desvalidar",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 2: Clase futura se desvalida correctamente",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 6: Clase en liquidación abierta no ofrece botón Desvalidar",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 6: Forzar desvalidación en liquidación abierta es rechazado con mensaje exacto",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "nombre": "Caso 9: Desvalidar con pantalla vieja rechaza con «La clase cambió mientras la mirabas. Recargá la pantalla.»",
+    "ok": true,
+    "detalle": ""
+  }
+]
