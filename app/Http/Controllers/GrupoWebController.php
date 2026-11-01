@@ -40,7 +40,7 @@ class GrupoWebController extends Controller
     public function create()
     {
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
-        $niveles  = Nivel::orderBy('nombre')->get();
+        $niveles  = Nivel::where('activo', true)->orderBy('nombre')->get();
 
         return view('grupos.create', compact('deportes', 'niveles'));
     }
@@ -68,7 +68,7 @@ class GrupoWebController extends Controller
             'deporte_id.required'                    => 'Debe seleccionar un deporte.',
             'deporte_id.exists'                      => 'El deporte seleccionado no existe.',
             'nivel_id.required'                      => 'Debe seleccionar un nivel.',
-            'nivel_id.exists'                        => 'El nivel seleccionado no existe.',
+            'nivel_id.exists'                        => 'El nivel seleccionado no existe o está inactivo.',
             'nivel_id.unique'                        => 'Ya existe un grupo con ese deporte y nivel.',
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
@@ -82,7 +82,12 @@ class GrupoWebController extends Controller
         }
         $validated = $validator->validated();
 
-        DB::transaction(function () use ($validated) {
+        $aviso = DB::transaction(function () use ($validated) {
+            $aviso = $this->avisoNivelDestino((int) $validated['deporte_id'], (int) $validated['nivel_id']);
+            if ($aviso !== null) {
+                return $aviso;
+            }
+
             $grupo = Grupo::create([
                 'deporte_id' => $validated['deporte_id'],
                 'nivel_id'   => $validated['nivel_id'],
@@ -97,10 +102,36 @@ class GrupoWebController extends Controller
                     'activo'            => true,
                 ]);
             }
+
+            return null;
         });
+
+        if ($aviso !== null) {
+            return back()->withInput()->withErrors(['nivel_id' => $aviso])->with('error', $aviso);
+        }
 
         return redirect()->route('web.grupos.index')
             ->with('success', 'Grupo creado correctamente.');
+    }
+
+    /**
+     * T102: bloquea el nivel elegido para que nadie lo inactive mientras se le asigna un grupo,
+     * y también serializa a dos que elijan el mismo. Va primero en la transacción: lo que se
+     * lea después ya ve lo que el otro confirmó.
+     */
+    private function avisoNivelDestino(int $deporteId, int $nivelId, ?int $grupoId = null): ?string
+    {
+        $nivel = Nivel::whereKey($nivelId)->lockForUpdate()->first();
+        if (!$nivel || !$nivel->activo) {
+            return 'El nivel seleccionado no existe o está inactivo.';
+        }
+
+        $ocupado = Grupo::where('deporte_id', $deporteId)
+            ->where('nivel_id', $nivelId)
+            ->when($grupoId, fn($q) => $q->where('id', '!=', $grupoId))
+            ->exists();
+
+        return $ocupado ? 'Ya existe un grupo con ese deporte y nivel.' : null;
     }
 
     public function show(int $id)
@@ -133,7 +164,11 @@ class GrupoWebController extends Controller
             'planes' => fn($q) => $q->where('activo', true)->orderBy('clases_por_semana'),
         ])->findOrFail($id);
 
-        $niveles = Nivel::orderBy('nombre')->get();
+        // El nivel actual va siempre: un grupo inactivo pudo quedar en un nivel inactivo.
+        $niveles = Nivel::where('activo', true)
+            ->orWhere('id', $grupo->nivel_id)
+            ->orderBy('nombre')
+            ->get();
 
         return view('grupos.edit', compact('grupo', 'niveles'));
     }
@@ -144,11 +179,15 @@ class GrupoWebController extends Controller
         $grupo = Grupo::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
+            'nivel_id'                       => 'sometimes|required|integer|exists:niveles,id',
             'planes'                         => 'required|array|min:1',
             'planes.*.id'                    => ['nullable', 'integer', Rule::exists('grupo_planes', 'id')->where('grupo_id', $id)],
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7|distinct',
             'planes.*.precio_mensual'        => ['required', 'numeric', 'gt:0', new ImportePesos],
         ], [
+            'nivel_id.required'                     => 'Debe seleccionar un nivel.',
+            'nivel_id.integer'                      => 'El nivel seleccionado no existe o está inactivo.',
+            'nivel_id.exists'                       => 'El nivel seleccionado no existe o está inactivo.',
             'planes.required'                       => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
             'planes.array'                          => 'Las frecuencias deben enviarse como una lista.',
             'planes.min'                            => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
@@ -166,11 +205,20 @@ class GrupoWebController extends Controller
         }
         $validated = $validator->validated();
 
-        // nivel_id no cambia en edición
-
         return DB::transaction(function () use ($validated, $id) {
             // Serializar edición y eliminación sobre el mismo grupo.
-            Grupo::whereKey($id)->lockForUpdate()->firstOrFail();
+            $grupo = Grupo::whereKey($id)->lockForUpdate()->firstOrFail();
+
+            // T102: el deporte no cambia; el nivel sí. Alumnos, precios y clases siguen al grupo.
+            $nivelNuevo = (int) ($validated['nivel_id'] ?? $grupo->nivel_id);
+            $cambiaNivel = $nivelNuevo !== (int) $grupo->nivel_id;
+            if ($cambiaNivel) {
+                $aviso = $this->avisoNivelDestino((int) $grupo->deporte_id, $nivelNuevo, $id);
+                if ($aviso !== null) {
+                    return back()->withInput()->withErrors(['nivel_id' => $aviso])->with('error', $aviso);
+                }
+            }
+
             $planes = collect($validated['planes']);
             $idsSubmitted = $planes->pluck('id')->filter()->map(fn($v) => (int) $v)->all();
 
@@ -194,6 +242,11 @@ class GrupoWebController extends Controller
                     $palabra = $alumnosHoy === 1 ? 'alumno' : 'alumnos';
                     return back()->withInput()->with('error', "{$removido->clases_por_semana}x por semana tiene {$alumnosHoy} {$palabra}: cambiales el plan antes.");
                 }
+            }
+
+            // Después de los rechazos de arriba: si algo no se guarda, el nivel tampoco.
+            if ($cambiaNivel) {
+                $grupo->update(['nivel_id' => $nivelNuevo]);
             }
 
             // Procesar frecuencias removidas: desactivar si se usó antes, borrar si nunca se usó
@@ -344,9 +397,31 @@ class GrupoWebController extends Controller
 
                 return back()->with('error', $mensaje);
             }
-        }
 
-        $grupo->update(['activo' => !$grupo->activo]);
+            $grupo->update(['activo' => false]);
+        } else {
+            // T102: un grupo activo no puede quedar en un nivel inactivo.
+            $mensaje = DB::transaction(function () use ($grupo) {
+                $grupo = Grupo::whereKey($grupo->id)->lockForUpdate()->firstOrFail();
+                $nivel = Nivel::whereKey($grupo->nivel_id)->lockForUpdate()->first();
+                if (!$nivel?->activo) {
+                    return "No se puede activar el grupo porque el nivel «{$nivel?->nombre}» está inactivo. Activá el nivel o pasá el grupo a otro.";
+                }
+                $grupo->update(['activo' => true]);
+
+                return null;
+            });
+
+            if ($mensaje !== null) {
+                if ($request->expectsJson()) {
+                    return response()->json(['error' => $mensaje], 422);
+                }
+
+                return back()->with('error', $mensaje);
+            }
+
+            $grupo->refresh();
+        }
 
         if ($request->expectsJson()) {
             return response()->json(['activo' => (bool) $grupo->activo]);

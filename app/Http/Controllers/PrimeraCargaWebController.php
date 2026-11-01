@@ -15,7 +15,7 @@ class PrimeraCargaWebController extends Controller
     {
         $estado = PrimeraCarga::findOrFail(1);
         $catalogos = $service->catalogos();
-        $conteos = ['deportes' => Deporte::where('activo', true)->count(), 'niveles' => Nivel::count(),
+        $conteos = ['deportes' => Deporte::where('activo', true)->count(), 'niveles' => Nivel::where('activo', true)->count(),
             'grupos' => Grupo::where('activo', true)->count(), 'planes' => count($catalogos)];
         $revision = $request->session()->get('primera_carga_revision');
         if ($estado->estado === 'PENDIENTE' && in_array($request->query('paso'), ['1', '2', '3'], true)) {

@@ -19,6 +19,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Carpeta compartida:** otra sesión hacía T96 al mismo tiempo. Probé en una copia limpia y el commit va por rutas. El cambio de T96 en el tablero (`en_curso`, tiene Gemini) estaba sin subir y entra con este commit: el archivo es uno solo.
 - De producción leí las líneas `SESSION_` de su configuración y el tamaño de `scheduler.log`; no toqué nada.
 
+## 2026-11-01 — Claude CAB — T102: inactivar un nivel y pasar un grupo a otro nivel; T105: recibos livianos
+
+- **T102:** regla de Carlos: con grupos activos no se inactiva. El nivel de un grupo ahora se puede cambiar en Editar; destino ocupado se rechaza y no se unen grupos. Crear, cambiar de nivel, activar un grupo e inactivar el nivel se esperan entre sí con un candado sobre el nivel.
+- **Pruebas T102:** 23 nuevas; 12 mutaciones detectadas, entre [la primera vuelta](../06-pruebas/PRU-04/evidencia-t102/final/mutaciones.txt) y [la segunda](../06-pruebas/PRU-04/evidencia-t102/final/mutaciones-segunda-vuelta.txt). La primera encontró que la prueba de concurrencia no distinguía si había candado: corregida. Una regla repetida al crear se sacó.
+- **T105:** recorte de fuentes en `config/dompdf.php`: 1,7 MB a unos 225 KB. Cuatro recibos comparados: mismo texto, 232 píxeles distintos como máximo sobre 2,2 millones. Los 3 s no bajan.
+- **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
+- **Sigue:** control de Codex con [este prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T102-T105-CONTROL.md); Gemini retoma T94. Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T94: control de la entrega de Gemini, devuelta
 
 - **Resultado:** lo central anda (22 pruebas, 2 mutaciones mías). Devuelta por 4 hallazgos medios y 1 bajo: carrera al editar el grupo, pantalla vieja que revive una frecuencia, aviso falso, historia reescrita entre planes, y error al intercambiar frecuencias. [Informe](../06-pruebas/PRU-04/VERIFICACION-T94-CLAUDE.md) y pruebas en `evidencia-t94-control/`.

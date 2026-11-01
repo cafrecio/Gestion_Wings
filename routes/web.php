@@ -269,6 +269,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/niveles/check-disponible', [NivelWebController::class, 'checkDisponible'])->name('web.niveles.check-disponible');
         Route::get('/niveles/{id}/edit', [NivelWebController::class, 'edit'])->name('web.niveles.edit');
         Route::put('/niveles/{id}', [NivelWebController::class, 'update'])->name('web.niveles.update');
+        Route::patch('/niveles/{id}/toggle-activo', [NivelWebController::class, 'toggleActivo'])->name('web.niveles.toggle-activo');
         Route::delete('/niveles/{id}', [NivelWebController::class, 'destroy'])->name('web.niveles.destroy');
     });
 

@@ -1,0 +1,4 @@
+DETECTADA inactivar sin candado · Tests:    1 failed, 22 passed (92 assertions)
+DETECTADA destino sin candado · Tests:    2 failed, 21 passed (90 assertions)
+DETECTADA activar grupo sin candado · Tests:    1 failed, 22 passed (91 assertions)
+DETECTADA formulario no marca el actual · Tests:    1 failed, 22 passed (93 assertions)

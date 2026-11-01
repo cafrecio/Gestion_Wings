@@ -177,3 +177,11 @@ Decisión: DU-15 («Impedir que un alumno activo quede sin plan»).
 
 [Cuotas, pagos y cambios de plan V2](Wings-contrato-cuotas-deudas-pagos-V2.md) ·
 [Implementación y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md).
+
+## Nivel del grupo — T102, Carlos 01/11/2026
+
+- Un grupo siempre tiene nivel. Un nivel con grupos no se elimina, aunque esos grupos estén inactivos.
+- Un nivel con grupos activos no se puede inactivar: primero esos grupos se pasan a otro nivel o se desactivan. Reemplaza la decisión del 30/10, que dejaba inactivarlo con grupos.
+- Un nivel inactivo no se ofrece al crear un grupo ni al cambiarle el nivel a uno, y un grupo cuyo nivel está inactivo no se puede activar. Un grupo inactivo conserva su nivel.
+- Un grupo puede cambiar de nivel, no de deporte. Sigue la regla de un grupo por deporte y nivel: si el destino está ocupado se rechaza y no se unen los grupos.
+- Cambiar de nivel no toca alumnos, precios, clases, cuotas ni pagos. El nombre del grupo se arma con el deporte y el nivel, así que lo anterior se muestra con el nivel nuevo; los eventos de reportes conservan el `nivel_id` con que se registraron y los PDF ya generados no cambian.

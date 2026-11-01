@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nivel;
 use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NivelWebController extends Controller
 {
@@ -70,6 +71,44 @@ class NivelWebController extends Controller
         $nivel->update($request->only('nombre', 'descripcion'));
 
         return redirect()->route('web.niveles.index')->with('success', 'Nivel actualizado correctamente.');
+    }
+
+    /** T102: un grupo activo no puede quedar en un nivel inactivo; primero se lo pasa a otro nivel. */
+    public function toggleActivo(Request $request, int $id)
+    {
+        [$nivel, $mensaje] = DB::transaction(function () use ($id) {
+            // Espera a quien le esté asignando un grupo a este nivel (GrupoWebController).
+            $nivel = Nivel::whereKey($id)->lockForUpdate()->firstOrFail();
+
+            if ($nivel->activo) {
+                $gruposActivos = $nivel->grupos()->where('activo', true)->count();
+                if ($gruposActivos > 0) {
+                    return [$nivel, $gruposActivos === 1
+                        ? 'No se puede inactivar el nivel porque tiene 1 grupo activo. Pasalo a otro nivel o desactivalo.'
+                        : "No se puede inactivar el nivel porque tiene {$gruposActivos} grupos activos. Pasalos a otro nivel o desactivalos."];
+                }
+            }
+
+            $nivel->update(['activo' => !$nivel->activo]);
+
+            return [$nivel, null];
+        });
+
+        if ($mensaje !== null) {
+            if ($request->expectsJson()) {
+                return response()->json(['error' => $mensaje], 422);
+            }
+
+            return back()->with('error', $mensaje);
+        }
+
+        $exito = $nivel->activo ? 'Nivel activado correctamente.' : 'Nivel inactivado correctamente.';
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $nivel->activo, 'mensaje' => $exito]);
+        }
+
+        return back()->with('success', $exito);
     }
 
     public function destroy(int $id)

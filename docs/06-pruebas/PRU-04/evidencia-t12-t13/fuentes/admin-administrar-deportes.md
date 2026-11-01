@@ -9,7 +9,7 @@
 | Cambiar la forma de liquidar rige desde el mes siguiente | `app/Http/Controllers/DeporteWebController.php:67` | `->with('success', $cambio ? 'Cambio programado desde el '.today()->startOfMonth()->addMonth()->format('d/m/Y').'.' : 'Deporte actualizado correctamente.');` | Captura de la pantalla real (CapturasEtapaCTest). Muestra «Programado: Por comisión desde el 01/11/2026». |
 | El cambio requiere no tener liquidaciones abiertas del deporte | `app/Services/DeporteLiquidacionService.php:24` | `if ($abiertas->isNotEmpty()) {` | Leído en el código; no ejecutado en pantalla. |
 | No desactiva con alumnos activos o clases futuras | `app/Http/Controllers/DeporteWebController.php:87` | `if ($alumnosActivos > 0 \|\| $clasesFuturas > 0) {` | Ejecutado (CapturasEtapaCTest): HTTP 302 · «No se puede desactivar el deporte porque tiene 5 alumnos activos y 9 clases futuras.» |
-| Un deporte inactivo no se ofrece al crear grupos, alumnos y profesores | `app/Http/Controllers/GrupoWebController.php:41` | `$deportes = Deporte::where('activo', true)->orderBy('nombre')->get();` | Leído en el código; no ejecutado en pantalla. Igual en AlumnoWebController y ProfesorWebController. |
+| Un deporte inactivo no se ofrece al crear grupos, alumnos y profesores | `app/Http/Controllers/GrupoWebController.php:42` | `$deportes = Deporte::where('activo', true)->orderBy('nombre')->get();` | Leído en el código; no ejecutado en pantalla. Igual en AlumnoWebController y ProfesorWebController. |
 | Aviso de profesores sin porcentaje al pasar a comisión | `resources/views/deportes/edit.blade.php:24` | `@if(old('tipo_liquidacion', $tipoSiguiente) === 'COMISION' && $sinPorcentaje->isNotEmpty())` | Leído en el código; no ejecutado en pantalla. |
 
 ## Rechazos y avisos de la acción

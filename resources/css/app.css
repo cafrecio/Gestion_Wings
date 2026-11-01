@@ -1472,6 +1472,18 @@ a:hover {
     }
 }
 
+/* T102: Activo e Inactivo miden lo mismo, así Editar y Eliminar no se corren entre tarjetas. En celular los tres no entran en una fila. */
+.alumno-actions.niveles-actions .ds-toggle {
+    min-width: 100px;
+    justify-content: space-between;
+}
+@media (max-width: 639px) {
+    .alumno-actions.niveles-actions .ds-toggle {
+        flex-basis: 100%;
+        justify-content: flex-end;
+    }
+}
+
 /* A58: Clases en móvil (≤640px) no desborda horizontalmente y apila su información (Carlos, 10/10/2026) */
 /* T30: los centavos y millones entran completos en los resúmenes existentes. */
 @media (max-width: 640px) {

@@ -18,7 +18,7 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
         </label>
         @if(isset($grupo))
             <p class="w-full px-4 py-2.5 text-sm wings-input" style="opacity: 0.6; cursor: not-allowed;">{{ $grupo->deporte->nombre ?? '–' }}</p>
-            <input type="hidden" name="deporte_id" value="{{ $grupo->deporte_id }}">
+            <input type="hidden" id="deporte_id" name="deporte_id" value="{{ $grupo->deporte_id }}">
         @else
             <select id="deporte_id" name="deporte_id" required
                     class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
@@ -33,28 +33,24 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
         @endif
     </div>
 
-    {{-- Nivel: fijo en edición, seleccionable en create --}}
+    {{-- Nivel: seleccionable en create y en edición (T102) --}}
     <div>
         <label for="nivel_id" class="{{ $labelClass }}">
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/></svg>
             Nivel <span class="form-required">*</span>
         </label>
-        @if(isset($grupo))
-            <p class="w-full px-4 py-2.5 text-sm wings-input" style="opacity: 0.6; cursor: not-allowed;">{{ $grupo->nivel->nombre ?? '–' }}</p>
-            <input type="hidden" name="nivel_id" value="{{ $grupo->nivel_id }}">
-        @else
-            <select id="nivel_id" name="nivel_id" required
-                    class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
-                <option value="">Seleccionar nivel...</option>
-                @foreach($niveles as $nivel)
-                    <option value="{{ $nivel->id }}" {{ old('nivel_id') == $nivel->id ? 'selected' : '' }}>
-                        {{ $nivel->nombre }}
-                        @if($nivel->descripcion) — {{ $nivel->descripcion }} @endif
-                    </option>
-                @endforeach
-            </select>
-            @error('nivel_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
-        @endif
+        <select id="nivel_id" name="nivel_id" required
+                class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+            <option value="">Seleccionar nivel...</option>
+            @foreach($niveles as $nivel)
+                <option value="{{ $nivel->id }}" {{ old('nivel_id', $grupo->nivel_id ?? null) == $nivel->id ? 'selected' : '' }}>
+                    {{ $nivel->nombre }}
+                    @if($nivel->descripcion) — {{ $nivel->descripcion }} @endif
+                    @unless($nivel->activo) (inactivo) @endunless
+                </option>
+            @endforeach
+        </select>
+        @error('nivel_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 </div>
 

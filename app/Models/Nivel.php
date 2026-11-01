@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Nivel extends Model
 {
     protected $table = 'niveles';
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'descripcion', 'activo'];
+
+    protected $casts = [
+        'activo' => 'boolean',
+    ];
 
     public function grupos(): HasMany
     {

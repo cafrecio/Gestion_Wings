@@ -30,9 +30,9 @@
     <div class="alumno-card alumno-card--otro">
 
         <div class="alumno-card-header">
-            <span class="alumno-dot alumno-dot--{{ $nivel->grupos_count > 0 ? 'active' : 'neutral' }}"
-                      role="img" aria-label="{{ $nivel->grupos_count > 0 ? 'Con grupos' : 'Sin grupos' }}"
-                      title="{{ $nivel->grupos_count > 0 ? 'Con grupos' : 'Sin grupos' }}"></span>
+            <span class="alumno-dot alumno-dot--{{ $nivel->activo ? 'success' : 'neutral' }}"
+                      role="img" aria-label="{{ $nivel->activo ? 'Activo' : 'Inactivo' }}"
+                      title="{{ $nivel->activo ? 'Activo' : 'Inactivo' }}"></span>
             <h3 class="alumno-nombre">{{ $nivel->nombre }}</h3>
         </div>
 
@@ -54,6 +54,12 @@
         </div>
 
         <div class="alumno-actions niveles-actions">
+            <x-ds.toggle
+                labelOn="Activo"
+                labelOff="Inactivo"
+                :checked="(bool) $nivel->activo"
+                data-url="{{ route('web.niveles.toggle-activo', $nivel->id) }}"
+            />
             <a href="{{ route('web.niveles.edit', $nivel->id) }}" style="{{ $btnBSec }}">Editar</a>
             <form method="POST" action="{{ route('web.niveles.destroy', $nivel->id) }}"
                   style="display:contents;"

@@ -26,7 +26,7 @@ Un grupo es la combinación de un deporte y un nivel (por ejemplo, "Patín – E
 
 ## Cambiar un precio o agregar una frecuencia
 
-1. En **Grupos**, tocá **Editar** en la tarjeta del grupo. El deporte y el nivel no se pueden cambiar.
+1. En **Grupos**, tocá **Editar** en la tarjeta del grupo. El deporte no se puede cambiar.
 2. Cambiá el precio de la fila, o tocá **Nuevo** para sumar una frecuencia.
 3. Tocá **Guardar**. Wings muestra «Grupo actualizado correctamente.».
 
@@ -36,16 +36,29 @@ Un grupo es la combinación de un deporte y un nivel (por ejemplo, "Patín – E
 
 ---
 
+## Pasar un grupo a otro nivel
+
+1. En **Grupos**, tocá **Editar** en la tarjeta del grupo.
+2. Elegí el **Nivel** nuevo. La lista muestra los niveles activos.
+3. Tocá **Guardar**. Wings muestra «Grupo actualizado correctamente.».
+
+El grupo conserva sus alumnos, sus precios y sus clases. Su nombre cambia en todas las pantallas, también en clases y liquidaciones anteriores. Los recibos PDF ya generados no cambian.
+
+---
+
 ## Activar o desactivar un grupo
 
-En la tarjeta del grupo, el interruptor **Activo** / **Inactivo** lo saca de uso. Un grupo inactivo deja de ofrecerse al dar de alta alumnos y al crear clases.
+En la tarjeta del grupo, el interruptor **Activo** / **Inactivo** lo saca de uso. Un grupo inactivo deja de ofrecerse al dar de alta alumnos y al crear clases. Para volver a activarlo, su nivel tiene que estar activo; si no, Wings avisa que no se puede activar porque el nivel está inactivo. Activá el nivel en **Niveles** o pasá el grupo a otro.
 
 ---
 
 ## Qué hago si…
 
 ### ¿Qué hago si dice «Ya existe un grupo con ese deporte y nivel.»?
-Ese grupo ya existe, quizás inactivo. Buscalo en **Grupos** y activalo, o editá sus frecuencias.
+Ese grupo ya existe, quizás inactivo. Buscalo en **Grupos** y activalo, o editá sus frecuencias. También sale si querés pasar un grupo a un nivel donde ese deporte ya tiene otro: Wings no une los dos grupos, así que el cambio no se hace.
+
+### ¿Qué hago si dice «El nivel seleccionado no existe o está inactivo.»?
+Ese nivel se inactivó mientras completabas el formulario. Elegí otro, o activalo en **Niveles**.
 
 ### ¿Qué hago si dice «Hay dos filas con la misma frecuencia. Dejá una sola.»?
 Al crear el grupo, elegiste dos veces la misma frecuencia. Sacá una de las dos filas y tocá de nuevo **Guardar**.

@@ -110,7 +110,8 @@ import './money-input';
 
                 // En la ficha de alumno recargar para ver cuotas y deuda actualizadas (T84)
                 var isFichaAlumno = !card && Boolean(window.location.pathname.match(/\/alumnos\/\d+/));
-                if (isFichaAlumno) {
+                // En Niveles recargar para que el punto de la tarjeta muestre el estado nuevo (T102)
+                if (isFichaAlumno || label.closest('.niveles-actions')) {
                     if (data.mensaje) {
                         try {
                             sessionStorage.setItem('ds_flash_success', data.mensaje);

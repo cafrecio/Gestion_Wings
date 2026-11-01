@@ -408,6 +408,54 @@
       "tarea": "",
       "tipo": "seguridad",
       "titulo": "Catálogos y configuración para quien no es dueño"
+    },
+    {
+      "accion": "Intenta inactivar un nivel con grupos activos. Pasa el grupo a otro nivel desde Editar. Inactiva el nivel que quedó libre. Intenta crear un grupo con él, pasar otro grupo a él y activar un grupo inactivo que lo usa. Intenta pasar un grupo a un nivel donde ese deporte ya tiene otro.",
+      "codigo": "CAT-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Con grupos activos",
+          "l": "a",
+          "texto": "No se inactiva; el aviso dice cuántos grupos activos tiene y que se pasen a otro nivel o se desactiven.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pasar de nivel",
+          "l": "b",
+          "texto": "El grupo cambia de nivel y conserva alumnos, precios y clases; su nombre nuevo se ve en todas las pantallas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Destino ocupado",
+          "l": "c",
+          "texto": "Si ese deporte ya tiene un grupo en el nivel elegido, se rechaza y no se unen los grupos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Nivel inactivo",
+          "l": "d",
+          "texto": "No se ofrece al crear un grupo ni al cambiarle el nivel a uno; un grupo inactivo que lo usa conserva su nivel y no se puede activar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "e",
+          "texto": "Los importes de meses anteriores no cambian al pasar el grupo de nivel.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "NivelWebController y GrupoWebController (T102, decisión de Carlos del 01/11).",
+      "modulo": "Catálogos",
+      "pantalla": "cat-niveles",
+      "requiere": "Un nivel con un grupo activo, otro libre y un grupo inactivo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T102",
+      "tipo": "mal_uso",
+      "titulo": "Inactivar un nivel y pasar un grupo a otro nivel"
     }
   ],
   "modulo": "Catálogos",
