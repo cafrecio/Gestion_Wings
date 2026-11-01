@@ -38,7 +38,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude) | Regla de Carlos 01/11, reemplaza la del 30/10: un nivel con grupos activos no se puede inactivar; se pasan a otro nivel. Propuesta corregida para su OK visual: APROBAR-T102.html. Con el OK: migracion, controladores, pantallas, manual y pruebas. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -51,8 +50,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar T94 en pantalla y código |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | En curso (hizo Claude) | Claude activo el recorte de fuentes en config/dompdf.php: de 1,7 MB a unos 225 KB, mismo texto y casi los mismos pixeles. Los 3 s no bajan. Falta suite, contador de pruebas, commit y control de otra IA. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude) | OK visual de Carlos 01/11. Claude implementa: migracion, controladores, pantallas, manual y pruebas. |
 
 ## Codex
 
@@ -64,7 +63,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Devuelto (hizo Gemini, verifica Claude) | Devuelta por Claude 01/11 (VERIFICACION-T94-CLAUDE.md): lo central anda; H1 carrera al editar, H2 pantalla vieja revive, H3 aviso falso, H4 historia reescrita, H5 intercambiar da 500. Carlos le pasa a Gemini PROMPT-GEMINI-T94-SEGUNDA-VUELTA.md cuando T102 esté subida: tocan GrupoWebController. |
 
 ## Sin empezar (12)
 

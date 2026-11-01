@@ -19,6 +19,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Carpeta compartida:** otra sesión hacía T96 al mismo tiempo. Probé en una copia limpia y el commit va por rutas. El cambio de T96 en el tablero (`en_curso`, tiene Gemini) estaba sin subir y entra con este commit: el archivo es uno solo.
 - De producción leí las líneas `SESSION_` de su configuración y el tamaño de `scheduler.log`; no toqué nada.
 
+## 2026-11-01 — Claude CAB — T94: control de la entrega de Gemini, devuelta
+
+- **Resultado:** lo central anda (22 pruebas, 2 mutaciones mías). Devuelta por 4 hallazgos medios y 1 bajo: carrera al editar el grupo, pantalla vieja que revive una frecuencia, aviso falso, historia reescrita entre planes, y error al intercambiar frecuencias. [Informe](../06-pruebas/PRU-04/VERIFICACION-T94-CLAUDE.md) y pruebas en `evidencia-t94-control/`.
+- **De la entrega:** declaró comprobada una concurrencia que corría de a un pedido. Sin números de suite.
+- **Errores míos:** mi commit de T101 se llevó la regla de `nuevo_plan_id` que Gemini tenía sin subir en `CajaWebController`: subí el archivo sin mirar el cambio ajeno. Hice mutaciones en `GrupoWebController` mientras la otra sesión empezaba T102 en ese archivo; las deshice y le avisé. Tocar un archivo compartido para probar no estuvo bien: la próxima, en una copia.
+- **Sigue:** Gemini corrige después de que suba T102, [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T94-SEGUNDA-VUELTA.md). Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T101: el gasto del dueño en un turno figura a su nombre
 
 - **Hecho:** `registrarMovimientoEnCaja` guarda quién lo cargó y `editarStore` lo pasa; `movimientoStore` sigue con la operativa. En Cashflow, «Registró» también cambia al validar. 8 pruebas nuevas; sacando la regla fallan (probado). Retrato de la prueba técnica dado vuelta.
