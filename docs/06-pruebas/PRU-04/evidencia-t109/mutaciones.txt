@@ -1,0 +1,8 @@
+DETECTADA cualquier fecha vale · Tests:    3 failed, 9 passed (41 assertions)
+DETECTADA listas no se limpian · Tests:    1 failed, 11 passed (67 assertions)
+DETECTADA la pieza no se aplica · Tests:    3 failed, 9 passed (39 assertions)
+DETECTADA mes sin validar · Tests:    1 failed, 11 passed (72 assertions)
+DETECTADA mes valido se pisa · Tests:    1 failed, 11 passed (82 assertions)
+DETECTADA cuota inexistente sin 404 · Tests:    1 failed, 11 passed (78 assertions)
+DETECTADA liquidacion inexistente sin 404 · Tests:    1 failed, 11 passed (81 assertions)
+DETECTADA sin pagar sin 404 · Tests:    1 failed, 11 passed (82 assertions)

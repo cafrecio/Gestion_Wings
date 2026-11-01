@@ -155,6 +155,10 @@ class CajaWebController extends Controller
             $operativos = User::where('rol', User::ROL_OPERATIVO)->orderBy('name')->get();
             $soloPendientes = $request->boolean('pendientes');
             $mes = $soloPendientes ? '' : $request->input('mes', now()->format('Y-m'));
+            // T109: un mes escrito a mano que no es válido muestra el mes actual.
+            if (!$soloPendientes && (!is_string($mes) || !preg_match('/^\d{4}-(0[1-9]|1[0-2])$/D', $mes))) {
+                $mes = now()->format('Y-m');
+            }
             $query = CajaOperativa::with(['usuarioOperativo', 'movimientos.subrubro.rubro']);
             if ($soloPendientes) {
                 // El aviso de Inicio cuenta todas las cerradas, incluidas antiguas.

@@ -1088,7 +1088,11 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
         $this->nota('46.2 segundo cobro desde otra pestaña: '.$this->avisoDe($segundo));
         $this->assertSame($pagos, Pago::count());
 
-        // 46.7: cierra con lo que veía antes del cobro. Wings acepta y lo deja a la vista como faltante.
+        // T107: con la pantalla vieja no cierra y avisa el esperado nuevo.
+        $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => (string) $esperadoVisto, 'cambio_retenido' => '1000', 'esperado_visto' => (string) $esperadoVisto])->assertSessionHasErrors('efectivo_contado');
+        $this->assertSame('ABIERTA', $this->cajaSandra->fresh()->estado);
+
+        // 46.7: por pedido directo, sin ese dato, Wings acepta y lo deja a la vista como faltante.
         $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $this->cajaSandra->id), ['efectivo_contado' => (string) $esperadoVisto, 'cambio_retenido' => '1000'])->assertSessionHas('success', 'Caja cerrada.');
         $caja = $this->cajaSandra->fresh();
         $this->assertSame('CERRADA', $caja->estado);
@@ -1218,7 +1222,7 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
 
         $this->actingAs($this->lucia)->get($url)->assertForbidden();
         $this->actingAs($this->mariela)->get($url)->assertForbidden();
-        // Observación: el inexistente devuelve JSON crudo en el navegador, antes de mirar el rol.
+        // T109 reparada: el inexistente muestra la pantalla común, y la profesora recibe 403 exista o no.
         $inexistente = $this->actingAs($this->sandra)->get(route('web.recibos.cuota', 99999));
         $inexistente->assertNotFound();
         $this->nota('41.6 recibo 99999 operativa: '.$inexistente->getStatusCode().' · '.$inexistente->headers->get('Content-Type').' · '.$inexistente->getContent());
@@ -1393,9 +1397,8 @@ Liquidación sigue ".$liq->fresh()->estado.' con '.$liq->fresh()->total_calculad
             }
         }
         file_put_contents(__DIR__.'/filtros-con-basura-dias-41-47.txt', "$intentos pedidos; ".count($errores)." con error del servidor\n".implode("\n", $errores)."\n");
-        // Hallazgo, retrato: Historial y Cajas no validan fechas ni mes, y varias búsquedas no aceptan una lista en vez de un texto.
-        // Se pone en rojo cuando se repare: ahí tiene que quedar en cero.
-        $this->assertSame(41, count($errores), 'Cambió la cantidad de filtros que dan error del servidor: ver filtros-con-basura-dias-41-47.txt');
+        // T109 reparada: antes eran 41.
+        $this->assertSame(0, count($errores), 'Hay filtros que dan error del servidor: ver filtros-con-basura-dias-41-47.txt');
     }
 
     /** Los ayudantes de los formularios, que no tienen pantalla propia: qué devuelven a cada rol. */

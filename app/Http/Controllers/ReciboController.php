@@ -35,15 +35,6 @@ class ReciboController extends Controller
      */
     public function cuota(Request $request, int $pagoId)
     {
-        // Validar que el pago existe
-        $pago = Pago::find($pagoId);
-        if (!$pago) {
-            return response()->json([
-                'error' => 'Pago no encontrado',
-                'message' => "No existe un pago con ID {$pagoId}",
-            ], 404);
-        }
-
         // El recibo de cuota es para el tutor del alumno y lo emite quien
         // cobra la cuota: ADMIN u OPERATIVO. NO importa quién de los dos la
         // cobró — el operativo ve toda la cobranza de cuotas igual que en el
@@ -53,6 +44,9 @@ class ReciboController extends Controller
         if ($request->user()->isProfesor()) {
             abort(403, 'No tenés permiso para ver recibos de cobranza.');
         }
+
+        // T109: después del rol, para que la profesora reciba lo mismo exista o no.
+        abort_unless(Pago::whereKey($pagoId)->exists(), 404, 'Pago no encontrado');
 
         try {
             $forceRegenerate = $request->boolean('regenerar', false);
@@ -114,20 +108,11 @@ class ReciboController extends Controller
     {
         // Validar que la liquidación existe
         $liquidacion = Liquidacion::find($liquidacionId);
-        if (!$liquidacion) {
-            return response()->json([
-                'error' => 'Liquidación no encontrada',
-                'message' => "No existe una liquidación con ID {$liquidacionId}",
-            ], 404);
-        }
+        abort_unless($liquidacion, 404, 'Liquidación no encontrada');
 
         // Validar que esté pagada
-        if (!$liquidacion->estaPagada()) {
-            return response()->json([
-                'error' => 'Liquidación no pagada',
-                'message' => 'Solo se pueden generar recibos de liquidaciones que han sido pagadas',
-            ], 400);
-        }
+        // Sin pagar no tiene recibo: ninguna pantalla ofrece este enlace.
+        abort_unless($liquidacion->estaPagada(), 404, 'Solo se pueden generar recibos de liquidaciones pagadas');
 
         // Permisos: auth:sanctum + ensure.admin en ruta (solo ADMIN)
 

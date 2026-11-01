@@ -53,7 +53,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
 | **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Hecho, espera verificación (hizo Gemini, verifica Claude) | T94 segunda vuelta corregida: H1-H5 implementados, 36 pruebas verdes (incluye carrera real) |
-| **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | En curso (hizo Claude) | Carlos dijo que entra, 01/11. Claude: filtros invalidos se ignoran, recibo inexistente muestra la pantalla comun. No cambia pantallas. |
 
 ## Codex
 
@@ -68,6 +67,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Reparto de Carlos 01/11: la controla Gemini despues de T94, con PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
+| **T109** Filtros con basura en la direccion dan error del servidor; recibo inexistente devuelve JSON crudo | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: el filtro invalido en la direccion se ignora (41 errores a 0 en 3.876 pedidos) y el recibo inexistente muestra la pantalla comun. 12 pruebas y 8 mutaciones detectadas. La controla Gemini, etapa 3 de PROMPT-GEMINI-T101-T105-CONTROL.md. Sin desplegar. |
 
 ## Sin empezar (8)
 

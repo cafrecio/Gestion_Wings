@@ -34,9 +34,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'reject.profesor.web' => \App\Http\Middleware\RejectProfesorWeb::class,
             'ensure.active.web' => \App\Http\Middleware\EnsureActiveUserWeb::class,
             'security.headers' => \App\Http\Middleware\SecurityHeaders::class,
+            'filtros.validos' => \App\Http\Middleware\IgnorarFiltrosInvalidos::class,
         ]);
 
-        $middleware->appendToGroup('web', ['security.headers']);
+        $middleware->appendToGroup('web', ['security.headers', 'filtros.validos']);
 
         // El navegador manda los avisos de CSP por su cuenta, sin sesión y sin
         // token: exigirle CSRF los rechazaría a todos. No recibe datos del
