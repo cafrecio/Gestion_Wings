@@ -43,6 +43,10 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre, y después me desdije leyendo el código: la primera versión era la correcta (ver la revisión de T105). Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T104 cerrada con el OK de Carlos
+
+- Cerrada como repetida de T60 (DU-28). Sin cambio de código.
+
 ## 2026-11-01 — Claude CAB — T14: tanda 5 simulada, guion y prompt; T100: H1 corregido
 
 - **Tanda 5:** [guion](../06-pruebas/PRU-04/GUION-DIAS-48-54.md), [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-54.md) y [simulación](../06-pruebas/PRU-04/simulacion/tanda-5/LEEME.md). Los siete días corrieron sobre la copia del sitio con `main`; plata comparada a mano después de correr, medio por medio, al peso. **No se entrega todavía:** faltan controles, desplegar y probar la rutina en el sitio.
