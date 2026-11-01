@@ -38,7 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
-| **T102** Nivel: poder inactivarlo (hoy no existe; con grupos no se puede eliminar) | En curso (hizo Claude) | Propuesta lista para el OK visual de Carlos: docs/06-pruebas/PRU-04/APROBAR-T102.html. Con el OK: migracion, controlador, pantalla, manual y pruebas. GrupoWebController y app.css esperan que Gemini (T94) y Codex (T97) suban lo suyo. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude) | Regla de Carlos 01/11, reemplaza la del 30/10: un nivel con grupos activos no se puede inactivar; se pasan a otro nivel. Propuesta corregida para su OK visual: APROBAR-T102.html. Con el OK: migracion, controladores, pantallas, manual y pruebas. |
 
 ## Hecho y sin nadie que lo verifique
 

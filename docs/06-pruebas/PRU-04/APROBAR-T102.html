@@ -6,23 +6,27 @@ h1{font-size:1.4rem}h2{font-size:1.1rem;margin-top:32px}p,li{max-width:960px;lin
 .fila{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}.esc{width:min(900px,100%)}.cel{width:375px;max-width:100%}
 figure{margin:0}figcaption{margin:8px 0;font-size:.9rem}img{display:block;width:100%;border:1px solid #d8e0ea;background:#fff;box-sizing:border-box}a{color:#174a7e}
 </style></head><body>
-<h1>T102 — Inactivar un nivel</h1>
-<p><strong>Propuesta para aprobar el aspecto.</strong> Capturas del HTML de Wings con sus componentes reales y datos ficticios. Todavía no está implementada: la pantalla real no se tocó.</p>
-<h2>Qué cambia en la pantalla Niveles</h2>
-<ul>
-<li>Cada tarjeta suma el interruptor <strong>Activo / Inactivo</strong>, el mismo de Deportes y Profesores.</li>
-<li>El punto de la tarjeta pasa a mostrar ese estado: verde si está activo, gris si está inactivo. Hoy muestra si tiene grupos, y ese dato ya está en «Grupos».</li>
-<li>En celular el interruptor va en su propia fila y <strong>Editar</strong> y <strong>Eliminar</strong> debajo, como en Profesores: los tres no entran en una sola fila.</li>
-</ul>
+<h1>T102 — Inactivar un nivel y pasar un grupo a otro nivel</h1>
+<p><strong>Propuesta para aprobar el aspecto, corregida con la regla de Carlos del 01/11.</strong> Capturas del HTML de Wings con sus componentes reales y datos ficticios. Todavía no está implementada: las pantallas reales no se tocaron.</p>
 <h2>Cómo funciona</h2>
 <ul>
-<li>Un nivel inactivo no se ofrece al crear un grupo. Los grupos que ya lo usan siguen igual, con sus alumnos y sus clases.</li>
-<li>Se puede volver a activar con el mismo interruptor.</li>
-<li><strong>Eliminar</strong> sigue igual: con grupos no borra, y el aviso suma «Podés inactivarlo.».</li>
+<li><strong>Un nivel con grupos activos no se puede inactivar.</strong> Primero hay que pasar esos grupos a otro nivel o desactivarlos.</li>
+<li>Un nivel inactivo no se ofrece al crear un grupo ni al cambiarle el nivel a uno.</li>
+<li>Un grupo inactivo conserva su nivel, aunque ese nivel esté inactivo. Para volver a activarlo, su nivel tiene que estar activo.</li>
+<li><strong>Eliminar</strong> sigue igual: un nivel con grupos no se borra.</li>
 </ul>
-<h2>Listado</h2>
+<h2>1. Niveles: interruptor Activo / Inactivo</h2>
+<p>El punto de la tarjeta pasa a mostrar ese estado: verde si está activo, gris si está inactivo. En celular el interruptor va en su propia fila, como en Profesores.</p>
 <div class="fila">
-<figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t102/capturas/01-niveles-1366.jpg"><img src="evidencia-t102/capturas/01-niveles-1366.jpg" alt="Niveles en escritorio: cinco tarjetas con interruptor, Editar y Eliminar; dos inactivas con punto gris"></a></figure>
-<figure class="cel"><figcaption>Celular · 375</figcaption><a href="evidencia-t102/capturas/01-niveles-375.jpg"><img src="evidencia-t102/capturas/01-niveles-375.jpg" alt="Niveles en celular: interruptor en su fila y Editar y Eliminar debajo, alineados a la derecha"></a></figure>
+<figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t102/capturas/01-niveles-1366.jpg"><img src="evidencia-t102/capturas/01-niveles-1366.jpg" alt="Niveles en escritorio: tarjetas con interruptor, Editar y Eliminar; dos inactivas con punto gris"></a></figure>
+<figure class="cel"><figcaption>Celular · 375</figcaption><a href="evidencia-t102/capturas/01-niveles-375.jpg"><img src="evidencia-t102/capturas/01-niveles-375.jpg" alt="Niveles en celular: interruptor en su fila y Editar y Eliminar debajo"></a></figure>
+</div>
+<h2>2. Aviso al querer inactivar un nivel con grupos activos</h2>
+<figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t102/capturas/03-aviso-1366.jpg"><img src="evidencia-t102/capturas/03-aviso-1366.jpg" alt="Aviso rojo: No se puede inactivar el nivel porque tiene 2 grupos activos. Pasalos a otro nivel o desactivalos."></a></figure>
+<h2>3. Editar grupo: Nivel se puede cambiar</h2>
+<p>Hoy Nivel es un dato fijo. Pasa a ser una lista con los niveles activos. El grupo conserva sus alumnos, precios y clases. Si ese deporte ya tiene un grupo en el nivel elegido, Wings no lo cambia y avisa «Ya existe un grupo con ese deporte y nivel.».</p>
+<div class="fila">
+<figure class="esc"><figcaption>Escritorio · 1366</figcaption><a href="evidencia-t102/capturas/02-grupo-editar-1366.jpg"><img src="evidencia-t102/capturas/02-grupo-editar-1366.jpg" alt="Editar grupo en escritorio con Nivel como lista desplegable"></a></figure>
+<figure class="cel"><figcaption>Celular · 375</figcaption><a href="evidencia-t102/capturas/02-grupo-editar-375.jpg"><img src="evidencia-t102/capturas/02-grupo-editar-375.jpg" alt="Editar grupo en celular con Nivel como lista desplegable"></a></figure>
 </div>
 </body></html>
