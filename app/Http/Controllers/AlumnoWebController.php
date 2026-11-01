@@ -314,7 +314,7 @@ class AlumnoWebController extends Controller
 
         return redirect()
             ->route('web.alumnos.show', $pago->alumno_id)
-            ->with('success', 'Cobro anulado y deuda restituida.');
+            ->with('success', 'Cobro anulado.');
     }
 
     public function create()

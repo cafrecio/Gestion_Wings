@@ -1,0 +1,127 @@
+{
+ "dia": "2026-11-26",
+ "descripcion": "Día 48, jueves 26/11: Sandra abre; Fútbol Avanzadas paga el torneo; remera y gastos; listas de Avanzadas, Federadas y Adultos. Fútbol Avanzadas la toma Hernán por pantalla.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Avanzadas: familia Diaz"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Avanzadas: familia Fernandez"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Avanzadas: familia Ferrari"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Mercado Pago",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Avanzadas: familia Gomez"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Avanzadas: familia Molina"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club: Rossi"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3200",
+   "obs": "Trapos y lavandina"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1500",
+   "obs": "Cuadernos de asistencia"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "2600",
+   "obs": "Pilas para el silbato electrónico"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1700",
+   "obs": "Curitas"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Reparaciones menores",
+   "medio": "Efectivo",
+   "monto": "4800",
+   "obs": "Cerradura del vestuario"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina",
+    "Pereyra, Zoe"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Rossi, Olivia"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Adultos",
+   "hora": "20:30",
+   "ausentes": [
+    "Luna, Joaquina",
+    "Cabrera, Bruno"
+   ]
+  }
+ ]
+}

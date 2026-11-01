@@ -1,0 +1,43 @@
+constancia: creadas 78 · a revisión 8 · ya existían 31 · sin plan 0 · activos 117
+   Revisión: Ramos, Pilar (grupo 1) · PENDIENTE
+   Revisión: Suarez, Valentina (grupo 3) · PENDIENTE
+   Revisión: Navarro, Alma (grupo 2) · PENDIENTE
+   Revisión: Villalba, Emma (grupo 2) · PENDIENTE
+   Revisión: Luna, Joaquina (grupo 7) · PENDIENTE
+   Revisión: Ruiz, Thiago (grupo 1) · PENDIENTE
+   Revisión: Vera, Tobías (grupo 5) · PENDIENTE
+   Revisión: Paz, Ciro (grupo 5) · PENDIENTE
+   Ruiz, Thiago #315 activo 1: CUOTA PENDIENTE $28.000,00 pagado $0,00
+   Ruiz, Thiago #357 activo 1: REVISION
+   Medina, Lautaro #319 activo 0: SIN CUOTA
+   Iglesias, Clara: CUOTA CONDONADA $300.000,00 pagado $30.000,00
+   Godoy, Valentino: CUOTA PENDIENTE $44.000,00 pagado $0,00
+   Cabrera, Bruno: CUOTA PENDIENTE $33.000,00 pagado $0,00
+   Acuña, Renzo: CUOTA PENDIENTE $25.000,00 pagado $0,00
+   Rios, Facundo: CUOTA PAGADA $28.000,00 pagado $28.000,00
+   Pereyra, Liam: CUOTA PENDIENTE $35.000,00 pagado $0,00
+   Quiroga, Lara: CUOTA PENDIENTE $43.000,00 pagado $0,00
+   Castro, Mateo: CUOTA PAGADA $28.000,00 pagado $28.000,00
+   Paz, Ciro: REVISION
+   Arias, Nina: CUOTA PENDIENTE $30.000,00 pagado $0,00
+   Vera, Tobías: REVISION
+   Cobranza: $3.123.910,00 {"AL_DIA":32,"EN_PLAZO":79,"MOROSO":0,"DEUDOR":6}
+   Deudor: Navarro, Alma $36.300,00
+   Deudor: Pereyra, Liam $73.500,00
+   Deudor: Ramos, Pilar $33.000,00
+   Deudor: Ruiz, Thiago $12.000,00
+   Deudor: Suarez, Valentina $38.500,00
+   Deudor: Villalba, Emma $30.410,00
+   Revisión pendientes: 8
+   Inicio de dueño (200 Inicio – Wings): (no aparece: revisi[oó]n)
+   Inicio de Sandra (200 Inicio – Wings): revisión → Recaudación de hoy Cobrado hoy $0.00 Cobros registrados 0 Cajas del turno 0 W
+   Lucía escribe Revisión: 403
+[53.1] valida la caja #90 del 30/11 → 302 Caja validada y reflejada en cashflow. OK
+   noviembre: ingresos $4.421.900,00 → $4.421.900,00 · egresos $2.898.130,50 → $2.898.130,50 · diciembre: ingresos $1.214.000,00 → $1.214.000,00
+   2026-12-08: 4 clases canceladas
+   2026-12-25: 1 clases canceladas
+[53.3] reactiva a Lautaro → 200 Alumno activado correctamente. Se generó la cuota de diciembre: $28,000.00. OK
+   Lautaro: activo 1 · CUOTA PENDIENTE $28.000,00 pagado $0,00 · "EN_PLAZO" $28.000,00
+== fin de la mañana del 53 2026-12-01 08:30:00
+   Cobranza: $3.151.910,00 activos 118 {"AL_DIA":32,"EN_PLAZO":80,"MOROSO":0,"DEUDOR":6}
+   Saldos: Efectivo $1.203.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.991.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $70.000,00

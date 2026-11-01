@@ -1,0 +1,37 @@
+== inicio 51 2026-11-29 20:00:00
+   Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.953.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+[51.1a] deporte Natación, por hora → 302 Deporte creado correctamente. OK
+[51.1b] natación con espacios → 422 Ya existe un deporte con ese nombre. OK
+[51.1c] Nora Vidal, Natación, sin valor hora → 422 Cargá el valor por hora. OK
+[51.1d] con valor hora $14.000 → 302 Profesor creado correctamente. OK
+[51.2a] medio Caja Torneo, abreviatura de seis letras → 422 La abreviatura no puede tener más de 5 caracteres. OK
+[51.2b] saldo negativo → 422 El saldo inicial no puede ser negativo. Ingresá un importe válido, con hasta dos decimales. OK
+[51.2c] nombre repetido → 422 Ya existe un tipo de caja con ese nombre. OK
+[51.2d] bien, $50.000 → 302 Tipo de caja creado correctamente. OK
+== con Caja Torneo 2026-11-29 20:00:00
+   Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.953.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00 · Caja Torneo $50.000,00
+[51.3] Reparaciones menores pasa a solo del dueño → 302 Subrubro actualizado correctamente. OK
+   permitido para: ADMIN · clasificación NEGOCIO
+[51.4a] editar un reservado (Cuota Mensual) → 400 No se puede editar: subrubro reservado del sistema. OK
+   sigue: Cuota Mensual
+[51.5a] interruptor de Vanina → 200 Profesora inactiva. El usuario vinculado quedó desactivado y sus sesiones cerradas.
+   Vanina activa: 0
+[51.5b] la vuelve a activar → 200 Profesora activa. Su usuario conserva el estado anterior; activalo en Usuarios si corresponde.
+   Vanina activa: 1
+[51.5c] interruptor de la cuenta propia → 403 {"error":"No podés inactivarte a vos mismo."}
+   dueño activo: 1
+[51.6a] usuario de la socia → 302 Usuario creado correctamente. OK
+[51.6b] gasto Eventos $15.000 por Galicia → 302 Movimiento directo registrado en cashflow. OK
+[51.6c] la socia lo corrige a $12.000 → 302 Movimiento actualizado. El historial se conserva. OK
+   movimiento: $-12.000,00 · cargó Admin Prueba · correcciones {"id":6,"movimiento_id":639,"admin_id":11,"accion":"EDITAR","clave":"c58ffba4-f865-44f0-a2b2-9680f0b68e12","huella":"49e267b0e504ad71fa3c29f886a0056294c15c4e88f1f4e2a1d4317dec25060d","version":1,"antes":"{\"fecha\":\"2026-11-29\",\"monto\":\"-15000.00\",\"subrubro_id\":12,\"subrubro\":\"Eventos\",\"tipo_caja_id\":5,\"medio\":\"Banco Galicia\",\"observaciones\":\"Sonido del torneo\",\"usuario_admin_id\":1,\"reporte_tipo\":\"EGRESO\",\"reporte_clasificacion\":\"NEGOCIO\",\"reporte_deporte_id\":null,\"anulado\":false}","despues":"{\"fecha\":\"2026-11-29\",\"monto\":\"-12000.00\",\"subrubro_id\":12,\"subrubro\":\"Eventos\",\"tipo_caja_id\":5,\"medio\":\"Banco Galicia\",\"observaciones\":\"Sonido del torneo\",\"usuario_admin_id\":1,\"reporte_tipo\":\"EGRESO\",\"reporte_clasificacion\":\"NEGOCIO\",\"reporte_deporte_id\":null,\"anulado\":false}","motivo":"El presupuesto final fue $12.000","created_at":"2026-11-29 20:00:00","updated_at":"2026-11-29 20:00:00"}
+[51.7a] Galicia a Nación $50.000 con fecha 20/10, sin confirmar → 302 
+[51.7b] confirmando → 302 Transferencia #7 registrada: salida y entrada guardadas. OK
+[51.7c] la anula → 302 Transferencia #7 anulada. Los originales y los dos asientos en contra se conservan. OK
+   octubre ingresos/egresos: $3.417.850,75 / $341.350,00 → $3.417.850,75 / $341.350,00
+[51.8] forzar eliminar un movimiento de una caja validada (#1, CAJA_OPERATIVA) → 500 Illuminate\Auth\Access\AuthorizationException: Usá el recorrido propio del origen de este movimiento. OK
+[51.8] forzar eliminar un movimiento cobro del dueño (#62, PAGO_CUOTA) → 500 Illuminate\Auth\Access\AuthorizationException: Usá el recorrido propio del origen de este movimiento. OK
+== fin 51 2026-11-29 20:00:00
+   Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.159.500,00 · Banco Nación $58.000,00 · Mercado Pago $3.953.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.564.150,00 · Caja Torneo $50.000,00

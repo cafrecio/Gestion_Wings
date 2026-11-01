@@ -1,0 +1,11 @@
+{
+ "dia": "2026-11-27",
+ "descripcion": "Día 49, noche: el dueño valida la caja que Rocío cerró por pantalla.",
+ "pasos": [
+  {
+   "como": "Admin Prueba",
+   "accion": "validar_caja",
+   "de": "Rocío Paz"
+  }
+ ]
+}

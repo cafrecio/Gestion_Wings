@@ -1,0 +1,11 @@
+   alumnos de la lista: 27
+[54.8] Hernán toma Fútbol Principiantes → 302 Asistencias guardadas. OK
+   revisiones pendientes: 0
+   Deudor: Navarro, Alma $69.300,00
+   Deudor: Pereyra, Liam $38.500,00
+   Deudor: Ramos, Pilar $63.000,00
+   Deudor: Vera, Tobías $47.200,00
+   2026-10: ingresos $3.417.850,75 · egresos $341.350,00 · resultado $3.076.500,75
+   2026-11: ingresos $4.421.900,00 · egresos $2.898.130,50 · resultado $1.523.769,50
+   2026-12: ingresos $2.389.410,00 · egresos $1.394.200,00 · resultado $995.210,00
+   volumen: movimientos de caja 447 · cobros 274 · marcas 2018 · Cashflow 472 · alumnos 120 · liquidaciones 13

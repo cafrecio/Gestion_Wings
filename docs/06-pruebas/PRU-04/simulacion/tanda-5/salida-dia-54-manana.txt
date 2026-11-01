@@ -1,0 +1,22 @@
+ 1. Rocío Paz abre caja con $10.000,00 — Caja abierta con el efectivo declarado.
+ 2. Rocío Paz cobra a Lopez, Valentina $44.000,00 por Efectivo — Pago registrado para Lopez, Valentina.
+ 3. Rocío Paz cobra a Morales, Julieta $30.000,00 por Efectivo — Pago registrado para Morales, Julieta.
+ 4. Rocío Paz cobra a Ortiz, Micaela $44.000,00 por Mercado Pago — Pago registrado para Ortiz, Micaela.
+ 5. Rocío Paz cobra a Romero, Catalina $30.000,00 por Efectivo — Pago registrado para Romero, Catalina.
+ 6. Rocío Paz cobra a Suarez, Juana $30.000,00 por Efectivo — Pago registrado para Suarez, Juana.
+ 7. Rocío Paz cobra a Torres, Luciana $30.000,00 por Mercado Pago — Pago registrado para Torres, Luciana.
+ 8. Rocío Paz cobra a Navarro, Malena $43.000,00 por Efectivo — Pago registrado para Navarro, Malena.
+ 9. Rocío Paz cobra a Perez, Carla $33.000,00 por Efectivo — Pago registrado para Perez, Carla.
+10. Rocío Paz cobra a Rodriguez, Mia $43.000,00 por Banco Galicia — Pago registrado para Rodriguez, Mia.
+11. Rocío Paz cobra a Sosa, Rocio $33.000,00 por Efectivo — Pago registrado para Sosa, Rocio.
+12. Rocío Paz cobra a Benitez, Milagros $45.000,00 por Mercado Pago — Pago registrado para Benitez, Milagros.
+13. Rocío Paz cobra a Herrera, Martina $45.000,00 por Efectivo — Pago registrado para Herrera, Martina.
+14. Rocío Paz cobra a Diaz, Thiago $38.000,00 por Efectivo — Pago registrado para Diaz, Thiago.
+15. Rocío Paz cobra a Gomez, Lucas $38.000,00 por Efectivo — Pago registrado para Gomez, Lucas.
+16. Rocío Paz cobra a Rossi, Leon $38.000,00 por Mercado Pago — Pago registrado para Rossi, Leon.
+17. Rocío Paz Limpieza $2700 por Efectivo — Movimiento registrado.
+18. Rocío Paz Botiquín $1900 por Efectivo — Movimiento registrado.
+19. Rocío Paz Librería $1300 por Efectivo — Movimiento registrado.
+20. Lucía Gaitán lista de la #336: 30 alumnos, 26 presentes — Asistencias guardadas.
+Cobranza: $2.154.910,00 · {"AL_DIA":59,"EN_PLAZO":52,"MOROSO":0,"DEUDOR":7}
+GUARDADO.

@@ -1,0 +1,5 @@
+   propone $10.000,00
+[50.1a] Pablo abre → 302 Caja abierta con el efectivo declarado. OK
+[50.1b] el segundo clic de Pablo → 422 Hay un turno abierto. Cerralo antes de abrir otro.
+[50.1c] Sandra abre al mismo tiempo → 422 Hay un turno abierto. Cerralo antes de abrir otro. OK
+   cajas abiertas: 1

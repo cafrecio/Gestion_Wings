@@ -1,0 +1,226 @@
+{
+ "dia": "2026-12-02",
+ "descripcion": "Día 54, miércoles 2/12: Rocío abre; sigue la cobranza de diciembre; gastos; lista de Patín Principiantes.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Lopez, Valentina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "44000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Morales, Julieta",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Ortiz, Micaela",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "44000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Romero, Catalina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Suarez, Juana",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Torres, Luciana",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Navarro, Malena",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Perez, Carla",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Rodriguez, Mia",
+   "medio": "Banco Galicia",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Sosa, Rocio",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Benitez, Milagros",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "45000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Herrera, Martina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "45000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Diaz, Thiago",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "38000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Gomez, Lucas",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "38000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "cobrar",
+   "alumno": "Rossi, Leon",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "38000"
+   }
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2700",
+   "obs": "Rejilla y jabón"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1900",
+   "obs": "Gasas"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1300",
+   "obs": "Tinta"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar",
+    "Godoy, Valentino",
+    "Silva, Paulina",
+    "Ruiz, Thiago"
+   ]
+  }
+ ]
+}

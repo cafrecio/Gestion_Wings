@@ -1,0 +1,61 @@
+{
+ "dia": "2026-11-30",
+ "descripcion": "Día 52, lunes 30/11: Sandra abre; último día del mes; gastos; lista de Patín Principiantes. Hernán y Lucía se olvidan de las suyas.",
+ "pasos": [
+  {
+   "como": "Sandra Vidal",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club: Romero"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3600",
+   "obs": "Lavandina y escobillón"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1250.5",
+   "obs": "Fotocopias de la planilla mensual"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "2800",
+   "obs": "Cinta de piso"
+  },
+  {
+   "como": "Sandra Vidal",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "1400",
+   "obs": "Alcohol"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Principiantes",
+   "hora": "16:00",
+   "ausentes": [
+    "Ramos, Pilar",
+    "Godoy, Valentino",
+    "Ruiz, Thiago"
+   ]
+  }
+ ]
+}

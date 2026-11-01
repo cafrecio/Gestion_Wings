@@ -1049,7 +1049,7 @@
         {
           "donde": "Noviembre",
           "l": "b",
-          "texto": "La cuota que nació de ese cobro se borra: noviembre queda como antes de cobrarlo. Si se vuelve a cobrar, se escribe el importe de nuevo y no pide motivo de cobro parcial.",
+          "texto": "La cuota que nació de ese cobro se borra, si el mes no empezó y no queda otro cobro: noviembre queda como antes de cobrarlo. Si se vuelve a cobrar, se escribe el importe de nuevo y no pide motivo de cobro parcial.",
           "tipo": "indirecto"
         },
         {
@@ -1069,10 +1069,16 @@
           "l": "e",
           "texto": "Sigue el circuito normal: con asistencia en octubre, cuota a precio del plan; sin asistencia, Revisión.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "No se borra",
+          "l": "f",
+          "texto": "Mes empezado, recargo o liquidación: pendiente al precio del plan. Cuota que ya existía o adelanto anterior a T100: pendiente con su importe. Otro cobro vigente: sigue en pie. Pérdida: pendiente con su importe.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "no_implementado",
-      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T100: decisión de Carlos, reemplaza CJ-26. PagoCuotaService::deshacerCuotaNacidaDeCobro (código leído).",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026, con la propuesta de Codex (VERIFICACION-T100-CODEX.md). Actualizado por Claude CAB el 01/11/2026 por T100: decisión de Carlos, reemplaza CJ-26. PagoCuotaService::deshacerCuotaNacidaDeCobro (código leído).",
       "modulo": "Cobrar",
       "pantalla": "caja-cancelar",
       "requiere": "Cobro adelantado de noviembre hecho en octubre, en el turno abierto.",

@@ -1,0 +1,46 @@
+{
+ "dia": "2026-11-28",
+ "descripcion": "Día 50, sábado 28/11: Pablo, ya con su caja abierta, carga el torneo que falta, una remera y gastos.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Fútbol Infantiles: familia Acuña"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club: Luna"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2500",
+   "obs": "Bolsas de residuos"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "900",
+   "obs": "Marcadores"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "4100",
+   "obs": "Pelotas: inflador"
+  }
+ ]
+}

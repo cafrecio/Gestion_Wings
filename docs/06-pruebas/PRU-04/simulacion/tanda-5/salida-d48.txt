@@ -1,0 +1,55 @@
+== inicio 48 (después de la rutina) 2026-11-26 11:00:00
+   Cobranza: $215.910,00 activos 114 {"AL_DIA":107,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.772.100,00 · Banco Nación $58.000,00 · Mercado Pago $3.835.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $1.776.150,00
+   Caja #87 u2 ABIERTA esperado $0,00
+[48.1a] Infantiles 1x, con Renzo → 400 1x por semana tiene 1 alumno: cambiales el plan antes. OK
+[48.1b] Infantiles 2x, nunca usada → 302 Plan eliminado. OK
+   filas de Infantiles: 1
+[48.1c] Federadas 1x, usada antes → 302 Frecuencia desactivada: ya no se ofrece. Lo anterior queda como está. OK
+   Federadas 1x: activo 0 · historia alumno_planes 1
+[48.1d] reactiva Federadas 1x a $42.000 → 302 Plan agregado. OK
+   Federadas 1x: id 7 activo 1 precio $42.000,00 · filas 2
+[48.2a] dos filas de 1 por semana → 400 Hay dos filas con la misma frecuencia. Dejá una sola. OK
+[48.2b] una fila → 302 Grupo creado correctamente. OK
+[48.2c] saca la única frecuencia → 400 No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos. OK
+[48.3a] inactiva Infantiles, con dos grupos activos → 422 {"error":"No se puede inactivar el nivel porque tiene 2 grupos activos. Pasalos a otro nivel o desactivalos."} OK
+[48.3b] crea el nivel Mini → 302 Nivel creado correctamente. OK
+[48.3c] pasa Patín Infantiles a Principiantes, ya ocupado → 400 Ya existe un grupo con ese deporte y nivel. OK
+[48.3d] pasa Patín Infantiles a Mini → 302 Grupo actualizado correctamente. OK
+   grupo #10 nivel Mini
+[48.3e] inactiva Mini, con el grupo activo → 422 {"error":"No se puede inactivar el nivel porque tiene 1 grupo activo. Pasalo a otro nivel o desactivalo."} OK
+[48.3f] desactiva el grupo → 200 {"activo":false} OK
+[48.3g] inactiva Mini → 200 Nivel inactivado correctamente. OK
+[48.3h] activa el grupo con el nivel inactivo → 422 {"error":"No se puede activar el grupo porque el nivel «Mini» está inactivo. Activá el nivel o pasá el grupo a otro."} OK
+   Mini activo 0 · grupo activo 0
+[48.4a] otra pestaña: suma 3 por semana → 302 Plan agregado. OK
+[48.4b] pantalla vieja: cambia precios → 302 Grupo actualizado correctamente. OK
+   Adultos: 1x $33.000,00 · 2x $43.000,00
+[48.5a] pedido directo a la configuración → 400 Efectivo ya está configurado y no se puede cambiar. OK
+   /caja/configuracion: 302 redirige a http://localhost/caja
+   Efectivo saldo inicial $250.000,00
+[48.6] Ajuste de saldo: salida, $1.200 → 302 Movimiento directo registrado en cashflow. OK
+   resultado antes/después: $1.495.220,00 / $1.495.220,00 · disponible $7.460.720,75 → $7.459.520,75
+[48.7a] MP a Galicia, $400.000 → 302 Transferencia #5 registrada: salida y entrada guardadas. OK
+[48.7b] anula sin motivo → 422 Indicá el motivo de la anulación. OK
+[48.7c] anula desde la fila de entrada → 302 Transferencia #5 anulada. Los originales y los dos asientos en contra se conservan. OK
+[48.7d] la otra pestaña anula otra vez → 422 La transferencia ya está anulada. OK
+[48.7e] forzar corregir una fila → 500 Illuminate\Auth\Access\AuthorizationException: Usá el recorrido propio del origen de este movimiento. OK
+[48.8] depósito real: Efectivo a Galicia, $800.000 → 302 Transferencia #6 registrada: salida y entrada guardadas. OK
+== después de las transferencias 2026-11-26 11:00:00
+   Cobranza: $215.910,00 activos 114 {"AL_DIA":107,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $970.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.835.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Caja #87 u2 ABIERTA esperado $0,00
+   Cashflow semana sin filtro: 200 $2,576,150.00 · $58,000.00 · $0.00
+   Cashflow semana con Galicia: 200 $2,576,150.00 · $58,000.00 · $0.00
+   Historial 23 al 26/11: 200 
+[48.10a] ingreso 10/8, sin elegir → 422 Elegí si se genera la cuota de este mes antes de guardar. OK
+[48.10b] ingreso 10/8, elige generar → 302 Alumno creado correctamente. OK
+   Ciro: 2026-11:PENDIENTE $28.000,00 · inscripción $8.000,00 · ingreso 10/08/2026 · DEUDOR $36.000,00
+[48.10c] Ciro paga todo en efectivo → 302 Pago registrado para Paz, Ciro. OK
+   cobro $36.000,00 · esperado $62.200,00
+[48.11] Hernán toma Fútbol Avanzadas, falta Simón Silva → 302 Asistencias guardadas. OK
+== fin 48 (antes de la noche) 2026-11-26 11:00:00
+   Cobranza: $215.910,00 activos 115 {"AL_DIA":108,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $970.900,00 · Banco Nación $58.000,00 · Mercado Pago $3.835.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Caja #87 u2 ABIERTA esperado $0,00

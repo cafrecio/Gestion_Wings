@@ -18,6 +18,10 @@
 
 **T105, hecha, falta el control de otra IA.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los 3 segundos de armarlo no bajan; según el código el PDF se arma al registrar el cobro, sin medir todavía en el servidor. T106 a T109 se ven con Carlos; ya no figuran como pendientes suyos.
 
+## T14 — Tanda 5 (días 48 a 54) simulada, sin entregar — Claude CAB, 01/11/2026
+
+[Guion](../06-pruebas/PRU-04/GUION-DIAS-48-54.md) y [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-54.md). Siete días corridos sobre la copia del sitio al 25/11 con `main`; plata comparada a mano, después de correr, al peso. Al 2/12: deuda $2.118.000, disponible $7.710.280,75, Revisión 0. **Antes de entregarlo:** controles abiertos, desplegar y probar la rutina en el sitio. Tres defectos nuevos: T110, T111 y T112.
+
 ## Huecos de la etapa C del manual — Claude CyE, 30/10/2026
 
 T95, T96, T98, T99 y T103 cerradas (T95: Carlos probó los cinco casos el 31/10; T96: segunda vuelta verificada por Gemini el 01/11 en [VERIFICACION-T96-GEMINI-2.md](../06-pruebas/PRU-04/VERIFICACION-T96-GEMINI-2.md) tras la decisión de Carlos del 01/11 que reemplaza DU-59: un solo cajón en Efectivo sin poder cambiar la cuenta, saldo inicial cargado una sola vez y ajustes con «Ajuste de saldo», [capturas aprobadas](../06-pruebas/PRU-04/APROBAR-T96-PROPUESTA.html); sin desplegar). Un cajón por cajero queda como MF15. Sigue: T94, T104 («sin descubierto»), T97 y T102 (quién hace cada una, en el [tablero](QUIEN-HACE-QUE.md)). Nada de esto está en el sitio de prueba: no se despliega mientras Cora trabaja ahí.

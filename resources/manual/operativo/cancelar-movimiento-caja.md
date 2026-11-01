@@ -39,7 +39,7 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 ### Paso 3. Ingresar el motivo obligatorio y confirmar
 1. En la casilla de texto, escribí el motivo claro y descriptivo de la anulación (por ejemplo: "Cobro duplicado por error" o "Monto ingresado incorrectamente").
 2. Hacé clic en el botón **Confirmar** (o en **Cerrar** si no deseás cancelar).
-3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado*, descuenta el dinero de la caja y restituye la deuda del alumno a su estado pendiente.
+3. Wings anula la operación, tacha el movimiento marcándolo en rojo como *Cancelado* y descuenta el dinero de la caja. El mes cobrado vuelve a quedar pendiente, salvo que fuera un adelanto que se deshace: lo explica «¿Qué pasa si cancelo un cobro adelantado?».
 
 ![Modal de confirmación con motivo](/ayuda/img/operativo/cancelar-movimiento-caja-paso3.png)
 
@@ -48,7 +48,14 @@ Esta tarea te explica cómo cancelar o anular un cobro de cuota asentado por err
 ## Qué hago si…
 
 ### ¿Qué pasa si cancelo un cobro adelantado?
-Si cobraste un mes que todavía no empezó y lo cancelás, queda como si ese cobro no hubiera existido: el mes deja de tener cuota, y si lo volvés a cobrar escribís el importe de nuevo. Si ese mes ya empezó, queda pendiente al precio del plan.
+Si ese cobro creó la cuota de un mes que todavía no empezó, y no queda otro cobro de ese mes, es como si no hubiera existido: el mes deja de tener cuota, y si lo volvés a cobrar escribís el importe de nuevo.
+
+En estos casos la cuota no se borra:
+
+- **El mes ya empezó, tiene un recargo o entró en una liquidación:** queda pendiente al precio del plan.
+- **La cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla:** queda pendiente con el importe que tenía.
+- **Queda otro cobro de ese mes:** ese cobro sigue en pie y queda pendiente lo que falta.
+- **Parte de la cuota se dio por perdida:** queda pendiente con el importe que tenía.
 
 ### ¿Qué hago si la caja ya fue cerrada pero el dueño todavía no la validó?
 Si la caja está en estado *Cerrada*, la botonera de cancelación se deshabilita para evitar adulteraciones posteriores al arqueo. Hablá con el dueño y pedile que rechace la caja: al pasar a estado *Rechazada*, el botón **Cancelar** vuelve a estar habilitado para que corrijas la operación.

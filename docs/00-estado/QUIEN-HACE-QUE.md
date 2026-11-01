@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Etapa C controlada por Gemini: OK de Carlos |
 | **T104** «Sin descubierto» solo se controla al pagar una liquidación | Hecho, espera verificación (hizo Claude, verifica Carlos) | Respondida 01/11: el problema es real (ejecutado: un gasto y una transferencia dejan en negativo una cuenta Sin descubierto) y Carlos ya lo decidio el 13/10 (DU-28, CSH-016: avisar y dejar seguir), anotado en T60 para despues de produccion. No frena produccion. Propuesta: cerrarla como repetida de T60. PRU-04/evidencia-t104/LEEME.md. |
+| **T112** Un presente no saca a un alumno de Revision | Sin empezar | Ejecutado 01/11 (53.4, Tobias); anotado en el catalogo el 13/10 sin tarea. CBZ-016 a pide que salga, por el contrato de estados. Para decidir: se arregla o se corrige el catalogo. Hoy se resuelve a mano en Revision. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -50,13 +51,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 31/10: tanda 4 (dias 41 a 47) revisada: plata al peso y fila por fila (0 diferencias), interno 58/58, seguridad 56/56, velocidad < 335 ms. Falta guion y prompt de la tanda 5 y decidir que se despliega antes. T94 a T101 se prueban ahi. |
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Control Codex: once casos monetarios comprobados. Corregir H1 manual y H2 mensajes que generalizan cuota pendiente o eliminada; VERIFICACION-T100-CODEX.md. Sigue T106, sin despliegue. |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 corregido por Claude 01/11 en manual y ficha; avisos de exito: Cobro cancelado. y Cobro anulado. Los dos textos de los paneles (H2, en vistas) esperan el OK de Carlos. Sin correr pruebas: maquina reservada por Codex. Falta control de lo corregido. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude, verifica Codex) | Codex controla etapa 3, niveles y grupos con importes historicos. Solo wings_testing_codex; completa unica reservada al final. |
 
 ## Gemini
@@ -66,9 +67,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T107** Cerrar la caja con la pantalla vieja no avisa que el esperado cambio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11: si el esperado cambió, no cierra y avisa el nuevo. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md, cuando termine T105 y T109. Sin desplegar. |
 | **T108** Segunda ficha de quien vino de la primera carga: cobra inscripcion | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecha por Claude 01/11, decisión de Carlos: quien ya tiene ficha no vuelve a pagar inscripción. La de Thiago en el sitio se resuelve en la tanda 5. La controla Gemini: PROMPT-GEMINI-T107-T108-CONTROL.md. Sin desplegar. |
 
-## Sin empezar (7)
+## Sin empezar (9)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110, T111.
 
 ## Mejoras futuras, no se empiezan ahora (13)
 

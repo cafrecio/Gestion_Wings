@@ -1,0 +1,215 @@
+{
+ "dia": "2026-12-01",
+ "descripcion": "Día 53, martes 1/12: Pablo abre; arranca la cobranza de diciembre; gastos; las listas de Avanzadas, Federadas y Adultos.",
+ "pasos": [
+  {
+   "como": "Pablo Ledesma",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Acosta, Victoria",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Flores, Renata",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Olivia",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "44000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Gutierrez, Paulina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Herrera, Alma",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "44000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Molina, Milagros",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Morales, Agustina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "30000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Cabrera, Constanza",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Ferrari, Josefina",
+   "medio": "Banco Galicia",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Flores, Juana",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Garcia, Melina",
+   "medio": "Mercado Pago",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "43000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "cobrar",
+   "alumno": "Martinez, Delfina",
+   "medio": "Efectivo",
+   "periodos": [
+    "2026-12"
+   ],
+   "montos": {
+    "2026-12": "33000"
+   }
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "3100",
+   "obs": "Limpieza de diciembre"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1700",
+   "obs": "Planillas"
+  },
+  {
+   "como": "Pablo Ledesma",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "2400",
+   "obs": "Bombín"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Avanzadas",
+   "hora": "17:00",
+   "ausentes": [
+    "Suarez, Valentina",
+    "Morales, Carla"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Federadas",
+   "hora": "18:00",
+   "ausentes": [
+    "Diaz, Catalina"
+   ]
+  },
+  {
+   "como": "Hernán Quintana",
+   "accion": "lista",
+   "grupo": "Fútbol — Avanzadas",
+   "hora": "19:00",
+   "ausentes": [
+    "Silva, Simon"
+   ]
+  },
+  {
+   "como": "Mariela Ocampo",
+   "accion": "lista",
+   "grupo": "Patín — Adultos",
+   "hora": "20:30",
+   "ausentes": [
+    "Luna, Joaquina"
+   ]
+  }
+ ]
+}

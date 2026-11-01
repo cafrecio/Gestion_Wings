@@ -34,6 +34,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **Errores míos:** interpreté «sacalas de mi decisión» como que decidiera yo T105 a T109, empecé T105 sin que me lo pidiera, y la borré y la repuse. Le dije a Carlos que el recibo tardaba solo la primera vez que se abre: según el código se arma al registrar el cobro. Mis pruebas cortaron una corrida completa de Codex para T97.
 - **Sigue:** Carlos repartió el 01/11: Codex controla T100, T106 y T102, por etapas ([prompt](../06-pruebas/PRU-04/PROMPT-CODEX-T100-CONTROL.md)); Gemini, T101 y T105, después de T94 ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md)). Sin desplegar.
 
+## 2026-11-01 — Claude CAB — T14: tanda 5 simulada, guion y prompt; T100: H1 corregido
+
+- **Tanda 5:** [guion](../06-pruebas/PRU-04/GUION-DIAS-48-54.md), [prompt](../06-pruebas/PRU-04/PROMPT-CODEX-DIAS-48-54.md) y [simulación](../06-pruebas/PRU-04/simulacion/tanda-5/LEEME.md). Los siete días corrieron sobre la copia del sitio con `main`; plata comparada a mano después de correr, medio por medio, al peso. **No se entrega todavía:** faltan controles, desplegar y probar la rutina en el sitio.
+- **Defectos nuevos:** T110, T111 y T112. Saldo de Clara y $8.000 de Thiago: se condonan por pantalla en el guion (49.2 y 49.3).
+- **T100, devolución de Codex:** H1 corregido en el manual y en su ficha; los avisos de éxito pasan a «Cobro cancelado.» y «Cobro anulado.». Los dos textos de los paneles (H2) están en las vistas: esperan el OK de Carlos. COB-019 actualizado. **Sin correr pruebas:** Codex tiene la máquina reservada; ninguna prueba cita esos textos (grep), pero queda por correr.
+- **Error mío:** mis simulaciones se solaparon con la reserva de Codex de las 08:10; la leí a las 08:18 y paré. No toqué su base.
+
 ## 2026-11-01 — Claude CAB — T104 respondida: ya estaba decidida (DU-28, T60)
 
 - Ejecuté un gasto y una transferencia sobre una cuenta «Sin descubierto»: quedan en −$4.000. Los contratos no lo definen, pero Carlos lo decidió el 13/10 (DU-28, CSH-016: avisar y dejar seguir) y quedó en T60, para después de producción. Propongo cerrarla como repetida: [detalle](../06-pruebas/PRU-04/evidencia-t104/LEEME.md). Sin cambio de código.

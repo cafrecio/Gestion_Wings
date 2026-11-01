@@ -1,0 +1,55 @@
+== inicio 53 (después de la rutina) 2026-12-01 11:00:00
+   Cobranza: $2.738.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
+   Saldos: Efectivo $1.203.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.991.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $70.000,00
+   Caja #91 u3 ABIERTA esperado $0,00
+[53.4a] Hernán marca todos, sin motivos → 400 Tiene deuda vencida. Indicá el motivo para dejarlo entrar. OK
+[53.4b] con los motivos; Mora presente, con su lista de Patín a la misma hora → 302 Asistencias guardadas. OK
+   marcas de la clase: 27 · Mora presente el 30/11 a las 16: 2 fichas
+   Tobías: revisión PENDIENTE · diciembre sin cuota $0,00 · pendientes 8
+   pantalla de generar (200): sin asistencia — no se liquidarán Falta cargar el porcentaje de comisión. No se puede liquidar hasta completarlo. Directora, Vanina Pa
+[53.5a] genera la de Lucía → 302 Liquidación generada correctamente. OK
+   #10 ABIERTA/PENDIENTE total $252.000,00 a pagar $252.000,00 detalles 21
+[53.5b] Lucía carga Intermedias del 30/11 → 302 Asistencias guardadas. OK
+[53.5c] recalcula → 302 Liquidación recalculada correctamente. OK
+   #10 ABIERTA/PENDIENTE total $264.000,00 a pagar $264.000,00 detalles 22
+[53.5d] cierra → 302 Liquidación cerrada correctamente. OK
+[53.5e] LIQ-004: genera otra vez → 400 Ya existe una liquidación para el profesor en 11/2026. OK
+[53.6a] Lucía corrige la lista: liquidación cerrada → 400 No se pueden modificar asistencias: la clase integra una liquidación cerrada. OK
+[53.6b] cancela sin motivo → 422 Indicá el motivo de la cancelación. OK
+[53.6c] con tres letras → 422 El motivo debe tener al menos 5 caracteres. OK
+[53.6d] con motivo → 302 Liquidación cancelada. Ya podés revisar asistencias y regenerarla. OK
+   #10 CANCELADA/PENDIENTE total $264.000,00 a pagar $264.000,00 detalles 22
+[53.6e] Lucía corrige sin motivo → 400 Esta clase ya tenía lista tomada: indicá el motivo de la corrección. OK
+[53.6e2] Lucía corrige con motivo → 302 Asistencias guardadas. OK
+[53.6f] genera de nuevo → 302 Liquidación generada correctamente. OK
+   #11 ABIERTA/PENDIENTE total $264.000,00 a pagar $264.000,00 detalles 22 · la cancelada la reemplaza #11
+[53.6g] cierra → 302 Liquidación cerrada correctamente. OK
+[53.7a] genera la de Mariela por error → 302 Liquidación generada correctamente. OK
+   #12 ABIERTA/PENDIENTE total $342.000,00 a pagar $342.000,00 detalles 19
+[53.7b] la elimina → 302 Liquidación eliminada. OK
+[53.7c] intenta eliminar la cerrada de Lucía → 400 No se puede eliminar una liquidación cerrada o cancelada. OK
+[53.7d] con el valor hora en $19.000, genera y cierra → 302 Liquidación generada correctamente. OK
+   #13 ABIERTA/PENDIENTE total $361.000,00 a pagar $361.000,00 detalles 19 · octubre sigue a $18.000,00
+[53.8a] genera la de Hernán → 302 Liquidación generada correctamente. OK
+   #14 ABIERTA/PENDIENTE total $561.000,00 a pagar $549.800,00 detalles 41
+   cuota atrasada: Romero, Santino $11.200,00 · {"id":232,"decision_atrasada":"PENDIENTE"}
+[53.8a2] el dueño la aprueba → 302 Decisión registrada. El recibo incluye solo las cuotas atrasadas validadas. OK
+   #14 ABIERTA/PENDIENTE total $561.000,00 a pagar $561.000,00 detalles 41
+[53.8b] ajusta sin motivo → 422 Indicá el motivo del ajuste. OK
+[53.8c] monto negativo → 422 El campo monto final debe ser al menos 0. Ingresá un importe válido, con hasta dos decimales. OK
+[53.8d] con la pantalla vieja → 400 El importe cambió mientras editabas. Recargá la liquidación antes de guardar. OK
+[53.8e] redondea a 561100 → 302 Monto final actualizado. El cálculo original se conserva. OK
+   #14 ABIERTA/PENDIENTE total $561.000,00 a pagar $561.100,00 detalles 41
+[53.8f] cierra la de Hernán → 302 Liquidación cerrada correctamente. OK
+   detalle de Hernán: atrasadas excluidas $0,00 · pendientes de decidir 1
+[53.9a] genera y cierra la de Martín → 302 Liquidación generada correctamente. OK
+   #15 ABIERTA/PENDIENTE total $195.000,00 a pagar $195.000,00 detalles 15
+[53.9b] Gonzalo, sin nada en noviembre → 302 Liquidación generada correctamente.
+   #16 ABIERTA/PENDIENTE total $0,00 a pagar $0,00 detalles 0
+[53.9c] la elimina → 302 Liquidación eliminada. OK
+[53.10] Carla Morales paga $20.000 de diciembre → 302 Pago registrado para Morales, Carla. OK
+   Carla: PENDIENTE $35.000,00 pagado $20.000,00
+== fin 53 (antes de la noche) 2026-12-01 11:00:00
+   Cobranza: $2.718.910,00 activos 118 {"AL_DIA":44,"EN_PLAZO":68,"MOROSO":0,"DEUDOR":6}
+   Saldos: Efectivo $1.203.449,50 · Banco Nación $58.000,00 · Mercado Pago $3.991.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.606.350,00 · Caja Torneo $70.000,00
+   Caja #91 u3 ABIERTA esperado $0,00

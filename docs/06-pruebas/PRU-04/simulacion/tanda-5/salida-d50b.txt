@@ -1,0 +1,25 @@
+== inicio 50 (después de la rutina) 2026-11-28 12:30:00
+   Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.915.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Caja #89 u3 ABIERTA esperado $0,00
+   sin lista: 2
+[50.2a] Mariela guarda Federadas, faltan Lucía Ramos y Berenice Rossi → 302 Asistencias guardadas. OK
+[50.2b] Pablo, con la pantalla vieja, guarda: falta Lucía Ramos → 302 Asistencias guardadas. OK
+   marcas de Federadas: 8 · presentes 7
+[50.3] Hernán toma Fútbol Avanzadas, falta Lucas Gómez → 302 Asistencias guardadas. OK
+   sin lista: 0
+[50.4a] el dueño desactiva a Pablo, con la caja abierta → 422 {"error":"Este usuario tiene una caja abierta. Primero hay que cerrar la caja."} OK
+   Pablo activo 1
+[50.4b] desactiva a Hernán → 200 {"activo":false} OK
+   Hernán abre Clases: 302 redirige a http://localhost/login
+   Hernán guarda la lista que tenía en pantalla: 302 redirige a http://localhost/login · marcas nuevas 0
+[50.4c] el dueño lo reactiva → 200 {"activo":true} OK
+   Hernán activo 1 · sus marcas siguen 15
+[50.5a] Franco Molina diciembre $38.000 en efectivo → 302 Pago registrado para Molina, Franco. OK
+[50.5b] Felipe Sosa diciembre $38.000 por MP → 302 Pago registrado para Sosa, Felipe. OK
+[50.6] Pablo cancela Adultos del 3/12 (#406) → 302 Clase cancelada. OK
+   canceladas de Adultos en diciembre: 1 · esperado de Pablo $61.500,00
+== fin 50 (antes de cerrar) 2026-11-28 12:30:00
+   Cobranza: $207.910,00 activos 116 {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+   Saldos: Efectivo $1.108.000,00 · Banco Nación $58.000,00 · Mercado Pago $3.915.270,75 · Banco Nacion ahorro $0,00 · Banco Galicia $2.576.150,00
+   Caja #89 u3 ABIERTA esperado $0,00

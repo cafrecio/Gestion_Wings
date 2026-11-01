@@ -645,7 +645,7 @@ class CajaWebController extends Controller
         }
 
         return redirect()->route('web.caja.detalle', $cajaId)
-            ->with('success', 'Cobro cancelado y deuda revertida.');
+            ->with('success', 'Cobro cancelado.');
     }
 
     // ── Cerrar / Validar / Rechazar ───────────────────────────────────────

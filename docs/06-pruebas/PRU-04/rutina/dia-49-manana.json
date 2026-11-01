@@ -1,0 +1,85 @@
+{
+ "dia": "2026-11-27",
+ "descripcion": "Día 49, viernes 27/11: Rocío abre; Adultos paga el torneo; remeras y gastos; lista de Intermedias.",
+ "pasos": [
+  {
+   "como": "Rocío Paz",
+   "accion": "abrir_caja"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Adultos: familia Funes"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Inscripciones",
+   "medio": "Efectivo",
+   "monto": "3000",
+   "obs": "Torneo de diciembre, Patín Adultos: familia Ibañez"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Efectivo",
+   "monto": "18000",
+   "obs": "Remera del club: Cabrera"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Indumentaria institucional",
+   "medio": "Mercado Pago",
+   "monto": "18000",
+   "obs": "Remera del club: Navarro"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Limpieza",
+   "medio": "Efectivo",
+   "monto": "2900",
+   "obs": "Detergente"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Librería",
+   "medio": "Efectivo",
+   "monto": "1100",
+   "obs": "Sobres para recibos"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Insumos Varios",
+   "medio": "Efectivo",
+   "monto": "3400",
+   "obs": "Conos de la cancha"
+  },
+  {
+   "como": "Rocío Paz",
+   "accion": "movimiento",
+   "subrubro": "Botiquín",
+   "medio": "Efectivo",
+   "monto": "2200",
+   "obs": "Vendas"
+  },
+  {
+   "como": "Lucía Gaitán",
+   "accion": "lista",
+   "grupo": "Patín — Intermedias",
+   "hora": "16:00",
+   "ausentes": [
+    "Navarro, Alma",
+    "Villalba, Emma",
+    "Sosa, Rocio"
+   ]
+  }
+ ]
+}

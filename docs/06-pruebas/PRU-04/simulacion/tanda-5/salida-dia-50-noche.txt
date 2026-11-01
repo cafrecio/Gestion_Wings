@@ -1,0 +1,4 @@
+ 1. Pablo Ledesma cierra la caja #89: esperado $61.500,00, contado $61.500,00 — Caja cerrada.
+ 2. Admin Prueba valida la caja #89 (7 renglones tildados) — Caja validada y reflejada en cashflow.
+Cobranza: $207.910,00 · {"AL_DIA":109,"EN_PLAZO":2,"MOROSO":5,"DEUDOR":0}
+GUARDADO.
