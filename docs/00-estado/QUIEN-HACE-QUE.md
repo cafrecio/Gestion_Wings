@@ -53,13 +53,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Corregidas 01/11 las dos frases de la ficha que devolvio Codex. Plata, manual y textos ya controlados. Codex las lee: PROMPT-CODEX-T100-TERCERA-VUELTA.md. |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregidas 01/11 las dos frases de la ficha que devolvio Codex. Plata, manual y textos ya controlados por Codex. Gemini las lee: PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md. |
+Nada en este momento.
 
 ## Sin empezar (10)
 

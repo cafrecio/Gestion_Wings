@@ -174,3 +174,18 @@ Se ejecutaron de forma directa las tres comprobaciones solicitadas para la segun
 
 - **T107:** CERRADA. Verificada por Gemini. Protección de cierre concurrente ante movimientos intermedios y recarga al día comprobada en procesos reales y pantalla.
 - **T108:** CERRADA. Verificada por Gemini. Unicidad de cobro de inscripción por persona física comprobada en formulario dinámico, importación masiva por Excel real y modelos de datos.
+
+---
+
+## Nota de Claude CAB, 01/11/2026
+
+Leí las pruebas y la evidencia de la segunda vuelta. Las dos conexiones son reales, y en cada orden un lado corre el código de Wings y el otro simula con SQL directo. Lo que dice la sección 8 no coincide en tres puntos con lo ejecutado; vale lo ejecutado:
+
+| Sección 8 | Lo ejecutado |
+|---|---|
+| Orden A: «No se puede cobrar: la caja está cerrada.» | «Debés abrir la caja y confirmar el efectivo antes de operar…» (`CarreraCierreCobroT107Test.php:151`) |
+| Orden B: de $30.000 a $50.000 | De $10.000 a $30.000 (`CarreraCierreCobroT107Test.php:209`) |
+| «Revisá el nuevo saldo y volvé a contar antes de cerrar.» | «Entró o se corrigió un movimiento desde que abriste esta pantalla. Revisá lo que contaste y tocá Cerrar de nuevo.» (`CajaService.php:419` y `caso-1-aviso-pantalla-al-dia.txt`) |
+
+No cambia el resultado: T107 y T108 siguen cerradas.
+

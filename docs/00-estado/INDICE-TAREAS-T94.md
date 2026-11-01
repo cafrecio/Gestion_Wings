@@ -4,9 +4,7 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
-| **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | Plata, manual y textos controlados por Codex. Corregidas las dos frases de la ficha que devolvió; las lee Gemini, en el mismo prompt que T107 y T108. |
-| **T107** | Si alguien cierra la caja con la pantalla desactualizada, Wings no le avisa que el esperado cambió. | Hecha por Claude. Gemini la aprobó, pero declaró una concurrencia que no ejecutó: faltan tres comprobaciones (`PRU-04/PROMPT-GEMINI-T107-T108-SEGUNDA-VUELTA.md`). |
-| **T108** | Un alumno que vino de la primera carga no tiene inscripción registrada, y al abrirle una segunda ficha Wings le cobra inscripción. | Hecha por Claude. Falta lo mismo que en T107, incluida la carga real por Excel. |
+| **T100** | Un adelanto cobrado con un cero de más y después cancelado deja la cuota con el importe equivocado: $300.000 en vez de $30.000. | Plata, manual y textos controlados por Codex. Corregidas las dos frases de la ficha; Codex las lee (`PRU-04/PROMPT-CODEX-T100-TERCERA-VUELTA.md`). |
 
 **Para después de producción (Carlos, 01/11):** T110, T111 y T112. No entran antes.
 
