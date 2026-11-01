@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T101: Control de gasto del dueño en turno de operativa (cerrada sin hallazgos)
+
+- **Objetivo:** Ejecutar el control independiente de T101 (implementada por Claude en commit `0805d759`) según `docs/06-pruebas/PRU-04/PROMPT-GEMINI-T101-T105-CONTROL.md`.
+- **Acciones y resultados ([VERIFICACION-T101-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T101-GEMINI.md)):**
+  1. **Comprobación de 5 casos en base `wings_testing_gemini`:**
+     - Caso 1: Dueño agrega gasto ($3.500) en el turno de la operativa. En `/movimientos`, la operativa ve el gasto a nombre del dueño en *Registró*, y el efectivo esperado de la caja disminuye al peso.
+     - Caso 2: Operativa agrega en su turno por Agregar y por `/caja/movimiento`; ambos quedan y se muestran a su nombre.
+     - Caso 3: Otra operativa y profesora reciben HTTP 403. Peticiones directas con inyección de `usuario_id` son neutralizadas, registrando siempre el ID del usuario autenticado.
+     - Caso 4: Al validar la caja, en Cashflow los movimientos operativos generan asientos con su autor real (`CashflowIntegracionCajaService:81`), la pantalla de Cashflow muestra al autor respectivo en *Registró* y el saldo acumulado cierra al centavo.
+     - Caso 5: La edición de movimientos preserva el autor original y audita al editor en `movimientos_operativos_correcciones`. La cancelación es rechazada por no ser cobro de alumno. Eliminación audita en correcciones y resumen suma egresos al peso.
+  2. **Suite técnica y evidencia:** 8 pruebas de `GastoDuenoEnTurnoT101Test.php` pasadas; 5 pruebas de verificación integral en `docs/06-pruebas/PRU-04/evidencia-control-t101/VerificacionT101GeminiTest.php` pasadas (61 aserciones).
+- **Tablero y próximo paso:** T101 pasada a `estado=cerrado`, `hizo=Claude`, `verifica=Gemini`, `tiene=nadie`. Sigue Etapa 2 (T105).
+
 ## 2026-11-01 — LOG GEM CAB — T94 segunda vuelta: Corrección de hallazgos del control (H1 a H5), concurrencia real comprobada y suite al día
 
 - **Objetivo:** Corregir los 5 hallazgos reportados por Claude en `VERIFICACION-T94-CLAUDE.md` sobre T94 (`sacar una frecuencia de un grupo`), incorporando las pruebas de control de `docs/06-pruebas/PRU-04/evidencia-t94-control/` y actualizando el manual y la documentación técnica.
