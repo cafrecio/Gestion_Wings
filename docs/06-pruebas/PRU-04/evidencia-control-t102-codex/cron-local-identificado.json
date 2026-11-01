@@ -1,0 +1,17 @@
+{
+  "Nombre": "Laravel Cron",
+  "Acciones": [
+    {
+      "Execute": "C:\\xampp\\htdocs\\gestion-cye\\silenciador.vbs",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\xampp\\htdocs\\gestion-cye\\"
+    }
+  ],
+  "Disparadores": [
+    {
+      "Enabled": true,
+      "StartBoundary": "2025-12-07T01:45:41",
+      "Intervalo": "PT1M"
+    }
+  ]
+}

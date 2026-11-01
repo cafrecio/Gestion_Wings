@@ -1,0 +1,7 @@
+{
+  "filtro": "test_el_adelanto_recuerda_el_cobro_del_que_nacio|test_editando_el_grupo_con_frecuencia_usada_antes|test_intercambiar_dos_frecuencias_no_da_error_del_servidor",
+  "base": "wings_testing_codex",
+  "con_carrera": 2,
+  "sin_carrera": 0,
+  "producto_modificado": false
+}

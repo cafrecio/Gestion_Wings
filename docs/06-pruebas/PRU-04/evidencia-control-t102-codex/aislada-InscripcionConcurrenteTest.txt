@@ -1,0 +1,24 @@
+   FAIL  Tests\Feature\InscripcionConcurrenteTest
+  ⨯ dos altas del mismo dni en deportes distintos se serializan                                                 26.92s
+  ✓ segundo cobro relee saldo despues de esperar                                                                16.72s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\InscripcionConcurrenteTest > dos altas del mismo dni en deportes dist…  AssertionFailedError
+  La segunda conexión avanzó sin esperar
+
+  at tests\Feature\InscripcionConcurrenteTest.php:69
+     65▕         DB::flushQueryLog();
+     66▕         DB::enableQueryLog();
+     67▕         try {
+     68▕             $accion();
+  ➜  69▕             $this->fail('La segunda conexión avanzó sin esperar');
+     70▕         } catch (QueryException $e) {
+     71▕             $this->assertStringContainsString('Lock wait timeout', $e->getMessage());
+     72▕             $this->assertStringContainsString('for update', strtolower($e->getSql()));
+     73▕         } finally {
+
+  1   tests\Feature\InscripcionConcurrenteTest.php:69
+  2   tests\Feature\InscripcionConcurrenteTest.php:88
+
+
+  Tests:    1 failed, 1 passed (13 assertions)
+  Duration: 43.77s

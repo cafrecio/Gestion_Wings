@@ -1,0 +1,38 @@
+{
+  "fuentes": 878,
+  "copia_cambiada": [],
+  "checkout_cambiado": [],
+  "ventana_libre": 24,
+  "muestras_arbol": 249,
+  "falsos_positivos_monitor_inicial": {
+    "57080": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output",
+    "3304": "C:\\xampp\\php\\php.exe  artisan schedule:run ",
+    "47612": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\"",
+    "33604": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\"",
+    "37668": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\"",
+    "21368": "C:\\xampp\\php\\php.exe  C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\tests/Support/perdon-t33-worker.php \"{\\\"accion\\\":\\\"condonar\\\",\\\"inscripcion\\\":false,\\\"cargo\\\":1,\\\"cuota\\\":1,\\\"alumno\\\":1,\\\"admin\\\":1,\\\"tipo_caja\\\":1}\"",
+    "16700": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+  },
+  "procesos_sin_atribuir": [
+    {
+      "ProcessId": 3304,
+      "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+    },
+    {
+      "ProcessId": 21368,
+      "CommandLine": "C:\\xampp\\php\\php.exe  C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\tests/Support/perdon-t33-worker.php \"{\\\"accion\\\":\\\"condonar\\\",\\\"inscripcion\\\":false,\\\"cargo\\\":1,\\\"cuota\\\":1,\\\"alumno\\\":1,\\\"admin\\\":1,\\\"tipo_caja\\\":1}\""
+    },
+    {
+      "ProcessId": 16700,
+      "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+    }
+  ],
+  "procesos_ajenos_arbol": [
+    {
+      "ProcessId": 29444,
+      "ParentProcessId": 52872,
+      "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+    }
+  ],
+  "sin_otros_procesos_observados": false
+}

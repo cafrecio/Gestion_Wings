@@ -1,0 +1,39 @@
+[
+  {
+    "raiz": 28568,
+    "fecha": "2026-11-01T08:44:43.2882791-03:00",
+    "ajenos": [
+      {
+        "ProcessId": 29444,
+        "ParentProcessId": 52872,
+        "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+      }
+    ],
+    "arbol": [
+      {
+        "ProcessId": 28568,
+        "ParentProcessId": 34892,
+        "Name": "php.exe",
+        "CommandLine": "\"C:\\xampp\\php\\php.exe\" artisan test --no-ansi"
+      },
+      {
+        "ProcessId": 54592,
+        "ParentProcessId": 28568,
+        "Name": "conhost.exe",
+        "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4"
+      },
+      {
+        "ProcessId": 35648,
+        "ParentProcessId": 28568,
+        "Name": "cmd.exe",
+        "CommandLine": "\"C:\\Windows\\System32\\cmd.exe\" /V:ON /E:ON /D /C (C:\\xampp\\php\\php.exe vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output) 1>\"C:\\Users\\cafre\\AppData\\Local\\Temp\\sf_proc_01.out\" 2>\"C:\\Users\\cafre\\AppData\\Local\\Temp\\sf_proc_01.err\""
+      },
+      {
+        "ProcessId": 57080,
+        "ParentProcessId": 35648,
+        "Name": "php.exe",
+        "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+      }
+    ]
+  }
+]

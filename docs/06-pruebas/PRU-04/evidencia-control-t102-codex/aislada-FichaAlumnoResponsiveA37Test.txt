@@ -1,0 +1,5 @@
+   PASS  Tests\Feature\FichaAlumnoResponsiveA37Test
+  ✓ ficha alumno posee estructura responsive en acciones deudas e historial                                     12.45s
+
+  Tests:    1 passed (11 assertions)
+  Duration: 12.59s

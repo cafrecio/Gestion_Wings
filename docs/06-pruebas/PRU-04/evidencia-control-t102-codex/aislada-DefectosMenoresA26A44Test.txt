@@ -1,0 +1,9 @@
+   PASS  Tests\Feature\DefectosMenoresA26A44Test
+  ✓ a26 un menor sin celular se guarda con el telefono del tutor                                                14.34s
+  ✓ a26 un menor con celular propio lo conserva                                                                  0.08s
+  ✓ a26 a un mayor se le sigue exigiendo el celular                                                              0.22s
+  ✓ a26 al editar un menor y vaciar el celular queda el del tutor                                                0.51s
+  ✓ a44 el correo de avisos no lleva la firma de laravel                                                         0.14s
+
+  Tests:    5 passed (16 assertions)
+  Duration: 15.45s

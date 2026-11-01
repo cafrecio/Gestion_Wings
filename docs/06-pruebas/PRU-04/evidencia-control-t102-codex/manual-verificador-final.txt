@@ -1,0 +1,11 @@
+resources/manual/admin/descargar-recibo-liquidacion.md
+  - línea 44: texto entre «» «Solo se pueden generar recibos de liquidaciones que han sido pagadas» no aparece en el código de Wings
+
+resources/manual/operativo/cancelar-movimiento-caja.md
+  - línea 42: texto entre «» «¿Qué pasa si cancelo un cobro adelantado?» no aparece en el código de Wings
+  - línea 55: negrita «El mes ya empezó, tiene un recargo o entró en una liquidación» no aparece en el código de Wings
+  - línea 56: negrita «La cuota ya existía antes del cobro, o el adelanto se cargó antes de esta regla» no aparece en el código de Wings
+  - línea 57: negrita «Queda otro cobro de ese mes» no aparece en el código de Wings
+  - línea 58: negrita «Parte de la cuota se dio por perdida» no aparece en el código de Wings
+
+59 páginas revisadas, 6 problemas.

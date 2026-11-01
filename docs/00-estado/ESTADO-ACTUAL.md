@@ -1,12 +1,16 @@
 # Wings — Estado actual
 
+## T102 y suite final de las tres etapas — Codex CAB, 01/11/2026
+
+**T102 devuelta a Claude por S1/S2 de aislamiento de pruebas.** Sus ocho casos de negocio, historia monetaria y concurrencia dieron bien. Completa unica: **1428 aprobadas, 51 fallidas, 6 omitidas, 11344 aserciones, 1457.01s, salida2**; T100/T106/T102 verdes dentro de ella. Diez archivos pasan aislados; inscripcion depende de preparar la Primera carga. Contaminacion entre clases T94 reproducida con/sin Carrera y desvio de inscripcion comprobado por POST. [Informe y fuentes](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md). Sin verde global ni despliegue. Reserva LIBERADA; incidentes de scheduler/monitor conservados. Solo wings_testing_codex, producto y catalogo sin cambios propios. T106 cerrada; T100 conserva su devolucion.
+
 ## T106 — Control Codex CAB, 01/11/2026
 
-**Cerrada por Codex.** Cinco casos con importes exactos, pantalla/directos y cargas historicas independientes. Area55/598 y propias2/72 verdes. Etiqueta Resultado: propuesta menor; verificador manual59/1 ajena a T106 tras T109. [Informe](../06-pruebas/PRU-04/VERIFICACION-T106-CODEX.md). Sin producto/despliegue; sigue T102 y completa unica final.
+**Cerrada por Codex.** Cinco casos con importes exactos, pantalla/directos y cargas historicas independientes. Area55/598 y propias2/72 verdes. Etiqueta Resultado: propuesta menor; verificador manual59/1 ajena a T106 tras T109. [Informe](../06-pruebas/PRU-04/VERIFICACION-T106-CODEX.md). Sin producto/despliegue; la completa final conjunta se informa en T102.
 
 ## T100 — Control Codex CAB, 01/11/2026
 
-**Devuelta a Claude por dos hallazgos medios de instrucciones y mensajes.** Once casos de negocio con importes exactos, pantalla y pedidos directos; ningún fallo monetario comprobado. Manual y paneles generalizan lo que ocurre con la cuota anulada. [Informe, límites y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md). Solo wings_testing_codex, copia ficticia autorizada; sin corregir producto, catálogo ni sitio. Sigue T106; suite completa única al final de T102.
+**Devuelta a Claude por dos hallazgos medios de instrucciones y mensajes.** Once casos de negocio con importes exactos, pantalla y pedidos directos; ningún fallo monetario comprobado. En el corte controlado, manual y paneles generalizaban lo que ocurre con la cuota anulada. Claude corrigio despues el manual y los avisos de exito (c91b4555); la ficha de fuentes aun generaliza PENDIENTE en dos campos y los paneles siguen pendientes de aprobacion visual. [Informe, límites y evidencia](../06-pruebas/PRU-04/VERIFICACION-T100-CODEX.md). Solo wings_testing_codex, copia ficticia autorizada; sin corregir producto, catálogo ni sitio. T106 ya controlada; resultado de la unica completa conjunta en el informe T102.
 
 ## T109 — Claude CAB, 01/11/2026
 
@@ -14,7 +18,7 @@
 
 ## T102 y T105 — Claude CAB, 01/11/2026
 
-**T102, hecha, falta el control de otra IA.** Regla de Carlos del 01/11, que reemplaza la del 30/10: un nivel con grupos activos no se inactiva; esos grupos se pasan a otro nivel desde Editar grupo o se desactivan. Con el [OK visual de Carlos](../06-pruebas/PRU-04/APROBAR-T102.html). Contrato: `Wings-contrato-alumno-grupo-deporte-deuda-v5.md`, «Nivel del grupo». Lleva migración: `2026_11_01_140000_add_activo_to_niveles_table`.
+**T102, control funcional aprobado y devuelta a Claude por aislamiento de pruebas el 01/11/2026.** Regla de Carlos del 01/11, que reemplaza la del 30/10: un nivel con grupos activos no se inactiva; esos grupos se pasan a otro nivel desde Editar grupo o se desactivan. Con el [OK visual de Carlos](../06-pruebas/PRU-04/APROBAR-T102.html). Contrato: `Wings-contrato-alumno-grupo-deporte-deuda-v5.md`, «Nivel del grupo». Lleva migración: `2026_11_01_140000_add_activo_to_niveles_table`.
 
 **T105, cerrada: la controló Gemini el 01/11, sin desplegar.** Recorte de fuentes en `config/dompdf.php`: el recibo baja de 1,7 MB a unos 225 KB y se ve igual. Los segundos de armarlo no bajan, pero **no los paga el cobro: el PDF se arma la primera vez que alguien lo abre.** El contenedor de Laravel deja en `null` el `?ReciboService $reciboService = null` de `PagoCuotaService` y `LiquidacionPagoService` (comprobado el 01/11), así que el `DB::afterCommit` que parece armarlo al cobrar no hace nada. Sin medir en el servidor con el recorte. [Informe](../06-pruebas/PRU-04/VERIFICACION-T105-GEMINI.md).
 

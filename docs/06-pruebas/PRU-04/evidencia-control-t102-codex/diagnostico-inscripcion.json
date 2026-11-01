@@ -1,0 +1,6 @@
+{
+    "estado": "PENDIENTE",
+    "destino": "http:\/\/127.0.0.1:8111\/sistema\/primera-carga",
+    "alumnos": 0,
+    "conclusion": "El POST sale por primera carga antes de llegar a la inscripcion; no comprueba el candado."
+}

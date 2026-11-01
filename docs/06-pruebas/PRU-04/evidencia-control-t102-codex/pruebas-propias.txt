@@ -1,0 +1,6 @@
+   PASS  Tests\Feature\ControlT102CodexTest
+  ✓ control rechazos y catalogos completos                                                                      33.84s
+  ✓ control historia eventos cierre liquidacion recibo y vistas                                                 12.76s
+
+  Tests:    2 passed (57 assertions)
+  Duration: 51.72s

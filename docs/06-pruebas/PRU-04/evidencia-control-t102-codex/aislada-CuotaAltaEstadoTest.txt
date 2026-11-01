@@ -1,0 +1,19 @@
+   PASS  Tests\Feature\CuotaAltaEstadoTest
+  ✓ alta crea cuota con los tres porcentajes configurados                                                       13.11s
+  ✓ cobro y preview respetan importe del alta aunque cambien reglas y precio                                     1.98s
+  ✓ alta el 30 y generacion el 1 no duplican periodos                                                            1.39s
+  ✓ padron conciliado sin pagos y contadores coinciden                                                           2.36s
+  ✓ nuevo sin pagos pasa de en plazo a moroso y deudor                                                           0.30s
+  ✓ mes cerrado impago gana sobre corriente pagado                                                               0.12s
+  ✓ fallo despues de insertar cuota revierte toda el alta                                                        0.14s
+  ✓ reintento no duplica y alumnos existentes no reciben cuotas                                                  0.13s
+  ✓ ingreso antiguo con si crea mes corriente completo                                                           0.12s
+  ✓ no para ingreso antiguo no genera cuota                                                                      0.10s
+  ✓ cobrar cuota corriente de ingreso antiguo no reaplica porcentaje                                             0.19s
+  ✓ ingreso antiguo fin de mes no descuenta cuota corriente                                                      0.11s
+  ✓ ingreso del mes proximo genera la cuota de ese mes                                                           0.12s
+  ✓ no se acepta un ingreso mas alla del mes proximo                                                             0.15s
+  ✓ parcial anulacion y recobro conservan la cuota del alta                                                      0.24s
+
+  Tests:    15 passed (92 assertions)
+  Duration: 20.69s

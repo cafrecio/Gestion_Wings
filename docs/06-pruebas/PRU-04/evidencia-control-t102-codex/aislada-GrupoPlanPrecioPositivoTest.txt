@@ -1,0 +1,6 @@
+   PASS  Tests\Feature\GrupoPlanPrecioPositivoTest
+  ✓ rechaza precio cero con mensaje y sin escribir                                                              13.81s
+  ✓ rechaza precio negativo armado a mano y sin escribir                                                         0.05s
+
+  Tests:    2 passed (8 assertions)
+  Duration: 13.98s

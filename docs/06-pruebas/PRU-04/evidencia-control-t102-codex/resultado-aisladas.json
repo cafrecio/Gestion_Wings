@@ -1,0 +1,62 @@
+[
+  {
+    "solapamientos": [],
+    "clase": "ControlT94ClaudeTest",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "CrearAdminCommandTest",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "CuotaAltaEstadoTest",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "DefectosMenoresA26A44Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "FechaIngresoFuturaT50Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "FichaAlumnoResponsiveA37Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "FichaToggleActivoT84Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "GeneracionCuotasReintentoT40Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "GrupoPlanPrecioPositivoTest",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [
+      {
+        "ProcessId": 40720,
+        "CommandLine": null
+      }
+    ],
+    "clase": "InactivosT70T71Test",
+    "codigo": 0
+  },
+  {
+    "solapamientos": [],
+    "clase": "InscripcionConcurrenteTest",
+    "codigo": 1
+  }
+]

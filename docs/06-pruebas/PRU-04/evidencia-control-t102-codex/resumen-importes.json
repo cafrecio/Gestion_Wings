@@ -1,0 +1,10 @@
+{
+  "ingresos_septiembre": 30000.0,
+  "egresos_septiembre": 0.0,
+  "deuda_septiembre": 30000.0,
+  "por_pagar_septiembre": 12000.0,
+  "nivel_antes": 7,
+  "nivel_despues": 8,
+  "pdf_antes": "013cdd8e09e0be9b2849d67b0d67a7145326383fc9a697490b4fb1acd443522b",
+  "pdf_despues": "013cdd8e09e0be9b2849d67b0d67a7145326383fc9a697490b4fb1acd443522b"
+}

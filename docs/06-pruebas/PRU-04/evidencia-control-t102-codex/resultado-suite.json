@@ -1,0 +1,1119 @@
+{
+  "procesos_propios": [
+    28568
+  ],
+  "fin": "2026-11-01T08:56:39.2761951-03:00",
+  "solapamientos": [
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 3304,
+      "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 47612,
+      "CommandLine": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\""
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 33604,
+      "CommandLine": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\""
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 37668,
+      "CommandLine": "\"C:\\xampp\\php\\php.exe\" \"-r\" \"$p=new PDO(\\\"mysql:host=127.0.0.1;port=3306;dbname=wings_testing_codex\\\",'root','');$p->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);$p->beginTransaction();$p->query(\\\"SELECT id FROM grupo_planes WHERE id=2 FOR UPDATE\\\")->fetchAll();$p->exec(\\\"INSERT INTO alumno_planes (alumno_id,plan_id,fecha_desde,activo,created_at,updated_at) VALUES (1,2,CURDATE(),1,NOW(),NOW())\\\");sleep(4);$p->commit();\""
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 21368,
+      "CommandLine": "C:\\xampp\\php\\php.exe  C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\tests/Support/perdon-t33-worker.php \"{\\\"accion\\\":\\\"condonar\\\",\\\"inscripcion\\\":false,\\\"cargo\\\":1,\\\"cuota\\\":1,\\\"alumno\\\":1,\\\"admin\\\":1,\\\"tipo_caja\\\":1}\""
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 16700,
+      "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    },
+    {
+      "ProcessId": 57080,
+      "CommandLine": "C:\\xampp\\php\\php.exe  vendor/phpunit/phpunit/phpunit \"--colors=never\" \"--configuration=C:\\xampp\\htdocs\\gestion-wings\\storage\\app\\control-gw-261101\\app\\phpunit.xml\" --no-output"
+    }
+  ],
+  "base": "wings_testing_codex",
+  "inicio": "2026-11-01T08:32:18.2304537-03:00",
+  "codigo": 2
+}

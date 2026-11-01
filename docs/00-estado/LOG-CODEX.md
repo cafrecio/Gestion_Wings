@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T102 entregada; tres etapas de control finalizadas
+
+[Informe T102](../06-pruebas/PRU-04/VERIFICACION-T102-CODEX.md): ocho casos de negocio correctos, doce tablas e importes historicos conservados, PDF directo validado por identidad. Un PDF cacheado de otro fixture queda excluido.
+T102 devuelta a Claude por S1/S2 de aislamiento: T94 deja datos para otras clases; InscripcionConcurrenteTest aislada vuelve a Primera carga. Ambos efectos ejecutados, sin corregir producto ni expectativas.
+Originales23/94; propias2/57 y carreras4/40 verdes. Completa UNICA:1428 aprobadas/51 fallidas/6 omitidas,11344 aserciones,1457.01s,salida2. T100/T106/T102 verdes dentro de ella; no se declara verde global.
+Diez archivos verdes aislados; restante inscripcion diagnosticada1/8 y verde con preparacion2/14. Reproductor T94 con Carrera2verdes/1roja; sin Carrera2/4 verdes.878 fuentes intactas.
+Reserva LIBERADA. Monitor conserva falso positivo de PHPUnit y schedule:run/no identificado; tarea local Laravel Cron apunta a gestion-cye. No se atribuyen fallas a ese proceso.
+T106 cerrada (eeae9e68); T100 devuelta (d73b47bc), manual/avisos luego corregidos por Claude, paneles pendientes. Se controlo lo corregido por lectura y completa; T100 vuelve a devuelto por H1 residual en dos campos de la ficha y H2 pendiente; registra cinco avisos mecanicos menores del manual. Sin producto, catalogo de casos, base del club ni despliegue. Sigue Claude con los pendientes de los informes.
+
 ## 2026-11-01 — Codex CAB — T106 controlada y cerrada; sigue T102
 
 [Informe](../06-pruebas/PRU-04/VERIFICACION-T106-CODEX.md): cinco casos exactos por pantalla/directos, transferencia1.500.000; ingresos421.200/egresos65.200. Filtros, anulacion, mes anterior y saldos comprobados.

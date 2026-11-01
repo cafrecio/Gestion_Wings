@@ -1,0 +1,8 @@
+   PASS  Tests\Feature\AdelantoCanceladoT100Test
+  ✓ el adelanto recuerda el cobro del que nacio                                                                 13.16s
+
+   PASS  Tests\Feature\InscripcionConcurrenteTest
+  ✓ dos altas del mismo dni en deportes distintos se serializan                                                 15.70s
+
+  Tests:    2 passed (14 assertions)
+  Duration: 29.07s

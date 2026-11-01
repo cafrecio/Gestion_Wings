@@ -1,0 +1,31 @@
+   PASS  Tests\Feature\AdelantoCanceladoT100Test
+  ✓ el adelanto recuerda el cobro del que nacio                                                                 13.85s
+
+   PASS  Tests\Feature\ControlT94CarreraTest
+  ✓ editando el grupo con frecuencia usada antes                                                                17.71s
+
+   FAIL  Tests\Feature\ControlT94ClaudeTest
+  ⨯ intercambiar dos frecuencias no da error del servidor
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT94ClaudeTest > intercambiar dos frecuencias no…   UniqueConstraintViolationException
+  SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 09:01:39, 2026-11-01 09:01:39))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique'")
+
+
+  Tests:    1 failed, 2 passed (4 assertions)
+  Duration: 31.94s

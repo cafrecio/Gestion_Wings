@@ -1,0 +1,7 @@
+   PASS  Tests\Feature\CrearAdminCommandTest
+  ✓ crea un admin que puede iniciar sesion y no lo duplica                                                      13.49s
+  ✓ rechaza contrasena de menos de doce caracteres                                                               0.04s
+  ✓ opcion superadmin crea una cuenta protegida                                                                  0.05s
+
+  Tests:    3 passed (25 assertions)
+  Duration: 13.70s

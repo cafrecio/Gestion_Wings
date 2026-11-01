@@ -1,0 +1,29 @@
+   PASS  Tests\Feature\NivelInactivoT102Test
+  ✓ un nivel nuevo nace activo                                                                                  13.63s
+  ✓ con un grupo activo no se inactiva y el aviso dice que hacer                                                 0.07s
+  ✓ con varios grupos activos el aviso dice cuantos                                                              0.04s
+  ✓ sin grupos activos se inactiva y se vuelve a activar                                                         0.04s
+  ✓ con grupos solo inactivos se inactiva y el grupo conserva su nivel                                           0.04s
+  ✓ solo el dueno puede inactivar                                                                                0.10s
+  ✓ el nivel inactivo no se ofrece al crear un grupo                                                             0.62s
+  ✓ el nivel inactivo no se acepta al crear un grupo forzando el pedido                                          0.09s
+  ✓ cambiar de nivel conserva alumnos precios y clases                                                           0.07s
+  ✓ cambiar de nivel deja inactivar el nivel anterior                                                            0.07s
+  ✓ editar muestra elegido el nivel actual                                                                       0.23s
+  ✓ no se puede pasar a un nivel inactivo                                                                        0.04s
+  ✓ no se puede pasar a un nivel donde ese deporte ya tiene grupo                                                0.06s
+  ✓ si la frecuencia no se puede sacar el nivel tampoco cambia                                                   0.05s
+  ✓ un nivel que no existe se rechaza                                                                            0.04s
+  ✓ editar ofrece los activos y el nivel actual aunque este inactivo                                             0.06s
+  ✓ no se activa un grupo cuyo nivel esta inactivo                                                               0.04s
+  ✓ un nivel con grupos sigue sin poder eliminarse                                                               0.03s
+  ✓ la pantalla de niveles muestra el interruptor y el estado                                                    0.16s
+
+   PASS  Tests\Feature\NivelInactivoConcurrenteT102Test
+  ✓ inactivar espera a quien le esta asignando un grupo                                                         15.18s
+  ✓ crear un grupo espera a quien esta inactivando el nivel                                                     15.13s
+  ✓ cambiar de nivel espera a quien esta inactivando el destino                                                 14.11s
+  ✓ activar un grupo espera a quien esta inactivando su nivel                                                   18.17s
+
+  Tests:    23 passed (94 assertions)
+  Duration: 78.27s

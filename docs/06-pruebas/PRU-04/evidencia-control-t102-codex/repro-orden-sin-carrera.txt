@@ -1,0 +1,8 @@
+   PASS  Tests\Feature\AdelantoCanceladoT100Test
+  ✓ el adelanto recuerda el cobro del que nacio                                                                 14.42s
+
+   PASS  Tests\Feature\ControlT94ClaudeTest
+  ✓ intercambiar dos frecuencias no da error del servidor                                                        0.19s
+
+  Tests:    2 passed (4 assertions)
+  Duration: 14.78s

@@ -1,0 +1,157 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control T102
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/reportes-alumnos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Reporte de alumnos" [level=1]
+- main:
+  - strong: Reportes
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/reportes?mes=2026-09
+  - link "Ingresos y egresos":
+    - /url: http://127.0.0.1:8111/reportes?mes=2026-09
+  - strong: Alumnos
+  - link "Sueldos":
+    - /url: http://127.0.0.1:8111/reportes/sueldos?mes=2026-09
+  - combobox "Mes":
+    - option "Octubre 2026"
+    - option "Septiembre 2026" [selected]
+    - option "Agosto 2026"
+    - option "Julio 2026"
+    - option "Junio 2026"
+    - option "Mayo 2026"
+    - option "Abril 2026"
+    - option "Marzo 2026"
+    - option "Febrero 2026"
+    - option "Enero 2026"
+  - combobox "Deporte":
+    - option "Todos los deportes" [selected]
+    - option "Control T102"
+    - option "Fútbol"
+    - option "Patín"
+    - option "Segundo Control T102"
+  - button "Filtrar"
+  - heading "Septiembre 2026" [level=2]
+  - generic: Asistencia hasta 30/09
+  - generic: Activos hoy
+  - generic: "1"
+  - generic: 0 inactivos
+  - text: Matrícula actual · 05/10
+  - generic: Asistencias del mes
+  - generic: "1"
+  - generic: 1 alumnos distintos
+  - text: Cada presente cuenta una vez
+  - generic: Presencia registrada
+  - generic: 100,0%
+  - generic: 0 ausencias registradas
+  - text: Sobre presentes + ausentes cargados
+  - generic: Clases sin registros
+  - generic: "0"
+  - generic: De 1 clases no canceladas
+  - text: No cuentan como ausencias
+  - generic: Altas del mes
+  - generic: "0"
+  - text: Ingresos por fecha de alta; no incluye reactivaciones
+  - generic: Pases a Inactivo del mes
+  - generic: "0"
+  - text: Cada alumno cuenta una vez, aunque vuelva a activo
+  - heading "Evolución de asistencia" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - generic: Meses cerrados
+  - img "Evolución de presentes y ausentes registrados"
+  - generic "Detalle"
+  - heading "Activos por deporte" [level=3]
+  - generic: Hoy · 05/10
+  - img "Distribución actual de alumnos activos por deporte"
+  - strong: "1"
+  - generic: Activos
+  - strong: "1"
+  - text: Control T102
+  - heading "Deporte y nivel" [level=2]
+  - generic: Matrícula hoy · Asistencia del mes
+  - heading "Activos por nivel" [level=3]
+  - img "Activos actuales por deporte y nivel"
+  - generic "Detalle"
+  - heading "Asistencia por nivel" [level=3]
+  - generic: Presentes
+  - generic: Ausentes
+  - img "Asistencias y ausencias registradas por deporte y nivel"
+  - generic "Detalle"
+  - heading "Seguimiento" [level=2]
+  - generic: Sin cambios automáticos de estado
+  - generic "Activos hoy sin presentes en septiembre · 0"
+  - text: 0 revisiones pendientes
+  - link "Ver":
+    - /url: http://127.0.0.1:8111/revision-cobranza
+  - generic: Matrícula actual · asistencia del mes elegido
+  - generic: Clases canceladas y futuras excluidas
+- contentinfo:
+  - generic: Wings

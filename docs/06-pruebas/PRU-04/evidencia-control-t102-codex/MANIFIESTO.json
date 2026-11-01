@@ -1,0 +1,552 @@
+[
+  {
+    "archivo": "aislada-ControlT94ClaudeTest.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-ControlT94ClaudeTest.txt",
+    "bytes": 1069,
+    "sha256": "cb1466321a12a025a1ee3c18ed39377202b2747d5dfc2cf04dea1c245c29b879"
+  },
+  {
+    "archivo": "aislada-CrearAdminCommandTest.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-CrearAdminCommandTest.txt",
+    "bytes": 465,
+    "sha256": "db5d063d850a3db4bbdcb1f2364463ed1d630507117ba74c42c08b80b592fb1f"
+  },
+  {
+    "archivo": "aislada-CuotaAltaEstadoTest.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-CuotaAltaEstadoTest.txt",
+    "bytes": 1916,
+    "sha256": "8f8b199f4a55ebc346c1c25b0c211c41872fe751f828fb3572cca24c7c2cb4b0"
+  },
+  {
+    "archivo": "aislada-DefectosMenoresA26A44Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-DefectosMenoresA26A44Test.txt",
+    "bytes": 711,
+    "sha256": "7982a7aebdc0642379cfcf8765da9ef65696284dd6e6af7435f2bf9ee93e3d6e"
+  },
+  {
+    "archivo": "aislada-FechaIngresoFuturaT50Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-FechaIngresoFuturaT50Test.txt",
+    "bytes": 1680,
+    "sha256": "0697305686a20a26006d4ddaebbaf1ce3f571d2d7dc89abc4efe25d734108a6e"
+  },
+  {
+    "archivo": "aislada-FichaAlumnoResponsiveA37Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-FichaAlumnoResponsiveA37Test.txt",
+    "bytes": 230,
+    "sha256": "77278c12a7386567c45a0af7ac351ff907875a766decf94bc82c9fdfa9ff4c56"
+  },
+  {
+    "archivo": "aislada-FichaToggleActivoT84Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-FichaToggleActivoT84Test.txt",
+    "bytes": 347,
+    "sha256": "22725ec96086c8a52d05ca4c67a60c57dfb44ea7bc48cb2ad848104319f9e452"
+  },
+  {
+    "archivo": "aislada-GeneracionCuotasReintentoT40Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-GeneracionCuotasReintentoT40Test.txt",
+    "bytes": 1445,
+    "sha256": "d9cce092da4476ec90b150e1ac25d17a327e317cca5b6c32410c70906001d223"
+  },
+  {
+    "archivo": "aislada-GrupoPlanPrecioPositivoTest.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-GrupoPlanPrecioPositivoTest.txt",
+    "bytes": 349,
+    "sha256": "395c574a0e09a36e32817f77fbc2726718a9be93f4a6b957a3b716af4a0d1b27"
+  },
+  {
+    "archivo": "aislada-InactivosT70T71Test.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-InactivosT70T71Test.txt",
+    "bytes": 1917,
+    "sha256": "1e9dfd813df3ff5cb3a8ce44b191f3dbad358aa7b58ecf1701367c93028c9cd8"
+  },
+  {
+    "archivo": "aislada-InscripcionConcurrenteTest.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "aislada-InscripcionConcurrenteTest.txt",
+    "bytes": 1534,
+    "sha256": "097a3a466e566c1ff3d550c4f2e56cde2e09825369c118c0781468aa6eea4a3b"
+  },
+  {
+    "archivo": "auditoria-identidad-pdf.json",
+    "bytes": 426,
+    "sha256": "139eae6c7231750fb7b15ff6f93f84728f37b4d958d2dd12918425096ee48ff7"
+  },
+  {
+    "archivo": "comparacion-pantalla.txt",
+    "bytes": 45,
+    "sha256": "edf59b7724e58c682390daab02c5d9f5422c83ce5e5de50f75b08b09880d15ad"
+  },
+  {
+    "archivo": "comprobar-aislamiento.py",
+    "bytes": 2019,
+    "sha256": "0db16187d418bf20dd85ce3b44c3a821e8bf0cc616035d519d62bbbe179d0dd0"
+  },
+  {
+    "archivo": "concurrencia.jsonl",
+    "bytes": 468,
+    "sha256": "bcb82c0d0f75514be8740b3457cefb62483cf0fe25134f3ef948286863464c95"
+  },
+  {
+    "archivo": "ConcurrenteT102CodexTest.php",
+    "bytes": 3388,
+    "sha256": "0a296ddfab95d5409b76aab0b6c0f3f6abfa82191082cca8e668de5fc39cad93"
+  },
+  {
+    "archivo": "ControlT102CodexTest.php",
+    "bytes": 6531,
+    "sha256": "0785069543e97a060a900c1232f52a82915bf06a1afdb448d1d0bce331e82482"
+  },
+  {
+    "archivo": "cron-local-identificado.json",
+    "bytes": 350,
+    "sha256": "9b690cb6b3c45571398be5d0c2320fabda906853ab3f6da093ba9dad45f23001"
+  },
+  {
+    "archivo": "diagnostico-inscripcion.json",
+    "bytes": 225,
+    "sha256": "6a6ed4add461de6a2d07497cbd239394faa6b96bbefd212880a56ef3a4061b0f"
+  },
+  {
+    "archivo": "diagnostico-inscripcion.txt",
+    "bytes": 232,
+    "sha256": "f03b7212ff71ed322c4276021a7bd8e6a5b521a87eaec55e764dc1e45eed29d3"
+  },
+  {
+    "archivo": "DiagnosticoInscripcionCodexTest.php",
+    "bytes": 1090,
+    "sha256": "0d9ed37b2c28d81357c93930c3cad08c044532eebd6e691492a4c98ace6bcd5f"
+  },
+  {
+    "archivo": "ejecutar-aisladas.ps1",
+    "bytes": 2229,
+    "sha256": "79951391fe703afba961fcfbe76477e7ae792df806e8a63e246c7eec746bebf7"
+  },
+  {
+    "archivo": "ejecutar-completa.ps1",
+    "bytes": 2884,
+    "sha256": "c0618222e3434437c1b2c3c4f685d52b4365daf18078f7dcc9998dca0012abc6"
+  },
+  {
+    "archivo": "fallos-completa.json",
+    "bytes": 23563,
+    "sha256": "6445716cefe061ffa513649c70a25c56e3e766dd3c367b4b8c98a00ad566caee"
+  },
+  {
+    "archivo": "FixtureT102Codex.php",
+    "bytes": 4127,
+    "sha256": "de1721ee60a00c828efa6fe59d140f812f830d0116fd8cd496ab0c39fc20fb07"
+  },
+  {
+    "archivo": "fuentes-antes-suite.json",
+    "bytes": 144782,
+    "sha256": "ed1f63885924acc12c3af8c1b84dbd5365d742a377109f8c0b77f2557a36246f"
+  },
+  {
+    "archivo": "fuentes-despues-suite.json",
+    "bytes": 164922,
+    "sha256": "aa3005138c09c15915d5a44672c0ec4e04e62247db4c43b4e5f4e8e34a8cf6b7"
+  },
+  {
+    "archivo": "gw-control-t102-caso1-rechazo-dos-grupos.jpg",
+    "bytes": 77770,
+    "sha256": "c8c12775c2a6ff69d4cd50a123110e14a1bbf1c7dc728b768a665b3ba4c7f798"
+  },
+  {
+    "archivo": "gw-control-t102-caso1-rechazo-dos-grupos.txt",
+    "bytes": 4525,
+    "sha256": "299dfe18e25805a3ef61d4abc118b22d89b5ff9ef91d7db72b1e0c010416e466"
+  },
+  {
+    "archivo": "gw-control-t102-caso2-sin-grupos.jpg",
+    "bytes": 76574,
+    "sha256": "369fd2379a6930fbe4114dfa62e31f999a02083568a2d9001e65b770184adef6"
+  },
+  {
+    "archivo": "gw-control-t102-caso2-sin-grupos.txt",
+    "bytes": 4405,
+    "sha256": "25b41d6508729e6ab46ff942d9de48fc64cbb15f46a522d714c7f8661a34e793"
+  },
+  {
+    "archivo": "gw-control-t102-caso2-solo-inactivos.jpg",
+    "bytes": 76754,
+    "sha256": "728f2095f11a836c4b86feab7b5f767eb093661cf3cb0053b9dbee1dd21da922"
+  },
+  {
+    "archivo": "gw-control-t102-caso2-solo-inactivos.txt",
+    "bytes": 4409,
+    "sha256": "9b04b0bd5035fa898d60247a06c6dc6a794778d14c61dd4e923ea42aab729866"
+  },
+  {
+    "archivo": "gw-control-t102-caso3-crear-sin-inactivos.jpg",
+    "bytes": 69454,
+    "sha256": "c3ecf02ce7556d7e5f82df2d2250427fc1d9632c2baffc09fc77983b46337dc5"
+  },
+  {
+    "archivo": "gw-control-t102-caso3-crear-sin-inactivos.txt",
+    "bytes": 2981,
+    "sha256": "e3abb59121aa5671ad53ede7ecf75ceab689c0bbdc142b86903fd3283b9c8dec"
+  },
+  {
+    "archivo": "gw-control-t102-caso3-editar-sin-inactivos.jpg",
+    "bytes": 80578,
+    "sha256": "27c0a49da3c9ff89ef1f2d39cd80f56c6b4e167b54971ac4df09aa067cac46b1"
+  },
+  {
+    "archivo": "gw-control-t102-caso3-editar-sin-inactivos.txt",
+    "bytes": 3011,
+    "sha256": "33c00609eae3dab0d5b219a7755d37fcec99f6b9881710c0262e3feebdc23715"
+  },
+  {
+    "archivo": "gw-control-t102-caso4-grupo-cambiado.jpg",
+    "bytes": 93157,
+    "sha256": "1502329996d999d0596fbd135132a29935d4dcb7b1be9db46c9a01e79699fc28"
+  },
+  {
+    "archivo": "gw-control-t102-caso4-grupo-cambiado.txt",
+    "bytes": 3778,
+    "sha256": "4264c0104fda677209b2047d46964196b81c263f472ac0ec8778b7a6c1024ae5"
+  },
+  {
+    "archivo": "gw-control-t102-caso5-ocupado-rechazado.jpg",
+    "bytes": 90387,
+    "sha256": "fc42d9b8f53ad7dd673336b555234d4e8c89a993fcaecc83d422b839ec4a0723"
+  },
+  {
+    "archivo": "gw-control-t102-caso5-ocupado-rechazado.txt",
+    "bytes": 3127,
+    "sha256": "775f2858daca16dd2635830448e877437478755d67f5e970905efc2350f632c6"
+  },
+  {
+    "archivo": "gw-control-t102-caso6-nivel-original-conservado.jpg",
+    "bytes": 93085,
+    "sha256": "9aefba83c1702250c9b00ca0ab16776822c26c2c15cf22a0ab0995c5db57c0da"
+  },
+  {
+    "archivo": "gw-control-t102-caso6-nivel-original-conservado.txt",
+    "bytes": 3777,
+    "sha256": "22b0020b191031721bc0801dc1e710ae41b237f30f40d940a625720602e760d3"
+  },
+  {
+    "archivo": "gw-control-t102-caso6-precio-invalido.jpg",
+    "bytes": 85801,
+    "sha256": "b290a90bfb651bc3fe7c4ddac5ae1ed1e7a8480da1231b994e56243beaf9fa2d"
+  },
+  {
+    "archivo": "gw-control-t102-caso6-precio-invalido.txt",
+    "bytes": 3059,
+    "sha256": "40aa8af3d6f8c79bd80f70e462ae61021752396a5f18fcb3d135ffd0ed7df61c"
+  },
+  {
+    "archivo": "gw-control-t102-caso7-activar-rechazado.jpg",
+    "bytes": 91712,
+    "sha256": "69fc4e0697dbc4ba84ff6a50aed85447c600eb1da62ba9a781b40c7756f9ffde"
+  },
+  {
+    "archivo": "gw-control-t102-caso7-activar-rechazado.txt",
+    "bytes": 3922,
+    "sha256": "f13c7c84fdcba58dd895312764286f6361a8182e0b60fce6d40905e7a7cbaa63"
+  },
+  {
+    "archivo": "gw-control-t102-historia-clase.jpg",
+    "bytes": 93722,
+    "sha256": "d08b8d6b9f0a5704d72ef2cb421a9b72a3eead469d0549365f0cb35c578444a1"
+  },
+  {
+    "archivo": "gw-control-t102-historia-clase.txt",
+    "bytes": 3046,
+    "sha256": "0289a6b4a5e6b482d012bcfae28ec1a8ff26a8a69ee48f6372b0eae75c49b400"
+  },
+  {
+    "archivo": "gw-control-t102-historia-cobranza.jpg",
+    "bytes": 100144,
+    "sha256": "f9818042e6e88fea5f9b979f55e5eae8a3d2fe5cf8be090eae35afc263d04610"
+  },
+  {
+    "archivo": "gw-control-t102-historia-cobranza.txt",
+    "bytes": 4451,
+    "sha256": "4f7642b1acca0e88556bad0e42173ab947609e693c6e40d5a285844f313c46d8"
+  },
+  {
+    "archivo": "gw-control-t102-historia-ficha.jpg",
+    "bytes": 88480,
+    "sha256": "240a0117085508af531b312fafe30d6c078418beea49e68f0ea61eb42572e428"
+  },
+  {
+    "archivo": "gw-control-t102-historia-ficha.txt",
+    "bytes": 3804,
+    "sha256": "7e3f4e5f633589f71c293e7f4b28681b4f828a7ef52e5f142ae83d07f18b4e96"
+  },
+  {
+    "archivo": "gw-control-t102-historia-liquidacion.jpg",
+    "bytes": 92662,
+    "sha256": "69e7d1aa1f2778461c7712fd8f3f3c67f32b12421fc9a425728558bccbd82446"
+  },
+  {
+    "archivo": "gw-control-t102-historia-liquidacion.txt",
+    "bytes": 4418,
+    "sha256": "4d614d190c4f1a01d08bf33d216d3a369375d401f42bfb9956f04febfd6db2a2"
+  },
+  {
+    "archivo": "gw-control-t102-historia-reporte-alumnos.jpg",
+    "bytes": 102407,
+    "sha256": "0c1245f06055591bacc23ed5152198cbe620534eb4626bcaee476b8b6b939910"
+  },
+  {
+    "archivo": "gw-control-t102-historia-reporte-alumnos.txt",
+    "bytes": 4900,
+    "sha256": "317311686b353a96565baef63c5ad4fe87edd67a61264a90a519985b08f51d5b"
+  },
+  {
+    "archivo": "gw-control-t102-historia-reporte-septiembre.jpg",
+    "bytes": 92665,
+    "sha256": "4005e6caabead41cca5dd1270624632cd01424188192ba41a988cf790b922e8f"
+  },
+  {
+    "archivo": "gw-control-t102-historia-reporte-septiembre.txt",
+    "bytes": 5336,
+    "sha256": "cd044da9b815edf0cb7e5966661771eb087f2b642eb4e937b45c78e2bd1e748d"
+  },
+  {
+    "archivo": "historia-ejecutada.json",
+    "bytes": 10915,
+    "sha256": "4baee6c74b81e951c13da530d2fc731aa72c30d53b6406eaaa7576a1b6555eef"
+  },
+  {
+    "archivo": "inactivos-repetida-sin-proceso-no-identificado.txt",
+    "bytes": 1917,
+    "sha256": "3ffb04987ce2c773658fe7c7329fd5545b809ffd839e2fc0eac7ddce4e7ac60f"
+  },
+  {
+    "archivo": "inscripcion-con-preparacion-previa.txt",
+    "bytes": 399,
+    "sha256": "3529d2b9722c9e93c0ef4c704470ea4ceb1426fb20786fd86aeecd97cc273dac"
+  },
+  {
+    "archivo": "LEEME.md",
+    "bytes": 1645,
+    "sha256": "bea36a8eef8261fadcb60cd4c80b753b09d82962aa340af3d734a39d2be60819"
+  },
+  {
+    "archivo": "manual-verificador-final-resultado.json",
+    "bytes": 14,
+    "sha256": "23d9d4f763cb350b4dcf794820275de4b96c7c776b997367ed986193c3e4288f"
+  },
+  {
+    "archivo": "manual-verificador-final.txt",
+    "bytes": 857,
+    "sha256": "8ba6902628b008b7ccaddfcd5c3ed9ea553e42accb9ed3bf3d592ff23f36b8aa"
+  },
+  {
+    "archivo": "monitor-aisladas.jsonl",
+    "bytes": 41233,
+    "sha256": "038a2813a133337ce1759f9ba3bad37c242ae742fd6a1d36c2799087b2c796e6"
+  },
+  {
+    "archivo": "monitor-arbol.jsonl",
+    "bytes": 262405,
+    "sha256": "ca2dc7b9343df530aa57072079b6a20a829df95776c2b84b6ce312103fffcb7c"
+  },
+  {
+    "archivo": "monitor-arbol.ps1",
+    "bytes": 961,
+    "sha256": "0ececd43578f9f031ad7b4d001d1f7b32101be38230e77465119eb2e0f2700e0"
+  },
+  {
+    "archivo": "monitor-comprobaciones.jsonl",
+    "bytes": 1920,
+    "sha256": "0265a5f42a5963fae984ce21bed1bdd4076db8b8ff8b287f40a4d6597d51ffde"
+  },
+  {
+    "archivo": "monitor-suite.jsonl",
+    "bytes": 89778,
+    "sha256": "b1dc76412c86889d7ffe5afccad0679f9c94e1b505cdfce2851f56a40bbc87ce"
+  },
+  {
+    "archivo": "pantalla-antes.json",
+    "bytes": 17185,
+    "sha256": "82b07d647d7b6e12d4ee3f66118acb1581db6045e606689223972f8d4e9760d2"
+  },
+  {
+    "archivo": "pantalla-despues.json",
+    "bytes": 12224,
+    "sha256": "e433567f70c65d27a937cbefc309252eb2aed307b3aca9578d0bbf52da3bc238"
+  },
+  {
+    "archivo": "parentesco-inicial.json",
+    "bytes": 864,
+    "sha256": "ba7ee4cae8a88cea975d864a2b68306c826bb69a324da2b8d629cca7df56bf08"
+  },
+  {
+    "archivo": "preparacion.txt",
+    "bytes": 123,
+    "sha256": "395943e0b4d7c7d37c7165fe78167d46cb7ee38f02f8ca2d75f207456858278e"
+  },
+  {
+    "archivo": "preparar-pantalla.php",
+    "bytes": 6603,
+    "sha256": "9f80035a179cfa51fdd872de37814ba313fac3098bbe220b6bdb35894ae4fc73"
+  },
+  {
+    "archivo": "primera-prueba-fixture-sin-clasificacion.txt",
+    "bytes": 2788,
+    "sha256": "f395c7921bc9213e728e3ea424efa7f48c0358ccdd01124fba8ddbd8629f249f"
+  },
+  {
+    "archivo": "proceso-programado-observado.json",
+    "bytes": 1456,
+    "sha256": "e05ad173ec78416c330f9b008c4b7aec052f120f7c150ae0f0cd748422f4fb01"
+  },
+  {
+    "archivo": "pruebas-claude.txt",
+    "bytes": 2943,
+    "sha256": "d0c94d6844d9f84a1a38ef0da0934ead35e734d66167a71bd7ed3ea17ba4d9fd"
+  },
+  {
+    "archivo": "pruebas-concurrentes.txt",
+    "bytes": 589,
+    "sha256": "5e202ee2cc52b5cdce54301e37b591db72dcf160be93a656e13646c9c53f04f1"
+  },
+  {
+    "archivo": "pruebas-propias.txt",
+    "bytes": 343,
+    "sha256": "a7c9cf8b4de90024d18f1a9843a5790c5c2f3e2ee0290ffc606e0520b35c67c4"
+  },
+  {
+    "archivo": "recibo-conservado.pdf",
+    "bytes": 214899,
+    "sha256": "013cdd8e09e0be9b2849d67b0d67a7145326383fc9a697490b4fb1acd443522b"
+  },
+  {
+    "archivo": "recibo-conservado.txt",
+    "bytes": 550,
+    "sha256": "d00419a01d625dec906124ba84460126a125493c3b22f856290cb20889cdcfac"
+  },
+  {
+    "archivo": "recibo-pantalla-antes.pdf",
+    "bytes": 214899,
+    "sha256": "013cdd8e09e0be9b2849d67b0d67a7145326383fc9a697490b4fb1acd443522b"
+  },
+  {
+    "archivo": "recibo-pantalla-despues.pdf",
+    "bytes": 214899,
+    "sha256": "013cdd8e09e0be9b2849d67b0d67a7145326383fc9a697490b4fb1acd443522b"
+  },
+  {
+    "archivo": "recibo-render.png",
+    "bytes": 59554,
+    "sha256": "fc51b2e9c01c0c7b05745f8247b2e94442d67fcba39827de18c6c165998bfb86"
+  },
+  {
+    "archivo": "repro-orden-con-carrera.txt",
+    "bytes": 2147,
+    "sha256": "1931e6177ff1ac2a456ca4b22ead28c924f403dfa082509e26417ce07ee9b8ad"
+  },
+  {
+    "archivo": "repro-orden-resultado.json",
+    "bytes": 281,
+    "sha256": "2a5bd60c05afa017db2f6a57c32d064e9fe9636383a68ca370ab0ab474a853ba"
+  },
+  {
+    "archivo": "repro-orden-sin-carrera.txt",
+    "bytes": 392,
+    "sha256": "87142415afdab74fb3e2cca44af14c2d0a4f507b80b206655828eef1f7b1cf3b"
+  },
+  {
+    "archivo": "repro-orden-t94.ps1",
+    "bytes": 1261,
+    "sha256": "185939ad572fcb6b7adcf644c88887f8854a22671cc22ee0daf9005cb6d5526d"
+  },
+  {
+    "archivo": "resultado-aisladas.json",
+    "bytes": 1083,
+    "sha256": "8be242a4db85c482d5e8f81298086d6a263358da05d62128406d3c76dd9fb0e4"
+  },
+  {
+    "archivo": "resultado-comprobaciones.json",
+    "bytes": 383,
+    "sha256": "7b8cdae88a72c220c656f08bab53c6c1702b6349f6f44097c604ed7b130af2e7"
+  },
+  {
+    "archivo": "resultado-suite.json",
+    "bytes": 70885,
+    "sha256": "094315fa1c416aead55bcf43c8217dc5437e61f9b429776597744579f53314e7"
+  },
+  {
+    "archivo": "resumen-aisladas.json",
+    "bytes": 2400,
+    "sha256": "fb6701b79b9d213d7914df3e9987384652092c2736c4c7a0eef078610bd5ef0c"
+  },
+  {
+    "archivo": "resumen-importes.json",
+    "bytes": 342,
+    "sha256": "f808b89056e342178e5a4e5f3acb93ef81565b5bcc14c679dfcb70f3fbcb0e3e"
+  },
+  {
+    "archivo": "revision-final.json",
+    "bytes": 3017,
+    "sha256": "519a45175cff13cfba0c7d5a8b66680d3f600a229aaedf003c09b6432cbbb99c"
+  },
+  {
+    "archivo": "salidas-originales.zip",
+    "bytes": 72317,
+    "sha256": "e5b988db157a96e6c9f8d0b946ca94c12ca60c678b1e4135eea0d3fa6f3d6215"
+  },
+  {
+    "archivo": "suite-completa.stderr.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "archivo": "suite-completa.txt",
+    "bytes": 268251,
+    "sha256": "2d82192be2a848321300f862d3770ea5890c929ef007aac478d285c7f2563c53"
+  },
+  {
+    "archivo": "verificar-cierre.py",
+    "bytes": 2241,
+    "sha256": "a951eb026f279e348bffaea8074b35cf48e8ba64bf94db4db9d55e12f56800bb"
+  }
+]

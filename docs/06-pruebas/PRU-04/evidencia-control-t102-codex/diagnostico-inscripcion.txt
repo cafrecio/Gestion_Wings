@@ -1,0 +1,5 @@
+   PASS  Tests\Feature\DiagnosticoInscripcionCodexTest
+  ✓ diagnostico primera carga del fixture                                                                       28.22s
+
+  Tests:    1 passed (8 assertions)
+  Duration: 28.38s

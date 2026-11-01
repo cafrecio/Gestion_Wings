@@ -1,0 +1,1 @@
+{"admin":1,"grupo":1,"grupo_inactivo":3,"niveles":[7,8,9,10,11,12],"plan":1,"alumno":1,"clase":1,"liquidacion":1,"pago":1}

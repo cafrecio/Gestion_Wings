@@ -1,0 +1,19 @@
+   PASS  Tests\Feature\InactivosT70T71Test
+  ✓ fecha e historia se conservan al reactivar sin duplicar el mes                                              14.01s
+  ✓ inactivos anteriores sin fecha no se inventan y altas respeta mes y deporte                                  0.18s
+  ✓ pase de noviembre no borra la cantidad de octubre                                                            0.74s
+  ✓ alu017 b d deuda aparte no aumenta ningun total existente                                                    0.44s
+  ✓ perdida es aparte del perdon con rastro y sin movimiento de dinero                                           0.34s
+  ✓ operativo y profesor no pueden perder aunque fuercen la ruta                                                 0.23s
+  ✓ saldo desactualizado activo y repeticion rechazan sin escritura                                              0.22s
+  ✓ reingreso no restituye perdida ni la confunde con condonacion                                                0.24s
+  ✓ inscripcion compartida con activo no se duplica ni se pierde                                                 0.19s
+  ✓ perdida cubre inscripcion y recargo y excluye mes futuro                                                     0.27s
+  ✓ alu017 y alu025 ficha busqueda clases mes siguiente y reingreso                                              0.49s
+  ✓ fallo del registro de auditoria revierte toda la perdida                                                     0.16s
+  ✓ perdida no borra condonacion previa de cargos ni reescribe cortes anteriores                                 0.19s
+  ✓ reporte muestra cantidades y la ficha distingue la perdida                                                   0.25s
+  ✓ reingreso no regenera la cuota del mes que se dio por perdida                                                0.19s
+
+  Tests:    15 passed (118 assertions)
+  Duration: 18.31s

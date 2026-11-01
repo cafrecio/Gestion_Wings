@@ -1,0 +1,6 @@
+   PASS  Tests\Feature\FichaToggleActivoT84Test
+  ✓ ficha alumno activo muestra toggle sin confirmacion ni boton reactivar                                      14.76s
+  ✓ ficha alumno inactivo muestra toggle sin confirmacion ni form reactivar                                      0.17s
+
+  Tests:    2 passed (11 assertions)
+  Duration: 15.10s

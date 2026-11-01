@@ -1,0 +1,101 @@
+{
+  "archivos": 11,
+  "archivos_aprobados": 10,
+  "aprobadas": 76,
+  "fallidas": 1,
+  "detalle": [
+    {
+      "clase": "ControlT94ClaudeTest",
+      "codigo": 0,
+      "aprobadas": 8,
+      "fallidas": 0,
+      "resumen": "Tests:    8 passed (28 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "CrearAdminCommandTest",
+      "codigo": 0,
+      "aprobadas": 3,
+      "fallidas": 0,
+      "resumen": "Tests:    3 passed (25 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "CuotaAltaEstadoTest",
+      "codigo": 0,
+      "aprobadas": 15,
+      "fallidas": 0,
+      "resumen": "Tests:    15 passed (92 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "DefectosMenoresA26A44Test",
+      "codigo": 0,
+      "aprobadas": 5,
+      "fallidas": 0,
+      "resumen": "Tests:    5 passed (16 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "FechaIngresoFuturaT50Test",
+      "codigo": 0,
+      "aprobadas": 13,
+      "fallidas": 0,
+      "resumen": "Tests:    13 passed (71 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "FichaAlumnoResponsiveA37Test",
+      "codigo": 0,
+      "aprobadas": 1,
+      "fallidas": 0,
+      "resumen": "Tests:    1 passed (11 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "FichaToggleActivoT84Test",
+      "codigo": 0,
+      "aprobadas": 2,
+      "fallidas": 0,
+      "resumen": "Tests:    2 passed (11 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "GeneracionCuotasReintentoT40Test",
+      "codigo": 0,
+      "aprobadas": 11,
+      "fallidas": 0,
+      "resumen": "Tests:    11 passed (54 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "GrupoPlanPrecioPositivoTest",
+      "codigo": 0,
+      "aprobadas": 2,
+      "fallidas": 0,
+      "resumen": "Tests:    2 passed (8 assertions)",
+      "solapamientos": []
+    },
+    {
+      "clase": "InactivosT70T71Test",
+      "codigo": 0,
+      "aprobadas": 15,
+      "fallidas": 0,
+      "resumen": "Tests:    15 passed (118 assertions)",
+      "solapamientos": [
+        {
+          "ProcessId": 40720,
+          "CommandLine": null
+        }
+      ]
+    },
+    {
+      "clase": "InscripcionConcurrenteTest",
+      "codigo": 1,
+      "aprobadas": 1,
+      "fallidas": 1,
+      "resumen": "Tests:    1 failed, 1 passed (13 assertions)",
+      "solapamientos": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+   PASS  Tests\Feature\GeneracionCuotasReintentoT40Test
+  ✓ el dia 1 genera y deja constancia sin avisar                                                                13.70s
+  ✓ si el dia 1 no corrio lo recupera el dia 3 y avisa al duenio                                                 0.07s
+  ✓ con el mes ya generado los dias siguientes no hacen nada                                                     0.04s
+  ✓ sin el mes anterior generado no genera a mitad de mes                                                        0.05s
+  ✓ una corrida cortada se completa al dia siguiente sin duplicar                                                0.13s
+  ✓ otra corrida del mismo mes no pisa la constancia de la primera                                               0.07s
+  ✓ otra corrida no vuelve a contar a quien ya estaba en revision                                                0.11s
+  ✓ si falta no se combina con un periodo                                                                        0.04s
+  ✓ la corrida manual de un tecnico tambien deja constancia                                                      0.06s
+  ✓ el resumen diario muestra las cuotas sin generar hasta que se generan                                        0.08s
+  ✓ el programador lo corre todos los dias a las 6                                                               0.05s
+
+  Tests:    11 passed (54 assertions)
+  Duration: 14.57s

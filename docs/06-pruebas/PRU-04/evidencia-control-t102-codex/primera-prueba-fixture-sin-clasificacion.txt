@@ -1,0 +1,23 @@
+   FAIL  Tests\Feature\ControlT102CodexTest
+  ✓ control rechazos y catalogos completos                                                                      13.89s
+  ⨯ control historia eventos cierre liquidacion recibo y vistas                                                  0.23s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT102CodexTest > control historia eventos cierre liquidacion recibo y vistas
+  Failed asserting that 0 is identical to 3000000.
+
+  at C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t102-codex\ControlT102CodexTest.php:32
+     28▕   $prof=Profesor::create(['deporte_id'=>$this->alumno->deporte_id,'nombre'=>'Docente','apellido'=>'Historia T102','dni'=>'99000202','fecha_nacimiento'=>'1980-01-01','direccion'=>'Prueba','localidad'=>'Prueba','porcentaje_comision'=>40,'activo'=>true]);
+     29▕   $cl=Clase::create(['grupo_id'=>$this->plan->grupo_id,'fecha'=>'2026-09-20','hora_inicio'=>'17:00','hora_fin'=>'18:00','cancelada'=>false]);$cl->profesores()->attach($prof->id);Asistencia::create(['clase_id'=>$cl->id,'alumno_id'=>$this->alumno->id,'presente'=>true]);
+     30▕   $liq=app(LiquidacionService::class)->generarLiquidacionMensual($prof->id,9,2026);$liq->update(['estado'=>'CERRADA']);
+     31▕   $this->reloj('2026-10-05 10:00:00');$dest=$this->nivelDestino();$orig=$this->plan->grupo->nivel_id;
+  ➜  32▕   $antes=$this->foto();$rep=$this->informe('2026-09');$this->assertSame(3000000,$rep['ingresos']);$this->assertSame('12000.00',$liq->fresh()->total_calculado);
+     33▕   $pdfAntes=$this->actingAs($this->admin)->get(route('web.recibos.cuota',$p->id).'?inline=1')->assertOk()->getContent();$this->assertStringStartsWith('%PDF',$pdfAntes);
+     34▕   $this->guardarNivel($dest->id)->assertSessionHas('success');$this->assertSame($dest->id,$this->plan->grupo->fresh()->nivel_id);
+     35▕   $this->assertSame($antes,$this->foto());$post=$this->informe('2026-09');foreach(['ingresos','egresos','resultado','resultado_global','disponible','deuda','por_pagar'] as $k)$this->assertSame($rep[$k],$post[$k],$k);
+     36▕   $pdfDespues=$this->get(route('web.recibos.cuota',$p->id).'?inline=1')->assertOk()->getContent();$this->assertSame(hash('sha256',$pdfAntes),hash('sha256',$pdfDespues));
+
+  1   C:\xampp\htdocs\gestion-wings\docs\06-pruebas\PRU-04\evidencia-control-t102-codex\ControlT102CodexTest.php:32
+
+
+  Tests:    1 failed, 1 passed (25 assertions)
+  Duration: 14.43s

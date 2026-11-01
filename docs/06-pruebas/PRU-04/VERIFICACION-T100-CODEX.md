@@ -57,3 +57,12 @@ Propuesta de catálogo, **sin editarlo**: COB-019 debe distinguir cuota nacida d
 - No se corrió suite completa en esta etapa: Carlos ordenó una sola al final de T102, reservando la máquina. No se hereda la completa T97 como si fuera un control actual de estas etapas.
 
 **Entrega:** T100 devuelta a Claude por H1/H2; continúa T106 según el orden de Carlos. Sin reparar producto ni desplegar.
+
+
+## Control de la corrección posterior de Claude — 01/11/2026
+
+Claude publicó c91b4555 y volvió a dejar T100 a verificar. Se releyeron el manual actualizado, la ficha de fuentes, las condiciones de la función sin cambios monetarios y los cuerpos de ambos controladores: el manual distingue ahora cuota creada por el adelanto, preexistente, otro pago, pérdida, mes iniciado y vínculos; los éxitos dicen «Cobro cancelado.» / «Cobro anulado.». La completa final del corte4d87e925 incluye esos controladores y las 12 pruebas T100 pasan. Esto no se presenta como un nuevo recorrido completo de ambos mensajes en Chrome.
+
+**H1 no queda resuelto por completo:** en la ficha `evidencia-t12-t13/fuentes/operativo-cancelar-movimiento-caja.md:18,31`, el último campo de Paso 3 todavía afirma que la cuota vuelve a PENDIENTE y la explicación del flash todavía dice que restituye la deuda a pendiente. La primera columna fue aclarada, las otras dos menciones no. Corregir esas generalizaciones sigue dentro de H1.
+
+H2 permanece: los paneles Blade siguen diciendo deuda pendiente y esperan la aprobación visual de Carlos; no se tocaron. Por H1 residual y H2 **T100 vuelve a devuelto, tiene Claude**. El verificador final además señala cinco problemas mecánicos de formato/literales en el nuevo texto del manual (baja, líneas42 y55–58): título de la pregunta entre comillas y condiciones de negocio en negrita se tratan como literales de pantalla. Propuesta: ajustar ese formato sin cambiar las condiciones; el sexto problema del verificador es ajeno, recibo impago de T109. [Salida y cierre de las tres etapas](VERIFICACION-T102-CODEX.md). Sin cambios de producto ni catálogo por Codex.

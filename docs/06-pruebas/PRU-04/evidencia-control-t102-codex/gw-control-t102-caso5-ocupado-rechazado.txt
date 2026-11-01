@@ -1,0 +1,104 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control T102
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/administrar-grupos
+  - generic: "?"
+- button "Salir"
+- banner:
+  - 'heading "Editar: Control T102 — A Control origen" [level=1]'
+- main:
+  - generic: Ya existe un grupo con ese deporte y nivel.
+  - text: Deporte
+  - paragraph: Control T102
+  - text: Nivel
+  - generic: "*"
+  - combobox "Nivel *":
+    - option "Seleccionar nivel..."
+    - option "A Control origen"
+    - option "Avanzadas"
+    - option "B Control destino"
+    - option "C Control ocupado" [selected]
+    - option "Intermedias"
+    - option "Principiantes"
+  - paragraph: Ya existe un grupo con ese deporte y nivel.
+  - generic: Precios por frecuencia
+  - paragraph: "Al guardar un precio: altas nuevas desde 05/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan."
+  - button "Nuevo"
+  - combobox:
+    - option "1 vez/semana"
+    - option "2 veces/semana" [selected]
+    - option "3 veces/semana"
+    - option "4 veces/semana"
+    - option "5 veces/semana"
+  - generic: $
+  - textbox "0": 30,000.00
+  - button "✕"
+  - button "Cancelar"
+  - button "Guardar"
+- contentinfo:
+  - generic: Wings

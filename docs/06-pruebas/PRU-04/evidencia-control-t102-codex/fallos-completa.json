@@ -1,0 +1,206 @@
+[
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > intercambiar dos frecuencias no…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:36, 2026-11-01 08:40:36))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > la pantalla vieja no revive una…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > sacar y volver a cargar la misma…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > cambiar a una frecuencia desacti…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > el cobro no acepta una frecuenci…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > no se ofrece en el alta de alumn…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > eliminar una ya desactivada no d…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:37, 2026-11-01 08:40:37))"
+  },
+  {
+    "prueba": "Tests\\Feature\\ControlT94ClaudeTest > reactivar conserva el precio de…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Control' for key 'niveles_nombre_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `niveles` (`nombre`, `updated_at`, `created_at`) values (Control, 2026-11-01 08:40:38, 2026-11-01 08:40:38))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CrearAdminCommandTest > crea un admin que puede iniciar sesion y no lo duplica",
+    "mensaje": "Failed asserting that table [users] matches expected entries count of 0. Entries found: 1."
+  },
+  {
+    "prueba": "Tests\\Feature\\CrearAdminCommandTest > rechaza contrasena de menos de doce caracteres",
+    "mensaje": "Failed asserting that table [users] matches expected entries count of 0. Entries found: 1."
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > alta crea cuota con los tres porc…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > cobro y preview respetan importe…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > alta el 30 y generacion el 1 no d…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > padron conciliado sin pagos y con…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > nuevo sin pagos pasa de en plazo…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > mes cerrado impago gana sobre cor…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > fallo despues de insertar cuota r…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > reintento no duplica y alumnos ex…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > ingreso antiguo con si crea mes c…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > no para ingreso antiguo no genera…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > cobrar cuota corriente de ingreso…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > ingreso antiguo fin de mes no des…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > ingreso del mes proximo genera la…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > no se acepta un ingreso mas alla…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\CuotaAltaEstadoTest > parcial anulacion y recobro conse…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-05 12:00:00, 2026-09-05 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\DefectosMenoresA26A44Test > a26 un menor sin celular se…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-04 12:00:00, 2026-10-04 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\DefectosMenoresA26A44Test > a26 un menor con celular pr…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-04 12:00:00, 2026-10-04 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\DefectosMenoresA26A44Test > a26 a un mayor se le sigue…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-04 12:00:00, 2026-10-04 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\DefectosMenoresA26A44Test > a26 al editar un menor y va…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-04 12:00:00, 2026-10-04 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\DefectosMenoresA26A44Test > a44 el correo de avisos no…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-04 12:00:00, 2026-10-04 12:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > fecha ingreso limite exacto…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > fecha ingreso dia posterior…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > fecha ingreso pasada y de h…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > cambio de anio en diciembre…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > edicion permite cambiar fec…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > edicion alumno antiguo con…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > previsualizacion cuota alta…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > previsualizacion cuota endp…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > previsualizacion inscripcio…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > primera carga excel revisar…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > h2 edicion con fecha mal fo…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > h3 formulario alta y edicio…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FechaIngresoFuturaT50Test > previews con fecha mal form…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-20 10:00:00, 2026-10-20 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FichaAlumnoResponsiveA37Test > ficha alumno posee estru…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-10-05 10:00:00, 2026-10-05 10:00:00))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FichaToggleActivoT84Test > ficha alumno activo muestra…   UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-11-01 08:41:18, 2026-11-01 08:41:18))"
+  },
+  {
+    "prueba": "Tests\\Feature\\FichaToggleActivoT84Test > ficha alumno inactivo muestr…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-11-01 08:41:18, 2026-11-01 08:41:18))"
+  },
+  {
+    "prueba": "Tests\\Feature\\GeneracionCuotasReintentoT40Test > otra corrida no vuelve a contar a quien ya estaba en rev…",
+    "mensaje": "Failed asserting that 2 is identical to 1."
+  },
+  {
+    "prueba": "Tests\\Feature\\GrupoPlanPrecioPositivoTest > rechaza precio cero con mensaje y sin escribir",
+    "mensaje": "Failed asserting that table [grupo_planes] matches expected entries count of 1. Entries found: 3."
+  },
+  {
+    "prueba": "Tests\\Feature\\GrupoPlanPrecioPositivoTest > rechaza precio negativo armado a mano y sin escribir",
+    "mensaje": "Failed asserting that table [grupo_planes] matches expected entries count of 1. Entries found: 3."
+  },
+  {
+    "prueba": "Tests\\Feature\\InactivosT70T71Test > alu017 b d deuda aparte no aumenta ningun total existente",
+    "mensaje": "Failed asserting that actual size 2 matches expected size 0."
+  },
+  {
+    "prueba": "Tests\\Feature\\InscripcionConcurrenteTest > dos altas del mismo dni en…  UniqueConstraintViolationException",
+    "mensaje": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'grupos_deporte_nivel_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `grupos` (`deporte_id`, `nivel_id`, `activo`, `updated_at`, `created_at`) values (1, 4, 1, 2026-09-24 12:00:00, 2026-09-24 12:00:00))"
+  }
+]

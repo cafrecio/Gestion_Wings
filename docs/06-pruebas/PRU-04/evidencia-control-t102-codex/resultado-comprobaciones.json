@@ -1,0 +1,19 @@
+[
+  {
+    "caso": "inscripcion-con-preparacion-previa",
+    "codigo": 0,
+    "ajenos": [
+      {
+        "ProcessId": 56816,
+        "ParentProcessId": 55420,
+        "Name": "php.exe",
+        "CommandLine": "C:\\xampp\\php\\php.exe  artisan schedule:run "
+      }
+    ]
+  },
+  {
+    "caso": "inactivos-repetida-sin-proceso-no-identificado",
+    "codigo": 0,
+    "ajenos": []
+  }
+]

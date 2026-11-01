@@ -1,0 +1,140 @@
+- complementary:
+  - link "Wings":
+    - /url: /
+    - generic: Wings
+  - navigation:
+    - generic: Día a día
+    - link "Inicio":
+      - /url: http://127.0.0.1:8111/admin/dashboard
+      - text: Inicio
+    - link "Alumnos":
+      - /url: http://127.0.0.1:8111/alumnos
+      - text: Alumnos
+    - link "Clases":
+      - /url: http://127.0.0.1:8111/clases
+      - text: Clases
+    - generic: Plata
+    - link "Cobranza":
+      - /url: http://127.0.0.1:8111/cobranza
+      - text: Cobranza
+    - link "Caja":
+      - /url: http://127.0.0.1:8111/caja
+      - text: Caja
+    - link "Movimientos":
+      - /url: http://127.0.0.1:8111/movimientos
+      - text: Movimientos
+    - link "Cashflow":
+      - /url: http://127.0.0.1:8111/cashflow
+      - text: Cashflow
+    - link "Liquidaciones":
+      - /url: http://127.0.0.1:8111/liquidaciones
+      - text: Liquidaciones
+    - link "Reportes":
+      - /url: http://127.0.0.1:8111/reportes
+      - text: Reportes
+    - link "Revisión":
+      - /url: http://127.0.0.1:8111/revision-cobranza
+      - text: Revisión
+    - generic: El club
+    - link "Deportes":
+      - /url: http://127.0.0.1:8111/deportes
+      - text: Deportes
+    - link "Niveles":
+      - /url: http://127.0.0.1:8111/niveles
+      - text: Niveles
+    - link "Grupos":
+      - /url: http://127.0.0.1:8111/grupos
+      - text: Grupos
+    - link "Profesores":
+      - /url: http://127.0.0.1:8111/profesores
+      - text: Profesores
+    - link "Rubros":
+      - /url: http://127.0.0.1:8111/rubros
+      - text: Rubros
+    - link "Tipos de Caja":
+      - /url: http://127.0.0.1:8111/tipos-caja
+      - text: Tipos de Caja
+    - generic: Sistema
+    - link "Configuración":
+      - /url: http://127.0.0.1:8111/configuraciones
+      - text: Configuración
+    - link "Usuarios":
+      - /url: http://127.0.0.1:8111/usuarios
+      - text: Usuarios
+    - link "Ayuda":
+      - /url: http://127.0.0.1:8111/ayuda
+      - text: Ayuda
+- generic: Control T102
+- link "Ayuda sobre esta pantalla":
+  - /url: http://127.0.0.1:8111/ayuda/revisar-desglose-liquidacion
+  - generic: "?"
+- button "Salir"
+- banner:
+  - heading "Liquidación — Historia T102, Docente" [level=1]
+- main:
+  - heading "Historia T102, Docente" [level=2]
+  - generic: Septiembre 2026
+  - generic: Control T102
+  - generic: Tipo
+  - text: Por comisión
+  - generic: Monto final
+  - generic: $12,000.00
+  - generic: Estado
+  - text: Cerrada
+  - link "Volver":
+    - /url: http://127.0.0.1:8111/liquidaciones
+  - text: Cálculo original
+  - paragraph: $12,000.00
+  - text: Ajuste del admin
+  - paragraph: $0.00
+  - text: Monto final
+  - paragraph: $12,000.00
+  - generic "Editar monto final"
+  - generic: Alumnos con pagos registrados
+  - generic: "1"
+  - generic: "% Comisión"
+  - generic: 40.0%
+  - generic: Cálculo original
+  - generic: $12,000.00
+  - heading "Control T102, Historia" [level=3]
+  - generic: "Cuota:"
+  - generic: 09/2026
+  - generic: "Origen:"
+  - generic: Del mes
+  - generic: "Cobrado:"
+  - generic: 20/09/2026
+  - generic: "Grupo:"
+  - generic: Control T102 — B Control destino
+  - generic: "Monto pagado:"
+  - generic: $30,000.00
+  - generic: "Comisión:"
+  - generic: $12,000.00
+  - generic: Total confirmado
+  - generic: $12,000.00
+  - paragraph: Registrar pago de liquidación
+  - paragraph:
+    - text: Docente no tiene CBU ni alias cargado.
+    - link "Editar":
+      - /url: http://127.0.0.1:8111/profesores/1/edit
+  - text: Tipo de caja *
+  - combobox "Tipo de caja *":
+    - option "— Seleccioná —" [selected]
+    - 'option "Banco Galicia — Saldo: $0.00 (descubierto permitido)"'
+    - 'option "Banco Nación — Saldo: $0.00 (descubierto permitido)"'
+    - 'option "Banco Nacion ahorro — Saldo: $0.00 (descubierto permitido)"'
+    - 'option "Efectivo — Saldo: $30,000.00"'
+    - 'option "Mercado Pago — Saldo: $0.00"'
+  - text: Fecha de pago *
+  - textbox "Fecha de pago *": 2026-10-05
+  - text: Observaciones
+  - textbox "Observaciones":
+    - /placeholder: Opcional
+  - button "Pagar"
+  - paragraph: Cancelar liquidación
+  - paragraph: Permite volver a revisar las asistencias de las clases y generar una nueva liquidación para este período. Esta liquidación quedará registrada como cancelada.
+  - text: Motivo de cancelación *
+  - textbox "Motivo de cancelación *":
+    - /placeholder: "Ej: Corrección de asistencias clase 15/08"
+  - button "Cancelar"
+- contentinfo:
+  - generic: Wings

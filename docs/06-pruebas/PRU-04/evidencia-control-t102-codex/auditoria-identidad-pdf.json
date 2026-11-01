@@ -1,0 +1,8 @@
+{
+  "pdf_pantalla_dni_esperado": "99010200",
+  "pdf_pantalla_corresponde_al_fixture": false,
+  "pdf_directo_dni_esperado": "99000100",
+  "pdf_directo_corresponde_al_fixture": true,
+  "pdf_directo_importe_y_periodo": true,
+  "causa": "Base descartable recreada reutilizo pago ID1; storage de recibos conserva cache entre fixtures. PDF de pantalla excluido de aceptacion; PDF directo validado con texto, importe y documento."
+}

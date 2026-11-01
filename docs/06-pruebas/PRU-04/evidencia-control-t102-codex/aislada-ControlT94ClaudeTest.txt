@@ -1,0 +1,12 @@
+   PASS  Tests\Feature\ControlT94ClaudeTest
+  ✓ intercambiar dos frecuencias no da error del servidor                                                       13.10s
+  ✓ la pantalla vieja no revive una frecuencia desactivada                                                       0.09s
+  ✓ sacar y volver a cargar la misma frecuencia no avisa que se desactivo                                        0.07s
+  ✓ cambiar a una frecuencia desactivada no mueve la historia ajena                                              0.09s
+  ✓ el cobro no acepta una frecuencia desactivada                                                                0.15s
+  ✓ no se ofrece en el alta de alumno                                                                            0.11s
+  ✓ eliminar una ya desactivada no da error del servidor                                                         0.12s
+  ✓ reactivar conserva el precio de los meses anteriores                                                         0.08s
+
+  Tests:    8 passed (28 assertions)
+  Duration: 13.95s

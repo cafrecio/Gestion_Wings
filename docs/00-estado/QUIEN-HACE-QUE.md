@@ -50,13 +50,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | 01/11: guion y prompt de la tanda 5 listos, siete dias simulados sobre copia con main y plata comparada a mano al peso. No se entrega hasta cerrar controles, desplegar y probar la rutina en el sitio. Defectos nuevos T110, T111 y T112. |
+| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Devuelto (hizo Claude, verifica Codex) | Codex controlo c91b4555: manual y avisos corregidos; H1 residual en dos campos de la ficha que aun generalizan PENDIENTE. H2 paneles espera aprobacion visual de Carlos. T100 pasa en completa final; cinco avisos mecanicos menores del manual. VERIFICACION-T100-CODEX.md. |
+| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Devuelto (hizo Claude, verifica Codex) | Control Codex: ocho casos T102 correctos. Devuelta por S1/S2 aislamiento: completa unica1428/51fallidas/6omitidas; T94 contamina otras clases e inscripcion aislada se desvia a Primera carga. VERIFICACION-T102-CODEX.md. Sin producto ni despliegue. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 corregido por Claude 01/11 en manual y ficha; avisos de exito: Cobro cancelado. y Cobro anulado. Los dos textos de los paneles (H2, en vistas) esperan el OK de Carlos. Sin correr pruebas: maquina reservada por Codex. Falta control de lo corregido. |
-| **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | En curso (hizo Claude, verifica Codex) | Codex controla etapa 3, niveles y grupos con importes historicos. Solo wings_testing_codex; completa unica reservada al final. |
+Nada en este momento.
 
 ## Gemini
 

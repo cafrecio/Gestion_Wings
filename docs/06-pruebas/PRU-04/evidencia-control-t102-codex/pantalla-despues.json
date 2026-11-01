@@ -1,0 +1,425 @@
+{
+    "checks_tablas": {
+        "alumnos": true,
+        "alumno_planes": true,
+        "grupo_planes": true,
+        "clases": true,
+        "asistencias": true,
+        "pagos": true,
+        "deuda_cuotas": true,
+        "pago_deuda_cuota": true,
+        "cashflow_movimientos": true,
+        "reporte_eventos": true,
+        "liquidaciones": true,
+        "liquidacion_detalles": true
+    },
+    "checks_importes": {
+        "ingresos": true,
+        "deporte_ingresos": true,
+        "egresos": true,
+        "deporte_egresos": true,
+        "resultado": true,
+        "deporte_resultado": true,
+        "resultado_global": true,
+        "deporte_resultado_global": true,
+        "disponible": true,
+        "deporte_disponible": true,
+        "deuda": true,
+        "deporte_deuda": true,
+        "por_pagar": true,
+        "deporte_por_pagar": true,
+        "pdf": true
+    },
+    "grupo": {
+        "id": 1,
+        "deporte_id": 3,
+        "nivel_id": 8,
+        "activo": true,
+        "created_at": "2026-09-20T13:00:00.000000Z",
+        "updated_at": "2026-10-05T13:00:00.000000Z"
+    },
+    "niveles": [
+        {
+            "id": 4,
+            "nombre": "Principiantes",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 5,
+            "nombre": "Intermedias",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 6,
+            "nombre": "Avanzadas",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 7,
+            "nombre": "A Control origen",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 8,
+            "nombre": "B Control destino",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 9,
+            "nombre": "C Control ocupado",
+            "descripcion": null,
+            "activo": true,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        },
+        {
+            "id": 10,
+            "nombre": "D Control solo inactivos",
+            "descripcion": null,
+            "activo": false,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-10-05T13:00:00.000000Z"
+        },
+        {
+            "id": 11,
+            "nombre": "E Control vacio",
+            "descripcion": null,
+            "activo": false,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-10-05T13:00:00.000000Z"
+        },
+        {
+            "id": 12,
+            "nombre": "F Control inactivo",
+            "descripcion": null,
+            "activo": false,
+            "created_at": "2026-09-20T13:00:00.000000Z",
+            "updated_at": "2026-09-20T13:00:00.000000Z"
+        }
+    ],
+    "reporte": {
+        "mes": "2026-09",
+        "fecha_corte": "2026-09-30",
+        "deporte_id": null,
+        "ingresos": 3000000,
+        "egresos": 0,
+        "resultado": 3000000,
+        "resultado_global": 3000000,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 3000000,
+            "mes": 3000000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-09",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                }
+            ],
+            "cuotas": 3000000,
+            "inscripciones": 0,
+            "punitorios": 0
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 1200000,
+            "mes": 1200000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-09",
+                    "deporte_id": 3,
+                    "centavos": 1200000
+                }
+            ]
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 3000000,
+                "pendiente": 0,
+                "total": 3000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 3000000,
+        "historial_desde": "2026-01-01",
+        "filas": [
+            {
+                "id": 1,
+                "origen": "CASHFLOW",
+                "fecha": "2026-09-20",
+                "concepto": "Cuota Mensual (09\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 1,
+                        "deuda_id": 1,
+                        "periodo_cuota": "2026-09",
+                        "periodo_comision": "2026-09",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    }
+                ],
+                "periodo_ingreso": "2026-09"
+            }
+        ],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 0,
+            "asistencia": 0,
+            "revision": 0
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T102",
+                "nivel": "B Control destino",
+                "cantidad": 1
+            }
+        ]
+    },
+    "reporte_deporte": {
+        "mes": "2026-09",
+        "fecha_corte": "2026-09-30",
+        "deporte_id": 3,
+        "ingresos": 3000000,
+        "egresos": 0,
+        "resultado": 3000000,
+        "resultado_global": 3000000,
+        "sin_clasificar": 0,
+        "gastos_club": 0,
+        "aportes": 0,
+        "retiros": 0,
+        "deuda": {
+            "disponible": true,
+            "total": 3000000,
+            "mes": 3000000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-09",
+                    "deporte_id": 3,
+                    "centavos": 3000000
+                }
+            ],
+            "cuotas": 3000000,
+            "inscripciones": 0,
+            "punitorios": 0
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 1200000,
+            "mes": 1200000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-09",
+                    "deporte_id": 3,
+                    "centavos": 1200000
+                }
+            ]
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 3000000,
+                "pendiente": 0,
+                "total": 3000000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            }
+        ],
+        "disponible": 3000000,
+        "historial_desde": "2026-01-01",
+        "filas": [
+            {
+                "id": 1,
+                "origen": "CASHFLOW",
+                "fecha": "2026-09-20",
+                "concepto": "Cuota Mensual (09\/2026)",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 3,
+                "clasificacion": "NEGOCIO",
+                "partes_cuota": [
+                    {
+                        "pago_id": 1,
+                        "deuda_id": 1,
+                        "periodo_cuota": "2026-09",
+                        "periodo_comision": "2026-09",
+                        "centavos": 3000000,
+                        "origen": "del_mes"
+                    }
+                ],
+                "periodo_ingreso": "2026-09"
+            }
+        ],
+        "avisos": {
+            "cajas": 0,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 0,
+            "asistencia": 0,
+            "revision": 0
+        },
+        "alumnos": [
+            {
+                "deporte": "Control T102",
+                "nivel": "B Control destino",
+                "cantidad": 1
+            }
+        ]
+    },
+    "eventos": [
+        {
+            "id": 1,
+            "tipo": "CUOTA",
+            "origen_id": 1,
+            "deuda_cuota_id": 1,
+            "liquidacion_id": null,
+            "periodo": "2026-09",
+            "persona_id": 1,
+            "deporte_id": 3,
+            "nivel_id": 7,
+            "fecha": "2026-09-20",
+            "delta_centavos": 6000000,
+            "motivo": "CREACION",
+            "registrado_en": "2026-09-20 10:00:00"
+        },
+        {
+            "id": 2,
+            "tipo": "CUOTA",
+            "origen_id": 1,
+            "deuda_cuota_id": 1,
+            "liquidacion_id": null,
+            "periodo": "2026-09",
+            "persona_id": 1,
+            "deporte_id": 3,
+            "nivel_id": 7,
+            "fecha": "2026-09-20",
+            "delta_centavos": -3000000,
+            "motivo": "CAMBIO",
+            "registrado_en": "2026-09-20 10:00:00"
+        },
+        {
+            "id": 3,
+            "tipo": "LIQUIDACION",
+            "origen_id": 1,
+            "deuda_cuota_id": null,
+            "liquidacion_id": 1,
+            "periodo": "2026-09",
+            "persona_id": 1,
+            "deporte_id": 3,
+            "nivel_id": null,
+            "fecha": "2026-09-20",
+            "delta_centavos": 0,
+            "motivo": "CREACION",
+            "registrado_en": "2026-09-20 10:00:00"
+        },
+        {
+            "id": 4,
+            "tipo": "LIQUIDACION",
+            "origen_id": 1,
+            "deuda_cuota_id": null,
+            "liquidacion_id": 1,
+            "periodo": "2026-09",
+            "persona_id": 1,
+            "deporte_id": 3,
+            "nivel_id": null,
+            "fecha": "2026-09-20",
+            "delta_centavos": 1200000,
+            "motivo": "CAMBIO",
+            "registrado_en": "2026-09-20 10:00:00"
+        }
+    ]
+}
