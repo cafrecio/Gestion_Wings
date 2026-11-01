@@ -801,7 +801,7 @@
         {
           "donde": "Resultado",
           "l": "b",
-          "texto": "Los gastos y los ingresos del mes no cambian.",
+          "texto": "Los gastos y los ingresos del mes no cambian: en Cashflow sin filtro de cuenta y en Historial, las tarjetas no suman la transferencia, aunque sus filas se listan.",
           "tipo": "indirecto"
         },
         {
@@ -815,10 +815,16 @@
           "l": "d",
           "texto": "La ayuda lo explica como caso puntual.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow, filtrando una cuenta",
+          "l": "e",
+          "texto": "Sí suma: Efectivo muestra $300.000 de egreso y Banco $300.000 de ingreso.",
+          "tipo": "indirecto"
         }
       ],
       "estado": "vigente",
-      "fuente": "Decidido por Carlos (DU-29, 13/10) y aclarado el 20/10: un formulario de transferencia con cuenta de salida, destino e importe; los conceptos son del sistema y no se editan. Programado en T61 por Codex (transferencia única, confirmación de fecha de un mes anterior FIN-09 y, en la segunda vuelta, TRASPASO solo para las transferencias del sistema). Verificado por Claude y visual aprobado por Carlos el 21/10: cerrada.",
+      "fuente": "Actualizado por Claude CAB el 01/11/2026 por T106. Decidido por Carlos (DU-29, 13/10) y aclarado el 20/10: un formulario de transferencia con cuenta de salida, destino e importe; los conceptos son del sistema y no se editan. Programado en T61 por Codex (transferencia única, confirmación de fecha de un mes anterior FIN-09 y, en la segunda vuelta, TRASPASO solo para las transferencias del sistema). Verificado por Claude y visual aprobado por Carlos el 21/10: cerrada.",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo acumulado de las entregas de caja.",

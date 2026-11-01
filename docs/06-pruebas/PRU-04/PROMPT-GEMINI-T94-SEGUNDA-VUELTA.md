@@ -1,8 +1,8 @@
 # PROMPT — T94, segunda vuelta: corregir lo que devolvió el control — para Gemini
 
-> Prompt para Gemini, escrito por Claude CAB el 01/11/2026. Carlos se lo pasa cuando T102 esté subida, porque toca el mismo archivo.
+> Prompt para Gemini, escrito por Claude CAB el 01/11/2026. T102 ya está subida.
 
-**Inicio.** Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md` y leer `AGENTS.md`. Traer `main` actualizado y marcar T94 `en_curso, tiene=Gemini`. Si `app/Http/Controllers/GrupoWebController.php` tiene cambios ajenos sin subir, **frená y avisale a Carlos**: T102 toca ese archivo.
+**Inicio.** Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md` y leer `AGENTS.md`. Traer `main` actualizado y marcar T94 `en_curso, tiene=Gemini`. T102 ya está subida (`a648ec9e`) y cambió `GrupoWebController` (`store`, `edit`, `update`, `toggleActivo`) y `grupos/_form.blade.php`: partí de ese código. Si `GrupoWebController.php` tiene cambios ajenos sin subir, **frená y avisale a Carlos**.
 
 ## Qué pasó
 
@@ -44,4 +44,4 @@ Las vistas no se tocan. Si creés que hace falta, frená y avisale a Carlos.
 
 - Tablero: `php scripts/tablero/tablero.php cambiar T94 estado=a_verificar tiene=Claude`, con un paso que diga el resultado.
 - Entrada en `docs/00-estado/LOG-GEMINI.md`, firmada según la máquina.
-- **Commit solo de lo tuyo:** `git status`, mirar archivo por archivo, y en cada uno mirar el `git diff` antes de agregarlo. Agregar por nombre con `git add <archivo>`, nunca `git add -A`, `git add .` ni `git commit -a`. Si un archivo tuyo tiene cambios ajenos sin publicar, frenar y avisar a Carlos. La carpeta es compartida: Codex está con T97 y otra sesión de Claude con T102 y T105.
+- **Commit solo de lo tuyo:** `git status`, mirar archivo por archivo, y en cada uno mirar el `git diff` antes de agregarlo. Agregar por nombre con `git add <archivo>`, nunca `git add -A`, `git add .` ni `git commit -a`. Si un archivo tuyo tiene cambios ajenos sin publicar, frenar y avisar a Carlos. La carpeta es compartida con otros agentes.

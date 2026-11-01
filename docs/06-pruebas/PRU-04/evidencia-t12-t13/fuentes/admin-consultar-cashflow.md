@@ -18,3 +18,5 @@ Cada mensaje de Wings que cita la página, dónde está en el código y en qué 
 | Mensaje de Wings | Dónde está | ¿Está en la página? |
 |---|---|---|
 | «Traspaso entre medios» | `app/Support/ClasificacionSubrubros.php:25` | Sí — ¿Qué significan los movimientos con clasificación «Traspaso entre medios»? |
+
+- **Agregado el 01/11/2026 por T106 (`CashflowWebController::index`):** las transferencias no suman en los totales, salvo con filtro de cuenta o de su subrubro. Ejecutado en `TotalesSinTransferenciasT106Test`.

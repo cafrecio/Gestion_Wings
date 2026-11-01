@@ -27,3 +27,5 @@
 |---|---|---|---|
 | `HTTP 403 Forbidden` | `routes/web.php:67`<br>`app/Http/Middleware/CheckRole.php:25` | No | Control de autorización para rol Profesor; la operativa tiene acceso pleno al historial. |
 | `0 movimientos encontrados` | `resources/views/caja/historial.blade.php:85` | No | Estado vacío visual en pantalla cuando los filtros no devuelven movimientos. |
+
+- **Agregado el 01/11/2026 por T106 (`CajaWebController::historial`):** las transferencias no suman en los totales, salvo con filtro de cuenta o de su subrubro. Ejecutado en `TotalesSinTransferenciasT106Test`.

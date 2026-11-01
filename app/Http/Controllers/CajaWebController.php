@@ -296,6 +296,7 @@ class CajaWebController extends Controller
                 // importe negativo en el mismo rubro: resta, no es otro ingreso.
                 'neto'     => $m->subrubro?->rubro?->tipo === 'EGRESO' ? -(float) $m->monto : (float) $m->monto,
                 'cancelado' => false,
+                'traspaso' => $m->reporte_clasificacion === \App\Support\ClasificacionSubrubros::TRASPASO,
                 'orden'    => $m->created_at,
             ]);
         }
@@ -324,8 +325,10 @@ class CajaWebController extends Controller
 
         $filas = $filas->sortBy([['fecha', 'desc'], ['orden', 'desc']])->values();
 
-        // Lo cancelado se muestra pero no suma.
-        $vigentes      = $filas->where('cancelado', false);
+        // Lo cancelado se muestra pero no suma. T106: una transferencia entre cuentas propias tampoco,
+        // salvo que se esté mirando justo ese subrubro: si no, se verían filas con total cero.
+        $vigentes      = $filas->where('cancelado', false)
+            ->filter(fn ($f) => $subrubroFiltro || empty($f->traspaso));
         $totalIngresos = $vigentes->where('tipo', 'INGRESO')->sum('neto');
         $totalEgresos  = $vigentes->where('tipo', 'EGRESO')->sum('neto');
 

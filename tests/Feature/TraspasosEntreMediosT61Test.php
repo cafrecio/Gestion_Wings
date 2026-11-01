@@ -132,8 +132,8 @@ class TraspasosEntreMediosT61Test extends TestCase
         $this->assertSame(1, $movs->pluck('referencia_id')->unique()->count());
         $this->assertSame(['TRASPASO', 'TRASPASO'], $movs->pluck('reporte_clasificacion')->all());
         $this->get('/cashflow?periodo=mes&anio=2026&mes=10')->assertOk()
-            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 320000.0)
-            ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 307000.0);
+            ->assertViewHas('totalIngresos', fn ($m) => (float) $m === 20000.0)
+            ->assertViewHas('totalEgresos', fn ($m) => (float) $m === 7000.0);
         $libro = collect(app(CashflowSaldoService::class)->obtenerSaldosPorTipoCaja()['por_tipo_caja'])->keyBy('tipo_caja_id');
         $this->assertEquals($d[$this->efectivo->id]['total'] / 100, $libro[$this->efectivo->id]['saldo']);
         $this->assertEquals($d[$this->banco->id]['total'] / 100, $libro[$this->banco->id]['saldo']);

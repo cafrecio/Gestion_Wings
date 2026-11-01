@@ -234,8 +234,8 @@ class AnulacionTransferenciasT97Test extends TestCase
         foreach (['2026-10', '2026-11'] as $mes) $antes[$mes] = app(ReporteMensualService::class)->obtener($mes);
         $patas = $this->transferir('2026-10-20');
         $this->get('/cashflow?periodo=mes&fecha=2026-10-20')->assertOk()
-            ->assertViewHas('totalIngresos', fn ($n) => (int) round((float) $n * 100) === 31200050)
-            ->assertViewHas('totalEgresos', fn ($n) => (float) $n === 300000.0)
+            ->assertViewHas('totalIngresos', fn ($n) => (int) round((float) $n * 100) === 1200050)
+            ->assertViewHas('totalEgresos', fn ($n) => (float) $n === 0.0)
             ->assertViewHas('movimientos', fn ($m) => $m->where('referencia_tipo', CashflowMovimiento::REF_TRANSFERENCIA)->count() === 2
                 && $m->where('referencia_tipo', CashflowMovimiento::REF_TRANSFERENCIA)
                     ->every(fn ($f) => array_column($f->accionesCorreccion, 'nombre') === ['Ver', 'Anular']));

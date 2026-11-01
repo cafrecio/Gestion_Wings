@@ -39,7 +39,7 @@ Esta tarea te explica cómo consultar los movimientos de turnos de caja anterior
 ---
 
 ### Paso 3. Analizar los resultados
-1. La barra superior muestra el total de movimientos encontrados y los acumulados de **Ingresos** (en verde) y **Egresos** (en rojo).
+1. La barra superior muestra el total de movimientos encontrados y los acumulados de **Ingresos** (en verde) y **Egresos** (en rojo). El dueño ve también las transferencias entre cuentas propias: aparecen en la lista, pero no suman en esos acumulados, salvo que filtre por el subrubro de la transferencia.
 2. En la tabla podés revisar la fecha, detalle, medio de pago utilizado, qué usuario registró la operación y el monto final.
 3. Para regresar a la pantalla operativa de caja, tocá el botón **Volver**.
 

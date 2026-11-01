@@ -1,4 +1,4 @@
-# PROMPT — T100 y T101: controlar el adelanto cancelado y el autor del gasto — para Codex
+# PROMPT — T100, T101 y T106: controlar el adelanto cancelado, el autor del gasto y los totales — para Codex
 
 > Prompt para Codex, escrito por Claude CAB el 01/11/2026. Carlos lo copia y se lo pasa a Codex cuando termine T97.
 
@@ -67,6 +67,20 @@ Marcá también T101 `en_curso, tiene=Codex`. Si el dueño agrega un gasto en el
 **Prestá atención a esto, que Claude no comprobó por pantalla:** cualquier lugar que dé por hecho que el autor de un movimiento es la operativa de su caja, como `CajaResumenService`, `CierreDiaResumenService` y `CashflowWebController`. El gasto ya cargado en el sitio de prueba (45.8) sigue a nombre de Sandra: no se corrige el dato, y por eso el control CAJ-6 sigue valiendo.
 
 El informe y el tablero son los mismos para las dos: una fila por caso y `cambiar T101` con su propio resultado.
+
+## T106: en el mismo control
+
+Marcá también T106 `en_curso, tiene=Codex`. **Decisión de Carlos, 01/11:** las tarjetas de Cashflow sin filtro de cuenta y de Historial no suman las transferencias; con el filtro de una cuenta sí, y en Historial también filtrando su subrubro. Las filas se siguen listando. Cambios: `CashflowWebController::index`, `CajaWebController::historial`, contrato V5, dos páginas del manual, CSH-018 y `tests/Feature/TotalesSinTransferenciasT106Test.php`. Claude cambió resultados esperados de dos pruebas ajenas: `TraspasosEntreMediosT61Test` y `AnulacionTransferenciasT97Test`. Revisá que sea por esta decisión y nada más.
+
+| # | Caso | Resultado esperado |
+|---|---|---|
+| 17 | Cashflow e Historial con una transferencia de $1.500.000 | Ingresos y egresos sin ella, al peso; sus dos filas en la lista |
+| 18 | Cashflow filtrando la cuenta de salida y la de destino | Suma en cada una, y el saldo de la cuenta se explica con esos totales |
+| 19 | Historial filtrando «Salida a otro medio» | Suma: no quedan filas con total cero |
+| 20 | Transferencia anulada; transferencia de un mes anterior | Los totales dan igual que sin ella |
+| 21 | Saldos de cuentas, Reportes e Inicio | No cambian con T106 |
+
+**Prestá atención a esto, que Claude no comprobó por pantalla:** la lectura de la tarjeta **Resultado** de Cashflow y las cargas históricas de dos movimientos sueltos (T61), que pueden estar clasificadas como traspaso con una sola pata en el mes. Si ves algo que confunda en pantalla, proponé el texto: no cambies vistas.
 
 ## Reglas
 

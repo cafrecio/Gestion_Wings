@@ -180,12 +180,18 @@ class CashflowWebController extends Controller
             $mov->validadorIniciales = $validadorIniciales;
         }
 
-        $totalIngresos = (clone $base)
+        // T106, Carlos 01/11/2026: para el club una transferencia entre cuentas propias no entra ni sale.
+        // Mirando una sola cuenta sí cuenta: explica por qué cambió su saldo.
+        $baseTotales = (clone $base)->when(!$tipoCajaId, fn($q) => $q->where(fn($r) => $r
+            ->whereNull('reporte_clasificacion')
+            ->orWhere('reporte_clasificacion', '!=', \App\Support\ClasificacionSubrubros::TRASPASO)));
+
+        $totalIngresos = (clone $baseTotales)
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))
             ->sum('monto');
 
         // Los egresos se guardan negativos; para mostrar se usa el valor absoluto
-        $totalEgresos = abs((clone $base)
+        $totalEgresos = abs((clone $baseTotales)
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))
             ->sum('monto'));
 

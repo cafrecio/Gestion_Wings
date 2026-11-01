@@ -58,6 +58,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T100** Adelanto cobrado con importe equivocado y cancelado deja la cuota en ese importe | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decision de Carlos (reemplaza CJ-26): cancelar o anular un adelanto borra la cuota nacida de ese cobro; con el mes empezado queda al precio del plan. Espera que Codex termine T97; ahi va el control con PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
 | **T101** Gasto que el dueno carga en el turno de una operativa queda a nombre de ella | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: el gasto que el dueño agrega en un turno figura a su nombre, también en Cashflow al validar. Lo ya cargado no se corrige. Codex la controla junto con T100: PROMPT-CODEX-T100-CONTROL.md, cuando termine T97. Sin desplegar. |
 | **T105** Recibo: cada PDF pesa 1,7 MB y la primera vez tarda 3 s en el servidor | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11: recorte de fuentes en config/dompdf.php, de 1,7 MB a unos 225 KB, mismo texto. Los 3 s no bajan. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
+| **T106** Cashflow e Historial suman las transferencias entre cuentas como ingreso y como egreso en sus tarjetas | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, decisión de Carlos: Cashflow sin filtro de cuenta e Historial no suman las transferencias; con filtro de cuenta sí, y en Historial filtrando su subrubro. Las filas se siguen listando. Codex la controla con T100 y T101: PROMPT-CODEX-T100-CONTROL.md. Sin desplegar. |
 | **T97** Transferencia entre cuentas: no se puede corregir ni anular | En curso (hizo Codex, verifica Claude) | Implementacion propia 7e72b0d4 publicada. Codex espera una franja sin otras pruebas para la suite completa en wings_testing_codex; no iniciar suites mientras corre. Despues entrega a Claude; sin despliegue. |
 | **T102** Nivel: poder inactivarlo y pasar un grupo a otro nivel | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha por Claude 01/11, regla de Carlos: un nivel con grupos activos no se inactiva y el grupo se puede pasar a otro nivel. OK visual de Carlos. 23 pruebas y 12 mutaciones detectadas. Control de Codex con PROMPT-CODEX-T102-T105-CONTROL.md, despues de T100. Sin desplegar. |
 
@@ -65,11 +66,11 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | Devuelto (hizo Gemini, verifica Claude) | Devuelta por Claude 01/11 (VERIFICACION-T94-CLAUDE.md): lo central anda; H1 carrera al editar, H2 pantalla vieja revive, H3 aviso falso, H4 historia reescrita, H5 intercambiar da 500. Carlos le pasa a Gemini PROMPT-GEMINI-T94-SEGUNDA-VUELTA.md cuando T102 esté subida: tocan GrupoWebController. |
+| **T94** Sacar una frecuencia de un grupo: error del servidor si alguna vez se usó, y falso «Grupo actualizado» si tiene alumnos | En curso (hizo Gemini, verifica Claude) | Gemini inicia correcciones segunda vuelta T94 |
 
-## Sin empezar (12)
+## Sin empezar (11)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104, T106 (ahora), T107 (ahora), T108 (ahora), T109 (ahora).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T104, T107 (ahora), T108 (ahora), T109 (ahora).
 
 ## Mejoras futuras, no se empiezan ahora (13)
 
