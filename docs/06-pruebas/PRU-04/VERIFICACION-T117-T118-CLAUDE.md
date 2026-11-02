@@ -1,5 +1,7 @@
 # Verificación de T117 y T118 — Claude CAB, 01/11/2026
 
+> **Corrección del 01/11, por orden de Carlos:** T118 no correspondía devolverla: la pantalla estaba bien y lo que faltaba eran pruebas y citas del informe. Queda cerrada; H4 es una anotación. Una vuelta se abre solo por algo que afecte a quien usa Wings, a la plata, a los datos o a la seguridad.
+
 Control de lo que entregó Gemini en `70ac4dec` y `f21f8ebf`. Corrió sobre una copia de `fe1cddc6` en `wings_testing_claude`, sin desplegar.
 
 **Resultado:** las dos vuelven a Gemini. La sesión vencida funciona en lo que pedía T117, salvo Configuración, que se traba. T118 se ve bien en pantalla; le faltan tres pruebas. El informe afirma cosas que no se ejecutaron.

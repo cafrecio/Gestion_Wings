@@ -49,7 +49,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Verificar segunda vuelta T117: aviso de salida neutralizado en 419 de configuraciones y reglas |
-| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Verificar segunda vuelta T118: 3 pruebas nuevas agregadas (M8, M9, M10) y suite rápida en verde |
 | **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | En curso (hizo Claude, verifica Codex) | Codex la devolvio; H1 y H2 corregidos y subidos, sin desplegar. Claude: corriendo suite completa y mutaciones. Despues, segunda vuelta de Codex. |
 
 ## Codex
