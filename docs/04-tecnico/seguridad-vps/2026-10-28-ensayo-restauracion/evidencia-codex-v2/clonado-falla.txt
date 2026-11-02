@@ -1,0 +1,36 @@
+
+== [0s] 1. Armar el paquete de wingstest como respaldar.sh
+   -> ok: wingstest_ensayo.tgz.enc (85M)
+
+== [7s] 2. Descifrar (clave identica a la copia de Drive, comprobada por huella)
+   -> ok: env.txt storage.tgz wings.sql
+
+== [8s] 3. Base aparte
+   -> ok: 56 tablas
+   users                    viva=12      copia=12      ok
+   alumnos                  viva=123     copia=123     ok
+   pagos                    viva=315     copia=315     ok
+   deuda_cuotas             viva=341     copia=341     ok
+   clases                   viva=232     copia=232     ok
+   asistencias              viva=2087    copia=2087    ok
+   cajas_operativas         viva=50      copia=50      ok
+   movimientos_operativos   viva=507     copia=507     ok
+   cashflow_movimientos     viva=567     copia=567     ok
+   liquidaciones            viva=14      copia=14      ok
+   liquidacion_detalles     viva=223     copia=223     ok
+   profesores               viva=8       copia=8       ok
+   migrations               viva=114     copia=114     ok
+   pagos.SUM(monto_final)   viva=12399510.00  copia=12399510.00  ok
+   deuda_cuotas.SUM(monto_original) viva=12549500.00  copia=12549500.00  ok
+   deuda_cuotas.SUM(monto_pagado) viva=11277500.00  copia=11277500.00  ok
+   cashflow_movimientos.SUM(monto) viva=6076080.25   copia=6076080.25   ok
+   movimientos_operativos.SUM(monto) viva=13261760.50  copia=13261760.50  ok
+   liquidaciones.SUM(total_calculado) viva=3026280.00   copia=3026280.00   ok
+   liquidacion_detalles.SUM(monto) viva=3026280.00   copia=3026280.00   ok
+   -> diferencias: 0
+
+== [9s] 4. Codigo desde GitHub, sin credenciales (como en un servidor nuevo)
+Please make sure you have the correct access rights
+and the repository exists.
+   -> FALLA: no se pudo clonar sin credenciales
+   limpieza: base, usuario y carpeta del ensayo borrados

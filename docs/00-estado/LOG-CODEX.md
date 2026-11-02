@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T82 segunda vuelta cerrada
+
+H1–H4 reejecutados en VPS00:20–00:33UTC02/11 (CAB01/11). [Segunda vuelta y evidencia](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md).
+Prueba54s/Drive52s, salida0; liquidaciones/detalles3026280iguales. Consulta rota/descarga/clonado1; SIGTERM con servidor escuchando130; cero residuos. Rclone conserva huella y fecha, sin publicarlas.
+Independiente56/56tablas,29decimales,66/66archivos; producción34/35 (sessions distinta),3/3archivos. Configuración/APP_KEY y aplicación/recibo200; canónico ensayo0 ambos. Legacy retirado, cron sin llamadas.
+Errores propios conservados: comparación posterior al login creó una sesión; repetida antes del curl. Inventario final comparaba órdenes distintos; conjuntos iguales, limpieza completada.
+Negocio vivo conservado; solo sessions de producción varió, sin atribuir causa. Control privado retirado, rclone intacto; sin producto, bases/hogares vivos modificados ni despliegue.
+T82 cerrada, verificaCodex, tiene nadie. Servidor vacío/volumen real no probados; tres pendientes de Carlos no frenan. Repetir antes/después de desplegar; Carlos conserva decisión de despliegue.
+
 ## 2026-11-01 — Codex CAB — T119 control independiente, devuelta
 
 Copia limpia6be8f76d, rama codex/control-t119-t82; sólo wings_testing_codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T119-CODEX.md) y evidencia reproducible.
@@ -72,24 +81,7 @@ Migración sobre copia ficticia autorizada: 55 tablas intactas, origen legado NU
 Comisión120.000→0 por POST, resultado en pantalla y cierre120.000 intacto; el diálogo nativo de Recalcular quedó como límite del navegador. PDF anulado inspeccionado.
 Suite completa única al final de T102, como pidió Carlos. Continúa T106 después de este commit; no se hereda una suite anterior.
 
-## 2026-11-01 — Codex CAB — T97 entregada a revisión de Claude
-
-Implementación propia publicada en 7e72b0d4; aspecto aprobado por Carlos: «Esta OK ahora». [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) · [Capturas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
-Completa en wings_testing_codex: 1401 aprobadas, 6 omitidas, 11287 aserciones, 1300,66s, salida0; copia aislada1389 métodos y669 fuentes intactas. T61/T27 con sus expectativas originales verdes.
-T106 posterior preservada: regresión T97/T61/T27 con controladores y expectativas2145888b, 65/774 verdes,97,36s; cuatro fuentes aisladas restauradas. No es el control completo de T106.
-Manual aislado59/0; 19 contrapruebas detectadas, dos conexiones reales y seis capturas reales. Fichas refrescadas conservando el agregado ajeno de T106.
-Carlos pidió solicitar la reserva: confirmaron Gemini y ambas sesiones de Claude; reserva LIBERADA. Falso positivo inicial del monitor corregido y documentado, sin heredar verdes de corridas interrumpidas.
-T97 a_verificar, tieneClaude; sin autocierre, base del club ni despliegue. Código ajeno y evidenciaT34 preservados; entrega documental final solo propia.
-
-Pedido de Carlos: [reserva de suite T97](RESERVA-SUITE-T97.md), LIBERADA tras la completa y regresión; confirmaron Gemini y dos sesiones de Claude.
-
-## 2026-11-01 — Codex CAB — T97 implementada; espera suite completa exclusiva
-
-Carlos aprobó el aspecto: «Esta OK ahora». Anulación atómica del par con motivo, autor, fecha y dos inversos; defensas de directos intactas. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) y [pantallas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
-65 dirigidas/774 y rápida1266/6 omitidas/9482 verdes; 19 mutaciones detectadas con fuentes restauradas y dos conexiones reales sin escritura del segundo intento. Manual aislado59/0; vistas compilan.
-La completa anterior se interrumpió al reiniciar la sesión: no tiene resultado final. Copia aislada HEAD62a5df3f + T97 preparada (1389 métodos, vendor real), solo wings_testing_codex; espera las pruebas T102.
-Carlos autorizó «Sí, publicar solo T97 y preservar lo ajeno». Se separan CSS, rutas, generador, informe compartido y contadores; T94/T102/T105 y evidencia T34 quedan fuera del commit propio.
-Manual, fichas, contrato y despliegue documentados. Se guarda la implementación sin dar por terminada la verificación. T97 sigue en curso; después de la completa se entrega a Claude, sin autocierre ni despliegue.
+[Dos entradas T97 archivadas íntegras al controlar T82](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-T97-antes-segunda-vuelta-T82.txt). Los vínculos y autorizaciones anteriores se conservan abajo.
 
 [Propuesta T97 y su aprobación, archivadas íntegras al entregar](../99-archivo/bitacoras/2026-11-01/LOG-CODEX-propuesta-T97-antes-entrega.txt). Base original: docs/00-estado/. SHA256: 6070bc11254f12db81ec48ca87b73d41efe4cec78edb6f344b172fd2b1ae79bd.
 

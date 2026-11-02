@@ -55,7 +55,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha, sin desplegar. Control: PRU-04/PROMPT-CODEX-T115-CONTROL.md. |
-| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 a H4 corregidos; restaurar.sh viejo retirado con OK de Carlos. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 2. |
 
 ## Gemini
 

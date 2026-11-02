@@ -191,7 +191,7 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 - [ ] **T82, decidir si el repositorio sigue público.** Pasarlo a privado obliga a clonar con
   credencial en un servidor nuevo. Detalle en el
   [ensayo de restauración](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/README.md).
-  Control Codex01/11: el documento está por metadatos en `BackUp VPS/Credenciales/Credenciales Back-ups`; no se abrió. Cliente compartido y repositorio público confirmados. Los tres pendientes siguen abiertos; T82 devuelta por hallazgos del control, no por esos pendientes. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md).
+  Control Codex01/11: la primera vuelta comprobó solo metadatos del documento en `BackUp VPS/Credenciales/Credenciales Back-ups`; no se abrió. En segunda vuelta siguen sin cliente Google personalizado y con repositorio público, comprobados sin exponer secretos. Los tres pendientes continúan abiertos; **T82 cerrada tras reejecutar H1–H4**, con límites de servidor vacío/volumen real y repetición antes/después del despliegue. Esos pendientes no frenan el cierre del ensayo. [Informe](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md).
 
 ## 4. Para la entrega
 

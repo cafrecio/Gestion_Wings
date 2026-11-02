@@ -1,0 +1,4 @@
+
+== [0s] 1. Bajar de Drive el respaldo mas nuevo (no la copia local)
+   -> FALLA: no se pudo bajar
+   limpieza: base, usuario y carpeta del ensayo borrados

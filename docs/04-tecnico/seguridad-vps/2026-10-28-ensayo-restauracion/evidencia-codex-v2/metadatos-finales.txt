@@ -1,0 +1,2 @@
+{"legacy_ausente": true, "retirado_presente": true, "referencias_al_restaurador_en_respaldar_y_cron": [], "restaurador_canonico_igual_al_repo": true, "cron_respaldo_presente": true, "cron_scheduler_presente": true, "rclone_cliente_personalizado_configurado": false, "authorized_keys_presente": true, "clave_respaldo_presente": true}
+{"repositorio_publico_sin_autenticacion": true}

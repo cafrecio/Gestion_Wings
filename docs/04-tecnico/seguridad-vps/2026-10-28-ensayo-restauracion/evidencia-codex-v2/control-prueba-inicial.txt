@@ -1,0 +1,28 @@
+{"control": "estado_vivo_inicial", "tablas": {"wings": 35, "wingstest": 56}}
+METADATOS_ACTUALES
+314e485
+219f5d59
+EXISTE /usr/local/apache/conf.d/wings.conf
+EXISTE /etc/opt/remi/php82/php-fpm.d/wings.conf
+EXISTE /etc/pki/tls/wings/wings.crt
+EXISTE /etc/wings-monitor/alertas.env
+EXISTE /etc/csf/csf.allow
+EXISTE /etc/cron.d/wings-acceso-agentes
+EXISTE /root/acceso-agentes.sh
+liquidaciones	14	3026280.00
+liquidacion_detalles	223	3026280.00
+ENSAYO_PRUEBA_CODIGO=0
+  0  7 * * 1  bash /root/ensayo-t82/app/scripts/servidor/resumen-csp.sh  Next Due: en 1 día
+
+   /login -> 200
+   /      -> 302
+
+== [68s] 8. Resultado
+   -> rclone.conf real sin cambios
+
+== TOTAL: 68s · fallas: 0
+   limpieza: base, usuario y carpeta del ensayo borrados
+AUDITORIA_datos=1
+AUDITORIA_archivos=0
+AUDITORIA_funcional=0
+AUDITORIA_canonico=0

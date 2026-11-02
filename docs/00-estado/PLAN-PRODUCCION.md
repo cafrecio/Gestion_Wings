@@ -9,9 +9,9 @@
 | T70 + T71 (inactivos: fecha, reporte y deuda; pasar a Inactivo sigue instantáneo, Carlos 28/10), T45, T46, T51 | Codex |
 | T62 | Gemini |
 | T12 manual y T13 ayuda dentro de Wings | Gemini |
-| T82 ensayo de restauración | Claude |
+| T82 ensayo de restauración | Claude; cerrada, verificó Codex |
 
-**T82 devuelta por Codex CAB01/11:** recuperación de datos/configuración/archivos y funcionamiento de prueba comprobados; cuatro hallazgos medios en el circuito/control y efecto de rclone. Limpieza final comprobada. No se ensayó servidor vacío ni volumen real; los tres pendientes de Carlos siguen abiertos. [Verificación](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md). Sin correcciones ni despliegue.
+**T82 cerrada en segunda vuelta por Codex CAB01/11:** H1–H4 reejecutados; prueba54s y producción desde Drive52s, salida0. Consulta rota/descarga/clonado salen1; SIGTERM con servidor escuchando sale130; cero residuos en cada caso. Datos/archivos/configuración/aplicación recuperados; rclone conserva huella y fecha. No se ensayó servidor vacío ni volumen real; los tres pendientes de Carlos siguen abiertos y no frenan este cierre. Repetir antes del despliegue sobre copia con código/migraciones candidatos y después con el primer respaldo externo del esquema nuevo. [Segunda vuelta y límites](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md#segunda-vuelta--codex-cab-01112026). Sin corregir producto ni desplegar.
 
 **T46 CERRADA 28/10:** lógica verificada por Claude CAB ([informe](../06-pruebas/PRU-04/VERIFICACION-T46-CLAUDE.md)), OK visual de Carlos. Implementada por Codex CyE. Baja con reasignación previa, liquidación de lo dictado y cierre de usuario/sesiones. Completa1264/6 omitidas, salida0. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T46.md). T51/T45/T46 entregadas; sin despliegue.
 
