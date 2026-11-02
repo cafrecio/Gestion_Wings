@@ -59,9 +59,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Hecho, espera verificación (hizo Claude, verifica Gemini) | Opcion A de Carlos 01/11: Retiro de duenos en Ambos, en catalogo y con migracion. El dueno lo carga con Agregar, la operativa cierra sin faltante. Controla Gemini: PROMPT-GEMINI-T116-CONTROL. Sin desplegar. |
+Nada en este momento.
 
 ## Sin empezar (10)
 
