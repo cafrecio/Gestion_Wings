@@ -10,7 +10,7 @@ Implementado botón **Desvalidar** para el dueño en la ficha de clase (`clases/
 
 ## T113 controlada y T115 hecha — Claude CAB, 01/11/2026
 
-**T113:** Gemini agregó Desvalidar, solo el dueño; [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado. **T115:** Wings rechaza liquidar un mes que no empezó. **T114** pasó a mejora futura: MF16. Desempate en `ReporteMensualService`: las filas del mismo período salían en cualquier orden, sin efecto en importes. Sin desplegar. Falta la suite completa después del desempate.
+**T113:** Gemini agregó Desvalidar, solo el dueño; [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado. **T115:** Wings rechaza liquidar un mes que no empezó. **T114** pasó a mejora futura: MF16. Desempate en `ReporteMensualService`: las filas del mismo período salían en cualquier orden, sin efecto en importes. Sin desplegar. Suite completa después del desempate, sobre `020acdce` más T116 sin subir (sesión de T116, 01/11): 1.523 aprobadas, 0 fallidas, 6 omitidas.
 
 ## T119 — Controles que estaban solo en la pantalla, reparados — Claude CAB, 01/11/2026
 

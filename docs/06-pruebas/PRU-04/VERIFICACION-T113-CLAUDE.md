@@ -20,6 +20,6 @@
 | 2 | Informe | «Mutaciones verificadas» eran cuatro pruebas comunes con ese nombre: no se sacó ningún control del código. Por eso las hice yo | `IMPLEMENTACION-T113-GEMINI.md`, sección 4 |
 | 3 | Prueba | Ninguna de Gemini cubría que Editar conserve su condición, aunque el prompt lo pedía. El código está bien; lo cubre ahora mi control | `resources/views/clases/show.blade.php` |
 
-**Las 5 fallas de la suite:** tres de T113 por vistas viejas compiladas en mi copia limpia: borradas, pasan. Dos de `ReporteMensualTest`, que también fallan sin T115 y en la carpeta principal: `ReporteMensualService.php` ordenaba solo por período y las filas del mismo período salían en cualquier orden. Sin efecto en importes. Se desempata por `origen_id`; las 22 de ese archivo y de documentación pasan. **No volví a correr la completa después de ese desempate:** queda para antes de desplegar.
+**Las 5 fallas de la suite:** tres de T113 por vistas viejas compiladas en mi copia limpia: borradas, pasan. Dos de `ReporteMensualTest`, que también fallan sin T115 y en la carpeta principal: `ReporteMensualService.php` ordenaba solo por período y las filas del mismo período salían en cualquier orden. Sin efecto en importes. Se desempata por `origen_id`; las 22 de ese archivo y de documentación pasan. **Después del desempate** la corrió la sesión de T116, sobre `020acdce` más T116 sin subir: 1.523 aprobadas, 0 fallidas, 6 omitidas. Se repite antes de desplegar.
 
 **Validar en una clase futura sigue ofreciéndose:** Carlos pidió solo Desvalidar.
