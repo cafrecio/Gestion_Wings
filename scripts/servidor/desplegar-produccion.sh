@@ -57,16 +57,24 @@ paso "4. Código"
 sudo -u $USUARIO git merge --ff-only "$DESTINO"
 
 paso "5. Dependencias y assets"
-if ! sudo -u $USUARIO git diff --quiet HEAD@{1} HEAD -- composer.lock 2>/dev/null; then
-    sudo -u $USUARIO composer install --no-dev --no-interaction --optimize-autoloader 2>&1 | tail -2
-fi
+$PHP /usr/local/bin/composer install --no-dev --no-interaction --optimize-autoloader --quiet 2>&1 | tail -2
 sudo -u $USUARIO npm ci --no-audit --no-fund --silent
 sudo -u $USUARIO npm run build 2>&1 | grep -i "built in\|error"
 
 paso "6. Base: migraciones y catálogos (no toca usuarios ni datos cargados)"
+# El usuario de la aplicación solo lee y escribe datos: puede crear tablas solo durante este paso.
+USUARIO_BD=$(grep -E '^DB_USERNAME=' .env | cut -d= -f2)
+restaurar_permisos() {
+    mysql -e "REVOKE ALL PRIVILEGES ON wings.* FROM \`$USUARIO_BD\`@localhost; GRANT SELECT, INSERT, UPDATE, DELETE ON wings.* TO \`$USUARIO_BD\`@localhost"
+    echo "permisos de $USUARIO_BD restaurados"
+}
+trap restaurar_permisos EXIT
+mysql -e "GRANT ALL PRIVILEGES ON wings.* TO \`$USUARIO_BD\`@localhost"
 $PHP artisan migrate --force
 $PHP artisan db:seed --class=CatalogosSeeder --force
 echo "Migraciones pendientes después: $($PHP artisan migrate:status | grep -c Pending || true)"
+restaurar_permisos
+trap - EXIT
 
 paso "7. Cachés"
 $PHP artisan config:cache >/dev/null
@@ -81,7 +89,7 @@ paso "9. Arriba y comprobaciones"
 $PHP artisan up
 echo "login: $(curl -s -o /dev/null -w '%{http_code}' https://wings.gestionar-te.com.ar/login)"
 echo "ahora en producción: $(sudo -u $USUARIO git log --oneline -1)"
-echo "programador (cron):"; crontab -l 2>/dev/null | grep -i "ejecutar-scheduler.sh" | grep -v test || echo "  !! sin cron del programador de producción"
+echo "programador (cron):"; crontab -u $USUARIO -l 2>/dev/null | grep -i "ejecutar-scheduler.sh" | grep -v test || echo "  !! sin cron del programador de producción"
 echo "últimas líneas del registro:"; tail -3 storage/logs/laravel.log 2>/dev/null | cut -c1-160 || true
 echo
 echo "Listo. Si algo falla después, el respaldo es $RESPALDOS/wings-antes-despliegue-$FECHA.sql.gz"
