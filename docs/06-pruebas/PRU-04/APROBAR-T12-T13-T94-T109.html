@@ -23,29 +23,40 @@ Todavía no se cargó cuánto efectivo tiene el club. No podés abrir hasta que 
 
 ![Seleccionar las cuotas a cobrar](/ayuda/img/operativo/cobrar-cuota-paso2.png)</pre>
 </section>
-<section><h2>Registrar un gasto menor o salida de dinero del cajón</h2><p class="meta">T101 · <code>resources/manual/operativo/registrar-gasto-caja.md</code></p><p>Corregida el 01/11 tras el control de Gemini: lo que el dueño se lleva va por Cashflow y en el turno queda como faltante.</p>
-<pre>Regla del dinero del dueño:* Si el dueño se lleva efectivo del cajón, no lo cargues vos: no es un gasto del club. Lo asienta él en Cashflow. Tu efectivo esperado no cambia, así que al contar te va a faltar ese importe: cerrá con lo que contaste, queda como faltante y el dueño lo ve al validar.</pre>
+<section><h2>Registrar un gasto menor o salida de dinero del cajón</h2><p class="meta">T101 y T116 · <code>resources/manual/operativo/registrar-gasto-caja.md</code></p><p>Corregida el 01/11 con la opción A de T116: el dueño carga el retiro en el turno, a su nombre, y se cierra sin faltante.</p>
+<pre>Regla del dinero del dueño: Si el dueño se lleva efectivo del cajón, lo carga él en tu turno y lo vas a ver a su nombre, en el rubro *Retiros*. Tu efectivo esperado baja por ese importe, así que contá lo que quedó y cerrá normalmente. Si se lo llevó y no lo cargó, pedile que lo haga antes de cerrar. También lo podés cargar vos, como cualquier egreso, en *Retiros* → *Retiro de dueños*: queda a tu nombre y el dueño lo ve al validar. Si lo cargó en Cashflow, tu esperado no cambia y cerrás con faltante: cerrá con lo que contaste y avisale.</pre>
 </section>
-<section><h2>Retiros y aportes personales del dueño</h2><p class="meta">T101 · <code>resources/manual/admin/dinero-del-dueno-retiros-aportes.md</code></p><p>Corregida el 01/11 tras el control de Gemini: un retiro no se puede cargar en el turno. Se sacó la captura, que era del formulario de la operativa. Depende de T116, que espera tu decisión.</p>
+<section><h2>Retiros y aportes personales del dueño</h2><p class="meta">T101 y T116 · <code>resources/manual/admin/dinero-del-dueno-retiros-aportes.md</code></p><p>Corregida el 01/11 con la opción A de T116: «Retiro de dueños» está en Ambos y entra al turno por Agregar.</p>
 <pre>Canal 2. Plata del cajón durante el turno de la operativa
 
-Si sacás efectivo del cajón, un retiro no se puede cargar dentro del turno, ni vos ni la operativa. Va por Cashflow.
-1. Cargalo como en el Canal 1, con la cuenta **Efectivo**.
-2. Avisale a la operativa. El efectivo esperado de su turno no cambia, así que al contar le va a faltar ese importe y la caja cierra con faltante.
-3. Cuando valides, vas a ver esa diferencia. La plata baja una sola vez, por tu retiro: el faltante no vuelve a descontarla de la cuenta.
+Si sacás efectivo del cajón con el turno abierto:
+1. En **Caja**, en la tarjeta del turno, tocá **Agregar**, elegí la cuenta **Efectivo** y *Retiros* → *Retiro de dueños*.
+2. Escribí el monto y el detalle, y guardá. El movimiento queda a tu nombre, en la columna **Registró**, y baja el efectivo esperado del turno. Así la operativa cuenta lo que quedó y cierra sin faltante.
+3. Cuando valides la caja, pasa a Cashflow con su clasificación, y recién ahí baja la cuenta **Efectivo**. No lo cargues también en Cashflow: se descontaría dos veces.
 
-Si podés esperar, sacala después del cierre, de lo que entrega la operativa. El retiro va igual por Cashflow, pero el turno no queda con faltante.
+*Retiro de dueños* está en **Ambos**: la operativa ve tus retiros y, en su turno, también puede cargar uno, que queda a su nombre. Mientras el turno esté abierto puede corregir o eliminar los movimientos que tiene, también el tuyo. Lo ves al validar: tenés que verificar cada movimiento, y lo que se corrigió queda en la **Historia de correcciones** del detalle de la caja.
+
+Si la plata la sacás después del cierre, de lo que entrega la operativa, el retiro va por Cashflow (Canal 1) y no toca el turno.
 
 Si ponés efectivo en el cajón:
 1. En **Caja**, en la tarjeta del turno, tocá **Agregar** y elegí tu subrubro de aporte. Tiene que estar en **Ambos** y en **Afecta caja**: así también lo ve y lo puede cargar la operativa.
 2. El movimiento queda a tu nombre, en la columna **Registró**, y sube el efectivo esperado del turno.
 3. Cuando valides la caja, pasa a Cashflow con su clasificación.
 
+¿Qué pasa si dice «Tus movimientos se cargan en Cashflow; la caja es de la operativa. No se registró nada.»?
+Entraste por el formulario general de movimientos de caja, que es el de la operativa. Lo tuyo va por **Cashflow** (Canal 1).
+
 ¿Qué pasa si dice «El subrubro seleccionado no está permitido para usuarios operativos.»?
 En **Agregar**, Wings te ofrece todos tus subrubros, pero solo acepta los que están en **Ambos**. No se registró nada: cargalo por **Cashflow**.
 
+¿Qué pasa si ya cargué el retiro del cajón en Cashflow con el turno abierto?
+El efectivo esperado del turno no se entera, así que a la operativa le va a faltar ese importe y la caja cierra con faltante. Avisale. Cuando valides vas a ver esa diferencia: la plata baja una sola vez, por tu retiro, porque el faltante no vuelve a descontarla de la cuenta.
+
 ¿Por qué la cuenta Efectivo quedó en negativo después de mi retiro?
-Los cobros en efectivo del turno entran a la cuenta recién cuando validás la caja. Wings te deja cargar el retiro igual, y el saldo se acomoda al validar.</pre>
+Los cobros en efectivo del turno entran a la cuenta recién cuando validás la caja. Wings te deja cargar el retiro igual, y el saldo se acomoda al validar.
+
+¿Qué pasa si un gasto en el turno supera lo disponible en el cajón?
+Wings muestra: «El gasto supera el efectivo disponible en el cajón. Primero registrá un aporte de efectivo y después el gasto.» Cargá primero el aporte o corregí el importe.</pre>
 </section>
 <section><h2>Corregir un movimiento mal cargado en una caja ya validada</h2><p class="meta">T100 · <code>resources/manual/admin/corregir-movimiento-caja-validada.md</code></p><p>Pregunta nueva: anular un cobro hecho por el dueño, sin caja.</p>
 <pre>¿Y si el cobro lo hice yo, sin caja?
