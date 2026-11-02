@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-02 — LOG GEM CAB — Cierre de T113, T117 y T118
+
+- **T113 (Desvalidar clase por el dueño):** Aprobada en control por Claude (`30ea9a41`), suite completa en verde (`cdebb67d`), cerrada en el tablero.
+- **T117 (Configuración ya no se traba con sesión vencida):** Segunda vuelta verificada por Claude (`e36b6cc0`), cerrada en el tablero.
+- **T118 (Abreviatura y longitudes con acentos):** Verificada y cerrada por Claude (`f020bd43`).
+- **Estado:** Tareas integradas y desplegadas a producción (`b9394e7d`). Sin tareas pendientes en Gemini.
+
 ## 2026-11-01 — LOG GEM CAB — T117 y T118: Segunda vuelta (a verificación)
 
 - **Objetivo:** Resolver hallazgos H1 a H5 de la verificación de Claude (`VERIFICACION-T117-T118-CLAUDE.md`) según `PROMPT — T117 y T118: segunda vuelta — para Gemini`.

@@ -723,7 +723,7 @@ el commit local `363346b`; 35 pruebas nuevas, suite completa 761 aprobadas/2 omi
 Tiene Claude para verificar reglas y pantallas antes del cierre; sin publicación ni
 despliegue. [Entrega y capturas](../PRU-04/IMPLEMENTACION-B11.md).
 
-### B12. No hay reportes · Falta · En curso, la tiene Carlos
+### B12. No hay reportes · Falta · En curso, la tiene Claude
 
 Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
