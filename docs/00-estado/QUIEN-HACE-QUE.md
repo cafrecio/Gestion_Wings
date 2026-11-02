@@ -46,9 +46,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | En curso (hizo Claude, verifica Codex) | Codex la devolvio; H1 y H2 corregidos y subidos, sin desplegar. Claude: corriendo suite completa y mutaciones. Despues, segunda vuelta de Codex. |
+Nada en este momento.
 
 ## Codex
 
