@@ -36,7 +36,7 @@ Claude hizo T115 y no controla su propio trabajo. No des por cierto nada de este
 ## Reglas
 
 - Es un control: no corrijas. Hallazgos con gravedad y `archivo:línea` reales. Separá lo comprobado de lo inferido.
-- Pruebas solo en `wings_testing_codex`, sobre una copia limpia de `main`: en la carpeta compartida hay trabajo sin subir de otros. Corré la suite rápida; si corrés la completa, avisá con una reserva y mirá las de `docs/00-estado/RESERVA-SUITE-*.md`. Las pruebas de un control van a tu carpeta de evidencia, no a `tests/`. Sin desplegar.
+- Pruebas solo en `wings_testing_codex`, sobre una copia limpia de `main`: en la carpeta compartida hay trabajo sin subir de otros. Corré solo las pruebas de liquidaciones y reportes: ni rápida ni completa (orden de Carlos, 01/11). Las pruebas de un control van a tu carpeta de evidencia, no a `tests/`. Sin desplegar.
 - El sitio de prueba y producción, solo en lectura. El reloj del sitio no se mueve: el 2/1/2027 va en tu copia.
 
 ## Cómo entregar
