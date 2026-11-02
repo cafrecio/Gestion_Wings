@@ -1,7 +1,27 @@
 # Wings — Lo legal
 
-Revisión del 01/11/2026, a cargo de Claude por orden de Carlos, sobre el borrador del 17/10. Nadie
-matriculado la revisó. Marca lo que se leyó en la norma y lo que sale de comentarios de estudios.
+Revisión del 01/11/2026, a cargo de Claude por orden de Carlos. Nadie matriculado la revisó.
+
+## Lo que se usa ahora
+
+El cliente es una pyme informal que hasta hoy se maneja con un cuaderno. Para ese caso alcanza con dos cosas:
+
+- **[Acuerdo simple con el club](ACUERDO-SIMPLE-CON-EL-CLUB.md):** una página. Sin CUIT y sin firma formal.
+- **[Aviso a las familias](AVISO-A-LAS-FAMILIAS.md):** un mensaje de WhatsApp. Se responde OK.
+
+Por qué alcanza:
+
+- **Sin consentimiento firmado:** los datos que hacen falta para dar las clases y cobrar no lo necesitan, porque nacen de la relación entre el club y la familia (Ley 25.326, art. 5, inc. 2 d; leído). Sí hay que avisar (art. 6).
+- **El OK es solo por el servidor en Estados Unidos:** el art. 12 lo prohíbe sin protección adecuada y sus excepciones no cubren este caso (leído). El borrador del 17/10 lo resolvía con consentimiento; el Decreto 1558/2001 no se pudo releer el 01/11.
+- **Sin registro en la AAIP por ahora:** es decisión de Claude. El art. 21 habla de bases destinadas a dar informes, y la lista de un club no lo es; la página de la AAIP pide más. Se inscribe si el club se formaliza o crece. Riesgo aceptado: apercibimiento o multa.
+- **Sin enlace en el ingreso:** el aviso ya informa a las familias. No hace falta tocar la pantalla.
+- **No frena nada:** Wings se puede subir y cargar. Falta que el club mande el aviso; hasta tener cada OK, ese alumno queda sin cubrir por el servidor en Estados Unidos.
+
+Lo fiscal y lo laboral del club son del club: Wings no lo cambia ni lo resuelve.
+
+## Si el club se formaliza o llega uno formal
+
+Se usan los documentos y la tabla de abajo.
 
 | Documento | Para quién | Dónde va |
 |---|---|---|
@@ -34,18 +54,9 @@ matriculado la revisó. Marca lo que se leyó en la norma y lo que sale de comen
 - **Convenio 108+ (Ley 27.699):** prevé avisar a la AAIP en 72 horas. Según la guía de 2025 todavía no es exigible; el anexo ya lo cumple. No se comprobó si entró en vigor en 2026.
 - **Cookies:** sin norma específica de la AAIP. Wings solo usa cookies necesarias: alcanza con informarlas.
 
-## Lo que solo Carlos puede dar
+## Lo que pediría un club formal
 
-No hace falta saber de leyes:
-
-1. Nombre o razón social, CUIT, domicilio, correo de reclamos y ciudad de Gestionar-te.
-2. Inscribir a Gestionar-te en la AAIP: trámite en TAD, con **su** clave fiscal nivel 2.
-
-Lo demás lo da o lo hace cada club: sus datos, su inscripción, la firma y la leyenda en su ficha.
-
-## Lo que falta en Wings
-
-Un enlace a la privacidad y a las cookies en la pantalla de ingreso. Es una vista: necesita el OK de Carlos.
+Datos fiscales de Gestionar-te e inscripción en la AAIP con clave fiscal; datos, inscripción y firma del club; enlace a la privacidad y a las cookies en el ingreso.
 
 ## Fuentes consultadas el 01/11/2026
 
