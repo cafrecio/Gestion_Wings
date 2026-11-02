@@ -72,7 +72,7 @@ class RetiroDuenoCajonRealidadTest extends TestCase
         $ofrecidos = $this->actingAs($this->duenio)->get(route('web.caja.editar', $this->caja->id))
             ->assertOk()->viewData('rubros')->flatMap->subrubros->pluck('nombre')->all();
 
-        foreach (['Retiro de dueños', 'San Carlos', 'Luz'] as $nombre) {
+        foreach (['San Carlos', 'Luz'] as $nombre) {
             $this->assertContains($nombre, $ofrecidos);
             $this->agregar($nombre, "Intento $nombre")
                 ->assertSessionHas('error', 'El subrubro seleccionado no está permitido para usuarios operativos.');
@@ -131,11 +131,9 @@ class RetiroDuenoCajonRealidadTest extends TestCase
         $this->assertEquals(200000, $reporte['retiros']);
     }
 
-    /** Alternativa sin código para que decida Carlos: el subrubro en «Ambos». No es lo que trae Wings de fábrica. */
+    /** T116: Carlos eligió el subrubro en «Ambos» el 01/11/2026. Es lo que trae Wings de fábrica. */
     public function test_con_retiro_en_ambos_entra_al_turno_y_la_operativa_lo_ve(): void
     {
-        Subrubro::where('nombre', 'Retiro de dueños')->update(['permitido_para' => 'OPERATIVO']);
-
         $this->agregar('Retiro de dueños', 'Se llevó del cajón')->assertSessionHas('success', 'Movimiento registrado.');
         $this->assertEquals(8000, $this->esperado());
         $this->assertSame($this->duenio->id, MovimientoOperativo::where('observaciones', 'Se llevó del cajón')->sole()->usuario_id);
@@ -157,7 +155,7 @@ class RetiroDuenoCajonRealidadTest extends TestCase
         $this->assertEquals(0, $reporte['resultado']);
         $this->assertEquals(200000, $reporte['retiros']);
 
-        // También la operativa puede cargarlo: ese es el costo de esta alternativa.
+        // También la operativa puede cargarlo: ese es el costo que Carlos aceptó.
         $this->assertContains('Retiro de dueños', $this->actingAs($this->operativa)->get(route('web.caja.editar', $this->crearOtraCaja()->id))
             ->assertOk()->viewData('rubros')->flatMap->subrubros->pluck('nombre')->all());
     }

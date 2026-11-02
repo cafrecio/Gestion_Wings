@@ -13,7 +13,7 @@ du: CAJ-002b
 Esta tarea te explica cómo asentar una salida física de billetes del cajón de mostrador: compras menores de insumos o reparaciones urgentes.
 
 > [!NOTE]
-> *Regla del dinero del dueño:* Si el dueño se lleva efectivo del cajón, no lo cargues vos: no es un gasto del club. Lo asienta él en Cashflow. Tu efectivo esperado no cambia, así que al contar te va a faltar ese importe: cerrá con lo que contaste, queda como faltante y el dueño lo ve al validar.
+> *Regla del dinero del dueño:* Si el dueño se lleva efectivo del cajón, lo carga él en tu turno y lo vas a ver a su nombre, en el rubro *Retiros*. Tu efectivo esperado baja por ese importe, así que contá lo que quedó y cerrá normalmente. Si se lo llevó y no lo cargó, pedile que lo haga antes de cerrar. También lo podés cargar vos, como cualquier egreso, en *Retiros* → *Retiro de dueños*: queda a tu nombre y el dueño lo ve al validar. Si lo cargó en Cashflow, tu esperado no cambia y cerrás con faltante: cerrá con lo que contaste y avisale.
 
 ---
 

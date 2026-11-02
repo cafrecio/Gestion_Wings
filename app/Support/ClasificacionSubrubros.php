@@ -44,12 +44,12 @@ class ClasificacionSubrubros
         'Servicios' => ['Luz' => self::NEGOCIO, 'Internet' => self::NEGOCIO],
     ];
 
-    /** Subrubros que faltaban para registrar lo que sale. Solo los usa el admin. */
+    /** Subrubros que faltaban para registrar lo que sale. El retiro va en Ambos para entrar al turno (T116). */
     public const NUEVOS = [
         ['rubro' => 'Retiros', 'observacion' => 'Plata que se llevan los dueños; no es gasto del club',
-            'subrubro' => 'Retiro de dueños', 'clasificacion' => self::RETIRO],
+            'subrubro' => 'Retiro de dueños', 'clasificacion' => self::RETIRO, 'permitido_para' => 'OPERATIVO'],
         ['rubro' => 'Gastos de torneos', 'observacion' => 'Lo que el club paga por participar en torneos',
-            'subrubro' => 'Pago al organizador', 'clasificacion' => self::NEGOCIO],
+            'subrubro' => 'Pago al organizador', 'clasificacion' => self::NEGOCIO, 'permitido_para' => 'ADMIN'],
     ];
 
     /** T61: nombres distintos confirmados por Carlos el 20/10/2026. */
@@ -168,7 +168,7 @@ class ClasificacionSubrubros
             $rubroId = DB::table('rubros')->where('nombre', $nuevo['rubro'])->where('tipo', 'EGRESO')->value('id')
                 ?? DB::table('rubros')->insertGetId(['nombre' => $nuevo['rubro'], 'tipo' => 'EGRESO',
                     'observacion' => $nuevo['observacion'], 'created_at' => now(), 'updated_at' => now()]);
-            DB::table('subrubros')->insert(['rubro_id' => $rubroId, 'nombre' => $nuevo['subrubro'], 'permitido_para' => 'ADMIN',
+            DB::table('subrubros')->insert(['rubro_id' => $rubroId, 'nombre' => $nuevo['subrubro'], 'permitido_para' => $nuevo['permitido_para'],
                 'afecta_caja' => true, 'activo' => true, 'clasificacion_resultado' => $nuevo['clasificacion'],
                 'created_at' => now(), 'updated_at' => now()]);
         }

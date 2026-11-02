@@ -39,7 +39,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude) | Hecha: rechaza un mes que no empezo. 3 pruebas, 3 mutaciones. Sin desplegar. Falta quien la controla: entra junto con T119 si Carlos quiere. |
-| **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -61,6 +60,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Hecho, espera verificación (hizo Claude, verifica Gemini) | Opcion A de Carlos 01/11: Retiro de duenos en Ambos, en catalogo y con migracion. El dueno lo carga con Agregar, la operativa cierra sin faltante. Controla Gemini: PROMPT-GEMINI-T116-CONTROL. Sin desplegar. |
 | **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Devuelto (hizo Gemini) | Configuracion se traba si se cancela el aviso de salida; informe a corregir. Prompt: PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md |
 | **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Devuelto (hizo Gemini) | Se ve bien en pantalla; faltan 3 pruebas. Prompt: PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md |
 

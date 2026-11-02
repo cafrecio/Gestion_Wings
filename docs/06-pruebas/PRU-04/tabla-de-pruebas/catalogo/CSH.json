@@ -184,17 +184,23 @@
           "l": "e",
           "texto": "Aparecen para el dueño.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Turno",
+          "l": "f",
+          "texto": "Si la plata sale del cajón con el turno abierto, el dueño la carga con Agregar: baja el esperado de la caja, la operativa lo ve a su nombre y cierra sin faltante. La cuenta baja al validar, una sola vez.",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "T16; ReporteMensualService (código leído); CF-02.",
+      "fuente": "T16; ReporteMensualService (código leído); CF-02. T116 (RetiroEnTurnoT116Test).",
       "modulo": "Cashflow",
       "pantalla": "cashflow-movimiento",
       "requiere": "Subrubros clasificados como aporte y como retiro.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T116",
       "tipo": "normal",
       "titulo": "Aporte y retiro del dueño"
     },

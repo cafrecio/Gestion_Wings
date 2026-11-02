@@ -37,12 +37,14 @@ Esta tarea te explica cómo asentar el dinero que los dueños retiran del club o
 
 ### Canal 2. Plata del cajón durante el turno de la operativa
 
-Si sacás efectivo del cajón, un retiro no se puede cargar dentro del turno, ni vos ni la operativa. Va por Cashflow.
-1. Cargalo como en el Canal 1, con la cuenta **Efectivo**.
-2. Avisale a la operativa. El efectivo esperado de su turno no cambia, así que al contar le va a faltar ese importe y la caja cierra con faltante.
-3. Cuando valides, vas a ver esa diferencia. La plata baja una sola vez, por tu retiro: el faltante no vuelve a descontarla de la cuenta.
+Si sacás efectivo del cajón con el turno abierto:
+1. En **Caja**, en la tarjeta del turno, tocá **Agregar**, elegí la cuenta **Efectivo** y *Retiros* → *Retiro de dueños*.
+2. Escribí el monto y el detalle, y guardá. El movimiento queda a tu nombre, en la columna **Registró**, y baja el efectivo esperado del turno. Así la operativa cuenta lo que quedó y cierra sin faltante.
+3. Cuando valides la caja, pasa a Cashflow con su clasificación, y recién ahí baja la cuenta **Efectivo**. No lo cargues también en Cashflow: se descontaría dos veces.
 
-Si podés esperar, sacala después del cierre, de lo que entrega la operativa. El retiro va igual por Cashflow, pero el turno no queda con faltante.
+*Retiro de dueños* está en **Ambos**: la operativa ve tus retiros y, en su turno, también puede cargar uno, que queda a su nombre. Mientras el turno esté abierto puede corregir o eliminar los movimientos que tiene, también el tuyo. Lo ves al validar: tenés que verificar cada movimiento, y lo que se corrigió queda en la **Historia de correcciones** del detalle de la caja.
+
+Si la plata la sacás después del cierre, de lo que entrega la operativa, el retiro va por Cashflow (Canal 1) y no toca el turno.
 
 Si ponés efectivo en el cajón:
 1. En **Caja**, en la tarjeta del turno, tocá **Agregar** y elegí tu subrubro de aporte. Tiene que estar en **Ambos** y en **Afecta caja**: así también lo ve y lo puede cargar la operativa.
@@ -58,6 +60,9 @@ Entraste por el formulario general de movimientos de caja, que es el de la opera
 
 ### ¿Qué pasa si dice «El subrubro seleccionado no está permitido para usuarios operativos.»?
 En **Agregar**, Wings te ofrece todos tus subrubros, pero solo acepta los que están en **Ambos**. No se registró nada: cargalo por **Cashflow**.
+
+### ¿Qué pasa si ya cargué el retiro del cajón en Cashflow con el turno abierto?
+El efectivo esperado del turno no se entera, así que a la operativa le va a faltar ese importe y la caja cierra con faltante. Avisale. Cuando valides vas a ver esa diferencia: la plata baja una sola vez, por tu retiro, porque el faltante no vuelve a descontarla de la cuenta.
 
 ### ¿Por qué la cuenta Efectivo quedó en negativo después de mi retiro?
 Los cobros en efectivo del turno entran a la cuenta recién cuando validás la caja. Wings te deja cargar el retiro igual, y el saldo se acomoda al validar.

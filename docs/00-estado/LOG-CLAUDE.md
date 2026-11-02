@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md) · [Entradas archivadas el 31/10](../99-archivo/bitacoras/2026-10-31/LOG-CLAUDE.md)
 
+## 2026-11-01 — Claude CAB — T116: retiro del dueño en el turno, opción A
+
+- **Hecho:** «Retiro de dueños» en Ambos, en el catálogo y con migración. Manual de dueño y de operativa, ficha de fuentes, `PERMISOS-ROLES.md`, caso CSH-004 f y retrato `RetiroDuenoCajonRealidadTest` al día. 9 pruebas en `RetiroEnTurnoT116Test`.
+- **Corrección a lo que le dije a Carlos:** la opción A no era «sin tocar código». Por pantalla se revertía en cada despliegue. Tampoco le había dicho que la operativa puede corregir o eliminar el retiro del dueño con su turno abierto; está ejecutado y queda en la historia de correcciones.
+- **Error mío:** lancé una suite en `wings_testing_claude` y se pisó cerca de un minuto con la de T115 de «Prueba manual 261031». La frené y avisé a esa sesión.
+- **Sigue:** control de Gemini, [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T116-CONTROL.md). Sin desplegar.
+
 ## 2026-11-01 — Claude CAB — T113 aprobada, T115 hecha, T114 a mejora futura
 
 - T113: [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado, con 8 mutaciones reales detectadas y 2 equivalentes. Las «mutaciones» de Gemini eran pruebas con ese nombre.

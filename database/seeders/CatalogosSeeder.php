@@ -130,7 +130,8 @@ class CatalogosSeeder extends Seeder
                 'tipo' => 'EGRESO',
                 'observacion' => 'Plata que se llevan los dueños; no es gasto del club',
                 'subrubros' => [
-                    ['nombre' => 'Retiro de dueños', 'permitido_para' => 'ADMIN', 'afecta_caja' => true, 'clasificacion' => 'RETIRO'],
+                    // En Ambos para que un retiro del cajón entre al turno (T116, Carlos 01/11/2026).
+                    ['nombre' => 'Retiro de dueños', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'clasificacion' => 'RETIRO'],
                 ],
             ],
             'Gastos de torneos' => [
