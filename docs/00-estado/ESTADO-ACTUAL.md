@@ -14,6 +14,8 @@ Implementado botón **Desvalidar** para el dueño en la ficha de clase (`clases/
 
 ## T119 — Controles que estaban solo en la pantalla, reparados — Claude CAB, 01/11/2026
 
+**Cerrada el 01/11, sin desplegar.** Codex controló la primera versión y devolvió dos puntos (Editar de Caja y subrubro desactivado); los corregí y **no tuvieron segunda vuelta**: 11 pruebas propias y completa 1.526 aprobadas, 0 fallidas, 6 omitidas.
+
 Pedido de Carlos. La operativa ya no cancela una serie por envío directo: 403, sin cancelar nada. Un medio inactivo se rechaza en Cobrar, movimientos de caja, Agregar, Cashflow, transferencias y pago de liquidaciones, con «Elegí un medio de pago activo.»; al corregir un movimiento, el servidor permite conservar el medio que ya tenía. El deporte de un alumno no se cambia al editar. Regla nueva `app/Rules/MedioDePagoActivo.php`. Claude: 8 pruebas, 13 mutaciones detectadas. **Control Codex CAB01/11: devuelta por H1 medio; Editar de Caja omite el medio actual desactivado y deja el selector vacío.** PUT de Caja y GET/PUT de Cashflow pasan. Adicional H2: subrubro desactivado ya no se ofrece, pero el envío directo registra el gasto por operativa y dueño. Matriz42envíos sin escrituras financieras; cierre/verificación/validación con medio desactivado, edición normal y segunda ficha pasan. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T119-CODEX.md). Sin corregir ni desplegar. T117 y T118 conservan su revisión separada ([prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T117-T118.md)).
 
 ## T14 — Tanda 5 revisada: prueba por días terminada — Claude CAB, 01/11/2026
