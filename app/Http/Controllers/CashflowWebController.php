@@ -267,11 +267,13 @@ class CashflowWebController extends Controller
         ));
     }
 
-    public function create()
+    public function create(?int $subrubroActual = null)
     {
-        // El admin puede usar cualquier subrubro no reservado (los OPERATIVO son "ambos")
-        $rubros = Rubro::with(['subrubros' => function ($q) {
+        // El admin puede usar cualquier subrubro no reservado (los OPERATIVO son "ambos").
+        // T119: uno desactivado no se ofrece, salvo al corregir el movimiento que ya lo tiene.
+        $rubros = Rubro::with(['subrubros' => function ($q) use ($subrubroActual) {
             $q->where('es_reservado_sistema', false)
+              ->where(fn ($q) => $q->where('activo', true)->when($subrubroActual, fn ($q) => $q->orWhere('id', $subrubroActual)))
               ->orderBy('nombre');
         }])->orderBy('nombre')->get()
         ->filter(fn($r) => $r->subrubros->isNotEmpty())
@@ -290,11 +292,11 @@ class CashflowWebController extends Controller
         ImportePesos::preparar($request, ['monto']);
         $request->validate([
             'tipo_caja_id'  => ['bail', 'required', 'exists:tipos_caja,id', new MedioDePagoActivo],
-            'subrubro_id'   => 'required|exists:subrubros,id',
+            'subrubro_id'   => ['required', \Illuminate\Validation\Rule::exists('subrubros', 'id')->where('activo', true)],
             'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
-        ]);
+        ], ['subrubro_id.exists' => 'El subrubro seleccionado está desactivado. Elegí otro.']);
 
         $fechaMov = Carbon::parse($request->input('fecha'))->startOfDay();
         $esFechaVieja = $fechaMov->lessThan(now()->startOfMonth()->startOfDay());

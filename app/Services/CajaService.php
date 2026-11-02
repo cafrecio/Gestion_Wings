@@ -618,7 +618,7 @@ class CajaService
                 throw new \Exception('No se puede editar un movimiento generado automáticamente por el sistema.');
             }
 
-            $this->validarSubrubroManual($data['subrubro_id']);
+            $this->validarSubrubroManual($data['subrubro_id'], (int) $movimiento->subrubro_id);
 
             $this->exigirEfectivoDisponible($caja, $data, $movimiento);
 
@@ -658,9 +658,15 @@ class CajaService
         }
     }
 
-    private function validarSubrubroManual(int $subrubroId): Subrubro
+    private function validarSubrubroManual(int $subrubroId, ?int $actual = null): Subrubro
     {
         $subrubro = Subrubro::findOrFail($subrubroId);
+
+        // T119: un subrubro desactivado no se ofrece y tampoco se acepta por envío directo. Al corregir
+        // un movimiento se puede conservar el que ya tenía.
+        if (!$subrubro->activo && $subrubro->id !== $actual) {
+            throw new \Exception('El subrubro seleccionado está desactivado. Elegí otro.');
+        }
 
         \App\Support\ClasificacionSubrubros::exigirSinTraspaso($subrubro);
 

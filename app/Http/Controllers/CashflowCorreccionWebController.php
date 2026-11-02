@@ -23,7 +23,7 @@ class CashflowCorreccionWebController extends Controller
     public function edit(int $id)
     {
         $movimiento = $this->editable($id);
-        $datos = app(CashflowWebController::class)->create()->getData();
+        $datos = app(CashflowWebController::class)->create((int) $movimiento->subrubro_id)->getData();
         $datos['tiposCaja'] = TipoCaja::where('activo', true)->orWhere('id', $movimiento->tipo_caja_id)->orderBy('nombre')->get();
         return view('cashflow.movimiento', $datos + ['movimiento' => $movimiento, 'clave' => (string) Str::uuid(),
             'historial' => $movimiento->correcciones()->with('admin')->orderByDesc('id')->get()]);

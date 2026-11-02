@@ -526,8 +526,9 @@ class CajaWebController extends Controller
 
         $movimiento   = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
         abort_unless($movimiento->esManualEditable(), 403);
-        $rubros       = $this->cargarRubros($user);
-        $tiposCaja    = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        // T119: si el medio o el subrubro se desactivaron después de cargarlo, se siguen ofreciendo para poder corregir el importe.
+        $rubros       = $this->cargarRubros($user, (int) $movimiento->subrubro_id);
+        $tiposCaja    = TipoCaja::where('activo', true)->orWhere('id', $movimiento->tipo_caja_id)->orderBy('nombre')->get();
         $subrubrosMap = $rubros->mapWithKeys(fn($r) => [
             $r->id => $r->subrubros->map(fn($s) => ['id' => $s->id, 'nombre' => $s->nombre])->values(),
         ]);
@@ -1142,11 +1143,11 @@ class CajaWebController extends Controller
 
     // ── Helper privado ────────────────────────────────────────────────────
 
-    private function cargarRubros($user)
+    private function cargarRubros($user, ?int $subrubroActual = null)
     {
-        return Rubro::with(['subrubros' => function ($q) use ($user) {
+        return Rubro::with(['subrubros' => function ($q) use ($user, $subrubroActual) {
             $q->where('es_reservado_sistema', false)
-              ->where('activo', true)
+              ->where(fn ($q) => $q->where('activo', true)->when($subrubroActual, fn ($q) => $q->orWhere('id', $subrubroActual)))
               ->where('nombre', '!=', 'Cuota Mensual');
             if (!$user->isAdmin()) {
                 $q->where('permitido_para', 'OPERATIVO')->where('afecta_caja', true);

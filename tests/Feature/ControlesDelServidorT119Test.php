@@ -217,4 +217,65 @@ class ControlesDelServidorT119Test extends TestCase
         $this->actingAs($this->operativa)->put(route('web.alumnos.update', $this->alumno->id), array_merge($base, ['nombre' => 'Zoé', 'deporte_id' => $antes, 'grupo_id' => $this->alumno->grupo_id]))->assertSessionHasNoErrors();
         $this->assertSame('Zoé', $this->alumno->fresh()->nombre, 'Editar sin cambiar el deporte sigue funcionando');
     }
+
+    /** Segunda vuelta, H1 de Codex: Editar de Caja no ofrecía el medio actual desactivado y no se podía corregir solo el importe. */
+    public function test_editar_de_caja_ofrece_el_medio_y_el_subrubro_que_ya_tenia(): void
+    {
+        $this->actingAs($this->operativa)->post(route('web.caja.movimiento.store'), ['subrubro_id' => $this->insumos, 'tipo_caja_id' => $this->activo->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Limpieza'])->assertSessionHasNoErrors();
+        $mo = MovimientoOperativo::orderByDesc('id')->firstOrFail();
+        $this->activo->update(['activo' => false]);
+        Subrubro::whereKey($this->insumos)->update(['activo' => false]);
+
+        foreach ([$this->operativa, $this->duenio] as $quien) {
+            $r = $this->actingAs($quien)->get(route('web.caja.movimientos.editar', [$this->caja->id, $mo->id]))->assertOk();
+            $this->assertContains($this->activo->id, $r->viewData('tiposCaja')->pluck('id')->all());
+            $this->assertNotContains($this->inactivo->id, $r->viewData('tiposCaja')->pluck('id')->all(), 'Otro medio inactivo no se ofrece');
+            $this->assertContains($this->insumos, $r->viewData('rubros')->flatMap->subrubros->pluck('id')->all());
+        }
+
+        $this->actingAs($this->operativa)->put(route('web.caja.movimientos.update', [$this->caja->id, $mo->id]), ['subrubro_id' => $this->insumos, 'tipo_caja_id' => $this->activo->id, 'monto' => '80', 'fecha' => '2026-10-15', 'observaciones' => 'Limpieza'])->assertSessionHasNoErrors();
+        $this->assertEquals(80, (float) $mo->fresh()->monto);
+        $this->assertSame($this->insumos, (int) $mo->fresh()->subrubro_id);
+    }
+
+    /** H2 de Codex: un subrubro desactivado se seguía cargando por envío directo, y Cashflow lo seguía ofreciendo. */
+    public function test_un_subrubro_desactivado_no_se_carga_ni_se_ofrece(): void
+    {
+        Subrubro::whereKey($this->insumos)->update(['activo' => false]);
+        Subrubro::whereKey($this->luz)->update(['activo' => false]);
+        $mensaje = 'El subrubro seleccionado está desactivado. Elegí otro.';
+        $base = ['tipo_caja_id' => $this->efectivo->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Forzado'];
+        $antes = [MovimientoOperativo::count(), CashflowMovimiento::count()];
+
+        $this->actingAs($this->operativa)->post(route('web.caja.movimiento.store'), $base + ['subrubro_id' => $this->insumos])->assertSessionHas('error', $mensaje);
+        $this->actingAs($this->duenio)->post(route('web.caja.editar.store', $this->caja->id), $base + ['subrubro_id' => $this->insumos])->assertSessionHas('error', $mensaje);
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), $base + ['subrubro_id' => $this->luz])->assertSessionHasErrors(['subrubro_id' => $mensaje]);
+        $this->assertSame($antes, [MovimientoOperativo::count(), CashflowMovimiento::count()]);
+
+        foreach ([[$this->operativa, route('web.caja.movimiento'), $this->insumos], [$this->duenio, route('web.caja.editar', $this->caja->id), $this->insumos], [$this->duenio, route('web.cashflow.movimiento'), $this->luz]] as [$quien, $url, $sub]) {
+            $this->assertNotContains($sub, $this->actingAs($quien)->get($url)->assertOk()->viewData('rubros')->flatMap->subrubros->pluck('id')->all(), $url);
+        }
+    }
+
+    public function test_corregir_conserva_el_subrubro_desactivado_y_no_pasa_a_otro_desactivado(): void
+    {
+        $otro = Subrubro::where('nombre', 'Internet')->value('id');
+        $this->actingAs($this->operativa)->post(route('web.caja.movimiento.store'), ['subrubro_id' => $this->insumos, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Limpieza'])->assertSessionHasNoErrors();
+        $mo = MovimientoOperativo::orderByDesc('id')->firstOrFail();
+        $otroCaja = Subrubro::where('permitido_para', 'OPERATIVO')->where('afecta_caja', true)->whereKeyNot($this->insumos)->whereHas('rubro', fn ($q) => $q->where('tipo', 'EGRESO'))->value('id');
+        Subrubro::whereKey($otroCaja)->update(['activo' => false]);
+        $this->actingAs($this->operativa)->put(route('web.caja.movimientos.update', [$this->caja->id, $mo->id]), ['subrubro_id' => $otroCaja, 'tipo_caja_id' => $this->efectivo->id, 'monto' => '80', 'fecha' => '2026-10-15', 'observaciones' => 'Limpieza'])->assertSessionHas('error', 'El subrubro seleccionado está desactivado. Elegí otro.');
+        $this->assertEquals(100, (float) $mo->fresh()->monto);
+
+        $this->actingAs($this->duenio)->post(route('web.cashflow.movimiento.store'), ['subrubro_id' => $this->luz, 'tipo_caja_id' => $this->activo->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Luz'])->assertSessionHasNoErrors();
+        $cf = CashflowMovimiento::orderByDesc('id')->firstOrFail();
+        Subrubro::whereKey([$this->luz, $otro])->update(['activo' => false]);
+
+        $this->assertContains($this->luz, $this->actingAs($this->duenio)->get(route('web.cashflow.movimientos.editar', $cf->id))->assertOk()->viewData('rubros')->flatMap->subrubros->pluck('id')->all());
+        $editar = ['tipo_caja_id' => $this->activo->id, 'monto' => '150', 'fecha' => '2026-10-15', 'observaciones' => 'Luz', 'motivo' => 'Corrección', 'version' => $cf->version_correccion];
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $cf->id), $editar + ['subrubro_id' => $otro, 'clave' => (string) Str::uuid()])
+            ->assertSessionHasErrors(['subrubro_id' => 'El subrubro seleccionado está desactivado. Elegí otro.']);
+        $this->actingAs($this->duenio)->put(route('web.cashflow.movimientos.update', $cf->id), $editar + ['subrubro_id' => $this->luz, 'clave' => (string) Str::uuid()])->assertSessionHasNoErrors();
+        $this->assertEquals(-150, (float) $cf->fresh()->monto);
+    }
 }

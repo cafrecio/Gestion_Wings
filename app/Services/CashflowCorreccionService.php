@@ -72,6 +72,8 @@ class CashflowCorreccionService
                 $sub = Subrubro::with('rubro')->findOrFail($datos['subrubro_id']);
                 \App\Support\ClasificacionSubrubros::exigirSinTraspaso($sub);
                 if ($sub->es_reservado_sistema) throw ValidationException::withMessages(['subrubro_id' => 'Usá el recorrido propio de este subrubro.']);
+                // T119: se puede conservar el que ya tenía aunque se haya desactivado; no pasar a otro desactivado.
+                if (!$sub->activo && $sub->id !== (int) $mov->subrubro_id) throw ValidationException::withMessages(['subrubro_id' => 'El subrubro seleccionado está desactivado. Elegí otro.']);
                 // El formulario muestra el tipo actual del rubro seleccionado. Si cambió,
                 // su signo y la clasificación del registro corregido deben coincidir con él.
                 if ($mov->reporte_tipo !== null && $mov->reporte_tipo !== $sub->rubro?->tipo) {
