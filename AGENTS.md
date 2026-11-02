@@ -484,6 +484,10 @@ php scripts/tablero/tablero.php cambiar A25 estado=a_verificar hizo=Codex tiene=
 php scripts/tablero/tablero.php cambiar A25 estado=cerrado verifica=Gemini
 ```
 
+**`tiene=Carlos` solo si exige algo que ningún agente puede hacer** (orden de Carlos,
+01/11/2026): una decisión de negocio real, una aprobación visual, un dato o un acceso que
+solo él tiene. El `paso` dice qué falta exactamente. Si no, la tarea queda en un agente.
+
 De ahí se generan `docs/00-estado/TABLERO.html`, que es lo que abre Carlos, y el bloque de
 arriba de `QUIEN-HACE-QUE.md`. Ninguno de los dos se edita a mano. El comando no guarda si
 falta el dueño, falta el próximo paso o si verifica el mismo que lo hizo. El detalle y los
