@@ -55,7 +55,7 @@ Identidad obligatoria según la computadora donde estés trabajando:
 Para documentación solamente, seguir las comprobaciones documentales del protocolo.
 Para cambios de código:
 ```bash
-php artisan test --exclude-group=lento              # Suite rápida (AGENTS.md §6-ter)
+php artisan test tests/Feature/<Archivo>.php        # Solo las pruebas del área (AGENTS.md §6-ter)
 php -l <cada archivo PHP o Blade tocado>            # Sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # Las vistas compilan sin error
 git diff --stat -- resources/views resources/css    # Solo lo autorizado

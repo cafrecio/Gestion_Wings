@@ -370,7 +370,7 @@ En tareas exclusivamente documentales, verificar enlaces, integridad y diff; no 
 suite, migraciones ni cachés por reorganizar documentación. Para cambios de código:
 
 ```bash
-php artisan test --exclude-group=lento              # suite rápida, ver §6-ter
+php artisan test tests/Feature/<Archivo>.php        # solo las pruebas del área, ver §6-ter
 php -l <cada archivo tocado>                        # sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # las vistas compilan
 git diff --stat -- resources/views resources/css    # debe estar vacío
@@ -409,20 +409,21 @@ Son descartables: las migraciones las rehacen en cada corrida. `wings_testing` q
 la base por defecto para quien corra la suite sin variable, y la base de trabajo del club
 no se usa nunca para probar.
 
-## 6-ter. Suite en dos velocidades — decisión de Carlos, 19/10/2026
+## 6-ter. Cuándo se corren las pruebas — decisiones de Carlos, 19/10 y 01/11/2026
 
 La suite completa tarda de 16 a 33 minutos y la corrían todos en cada tarea, a veces dos
 agentes a la vez en la misma máquina. El 19/10, 12 de los 144 archivos se llevaban 13 de
 los 16 minutos (concurrencia y reportes pesados), y dos fallas falsas aparecieron por
 correr suites simultáneas.
 
-**En cada tarea con código: suite rápida + pruebas del área tocada.**
+**En cada tarea con código: solo las pruebas del área tocada** (orden de Carlos, 01/11/2026).
 
 ```bash
-DB_DATABASE=wings_testing_<agente> php artisan test --exclude-group=lento   # ~4 min
+DB_DATABASE=wings_testing_<agente> php artisan test tests/Feature/<Archivo>.php
 ```
 
-Medida el 19/10 en CyE: 806 aprobadas, 4 omitidas, 216 s.
+La suite rápida (`--exclude-group=lento`) ya no se corre por tarea: el 01/11 eran 1.377 casos
+de 1.526, casi toda la suite. Tampoco en un control.
 
 **Suite completa (sin `--exclude-group`): como máximo una vez por día, en todo el proyecto**
 (orden de Carlos, 01/11/2026). Ese día la corrieron varios agentes, una por tarea, y todos
@@ -451,7 +452,7 @@ anotarlo sin atribuirle causa.
 
 **Grupo `lento`.** Se marca con `#[\PHPUnit\Framework\Attributes\Group('lento')]` sobre la
 clase. Entra un archivo nuevo si tarda más de 10 s en la suite. Nadie marca `lento` una
-prueba para que la suite rápida pase: lento es por tiempo, nunca por rojo.
+prueba para sacarla de una corrida: lento es por tiempo, nunca por rojo.
 
 ## 6a. Lo que hace uno, lo controla otro — decisión de Carlos, 23/09/2026
 

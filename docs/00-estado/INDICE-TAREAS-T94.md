@@ -5,7 +5,6 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 | Tarea | De qué se trata | Estado |
 |---|---|---|
 | T116 | Un retiro del dueño no entra al turno | Hecha por Claude con la opción A de Carlos. La controla Gemini |
-| T119 | Serie, medio inactivo y deporte: tres controles solo en pantalla | Reparada por Claude, sin desplegar; controla Codex |
 
 **Para después de producción (Carlos, 01/11):** T110, T111 y T112. No entran antes.
 

@@ -201,10 +201,10 @@ Setup tecnico detallado:
 
 ## Tests
 
-Dos velocidades (decisión de Carlos, 19/10/2026; detalle en `AGENTS.md` §6-ter):
+Decisiones de Carlos, 19/10 y 01/11/2026; detalle en `AGENTS.md` §6-ter:
 
 ```bash
-DB_DATABASE=wings_testing_claude php artisan test --exclude-group=lento   # cada tarea, ~4 min
+DB_DATABASE=wings_testing_claude php artisan test tests/Feature/<Archivo>.php   # cada tarea: solo su área
 DB_DATABASE=wings_testing_claude php artisan test                         # completa
 ```
 
