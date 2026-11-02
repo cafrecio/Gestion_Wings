@@ -209,11 +209,11 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.
 - [ ] Firmar el gate final de produccion.
+- [ ] **Para los textos legales (T10, los lleva Claude):** dar nombre o razón social, CUIT,
+  domicilio, correo de reclamos y ciudad de Gestionar-te, e inscribirla en la AAIP con la clave
+  fiscal propia (TAD). Nada más: lo legal lo resuelve Claude, en `docs/01-producto/legal/README.md`.
 
 ## 5. Ya resuelto — no volver a pedir
-
-- **Lo legal (T10):** Carlos no es abogado ni tiene abogado (01/11/2026). No se le pide. Los
-  borradores siguen en `docs/01-producto/legal/`, sin revisión de un abogado y sin publicar.
 
 - Acceso SSH, dominio, TLS y Cloudflare.
 - Backups diarios cifrados con copia a Drive.

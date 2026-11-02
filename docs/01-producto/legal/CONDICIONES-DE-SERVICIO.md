@@ -1,6 +1,6 @@
 # Condiciones de servicio de Wings
 
-**Borrador del 17/10/2026.** Los datos entre corchetes los completa Carlos antes de firmar.
+**Versión del 01/11/2026.** Los datos entre corchetes se completan al firmar con cada club.
 
 Entre **[NOMBRE O RAZÓN SOCIAL]**, CUIT **[CUIT]**, con domicilio en **[DOMICILIO]**, que presta
 el servicio con el nombre **Gestionar-te** (en adelante, «Gestionar-te»), y **[NOMBRE DEL CLUB]**,
@@ -36,14 +36,11 @@ cambiar o sacar funciones; si saca una que el Club usa, le avisa con 30 días de
 
 ## 4. Precio y pago
 
-- El abono es de **USD 30 (treinta dólares estadounidenses) por mes**, por Club.
-  [A CONFIRMAR con el contador: si corresponde sumar IVA según la situación fiscal de Gestionar-te.]
+- El abono es de **USD 30 (treinta dólares estadounidenses) por mes**, por Club, más IVA si
+  corresponde según la situación fiscal de Gestionar-te.
 - Se paga por mes adelantado, del 1 al 10 de cada mes, por **[MEDIO DE PAGO]**.
-- **Moneda — elegir una opción y borrar la otra:**
-  - *Opción A:* se paga en dólares estadounidenses. (Desde el DNU 70/2023, art. 765 del Código
-    Civil y Comercial, quien debe dólares cumple pagando dólares.)
-  - *Opción B:* se paga en pesos, al tipo de cambio vendedor del Banco de la Nación Argentina del
-    día hábil anterior al pago.
+- Se paga en pesos, al tipo de cambio vendedor del Banco de la Nación Argentina del día hábil
+  anterior al pago.
 - Gestionar-te puede cambiar el precio avisando con 30 días de anticipación. Si el Club no está
   de acuerdo, puede darse de baja antes de que rija, sin cargo.
 - Si el Club no paga, Gestionar-te le avisa. Pasados 15 días del aviso, puede suspender el acceso
@@ -71,6 +68,9 @@ estas condiciones.
 - No responde por cortes de internet del Club, por datos mal cargados por el Club, ni por el uso
   indebido de una cuenta cuya contraseña el Club compartió.
 - Wings ayuda a administrar; las decisiones de cobro, liquidación y caja son del Club.
+- Los recibos y liquidaciones de Wings son constancias internas. No reemplazan la factura ni el
+  recibo de sueldo. Lo fiscal y lo laboral del Club, incluida la relación con sus profesores, le
+  corresponden al Club.
 
 ## 8. Confidencialidad
 
@@ -135,7 +135,7 @@ Ley 25.326, art. 25.
 
    | Proveedor | Para qué | Datos que pasan |
    |---|---|---|
-   | Hostinger | Servidor donde corre Wings | Todos. [A CONFIRMAR: país del centro de datos] |
+   | Hostinger | Servidor donde corre Wings, en Estados Unidos | Todos |
    | Cloudflare | Protección y conexión segura | El tráfico entre el usuario y Wings |
    | Google Drive | Copia de seguridad externa | La copia diaria, **cifrada** |
    | Telegram | Avisos al dueño del Club | Algunos avisos incluyen nombre y apellido de un alumno |

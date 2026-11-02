@@ -1,6 +1,6 @@
 # Política de privacidad de Wings
 
-**Borrador del 17/10/2026.** Los datos entre corchetes se completan por club.
+**Versión del 01/11/2026.** Los datos entre corchetes se completan por club.
 
 Esta política explica qué datos personales se guardan en Wings, para qué, quién los ve y cómo
 pedir verlos, corregirlos o borrarlos. Se aplica a alumnos, familias, profesores y personal del
@@ -46,7 +46,7 @@ club no va a poder avisar por esos medios.
 
   | Proveedor | Para qué | Dónde |
   |---|---|---|
-  | Hostinger | Servidor donde corre Wings | [A CONFIRMAR: país del centro de datos] |
+  | Hostinger | Servidor donde corre Wings | Estados Unidos |
   | Cloudflare | Conexión segura y protección | Red internacional |
   | Google Drive | Copia de seguridad diaria, **cifrada** | Estados Unidos y otros |
   | Telegram | Avisos al dueño del club (pueden incluir el nombre de un alumno) | Fuera de Argentina |
@@ -105,9 +105,8 @@ Para imprimir al pie de la ficha de inscripción del club, antes de la firma.
 > y DNI son obligatorios para la inscripción; el resto es para poder comunicarnos. No se usan para
 > publicidad ni se venden.
 >
-> Para que el sistema funcione, los datos se guardan en servidores de proveedores que pueden estar
-> fuera de Argentina, incluso en países sin un nivel de protección equivalente (como Estados
-> Unidos). **Firmando esta ficha, presto mi consentimiento expreso para ese tratamiento y esa
+> Para que el sistema funcione, los datos se guardan en servidores de proveedores fuera de
+> Argentina, en países sin un nivel de protección equivalente, como Estados Unidos. **Firmando esta ficha, presto mi consentimiento expreso para ese tratamiento y esa
 > transferencia.**
 >
 > Puedo pedir ver mis datos gratis cada seis meses, corregirlos o pedir que se borren, escribiendo

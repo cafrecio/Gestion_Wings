@@ -454,6 +454,13 @@ anotarlo sin atribuirle causa.
 clase. Entra un archivo nuevo si tarda más de 10 s en la suite. Nadie marca `lento` una
 prueba para sacarla de una corrida: lento es por tiempo, nunca por rojo.
 
+## 6-quater. Datos personales de producción — T10, 01/11/2026
+
+**Ningún agente de IA lee datos personales de producción:** ni filas de alumnos, familias o
+profesores, ni respaldos, ni logs con esos datos. La política de privacidad no declara a ningún
+proveedor de IA. En producción se mira con conteos y estructura;
+«mirar filas» (CLAUDE.md) vale para las bases de prueba. Si hace falta ver un dato real, lo mira Carlos.
+
 ## 6a. Lo que hace uno, lo controla otro — decisión de Carlos, 23/09/2026
 
 **Ninguna tarea la cierra el mismo agente que la hizo.** Quien la hace la entrega; otro la

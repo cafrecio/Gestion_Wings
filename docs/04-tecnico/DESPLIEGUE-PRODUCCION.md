@@ -38,9 +38,9 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 
 ## Lo que no es técnico y sigue abierto
 
-- **T10 — textos legales:** Carlos no es abogado ni tiene abogado (01/11/2026): no se le pide y no frena el
-  despliegue. Los borradores siguen en `docs/01-producto/legal/`, sin revisión de un abogado, sin completar y sin
-  publicar.
+- **T10 — textos legales:** los lleva Claude; riesgos y coberturas en `docs/01-producto/legal/README.md`. No frena el
+  despliegue. Antes de cargar datos reales de familias hacen falta la leyenda firmada en la ficha y las condiciones
+  firmadas con el club. Sin revisión de un abogado.
 - **T82 — restauración:** ensayada en este servidor, sin probar un servidor vacío ni el volumen real. Repetir el ensayo
   antes de desplegar, con el código nuevo sobre una copia, y después, con el primer respaldo del esquema nuevo. Pendientes de
   Carlos: credencial propia de rclone y sacar la clave de la carpeta de respaldos.

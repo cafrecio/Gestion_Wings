@@ -45,6 +45,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | En curso (hizo Claude) | Revisados riesgos y textos el 01/11: docs/01-producto/legal/README.md. Sigue abierta: faltan los datos de Gestionar-te y su inscripción en la AAIP, y el enlace en el ingreso. Claude los pide cuando haya club para firmar. |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude. T117 y T119 cerradas. No hay decisión de Carlos: Claude la despliega a prueba tras la única completa del día siguiente, y sigue. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos. Claude completa la prueba y la clasificación de antecedentes; no requiere a Carlos. |
 
@@ -56,9 +57,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (11)
+## Sin empezar (10)
 
-T10, T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
+T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
 
 ## Mejoras futuras, no se empiezan ahora (14)
 
