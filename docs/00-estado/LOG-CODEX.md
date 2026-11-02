@@ -8,6 +8,7 @@ Reportes21combinaciones y HTTP, mismos importes/filas;14diferencias solo de orde
 Sitio READ ONLY02:07UTC02/11: reloj5/12, cero futuras. Futura heredada recalcula0, no cierra/paga. Mes pasado vacío alcanzable con pendientes de otro mes: fuera de T115.
 Rápida1377/6omitidas/10051aserciones,378.69s,salida0, corte34730b17. Sin completa propia; reserva ajena permite otras bases. T34 regenerado preservado en stash, fuera de entrega.
 T115 cerrada, verificaCodex, tiene nadie. T119/T82 publicados b80d3c9e/34730b17, remoto comprobado. Main1cf07513 integrado; propios repetidos12/4733 verdes. La rápida mantiene su corte.
+Actualización 02/11 — Codex CAB: T115 `313bdce6` en `origin/main`; T119/T82 incluidos. Publicación comprobada. Sin nuevas pruebas ni despliegue.
 
 ## 2026-11-01 — Codex CAB — T82 segunda vuelta cerrada
 
