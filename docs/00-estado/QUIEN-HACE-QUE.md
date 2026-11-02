@@ -42,13 +42,14 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | En curso (hizo Claude) | A la medida de una pyme informal: acuerdo de una página y aviso por WhatsApp. Claude se los pasa al club al subir a producción. |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude. T117 y T119 cerradas. No hay decisión de Carlos: Claude la despliega a prueba tras la única completa del día siguiente, y sigue. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos. Claude completa la prueba y la clasificación de antecedentes; no requiere a Carlos. |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Codex) | Abierta. Aceptación de términos y privacidad dentro de Wings y textos a la medida de una pyme informal. Codex la ve al entrar en su próxima tanda. Falta el nombre real del prestador (LEGAL_PRESTADOR). |
 
 ## Gemini
 

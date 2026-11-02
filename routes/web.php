@@ -48,7 +48,11 @@ Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
-Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPrimeraCarga::class])->group(function () {
+Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\ExigirAceptacionLegal::class, \App\Http\Middleware\PrepararPrimeraCarga::class])->group(function () {
+    Route::get('/legales', [\App\Http\Controllers\LegalWebController::class, 'index'])->name('web.legal.index');
+    Route::get('/legales/aceptar', [\App\Http\Controllers\LegalWebController::class, 'aceptar'])->name('web.legal.aceptar');
+    Route::post('/legales/aceptar', [\App\Http\Controllers\LegalWebController::class, 'guardar'])->name('web.legal.guardar');
+
     Route::middleware('ensure.admin.web')->prefix('sistema/primera-carga')->name('web.primera-carga.')->group(function () {
         Route::get('/', [\App\Http\Controllers\PrimeraCargaWebController::class, 'index'])->name('index');
         Route::post('/continuar', [\App\Http\Controllers\PrimeraCargaWebController::class, 'continuar'])->name('continuar');

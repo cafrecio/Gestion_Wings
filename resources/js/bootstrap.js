@@ -18,7 +18,7 @@ window.fetch = async function (...args) {
         window.location.assign(destino);
         return new Promise(() => {});
     }
-    if (respuesta.redirected && respuesta.url && respuesta.url.includes('/login')) {
+    if (respuesta.redirected && respuesta.url && (respuesta.url.includes('/login') || respuesta.url.includes('/legales/aceptar'))) {
         window.__ignorarAvisoSalida = true;
         window.onbeforeunload = null;
         window.location.assign(respuesta.url);

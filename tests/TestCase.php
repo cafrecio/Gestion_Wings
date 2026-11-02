@@ -9,6 +9,8 @@ abstract class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        // Los tests históricos entran sin pasar por la aceptación; AceptacionLegalT10Test la prueba.
+        config(['legal.exigir' => false]);
         // Los tests históricos ejercitan un club ya operativo. P1 restaura explícitamente
         // PENDIENTE en su fixture y prueba el recorrido completo, también con altas directas.
         if (\Illuminate\Support\Facades\Schema::hasTable('primera_carga')) {

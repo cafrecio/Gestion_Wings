@@ -4,7 +4,7 @@ El club lo manda por WhatsApp a quienes ya están, y lo muestra o lo manda al in
 
 ---
 
-Hola. **[NOMBRE DEL CLUB]** va a llevar alumnos, clases y cuotas en un sistema llamado Wings. Guardamos nombre, DNI, fecha de nacimiento, teléfono, datos de contacto de madre, padre o tutor, asistencias y pagos. Es solo para organizar las clases y cobrar: no se venden ni se usan para publicidad.
+Hola. El club va a llevar alumnos, clases y cuotas en un sistema llamado Wings. Guardamos nombre, DNI, fecha de nacimiento, teléfono, datos de contacto de madre, padre o tutor, asistencias y pagos. Es solo para organizar las clases y cobrar: no se venden ni se usan para publicidad.
 
 El sistema funciona en servidores de Estados Unidos, un país sin una protección de datos equivalente a la de Argentina. **Si estás de acuerdo con eso, respondé OK.**
 

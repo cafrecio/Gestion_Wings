@@ -4,24 +4,33 @@ Revisión del 01/11/2026, a cargo de Claude por orden de Carlos. Nadie matricula
 
 ## Lo que se usa ahora
 
-El cliente es una pyme informal que hasta hoy se maneja con un cuaderno. Para ese caso alcanza con dos cosas:
+El cliente es una pyme informal que hasta hoy se maneja con un cuaderno. Todo pasa dentro de Wings:
 
-- **[Acuerdo simple con el club](ACUERDO-SIMPLE-CON-EL-CLUB.md):** una página. Sin CUIT y sin firma formal.
-- **[Aviso a las familias](AVISO-A-LAS-FAMILIAS.md):** un mensaje de WhatsApp. Se responde OK.
+- **[Términos](../../../resources/legal/terminos.md) y [privacidad](../../../resources/legal/privacidad.md):** cada persona los acepta la primera vez que entra, y de nuevo si cambia `legal.version`. El dueño acepta en nombre del club. Se consultan en Ayuda → Términos y privacidad.
+- **Constancia:** tabla `aceptaciones_legales`, con usuario, rol, fecha, IP, navegador, versión y huella del texto. Un clic es una forma válida de consentir, pero hay que poder probarlo (Ley 25.506; Código Civil y Comercial, arts. 286 a 288; por comentarios).
+- **[Aviso a las familias](../../../resources/legal/aviso-familias.md):** el club lo manda y guarda la respuesta. Está dentro de Wings para dueño y operativa.
 
-Por qué alcanza:
+**Qué queda de cada lado:**
+
+- **Club:** es el responsable de la base (Ley 25.326, art. 2). Le toca avisar a las familias, tener su conformidad, atender sus pedidos y lo fiscal y laboral. Se hace cargo de los reclamos por eso y le reintegra a Gestionar-te lo que pague.
+- **Gestionar-te:** presta el sistema y el soporte por cuenta del club. No se puede decir «solo soporte» porque aloja los datos: le quedan seguridad, no usarlos para otra cosa y borrarlos al terminar (art. 25; leído).
+
+**Límites que el contrato no quita:**
+
+- Las familias no firman ese contrato, así que igual pueden reclamarle a Gestionar-te. El reintegro vale contra el club, que puede no tener con qué pagar.
+- No se dispensa el dolo (Código Civil y Comercial, art. 1743; por comentarios), y si un juez ve al club como consumidor pueden caer el tope y el reintegro.
+
+**Por qué alcanza con el aviso:**
 
 - **Sin consentimiento firmado:** los datos que hacen falta para dar las clases y cobrar no lo necesitan, porque nacen de la relación entre el club y la familia (Ley 25.326, art. 5, inc. 2 d; leído). Sí hay que avisar (art. 6).
 - **El OK es solo por el servidor en Estados Unidos:** el art. 12 lo prohíbe sin protección adecuada y sus excepciones no cubren este caso (leído). El borrador del 17/10 lo resolvía con consentimiento; el Decreto 1558/2001 no se pudo releer el 01/11.
-- **Sin registro en la AAIP por ahora:** es decisión de Claude. El art. 21 habla de bases destinadas a dar informes, y la lista de un club no lo es; la página de la AAIP pide más. Se inscribe si el club se formaliza o crece. Riesgo aceptado: apercibimiento o multa.
-- **Sin enlace en el ingreso:** el aviso ya informa a las familias. No hace falta tocar la pantalla.
-- **No frena nada:** Wings se puede subir y cargar. Falta que el club mande el aviso; hasta tener cada OK, ese alumno queda sin cubrir por el servidor en Estados Unidos.
+- **Sin registro en la AAIP por ahora:** es decisión de Claude. El art. 21 habla de bases destinadas a dar informes, y la lista de un club no lo es; la página de la AAIP pide más. Riesgo aceptado: apercibimiento o multa. Los términos lo dejan a cargo del club.
 
-Lo fiscal y lo laboral del club son del club: Wings no lo cambia ni lo resuelve.
+**Falta:** el nombre real de quien presta el servicio (`LEGAL_PRESTADOR` en el `.env`). Hasta entonces, los términos dicen solo «Gestionar-te».
 
 ## Si el club se formaliza o llega uno formal
 
-Se usan los documentos y la tabla de abajo.
+Se usan las condiciones firmadas y la tabla de abajo.
 
 | Documento | Para quién | Dónde va |
 |---|---|---|
@@ -56,7 +65,7 @@ Se usan los documentos y la tabla de abajo.
 
 ## Lo que pediría un club formal
 
-Datos fiscales de Gestionar-te e inscripción en la AAIP con clave fiscal; datos, inscripción y firma del club; enlace a la privacidad y a las cookies en el ingreso.
+Datos fiscales de Gestionar-te e inscripción en la AAIP con clave fiscal; datos, inscripción y firma del club.
 
 ## Fuentes consultadas el 01/11/2026
 
@@ -67,4 +76,6 @@ Datos fiscales de Gestionar-te e inscripción en la AAIP con clave fiscal; datos
 - Reforma: [Allende & Brea](https://allende.com/privacidad-y-ciberseguridad/se-reintroduce-en-el-congreso-el-proyecto-de-reforma-integral-del-regimen-argentino-de-proteccion-de-datos-personales-08-12-2026/) y [proyecto 1751-D-2026](https://leydedatospersonales.tech/).
 - Consumidor: [fallo comentado sobre software y consumo final](https://aldiaargentina.microjuris.com/2019/10/11/consumidor-o-no-consumidor-la-ley-de-defensa-del-consumidor-es-inaplicable-si-el-software-adquirido-por-la-sociedad-comercial-no-tuvo-destino-de-consumo-final/) y [art. 988](https://camoron.org.ar/nuevas-normas/derecho-del-consumidor/el-nuevo-codigo-y-las-clausulas-abusivas/).
 - ARCA: [RG 5866/2026, comentario](https://siap.blogdelcontador.com.ar/?p=86043) y [nuevo cronograma](https://www.canal26.com/economia/2026/08/31/arca-amplia-el-uso-de-facturas-electronicas-quienes-deberan-emitir-comprobantes-desde-noviembre-de-2026/).
+- Aceptar con un clic: [comentario sobre firma electrónica](https://abogados.com.ar/la-firma-electronica-en-argentina-validez-juridica-robustez-tecnologica-y-eficiencia-operativa/39342) y [forma y prueba de los contratos electrónicos](https://pensamientocivil.com.ar/doctrina/4314-forma-y-prueba-contratos-electronicos).
+- [Código Civil y Comercial, art. 1743](https://codigocivilonline.com.ar/articulo-1743/).
 - [Código Civil y Comercial, art. 765, comentario de Marval](https://www.marval.com/publicacion/luego-del-dnu-702023-pueden-pagarse-en-pesos-las-obligaciones-pendientes-en-dolares-15745?lang=es).

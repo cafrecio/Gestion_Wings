@@ -102,4 +102,9 @@
         </div>
     @endif
 
+    <div class="alumno-card" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem; margin-top:1rem;">
+        <span style="font-weight:600;">Términos y privacidad</span>
+        <x-ds.button variant="secondary" href="{{ route('web.legal.index') }}">Ver</x-ds.button>
+    </div>
+
 @endsection

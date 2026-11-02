@@ -32,13 +32,13 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 | 7 | Programador: el cron de producción (`ejecutar-scheduler.sh`) corre cada minuto; cuotas 06:00, recargos 06:15, resumen 08:00 | Claude | el cron existe; al día siguiente, el resumen de las 08:00 llega |
 | 8 | **Correo y Telegram.** Producción no manda correo (SERVIDOR.md §correo): el `.env` no viaja con el código, así que el script copia las líneas `MAIL_` del sitio de prueba si faltan (paso 2b). El chat de avisos se configura en Configuración → avisos | script; Carlos confirma que le llega el primer aviso | «Probar» en Configuración de avisos |
 | 9 | Respaldos y monitoreo: comprobar que `respaldar.sh` incluye `wings` y que el monitoreo HTTPS mira `wings.gestionar-te.com.ar` | Claude | última corrida del respaldo del día; `probar-monitoreo.sh` |
-| 10 | Primer ingreso de Carlos con su usuario real. **Primero, Caja → Configurar: saldo inicial de Efectivo (T96); se carga una sola vez y hasta entonces no se puede abrir caja.** Después Tipos de Caja: saldo inicial de las demás cuentas. Configuración: medios de pago, día de generación, gracia, mora (0 hasta que decida), inscripción | Carlos | las pantallas que usa el dueño abren y guardan; en Caja aparece **Abrir** |
+| 10 | Primer ingreso de Carlos con su usuario real: acepta términos y privacidad en nombre del club. **Después, Caja → Configurar: saldo inicial de Efectivo (T96); se carga una sola vez y hasta entonces no se puede abrir caja.** Después Tipos de Caja: saldo inicial de las demás cuentas. Configuración: medios de pago, día de generación, gracia, mora (0 hasta que decida), inscripción | Carlos | las pantallas que usa el dueño abren y guardan; en Caja aparece **Abrir** |
 | 11 | Carga del club por el circuito acordado: primera carga por Excel (plantilla, revisión, carga, deshacer) con el primer mes de deuda; después alumnos sueltos por pantalla | Carlos / el club | Cobranza y Reportes dicen lo que dice la planilla |
 | 12 | Primera caja real acompañada | el club, con Claude mirando | apertura, cobros, cierre y validación del primer día |
 
 ## Lo que no es técnico y sigue abierto
 
-- **T10 — legal:** lo lleva Claude, a la medida de una pyme informal: acuerdo de una página y aviso por WhatsApp
+- **T10 — legal:** lo lleva Claude, a la medida de una pyme informal: cada persona acepta términos y privacidad dentro de Wings la primera vez que entra, y el club avisa a las familias
   (`docs/01-producto/legal/README.md`). No frena el despliegue ni la carga. Sin revisión de un abogado.
 - **T82 — restauración:** ensayada en este servidor, sin probar un servidor vacío ni el volumen real. Repetir el ensayo
   antes de desplegar, con el código nuevo sobre una copia, y después, con el primer respaldo del esquema nuevo. Pendientes de
