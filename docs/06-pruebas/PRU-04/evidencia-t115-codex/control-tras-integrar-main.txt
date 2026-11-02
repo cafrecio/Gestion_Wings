@@ -1,0 +1,21 @@
+
+   PASS  Tests\Feature\ComparacionReportesT115CodexTest
+  ✓ importes y filas sin cambios en siete meses todos los deportes y pedido web                                 34.22s
+
+   PASS  Tests\Feature\ControlT115CodexTest
+  ✓ diciembre futuro ambos tipos avisa conserva formulario y permite corregir solo anio                          0.42s
+  ✓ febrero rechazado el dos y el ultimo minuto de enero sin escribir                                            0.45s
+  ✓ diciembre con clases se genera recalcula cierra y paga una vez                                               0.87s
+  ✓ enero actual con y sin incluir hoy with data set "sin hoy"                                                   0.31s
+  ✓ enero actual con y sin incluir hoy with data set "con hoy"                                                   0.27s
+  ✓ mes y anio invalidos rechazan sin error del servidor ni filas                                                0.33s
+  ✓ inactiva con clase dictada pendiente se ofrece y se liquida                                                  0.29s
+  ✓ cambio de mes se decide en buenos aires aunque utc ya haya cambiado                                          0.24s
+  ✓ futura heredada recalcula pero no cierra ni paga antes del fin de mes                                        0.21s
+  ✓ cero pasado no se elige sin clases pero si con pendientes de otro mes                                        0.30s
+  ✓ servicio directo tambien rechaza futuro antes de escribir                                                    0.20s
+
+  Tests:    12 passed (4733 assertions)
+  Duration: 38.43s
+
+CODIGO_SALIDA=0

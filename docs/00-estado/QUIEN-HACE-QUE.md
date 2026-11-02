@@ -50,9 +50,7 @@ Nada en este momento.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha, sin desplegar. Control: PRU-04/PROMPT-CODEX-T115-CONTROL.md. |
+Nada en este momento.
 
 ## Gemini
 

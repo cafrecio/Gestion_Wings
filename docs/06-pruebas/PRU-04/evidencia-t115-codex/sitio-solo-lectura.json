@@ -1,0 +1,42 @@
+{
+    "sitio": "test.gestionar-te.com.ar",
+    "base": "wingstest",
+    "solo_lectura": true,
+    "reloj_aplicacion": "2026-12-05T23:59:59-03:00",
+    "zona": "America\/Argentina\/Buenos_Aires",
+    "momento_real_utc": "2026-11-02T02:07:46+00:00",
+    "futuras": 0,
+    "muestra_futuras": [],
+    "muestra_existentes": [
+        {
+            "id": 16,
+            "mes": 11,
+            "anio": 2026,
+            "estado": "CERRADA"
+        },
+        {
+            "id": 15,
+            "mes": 11,
+            "anio": 2026,
+            "estado": "CERRADA"
+        },
+        {
+            "id": 14,
+            "mes": 11,
+            "anio": 2026,
+            "estado": "CERRADA"
+        },
+        {
+            "id": 13,
+            "mes": 11,
+            "anio": 2026,
+            "estado": "CERRADA"
+        },
+        {
+            "id": 11,
+            "mes": 11,
+            "anio": 2026,
+            "estado": "CERRADA"
+        }
+    ]
+}

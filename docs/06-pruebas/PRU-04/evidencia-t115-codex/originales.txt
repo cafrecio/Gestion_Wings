@@ -1,0 +1,10 @@
+
+   PASS  Tests\Feature\LiquidacionMesFuturoT115Test
+  ✓ cambiar solo el mes en enero no genera diciembre del anio nuevo                                             14.13s
+  ✓ el mes siguiente tampoco se liquida                                                                          0.23s
+  ✓ diciembre del anio que termino y el mes en curso se siguen generando                                         0.24s
+
+  Tests:    3 passed (16 assertions)
+  Duration: 14.96s
+
+CODIGO_SALIDA=0

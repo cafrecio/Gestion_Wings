@@ -1,0 +1,18 @@
+
+   PASS  Tests\Feature\ControlT115CodexTest
+  ✓ diciembre futuro ambos tipos avisa conserva formulario y permite corregir solo anio                         35.72s
+  ✓ febrero rechazado el dos y el ultimo minuto de enero sin escribir                                            0.84s
+  ✓ diciembre con clases se genera recalcula cierra y paga una vez                                               1.59s
+  ✓ enero actual con y sin incluir hoy with data set "sin hoy"                                                   0.89s
+  ✓ enero actual con y sin incluir hoy with data set "con hoy"                                                   0.92s
+  ✓ mes y anio invalidos rechazan sin error del servidor ni filas                                                0.89s
+  ✓ inactiva con clase dictada pendiente se ofrece y se liquida                                                  1.12s
+  ✓ cambio de mes se decide en buenos aires aunque utc ya haya cambiado                                          0.85s
+  ✓ futura heredada recalcula pero no cierra ni paga antes del fin de mes                                        1.36s
+  ✓ cero pasado no se elige sin clases pero si con pendientes de otro mes                                        0.69s
+  ✓ servicio directo tambien rechaza futuro antes de escribir                                                    0.41s
+
+  Tests:    11 passed (121 assertions)
+  Duration: 45.56s
+
+CODIGO_SALIDA=0

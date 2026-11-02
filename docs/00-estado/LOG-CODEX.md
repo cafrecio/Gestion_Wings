@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T115 controlada y cerrada
+
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T115-CODEX.md): 30ea9a41, corte main34730b17; solo wings_testing_codex, sin producto ni despliegue.
+Ocho casos HTTP, formulario, diciembre1000 cerrado/pagado una vez, enero con/sin hoy, inactiva y medianoche argentina:11/121 verdes; originales3/16.
+Reportes21combinaciones y HTTP, mismos importes/filas;14diferencias solo de orden. Comparador1/4612 y área21/194 verdes. Otras listas sin orden, inferido.
+Sitio READ ONLY02:07UTC02/11: reloj5/12, cero futuras. Futura heredada recalcula0, no cierra/paga. Mes pasado vacío alcanzable con pendientes de otro mes: fuera de T115.
+Rápida1377/6omitidas/10051aserciones,378.69s,salida0, corte34730b17. Sin completa propia; reserva ajena permite otras bases. T34 regenerado preservado en stash, fuera de entrega.
+T115 cerrada, verificaCodex, tiene nadie. T119/T82 publicados b80d3c9e/34730b17, remoto comprobado. Main1cf07513 integrado; propios repetidos12/4733 verdes. La rápida mantiene su corte.
+
 ## 2026-11-01 — Codex CAB — T82 segunda vuelta cerrada
 
 H1–H4 reejecutados en VPS00:20–00:33UTC02/11 (CAB01/11). [Segunda vuelta y evidencia](../04-tecnico/seguridad-vps/2026-10-28-ensayo-restauracion/VERIFICACION-T82-CODEX.md).

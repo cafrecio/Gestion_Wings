@@ -1,0 +1,247 @@
+{
+    "base": "wings_testing_codex",
+    "reloj": "2026-10-09T12:00:00-03:00",
+    "antes": "30ea9a41^:app\/Services\/ReporteMensualService.php (solo nombre de clase adaptado)",
+    "despues": "ReporteMensualService actual, identico a 30ea9a41",
+    "sha256_servicio_actual": "1802340ce8c76cc81c05c3587ef7f8e02eab59a9d091ffe6fb5b6a525ba7a8b7",
+    "sha256_copia_historica": "a665ec5886b7f31185c25642f2eb7c938e0b7c3d6cf96f475bebd403b6c6ea81",
+    "comparaciones": [
+        {
+            "mes": "2026-04",
+            "deporte": null,
+            "ingresos_centavos": 60000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 52500000,
+            "deuda_centavos": 12000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 92500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-04",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 92500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-04",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 12000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 92500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-05",
+            "deporte": null,
+            "ingresos_centavos": 60000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 52500000,
+            "deuda_centavos": 24000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 145000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-05",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 145000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-05",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 24000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 145000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-06",
+            "deporte": null,
+            "ingresos_centavos": 60000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 52500000,
+            "deuda_centavos": 36000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 197500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-06",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 197500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-06",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 36000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 197500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-07",
+            "deporte": null,
+            "ingresos_centavos": 60000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 52500000,
+            "deuda_centavos": 48000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 250000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-07",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 250000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-07",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 48000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 250000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-08",
+            "deporte": null,
+            "ingresos_centavos": 62500000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 55000000,
+            "deuda_centavos": 60000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 305000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-08",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 305000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-08",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 60000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 305000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-09",
+            "deporte": null,
+            "ingresos_centavos": 75000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 67500000,
+            "deuda_centavos": 57000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 372500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-09",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 372500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-09",
+            "deporte": 2,
+            "ingresos_centavos": 39000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 39000000,
+            "deuda_centavos": 57000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 372500000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-10",
+            "deporte": null,
+            "ingresos_centavos": 66000000,
+            "egresos_centavos": 7500000,
+            "resultado_centavos": 58500000,
+            "deuda_centavos": 69000000,
+            "por_pagar_centavos": 9000000,
+            "disponible_centavos": 436000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-10",
+            "deporte": 1,
+            "ingresos_centavos": 36000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 36000000,
+            "deuda_centavos": 0,
+            "por_pagar_centavos": 9000000,
+            "disponible_centavos": 436000000,
+            "todos_los_campos_y_filas_iguales": true
+        },
+        {
+            "mes": "2026-10",
+            "deporte": 2,
+            "ingresos_centavos": 24000000,
+            "egresos_centavos": 0,
+            "resultado_centavos": 24000000,
+            "deuda_centavos": 69000000,
+            "por_pagar_centavos": 0,
+            "disponible_centavos": 436000000,
+            "todos_los_campos_y_filas_iguales": true
+        }
+    ],
+    "comparaciones_con_diferencias_solo_de_orden": 14,
+    "consultas_de_comparacion_solo_lectura": 4585,
+    "pedidos_web_antes_y_despues": {
+        "estado": 200,
+        "reporte_y_evolucion_iguales": true
+    }
+}

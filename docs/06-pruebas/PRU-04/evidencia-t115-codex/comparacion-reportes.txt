@@ -1,0 +1,8 @@
+
+   PASS  Tests\Feature\ComparacionReportesT115CodexTest
+  ✓ importes y filas sin cambios en siete meses todos los deportes y pedido web                                 37.56s
+
+  Tests:    1 passed (4612 assertions)
+  Duration: 37.76s
+
+CODIGO_SALIDA=0

@@ -1,0 +1,16 @@
+T115 — suite rápida propia
+Corte: main 34730b17
+Base: wings_testing_codex
+Comando: php artisan test --exclude-group=lento --no-ansi
+Salida completa local ignorada: storage/logs/t115-suite-rapida-completa.txt
+INICIO=2026-11-01T23:16:57.8435868-03:00
+
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                    14.97s
+
+  Tests:    6 skipped, 1377 passed (10051 assertions)
+  Duration: 378.69s
+
+CODIGO_SALIDA=0
+FIN=2026-11-01T23:23:17.5744403-03:00

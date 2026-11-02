@@ -12,6 +12,8 @@ Implementado botón **Desvalidar** para el dueño en la ficha de clase (`clases/
 
 **T113:** Gemini agregó Desvalidar, solo el dueño; [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado. **T115:** Wings rechaza liquidar un mes que no empezó. **T114** pasó a mejora futura: MF16. Desempate en `ReporteMensualService`: las filas del mismo período salían en cualquier orden, sin efecto en importes. Sin desplegar. Suite completa después del desempate, sobre `020acdce` más T116 sin subir (sesión de T116, 01/11): 1.523 aprobadas, 0 fallidas, 6 omitidas.
 
+**Control independiente T115 — Codex CAB, 01/11: cerrada.** Ocho casos por HTTP y medianoche de Buenos Aires; conserva formulario y rechaza sin escrituras. Propias11/121, originales3/16; Reportes antes/después21combinaciones con los mismos importes, comparador1/4612 y área21/194 verdes. Rápida propia sobre main34730b17:1377aprobadas/6omitidas/10051aserciones,salida0. Sitio READ ONLY sin futuras. Mes pasado vacío alcanzable con pendientes de otro mes, observación expresamente fuera de T115. Orden de otras listas no garantizado, inferido. [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T115-CODEX.md). Sin corregir producto ni desplegar.
+
 ## T119 — Controles que estaban solo en la pantalla, reparados — Claude CAB, 01/11/2026
 
 **Cerrada el 01/11, sin desplegar.** Codex controló la primera versión y devolvió dos puntos (Editar de Caja y subrubro desactivado); los corregí y **no tuvieron segunda vuelta**: 11 pruebas propias y completa 1.526 aprobadas, 0 fallidas, 6 omitidas.
