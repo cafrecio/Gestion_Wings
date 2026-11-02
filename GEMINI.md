@@ -60,8 +60,9 @@ php -l <cada archivo PHP o Blade tocado>            # Sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # Las vistas compilan sin error
 git diff --stat -- resources/views resources/css    # Solo lo autorizado
 ```
-La suite completa (`php artisan test`, sin excluir) va antes de desplegar, si se toca plata
-compartida o un área marcada `lento`, y nunca con otra suite corriendo en la misma máquina.
+La suite completa (`php artisan test`, sin excluir) corre como máximo una vez por día, en todo
+el proyecto (orden de Carlos, 01/11/2026): se juntan reparaciones y se corre una sola vez, nunca
+por tarea. Nunca con otra suite corriendo en la misma máquina. Detalle en AGENTS.md §6-ter.
 Detalle en AGENTS.md §6-ter.
 
 ### D. Definición de terminado (no dejar documentos mintiendo)

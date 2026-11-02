@@ -424,14 +424,20 @@ DB_DATABASE=wings_testing_<agente> php artisan test --exclude-group=lento   # ~4
 
 Medida el 19/10 en CyE: 806 aprobadas, 4 omitidas, 216 s.
 
-**Suite completa (sin `--exclude-group`) solo en estos casos:**
+**Suite completa (sin `--exclude-group`): como máximo una vez por día, en todo el proyecto**
+(orden de Carlos, 01/11/2026). Ese día la corrieron varios agentes, una por tarea, y todos
+quedaron horas esperando. Las reparaciones se juntan y la completa se corre una sola vez, con todo lo
+juntado. Nunca por tarea. Quien la corre lo anota con fecha en su bitácora; si ya se corrió
+hoy, no se lanza otra.
 
-1. Antes de cada despliegue al servidor. Sin suite completa en verde, no se despliega.
-2. Cuando la tarea toca plata compartida: cobros, deuda, caja, cashflow, liquidaciones,
-   recibos, o cualquier servicio de la tabla «Servicios clave» de CLAUDE.md.
-3. Cuando la tarea toca el área de alguno de los archivos marcados `lento`: esos se
-   corren aunque no se corra el resto (`php artisan test tests/Feature/<Archivo>.php`).
-4. Cuando el barrido con codebase-memory muestra que lo tocado lo usan otras áreas.
+- **Para desplegar:** sigue haciendo falta la completa en verde con lo que se despliega. Si
+  la de hoy no lo incluye, el despliegue espera a la de mañana.
+- **Si la tarea toca plata compartida** (cobros, deuda, caja, cashflow, liquidaciones,
+  recibos o un servicio de «Servicios clave» de CLAUDE.md), o lo tocado lo usan otras áreas
+  según el barrido con codebase-memory: se corren las pruebas de esas áreas y entra en la
+  próxima completa.
+- **Si toca el área de un archivo marcado `lento`:** se corre ese archivo
+  (`php artisan test tests/Feature/<Archivo>.php`) y no la completa.
 
 **Una suite completa a la vez por computadora.** Antes de lanzarla, mirar que ningún otro
 agente esté corriendo pruebas:

@@ -208,8 +208,9 @@ DB_DATABASE=wings_testing_claude php artisan test --exclude-group=lento   # cada
 DB_DATABASE=wings_testing_claude php artisan test                         # completa
 ```
 
-- La completa va antes de desplegar, si se toca plata compartida o un área marcada
-  `lento`, y nunca con otra suite corriendo en la misma máquina.
+- **La completa corre como máximo una vez por día, en todo el proyecto** (orden de Carlos,
+  01/11/2026): se juntan reparaciones y se corre una sola vez, nunca por tarea. Para desplegar
+  hace falta en verde con lo que se despliega. Nunca con otra suite corriendo en la misma máquina.
 - El número vigente de pruebas está en `ESTADO-ACTUAL.md` (lo controla `DocumentacionNoMienteTest`).
 - El esquema de prueba se prepara desde migraciones; no requiere un dump.
 
