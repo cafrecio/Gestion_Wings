@@ -41,9 +41,14 @@ echo "Producción hoy: $(sudo -u $USUARIO git log --oneline -1)"
 echo "Destino:        $(sudo -u $USUARIO git log --oneline -1 "$DESTINO")"
 echo "Migraciones pendientes antes: $($PHP artisan migrate:status 2>/dev/null | grep -c Pending || true)"
 
-paso "2b. Correo: producción toma las líneas MAIL_ del sitio de prueba si no las tiene (SERVIDOR.md §correo)"
+paso "2b. Correo: SMTP local y remitente propio de producción (SERVIDOR.md §correo)"
 if ! grep -q '^MAIL_MAILER=' .env; then
-    grep -E '^MAIL_' /home/wingstest/app/.env >> .env || fallo "el sitio de prueba no tiene las líneas MAIL_ para copiar"
+    printf '
+MAIL_MAILER=smtp
+MAIL_URL="smtp://127.0.0.1:25?verify_peer=0"
+MAIL_FROM_ADDRESS=avisos@gestionar-te.com.ar
+MAIL_FROM_NAME="Wings"
+' >> .env
     chown $USUARIO:$USUARIO .env
     echo "líneas MAIL_ agregadas: $(grep -cE '^MAIL_' .env)"
 else

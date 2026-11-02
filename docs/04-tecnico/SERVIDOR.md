@@ -102,9 +102,7 @@ MAIL_URL="smtp://127.0.0.1:25?verify_peer=0"
 `verify_peer=0` porque el certificado de ese postfix es propio y el destino es la
 misma máquina.
 
-**Producción todavía no manda correo.** `/home/wings/app/.env` no tiene ninguna
-clave `MAIL_`, y sin `MAIL_MAILER` Laravel escribe los mensajes en el log en vez de
-enviarlos. Hay que dejar las mismas tres líneas al desplegar wings.
+**Producción todavía no manda correo** hasta el primer despliegue: `/home/wings/app/.env` no tiene ninguna clave `MAIL_`. `desplegar-produccion.sh` agrega esas líneas, con remitente `avisos@gestionar-te.com.ar` y nombre «Wings». Ese dominio tiene SPF; el remitente del sitio de prueba dice «Wings prueba».
 
 Se borraron además **16.211 mensajes** que estaban atascados en la cola desde junio,
 casi todos avisos automáticos del sistema dirigidos a Carlos que nunca habían salido.

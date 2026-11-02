@@ -15,6 +15,8 @@ planes, 3 subrubros. **Los 4 usuarios son reales (Carlos, 30/10): no se tocan ni
 
 ## Qué se hace, en orden
 
+**Ensayo del paso 1 hecho el 02/11/2026** con `main` `11342b4f`: 42 migraciones, 0 pendientes; 4 usuarios, 2 deportes, 7 grupos y 12 planes intactos. El clasificador de Claude Code bloquea el despliegue: lo corre Carlos con `scp scripts/servidor/desplegar-produccion.sh vps:/tmp/` y `ssh vps "bash /tmp/desplegar-produccion.sh"`.
+
 T97 (01/11/2026) agrega `2026_11_01_020000_agregar_anulacion_transferencias_cashflow`: fecha/hora, administrador y motivo de anulación en la cabecera. Debe correr en el paso 5 antes de habilitar el nuevo código de Cashflow; las cabeceras existentes quedan sin anulación y no se reescriben movimientos. Su `down()` conserva la auditoría financiera, como la cabecera T61: no elimina esos datos. Para una vuelta atrás se usa el respaldo, no se borra el rastro de una anulación.
 Las **36 pendientes** de arriba son el corte leído el 27/10, no un conteo actual: se vuelve a obtener `migrate:status` durante el ensayo, incluyendo las migraciones posteriores de T96/T97 y otras tareas. Este trabajo no desplegó ni consultó producción o test; no desplegar mientras Cora trabaja en el sitio de prueba.
 
@@ -30,7 +32,7 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 | 5 | Migraciones y catálogos (`CatalogosSeeder` usa `updateOrCreate`: no borra ni duplica; **no toca usuarios**) | script | «Migraciones pendientes después: 0» |
 | 6 | Cachés, `wings:preflight` (APP_DEBUG, LOG_LEVEL y lo demás que controla), arriba | script | «Preflight aprobado.»; `/login` 200 |
 | 7 | Programador: el cron de producción (`ejecutar-scheduler.sh`) corre cada minuto; cuotas 06:00, recargos 06:15, resumen 08:00 | Claude | el cron existe; al día siguiente, el resumen de las 08:00 llega |
-| 8 | **Correo y Telegram.** Producción no manda correo (SERVIDOR.md §correo): el `.env` no viaja con el código, así que el script copia las líneas `MAIL_` del sitio de prueba si faltan (paso 2b). El chat de avisos se configura en Configuración → avisos | script; Carlos confirma que le llega el primer aviso | «Probar» en Configuración de avisos |
+| 8 | **Correo y Telegram.** Producción no manda correo (SERVIDOR.md §correo): el `.env` no viaja con el código, así que el script agrega las líneas `MAIL_` con remitente propio si faltan (paso 2b). El chat de avisos se configura en Configuración → avisos | script; Carlos confirma que le llega el primer aviso | «Probar» en Configuración de avisos |
 | 9 | Respaldos y monitoreo: comprobar que `respaldar.sh` incluye `wings` y que el monitoreo HTTPS mira `wings.gestionar-te.com.ar` | Claude | última corrida del respaldo del día; `probar-monitoreo.sh` |
 | 10 | Primer ingreso de Carlos con su usuario real: acepta términos y privacidad en nombre del club. **Después, Caja → Configurar: saldo inicial de Efectivo (T96); se carga una sola vez y hasta entonces no se puede abrir caja.** Después Tipos de Caja: saldo inicial de las demás cuentas. Configuración: medios de pago, día de generación, gracia, mora (0 hasta que decida), inscripción | Carlos | las pantallas que usa el dueño abren y guardan; en Caja aparece **Abrir** |
 | 11 | Carga del club por el circuito acordado: primera carga por Excel (plantilla, revisión, carga, deshacer) con el primer mes de deuda; después alumnos sueltos por pantalla | Carlos / el club | Cobranza y Reportes dicen lo que dice la planilla |
