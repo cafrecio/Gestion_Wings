@@ -43,5 +43,8 @@ Esta tarea te explica cómo generar la liquidación mensual de un profesor en Wi
 ### ¿Qué hago si Wings dice que ya existe una liquidación para ese mes?
 Si aparece el mensaje «Ya existe una liquidación para el profesor en» indicando el mes y año seleccionado, Wings no permite crear dos liquidaciones activas para el mismo profesor en el mismo período. Volvé al listado de **Liquidaciones**, abrí la liquidación existente de ese mes y, si necesitás actualizarla por nuevas asistencias cargadas, tocá **Recalcular**.
 
+### ¿Qué hago si dice «No se puede liquidar un mes que todavía no empezó. Revisá el mes y el año.»?
+Revisá el año. En enero la pantalla propone el año nuevo: para liquidar diciembre, cambiá también el año al que terminó.
+
 ### ¿Cómo se calculan las comisiones de profesores?
 Para profesores cuya disciplina liquida por comisión, Wings computa el porcentaje pactado sobre las cuotas de los alumnos de su grupo cobradas en ese período. El importe definitivo se audita en el desglose de la liquidación generada.

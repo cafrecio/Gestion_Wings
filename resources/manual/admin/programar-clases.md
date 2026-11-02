@@ -60,6 +60,9 @@ Reglas para una clase que ya pasó:
 ### ¿Qué hago si en lugar de Eliminar aparece «No se puede eliminar:»?
 La clase ya tiene historia. El motivo es uno de estos: *Tiene asistencias registradas: debe cancelarse con motivo.*, *Está validada para liquidación.* o *Integra una liquidación.* Usá **Cancelar** en su lugar. Si la clase está en una liquidación cerrada o pagada, tampoco se puede cancelar: Wings responde «No se puede cancelar: la clase está en una liquidación cerrada o pagada.». Si la liquidación está cerrada y sin pagar, primero cancelá la liquidación.
 
+### ¿Qué hago si validé una clase por error?
+Abrí la clase y tocá **Desvalidar**: deja de pagarse en lo que generes después y vuelve a ofrecer **Validar**. Solo lo ve el dueño. Si la clase ya está en una liquidación abierta por hora, Wings dice: «No se puede desvalidar: la clase está en una liquidación abierta. Eliminá esa liquidación, desvalidá y generala de nuevo.». Si está en una cerrada o pagada, no se puede desvalidar.
+
 ### ¿Qué hago si dice «No se puede cambiar el horario: la clase integra una liquidación cerrada.»?
 El horario de esa clase ya se usó para pagarle a la profesora. Si de verdad hay que corregirlo, primero cancelá la liquidación cerrada en **Liquidaciones** (solo si no está pagada) y después editá la clase.
 
