@@ -1,0 +1,20 @@
+## 2026-11-01 — Codex CAB — T97 entregada a revisión de Claude
+
+Implementación propia publicada en 7e72b0d4; aspecto aprobado por Carlos: «Esta OK ahora». [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) · [Capturas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
+Completa en wings_testing_codex: 1401 aprobadas, 6 omitidas, 11287 aserciones, 1300,66s, salida0; copia aislada1389 métodos y669 fuentes intactas. T61/T27 con sus expectativas originales verdes.
+T106 posterior preservada: regresión T97/T61/T27 con controladores y expectativas2145888b, 65/774 verdes,97,36s; cuatro fuentes aisladas restauradas. No es el control completo de T106.
+Manual aislado59/0; 19 contrapruebas detectadas, dos conexiones reales y seis capturas reales. Fichas refrescadas conservando el agregado ajeno de T106.
+Carlos pidió solicitar la reserva: confirmaron Gemini y ambas sesiones de Claude; reserva LIBERADA. Falso positivo inicial del monitor corregido y documentado, sin heredar verdes de corridas interrumpidas.
+T97 a_verificar, tieneClaude; sin autocierre, base del club ni despliegue. Código ajeno y evidenciaT34 preservados; entrega documental final solo propia.
+
+Pedido de Carlos: [reserva de suite T97](RESERVA-SUITE-T97.md), LIBERADA tras la completa y regresión; confirmaron Gemini y dos sesiones de Claude.
+
+## 2026-11-01 — Codex CAB — T97 implementada; espera suite completa exclusiva
+
+Carlos aprobó el aspecto: «Esta OK ahora». Anulación atómica del par con motivo, autor, fecha y dos inversos; defensas de directos intactas. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T97.md) y [pantallas reales1366/375](../06-pruebas/PRU-04/VER-T97.html).
+65 dirigidas/774 y rápida1266/6 omitidas/9482 verdes; 19 mutaciones detectadas con fuentes restauradas y dos conexiones reales sin escritura del segundo intento. Manual aislado59/0; vistas compilan.
+La completa anterior se interrumpió al reiniciar la sesión: no tiene resultado final. Copia aislada HEAD62a5df3f + T97 preparada (1389 métodos, vendor real), solo wings_testing_codex; espera las pruebas T102.
+Carlos autorizó «Sí, publicar solo T97 y preservar lo ajeno». Se separan CSS, rutas, generador, informe compartido y contadores; T94/T102/T105 y evidencia T34 quedan fuera del commit propio.
+Manual, fichas, contrato y despliegue documentados. Se guarda la implementación sin dar por terminada la verificación. T97 sigue en curso; después de la completa se entrega a Claude, sin autocierre ni despliegue.
+
+Base original para los vínculos anteriores: docs/00-estado/.
