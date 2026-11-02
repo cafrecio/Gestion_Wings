@@ -34,7 +34,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T10** Privacidad antes de produccion: texto, leyenda de inscripcion y condiciones de servicio | Hecho, espera verificación (hizo Claude, verifica Carlos) | Borradores hechos el 17/10 en docs/01-producto/legal (condiciones de servicio, privacidad, cookies, leyenda de inscripcion). Carlos completa datos entre corchetes, elige moneda, confirma IVA y pais del servidor, inscribe en la AAIP. Enlace desde el ingreso: tarea aparte |
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 
@@ -57,9 +56,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (10)
+## Sin empezar (11)
 
-T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
+T10, T22 (después), T53 (después), T55 (después), T60 (después), T69 (después), T72 (después), T76 (después), T110 (después), T111 (después), T112 (después).
 
 ## Mejoras futuras, no se empiezan ahora (14)
 

@@ -38,9 +38,9 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 
 ## Lo que no es técnico y sigue abierto
 
-- **T10 — textos legales:** condiciones de servicio, privacidad, cookies y leyenda de inscripción esperan los
-  datos de Carlos (entre corchetes), moneda, IVA, país del servidor e inscripción en la AAIP. No frena el
-  despliegue; frena abrirlo a terceros sin esos textos.
+- **T10 — textos legales:** Carlos no es abogado ni tiene abogado (01/11/2026): no se le pide y no frena el
+  despliegue. Los borradores siguen en `docs/01-producto/legal/`, sin revisión de un abogado, sin completar y sin
+  publicar.
 - **T82 — restauración:** ensayada en este servidor, sin probar un servidor vacío ni el volumen real. Repetir el ensayo
   antes de desplegar, con el código nuevo sobre una copia, y después, con el primer respaldo del esquema nuevo. Pendientes de
   Carlos: credencial propia de rclone y sacar la clave de la carpeta de respaldos.
