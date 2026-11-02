@@ -1,0 +1,63 @@
+
+   FAIL  Tests\Feature\ControlT119CodexTest
+  ⨯ matriz de roles y medios inactivos o inexistentes no escribe                                                21.24s
+  ⨯ correccion real con medio desactivado conserva medio y formulario debe ofrecerlo                             0.17s
+  ✓ movimiento de medio desactivado se cierra verifica y valida sin cambiarlo                                    0.21s
+  ✓ duenio reactiva medio y puede vaciarlo por transferencia                                                     0.23s
+  ✓ segunda ficha y edicion normal en ambos roles                                                                0.27s
+  ✓ deporte grupo y plan quedan iguales tras envio directo en ambos roles                                        0.18s
+  ⨯ subrubro desactivado no se ofrece pero envio directo sigue cargandolo                                        0.21s
+  ✓ formulario cashflow y correccion conservan medio desactivado                                                 0.31s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT119CodexTest > matriz de roles y medios inactivos o inexistentes no escribe
+  Expected response status code [422] but received 302.
+Failed asserting that 302 is identical to 422.
+
+  at docs\06-pruebas\PRU-04\evidencia-t119-codex\ControlT119CodexTest.php:105
+    101▕                     $autorizado = $actor->rol !== 'PROFESOR' && (!$admin || $actor->isAdmin());
+    102▕                     if (!$autorizado) {
+    103▕                         $r->assertForbidden();
+    104▕                     } else {
+  ➜ 105▕                         $r->assertStatus(422)->assertJsonValidationErrors($campo);
+    106▕                         $esperado = $medio === $this->inactivo->id ? MedioDePagoActivo::MENSAJE : match ($campo) {
+    107▕                             'salida_id' => 'El valor elegido para cuenta de salida no existe.',
+    108▕                             'destino_id' => 'El valor elegido para cuenta de destino no existe.',
+    109▕                             default => 'El valor elegido para medio de pago no existe.',
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT119CodexTest > correccion real con medio desactivado conserva medio y formulario de…
+  Failed asserting that the value at [tiposCaja] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+
+  at docs\06-pruebas\PRU-04\evidencia-t119-codex\ControlT119CodexTest.php:151
+    147▕         }
+    148▕         $r = $this->actingAs($this->operativa)->get(route('web.caja.movimientos.editar', [$this->caja->id, $mov->id]))->assertOk();
+    149▕         preg_match('/<select[^>]*id="tipo_caja_id"[\s\S]*?<\/select>/', $r->getContent(), $match);
+    150▕         file_put_contents(__DIR__.'/selector-caja-inactivo.html', $match[0] ?? 'SELECT NO ENCONTRADO');
+  ➜ 151▕         $r->assertViewHas('tiposCaja', fn ($tipos) => $tipos->contains('id', $this->activo->id));
+    152▕     }
+    153▕
+    154▕     public function test_movimiento_de_medio_desactivado_se_cierra_verifica_y_valida_sin_cambiarlo(): void
+    155▕     {
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT119CodexTest > subrubro desactivado no se ofrece pero envio directo sigue cargandol…
+  Expected response status code [200] but received 302.
+Failed asserting that 302 is identical to 200.
+
+  at docs\06-pruebas\PRU-04\evidencia-t119-codex\ControlT119CodexTest.php:217
+    213▕         $sub = Subrubro::findOrFail($this->insumos);
+    214▕         $this->actingAs($this->duenio)->patch(route('web.subrubros.toggle-activo', [$sub->rubro_id, $sub->id]))->assertSessionHas('success');
+    215▕         $this->assertFalse((bool) $sub->fresh()->activo);
+    216▕         foreach ([$this->operativa, $this->duenio] as $actor) {
+  ➜ 217▕             $this->actingAs($actor)->get(route('web.caja.movimiento'))->assertOk()->assertViewHas('rubros', fn ($rubros) => !$rubros->flatMap->subrubros->contains('id', $sub->id));
+    218▕             $antes = MovimientoOperativo::count();
+    219▕             $this->post(route('web.caja.movimiento.store'), ['subrubro_id' => $sub->id, 'tipo_caja_id' => $this->activo->id, 'monto' => '100', 'fecha' => '2026-10-15', 'observaciones' => 'Control directo'])->assertSessionHasNoErrors()->assertSessionHas('success');
+    220▕             $this->assertSame($antes + 1, MovimientoOperativo::count());
+    221▕             $this->assertSame($sub->id, MovimientoOperativo::orderByDesc('id')->firstOrFail()->subrubro_id);
+
+
+  Tests:    3 failed, 5 passed (136 assertions)
+  Duration: 23.00s
+
+CODIGO_SALIDA=1

@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-11-01 — Codex CAB — T119 control independiente, devuelta
+
+Copia limpia6be8f76d, rama codex/control-t119-t82; sólo wings_testing_codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T119-CODEX.md) y evidencia reproducible.
+Originales8/58 verdes; control propio7/1roja,231aserciones: falta el medio actual desactivado en Editar de Caja (H1medio). PUT lo conserva; GET Cashflow sí lo ofrece.
+Otro control sólo en pantalla: subrubro desactivado aceptado por envío directo de operativa y dueño (H2adicional). Sin corregir producto.
+Matriz42envíos en3roles sin escrituras financieras; deporte/grupo/planes intactos, edición y segunda ficha pasan. Cerrar/verificar/validar con medio desactivado pasa; dueño reactiva y vacía cuenta.
+Rápida1351aprobadas/6omitidas,9885aserciones,430.10s,salida0; primer intento sin cierre no cuenta como verde. Sin completa, vistas, catálogo ni despliegue; cambios compartidos ajenos preservados.
+T119 devuelta a Claude por H1; registrar H2. Después del commit propio sigue T82, segunda vuelta autorizada.
+
 ## 2026-11-01 — Codex CAB — T14 tanda 5, diez días recorridos
 
 [Resultado para Carlos](../06-pruebas/PRU-04/RESULTADO-TANDA-5.md), diez informes DIA-48 a DIA-57 y evidencia propia. Sitio de prueba, datos ficticios; rutinas ejecutadas una vez.

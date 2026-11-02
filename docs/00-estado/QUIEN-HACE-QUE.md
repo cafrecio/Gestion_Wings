@@ -46,14 +46,15 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Devuelto (hizo Claude, verifica Codex) | Control Codex: H1 medio, Editar de Caja omite el medio actual desactivado; corregir formulario sin forzar otra cuenta. H2 adicional: subrubro desactivado aceptado por envio directo de operativa y dueno; registrar. Informe VERIFICACION-T119-CODEX.md. Rapida1351/6, control7/1roja. Sin desplegar. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha, sin desplegar. Control: PRU-04/PROMPT-CODEX-T115-CONTROL.md. |
-| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude, verifica Codex) | Reparada, sin desplegar. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 1. |
 | **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 a H4 corregidos; restaurar.sh viejo retirado con OK de Carlos. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 2. |
 
 ## Gemini

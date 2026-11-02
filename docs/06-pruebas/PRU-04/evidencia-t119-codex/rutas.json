@@ -1,0 +1,67 @@
+[
+  {
+    "method": "POST",
+    "uri": "caja/movimiento",
+    "name": "web.caja.movimiento.store",
+    "action": "App\\Http\\Controllers\\CajaWebController@movimientoStore",
+    "middleware": [
+      "web",
+      "Illuminate\\Auth\\Middleware\\Authenticate",
+      "App\\Http\\Middleware\\EnsureActiveUserWeb",
+      "App\\Http\\Middleware\\PrepararPrimeraCarga",
+      "App\\Http\\Middleware\\RejectProfesorWeb"
+    ]
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "caja/{cajaId}/movimientos/{movId}/editar",
+    "name": "web.caja.movimientos.editar",
+    "action": "App\\Http\\Controllers\\CajaWebController@editarMovimientoForm",
+    "middleware": [
+      "web",
+      "Illuminate\\Auth\\Middleware\\Authenticate",
+      "App\\Http\\Middleware\\EnsureActiveUserWeb",
+      "App\\Http\\Middleware\\PrepararPrimeraCarga",
+      "App\\Http\\Middleware\\RejectProfesorWeb"
+    ]
+  },
+  {
+    "method": "POST",
+    "uri": "caja/{id}/editar",
+    "name": "web.caja.editar.store",
+    "action": "App\\Http\\Controllers\\CajaWebController@editarStore",
+    "middleware": [
+      "web",
+      "Illuminate\\Auth\\Middleware\\Authenticate",
+      "App\\Http\\Middleware\\EnsureActiveUserWeb",
+      "App\\Http\\Middleware\\PrepararPrimeraCarga",
+      "App\\Http\\Middleware\\RejectProfesorWeb"
+    ]
+  },
+  {
+    "method": "POST",
+    "uri": "cashflow/transferencia",
+    "name": "web.cashflow.transferencia.store",
+    "action": "App\\Http\\Controllers\\TransferenciaCashflowWebController@store",
+    "middleware": [
+      "web",
+      "Illuminate\\Auth\\Middleware\\Authenticate",
+      "App\\Http\\Middleware\\EnsureActiveUserWeb",
+      "App\\Http\\Middleware\\PrepararPrimeraCarga",
+      "App\\Http\\Middleware\\EnsureAdminWeb"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "uri": "rubros/{rubroId}/subrubros/{id}/toggle-activo",
+    "name": "web.subrubros.toggle-activo",
+    "action": "App\\Http\\Controllers\\SubrubroWebController@toggleActivo",
+    "middleware": [
+      "web",
+      "Illuminate\\Auth\\Middleware\\Authenticate",
+      "App\\Http\\Middleware\\EnsureActiveUserWeb",
+      "App\\Http\\Middleware\\PrepararPrimeraCarga",
+      "App\\Http\\Middleware\\EnsureAdminWeb"
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "archivo": "app/Rules/MedioDePagoActivo.php",
+    "sha256": "8eee9330258b08eaaa578e2be687ef6b5998beb12917e043eb2af6a9fe70c969"
+  },
+  {
+    "archivo": "app/Http/Controllers/ClaseWebController.php",
+    "sha256": "460c654411d0355a2605e8784eb2357b669408f409582ccae637dc69ee5d54cf"
+  },
+  {
+    "archivo": "app/Http/Controllers/AlumnoWebController.php",
+    "sha256": "b81c015098e28cc65ac80d54d275bd60d4d3b57b4eee6cd52c66be506211f87c"
+  },
+  {
+    "archivo": "app/Http/Controllers/CajaWebController.php",
+    "sha256": "8ba352c2e402ccfbcd5dd6ade455c6af6724131e77e52f4d8cbca4970a69f242"
+  },
+  {
+    "archivo": "app/Http/Controllers/CashflowWebController.php",
+    "sha256": "a3a1450ad65120b01dc8905453e649e0a6910b00cce2cfb17d907dd152ad8130"
+  },
+  {
+    "archivo": "app/Http/Controllers/LiquidacionWebController.php",
+    "sha256": "0640a6bb4b7623c07f55ffe2b8f973026498ccd39e5a22371f89b97a2673dc54"
+  },
+  {
+    "archivo": "app/Services/TransferenciaCashflowService.php",
+    "sha256": "d0f442b87a0264c8ab1a41ac48a6872efa5e86c55ad714fc576c27b76db4702f"
+  },
+  {
+    "archivo": "app/Services/CashflowCorreccionService.php",
+    "sha256": "889159c4ef8c1b3243c0158566be90bf97bfdb3a70a1e39c1874b6fbe2544507"
+  }
+]

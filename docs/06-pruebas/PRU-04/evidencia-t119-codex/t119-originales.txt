@@ -1,0 +1,13 @@
+
+   PASS  Tests\Feature\ControlesDelServidorT119Test
+  ✓ la operativa no cancela una serie y no cancela tampoco la clase pedida                                      22.46s
+  ✓ la operativa sigue cancelando una clase y el duenio la serie                                                 0.73s
+  ✓ no se cobra por un medio inactivo y por uno activo si                                                        0.97s
+  ✓ medio inexistente dice lo de siempre                                                                         0.85s
+  ✓ caja cashflow y transferencias rechazan un medio inactivo                                                    0.36s
+  ✓ no se paga una liquidacion por un medio inactivo                                                             0.44s
+  ✓ al corregir se conserva el medio que ya tenia aunque se haya desactivado                                     0.45s
+  ✓ el deporte de un alumno no se cambia ni por envio directo                                                    0.31s
+
+  Tests:    8 passed (58 assertions)
+  Duration: 26.74s

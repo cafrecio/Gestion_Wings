@@ -1,0 +1,14 @@
+Extracto de la salida incompleta. Sin cierre ni codigo de salida; NO acredita suite aprobada.
+Registro completo conservado localmente en storage/logs/t119-control/suite-interrumpida-completa.txt.
+La sesion de ejecucion dejo de estar disponible tras el cambio de entorno del chat.
+
+  ✓ error en recibo cuota devuelve mensaje amigable sin detalles tecnicos                                        0.07s
+  ✓ error en recibo liquidacion devuelve mensaje amigable sin detalles tecnicos                                  0.07s
+
+   PASS  Tests\Feature\ReciboMedioDePagoTest
+  ✓ el recibo muestra el medio con el que se cobro                                                               0.13s
+  ✓ dos cobros iguales el mismo dia con medios distintos tienen cada uno su medio                                0.16s
+  ✓ cancelar y volver a cobrar por otro medio no hereda el medio del cancelado                                   0.16s
+  ✓ anular conserva periodos importes y motivo sin imputaciones activas                                          0.38s
+  ✓ anulacion antigua sin detalle no inventa periodos                                                            0.22s
+  ✓ pdf anulado se regenera con detalle y motivo                                                                 7.39s
