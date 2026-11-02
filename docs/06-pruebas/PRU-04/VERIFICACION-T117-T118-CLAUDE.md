@@ -77,3 +77,13 @@ De 10 mutaciones, 7 fallan como corresponde y 3 sobreviven (`control-claude/muta
 - **Lo que pide por GET con `Accept: application/json` recibe 401** y el interceptor no lo mira. El prompt pedía los `fetch` que escriben. `ds-app.js:610` puede tomar ese 401 como «no disponible»: es leído, no ejecutado, y anterior a T117.
 - **`cobranza/index.blade.php:162`** usa `strtolower` para elegir el color del deporte. Con los nombres del catálogo no cambia nada; es leído.
 - **Cruce:** otra sesión corrió una prueba sobre `wings_testing_claude` a las 20:06, durante mi primera pasada de navegador, porque esperaba la palabra LIBERADA y mi reserva la tenía en otra línea. Rearmé la base y repetí el control entero; la suite arrancó después.
+
+## Segunda vuelta de T117 — cierre, 01/11/2026
+
+Por orden de Carlos se comprobó solo esto, sin suite completa, en una copia aislada con una base temporal ya borrada. El código es el de `23e2bb9e`.
+
+- **Configuración, comprobado en navegador real:** con un campo cambiado y la sesión vencida, Guardar responde 419 y va a `/login` con «Tu sesión expiró.», sin aviso de salida y sin nada trabado. Es el mismo `control-configuracion.mjs` que antes reproducía la traba.
+- **Sembrador, comprobado:** sobre una base fuera de su lista se niega, sale con código 1 y la base sigue con 0 tablas.
+- **No repetido:** salir sin guardar con la sesión viva y el guardado de reglas. Quedan con la evidencia de Gemini, `evidencia-t117-t118/resultados-segunda-vuelta.json`. Leído: `bootstrap.js` solo corta el aviso si ya hubo 419 o redirección al ingreso.
+- **Sigue igual:** con la cuenta desactivada se llega al ingreso sin el aviso (H2). No pierde datos: 0 pagos y 0 asistencias. Lo decide Carlos, y no reabre T117.
+- T118 la cerró otra sesión de Claude: la pantalla estaba bien.

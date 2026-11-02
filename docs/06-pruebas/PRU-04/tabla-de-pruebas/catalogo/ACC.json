@@ -263,7 +263,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Aceptado por Carlos (DU-01, 13/10): lo que se estaba cargando se pierde. Antes: bootstrap/app.php, respuesta 419 (código leído). Revisión de la tanda 5, 01/11/2026: Comprobado en navegador real: el formulario común cumple; Cobrar y Guardar lista muestran «CSRF token mismatch.» y se quedan. T117.",
+      "fuente": "Aceptado por Carlos (DU-01, 13/10): lo que se estaba cargando se pierde. Antes: bootstrap/app.php, respuesta 419 (código leído). Revisión de la tanda 5, 01/11/2026: Comprobado en navegador real: el formulario común cumple; Cobrar y Guardar lista muestran «CSRF token mismatch.» y se quedan. T117. Arreglado en T117 y comprobado en navegador real, 01/11/2026: Cobrar, Guardar lista y Configuración van al ingreso con el aviso.",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-ingreso",
       "requiere": "Un formulario cargado (cobro, alta de alumno, asistencia) y la sesión vencida por tiempo.",
