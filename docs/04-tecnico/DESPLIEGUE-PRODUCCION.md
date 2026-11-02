@@ -15,7 +15,7 @@ planes, 3 subrubros. **Los 4 usuarios son reales (Carlos, 30/10): no se tocan ni
 
 ## Qué se hace, en orden
 
-**Ensayo del paso 1 hecho el 02/11/2026** con `main` `11342b4f`: 42 migraciones, 0 pendientes; 4 usuarios, 2 deportes, 7 grupos y 12 planes intactos. El clasificador de Claude Code bloquea el despliegue: lo corre Carlos con `scp scripts/servidor/desplegar-produccion.sh vps:/tmp/` y `ssh vps "bash /tmp/desplegar-produccion.sh"`.
+**Pasos 1 a 7 y 9 hechos el 02/11/2026** por Claude, por orden de Carlos: producción en `b9394e7d`. Falta confirmar el paso 8 con el primer aviso. Siguen los pasos 10 a 12.
 
 T97 (01/11/2026) agrega `2026_11_01_020000_agregar_anulacion_transferencias_cashflow`: fecha/hora, administrador y motivo de anulación en la cabecera. Debe correr en el paso 5 antes de habilitar el nuevo código de Cashflow; las cabeceras existentes quedan sin anulación y no se reescriben movimientos. Su `down()` conserva la auditoría financiera, como la cabecera T61: no elimina esos datos. Para una vuelta atrás se usa el respaldo, no se borra el rastro de una anulación.
 Las **36 pendientes** de arriba son el corte leído el 27/10, no un conteo actual: se vuelve a obtener `migrate:status` durante el ensayo, incluyendo las migraciones posteriores de T96/T97 y otras tareas. Este trabajo no desplegó ni consultó producción o test; no desplegar mientras Cora trabaja en el sitio de prueba.

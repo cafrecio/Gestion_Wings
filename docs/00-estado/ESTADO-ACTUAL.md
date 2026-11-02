@@ -1,5 +1,11 @@
 # Wings — Estado actual
 
+## Wings en producción — Claude CAB, 02/11/2026
+
+**Desplegado por orden de Carlos («Subilo así»), sin esperar la suite completa.** Producción en `b9394e7d`: 42 migraciones, 0 pendientes, preflight aprobado, `/login` 200 desde afuera, sin errores nuevos, cron activo, respaldo y copia en Drive de las 03:15 UTC correctos y permisos de la base restaurados. Base sin operación: 4 usuarios, 0 alumnos. Respaldo previo: `/root/respaldos/wings-antes-despliegue-2026-11-02-0323.sql.gz`.
+
+**Sin comprobar:** el ingreso con un usuario real, el primer correo (resumen de las 08:00) y el Telegram de producción. La suite completa de `308bdba2` corre aparte. **Pendiente:** ensayo de restauración con el primer respaldo del esquema nuevo (T82).
+
 ## T116 — Retiro del dueño en el turno — Claude CAB, 01/11/2026
 
 **Hecha con la opción A de Carlos, falta el control de otra IA. Sin desplegar.** «Retiro de dueños» pasa a **Ambos**: el dueño lo carga con **Agregar**, baja el esperado del turno y la operativa cierra sin faltante; la cuenta baja al validar, una sola vez. **No alcanzaba sin código:** `desplegar-produccion.sh:68` corre `CatalogosSeeder`, que reescribe `permitido_para`, así que un cambio por pantalla se perdía en el siguiente despliegue. Por eso cambia el catálogo y hay una migración para las bases existentes. Costo aceptado, en `PERMISOS-ROLES.md`: la operativa ve los retiros cargados en caja, puede cargar uno a su nombre y, con el turno abierto, corregir o eliminar el del dueño; queda en la historia de correcciones. Para el resto de los subrubros del catálogo, cambiarles **Solo Admin / Ambos** por pantalla sigue perdiéndose en cada despliegue: no se tocó. Suite completa sobre `020acdce` más T116: 1523 aprobadas, 6 omitidas, 0 fallidas.

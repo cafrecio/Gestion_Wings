@@ -1,5 +1,7 @@
 # Wings — Plan de produccion
 
+**Wings está en producción desde el 02/11/2026** (`b9394e7d`). Sigue la carga del club: `docs/04-tecnico/DESPLIEGUE-PRODUCCION.md`, pasos 10 a 12.
+
 ## Alcance cerrado hasta producción — Carlos, 28/10/2026
 
 **No entra nada más**, salvo que un agente le presente a Carlos un motivo y él lo acepte. Lo que aparezca en el camino se anota como mejora futura, no se mete.

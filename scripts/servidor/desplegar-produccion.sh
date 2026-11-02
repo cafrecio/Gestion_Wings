@@ -59,6 +59,8 @@ paso "3. Mantenimiento"
 $PHP artisan down
 
 paso "4. Código"
+# Un despliegue viejo como root dejó 360 archivos ajenos y git se frenó a mitad de camino (02/11/2026).
+chown -R $USUARIO:$USUARIO "$APP"
 sudo -u $USUARIO git merge --ff-only "$DESTINO"
 
 paso "5. Dependencias y assets"

@@ -11,11 +11,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md) · [Entradas archivadas el 31/10](../99-archivo/bitacoras/2026-10-31/LOG-CLAUDE.md)
 
-## 2026-11-02 — Claude CAB — Producción: ensayo hecho, despliegue bloqueado
+## 2026-11-02 — Claude CAB — Wings en producción
 
 - Carlos ordenó subir sin esperar la completa. Ensayo sobre copia de la base real: 42 migraciones, 0 pendientes, usuarios y catálogos intactos.
-- Corregido en `desplegar-produccion.sh`: ruta de composer, permisos de la base solo durante las migraciones, control del cron y remitente propio. Sin eso se frenaba a mitad de camino.
-- El clasificador de Claude Code bloqueó el despliegue. Producción sigue en `314e485`, sin mantenimiento y con sus permisos. Lo corre Carlos; las órdenes están en `docs/04-tecnico/DESPLIEGUE-PRODUCCION.md`.
+- La primera corrida se frenó en el código: 360 archivos eran de root. Producción quedó unos minutos en mantenimiento; corregidos los dueños y repetido el script. Sin datos afectados: 0 alumnos.
+- En `b9394e7d`: preflight aprobado, `/login` 200, sin errores nuevos, cron y respaldo correctos, permisos de la base restaurados. Sin comprobar: ingreso real y primer correo.
 
 ## 2026-11-02 — Claude CAB — T10: lo legal, a la medida del club y aceptado en la aplicación
 
