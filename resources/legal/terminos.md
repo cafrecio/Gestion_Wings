@@ -39,7 +39,7 @@ Gestionar-te trata los datos por cuenta del club (Ley 25.326, art. 25). Se compr
 
 - Usarlos solo para que Wings funcione. No los vende, no los cede y no los usa para otra cosa, salvo orden judicial.
 - Protegerlos con medidas razonables: contraseñas, roles, conexión cifrada, copias cifradas y registro de cambios.
-- Avisarle al club dentro de las 72 horas de enterarse de un acceso indebido o una pérdida de datos.
+- Avisarle al club si se entera de un acceso indebido o una pérdida de datos.
 - Recuperar lo perdido por una falla del servicio desde la última copia disponible.
 
 Para eso usa estos proveedores, algunos en países sin una protección equivalente a la de Argentina: Hostinger (servidor en Estados Unidos), Cloudflare (conexión), Google Drive (copia cifrada) y Telegram (avisos al dueño, que pueden incluir el nombre de un alumno). Si suma o cambia uno que reciba datos, avisa con 30 días.
