@@ -1,0 +1,31 @@
+
+   FAIL  Tests\Feature\ControlT119CodexTest
+  ✓ matriz de roles y medios inactivos o inexistentes no escribe                                                24.56s
+  ⨯ correccion real con medio desactivado conserva medio y formulario debe ofrecerlo                             0.27s
+  ✓ movimiento de medio desactivado se cierra verifica y valida sin cambiarlo                                    0.15s
+  ✓ duenio reactiva medio y puede vaciarlo por transferencia                                                     0.12s
+  ✓ segunda ficha y edicion normal en ambos roles                                                                0.17s
+  ✓ deporte grupo y plan quedan iguales tras envio directo en ambos roles                                        0.26s
+  ✓ subrubro desactivado no se ofrece pero envio directo sigue cargandolo                                        0.23s
+  ✓ formulario cashflow y correccion conservan medio desactivado                                                 0.20s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ControlT119CodexTest > correccion real con medio desactivado conserva medio y formulario de…
+  Failed asserting that the value at [tiposCaja] fulfills the expectations defined by the closure.
+Failed asserting that false is true.
+
+  at docs\06-pruebas\PRU-04\evidencia-t119-codex\ControlT119CodexTest.php:153
+    149▕         }
+    150▕         $r = $this->actingAs($this->operativa)->get(route('web.caja.movimientos.editar', [$this->caja->id, $mov->id]))->assertOk();
+    151▕         preg_match('/<select[^>]*id="tipo_caja_id"[\s\S]*?<\/select>/', $r->getContent(), $match);
+    152▕         file_put_contents(__DIR__.'/selector-caja-inactivo.html', $match[0] ?? 'SELECT NO ENCONTRADO');
+  ➜ 153▕         $r->assertViewHas('tiposCaja', fn ($tipos) => $tipos->contains('id', $this->activo->id));
+    154▕     }
+    155▕
+    156▕     public function test_movimiento_de_medio_desactivado_se_cierra_verifica_y_valida_sin_cambiarlo(): void
+    157▕     {
+
+
+  Tests:    1 failed, 7 passed (231 assertions)
+  Duration: 26.12s
+
+CODIGO_SALIDA=1

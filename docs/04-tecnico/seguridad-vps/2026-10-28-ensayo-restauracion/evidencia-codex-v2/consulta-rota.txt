@@ -1,0 +1,81 @@
+
+== [0s] 1. Armar el paquete de wingstest como respaldar.sh
+   -> ok: wingstest_ensayo.tgz.enc (85M)
+
+== [6s] 2. Descifrar (clave identica a la copia de Drive, comprobada por huella)
+   -> ok: env.txt storage.tgz wings.sql
+
+== [7s] 3. Base aparte
+   -> ok: 56 tablas
+   users                    viva=12      copia=12      ok
+   alumnos                  viva=123     copia=123     ok
+   pagos                    viva=315     copia=315     ok
+   deuda_cuotas             viva=341     copia=341     ok
+   clases                   viva=232     copia=232     ok
+   asistencias              viva=2087    copia=2087    ok
+   cajas_operativas         viva=50      copia=50      ok
+   movimientos_operativos   viva=507     copia=507     ok
+   cashflow_movimientos     viva=567     copia=567     ok
+   liquidaciones            viva=14      copia=14      ok
+   liquidacion_detalles     viva=223     copia=223     ok
+   profesores               viva=8       copia=8       ok
+   migrations               viva=114     copia=114     ok
+   pagos.SUM(monto_final)   viva=12399510.00  copia=12399510.00  ok
+   deuda_cuotas.SUM(monto_original) viva=12549500.00  copia=12549500.00  ok
+   deuda_cuotas.SUM(monto_pagado) viva=11277500.00  copia=11277500.00  ok
+   cashflow_movimientos.SUM(monto) viva=6076080.25   copia=6076080.25   ok
+   movimientos_operativos.SUM(monto) viva=13261760.50  copia=13261760.50  ok
+   liquidaciones.SUM(columna_control_inexistente) viva=--------------
+SELECT COALESCE(SUM(columna_control_inexistente),0) FROM wingstest.liquidaciones
+--------------
+
+ERROR 1054 (42S22) at line 1: Unknown column 'columna_control_inexistente' in 'field list' copia=--------------
+SELECT COALESCE(SUM(columna_control_inexistente),0) FROM wings_ensayo_t82.liquidaciones
+--------------
+
+ERROR 1054 (42S22) at line 1: Unknown column 'columna_control_inexistente' in 'field list' NO COINCIDE
+   liquidacion_detalles.SUM(monto) viva=3026280.00   copia=3026280.00   ok
+   -> diferencias: 1
+
+== [8s] 4. Codigo desde GitHub, sin credenciales (como en un servidor nuevo)
+   -> ok: 219f5d59 T12/T13: manual al dia con T94 a T109; lo controla Gemini
+
+== [27s] 5. Configuracion y archivos subidos
+   -> APP_KEY presente en el respaldo
+   -> storage/app restaurado: 66 archivos
+
+== [28s] 6. Dependencias y compilacion
+   -> composer: 0
+   -> build ok: 129 archivos
+
+== [42s] 7. Arranque
+   migraciones aplicadas: 114
+   migraciones pendientes del codigo de produccion: 0
+[ERROR] APP_ENV=production: El perfil de desarrollo no puede servir en internet.
+[OK] APP_DEBUG=false
+[OK] APP_KEY presente
+[OK] DB_USERNAME dedicado
+[ERROR] APP_URL con HTTPS: Las credenciales viajarían sin TLS.
+[ERROR] SESSION_SECURE_COOKIE=true: La cookie de sesión podría viajar sin HTTPS.
+[ERROR] SESSION_ENCRYPT=true: El contenido de la sesión no estaría cifrado.
+[ERROR] SESSION_SAME_SITE=strict: La cookie admitiría más contexto entre sitios del necesario.
+[OK] SESSION_DOMAIN vacío
+[OK] LOG_LEVEL=warning
+[OK] Sin cuentas de prueba
+[OK] Administrador activo presente
+
+Preflight rechazado: 5 verificación(es) fallaron.
+
+  0  6 * * *  php artisan cobranza:generar-deudas --si-falta  Next Due: en 6 horas
+  15 6 * * *  php artisan cobranza:aplicar-punitorios ... Next Due: en 6 horas
+  0  8 * * *  php artisan avisos:resumen-diario ......... Next Due: en 8 horas
+  0  7 * * 1  bash /root/ensayo-t82/app/scripts/servidor/resumen-csp.sh  Next Due: en 1 día
+
+   /login -> 200
+   /      -> 302
+
+== [49s] 8. Resultado
+   -> rclone.conf real sin cambios
+
+== TOTAL: 49s · fallas: 1
+   limpieza: base, usuario y carpeta del ensayo borrados

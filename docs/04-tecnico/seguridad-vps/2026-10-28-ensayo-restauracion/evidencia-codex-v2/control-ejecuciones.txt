@@ -1,0 +1,31 @@
+ENSAYO_PRUEBA_REPETIDO=0
+AUDITORIA_datos=0
+AUDITORIA_archivos=0
+AUDITORIA_funcional=0
+AUDITORIA_canonico=0
+   /login -> 200
+   /      -> 302
+
+== [54s] 8. Resultado
+   -> rclone.conf real sin cambios
+
+== TOTAL: 54s · fallas: 0
+   limpieza: base, usuario y carpeta del ensayo borrados
+RESTO_CONTROL=0
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+PRODUCCION_DESDE_DRIVE=0
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+CONSULTA_ROTA=1
+ERROR 1054 (42S22) at line 1: Unknown column 'columna_control_inexistente' in 'field list' NO COINCIDE
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+DESCARGA_FALLA=1
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+CLONADO_FALLA=1
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+INTERRUMPIDO_CON_SERVIDOR_ESCUCHANDO=1
+SIGTERM_CODIGO=130
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}
+{"control": "bases_vivas_despues", "resultado": {"wings": {"tablas": 35, "tablas_cambiadas": ["sessions"], "sin_cambios": false}, "wingstest": {"tablas": 56, "tablas_cambiadas": [], "sin_cambios": true}}}
+{"rclone_huella_igual": true, "rclone_fecha_igual": true, "rclone_modo_dueno_iguales": true, "configuracion_temporal_borrada": true}
+{"carpeta": false, "bases": 0, "usuarios": 0, "procesos_en_copia": 0, "puerto": false}

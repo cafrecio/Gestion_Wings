@@ -1,0 +1,4 @@
+rclone: huella y fecha capturadas en privado; no se imprimen
+AUSENTE /root/wings-backup/restaurar.sh
+PRESENTE /root/wings-backup/restaurar.sh.viejo-20260830-no-usar
+LLAMADAS_RESTAURADOR_EN_RESPALDO_CRON=0

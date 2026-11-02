@@ -1,0 +1,80 @@
+== Descifrando ==
+   contenido: env.txt paquete.tgz storage.tgz wings.sql
+== Ensayo en base descartable ==
+== Comparacion contra la base viva ==
+   alumno_estado_historial      8        = 8        ok
+   alumno_planes                128      = 128      ok
+   alumnos                      123      = 123      ok
+   alumnos_revision_cobranza    8        = 8        ok
+   asistencia_excesos           393      = 393      ok
+   asistencias                  2087     = 2087     ok
+   cache                        presente (cambia sola, no se cuenta)
+   cache_locks                  presente (cambia sola, no se cuenta)
+   caja_mostrador               1        = 1        ok
+   cajas_operativas             50       = 50       ok
+   cargo_alumno_eventos         67       = 67       ok
+   cargos_alumno                64       = 64       ok
+   cashflow_correcciones        6        = 6        ok
+   cashflow_movimientos         567      = 567      ok
+   cashflow_transferencias      8        = 8        ok
+   clase_profesor               243      = 243      ok
+   clases                       232      = 232      ok
+   configuraciones              8        = 8        ok
+   deporte_liquidacion_vigencias 1        = 1        ok
+   deportes                     3        = 3        ok
+   deuda_cuotas                 341      = 341      ok
+   deudas_perdidas              1        = 1        ok
+   excepciones_cobranza         14       = 14       ok
+   failed_jobs                  presente (cambia sola, no se cuenta)
+   generaciones_cuotas          3        = 3        ok
+   grupo_planes                 18       = 18       ok
+   grupo_plan_precios           25       = 25       ok
+   grupos                       10       = 10       ok
+   inscripcion_personas         35       = 35       ok
+   job_batches                  presente (cambia sola, no se cuenta)
+   jobs                         presente (cambia sola, no se cuenta)
+   liquidacion_ajustes          2        = 2        ok
+   liquidacion_decisiones_atrasadas 14       = 14       ok
+   liquidacion_detalles         223      = 223      ok
+   liquidaciones                14       = 14       ok
+   migrations                   114      = 114      ok
+   movimiento_operativo_correcciones 3        = 3        ok
+   movimientos_operativos       507      = 507      ok
+   niveles                      7        = 7        ok
+   pago_cargo_alumno            58       = 58       ok
+   pago_deuda_cuota             315      = 315      ok
+   pagos                        315      = 315      ok
+   password_reset_tokens        presente (cambia sola, no se cuenta)
+   personal_access_tokens       0        = 0        ok
+   primera_carga                1        = 1        ok
+   profesores                   8        = 8        ok
+   reglas_primer_pago           3        = 3        ok
+   reporte_analitico_cobertura  1        = 1        ok
+   reporte_analitico_historial  1277     = 1277     ok
+   reporte_cobertura            1        = 1        ok
+   reporte_eventos              729      = 729      ok
+   rubros                       18       = 18       ok
+   sessions                     presente (cambia sola, no se cuenta)
+   subrubros                    38       = 38       ok
+   tipos_caja                   6        = 6        ok
+   users                        12       = 12       ok
+== Contenido financiero ==
+   pagos completados            11546310.00    = 11546310.00    ok
+   pagos anulados               853200.00      = 853200.00      ok
+   imputaciones                 11277500.00    = 11277500.00    ok
+   deuda pendiente              1272000.00     = 1272000.00     ok
+   deuda cobrada                11277500.00    = 11277500.00    ok
+   movimientos activos          12596560.50    = 12596560.50    ok
+   cashflow                     6076080.25     = 6076080.25     ok
+   liquidado                    3026280.00     = 3026280.00     ok
+   detalle liquidado            3026280.00     = 3026280.00     ok
+== Coherencia interna ==
+   deudas descuadradas          0              = 0              ok
+   imputaciones huerfanas       0              = 0              ok
+   cashflow sin caja            0              = 0              ok
+   liquidaciones descuadradas   0              = 0              ok
+== Archivos subidos ==
+   archivos                     66       >= 66       ok
+== Configuracion ==
+   APP_KEY presente en env.txt
+== ENSAYO CORRECTO: 49 tablas, importes, archivos y configuracion ==

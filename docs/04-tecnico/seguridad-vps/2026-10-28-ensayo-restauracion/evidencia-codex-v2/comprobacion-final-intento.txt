@@ -1,0 +1,9 @@
+{"corrida": "wingstest-ensayo", "codigo": 0}
+{"corrida": "wings-ensayo", "codigo": 0}
+{"corrida": "consulta-rota", "codigo": 1}
+{"corrida": "descarga-falla", "codigo": 1}
+{"corrida": "clonado-falla", "codigo": 1}
+{"corrida": "terminado", "codigo": 130}
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+AssertionError: Nombres de /root cambiaron: requiere revisar antes de limpiar

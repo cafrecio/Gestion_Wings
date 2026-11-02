@@ -1,0 +1,11 @@
+Extracto final de la salida real. Registro completo conservado localmente en storage/logs/t119-control/suite-rapida-completa.txt.
+Comando: DB_DATABASE=wings_testing_codex php artisan test --exclude-group=lento --no-ansi
+Corte: 6be8f76d, copia aislada.
+
+   PASS  Tests\Feature\VigenciaDeporteEsquemaAnteriorT45Test
+  ✓ migracion analitica con profesores previos no depende de la tabla futura                                    16.83s
+
+  Tests:    6 skipped, 1351 passed (9885 assertions)
+  Duration: 430.10s
+
+CODIGO_SALIDA=0

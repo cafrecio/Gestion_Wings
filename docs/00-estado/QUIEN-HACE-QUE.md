@@ -46,23 +46,23 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | Hecho, espera verificación (hizo Gemini) | Verificar segunda vuelta T117: aviso de salida neutralizado en 419 de configuraciones y reglas |
+| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | Hecho, espera verificación (hizo Gemini) | Verificar segunda vuelta T118: 3 pruebas nuevas agregadas (M8, M9, M10) y suite rápida en verde |
+| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | En curso (hizo Claude, verifica Codex) | Codex la devolvio; H1 y H2 corregidos y subidos, sin desplegar. Claude: corriendo suite completa y mutaciones. Despues, segunda vuelta de Codex. |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecha, sin desplegar. Control: PRU-04/PROMPT-CODEX-T115-CONTROL.md. |
-| **T119** Serie, medio inactivo y deporte: tres controles solo en pantalla | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 y H2 de Codex corregidos: Editar de Caja ofrece medio y subrubro actuales; subrubro desactivado rechazado y Cashflow ya no lo ofrece. Falta segunda vuelta. |
-| **T82** IMPORTANTE: ensayo de restauracion integral de Wings en un servidor desde los respaldos | Hecho, espera verificación (hizo Claude, verifica Codex) | H1 a H4 corregidos; restaurar.sh viejo retirado con OK de Carlos. Control: PRU-04/PROMPT-CODEX-T82-T119-CONTROL.md, etapa 2. |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Hecho, espera verificación (hizo Claude, verifica Gemini) | Opcion A de Carlos 01/11: Retiro de duenos en Ambos, en catalogo y con migracion. El dueno lo carga con Agregar, la operativa cierra sin faltante. Controla Gemini: PROMPT-GEMINI-T116-CONTROL. Sin desplegar. |
-| **T117** Con la sesion vencida, Cobrar y Guardar lista dicen CSRF token mismatch en ingles y no llevan al ingreso | En curso (hizo Gemini) | Segunda vuelta T117: resolver aviso de salida en configuracion con sesion vencida |
-| **T118** Revision muestra REACTIVADO AUTOMaTICAMENTE con la a minuscula | En curso (hizo Gemini) | Segunda vuelta T118: agregar las 3 pruebas faltantes y corregir informe |
 
 ## Sin empezar (10)
 

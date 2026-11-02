@@ -1,0 +1,72 @@
+
+== [0s] 1. Bajar de Drive el respaldo mas nuevo (no la copia local)
+   -> ok: wings_2026-11-01_0315.tgz.enc (36K)
+
+== [1s] 2. Descifrar (clave identica a la copia de Drive, comprobada por huella)
+   -> ok: env.txt storage.tgz wings.sql
+
+== [1s] 3. Base aparte
+   -> ok: 35 tablas
+   users                    viva=4       copia=4       ok
+   alumnos                  viva=0       copia=0       ok
+   pagos                    viva=0       copia=0       ok
+   deuda_cuotas             viva=0       copia=0       ok
+   clases                   viva=3       copia=3       ok
+   asistencias              viva=0       copia=0       ok
+   cajas_operativas         viva=0       copia=0       ok
+   movimientos_operativos   viva=0       copia=0       ok
+   cashflow_movimientos     viva=0       copia=0       ok
+   liquidaciones            viva=0       copia=0       ok
+   liquidacion_detalles     viva=0       copia=0       ok
+   profesores               viva=1       copia=1       ok
+   migrations               viva=74      copia=74      ok
+   pagos.SUM(monto_final)   viva=0.00         copia=0.00         ok
+   deuda_cuotas.SUM(monto_original) viva=0.00         copia=0.00         ok
+   deuda_cuotas.SUM(monto_pagado) viva=0.00         copia=0.00         ok
+   cashflow_movimientos.SUM(monto) viva=0.00         copia=0.00         ok
+   movimientos_operativos.SUM(monto) viva=0.00         copia=0.00         ok
+   liquidaciones.SUM(total_calculado) viva=0.00         copia=0.00         ok
+   liquidacion_detalles.SUM(monto) viva=0.00         copia=0.00         ok
+   -> diferencias: 0
+
+== [2s] 4. Codigo desde GitHub, sin credenciales (como en un servidor nuevo)
+   -> ok: 314e485d test(padron): montos del padron de prueba alineados a la cuota de cada alumno
+
+== [35s] 5. Configuracion y archivos subidos
+   -> APP_KEY presente en el respaldo
+   -> storage/app restaurado: 3 archivos
+
+== [35s] 6. Dependencias y compilacion
+   -> composer: 0
+   -> build ok: 104 archivos
+
+== [44s] 7. Arranque
+   migraciones aplicadas: 74
+   migraciones pendientes del codigo de produccion: 7
+[OK] APP_ENV=production
+[OK] APP_DEBUG=false
+[OK] APP_KEY presente
+[OK] DB_USERNAME dedicado
+[ERROR] APP_URL con HTTPS: Las credenciales viajarían sin TLS.
+[OK] SESSION_SECURE_COOKIE=true
+[OK] SESSION_ENCRYPT=true
+[OK] SESSION_SAME_SITE=strict
+[OK] SESSION_DOMAIN vacío
+[OK] LOG_LEVEL=warning
+[OK] Sin cuentas de prueba
+[OK] Administrador activo presente
+
+Preflight rechazado: 1 verificación(es) fallaron.
+
+  0 6 1 * *  php artisan cobranza:generar-deudas ...... Next Due: en 4 semanas
+  0 8 * * *  php artisan avisos:resumen-diario ......... Next Due: en 10 horas
+  0 7 * * 1  bash /root/ensayo-t82/app/scripts/servidor/resumen-csp.sh  Next Due: en 9 horas
+
+   /login -> 200
+   /      -> 302
+
+== [52s] 8. Resultado
+   -> rclone.conf real sin cambios
+
+== TOTAL: 52s · fallas: 0
+   limpieza: base, usuario y carpeta del ensayo borrados
