@@ -20,7 +20,15 @@ use Database\Seeders\CatalogosSeeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 
-echo "Migrando y sembrando catálogos en wings_testing_gemini...\n";
+$dbName = config('database.connections.mysql.database');
+$descartables = ['wings_testing_gemini', 'wings_testing_claude', 'wings_testing_codex'];
+
+if (!in_array($dbName, $descartables, true)) {
+    fwrite(STDERR, "ERROR: La base de datos configurada es '{$dbName}'. El sembrador solo puede correr sobre bases descartables (" . implode(', ', $descartables) . "). Abortando para proteger datos.\n");
+    exit(1);
+}
+
+echo "Migrando y sembrando catálogos en {$dbName}...\n";
 Artisan::call('migrate:fresh', ['--force' => true]);
 (new CatalogosSeeder())->run();
 

@@ -11,6 +11,30 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-GEMINI.md)
 · [Entradas archivadas el 30/10](../99-archivo/bitacoras/2026-10-30/LOG-GEMINI.md)
 
+## 2026-11-01 — LOG GEM CAB — T117 y T118: Segunda vuelta (a verificación)
+
+- **Objetivo:** Resolver hallazgos H1 a H5 de la verificación de Claude (`VERIFICACION-T117-T118-CLAUDE.md`) según `PROMPT — T117 y T118: segunda vuelta — para Gemini`.
+- **Implementación y resultados ([IMPLEMENTACION-T117-T118-GEMINI.md](../06-pruebas/PRU-04/IMPLEMENTACION-T117-T118-GEMINI.md) «Segunda vuelta»):**
+  1. **T117 (Configuración ya no se traba ante sesión vencida — H1):**
+     - En `resources/js/bootstrap.js`, ante 419 o redirección a `/login`: define `window.__ignorarAvisoSalida = true`, `window.onbeforeunload = null` y registra listener en fase de captura (`capture: true`) con `event.stopImmediatePropagation()`.
+     - En `resources/js/configuraciones.js:89` y `resources/js/alumnos-form.js:247`: agregada comprobación preventiva `if (window.__ignorarAvisoSalida) return;`.
+     - Recompilado con `npm run build`.
+     - *Navegador real Chrome CDP ([test-configuracion-segunda-vuelta.mjs](../06-pruebas/PRU-04/evidencia-t117-t118/test-configuracion-segunda-vuelta.mjs)):* Con campo modificado con teclado real y sesión vencida, clic de mouse real en Guardar navega directo a `/login` con flash y sin aviso `beforeunload` (captura `07-t117-configuracion-sesion-vencida-login.png`). Lo mismo al guardar reglas (captura `08-t117-reglas-sesion-vencida-login.png`). Con sesión viva y cambios sin guardar, sí abre el diálogo `beforeunload`.
+  2. **T118 (Tres pruebas que defienden mutaciones — H4):**
+     - En `tests/Feature/SesionVencidaYMayusculasT117T118Test.php`:
+       - `test_movimientos_observacion_de_36_caracteres_con_acentos_se_ve_entera_sin_puntos_suspensivos`: defiende M8 (`mb_strlen` vs `strlen` en `movimientos/index.blade.php:119`). Falla con mutación, pasa con arreglo.
+       - `test_tipo_caja_alta_guarda_abreviatura_con_acento_en_mayuscula`: defiende M9 (`mb_strtoupper` vs `strtoupper` en `TipoCajaWebController.php:52`). Falla con mutación, pasa con arreglo.
+       - `test_tipo_caja_edicion_guarda_abreviatura_con_acento_en_mayuscula`: defiende M10 (`mb_strtoupper` vs `strtoupper` en `TipoCajaWebController.php:94`). Falla con mutación, pasa con arreglo.
+     - Total del archivo: 10 pruebas pasadas, 43 aserciones.
+  3. **Sembrador seguro (`evidencia-t117-t118/seed-test-gemini.php` — H3):**
+     - Agregada verificación que solo permite ejecutar `migrate:fresh` si la base conectada es una descartable (`wings_testing_gemini`, `wings_testing_claude`, `wings_testing_codex`). Si se ejecuta sobre `wings_test` u otra base, aborta con código 1 emitiendo error. Comprobado en terminal.
+  4. **Corrección de informe y bitácora (H2, H5):**
+     - Sección 3.D corregida: cuenta desactivada llega a `/login` sin mensaje flash visible (consumido por la primera redirección interna que sigue `fetch`).
+     - Nombres de pruebas corregidos con los nombres literales del archivo.
+     - `TipoCajaWebController`: precisado que el cambio aplica sobre el campo `abreviatura`.
+     - Separado lo ejecutado en navegador de lo leído; removida afirmación de consulta SQL del script.
+- **Tablero:** T117 y T118 marcadas como `a_verificar`, `hizo=Gemini`, `tiene=Claude`. Conteo oficial actualizado a 1517 pruebas.
+
 ## 2026-11-01 — LOG GEM CAB — T113: Desvalidar una clase para el dueño (a verificación)
 
 - **Objetivo:** Implementar la desvalidación de clases por el dueño (`ADMIN`) según `PROMPT — T113: Desvalidar una clase — para Gemini` para corregir validaciones erróneas sin perder el enlace `Editar` ni alternar a ciegas.
@@ -64,14 +88,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   1. **T117 (Sesión vencida en AJAX en un solo lugar):**
      - *Servidor (`bootstrap/app.php:95-107`):* En excepción 419 fuera de `api/*`, si espera JSON almacena flash `'error' => 'Tu sesión expiró. Iniciá sesión nuevamente.'` y responde JSON 419 con `{ message, redirect: route('login') }`. Si es formulario común mantiene redirect 302 con flash. `api/*` responde JSON estándar sin redirect.
      - *Cliente (`resources/js/bootstrap.js` + `npm run build`):* Interceptor global en `window.fetch` que ante 419 redirige automáticamente con `window.location.assign(destino)` y retorna promesa pendiente para silenciar toasts de error en la página emisora. Cubre todas las peticiones fetch presentes y futuras (`cobrar.js`, `clases-show.js`, `ds-app.js`, etc.).
-     - *Reingreso por rol verificado:* `ADMIN` -> `/admin/dashboard`, `OPERATIVO` -> `/operativo`, `PROFESOR` -> `/clases`. Datos a medias verificados: 0 pagos, 0 asistencias, clase no cancelada, movimientos inalterados.
+     - *Reingreso por rol verificado:* `ADMIN` -> `/admin/dashboard`, `OPERATIVO` -> `/operativo`, `PROFESOR` -> `/clases`. Comprobación de integridad: peticiones fallidas no persisten pagos ni asistencias.
+     - *Navegador real:* ejecutados Cobrar, Guardar lista a 375px, Cancelar clase y reingresos; el resto cubierto por arquitectura compartida de `bootstrap.js`.
   2. **T118 (Mayúsculas y recortes con mbstring):**
      - `resources/views/revision-cobranza/index.blade.php:116`: `mb_strtoupper($resolucionLabel, 'UTF-8')` -> `REACTIVADO AUTOMÁTICAMENTE`.
      - `resources/views/caja/detalle.blade.php:136`: `mb_strtoupper(mb_substr(..., 0, 3, 'UTF-8'), 'UTF-8')` -> `FÚT`.
      - `resources/views/movimientos/index.blade.php:119-121`: `mb_strlen` y `mb_substr(..., 0, 36, 'UTF-8')` recortan a 36 caracteres sin partir caracteres multibyte.
-     - `app/Http/Controllers/TipoCajaWebController.php:52, 94`: `mb_strtoupper($data['nombre'], 'UTF-8')`.
+     - `app/Http/Controllers/TipoCajaWebController.php:52, 94`: `mb_strtoupper(..., 'UTF-8')` sobre la abreviatura.
   3. **Pruebas y evidencia:**
-     - Feature test: `tests/Feature/SesionVencidaYMayusculasT117T118Test.php` (7 passed, 29 aserciones).
+     - Feature test: `tests/Feature/SesionVencidaYMayusculasT117T118Test.php` (7 passed en primera vuelta, nombres literales del archivo).
      - Chrome CDP headless: `docs/06-pruebas/PRU-04/evidencia-t117-t118/comprobar-navegador-t117-t118.mjs` (8/8 passed, 6 capturas guardadas).
      - Suite rápida (`--exclude-group=lento`): 1351 aprobadas, 6 omitidas, 0 fallidas (9885 aserciones, 360.62 s, salida 0 en `wings_testing_gemini`).
      - Sin errores de sintaxis (`php -l`), vistas compilan (`php artisan view:cache; php artisan view:clear`), `TableroAlDiaTest` pasa (6 passed), `DocumentacionNoMienteTest` pasa (1 passed).

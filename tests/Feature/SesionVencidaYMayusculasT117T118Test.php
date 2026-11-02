@@ -245,4 +245,99 @@ class SesionVencidaYMayusculasT117T118Test extends TestCase
         // La respuesta completa debe ser UTF-8 válida sin secuencias de bytes quebradas
         $this->assertTrue(mb_check_encoding($res->getContent(), 'UTF-8'));
     }
+
+    public function test_movimientos_observacion_de_36_caracteres_con_acentos_se_ve_entera_sin_puntos_suspensivos(): void
+    {
+        $admin = User::factory()->create(['rol' => 'ADMIN', 'activo' => true]);
+        $tipoCaja = TipoCaja::firstOrCreate(['nombre' => 'Efectivo'], ['nombre' => 'Efectivo', 'abreviatura' => 'EFE', 'activo' => true]);
+        $caja = CajaOperativa::create([
+            'usuario_operativo_id' => $admin->id,
+            'tipo_caja_id'         => $tipoCaja->id,
+            'estado'               => 'ABIERTA',
+            'apertura_at'          => now(),
+            'saldo_inicial'        => 1000,
+        ]);
+
+        $rubro = Rubro::firstOrCreate(['nombre' => 'Varios'], ['nombre' => 'Varios', 'tipo' => 'INGRESO']);
+        $subrubro = Subrubro::firstOrCreate(['nombre' => 'General'], [
+            'rubro_id'       => $rubro->id,
+            'nombre'         => 'General',
+            'permitido_para' => 'OPERATIVO',
+            'afecta_caja'    => true,
+            'activo'         => true,
+        ]);
+
+        // Exactamente 36 caracteres UTF-8 con acentos multibyte ('í' y 'ó')
+        // mb_strlen = 36, pero strlen = 38 bytes. Con strlen > 36 se truncaría erróneamente con '…'.
+        $obs36 = 'Cuota social patín y natación 2026!!';
+        $this->assertSame(36, mb_strlen($obs36, 'UTF-8'));
+        $this->assertSame(38, strlen($obs36));
+
+        MovimientoOperativo::create([
+            'caja_operativa_id' => $caja->id,
+            'subrubro_id'       => $subrubro->id,
+            'tipo_caja_id'      => $tipoCaja->id,
+            'usuario_id'        => $admin->id,
+            'monto'             => 1000,
+            'fecha'             => now(),
+            'observaciones'     => $obs36,
+            'estado'            => 'ACTIVO',
+        ]);
+
+        $this->actingAs($admin);
+        $res = $this->get(route('web.movimientos.index'));
+        $res->assertOk();
+
+        // Debe verse la observación completa y NO truncada con '…'
+        $res->assertSee($obs36);
+        $res->assertDontSee($obs36 . '…');
+        $res->assertDontSee(mb_substr($obs36, 0, 36, 'UTF-8') . '…');
+    }
+
+    public function test_tipo_caja_alta_guarda_abreviatura_con_acento_en_mayuscula(): void
+    {
+        $admin = User::factory()->create(['rol' => 'ADMIN', 'activo' => true]);
+        $this->actingAs($admin);
+
+        $res = $this->post(route('web.tipos-caja.store'), [
+            'nombre'         => 'Caja Fútbol',
+            'abreviatura'    => 'fút',
+            'saldo_inicial'  => '1000',
+            'descripcion'    => 'Caja de prueba para alta',
+        ]);
+
+        $res->assertRedirect(route('web.tipos-caja.index'));
+
+        // Con mb_strtoupper guarda 'FÚT'; si se usara strtoupper quedaría 'FúT'
+        $tipo = TipoCaja::where('nombre', 'Caja Fútbol')->firstOrFail();
+        $this->assertSame('FÚT', $tipo->abreviatura);
+        $this->assertNotSame('FúT', $tipo->abreviatura);
+    }
+
+    public function test_tipo_caja_edicion_guarda_abreviatura_con_acento_en_mayuscula(): void
+    {
+        $admin = User::factory()->create(['rol' => 'ADMIN', 'activo' => true]);
+        $tipoCaja = TipoCaja::create([
+            'nombre'              => 'Caja Pádel',
+            'abreviatura'         => 'PAD',
+            'saldo_inicial'       => 500,
+            'permite_descubierto' => false,
+        ]);
+
+        $this->actingAs($admin);
+
+        $res = $this->put(route('web.tipos-caja.update', $tipoCaja->id), [
+            'nombre'         => 'Caja Pádel',
+            'abreviatura'    => 'pád',
+            'saldo_inicial'  => '500',
+            'descripcion'    => 'Actualizada con acento',
+        ]);
+
+        $res->assertRedirect(route('web.tipos-caja.index'));
+
+        // Con mb_strtoupper guarda 'PÁD'; si se usara strtoupper quedaría 'PáD'
+        $tipoActualizado = TipoCaja::findOrFail($tipoCaja->id);
+        $this->assertSame('PÁD', $tipoActualizado->abreviatura);
+        $this->assertNotSame('PáD', $tipoActualizado->abreviatura);
+    }
 }

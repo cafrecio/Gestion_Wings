@@ -1,0 +1,21 @@
+[
+  {
+    "prueba": "Guardar configuración con sesión vencida va directo a login sin diálogo de salida",
+    "ok": true,
+    "url": "/login",
+    "huboDialogoBeforeUnload": false,
+    "tieneAviso": true
+  },
+  {
+    "prueba": "Guardar reglas con sesión vencida va directo a login sin diálogo de salida",
+    "ok": true,
+    "url": "/login",
+    "huboDialogoBeforeUnload": false,
+    "tieneAviso": true
+  },
+  {
+    "prueba": "Salir sin guardar con sesión viva sigue preguntando",
+    "ok": true,
+    "huboDialogoBeforeUnload": true
+  }
+]

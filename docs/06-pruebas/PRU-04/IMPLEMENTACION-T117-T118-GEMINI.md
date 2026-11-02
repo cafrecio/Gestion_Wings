@@ -1,10 +1,10 @@
 # Implementación T117 y T118 — Sesión vencida en peticiones AJAX y mayúsculas con acento
 
-- **Fecha:** 01/11/2026
+- **Fecha:** 01/11/2026 (Segunda vuelta: 01/11/2026)
 - **Agente:** Gemini (Antigravity CAB)
 - **Tareas:** T117 y T118 (ambas pasan a `a_verificar`, `tiene=Claude`, `hizo=Gemini`)
 - **Base de datos de prueba:** `wings_testing_gemini` exclusivamente
-- **Vistas autorizadas tocadas:** 3 (`resources/views/revision-cobranza/index.blade.php`, `resources/views/caja/detalle.blade.php`, `resources/views/movimientos/index.blade.php`)
+- **Vistas autorizadas tocadas:** 3 (`resources/views/revision-cobranza/index.blade.php`, `resources/views/caja/detalle.blade.php`, `resources/views/movimientos/index.blade.php`) — *Sin cambios visuales adicionales en segunda vuelta*.
 
 ---
 
@@ -20,7 +20,7 @@ Cuando una sesión expiraba (token CSRF vencido, error HTTP 419):
 ### Solución en un solo lugar
 Se resolvió la raíz del problema en la arquitectura compartida cliente/servidor, sin parches individuales por pantalla:
 
-1. **Servidor (`bootstrap/app.php`)**:
+1. **Servidor (`bootstrap/app.php:82-93`)**:
    En el manejador central de excepciones HTTP 419 (`TokenMismatchException` / `HttpException` con código 419), se detecta si la petición no pertenece a la API externa (`!$request->is('api/*')`):
    - Si espera JSON (`$request->expectsJson()`), almacena en la sesión el flash `'error' => 'Tu sesión expiró. Iniciá sesión nuevamente.'` y devuelve JSON con status 419:
      ```json
@@ -38,6 +38,8 @@ Se resolvió la raíz del problema en la arquitectura compartida cliente/servido
 2. **Cliente (`resources/js/bootstrap.js`)**:
    Se instaló un interceptor global sobre `window.fetch`. Cuando cualquier llamada `fetch` del sistema recibe un código 419:
    - Extrae el destino de redirección (`data.redirect` o `/login`).
+   - Activa `window.__ignorarAvisoSalida = true` y `window.onbeforeunload = null` para que advertencias de formulario sucio no frenen la salida.
+   - Registra además un listener en fase de captura para `beforeunload` con `event.stopImmediatePropagation()`, cancelando avisos de cualquier script.
    - Ejecuta inmediatamente `window.location.assign(destino)` para llevar al usuario al ingreso.
    - Retorna una promesa indefinidamente pendiente (`new Promise(() => {})`) para evitar que el script llamador ejecute bloques `catch` o muestre mensajes de error locales mientras el navegador navega a la pantalla de login.
    - Al llegar a `/login`, la sesión consume el mensaje flash y muestra la alerta en castellano: *«Tu sesión expiró. Iniciá sesión nuevamente.»*.
@@ -45,24 +47,28 @@ Se resolvió la raíz del problema en la arquitectura compartida cliente/servido
 3. **Recompilación de assets (`npm run build`)**:
    Se ejecutó la compilación de Vite (`public/build/assets/app-*.js`), asegurando que todos los bundles del sistema carguen el interceptor global.
 
-### Verificación de casos T117
-- **Caso 1: Cobrar cuota (`cobrar.js`)**: Con sesión vencida, no cobra, no crea movimientos ni pagos; redirige automáticamente a `/login` mostrando la alerta en castellano.
-- **Caso 2: Guardar lista de asistencias (`clases-show.js`)**: En escritorio y en móvil (ancho 375px), al enviar con sesión vencida redirige a `/login` con el mensaje; ninguna asistencia queda registrada.
-- **Caso 3: Cancelar clase (`clases-show.js`)**: Al confirmar con sesión vencida, redirige a `/login` con el mensaje; la clase permanece activa (no cambia a `CANCELADA`).
-- **Casos 4 y 5: Otros módulos JS (`profesores-estado.js`, `deuda-inactivos.js`, `caja-detalle.js`, `configuraciones.js`, `liquidaciones-show.js`)**: Todos ellos emplean `window.fetch` para sus operaciones AJAX; quedan automáticamente cubiertos por el interceptor global sin requerir modificaciones particulares.
-- **Caso 6: Formulario común (ej. Nuevo gasto)**: Sigue funcionando mediante el redirect nativo 302 a `/login` con el flash en sesión.
-- **Caso 7: `api/*`**: Sigue respondiendo JSON con código 419 sin redirigir al login ni contaminar la sesión web.
-- **Caso 8: Reingreso tras login**: Al reingresar con credenciales válidas, cada usuario llega al inicio correspondiente a su rol:
-  - `ADMIN` llega a `/admin/dashboard`.
-  - `OPERATIVO` llega a `/operativo`.
-  - `PROFESOR` llega a `/clases`.
-  No se repite ningún envío viejo ni se procesan datos residuales.
-- **Integridad de datos (nada a medias)**:
-  Se verificó en base de datos tras las pruebas de expiración:
-  - `pagos`: 0
-  - `asistencias`: 0
-  - `clase_estado`: activo (no cancelada)
-  - `movimientos_operativos`: sin movimientos creados por las acciones fallidas.
+### Verificación de casos T117 (separación entre lo ejecutado y lo leído)
+- **Ejecutado en navegador real (Chrome CDP):**
+  - **Cobrar cuota (`cobrar.js`)**: Con sesión vencida (cookie de sesión eliminada), redirige automáticamente a `/login` mostrando la alerta: *«Tu sesión expiró. Iniciá sesión nuevamente.»*.
+  - **Guardar lista de asistencias a 375px (`clases-show.js`)**: Al presionar Guardar lista con sesión vencida a 375px de ancho, redirige a `/login` con el mensaje flash.
+  - **Cancelar clase (`clases-show.js`)**: Al confirmar la cancelación con sesión vencida, redirige a `/login` con el mensaje flash.
+  - **Reingreso de operativa**: Tras iniciar sesión nuevamente, llega a su inicio `/operativo`.
+  - **Reingreso de admin**: Tras iniciar sesión nuevamente, llega a su inicio `/admin/dashboard`.
+  - **Guardar configuración (`configuraciones.js`)**: (Segunda vuelta) Con campo modificado y sesión vencida, clic de mouse real en Guardar navega directo a `/login` con mensaje flash, sin diálogo `beforeunload`.
+  - **Guardar regla (`configuraciones.js`)**: (Segunda vuelta) Con regla nueva y sesión vencida, navega directo a `/login` con mensaje flash, sin diálogo `beforeunload`.
+  - **Sesión viva con cambios en Configuración**: (Segunda vuelta) Intentar salir con cambios sin guardar sí abre el diálogo `beforeunload`.
+- **Ejecutado por Claude en su control cruzado:**
+  - Guardar lista en escritorio -> `/login` con aviso flash.
+  - Cambiar profesoras -> `/login` con aviso flash.
+  - Estado de profesora -> `/login` con aviso flash.
+  - Reingreso de profesora -> `/clases`.
+- **Leído (no ejecutado por navegador):**
+  - `deuda-inactivos.js`, `liquidaciones-show.js`, `caja-detalle.js`: usan el mismo `fetch` global; cubiertos por arquitectura.
+- **Formularios estándar y API:**
+  - Formulario común web: probado en `test_peticion_web_formulario_con_sesion_vencida_redirige_a_login_con_flash` (redirect 302 con flash).
+  - Petición `api/*`: probado en `test_peticion_api_con_sesion_vencida_no_redirige_a_login` (JSON 419 sin redirección ni flash web).
+- **Integridad de datos (nada a medias):**
+  - Verificado mediante aserciones de suite y comprobación en base descartable: las peticiones rechazadas con 419 no crearon pagos, asistencias, movimientos operativos ni cancelaron clases.
 
 ---
 
@@ -72,52 +78,46 @@ Se resolvió la raíz del problema en la arquitectura compartida cliente/servido
 En varias vistas y controladores se utilizaban funciones estándar de cadenas en PHP (`strtoupper`, `substr`, `strlen`) en textos en castellano con caracteres multibyte (UTF-8). Esto provocaba:
 1. En revisión de cobranzas, `strtoupper` en minúsculas con tilde dejaba la letra en minúscula (ej. `AUTOMáTICAMENTE` en lugar de `AUTOMÁTICAMENTE`).
 2. En el detalle de caja, `substr(..., 0, 3)` cortaba la palabra "Fútbol" por bytes en lugar de caracteres multibyte, y `strtoupper` no capitalizaba la 'ú', mostrando `Fú` en vez de `FÚT`.
-3. En movimientos de caja, observaciones largas se recortaban con `substr(..., 0, 36)`, lo cual si caía justo en medio de los dos bytes de una vocal con tilde o 'ñ', generaba caracteres corruptos (`?` o rombo de reemplazo UTF-8).
-4. En alta/edición de tipos de caja (`TipoCajaWebController`), se usaba `strtoupper` sobre el nombre, dejando acentos en minúscula.
+3. En movimientos de caja, observaciones largas se recortaban con `substr(..., 0, 36)`, lo cual si caía justo en medio de los dos bytes de una vocal con tilde o 'ñ', generaba caracteres corruptos (`?` o rombo de reemplazo UTF-8). Y con `strlen > 36`, observaciones con exactamente 36 caracteres y acentos se truncaban erróneamente agregando `…` porque su conteo de bytes era > 36.
+4. En alta/edición de tipos de caja (`TipoCajaWebController`), se usaba `strtoupper` sobre la **abreviatura**, dejando acentos en minúscula (ej. `FúT` en vez de `FÚT`, `PáD` en vez de `PÁD`).
 
 ### Cambios realizados
 1. **`resources/views/revision-cobranza/index.blade.php:116`**:
-   Reemplazado:
-   ```blade
-   {{ strtoupper($resolucionLabel) }}
-   ```
-   Por:
+   Reemplazado `strtoupper($resolucionLabel)` por:
    ```blade
    {{ mb_strtoupper($resolucionLabel, 'UTF-8') }}
    ```
    Resultado: Muestra `REACTIVADO AUTOMÁTICAMENTE`.
 
 2. **`resources/views/caja/detalle.blade.php:136`**:
-   Reemplazado:
-   ```blade
-   {{ strtoupper(substr($mov->alumno->deporte->nombre ?? '', 0, 3)) }}
-   ```
-   Por:
+   Reemplazado `strtoupper(substr($mov->alumno->deporte->nombre ?? '', 0, 3))` por:
    ```blade
    {{ mb_strtoupper(mb_substr($mov->alumno->deporte->nombre ?? '', 0, 3, 'UTF-8'), 'UTF-8') }}
    ```
    Resultado: Para el deporte "Fútbol", muestra exactamente `FÚT`.
 
 3. **`resources/views/movimientos/index.blade.php:119-121`**:
-   Reemplazado:
+   Reemplazado el bloque por:
    ```blade
-   {{ strlen($mov->observaciones) > 36 ? substr($mov->observaciones, 0, 36) . '…' : $mov->observaciones }}
+   $alumnoObs = $mov->alumno
+       ? $mov->alumno->apellido . ', ' . $mov->alumno->nombre
+       : (mb_strlen($mov->observaciones ?? '', 'UTF-8') > 36
+           ? mb_substr($mov->observaciones, 0, 36, 'UTF-8') . '…'
+           : ($mov->observaciones ?? '–'));
    ```
-   Por:
-   ```blade
-   {{ mb_strlen($mov->observaciones, 'UTF-8') > 36 ? mb_substr($mov->observaciones, 0, 36, 'UTF-8') . '…' : $mov->observaciones }}
-   ```
-   Resultado: Recorta a 36 caracteres respetando los límites de caracteres multibyte y evitando bytes huérfanos.
+   Resultado: Recorta a 36 caracteres respetando caracteres multibyte, y una observación de exactamente 36 caracteres con acentos se muestra entera sin puntos suspensivos.
 
 4. **`app/Http/Controllers/TipoCajaWebController.php:52, 94`**:
-   Reemplazado:
-   ```php
-   $data['nombre'] = strtoupper($data['nombre']);
-   ```
-   Por:
-   ```php
-   $data['nombre'] = mb_strtoupper($data['nombre'], 'UTF-8');
-   ```
+   El cambio aplica sobre el campo **`abreviatura`** (no sobre el nombre):
+   - En `store` (línea 52):
+     ```php
+     'abreviatura' => mb_strtoupper($request->abreviatura, 'UTF-8'),
+     ```
+   - En `update` (línea 94):
+     ```php
+     $datos['abreviatura'] = mb_strtoupper($datos['abreviatura'], 'UTF-8');
+     ```
+   Resultado: Guarda la abreviatura con acento en mayúscula en base de datos (`FÚT`, `PÁD`).
 
 5. **Auditoría de no afectación**:
    Se verificó que los usos de `substr` sobre fechas (`YYYY-MM-DD`), períodos (`YYYY-MM`), DNI, o códigos numéricos/hex no fueron alterados, manteniéndose rápidos y seguros.
@@ -127,58 +127,98 @@ En varias vistas y controladores se utilizaban funciones estándar de cadenas en
 ## 3. Evidencia y pruebas ejecutadas
 
 ### A. Prueba automatizada de Feature
-Archivo creado: [`tests/Feature/SesionVencidaYMayusculasT117T118Test.php`](file:///c:/xampp/htdocs/gestion-wings/tests/Feature/SesionVencidaYMayusculasT117T118Test.php)
-Ejecutado sobre `wings_testing_gemini`:
-- `test_formulario_comun_con_sesion_vencida_redirige_a_login_con_flash`: PASS
-- `test_peticion_ajax_con_sesion_vencida_devuelve_419_json_con_redirect_y_aviso`: PASS
-- `test_peticion_api_con_sesion_vencida_devuelve_json_sin_redireccion`: PASS
-- `test_despues_de_iniciar_sesion_cada_rol_llega_a_su_inicio`: PASS
-- `test_revision_muestra_reactivado_automaticamente_en_mayusculas_con_tilde`: PASS
-- `test_caja_detalle_abrevia_futbol_como_fut_en_mayusculas`: PASS
-- `test_movimientos_recorta_observacion_multibyte_sin_romper_caracteres`: PASS
-
-Resultado: **7 de 7 pasadas, 29 aserciones**.
+Archivo: [`tests/Feature/SesionVencidaYMayusculasT117T118Test.php`](file:///c:/xampp/htdocs/gestion-wings/tests/Feature/SesionVencidaYMayusculasT117T118Test.php)
+Ejecutado sobre `wings_testing_gemini` (10 pruebas pasadas, 43 aserciones):
+1. `test_peticion_web_formulario_con_sesion_vencida_redirige_a_login_con_flash`: PASS
+2. `test_peticion_ajax_con_sesion_vencida_devuelve_419_json_con_aviso_y_redirect`: PASS
+3. `test_peticion_api_con_sesion_vencida_no_redirige_a_login`: PASS
+4. `test_despues_de_iniciar_sesion_cada_rol_llega_a_su_inicio`: PASS
+5. `test_revision_muestra_reactivado_automaticamente_en_mayusculas_con_tilde`: PASS
+6. `test_caja_detalle_abrevia_futbol_como_fut`: PASS
+7. `test_movimientos_recorta_observaciones_con_acentos_sin_romper_caracteres`: PASS
+8. `test_movimientos_observacion_de_36_caracteres_con_acentos_se_ve_entera_sin_puntos_suspensivos`: PASS *(agregada en segunda vuelta, defiende M8)*
+9. `test_tipo_caja_alta_guarda_abreviatura_con_acento_en_mayuscula`: PASS *(agregada en segunda vuelta, defiende M9)*
+10. `test_tipo_caja_edicion_guarda_abreviatura_con_acento_en_mayuscula`: PASS *(agregada en segunda vuelta, defiende M10)*
 
 ### B. Comprobación en navegador real (Chrome sin cabeza via CDP)
-Script: `docs/06-pruebas/PRU-04/evidencia-t117-t118/comprobar-navegador-t117-t118.mjs`
-Seeder auxiliar: `docs/06-pruebas/PRU-04/evidencia-t117-t118/seed-test-gemini.php`
-Resultados registrados en `resultados-navegador.json`:
-1. `Cobrar con sesión vencida lleva a /login con aviso` -> **PASS** (URL: `/login`)
-2. `Reingreso de operativa llega a inicio de su rol` -> **PASS** (URL: `/operativo`)
-3. `Guardar lista con sesión vencida a 375px lleva a /login con aviso` -> **PASS** (URL: `/login`)
-4. `Cancelar clase con sesión vencida lleva a /login con aviso` -> **PASS** (URL: `/login`)
-5. `Reingreso de admin llega a inicio de su rol` -> **PASS** (URL: `/admin/dashboard`)
-6. `T118. Revisión muestra REACTIVADO AUTOMÁTICAMENTE con tilde` -> **PASS**
-7. `T118. Caja detalle muestra abreviatura FÚT` -> **PASS**
-8. `T118. Movimientos recorta observación sin romper caracteres` -> **PASS**
+- **Primera vuelta:**
+  - Script: `docs/06-pruebas/PRU-04/evidencia-t117-t118/comprobar-navegador-t117-t118.mjs`
+  - Capturas:
+    - `01-cobrar-sesion-vencida-login.png`
+    - `02-guardar-lista-sesion-vencida-375.png`
+    - `03-cancelar-clase-sesion-vencida.png`
+    - `04-t118-revision-reactivado-automaticamente.png`
+    - `05-t118-caja-detalle-fut.png`
+    - `06-t118-movimientos-observaciones.png`
+- **Segunda vuelta:**
+  - Script: `docs/06-pruebas/PRU-04/evidencia-t117-t118/test-configuracion-segunda-vuelta.mjs`
+  - Capturas:
+    - `07-t117-configuracion-sesion-vencida-login.png`
+    - `08-t117-reglas-sesion-vencida-login.png`
 
-Capturas guardadas en `docs/06-pruebas/PRU-04/evidencia-t117-t118/`:
-- `01-cobrar-sesion-vencida-login.png`
-- `02-guardar-lista-sesion-vencida-375.png`
-- `03-cancelar-clase-sesion-vencida.png`
-- `04-t118-revision-reactivado-automaticamente.png`
-- `05-t118-caja-detalle-fut.png`
-- `06-t118-movimientos-observaciones.png`
+### C. Comportamiento comprobado ante cuenta desactivada a mitad de sesión (fuera de la tarea)
+- **Comportamiento comprobado en navegador (H2):** Cuando un usuario con la cuenta desactivada ejecuta una acción AJAX como Guardar lista o Cobrar:
+  - `fetch` sigue transparentemente la redirección 302 hacia `/login` emitida por `EnsureActiveUserWeb`.
+  - Esa primera llamada interna a `/login` consume el flash `'error' => 'Tu cuenta fue desactivada.'`.
+  - El interceptor global, al detectar que la respuesta redirigida conduce a `/login`, navega a `/login` por segunda vez.
+  - Como el mensaje flash ya fue consumido en la primera petición, el usuario llega a `/login` **sin ningún mensaje de aviso visible**.
+  - No se guardan datos a medias (0 asistencias, 0 pagos).
+  - Tal como indicó Claude y el prompt, este caso queda fuera de la tarea y su comportamiento lo decidirá Carlos.
 
-### C. Suite rápida de pruebas
-Ejecutada en `wings_testing_gemini` tras liberarse la reserva de Claude:
-```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test --exclude-group=lento
-```
-- **Resultado:** **1351 aprobadas, 6 omitidas, 0 fallidas (9885 aserciones)** en **360.62 s**. Salida con código 0.
-
-### D. Comportamiento ante cuenta desactivada a mitad de sesión (fuera de la tarea)
-- **Análisis:** Cuando un usuario es desactivado mientras mantiene la sesión abierta, el middleware `EnsureActiveUserWeb` invalida la sesión y responde con una redirección HTTP 302 a `/login` con el error flash `'Tu cuenta fue desactivada.'`.
-- **Cómo queda con el cambio:** Anteriormente, `fetch` seguía transparentemente el 302 recibiendo el HTML de login, lo que en scripts como `clases-show.js:138` provocaba que cayera en el bloque de error genérico mostrando `✗ Error de conexión.`. Con el interceptor global en `resources/js/bootstrap.js`, al detectar que la respuesta redirigida conduce a `/login` (`respuesta.redirected && respuesta.url.includes('/login')`), el navegador navega a la URL final `/login` mostrando el error `'Tu cuenta fue desactivada.'` en pantalla, evitando que la interfaz quede varada con un error falso de conectividad.
-
-### E. Relevamiento en el manual (`resources/manual/`)
-- Se realizó una búsqueda exhaustiva en las 59 páginas de `resources/manual/` respecto a menciones de sesión vencida, expiración o tiempo límite (`sesión`, `expir`, `vencid`).
-- **Hallazgo:** Ninguna página del manual describe hoy el comportamiento ante sesión expirada o tiempo de inactividad (solo se menciona el cierre de sesiones activas al desactivar un profesor en `administrar-profesores.md` y al cambiar la contraseña en `administrar-usuarios.md`).
-- **Propuesta para el manual:** Dado que el catálogo ACC-006 admite que lo cargado antes de la expiración se pierde por seguridad, se sugiere que en futuras revisiones de la documentación de ingreso/acceso se aclare brevemente que tras un tiempo prolongado de inactividad, Wings solicitará volver a ingresar por seguridad y descartará los datos no guardados.
+### D. Relevamiento en el manual (`resources/manual/`)
+- Se verificó que ninguna página del manual describe hoy el comportamiento ante sesión expirada o tiempo de inactividad.
 
 ---
 
-## 4. Estado de tareas y entrega
+## 4. Estado de tareas
 
-- **T117**: `a_verificar`, `hizo=Gemini`, `tiene=Claude`, paso: "Implementada sesión vencida en llamadas AJAX (ACC-006): aviso y redirección a login en un solo lugar. Controla Claude"
-- **T118**: `a_verificar`, `hizo=Gemini`, `tiene=Claude`, paso: "Implementado mb_strtoupper y mb_substr en vistas autorizadas y controladores. Controla Claude"
+- **T117**: `a_verificar`, `hizo=Gemini`, `tiene=Claude`, paso: "Verificar segunda vuelta T117: aviso de salida neutralizado en 419 de configuraciones y reglas"
+- **T118**: `a_verificar`, `hizo=Gemini`, `tiene=Claude`, paso: "Verificar segunda vuelta T118: 3 pruebas nuevas agregadas (M8, M9, M10) y suite rápida en verde"
+
+---
+
+## 5. Segunda vuelta (01/11/2026)
+
+### A. T117: Configuración se trababa con sesión vencida (H1)
+- **Causa:** En `/configuraciones`, al modificar un campo (`campo.value !== original`), `resources/js/configuraciones.js:89` mantenía activo el listener `beforeunload`. Al recibir 419, `bootstrap.js` ejecutaba `window.location.assign('/login')`, disparando el aviso del navegador. Si la persona cancelaba, la promesa pendiente de `bootstrap.js:18` nunca terminaba, dejando el botón y campo deshabilitados para siempre.
+- **Arreglo implementado:**
+  1. En `resources/js/bootstrap.js`:
+     - Al detectar 419 o redirección a `/login`: define `window.__ignorarAvisoSalida = true` y `window.onbeforeunload = null`.
+     - Registra un listener en fase de captura (`capture: true`) sobre `beforeunload`: si `window.__ignorarAvisoSalida` está activo, ejecuta `event.stopImmediatePropagation()`.
+  2. En `resources/js/configuraciones.js:89`:
+     - Se agrega salvaguarda `if (window.__ignorarAvisoSalida) return;` en el listener de `beforeunload`.
+  3. En `resources/js/alumnos-form.js:247`:
+     - Se agrega la misma comprobación preventiva `if (window.__ignorarAvisoSalida) return;`.
+- **Comprobación en navegador real ([test-configuracion-segunda-vuelta.mjs](file:///c:/xampp/htdocs/gestion-wings/docs/06-pruebas/PRU-04/evidencia-t117-t118/test-configuracion-segunda-vuelta.mjs)):**
+  - **Caso 1:** Campo de configuración modificado con teclado real, borrado de cookie de sesión, clic de mouse real en Guardar -> va directo a `/login` con flash `Tu sesión expiró. Iniciá sesión nuevamente.`, sin diálogo `beforeunload`. (Captura: `07-t117-configuracion-sesion-vencida-login.png`).
+  - **Caso 2:** Regla de primer pago completada con teclado real, borrado de sesión, clic en Guardar regla -> va directo a `/login` con flash, sin diálogo `beforeunload`. (Captura: `08-t117-reglas-sesion-vencida-login.png`).
+  - **Caso 3:** Sesión viva, campo modificado con teclado real, clic en enlace para salir -> sí abre el diálogo `beforeunload` impidiendo salida involuntaria.
+
+### B. T118: Tres pruebas agregadas que defienden mutaciones (H4)
+Se agregaron 3 métodos en [`tests/Feature/SesionVencidaYMayusculasT117T118Test.php`](file:///c:/xampp/htdocs/gestion-wings/tests/Feature/SesionVencidaYMayusculasT117T118Test.php):
+1. `test_movimientos_observacion_de_36_caracteres_con_acentos_se_ve_entera_sin_puntos_suspensivos`:
+   - Texto de 36 caracteres UTF-8 con acentos (`mb_strlen = 36`, `strlen = 38 bytes`).
+   - Verifica que se vea completo y NO truncado con `…`.
+   - **Prueba de mutación (M8):** Reemplazar `mb_strlen` por `strlen` en `movimientos/index.blade.php:119` hace fallar la prueba (`Failed asserting that ... does not contain ...…`).
+2. `test_tipo_caja_alta_guarda_abreviatura_con_acento_en_mayuscula`:
+   - Alta de tipo de caja con abreviatura `'fút'`. Verifica que en base de datos quede `'FÚT'`.
+   - **Prueba de mutación (M9):** Reemplazar `mb_strtoupper` por `strtoupper` en `TipoCajaWebController.php:52` hace fallar la prueba (`Failed asserting that two strings are identical: -'FÚT' +'FúT'`).
+3. `test_tipo_caja_edicion_guarda_abreviatura_con_acento_en_mayuscula`:
+   - Edición de tipo de caja con abreviatura `'pád'`. Verifica que quede `'PÁD'`.
+   - **Prueba de mutación (M10):** Reemplazar `mb_strtoupper` por `strtoupper` en `TipoCajaWebController.php:94` hace fallar la prueba (`Failed asserting that two strings are identical: -'PÁD' +'PáD'`).
+
+### C. El sembrador seguro (H3)
+En `docs/06-pruebas/PRU-04/evidencia-t117-t118/seed-test-gemini.php`:
+- Se agregó verificación estricta de la base de datos configurada antes de invocar `migrate:fresh`.
+- Solo admite las bases descartables declaradas en `AGENTS.md` §6-bis: `['wings_testing_gemini', 'wings_testing_claude', 'wings_testing_codex']`.
+- Si se ejecuta sobre `wings_test` u otra base, emite error a STDERR y aborta con código 1 sin tocar la base. Comprobado en terminal.
+
+### D. Conteo oficial y suite rápida
+- Suite rápida en `wings_testing_gemini`:
+  ```bash
+  $env:DB_DATABASE='wings_testing_gemini'; php artisan test --exclude-group=lento
+  ```
+- **Conteo oficial:** Actualizado a 1517 pruebas (+3 pruebas en `SesionVencidaYMayusculasT117T118Test`) en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`.
+- `DocumentacionNoMienteTest`: PASS (1517 pruebas coincidentes).
+- `TableroAlDiaTest`: PASS (6 pruebas).
+- `CspSinCodigoIncrustadoTest`: PASS (2 pruebas).

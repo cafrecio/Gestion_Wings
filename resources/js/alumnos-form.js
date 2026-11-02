@@ -245,6 +245,7 @@ if (form && resumen) {
     });
     window.addEventListener('pageshow', () => { ultimoEnvio = null; descartando = false; });
     window.addEventListener('beforeunload', event => {
+        if (window.__ignorarAvisoSalida) return;
         const enviando = ultimoEnvio && !ultimoEnvio.defaultPrevented;
         if (!enviando && !descartando && hayCambios()) {
             event.preventDefault();

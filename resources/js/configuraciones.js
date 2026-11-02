@@ -87,6 +87,7 @@ document.querySelectorAll('.configuracion-form').forEach(form => {
 });
 
 window.addEventListener('beforeunload', event => {
+    if (window.__ignorarAvisoSalida) return;
     if ([...pendientes.values()].some(({ campo, original }) => campo.value !== original)) {
         event.preventDefault();
         event.returnValue = '';
