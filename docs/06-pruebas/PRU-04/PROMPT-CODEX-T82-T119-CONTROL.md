@@ -53,7 +53,7 @@ Entrega: «Segunda vuelta» en tu informe. Sin hallazgos graves ni medios: `cerr
 # Reglas
 
 - Es un control: no corrijas. Hallazgos con gravedad y `archivo:línea` reales. Separá lo comprobado de lo inferido.
-- Pruebas solo en `wings_testing_codex`. Corré la suite rápida; si corrés la completa, avisá con una reserva y mirá las de `docs/00-estado/RESERVA-SUITE-*.md`: otras sesiones están corriendo la suya. Sin desplegar.
+- Pruebas solo en `wings_testing_codex`. Corré solo las pruebas del área tocada, sin la suite rápida ni la completa (`AGENTS.md` §6-ter). Sin desplegar.
 - **Hay trabajo sin subir de otros en la misma carpeta** (T113, T115, T116): controlá sobre una copia limpia de `main`, no sobre la carpeta.
 - En el servidor: no toques las bases `wings` ni `wingstest`, ni `/home/wings`, ni `/home/wingstest`. No corras `restaurar.sh` en modo `EN-SERIO` ni el archivo viejo. Fuera de 03:00–03:30 UTC. Dejá `/root` como lo encontraste.
 - Sin personas, credenciales, huellas de claves ni volcados en la evidencia.
