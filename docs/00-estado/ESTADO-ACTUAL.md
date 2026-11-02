@@ -4,7 +4,7 @@
 
 **Desplegado por orden de Carlos («Subilo así»), sin esperar la suite completa.** Producción en `b9394e7d`: 42 migraciones, 0 pendientes, preflight aprobado, `/login` 200 desde afuera, sin errores nuevos, cron activo, respaldo y copia en Drive de las 03:15 UTC correctos y permisos de la base restaurados. Base sin operación: 4 usuarios, 0 alumnos. Respaldo previo: `/root/respaldos/wings-antes-despliegue-2026-11-02-0323.sql.gz`.
 
-**Sin comprobar:** el ingreso con un usuario real, el primer correo (resumen de las 08:00) y el Telegram de producción. La suite completa de `308bdba2` corre aparte. **Pendiente:** ensayo de restauración con el primer respaldo del esquema nuevo (T82).
+**Sin comprobar:** el ingreso con un usuario real, el primer correo (resumen de las 08:00) y el Telegram de producción. La completa de `308bdba2` dio 1.536 aprobadas, 1 fallida y 6 omitidas; la fallida es `TableroAlDiaTest`, por archivos del tablero sin regenerar, no por código. **Pendiente:** ensayo de restauración con el primer respaldo del esquema nuevo (T82).
 
 ## T116 — Retiro del dueño en el turno — Claude CAB, 01/11/2026
 

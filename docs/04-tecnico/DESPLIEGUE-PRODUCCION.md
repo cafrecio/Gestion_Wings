@@ -45,7 +45,7 @@ pasos 2 a 9 y se frena ante el primer error. Antes y después hay trabajo a mano
 - **T82 — restauración:** ensayada en este servidor, sin probar un servidor vacío ni el volumen real. Repetir el ensayo
   antes de desplegar, con el código nuevo sobre una copia, y después, con el primer respaldo del esquema nuevo. Pendientes de
   Carlos: credencial propia de rclone y sacar la clave de la carpeta de respaldos.
-- **El repositorio entero está en el servidor (02/11/2026):** 18.134 archivos, 17.111 de `docs` y 222 de `tests`. No se llega por la web: el sitio sirve solo `public/` (`/docs/README.md`, `/.env` y `/.git/config` dan 404). En el próximo despliegue se sacan `docs` y `tests` con `git sparse-checkout`; `scripts/servidor` se queda porque el programador lo usa.
+- **Cada sitio tiene solo lo que usa (orden de Carlos, 02/11/2026):** `git sparse-checkout` en `/home/wings/app` (de 1,6 GB a 613 MB) y `/home/wingstest/app` (de 1,7 GB a 757 MB). Afuera: `docs`, `tests`, instrucciones de agentes y `scripts` salvo `scripts/servidor`. El sitio de prueba conserva además `scripts/pruebas/rutina` y `docs/06-pruebas/PRU-04/rutina`. Los despliegues y el `git merge` lo respetan; `.git` sigue con la historia. Se revierte con `git sparse-checkout disable`.
 - **Ayuda (T12/T13):** sube como está (etapas A y B); la C sigue después.
 - **Mejoras futuras** del tablero (MF): siguen siendo futuras. La única que toca plata es MF15, un cajón por cajero (Carlos, 01/11/2026).
 
