@@ -4,8 +4,6 @@ Pedido de Carlos, 01/11/2026: se resuelven una a una y este índice se mantiene,
 
 | Tarea | De qué se trata | Estado |
 |---|---|---|
-| T113 | Validar se ofrece en una clase futura y no se deshace | Implementada por Gemini; controla Claude |
-| T115 | Nueva liquidación en enero: cambiar solo el mes genera una vacía de diciembre del año nuevo | Carlos: hacerlo. La lleva otra sesión de Claude |
 | T116 | Un retiro del dueño no entra al turno | Decide Carlos |
 | T117 | Con la sesión vencida, Cobrar y Guardar lista dicen «CSRF token mismatch.» en inglés | Devuelta a Gemini: Configuración se traba (`PRU-04/VERIFICACION-T117-T118-CLAUDE.md`) |
 | T118 | «REACTIVADO AUTOMáTICAMENTE» en Revisión y otros cortes de texto con acentos | Devuelta a Gemini: funciona, faltan 3 pruebas |

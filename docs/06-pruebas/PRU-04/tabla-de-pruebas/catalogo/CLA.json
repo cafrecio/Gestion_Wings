@@ -1030,13 +1030,13 @@
         {
           "donde": "Deshacer",
           "l": "a",
-          "texto": "El dueño tiene que poder deshacer una validación.",
+          "texto": "El dueño puede desvalidar: «Clase desmarcada de validación.» La clase deja de pagarse en lo que se genere después. Solo el dueño (T113).",
           "tipo": "directo"
         },
         {
           "donde": "Hoy",
           "l": "b",
-          "texto": "Una vez validada, el botón desaparece: no se puede deshacer desde la pantalla.",
+          "texto": "Si la clase está en una liquidación abierta por hora, cerrada o pagada, no se ofrece Desvalidar. Forzado se rechaza; la abierta dice cómo salir.",
           "tipo": "directo"
         },
         {
@@ -1059,14 +1059,14 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "clases/show (el botón solo se muestra si no está validada) y ClaseWebController::toggleValidada sin controles (leídos el 13/10). Comprobado por Claude el 13/10 en la base descartable: valida una clase futura y también una cancelada.",
+      "fuente": "clases/show (el botón solo se muestra si no está validada) y ClaseWebController::toggleValidada sin controles (leídos el 13/10). Comprobado por Claude el 13/10 en la base descartable: valida una clase futura y también una cancelada. Actualizado el 01/11/2026 por T113, sin desplegar.",
       "modulo": "Clases",
       "pantalla": "clases-ficha",
       "requiere": "Una clase pasada sin presentes, una clase de mañana y una cancelada.",
       "roles": [
         "ADMIN"
       ],
-      "tarea": "T35",
+      "tarea": "T113",
       "tipo": "mal_uso",
       "titulo": "Validar una clase por error"
     },

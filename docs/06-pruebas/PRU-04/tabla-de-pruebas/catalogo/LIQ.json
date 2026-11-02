@@ -214,10 +214,16 @@
           "l": "c",
           "texto": "Si la anterior está cancelada, sí deja generar una nueva.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes futuro",
+          "l": "d",
+          "texto": "Un mes que todavía no empezó se rechaza: «No se puede liquidar un mes que todavía no empezó. Revisá el mes y el año.» No se crea nada (T115).",
+          "tipo": "directo"
         }
       ],
       "estado": "vigente",
-      "fuente": "LiquidacionService::generarLiquidacionMensual (código leído); LQ-03.",
+      "fuente": "LiquidacionService::generarLiquidacionMensual (código leído); LQ-03. Línea d agregada el 01/11/2026 por T115, sin desplegar.",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",
       "requiere": "Una liquidación de octubre ya generada para la profesora (probar abierta, cerrada y pagada).",

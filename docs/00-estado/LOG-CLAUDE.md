@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md) · [Entradas archivadas el 19/10](../99-archivo/bitacoras/2026-10-19/LOG-CLAUDE.md) · [Entradas archivadas el 21/10](../99-archivo/bitacoras/2026-10-21/LOG-CLAUDE.md) · [Entradas archivadas el 20/10](../99-archivo/bitacoras/2026-10-20/LOG-CLAUDE.md) · [Entradas archivadas el 27/10](../99-archivo/bitacoras/2026-10-27/LOG-CLAUDE.md) · [Entradas archivadas el 31/10](../99-archivo/bitacoras/2026-10-31/LOG-CLAUDE.md)
 
+## 2026-11-01 — Claude CAB — T113 aprobada, T115 hecha, T114 a mejora futura
+
+- T113: [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado, con 8 mutaciones reales detectadas y 2 equivalentes. Las «mutaciones» de Gemini eran pruebas con ese nombre.
+- T115: rechaza un mes que no empezó; 3 pruebas y 3 mutaciones. T114 pasa a MF16.
+- Suite: 1.509 aprobadas y 5 fallidas, explicadas: 3 por vistas compiladas viejas en mi copia (`git archive` deja fechas viejas) y 2 de Reportes por un orden sin desempate, que ahora lo tiene. Falta la completa después del desempate.
+- Dos cruces de base: una sesión de T116 lanzó su suite en `wings_testing_claude` mientras arrancaba la mía; corté y repetí.
+
 ## 2026-11-01 — Claude CAB — T117 y T118 controladas: vuelven a Gemini
 
 - Navegador real, 10 mutaciones y completa en copia de `fe1cddc6`: 1.497 aprobadas, 0 fallidas, 6 omitidas. [Verificación](../06-pruebas/PRU-04/VERIFICACION-T117-T118-CLAUDE.md), [prompt](../06-pruebas/PRU-04/PROMPT-GEMINI-T117-T118-SEGUNDA-VUELTA.md).

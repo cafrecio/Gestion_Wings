@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T12** Manual del usuario: contenido por tarea y por rol | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Hecho, espera verificación (hizo Claude, verifica Gemini) | Manual al día con T94 a T109, controlado por Gemini: OK de Carlos con APROBAR-T12-T13-T94-T109.html |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude: plata igual salvo Clara y Mariela, errores del guion; 13 reparaciones cumplen; completa 1482/0/6. Decide si se despliega; antes T117 y T119, propuestos. Ver ESTADO-PRUEBA.md. |
+| **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | Hecho, espera verificación (hizo Claude) | Hecha: rechaza un mes que no empezo. 3 pruebas, 3 mutaciones. Sin desplegar. Falta quien la controla: entra junto con T119 si Carlos quiere. |
 | **T116** El dueno no puede cargar un retiro en el turno, y Agregar le ofrece subrubros que despues rechaza | Sin empezar | Decidir antes de produccion. Hoy: retiro por Cashflow y faltante en el turno. Opcion sin codigo: Retiro de duenos en Ambos (probada), tambien la carga la operativa. Opcion con codigo: solo el dueno, toca permisos y visibilidad. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -47,10 +48,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T113** Validar se ofrece en una clase que todavia no ocurrio y no se puede deshacer | Hecho, espera verificación (hizo Gemini) | Verificar implementación de Desvalidar y propuesta de catálogo/manual |
-| **T115** Nueva liquidacion en enero: cambiar solo el mes genera diciembre del anio nuevo, vacia y sin aviso | En curso | Carlos 01/11: hacerlo. Rechazar un mes que todavia no empezo. |
+Nada en este momento.
 
 ## Codex
 

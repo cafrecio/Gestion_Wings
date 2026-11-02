@@ -211,7 +211,7 @@ class ReporteMensualService
             ->when($tipo === 'CUOTA', fn ($q) => $q->whereIn('persona_id', Alumno::where('activo', true)->select('id')))
             ->selectRaw('origen_id, persona_id, periodo, deporte_id, SUM(delta_centavos) AS centavos')
             ->groupBy('origen_id', 'persona_id', 'periodo', 'deporte_id')->havingRaw('SUM(delta_centavos) > 0')
-            ->orderBy('periodo')->get()->map(fn ($f) => ['id' => $f->origen_id, 'persona_id' => $f->persona_id,
+            ->orderBy('periodo')->orderBy('origen_id')->get()->map(fn ($f) => ['id' => $f->origen_id, 'persona_id' => $f->persona_id,
                 'periodo' => $f->periodo, 'deporte_id' => $f->deporte_id, 'centavos' => (int) $f->centavos]);
         return ['disponible' => true, 'total' => $filas->sum('centavos'), 'mes' => $filas->where('periodo', $mes)->sum('centavos'),
             'anteriores' => $filas->where('periodo', '<', $mes)->sum('centavos'), 'filas' => $filas->all()];

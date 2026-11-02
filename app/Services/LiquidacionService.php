@@ -26,6 +26,12 @@ class LiquidacionService
      */
     public function generarLiquidacionMensual(int $profesorId, int $mes, int $anio): Liquidacion
     {
+        // T115: en enero la pantalla propone el año nuevo; quien cambiaba solo el mes generaba
+        // diciembre de ese año, vacía y sin aviso. Un mes que no empezó no tiene nada para liquidar.
+        if (($anio * 100 + $mes) > (int) now()->format('Ym')) {
+            throw new \Exception('No se puede liquidar un mes que todavía no empezó. Revisá el mes y el año.');
+        }
+
         return DB::transaction(function () use ($profesorId, $mes, $anio) {
             $profesor = Profesor::findOrFail($profesorId);
             $deporte = $profesor->deporte()->lockForUpdate()->first();
