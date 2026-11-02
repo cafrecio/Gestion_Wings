@@ -42,7 +42,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | Hecho, espera verificación (hizo Codex, verifica Claude) | Tanda 5 revisada por Claude. T117 y T119 cerradas. No hay decisión de Carlos: Claude la despliega a prueba tras la única completa del día siguiente, y sigue. |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos. Claude completa la prueba y la clasificación de antecedentes; no requiere a Carlos. |
 
 ## Codex

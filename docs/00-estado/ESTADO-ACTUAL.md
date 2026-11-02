@@ -14,6 +14,10 @@
 
 Implementado botón **Desvalidar** para el dueño en la ficha de clase (`clases/show.blade.php`), permitiendo corregir clases validadas a mano por error (como la de Hockey del 19/12). Solo visible para `ADMIN`, envía intención explícita (`accion="desvalidar"` / `accion="validar"`) previniendo alternancia a ciegas ante doble clic o pantallas viejas («La clase cambió mientras la mirabas. Recargá la pantalla.»). Bloquea desvalidación si integra liquidación por hora abierta («No se puede desvalidar: la clase está en una liquidación abierta. Eliminá esa liquidación, desvalidá y generala de nuevo.») y preserva el bloqueo en liquidación cerrada. Conserva intacta la condición de **Editar**. 14 pruebas en `tests/Feature/DesvalidarClaseT113Test.php` (87 aserciones) con 4 mutaciones verificadas. Comprobación en navegador real Chrome CDP con 8 capturas en escritorio y móvil (375px). [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T113-GEMINI.md) · [Galería](../06-pruebas/PRU-04/evidencia-t113/APROBAR-T113.html). A verificar por Claude.
 
+## T14 cerrada: prueba por días terminada, sitio de prueba en `main` — Claude CAB, 02/11/2026
+
+Completa sobre `308bdba2`, el mismo código que subió a producción: 1.536 aprobadas, 6 omitidas y 1 fallida, `TableroAlDiaTest`, por DEFECTOS sin regenerar en ese commit; regenerados, pasa. Sitio de prueba desplegado en `d239208a`, con respaldo `wingstest-antes-despliegue-2026-11-02-final.sql.gz`; dos migraciones, `/login` 200, reloj en el 5/12. Clara y los demás datos de la prueba quedan como estaban.
+
 ## T113 controlada y T115 hecha — Claude CAB, 01/11/2026
 
 **T113:** Gemini agregó Desvalidar, solo el dueño; [control](../06-pruebas/PRU-04/VERIFICACION-T113-CLAUDE.md) aprobado. **T115:** Wings rechaza liquidar un mes que no empezó. **T114** pasó a mejora futura: MF16. Desempate en `ReporteMensualService`: las filas del mismo período salían en cualquier orden, sin efecto en importes. Sin desplegar. Suite completa después del desempate, sobre `020acdce` más T116 sin subir (sesión de T116, 01/11): 1.523 aprobadas, 0 fallidas, 6 omitidas.
