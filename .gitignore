@@ -39,3 +39,6 @@ docs/06-pruebas/Credenciales*
 
 # Indice local de codebase-memory-mcp: se arma en cada maquina, no se versiona (AGENTS.md 6e)
 .codebase-memory/
+
+# Graphify: grafo generado localmente, no se versiona
+graphify-out/
